@@ -1,6 +1,6 @@
 ---
 title: Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
-description: Poznaj kilka wskazówek dotyczących optymalizacji, aby upewnić się, że skonfigurowałeś maszynę wirtualną z systemem Linux w celu uzyskania optymalnej wydajności na platformie Azure
+description: Poznaj pewne porady dotyczące optymalizacji, aby upewnić się, że maszyna wirtualna z systemem Linux została skonfigurowana pod kątem optymalnej wydajności na platformie Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -9,56 +9,56 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757089"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
-Tworzenie maszyny wirtualnej systemu Linux (VM) jest łatwe do zrobienia z wiersza polecenia lub z portalu. W tym samouczku pokazano, jak upewnić się, że został skonfigurowany w celu optymalizacji jego wydajności na platformie Microsoft Azure. W tym temacie użyto maszyny wirtualnej Ubuntu Server, ale można również utworzyć maszynę wirtualną systemu Linux przy użyciu [własnych obrazów jako szablonów.](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+Tworzenie maszyny wirtualnej z systemem Linux jest proste z poziomu wiersza polecenia lub portalu. W tym samouczku pokazano, jak upewnić się, że został skonfigurowany, aby zoptymalizować jego wydajność na platformie Microsoft Azure. W tym temacie jest używana maszyna wirtualna serwera Ubuntu, ale można również utworzyć maszynę wirtualną z systemem Linux przy użyciu [własnych obrazów jako szablonów](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym temacie przyjęto założenie, że masz już działającą subskrypcję platformy Azure[(bezpłatne rejestracje próbne)](https://azure.microsoft.com/pricing/free-trial/)i już zainicjowałeś aprowizowanie maszyny wirtualnej do subskrypcji platformy Azure. Przed utworzeniem maszyny [Wirtualnej](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)upewnij się, że masz zainstalowaną i zalogowaną usługę [Azure CLI](/cli/azure/install-az-cli2) w ramach subskrypcji platformy Azure za pomocą logowania [az.](/cli/azure/reference-index)
+W tym temacie przyjęto założenie, że masz już działającą subskrypcję platformy Azure ([bezpłatny okres próbny](https://azure.microsoft.com/pricing/free-trial/)) i masz już zainicjowaną maszynę wirtualną w ramach subskrypcji platformy Azure. Przed [utworzeniem maszyny wirtualnej](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)upewnij się, że masz zainstalowany [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogowano się do subskrypcji platformy Azure przy użyciu [AZ login](/cli/azure/reference-index) .
 
-## <a name="azure-os-disk"></a>Dysk systemu operacyjnego platformy Azure
-Po utworzeniu maszyny Wirtualnej z systemem Linux na platformie Azure, ma dwa dyski skojarzone z nim. **/dev/sda** to dysk systemu operacyjnego, **/dev/sdb** jest twoim dyskiem tymczasowym.  Nie należy używać głównego dysku systemu operacyjnego (**/dev/sda**) dla niczego z wyjątkiem systemu operacyjnego, ponieważ jest zoptymalizowany pod kątem szybkiego czasu rozruchu maszyny Wirtualnej i nie zapewnia dobrej wydajności dla obciążeń. Chcesz dołączyć jeden lub więcej dysków do maszyny Wirtualnej, aby uzyskać trwałe i zoptymalizowane miejsce do magazynowania danych. 
+## <a name="azure-os-disk"></a>Dysk systemu operacyjnego Azure
+Po utworzeniu maszyny wirtualnej z systemem Linux na platformie Azure są z nią skojarzone dwa dyski. **/dev/SDA** to dysk systemu operacyjnego, a **/dev/sdb** to dysk tymczasowy.  Nie należy używać głównego dysku systemu operacyjnego (**/dev/SDA**) dla wszystkich elementów oprócz systemu operacyjnego, ponieważ jest zoptymalizowany pod kątem szybkiego rozruchu maszyn wirtualnych i nie zapewnia dobrej wydajności obciążeń. Chcesz dołączyć co najmniej jeden dysk do maszyny wirtualnej w celu uzyskania trwałego i zoptymalizowanego magazynu dla danych. 
 
-## <a name="adding-disks-for-size-and-performance-targets"></a>Dodawanie dysków dla obiektów docelowych rozmiar i wydajność
-Na podstawie rozmiaru maszyny wirtualnej można podłączyć do 16 dodatkowych dysków na dyskach serii A, 32 dyskach z serii D i 64 dyskach na maszynie z serii G — każdy o pojemności do 32 TB. Dodaj dodatkowe dyski zgodnie z potrzebami na swoje miejsce i wymagania we/wy. Każdy dysk ma docelowy wydajność 500 IOps dla magazynu standardowego i do 20 000 IOps na dysk dla magazynu w wersji Premium.
+## <a name="adding-disks-for-size-and-performance-targets"></a>Dodawanie dysków dla celów rozmiaru i wydajności
+Na podstawie rozmiaru maszyny wirtualnej można dołączyć do 16 dodatkowych dysków na dyskach serii A, 32 na dyskach serii D i 64 na maszynie z serii G — każdy do 32 TB. Dodatkowe dyski należy dodać odpowiednio do wymagań dotyczących miejsca i liczby operacji we/wy na sekundę. Każdy dysk ma cel wydajności 500 operacji we/wy na sekundę w przypadku magazynu w warstwie Standardowa oraz do 20 000 liczby operacji we/wy na sekundę na dysk dla Premium Storage.
 
-Aby osiągnąć najwyższe IOps na dyskach magazynu w warstwie Premium, gdzie ich ustawienia pamięci podręcznej zostały ustawione na **ReadOnly** lub **None**, należy wyłączyć **bariery** podczas montażu systemu plików w systemie Linux. Nie potrzebujesz barier, ponieważ zapisy na dyskach kopii magazynu w warstwie Premium są trwałe dla tych ustawień pamięci podręcznej.
+Aby osiągnąć największą liczbę operacji we/wy na dyskach Premium Storage, w których ustawienia pamięci podręcznej zostały ustawione na wartość **ReadOnly** lub **Brak**, należy wyłączyć **bariery** podczas instalowania systemu plików w systemie Linux. Nie jest wymagana żadna bariera, ponieważ zapisy do Premium Storage dysków z kopią zapasową są trwałe dla tych ustawień pamięci podręcznej.
 
-* Jeśli używasz **reiserFS,** wyłącz bariery `barrier=none` za pomocą opcji montowania `barrier=flush`(Aby włączyć bariery, użyj)
-* Jeśli używasz **ext3/ext4**, wyłącz bariery `barrier=0` za pomocą opcji montowania (Aby włączyć bariery, użyj `barrier=1`)
-* Jeśli używasz **XFS,** wyłącz bariery `nobarrier` za pomocą opcji montowania (Aby włączyć bariery, użyj opcji) `barrier`
+* Jeśli używasz **reiserFS**, wyłącz bariery przy użyciu opcji `barrier=none` instalacji (w celu włączenia barier, `barrier=flush`Użyj)
+* Jeśli używasz **ext3/ext4**, wyłącz bariery przy użyciu opcji `barrier=0` instalacji (aby włączyć bariery, `barrier=1`Użyj)
+* Jeśli używasz **XFS**, wyłącz bariery przy użyciu opcji `nobarrier` instalacji (aby włączyć bariery, użyj opcji `barrier`)
 
-## <a name="unmanaged-storage-account-considerations"></a>Zagadnienia dotyczące konta magazynu niezarządzanego
-Domyślną akcją podczas tworzenia maszyny Wirtualnej z platformą Azure CLI jest użycie dysków zarządzanych platformy Azure.  Dyski te są obsługiwane przez platformę Azure i nie wymagają żadnych przygotowania lub lokalizacji do ich przechowywania.  Dyski niezarządzane wymagają konta magazynu i mają pewne dodatkowe zagadnienia dotyczące wydajności.  Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).  W poniższej sekcji opisano zagadnienia dotyczące wydajności tylko wtedy, gdy używane są dyski niezarządzane.  Ponownie domyślnym i zalecanym rozwiązaniem magazynu jest użycie dysków zarządzanych.
+## <a name="unmanaged-storage-account-considerations"></a>Zagadnienia dotyczące kont magazynu niezarządzanego
+Domyślna akcja podczas tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure to użycie usługi Azure Managed Disks.  Te dyski są obsługiwane przez platformę Azure i nie wymagają żadnego przygotowania ani lokalizacji do ich przechowywania.  Dyski niezarządzane wymagają konta magazynu i są dostępne dodatkowe zagadnienia dotyczące wydajności.  Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).  W poniższej sekcji omówiono zagadnienia związane z wydajnością tylko w przypadku korzystania z dysków niezarządzanych.  Ponownie domyślne i zalecane rozwiązanie magazynu to użycie dysków zarządzanych.
 
-Jeśli tworzysz maszynę wirtualną z dyskami niezarządzanymi, upewnij się, że dyski z kont magazynu znajdują się w tym samym regionie co maszyna wirtualna, aby zapewnić bliskość i zminimalizować opóźnienia sieci.  Każde standardowe konto magazynu ma maksymalnie 20k IOps i pojemność rozmiaru 500 TB.  Ten limit działa na około 40 mocno używanych dysków, w tym zarówno na dysku systemu operacyjnego, jak i na wszystkich utworzonych dyskach z danymi. W przypadku kont magazynu w wersji premium nie ma limitu maksymalnych we/wy, ale istnieje limit rozmiaru 32 TB. 
+Jeśli tworzysz maszynę wirtualną z dyskami niezarządzanymi, pamiętaj o dołączeniu dysków z kont magazynu znajdujących się w tym samym regionie co maszyna wirtualna, aby zapewnić bliską bliskość i zminimalizować opóźnienie sieci.  Każde konto magazynu w warstwie Standardowa ma maksymalnie 20 000 operacji we/wy i pojemności 500 TB.  Ten limit obejmuje około 40 intensywnie używanych dysków, w tym dysk systemu operacyjnego i wszystkie utworzone dyski danych. W przypadku kont Premium Storage nie ma limitu maksymalnej liczby IOps, ale obowiązuje limit rozmiaru 32 TB. 
 
-W przypadku dużych obciążeń we/wy i wybranego magazynu standardowego dla dysków może być konieczne podzielenie dysków na wiele kont magazynu, aby upewnić się, że nie osiągnięto limitu 20 000 IOps dla kont magazynu standardowego. Maszyna wirtualna może zawierać kombinację dysków z różnych kont magazynu i typów kont magazynu, aby osiągnąć optymalną konfigurację.
+W przypadku obciążeń o dużej liczbie IOps i wybrania magazynu w warstwie Standardowa dla dysków może być konieczne podzielenie dysków na wiele kont magazynu, aby upewnić się, że nie osiągnięto limitu 20 000 operacji we/wy dla kont magazynu w warstwie Standardowa. Maszyna wirtualna może zawierać wiele dysków z różnych kont magazynu i typów kont magazynu, aby osiągnąć optymalną konfigurację.
  
 
-## <a name="your-vm-temporary-drive"></a>Dysk tymczasowy maszyny Wirtualnej
-Domyślnie podczas tworzenia maszyny Wirtualnej platforma Azure udostępnia dysk systemu operacyjnego (**/dev/sda**) i dysk tymczasowy (**/dev/sdb**).  Wszystkie dodatkowe dyski, które dodasz, są wyświetlane jako **/dev/sdc**, **/dev/sdd**, **/dev/sde** i tak dalej. Wszystkie dane na dysku tymczasowym (**/dev/sdb**) nie są trwałe i mogą zostać utracone, jeśli określone zdarzenia, takie jak zmiana rozmiaru maszyny Wirtualnej, ponowne wdrożenie lub konserwacja wymuszają ponowne uruchomienie maszyny Wirtualnej.  Rozmiar i typ dysku tymczasowego jest powiązany z rozmiarem maszyny Wirtualnej wybranym w czasie wdrażania. Wszystkie maszyny wirtualne o rozmiarze premium (DS, G i DS_V2 serii) są wspierane przez lokalny dysk SSD, co ma dodatkową wydajność do 48 k. IOps. 
+## <a name="your-vm-temporary-drive"></a>Dysk tymczasowy maszyny wirtualnej
+Domyślnie podczas tworzenia maszyny wirtualnej platforma Azure udostępnia dysk systemu operacyjnego (**/dev/SDA**) i dysk tymczasowy (**/dev/sdb**).  Wszystkie dodane dyski są wyświetlane jako **/dev/SDC**, **/dev/SDD**, **/dev/SDE** i tak dalej. Wszystkie dane na dysku tymczasowym (**/dev/sdb**) nie są trwałe i mogą zostać utracone, jeśli określone zdarzenia, takie jak zmiany rozmiarów maszyn wirtualnych, ponowne wdrożenie lub konserwacja, wymuszają ponowny uruchomienie maszyny wirtualnej.  Rozmiar i typ dysku tymczasowego są związane z wybranym rozmiarem maszyny wirtualnej w czasie wdrażania. Wszystkie maszyny wirtualne w rozmiarze Premium (w ramach serii DS, G i DS_V2) są obsługiwane przez lokalny dysk SSD w celu uzyskania dodatkowej wydajności do 48K operacji we/wy na sekundę. 
 
-## <a name="linux-swap-partition"></a>Partycja wymiany Linuksa
-Jeśli maszyna wirtualna platformy Azure pochodzi z obrazu Ubuntu lub CoreOS, możesz użyć CustomData do wysłania konfiguracji w chmurze do init chmury. Jeśli [przesłano niestandardowy obraz systemu Linux,](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) który używa cloud-init, można również skonfigurować partycje wymiany przy użyciu cloud-init.
+## <a name="linux-swap-partition"></a>Partycja wymiany systemu Linux
+Jeśli maszyna wirtualna platformy Azure pochodzi z obrazu Ubuntu lub CoreOS, można użyć CustomData do wysłania pliku Cloud-config do usługi Cloud-init. W przypadku [przekazania niestandardowego obrazu systemu Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) korzystającego z usługi Cloud-init należy również skonfigurować partycje wymiany przy użyciu funkcji Cloud-init.
 
-W Ubuntu Cloud Images należy użyć cloud-init, aby skonfigurować partycję wymiany. Aby uzyskać więcej informacji, zobacz [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+W przypadku obrazów w chmurze Ubuntu do skonfigurowania partycji wymiany należy użyć funkcji Cloud-init. Aby uzyskać więcej informacji, zobacz [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-W przypadku obrazów bez obsługi cloud-init obrazy maszyn wirtualnych wdrożone z portalu Azure Marketplace mają agenta systemu wirtualnego systemu Linux zintegrowanego z systemem operacyjnym. Ten agent umożliwia maszynie wirtualnej do interakcji z różnymi usługami platformy Azure. Zakładając, że wdrożono standardowy obraz z portalu Azure Marketplace, należy wykonać następujące czynności, aby poprawnie skonfigurować ustawienia pliku wymiany systemu Linux:
+W przypadku obrazów bez obsługi usługi Cloud-init obrazy maszyn wirtualnych wdrożone z poziomu portalu Azure Marketplace mają agenta maszyny wirtualnej z systemem Linux zintegrowany z systemem operacyjnym. Ten Agent umożliwia korzystanie z maszyn wirtualnych z różnymi usługami platformy Azure. Przy założeniu, że został wdrożony standardowy obraz z portalu Azure Marketplace, należy wykonać następujące czynności, aby poprawnie skonfigurować ustawienia pliku wymiany systemu Linux:
 
-Zlokalizuj i zmodyfikuj dwa wpisy w pliku **/etc/waagent.conf.** Kontrolują one istnienie dedykowanego pliku wymiany i rozmiar pliku wymiany. Parametry, które należy zweryfikować, są `ResourceDisk.EnableSwap` i`ResourceDisk.SwapSizeMB` 
+Zlokalizuj i zmodyfikuj dwa wpisy w pliku **/etc/waagent.conf** . Kontrolują istnienie dedykowanego pliku wymiany i rozmiaru pliku wymiany. Parametry, które należy zweryfikować, są `ResourceDisk.EnableSwap` i`ResourceDisk.SwapSizeMB` 
 
-Aby włączyć prawidłowo włączony dysk i zamontowany plik wymiany, upewnij się, że parametry mają następujące ustawienia:
+Aby włączyć poprawnie włączony dysk i zainstalowany plik wymiany, upewnij się, że parametry mają następujące ustawienia:
 
-* ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={size w MB, aby spełnić Twoje potrzeby} 
+* ResourceDisk. EnableSwap = Y
+* ResourceDisk. SwapSizeMB = {rozmiar w MB, aby spełnić Twoje potrzeby} 
 
-Po wprowadzeniu zmiany należy ponownie uruchomić waagent lub ponownie uruchomić maszynę wirtualną z systemem Linux, aby odzwierciedlić te zmiany.  Wiesz, że zmiany zostały zaimplementowane i plik `free` wymiany został utworzony podczas korzystania z polecenia, aby wyświetlić wolne miejsce. Poniższy przykład zawiera plik wymiany 512MB utworzony w wyniku modyfikacji pliku **waagent.conf:**
+Po dokonaniu zmiany należy ponownie uruchomić waagent lub uruchomić ponownie maszynę wirtualną z systemem Linux w celu odzwierciedlenia tych zmian.  Wiadomo, że zmiany zostały zaimplementowane, a plik wymiany został utworzony, gdy użyjesz `free` polecenia, aby wyświetlić wolne miejsce. W poniższym przykładzie plik wymiany z 512 MB został utworzony w wyniku modyfikacji pliku **waagent. conf** :
 
 ```bash
 azuseruser@myVM:~$ free
@@ -68,8 +68,8 @@ Mem:       3525156     804168    2720988        408       8428     633192
 Swap:       524284          0     524284
 ```
 
-## <a name="io-scheduling-algorithm-for-premium-storage"></a>Algorytm planowania we/wy dla magazynu w wersji Premium
-Dzięki jądrze Linuksa 2.6.18 domyślny algorytm planowania we/wy został zmieniony z Deadline na CFQ (całkowicie uczciwy algorytm kolejkowania). W przypadku wzorców we/wy dostępu losowego istnieje nieznaczna różnica w różnicach w wydajności między CFQ a Deadline.  W przypadku dysków opartych na dyskach SSD, gdzie wzorzec we/wy dysku jest głównie sekwencyjny, ponowne przełączenie się z powrotem do algorytmu NOOP lub Deadline może osiągnąć lepszą wydajność we/wy.
+## <a name="io-scheduling-algorithm-for-premium-storage"></a>Algorytm planowania we/wy dla Premium Storage
+Przy użyciu jądra 2.6.18 systemu Linux domyślny algorytm planowania we/wy został zmieniony z terminu ostatecznego na CFQ (całkowicie uczciwy algorytm kolejkowania). W przypadku wzorców dostępu losowego we/wy występuje niewielka różnica między CFQ i terminem ostatecznym.  W przypadku dysków SSD, w których wzorzec dysku we/wy jest głównie sekwencyjny, przełączenie do algorytmu AKTUALIZUJĄCY nie działa lub terminu ostatecznego może osiągnąć lepszą wydajność operacji we/wy.
 
 ### <a name="view-the-current-io-scheduler"></a>Wyświetlanie bieżącego harmonogramu we/wy
 Użyj następującego polecenia:  
@@ -78,13 +78,13 @@ Użyj następującego polecenia:
 cat /sys/block/sda/queue/scheduler
 ```
 
-Zobaczysz następujące dane wyjściowe, który wskazuje bieżący harmonogram.  
+Zobaczysz następujące dane wyjściowe, które wskazują bieżący harmonogram.  
 
 ```bash
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Zmienianie bieżącego urządzenia (/dev/sda) algorytmu planowania we/wy
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Zmień bieżące urządzenie (/dev/SDA) algorytmu planowania we/wy
 Użyj następujących poleceń:  
 
 ```bash
@@ -95,9 +95,9 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Zastosowanie tego ustawienia dla **/dev/sda** sam nie jest przydatne. Ustaw na wszystkich dyskach z danymi, na których sekwencyjne we/wy dominuje wzorzec we/wy.  
+> Stosowanie tego ustawienia wyłącznie dla **/dev/SDA** nie jest przydatne. Ustaw na wszystkich dyskach danych, w których sekwencyjne we/wy przeważa wzorca we/wy.  
 
-Powinieneś zobaczyć następujące dane wyjściowe, wskazując, że **grub.cfg** został pomyślnie przebudowany i że domyślny harmonogram został zaktualizowany do NOOP.  
+Powinny zostać wyświetlone następujące dane wyjściowe, wskazujące, że **grub. cfg** zostały pomyślnie odbudowane i że domyślny harmonogram został zaktualizowany do aktualizujący nie działa.  
 
 ```bash
 Generating grub configuration file ...
@@ -110,21 +110,21 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-W przypadku rodziny dystrybucji Red Hat potrzebne jest tylko następujące polecenie:   
+W przypadku rodziny dystrybucji Red Hat wystarczy wykonać następujące polecenie:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
-## <a name="using-software-raid-to-achieve-higher-iops"></a>Korzystanie z software raid w celu osiągnięcia wyższych operacji
-Jeśli obciążenia wymagają więcej funkcji We/Wy niż jeden dysk może zapewnić, należy użyć konfiguracji macierzy RAID oprogramowania wielu dysków. Ponieważ platforma Azure już wykonuje odporność dysku w lokalnej warstwie sieci szkieletowej, można osiągnąć najwyższy poziom wydajności z konfiguracji rozkładania RAID-0.  Aprowizuj i utwórz dyski w środowisku platformy Azure i dołącz je do maszyny Wirtualnej systemu Linux przed partycjonowaniem, formatowaniem i instalowaniem dysków.  Więcej informacji na temat konfigurowania konfiguracji macierzy RAID oprogramowania na maszynie Wirtualnej systemu Linux na platformie Azure można znaleźć w dokumencie **[Konfigurowanie macierzy RAID oprogramowania w](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** systemie Linux.
+## <a name="using-software-raid-to-achieve-higher-iops"></a>Używanie oprogramowania RAID do osiągania wyższych operacji I/Ops
+Jeśli obciążenia wymagają większej liczby operacji we/wy na sekundę, należy użyć konfiguracji oprogramowania RAID z wieloma dyskami. Ponieważ platforma Azure zapewnia już odporność dysku na lokalną warstwę sieci szkieletowej, osiągnięty jest najwyższy poziom wydajności z konfiguracji rozłożenia RAID-0.  Udostępnianie i tworzenie dysków w środowisku platformy Azure i dołączanie ich do maszyny wirtualnej z systemem Linux przed partycjonowaniem, formatowaniem i instalowaniem dysków.  Więcej informacji o konfigurowaniu oprogramowania instalacyjnego RAID na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w dokumencie **[Konfigurowanie oprogramowania RAID w systemie Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
-Alternatywą dla tradycyjnej konfiguracji RAID można również zainstalować Menedżera woluminów logicznych (LVM), aby skonfigurować liczbę dysków fizycznych w jeden rozłożony wolumin logiczny. W tej konfiguracji odczyty i zapisy są dystrybuowane na wiele dysków znajdujących się w grupie woluminów (podobnie jak RAID0). Ze względu na wydajność jest prawdopodobne, że będzie chcesz paski woluminów logicznych, tak aby odczyty i zapisy wykorzystać wszystkie dołączone dyski danych.  Więcej szczegółów na temat konfigurowania woluminu logicznego rozłożone na maszynie Wirtualnej systemu Linux na platformie Azure można znaleźć w **[konfigurowanie LVM na maszynie Wirtualnej systemu Linux w](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** dokumencie platformy Azure.
+Alternatywą dla tradycyjnej konfiguracji RAID jest również zainstalowanie Menedżera woluminów logicznych (LVM) w celu skonfigurowania wielu dysków fizycznych w jednym woluminie z rozłożonym logicznym magazynem. W tej konfiguracji operacje odczytu i zapisu są dystrybuowane do wielu dysków znajdujących się w grupie woluminów (podobnie jak w przypadku RAID0). Ze względu na wydajność prawdopodobnie chcesz umieścić woluminy logiczne, aby odczyty i zapisy używały wszystkich dołączonych dysków danych.  Więcej szczegółowych informacji na temat konfigurowania rozłożonego woluminu logicznego na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w temacie **[Konfigurowanie LVM na maszynie wirtualnej z systemem Linux w dokumencie platformy Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Następne kroki
-Pamiętaj, że podobnie jak w wszystkich dyskusjach optymalizacji, należy wykonać testy przed i po każdej zmianie, aby zmierzyć wpływ zmiany.  Optymalizacja jest procesem krok po kroku, który ma różne wyniki na różnych komputerach w środowisku.  To, co działa dla jednej konfiguracji, może nie działać dla innych.
+Pamiętaj, podobnie jak w przypadku wszystkich dyskusji optymalizacji, musisz wykonać testy przed i po każdej zmianie, aby zmierzyć wpływ zmiany.  Optymalizacja jest procesem krok po kroku, który ma różne wyniki na różnych maszynach w środowisku.  Co działa dla jednej konfiguracji, może nie działać dla innych osób.
 
-Kilka przydatnych linków do dodatkowych zasobów:
+Niektóre przydatne linki do dodatkowych zasobów:
 
 * [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md)
-* [Konfigurowanie macierzy RAID oprogramowania w systemie Linux](configure-raid.md)
+* [Konfigurowanie RAID oprogramowania w systemie Linux](configure-raid.md)

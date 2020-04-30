@@ -1,6 +1,6 @@
 ---
 title: Limity przydziału procesorów wirtualnych
-description: Dowiedz się więcej o przydziałach procesora wirtualnego dla platformy Azure.
+description: Dowiedz się więcej na temat przydziałów vCPU dla platformy Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
 ms.openlocfilehash: 4f8d181194328725c2e7c02f6e73752cf568ef4e
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759184"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Limity przydziału procesorów wirtualnych maszyny wirtualnej
 
-Przydziały procesora wirtualnego dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych są rozmieszczone w dwóch warstwach dla każdej subskrypcji w każdym regionie. Pierwsza warstwa to całkowita regionalna maszyna wirtualna, a druga warstwa to różne rdzenie rodziny maszyn wirtualnych, takie jak procesory wirtualne z serii D. Za każdym razem, gdy nowa maszyna wirtualna jest wdrażana, procesory wirtualne dla maszyny wirtualnej nie mogą przekraczać przydziału vCPU dla rodziny rozmiarów maszyn wirtualnych ani całkowitego regionalnego przydziału vCPU. Jeśli którykolwiek z tych przydziałów zostaną przekroczone, wdrożenie maszyny Wirtualnej nie będzie dozwolone. Istnieje również przydział dla ogólnej liczby maszyn wirtualnych w regionie. Szczegóły dotyczące każdego z tych przydziałów można zobaczyć w **użycia + przydziały** sekcji **subskrypcji** strony w [witrynie Azure portal](https://portal.azure.com)lub można zbadać wartości przy użyciu interfejsu wiersza polecenia platformy Azure.
+Przydziały vCPU dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych są ułożone w dwóch warstwach dla każdej subskrypcji w każdym regionie. Pierwsza warstwa jest całkowitą procesorów wirtualnych vCPU regionalną, a druga warstwy to różne rdzenie rodzinne rozmiaru maszyny wirtualnej, takie jak seria D procesorów wirtualnych vCPU. Za każdym razem, gdy zostanie wdrożona nowa maszyna wirtualna, procesorów wirtualnych vCPU dla maszyny wirtualnej nie może przekraczać limitu przydziału vCPU dla rodziny rozmiaru maszyny wirtualnej ani łącznego limitu regionalnego vCPU. Jeśli jeden z tych przydziałów zostanie przekroczony, wdrożenie maszyny wirtualnej nie będzie dozwolone. Istnieje również limit przydziału ogólnej liczby maszyn wirtualnych w regionie. Szczegółowe informacje na temat każdego z tych przydziałów można znaleźć w sekcji **użycie i przydziały** strony **subskrypcji** w [Azure Portal](https://portal.azure.com)lub można wykonać zapytanie dotyczące wartości przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 
 ## <a name="check-usage"></a>Sprawdzanie użycia
 
-Użycie przydziału można sprawdzić za pomocą [az vm list-usage](/cli/azure/vm).
+Użycie limitu przydziału można sprawdzić za pomocą polecenia [AZ VM list-Usage](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-usage --location "East US" -o table
@@ -55,10 +55,10 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych
-Zarezerwowane wystąpienia maszyn wirtualnych, które są ograniczone do pojedynczej subskrypcji bez elastyczności rozmiaru maszyny Wirtualnej, doda nowy aspekt do przydziałów vCPU. Te wartości opisują liczbę wystąpień określonego rozmiaru, które muszą być wdrażalne w subskrypcji. Działają one jako symbol zastępczy w systemie przydziałów, aby upewnić się, że przydział jest zarezerwowany, aby upewnić się, że rezerwacje platformy Azure są możliwe do wdrożenia w ramach subskrypcji. Na przykład jeśli określona subskrypcja ma 10 Standard_D1 rezerwacji limit użycia dla Standard_D1 rezerwacji będzie 10. Spowoduje to, że platforma Azure zapewni, że w przydziałzie totalialnych procesorów wirtualnych będzie używanych co najmniej 10 procesorów wirtualnych w przydziału regionalnych procesorów wirtualnych, które mają być używane dla Standard_D1 wystąpień, a w przydziałzie wirtualnego procesora typu D dostępne jest co najmniej 10 procesorów wirtualnych, które mają być używane dla Standard_D1 wystąpień.
+Wystąpienia zarezerwowane maszyn wirtualnych, które są objęte zakresem pojedynczej subskrypcji bez elastyczności rozmiaru maszyny wirtualnej, spowodują dodanie nowego aspektu do przydziałów vCPU. Te wartości opisują liczbę wystąpień określonego rozmiaru, które muszą być wdrożone w subskrypcji. Działają jako symbol zastępczy w systemie przydziału, aby zapewnić, że przydział jest zarezerwowany w celu zapewnienia wdrożenia rezerwacji platformy Azure w ramach subskrypcji. Na przykład jeśli określona subskrypcja ma 10 Standard_D1 rezerwacje limit użycia dla rezerwacji Standard_D1 wynosi 10. Spowoduje to, że platforma Azure będzie mieć pewność, że w łącznej liczbie miejscowej przydziału procesorów wirtualnych vCPU będzie dostępna co najmniej 10 procesorów wirtualnych vCPU, które mają być używane dla wystąpień Standard_D1, a w przypadku wystąpień Standard_D1 będzie dostępnych co najmniej 10 procesorów wirtualnych vCPU.
 
-Jeśli zwiększenie przydziału jest wymagane do zakupu identyfikatora RI pojedynczej subskrypcji, można [zażądać zwiększenia przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) w ramach subskrypcji.
+Jeśli zwiększenie limitu przydziału jest wymagane do zakupu pojedynczej subskrypcji RI, można [zażądać zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) w ramach subskrypcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rozliczeń i przydziałów, zobacz [Limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Aby uzyskać więcej informacji na temat rozliczeń i przydziałów, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

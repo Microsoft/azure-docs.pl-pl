@@ -1,6 +1,6 @@
 ---
-title: Samouczek — łączenie ogólnej aplikacji klienta języka Python z usługą Azure IoT Central | Dokumenty firmy Microsoft
-description: W tym samouczku pokazano, jak jako deweloper urządzeń połączyć urządzenie z uruchomieniem aplikacji klienckiej języka Python z aplikacją Azure IoT Central. Szablon urządzenia można utworzyć, importując model możliwości urządzenia i dodaj widoki, które umożliwiają interakcję z podłączonym urządzeniem
+title: Samouczek — łączenie ogólnej aplikacji klienckiej Python z platformą Azure IoT Central | Microsoft Docs
+description: W tym samouczku pokazano, jak deweloper urządzenia łączy urządzenie z uruchomioną aplikacją kliencką języka Python z aplikacją usługi Azure IoT Central. Szablon urządzenia można utworzyć przez zaimportowanie modelu możliwości urządzenia i dodanie widoków, które umożliwiają współpracę z podłączonym urządzeniem
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/24/2020
@@ -8,45 +8,45 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81758187"
 ---
-# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją Azure IoT Central (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
-W tym samouczku pokazano, jak jako deweloper urządzeń połączyć aplikację kliencką języka Python z aplikacją Azure IoT Central. Aplikacja Python symuluje zachowanie urządzenia czujnika środowiska. Przykładowego _modelu możliwości urządzenia_ służy do tworzenia _szablonu urządzenia_ w centrum IoT. Widoki są dodawanye do szablonu urządzenia, aby umożliwić operatorowi interakcję z urządzeniem.
+W tym samouczku przedstawiono sposób, w jaki deweloper urządzenia nawiązuje połączenie aplikacji klienckiej języka Python z aplikacją usługi Azure IoT Central. Aplikacja języka Python symuluje zachowanie urządzenia czujnika środowiska. Korzystając z przykładowego _modelu możliwości urządzenia_ , można utworzyć _szablon urządzenia_ w IoT Central. Dodaj widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Zaimportowanie modelu możliwości urządzenia w celu utworzenia szablonu urządzenia.
-> * Dodawanie widoków domyślnych i niestandardowych do szablonu urządzenia.
-> * Opublikuj szablon urządzenia i dodaj prawdziwe urządzenie do aplikacji IoT Central.
-> * Utwórz i uruchom kod urządzenia Python i zobacz, jak łączy się z aplikacją IoT Central.
+> * Zaimportuj model możliwości urządzenia, aby utworzyć szablon urządzenia.
+> * Dodawanie domyślnych i niestandardowych widoków do szablonu urządzenia.
+> * Opublikuj szablon urządzenia i Dodaj rzeczywiste urządzenie do aplikacji IoT Central.
+> * Utwórz i uruchom kod urządzenia w języku Python i sprawdź, czy jest on połączony z aplikacją IoT Central.
 > * Wyświetl symulowane dane telemetryczne wysyłane z urządzenia.
-> * Użyj widoku, aby zarządzać właściwościami urządzenia.
-> * Wywołaj polecenia synchroniczne i asynchroniczne, aby sterować urządzeniem.
+> * Użyj widoku, aby zarządzać właściwościami urządzeń.
+> * Wywoływanie poleceń synchronicznych i asynchronicznych w celu sterowania urządzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków opisanych w tym artykule potrzebne są:
 
-* Aplikacja Azure IoT Central utworzona przy użyciu szablonu **aplikacji niestandardowej.** Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md).
-* Komputer dewelopera z [zainstalowanym pythonem](https://www.python.org/) w wersji 3.7 lub nowszej. Można uruchomić `python3 --version` w wierszu polecenia, aby sprawdzić swoją wersję. Python jest dostępny dla szerokiej gamy systemów operacyjnych. Instrukcje w tym samouczku zakładają, że używasz polecenia **python3** w wierszu polecenia systemu Windows.
+* Aplikacja IoT Central platformy Azure utworzona przy użyciu szablonu **aplikacji niestandardowej** . Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md).
+* Komputer deweloperski z zainstalowanym programem [Python](https://www.python.org/) w wersji 3,7 lub nowszej. Aby sprawdzić swoją `python3 --version` wersję, można uruchomić w wierszu polecenia. Język Python jest dostępny dla wielu różnych systemów operacyjnych. W instrukcjach przedstawionych w tym samouczku założono, że uruchomiono polecenie **python3** w wierszu polecenia systemu Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
 ### <a name="create-a-python-application"></a>Tworzenie aplikacji w języku Python
 
-Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, która łączy się z rzeczywistym urządzeniem dodanym do aplikacji. Ta aplikacja Języka Python symuluje zachowanie rzeczywistego urządzenia.
+Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, która nawiązuje połączenie z rzeczywistym urządzeniem dodanym do aplikacji. Ta aplikacja języka Python symuluje zachowanie rzeczywistego urządzenia.
 
-1. W środowisku wiersza polecenia `environmental-sensor` przejdź do folderu utworzonego wcześniej.
+1. W środowisku wiersza polecenia przejdź do `environmental-sensor` folderu utworzonego wcześniej.
 
 1. Aby zainstalować wymagane biblioteki, uruchom następujące polecenia:
 
@@ -54,9 +54,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
     pip install azure-iot-device
     ```
 
-1. Utwórz plik o nazwie **environmental_sensor.py** w folderze. `environmental-sensor`
+1. Utwórz plik o nazwie **environmental_sensor. PR** w `environmental-sensor` folderze.
 
-1. Dodaj następujące `import` instrukcje na początku **pliku environmental_sensor.py:**
+1. Dodaj następujące `import` instrukcje na początku pliku **environmental_sensor. PR** :
 
     ```python
     import asyncio
@@ -71,7 +71,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
     from azure.iot.device import Message
     ```
 
-1. Dodaj do pliku następującą `main` funkcję asynchronizacyjną i deklaracje zmiennych:
+1. Dodaj następującą deklarację `main` funkcji asynchronicznej i zmiennych do pliku:
 
     ```python
     async def main():
@@ -90,11 +90,11 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
     asyncio.run(main())
     ```
 
-    Zaktualizuj `{your Scope ID}` `{your Device ID}`symbole `{your Primary Key}` zastępcze , a także wartościami, które zostały wcześniej zanotowane. W prawdziwej aplikacji nie koduj na miejscu te informacje w aplikacji.
+    Aktualizowanie symboli zastępczych `{your Scope ID}`, `{your Device ID}`i `{your Primary Key}` z wartościami, które zostały wcześniej wykonane. W prawdziwej aplikacji nie należy niczego zakodować w aplikacji.
 
-    Wszystkie następujące definicje funkcji i kod `main` są zagnieżdżone w ramach funkcji.
+    Wszystkie poniższe definicje funkcji i kod są zagnieżdżone w `main` funkcji.
 
-1. Dodaj następujące dwie funkcje wewnątrz funkcji, `main` aby zarejestrować urządzenie i podłączyć je do aplikacji IoT Central. Rejestracja korzysta z usługi inicjowania obsługi administracyjnej urządzeń platformy Azure:
+1. Dodaj następujące dwie funkcje wewnątrz `main` funkcji, aby zarejestrować urządzenie i połączyć je z aplikacją IoT Central. Rejestracja używa usługi Azure Device Provisioning:
 
     ```python
       async def register_device():
@@ -128,7 +128,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
           return device_client
     ```
 
-1. Dodaj następującą funkcję `main` wewnątrz funkcji, aby wysłać dane telemetryczne do aplikacji IoT Central:
+1. Dodaj następującą funkcję wewnątrz `main` funkcji, aby wysłać dane telemetryczne do aplikacji IoT Central:
 
     ```python
       async def send_telemetry():
@@ -143,9 +143,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
           await asyncio.sleep(delay)
     ```
 
-    Nazwy elementów telemetrycznych`temp` `humid`( i ) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
+    Nazwy elementów telemetrycznych (`temp` i `humid`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-1. Dodaj następujące funkcje `main` wewnątrz funkcji do obsługi poleceń wywoływanych z aplikacji IoT Central:
+1. Dodaj następujące funkcje wewnątrz `main` funkcji, aby obsłużyć polecenia wywoływane z aplikacji IoT Central:
 
     ```python
       async def blink_command(request):
@@ -199,9 +199,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
           await commands[method_request.name](method_request)
     ```
 
-    `blink`Nazwy poleceń ( , `turnon` `turnoff`, `rundiagnostics`, i ) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
+    `blink`Nazwy poleceń ( `turnon`,, `turnoff`i `rundiagnostics`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-    Obecnie usługa IoT Central nie używa schematu odpowiedzi zdefiniowanego w modelu możliwości urządzenia. Dla polecenia synchronicznego ładunku odpowiedzi może być dowolny prawidłowy JSON. W przypadku polecenia asynchronicznego urządzenie powinno natychmiast zwrócić odpowiedź 202, a następnie zgłoszoną aktualizację właściwości po zakończeniu pracy. Format zgłoszonej aktualizacji właściwości jest:
+    Obecnie IoT Central nie korzysta ze schematu odpowiedzi zdefiniowanego w modelu możliwości urządzenia. W przypadku polecenia synchronicznego ładunek odpowiedzi może być dowolnym prawidłowym kodem JSON. W przypadku polecenia asynchronicznego urządzenie powinno natychmiast zwrócić odpowiedź 202, a następnie zgłosić aktualizację właściwości po zakończeniu pracy. Format raportowanej aktualizacji właściwości to:
 
     ```json
     {
@@ -211,9 +211,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
     }
     ```
 
-    Operator może wyświetlić ładunek odpowiedzi w historii poleceń.
+    Operator może wyświetlać ładunek odpowiedzi w historii poleceń.
 
-1. Dodaj następujące funkcje `main` wewnątrz funkcji do obsługi aktualizacji właściwości wysyłanych z aplikacji IoT Central:
+1. Dodaj następujące funkcje wewnątrz `main` funkcji, aby obsłużyć aktualizacje właściwości wysyłane z aplikacji IoT Central:
 
     ```python
         async def name_setting(value, version):
@@ -241,11 +241,11 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
             )
     ```
 
-    Gdy operator ustawia zapisowalne właściwości w aplikacji IoT Central, aplikacja używa bliźniaczej reprezentacji urządzenia żądanej właściwości, aby wysłać wartość do urządzenia. Urządzenie następnie odpowiada przy użyciu urządzenia bliźniaczej reprezentacji zgłaszane właściwości. Gdy aplikacja IoT Central odbiera zgłoszoną wartość właściwości, aktualizuje widok właściwości o stan **zsynchronizowany**.
+    Gdy operator ustawia właściwość do zapisu w aplikacji IoT Central, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zsynchronizowane**.
 
     Nazwy właściwości (`name` i `brightness`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-1. Dodaj następujące funkcje `main` wewnątrz funkcji, aby kontrolować aplikację:
+1. Dodaj następujące funkcje wewnątrz `main` funkcji, aby kontrolować aplikację:
 
     ```python
       # Define behavior for halting the application
@@ -283,9 +283,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką języka Python, kt
         print('Device could not connect')
     ```
 
-1. Zapisz plik **environmental_sensor.py.**
+1. Zapisz plik **environmental_sensor. PR** .
 
-## <a name="run-your-python-application"></a>Uruchamianie aplikacji Języka Python
+## <a name="run-your-python-application"></a>Uruchamianie aplikacji języka Python
 
 Aby uruchomić aplikację kliencką urządzenia, uruchom następujące polecenie w środowisku wiersza polecenia:
 
@@ -293,24 +293,24 @@ Aby uruchomić aplikację kliencką urządzenia, uruchom następujące polecenie
 python3 environmental_sensor.py
 ```
 
-Możesz zobaczyć, że urządzenie łączy się z aplikacją Azure IoT Central i rozpoczyna wysyłanie danych telemetrycznych:
+Możesz zobaczyć, że urządzenie nawiązuje połączenie z aplikacją IoT Central platformy Azure i zacznie wysyłać dane telemetryczne:
 
-![Uruchamianie aplikacji klienckiej](media/tutorial-connect-device-python/run-application.png)
+![Uruchom aplikację kliencką](media/tutorial-connect-device-python/run-application.png)
 
 [!INCLUDE [iot-central-monitor-environmental-sensor](../../../includes/iot-central-monitor-environmental-sensor.md)]
 
-Możesz zobaczyć, jak urządzenie reaguje na polecenia i aktualizacje właściwości:
+Można sprawdzić, jak urządzenie reaguje na polecenia i aktualizacje właściwości:
 
 ![Obserwuj aplikację kliencką](media/tutorial-connect-device-python/run-application-2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jako deweloper urządzeń, teraz, gdy już znasz podstawy tworzenia urządzenia przy użyciu node.js, niektóre sugerowane następne kroki są następujące:
+Jako deweloper urządzenia teraz znasz podstawowe informacje dotyczące sposobu tworzenia urządzenia przy użyciu środowiska Node. js, a oto kilka sugerowanych następnych kroków:
 
-- Dowiedz się, jak połączyć rzeczywiste urządzenie z centrum IoT w [artykule Łączenie urządzenia MXChip IoT DevKit z aplikacją Azure IoT Central.](./howto-connect-devkit.md)
-- Przeczytaj artykuł [Nawiązanie połączenia z usługą Azure IoT Central,](./concepts-get-connected.md) aby dowiedzieć się więcej o rejestrowaniu urządzeń w usłudze IoT Central i sposobie zabezpieczania połączeń urządzeń przez usługę IoT Central.
+- Dowiedz się, jak połączyć rzeczywiste urządzenie, aby IoT Central w artykule [nawiązywanie połączenia z usługą zestawu deweloperskiego IoT DevKit do aplikacji IoT Central platformy Azure](./howto-connect-devkit.md) .
+- Aby dowiedzieć się więcej o sposobach rejestrowania urządzeń w usłudze IoT Central i sposobach IoT Central zabezpieczania połączeń urządzeń, przeczytaj artykuł [wprowadzenie do usługi Azure IoT Central](./concepts-get-connected.md) .
 
-Jeśli wolisz kontynuować tworzenie samouczków W centrum IoT i dowiedzieć się więcej o tworzeniu rozwiązania Centrum IoT, zobacz:
+Jeśli wolisz korzystać z zestawu samouczków IoT Central i dowiedzieć się więcej na temat tworzenia rozwiązania IoT Central, zobacz:
 
 > [!div class="nextstepaction"]
 > [Tworzenie szablonu urządzenia bramy](./tutorial-define-gateway-device-type.md)

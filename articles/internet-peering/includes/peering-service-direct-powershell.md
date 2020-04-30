@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 526d8a6a103e7623bac459004bf9ac79e4927541
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686983"
 ---
-1. Wyświetlanie połączeń w wybranym direct peeringu.
+1. Wyświetl połączenia na wybranej bezpośredniej komunikacji równorzędnej.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "81686983"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Wybierz połączenie, które chcesz włączyć dla usługi komunikacji równorzędnej. W tym przykładzie użyjemy jedynego dostępnego połączenia.
+1. Wybierz połączenie, które chcesz włączyć dla usługi komunikacji równorzędnej. Na potrzeby tego przykładu zostanie użyte jedyne dostępne połączenie.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,7 +47,7 @@ ms.locfileid: "81686983"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Teraz zapisz zmiany wprowadzone w direct peering za pomocą tego polecenia:
+1. Teraz Zapisz zmiany wprowadzone w bezpośredniej komunikacji równorzędnej za pomocą tego polecenia:
     ```powershell
     $directPeering | Update-AzPeering
     ```

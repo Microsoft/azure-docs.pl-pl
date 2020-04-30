@@ -1,33 +1,33 @@
 ---
-title: odwołanie host.json dla usługi Azure Functions 1.x
-description: Dokumentacja referencyjna dla pliku host.json usługi Azure functions ze środowiska wykonawczego w wersji 1.
+title: Dokumentacja pliku host. JSON dla Azure Functions 1. x
+description: Dokumentacja referencyjna dotycząca pliku host. JSON Azure Functions przy użyciu środowiska uruchomieniowego v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757519"
 ---
-# <a name="hostjson-reference-for-azure-functions-1x"></a>odwołanie host.json dla usługi Azure Functions 1.x
+# <a name="hostjson-reference-for-azure-functions-1x"></a>Dokumentacja pliku host. JSON dla Azure Functions 1. x
 
-> [!div class="op_single_selector" title1="Wybierz wersję używanego środowiska wykonawczego usługi Azure Functions: "]
+> [!div class="op_single_selector" title1="Wybierz wersję środowiska uruchomieniowego Azure Functions, którego używasz: "]
 > * [Wersja 1](functions-host-json-v1.md)
 > * [Wersja 2](functions-host-json.md)
 
-Plik metadanych *host.json* zawiera globalne opcje konfiguracji, które wpływają na wszystkie funkcje aplikacji funkcji. W tym artykule wymieniono ustawienia, które są dostępne dla środowiska wykonawczego w wersji 1. Schemat JSON jest http://json.schemastore.org/hostw .
+Plik metadanych *hosta. JSON* zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje aplikacji funkcji. W tym artykule wymieniono ustawienia dostępne dla środowiska uruchomieniowego v1. Schemat JSON ma wartość http://json.schemastore.org/host.
 
 > [!NOTE]
-> Ten artykuł dotyczy usługi Azure Functions 1.x.  Aby uzyskać odwołanie do pliku host.json w usługach 2.x i nowszych, zobacz [odwołanie do host.json dla usługi Azure Functions 2.x](functions-host-json.md).
+> Ten artykuł dotyczy Azure Functions 1. x.  Odwołanie do pliku host. JSON w funkcjach 2. x i nowszych można znaleźć w [dokumentacji dotyczącej pliku host. JSON dla Azure Functions 2. x](functions-host-json.md).
 
 Inne opcje konfiguracji aplikacji funkcji są zarządzane w [ustawieniach aplikacji](functions-app-settings.md).
 
-Niektóre ustawienia host.json są używane tylko podczas uruchamiania lokalnie w pliku [local.settings.json.](functions-run-local.md#local-settings-file)
+Niektóre ustawienia pliku host. JSON są używane tylko w przypadku uruchamiania lokalnego w pliku [Local. Settings. JSON](functions-run-local.md#local-settings-file) .
 
-## <a name="sample-hostjson-file"></a>Przykładowy plik hosta.json
+## <a name="sample-hostjson-file"></a>Przykładowy plik host. JSON
 
-Następujące przykładowe pliki *host.json* mają wszystkie możliwe opcje określone.
+W poniższych przykładowych plikach *hosta. JSON* dostępne są wszystkie możliwe opcje.
 
 
 ```json
@@ -110,19 +110,19 @@ Następujące przykładowe pliki *host.json* mają wszystkie możliwe opcje okre
 }
 ```
 
-Poniżej dalsza część artykułu Wyjaśnij każdą właściwość najwyższego poziomu. Wszystkie są opcjonalne, chyba że wskazano inaczej.
+W poniższych sekcjach tego artykułu opisano każdą właściwość najwyższego poziomu. Wszystkie są opcjonalne, o ile nie wskazano inaczej.
 
-## <a name="aggregator"></a>Agregator
+## <a name="aggregator"></a>agregatora
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>ApplicationInsights
+## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
 ## <a name="documentdb"></a>DocumentDB
 
-Ustawienia konfiguracji [wyzwalacza i powiązań usługi Azure Cosmos DB](functions-bindings-cosmosdb.md).
+Ustawienia konfiguracji dla [wyzwalacza Azure Cosmos DB i powiązań](functions-bindings-cosmosdb.md).
 
 ```json
 {
@@ -136,23 +136,23 @@ Ustawienia konfiguracji [wyzwalacza i powiązań usługi Azure Cosmos DB](functi
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------|
-|Tryb bramy|Brama|Tryb połączenia używany przez funkcję podczas łączenia się z usługą Azure Cosmos DB. Dostępne `Direct` są i są dostępne pod`Gateway`|
-|Protocol (Protokół)|Https (https)|Protokół połączenia używany przez tę funkcję podczas połączenia z usługą Azure Cosmos DB.  Przeczytaj [tutaj, aby uzyskać wyjaśnienie obu trybów](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|Nie dotyczy|Prefiks dzierżawy do użycia we wszystkich funkcjach w aplikacji.|
+|Bramamode|Brama|Tryb połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB. Dostępne są `Direct` opcje i`Gateway`|
+|Protocol (Protokół)|Schemat|Protokół połączenia używany przez funkcję podczas nawiązywania połączenia z usługą Azure Cosmos DB.  Przeczytaj [tutaj, aby uzyskać wyjaśnienie obu trybów](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/d|Prefiks dzierżawy do użycia we wszystkich funkcjach w aplikacji.|
 
-## <a name="durabletask"></a>trwałeZadań
+## <a name="durabletask"></a>durableTask
 
 [!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## <a name="eventhub"></a>eventHub
 
-Ustawienia konfiguracji [wyzwalaczy i powiązań Centrum zdarzeń](functions-bindings-event-hubs-trigger.md#functions-1x).
+Ustawienia konfiguracji dla [wyzwalaczy i powiązań centrum zdarzeń](functions-bindings-event-hubs-trigger.md#functions-1x).
 
 ## <a name="functions"></a> — funkcje
 
-Lista funkcji uruchamianych przez hosta zadań. Pusta tablica oznacza uruchomienie wszystkich funkcji. Przeznaczone do użytku tylko wtedy, gdy [działa lokalnie](functions-run-local.md). W aplikacjach funkcji na platformie Azure zamiast tego należy wykonać kroki w [jak wyłączyć funkcje w usłudze Azure Functions,](disable-function.md) aby wyłączyć określone funkcje, a nie przy użyciu tego ustawienia.
+Lista funkcji uruchomionych przez hosta zadań. Pusta tablica oznacza uruchamianie wszystkich funkcji. Przeznaczone do użytku tylko w przypadku [uruchamiania lokalnego](functions-run-local.md). W aplikacjach funkcji na platformie Azure zamiast tego należy wykonać kroki opisane w temacie [Jak wyłączyć funkcje w Azure Functions](disable-function.md) , aby wyłączyć określone funkcje zamiast używać tego ustawienia.
 
 ```json
 {
@@ -160,9 +160,9 @@ Lista funkcji uruchamianych przez hosta zadań. Pusta tablica oznacza uruchomien
 }
 ```
 
-## <a name="functiontimeout"></a>funkcjaCzas
+## <a name="functiontimeout"></a>functionTimeout
 
-Wskazuje czas trwania limitu czasu dla wszystkich funkcji. W planie zużycia bez użycia serwera prawidłowy zakres wynosi od 1 sekundy do 10 minut, a wartość domyślna to 5 minut. W planie usługi app service nie ma ogólnego limitu, a wartość domyślna to _null_, co oznacza brak limitu czasu.
+Wskazuje czas trwania dla wszystkich funkcji. W planie zużycia bezserwerowego prawidłowy zakres to od 1 sekundy do 10 minut, a wartość domyślna to 5 minut. W planie App Service nie ma żadnego całkowitego limitu i wartością domyślną jest _null_, co oznacza brak limitu czasu.
 
 ```json
 {
@@ -170,9 +170,9 @@ Wskazuje czas trwania limitu czasu dla wszystkich funkcji. W planie zużycia bez
 }
 ```
 
-## <a name="healthmonitor"></a>monitor zdrowia
+## <a name="healthmonitor"></a>healthMonitor
 
-Ustawienia konfiguracji [monitora kondycji hosta](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Ustawienia konfiguracji dla [monitora kondycji hosta](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -186,17 +186,17 @@ Ustawienia konfiguracji [monitora kondycji hosta](https://github.com/Azure/azure
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
 |enabled|true|Określa, czy funkcja jest włączona. | 
 |healthCheckInterval|10 sekund|Przedział czasu między okresowymi kontrolami kondycji w tle. | 
-|healthCheckWindow|2 min.|Przesuwane okno czasu używane w `healthCheckThreshold` połączeniu z ustawieniem.| 
-|zdrowieWykonańce|6|Maksymalna liczba razy sprawdzanie kondycji może zakończyć się niepowodzeniem przed rozpoczęciem odtwarzania hosta.| 
-|licznikTrzymek|0,80|Próg, przy którym licznik wydajności będą uważane za niezdrowe.| 
+|healthCheckWindow|2 minuty|Przedział czasu, który jest używany w połączeniu `healthCheckThreshold` z ustawieniem.| 
+|healthCheckThreshold|6|Maksymalna liczba przypadków, w których Sprawdzenie kondycji może zakończyć się niepowodzeniem przed zainicjowaniem odtwarzania hosta.| 
+|counterThreshold|0,80|Próg, w którym licznik wydajności będzie traktowany jako w złej kondycji.| 
 
 ## <a name="http"></a>http
 
-Ustawienia konfiguracji [wyzwalaczy i powiązań http](functions-bindings-http-webhook.md).
+Ustawienia konfiguracji dla [wyzwalaczy i powiązań http](functions-bindings-http-webhook.md).
 
 ```json
 {
@@ -209,18 +209,18 @@ Ustawienia konfiguracji [wyzwalaczy i powiązań http](functions-bindings-http-w
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|Po włączeniu to ustawienie powoduje, że potok przetwarzania żądań okresowo sprawdza liczniki wydajności systemu, takie jak połączenia/wątki/procesy/pamięć/cpu/etc., a jeśli którykolwiek z tych liczników przekracza wbudowany wysoki próg (80%), żądania zostaną odrzucone z odpowiedzią 429 "Zbyt zajęty", dopóki licznik(y) nie powróci do normalnego poziomu.|
-|maxConcurrentRequests|bez ograniczeń`-1`( )|Maksymalna liczba funkcji HTTP, które będą wykonywane równolegle. Dzięki temu można kontrolować współbieżność, co może pomóc w zarządzaniu wykorzystaniem zasobów. Na przykład może mieć funkcję HTTP, która używa dużo zasobów systemowych (pamięci/cpu/sockets) w taki sposób, że powoduje problemy, gdy współbieżność jest zbyt wysoka. Lub może mieć funkcję, która sprawia, że wychodzące żądania do usługi innej firmy, a te wywołania muszą być ograniczone stawki. W takich przypadkach zastosowanie przepustnicy tutaj może pomóc.|
-|maxOutstandingRequests|bez ograniczeń`-1`( )|Maksymalna liczba zaległych żądań, które są przechowywane w danym momencie. Ten limit obejmuje żądania, które są w kolejce, ale nie rozpoczęły wykonywania, a także wszelkie w toku wykonania. Wszystkie przychodzące żądania przekraczające ten limit są odrzucane z odpowiedzią 429 "Zbyt zajęty". Dzięki temu wywołujący można stosować strategie ponawiania na podstawie czasu, a także pomaga kontrolować maksymalne opóźnienia żądań. To tylko steruje kolejkowaniem, który występuje w ścieżce wykonywania hosta skryptu. Inne kolejki, takie jak kolejka żądań ASP.NET, będą nadal obowiązywać i nie będą objęte tym ustawieniem.|
-|routePrefix|api|Prefiks trasy, który ma zastosowanie do wszystkich tras. Użyj pustego ciągu, aby usunąć domyślny prefiks. |
+|dynamicThrottlesEnabled|fałsz|Włączenie tego ustawienia powoduje, że potok przetwarzania żądań okresowo sprawdza liczniki wydajności systemu, takie jak połączenia/wątki/procesy/pamięć/procesor CPU/itp. Jeśli którykolwiek z tych liczników korzysta ze standardowego progu (80%), żądania zostaną odrzucone 429 z odpowiedzią "zbyt zajęte", dopóki licznik nie zwróci normalnych poziomów.|
+|maxConcurrentRequests|niepowiązane (`-1`)|Maksymalna liczba funkcji HTTP, które będą wykonywane równolegle. Pozwala to na kontrolowanie współbieżności, co może ułatwić zarządzanie użyciem zasobów. Na przykład może istnieć funkcja HTTP, która korzysta z dużej ilości zasobów systemowych (pamięć/procesor CPU/gniazda), co powoduje problemy, gdy współbieżność jest zbyt wysoka. Może też istnieć funkcja, która wysyła żądania wychodzące do usługi innej firmy, a te wywołania muszą mieć ograniczoną szybkość. W takich przypadkach można w tym celu zastosować ograniczenie przepustowości.|
+|maxOutstandingRequests|niepowiązane (`-1`)|Maksymalna liczba oczekujących żądań, które są przechowywane w danym momencie. Ten limit obejmuje żądania, które są umieszczane w kolejce, ale nie rozpoczęto wykonywania, a także w trakcie wykonywania. Wszystkie żądania przychodzące przez ten limit są odrzucane przez odpowiedź 429 "zbyt zajęta". Dzięki temu obiekty wywołujące mogą korzystać z strategii ponawiania prób, a także kontrolować maksymalne opóźnienia żądania. Tylko kontroluje kolejkowanie, które występuje w ścieżce wykonywania hosta skryptu. Inne kolejki, takie jak Kolejka żądań ASP.NET, nadal będą obowiązywać i nie mają wpływu na to ustawienie.|
+|routePrefix|api|Prefiks trasy dotyczący wszystkich tras. Użyj pustego ciągu, aby usunąć domyślny prefiks. |
 
 ## <a name="id"></a>id
 
-Unikatowy identyfikator dla hosta zadań. Może być mały identyfikator GUID z myślnikami usunięte. Wymagane podczas uruchamiania lokalnie. Podczas uruchamiania na platformie Azure zaleca się, aby nie ustawiać wartości identyfikatora. Identyfikator jest generowany automatycznie na `id` platformie Azure po pominięciu. 
+Unikatowy identyfikator dla hosta zadania. Może to być dolny identyfikator GUID przypadku z usuniętymi kreskami. Wymagane w przypadku uruchamiania lokalnego. W przypadku uruchamiania na platformie Azure zalecamy, aby nie ustawić wartości identyfikatora. Identyfikator jest generowany automatycznie na platformie Azure, `id` gdy zostanie pominięty. 
 
-Jeśli udostępniasz konto Magazynu w wielu aplikacjach funkcji, upewnij `id`się, że każda aplikacja funkcyjna ma inną . Można pominąć `id` właściwość lub ręcznie ustawić każdą `id` aplikację funkcji do innej wartości. Wyzwalacz czasomierza używa blokady magazynu, aby upewnić się, że będzie tylko jedno wystąpienie czasomierza, gdy aplikacja funkcji skaluje się w poziomie do wielu wystąpień. Jeśli dwie aplikacje `id` funkcji współużytkują to samo i każda z nich używa wyzwalacza czasomierza, zostanie uruchomiony tylko jeden czasomierz.
+W przypadku udostępniania konta magazynu w wielu aplikacjach funkcji upewnij się, że każda aplikacja funkcji ma inną `id`wartość. Możesz pominąć `id` właściwość lub ręcznie ustawić każdą aplikację funkcji `id` na inną wartość. Wyzwalacz czasomierza korzysta z blokady magazynu, aby upewnić się, że po przeskalowaniu aplikacji funkcji na wiele wystąpień będzie istnieć tylko jedno wystąpienie czasomierza. Jeśli dwie aplikacje funkcji współużytkują `id` te same i każdy z nich używa wyzwalacza czasomierza, zostanie uruchomiony tylko jeden czasomierz.
 
 ```json
 {
@@ -228,9 +228,9 @@ Jeśli udostępniasz konto Magazynu w wielu aplikacjach funkcji, upewnij `id`si�
 }
 ```
 
-## <a name="logger"></a>Rejestratora
+## <a name="logger"></a>rejestratora
 
-Steruje filtrowaniem dzienników napisanych przez [obiekt ILogger](functions-monitoring.md#write-logs-in-c-functions) lub [przez context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Kontroluje filtrowanie dla dzienników pisanych przez [obiekt ILogger](functions-monitoring.md#write-logs-in-c-functions) lub według [kontekstu. log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -247,15 +247,15 @@ Steruje filtrowaniem dzienników napisanych przez [obiekt ILogger](functions-mon
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|categoryFilter|Nie dotyczy|Określa filtrowanie według kategorii| 
-|domyślniePoziom|Informacje|Dla wszystkich kategorii, które `categoryLevels` nie są określone w tablicy, wyślij dzienniki na tym poziomie i powyżej do usługi Application Insights.| 
-|kategoriaLevels|Nie dotyczy|Tablica kategorii określająca minimalny poziom dziennika do wysłania do usługi Application Insights dla każdej kategorii. Kategoria określona w tym miejscu kontroluje wszystkie kategorie, które zaczynają się od tej samej wartości, a dłuższe wartości mają pierwszeństwo. W poprzednim przykładowym pliku *host.json* wszystkie kategorie, które zaczynają się `Information` od dziennika "Host.Aggregator" na poziomie. Wszystkie inne kategorie, które zaczynają się od "Host", takie `Error` jak "Host.Executor", logują się na poziomie.| 
+|categoryFilter|n/d|Określa filtrowanie według kategorii| 
+|defaultLevel|Informacje|Dla wszystkich kategorii, które nie są `categoryLevels` określone w tablicy, Wyślij dzienniki na tym poziomie i powyżej, aby Application Insights.| 
+|categoryLevels|n/d|Tablica kategorii, która określa minimalny poziom rejestrowania do wysłania do Application Insights dla każdej kategorii. Określona tutaj Kategoria kontroluje wszystkie kategorie, które zaczynają się od tej samej wartości, a dłuższe wartości mają pierwszeństwo. W poprzednim przykładzie pliku *host. JSON* wszystkie kategorie zaczynające się od dziennika "host. agregator" na `Information` poziomie. Wszystkie inne kategorie zaczynające się od "host", takie jak "host. wykonawca", `Error` log na poziomie.| 
 
-## <a name="queues"></a>Kolejek
+## <a name="queues"></a>tworzone
 
-Ustawienia konfiguracji [wyzwalaczy i powiązań kolejki magazynu](functions-bindings-storage-queue.md).
+Ustawienia konfiguracji dla [wyzwalaczy i powiązań kolejki magazynu](functions-bindings-storage-queue.md).
 
 ```json
 {
@@ -269,17 +269,17 @@ Ustawienia konfiguracji [wyzwalaczy i powiązań kolejki magazynu](functions-bin
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|maxPollingInterval (właso.|60000|Maksymalny interwał w milisekundach między ankietami kolejki.| 
-|widocznośćCzas|0|Przedział czasu między ponownych prób podczas przetwarzania wiadomości kończy się niepowodzeniem.| 
-|batchSize|16|Liczba komunikatów kolejki, które funkcje środowiska wykonawczego pobiera jednocześnie i procesów równolegle. Gdy liczba przetwarzana pobiera w `newBatchThreshold`dół do , środowisko wykonawcze pobiera inną partię i rozpoczyna przetwarzanie tych komunikatów. Tak więc maksymalna liczba równoczesnych komunikatów `batchSize` `newBatchThreshold`przetwarzanych na funkcję jest plus . Ten limit ma zastosowanie oddzielnie do każdej funkcji wyzwalaneją kolejki. <br><br>Jeśli chcesz uniknąć równoległego wykonywania wiadomości odebranych w `batchSize` jednej kolejce, można ustawić na 1. Jednak to ustawienie eliminuje współbieżność tylko tak długo, jak aplikacja funkcji działa na jednej maszynie wirtualnej (VM). Jeśli aplikacja funkcji jest skalowana w poziomie do wielu maszyn wirtualnych, każda maszyna wirtualna może uruchomić jedno wystąpienie każdej funkcji wyzwalanej kolejką.<br><br>Maksymalna `batchSize` wartość to 32. | 
-|maksymalna liczba kolejek nieliczna|5|Liczba razy, aby spróbować przetworzyć wiadomość przed przeniesieniem go do kolejki trucizny.| 
-|newBatchThreshold|batchSize/2|Za każdym razem, gdy liczba wiadomości przetwarzanych jednocześnie spada do tej liczby, środowisko wykonawcze pobiera inną partię.| 
+|maxPollingInterval|60000|Maksymalny interwał w milisekundach między sondowaniem kolejki.| 
+|visibilityTimeout|0|Przedział czasu między ponownymi próbami, gdy przetwarzanie komunikatu kończy się niepowodzeniem.| 
+|batchSize|16|Liczba komunikatów w kolejce, które środowisko uruchomieniowe funkcji jednocześnie pobiera i przetwarza równolegle. Gdy przetwarzana liczba jest w dół `newBatchThreshold`, środowisko uruchomieniowe pobiera kolejną partię i uruchamia przetwarzanie tych komunikatów. Dlatego Maksymalna liczba współbieżnych komunikatów przetwarzanych na funkcję to `batchSize` Plus. `newBatchThreshold` Ten limit dotyczy osobno każdej funkcji wyzwalanej przez kolejkę. <br><br>Aby zapobiec równoległemu wykonywaniu komunikatów odebranych w jednej kolejce, można ustawić wartość `batchSize` 1. To ustawienie eliminuje jednak współbieżność tylko wtedy, gdy aplikacja funkcji działa na jednej maszynie wirtualnej. Jeśli aplikacja funkcji jest skalowana do wielu maszyn wirtualnych, każda maszyna wirtualna może uruchomić jedno wystąpienie każdej funkcji wyzwalanej przez kolejkę.<br><br>Wartość maksymalna `batchSize` to 32. | 
+|maxDequeueCount|5|Liczba prób przetworzenia komunikatu przed przeniesieniem go do kolejki trującej.| 
+|newBatchThreshold|batchSize/2|Gdy liczba przetwarzanych komunikatów współbieżnie przyjdzie do tego numeru, środowisko uruchomieniowe pobiera kolejną partię.| 
 
 ## <a name="sendgrid"></a>SendGrid
 
-Ustawienie konfiguracji [wiązania wyjściowego SendGrind](functions-bindings-sendgrid.md)
+Ustawienie konfiguracji dla [powiązania danych wyjściowych SendGrind](functions-bindings-sendgrid.md)
 
 ```json
 {
@@ -288,13 +288,13 @@ Ustawienie konfiguracji [wiązania wyjściowego SendGrind](functions-bindings-se
     }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|Z|Nie dotyczy|Adres e-mail nadawcy we wszystkich funkcjach.| 
+|wniosek|n/d|Adres e-mail nadawcy we wszystkich funkcjach.| 
 
-## <a name="servicebus"></a>usługiBus
+## <a name="servicebus"></a>serviceBus
 
-Ustawienie konfiguracji [wyzwalaczy i powiązań usługi Service Bus](functions-bindings-service-bus.md).
+Ustawienia konfiguracji dla [wyzwalaczy Service Bus i powiązań](functions-bindings-service-bus.md).
 
 ```json
 {
@@ -306,15 +306,15 @@ Ustawienie konfiguracji [wyzwalaczy i powiązań usługi Service Bus](functions-
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|Maxconcurrentcalls|16|Maksymalna liczba równoczesnych wywołań wywołania zwrotnego, które pompa wiadomości powinna zainicjować. Domyślnie środowisko wykonawcze Functions przetwarza wiele komunikatów jednocześnie. Aby skierować środowisko uruchomieniowe do przetwarzania tylko jednej `maxConcurrentCalls` kolejki lub komunikatu tematu w czasie, należy ustawić na 1. | 
-|Konto prefetch|Nie dotyczy|Domyślny PrefetchCount, który będzie używany przez podstawowe MessageReceiver.| 
-|autoRenewTimeout|00:05:00|Maksymalny czas trwania, w którym blokada wiadomości zostanie automatycznie odnowiona.| 
+|maxConcurrentCalls|16|Maksymalna liczba jednoczesnych wywołań wywołania zwrotnego, które powinna zostać zainicjowana przez pompę komunikatów. Domyślnie środowisko uruchomieniowe funkcji przetwarza wiele komunikatów jednocześnie. Aby skierować środowisko uruchomieniowe do przetwarzania tylko pojedynczej kolejki lub komunikatu tematu w danym momencie, `maxConcurrentCalls` ustaw wartość 1. | 
+|prefetchCount|n/d|Domyślny PrefetchCount, który będzie używany przez bazowe MessageReceiver.| 
+|Właściwość autorenewtimeout|00:05:00|Maksymalny czas, w którym Blokada wiadomości zostanie odnowiona automatycznie.| 
 
-## <a name="singleton"></a>Singleton
+## <a name="singleton"></a>pojedynczego
 
-Ustawienia konfiguracji zachowania blokady singleton. Aby uzyskać więcej informacji, zobacz [GitHub problem dotyczący obsługi singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Ustawienia konfiguracji dla zachowania pojedynczej blokady. Aby uzyskać więcej informacji, zobacz [temat problem z usługą GitHub dotyczący pojedynczej pomocy technicznej](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -328,19 +328,19 @@ Ustawienia konfiguracji zachowania blokady singleton. Aby uzyskać więcej infor
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|Okres, dla który blokuje poziom funkcji. Blokady automatycznie odnawiają.| 
-|odbiornikLockPeriod|00:01:00|Okres, dla który są brane zablokowania odbiornika.| 
-|odbiornikLockRecoveryPollingInterval|00:01:00|Przedział czasu używany do odzyskiwania blokady odbiornika, jeśli blokada odbiornika nie może zostać nabyta podczas uruchamiania.| 
-|lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez który środowisko wykonawcze spróbuje uzyskać blokadę.| 
-|lockAcquisitionPollingInterval|Nie dotyczy|Interwał między próbami nabycia blokady.| 
+|lockPeriod|00:00:15|Okres, w którym są wykonywane blokady poziomu funkcji. Blokady autorenew.| 
+|listenerLockPeriod|00:01:00|Okres, w którym są wykonywane blokady odbiornika.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Przedział czasu używany do odzyskiwania blokady odbiornika, jeśli nie można uzyskać blokady odbiornika podczas uruchamiania.| 
+|lockAcquisitionTimeout|00:01:00|Maksymalny czas, przez jaki środowisko uruchomieniowe podejmie próbę uzyskania blokady.| 
+|lockAcquisitionPollingInterval|n/d|Interwał między kolejnymi próbami przejęcia blokady.| 
 
-## <a name="tracing"></a>Śledzenia
+## <a name="tracing"></a>pochodzenia
 
-*Wersja 1.x*
+*Wersja 1. x*
 
-Ustawienia konfiguracji dzienników utworzonych przy `TraceWriter` użyciu obiektu. Zobacz [C# Rejestrowanie](functions-reference-csharp.md#logging) i [Node.js Rejestrowanie](functions-reference-node.md#writing-trace-output-to-the-console).
+Ustawienia konfiguracji dla dzienników utworzonych przy użyciu `TraceWriter` obiektu. Zobacz [Rejestrowanie w języku C#](functions-reference-csharp.md#logging) i [Rejestrowanie w węźle Node. js](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {
@@ -351,14 +351,14 @@ Ustawienia konfiguracji dzienników utworzonych przy `TraceWriter` użyciu obiek
 }
 ```
 
-|Właściwość  |Domyślne | Opis |
+|Właściwość  |Domyślny | Opis |
 |---------|---------|---------| 
-|konsolaPoziom|informacje o|Poziom śledzenia rejestrowania konsoli. Dostępne opcje `off` `error`to: `info`, `verbose`, `warning`, , i .|
-|tryb rejestrowania plików|debugOnly|Poziom śledzenia rejestrowania plików. Dostępne `never`opcje `always` `debugOnly`to , , .| 
+|consoleLevel|informacje o|Poziom śledzenia dla rejestrowania konsoli. Dostępne są następujące `off`opcje `error`: `warning`, `info`,, `verbose`i.|
+|fileLoggingMode|debugOnly|Poziom śledzenia dla rejestrowania plików. Dostępne opcje `never`to `always`, `debugOnly`,.| 
 
-## <a name="watchdirectories"></a>watchKatary
+## <a name="watchdirectories"></a>watchDirectories
 
-Zestaw [katalogów kodu udostępnionego,](functions-reference-csharp.md#watched-directories) które powinny być monitorowane pod kątem zmian.  Zapewnia, że po zmianie kodu w tych katalogach zmiany są pobierane przez funkcje.
+Zestaw [udostępnionych katalogów kodu](functions-reference-csharp.md#watched-directories) , które powinny być monitorowane pod kątem zmian.  Zapewnia, że gdy kod w tych katalogach zostanie zmieniony, zmiany są pobierane przez funkcje.
 
 ```json
 {
@@ -369,7 +369,7 @@ Zestaw [katalogów kodu udostępnionego,](functions-reference-csharp.md#watched-
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak zaktualizować plik host.json](functions-reference.md#fileupdate)
+> [Informacje o aktualizowaniu pliku host. JSON](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
 > [Zobacz ustawienia globalne w zmiennych środowiskowych](functions-app-settings.md)

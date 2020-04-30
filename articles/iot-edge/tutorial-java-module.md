@@ -1,5 +1,5 @@
 ---
-title: Samouczek — niestandardowy moduł Java przy użyciu usługi Azure IoT Edge
+title: Samouczek — samouczek niestandardowego modułu Java używający Azure IoT Edge
 description: W tym samouczku pokazano, jak utworzyć moduł usługi IoT Edge za pomocą kodu języka Java i wdrożyć go na urządzeniu brzegowym.
 services: iot-edge
 author: kgremban
@@ -12,15 +12,15 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81733088"
 ---
-# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: Opracowanie modułu Java IoT Edge dla urządzeń z systemem Linux
+# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Samouczek: opracowywanie modułu IoT Edge Java dla urządzeń z systemem Linux
 
-Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Użyjesz symulowanego urządzenia usługi IoT Edge utworzonego w usłudze Wdrażanie usługi Azure IoT Edge na symulowanym urządzeniu w przewodniku Szybki start [systemu Linux.](quickstart-linux.md) Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Moduły usługi Azure IoT Edge umożliwiają wdrożenie kodu implementującego logikę biznesową bezpośrednio na urządzeniach usługi IoT Edge. W tym samouczku przedstawiono sposób tworzenia i wdrażania modułu usługi IoT Edge, w którym są filtrowane dane czujnika. Będziesz używać symulowanego urządzenia IoT Edge utworzonego w ramach wdrażania Azure IoT Edge na symulowanym urządzeniu w systemie [Linux](quickstart-linux.md) — Szybki Start. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -35,26 +35,26 @@ Utworzony w tym samouczku moduł usługi IoT Edge filtruje dane temperatury gene
 
 ## <a name="solution-scope"></a>Zakres rozwiązania
 
-W tym samouczku pokazano, jak opracować moduł w **języku Java** przy użyciu programu Visual **Studio Code**i jak wdrożyć go na urządzeniu z **systemem Linux.** Usługa IoT Edge nie obsługuje modułów Java dla urządzeń z systemem Windows.
+W tym samouczku przedstawiono sposób tworzenia modułu w **języku Java** przy użyciu **Visual Studio Code**i sposobu wdrażania go na **urządzeniu z systemem Linux**. IoT Edge nie obsługuje modułów języka Java dla urządzeń z systemem Windows.
 
-Poniższa tabela służy do zapoznania się z opcjami tworzenia i wdrażania modułów Java:
+Skorzystaj z poniższej tabeli, aby poznać opcje tworzenia i wdrażania modułów Java:
 
-| Java | Visual Studio Code | Visual Studio 2017/2019 |
+| Java | Visual Studio Code | Program Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Użyj kodu VS dla modułów Java w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Użyj kodu VS dla modułów Java na Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Używanie VS Code dla modułów języka Java w systemie Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Używanie VS Code dla modułów języka Java w systemie Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tego samouczka, należy przejść przez poprzedni samouczek, aby skonfigurować środowisko programistyczne dla tworzenia kontenerów Systemu Linux: [Opracowanie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wypełniając jeden z tych samouczków, należy mieć następujące wymagania wstępne w miejscu:
+Przed rozpoczęciem pracy z tym samouczkiem należy zapoznać się z poprzednim samouczkiem dotyczącym konfigurowania środowiska deweloperskiego do tworzenia kontenerów systemu Linux: [Tworzenie modułów IoT Edge dla urządzeń z systemem Linux](tutorial-develop-for-linux.md). Wykonując jeden z tych samouczków, należy spełnić następujące wymagania wstępne:
 
 * Usługa [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) w warstwie Bezpłatna lub Standardowa na platformie Azure.
-* [Urządzenie z systemem Linux z usługą Azure IoT Edge](quickstart-linux.md)
-* Rejestr kontenerów, taki jak [usługa Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany za pomocą [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) skonfigurowany do uruchamiania kontenerów systemu Linux.
+* [Urządzenie z systemem Linux Azure IoT Edge](quickstart-linux.md)
+* Rejestr kontenerów, taki jak [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) skonfigurowany przy użyciu [narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* Platforma [Docker ce](https://docs.docker.com/install/) skonfigurowana do uruchamiania kontenerów systemu Linux.
 
-Aby opracować moduł usługi IoT Edge w języku Java, zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim: 
+Aby utworzyć moduł IoT Edge w języku Java, Zainstaluj następujące dodatkowe wymagania wstępne na komputerze deweloperskim: 
 
 * [Pakiet rozszerzenia języka Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) dla programu Visual Studio Code.
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks) i [ustaw zmienną środowiskową `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) tak, aby wskazywała instalację zestawu JDK.
@@ -68,7 +68,7 @@ W poniższych krokach przedstawiono sposób tworzenia projektu modułu usługi I
 
 Utwórz szablon rozwiązania w języku Java, który można dostosować przy użyciu własnego kodu.
 
-1. W programie Visual Studio Code wybierz pozycję **Wyświetl** > **paletę poleceń,** aby otworzyć paletę poleceń programu VS Code.
+1. W Visual Studio Code wybierz pozycję **Widok** > **paleta poleceń** , aby otworzyć paletę poleceń vs Code.
 
 2. W palecie poleceń wprowadź i uruchom polecenie **Azure IoT Edge: nowe rozwiązanie usługi IoT Edge**. Postępuj zgodnie z monitami wyświetlanymi na palecie poleceń, aby utworzyć rozwiązanie.
 
@@ -83,13 +83,13 @@ Utwórz szablon rozwiązania w języku Java, który można dostosować przy uży
 
    ![Udostępnianie repozytorium obrazów platformy Docker](./media/tutorial-java-module/repository.png)
 
-Jeśli po raz pierwszy tworzysz moduł Java, pobranie pakietów maven może potrwać kilka minut. Gdy rozwiązanie jest gotowe, okno kod VS ładuje obszar roboczy rozwiązania usługi IoT Edge. Obszar roboczy rozwiązania zawiera pięć składników najwyższego poziomu:
+Jeśli tworzysz moduł Java po raz pierwszy, pobranie pakietów Maven może potrwać kilka minut. Gdy rozwiązanie jest gotowe, okno VS Code ładuje obszar roboczy rozwiązania IoT Edge. Obszar roboczy rozwiązania zawiera pięć składników najwyższego poziomu:
 
-* Folder **modułów** zawiera kod Java dla modułu i pliki platformy Docker do tworzenia modułu jako obrazu kontenera.
-* Plik ** \.env** przechowuje poświadczenia rejestru kontenera.
+* Folder **modułów** zawiera kod Java dla modułu i plików platformy Docker, aby skompilować moduł jako obraz kontenera.
+* Plik ** \.ENV** przechowuje poświadczenia rejestru kontenerów.
 * Plik **deployment.template.json** zawiera informacje, których środowisko uruchomieniowe usługi IoT Edge używa do wdrażania modułów na urządzeniu.
-* Plik **deployment.debug.template.json** kontenery debugowania wersji modułów.
-* Nie będzie edytować folder ** \.vscode** lub ** \.plik gitignore** w tym samouczku.
+* Plik **Deployment. Debug. Template. JSON** konteneruje wersję debugowania modułów.
+* W tym samouczku nie będziesz edytować folderu ** \.programu vscode** ani ** \.pliku GITIGNORE** .
 
 Jeśli podczas tworzenia własnego rozwiązania nie określisz rejestru kontenerów, ale zaakceptujesz wartość domyślną localhost:5000, nie będziesz mieć pliku \.env.
 
@@ -101,17 +101,17 @@ W pliku środowiska przechowywane są poświadczenia rejestru kontenerów udost�
 2. Zaktualizuj pola, używając **nazwy użytkownika** i **hasła**, które zostały skopiowane z usługi Azure Container Registry.
 3. Zapisz ten plik.
 
-### <a name="select-your-target-architecture"></a>Wybierz architekturę docelową
+### <a name="select-your-target-architecture"></a>Wybieranie architektury docelowej
 
-Obecnie Visual Studio Code może tworzyć moduły Java dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać architekturę, która jest przeznaczona dla każdego rozwiązania, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Domyślnie jest Linux AMD64.
+Obecnie Visual Studio Code mogą opracowywać moduły Java dla urządzeń z systemem Linux AMD64 i Linux ARM32v7. Należy wybrać, która architektura ma być ukierunkowana na każde rozwiązanie, ponieważ kontener jest zbudowany i uruchamiany inaczej dla każdego typu architektury. Wartość domyślna to Linux AMD64.
 
-1. Otwórz paletę poleceń i wyszukaj **usługę Azure IoT Edge: Set Default Target Platform for Edge Solution**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
+1. Otwórz paletę poleceń i Wyszukaj **Azure IoT Edge: Ustaw domyślną platformę docelową dla rozwiązania brzegowego**lub wybierz ikonę skrótu na pasku bocznym u dołu okna.
 
-2. W palecie poleceń wybierz architekturę docelową z listy opcji. W tym samouczku używamy maszyny wirtualnej Ubuntu jako urządzenia IoT Edge, więc zachowamy domyślny **amd64**.
+2. W palecie poleceń wybierz architekturę docelową z listy opcji. W tym samouczku używamy maszyny wirtualnej Ubuntu jako urządzenia IoT Edge, co spowoduje zachowanie domyślnego **amd64**.
 
 ### <a name="update-the-module-with-custom-code"></a>Aktualizowanie modułu przy użyciu kodu niestandardowego
 
-1. W eksploratorze kodu VS otwórz **moduły** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
+1. W Eksploratorze vs Code Otwórz pozycję **moduły** > **JavaModule** > **src** > **Main** > **Java** > **com** > **edgemodule**edgemodule > **App. Java**.
 
 2. Dodaj następujący kod w górnej części pliku, aby zaimportować nowe przywoływane klasy.
 
@@ -230,37 +230,37 @@ Obecnie Visual Studio Code może tworzyć moduły Java dla urządzeń z systemem
 
 10. Zapisz plik deployment.template.json.
 
-## <a name="build-and-push-your-module"></a>Zbuduj i wypchnij swój moduł
+## <a name="build-and-push-your-module"></a>Kompilowanie i wypychanie modułu
 
 W poprzedniej sekcji utworzono rozwiązanie usługi IoT Edge i dodano kod do modułu **JavaModule**, aby filtrować komunikaty, w których zgłoszona temperatura maszyny jest niższa od akceptowalnego limitu. Teraz należy skompilować to rozwiązanie jako obraz kontenera i wypchnąć go do rejestru kontenerów.
 
-1. Otwórz terminal zintegrowany vs code, wybierając **view** > **terminal**.
+1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl** > **Terminal**.
 
-1. Zaloguj się do platformy Docker, wprowadzając następujące polecenie w terminalu. Zaloguj się przy użyciu nazwy użytkownika, hasła i serwera logowania z rejestru kontenerów platformy Azure. Te wartości można pobrać z sekcji **Klucze dostępu** rejestru w witrynie Azure portal.
+1. Zaloguj się do platformy Docker, wprowadzając następujące polecenie w terminalu. Zaloguj się przy użyciu nazwy użytkownika, hasła i serwera logowania z usługi Azure Container Registry. Te wartości można pobrać z sekcji **klucze dostępu** rejestru w Azure Portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Może pojawić się ostrzeżenie o zabezpieczeniach zalecające użycie . `--password-stdin` Chociaż to najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz odwołanie do [logowania docker.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
+   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin`. Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 1. W eksploratorze programu VS Code kliknij prawym przyciskiem myszy plik **deployment.template.json** i wybierz polecenie **Skompiluj i wypchnij rozwiązanie usługi IoT Edge**.
 
-   Polecenie kompilacji i wypychania uruchamia trzy operacje. Najpierw tworzy nowy folder w rozwiązaniu o nazwie **config,** który zawiera manifest pełnego wdrożenia, który jest zbudowany z informacji w szablonie wdrożenia i innych plików rozwiązania. Po drugie `docker build` uruchamia się do tworzenia obrazu kontenera na podstawie odpowiedniego pliku dockerfile dla architektury docelowej. Następnie uruchamia `docker push` się, aby wypchnąć repozytorium obrazów do rejestru kontenerów.
+   Polecenie Build i push uruchamia trzy operacje. Po pierwsze tworzy nowy folder w rozwiązaniu o nazwie **config** , który zawiera pełny manifest wdrażania, który jest skompilowany w szablonie wdrożenia i innych plikach rozwiązania. Następnie jest uruchamiany `docker build` w celu skompilowania obrazu kontenera na podstawie odpowiednich pliku dockerfile dla architektury docelowej. Następnie jest uruchamiany `docker push` w celu wypchnięcia repozytorium obrazów do rejestru kontenerów.
 
 ## <a name="deploy-modules-to-device"></a>Wdrażanie modułów na urządzeniu
 
-Użyj Eksploratora kodu programu Visual Studio i rozszerzenia Narzędzia Azure IoT, aby wdrożyć projekt modułu na urządzeniu usługi IoT Edge. Masz już manifest wdrożenia przygotowany dla twojego scenariusza, plik **deployment.json** w folderze konfiguracji. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
+Aby wdrożyć projekt modułu na urządzeniu IoT Edge, użyj rozszerzenia Eksploratora Visual Studio Code i narzędzia Azure IoT Tools. Masz już manifest wdrożenia przygotowany dla danego scenariusza, plik **Deployment. JSON** w folderze config. Teraz wystarczy wybrać urządzenie, które ma otrzymać wdrożenie.
 
-Upewnij się, że urządzenie IoT Edge jest uruchomione.
+Upewnij się, że urządzenie IoT Edge zostało uruchomione.
 
-1. W Eksploratorze kodu programu Visual Studio rozwiń sekcję **Urządzenia usługi Azure IoT Hub,** aby wyświetlić listę urządzeń IoT.
+1. W Eksploratorze Visual Studio Code rozwiń sekcję **urządzenia IoT Hub platformy Azure** , aby wyświetlić listę urządzeń IoT.
 
 2. Kliknij prawym przyciskiem myszy nazwę urządzenia usługi IoT Edge, a następnie wybierz pozycję **Utwórz wdrożenie dla pojedynczego urządzenia**.
 
 3. Wybierz plik **deployment.json** w folderze **config**, a następnie kliknij pozycję **Wybierz manifest wdrożenia usługi Edge**. Nie używaj pliku deployment.template.json.
 
-4. Kliknij przycisk Odśwież. Powinien zostać wyświetlony nowy **JavaModule** działa wraz z **simulatedTemperatureSensor** moduł i **$edgeAgent** i **$edgeHub**.  
+4. Kliknij przycisk Odśwież. Powinna zostać wyświetlona nowa **JavaModule** z uruchomionym modułem **SimulatedTemperatureSensor** oraz **$edgeAgent** i **$edgeHub**.  
 
 ## <a name="view-the-generated-data"></a>Wyświetlanie wygenerowanych danych
 
@@ -268,25 +268,25 @@ Gdy zastosujesz manifest wdrożenia na urządzeniu usługi IoT Edge, środowisko
 
 Możesz wyświetlić stan urządzenia usługi IoT Edge w sekcji **Azure IoT Hub Devices** (Urządzenia usługi Azure IoT Hub) w eksploratorze programu Visual Studio Code. Rozwiń szczegóły urządzenia, aby wyświetlić listę wdrożonych i uruchomionych modułów.
 
-1. W Eksploratorze kodu programu Visual Studio kliknij prawym przyciskiem myszy nazwę urządzenia usługi IoT Edge i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
+1. W Eksploratorze Visual Studio Code kliknij prawym przyciskiem myszy nazwę urządzenia IoT Edge i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
-2. Wyświetlanie wiadomości docierających do Centrum IoT. Może upłynąć trochę czasu, aby wiadomości dotarły. Urządzenie IoT Edge musi otrzymać nowe wdrożenie i uruchomić wszystkie moduły. Następnie zmiany wprowadzone w kodzie JavaModule czekać, aż temperatura komputera osiągnie 25 stopni przed wysłaniem wiadomości. Dodaje również typ komunikatu **Alert** do wszystkich komunikatów, które osiągają ten próg temperatury.
+2. Wyświetl komunikaty docierające do IoT Hub. Dostarczenie komunikatów może chwilę potrwać. Urządzenie IoT Edge musi odebrać nowe wdrożenie i uruchomić wszystkie moduły. Następnie zmiany wprowadzone w kodzie JavaModule zaczekają na 25 stopni przed wysłaniem komunikatów. Dodaje również **alert** typu komunikat do wszystkich komunikatów, które docierają do tego progu temperatury.
 
-## <a name="edit-the-module-twin"></a>Edycja bliźniaczej reprezentacji modułu
+## <a name="edit-the-module-twin"></a>Edytuj sznurek modułu
 
-Użyliśmy bliźniaczej reprezentacji modułu JavaModule w manifeście wdrażania, aby ustawić próg temperatury na poziomie 25 stopni. Bliźniaczej reprezentacji modułu można zmienić funkcjonalność bez konieczności aktualizowania kodu modułu.
+W manifeście wdrożenia użyto sznurka modułu JavaModule w celu ustawienia progu temperatury na 25 stopni. Możesz użyć sznurka modułu, aby zmienić funkcjonalność bez konieczności aktualizowania kodu modułu.
 
-1. W programie Visual Studio Code rozwiń szczegóły w obszarze urządzenia IoT Edge, aby wyświetlić uruchomione moduły.
+1. W Visual Studio Code rozwiń Szczegóły na urządzeniu IoT Edge, aby zobaczyć uruchomione moduły.
 
-2. Kliknij prawym przyciskiem myszy **opcję JavaModule** i wybierz polecenie **Edytuj bliźniaczą modułu**.
+2. Kliknij prawym przyciskiem myszy pozycję **JavaModule** i wybierz pozycję **Edytuj sznurek modułu**.
 
-3. Znajdź **TemperatureThreshold** w żądanych właściwościach. Zmień jego wartość na nową temperaturę o 5 stopni do 10 stopni wyższą niż ostatnio zgłoszona temperatura.
+3. Znajdź **TemperatureThreshold** w odpowiednich właściwościach. Zmień jej wartość na nową temperaturę o 5 stopni do 10 stopni wyższych niż Najnowsza zgłoszona temperatura.
 
-4. Zapisz plik bliźniaczej reprezentacji modułu.
+4. Zapisz plik splotu modułu.
 
-5. Kliknij prawym przyciskiem myszy dowolne miejsce w okienku edycji bliźniaczej reprezentacji modułu i wybierz opcję **Aktualizuj bliźniaczej reprezentacji modułu**.
+5. Kliknij prawym przyciskiem myszy w dowolnym miejscu w okienku Edycja sznurka modułu i wybierz polecenie **Aktualizuj sznurek modułu**.
 
-6. Monitorowanie przychodzących komunikatów z urządzenia do chmury. Komunikaty powinny zostać zatrzymane do momentu osiągnięcia nowego progu temperatury.
+6. Monitoruj przychodzące komunikaty z urządzenia do chmury. Komunikaty powinny zostać zatrzymane do momentu osiągnięcia nowego progu temperatury.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -298,12 +298,12 @@ W przeciwnym razie możesz usunąć konfigurację lokalną i zasoby platformy Az
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono moduł usługi IoT Edge, który filtruje nieprzetworzone dane generowane przez urządzenie usługi IoT Edge. Gdy będziesz gotowy do tworzenia własnych modułów, możesz dowiedzieć się więcej o [tworzeniu modułów IoT Edge](module-development.md) lub o tym, jak [tworzyć moduły za pomocą programu Visual Studio Code.](how-to-vs-code-develop-module.md) Zobacz [przykłady modułów IoT Edge,](https://github.com/Azure/iotedge/tree/master/edge-modules) aby zapoznać się z przykładami kodu, w tym symulowanym modułem temperatury.
+W tym samouczku utworzono moduł IoT Edge, który filtruje dane pierwotne wygenerowane przez urządzenie IoT Edge. Gdy wszystko będzie gotowe do tworzenia własnych modułów, możesz dowiedzieć się więcej na temat [opracowywania modułów IoT Edge](module-development.md) lub tworzenia [modułów z Visual Studio Code](how-to-vs-code-develop-module.md). Zobacz przykłady [modułów IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) dla przykładów kodu, w tym moduł symulowanej temperatury.
 
-Przejdź do następnych samouczków, aby dowiedzieć się, jak usługa Azure IoT Edge pomaga wdrażać usługi w chmurze platformy Azure w celu przetwarzania i analizowania danych na serwerze brzegowym.
+Przejdź do kolejnych samouczków, aby dowiedzieć się, jak Azure IoT Edge pomaga wdrożyć usługi Azure Cloud Services w celu przetwarzania i analizowania danych na krawędzi.
 
 > [!div class="nextstepaction"]
-> [Funkcje](tutorial-deploy-function.md)
-> [Strumienia Analytics](tutorial-deploy-stream-analytics.md)
-> [Machine Learning](tutorial-deploy-machine-learning.md)
+> [Functions](tutorial-deploy-function.md)
+> [Stream Analytics](tutorial-deploy-stream-analytics.md)Stream Analytics
+> [Machine Learning](tutorial-deploy-machine-learning.md)funkcji Machine Learning
 > [Custom Vision Service](tutorial-deploy-custom-vision.md)

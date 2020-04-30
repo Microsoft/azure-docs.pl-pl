@@ -1,6 +1,6 @@
 ---
 title: Omówienie maszyn wirtualnych z systemem Linux na platformie Azure
-description: Omówienie maszyn wirtualnych systemu Linux na platformie Azure.
+description: Omówienie maszyn wirtualnych z systemem Linux na platformie Azure.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: overview
@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81759426"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
@@ -58,7 +58,7 @@ Platforma Azure oferuje najlepszą w branży umowę dotyczącą poziomu usług g
 ## <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 [Rozmiar](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) maszyny wirtualnej zależy od obciążenia, które ma zostać uruchomione. Wybrany rozmiar ma więc wpływ na takie czynniki jak moc procesora, pamięć i przestrzeń dyskowa. W ramach platformy Azure dostępna jest szeroka gama rozmiarów umożliwiających wykorzystanie produktu do wielu różnych zastosowań.
 
-Platforma Azure pobiera [cenę godzinową](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) na podstawie rozmiaru maszyny Wirtualnej i systemu operacyjnego. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
+Na platformie Azure jest naliczana [Cena godzinowa](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) w oparciu o rozmiar i system operacyjny maszyny wirtualnej. W przypadku rozpoczętych godzin opłaty są pobierane tylko za faktycznie wykorzystane minuty. Magazyn jest wyceniany oddzielnie; związane z nim opłaty są także pobierane osobno.
 
 ## <a name="vm-limits"></a>Limity maszyn wirtualnych
 Subskrypcje mają domyślne [limity przydziałów](../../azure-resource-manager/management/azure-subscription-service-limits.md), które mogą mieć wpływ na wdrożenie wielu maszyn wirtualnych w projekcie. Aktualny limit dla każdej subskrypcji wynosi 20 maszyn wirtualnych na region. Limity można zwiększyć, [wypełniając odpowiednio bilet pomocy technicznej](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
@@ -92,12 +92,12 @@ Firma Microsoft blisko współpracuje z partnerami, aby zagwarantować, że dost
 
 ## <a name="cloud-init"></a>Cloud-init 
 
-Aby uzyskać właściwą kulturę DevOps, cała infrastruktura musi być zawarta w kodzie.  Gdy cała infrastruktura działa w kodzie można łatwo odtworzyć.  Platforma Azure współpracuje ze wszystkimi najważniejszymi narzędziami automatyzacji, takimi jak Ansible, Chef, SaltStack i Puppet.  Platforma Azure oferuje również własne narzędzia automatyzacji:
+Aby uzyskać właściwą kulturę DevOps, cała infrastruktura musi być zawarta w kodzie.  Gdy cała infrastruktura przebywa w kodzie, można ją łatwo odtworzyć.  Platforma Azure współpracuje ze wszystkimi najważniejszymi narzędziami automatyzacji, takimi jak Ansible, Chef, SaltStack i Puppet.  Platforma Azure oferuje również własne narzędzia automatyzacji:
 
 * [Szablony platformy Azure](create-ssh-secured-vm-from-template.md)
 * [Rozszerzenie Azure VMAccess](using-vmaccess-extension.md)
 
-Platforma Azure obsługuje [init chmury w](https://cloud-init.io/) większości dystrybucji systemu Linux, które go obsługują.  Aktywnie współpracujemy z naszymi zatwierdzonymi partnerami dystrybucji systemu Linux, aby obrazy z obsługą chmury były dostępne w portalu Azure marketplace. Te obrazy sprawią, że wdrożenia i konfiguracje typu cloud-init będą bezproblemowo współpracować z maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych.
+Platforma Azure obsługuje funkcję [Cloud-init](https://cloud-init.io/) w większości dystrybucje systemu Linux, która go obsługuje.  Aktywnie pracujemy z naszymi potwierdzonymi partnerami dystrybucji systemu Linux w celu udostępnienia obrazów z obsługą chmury w portalu Azure Marketplace. Te obrazy spowodują, że wdrożenia i konfiguracje usługi Cloud-init pracują bezproblemowo z maszynami wirtualnymi i zestawami skalowania maszyn wirtualnych.
 
 * [Korzystanie z pakietu cloud-init na maszynach wirtualnych platformy Azure z systemem Linux](using-cloud-init.md)
 
@@ -115,7 +115,7 @@ Platforma Azure obsługuje [init chmury w](https://cloud-init.io/) większości 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Stwórz swoją pierwszą maszynę wirtualną!
+Utwórz pierwszą maszynę wirtualną.
 
 - [Portal](quick-create-portal.md)
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)

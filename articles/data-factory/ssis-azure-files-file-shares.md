@@ -1,6 +1,6 @@
 ---
-title: Otwieranie i zapisywanie plików za pomocą pakietów SSIS wdrożonych na platformie Azure
-description: Dowiedz się, jak otwierać i zapisywać pliki lokalnie i na platformie Azure podczas podnoszenia i przenoszenia pakietów SSIS korzystających z lokalnych systemów plików do SSIS na platformie Azure
+title: Otwieranie i zapisywanie plików z pakietami SSIS wdrożonymi na platformie Azure
+description: Dowiedz się, jak otwierać i zapisywać pliki lokalnie i na platformie Azure podczas podnoszenia i przesunięcia pakietów SSIS korzystających z lokalnych systemów plików do usług SSIS na platformie Azure
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.prod: sql
@@ -9,46 +9,46 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 630a8ead409ad60b9146838f062210a3301b43b5
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81760201"
 ---
-# <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Otwieranie i zapisywanie plików lokalnie i na platformie Azure za pomocą pakietów SSIS wdrożonych na platformie Azure
+# <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Otwieranie i zapisywanie plików lokalnych i na platformie Azure z pakietami SSIS wdrożonymi na platformie Azure
 
-W tym artykule opisano sposób otwierania i zapisywania plików w środowisku lokalnym i na platformie Azure podczas podnoszenia i przesuwania pakietów SSIS korzystających z lokalnych systemów plików do ssis na platformie Azure.
+W tym artykule opisano sposób otwierania i zapisywania plików lokalnych i na platformie Azure podczas podnoszenia i przesunięcia pakietów SSIS, które używają lokalnych systemów plików do usług SSIS na platformie Azure.
 
-## <a name="save-temporary-files"></a>Zapisywanie plików tymczasowych
+## <a name="save-temporary-files"></a>Zapisz pliki tymczasowe
 
-Jeśli chcesz przechowywać i przetwarzać pliki tymczasowe podczas wykonywania pojedynczego pakietu, pakiety mogą używać bieżącego katalogu roboczego (`.`) lub folderu tymczasowego (`%TEMP%`) węzłów środowiska wykonawczego integracji platformy Azure-SSIS.
+Jeśli zachodzi potrzeba przechowywania i przetwarzania plików tymczasowych podczas wykonywania pojedynczego pakietu, pakiety mogą korzystać z bieżącego katalogu roboczego (`.`) lub folderu tymczasowego (`%TEMP%`) węzłów Azure-SSIS Integration Runtime.
 
-## <a name="use-on-premises-file-shares"></a>Używanie lokalnych udziałów plików
+## <a name="use-on-premises-file-shares"></a>Korzystanie z lokalnych udziałów plików
 
-Aby nadal używać **lokalnych udziałów plików** podczas podnoszenia i przenoszenia pakietów korzystających z lokalnych systemów plików do SSIS na platformie Azure, wykonaj następujące czynności:
+Aby nadal korzystać z lokalnych **udziałów plików** podczas podnoszenia i przesunięcia pakietów, które korzystają z systemów plików w systemie SSIS na platformie Azure, wykonaj następujące czynności:
 
-1. Przenoszenie plików z lokalnych systemów plików do lokalnych udziałów plików.
+1. Przetransferuj pliki z lokalnych systemów plików do lokalnego udziału plików.
 
-2. Dołącz do lokalnych udziałów plików w sieci wirtualnej platformy Azure.
+2. Dołącz udziały plików lokalnych do sieci wirtualnej platformy Azure.
 
-3. Dołącz do usługi Azure-SSIS IR w tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Dołączanie środowiska wykonawczego integracji platformy Azure-SSIS do sieci wirtualnej.](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+3. Dołącz do Azure-SSIS IR do tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-4. Połącz urządzenie Azure-SSIS IR z lokalnymi udziałami plików w tej samej sieci wirtualnej, konfigurując poświadczenia dostępu korzystające z uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [Łączenie się z danymi i udziałami plików za pomocą uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
+4. Połącz Azure-SSIS IR z lokalnymi udziałami plików w tej samej sieci wirtualnej przez skonfigurowanie poświadczeń dostępu, które używają uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z danymi i udziałami plików przy użyciu uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
 
-5. Zaktualizuj lokalne ścieżki plików w pakietach do ścieżek UNC wskazujących lokalne udziały plików. Na przykład `C:\abc.txt` zaktualizuj do `\\<on-prem-server-name>\<share-name>\abc.txt`.
+5. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących udziały plików lokalnych. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<on-prem-server-name>\<share-name>\abc.txt`.
 
 ## <a name="use-azure-file-shares"></a>Korzystanie z udziałów plików platformy Azure
 
-Aby używać **usługi Azure Files** podczas podnoszenia i przenoszenia pakietów korzystających z lokalnych systemów plików do SSIS na platformie Azure, wykonaj następujące czynności:
+Aby użyć **Azure Files** podczas podnoszenia i przesunięcia pakietów, które używają lokalnych systemów plików do usług SSIS na platformie Azure, wykonaj następujące czynności:
 
-1. Przenoszenie plików z lokalnych systemów plików do usługi Azure Files. Aby uzyskać więcej informacji, zobacz [Usługi Azure Files](https://azure.microsoft.com/services/storage/files/).
+1. Transferowanie plików z lokalnych systemów plików do Azure Files. Aby uzyskać więcej informacji, zobacz [Azure Files](https://azure.microsoft.com/services/storage/files/).
 
-2. Połącz urządzenie Azure-SSIS IR z usługą Azure Files, konfigurując poświadczenia dostępu korzystające z uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [Łączenie się z danymi i udziałami plików za pomocą uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
+2. Połącz Azure-SSIS IR, aby Azure Files przez skonfigurowanie poświadczeń dostępu, które używają uwierzytelniania systemu Windows. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z danymi i udziałami plików przy użyciu uwierzytelniania systemu Windows](ssis-azure-connect-with-windows-auth.md).
 
-3. Zaktualizuj lokalne ścieżki plików w pakietach do ścieżek UNC wskazujących na usługi Azure Files. Na przykład `C:\abc.txt` zaktualizuj do `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt`.
+3. Zaktualizuj lokalne ścieżki plików w Twoich pakietach do ścieżek UNC wskazujących Azure Files. Na przykład zaktualizuj `C:\abc.txt` do programu `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt`.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wdrażanie pakietów. Aby uzyskać więcej informacji, zobacz [Wdrażanie projektu SSIS na platformie Azure za pomocą usługi SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
-- Uruchom swoje pakiety. Aby uzyskać więcej informacji, zobacz [Uruchamianie pakietów SSIS na platformie Azure za pomocą usługi SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Zaplanuj swoje pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów SSIS na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Wdróż pakiety. Aby uzyskać więcej informacji, zobacz [wdrażanie projektu SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Uruchom pakiety. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
+- Zaplanuj pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów usług SSIS na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

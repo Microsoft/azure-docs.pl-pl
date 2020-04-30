@@ -1,6 +1,6 @@
 ---
-title: Samouczek — łączenie ogólnej aplikacji klienckiej Node.js z usługą Azure IoT Central | Dokumenty firmy Microsoft
-description: W tym samouczku pokazano, jak jako deweloper urządzeń połączyć urządzenie z uruchomieniem aplikacji klienckiej Node.js z aplikacją Azure IoT Central. Szablon urządzenia można utworzyć, importując model możliwości urządzenia i dodaj widoki, które umożliwiają interakcję z podłączonym urządzeniem
+title: Samouczek — łączenie ogólnej aplikacji klienckiej Node. js z usługą Azure IoT Central | Microsoft Docs
+description: W tym samouczku pokazano, jak deweloper urządzenia łączy urządzenie z uruchomioną aplikacją kliencką Node. js w aplikacji IoT Central platformy Azure. Szablon urządzenia można utworzyć przez zaimportowanie modelu możliwości urządzenia i dodanie widoków, które umożliwiają współpracę z podłączonym urządzeniem
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/24/2020
@@ -9,56 +9,56 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mqtt
 ms.openlocfilehash: a8c5d9479585c0a519d0ad05a4d73f3f15b21287
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81758205"
 ---
-# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją Azure IoT Central (Node.js)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Samouczek: Tworzenie i łączenie aplikacji klienckiej z aplikacją usługi Azure IoT Central (Node. js)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
 *Ten artykuł dotyczy konstruktorów rozwiązań i deweloperów urządzeń.*
 
-W tym samouczku pokazano, jak jako deweloper urządzeń połączyć aplikację kliencką Node.js z aplikacją Azure IoT Central. Aplikacja Node.js symuluje zachowanie urządzenia czujnika środowiska. Przykładowego _modelu możliwości urządzenia_ służy do tworzenia _szablonu urządzenia_ w centrum IoT. Widoki są dodawanye do szablonu urządzenia, aby umożliwić operatorowi interakcję z urządzeniem.
+W tym samouczku pokazano, jak programista urządzeń ma połączyć aplikację kliencką Node. js z aplikacją IoT Central platformy Azure. Aplikacja Node. js symuluje zachowanie urządzenia czujnika środowiska. Korzystając z przykładowego _modelu możliwości urządzenia_ , można utworzyć _szablon urządzenia_ w IoT Central. Dodaj widoki do szablonu urządzenia, aby umożliwić operatorowi współpracujące z urządzeniem.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Zaimportowanie modelu możliwości urządzenia w celu utworzenia szablonu urządzenia.
-> * Dodawanie widoków domyślnych i niestandardowych do szablonu urządzenia.
-> * Opublikuj szablon urządzenia i dodaj prawdziwe urządzenie do aplikacji IoT Central.
-> * Utwórz i uruchom kod urządzenia Node.js i zobacz, jak łączy się z aplikacją IoT Central.
+> * Zaimportuj model możliwości urządzenia, aby utworzyć szablon urządzenia.
+> * Dodawanie domyślnych i niestandardowych widoków do szablonu urządzenia.
+> * Opublikuj szablon urządzenia i Dodaj rzeczywiste urządzenie do aplikacji IoT Central.
+> * Utwórz i uruchom kod urządzenia Node. js i sprawdź, czy jest on połączony z aplikacją IoT Central.
 > * Wyświetl symulowane dane telemetryczne wysyłane z urządzenia.
-> * Użyj widoku, aby zarządzać właściwościami urządzenia.
-> * Wywołaj polecenia synchroniczne i asynchroniczne, aby sterować urządzeniem.
+> * Użyj widoku, aby zarządzać właściwościami urządzeń.
+> * Wywoływanie poleceń synchronicznych i asynchronicznych w celu sterowania urządzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków opisanych w tym artykule potrzebne są:
 
-* Aplikacja Azure IoT Central utworzona przy użyciu szablonu **aplikacji niestandardowej.** Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md).
-* Komputer dewelopera z [zainstalowanym node.js](https://nodejs.org/) w wersji 10.0.0 lub nowszej. Możesz uruchomić `node --version` w wierszu polecenia, aby sprawdzić swoją wersję. Instrukcje w tym samouczku zakładają, że używasz polecenia **węzła** w wierszu polecenia systemu Windows. Jednak można użyć Node.js w wielu innych systemach operacyjnych.
+* Aplikacja IoT Central platformy Azure utworzona przy użyciu szablonu **aplikacji niestandardowej** . Aby uzyskać więcej informacji, zapoznaj się z [przewodnikiem Szybki start dotyczącym tworzenia aplikacji](quick-deploy-iot-central.md).
+* Komputer deweloperski z zainstalowanym środowiskiem [Node. js](https://nodejs.org/) w wersji 10.0.0 lub nowszej. Aby sprawdzić swoją `node --version` wersję, można uruchomić polecenie w wierszu polecenia. W instrukcjach przedstawionych w tym samouczku założono, że uruchomiono polecenie **Node** w wierszu polecenia systemu Windows. Można jednak używać środowiska Node. js w wielu innych systemach operacyjnych.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
 ### <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node.js
 
-Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która łączy się z rzeczywistym urządzeniem dodanym do aplikacji. Ta aplikacja Node.js symuluje zachowanie rzeczywistego urządzenia.
+Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node. js, która nawiązuje połączenie z rzeczywistym urządzeniem dodanym do aplikacji. Ta aplikacja Node. js symuluje zachowanie rzeczywistego urządzenia.
 
-1. W środowisku wiersza polecenia `environmental-sensor` przejdź do folderu utworzonego wcześniej.
+1. W środowisku wiersza polecenia przejdź do `environmental-sensor` folderu utworzonego wcześniej.
 
-1. Aby zainicjować projekt Node.js i zainstalować wymagane zależności, uruchom następujące polecenia - zaakceptuj `npm init`wszystkie opcje domyślne po uruchomieniu:
+1. Aby zainicjować projekt node. js i zainstalować wymagane zależności, uruchom następujące polecenia — Zaakceptuj wszystkie opcje domyślne podczas uruchamiania `npm init`:
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. Utwórz plik o nazwie **environmentalSensor.js** w folderze. `environmental-sensor`
+1. Utwórz plik o nazwie **environmentalSensor. js** w `environmental-sensor` folderze.
 
-1. Dodaj następujące `require` instrukcje na początku pliku **environmentalSensor.js:**
+1. Dodaj następujące `require` instrukcje na początku pliku **environmentalSensor. js** :
 
     ```javascript
     "use strict";
@@ -87,9 +87,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     var ledOn = true;
     ```
 
-    Zaktualizuj `{your Scope ID}` `{your Device ID}`symbole `{your Primary Key}` zastępcze , a także wartościami, które zostały wcześniej zanotowane. W tym przykładzie `targetTemperature` zainicjować do zera, można użyć bieżącego odczytu z urządzenia lub wartość z bliźniaczej reprezentacji urządzenia.
+    Aktualizowanie symboli zastępczych `{your Scope ID}`, `{your Device ID}`i `{your Primary Key}` z wartościami, które zostały wcześniej wykonane. W tym przykładzie zainicjowano `targetTemperature` do zera, można użyć bieżącego odczytu z urządzenia lub wartości z sznurka urządzenia.
 
-1. Aby wysłać symulowane dane telemetryczne do aplikacji Usługi Azure IoT Central, dodaj do pliku następującą funkcję:
+1. Aby wysłać symulowane dane telemetryczne do aplikacji IoT Central platformy Azure, Dodaj następującą funkcję do pliku:
 
     ```javascript
     // Send simulated device telemetry.
@@ -107,9 +107,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     }
     ```
 
-    Nazwy elementów telemetrycznych`temp` `humid`( i ) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
+    Nazwy elementów telemetrycznych (`temp` i `humid`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-1. Aby wysłać właściwości bliźniaczej reprezentacji urządzenia do aplikacji Usługi Azure IoT Central, dodaj do pliku następującą funkcję:
+1. Aby wysłać właściwości sznurka urządzenia do aplikacji IoT Central platformy Azure, Dodaj następującą funkcję do pliku:
 
     ```javascript
     // Send device twin reported properties.
@@ -119,9 +119,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     }
     ```
 
-    Usługa IoT Central używa bliźniąt bliźniąt urządzeń do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central. Wartości właściwości urządzenia używają bliźniaczej reprezentacji urządzenia zgłoszonych właściwości. Zapisywalne właściwości używają zarówno bliźniaczej reprezentacji urządzenia zgłaszane i żądane właściwości.
+    IoT Central używa bliźniaczych reprezentacji urządzenia do synchronizowania wartości właściwości między urządzeniem a aplikacją IoT Central. Wartości właściwości urządzenia używają właściwości zgłaszanych przez sznurek urządzeń. Właściwości do zapisu używają zarówno raportowanych, jak i żądanych właściwości.
 
-1. Aby zdefiniować i obsłużyć zapisywalne właściwości, na które odpowiada urządzenie, dodaj następujący kod:
+1. Aby zdefiniować i obsłużyć zapisywalne właściwości, na które odpowiada urządzenie, Dodaj następujący kod:
 
     ```javascript
     // Add any writeable properties your device supports,
@@ -162,11 +162,11 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     }
     ```
 
-    Gdy operator ustawia zapisowalne właściwości w aplikacji IoT Central, aplikacja używa bliźniaczej reprezentacji urządzenia żądanej właściwości, aby wysłać wartość do urządzenia. Urządzenie następnie odpowiada przy użyciu urządzenia bliźniaczej reprezentacji zgłaszane właściwości. Gdy aplikacja IoT Central odbiera zgłoszoną wartość właściwości, aktualizuje widok właściwości o stan **zsynchronizowany**.
+    Gdy operator ustawia właściwość do zapisu w aplikacji IoT Central, aplikacja używa odpowiedniej właściwości przędzy urządzenia do wysłania wartości do urządzenia. Następnie urządzenie odpowiada za pomocą właściwości zgłoszonej przez urządzenie. Gdy IoT Central otrzymuje raportowaną wartość właściwości, aktualizuje widok właściwości ze stanem **zsynchronizowane**.
 
     Nazwy właściwości (`name` i `brightness`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-1. Dodaj następujący kod do obsługi poleceń wysyłanych z aplikacji IoT Central:
+1. Dodaj następujący kod, aby obsłużyć polecenia wysyłane z aplikacji IoT Central:
 
     ```javascript
     // Setup command handlers
@@ -246,9 +246,9 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     }
     ```
 
-    `blink`Nazwy poleceń ( , `turnon` `turnoff`, `rundiagnostics`, i ) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
+    `blink`Nazwy poleceń ( `turnon`,, `turnoff`i `rundiagnostics`) muszą być zgodne z nazwami używanymi w szablonie urządzenia.
 
-    Obecnie usługa IoT Central nie używa schematu odpowiedzi zdefiniowanego w modelu możliwości urządzenia. Dla polecenia synchronicznego ładunku odpowiedzi może być dowolny prawidłowy JSON. W przypadku polecenia asynchronicznego urządzenie powinno natychmiast zwrócić odpowiedź 202, a następnie zgłoszoną aktualizację właściwości po zakończeniu pracy. Format zgłoszonej aktualizacji właściwości jest:
+    Obecnie IoT Central nie korzysta ze schematu odpowiedzi zdefiniowanego w modelu możliwości urządzenia. W przypadku polecenia synchronicznego ładunek odpowiedzi może być dowolnym prawidłowym kodem JSON. W przypadku polecenia asynchronicznego urządzenie powinno natychmiast zwrócić odpowiedź 202, a następnie zgłosić aktualizację właściwości po zakończeniu pracy. Format raportowanej aktualizacji właściwości to:
 
     ```json
     {
@@ -258,7 +258,7 @@ Poniższe kroki pokazują, jak utworzyć aplikację kliencką Node.js, która ł
     }
     ```
 
-    Operator może wyświetlić ładunek odpowiedzi w historii poleceń.
+    Operator może wyświetlać ładunek odpowiedzi w historii poleceń.
 
 1. Dodaj następujący kod, aby umożliwić nawiązanie połączenia z usługą Azure IoT Central i dołączyć funkcje do kodu klienta:
 
@@ -316,24 +316,24 @@ Aby uruchomić aplikację kliencką urządzenia, uruchom następujące polecenie
 node environmentalSensor.js
 ```
 
-Możesz zobaczyć, że urządzenie łączy się z aplikacją Azure IoT Central i rozpoczyna wysyłanie danych telemetrycznych:
+Możesz zobaczyć, że urządzenie nawiązuje połączenie z aplikacją IoT Central platformy Azure i zacznie wysyłać dane telemetryczne:
 
-![Uruchamianie aplikacji klienckiej](media/tutorial-connect-device-nodejs/run-application.png)
+![Uruchom aplikację kliencką](media/tutorial-connect-device-nodejs/run-application.png)
 
 [!INCLUDE [iot-central-monitor-environmental-sensor](../../../includes/iot-central-monitor-environmental-sensor.md)]
 
-Możesz zobaczyć, jak urządzenie reaguje na polecenia i aktualizacje właściwości:
+Można sprawdzić, jak urządzenie reaguje na polecenia i aktualizacje właściwości:
 
 ![Obserwuj aplikację kliencką](media/tutorial-connect-device-nodejs/run-application-2.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jako deweloper urządzeń, teraz, gdy już znasz podstawy tworzenia urządzenia przy użyciu node.js, niektóre sugerowane następne kroki są następujące:
+Jako deweloper urządzenia teraz znasz podstawowe informacje dotyczące sposobu tworzenia urządzenia przy użyciu środowiska Node. js, a oto kilka sugerowanych następnych kroków:
 
-- Dowiedz się, jak połączyć rzeczywiste urządzenie z centrum IoT w [artykule Łączenie urządzenia MXChip IoT DevKit z aplikacją Azure IoT Central.](./howto-connect-devkit.md)
-- Przeczytaj artykuł [Nawiązanie połączenia z usługą Azure IoT Central,](./concepts-get-connected.md) aby dowiedzieć się więcej o rejestrowaniu urządzeń w usłudze IoT Central i sposobie zabezpieczania połączeń urządzeń przez usługę IoT Central.
+- Dowiedz się, jak połączyć rzeczywiste urządzenie, aby IoT Central w artykule [nawiązywanie połączenia z usługą zestawu deweloperskiego IoT DevKit do aplikacji IoT Central platformy Azure](./howto-connect-devkit.md) .
+- Aby dowiedzieć się więcej o sposobach rejestrowania urządzeń w usłudze IoT Central i sposobach IoT Central zabezpieczania połączeń urządzeń, przeczytaj artykuł [wprowadzenie do usługi Azure IoT Central](./concepts-get-connected.md) .
 
-Jeśli wolisz kontynuować tworzenie samouczków W centrum IoT i dowiedzieć się więcej o tworzeniu rozwiązania Centrum IoT, zobacz:
+Jeśli wolisz korzystać z zestawu samouczków IoT Central i dowiedzieć się więcej na temat tworzenia rozwiązania IoT Central, zobacz:
 
 > [!div class="nextstepaction"]
 > [Tworzenie szablonu urządzenia bramy](./tutorial-define-gateway-device-type.md)

@@ -1,6 +1,6 @@
 ---
-title: Drzwi frontowe platformy Azure — obsługa domen wieloznacznych
-description: Ten artykuł ułatwia zrozumienie, jak usługi Azure Front Door obsługuje mapowanie domen wieloznacznych i zarządzanie nimi na liście domen niestandardowych.
+title: Platformy Azure — obsługa drzwi z symbolami wieloznacznymi
+description: Ten artykuł pomaga zrozumieć, w jaki sposób platforma Azure front-drzwi obsługuje mapowanie i Zarządzanie domenami wieloznacznymi na liście domen niestandardowych.
 services: frontdoor
 author: sharad4u
 ms.service: frontdoor
@@ -11,71 +11,71 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
 ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81768307"
 ---
 # <a name="wildcard-domains"></a>Domeny wieloznaczne
 
-Poza domenami i poddomenami wierzchołków można mapować nazwę domeny z symbolami wieloznacznych na listę hostów frontu lub domen niestandardowych w profilu usługi Azure Front Door. Posiadanie domen wieloznacznych w konfiguracji usługi Azure Front Door upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę oddzielnie. Na przykład można zdefiniować routing `customer1.contoso.com` `customer2.contoso.com`dla `customerN.contoso.com` programu , a także użyć tej samej reguły routingu i dodać domenę symboli wieloznacznych `*.contoso.com`.
+Poza domenami i domenami w języku Apex można zamapować wieloznaczną nazwę domeny na listę hostów frontonu lub domen niestandardowych w profilu z systemem Azure. Posiadanie wieloznacznych domen w konfiguracji drzwi platformy Azure upraszcza zachowanie routingu ruchu dla wielu poddomen dla interfejsu API, aplikacji lub witryny sieci Web z tej samej reguły routingu. Nie trzeba modyfikować konfiguracji, aby dodać lub określić każdą poddomenę osobno. Można na przykład zdefiniować Routing `customer1.contoso.com`dla, `customer2.contoso.com`i `customerN.contoso.com` za pomocą tej samej reguły routingu i dodać domenę `*.contoso.com`wieloznaczną.
 
-Kluczowe scenariusze, które zostały ulepszone dzięki obsłudze domen wieloznacznych, obejmują:
+Najważniejsze scenariusze, które zostały ulepszone z obsługą domen symboli wieloznacznych, to m.in.:
 
-- Nie musisz dołączać każdej poddomeny w profilu usługi Azure Front Door, a następnie włączyć protokół HTTPS do powiązania certyfikatu dla każdej poddomeny.
-- Nie musisz już zmieniać konfiguracji usługi Azure Front Door w przypadku, gdy aplikacja doda nową poddomenę. Wcześniej trzeba było dodać poddomenę, powiązać do niej certyfikat, dołączyć zasady zapory aplikacji sieci web (WAF), a następnie dodać domenę do różnych reguł routingu.
+- Nie musisz dołączać każdej poddomeny w profilu usługi Azure front-drzwi, a następnie włączyć protokół HTTPS, aby powiązać certyfikat dla każdej poddomeny.
+- Nie jest już wymagane zmiana konfiguracji produkcyjnej drzwi platformy Azure, jeśli aplikacja doda nową poddomenę. Wcześniej trzeba było dodać poddomenę, powiązać z nią certyfikat, dołączyć zasady zapory aplikacji sieci Web (WAF), a następnie dodać domenę do różnych reguł routingu.
 
 > [!NOTE]
-> Obecnie domeny wieloznaczne są obsługiwane tylko za pośrednictwem interfejsu API, programu PowerShell i interfejsu wiersza polecenia platformy Azure. Obsługa dodawania domen wieloznacznych i zarządzania nimi w witrynie Azure portal nie jest dostępna.
+> Obecnie domeny wieloznaczne są obsługiwane tylko za pośrednictwem interfejsu API, programu PowerShell i interfejsu wiersza polecenia platformy Azure. Obsługa dodawania domen wieloznacznych i zarządzania nimi w Azure Portal jest niedostępna.
 
 ## <a name="adding-wildcard-domains"></a>Dodawanie domen wieloznacznych
 
-W sekcji dla hostów front-end lub domen można dodać domenę wieloznaczną. Podobnie jak poddomeny usługi Azure Front Door sprawdza, czy istnieje mapowanie rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim `*.contoso.com` mapowaniem `contoso.azurefd.net`rekordów CNAME, takim jak mapowane na . Można też użyć mapowania tymczasowego afdverify. Na przykład `afdverify.contoso.com` mapowane `afdverify.contoso.azurefd.net` do sprawdzania poprawności mapy rekordów CNAME dla symbolu wieloznacznego.
+W sekcji dla hostów lub domen frontonu można dodać domenę symboli wieloznacznych. Podobnie jak w przypadku poddomen, drzwi frontonu platformy Azure sprawdzają, czy istnieje mapowanie rekordów CNAME dla domeny wieloznacznej. To mapowanie DNS może być bezpośrednim mapowaniem rekordu CNAME, `*.contoso.com` takiego jak `contoso.azurefd.net`mapowany do. Można też użyć tymczasowego mapowania afdverify. Na przykład `afdverify.contoso.com` mapowane do `afdverify.contoso.azurefd.net` walidacji mapy rekordów CNAME dla symbolu wieloznacznego.
 
 > [!NOTE]
 > Usługa DNS platformy Azure obsługuje rekordy z użyciem symboli wieloznacznych.
 
-Można dodać dowolną liczbę poddomen jednopoziomowych domeny wieloznacznej w hostach front-end, do limitu hostów frontu. Ta funkcja może być wymagana dla:
+Na hostach frontonu można dodać dowolną liczbę poddomen domen z symbolem wielopoziomowym, do limitu hostów frontonu. Ta funkcjonalność może być wymagana w przypadku:
 
-- Definiowanie innej trasy dla poddomeny niż pozostałe domeny (z domeny wieloznacznej).
+- Definiowanie innej trasy dla domeny podrzędnej niż reszta domen (z domeny z symbolem wieloznacznym).
 
-- Posiadanie innej zasady WAF dla określonej poddomeny. Na przykład `*.contoso.com` umożliwia `foo.contoso.com` dodawanie bez konieczności ponownego udowodnienia własności domeny. Ale to nie `foo.bar.contoso.com` pozwala, ponieważ nie jest to subdomena `*.contoso.com`jednego poziomu . Aby `foo.bar.contoso.com` dodać bez dodatkowej `*.bar.contosonews.com` weryfikacji własności domeny, należy dodać.
+- Posiadanie innych zasad WAF dla określonej domeny podrzędnej. Na przykład `*.contoso.com` zezwala na dodawanie `foo.contoso.com` bez konieczności ponownego posiadania własności domeny. Ale nie jest to `foo.bar.contoso.com` dozwolone, ponieważ nie jest poddomeną na `*.contoso.com`poziomie jednego poziomu. Aby dodać `foo.bar.contoso.com` bez sprawdzania poprawności własności domeny, `*.bar.contosonews.com` należy dodać.
 
-Domeny wieloznaczne i ich poddomeny można dodawać z pewnymi ograniczeniami:
+Można dodawać symbole wieloznaczne i ich poddomeny z pewnymi ograniczeniami:
 
-- Jeśli domena wieloznaczna zostanie dodana do profilu usługi Azure Front Door:
-  - Nie można dodać domeny wieloznacznych do żadnego innego profilu usługi Azure Front Door.
-  - Poddomen pierwszego poziomu domeny z symbolami wieloznaczymi nie można dodać do innego profilu usługi Azure Front Door ani do profilu usługi Azure Content Delivery Network.
-- Jeśli poddomena domeny wieloznacznej zostanie dodana do profilu usługi Azure Front Door lub profilu usługi Azure Content Delivery Network, nie można dodać domeny wieloznacznej do innych profili usługi Azure Front Door.
-- Jeśli dwa profile (Usługi Azure Front Door lub Azure Content Delivery Network) mają różne poddomeny domeny głównej, nie można dodać domen wieloznacznych do żadnego z profili.
+- Jeśli domena z symbolami wieloznacznymi zostanie dodana do profilu usługi Azure front-drzwi:
+  - Nie można dodać domeny z symbolami wieloznacznymi do żadnego profilu usługi Azure front-drzwi.
+  - Nie można dodać poddomen pierwszego poziomu domeny z symbolami wieloznacznymi do innego profilu platformy Azure z systemem lub profilu usługi Azure Content Delivery Network.
+- Jeśli poddomena domeny z symbolem wieloznacznym zostanie dodana do profilu usługi Azure Front-drzwiczk lub profilu usługi Azure Content Delivery Network, nie można dodać domeny z symbolami wieloznacznymi do innych profilów systemu Azure.
+- Jeśli dwa profile (z przodu platformy Azure lub na platformie Azure Content Delivery Network) mają różne poddomeny domeny głównej, nie można dodać domen symboli wieloznacznych do jednego z tych profilów.
 
 ## <a name="certificate-binding"></a>Powiązanie certyfikatu
 
-Aby akceptować ruch HTTPS w domenie wieloznacznych, należy włączyć protokół HTTPS w domenie wieloznacznych. Powiązanie certyfikatu dla domeny wieloznacznych wymaga certyfikatu symboli wieloznacznych. Oznacza to, że nazwa podmiotu certyfikatu powinna mieć również domenę symboli wieloznacznych.
+W przypadku akceptowania ruchu HTTPS w domenie wieloznacznej należy włączyć protokół HTTPS w domenie symboli wieloznacznych. Powiązanie certyfikatu dla domeny wieloznacznej wymaga certyfikatu z symbolem wieloznacznym. Oznacza to, że nazwa podmiotu certyfikatu powinna również mieć domenę wieloznaczną.
 
 > [!NOTE]
-> Obecnie tylko przy użyciu własnej opcji certyfikatu SSL jest dostępna do włączania protokołu HTTPS dla domen wieloznacznych. Certyfikatów zarządzanych usługi Azure Front Door nie można używać dla domen wieloznacznych.
+> Obecnie do włączenia protokołu HTTPS dla domen wieloznacznych jest dostępna tylko opcja korzystania z własnej niestandardowej opcji certyfikatu protokołu SSL. W przypadku domen wieloznacznych nie można używać certyfikatów z możliwością zarządzania drzwiami platformy Azure.
 
-Możesz użyć tego samego certyfikatu symboli wieloznacznych z usługi Azure Key Vault lub certyfikatów zarządzanych usługi Azure Front Door dla poddomen.
+Można wybrać użycie tego samego certyfikatu wieloznacznego z Azure Key Vault lub z certyfikatów zarządzanych przez usługę Azure Front-submains dla poddomen.
 
-Jeśli subdomena jest dodawana dla domeny wieloznacznych, która ma już skojarzony certyfikat, nie można wyłączyć protokołu HTTPS dla poddomeny. Poddomena używa powiązania certyfikatu dla domeny wieloznacznych, chyba że inny certyfikat zarządzany usługi Key Vault lub Usługi Azure Front Door zastępuje go.
+Jeśli poddomena zostanie dodana dla domeny wieloznacznej, z którą jest już skojarzony certyfikat, nie można wyłączyć protokołu HTTPS dla domeny podrzędnej. Poddomena używa powiązania certyfikatu dla domeny z symbolami wieloznacznymi, chyba że inny Key Vault lub certyfikat zarządzany przez program Azure front-drzwi nie zastępuje go.
 
 ## <a name="waf-policies"></a>Zasady WAF
 
-Zasady WAF mogą być dołączone do domen wieloznacznych, podobnie jak inne domeny. Inne zasady WAF można zastosować do poddomeny domeny wieloznacznej. W przypadku poddomen należy określić zasady WAF, które mają być używane, nawet jeśli są to te same zasady co domena wieloznaczna. Poddomeny *nie* dziedziczą automatycznie zasad WAF z domeny symboli wieloznacznych.
+Zasady WAFymi można dołączać do domen z symbolami wieloznacznymi, podobnie jak w przypadku innych domen. Inne zasady WAF można zastosować do poddomeny w domenie wieloznacznej. W przypadku poddomen należy określić zasady WAF, które mają być używane, nawet jeśli są to te same zasady, co w przypadku domeny wieloznacznej. Poddomeny *nie dziedziczą automatycznie zasad* WAF z domeny wieloznacznej.
 
-Jeśli nie chcesz, aby zasady WAF były uruchamiane dla poddomeny, możesz utworzyć pustą zasadę WAF bez zarządzanych lub niestandardowych planów reguł.
+Jeśli nie chcesz uruchamiać zasad WAFymi dla poddomeny, możesz utworzyć puste zasady WAFymi bez reguł zarządzanych lub niestandardowych.
 
 ## <a name="routing-rules"></a>Reguły routingu
 
-Podczas konfigurowania reguły routingu można wybrać domenę wieloznaczną jako hosta frontowego. Można również mieć różne zachowanie trasy dla domen wieloznacznych i poddomen. Jak opisano w [jak usługa Azure Front Door nie dopasowywania trasy,](front-door-route-matching.md)najbardziej szczegółowe dopasowanie dla domeny w różnych reguł routingu jest wybierany w czasie wykonywania.
+Podczas konfigurowania reguły routingu można wybrać domenę wieloznaczną jako hosta frontonu. Istnieje również różne zachowanie trasy dla domen symboli wieloznacznych i poddomen. Zgodnie z opisem w temacie [jak usługa Azure Front-drzwiczki kieruje Dopasowywanie](front-door-route-matching.md)do siebie, w czasie wykonywania wybiera się najbardziej szczegółowe dopasowanie dla domeny w różnych regułach routingu.
 
 > [!IMPORTANT]
-> Musisz mieć pasujące wzorce ścieżek w regułach routingu lub klienci zobaczą błędy. Na przykład masz dwie reguły routingu, takie jak Trasa 1`*.foo.com/*` (mapowana`bar.foo.com/somePath/*` na pulę zaplecza A) i Trasa 2 (mapowana na pulę zaplecza B). Następnie pojawia się `bar.foo.com/anotherPath/*`prośba o . Usługa Azure Front Door wybiera trasę 2 na podstawie bardziej szczegółowego dopasowania domeny, aby znaleźć nie pasujące wzorce ścieżek w trasach.
+> Musisz mieć zgodne wzorce ścieżki w regułach routingu lub klienci będą widzieć błędy. Na przykład istnieją dwie reguły routingu, takie jak Route 1 (`*.foo.com/*` zamapowane do puli zaplecza a) i trasy 2 (`bar.foo.com/somePath/*` mapowane na pulę zaplecza B). Następnie zostanie odebrane żądanie `bar.foo.com/anotherPath/*`. Drzwi frontonu platformy Azure wybierają pozycję Route 2 w oparciu o bardziej szczegółowe dopasowanie domeny, aby znaleźć niezgodne wzorce ścieżki w ramach tras.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się, jak [utworzyć profil drzwi y frontowej platformy Azure.](quickstart-create-front-door.md)
-- Dowiedz się, jak [dodać domenę niestandardową w drzwiach frontowych platformy Azure](front-door-custom-domain.md).
-- Dowiedz się, jak [włączyć protokół HTTPS w domenie niestandardowej](front-door-custom-domain-https.md).
+- Dowiedz się, jak [utworzyć profil dla drzwi platformy Azure](quickstart-create-front-door.md).
+- Dowiedz się, jak [dodać domenę niestandardową na platformie Azure front-drzwi](front-door-custom-domain.md).
+- Dowiedz się, jak [włączyć protokół https w domenie niestandardowej](front-door-custom-domain-https.md).

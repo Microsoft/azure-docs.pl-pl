@@ -1,6 +1,6 @@
 ---
-title: Uzyskiwanie dostępu do magazynów danych i udziałów plików za pomocą uwierzytelniania systemu Windows
-description: Dowiedz się, jak skonfigurować wykaz SSIS w bazie danych SQL Azure i czasie pracy integracji platformy Azure-SSIS w usłudze Azure Data Factory w celu uruchamiania pakietów uzyskujących dostęp do magazynów danych i udziałów plików za pomocą uwierzytelniania systemu Windows.
+title: Dostęp do magazynów danych i udziałów plików z uwierzytelnianiem systemu Windows
+description: Dowiedz się, jak skonfigurować katalog usług SSIS w Azure SQL Database i Azure-SSIS Integration Runtime w Azure Data Factory do uruchamiania pakietów, które uzyskują dostęp do magazynów danych i udziałów plików z uwierzytelnianiem systemu Windows.
 ms.date: 3/22/2018
 ms.topic: conceptual
 ms.prod: sql
@@ -11,40 +11,40 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
 ms.openlocfilehash: 0c4cdc3481fb58efd8eaa4cd83e1d6167f203a4e
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81760188"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Uzyskiwanie dostępu do magazynów danych i udziałów plików za pomocą uwierzytelniania systemu Windows z poziomu pakietów SSIS na platformie Azure
 
-Uwierzytelnianie systemu Windows służy do uzyskiwania dostępu do magazynów danych, takich jak serwery SQL, udziały plików, pliki azure itp. Magazyny danych mogą znajdować się lokalnie, hostowane na maszynach wirtualnych platformy Azure (VM) lub uruchomione na platformie Azure jako usługi zarządzane. Jeśli znajdują się one w środowisku lokalnym, należy dołączyć do usługi Azure-SSIS IR do sieci wirtualnej (Microsoft Azure Virtual Network) połączonej z siecią lokalną, zobacz [Dołączanie usługi Azure-SSIS IR do sieci wirtualnej platformy Microsoft Azure.](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) Istnieją cztery metody uzyskiwania dostępu do magazynów danych za pomocą uwierzytelniania systemu Windows z pakietów SSIS uruchomionych na platformie Azure-SSIS IR:
+Możesz użyć uwierzytelniania systemu Windows, aby uzyskać dostęp do magazynów danych, takich jak serwery SQL, udziały plików, Azure Files itd., z pakietów SSIS działających na Azure-SSIS Integration Runtime (IR) w Azure Data Factory (ADF). Magazyny danych mogą znajdować się lokalnie, hostowane w usłudze Azure Virtual Machines (maszyny wirtualne) lub działać na platformie Azure jako usługi zarządzane. Jeśli są one lokalne, należy przyłączyć Azure-SSIS IR do Virtual Network (Microsoft Azure Virtual Network) podłączonych do sieci lokalnej, a następnie [Przyłączyć Azure-SSIS IR do Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Istnieją cztery metody uzyskiwania dostępu do magazynów danych z uwierzytelnianiem systemu Windows z pakietów SSIS uruchomionych na Azure-SSIS IR:
 
-| Metoda połączenia | Zakres efektywnej | Krok konfiguracji | Metoda dostępu w pakietach | Liczba zestawów poświadczeń i połączonych zasobów | Typ połączonych zasobów | 
+| Metoda połączenia | Zakres obowiązywania | Krok instalacji | Metoda dostępu w pakietach | Liczba zestawów poświadczeń i połączonych zasobów | Typ połączonych zasobów | 
 |---|---|---|---|---|---|
-| Konfigurowanie kontekstu wykonywania na poziomie działania | Działanie Na wykonanie pakietu SSIS | Skonfiguruj właściwość **uwierzytelniania systemu Windows,** aby skonfigurować kontekst "Wykonanie/Uruchom jako" podczas uruchamiania pakietów SSIS jako wykonywanie działań pakietu SSIS w potokach usługi ADF.<br/><br/> Aby uzyskać więcej informacji, zobacz [Konfigurowanie działania pakietu Wykonywanie SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). | Dostęp do zasobów bezpośrednio w pakietach za pomocą ścieżki UNC, `\\YourFileShareServerName\YourFolderName` na przykład, jeśli używasz udziałów plików lub usługi Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa tylko jednego zestawu poświadczeń dla wszystkich połączonych zasobów | - Udziały plików w środowisku lokalnym/maszynach wirtualnych platformy Azure<br/><br/> - Usługi Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - Serwery SQL w środowisku lokalnym/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> - Inne zasoby z uwierzytelnianiem systemu Windows |
-| Konfigurowanie kontekstu wykonywania na poziomie katalogu | Zgodnie z usługą Azure-SSIS IR, ale jest zastępowane podczas konfigurowania kontekstu wykonywania na poziomie działania (patrz wyżej) | Wykonaj procedurę `catalog.set_execution_credential` składowaną SSISDB, aby skonfigurować kontekst "Wykonanie/Uruchom jako".<br/><br/> Aby uzyskać więcej informacji, zobacz resztę tego artykułu poniżej. | Dostęp do zasobów bezpośrednio w pakietach za pomocą ścieżki UNC, `\\YourFileShareServerName\YourFolderName` na przykład, jeśli używasz udziałów plików lub usługi Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa tylko jednego zestawu poświadczeń dla wszystkich połączonych zasobów | - Udziały plików w środowisku lokalnym/maszynach wirtualnych platformy Azure<br/><br/> - Usługi Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - Serwery SQL w środowisku lokalnym/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> - Inne zasoby z uwierzytelnianiem systemu Windows |
-| Utrwalanie poświadczeń za pomocą `cmdkey` polecenia | Zgodnie z usługą Azure-SSIS IR, ale jest zastępowane podczas konfigurowania kontekstu wykonywania na poziomie działania/katalogu (patrz wyżej) | Wykonaj `cmdkey` polecenie w niestandardowych`main.cmd`skryptach konfiguracyjnych ( ) podczas inicjowania obsługi administracyjnej usługi `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` Azure-SSIS IR, na przykład, jeśli używasz udziałów plików lub usługi Azure Files: lub `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`.<br/><br/> Aby uzyskać więcej informacji, zobacz [Dostosowywanie konfiguracji dla usługi Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). | Dostęp do zasobów bezpośrednio w pakietach za pomocą ścieżki UNC, `\\YourFileShareServerName\YourFolderName` na przykład, jeśli używasz udziałów plików lub usługi Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa wielu zestawów poświadczeń dla różnych połączonych zasobów | - Udziały plików w środowisku lokalnym/maszynach wirtualnych platformy Azure<br/><br/> - Usługi Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> - Serwery SQL w środowisku lokalnym/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> - Inne zasoby z uwierzytelnianiem systemu Windows |
-| Montaż napędów w czasie wykonywania pakietu (nietrwałe) | Na opakowanie | Wykonaj `net use` polecenie w execute process task, które jest dodawane na początku przepływu sterowania w pakietach, na przykład`net use D: \\YourFileShareServerName\YourFolderName` | Dostęp do udziałów plików za pośrednictwem mapowanych dysków | Obsługa wielu dysków dla różnych udziałów plików | - Udziały plików w środowisku lokalnym/maszynach wirtualnych platformy Azure<br/><br/> - Usługi Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) |
+| Konfigurowanie kontekstu wykonywania na poziomie działania | Działanie na pakiet SSIS na wykonanie | Skonfiguruj Właściwość **uwierzytelnianie systemu Windows** , aby skonfigurować kontekst "Wykonywanie/Uruchamianie jako" podczas uruchamiania pakietów usług SSIS jako działania pakietu SSIS w potokach ADF.<br/><br/> Aby uzyskać więcej informacji, zobacz [Konfigurowanie działania wykonywania pakietu usług SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). | Dostęp do zasobów bezpośrednio w pakietach za pośrednictwem ścieżki UNC, na przykład w przypadku używania udziałów plików `\\YourFileShareServerName\YourFolderName` lub Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa tylko jednego zestawu poświadczeń dla wszystkich połączonych zasobów | -Udziały plików na maszynach wirtualnych platformy Azure<br/><br/> -Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> — Serwery SQL lokalnie/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> — Inne zasoby z uwierzytelnianiem systemu Windows |
+| Konfigurowanie kontekstu wykonywania na poziomie katalogu | Na Azure-SSIS IR, ale jest zastępowany podczas konfigurowania kontekstu wykonywania na poziomie aktywności (patrz powyżej) | Wykonaj procedurę `catalog.set_execution_credential` SKŁADOWAną SSISDB, aby skonfigurować kontekst "Execution/Run As".<br/><br/> Aby uzyskać więcej informacji, zobacz pozostałą część tego artykułu poniżej. | Dostęp do zasobów bezpośrednio w pakietach za pośrednictwem ścieżki UNC, na przykład w przypadku używania udziałów plików `\\YourFileShareServerName\YourFolderName` lub Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa tylko jednego zestawu poświadczeń dla wszystkich połączonych zasobów | -Udziały plików na maszynach wirtualnych platformy Azure<br/><br/> -Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> — Serwery SQL lokalnie/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> — Inne zasoby z uwierzytelnianiem systemu Windows |
+| Utrwalanie poświadczeń za `cmdkey` pomocą polecenia | Na Azure-SSIS IR, ale jest zastępowany podczas konfigurowania kontekstu wykonywania na poziomie katalogu (patrz powyżej) | Wykonaj `cmdkey` polecenie w niestandardowym skrypcie instalacji`main.cmd`() podczas aprowizacji Azure-SSIS IR, np., jeśli używasz udziałów plików lub Azure Files: `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` lub. `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey`<br/><br/> Aby uzyskać więcej informacji, zobacz [Dostosowywanie Instalatora dla Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). | Dostęp do zasobów bezpośrednio w pakietach za pośrednictwem ścieżki UNC, na przykład w przypadku używania udziałów plików `\\YourFileShareServerName\YourFolderName` lub Azure Files: lub`\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Obsługa wielu zestawów poświadczeń dla różnych połączonych zasobów | -Udziały plików na maszynach wirtualnych platformy Azure<br/><br/> -Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> — Serwery SQL lokalnie/maszyny wirtualne platformy Azure z uwierzytelnianiem systemu Windows<br/><br/> — Inne zasoby z uwierzytelnianiem systemu Windows |
+| Instalowanie dysków w czasie wykonywania pakietu (nietrwałe) | Na pakiet | Wykonaj `net use` polecenie w zadaniu wykonywania procesu, które zostało dodane na początku przepływu sterowania w Twoich pakietach, na przykład`net use D: \\YourFileShareServerName\YourFolderName` | Dostęp do udziałów plików za pośrednictwem mapowanych dysków | Obsługa wielu dysków dla różnych udziałów plików | -Udziały plików na maszynach wirtualnych platformy Azure<br/><br/> -Azure Files, zobacz [Korzystanie z udziału plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) |
 |||||||
 
 > [!WARNING]
-> Jeśli nie używasz żadnej z powyższych metod dostępu do magazynów danych za pomocą uwierzytelniania systemu Windows, pakiety zależne od uwierzytelniania systemu Windows nie będą mogły uzyskać do nich dostępu i zakończyć się niepowodzeniem w czasie wykonywania. 
+> Jeśli nie korzystasz z powyższych metod w celu uzyskania dostępu do magazynów danych z uwierzytelnianiem systemu Windows, pakiety zależne od uwierzytelniania systemu Windows nie będą mogły uzyskać do nich dostępu i nie powiodą się w czasie wykonywania. 
 
-W dalszej części tego artykułu opisano sposób konfigurowania katalogu SSIS (SSISDB) hostowanego na serwerze/wystąpieniu zarządzanym bazy danych SQL platformy Azure do uruchamiania pakietów na platformie Azure-SSIS IR, które używają uwierzytelniania systemu Windows w celu uzyskania dostępu do magazynów danych. 
+W dalszej części tego artykułu opisano sposób konfigurowania wykazu usług SSIS (SSISDB) hostowanego w programie Azure SQL Database Server/instance Managed do uruchamiania pakietów na Azure-SSIS IR, które używają uwierzytelniania systemu Windows w celu uzyskiwania dostępu do magazynów danych. 
 
-## <a name="you-can-only-use-one-set-of-credentials"></a>Można użyć tylko jednego zestawu poświadczeń
+## <a name="you-can-only-use-one-set-of-credentials"></a>Można używać tylko jednego zestawu poświadczeń
 
-Podczas korzystania z uwierzytelniania systemu Windows w pakiecie SSIS można użyć tylko jednego zestawu poświadczeń. Poświadczenia domeny, które podajesz, gdy wykonasz kroki opisane w tym artykule, dotyczą wszystkich wykonań pakietów — interaktywnych lub zaplanowanych — w usłudze Azure-SSIS IR do momentu ich zmiany lub usunięcia. Jeśli pakiet musi łączyć się z wieloma magazynami danych z różnymi zestawami poświadczeń, należy wziąć pod uwagę powyższe metody alternatywne.
+W przypadku korzystania z uwierzytelniania systemu Windows w pakiecie usług SSIS można używać tylko jednego zestawu poświadczeń. Poświadczenia domeny podane po wykonaniu kroków opisanych w tym artykule mają zastosowanie do wszystkich wykonań pakietów — interaktywnych lub zaplanowanych na Azure-SSIS IR do momentu ich zmiany lub usunięcia. Jeśli pakiet ma łączyć się z wieloma magazynami danych przy użyciu różnych zestawów poświadczeń, należy wziąć pod uwagę powyższe alternatywne metody.
 
 ## <a name="provide-domain-credentials-for-windows-authentication"></a>Podaj poświadczenia domeny dla uwierzytelniania systemu Windows
 
-Aby podać poświadczenia domeny, które umożliwiają pakietom korzystanie z uwierzytelniania systemu Windows w celu uzyskania dostępu do magazynów danych w środowisku lokalnym, wykonaj następujące czynności:
+Aby podać poświadczenia domeny, które zezwalają pakietom na dostęp do magazynów danych lokalnie przy użyciu uwierzytelniania systemu Windows, wykonaj następujące czynności:
 
-1. Za pomocą programu SQL Server Management Studio (SSMS) lub innego narzędzia połącz się z serwerem/wystąpieniem zarządzanym bazy danych SQL platformy Azure, które obsługuje usługę SSISDB. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Program SQL Server Management Studio (SSMS) lub inne narzędzie nawiązuje połączenie z serwerem Azure SQL Database/zarządzanym wystąpieniem, które hostuje SSISDB. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
-2. Z SSISDB jako bieżącej bazy danych, otwórz okno kwerendy.
+2. Korzystając z SSISDB jako bieżącej bazy danych, Otwórz okno zapytania.
 
 3. Uruchom następującą procedurę składowaną i podaj odpowiednie poświadczenia domeny:
 
@@ -52,15 +52,15 @@ Aby podać poświadczenia domeny, które umożliwiają pakietom korzystanie z uw
    catalog.set_execution_credential @user='<your user name>', @domain='<your domain name>', @password='<your password>'
    ```
 
-4. Uruchom pakiety SSIS. Pakiety używają poświadczeń dostarczonych w celu uzyskania dostępu do magazynów danych w środowisku lokalnym z uwierzytelnianiem systemu Windows.
+4. Uruchamianie pakietów SSIS. Pakiety używają poświadczeń, które zostały podane w celu uzyskania dostępu do magazynów danych w środowisku lokalnym z uwierzytelnianiem systemu Windows.
 
-### <a name="view-domain-credentials"></a>Wyświetlanie poświadczeń domeny
+### <a name="view-domain-credentials"></a>Wyświetl poświadczenia domeny
 
-Aby wyświetlić poświadczenia aktywnej domeny, wykonaj następujące czynności:
+Aby wyświetlić poświadczenia Active domen, wykonaj następujące czynności:
 
-1. Za pomocą usługi SSMS lub innego narzędzia połącz się z serwerem/wystąpieniem zarządzanym usługi Azure SQL Database, które obsługuje usługę SSISDB. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Program SSMS lub inne narzędzie nawiązuje połączenie z serwerem Azure SQL Database/zarządzanym wystąpieniem, które hostuje SSISDB. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
-2. Z SSISDB jako bieżącej bazy danych, otwórz okno kwerendy.
+2. Korzystając z SSISDB jako bieżącej bazy danych, Otwórz okno zapytania.
 
 3. Uruchom następującą procedurę składowaną i sprawdź dane wyjściowe:
 
@@ -73,9 +73,9 @@ Aby wyświetlić poświadczenia aktywnej domeny, wykonaj następujące czynnośc
 ### <a name="clear-domain-credentials"></a>Wyczyść poświadczenia domeny
 Aby wyczyścić i usunąć poświadczenia podane zgodnie z opisem w tym artykule, wykonaj następujące czynności:
 
-1. Za pomocą usługi SSMS lub innego narzędzia połącz się z serwerem/wystąpieniem zarządzanym usługi Azure SQL Database, które obsługuje usługę SSISDB. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Program SSMS lub inne narzędzie nawiązuje połączenie z serwerem Azure SQL Database/zarządzanym wystąpieniem, które hostuje SSISDB. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
-2. Z SSISDB jako bieżącej bazy danych, otwórz okno kwerendy.
+2. Korzystając z SSISDB jako bieżącej bazy danych, Otwórz okno zapytania.
 
 3. Uruchom następującą procedurę składowaną:
 
@@ -83,39 +83,39 @@ Aby wyczyścić i usunąć poświadczenia podane zgodnie z opisem w tym artykule
    catalog.set_execution_credential @user='', @domain='', @password=''
    ```
 
-## <a name="connect-to-a-sql-server-on-premises"></a>Łączenie się z programem SQL Server w środowisku lokalnym
+## <a name="connect-to-a-sql-server-on-premises"></a>Nawiązywanie połączenia z SQL Server lokalnie
 
-Aby sprawdzić, czy można połączyć się z programem SQL Server lokalnie, wykonaj następujące czynności:
+Aby sprawdzić, czy można nawiązać połączenie z SQL Server lokalnie, wykonaj następujące czynności:
 
-1. Aby uruchomić ten test, znajdź komputer nieprzyłączony do domeny.
+1. Aby uruchomić ten test, Znajdź komputer przyłączony do domeny.
 
-2. Na komputerze nieprzyłączonym do domeny uruchom następujące polecenie, aby uruchomić system SSMS z poświadczeniami domeny, których chcesz użyć:
+2. Na komputerze przyłączonym do domeny, uruchom następujące polecenie, aby uruchomić program SSMS z poświadczeniami domeny, których chcesz użyć:
 
    ```cmd
    runas.exe /netonly /user:<domain>\<username> SSMS.exe
    ```
 
-3. W systemie SSMS sprawdź, czy można połączyć się z programem SQL Server lokalnie.
+3. W programie SSMS Sprawdź, czy możesz nawiązać połączenie z SQL Server lokalnie.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać dostęp do programu SQL Server lokalnie z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
+Aby uzyskać dostęp do SQL Server lokalnego z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
 
-1.  W programie SQL Server Configuration Manager włącz protokół TCP/IP.
+1.  W SQL Server Configuration Manager Włącz protokół TCP/IP.
 
-2. Zezwól na dostęp przez Zaporę systemu Windows. Aby uzyskać więcej informacji, zobacz [Konfigurowanie Zapory systemu Windows w celu uzyskania dostępu do programu SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access).
+2. Zezwalaj na dostęp za poorednictwem zapory systemu Windows. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapory systemu Windows pod kątem dostępu SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access).
 
-3. Dołącz do usługi Azure-SSIS IR w sieci wirtualnej platformy Microsoft Azure, która jest połączona z programem SQL Server lokalnie.  Aby uzyskać więcej informacji, zobacz [Dołączanie usługi Azure-SSIS IR do sieci wirtualnej platformy Microsoft Azure](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+3. Dołącz do Azure-SSIS IR do Microsoft Azure Virtual Network, który jest połączony z SQL Server lokalnie.  Aby uzyskać więcej informacji, zobacz [sprzęganie Azure-SSIS IR z Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 4. Użyj procedury `catalog.set_execution_credential` składowanej SSISDB, aby podać poświadczenia zgodnie z opisem w tym artykule.
 
-## <a name="connect-to-a-file-share-on-premises"></a>Łączenie się z udziałem plików w środowisku lokalnym
+## <a name="connect-to-a-file-share-on-premises"></a>Nawiązywanie połączenia z udziałem plików lokalnie
 
-Aby sprawdzić, czy można połączyć się z udziałem plików lokalnie, wykonaj następujące czynności:
+Aby sprawdzić, czy można nawiązać połączenie z udziałem plików w środowisku lokalnym, wykonaj następujące czynności:
 
-1. Aby uruchomić ten test, znajdź komputer nieprzyłączony do domeny.
+1. Aby uruchomić ten test, Znajdź komputer przyłączony do domeny.
 
-2. Na komputerze nieprzyłączonym do domeny uruchom następujące polecenia. Te polecenia otwierają okno wiersza polecenia z poświadczeniami domeny, których chcesz użyć, a następnie testują łączność z udziałem plików lokalnie, uzyskując listę katalogów.
+2. Na komputerze przyłączonym do domeny, uruchom następujące polecenia. Te polecenia otwierają okno wiersza polecenia z poświadczeniami domeny, które mają być używane, a następnie testują łączność z udziałem plików lokalnie, pobierając listę katalogów.
 
    ```cmd
    runas.exe /netonly /user:<domain>\<username> cmd.exe
@@ -126,21 +126,21 @@ Aby sprawdzić, czy można połączyć się z udziałem plików lokalnie, wykona
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Aby uzyskać dostęp do udziału plików lokalnie z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
+Aby uzyskać dostęp do udziału plików w środowisku lokalnym z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
 
-1. Zezwól na dostęp przez Zaporę systemu Windows.
+1. Zezwalaj na dostęp za poorednictwem zapory systemu Windows.
 
-2. Dołącz do usługi Azure-SSIS IR w sieci wirtualnej platformy Microsoft Azure, która jest połączona z udziałem plików lokalnie.  Aby uzyskać więcej informacji, zobacz [Dołączanie usługi Azure-SSIS IR do sieci wirtualnej platformy Microsoft Azure](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+2. Dołącz do Azure-SSIS IR do Microsoft Azure Virtual Network, który jest połączony z udziałem plików lokalnie.  Aby uzyskać więcej informacji, zobacz [sprzęganie Azure-SSIS IR z Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
 3. Użyj procedury `catalog.set_execution_credential` składowanej SSISDB, aby podać poświadczenia zgodnie z opisem w tym artykule.
 
-## <a name="connect-to-a-file-share-on-azure-vm"></a>Łączenie się z udziałem plików na maszynie Wirtualnej platformy Azure
+## <a name="connect-to-a-file-share-on-azure-vm"></a>Nawiązywanie połączenia z udziałem plików na maszynie wirtualnej platformy Azure
 
-Aby uzyskać dostęp do udziału plików na maszynie Wirtualnej platformy Azure z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
+Aby uzyskać dostęp do udziału plików na maszynie wirtualnej platformy Azure z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
 
-1. Za pomocą usługi SSMS lub innego narzędzia połącz się z serwerem/wystąpieniem zarządzanym usługi Azure SQL Database, które obsługuje usługę SSISDB. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Program SSMS lub inne narzędzie nawiązuje połączenie z serwerem Azure SQL Database/zarządzanym wystąpieniem, które hostuje SSISDB. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
-2. Z SSISDB jako bieżącej bazy danych, otwórz okno kwerendy.
+2. Korzystając z SSISDB jako bieżącej bazy danych, Otwórz okno zapytania.
 
 3. Uruchom następującą procedurę składowaną i podaj odpowiednie poświadczenia domeny:
 
@@ -148,15 +148,15 @@ Aby uzyskać dostęp do udziału plików na maszynie Wirtualnej platformy Azure 
    catalog.set_execution_credential @domain = N'.', @user = N'username of local account on Azure virtual machine', @password = N'password'
    ```
 
-## <a name="connect-to-a-file-share-in-azure-files"></a>Łączenie się z udziałem plików w usłudze Azure Files
+## <a name="connect-to-a-file-share-in-azure-files"></a>Nawiązywanie połączenia z udziałem plików w Azure Files
 
-Aby uzyskać więcej informacji o usłudze Azure Files, zobacz [Usługi Azure Files](https://azure.microsoft.com/services/storage/files/).
+Aby uzyskać więcej informacji na temat Azure Files, zobacz [Azure Files](https://azure.microsoft.com/services/storage/files/).
 
-Aby uzyskać dostęp do udziału plików w usłudze Azure Files z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
+Aby uzyskać dostęp do udziału plików w Azure Files z pakietów uruchomionych na platformie Azure, wykonaj następujące czynności:
 
-1. Za pomocą usługi SSMS lub innego narzędzia połącz się z serwerem/wystąpieniem zarządzanym usługi Azure SQL Database, które obsługuje usługę SSISDB. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Program SSMS lub inne narzędzie nawiązuje połączenie z serwerem Azure SQL Database/zarządzanym wystąpieniem, które hostuje SSISDB. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z usługą SSISDB na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
-2. Z SSISDB jako bieżącej bazy danych, otwórz okno kwerendy.
+2. Korzystając z SSISDB jako bieżącej bazy danych, Otwórz okno zapytania.
 
 3. Uruchom następującą procedurę składowaną i podaj odpowiednie poświadczenia domeny:
 
@@ -166,6 +166,6 @@ Aby uzyskać dostęp do udziału plików w usłudze Azure Files z pakietów uruc
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Wdrażanie pakietów. Aby uzyskać więcej informacji, zobacz [Wdrażanie projektu SSIS na platformie Azure za pomocą usługi SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
-- Uruchom swoje pakiety. Aby uzyskać więcej informacji, zobacz [Uruchamianie pakietów SSIS na platformie Azure za pomocą usługi SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Zaplanuj swoje pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów SSIS na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Wdróż pakiety. Aby uzyskać więcej informacji, zobacz [wdrażanie projektu SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Uruchom pakiety. Aby uzyskać więcej informacji, zobacz [uruchamianie pakietów SSIS na platformie Azure za pomocą programu SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
+- Zaplanuj pakiety. Aby uzyskać więcej informacji, zobacz [Planowanie pakietów usług SSIS na platformie Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

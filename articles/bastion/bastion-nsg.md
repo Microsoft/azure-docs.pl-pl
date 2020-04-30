@@ -1,6 +1,6 @@
 ---
-title: Praca z maszynami wirtualnymi i sieciami sieciowymi w usłudze Azure Bastion
-description: W tym artykule opisano sposób włączania dostępu do nsg za pomocą usługi Azure Bastion
+title: Praca z maszynami wirtualnymi i sieciowych grup zabezpieczeń na platformie Azure bastionu
+description: W tym artykule opisano sposób włączania dostępu sieciowej grupy zabezpieczeń za pomocą usługi Azure bastionu
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,50 +8,50 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: charwen
 ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732195"
 ---
-# <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z dostępem do nsg i bastionem platformy Azure
+# <a name="working-with-nsg-access-and-azure-bastion"></a>Praca z usługami sieciowej grupy zabezpieczeń Access i Azure bastionu
 
-Podczas pracy z bastionem platformy Azure można używać sieciowych grup zabezpieczeń (NSG). Aby uzyskać więcej informacji, zobacz [Grupy zabezpieczeń](../virtual-network/security-overview.md). 
+Podczas pracy z usługą Azure bastionu można użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń). Aby uzyskać więcej informacji, zobacz [grupy zabezpieczeń](../virtual-network/security-overview.md). 
 
 ![Architektura](./media/bastion-nsg/nsg-architecture.png)
 
 Na tym diagramie:
 
 * Host bastionu jest wdrażany w sieci wirtualnej.
-* Użytkownik łączy się z portalem Azure przy użyciu dowolnej przeglądarki HTML5.
-* Użytkownik przechodzi do maszyny wirtualnej platformy Azure do RDP/SSH.
-* Integracja connect - sesja RDP/SSH jednym kliknięciem wewnątrz przeglądarki
-* Nie jest wymagany publiczny adres IP na maszynie Wirtualnej platformy Azure.
+* Użytkownik nawiązuje połączenie z Azure Portal przy użyciu dowolnej przeglądarki HTML5.
+* Użytkownik przechodzi do maszyny wirtualnej platformy Azure do protokołu RDP/SSH.
+* Połącz integrację — pojedyncze kliknięcie sesji RDP/SSH wewnątrz przeglądarki
+* Na maszynie wirtualnej platformy Azure nie jest wymagany publiczny adres IP.
 
 ## <a name="network-security-groups"></a><a name="nsg"></a>Grupy zabezpieczeń sieci
 
-W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a bastionem platformy Azure, a następnie do docelowych maszyn wirtualnych w sieci wirtualnej:
+W tej sekcji przedstawiono ruch sieciowy między użytkownikiem a usługą Azure bastionu oraz docelowymi maszynami wirtualnymi w sieci wirtualnej:
 
-### <a name="azurebastionsubnet"></a><a name="apply"></a>Usługa AzureBastionSubnet
+### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Usługa Azure Bastion jest wdrażana specjalnie w ***usłudze AzureBastionSubnet.***
+Usługa Azure bastionu jest wdrażana w odróżnieniu od ***AzureBastionSubnet***.
 
 * **Ruch przychodzący:**
 
-   * **Ruch przychodzący z publicznego internetu:** Bastion platformy Azure utworzy publiczny adres IP, który wymaga włączonego portu 443 w publicznym adresie IP dla ruchu przychodzącego. Port 3389/22 NIE muszą być otwierane w sieci AzureBastionSubnet.
-   * **Ruch przychodzący z płaszczyzny sterowania bastionu platformy Azure:** Aby uzyskać łączność z płaszczyzną sterowania, włącz przychodzące porty 443 z tagu usługi **GatewayManager.** Dzięki temu płaszczyzny sterowania, czyli Gateway Manager, aby móc rozmawiać z usługi Azure Bastion.
+   * **Ruch przychodzący z publicznej sieci Internet:** Usługa Azure bastionu utworzy publiczny adres IP, który wymaga, aby port 443 był włączony w publicznym adresie IP dla ruchu przychodzącego. NIE trzeba otwierać portu 3389/22 w AzureBastionSubnet.
+   * **Ruch przychodzący z płaszczyzny kontroli usługi Azure bastionu:** W przypadku łączności z płaszczyzną kontroli Włącz port 443 przychodzące z tagu usługi **bramy** . Dzięki temu płaszczyzna kontroli, czyli Menedżer bramy, może komunikować się z usługą Azure bastionu.
 
 * **Ruch wychodzący:**
 
-   * **Ruch wychodzący do docelowych maszyn wirtualnych:** Usługa Azure Bastion osiągnie docelowe maszyny wirtualne za pomocą prywatnego adresu IP. Sieciowe grupy zabezpieczeń muszą zezwalać na ruch wychodzący do innych docelowych podsieci maszyn wirtualnych dla portów 3389 i 22.
-   * **Ruch wychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure Bastion musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników pomiarów). Z tego powodu usługa Bastion platformy Azure musi odlatywać do tagu usługi Usługi Usługi 443 do **usługi AzureCloud.**
+   * **Ruch wychodzący do docelowych maszyn wirtualnych:** Usługa Azure bastionu będzie docierać do docelowych maszyn wirtualnych za pośrednictwem prywatnego adresu IP. Sieciowych grup zabezpieczeń musi zezwalać na ruch przychodzący do innych docelowych podsieci maszyn wirtualnych dla portów 3389 i 22.
+   * **Ruch przychodzący do innych publicznych punktów końcowych na platformie Azure:** Usługa Azure bastionu musi mieć możliwość łączenia się z różnymi publicznymi punktami końcowymi na platformie Azure (na przykład do przechowywania dzienników diagnostycznych i dzienników zliczania). Z tego powodu usługa Azure bastionu potrzebuje ruchu wychodzącego do 443 do **AzureCloud** Service Tag.
 
-### <a name="target-vm-subnet"></a>Podsieć docelowej maszyny Wirtualnej
-Jest to podsieć, która zawiera docelową maszynę wirtualną, do której chcesz rdp/SSH.
+### <a name="target-vm-subnet"></a>Docelowa podsieć maszyny wirtualnej
+Jest to podsieć zawierająca docelową maszynę wirtualną, do której ma zostać zainstalowana protokół RDP/SSH.
 
-   * **Ruch przychodzący z bastionu platformy Azure:** Usługa Azure Bastion dotrze do docelowej maszyny Wirtualnej za pomocą prywatnego adresu IP. Porty RDP/SSH (odpowiednio porty 3389/22) muszą być otwierane po docelowej stronie maszyny Wirtualnej nad prywatnym adresem IP. Najlepszym rozwiązaniem jest dodanie zakresu adresów IP podsieci Bastion platformy Azure w tej regule, aby umożliwić tylko bastionowi otwieranie tych portów na docelowych maszynach wirtualnych w docelowej podsieci maszyny wirtualnej.
+   * **Ruch przychodzący z usługi Azure bastionu:** Usługa Azure bastionu będzie docierać do docelowej maszyny wirtualnej za pośrednictwem prywatnego adresu IP. Porty RDP/SSH (odpowiednio porty 3389/22) muszą być otwarte dla docelowej maszyny wirtualnej po stronie prywatnego adresu IP. Najlepszym rozwiązaniem jest dodanie w tej regule zakresu adresów IP podsieci usługi Azure bastionu, aby zezwolić tylko bastionu na otwieranie tych portów na docelowych maszynach wirtualnych w docelowej podsieci maszyn wirtualnych.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat usługi Azure Bastion, zobacz często zadawane [pytania](bastion-faq.md).
+Aby uzyskać więcej informacji na temat usługi Azure bastionu, zobacz [często zadawane pytania](bastion-faq.md).

@@ -12,10 +12,10 @@ ms.custom:
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 06c0ff7060f4a9d71af11ae75d52ad7f4bf14c6b
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81730849"
 ---
 # <a name="what-is-azure-iot-hub"></a>Czym jest usługa Azure IoT Hub?
@@ -28,7 +28,7 @@ Możliwości usługi IoT Hub ułatwiają tworzenie skalowalnych, kompleksowych r
 
 ## <a name="scale-your-solution"></a>Skalowanie rozwiązania
 
-Usługa IoT Hub może zarządzać milionami równocześnie połączonych urządzeń i obsługiwać miliony zdarzeń na sekundę w celu obsługi obciążeń IoT. Aby uzyskać więcej informacji na temat skalowania centrum IoT Hub, zobacz [Skalowanie centrum IoT](iot-hub-scaling.md?branch=release-iotbasic)Hub . Aby dowiedzieć się więcej o wielu warstwach usług oferowanych przez Centrum IoT i o tym, jak najlepiej dopasować je do potrzeb skalowalności, zapoznaj się ze [stroną z cennikiem](https://azure.microsoft.com/pricing/details/iot-hub/).
+Usługa IoT Hub może zarządzać milionami równocześnie połączonych urządzeń i obsługiwać miliony zdarzeń na sekundę w celu obsługi obciążeń IoT. Aby uzyskać więcej informacji na temat skalowania IoT Hub, zobacz [IoT Hub skalowanie](iot-hub-scaling.md?branch=release-iotbasic). Aby dowiedzieć się więcej na temat wielu warstw usługi oferowanych przez IoT Hub i jak najlepiej dopasować się do potrzeb skalowalności, zapoznaj się z [cennikiem](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Zabezpieczanie komunikacji
 
@@ -52,7 +52,7 @@ Usługa IoT Hub zapewnia bezpieczny kanał komunikacyjny, za pomocą którego ur
 
 Wbudowana funkcja routingu komunikatów zapewnia elastyczność konfigurowania automatycznego rozdysponowywania komunikatów opartego na regułach:
 
-* Routing [wiadomości](iot-hub-devguide-messages-d2c.md) służy do kontrolowania miejsca, w którym koncentrator wysyła dane telemetryczne urządzenia.
+* Użyj [routingu komunikatów](iot-hub-devguide-messages-d2c.md) , aby określić, gdzie centrum wysyła dane telemetryczne urządzenia.
 
 * Nie ma żadnych dodatkowych opłat za routing komunikatów do wielu punktów końcowych.
 
@@ -112,9 +112,9 @@ Jeśli w rozwiązaniu nie można użyć obsługiwanych protokołów, możesz roz
 
 ## <a name="quotas-and-limits"></a>Limity przydziału i ograniczenia
 
-W każdej subskrypcji platformy Azure obowiązują domyślne limity przydziału mające uniemożliwiać nadużywanie usług. Te limity mogą mieć wpływ na zakres rozwiązania IoT. Bieżący limit dla per-subscription wynosi 50 centrów IoT na subskrypcję. Możesz zażądać zwiększenia limitu przydziału, kontaktując się z pomocą techniczną. Aby uzyskać więcej informacji, zobacz [Przydziały i ograniczanie przepustowości centrum IoT](iot-hub-devguide-quotas-throttling.md). Aby uzyskać więcej informacji na temat limitów przydziałów, zobacz jeden z następujących artykułów:
+W każdej subskrypcji platformy Azure obowiązują domyślne limity przydziału mające uniemożliwiać nadużywanie usług. Te limity mogą mieć wpływ na zakres rozwiązania IoT. Bieżący limit subskrypcji na subskrypcję to 50 centrów IoT na subskrypcję. Możesz zażądać zwiększenia limitu przydziału, kontaktując się z pomocą techniczną. Aby uzyskać więcej informacji, zobacz [IoT Hub przydziałów i ograniczania przepustowości](iot-hub-devguide-quotas-throttling.md). Aby uzyskać więcej informacji na temat limitów przydziału, zobacz jeden z następujących artykułów:
 
-* [Limity usług subskrypcji platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
+* [Limity usługi subskrypcji platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [Ograniczanie przepustowości w usłudze IoT Hub](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -124,6 +124,6 @@ Aby wypróbować kompleksowe rozwiązanie IoT, zapoznaj się z przewodnikami Szy
 
 * [Szybki start: Wysyłanie danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-node.md)
 
-Aby dowiedzieć się więcej o sposobach tworzenia i wdrażania rozwiązań IoT za pomocą usługi Azure IoT, odwiedź stronę:
+Aby dowiedzieć się więcej o sposobach kompilowania i wdrażania rozwiązań IoT za pomocą usługi Azure IoT, odwiedź stronę:
 
 * [Podstawy: technologie i rozwiązania Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).

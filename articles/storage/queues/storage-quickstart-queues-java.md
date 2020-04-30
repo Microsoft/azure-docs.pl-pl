@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: biblioteka magazynu kolejki platformy Azure w wersji 12 — Java'
-description: Dowiedz się, jak utworzyć kolejkę i dodać wiadomości do kolejki za pomocą biblioteki Java w wersji 12 usługi Azure Queue. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
+title: 'Szybki Start: Biblioteka usługi Azure queue storage V12 — Java'
+description: Dowiedz się, jak utworzyć kolejkę i dodać do niej komunikaty przy użyciu biblioteki V12 w usłudze Azure Queue. Następnie dowiesz się, jak odczytywać i usuwać wiadomości z kolejki. Dowiesz się również, jak usunąć kolejkę.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/4/2019
@@ -8,43 +8,43 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.openlocfilehash: 013281db2821c99f6942edd1322f4978e100c144
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81729853"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Szybki start: biblioteka klienta magazynu usługi Azure Queue w wersji 12 dla środowiska Java
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Java
 
-Wprowadzenie do biblioteki klienta usługi Azure Queue storage w wersji 12 dla języka Java. Usługa Azure Queue storage to usługa do przechowywania dużej liczby wiadomości do późniejszego pobierania i przetwarzania. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką klienta usługi Azure queue storage w wersji 12 dla środowiska Java. Azure queue storage to usługa służąca do przechowywania dużej liczby komunikatów do późniejszego pobrania i przetworzenia. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Użyj biblioteki klienta magazynu usługi Azure Queue w wersji 12 dla języka Java, aby:
+Użyj biblioteki klienta usługi Azure queue storage V12 for Java, aby:
 
 * Tworzenie kolejki
-* Dodawanie wiadomości do kolejki
-* Wgląd do wiadomości w kolejce
-* Aktualizowanie wiadomości w kolejce
-* Odbieranie i usuwanie wiadomości z kolejki
+* Dodawanie komunikatów do kolejki
+* Wgląd w wiadomości w kolejce
+* Aktualizowanie komunikatu w kolejce
+* Odbieranie i usuwanie komunikatów z kolejki
 * Usuwanie kolejki
 
-[Dokumentacja](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | referencyjna interfejsu API[Przykłady pakietu kodu źródłowego](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | (Maven) kod[źródłowy](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples) [(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | 
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) |  | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)dokumentacji interfejsu API[(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) w wersji 8 lub wyższej
+* [Zestaw Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) w wersji 8 lub nowszej
 * [Apache Maven](https://maven.apache.org/download.cgi)
-* Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
-* Konto magazynu platformy Azure — [tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Konto magazynu platformy Azure — [Tworzenie konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W tej sekcji znajdziesz informacje o przygotowaniu projektu do pracy z biblioteką klienta magazynu usługi Azure Queue w wersji 12 dla języka Java.
+W tej sekcji omówiono przygotowanie projektu do pracy z biblioteką klienta usługi Azure queue storage V12 for Java.
 
 ### <a name="create-the-project"></a>Tworzenie projektu
 
-Utwórz aplikację Java o nazwie *queues-quickstart-v12*.
+Tworzenie aplikacji Java o nazwie *Queues-Start-V12*.
 
-1. W oknie konsoli (takim jak cmd, PowerShell lub Bash) użyj maven, aby utworzyć nową aplikację konsoli o nazwie *queues-Quickstart-v12*. Wpisz następujące polecenie **mvn,** aby utworzyć "Hello world!" projektu Java.
+1. W oknie konsoli (na przykład cmd, PowerShell lub bash) Użyj Maven, aby utworzyć nową aplikację konsolową z nazwami *Queues-szybki start-V12*. Wpisz następujące polecenie **MVN** , aby utworzyć "Hello World!" Projekt Java.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \
@@ -54,7 +54,7 @@ Utwórz aplikację Java o nazwie *queues-quickstart-v12*.
                           -DinteractiveMode=false
    ```
 
-1. Dane wyjściowe z generowania projektu powinny wyglądać mniej więcej tak:
+1. Dane wyjściowe generowania projektu powinny wyglądać następująco:
 
     ```console
     [INFO] Scanning for projects...
@@ -91,7 +91,7 @@ Utwórz aplikację Java o nazwie *queues-quickstart-v12*.
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Przełącz się do nowo utworzonego katalogu *kolejki-szybki start-v12.*
+1. Przejdź do nowo utworzonych *kolejek — szybki start-V12* .
 
    ```console
    cd queues-quickstart-v12
@@ -99,7 +99,7 @@ Utwórz aplikację Java o nazwie *queues-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-Otwórz plik *pom.xml* w edytorze tekstu. Dodaj następujący element zależności do grupy zależności.
+Otwórz plik *pliku pom. XML* w edytorze tekstów. Dodaj następujący element zależności do grupy zależności.
 
 ```xml
 <dependency>
@@ -113,10 +113,10 @@ Otwórz plik *pom.xml* w edytorze tekstu. Dodaj następujący element zależnoś
 
 Z katalogu projektu:
 
-1. Przejdź do *katalogu /src/main/java/com/queues/quickstart*
-1. Otwieranie pliku *App.java* w edytorze
-1. Usuwanie `System.out.println("Hello world!");` instrukcji
-1. Dodawanie `import` dyrektyw
+1. Przejdź do katalogu */src/Main/Java/com/Queues/QuickStart*
+1. Otwórz plik *App. Java* w edytorze
+1. Usuń `System.out.println("Hello world!");` instrukcję
+1. Dodaj `import` dyrektywy
 
 Oto kod:
 
@@ -141,42 +141,42 @@ public class App
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## <a name="object-model"></a>Model obiektu
+## <a name="object-model"></a>Model obiektów
 
-Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat kolejki może mieć rozmiar do 64 KB. Kolejka może zawierać miliony wiadomości, do całkowitego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości pracy do przetwarzania asynchronicznie. Magazyn kolejek oferuje trzy typy zasobów:
+Azure Queue Storage to usługa służąca do przechowywania dużej liczby komunikatów. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego. Magazyn kolejek oferuje trzy typy zasobów:
 
 * Konto magazynu
 * Kolejka na koncie magazynu
-* Wiadomości w kolejce
+* Komunikaty w kolejce
 
 Na poniższym diagramie przedstawiono relacje między tymi zasobami.
 
-![Diagram architektury magazynu kolejek](./media/storage-queues-introduction/queue1.png)
+![Diagram architektury magazynu kolejki](./media/storage-queues-introduction/queue1.png)
 
-Użyj następujących klas Java do interakcji z tymi zasobami:
+Użyj następujących klas języka Java do korzystania z tych zasobów:
 
-* [QueueClientBuilder:](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html) `QueueClientBuilder` Klasa konfiguruje i `QueueClient` wystąpienia obiektu.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): `QueueServiceClient` Umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
-* [QueueClient:](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) `QueueClient` Klasa umożliwia zarządzanie i manipulowanie poszczególnych kolejek i jej wiadomości.
+* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): `QueueClientBuilder` Klasa konfiguruje i tworzy wystąpienie `QueueClient` obiektu.
+* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): `QueueServiceClient` umożliwia zarządzanie wszystkimi kolejkami na koncie magazynu.
+* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): `QueueClient` Klasa umożliwia zarządzanie pojedynczą kolejką i jej komunikatami oraz manipulowanie nimi.
 * [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): `QueueMessageItem` Klasa reprezentuje poszczególne obiekty zwracane podczas wywoływania [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) w kolejce.
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te przykładowe fragmenty kodu pokazują, jak wykonać następujące akcje za pomocą biblioteki klienta magazynu usługi Azure Queue dla środowiska Java:
+Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności w bibliotece klienta usługi Azure queue storage dla języka Java:
 
 * [Pobieranie parametrów połączenia](#get-the-connection-string)
 * [Tworzenie kolejki](#create-a-queue)
-* [Dodawanie wiadomości do kolejki](#add-messages-to-a-queue)
-* [Wgląd do wiadomości w kolejce](#peek-at-messages -in-a-queue)
-* [Aktualizowanie wiadomości w kolejce](#update-a-message-in-a-queue)
-* [Odbieranie i usuwanie wiadomości z kolejki](#receive-and-delete-messages-from-a-queue)
+* [Dodawanie komunikatów do kolejki](#add-messages-to-a-queue)
+* [Wgląd w wiadomości w kolejce](#peek-at-messages -in-a-queue)
+* [Aktualizowanie komunikatu w kolejce](#update-a-message-in-a-queue)
+* [Odbieranie i usuwanie komunikatów z kolejki](#receive-and-delete-messages-from-a-queue)
 * [Usuwanie kolejki](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Pobieranie parametrów połączenia
 
-Poniższy kod pobiera parametry połączenia dla konta magazynu. Parametry połączenia są przechowywane zmiennej środowiskowej utworzonej w sekcji [Konfigurowanie ciągu połączenia magazynu.](#configure-your-storage-connection-string)
+Poniższy kod pobiera parametry połączenia dla konta magazynu. Parametry połączenia są przechowywane w zmiennej środowiskowej utworzonej w sekcji [Konfigurowanie parametrów połączenia magazynu](#configure-your-storage-connection-string) .
 
-Dodaj ten kod `main` wewnątrz metody:
+Dodaj ten kod wewnątrz `main` metody:
 
 ```java
 System.out.println("Azure Queues storage v12 - Java quickstart sample\n");
@@ -192,15 +192,15 @@ String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
 ### <a name="create-a-queue"></a>Tworzenie kolejki
 
-Zdecyduj o nazwie nowej kolejki. Poniższy kod dołącza wartość guid do nazwy kolejki, aby upewnić się, że jest unikatowa.
+Określ nazwę nowej kolejki. Poniższy kod dołącza wartość identyfikatora GUID do nazwy kolejki, aby upewnić się, że jest ona unikatowa.
 
 > [!IMPORTANT]
-> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki i muszą zaczynać się od litery lub liczby. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi również zawierać od 3 do 63 znaków. Aby uzyskać więcej informacji na temat nazywania kolejek, zobacz [Nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
+> Nazwy kolejek mogą zawierać tylko małe litery, cyfry i łączniki, a także muszą zaczynać się literą lub cyfrą. Przed i za każdym łącznikiem musi znajdować się znak inny niż łącznik. Nazwa musi mieć również długość od 3 do 63 znaków. Aby uzyskać więcej informacji na temat nazewnictwa kolejek, zobacz [nazywanie kolejek i metadanych](/rest/api/storageservices/naming-queues-and-metadata).
 
 
-Utwórz wystąpienie klasy [QueueClient.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) Następnie należy [wywołać](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) metodę tworzenia, aby utworzyć kolejkę na koncie magazynu.
+Utwórz wystąpienie klasy [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) . Następnie Wywołaj metodę [Create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) , aby utworzyć kolejkę na koncie magazynu.
 
-Dodaj ten kod na `main` końcu metody:
+Dodaj ten kod na końcu `main` metody:
 
 ```java
 // Create a unique name for the queue
@@ -219,11 +219,11 @@ QueueClient queueClient = new QueueClientBuilder()
 queueClient.create();
 ```
 
-### <a name="add-messages-to-a-queue"></a>Dodawanie wiadomości do kolejki
+### <a name="add-messages-to-a-queue"></a>Dodawanie komunikatów do kolejki
 
-Poniższy fragment kodu dodaje wiadomości do kolejki, wywołując [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) metody. Zapisuje również [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) zwrócony `sendMessage` z wywołania. Wynik jest używany do aktualizacji wiadomości w dalszej części programu.
+Poniższy fragment kodu dodaje komunikaty do kolejki przez wywołanie metody [SendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) . Zapisuje również [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) zwracaną z `sendMessage` wywołania. Ten wynik służy do aktualizowania komunikatu w dalszej części tego programu.
 
-Dodaj ten kod na `main` końcu metody:
+Dodaj ten kod na końcu `main` metody:
 
 ```java
 System.out.println("\nAdding messages to the queue...");
@@ -236,11 +236,11 @@ queueClient.sendMessage("Second message");
 SendMessageResult result = queueClient.sendMessage("Third message");
 ```
 
-### <a name="peek-at-messages-in-a-queue"></a>Wgląd do wiadomości w kolejce
+### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Zajrzeć do wiadomości w kolejce, wywołując [metodę peekMessages.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) Metoda `peelkMessages` pobiera jeden lub więcej wiadomości z przodu kolejki, ale nie zmienia widoczności wiadomości.
+Wgląd w wiadomości w kolejce przez wywołanie metody [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) . `peelkMessages` Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
-Dodaj ten kod na `main` końcu metody:
+Dodaj ten kod na końcu `main` metody:
 
 ```java
 System.out.println("\nPeek at the messages in the queue...");
@@ -250,9 +250,9 @@ queueClient.peekMessages(10, null, null).forEach(
     peekedMessage -> System.out.println("Message: " + peekedMessage.getMessageText()));
 ```
 
-### <a name="update-a-message-in-a-queue"></a>Aktualizowanie wiadomości w kolejce
+### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość wiadomości, wywołując [metodę updateMessage.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) Metoda `updateMessage` może zmienić limit czasu widoczności wiadomości i zawartość. Zawartość wiadomości musi być ciągiem zakodowanym w uiścić UTF-8 o rozmiarze do 64 KB. Wraz z nową zawartością wiadomości, przekazać w identyfikatorze wiadomości `SendMessageResult` i pop potwierdzenia przy użyciu tego, który został zapisany wcześniej w kodzie. Identyfikator wiadomości i pop receipt identyfikują, który komunikat należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując metodę [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) . `updateMessage` Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością wiadomości, należy przekazać identyfikator wiadomości i potwierdzenie pop przy użyciu `SendMessageResult` , który został zapisany wcześniej w kodzie. Identyfikator wiadomości i potwierdzenie wskazują, które wiadomości należy zaktualizować.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -265,13 +265,13 @@ queueClient.updateMessage(result.getMessageId(),
                           Duration.ofSeconds(1));
 ```
 
-### <a name="receive-and-delete-messages-from-a-queue"></a>Odbieranie i usuwanie wiadomości z kolejki
+### <a name="receive-and-delete-messages-from-a-queue"></a>Odbieranie i usuwanie komunikatów z kolejki
 
-Pobierz wcześniej dodane wiadomości, wywołując metodę [receiveMessages.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) Przykładowy kod usuwa również wiadomości z kolejki po ich odebraniu i przetworzyniu. W takim przypadku przetwarzanie jest po prostu wyświetlanie komunikatu na konsoli.
+Pobierz wcześniej dodane wiadomości, wywołując metodę [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) . Przykładowy kod usuwa również komunikaty z kolejki po ich odebraniu i przetworzeniu. W takim przypadku przetwarzanie właśnie wyświetla komunikat w konsoli programu.
 
-Aplikacja wstrzymuje wprowadzanie danych przez użytkownika, wywołując `System.console().readLine();` przed odebraniem i usunięciem wiadomości. Sprawdź w [witrynie Azure portal,](https://portal.azure.com) czy zasoby zostały utworzone poprawnie, zanim zostaną usunięte. Wszystkie wiadomości, które nie zostały jawnie usunięte, po pewnym czasie staną się ponownie widoczne w kolejce, aby uzyskać kolejną szansę na ich przetworzenie.
+Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `System.console().readLine();` , wywołując, zanim odbierze i usunie komunikaty. Przed usunięciem [Azure Portal](https://portal.azure.com) Sprawdź, czy zasoby zostały utworzone prawidłowo. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
 
-Dodaj ten kod na `main` końcu metody:
+Dodaj ten kod na końcu `main` metody:
 
 ```java
 System.out.println("\nPress Enter key to receive messages and delete them from the queue...");
@@ -292,9 +292,9 @@ queueClient.receiveMessages(10).forEach(
 
 ### <a name="delete-a-queue"></a>Usuwanie kolejki
 
-Poniższy kod czyści zasoby utworzone przez aplikację, usuwając kolejkę przy użyciu metody [usuwania.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--)
+Poniższy kod czyści zasoby utworzone przez aplikację przez usunięcie kolejki przy użyciu metody [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--) .
 
-Dodaj ten kod na `main` końcu metody:
+Dodaj ten kod na końcu `main` metody:
 
 ```java
 System.out.println("\nPress Enter key to delete the queue...");
@@ -309,27 +309,27 @@ System.out.println("Done");
 
 ## <a name="run-the-code"></a>Uruchamianie kodu
 
-Ta aplikacja tworzy i dodaje trzy komunikaty do kolejki platformy Azure. Kod wyświetla listę wiadomości w kolejce, a następnie pobiera je i usuwa, zanim na koniec usunie kolejkę.
+Ta aplikacja tworzy i dodaje trzy komunikaty do kolejki platformy Azure. Kod wyświetla listę komunikatów w kolejce, a następnie pobiera i usuwa je przed usunięciem kolejki.
 
-W oknie konsoli przejdź do katalogu aplikacji, a następnie skompiluj i uruchom aplikację.
+W oknie konsoli przejdź do katalogu aplikacji, a następnie Skompiluj i uruchom aplikację.
 
 ```console
 mvn compile
 ```
 
-Następnie skompiluj pakiet.
+Następnie Skompiluj pakiet.
 
 ```console
 mvn package
 ```
 
-Uruchom następujące `mvn` polecenie, aby wykonać aplikację.
+Uruchom następujące `mvn` polecenie, aby uruchomić aplikację.
 
 ```console
 mvn exec:java -Dexec.mainClass="com.queues.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
-Dane wyjściowe aplikacji są podobne do następującego przykładu:
+Dane wyjściowe aplikacji są podobne do następujących:
 
 ```output
 Azure Queues storage v12 - Java quickstart sample
@@ -355,17 +355,17 @@ Deleting queue: quickstartqueues-fbf58f33-4d5a-41ac-ac0e-1a05d01c7003
 Done
 ```
 
-Gdy aplikacja wstrzymuje się przed odbierania wiadomości, sprawdź swoje konto magazynu w [witrynie Azure portal](https://portal.azure.com). Sprawdź, czy wiadomości znajdują się w kolejce.
+Gdy aplikacja jest wstrzymywana przed odebraniem wiadomości, Sprawdź konto magazynu w [Azure Portal](https://portal.azure.com). Sprawdź, czy w kolejce znajdują się komunikaty.
 
-Naciśnij klawisz **Enter,** aby odbierać i usuwać wiadomości. Po wyświetleniu monitu naciśnij ponownie klawisz **Enter,** aby usunąć kolejkę i zakończyć pokaz.
+Naciśnij klawisz **Enter** , aby odebrać i usunąć komunikaty. Po wyświetleniu monitu ponownie naciśnij klawisz **Enter** , aby usunąć kolejkę i zakończyć pokaz.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć kolejkę i dodać do niej wiadomości za pomocą kodu Java. Następnie nauczyłeś się podglądać, pobierać i usuwać wiadomości. Na koniec dowiedziałeś się, jak usunąć kolejkę wiadomości.
+W tym przewodniku szybki start przedstawiono sposób tworzenia kolejki i dodawania do niej komunikatów przy użyciu kodu Java. Następnie nauczysz się wglądu, pobierania i usuwania komunikatów. Na koniec wiesz już, jak usunąć kolejkę komunikatów.
 
-Aby uzyskać samouczki, przykłady, szybkie uruchamianie i inną dokumentację, odwiedź stronę:
+Samouczki, przykłady, szybki start i inne dokumenty można znaleźć w temacie:
 
 > [!div class="nextstepaction"]
 > [Platforma Azure dla deweloperów języka Java w chmurze](https://docs.microsoft.com/azure/developer/java/)
 
-* Aby wyświetlić więcej przykładowych aplikacji magazynu usługi Azure Queue, przejdź do [przykładów biblioteki klienta Java magazynu usługi Azure Queue SDK w wersji 12.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+* Aby wyświetlić więcej przykładowych aplikacji usługi Azure queue storage, przejdź do [zestawu SDK usługi Azure queue storage V12 przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

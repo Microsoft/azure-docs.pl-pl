@@ -1,62 +1,62 @@
 ---
-title: Omówienie monitorowania alertów i powiadomień na platformie Azure
-description: Omówienie alertów na platformie Azure. Alerty, klasyczne alerty i interfejs alertów.
+title: Omówienie alertów i monitorowania powiadomień na platformie Azure
+description: Przegląd alertów na platformie Azure. Alerty, alerty klasyczne i interfejs alertów.
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
 ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769766"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Przegląd alertów na platformie Microsoft Azure 
 
-W tym artykule opisano, jakie są alerty, ich korzyści i jak rozpocząć korzystanie z nich.  
+W tym artykule opisano alerty, ich zalety oraz sposób rozpoczynania korzystania z nich.  
 
-## <a name="what-are-alerts-in-microsoft-azure"></a>Co to są alerty na platformie Microsoft Azure?
-Alerty proaktywnie powiadamiają o znalezieniu ważnych warunków w danych monitorowania. Umożliwiają one identyfikowanie i rozwiązywanie problemów, zanim użytkownicy systemu zauważą je. 
+## <a name="what-are-alerts-in-microsoft-azure"></a>Co to są alerty w Microsoft Azure?
+Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. 
 
-W tym artykule omówiono ujednolicone środowisko alertów w usłudze Azure Monitor, które obejmuje alerty, które wcześniej były zarządzane przez usługę Log Analytics i usługa Application Insights. [Poprzednie środowisko alertów](alerts-classic.overview.md) i typy alertów są nazywane *alertami klasycznymi*. Możesz wyświetlić to starsze środowisko i starszy typ alertu, wybierając **pozycję Wyświetl klasyczne alerty** u góry strony alertu. 
+W tym artykule omówiono ujednolicone środowisko alertów w Azure Monitor, w tym alerty, które były wcześniej zarządzane przez Log Analytics i Application Insights. [Poprzednie środowisko alertów](alerts-classic.overview.md) i typy alertów są nazywane *alertami klasycznymi*. Możesz wyświetlić te starsze środowisko i starszy typ alertu, wybierając pozycję **Wyświetl klasyczne alerty** w górnej części strony alertu. 
 
 ## <a name="overview"></a>Omówienie
 
 Poniższy diagram przedstawia przepływ alertów. 
 
-![Diagram przepływu alertów](media/alerts-overview/Azure-Monitor-Alerts.svg)
+![Diagram przepływu alertu](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Reguły alertów są oddzielone od alertów i akcji podejmowanych podczas uruchamiania alertu. Reguła alertu przechwytuje obiekt docelowy i kryteria alertów. Reguła alertu może być w stanie włączonym lub wyłączonym. Alerty uruchamiają się tylko wtedy, gdy są włączone. 
+Reguły alertów są oddzielone od alertów i akcji podejmowanych podczas uruchamiania alertu. Reguła alertu przechwytuje cel i kryteria alertów. Reguła alertu może być w stanie włączony lub wyłączony. Alerty są wyzwalane tylko wtedy, gdy są włączone. 
 
 Poniżej przedstawiono kluczowe atrybuty reguły alertu:
 
-**Zasób docelowy:** Definiuje zakres i sygnały dostępne do ostrzegania. Obiekt docelowy może być dowolnym zasobem platformy Azure. Przykładowe obiekty docelowe: maszyna wirtualna, konto magazynu, zestaw skalowania maszyny wirtualnej, obszar roboczy usługi Log Analytics lub zasób usługi Application Insights. Dla niektórych zasobów (takich jak maszyny wirtualne) można określić wiele zasobów jako miejsce docelowe reguły alertu.
+**Zasób docelowy**: definiuje zakres i sygnały dostępne dla alertów. Obiektem docelowym może być dowolny zasób platformy Azure. Przykładowe cele: maszyna wirtualna, konto magazynu, zestaw skalowania maszyn wirtualnych, obszar roboczy Log Analytics lub Application Insights zasób. W przypadku niektórych zasobów (takich jak maszyny wirtualne) można określić wiele zasobów jako obiekt docelowy reguły alertu.
 
-**Sygnał:** Emitowany przez zasób docelowy. Sygnały mogą być następujących typów: metryki, dziennik aktywności, usługa Application Insights i dziennik.
+**Sygnał**: emitowany przez zasób docelowy. Sygnały mogą być następujących typów: Metryka, dziennik aktywności, Application Insights i dziennik.
 
-**Kryteria:** Kombinacja sygnału i logiki zastosowana na zasób docelowy. Przykłady: 
+**Kryteria**: Kombinacja sygnałów i logiki zastosowana w zasobie docelowym. Przykłady: 
 
-- Procent cpu > 70%
-- Czas odpowiedzi serwera > 4 ms 
-- Liczba wyników kwerendy dziennika > 100
+- Procent > procesora CPU 70%
+- Czas odpowiedzi serwera > 4 MS 
+- Liczba wyników zapytania dziennika > 100
 
-**Nazwa alertu:** Określona nazwa reguły alertu skonfigurowana przez użytkownika.
+**Nazwa alertu**: określona nazwa dla reguły alertu skonfigurowanej przez użytkownika.
 
-**Opis alertu:** Opis reguły alertu skonfigurowany przez użytkownika.
+**Opis alertu**: Opis reguły alertu skonfigurowanej przez użytkownika.
 
-**Ważność:** ważność alertu po spełnieniu kryteriów określonych w regule alertu. Ważność może wynosić od 0 do 4.
+**Ważność**: ważność alertu po spełnieniu kryteriów określonych w regule alertu. Ważność może być z zakresu od 0 do 4.
 
-- Sev 0 = Krytyczne
-- Sev 1 = Błąd
-- Sev 2 = Ostrzeżenie
-- Sev 3 = Informacje
-- Sev 4 = Pełne 
+- Ważność 0 = krytyczny
+- Ważność 1 = błąd
+- Ważność 2 = ostrzeżenie
+- Ważność 3 = informacyjny
+- Ważność 4 = pełne 
 
-**Akcja**: Określona akcja podjęta po uruchomieniu alertu. Aby uzyskać więcej informacji, zobacz [Grupy akcji](../../azure-monitor/platform/action-groups.md).
+**Akcja**: określona Akcja podejmowana po wyzwoleniu alertu. Aby uzyskać więcej informacji, zobacz [grupy akcji](../../azure-monitor/platform/action-groups.md).
 
-## <a name="what-you-can-alert-on"></a>Co można ostrzec na
+## <a name="what-you-can-alert-on"></a>Co można ostrzec
 
-Można alertować o metrykach i dziennikach, zgodnie z opisem w [źródłach danych monitorowania](../../azure-monitor/platform/data-sources.md). Są to między innymi następujące kwestie:
+Można generować alerty dotyczące metryk i dzienników, zgodnie z opisem w temacie [monitorowanie źródeł danych](../../azure-monitor/platform/data-sources.md). Są to między innymi następujące kwestie:
 
 - Wartości metryk
 - Zapytania przeszukiwania dzienników
@@ -64,64 +64,64 @@ Można alertować o metrykach i dziennikach, zgodnie z opisem w [źródłach dan
 - Kondycja podstawowej platformy Azure
 - Testy dostępności witryny internetowej
 
-Wcześniej metryki usługi Azure Monitor, usługa Application Insights, usługa Log Analytics i kondycja usługi miały oddzielne funkcje alertów. Z biegiem czasu platforma Azure udoskonaliła i połączyła zarówno interfejs użytkownika, jak i różne metody alertów. Ta konsolidacja jest nadal w toku. W rezultacie nadal istnieją pewne funkcje alertów, które nie są jeszcze dostępne w nowym systemie alertów.  
+Wcześniej Azure Monitor metryki, Application Insights, Log Analytics i Service Health miały oddzielne funkcje alertów. W miarę upływu czasu platforma Azure poprawiła i połączona zarówno z interfejsem użytkownika, jak i różnymi metodami alertów. Ta Konsolidacja jest nadal w toku. W związku z tym nadal istnieją pewne funkcje alertów, które nie są jeszcze dostępne w nowym systemie alertów.  
 
 | **Źródło monitora** | **Typ sygnału**  | **Opis** |
 |-------------|----------------|-------------|
-| Kondycja usługi | Dziennik aktywności  | Bez pomocy technicznej. Zobacz [Tworzenie alertów dziennika aktywności w powiadomieniach o usługach](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Testy dostępności sieci Web | Bez pomocy technicznej. Zobacz [Alerty testów sieci Web](../../azure-monitor/app/monitor-web-app-availability.md). Dostępne dla każdej witryny sieci Web, która jest instrumentowana do wysyłania danych do usługi Application Insights. Otrzymuj powiadomienie, gdy dostępność lub czas reakcji strony internetowej jest niższy od oczekiwań. |
+| Kondycja usługi | Dziennik aktywności  | Nieobsługiwane. Zobacz [tworzenie alertów dziennika aktywności dla powiadomień dotyczących usług](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Testy dostępności sieci Web | Nieobsługiwane. Zobacz [alerty testu sieci Web](../../azure-monitor/app/monitor-web-app-availability.md). Dostępne dla każdej witryny sieci Web, która jest Instrumentacją do wysyłania danych do Application Insights. Otrzymuj powiadomienie, gdy dostępność lub czas odpowiedzi witryny sieci Web jest poniżej oczekiwań. |
 
 ## <a name="manage-alerts"></a>Zarządzanie alertami
-Można ustawić stan alertu, aby określić, gdzie znajduje się w procesie rozpoznawania. Po spełnieniu kryteriów określonych w regule alertu zostanie utworzony lub zwolniony alert, który ma stan *Nowy*. Stan można zmienić podczas potwierdzania alertu i jego zamykania. Wszystkie zmiany stanu są przechowywane w historii alertu.
+Można ustawić stan alertu, aby określić, gdzie znajduje się w procesie rozwiązywania. Po spełnieniu kryteriów określonych w regule alertu jest tworzony lub uruchamiany alert, który ma stan *Nowy*. Stan można zmienić po potwierdzeniu alertu i po jego zamknięciu. Wszystkie zmiany stanu są przechowywane w historii alertu.
 
 Obsługiwane są następujące stany alertów.
 
 | Stan | Opis |
 |:---|:---|
 | Nowa | Problem został właśnie wykryty i nie został jeszcze zweryfikowany. |
-| Potwierdzony | Administrator przejrzał alert i rozpoczął nad nim pracę. |
-| Zamknięte | Problem został rozwiązany. Po zamknięciu alertu można go ponownie otworzyć, zmieniając go na inny stan. |
+| Potwierdzony | Administrator sprawdził alert i rozpoczął jego pracę. |
+| Zamknięte | Problem został rozwiązany. Po zamknięciu alertu można go otworzyć ponownie, zmieniając go na inny stan. |
 
-*Stan alertu* jest inny i jest niezależny od *stanu monitora*. Stan alertu jest ustawiany przez użytkownika. Stan monitora jest ustawiany przez system. Po uruchomieniu alertu stan monitora alertu jest ustawiony na *odpalenie*. Gdy podstawowy warunek, który spowodował ostrzeżenie do ognia czyści, warunek monitora jest ustawiony na *rozwiązany*. Stan alertu nie zostanie zmieniony, dopóki użytkownik go nie zmieni. Dowiedz [się, jak zmienić stan alertów i grup inteligentnych.](https://aka.ms/managing-alert-smart-group-states)
+*Stan alertu* jest różny i niezależny od *warunku monitora*. Stan alertu jest ustawiany przez użytkownika. Warunek monitora jest ustawiany przez system. Po uruchomieniu alertu warunek monitora alertu jest ustawiany na wartość *wyzwolone*. Gdy podstawowy warunek, który spowodował wyczyszczenie alertu, zostanie ustawiony jako *rozwiązany*. Stan alertu nie jest zmieniany, dopóki użytkownik nie zmieni go. Dowiedz się [, jak zmienić stan alertów i grup inteligentnych](https://aka.ms/managing-alert-smart-group-states).
 
 ## <a name="smart-groups"></a>Grupy inteligentne 
 
-Inteligentne grupy to agregacje alertów oparte na algorytmach uczenia maszynowego, które mogą pomóc zmniejszyć hałas alertów i pomóc w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups) i [zarządzaniu grupami inteligentnymi.](https://aka.ms/managing-smart-groups)
+Grupy inteligentne to agregacja alertów w oparciu o algorytmy uczenia maszynowego, co może pomóc w zmniejszeniu szumu i pomocy w rozwiązywaniu problemów. [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups) i [sposobach zarządzania grupami inteligentnymi](https://aka.ms/managing-smart-groups).
 
 
-## <a name="alerts-experience"></a>Alerty 
-Domyślna strona Alerty zawiera podsumowanie alertów, które są tworzone w określonym zakresie czasu. Wyświetla całkowitą liczbę alertów dla każdej ważności, z kolumnami, które identyfikują całkowitą liczbę alertów w każdym stanie dla każdego ważności. Wybierz dowolną z ważności, aby otworzyć stronę [Wszystkie alerty](#all-alerts-page) filtrowane przez tę ważność.
+## <a name="alerts-experience"></a>Środowisko alertów 
+Domyślna strona alerty zawiera podsumowanie alertów, które są tworzone w określonym zakresie czasu. Wyświetla łączną liczbę alertów dla każdej ważności, z kolumnami, które identyfikują sumę alertów w każdym stanie dla każdej ważności. Wybierz dowolną z serwerów, aby otworzyć stronę [wszystkie alerty](#all-alerts-page) odfiltrowaną o tej ważności.
 
-Alternatywnie można [programowo wyliczyć wystąpienia alertów wygenerowane w ramach subskrypcji przy użyciu interfejsów API REST.](#manage-your-alert-instances-programmatically)
+Alternatywnie można [programowo wyliczyć wystąpienia alertów generowanych w ramach subskrypcji za pomocą interfejsów API REST](#manage-your-alert-instances-programmatically).
 
 > [!NOTE]
-   >  Dostęp do alertów generowanych w ciągu ostatnich 30 dni można uzyskać tylko.
+   >  Można uzyskać dostęp tylko do alertów wygenerowanych w ciągu ostatnich 30 dni.
 
-Nie pokazuje ani nie śledzi klasycznych alertów. Można zmienić subskrypcje lub parametry filtrowania, aby zaktualizować stronę. 
+Nie pokazuje ani nie śledzi klasycznego alertu. Można zmienić subskrypcje lub parametry filtru, aby zaktualizować stronę. 
 
-![Zrzut ekranu strony Alerty](media/alerts-overview/alerts-page.png)
+![Zrzut ekranu przedstawiający stronę alertów](media/alerts-overview/alerts-page.png)
 
-Ten widok można filtrować, wybierając wartości w menu rozwijanym u góry strony.
+Możesz filtrować ten widok, wybierając wartości z menu rozwijanego w górnej części strony.
 
 | Kolumna | Opis |
 |:---|:---|
-| Subskrypcja | Wybierz subskrypcje platformy Azure, dla których chcesz wyświetlić alerty. Opcjonalnie możesz wybrać wszystkie subskrypcje. W widoku uwzględniono tylko alerty, do których masz dostęp w wybranych subskrypcjach. |
-| Grupa zasobów | Wybierz jedną grupę zasobów. W widoku uwzględniane są tylko alerty z obiektami docelowymi w wybranej grupie zasobów. |
-| Przedział czasu | W widoku uwzględniane są tylko alerty uruchamiane w wybranym zakresie czasu. Obsługiwane wartości to ostatnia godzina, ostatnie 24 godziny, ostatnie 7 dni i ostatnie 30 dni. |
+| Subskrypcja | Wybierz subskrypcje platformy Azure, dla których chcesz wyświetlić alerty. Opcjonalnie możesz wybrać wszystkie subskrypcje. W widoku są uwzględniane tylko alerty, do których masz dostęp w wybranych subskrypcjach. |
+| Grupa zasobów | Wybierz pojedynczą grupę zasobów. W widoku są uwzględniane tylko alerty z obiektami docelowymi w wybranej grupie zasobów. |
+| Przedział czasu | W widoku są uwzględniane tylko alerty wywoływane w wybranym zakresie czasu. Obsługiwane wartości to Ostatnia godzina, ostatnie 24 godziny, ostatnie 7 dni i ostatnie 30 dni. |
 
-Wybierz następujące wartości u góry strony Alerty, aby otworzyć inną stronę:
+Wybierz następujące wartości w górnej części strony alerty, aby otworzyć kolejną stronę:
 
 | Wartość | Opis |
 |:---|:---|
-| Łączna liczba alertów | Całkowita liczba alertów spełniających wybrane kryteria. Wybierz tę wartość, aby otworzyć widok Wszystkie alerty bez filtru. |
-| Grupy inteligentne | Całkowita liczba grup inteligentnych utworzonych na podstawie alertów spełniających wybrane kryteria. Wybierz tę wartość, aby otworzyć listę grup inteligentnych w widoku Wszystkie alerty.
-| Łączna liczba reguł alertów | Całkowita liczba reguł alertów w wybranej subskrypcji i grupie zasobów. Wybierz tę wartość, aby otworzyć widok Reguły filtrowany w wybranej subskrypcji i grupie zasobów.
+| Łączna liczba alertów | Całkowita liczba alertów spełniających wybrane kryteria. Wybierz tę wartość, aby otworzyć widok wszystkie alerty bez filtrowania. |
+| Grupy inteligentne | Całkowita liczba grup inteligentnych, które zostały utworzone na podstawie alertów spełniających wybrane kryteria. Wybierz tę wartość, aby otworzyć listę grup inteligentnych w widoku wszystkie alerty.
+| Łączna liczba reguł alertów | Łączna liczba reguł alertów w wybranej subskrypcji i grupie zasobów. Wybierz tę wartość, aby otworzyć widok reguły przefiltrowanych według wybranej subskrypcji i grupy zasobów.
 
 
 ## <a name="manage-alert-rules"></a>Zarządzaj regułami alertów
-Aby wyświetlić stronę **Reguły,** wybierz pozycję **Zarządzaj regułami alertów**. Strona Reguły jest jednym miejscem do zarządzania wszystkimi regułami alertów w ramach subskrypcji platformy Azure. Zawiera listę wszystkich reguł alertów i może być sortowana na podstawie zasobów docelowych, grup zasobów, nazwy reguły lub stanu. Reguły alertów można również edytować, włączać lub wyłączać na tej stronie.  
+Aby wyświetlić stronę **reguły** , wybierz pozycję **Zarządzaj regułami alertów**. Strona reguły jest pojedynczym miejscem do zarządzania wszystkimi regułami alertów w ramach subskrypcji platformy Azure. Wyświetla listę wszystkich reguł alertów i można ją sortować na podstawie zasobów docelowych, grup zasobów, nazwy reguły lub stanu. Na tej stronie można także edytować, włączać lub wyłączać reguły alertów.  
 
- ![Zrzut ekranu przedstawiający stronę Reguły](./media/alerts-overview/alerts-preview-rules.png)
+ ![Zrzut ekranu przedstawiający stronę reguł](./media/alerts-overview/alerts-preview-rules.png)
 
 
 ## <a name="create-an-alert-rule"></a>Tworzenie reguły alertu
@@ -130,65 +130,65 @@ Reguły alertów można tworzyć w spójny sposób, niezależnie od usługi moni
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
 
  
-Aby utworzyć nową regułę alertu:
-1. Wybierz _obiekt docelowy_ dla alertu.
-1. Wybierz _sygnał_ z dostępnych sygnałów dla celu.
-1. Określ _logikę,_ która ma być stosowana do danych z sygnału.
+Oto jak utworzyć nową regułę alertu:
+1. Wybierz _element docelowy_ dla alertu.
+1. Wybierz _sygnał_ z dostępnych sygnałów dla elementu docelowego.
+1. Określ _logikę_ , która ma zostać zastosowana do danych ze sygnału.
  
-Ten uproszczony proces tworzenia nie wymaga już poznania źródła monitorowania lub sygnałów, które są obsługiwane przed wybraniem zasobu platformy Azure. Lista dostępnych sygnałów jest automatycznie filtrowana na podstawie wybranego zasobu docelowego. Również na podstawie tego obiektu docelowego, są prowadzone przez definiowanie logiki reguły alertu automatycznie.  
+Ten uproszczony proces tworzenia nie wymaga już znajomości źródła monitorowania lub sygnałów, które są obsługiwane przed wybraniem zasobów platformy Azure. Lista dostępnych sygnałów jest automatycznie filtrowana na podstawie wybranych zasobów docelowych. W oparciu o ten obiekt docelowy jest przeprowadzana automatyczna Definiowanie logiki reguły alertu.  
 
-Więcej informacji na temat tworzenia reguł alertów można tworzyć w obszarze [Tworzenie, wyświetlanie i zarządzanie alertami za pomocą usługi Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Więcej informacji o sposobie tworzenia reguł alertów można znaleźć w temacie [Tworzenie i wyświetlanie alertów oraz zarządzanie nimi przy użyciu Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Alerty są dostępne w kilku usługach monitorowania platformy Azure. Aby uzyskać informacje o tym, jak i kiedy korzystać z każdej z tych usług, zobacz [Monitorowanie aplikacji i zasobów platformy Azure.](../../azure-monitor/overview.md) 
+Alerty są dostępne w ramach kilku usług monitorowania platformy Azure. Informacje o tym, jak i kiedy należy używać poszczególnych usług, można znaleźć w temacie [monitorowanie aplikacji i zasobów platformy Azure](../../azure-monitor/overview.md). 
 
 
-## <a name="all-alerts-page"></a>Strona Wszystkie alerty 
-Aby wyświetlić stronę **Wszystkie alerty,** wybierz **pozycję Suma alertów**. W tym miejscu można wyświetlić listę alertów utworzonych w wybranym czasie. Można wyświetlić listę poszczególnych alertów lub listę grup inteligentnych zawierających alerty. Wybierz baner w górnej części strony, aby przełączać się między widokami.
+## <a name="all-alerts-page"></a>Strona wszystkie alerty 
+Aby wyświetlić stronę **wszystkie alerty** , wybierz pozycję **Podsumowanie alertów**. W tym miejscu można wyświetlić listę alertów utworzonych w wybranym czasie. Można wyświetlić listę indywidualnych alertów lub listę grup inteligentnych, które zawierają alerty. Wybierz transparent w górnej części strony, aby przełączać się między widokami.
 
-![Zrzut ekranu przedstawiający stronę Wszystkie alerty](media/alerts-overview/all-alerts-page.png)
+![Zrzut ekranu przedstawiający stronę wszystkie alerty](media/alerts-overview/all-alerts-page.png)
 
-Widok można filtrować, zaznaczając następujące wartości w menu rozwijanym u góry strony:
+Widok można filtrować, wybierając następujące wartości z menu rozwijanego w górnej części strony:
 
 | Kolumna | Opis |
 |:---|:---|
-| Subskrypcja | Wybierz subskrypcje platformy Azure, dla których chcesz wyświetlić alerty. Opcjonalnie możesz wybrać wszystkie subskrypcje. W widoku uwzględniono tylko alerty, do których masz dostęp w wybranych subskrypcjach. |
-| Grupa zasobów | Wybierz jedną grupę zasobów. W widoku uwzględniane są tylko alerty z obiektami docelowymi w wybranej grupie zasobów. |
-| Typ zasobu | Wybierz jeden lub więcej typów zasobów. W widoku uwzględniane są tylko alerty z obiektami docelowymi wybranego typu. Ta kolumna jest dostępna tylko po określeniu grupy zasobów. |
-| Zasób | Wybierz zasób. Tylko alerty z tego zasobu jako miejsce docelowe są uwzględniane w widoku. Ta kolumna jest dostępna tylko po określeniu typu zasobu. |
-| Ważność | Wybierz ważność alertu lub wybierz **opcję Wszystkie,** aby uwzględnić alerty o wszystkich ważnościach. |
-| Stan monitora | Wybierz warunek monitora lub wybierz **opcję Wszystkie,** aby uwzględnić alerty wszystkich warunków. |
-| Stan alertu | Wybierz stan alertu lub wybierz **opcję Wszystkie,** aby uwzględnić alerty wszystkich stanów. |
-| Usługa monitorowania | Wybierz usługę lub wybierz **pozycję Wszystkie,** aby uwzględnić wszystkie usługi. Uwzględniane są tylko alerty utworzone przez reguły korzystające z usługi jako obiektu docelowego. |
-| Przedział czasu | W widoku uwzględniane są tylko alerty uruchamiane w wybranym zakresie czasu. Obsługiwane wartości to ostatnia godzina, ostatnie 24 godziny, ostatnie 7 dni i ostatnie 30 dni. |
+| Subskrypcja | Wybierz subskrypcje platformy Azure, dla których chcesz wyświetlić alerty. Opcjonalnie możesz wybrać wszystkie subskrypcje. W widoku są uwzględniane tylko alerty, do których masz dostęp w wybranych subskrypcjach. |
+| Grupa zasobów | Wybierz pojedynczą grupę zasobów. W widoku są uwzględniane tylko alerty z obiektami docelowymi w wybranej grupie zasobów. |
+| Typ zasobu | Wybierz co najmniej jeden typ zasobu. W widoku są uwzględniane tylko alerty z obiektami docelowymi wybranego typu. Ta kolumna jest dostępna tylko po określeniu grupy zasobów. |
+| Zasób | Wybierz zasób. W widoku są uwzględniane tylko alerty z tym zasobem. Ta kolumna jest dostępna tylko po określeniu typu zasobu. |
+| Ważność | Wybierz ważność alertu lub wybierz pozycję **wszystkie** , aby uwzględnić alerty wszystkich serwerów. |
+| Warunek monitorowania | Wybierz warunek monitorowania lub wybierz pozycję **wszystkie** , aby uwzględnić alerty wszystkich warunków. |
+| Stan alertu | Wybierz stan alertu lub wybierz pozycję **wszystkie** , aby uwzględnić alerty wszystkich stanów. |
+| Monitorowanie usługi | Wybierz usługę lub wybierz pozycję **wszystkie** , aby uwzględnić wszystkie usługi. Uwzględniane są tylko alerty utworzone przez reguły korzystające z usługi jako celu. |
+| Przedział czasu | W widoku są uwzględniane tylko alerty wywoływane w wybranym zakresie czasu. Obsługiwane wartości to Ostatnia godzina, ostatnie 24 godziny, ostatnie 7 dni i ostatnie 30 dni. |
 
-Wybierz **pozycję Kolumny** u góry strony, aby wybrać kolumny, które mają być wyświetlane. 
+Zaznacz **kolumny** w górnej części strony, aby wybrać kolumny, które mają być wyświetlane. 
 
 ## <a name="alert-details-page"></a>Strona szczegółów alertu
-Po wybraniu alertu ta strona zawiera szczegóły alertu i umożliwia zmianę jego stanu.
+Po wybraniu alertu ta strona zawiera szczegółowe informacje dotyczące alertu i umożliwia zmianę jego stanu.
 
-![Zrzut ekranu przedstawiający stronę Szczegółów alertu](media/alerts-overview/alert-detail2.png)
+![Zrzut ekranu przedstawiający stronę szczegółów alertu](media/alerts-overview/alert-detail2.png)
 
-Strona Szczegóły alertu zawiera następujące sekcje:
+Strona szczegóły alertu zawiera następujące sekcje:
 
 | Sekcja | Opis |
 |:---|:---|
-| Podsumowanie | Wyświetla właściwości i inne istotne informacje o alertie. |
-| Historia | Wyświetla listę każdej akcji podjętej przez alert i wszelkich zmian wprowadzonych w alertie. Obecnie ograniczone do zmian stanu. |
-| Diagnostyka | Informacje o grupie inteligentnej, w której znajduje się alert. *Liczba alertów* odnosi się do liczby alertów, które są zawarte w grupie inteligentnej. Zawiera inne alerty w tej samej grupie inteligentnej, które zostały utworzone w ciągu ostatnich 30 dni, niezależnie od filtru czasu na stronie listy alertów. Wybierz alert, aby wyświetlić jego szczegóły. |
+| Podsumowanie | Wyświetla właściwości i inne istotne informacje dotyczące alertu. |
+| Historia | Wyświetla listę wszystkich akcji podejmowanych przez alert oraz wszelkich zmian wprowadzonych w alercie. Obecnie ograniczone do zmian stanu. |
+| Diagnostyka | Informacje o grupie inteligentnej, w której uwzględniony jest alert. *Liczba alertów* odnosi się do liczby alertów uwzględnionych w grupie inteligentnej. Zawiera inne alerty w tej samej grupie inteligentnej, które zostały utworzone w ciągu ostatnich 30 dni, niezależnie od filtra czas na stronie listy alertów. Wybierz Alert, aby wyświetlić jego szczegóły. |
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Kontrola dostępu oparta na rolach (RBAC) dla wystąpień alertów
 
-Zużycie i zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role RBAC [albo monitorowania współautora](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) lub [monitorowania czytnika](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Te role są obsługiwane w dowolnym zakresie usługi Azure Resource Manager, od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobu. Na przykład, jeśli użytkownik ma tylko monitorowanie `ContosoVM1`dostępu współautora dla maszyny wirtualnej, użytkownik może korzystać i zarządzać tylko alerty generowane na `ContosoVM1`.
+Użycie i Zarządzanie wystąpieniami alertów wymaga, aby użytkownik miał wbudowane role RBAC lub [czytelnik](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) [monitorowania](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) . Role te są obsługiwane w dowolnym zakresie Azure Resource Manager od poziomu subskrypcji do szczegółowych przypisań na poziomie zasobów. Jeśli na przykład użytkownik ma tylko kontrolę dostępu współautora dla maszyny `ContosoVM1`wirtualnej, może używać tylko alertów, które zostały wygenerowane `ContosoVM1`.
 
-## <a name="manage-your-alert-instances-programmatically"></a>Programowo zarządzanie wystąpieniami alertów
+## <a name="manage-your-alert-instances-programmatically"></a>Programowe Zarządzanie wystąpieniami alertów
 
-Można podjąć kwerendy programowo dla alertów generowanych w ramach subskrypcji. Może to być utworzenie widoków niestandardowych poza witryną Azure portal lub analizowanie alertów w celu zidentyfikowania wzorców i trendów.
+Możesz chcieć programowo wykonywać zapytania dotyczące alertów generowanych w ramach subskrypcji. Może to być Tworzenie niestandardowych widoków poza Azure Portal lub analizowanie alertów w celu identyfikowania wzorców i trendów.
 
-Można wyszukiwać alerty generowane w ramach subskrypcji przy użyciu [interfejsu API REST zarządzania alertami](https://aka.ms/alert-management-api) lub przy użyciu [programu Azure Resource Graph](../../governance/resource-graph/overview.md) i [interfejsu API REST dla zasobów.](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+Możesz wykonywać zapytania dotyczące alertów generowanych w ramach subskrypcji za pomocą [interfejsu API REST usługi alert Management](https://aka.ms/alert-management-api) lub przy użyciu [grafu zasobów platformy Azure](../../governance/resource-graph/overview.md) i [interfejsu API REST dla zasobów](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-Interfejs API REST wykresu zasobów dla zasobów umożliwia wykonywanie zapytań o wystąpienia alertów na dużą skalę. Jest to zalecane, gdy trzeba zarządzać alertami generowanymi w wielu subskrypcjach. 
+Interfejs API REST grafu zasobów dla zasobów umożliwia wykonywanie zapytań o wystąpienia alertów w odpowiedniej skali. Jest to zalecane, gdy konieczne jest zarządzanie alertami wygenerowanymi w wielu subskrypcjach. 
 
-Następujące przykładowe żądanie do interfejsu API REST wykresu zasobów zwraca liczbę alertów w ramach jednej subskrypcji:
+Następujące przykładowe żądanie do interfejsu API REST grafu zasobów zwraca liczbę alertów w ramach jednej subskrypcji:
 
 ```json
 {
@@ -199,19 +199,19 @@ Następujące przykładowe żądanie do interfejsu API REST wykresu zasobów zwr
 }
 ```
 
-Wynik tej kwerendy wykresu zasobów można również zobaczyć w portalu za pomocą Eksploratora wykresu zasobów platformy Azure: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+Wyniki tego zapytania dotyczącego wykresu zasobów można także zobaczyć w portalu przy użyciu Eksploratora Azure Resource Graph: [Portal.Azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
 
-Można wysyłać zapytania do alertów dla ich [podstawowych](alerts-common-schema-definitions.md#essentials) pól.
+W celu uzyskania [odpowiednich pól można](alerts-common-schema-definitions.md#essentials) wysyłać zapytania do alertów.
 
-Użyj [interfejsu API REST zarządzania alertami,](https://aka.ms/alert-management-api) aby uzyskać więcej informacji na temat określonych alertów, w tym ich pól [kontekstu alertów.](alerts-common-schema-definitions.md#alert-context)
+Użyj [interfejsu API REST alert Management](https://aka.ms/alert-management-api) , aby uzyskać więcej informacji na temat określonych alertów, w tym ich pól [kontekstu alertu](alerts-common-schema-definitions.md#alert-context) .
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej o grupach inteligentnych](https://aka.ms/smart-groups)
-- [Dowiedz się więcej o grupach akcji](../../azure-monitor/platform/action-groups.md)
+- [Więcej informacji na temat grup akcji](../../azure-monitor/platform/action-groups.md)
 - [Zarządzanie wystąpieniami alertów na platformie Azure](https://aka.ms/managing-alert-instances)
 - [Zarządzanie grupami inteligentnymi](https://aka.ms/managing-smart-groups)
-- [Dowiedz się więcej o cenach alertów platformy Azure](https://azure.microsoft.com/pricing/details/monitor/)
+- [Dowiedz się więcej o cenniku usługi Azure Alerts](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

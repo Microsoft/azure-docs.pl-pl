@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie koderów lokalnych podczas tworzenia strumieni o wielu szybkościach transmisji bitów przy użyciu usługi Azure Media Services | Dokumenty firmy Microsoft
-description: W tym temacie wymieniono lokalne kodery na żywo, których można użyć do przechwytywania wydarzeń na żywo i wysyłania pojedynczego strumienia na żywo o szybkości transmisji bitów do kanałów usługi AMS (które są włączone kodowania na żywo) w celu dalszego przetwarzania. Temat zawiera łącza do samouczków, które pokazują, jak skonfigurować wymienione kodery.
+title: Konfigurowanie koderów lokalnych podczas korzystania z Azure Media Services do tworzenia strumieni o większej szybkości transmisji bitów | Microsoft Docs
+description: Ten temat zawiera listę lokalnych koderów na żywo, których można użyć do przechwytywania wydarzeń na żywo i wysyłania strumieni na żywo o pojedynczej szybkości transmisji bitów do kanałów AMS (na których włączono obsługę kodowania na żywo) w celu dalszej obróbki. Temat zawiera linki do samouczków, które pokazują, jak skonfigurować kodery na liście.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687142"
 ---
-# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Jak skonfigurować kodery lokalne podczas tworzenia strumieni o wielu szybkościach transmisji bitów w usłudze Azure Media Services
-W tym temacie wymieniono lokalne kodery na żywo, których można użyć do przechwytywania wydarzeń na żywo i wysyłania pojedynczego strumienia na żywo o szybkości transmisji bitów do kanałów usługi AMS (które są włączone kodowania na żywo) w celu dalszego przetwarzania. Temat zawiera również łącza do samouczków, które pokazują, jak skonfigurować wymienione kodery.
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Jak skonfigurować kodery lokalne przy użyciu Azure Media Services do tworzenia strumieni o większej szybkości transmisji bitów
+Ten temat zawiera listę lokalnych koderów na żywo, których można użyć do przechwytywania wydarzeń na żywo i wysyłania strumieni na żywo o pojedynczej szybkości transmisji bitów do kanałów AMS (na których włączono obsługę kodowania na żywo) w celu dalszej obróbki. Temat zawiera również linki do samouczków, które pokazują, jak skonfigurować kodery na liście.
 
 > [!NOTE]
 > Podczas przesyłania strumieniowego za pośrednictwem protokołu RTMP sprawdź ustawienia zapory i/lub serwera proxy, aby upewnić się, że porty TCP ruchu wychodzącego 1935 i 1936 są otwarte.
 
 ## <a name="haivision-kb-encoder"></a>Koder Haivision KB
-Aby uzyskać informacje dotyczące konfigurowania [kodera ujeżdnerowy ekwiwalatora bazy danych Haivision KB](https://www.haivision.com/products/kb-series/) do wysyłania pojedynczego strumienia na żywo o szybkości transmisji bitów do kanału AMS, zobacz [Konfigurowanie kodera KB usługi Haivision](media-services-configure-kb-live-encoder.md).
+Aby uzyskać informacje dotyczące sposobu konfigurowania kodera [kodera HAIVISION KB](https://www.haivision.com/products/kb-series/) w celu wysłania strumienia na żywo o pojedynczej szybkości transmisji bitów do kanału usługi AMS, zobacz [Konfigurowanie Haivision KB](media-services-configure-kb-live-encoder.md).
 
-## <a name="telestream-wirecast"></a>Telestream Wirecast
-Aby uzyskać informacje na temat konfigurowania kodera [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) do wysyłania pojedynczego strumienia transmisji bitów na żywo do kanału AMS, zobacz [Konfigurowanie wirecastu](media-services-configure-wirecast-live-encoder.md).
+## <a name="telestream-wirecast"></a>Wirecast telestrumienia
+Aby uzyskać informacje na temat sposobu konfigurowania kodera [Wirecast usługi webstream](https://www.telestream.net/wirecast/overview.htm) do wysyłania strumienia na żywo o pojedynczej szybkości transmisji bitów do kanału usługi AMS, zobacz [Konfigurowanie Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Aby uzyskać więcej informacji, zobacz [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
+Aby uzyskać więcej informacji, zobacz [elementy na żywo](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -44,5 +44,5 @@ Aby uzyskać więcej informacji, zobacz [Elemental Live](https://www.elemental.c
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Przesyłanie strumieniowe na żywo za pomocą usługi Azure Media Services do tworzenia strumieni o wielu szybkościach transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
+[Przesyłanie strumieniowe na żywo przy użyciu Azure Media Services do tworzenia strumieni o większej szybkości transmisji bitów](media-services-manage-live-encoder-enabled-channels.md).
 

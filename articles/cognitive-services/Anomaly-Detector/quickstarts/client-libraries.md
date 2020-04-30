@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: korzystanie z biblioteki klienta detektora anomalii'
+title: 'Szybki Start: korzystanie z biblioteki klienta wykrywania anomalii'
 titleSuffix: Azure Cognitive Services
-description: Interfejs API detektora anomalii oferuje biblioteki klienckie do wykrywania nieprawidłowości w serii danych jako partii lub na przesyłanie strumieniowe danych.
+description: Interfejs API wykrywania anomalii oferuje biblioteki klienckie do wykrywania niezależności w seriach danych jako partia lub dane przesyłane strumieniowo.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: 7a48992ab5978824f1ffb4b2c3ac0670f40c1424
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759979"
 ---
-# <a name="quickstart-use-the-anomaly-detector-client-library"></a>Szybki start: korzystanie z biblioteki klienta detektora anomalii
+# <a name="quickstart-use-the-anomaly-detector-client-library"></a>Szybki Start: korzystanie z biblioteki klienta wykrywania anomalii
 
 ::: zone pivot="programming-language-csharp"
 

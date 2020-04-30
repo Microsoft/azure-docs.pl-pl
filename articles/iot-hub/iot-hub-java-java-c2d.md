@@ -1,6 +1,6 @@
 ---
-title: Komunikaty między chmurami a urządzeniem za pomocą usługi Azure IoT Hub (Java) | Dokumenty firmy Microsoft
-description: Jak wysyłać komunikaty z chmury do urządzenia do urządzenia z centrum Usługi Azure IoT przy użyciu zestawów SDK usługi Azure IoT dla środowiska Java. Zmodyfikowana aplikacja urządzenia jest modyfikowana w celu odbierania komunikatów z chmury do urządzenia i modyfikowania aplikacji zaplecza w celu wysyłania komunikatów z chmury do urządzenia.
+title: Komunikaty z chmury do urządzeń za pomocą usługi Azure IoT Hub (Java) | Microsoft Docs
+description: Jak wysyłać komunikaty z chmury do urządzenia z usługi Azure IoT Hub za pomocą zestawów SDK usługi Azure IoT dla języka Java. Zmodyfikuj aplikację symulowanego urządzenia, aby odbierać komunikaty z chmury do urządzenia i modyfikować aplikację zaplecza w celu wysyłania komunikatów z chmury do urządzenia.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -13,58 +13,58 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: e16d0ed264f32746c11d89e88ea1e67f9383b773
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732513"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Wysyłanie wiadomości z chmury do urządzenia za pomocą usługi IoT Hub (Java)
+# <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Wysyłanie komunikatów z chmury do urządzeń za pomocą IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Usługa Azure IoT Hub to w pełni zarządzana usługa, która pomaga umożliwić niezawodną i bezpieczną dwukierunkową komunikację między milionami urządzeń i zaplecza rozwiązania. Wyślij [dane telemetryczne z urządzenia do centrum IoT Hub](quickstart-send-telemetry-java.md) Szybki start pokazuje, jak utworzyć centrum IoT hub, aprowizować tożsamość urządzenia w nim i kod symulowanej aplikacji urządzenia, która wysyła komunikaty urządzenia do chmury.
+Azure IoT Hub to w pełni zarządzana usługa, która pomaga zapewnić niezawodne i niezawodną komunikację dwukierunkową między milionami urządzeń i zapleczem rozwiązania. [Wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-java.md) pokazuje, jak utworzyć Centrum IoT, zainicjować w nim tożsamość urządzenia i kod aplikacji symulowanego urządzenia, która wysyła komunikaty z urządzenia do chmury.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Ten samouczek opiera się na [wysyłaniu danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-java.md)hub . Pokazuje, jak wykonać następujące czynności:
+Ten samouczek kompiluje na temat [wysyłania danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-java.md). Przedstawiono w nim sposób wykonywania następujących czynności:
 
-* Z zaplecza rozwiązania wysyłaj komunikaty z chmury do urządzenia do jednego urządzenia za pośrednictwem usługi IoT Hub.
+* Z zaplecza rozwiązania Wyślij komunikaty z chmury do urządzenia do jednego urządzenia za pośrednictwem IoT Hub.
 
-* Odbieranie komunikatów z chmury do urządzenia na urządzeniu.
+* Odbieraj komunikaty z chmury do urządzenia na urządzeniu.
 
-* W rozwiązaniu zaplecza, żądanie potwierdzenia dostarczania *(opinie)* dla wiadomości wysyłanych do urządzenia z Usługi IoT Hub.
+* Z zaplecza rozwiązania Poproś o potwierdzenie dostarczenia (*Opinie*) o komunikatach wysyłanych do urządzenia z IoT Hub.
 
-Więcej informacji na temat komunikatów z chmury do urządzenia można znaleźć [w przewodniku dla deweloperów usługi IoT Hub](iot-hub-devguide-messaging.md).
+Więcej informacji na temat [komunikatów z chmury do urządzeń można znaleźć w przewodniku dewelopera IoT Hub](iot-hub-devguide-messaging.md).
 
-Na końcu tego samouczka uruchomisz dwie aplikacje konsoli Java:
+Na końcu tego samouczka uruchamiasz dwie aplikacje konsolowe Java:
 
-* **symulowane urządzenie**, zmodyfikowana wersja aplikacji utworzonej w [wysyłaniu danych telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-java.md)hub , który łączy się z centrum IoT hub i odbiera komunikaty z chmury do urządzenia.
+* **symulowane — urządzenie**, zmodyfikowana wersja aplikacji utworzona w wysyłanie danych [telemetrycznych z urządzenia do centrum IoT](quickstart-send-telemetry-java.md), który łączy się z Centrum IoT i odbiera komunikaty z chmury do urządzenia.
 
-* **send-c2d-messages**, który wysyła komunikat z chmury do urządzenia do aplikacji symulowanego urządzenia za pośrednictwem usługi IoT Hub, a następnie otrzymuje potwierdzenie dostarczenia.
+* **send-C2D-messages**, które wysyła komunikat z chmury do urządzenia do aplikacji symulowanego urządzenia za pomocą IoT Hub, a następnie otrzymuje potwierdzenie dostawy.
 
 > [!NOTE]
-> Usługa IoT Hub obsługuje zestaw SDK dla wielu platform i języków urządzeń (w tym języka C, Java, Python i Javascript) za pośrednictwem zestawów SDK urządzeń IoT platformy Azure. Aby uzyskać instrukcje krok po kroku dotyczące podłączania urządzenia do kodu tego samouczka i ogólnie do usługi Azure IoT Hub, zobacz [Centrum deweloperów usługi Azure IoT.](https://azure.microsoft.com/develop/iot)
+> IoT Hub obsługuje zestaw SDK dla wielu platform i języków urządzeń (w tym C, Java, Python i JavaScript) za pomocą zestawów SDK urządzeń usługi Azure IoT. Aby uzyskać instrukcje krok po kroku dotyczące sposobu łączenia urządzenia z tym kodem samouczka i ogólnie do usługi Azure IoT Hub, zobacz [Centrum deweloperów Azure IoT](https://azure.microsoft.com/develop/iot).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Pełna wersja robocza [danych telemetrycznych wysyłania z urządzenia do szybkiego startu centrum IoT](quickstart-send-telemetry-java.md) lub [routingu komunikatów Konfigurowanie za pomocą samouczka Centrum IoT.](tutorial-routing.md)
+* Kompletna wersja robocza [wysyłania danych telemetrycznych z urządzenia do](quickstart-send-telemetry-java.md) przewodnika Szybki Start usługi IoT Hub lub [Konfiguracja routingu komunikatów za pomocą IoT Hub](tutorial-routing.md) .
 
-* [Zestaw java se development 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Upewnij się, że w obszarze **Java 8** w obszarze **Długoterminowa pomoc techniczna** umożliwia pobieranie dla JDK 8.
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Upewnij się, że wybrano opcję **Java 8** w obszarze **Obsługa długoterminowa** , aby pobrać pliki do pobrania dla programu JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut.
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym artykule używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>Odbieranie wiadomości w aplikacji symulowanego urządzenia
+## <a name="receive-messages-in-the-simulated-device-app"></a>Odbieraj komunikaty w aplikacji symulowanego urządzenia
 
-W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w [sekcji Wyślij dane telemetryczne z urządzenia do centrum IoT hub,](quickstart-send-telemetry-java.md) aby odbierać komunikaty z chmury do urządzenia z centrum IoT Hub.
+W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w artykule wysyłanie danych [telemetrycznych z urządzenia do usługi IoT Hub](quickstart-send-telemetry-java.md) w celu odbierania komunikatów z chmury do urządzenia z Centrum IoT Hub.
 
 1. Za pomocą edytora tekstów otwórz plik simulated-device\src\main\java\com\mycompany\app\App.java.
 
-2. Dodaj następującą klasę **MessageCallback** jako klasę zagnieżdżoną wewnątrz klasy **aplikacji.** Metoda **execute** jest wywoływana, gdy urządzenie odbiera komunikat z usługi IoT Hub. W tym przykładzie urządzenie zawsze powiadamia centrum IoT hub, że zakończył komunikat:
+2. Dodaj następującą klasę **MessageCallback** jako klasę zagnieżdżoną wewnątrz klasy **App** . Metoda **Execute** jest wywoływana, gdy urządzenie odbiera komunikat z IoT Hub. W tym przykładzie urządzenie zawsze powiadamia Centrum IoT o ukończeniu komunikatu:
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -77,7 +77,7 @@ W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w [sek
     }
     ```
 
-3. Zmodyfikuj **metodę główną,** aby utworzyć **wystąpienie AppMessageCallback** i wywołaj metodę **setMessageCallback,** zanim otworzy klienta w następujący sposób:
+3. Zmodyfikuj metodę **Main** , aby utworzyć wystąpienie **AppMessageCallback** i wywołać metodę **setMessageCallback** przed otwarciem klienta w następujący sposób:
 
     ```java
     client = new DeviceClient(connString, protocol);
@@ -88,7 +88,7 @@ W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w [sek
     ```
 
     > [!NOTE]
-    > Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, **DeviceClient wystąpienie** sprawdza komunikaty z Usługi IoT Hub rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji na temat różnic między obsługą MQTT, AMQP i HTTPS oraz ograniczaniem przepustowości centrum IoT, zobacz [sekcję obsługi wiadomości w przewodniku dla deweloperów usługi IoT Hub](iot-hub-devguide-messaging.md).
+    > Jeśli używasz protokołu HTTPS zamiast MQTT lub AMQP jako transportu, wystąpienie **DeviceClient** sprawdza komunikaty IoT Hub rzadko (mniej niż co 25 minut). Aby uzyskać więcej informacji o różnicach między obsługą MQTT, AMQP i HTTPS oraz ograniczaniem IoT Hub, zobacz [sekcję Obsługa komunikatów w przewodniku dewelopera IoT Hub](iot-hub-devguide-messaging.md).
 
 4. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
 
@@ -96,25 +96,25 @@ W tej sekcji zmodyfikujesz aplikację symulowanego urządzenia utworzoną w [sek
     mvn clean package -DskipTests
     ```
 
-## <a name="get-the-iot-hub-connection-string"></a>Pobierz ciąg połączenia koncentratora IoT
+## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 
-W tym artykule utworzysz usługę wewnętrznej bazy danych do wysyłania komunikatów z chmury do urządzenia za pośrednictwem centrum IoT utworzonego w [aplikacji Wyślij dane telemetryczne z urządzenia do centrum IoT hub](quickstart-send-telemetry-java.md). Aby wysyłać komunikaty z chmury do urządzenia, usługa wymaga uprawnienia **do połączenia usługi.** Domyślnie każdy Centrum IoT jest tworzony przy pomocą zasady dostępu współdzielonego o nazwie **usługi,** która udziela tego uprawnienia.
+W tym artykule opisano tworzenie usługi zaplecza do wysyłania komunikatów z chmury do urządzenia za pośrednictwem Centrum IoT utworzonego w artykule [wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub](quickstart-send-telemetry-java.md). Aby można było wysyłać komunikaty z chmury do urządzenia, usługa wymaga uprawnień do **połączenia z usługą** . Domyślnie każdy IoT Hub jest tworzony przy użyciu zasad dostępu współdzielonego o nazwie **Usługa** , która przyznaje to uprawnienie.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>Wysyłanie wiadomości z chmury do urządzenia
+## <a name="send-a-cloud-to-device-message"></a>Wysyłanie komunikatu z chmury do urządzenia
 
-W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmury do urządzenia do symulowanej aplikacji urządzenia. Potrzebny jest identyfikator urządzenia dodanego w danych [telemetrycznych wysyłania z urządzenia do szybkiego startu centrum IoT Hub.](quickstart-send-telemetry-java.md) Potrzebny jest również ciąg połączenia centrum IoT skopiowany wcześniej w [pliku Pobierz ciąg połączenia centrum IoT](#get-the-iot-hub-connection-string).
+W tej sekcji utworzysz aplikację konsolową Java, która wysyła komunikaty z chmury do urządzenia do aplikacji symulowanego urządzenia. Potrzebujesz identyfikatora urządzenia dodanego w polu [Wyślij telemetrię z urządzenia do](quickstart-send-telemetry-java.md) przewodnika Szybki Start dotyczącego usługi IoT Hub. Potrzebne są również parametry połączenia usługi IoT Hub, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string).
 
-1. Utwórz projekt Maven o nazwie **send-c2d-messages** za pomocą następującego polecenia w wierszu polecenia. Należy zauważyć, że to polecenie jest pojedyncze, długie polecenie:
+1. Utwórz projekt Maven o nazwie **send-C2D-messages** przy użyciu następującego polecenia w wierszu polecenia. Zwróć uwagę, że to polecenie jest pojedynczym, długim poleceniem:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. W wierszu polecenia przejdź do nowego folderu wiadomości send-c2d.
+2. W wierszu polecenia przejdź do nowego folderu Send-C2D-messages.
 
-3. Za pomocą edytora tekstu otwórz plik pom.xml w folderze send-c2d-messages i dodaj następującą zależność do węzła **zależności.** Dodawanie zależności umożliwia korzystanie z pakietu **iothub-java-service-client** w aplikacji do komunikowania się z usługą centrum IoT hub:
+3. Za pomocą edytora tekstów Otwórz plik pliku pom. XML w folderze Send-C2D-messages i Dodaj następujący zależność do węzła **zależności** . Dodanie zależności umożliwia korzystanie z pakietu **iothub-Java-Service-Client** w aplikacji w celu komunikowania się z usługą IoT Hub:
 
     ```xml
     <dependency>
@@ -129,7 +129,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmu
 
 4. Zapisz i zamknij plik pom.xml.
 
-5. Za pomocą edytora tekstu otwórz plik send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+5. Za pomocą edytora tekstów Otwórz plik send-c2d-messages\src\main\java\com\mycompany\app\App.java.
 
 6. Dodaj do pliku następujące instrukcje **importowania**:
 
@@ -139,7 +139,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmu
     import java.net.URISyntaxException;
     ```
 
-7. Dodaj następujące zmienne na poziomie klasy do klasy **aplikacji,** zastępując **{yourhubconnectionstring}** i **{yourdeviceid}** wartościami, które zostały wcześniej wymienione:
+7. Dodaj następujące zmienne na poziomie klasy do klasy **App** , zastępując wartości **{yourhubconnectionstring}** i **{yourdeviceid}** wartościami zanotowanymi wcześniej:
 
     ```java
     private static final String connectionString = "{yourhubconnectionstring}";
@@ -148,7 +148,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmu
         IotHubServiceClientProtocol.AMQPS;
     ```
 
-8. Zastąp metodę **główną** następującym kodem. Ten kod łączy się z centrum IoT hub, wysyła wiadomość do urządzenia, a następnie czeka na potwierdzenie, że urządzenie odebrało i przetworzyło wiadomość:
+8. Zastąp metodę **Main** poniższym kodem. Ten kod nawiązuje połączenie z usługą IoT Hub, wysyła komunikat do urządzenia, a następnie czeka na potwierdzenie, że urządzenie odebrało i przetworzy komunikat:
 
     ```java
     public static void main(String[] args) throws IOException,
@@ -181,7 +181,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmu
     ```
 
     > [!NOTE]
-    > Dla uproszczenia ten samouczek nie implementuje żadnych zasad ponawiania prób. W kodzie produkcyjnym należy zaimplementować zasady ponawiania prób (takie jak wykładnicze wycofywanie), zgodnie z sugestią w artykule Obsługa [błędów przejściowych.](/azure/architecture/best-practices/transient-faults)
+    > Dla uproszczenia w tym samouczku nie są implementowane żadne zasady ponawiania. W polu kod produkcyjny należy zaimplementować zasady ponawiania (np. wykładniczy wycofywania), zgodnie z opisem w artykule, [obsłudze błędów przejściowych](/azure/architecture/best-practices/transient-faults).
 
 9. Aby utworzyć aplikację **simulated-device** przy użyciu narzędzia Maven, wykonaj następujące polecenie w wierszu polecenia w folderze simulated-device:
 
@@ -193,7 +193,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która wysyła komunikaty z chmu
 
 Teraz można uruchomić aplikacje.
 
-1. W wierszu polecenia w folderze symulowanego urządzenia uruchom następujące polecenie, aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT hub i nasłuchiwać komunikatów z chmury do urządzenia wysyłanych z koncentratora:
+1. W wierszu polecenia w folderze symulowane urządzenia Uruchom następujące polecenie, aby rozpocząć wysyłanie danych telemetrycznych do centrum IoT Hub i nasłuchiwanie komunikatów z chmury do urządzeń wysyłanych z centrum:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -201,7 +201,7 @@ Teraz można uruchomić aplikacje.
 
     ![Uruchamianie aplikacji symulowanego urządzenia](./media/iot-hub-java-java-c2d/receivec2d.png)
 
-2. W wierszu polecenia w folderze send-c2d-messages uruchom następujące polecenie, aby wysłać wiadomość z chmury do urządzenia i poczekać na potwierdzenie opinii:
+2. W wierszu polecenia w folderze Send-C2D-messages Uruchom następujące polecenie, aby wysłać komunikat z chmury do urządzenia i poczekać na potwierdzenie opinii:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -211,8 +211,8 @@ Teraz można uruchomić aplikacje.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku dowiesz się, jak wysyłać i odbierać komunikaty z chmury do urządzenia.
+W ramach tego samouczka nauczysz się wysyłać i odbierać komunikaty z chmury do urządzenia.
 
-Aby zobaczyć przykłady kompletnych kompleksowych rozwiązań korzystających z usługi IoT Hub, zobacz [Akceleratory rozwiązań Usługi Azure IoT.](https://azure.microsoft.com/documentation/suites/iot-suite/)
+Aby zapoznać się z przykładami kompletnych kompleksowych rozwiązań, które używają IoT Hub, zobacz [Akceleratory rozwiązań usługi Azure IoT](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
-Aby dowiedzieć się więcej na temat opracowywania rozwiązań za pomocą usługi IoT Hub, zobacz [przewodnik dla deweloperów usługi IoT Hub.](iot-hub-devguide.md)
+Aby dowiedzieć się więcej na temat opracowywania rozwiązań za pomocą IoT Hub, zobacz [przewodnik dewelopera IoT Hub](iot-hub-devguide.md).

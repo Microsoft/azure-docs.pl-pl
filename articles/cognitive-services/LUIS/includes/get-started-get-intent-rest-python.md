@@ -1,5 +1,5 @@
 ---
-title: Uzyskaj intencję dzięki wywołaniu REST w pythonie
+title: Pobierz zamierzenia z wywołaniem REST w języku Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,40 +9,40 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: diberry
 ms.openlocfilehash: 2307ef6ea8940a3b3ddfb8c7539f4f809dc4c52c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733277"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Środowisko [Python 3.6](https://www.python.org/downloads/) lub nowsze.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Identyfikator aplikacji usługi LUIS — użyj publicznego identyfikatora aplikacji IoT . `df67dcdb-c37d-46af-88e1-8b97951ca1c2` Kwerenda użytkownika używana w kodzie szybkiego startu jest specyficzna dla tej aplikacji.
+* Identyfikator aplikacji LUIS — Użyj publicznego identyfikatora aplikacji IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. Zapytanie użytkownika używane w kodzie szybkiego startu jest specyficzne dla tej aplikacji.
 
-## <a name="create-luis-runtime-key-for-predictions"></a>Tworzenie klucza środowiska uruchomieniowego usługi LUIS dla prognoz
+## <a name="create-luis-runtime-key-for-predictions"></a>Utwórz klucz środowiska uruchomieniowego LUIS dla prognoz
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com)
-1. Kliknij [pozycję Utwórz **opis języka** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Wprowadź wszystkie wymagane ustawienia dla **klucza środowiska wykonawczego:**
+1. Zaloguj się do [Azure Portal](https://portal.azure.com)
+1. Kliknij przycisk [utwórz **Language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Wprowadź wszystkie wymagane ustawienia dla klucza **czasu wykonywania** :
 
     |Ustawienie|Wartość|
     |--|--|
-    |Nazwa|Żądana nazwa (2-64 znaki)|
+    |Nazwa|Wymagana nazwa (2-64 znaków)|
     |Subskrypcja|Wybierz odpowiednią subskrypcję|
-    |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i do dyspozycji|
-    |Warstwa cenowa|`F0`- minimalny poziom cenowy|
-    |Grupa zasobów|Wybieranie dostępnej grupy zasobów|
+    |Lokalizacja|Wybierz dowolną lokalizację w pobliżu i dostępną|
+    |Warstwa cenowa|`F0`— minimalna warstwa cenowa|
+    |Grupa zasobów|Wybierz dostępną grupę zasobów|
 
-1. Kliknij **przycisk Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobu.
-1. Zbieraj `endpoint` skonfigurowane `key`i .
+1. Kliknij przycisk **Utwórz** i poczekaj na utworzenie zasobu. Po jego utworzeniu przejdź do strony zasobów.
+1. Zbieranie skonfigurowanych `endpoint` i `key`.
 
-## <a name="get-intent-from-the-prediction-endpoint"></a>Uzyskaj intencję z punktu końcowego przewidywania
+## <a name="get-intent-from-the-prediction-endpoint"></a>Pobierz intencję z punktu końcowego przewidywania
 
-Użyj Języka Python, aby zbadać [punkt końcowy prognozowania](https://aka.ms/luis-apim-v3-prediction) i uzyskać wynik prognozowania.
+Użyj języka Python, aby wykonać zapytanie dotyczące [punktu końcowego przewidywania](https://aka.ms/luis-apim-v3-prediction) i uzyskać wynik przewidywania.
 
-1. Skopiuj ten fragment kodu `predict.py`do pliku o nazwie:
+1. Skopiuj ten fragment kodu do pliku o nazwie `predict.py`:
 
     ```python
     ########### Python 3.6 #############
@@ -75,14 +75,14 @@ Użyj Języka Python, aby zbadać [punkt końcowy prognozowania](https://aka.ms/
         print(f'{e}')
     ```
 
-1. Zastąp `YOUR-KEY` i `YOUR-ENDPOINT` wartości z własnym kluczem środowiska **wykonawczego** przewidywania i punktu końcowego.
+1. Zastąp `YOUR-KEY` wartości `YOUR-ENDPOINT` i własnymi **kluczami** i punktem końcowym przewidywania.
 
     |Informacje|Przeznaczenie|
     |--|--|
-    |`YOUR-KEY`|Twój klucz **32-znakowy przewidywanie środowiska uruchomieniowego.**|
+    |`YOUR-KEY`|Klucz **środowiska uruchomieniowego** przewidywania znaków 32.|
     |`YOUR-ENDPOINT`| Punkt końcowy adresu URL przewidywania. Na przykład `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Zainstaluj `requests` zależność. Służy do wysyłania żądań HTTP:
+1. Zainstaluj `requests` zależność. Służy do wprowadzania żądań HTTP:
 
     ```console
     pip install requests
@@ -94,13 +94,13 @@ Użyj Języka Python, aby zbadać [punkt końcowy prognozowania](https://aka.ms/
     python predict.py
     ```
 
-1. Przejrzyj odpowiedź przewidywania, która jest zwracana jako JSON:
+1. Przejrzyj odpowiedź przewidywania zwracaną jako kod JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Oto odpowiedź JSON sformatowany dla czytelności:
+    Oto opis odpowiedzi JSON sformatowanych pod kątem czytelności:
 
     ```JSON
     {
@@ -145,9 +145,9 @@ Użyj Języka Python, aby zbadać [punkt końcowy prognozowania](https://aka.ms/
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu tego przewodnika Szybki start usuń plik z systemu plików.
+Po zakończeniu pracy z tym przewodnikiem Szybki Start Usuń plik z systemu plików.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dodawanie wypowiedzi i szkolenie](../get-started-get-model-rest-apis.md)
+> [Dodawanie wyrażenia długości i uczenie](../get-started-get-model-rest-apis.md)

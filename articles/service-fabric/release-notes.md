@@ -1,165 +1,165 @@
 ---
-title: Wersje sieci szkieletowej usług Azure Service
-description: Informacje o wersji dla sieci szkieletowej usług Azure. Zawiera informacje na temat najnowszych funkcji i ulepszeń w sieci szkieletowej usług.
+title: Wersje Service Fabric platformy Azure
+description: Informacje o wersji dla Service Fabric platformy Azure. Zawiera informacje na temat najnowszych funkcji i ulepszeń w programie Service Fabric.
 ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
 ms.openlocfilehash: 3e0f6c78b6e5dd066cbfbac6805bb3c42068e66a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729596"
 ---
-# <a name="service-fabric-releases"></a>Wydania sieci szkieletowej usług
+# <a name="service-fabric-releases"></a>Wersje Service Fabric
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Rozwiązywanie problemów Przewodników</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">Śledzenie problemów</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Opcje</a> 
-| pomocy technicznej<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">Obsługiwane wersje</a> 
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Kod przykłady</a>
+| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Przewodniki</a> 
+| dotyczące rozwiązywania problemów z<a href="https://github.com/Azure/service-fabric-issues" target="blank">śledzeniem</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">opcji</a> 
+| pomocy technicznej<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">obsługiwane wersje</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">przykłady kodu</a>
 
-Ten artykuł zawiera więcej informacji na temat najnowszych wersji i aktualizacji środowiska wykonawczego sieci szkieletowej usług i SDK.
+Ten artykuł zawiera więcej informacji o najnowszych wersjach i aktualizacjach środowiska uruchomieniowego Service Fabric i zestawów SDK.
 
-## <a name="whats-new-in-service-fabric"></a>Co nowego w sieci szkieletowej usług
+## <a name="whats-new-in-service-fabric"></a>Co nowego w Service Fabric
 
-### <a name="service-fabric-71"></a>Tkanina serwisowa 7.1
-Ze względu na obecny kryzys COVID-19 i biorąc pod uwagę wyzwania stojące przed naszymi klientami, udostępniamy 7.1, ale nie uaktualniamy automatycznie klastrów ustawionych na automatyczne uaktualnienia. Wstrzymujemy automatyczne uaktualnienia do odwołania, aby upewnić się, że klienci mogą stosować uaktualnienia, gdy jest to dla nich najbardziej odpowiednie, aby uniknąć nieoczekiwanych zakłóceń.
+### <a name="service-fabric-71"></a>Service Fabric 7,1
+Ze względu na bieżące kryzysy COVID-19 i biorąc pod uwagę wyzwania dla naszych klientów, firma Microsoft udostępnia 7,1, ale nie uaktualnia automatycznie klastrów ustawionych w taki sposób, aby otrzymywać automatyczne uaktualnienia. Wstrzymywanie automatycznych uaktualnień do momentu zagwarantowania, że klienci będą mogli zastosować uaktualnienia, gdy jest to najbardziej odpowiednie, aby uniknąć nieoczekiwanych przerw w działaniu.
 
-Będzie można aktualizować do 7.1 za pośrednictwem [witryny Azure Portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) lub za pośrednictwem [wdrożenia usługi Azure Resource Manager.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template)
+Będzie można zaktualizować do 7,1 za pośrednictwem witryny [Azure Portal](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) lub za pomocą [wdrożenia Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
 
-Klastry sieci szkieletowej usług z włączonymi automatycznymi uaktualnieniami zaczną automatycznie odbierać aktualizację 7.1 po wznowieniu standardowej procedury wdrażania. Przed rozpoczęciem standardowego wdrażania w [witrynie społeczności Service Fabric Tech](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric)udostępnimy kolejne ogłoszenie.
-Opublikowaliśmy również aktualizacje do końca daty wsparcia dla głównych wydań, począwszy od 6.5 do 7.1 [tutaj](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-versions). 
+Service Fabric klastrów z włączonymi uaktualnieniami automatycznymi rozpocznie się automatyczne otrzymywanie aktualizacji 7,1 po wznowieniu standardowej procedury wdrażania. Przed rozpoczęciem standardowego wdrożenia w [witrynie społeczności Service Fabric Tech](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+Opublikowano również aktualizacje dotyczące końca okresu pomocy technicznej dla głównych wersji, począwszy od 6,5 [do 7,1.](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-versions) 
 
-## <a name="what-is-new-in-service-fabric-71"></a>Co nowego jest w sieci szkieletowej 7.1?
-Z przyjemnością ogłaszamy kolejną wersję sieci szkieletowej usług. Ta wersja jest ładowana z kluczowych funkcji i ulepszeń. Niektóre z kluczowych funkcji są wyróżnione poniżej:
-## <a name="key-announcements"></a>Kluczowe anonse
-- **Ogólna dostępność** [ **tożsamości zarządzanych sieci szkieletowej usług dla aplikacji sieci szkieletowej usług**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Wsparcie dla Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
- - [**Wersja zapoznawcza: Obsługa dysków systemu operacyjnego VMSS Efemeryczny**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)**: Dyski efemerycznego systemu operacyjnego są magazynem utworzonym na lokalnej maszynie wirtualnej i nie są zapisywane w zdalnym usłudze Azure Storage. Są one zalecane dla wszystkich typów węzłów sieci szkieletowej usług (podstawowy i pomocniczy), ponieważ w porównaniu do tradycyjnych dysków systemu operacyjnego trwałe, efemeryczne dyski systemu operacyjnego:
-      -  Zmniejszanie opóźnienia odczytu/zapisu na dysku systemu operacyjnego
-      -  Szybsze resetowanie/ponowne odtwarzanie operacji zarządzania węzłami obrazu
-      -  Zmniejsz ogólne koszty (dyski są bezpłatne i nie ponoszą żadnych dodatkowych kosztów magazynowania)
-- Obsługa deklaracji [**certyfikatów service endpoint aplikacji sieci szkieletowej według nazwy pospolitej podmiotu**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources).
-- [**Obsługa sond kondycji dla konteneryzowanych usług:**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage)Obsługa mechanizmu sondowania żywotności dla aplikacji konteneryzowanych. Liveness Probe pomóc ogłosić żywotność konteneryzowanej aplikacji i gdy nie reagują w odpowiednim czasie, spowoduje to ponowne uruchomienie. 
-- [**Obsługa pakietów kodu inicjatora**](https://docs.microsoft.com/azure/service-fabric/initializer-codepackages) dla [kontenerów](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) i aplikacji [wykonywalnych gościa.](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) Umożliwia to wykonywanie pakietów kodu (np. kontenerów) w określonej kolejności w celu zainicjowania pakietu serwisowego.
-- **FabricObserver i ClusterObserver** są aplikacjami bezstanowymi, które przechwytują telemetryczne sieci szkieletowej usług związane z różnymi aspektami klastra SF. Obie te aplikacje są gotowe do wdrożenia w klastrach produkcyjnych systemu Windows do przechwytywania zaawansowanej telemetrii z zaimplementowanym wsparciem dla ApplicationInsights, EventSource i LogAnalytics.
-    - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer)- działa na wszystkich węzłach, generuje zdarzenia kondycji, emituje dane telemetryczne po osiągnięciu progów użycia zasobów skonfigurowanych przez użytkownika. Ta wersja zawiera kilka ulepszeń w zakresie monitorowania, zarządzania danymi, szczegółów zdarzeń kondycji, ustrukturyzowanych danych telemetrycznych.
-     - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) - działa w jednym węźle, przechwytuje dane telemetryczne kondycji na poziomie klastra. W tej wersji ClusterObserver monitoruje również stan węzła i emituje dane telemetryczne, gdy węzeł jest wyłączony/wyłączający/wyłączony przez dłuższy niż okres określony przez użytkownika.
+## <a name="what-is-new-in-service-fabric-71"></a>Co nowego w Service Fabric 7,1?
+Przyjemnością ogłaszamy kolejne wydanie Service Fabric. Ta wersja jest ładowana przy użyciu najważniejszych funkcji i ulepszeń. Poniżej przedstawiono niektóre z kluczowych funkcji:
+## <a name="key-announcements"></a>Anonse kluczy
+- **Ogólna dostępność** [ **Service Fabric zarządzanych tożsamości dla aplikacji Service Fabric**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
+- [**Obsługa Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+ - [**Wersja zapoznawcza: VMSS tymczasowych systemów operacyjnych**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: dyski tymczasowe systemu operacyjnego są magazynem utworzonym na lokalnej maszynie wirtualnej i nie zostały zapisane w zdalnej usłudze Azure Storage. Są one zalecane dla wszystkich typów węzłów Service Fabric (podstawowych i pomocniczych), w porównaniu do tradycyjnych stałych dysków systemu operacyjnego, dysków tymczasowych systemu operacyjnego:
+      -  Zmniejsz opóźnienie odczytu/zapisu na dysku systemu operacyjnego
+      -  Włącz szybsze operacje zarządzania węzłami resetowania/ponownego obrazu
+      -  Obniżenie kosztów ogólnych (dyski są bezpłatne i nie wiążą się z dodatkowym kosztem magazynowania)
+- Obsługa deklaracji [**certyfikatów punktów końcowych usługi Service Fabric aplikacji według nazwy pospolitej podmiotu**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources).
+- [**Obsługa sond kondycji dla usług kontenerowych**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage): obsługa mechanizmu sondowania na żywo dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie. 
+- [**Obsługa pakietów kodu inicjatora**](https://docs.microsoft.com/azure/service-fabric/initializer-codepackages) dla [kontenerów](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) i aplikacji [wykonywalnych gościa](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) . Umożliwia to wykonywanie pakietów kodu (np. kontenerów) w określonej kolejności, aby przeprowadzić inicjalizację pakietu usług.
+- **FabricObserver i ClusterObserver** są aplikacjami bezstanowymi, które przechwytują Service Fabric dane telemetryczne związane z różnymi aspektami klastra SF. Obie te aplikacje są gotowe do wdrożenia w klastrach produkcyjnych systemu Windows w celu przechwytywania bogatej telemetrii z zaimplementowaną obsługą ApplicationInsights, EventSource i LogAnalytics.
+    - [**FabricObserver (fo) 2,0**](https://github.com/microsoft/service-fabric-observer)-działa na wszystkich węzłach, generuje zdarzenia dotyczące kondycji, emituje dane telemetryczne po osiągnięciu progów użycia zasobów skonfigurowanych przez użytkownika. Ta wersja zawiera kilka ulepszeń między monitorowaniem, zarządzaniem danymi, szczegółami zdarzeń dotyczących kondycji, strukturalną telemetrię.
+     - [**ClusterObserver (co) 1,1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) -działa na jednym węźle, przechwytuje dane telemetryczne kondycji poziomu klastra. W tej wersji ClusterObserver również monitoruje stan węzła i emituje dane telemetryczne, gdy węzeł jest wyłączony/wyłączany/wyłączony przez czas dłuższy niż określony przez użytkownika.
 
-### <a name="improve-application-life-cycle-experience"></a>Poprawa cyklu życia aplikacji
+### <a name="improve-application-life-cycle-experience"></a>Ulepsz środowisko cyklu życia aplikacji
 
-- **[Podgląd:Żądanie drenażu:](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-advanced#avoid-connection-drops-during-planned-downtime-of-stateless-services)** Podczas planowanej konserwacji usługi, takich jak uaktualnienia usługi lub dezaktywacji węzła, chcesz zezwolić usługom bezpiecznie opróżnić połączenia. Ta funkcja dodaje czas trwania opóźnienia zamknięcia wystąpienia w konfiguracji usługi. Podczas planowanych operacji SF usunie adres usługi z odnajdowania, a następnie odczeka ten czas trwania przed zamknięciem usługi.
-- **[Automatyczne wykrywanie i równoważenie podklastrów:](https://docs.microsoft.com/azure/service-fabric/cluster-resource-manager-subclustering )** Subclustering ma miejsce, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-metrics) Jeśli obciążenie różnych zestawów węzłów znacznie się różni, Menedżer zasobów klastra sieci szkieletowej usług uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepszą możliwą równowagę z powodu ograniczeń umieszczania. W rezultacie próbuje zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "brak równowagi" nie może być znacznie poprawiony). Począwszy od tej wersji, Menedżer zasobów klastra będzie teraz próbował automatycznie wykryć tego rodzaju konfiguracje i zrozumieć, kiedy nierównowaga może być ustalona poprzez ruch, a kiedy zamiast tego należy pozostawić rzeczy w spokoju, ponieważ nie można dokonać znaczącej poprawy.  
-- [**Inny koszt przenoszenia dla replik pomocniczych:**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost)Wprowadziliśmy nową wartość kosztu przeniesienia VeryHigh, która zapewnia dodatkową elastyczność w niektórych scenariuszach, aby określić, czy oddzielny koszt przeniesienia powinien być używany dla replik pomocniczych.
-- Włączony mechanizm [**sondowania żywotności**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage ) dla aplikacji konteneryzowanych. Liveness Probe pomóc ogłosić żywotność konteneryzowanej aplikacji i gdy nie reagują w odpowiednim czasie, spowoduje to ponowne uruchomienie.
-- [**Bieganie do zakończenia/raz dla usług**](https://docs.microsoft.com/azure/service-fabric/run-to-completion)**
+- **[Wersja zapoznawcza:](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-advanced#avoid-connection-drops-during-planned-downtime-of-stateless-services)** w trakcie konserwacji zaplanowanej usługi, takiej jak uaktualnienia usług lub dezaktywacja węzła, chcesz zezwolić usługom na bezpieczne opróżnianie połączeń. Ta funkcja dodaje czas trwania opóźnienia zamknięcia w konfiguracji usługi. Podczas planowanych operacji SF usunie adres usługi z odnajdywania, a następnie poczeka ten czas przed zamknięciem usługi.
+- **[Automatyczne wykrywanie i równoważenie klastra](https://docs.microsoft.com/azure/service-fabric/cluster-resource-manager-subclustering )**: klastrowanie występuje, gdy usługi z różnymi ograniczeniami umieszczania mają wspólną [metrykę obciążenia](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-metrics). Jeśli obciążenie różnych zestawów węzłów znacznie się różni, klaster Service Fabric Menedżer zasobów uważa, że klaster jest niezrównoważony, nawet jeśli ma najlepsze możliwe saldo z powodu ograniczeń umieszczania. W związku z tym próbuje on ponownie zrównoważyć klaster, potencjalnie powodując niepotrzebne ruchy usługi (ponieważ "niezrównoważone" nie może być znacząco ulepszone). Począwszy od tej wersji, klaster Menedżer zasobów podejmie teraz próbę automatycznego wykrycia tych rodzajów konfiguracji i zrozumienia sytuacji, w których można nawiązać transrównowaga za pomocą przenoszenia, a kiedy zamiast tego należy pozostawać same w sobie, ponieważ nie można wykonać znacznej poprawy.  
+- [**Inny koszt przenoszenia dla replik pomocniczych**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost): wprowadzono nową VeryHigh kosztu przeniesienia, która zapewnia dodatkową elastyczność w niektórych scenariuszach, aby określić, czy do replik pomocniczych należy używać oddzielnego kosztu przenoszenia.
+- Włączony mechanizm [**sondowania na żywo**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage ) dla aplikacji kontenerowych. Sonda na żywo pomaga w ogłaszaniu na żywo aplikacji kontenera i gdy nie odpowiadają one w odpowiednim czasie, spowoduje to ponowne uruchomienie.
+- [**Uruchom do zakończenia/raz dla usług**](https://docs.microsoft.com/azure/service-fabric/run-to-completion)**
 
-### <a name="image-store-improvements"></a>Ulepszenia sklepu z obrazami
- - Sieć szkieletowa usług 7.1 domyślnie używa **transportu niestandardowego do bezpiecznego transferu plików między węzłami.** Zależność od udziału plików SMB jest usuwana z wersji 7.1. Zabezpieczone udziały plików SMB są nadal istniejące w węzłach, które zawierają replikę usługi Image Store Service dla klienta, aby zrezygnować z domyślnego oraz uaktualnienia i zmiany na starszą wersję.
+### <a name="image-store-improvements"></a>Udoskonalenia Magazyn obrazów
+ - Service Fabric 7,1 używa **niestandardowego transportu do bezpiecznego transferu plików między węzłami**. Zależność od udziału plików SMB jest usuwana z wersji 7,1. Zabezpieczone udziały plików SMB nadal są istniejące w węzłach, które zawierają replikę usługi Magazyn obrazów, aby klient mógł zrezygnować z domyślnych oraz uaktualnić i obniżyć wersję do starej wersji.
        
- ### <a name="reliable-collections-improvements"></a>Ulepszenia niezawodnych kolekcji
+ ### <a name="reliable-collections-improvements"></a>Udoskonalenia niezawodnych kolekcji
 
-- [**W pamięci tylko magazyn obsługi usług stanowych przy użyciu niezawodnych kolekcji:**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections)Volatile Niezawodne kolekcje umożliwia utrwalone dane na dysku dla trwałości przed awariami na dużą skalę, może służyć do obciążeń, takich jak replikowanej pamięci podręcznej, na przykład, gdzie sporadyczne utraty danych mogą być tolerowane. Na podstawie [ograniczeń i ograniczeń volatile niezawodne kolekcje,](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections)zaleca się to dla obciążeń, które nie wymagają trwałości, dla usług, które obsługują rzadkie okazje utraty kworum.
-- [**Wersja zapoznawcza: Eksplorator kopii zapasowych sieci szkieletowej sieci usług:**](https://github.com/microsoft/service-fabric-backup-explorer)Aby ułatwić zarządzanie kopiami zapasowymi niezawodnych kolekcji dla aplikacji stanowych sieci szkieletowej usług, Eksplorator kopii zapasowych sieci szkieletowej usług umożliwia użytkownikom
-    - Inspekcja i przegląd zawartości wiarygodnych kolekcji,
-    - Aktualizowanie bieżącego stanu do spójnego widoku
-    - Tworzenie kopii zapasowej bieżącej migawki niezawodnych kolekcji
-    - Naprawianie uszkodzenia danych
+- [**W pamięci tylko magazyn obsługujący usługi stanowe przy użyciu niezawodnych kolekcji**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections): niezawodne kolekcje mogą utrwalać dane na dysku w celu zapewnienia trwałości przed awarią w dużej skali. można ich używać w przypadku obciążeń, takich jak replikowana pamięć podręczna, na przykład nieprzerwana utrata danych. W oparciu o [ograniczenia i ograniczenia niezawodnych kolekcji nietrwałej](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections)zalecamy to dla obciążeń, które nie wymagają trwałości, dla usług, które obsługują rzadko występujące straty kworum.
+- [**Wersja zapoznawcza: Service Fabric Eksplorator kopii zapasowych**](https://github.com/microsoft/service-fabric-backup-explorer): aby ułatwić zarządzanie niezawodnymi kopiami zapasowymi kolekcji dla Service Fabric aplikacji stanowych, Service Fabric Eksplorator kopii zapasowych umożliwia użytkownikom
+    - Inspekcja i przeglądanie zawartości niezawodnych kolekcji,
+    - Aktualizuj bieżący stan do spójnego widoku
+    - Utwórz kopię zapasową bieżącej migawki niezawodnych kolekcji
+    - Napraw uszkodzenie danych
                  
-### <a name="service-fabric-71-releases"></a>Wersje usługi Fabric 7.1
+### <a name="service-fabric-71-releases"></a>Wersje 7,1 Service Fabric
 | Data wydania | Release | Więcej informacji |
 |---|---|---|
-| 20 kwietnia 2020 r. | [Usługa Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
+| 20 kwietnia 2020 | [Azure Service Fabric 7,1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
 
 
-### <a name="service-fabric-70"></a>Tkanina serwisowa 7.0
+### <a name="service-fabric-70"></a>Service Fabric 7,0
 
-Usługa Azure Service Fabric 7.0 jest już dostępna! Będzie można zaktualizować do 7.0 za pośrednictwem witryny Azure portal lub za pośrednictwem wdrożenia usługi Azure Resource Manager. Ze względu na opinie klientów na temat wydań w okresie świątecznym nie rozpoczniemy automatycznej aktualizacji klastrów ustawionych na automatyczne uaktualnienia do stycznia.
-W styczniu wznowimy standardową procedurę wdrażania, a klastry z włączonymi automatycznymi uaktualnieniami zaczną automatycznie odbierać aktualizację 7.0. Przed rozpoczęciem wdrożenia przedstawimy kolejne ogłoszenie.
-Zaktualizujemy również planowane daty premiery, aby wskazać, że bierzemy pod uwagę tę politykę. Poszukaj tutaj aktualizacji naszych przyszłych [harmonogramów wersji.](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)
+Usługa Azure Service Fabric 7,0 jest teraz dostępna! Będzie można zaktualizować do 7,0 za pośrednictwem Azure Portal lub wdrożenia Azure Resource Manager. Ze względu na Opinie klientów dotyczące wydań w okresie świątecznym nie rozpocznie się automatyczne aktualizowanie klastrów ustawionych w taki sposób, aby otrzymywać automatyczne uaktualnienia do stycznia.
+W styczniu wznowimy standardowe procedury i klastry z włączonymi uaktualnieniami automatycznymi umożliwią automatyczne otrzymywanie aktualizacji 7,0. Przed rozpoczęciem wycofywania zajmiemy się innym ogłoszeniem.
+Będziemy również aktualizować nasze planowane daty wydania, aby wskazać, że te zasady są uwzględniane. Zobacz tutaj, aby uzyskać aktualizacje dotyczące naszych przyszłych [harmonogramów wydania](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule).
  
-Jest to najnowsza wersja sieci szkieletowej usług i jest ładowany z kluczowych funkcji i ulepszeń.
+Jest to Najnowsza wersja Service Fabric i została załadowana przy użyciu najważniejszych funkcji i ulepszeń.
 
-### <a name="key-announcements"></a>Kluczowe anonse
- - [**Obsługa keyvaultreference dla wpisów tajnych aplikacji (Wersja zapoznawcza)**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): Aplikacje sieci szkieletowej usług, które włączyły [tożsamości zarządzane,](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) mogą teraz bezpośrednio odwoływać się do tajnego adresu URL magazynu kluczy jako zmiennej środowiskowej, parametru aplikacji lub poświadczenia repozytorium kontenera. Sieci szkieletowej usług automatycznie rozwiąże klucz tajny przy użyciu tożsamości zarządzanej aplikacji. 
+### <a name="key-announcements"></a>Anonse kluczy
+ - [**Obsługa KeyVaultReference dla wpisów tajnych aplikacji (wersja zapoznawcza)**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): Service Fabric aplikacje, które obsługują [tożsamości zarządzane](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) , mogą teraz bezpośrednio odwoływać się do Key Vault tajnego adresu URL jako zmiennej środowiskowej, parametru aplikacji lub poświadczenia repozytorium kontenerów. Service Fabric automatycznie rozwiąże wpis tajny przy użyciu tożsamości zarządzanej aplikacji. 
      
-- **Ulepszone bezpieczeństwo uaktualnień dla usług bezstanowych:** Aby zagwarantować dostępność podczas uaktualniania aplikacji, wprowadziliśmy nowe konfiguracje, aby zdefiniować [minimalną liczbę wystąpień dla usług bezstanowych,](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) które mają być uważane za dostępne. Wcześniej wartość ta wynosiła 1 dla wszystkich usług i nie była zmienna. Dzięki tej nowej kontroli bezpieczeństwa dla usług można zapewnić, że usługi zachowują minimalną liczbę wystąpień podczas uaktualniania aplikacji, uaktualnień klastra i innych konserwacji, które opierają się na kontrolach kondycji i bezpieczeństwa sieci szkieletowej usług.
+- **Ulepszone zabezpieczenia uaktualnienia dla usług bezstanowych**: w celu zagwarantowania dostępności podczas uaktualniania aplikacji wprowadzono nowe konfiguracje umożliwiające zdefiniowanie [minimalnej liczby wystąpień usług bezstanowych](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) , które mają być uznawane za dostępne. Wcześniej ta wartość była równa 1 dla wszystkich usług i nie mogła zostać zmieniona. Korzystając z tej nowej kontroli bezpieczeństwa dla poszczególnych usług, można zagwarantować, że usługi zachowują minimalną liczbę wystąpień podczas uaktualniania aplikacji, uaktualniania klastra i innych czynności konserwacyjnych, które opierają się na sprawdzaniu kondycji Service Fabric i bezpieczeństwa.
   
-- [**Limity zasobów dla usług użytkowników:**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services)Użytkownicy mogą konfigurować limity zasobów dla usług użytkowników w węźle, aby zapobiec scenariuszom, takim jak wyczerpanie zasobów usług systemu sieci szkieletowej usług sieci szkieletowej usług. 
+- [**Limity zasobów dla usług użytkowników**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): użytkownicy mogą konfigurować limity zasobów dla usług użytkowników w węźle, aby zapobiec scenariuszom, takim jak wyczerpanie zasobów Service Fabric usług systemu. 
   
-- [**Bardzo wysoki koszt przeniesienia usługi**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) dla typu repliki. Repliki z bardzo wysokim kosztem przeniesienia zostaną przeniesione tylko wtedy, gdy w klastrze występuje naruszenie ograniczeń, którego nie można naprawić w żaden inny sposób. Zobacz dokumenty, aby uzyskać dodatkowe informacje na temat tego, kiedy użycie "bardzo wysoki" koszt przeniesienia jest uzasadnione i dodatkowe uwagi.
+- [**Bardzo wysoki koszt przeniesienia usługi**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) dla typu repliki. Repliki o bardzo wysokim koszcie są przenoszone tylko w przypadku naruszenia ograniczenia w klastrze, którego nie można naprawić w żaden inny sposób. Zapoznaj się z dokumentacją, aby uzyskać dodatkowe informacje o tym, kiedy użycie "bardzo wysokie" koszt przeniesienia jest rozsądne i dodatkowe zagadnienia.
   
--  **Dodatkowe kontrole bezpieczeństwa klastra:** W tej wersji wprowadziliśmy konfigurowalną kontrolę bezpieczeństwa kworum węzła źródłowego. Dzięki temu można dostosować, ile węzłów źródłowych muszą być dostępne podczas klastra cyklu życia i scenariuszy zarządzania. Operacje, które miałyby klastra poniżej skonfigurowaną wartość są blokowane. Obecnie wartość domyślna jest zawsze kworum węzłów źródłowych, na przykład, jeśli masz 7 węzłów źródłowych, operacja, która zabierze Cię poniżej 5 węzłów źródłowych będzie domyślnie zablokowany. Dzięki tej zmianie można wprowadzić minimalną bezpieczną wartość 6, która pozwoliłaby na wysunięciu tylko jednego węzła źródłowego naraz.
+-  **Dodatkowe sprawdzanie bezpieczeństwa klastra**: w tej wersji wprowadzono konfigurowalne sprawdzanie bezpieczeństwa kworum węzła inicjatora. Pozwala to na dostosowanie liczby węzłów inicjatora, które muszą być dostępne podczas scenariuszy związanych z cyklem życia klastra i zarządzaniem nimi. Operacje przyjmujące klaster poniżej skonfigurowanej wartości są blokowane. Dzisiaj wartość domyślna to zawsze kworum węzłów inicjatora, na przykład jeśli masz 7 węzłów inicjatora, operacja, która mogłaby potrwać poniżej 5 węzłów inicjatora, będzie domyślnie blokowana. W przypadku tej zmiany można wprowadzić minimalną bezpieczną wartość 6, która pozwoli na przekroczenie tylko jednego węzła inicjatora.
    
-- Dodano obsługę [**zarządzania usługą tworzenia kopii zapasowych i przywracania w Eksploratorze sieci szkieletowej usług**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Umożliwia to następujące działania bezpośrednio z poziomu SFX: odnajdowanie usługi tworzenia kopii zapasowych i przywracania, tworzenie zasad tworzenia kopii zapasowych, włączanie automatycznych kopii zapasowych, wykonywanie kopii zapasowych adhoc, wyzwalanie operacji przywracania i przeglądanie istniejących kopii zapasowych.
+- Dodano obsługę [**zarządzania kopiami zapasowymi i przywracaniem w programie Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Powoduje to, że następujące działania mogą być możliwe bezpośrednio z poziomu SFX: odnajdywanie usługi tworzenia kopii zapasowych i przywracania, tworzenie zasad tworzenia kopii zapasowych, Włączanie automatycznych kopii zapasowych, wykonywanie kopii zapasowych ad hoc, wyzwalanie operacji przywracania i przeglądanie istniejących kopii zapasowych.
 
-- Ogłaszając dostępność [**ReliableCollectionsMissingTypesTool:**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool)To narzędzie pomaga sprawdzić, czy typy używane w niezawodnych kolekcjach są zgodne do przodu i do tyłu podczas uaktualniania aplikacji stopniowych. Pomaga to zapobiec awariom uaktualnienia lub utracie danych i uszkodzeniu danych z powodu brakujących lub niezgodnych typów.
+- Zapowiedź dostępności [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): to narzędzie pomaga sprawdzić, czy typy używane w niezawodnych kolekcjach są zgodne z poprzednimi wersjami podczas stopniowego uaktualniania aplikacji. Pozwala to zapobiec błędom uaktualniania lub utracie danych i uszkodzeniu danych ze względu na brak lub niezgodne typy.
 
-- [**Włącz stabilne odczyty w replikach pomocniczych:Odczyty**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1)stabilne ograniczą repliki pomocnicze do zwracanych wartości, które zostały przypisane do kworum.
+- [**Włącz stałe odczyty w replikach pomocniczych**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1): stabilne odczyty ograniczają repliki pomocnicze, które będą zwracać wartości, które były potwierdzone kworum.
 
-Ponadto ta wersja zawiera inne nowe funkcje, poprawki błędów i ulepszenia obsługi, niezawodności i wydajności. Pełna lista zmian znajduje się w [informacjach o wersji](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
+Ponadto ta wersja zawiera inne nowe funkcje, poprawki błędów i usprawnienia, niezawodność i wydajność. Aby uzyskać pełną listę zmian, zapoznaj się z [informacjami o wersji](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
 
-### <a name="service-fabric-70-releases"></a>Wersje usługi Fabric 7.0
+### <a name="service-fabric-70-releases"></a>Wersje 7,0 Service Fabric
 
 | Data wydania | Release | Więcej informacji |
 |---|---|---|
-| 18 listopada 2019 r. | [Usługa Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
-| 30 stycznia 2020 r. | [Wersja odświeżania usługi Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
-| 6 lutego 2020 r. | [Wersja odświeżania usługi Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
-| 2 marca 2020 r. | [Wersja odświeżania usługi Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-fourth-refresh-release/ba-p/1205414)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU4-releasenotes.md)
+| 18 listopada 2019 r. | [Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
+| 30 stycznia 2020 | [Wersja odświeżenia systemu Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
+| 6 lutego 2020 | [Wersja odświeżenia systemu Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
+| 2 marca 2020 | [Wersja odświeżenia systemu Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-fourth-refresh-release/ba-p/1205414)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-70CU4-releasenotes.md)
 
-### <a name="service-fabric-65"></a>Tkanina serwisowa 6.5
+### <a name="service-fabric-65"></a>Service Fabric 6,5
 
-Ta wersja zawiera ulepszenia obsługi, niezawodności i wydajności, nowe funkcje, poprawki błędów i ulepszenia ułatwiające zarządzanie klastrem i cyklem życia aplikacji.
+Ta wersja zawiera ulepszenia dotyczące możliwości obsługi, niezawodności i wydajności, nowe funkcje, poprawki błędów i ulepszenia ułatwiające zarządzanie klastrami i aplikacjami.
 
 > [!IMPORTANT]
-> Usługa Fabric 6.5 to ostateczna wersja z obsługą narzędzi sieci szkieletowej usług w programie Visual Studio 2015. Klienci powinni przejść do [programu Visual Studio 2019](https://visualstudio.microsoft.com/vs/) w przyszłości.
+> Service Fabric 6,5 to ostateczna wersja z obsługą Service Fabric narzędzi w programie Visual Studio 2015. Klienci są zachęcani do przechodzenia do [programu Visual Studio 2019](https://visualstudio.microsoft.com/vs/) .
 
-Oto co nowego w sieci szkieletowej usług 6.5:
+Oto nowości Nowość w Service Fabric 6,5:
 
-- Eksplorator sieci szkieletowej usług zawiera [przeglądarkę magazynu obrazów](service-fabric-visualizing-your-cluster.md#image-store-viewer) do sprawdzania aplikacji przekazanych do magazynu obrazów.
+- Service Fabric Explorer zawiera [podgląd magazyn obrazów](service-fabric-visualizing-your-cluster.md#image-store-viewer) do inspekcji aplikacji przekazanych do magazynu obrazów.
 
-- [Patch Orchestration Application (POA)](service-fabric-patch-orchestration-application.md) w wersji [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) zawiera wiele ulepszeń autodiagnostyki. Klienci POA są zalecane, aby przejść do tej wersji.
+- Wersja [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) [aplikacji aranżacji patch (POA)](service-fabric-patch-orchestration-application.md) zawiera wiele ulepszeń samoobsługowych. Aby przejść do tej wersji, zalecamy użycie klientów POA.
 
-- [Usługa EventStore jest domyślnie włączona](service-fabric-visualizing-your-cluster.md#event-store) dla klastrów sieci szkieletowej usługi 6.5, chyba że zrezygnowano.
+- [Usługa EventStore jest domyślnie włączona](service-fabric-visualizing-your-cluster.md#event-store) dla klastrów Service Fabric 6,5, chyba że wybrałeś opcję.
 
 - Dodano [zdarzenia cyklu życia repliki](service-fabric-diagnostics-event-generation-operational.md#replica-events) dla usług stanowych.
 
-- [Lepsza widoczność stanu węzła źródłowego,](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)w tym ostrzeżenia na poziomie klastra, jeśli węzeł źródłowy jest w złej kondycji *(W dół,* *Usunięte* lub *Nieznane).*
+- [Lepsza widoczność stanu węzła inicjatora](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), w tym ostrzeżeń na poziomie klastra, jeśli węzeł inicjatora jest w złej kondycji (*w dół*, *usunięty* lub *nieznany*).
 
-- Narzędzie do [odzyskiwania po awarii aplikacji sieci szkieletowej](https://github.com/Microsoft/Service-Fabric-AppDRTool) usług umożliwia usługi stanowe sieci szkieletowej usług, aby szybko odzyskać, gdy klaster podstawowy napotka katastrofę. Dane z klastra podstawowego są stale synchronizowane w pomocniczej aplikacji rezerwowej przy użyciu okresowej kopii zapasowej i przywracania.
+- [Service Fabric narzędzie do odzyskiwania po awarii aplikacji](https://github.com/Microsoft/Service-Fabric-AppDRTool) umożliwia Service Fabric usługi stanowe, aby szybko wykonać odzyskiwanie w przypadku wystąpienia awarii w klastrze podstawowym. Dane z klastra podstawowego są stale synchronizowane z pomocniczą aplikacją do rezerwowania przy użyciu okresowych kopii zapasowych i przywracania.
 
-- Obsługa programu Visual Studio do [publikowania aplikacji .NET Core w klastrach opartych na systemie Linux](service-fabric-how-to-publish-linux-app-vs.md).
+- Program Visual Studio obsługuje [publikowanie aplikacji platformy .NET Core w klastrach opartych na systemie Linux](service-fabric-how-to-publish-linux-app-vs.md).
 
-- [Interfejs wiersza polecenia sieci szkieletowej usług Azure (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) zostanie zainstalowany automatycznie dla sieci szkieletowej usługi 6.5 (i nowszych wersji) podczas uaktualniania lub tworzenia nowego klastra systemu Linux na platformie Azure.
+- [Interfejs wiersza polecenia platformy Azure Service Fabric (SFCTL)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) zostanie automatycznie zainstalowany dla Service Fabric 6,5 (i nowszych) w przypadku uaktualniania lub tworzenia nowego klastra z systemem Linux na platformie Azure.
 
-- [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) jest instalowany domyślnie w klastrach MacOS/Linux OneBox.
+- [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) jest instalowany domyślnie w klastrach jednopunktowy MacOS/Linux.
 
-Aby uzyskać więcej informacji, zobacz [Informacje o wersji sieci szkieletowej usług 6.5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
+Aby uzyskać więcej informacji, zobacz [Informacje o wersji Service Fabric 6,5](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
 
-### <a name="service-fabric-65-releases"></a>Wersje usługi Fabric 6.5
+### <a name="service-fabric-65-releases"></a>Wersje 6,5 Service Fabric
 
 | Data wydania | Release | Więcej informacji |
 |---|---|---|
-| 11 czerwca 2019 r. | [Usługa Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
-| 2 lipca 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
-| 29 lipca 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
-| 23 sierpnia 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [Informacje o wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
-| 14 października 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [Informacje o wersji] (https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md  |
+| 11 czerwca 2019 r. | [Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
+| 2 lipca 2019 r. | [Wersja odświeżenia systemu Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
+| 29 lipca 2019 r. | [Wersja odświeżenia systemu Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
+| 23 sierpnia 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Third-Refresh-Release/ba-p/818599)  | [Uwagi do wersji](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU3.pdf)  |
+| 14 października 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Fifth-Refresh-Release/ba-p/913296)  | [Informacje o wersji] (https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU5.md  |
 
 
 ## <a name="previous-versions"></a>Poprzednie wersje
 
-### <a name="service-fabric-64-releases"></a>Wersje usługi Fabric 6.4
+### <a name="service-fabric-64-releases"></a>Wersje 6,4 Service Fabric
 
 | Data wydania | Release | Więcej informacji |
 |---|---|---|
-| 30 listopada 2018 r. | [Usługa Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
-| 12 grudnia 2018 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4 dla klastrów systemu Windows](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
-| 4 lutego 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
-| 4 marca 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
-| 8 kwietnia 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
-| 2 maja 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 28 maja 2019 r. | [Wersja odświeżania usługi Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Wersji](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 30 listopada 2018 | [Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| 12 grudnia 2018 | [Usługa Azure Service Fabric 6,4 Refresh Release dla klastrów systemu Windows](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
+| 4 lutego 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
+| 4 marca 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
+| 8 kwietnia 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
+| 2 maja 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Uwagi do wersji](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
+| 28 maja 2019 | [Wersja odświeżenia systemu Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Informacje o wersji](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)

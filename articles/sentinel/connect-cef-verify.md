@@ -1,6 +1,6 @@
 ---
-title: Sprawdzanie poprawności łączności z usługą Azure Sentinel | Dokumenty firmy Microsoft
-description: Sprawdź poprawność łączności rozwiązania zabezpieczeń, aby upewnić się, że wiadomości CEF są przekazywane do usługi Azure Sentinel.
+title: Sprawdź poprawność łączności z platformą Azure — wskaźnikiem | Microsoft Docs
+description: Sprawdź poprawność łączności rozwiązania zabezpieczeń, aby upewnić się, że komunikaty CEF są przekazywane do usługi Azure wskaźnikowej.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,42 +15,42 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6b91e36ee09aa855c119add2c0eb268cf8b97393
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731833"
 ---
-# <a name="step-3-validate-connectivity"></a>KROK 3: Sprawdzanie poprawności łączności
+# <a name="step-3-validate-connectivity"></a>Krok 3. Weryfikowanie łączności
 
-Po wdrożeniu usługi przesyłania dalej dziennika (w kroku 1) i skonfigurowaniu rozwiązania zabezpieczeń do wysyłania wiadomości cef (w kroku 2), postępuj zgodnie z tymi instrukcjami, aby zweryfikować łączność między rozwiązaniem zabezpieczeń a usługą Azure Sentinel. 
+Po wdrożeniu usługi przesyłania dalej dzienników (w kroku 1) i skonfigurowaniu rozwiązania zabezpieczającego do wysyłania komunikatów CEF (w kroku 2) postępuj zgodnie z tymi instrukcjami, aby sprawdzić łączność między rozwiązaniem zabezpieczeń a wskaźnikiem kontroli platformy Azure. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć podwyższone uprawnienia (sudo) na komputerze z usługi przesyłania dalej dziennika.
+- Musisz mieć podwyższony poziom uprawnień (sudo) na komputerze usługi przesyłania dalej dzienników.
 
-- Musisz mieć zainstalowany język Python na komputerze z przesyłaczam dalej dziennikiem.<br>
-Za `python –version` pomocą polecenia można sprawdzić.
+- Na komputerze usługi przesyłania dalej dzienników musi być zainstalowany język Python.<br>
+Użyj polecenia `python –version` , aby sprawdzić.
 
-## <a name="how-to-validate-connectivity"></a>Jak sprawdzić poprawność łączności
+## <a name="how-to-validate-connectivity"></a>Sprawdzanie poprawności łączności
 
-1. Z menu nawigacji usługi Azure Sentinel otwórz **dzienniki**. Uruchom kwerendę przy użyciu schematu **CommonSecurityLog,** aby sprawdzić, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
-Należy pamiętać, że może upłynąć około 20 minut, aż dzienniki zaczną pojawiać się w **usłudze Log Analytics.** 
+1. W menu nawigacyjnym usługi Azure wskaźnikowym Otwórz pozycję **dzienniki**. Uruchom zapytanie przy użyciu schematu **CommonSecurityLog** , aby zobaczyć, czy otrzymujesz dzienniki z rozwiązania zabezpieczeń.<br>
+Należy pamiętać, że może upłynąć około 20 minut, dopóki dzienniki nie pojawią się w **log Analytics**. 
 
-1. Jeśli nie widzisz żadnych wyników z kwerendy, sprawdź, czy zdarzenia są generowane z rozwiązania zabezpieczeń lub spróbuj wygenerować niektóre z nich i sprawdź, czy są przekazywane do wyznaczonego komputera usługi przesyłania dalej Syslog. 
+1. Jeśli nie widzisz żadnych wyników zapytania, sprawdź, czy zdarzenia są generowane z rozwiązania zabezpieczeń, lub spróbuj wygenerować niektóre i sprawdź, czy są przekazywane do wyszukanego komputera usługi przesyłania dalej dziennika systemowego. 
 
-1. Uruchom następujący skrypt na usługi przesyłania dalej dziennika, aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dziennika i usługą Azure Sentinel. Ten skrypt sprawdza, czy demon nasłuchuje na odpowiednich portach, czy przekazywanie jest poprawnie skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem usługi Log Analytics. Wysyła również makiety wiadomości "TestCommonEventFormat", aby sprawdzić łączność end-to-end. <br>
+1. Uruchom następujący skrypt w usłudze przesyłania dalej dzienników, aby sprawdzić łączność między rozwiązaniem zabezpieczeń, usługą przesyłania dalej dzienników i wskaźnikiem kontroli platformy Azure. Ten skrypt sprawdza, czy demon nasłuchuje na prawidłowych portach, że przekazywanie jest prawidłowo skonfigurowane i że nic nie blokuje komunikacji między demonem a agentem Log Analytics. Wysyła również komunikat "TestCommonEventFormat", który umożliwia sprawdzenie kompleksowej łączności. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
-## <a name="validation-script-explained"></a>Objaśnienie skryptu sprawdzania poprawności
+## <a name="validation-script-explained"></a>Wyjaśniono skrypt walidacji
 
-Skrypt sprawdzania poprawności wykonuje następujące kontrole:
+Skrypt walidacji wykonuje następujące sprawdzenia:
 
-# <a name="rsyslog-daemon"></a>[demon rsyslog](#tab/rsyslog)
+# <a name="rsyslog-daemon"></a>[Demon rsyslog](#tab/rsyslog)
 
 1. Sprawdza, czy plik<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
-    istnieje i jest prawidłowa.
+    istnieje i jest prawidłowy.
 
 1. Sprawdza, czy plik zawiera następujący tekst:
 
@@ -70,29 +70,29 @@ Skrypt sprawdzania poprawności wykonuje następujące kontrole:
             type filter_syslog_security
         </filter>
 
-1. Sprawdza, czy na komputerze są jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zapora hosta).
+1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 
-1. Sprawdza, czy demon syslogu (rsyslog) jest poprawnie skonfigurowany do wysyłania wiadomości, które identyfikuje jako CEF (przy użyciu wyrażenia regularnego) do agenta usługi Log Analytics na porcie TCP 25226:
+1. Sprawdza, czy demon dziennika systemu (rsyslog) jest prawidłowo skonfigurowany do wysyłania komunikatów identyfikowanych jako CEF (przy użyciu wyrażenia regularnego) do agenta Log Analytics na porcie TCP 25226:
 
-    - Plik konfiguracyjny:`/etc/rsyslog.d/security-config-omsagent.conf`
+    - Plik konfiguracji:`/etc/rsyslog.d/security-config-omsagent.conf`
 
             :rawmsg, regex, "CEF\|ASA" ~
             *.* @@127.0.0.1:25226
 
-1. Sprawdza, czy demon sysloga odbiera dane na porcie 514
+1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514
 
-1. Sprawdza, czy są ustanawiane niezbędne połączenia: tcp 514 do odbierania danych, tcp 25226 dla komunikacji wewnętrznej między demonem syslog a agentem usługi Log Analytics
+1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics
 
-1. Wysyła dane MOCK do portu 514 na localhost. Te dane powinny być obserwowalne w obszarze roboczym usługi Azure Sentinel, uruchamiając następującą kwerendę:
+1. Wysyła dane MAKIETy do portu 514 na hoście lokalnym. Te dane powinny być zauważalne w obszarze roboczym wskaźnik platformy Azure, uruchamiając następujące zapytanie:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
 
-# <a name="syslog-ng-daemon"></a>[demon syslog-ng](#tab/syslogng)
+# <a name="syslog-ng-daemon"></a>[Demon dziennika systemu](#tab/syslogng)
 
 1. Sprawdza, czy plik<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
-    istnieje i jest prawidłowa.
+    istnieje i jest prawidłowy.
 
 1. Sprawdza, czy plik zawiera następujący tekst:
 
@@ -112,21 +112,21 @@ Skrypt sprawdzania poprawności wykonuje następujące kontrole:
             type filter_syslog_security
         </filter>
 
-1. Sprawdza, czy na komputerze są jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zapora hosta).
+1. Sprawdza, czy na komputerze znajdują się jakieś ulepszenia zabezpieczeń, które mogą blokować ruch sieciowy (na przykład zaporę hosta).
 
-1. Sprawdza, czy demon syslog (syslog-ng) jest poprawnie skonfigurowany do wysyłania wiadomości, które identyfikuje jako CEF (przy użyciu wyrażenia regularnego) do agenta usługi Log Analytics na porcie TCP 25226:
+1. Sprawdza, czy demon dziennika systemowego (Dziennik systemowy) jest prawidłowo skonfigurowany do wysyłania komunikatów identyfikowanych jako CEF (przy użyciu wyrażenia regularnego) do agenta Log Analytics na porcie TCP 25226:
 
-    - Plik konfiguracyjny:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+    - Plik konfiguracji:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
             filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
             destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
             log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
 
-1. Sprawdza, czy demon sysloga odbiera dane na porcie 514
+1. Sprawdza, czy demon dziennika systemowego otrzymuje dane na porcie 514
 
-1. Sprawdza, czy są ustanawiane niezbędne połączenia: tcp 514 do odbierania danych, tcp 25226 dla komunikacji wewnętrznej między demonem syslog a agentem usługi Log Analytics
+1. Sprawdza, czy zostały ustanowione niezbędne połączenia: TCP 514 do odbioru danych, TCP 25226 w celu komunikacji wewnętrznej między demonem dziennika systemowego a agentem Log Analytics
 
-1. Wysyła dane MOCK do portu 514 na localhost. Te dane powinny być obserwowalne w obszarze roboczym usługi Azure Sentinel, uruchamiając następującą kwerendę:
+1. Wysyła dane MAKIETy do portu 514 na hoście lokalnym. Te dane powinny być zauważalne w obszarze roboczym wskaźnik platformy Azure, uruchamiając następujące zapytanie:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
@@ -134,8 +134,8 @@ Skrypt sprawdzania poprawności wykonuje następujące kontrole:
 ---
 
 ## <a name="next-steps"></a>Następne kroki
-W tym dokumencie dowiesz się, jak połączyć urządzenia CEF z usługą Azure Sentinel. Aby dowiedzieć się więcej o usłudze Azure Sentinel, zobacz następujące artykuły:
-- Dowiedz się, jak [uzyskać wgląd w dane i potencjalne zagrożenia.](quickstart-get-visibility.md)
-- Rozpocznij [wykrywanie zagrożeń za pomocą usługi Azure Sentinel](tutorial-detect-threats.md).
-- Monitorowanie danych [za pomocą skoroszytów.](tutorial-monitor-your-data.md)
+W tym dokumencie przedstawiono sposób łączenia urządzeń CEF z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:
+- Dowiedz się [, jak uzyskać wgląd w dane oraz potencjalne zagrożenia](quickstart-get-visibility.md).
+- Rozpocznij [wykrywanie zagrożeń za pomocą platformy Azure — wskaźnik](tutorial-detect-threats.md).
+- [Używaj skoroszytów](tutorial-monitor-your-data.md) do monitorowania danych.
 

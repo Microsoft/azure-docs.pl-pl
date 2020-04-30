@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie wiadomości do serwera MQTT przy użyciu biblioteki klienta usługi Azure MQTT
-description: Dowiedz się, jak używać biblioteki klienta MQTT do wysyłania wiadomości do brokera MQTT. Dowiedz się również, jak skonfigurować program mXChip IoT DevKit jako klienta MQTT.
+title: Wysyłanie komunikatów do serwera MQTT za pomocą biblioteki klienckiej usługi Azure MQTT
+description: Dowiedz się, jak wysyłać komunikaty do brokera MQTT przy użyciu biblioteki klienta MQTT. Dowiedz się również, jak skonfigurować zestawu deweloperskiego IoT DevKit jako klienta MQTT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -11,84 +11,84 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733488"
 ---
-# <a name="send-messages-to-an-mqtt-server"></a>Wysyłanie wiadomości do serwera MQTT
+# <a name="send-messages-to-an-mqtt-server"></a>Wysyłanie komunikatów do serwera MQTT
 
-Systemy Internetu rzeczy (IoT) często mają do czynienia z przerywanymi, niską jakością lub powolnymi połączeniami internetowymi. MQTT to protokół łączności maszyna-maszyna (M2M), który został opracowany z myślą o takich wyzwaniach. 
+Systemy Internet rzeczy (IoT) często zajmują się ciągłą, niską jakością lub powolnymi połączeniami internetowymi. MQTT to protokół łączności między maszynami (M2M), który został opracowany z uwzględnieniem takich wyzwań. 
 
-Biblioteka klienta MQTT używana w tym miejscu jest częścią projektu [Eclipse Paho,](https://www.eclipse.org/paho/) który udostępnia interfejsy API do korzystania z MQTT za pomocą wielu środków transportu.
+Używana tutaj Biblioteka klienta MQTT jest częścią projektu [zaćmienie PAHO](https://www.eclipse.org/paho/) , który oferuje interfejsy API do używania MQTT w wielu środkach transportu.
 
 ## <a name="what-you-learn"></a>Omawiane zagadnienia
 
-W tym projekcie uczysz się:
-- Jak używać biblioteki klienta MQTT do wysyłania wiadomości do brokera MQTT.
-- Jak skonfigurować MXChip Iot DevKit jako klienta MQTT.
+W tym projekcie dowiesz się:
+- Jak wysyłać komunikaty do brokera MQTT przy użyciu biblioteki klienta MQTT.
+- Jak skonfigurować zestawu deweloperskiego IoT DevKit jako klienta MQTT.
 
 ## <a name="what-you-need"></a>Co jest potrzebne
 
-Ukończ [przewodnik Wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) do:
+Zakończ [przewodnik wprowadzenie](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) , aby:
 
-* Podłącz devkit do sieci Wi-Fi
+* Połączono z usługą DevKit z siecią Wi-Fi
 * Przygotowywanie środowiska deweloperskiego
 
 ## <a name="open-the-project-folder"></a>Otwieranie folderu projektu
 
-1. Jeśli DevKit jest już połączona z komputerem, odłącz go.
+1. Jeśli DevKit już nawiązuje połączenie z komputerem, odłącz go.
 
 2. Uruchom program VS Code.
 
-3. Podłącz devkit do komputera.
+3. Połącz DevKit z komputerem.
 
-## <a name="open-the-mqttclient-sample"></a>Otwórz próbkę MQTTClient
+## <a name="open-the-mqttclient-sample"></a>Otwieranie przykładu MQTTClient
 
-Rozwiń sekcję **ARDUINO EXAMPLES** po lewej stronie, przejdź do **przykładów dla MXCHIP AZ3166 > MQTT**i wybierz **MQTTClient**. Zostanie otwarte nowe okno kodu programu VS z folderem projektu.
-
-> [!NOTE]
-> Można również otworzyć przykład z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie znajdź i wybierz **Arduino: Przykłady**.
-
-## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Zbuduj i prześlij szkic Arduino do DevKit
-
-Wpisz `Ctrl+P` (macOS: `Cmd+P`), `task device-upload`aby uruchomić . Po zakończeniu przekazywania DevKit uruchamia ponownie i uruchamia szkic.
-
-![przesyłanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+Rozwiń sekcję **przykłady Arduino** lewej strony, przejdź do **przykładów dla zestawu DEWELOPERSKIEGO AZ3166 > MQTT**, a następnie wybierz pozycję **MQTTClient**. Zostanie otwarte nowe okno VS Code z folderem projektu.
 
 > [!NOTE]
-> Może pojawić się komunikat o błędzie "Błąd: AZ3166: Nieznany pakiet". Ten błąd występuje, gdy indeks pakietu płyty nie jest odświeżany poprawnie. Aby rozwiązać ten błąd, zapoznaj się [z sekcją rozwoju często zadawanych pytań ioT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Możesz również otworzyć przykład z palety poleceń. Użyj `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`), aby otworzyć paletę poleceń, wpisz **Arduino**, a następnie Znajdź i wybierz **Arduino: przykłady**.
+
+## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Kompiluj i przekaż szkic Arduino do DevKit
+
+Wpisz `Ctrl+P` (macOS: `Cmd+P`), aby `task device-upload`uruchomić. Po zakończeniu przekazywania DevKit ponownie uruchamia i uruchamia szkic.
+
+![przekazywanie urządzenia](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+
+> [!NOTE]
+> Może zostać wyświetlony komunikat o błędzie "błąd: AZ3166: nieznany pakiet". Ten błąd występuje, gdy indeks pakietu tablicy nie został poprawnie odświeżony. Aby rozwiązać ten problem, zapoznaj się z [sekcją opracowywanie często ZAdawanych pytań dotyczących IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Testowanie projektu
 
-W programie VS Code wykonaj tę procedurę, aby otworzyć i skonfigurować Monitor szeregowy:
+W VS Code wykonaj następującą procedurę, aby otworzyć i skonfigurować Monitor seryjny:
 
-1. Kliknij `COM[X]` wyraz na pasku stanu, aby `STMicroelectronics`ustawić ![odpowiedni port COM za pomocą: set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+1. Kliknij `COM[X]` słowo na pasku stanu, aby ustawić prawidłowy port COM za pomocą `STMicroelectronics`polecenia: ![Set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
-2. Kliknij ikonę wtyczki zasilania na pasku ![stanu, aby otworzyć monitor szeregowy: monitor szeregowy](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+2. Kliknij ikonę zasilania na pasku stanu, aby otworzyć Monitor szeregowy: ![Serial-Monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
-3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji `115200`i ![ustaw ją na: set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+3. Na pasku stanu kliknij liczbę reprezentującą szybkość transmisji i ustaw ją na `115200`: ![Set-bodów-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
-Monitor szeregowy wyświetla wszystkie komunikaty wysyłane przez przykładowy szkic. Szkic łączy DevKit z siecią Wi-Fi. Po pomyślnym zakończeniu połączenia Wi-Fi szkic wysyła wiadomość do brokera MQTT. Następnie próbka wielokrotnie wysyła dwa komunikaty "iot.eclipse.org" przy użyciu odpowiednio QoS 0 i QoS 1.
+W monitorze seryjnym są wyświetlane wszystkie komunikaty wysyłane przez przykładowy szkic. Szkic łączy DevKit z siecią Wi-Fi. Po pomyślnym nawiązaniu połączenia Wi-Fi szkic wyśle wiadomość do brokera usługi MQTT. Następnie przykład wielokrotnie wysyła dwa komunikaty "iot.eclipse.org" przy użyciu ustawień QoS 0 i QoS 1.
 
-![wyjście szeregowe](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![dane wyjściowe](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problemy i opinie
 
-Jeśli wystąpią problemy, zapoznaj się z [często zadawanymi pytaniami dotyczącymi programu IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) lub połącz się z następującymi kanałami:
+Jeśli wystąpią problemy, zapoznaj się z tematem [często zadawanych pytań dotyczących usługi IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) lub Połącz się przy użyciu następujących kanałów:
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Łączenie zestawu IoT DevKit AZ3166 z centrum Usługi Azure IoT Hub w chmurze](iot-hub-arduino-iot-devkit-az3166-get-started.md)
-* [Wstrząsnąć, Wstrząsnąć na Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+* [Łączenie usługi IoT DevKit AZ3166 z platformą Azure IoT Hub w chmurze](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [Wstrząsanie i wstrząsanie tweetu](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy nauczyłeś się, jak skonfigurować MXChip Iot DevKit jako klienta MQTT i użyć biblioteki klienta MQTT do wysyłania wiadomości do brokera MQTT, oto sugerowane następne kroki:
+Teraz, gdy już wiesz, jak skonfigurować usługę zestawu deweloperskiego IoT DevKit jako klienta MQTT i użyć biblioteki klienta MQTT do wysyłania komunikatów do brokera programu MQTT, poniżej przedstawiono sugerowane następne kroki:
 
-* [Omówienie akceleratora rozwiązań do zdalnego monitorowania usługi Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Łączenie urządzenia MXChip IoT DevKit z aplikacją Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Omówienie akceleratora rozwiązań do monitorowania zdalnego usługi Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją usługi Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Łączenie sql na żądanie (wersja zapoznawcza) z programem Power BI Desktop & tworzenia raportu'
-description: W tym samouczku dowiesz się, jak połączyć sql na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics z pulpitem usługi Power BI i utworzyć raport demonstracyjny na podstawie widoku.
+title: 'Samouczek: łączenie programu SQL na żądanie (wersja zapoznawcza) w celu Power BI Desktop & tworzenia raportu'
+description: W tym samouczku dowiesz się, jak połączyć usługę SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,44 +10,44 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81769478"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Samouczek: Łączenie sql na żądanie (wersja zapoznawcza) z programem Power BI Desktop & tworzenia raportu
+# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Samouczek: łączenie programu SQL na żądanie (wersja zapoznawcza) w celu Power BI Desktop & tworzenia raportu
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
-> - Tworzenie bazy danych demonstracyjnych
-> - Tworzenie widoku używanego dla raportu
+> - Utwórz demonstracyjną bazę danych
+> - Utwórz widok używany na potrzeby raportu
 > - Nawiązywanie połączenia z programem Power BI Desktop
-> - Tworzenie raportu na podstawie widoku
+> - Utwórz raport w oparciu o widok
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, potrzebne jest następujące oprogramowanie:
+Do ukończenia tego samouczka potrzebne jest następujące oprogramowanie:
 
-- Narzędzie do kwerend SQL, takie jak [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)lub SQL Server Management Studio [(SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Program Power BI Desktop](https://powerbi.microsoft.com/downloads/).
+- Narzędzie zapytania SQL, takie jak [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)lub [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Wartości dla następujących parametrów:
 
 | Parametr                                 | Opis                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Adres punktu końcowego usługi SQL na żądanie    | Używany jako nazwa serwera                                   |
-| Region punktu końcowego usługi SQL na żądanie     | Służy do określania przechowywania używanego w próbkach |
-| Nazwa użytkownika i hasło dostępu do punktu końcowego | Służy do uzyskiwania dostępu do punktu końcowego                               |
-| Baza danych, której użyjesz do tworzenia widoków     | Baza danych używana jako punkt wyjścia w przykładach       |
+| Adres punktu końcowego usługi SQL na żądanie    | Używane jako nazwa serwera                                   |
+| Region punktu końcowego usługi SQL na żądanie     | Służy do określania magazynu używanego w przykładach |
+| Nazwa użytkownika i hasło dostępu do punktu końcowego | Używane do uzyskiwania dostępu do punktu końcowego                               |
+| Baza danych, która będzie używana do tworzenia widoków     | Baza danych używana jako punkt wyjścia w przykładach       |
 
-## <a name="1---create-database"></a>1 - Tworzenie bazy danych
+## <a name="1---create-database"></a>1 — Tworzenie bazy danych
 
-Dla środowiska demo, tworzenie własnej bazy danych demo. Ta baza danych służy do wyświetlania metadanych, a nie do przechowywania rzeczywistych danych.
+Dla środowiska demonstracyjnego Utwórz własną demonstracyjną bazę danych. Ta baza danych służy do wyświetlania metadanych, a nie do przechowywania rzeczywistych danych.
 
-Utwórz bazę danych demonstracyjnych (i w razie potrzeby upuść istniejącą bazę danych), uruchamiając następujący skrypt Transact-SQL (T-SQL):
+Utwórz demonstracyjną bazę danych (i w razie potrzeby upuść istniejącą bazę danych), uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
 
 ```sql
 -- Drop database if it exists
@@ -62,11 +62,11 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2 - Tworzenie poświadczeń
+## <a name="2---create-credential"></a>2 — Tworzenie poświadczeń
 
-Poświadczenia jest niezbędne dla usługi SQL na żądanie, aby uzyskać dostęp do plików w magazynie. Utwórz poświadczenia dla konta magazynu, który znajduje się w tym samym regionie co punkt końcowy. Chociaż SQL na żądanie można uzyskać dostęp do kont magazynu z różnych regionów, o magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
+Do uzyskiwania dostępu do plików w magazynie jest wymagane poświadczenie usługi SQL na żądanie. Utwórz poświadczenie dla konta magazynu znajdującego się w tym samym regionie, w którym znajduje się punkt końcowy. Mimo że usługa SQL na żądanie może uzyskać dostęp do kont magazynu z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
 
-Utwórz poświadczenie, uruchamiając następujący skrypt Transact-SQL (T-SQL):
+Utwórz poświadczenie, uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -81,11 +81,11 @@ SECRET = '';
 GO
 ```
 
-## <a name="3---prepare-view"></a>3 - Przygotuj widok
+## <a name="3---prepare-view"></a>3 — Przygotuj widok
 
-Utwórz widok na podstawie zewnętrznych danych demonstracyjnych, zobycie usługi Power BI, uruchamiając następujący skrypt Transact-SQL (T-SQL):
+Utwórz widok na podstawie zewnętrznych danych demonstracyjnych, które Power BI wykorzystać, uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
 
-Utwórz `usPopulationView` widok wewnątrz `Demo` bazy danych za pomocą następującej kwerendy:
+Utwórz widok `usPopulationView` wewnątrz bazy danych `Demo` przy użyciu następującej kwerendy:
 
 ```sql
 DROP VIEW IF EXISTS usPopulationView;
@@ -103,32 +103,32 @@ FROM
 
 Dane demonstracyjne zawierają następujące zestawy danych:
 
-Populacja USA według płci i rasy dla każdego hrabstwa USA pochodzą z 2000 i 2010 Decennial Census w formacie parkietu.
+Populacja USA według płci i rasę dla każdego z powiatów USA pochodzących z 2000 i 2010 Decennial spisu w formacie Parquet.
 
 | Ścieżka folderu                                                  | Opis                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /release/                                                    | Folder nadrzędny dla danych na koncie magazynu demonstracyjnego               |
-| /release/us_population_county/                               | Us population data files in Parquet format, podzielony na partycje według roku przy użyciu schematu partycjonowania Hive/Hadoop. |
+| /Release                                                    | Folder nadrzędny dla danych na koncie magazynu demonstracyjnego               |
+| /Release/us_population_county/                               | Pliki danych populacji US w formacie Parquet, podzielone na partycje według roku przy użyciu schematu partycjonowania Hive/Hadoop. |
 
-## <a name="4---create-power-bi-report"></a>4 - Tworzenie raportu usługi Power BI
+## <a name="4---create-power-bi-report"></a>4 — Tworzenie raportu Power BI
 
-Tworzenie raportu dla programu Power BI Desktop przy użyciu następujących czynności:
+Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
 1. Otwórz aplikację Power BI Desktop i wybierz pozycję **Pobierz dane**.
 
    ![Otwórz aplikację klasyczną Power BI i wybierz pozycję Pobierz dane.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Wybierz **usługę Azure** > **Azure SQL Database**. 
+2. Wybierz pozycję **Azure** > **Azure SQL Database**. 
 
-   ![Wybierz źródło danych.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
+   ![Wybierz pozycję źródło danych.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
-3. Wpisz nazwę serwera, na którym znajduje się baza danych `Demo` w polu **Serwer,** a następnie wpisz nazwę bazy danych. Wybierz opcję **Importuj,** a następnie wybierz przycisk **OK**. 
+3. Wpisz nazwę serwera, na którym znajduje się baza danych w polu **serwer** , a następnie wpisz `Demo` nazwę bazy danych. Wybierz opcję **Importuj** , a następnie wybierz przycisk **OK**. 
 
    ![Wybierz bazę danych w punkcie końcowym.](./media/tutorial-connect-power-bi-desktop/step-2-db.png)
 
 4. Wybierz preferowaną metodę uwierzytelniania:
 
-    - Przykład dla AAD 
+    - Przykład dla usługi AAD 
   
     ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
@@ -141,38 +141,38 @@ Tworzenie raportu dla programu Power BI Desktop przy użyciu następujących czy
 
    ![Wybierz widok w wybranej bazie danych.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. Poczekaj na zakończenie operacji, a następnie pojawi się `There are pending changes in your queries that haven't been applied`wyskakujące okienko z informacją . Wybierz **pozycję Zastosuj zmiany**. 
+6. Poczekaj na zakończenie operacji, a następnie zostanie wyświetlone okno podręczne `There are pending changes in your queries that haven't been applied`. Wybierz pozycję **Zastosuj zmiany**. 
 
-   ![Kliknij zastosuj zmiany.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
+   ![Kliknij przycisk Zastosuj zmiany.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 
-7. Poczekaj, aż okno dialogowe **Zastosuj zmiany kwerendy** zniknie, co może potrwać kilka minut. 
+7. Zaczekaj na zniknięcie okna dialogowego **Zastosuj zmiany zapytania** , co może potrwać kilka minut. 
 
-   ![Poczekaj na zakończenie kwerendy.](./media/tutorial-connect-power-bi-desktop/step-5-wait-for-query-to-finish.png)
+   ![Poczekaj na zakończenie zapytania.](./media/tutorial-connect-power-bi-desktop/step-5-wait-for-query-to-finish.png)
 
 8. Po zakończeniu ładowania wybierz następujące kolumny w tej kolejności, aby utworzyć raport:
-   - nazwa powiatu
-   - Populacji
-   - nazwa stanu
+   - Województwo
+   - ludzkie
+   - stateName
 
-   ![Wybierz kolumny interesujące, aby wygenerować raport mapy.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
+   ![Wybierz kolumny zainteresowania, aby wygenerować raport mapy.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po wykonaniu tego raportu usuń zasoby, wykonując następujące czynności:
+Po zakończeniu korzystania z tego raportu Usuń zasoby z następującymi krokami:
 
-1. Usuwanie poświadczeń dla konta magazynu
+1. Usuń poświadczenie dla konta magazynu
 
    ```sql
    DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
    ```
 
-2. Usuwanie widoku
+2. Usuń widok
 
    ```sql
    DROP VIEW usPopulationView;
    ```
 
-3. Upuść bazę danych
+3. Porzuć bazę danych
 
    ```sql
    DROP DATABASE Demo;
@@ -180,4 +180,4 @@ Po wykonaniu tego raportu usuń zasoby, wykonując następujące czynności:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do [plików magazynu kwerendy,](develop-storage-files-overview.md) aby dowiedzieć się, jak wysyłać zapytania do plików magazynu przy użyciu synapse SQL.
+Przejdź do [plików magazynu zapytań](develop-storage-files-overview.md) , aby dowiedzieć się, jak wykonywać zapytania dotyczące plików magazynu przy użyciu języka SQL Synapse.

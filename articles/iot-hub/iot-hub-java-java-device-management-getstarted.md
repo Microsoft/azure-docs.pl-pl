@@ -1,6 +1,6 @@
 ---
-title: Wprowadzenie do zarządzania urządzeniami usługi Azure IoT Hub (Java) | Dokumenty firmy Microsoft
-description: Jak za pomocą zarządzania urządzeniami usługi Azure IoT Hub do inicjowania ponownego uruchomienia urządzenia zdalnego. Użyj zestawu SDK urządzenia Usługi Azure IoT dla języka Java, aby zaimplementować aplikację symulowanego urządzenia, która zawiera metodę bezpośrednią i zestaw SDK usługi Azure IoT dla języka Java w celu zaimplementowania aplikacji usługi, która wywołuje metodę bezpośrednią.
+title: Rozpoczynanie pracy z usługą Azure IoT Hub Device Management (Java) | Microsoft Docs
+description: Jak zainicjować zdalne ponowne uruchomienie urządzenia za pomocą usługi Azure IoT Hub Device Management. Zestaw SDK urządzeń Azure IoT dla języka Java służy do implementowania aplikacji symulowanego urządzenia, która obejmuje metodę bezpośrednią i zestaw SDK usługi Azure IoT dla języka Java w celu zaimplementowania aplikacji usługi, która wywołuje metodę bezpośrednią.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 75d89b54bae6eb8166d44e08ea020a0da67ad20c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732554"
 ---
 # <a name="get-started-with-device-management-java"></a>Wprowadzenie do zarządzania urządzeniami (Java)
@@ -23,82 +23,82 @@ ms.locfileid: "81732554"
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Użyj witryny Azure Portal, aby utworzyć centrum IoT Hub i utworzyć tożsamość urządzenia w centrum IoT hub.
+* Użyj Azure Portal, aby utworzyć IoT Hub i utworzyć tożsamość urządzenia w centrum IoT.
 
-* Utwórz aplikację symulowanego urządzenia, która implementuje bezpośrednią metodę ponownego uruchomienia urządzenia. Metody bezpośrednie są wywoływane z chmury.
+* Tworzenie aplikacji symulowanego urządzenia, która implementuje metodę bezpośrednią w celu ponownego uruchomienia urządzenia. Metody bezpośrednie są wywoływane z chmury.
 
-* Utwórz aplikację, która wywołuje metodę bezpośredniego ponownego uruchomienia w aplikacji symulowanego urządzenia za pośrednictwem centrum IoT hub. Ta aplikacja następnie monitoruje zgłaszane właściwości z urządzenia, aby zobaczyć, kiedy operacja ponownego uruchomienia jest zakończona.
+* Utwórz aplikację, która wywołuje metodę ponownego rozruchu w aplikacji symulowanego urządzenia za pośrednictwem Centrum IoT. Ta aplikacja monitoruje następnie zgłoszone właściwości z urządzenia, aby sprawdzić, kiedy operacja ponownego uruchamiania zostanie zakończona.
 
-Na końcu tego samouczka masz dwie aplikacje konsoli Java:
+Na końcu tego samouczka masz dwie aplikacje konsolowe Java:
 
-**symulowanego urządzenia**. Ta aplikacja:
+**symulowane — urządzenie**. Ta aplikacja:
 
-* Łączy się z centrum IoT hub z tożsamości urządzenia utworzone wcześniej.
+* Nawiązuje połączenie z Centrum IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia.
 
-* Odbiera wywołanie metody bezpośredniej ponownego uruchomienia.
+* Odbiera wywołanie metody bezpośredniego ponownego uruchomienia.
 
-* Symuluje fizyczny ponowny rozruch.
+* Symuluje fizyczne ponowne uruchomienie.
 
-* Raportuje czas ostatniego ponownego uruchomienia za pośrednictwem zgłoszonej właściwości.
+* Zgłasza czas ostatniego ponownego uruchomienia za pomocą raportowanej właściwości.
 
-**trigger-reboot**. Ta aplikacja:
+**wyzwalacz — ponowny rozruch**. Ta aplikacja:
 
 * Wywołuje metodę bezpośrednią w aplikacji symulowanego urządzenia.
 
-* Wyświetla odpowiedź na bezpośrednie wywołanie metody wysyłane przez symulowane urządzenie.
+* Wyświetla odpowiedź na wywołanie metody bezpośredniej wysyłane przez symulowane urządzenie.
 
-* Wyświetla zaktualizowane zgłoszone właściwości.
+* Wyświetla zaktualizowane raportowane właściwości.
 
 > [!NOTE]
-> Aby uzyskać informacje na temat zestawów SDK, których można używać do tworzenia aplikacji do uruchamiania na urządzeniach i zapleczu rozwiązania, zobacz [zestawy SDK usługi Azure IoT.](iot-hub-devguide-sdks.md)
+> Aby uzyskać informacje o zestawach SDK, których można użyć do kompilowania aplikacji do uruchamiania na urządzeniach i zaplecza rozwiązania, zobacz [zestawy SDK usługi Azure IoT](iot-hub-devguide-sdks.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw java se development 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Upewnij się, że w obszarze **Java 8** w obszarze **Długoterminowa pomoc techniczna** umożliwia pobieranie dla JDK 8.
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Upewnij się, że wybrano opcję **Java 8** w obszarze **Obsługa długoterminowa** , aby pobrać pliki do pobrania dla programu JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w ciągu zaledwie kilku minut).
+* Aktywne konto platformy Azure. (Jeśli nie masz konta, możesz utworzyć [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) w zaledwie kilka minut).
 
-* Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym artykule używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Upewnij się, że port 8883 jest otwarty w zaporze. W przykładzie urządzenia w tym artykule jest używany protokół MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Zarejestruj nowe urządzenie w centrum IoT
+## <a name="register-a-new-device-in-the-iot-hub"></a>Rejestrowanie nowego urządzenia w usłudze IoT Hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Pobierz ciąg połączenia koncentratora IoT
+## <a name="get-the-iot-hub-connection-string"></a>Pobierz parametry połączenia usługi IoT Hub
 
 [!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia urządzenia przy użyciu metody bezpośredniej
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Wyzwalanie zdalnego ponownego uruchomienia na urządzeniu przy użyciu metody bezpośredniej
 
-W tej sekcji utworzysz aplikację konsoli Java, która:
+W tej sekcji utworzysz aplikację konsolową Java, która:
 
 1. Wywołuje metodę bezpośredniego ponownego uruchomienia w aplikacji symulowanego urządzenia.
 
 2. Wyświetla odpowiedź.
 
-3. Sonduje zgłoszone właściwości wysyłane z urządzenia, aby określić, kiedy ponowne uruchomienie zostanie zakończone.
+3. Sonduje raportowane właściwości wysyłane z urządzenia w celu określenia, kiedy ponowne uruchomienie zostało zakończone.
 
-Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośrednią i odczytać zgłoszone właściwości.
+Ta Aplikacja konsolowa nawiązuje połączenie z IoT Hub, aby wywołać metodę bezpośrednią i odczytać raportowane właściwości.
 
-1. Utwórz pusty folder o nazwie **dm-get-started**.
+1. Utwórz pusty folder o nazwie **DM-Get-Started**.
 
-2. W folderze **dm-get-started** utwórz projekt Maven o nazwie **trigger-reboot,** używając następującego polecenia w wierszu polecenia:
+2. W folderze **DM-Get-Started** Utwórz projekt Maven o nazwie **wyzwalacz-ponowny rozruch** przy użyciu następującego polecenia w wierszu polecenia:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. W wierszu polecenia przejdź do folderu **wyzwalania i ponownego uruchamiania.**
+3. W wierszu polecenia przejdź do folderu **wyzwalacz-ponowne uruchomienie** .
 
-4. Za pomocą edytora tekstu otwórz plik **pom.xml** w folderze **trigger-reboot** i dodaj następującą zależność do węzła **zależności.** Ta zależność umożliwia korzystanie z pakietu iot-service-client w aplikacji do komunikowania się z centrum IoT hub:
+4. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **wyzwalacz-ponowne uruchomienie** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
 
     ```xml
     <dependency>
@@ -112,7 +112,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     > [!NOTE]
     > Możesz sprawdzić dostępność najnowszej wersji pakietu **iot-service-client** za pomocą [funkcji wyszukiwania narzędzia Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Dodaj następujący węzeł **kompilacji** po węźle **zależności.** Ta konfiguracja nakazuje Maven używać Java 1.8 do tworzenia aplikacji:
+5. Dodaj następujący węzeł **kompilacji** po węźle **zależności** . Ta konfiguracja nakazuje Maven do kompilowania aplikacji przy użyciu języka Java 1,8:
 
     ```xml
     <build>
@@ -132,7 +132,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
 
 6. Zapisz i zamknij plik **pom.xml**.
 
-7. Za pomocą edytora tekstu otwórz plik **źródłowy trigger-reboot\src\main\java\com\mycompany\app\App.java.**
+7. Za pomocą edytora tekstów Otwórz plik źródłowy **Trigger-reboot\src\main\java\com\mycompany\app\App.Java** .
 
 8. Dodaj do pliku następujące instrukcje **importowania**:
 
@@ -149,7 +149,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{youriothubconnectionstring}` na parametry połączenia Usługi IoT Hub skopiowane wcześniej w [pobierz ciąg połączenia centrum IoT:](#get-the-iot-hub-connection-string)
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{youriothubconnectionstring}` na IoT Hub parametry połączenia, które zostały wcześniej skopiowane w polu [Pobierz parametry połączenia usługi IoT Hub](#get-the-iot-hub-connection-string):
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -160,7 +160,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-10. Aby zaimplementować wątek, który odczytuje zgłaszane właściwości z bliźniaczej reprezentacji urządzenia co 10 sekund, dodaj następującą klasę zagnieżdżoną do klasy **App:**
+10. Aby zaimplementować wątek, który odczytuje raportowane właściwości z sznurów urządzeń co 10 sekund, Dodaj następującą klasę zagnieżdżoną do klasy **App** :
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -181,13 +181,13 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     }
     ```
 
-11. Zmodyfikuj podpis **metody głównej,** aby zgłosić następujący wyjątek:
+11. Zmodyfikuj podpis metody **Main** , aby zgłosić następujący wyjątek:
 
     ```java
     public static void main(String[] args) throws IOException
     ```
 
-12. Aby wywołać metodę bezpośredniego ponownego uruchomienia na symulowanym urządzeniu, zastąp kod w metodzie **głównej** następującym kodem:
+12. Aby wywołać metodę bezpośredniego ponownego rozruchu na symulowanym urządzeniu, Zastąp kod w metodzie **Main** następującym kodem:
 
     ```java
     System.out.println("Starting sample...");
@@ -212,7 +212,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     }
     ```
 
-13. Aby uruchomić wątek, aby sondować zgłoszone właściwości z symulowanego urządzenia, dodaj następujący kod do **metody głównej:**
+13. Aby rozpocząć wątek w celu sondowania raportowanych właściwości z symulowanego urządzenia, Dodaj następujący kod do metody **Main** :
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -220,7 +220,7 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     executor.execute(showReportedProperties);
     ```
 
-14. Aby umożliwić zatrzymanie aplikacji, dodaj następujący kod do **metody głównej:**
+14. Aby można było zatrzymać aplikację, Dodaj następujący kod do metody **Main** :
 
     ```java
     System.out.println("Press ENTER to exit.");
@@ -229,9 +229,9 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
     System.out.println("Shutting down sample...");
     ```
 
-15. Zapisz i zamknij plik **trigger-reboot\src\main\java\com\mycompany\app\App.java.**
+15. Zapisz i zamknij plik **Trigger-reboot\src\main\java\com\mycompany\app\App.Java** .
 
-16. Tworzenie **aplikacji zaplecza wyzwalacza i** poprawianie błędów. W wierszu polecenia przejdź do folderu **wyzwalania i ponownego uruchamiania** i uruchom następujące polecenie:
+16. Utwórz **wyzwalacz-Uruchom** ponownie aplikację zaplecza i popraw błędy. W wierszu polecenia przejdź do folderu **wyzwalacz-ponowny rozruch** i uruchom następujące polecenie:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -239,17 +239,17 @@ Ta aplikacja konsoli łączy się z Centrum IoT, aby wywołać metodę bezpośre
 
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
 
-W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Aplikacja nasłuchuje wywołania metody bezpośredniej ponownego uruchomienia z centrum IoT hub i natychmiast odpowiada na to wywołanie. Aplikacja następnie przechodzi w tryb uśpienia przez chwilę, aby symulować proces ponownego uruchamiania, zanim użyje zgłoszonej właściwości, aby powiadomić aplikację **zaplecza wyzwalacza o** zakończeniu ponownego uruchomienia.
+W tej sekcji utworzysz aplikację konsolową Java, która symuluje urządzenie. Aplikacja nasłuchuje wywołań metody bezpośredniego ponownego rozruchu z Centrum IoT Hub i natychmiast odpowiada na to wywołanie. Aplikacja przestanie być w stanie uśpienia przez pewien czas, aby symulować proces ponownego uruchamiania, zanim użyje raportowanej właściwości do powiadomienia **wyzwalacz-ponowne uruchomienie** aplikacji zaplecza.
 
-1. W folderze **dm-get-started** utwórz projekt Maven o nazwie **symulowane urządzenie** za pomocą następującego polecenia w wierszu polecenia:
+1. W folderze **DM-Get-Started** Utwórz projekt Maven o nazwie **symulowane-Device** przy użyciu następującego polecenia w wierszu polecenia:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. W wierszu polecenia przejdź do folderu **symulowanego urządzenia.**
+2. W wierszu polecenia przejdź do folderu **symulowane urządzenia** .
 
-3. Za pomocą edytora tekstu otwórz plik **pom.xml** w folderze **symulowanego urządzenia** i dodaj następującą zależność do węzła **zależności.** Ta zależność umożliwia korzystanie z pakietu iot-service-client w aplikacji do komunikowania się z centrum IoT hub:
+3. Za pomocą edytora tekstów Otwórz plik **pliku pom. XML** w folderze **symulowanych urządzeń** i Dodaj następujący zależność do węzła **zależności** . Ta zależność umożliwia korzystanie z pakietu IoT-Service-Client w aplikacji w celu komunikowania się z Centrum IoT:
 
     ```xml
     <dependency>
@@ -262,7 +262,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     > [!NOTE]
     > Możesz sprawdzić dostępność najnowszej wersji pakietu **iot-device-client** za pomocą [funkcji wyszukiwania narzędzia Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Dodaj następującą zależność do węzła **zależności.** Ta zależność konfiguruje NOP dla fasady rejestrowania Apache [SLF4J,](https://www.slf4j.org/) która jest używana przez sdk klienta urządzenia do implementacji rejestrowania. Ta konfiguracja jest opcjonalna, ale jeśli ją pominiesz, po uruchomieniu aplikacji może zostać wyświetlone ostrzeżenie. Aby uzyskać więcej informacji na temat rejestrowania w sdk klienta urządzenia, zobacz [Rejestrowanie](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) w *przykładach dla pliku SDK urządzenia Usługi Azure IoT dla* pliku readme języka Java.
+4. Dodaj następującą zależność do węzła **zależności** . Ta zależność konfiguruje NOP dla rejestrowania Apache [SLF4J](https://www.slf4j.org/) , który jest używany przez zestaw SDK klienta urządzenia do implementowania rejestrowania. Ta konfiguracja jest opcjonalna, ale jeśli zostanie pominięta, podczas uruchamiania aplikacji może pojawić się ostrzeżenie w konsoli programu. Aby uzyskać więcej informacji na temat rejestrowania w zestawie SDK klienta urządzenia, zobacz artykuł [Rejestrowanie](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) w *przykładach dla pliku Readme zestawu SDK urządzeń Azure IoT dla języka Java* .
 
     ```xml
     <dependency>
@@ -272,7 +272,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     </dependency>
     ```
 
-5. Dodaj następujący węzeł **kompilacji** po węźle **zależności.** Ta konfiguracja nakazuje Maven używać Java 1.8 do tworzenia aplikacji:
+5. Dodaj następujący węzeł **kompilacji** po węźle **zależności** . Ta konfiguracja nakazuje Maven do kompilowania aplikacji przy użyciu języka Java 1,8:
 
     ```xml
     <build>
@@ -292,7 +292,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
 
 6. Zapisz i zamknij plik **pom.xml**.
 
-7. Za pomocą edytora tekstu otwórz plik **źródłowy symulowane urządzenie\src\main\java\com\mycompany\app\App.java.**
+7. Za pomocą edytora tekstów Otwórz plik źródłowy **Simulated-device\src\main\java\com\mycompany\app\App.Java** .
 
 8. Dodaj do pliku następujące instrukcje **importowania**:
 
@@ -308,7 +308,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     import java.util.HashSet;
     ```
 
-9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{yourdeviceconnectionstring}` na ciąg połączenia urządzenia odnotowany w sekcji Zarejestruj nowe urządzenie w sekcji [IoT hub:](#register-a-new-device-in-the-iot-hub)
+9. Dodaj następujące zmienne na poziomie klasy do klasy **App**. Zamień `{yourdeviceconnectionstring}` na parametry połączenia urządzenia zanotowane w sekcji [Rejestrowanie nowego urządzenia w centrum IoT](#register-a-new-device-in-the-iot-hub) :
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -319,7 +319,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     private static DeviceClient client;
     ```
 
-10. Aby zaimplementować program obsługi wywołania zwrotnego dla zdarzeń stanu metody bezpośredniej, dodaj następującą klasę zagnieżdżoną do klasy **app:**
+10. Aby zaimplementować procedurę obsługi wywołania zwrotnego dla zdarzeń ze stanem metody bezpośredniej, Dodaj następującą klasę zagnieżdżoną do klasy **App** :
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -331,7 +331,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-11. Aby zaimplementować program obsługi wywołania zwrotnego dla zdarzeń stanu bliźniaczej reprezentacji urządzenia, dodaj następującą klasę zagnieżdżoną do klasy **aplikacji:**
+11. Aby zaimplementować procedurę obsługi wywołania zwrotnego dla zdarzeń stanu przędzy urządzenia, Dodaj następującą klasę zagnieżdżoną do klasy **App** :
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -343,7 +343,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-12. Aby zaimplementować program obsługi wywołania zwrotnego dla zdarzeń właściwości, dodaj następującą klasę zagnieżdżoną do klasy **app:**
+12. Aby zaimplementować procedurę obsługi wywołania zwrotnego dla zdarzeń właściwości, Dodaj następującą klasę zagnieżdżoną do klasy **App** :
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -356,7 +356,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-13. Aby zaimplementować wątek do symulacji ponownego uruchomienia urządzenia, dodaj następującą klasę zagnieżdżoną do klasy **aplikacji.** Wątek przesiewnie przez pięć sekund, a następnie ustawia **właściwość raportowana przez ostatniaReboot:**
+13. Aby zaimplementować wątek w celu symulowania ponownego uruchomienia urządzenia, Dodaj następującą klasę zagnieżdżoną do klasy **App** . Wątek jest uśpiony przez pięć sekund, a następnie ustawia właściwość **lastReboot** raportowaną:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -377,7 +377,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-14. Aby zaimplementować metodę bezpośrednią na urządzeniu, dodaj następującą klasę zagnieżdżoną do klasy **App.** Gdy symulowana aplikacja odbiera wywołanie metody bezpośredniej **ponownego uruchomienia,** zwraca potwierdzenie do wywołującego, a następnie uruchamia wątek do przetwarzania ponownego uruchomienia:
+14. Aby zaimplementować metodę bezpośrednią na urządzeniu, Dodaj następującą klasę zagnieżdżoną do klasy **App** . Gdy symulowana aplikacja odbiera wywołanie metody bezpośredniego **ponownego uruchomienia** , zwraca potwierdzenie do obiektu wywołującego, a następnie uruchamia wątek w celu przetworzenia ponownego uruchomienia:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -409,20 +409,20 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-15. Zmodyfikuj podpis **metody głównej,** aby zgłosić następujące wyjątki:
+15. Zmodyfikuj podpis metody **Main** , aby zgłosić następujące wyjątki:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-16. Aby utworzyć wystąpienie **deviceclient**, zastąp kod w metodzie **głównej** następującym kodem:
+16. Aby utworzyć wystąpienie elementu **DeviceClient**, Zastąp kod w metodzie **Main** następującym kodem:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-17. Aby rozpocząć nasłuchiwanie wywołań metody bezpośredniej, dodaj następujący kod do **metody głównej:**
+17. Aby rozpocząć nasłuchiwanie wywołań metody bezpośredniej, Dodaj następujący kod do metody **Main** :
 
     ```java
     try
@@ -440,7 +440,7 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     }
     ```
 
-18. Aby wyłączyć symulator urządzenia, dodaj następujący kod do **metody głównej:**
+18. Aby zamknąć symulatora urządzeń, Dodaj następujący kod do metody **Main** :
 
     ```java
     System.out.println("Press any key to exit...");
@@ -451,9 +451,9 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
     System.out.println("Shutting down...");
     ```
 
-19. Zapisz i zamknij plik symulowanego urządzenia\src\main\java\com\mycompany\app\App.java.
+19. Zapisz i zamknij plik simulated-device\src\main\java\com\mycompany\app\App.java.
 
-20. Skompiluj aplikację **symulowanego urządzenia** i popraw wszelkie błędy. W wierszu polecenia przejdź do folderu **symulowanego urządzenia** i uruchom następujące polecenie:
+20. Kompiluj aplikację **symulowaną przez urządzenie** i popraw wszelkie błędy. W wierszu polecenia przejdź do folderu **symulowane urządzenia** i uruchom następujące polecenie:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -461,26 +461,26 @@ W tej sekcji utworzysz aplikację konsoli Java, która symuluje urządzenie. Apl
 
 ## <a name="run-the-apps"></a>Uruchamianie aplikacji
 
-Teraz możesz uruchomić aplikacje.
+Teraz można przystąpić do uruchamiania aplikacji.
 
-1. W wierszu polecenia w folderze **symulowanego urządzenia** uruchom następujące polecenie, aby rozpocząć nasłuchiwanie wywołań metody ponownego uruchamiania z centrum IoT hub:
-
-    ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
-
-    ![Aplikacja symulowanego urządzenia Java IoT Hub do nasłuchiwać wywołań bezpośrednich metod ponownego uruchomienia](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
-
-2. W wierszu polecenia w folderze **wyzwalania-ponownego uruchamiania** uruchom następujące polecenie, aby wywołać metodę ponownego uruchamiania na symulowanym urządzeniu z centrum IoT hub:
+1. W wierszu polecenia w folderze **symulowane urządzenia** Uruchom następujące polecenie, aby rozpocząć nasłuchiwanie wywołań metod ponownego rozruchu z Centrum IoT Hub:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Aplikacja usługi Java IoT Hub do wywołania metody bezpośredniego ponownego uruchomienia](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
+    ![Środowisko Java IoT Hub symulowanej aplikacji urządzenia do nasłuchiwania wywołań metody bezpośredniego ponownego rozruchu](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-3. Symulowane urządzenie odpowiada na wywołanie metody bezpośredniej ponownego uruchomienia:
+2. W wierszu polecenia w folderze **wyzwalacza ponownego** uruchomienia Uruchom następujące polecenie, aby wywołać metodę ponownego uruchamiania urządzenia symulowanego z Centrum IoT:
 
-    ![Aplikacja urządzenia symulowanego usługi Java IoT Hub odpowiada na bezpośrednie wywołanie metody](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
+    ```cmd/sh
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
+
+    ![Aplikacja usługi Java IoT Hub do wywoływania metody bezpośredniego ponownego uruchomienia](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
+
+3. Symulowane urządzenie odpowiada na wywołanie metody bezpośredniego ponownego uruchomienia:
+
+    ![Symulowana aplikacja urządzenia IoT Hub Java reaguje na wywołanie metody bezpośredniej](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

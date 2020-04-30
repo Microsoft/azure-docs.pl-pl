@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie narzędzia OKD na platformie Azure
-description: Wdrażanie narzędzia OKD na platformie Azure.
+title: Wdrażanie OKD na platformie Azure
+description: Wdróż OKD na platformie Azure.
 author: haroldwongms
 manager: joraio
 ms.service: virtual-machines-linux
@@ -10,34 +10,34 @@ ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
 ms.openlocfilehash: d7d251370aefdfadc0b77a67f6dad1be2dcb9e9a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759435"
 ---
-# <a name="deploy-okd-in-azure"></a>Wdrażanie narzędzia OKD na platformie Azure
+# <a name="deploy-okd-in-azure"></a>Wdrażanie OKD na platformie Azure
 
-Można użyć jednego z dwóch sposobów wdrażania okd (dawniej OpenShift Origin) na platformie Azure:
+Aby wdrożyć OKD (dawniej OpenShift) na platformie Azure, możesz użyć jednego z dwóch sposobów:
 
-- Można ręcznie wdrożyć wszystkie niezbędne składniki infrastruktury platformy Azure, a następnie postępować zgodnie z [dokumentacją OKD](https://docs.okd.io).
-- Można również użyć istniejącego [szablonu Menedżera zasobów,](https://github.com/Microsoft/openshift-origin) który upraszcza wdrażanie klastra OKD.
+- Możesz ręcznie wdrożyć wszystkie niezbędne składniki infrastruktury platformy Azure, a następnie postępować zgodnie z [dokumentacją OKD](https://docs.okd.io).
+- Można również użyć istniejącego [szablonu Menedżer zasobów](https://github.com/Microsoft/openshift-origin) , który upraszcza Wdrożenie klastra OKD.
 
 ## <a name="deploy-using-the-okd-template"></a>Wdrażanie przy użyciu szablonu OKD
 
-Aby wdrożyć przy użyciu szablonu Menedżera zasobów, należy użyć pliku parametrów do dostarczenia parametrów wejściowych. Aby jeszcze bardziej dostosować wdrożenie, rozwiń repozytorium GitHub i zmień odpowiednie elementy.
+Aby wdrożyć przy użyciu szablonu Menedżer zasobów, należy użyć pliku parametrów w celu dostarczenia parametrów wejściowych. Aby dodatkowo dostosować wdrożenie, rozwidlenie repozytorium GitHub i zmiana odpowiednich elementów.
 
-Niektóre typowe opcje dostosowywania obejmują, ale nie są ograniczone do:
+Niektóre typowe opcje dostosowania obejmują, ale nie są ograniczone do:
 
-- Rozmiar maszyny Wirtualnej bastionu (zmienna w azuredeploy.json)
-- Konwencje nazewnictwa (zmienne w pliku azuredeploy.json)
-- Specyfika klastra OpenShift, zmodyfikowana za pomocą pliku hosts (deployOpenShift.sh)
+- Rozmiar maszyny wirtualnej bastionu (zmienna w pliku azuredeploy. JSON)
+- Konwencje nazewnictwa (zmienne w azuredeploy. JSON)
+- OpenShift specyficzne dla klastra, zmodyfikowane za pomocą pliku hosts (deployOpenShift.sh)
 
-Szablon [OKD](https://github.com/Microsoft/openshift-origin) ma wiele gałęzi dostępnych dla różnych wersji OKD.  W zależności od potrzeb można wdrożyć bezpośrednio z repozytorium lub rozwidlić repozytorium i wprowadzić niestandardowe zmiany przed wdrożeniem.
+[Szablon OKD](https://github.com/Microsoft/openshift-origin) ma wiele gałęzi dostępnych dla różnych wersji programu OKD.  Na podstawie Twoich potrzeb można wdrożyć bezpośrednio z repozytorium lub utworzyć rozwidlenie repozytorium i wprowadzić zmiany niestandardowe przed wdrożeniem.
 
-Użyj `appId` wartości z jednostki usługi, który `aadClientId` został utworzony wcześniej dla parametru.
+Użyj `appId` wartości z jednostki usługi utworzonej wcześniej dla `aadClientId` parametru.
 
-Poniżej przedstawiono przykład pliku parametrów o nazwie azuredeploy.parameters.json ze wszystkimi wymaganymi wejściami.
+Poniżej znajduje się przykład pliku parametrów o nazwie azuredeploy. Parameters. JSON ze wszystkimi wymaganymi danymi wejściowymi.
 
 ```json
 {
@@ -113,15 +113,15 @@ Poniżej przedstawiono przykład pliku parametrów o nazwie azuredeploy.paramete
 
 Zastąp parametry określonymi informacjami.
 
-Różne wersje mogą mieć różne parametry, więc sprawdź niezbędne parametry dla używanej gałęzi.
+Różne wersje mogą mieć inne parametry, dlatego należy sprawdzić wymagane parametry używanej gałęzi.
 
 ### <a name="deploy-using-azure-cli"></a>Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
 
 > [!NOTE] 
-> Następujące polecenie wymaga interfejsu wiersza polecenia platformy Azure 2.0.8 lub nowszego. Wersję interfejsu wiersza polecenia `az --version` można zweryfikować za pomocą polecenia. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Następujące polecenie wymaga interfejsu wiersza polecenia platformy Azure 2.0.8 lub nowszego. Możesz sprawdzić wersję interfejsu wiersza `az --version` polecenia za pomocą poleceń. Aby zaktualizować wersję interfejsu wiersza polecenia, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-W poniższym przykładzie wdraża klaster OKD i wszystkie powiązane zasoby w grupie zasobów o nazwie openshiftrg, o nazwie wdrożenia myOpenShiftCluster. Do szablonu odwołuje się bezpośrednio z repozytorium GitHub podczas korzystania z pliku parametrów lokalnych o nazwie azuredeploy.parameters.json.
+W poniższym przykładzie wdrożono klaster OKD i wszystkie powiązane zasoby w grupie zasobów o nazwie openshiftrg z nazwą wdrożenia myOpenShiftCluster. Ten szablon jest przywoływany bezpośrednio z repozytorium GitHub przy użyciu pliku parametrów lokalnych o nazwie azuredeploy. Parameters. JSON.
 
 ```azurecli 
 az group deployment create -g openshiftrg --name myOpenShiftCluster \
@@ -129,7 +129,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Wdrożenie trwa co najmniej 30 minut, aby zakończyć, na podstawie całkowitej liczby wdrożonych węzłów. Adres URL konsoli OpenShift i nazwa DNS wzorca OpenShift są drukowane na terminalu po zakończeniu wdrażania. Alternatywnie można wyświetlić dane wyjściowe sekcji wdrożenia z witryny Azure portal.
+Wdrożenie trwa co najmniej 30 minut na podstawie łącznej liczby wdrożonych węzłów. Adres URL konsoli programu OpenShift i nazwa DNS wzorca OpenShift są drukowane do terminalu po zakończeniu wdrożenia. Alternatywnie można wyświetlić sekcję dane wyjściowe wdrożenia z Azure Portal.
 
 ```json
 {
@@ -138,11 +138,11 @@ Wdrożenie trwa co najmniej 30 minut, aby zakończyć, na podstawie całkowitej 
 }
 ```
 
-Jeśli nie chcesz powiązać wiersza polecenia oczekującego na zakończenie `--no-wait` wdrożenia, dodaj jako jedną z opcji wdrożenia grupy. Dane wyjściowe z wdrożenia można pobrać z witryny Azure portal w sekcji wdrażania dla grupy zasobów.
+Jeśli nie chcesz powiązać wiersza polecenia w oczekiwanie na ukończenie wdrożenia, Dodaj `--no-wait` jako jedną z opcji wdrożenia grupy. Dane wyjściowe wdrożenia można pobrać z Azure Portal w sekcji Wdrażanie dla grupy zasobów.
 
-## <a name="connect-to-the-okd-cluster"></a>Łączenie się z klastrem OKD
+## <a name="connect-to-the-okd-cluster"></a>Nawiązywanie połączenia z klastrem OKD
 
-Po zakończeniu wdrażania połącz się z konsolą OpenShift za pomocą przeglądarki za pomocą pliku `OpenShift Console Url`. Alternatywnie można SSH do wzorca OKD. Oto przykład, który używa danych wyjściowych z wdrożenia:
+Po zakończeniu wdrażania Nawiąż połączenie z konsolą OpenShift za pomocą przeglądarki `OpenShift Console Url`. Alternatywnie można także przeprowadzić protokół SSH do wzorca OKD. Poniżej znajduje się przykład, który używa danych wyjściowych wdrożenia:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -150,7 +150,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Polecenie [usuń grupę AZ](/cli/azure/group) służy do usuwania grupy zasobów, klastra OpenShift i wszystkich powiązanych zasobów, gdy nie są już potrzebne.
+Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 
 ```azurecli 
 az group delete --name openshiftrg
@@ -160,4 +160,4 @@ az group delete --name openshiftrg
 
 - [Zadania po wdrożeniu](./openshift-container-platform-3x-post-deployment.md)
 - [Rozwiązywanie problemów z wdrażaniem OpenShift](./openshift-container-platform-3x-troubleshooting.md)
-- [Wprowadzenie do okd](https://docs.okd.io)
+- [Wprowadzenie do korzystania z OKD](https://docs.okd.io)

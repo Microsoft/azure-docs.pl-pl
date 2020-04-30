@@ -1,5 +1,5 @@
 ---
-title: Szybki start biblioteki klienta Detektor anomalii Python
+title: Biblioteka klienta Python wykrywania anomalii — Szybki Start
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,106 +9,106 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: a51025245e5b02b89126afd886bc89fb1cefdef4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759993"
 ---
-Wprowadzenie do biblioteki klienta detektora anomalii dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa Wykrywanie anomalii umożliwia znajdowanie nieprawidłowości w danych szeregów czasowych, automatycznie korzystając z najlepiej dopasowanych modeli, niezależnie od branży, scenariusza lub ilości danych.
+Rozpocznij pracę z biblioteką klienta wykrywania anomalii dla języka Python. Wykonaj następujące kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań. Usługa wykrywania anomalii umożliwia znalezienie nieprawidłowych danych szeregów czasowych przez automatyczne użycie modeli najlepiej dopasowanej, niezależnie od wielkości branży, scenariusza lub ilości danych.
 
-Użyj biblioteki klienta Detektor anomalii dla Języka Python, aby:
+Użyj biblioteki klienta wykrywania anomalii dla języka Python, aby:
 
-* Wykrywanie anomalii w całym zestawie danych szeregów czasowych jako żądanie wsadowe
+* Wykrywaj anomalie w zestawie danych szeregów czasowych jako żądanie wsadowe
 * Wykrywanie stanu anomalii najnowszego punktu danych w szeregach czasowych
 
-[Dokumentacja](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [referencyjna biblioteki Kod źródłowy biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Pakiet (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | Znajdź[przykładowy kod w usłudze GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
+[Biblioteka dokumentacji](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | referencyjnej[biblioteki Code Source](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [(PyPi) (kod źródłowy)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Wyszukiwanie przykładowego kodu w witrynie GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję platformy Azure](https://azure.microsoft.com/free/)
-* Klucz i punkt końcowy detektora anomalii
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+* Klucz wykrywania anomalii i punkt końcowy
 * [Python 3.x](https://www.python.org/)
-* [Biblioteka analizy danych Pand](https://pandas.pydata.org/)
+* [Biblioteka analizy danych Pandas](https://pandas.pydata.org/)
  
 ## <a name="setting-up"></a>Konfigurowanie
 
-### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu detektora anomalii
+### <a name="create-an-anomaly-detector-resource"></a>Tworzenie zasobu wykrywania anomalii
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### <a name="create-a-new-python-application"></a>Tworzenie nowej aplikacji języka Python
+### <a name="create-a-new-python-application"></a>Tworzenie nowej aplikacji w języku Python
 
- Utwórz nowy plik języka Python i zaimportuj następujące biblioteki.
+ Utwórz nowy plik w języku Python i zaimportuj następujące biblioteki.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
-Utwórz zmienne dla klucza jako zmienną środowiskową, ścieżkę do pliku danych szeregów czasowych i lokalizację platformy azure subskrypcji. Na przykład `westus2`. 
+Utwórz zmienne klucza jako zmienną środowiskową, ścieżkę do pliku danych szeregów czasowych i lokalizację subskrypcji platformy Azure. Na przykład `westus2`. 
 
 [!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
-### <a name="install-the-client-library"></a>Instalowanie biblioteki klienta
+### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-Po zainstalowaniu języka Python można zainstalować bibliotekę klienta za pomocą:
+Po zainstalowaniu języka Python można zainstalować bibliotekę kliencką z:
 
 ```console
 pip install --upgrade azure-cognitiveservices-anomalydetector
 ```
 
-## <a name="object-model"></a>Model obiektu
+## <a name="object-model"></a>Model obiektów
 
-Klient detektora anomalii jest obiektem [AnomalyDetectorClient,](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) który uwierzytelnia się na platformie Azure przy użyciu klucza. Klient udostępnia dwie metody wykrywania anomalii: na całym zestawie danych przy użyciu [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-)oraz na najnowszym punkcie danych przy użyciu [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-). 
+Klient wykrywania anomalii jest obiektem [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) , który jest uwierzytelniany na platformie Azure przy użyciu klucza. Klient oferuje dwie metody wykrywania anomalii: w całym zestawie danych przy użyciu [entire_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-)i najnowszego punktu danych przy użyciu [Last_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-). 
 
-Dane szeregów czasowych są wysyłane jako seria [punktów](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) w [request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) obiektu. Obiekt `Request` zawiera właściwości opisujące dane (na przykład[ziarnistość)](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) i parametry wykrywania anomalii. 
+Dane szeregów czasowych są wysyłane jako serie [punktów](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) w obiekcie [żądania](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) . `Request` Obiekt zawiera właściwości opisujące dane (na przykład[stopień szczegółowości](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) ) oraz parametry wykrywania anomalii. 
 
-Odpowiedź detektora anomalii jest obiektem [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) lub [WholeDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) w zależności od zastosowanej metody. 
+Odpowiedź wykrywania anomalii jest obiektem [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) lub [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) , w zależności od używanej metody. 
 
 ## <a name="code-examples"></a>Przykłady kodu 
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta detektora anomalii dla języka Python:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta wykrywania anomalii dla języka Python:
 
-* [Uwierzytelnij klienta](#authenticate-the-client)
-* [Ładowanie zestawu danych szeregów czasowych z pliku](#load-time-series-data-from-a-file)
-* [Wykrywanie anomalii w całym zestawie danych](#detect-anomalies-in-the-entire-data-set) 
+* [Uwierzytelnianie klienta](#authenticate-the-client)
+* [Załaduj zestaw danych szeregów czasowych z pliku](#load-time-series-data-from-a-file)
+* [Wykrywaj anomalie w całym zestawie danych](#detect-anomalies-in-the-entire-data-set) 
 * [Wykrywanie stanu anomalii najnowszego punktu danych](#detect-the-anomaly-status-of-the-latest-data-point)
 
-## <a name="authenticate-the-client"></a>Uwierzytelnij klienta
+## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Dodaj zmienną lokalizacji platformy Azure do punktu końcowego i uwierzytelnij klienta za pomocą klucza.
+Dodaj zmienną lokalizacji platformy Azure do punktu końcowego i Uwierzytelnij klienta przy użyciu klucza.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-## <a name="load-time-series-data-from-a-file"></a>Ładowanie danych szeregów czasowych z pliku
+## <a name="load-time-series-data-from-a-file"></a>Załaduj dane szeregów czasowych z pliku
 
-Pobierz przykładowe dane dla tego przewodnika Szybki start z [GitHub:](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)
-1. W przeglądarce kliknij prawym przyciskiem myszy **pozycję Raw**.
-2. Kliknij **pozycję Zapisz łącze jako**.
-3. Zapisz plik w katalogu aplikacji jako plik csv.
+Pobierz przykładowe dane dla tego przewodnika Szybki Start z witryny [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
+1. W przeglądarce kliknij prawym przyciskiem myszy pozycję **RAW**.
+2. Kliknij pozycję **Zapisz łącze jako**.
+3. Zapisz plik w katalogu aplikacji jako plik CSV.
 
-Te dane serii czasowych są formatowane jako plik csv i będą wysyłane do interfejsu API detektora anomalii.
+Te dane szeregów czasowych są formatowane jako plik CSV i wysyłane do interfejsu API wykrywania anomalii.
 
-Załaduj plik danych za `read_csv()` pomocą metody biblioteki Pand i skonsuj pustą zmienną listy do przechowywania serii danych. Iteracja za pośrednictwem pliku i dołączyć dane jako [Point](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) obiektu. Ten obiekt będzie zawierał sygnaturę czasową i wartość liczbową z wierszy pliku danych csv. 
+Załaduj plik danych za pomocą `read_csv()` metody biblioteki Pandas i ustaw pustą zmienną listy, aby przechowywać serie danych. Wykonaj iterację pliku i Dołącz dane jako obiekt [punktu](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) . Ten obiekt będzie zawierać sygnaturę czasową i wartość liczbową z wierszy pliku danych CSV. 
 
 [!code-python[Load the data file](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=loadDataFile)]
 
-Utwórz [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) obiektu z szeregów czasowych i [szczegółowości](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (lub okresowości) jego punktów danych. Na przykład `Granularity.daily`.
+Utwórz obiekt [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) z serią czasową oraz [stopień szczegółowości](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (lub okresowość) punktów danych. Na przykład `Granularity.daily`.
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-## <a name="detect-anomalies-in-the-entire-data-set"></a>Wykrywanie anomalii w całym zestawie danych 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Wykrywaj anomalie w całym zestawie danych 
 
-Wywołanie interfejsu API do wykrywania anomalii za pośrednictwem całych danych szeregów czasowych przy użyciu [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) klienta metody. Przechowuj zwrócony obiekt [WholeDetectResponse.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) Iteruje za pośrednictwem `is_anomaly` listy odpowiedzi i wydrukuj indeks dowolnych `true` wartości. Wartości te odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
+Wywołaj interfejs API w celu wykrycia anomalii za pośrednictwem wszystkich danych szeregów czasowych przy użyciu metody [entire_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) klienta. Zapisz zwrócony obiekt [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) . Wykonaj iterację na `is_anomaly` liście odpowiedzi i wydrukuj indeks wszelkich `true` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Wykrywanie stanu anomalii najnowszego punktu danych
 
-Wywołanie interfejsu API detektora anomalii, aby ustalić, czy najnowszy punkt danych jest anomalią przy użyciu [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) klienta metody i przechowywać [zwrócony Obiekt LastDetectResponse.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) `is_anomaly` Wartość odpowiedzi jest wartością logiczną, która określa stan anomalii tego punktu.  
+Wywołaj interfejs API wykrywania anomalii, aby określić, czy najnowszy punkt danych jest anomalią przy użyciu metody [last_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) klienta i przechowuj zwrócony obiekt [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) . `is_anomaly` Wartość odpowiedzi jest wartością logiczną, która określa stan anomalii tego punktu.  
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=latestPointDetection)]
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Uruchom aplikację za `python` pomocą polecenia i nazwy pliku.
+Uruchom aplikację za pomocą `python` polecenia i nazwy pliku.
  
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

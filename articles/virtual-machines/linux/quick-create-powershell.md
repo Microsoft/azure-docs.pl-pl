@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie maszyny Wirtualnej z systemem Linux za pomocą programu Azure PowerShell
+title: Szybki Start — Tworzenie maszyny wirtualnej z systemem Linux przy użyciu Azure PowerShell
 description: Z tego przewodnika Szybki start dowiesz się, jak utworzyć maszynę wirtualną z systemem Linux za pomocą programu Azure PowerShell
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,17 +9,17 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 397fac7609d9527165a1a0a35215a2e2bac23c6d
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81759216"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Szybki start: tworzenie maszyny wirtualnej z systemem Linux za pomocą programu Azure PowerShell
 
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Z tego przewodnika Szybki start dowiesz się, jak za pomocą modułu programu Azure PowerShell wdrożyć maszynę wirtualną z systemem Linux na platformie Azure. W ramach tego przewodnika Szybki start jest używany obraz systemu Ubuntu 16.04 LTS od firmy Canonical pochodzący z witryny Marketplace. Aby zobaczyć działanie maszyny wirtualnej, połączysz się z nią za pomocą protokołu SSH i zainstalujesz serwer internetowy NGINX.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
@@ -203,7 +203,7 @@ Gdy skończysz, wpisz polecenie `exit`, aby opuścić sesję SSH.
 
 Użyj wybranej przeglądarki internetowej, aby wyświetlić domyślną strona powitalną serwera NGINX. Wprowadź publiczny adres IP maszyny wirtualnej jako adres internetowy. Publiczny adres IP można znaleźć na stronie przeglądu maszyny wirtualnej lub jako część wcześniej użytych parametrów połączenia SSH.
 
-![Domyślna strona powitalna NGINX](./media/quick-create-cli/nginix-welcome-page.png)
+![NGINX domyślna strona powitalna](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

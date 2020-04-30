@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z błędem usługi Azure IoT Hub 404104 DeviceConnectionClosedOneRemotely
-description: Dowiedz się, jak naprawić błąd 404104 DeviceConnectionClosedNajmnie
+title: Rozwiązywanie problemów z usługą Azure IoT Hub błąd 404104 DeviceConnectionClosedRemotely
+description: Dowiedz się, jak naprawić błąd 404104 DeviceConnectionClosedRemotely
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -10,68 +10,68 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
 ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758725"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
-W tym artykule opisano przyczyny i rozwiązania dla **404104 DeviceConnectionClosedRemotely** błędów.
+W tym artykule opisano przyczyny i rozwiązania **404104 błędów DeviceConnectionClosedRemotely** .
 
 ## <a name="symptoms"></a>Objawy
 
 ### <a name="symptom-1"></a>Objaw 1
 
-Urządzenia rozłączają się w regularnych odstępach czasu (co 65 minut, na przykład) i widzisz **404104 DeviceConnectionClosedReotely** w dziennikach diagnostycznych Usługi IoT Hub. Czasami zobaczysz również **401003 IoTHubNieautoryzowane** i pomyślne zdarzenie połączenia urządzenia mniej niż minutę później.
+Urządzenia są rozłączane w regularnych odstępach czasu (na przykład co 65 minut) i zobaczysz **404104 DeviceConnectionClosedRemotely** IoT Hub w dziennikach diagnostycznych. Czasami widoczne jest również **401003 IoTHubUnauthorized** i pomyślne zdarzenie połączenia urządzenia krótsze niż minutę.
 
 ### <a name="symptom-2"></a>Objaw 2
 
-Urządzenia rozłączają się losowo, a w dziennikach diagnostycznych usługi IoT Hub **404104 jest widoczny** sposób.
+Urządzenia rozłączją losowo i zobaczysz **404104 DeviceConnectionClosedRemotely** w dziennikach diagnostycznych IoT Hub.
 
 ### <a name="symptom-3"></a>Objaw 3
 
-Wiele urządzeń odłącza się naraz, widać spadek w [metryki podłączonych urządzeń](iot-hub-metrics.md), i jest więcej **404104 DeviceConnectionClosedReotely** i [500xxx Błędy wewnętrzne](iot-hub-troubleshoot-error-500xxx-internal-errors.md) w dziennikach diagnostycznych niż zwykle.
+Wiele urządzeń rozłączy się jednocześnie, zobaczysz DIP w [metrykach podłączonych urządzeń](iot-hub-metrics.md), a w dziennikach diagnostycznych występuje więcej **404104 DeviceConnectionClosedRemotely** i [500xxx błędów wewnętrznych](iot-hub-troubleshoot-error-500xxx-internal-errors.md) .
 
 ## <a name="causes"></a>Przyczyny
 
 ### <a name="cause-1"></a>Przyczyna 1
 
-[Token sygnatury dostępu Współdzielonego używany do łączenia się z centrum IoT Hub](iot-hub-devguide-security.md#security-tokens) wygasł, co powoduje, że usługa IoT Hub rozłącza urządzenie. Połączenie zostanie ponownie nawiązane, gdy token jest odświeżany przez urządzenie. Na przykład [token sygnatury dostępu Współdzielonego domyślnie wygasa co godzinę dla SDK C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), co może prowadzić do regularnych rozłączenia.
+[Token sygnatury dostępu współdzielonego używany do nawiązywania połączenia z usługą IoT Hub](iot-hub-devguide-security.md#security-tokens) wygasł, co powoduje IoT Hub rozłączenia urządzenia. Połączenie zostanie ponownie nawiązane, gdy token zostanie odświeżony przez urządzenie. Na przykład [token sygnatury dostępu współdzielonego wygasa co godzinę domyślnie dla zestawu C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), co może prowadzić do regularnego rozłączenia.
 
-Aby dowiedzieć się więcej, zobacz [401003 IoTHubNieużużużona przyczyna](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1).
+Aby dowiedzieć się więcej, zobacz [401003 IoTHubUnauthorized przyczyna](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1).
 
 ### <a name="cause-2"></a>Przyczyna 2
 
-Niektóre możliwości obejmują:
+Dostępne są następujące możliwości:
 
-- Urządzenie utraciło podstawową łączność sieciową dłużej niż [funkcja utrzymywana przy życiu mqtt,](iot-hub-mqtt-support.md#default-keep-alive-timeout)co spowodowało zdalny limit czasu bezczynności. Ustawienie MQTT keep-alive może być różne na urządzenie.
+- Urządzenie utraciło łączność sieciową dłużej niż [MQTT Keep-Alive](iot-hub-mqtt-support.md#default-keep-alive-timeout), co spowodowało zdalny limit czasu bezczynności. Ustawienie Keep-Alive MQTT może być inne dla każdego urządzenia.
 
-- Urządzenie wysłało reset na poziomie TCP/IP, ale nie `MQTT DISCONNECT`wysłało poziomu aplikacji. Zasadniczo urządzenie nagle zamknęło połączenie z gniazdem bazowym. Czasami ten problem jest spowodowany przez błędy w starszych wersjach zestawu SDK usługi Azure IoT.
+- Urządzenie wysłało Reset poziomu protokołu TCP/IP, ale nie wysłało poziomu `MQTT DISCONNECT`aplikacji. W zasadzie urządzenie nie zamknął podstawowego połączenia gniazda. Czasami przyczyną tego problemu są usterki we wcześniejszych wersjach zestawu SDK usługi Azure IoT.
 
-- Aplikacja po stronie urządzenia uległa awarii.
+- Awaria aplikacji po stronie urządzenia.
 
 ### <a name="cause-3"></a>Przyczyna 3
 
-Centrum IoT może wystąpić przejściowy problem. Zobacz [Przyczyna błędu serwera wewnętrznego usługi IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
+W IoT Hub może występować przejściowy problem. Zobacz, [IoT Hub Przyczyna błędu wewnętrznego serwera](iot-hub-troubleshoot-error-500xxx-internal-errors.md#cause).
 
 ## <a name="solutions"></a>Rozwiązania
 
 ### <a name="solution-1"></a>Rozwiązanie 1
 
-Zobacz [401003 Rozwiązanie IoTHub Bezutworzenie 1](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#solution-1)
+Zobacz [401003 IoTHubUnauthorized rozwiązanie 1](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#solution-1)
 
 ### <a name="solution-2"></a>Rozwiązanie 2
 
-- Upewnij się, że urządzenie ma dobrą łączność z Centrum IoT, [testując połączenie.](tutorial-connectivity.md) Jeśli sieć jest zawodne lub sporadyczne, nie zaleca się zwiększenie wartości keep-alive, ponieważ może to spowodować wykrycie (za pośrednictwem alertów usługi Azure Monitor, na przykład) trwa dłużej. 
+- Upewnij się, że urządzenie ma dobrą łączność do IoT Hub przez [testowanie połączenia](tutorial-connectivity.md). Jeśli sieć jest niezawodna lub nieprzerwana, nie zalecamy zwiększenia wartości Keep-Alive, ponieważ może to skutkować wykryciem (na przykład za pośrednictwem Azure Monitor alertów) trwających dłużej. 
 
-- Użyj najnowszych wersji [SDK IoT](iot-hub-devguide-sdks.md).
+- Użyj najnowszych wersji [zestawów SDK IoT](iot-hub-devguide-sdks.md).
 
 ### <a name="solution-3"></a>Rozwiązanie 3
 
-Zobacz [rozwiązania wewnętrznych błędów serwera usługi IoT Hub](iot-hub-troubleshoot-error-500xxx-internal-errors.md#solution).
+Zobacz [rozwiązania, na których IoT Hub wewnętrzne błędy serwera](iot-hub-troubleshoot-error-500xxx-internal-errors.md#solution).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zalecamy używanie zestawów SDK urządzeń IoT platformy Azure do niezawodnego zarządzania połączeniami. Aby dowiedzieć się więcej, zobacz [Zarządzanie łącznością i niezawodną wiadomością przy użyciu zestawów SDK urządzeń usługi Azure IoT Hub](iot-hub-reliability-features-in-sdks.md)
+Zalecamy używanie zestawów SDK urządzeń usługi Azure IoT do niezawodnego zarządzania połączeniami. Aby dowiedzieć się więcej, zobacz [Zarządzanie łącznością i niezawodną obsługą komunikatów przy użyciu zestawów SDK urządzeń IoT Hub platformy Azure](iot-hub-reliability-features-in-sdks.md)

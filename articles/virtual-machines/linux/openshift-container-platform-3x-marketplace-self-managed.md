@@ -1,6 +1,6 @@
 ---
-title: Wdrażanie oferty platformy kontenerowej OpenShift 3.11 self-managed marketplace na platformie Azure
-description: Wdrażanie oferty platformy kontenerowej OpenShift 3.11 self-managed marketplace na platformie Azure.
+title: Wdróż oferowaną w systemie Azure OpenShift kontenerów 3,11 platformy Microsoft
+description: Wdróż oferowaną w systemie Azure OpenShift kontenerów platformy Microsoft w platformie 3,11 z własnym zarządzaniem.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,181 +11,181 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 1cf6c7417aa86d47e59e08786e7807e32c175a25
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759578"
 ---
 # <a name="configure-prerequisites"></a>Konfigurowanie wymagań wstępnych
 
-Przed użyciem oferty Marketplace do wdrożenia samodzielnie zarządzanego klastra Platformy kontenerów OpenShift 3.11 na platformie Azure należy skonfigurować kilka wymagań wstępnych.  Przeczytaj artykuł [wymagań wstępnych OpenShift,](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) aby uzyskać instrukcje dotyczące tworzenia klucza ssh (bez hasła), magazynu kluczy platformy Azure, klucza tajnego i jednostki usługi.
+Przed rozpoczęciem korzystania z oferty portalu Marketplace w celu wdrożenia na platformie Azure klastra z OpenShift kontenerów 3,11 platformy Microsoft  Przeczytaj artykuł dotyczący [wymagań wstępnych OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) , aby uzyskać instrukcje dotyczące tworzenia klucza SSH (bez hasła), magazynu kluczy platformy Azure, wpisu tajnego magazynu kluczy i nazwy głównej usługi.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Wdrażanie przy użyciu oferty Marketplace
 
-Najprostszym sposobem wdrożenia samodzielnie zarządzanego klastra OpenShift Container Platform 3.11 na platformie Azure jest użycie [oferty portalu Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy)
+Najprostszym sposobem wdrożenia klastra OpenShift platformy Container platform 3,11 na platformie Azure jest korzystanie z [oferty portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
-Ta opcja jest najprostsza, ale ma również ograniczone możliwości dostosowywania. Oferta Marketplace wdraża platformę kontenerową OpenShift 3.11.82 i zawiera następujące opcje konfiguracji:
+Ta opcja jest najprostsza, ale również ma ograniczoną możliwość dostosowywania. Oferta Marketplace służy do wdrażania OpenShift kontenera platform 3.11.82 i zawiera następujące opcje konfiguracji:
 
-- **Węzły główne:** trzy (3) węzły główne z konfigurowalnym typem wystąpienia.
-- **Węzły podczerwieni:** Trzy (3) węzły podczerwej z konfigurowalnym typem wystąpienia.
-- **Węzły:** Liczba węzłów (od 1 do 9) i typ wystąpienia są konfigurowalne.
-- **Typ dysku:** Używane są dyski zarządzane.
-- **Sieć**: Obsługa nowych lub istniejących sieci i niestandardowego zakresu CIDR.
-- **CNS**: CNS może być włączony.
-- **Metryki:** Metryki Hawkular można włączyć.
-- **Rejestrowanie:** Rejestrowanie EFK można włączyć.
-- **Dostawca chmury Azure:** domyślnie włączone, można wyłączyć.
+- **Węzły główne**: trzy (3) węzły główne z konfigurowalnym typem wystąpienia.
+- **Węzły infrastruktury**: trzy (3) węzły infrastruktury z konfigurowalnym typem wystąpienia.
+- **Węzły**: liczba węzłów (z zakresu od 1 do 9) i typ wystąpienia można skonfigurować.
+- **Typ dysku**: Managed disks są używane.
+- **Sieć**: obsługa nowej lub istniejącej sieci i NIESTANDARDOWEGO zakresu CIDR.
+- **CNS**: CNS można włączyć.
+- **Metryki**: można włączyć metryki Hawkular.
+- **Rejestrowanie**: rejestrowanie EFK może być włączone.
+- **Dostawca chmury platformy Azure**: domyślnie włączony, można go wyłączyć.
 
-W lewym górnym rogu witryny Azure portal kliknij pozycję **Utwórz zasób**, wprowadź w polu wyszukiwania "platforma kontenera openshift" i naciśnij klawisz Enter.
+W lewym górnym rogu Azure Portal kliknij pozycję **Utwórz zasób**, w polu wyszukiwania wprowadź ciąg "OpenShift Container platform" i naciśnij klawisz ENTER.
 
-   ![Wyszukiwanie nowych zasobów](media/openshift-marketplace-self-managed/ocp-search.png)  
+   ![Nowe wyszukiwanie zasobów](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
 
-Strona Wyniki zostanie otwarta z **Red Hat OpenShift Container Platform 3.11 Self-Managed** na liście. 
+Zostanie otwarta strona wyniki z systemem **Red Hat OpenShift Container Platform 3,11** na liście. 
 
    ![Nowy wynik wyszukiwania zasobów](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
 
-Kliknij ofertę, aby wyświetlić szczegóły oferty. Aby wdrożyć tę ofertę, kliknij przycisk **Utwórz**. Pojawi się interfejs użytkownika, aby wprowadzić niezbędne parametry. Pierwszy ekran to brzemię **Podstawy.**
+Kliknij ofertę, aby wyświetlić szczegóły oferty. Aby wdrożyć tę ofertę, kliknij przycisk **Utwórz**. Zostanie wyświetlony interfejs użytkownika służący do wprowadzania wymaganych parametrów. Pierwszy ekran to blok **podstawy** .
 
-   ![Strona tytułowa oferty](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
+   ![Strona tytułu oferty](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
 **Podstawy**
 
-Aby uzyskać pomoc dotyczącą dowolnego z parametrów wejściowych, najedź kursorem na ***i*** obok nazwy parametru.
+Aby uzyskać pomoc dotyczącą dowolnego z parametrów wejściowych, umieść kursor nad ***i*** obok nazwy parametru.
 
-Wprowadź wartości parametrów wejściowych i kliknij przycisk **OK**.
+Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK**.
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Nazwa użytkownika administratora maszyny Wirtualnej | Użytkownik administratora, który ma zostać utworzony we wszystkich wystąpieniach maszyn wirtualnych |
-| Klucz publiczny SSH dla użytkownika administratora | Klucz publiczny SSH używany do logowania się do maszyny Wirtualnej — nie może mieć hasła |
-| Subskrypcja | Subskrypcja platformy Azure w celu wdrożenia klastra |
-| Grupa zasobów | Tworzenie nowej grupy zasobów lub wybieranie istniejącej pustej grupy zasobów dla zasobów klastra |
-| Lokalizacja | Region platformy Azure do wdrożenia klastra w |
+| Nazwa użytkownika administratora maszyny wirtualnej | Użytkownik administracyjny, który ma zostać utworzony na wszystkich wystąpieniach maszyn wirtualnych |
+| Klucz publiczny SSH dla użytkownika administratora | Klucz publiczny SSH używany do logowania do maszyny wirtualnej — nie może mieć hasła |
+| Subskrypcja | Subskrypcja platformy Azure do wdrożenia klastra |
+| Grupa zasobów | Utwórz nową grupę zasobów lub wybierz istniejącą pustą grupę zasobów dla zasobów klastra |
+| Lokalizacja | Region platformy Azure, w którym ma zostać wdrożony klaster |
 
-   ![Zaoferuj podstawowe ostrze](media/openshift-marketplace-self-managed/ocp-basics.png)  
+   ![Blok podstawy oferty](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
 
 **Ustawienia infrastruktury**
 
-Wprowadź wartości parametrów wejściowych i kliknij przycisk **OK**.
+Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK**.
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Prefiks nazwy klastra OCP | Prefiks klastra używany do konfigurowania nazwy hostów dla wszystkich węzłów. Od 1 do 20 znaków |
-| Rozmiar węzła głównego | Zaakceptuj domyślny rozmiar maszyny Wirtualnej lub kliknij przycisk **Zmień rozmiar,** aby wybrać inny rozmiar maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej dla obciążenia roboczego |
-| Rozmiar węzła infrastruktury | Zaakceptuj domyślny rozmiar maszyny Wirtualnej lub kliknij przycisk **Zmień rozmiar,** aby wybrać inny rozmiar maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej dla obciążenia roboczego |
-| Liczba węzłów aplikacji | Zaakceptuj domyślny rozmiar maszyny Wirtualnej lub kliknij przycisk **Zmień rozmiar,** aby wybrać inny rozmiar maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej dla obciążenia roboczego |
-| Rozmiar węzła aplikacji | Zaakceptuj domyślny rozmiar maszyny Wirtualnej lub kliknij przycisk **Zmień rozmiar,** aby wybrać inny rozmiar maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej dla obciążenia roboczego |
-| Rozmiar hosta bastionu | Zaakceptuj domyślny rozmiar maszyny Wirtualnej lub kliknij przycisk **Zmień rozmiar,** aby wybrać inny rozmiar maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej dla obciążenia roboczego |
-| Nowa lub istniejąca sieć wirtualna | Tworzenie nowej sieci wirtualnej (domyślna) lub używanie istniejącej sieci vNet |
-| Wybieranie domyślnych ustawień CIDR lub dostosowywanie zakresu ip (CIDR) | Zaakceptuj domyślne zakresy CIDR lub wybierz **niestandardowy zakres adresów IP** i wprowadź niestandardowe informacje CIDR.  Ustawienia domyślne utworzy sieć wirtualną z cidr 10.0.0.0/14, podsiecią główną z 10.1.0.0/16, podsiecią infra z 10.2.0.0/16 oraz podsiecią obliczeniową i OUN z 10.3.0.0/16 |
-| Nazwa grupy zasobów magazynu kluczy | Nazwa grupy zasobów zawierającej magazyn kluczy |
-| Nazwa magazynu kluczy | Nazwa magazynu kluczy zawierającego klucz tajny z kluczem prywatnym ssh.  Dozwolone są tylko znaki alfanumeryczne i kreski i mają od 3 do 24 znaków |
-| Tajna nazwa | Nazwa klucza tajnego zawierającego klucz prywatny ssh.  Dozwolone są tylko znaki alfanumeryczne i kreski |
+| OCP prefiks nazwy klastra | Prefiks klastra używany do konfigurowania nazw hostów dla wszystkich węzłów. Od 1 do 20 znaków |
+| Rozmiar węzła głównego | Zaakceptuj domyślny rozmiar maszyny wirtualnej lub kliknij przycisk **Zmień rozmiar** , aby wybrać inny rozmiar maszyny wirtualnej.  Wybieranie odpowiedniego rozmiaru maszyny wirtualnej do obciążenia pracą |
+| Rozmiar węzła infrastruktury | Zaakceptuj domyślny rozmiar maszyny wirtualnej lub kliknij przycisk **Zmień rozmiar** , aby wybrać inny rozmiar maszyny wirtualnej.  Wybieranie odpowiedniego rozmiaru maszyny wirtualnej do obciążenia pracą |
+| Liczba węzłów aplikacji | Zaakceptuj domyślny rozmiar maszyny wirtualnej lub kliknij przycisk **Zmień rozmiar** , aby wybrać inny rozmiar maszyny wirtualnej.  Wybieranie odpowiedniego rozmiaru maszyny wirtualnej do obciążenia pracą |
+| Rozmiar węzła aplikacji | Zaakceptuj domyślny rozmiar maszyny wirtualnej lub kliknij przycisk **Zmień rozmiar** , aby wybrać inny rozmiar maszyny wirtualnej.  Wybieranie odpowiedniego rozmiaru maszyny wirtualnej do obciążenia pracą |
+| Rozmiar hosta bastionu | Zaakceptuj domyślny rozmiar maszyny wirtualnej lub kliknij przycisk **Zmień rozmiar** , aby wybrać inny rozmiar maszyny wirtualnej.  Wybieranie odpowiedniego rozmiaru maszyny wirtualnej do obciążenia pracą |
+| Nowe lub istniejące Virtual Network | Utwórz nową sieć wirtualną (domyślną) lub Użyj istniejącej sieci wirtualnej |
+| Wybierz domyślne ustawienia CIDR lub Dostosuj zakres adresów IP (CIDR) | Zaakceptuj domyślne zakresy CIDR lub wybierz **niestandardowy zakres adresów IP** , a następnie wprowadź informacje o niestandardowych CIDR.  Ustawienia domyślne spowodują utworzenie sieci wirtualnej z CIDR o wartości 10.0.0.0/14, podsieci głównej z 10.1.0.0ą/16, podsiecią infrastruktury z 10.2.0.0/16 i ilością podsieci obliczeniowych i CNS z 10.3.0.0/16 |
+| Nazwa grupy zasobów Key Vault | Nazwa grupy zasobów, która zawiera Key Vault |
+| Nazwa Key Vault | Nazwa Key Vault, która zawiera wpis tajny z kluczem prywatnym ssh.  Dozwolone są tylko znaki alfanumeryczne i łączniki oraz mają długość od 3 do 24 znaków |
+| Nazwa wpisu tajnego | Nazwa wpisu tajnego, który zawiera klucz prywatny SSH.  Dozwolone są tylko znaki alfanumeryczne i łączniki |
 
-   ![Zaoferuj ostrze infrastruktury](media/openshift-marketplace-self-managed/ocp-inframain.png)  
+   ![Blok infrastruktury oferty](media/openshift-marketplace-self-managed/ocp-inframain.png)  
 <br>
 
 **Zmień rozmiar**
 
-Aby wybrać inny rozmiar maszyny Wirtualnej, kliknij pozycję ***Zmień rozmiar***.  Otworzy się okno wyboru maszyny Wirtualnej.  Wybierz odpowiedni rozmiar maszyny Wirtualnej i kliknij przycisk **Wybierz**.
+Aby wybrać inny rozmiar maszyny wirtualnej, kliknij przycisk ***Zmień rozmiar***.  Zostanie otwarte okno wyboru maszyny wirtualnej.  Wybierz żądany rozmiar maszyny wirtualnej, a następnie kliknij przycisk **Wybierz**.
 
-   ![Wybieranie rozmiaru maszyny Wirtualnej](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
+   ![Wybierz rozmiar maszyny wirtualnej](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
 
-**Istniejąca sieć wirtualna**
+**Istniejące Virtual Network**
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Istniejąca nazwa sieci wirtualnej | Nazwa istniejącej sieci vNet |
-| Nazwa podsieci dla węzłów głównych | Nazwa istniejącej podsieci dla węzłów głównych.  Musi zawierać co najmniej 16 adresów IP i postępować zgodnie z RFC 1918 |
-| Nazwa podsieci dla węzłów podczerwych | Nazwa istniejącej podsieci dla węzłów podczerwień.  Musi zawierać co najmniej 32 adresy IP i postępować zgodnie z RFC 1918 |
-| Nazwa podsieci dla węzłów obliczeniowych i cns | Nazwa istniejącej podsieci dla węzłów obliczeniowych i cns.  Musi zawierać co najmniej 32 adresy IP i postępować zgodnie z RFC 1918 |
-| Grupa zasobów dla istniejącej sieci wirtualnej | Nazwa grupy zasobów zawierającej istniejącą w sieci vNet |
+| Istniejąca nazwa Virtual Network | Nazwa istniejącej sieci wirtualnej |
+| Nazwa podsieci dla węzłów głównych | Nazwa istniejącej podsieci dla węzłów głównych.  Musi zawierać co najmniej 16 adresów IP i być zgodne ze specyfikacją RFC 1918 |
+| Nazwa podsieci dla węzłów infrastruktury | Nazwa istniejącej podsieci dla węzłów infrastruktury.  Musi zawierać co najmniej 32 adresów IP i być zgodne ze specyfikacją RFC 1918 |
+| Nazwa podsieci dla węzłów obliczeniowych i CNS | Nazwa istniejącej podsieci dla węzłów obliczeniowych i CNS.  Musi zawierać co najmniej 32 adresów IP i być zgodne ze specyfikacją RFC 1918 |
+| Grupa zasobów dla istniejących Virtual Network | Nazwa grupy zasobów zawierającej istniejącą sieć wirtualną |
 
-   ![Zaoferuj infrastrukturę istniejącego vnetu](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
+   ![Infrastruktura oferty istniejącej sieci wirtualnej](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
 <br>
 
 **Niestandardowy zakres adresów IP**
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Zakres adresów dla sieci wirtualnej | Niestandardowy cidr dla sieci vNet |
-| Zakres adresów dla podsieci zawierającej węzły główne | Niestandardowy cidr dla podsieci głównej |
-| Zakres adresów dla podsieci zawierającej węzły infrastruktury | Niestandardowy cidr dla podsieci infrastruktury |
-| Zakres adresów dla podsieci zawierającej węzły obliczeniowe i węzły cns | Niestandardowy cidr dla węzłów obliczeniowych i cns |
+| Zakres adresów dla Virtual Network | Niestandardowy CIDR dla sieci wirtualnej |
+| Zakres adresów dla podsieci zawierającej węzły główne | Niestandardowy CIDR dla podsieci głównej |
+| Zakres adresów dla podsieci zawierającej węzły infrastruktury | Niestandardowy CIDR dla podsieci infrastruktury |
+| Zakres adresów dla podsieci zawierającej węzły COMPUTE i CNS | Niestandardowy CIDR dla węzłów COMPUTE i CNS |
 
-   ![Zaoferuj infrastrukturę niestandardowy zakres adresów IP](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
+   ![Niestandardowy zakres adresów IP infrastruktury oferty](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
 <br>
 
 **OpenShift Container Platform 3.11**
 
-Wprowadź wartości parametrów wejściowych i kliknij przycisk **OK**
+Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK** .
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Hasło użytkownika administratora OpenShift | Hasło dla początkowego użytkownika OpenShift.  Ten użytkownik będzie również administratorem klastra |
-| Potwierdź hasło administratora OpenShift | Ponowne wpisywania hasła administratora OpenShift |
-| Nazwa użytkownika Menedżera subskrypcji Red Hat | Nazwa użytkownika, aby uzyskać dostęp do subskrypcji Red Hat lub identyfikatora organizacji.  To poświadczenie jest używane do rejestrowania wystąpienia RHEL w subskrypcji i nie będzie przechowywane przez firmę Microsoft lub Red Hat |
-| Hasło użytkownika menedżera subskrypcji Red Hat | Hasło dostępu do subskrypcji Red Hat lub klucza aktywacyjnego.  To poświadczenie jest używane do rejestrowania wystąpienia RHEL w subskrypcji i nie będzie przechowywane przez firmę Microsoft lub Red Hat |
-| Red Hat Subscription Manager OpenShift Pool ID | Identyfikator puli zawierający uprawnienie Platformy kontenerowej OpenShift. Upewnij się, że masz wystarczające uprawnienia platformy kontenerowej OpenShift do instalacji klastra |
-| Red Hat Subscription Manager OpenShift Pool ID dla brokera / węzłów głównych | Identyfikator puli zawierający uprawnienia platformy kontenerowej OpenShift dla węzłów brokera / głównego. Upewnij się, że masz wystarczające uprawnienia platformy kontenera OpenShift do instalacji klastra. Jeśli nie używasz identyfikatora brokera / puli głównej, wprowadź identyfikator puli dla węzłów aplikacji |
-| Konfigurowanie dostawcy chmury platformy Azure | Skonfiguruj funkcję OpenShift do używania dostawcy chmury azure. Konieczne jest, jeśli przy użyciu dysku platformy Azure dołączyć dla woluminów trwałych.  Wartość domyślna to Tak |
-| Identyfikator guid klienta usługi Azure AD | Identyfikator klienta jednostki usługi Azure AD — znany również jako identyfikator aplikacji. Jest to wymagane tylko wtedy, gdy skonfigurowanie dostawcy chmury Azure ustawionego na **Tak** |
-| Klucz tajny identyfikatora klienta usługi Azure AD | Klucz tajny identyfikatora klienta usługi Azure AD. Jest to wymagane tylko wtedy, gdy skonfigurowanie dostawcy chmury Azure ustawionego na **Tak** |
+| OpenShift hasło użytkownika administratora | Hasło dla początkowego użytkownika OpenShift.  Ten użytkownik będzie również administratorem klastra |
+| Potwierdź hasło użytkownika administratora OpenShift | Wpisz ponownie hasło administratora OpenShift |
+| Nazwa użytkownika programu Red Hat Subscription Manager | Nazwa użytkownika, aby uzyskać dostęp do subskrypcji Red Hat lub identyfikatora organizacji.  To poświadczenie służy do rejestrowania wystąpienia usługi RHEL w ramach subskrypcji i nie będzie przechowywane przez firmę Microsoft lub Red Hat |
+| Hasło użytkownika programu Red Hat Subscription Manager | Hasło do uzyskiwania dostępu do subskrypcji Red Hat lub klucza aktywacji.  To poświadczenie służy do rejestrowania wystąpienia usługi RHEL w ramach subskrypcji i nie będzie przechowywane przez firmę Microsoft lub Red Hat |
+| Identyfikator puli OpenShift w programie Red Hat Subscription Manager | Identyfikator puli zawierający uprawnienia platformy kontenera OpenShift. Upewnij się, że masz wystarczające uprawnienia platformy kontenera OpenShift na potrzeby instalacji klastra |
+| Identyfikator puli OpenShift usługi Red Hat Subscription Manager dla brokera/węzłów głównych | Identyfikator puli, który zawiera uprawnienia platformy kontenera OpenShift dla brokera/węzłów głównych. Upewnij się, że masz wystarczające uprawnienia platformy kontenera OpenShift do instalacji klastra. Jeśli nie korzystasz z identyfikatora brokera/puli głównej, wprowadź identyfikator puli dla węzłów aplikacji |
+| Konfigurowanie dostawcy chmury platformy Azure | Skonfiguruj OpenShift do korzystania z dostawcy chmury platformy Azure. Niezbędny w przypadku korzystania z dysku platformy Azure dla woluminów trwałych.  Wartość domyślna to Yes |
+| Identyfikator GUID identyfikatora klienta jednostki usługi Azure AD | Identyfikator GUID identyfikatora klienta jednostki usługi Azure AD — znany również jako identyfikator AppID. Jest to konieczne tylko wtedy, gdy dla opcji Konfiguruj dostawcę chmury platformy Azure ustawiono **wartość tak** |
+| Wpis tajny identyfikatora klienta jednostki usługi Azure AD | Identyfikator wpisu tajnego klienta usługi Azure AD. Jest to konieczne tylko wtedy, gdy dla opcji Konfiguruj dostawcę chmury platformy Azure ustawiono **wartość tak** |
  
-   ![Zaoferuj ostrze OpenShift](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
+   ![Blok OpenShift oferty](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
 <br>
 
-**Dodatkowe ustawienia**
+**Ustawienia dodatkowe**
 
-Blok Ustawienia dodatkowe umożliwia konfigurację OUN dla glusterfs storage, Logging, Metrics i Router Sub domain.  Domyślna nie zainstaluje żadnej z tych opcji i użyje nip.io jako domeny podrzędnej routera do celów testowych. Włączenie CNS zainstaluje trzy dodatkowe węzły obliczeniowe z trzema dodatkowymi dołączonymi dyskami, które będą hostować zasobników glusterfs.  
+Blok ustawienia dodatkowe umożliwia konfigurację wartości CN dla magazynu glusterfs, rejestrowania, metryk i poddomeny routera.  Wartość domyślna nie spowoduje zainstalowania żadnej z tych opcji i będzie używać nip.io jako poddomeny routera na potrzeby testowania. Włączenie CN spowoduje zainstalowanie trzech dodatkowych węzłów obliczeniowych z trzema dołączonymi dyskami, które będą hostować glusterfsy.  
 
-Wprowadź wartości parametrów wejściowych i kliknij przycisk **OK**
+Wprowadź wartości parametrów wejściowych, a następnie kliknij przycisk **OK** .
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| Konfigurowanie magazynu macierzystego kontenera (CNS) | Instaluje układ OUN w klastrze OpenShift i włącza go jako magazyn. Wartość domyślna, jeśli dostawca platformy Azure jest wyłączony |
-| Konfigurowanie rejestrowania klastrów | Instaluje funkcje rejestrowania EFK w klastrze.  Rozmiar węzłów podczerwień odpowiednio do obsługi zasobników EFK |
-| Konfigurowanie metryk dla klastra | Instaluje metryki Hawkular w klastrze OpenShift.  Rozmiar węzłów podczerwień odpowiednio do obsługi hawkular metryki zasobników |
-| Domyślna domena podrzędna routera | Wybierz nipio do testowania lub niestandardowe, aby wprowadzić własną domenę podrzędną do produkcji |
+| Konfigurowanie magazynu natywnego kontenera (CNS) | Instaluje w klastrze OpenShift wartość CNS i włącza ją jako magazyn. Jeśli dostawca platformy Azure jest wyłączony |
+| Konfigurowanie rejestrowania klastrów | Instaluje funkcję rejestrowania EFK w klastrze.  Rozmiar węzłów infrastruktury odpowiednio do hostowania EFK |
+| Konfigurowanie metryk dla klastra | Instaluje metryki Hawkular w klastrze OpenShift.  Rozmiar węzłów infrastruktury odpowiednio do hostowania Hawkular metryk |
+| Domyślna domena podrzędna routera | Wybierz nipio do testowania lub niestandardowego, aby wprowadzić własną poddomenę dla środowiska produkcyjnego |
  
-   ![Zaoferuj dodatkowe ostrze](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
+   ![Dodatkowy blok oferty](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
 <br>
 
 **Dodatkowe ustawienia — dodatkowe parametry**
 
 | Parametr wejściowy | Opis parametru |
 |-----------------------|-----------------|
-| (OUN) Rozmiar węzła | Zaakceptuj domyślny rozmiar węzła lub wybierz **zmień rozmiar,** aby wybrać nowy rozmiar maszyny Wirtualnej |
-| Wprowadź niestandardową poddomenę | Niestandardowa domena routingu, która ma być używana do ujawniania aplikacji za pośrednictwem routera w klastrze OpenShift.  Pamiętaj, aby utworzyć odpowiedni wpis DNS z symbolami wieloznacznych] |
+| CNS Rozmiar węzła | Zaakceptuj domyślny rozmiar węzła lub wybierz pozycję **Zmień rozmiar** , aby wybrać nowy rozmiar maszyny wirtualnej |
+| Wprowadź niestandardową poddomenę | Niestandardowa domena routingu, która będzie używana do udostępniania aplikacji za pośrednictwem routera w klastrze OpenShift.  Upewnij się, że utworzono odpowiedni symbol wieloznaczny DNS. |
  
-   ![Zaoferuj dodatkową instalację cns](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
+   ![Dodatkowe zainstalowanie aktualizacji CN](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
 **Podsumowanie**
 
-Sprawdzanie poprawności odbywa się na tym etapie, aby sprawdzić przydział podstawowy jest wystarczająca do wdrożenia całkowitej liczby maszyn wirtualnych wybranych dla klastra.  Przejrzyj wszystkie wprowadzone parametry.  Jeśli dane wejściowe są dopuszczalne, kliknij przycisk **OK,** aby kontynuować.
+Walidacja odbywa się na tym etapie, aby sprawdzić, czy przydział podstawowy jest wystarczający do wdrożenia łącznej liczby maszyn wirtualnych wybranych dla klastra.  Przejrzyj wszystkie wprowadzone parametry.  Jeśli dane wejściowe są akceptowalne, kliknij przycisk **OK** , aby kontynuować.
 
-   ![Ostrze podsumowania oferty](media/openshift-marketplace-self-managed/ocp-summary.png)  
+   ![Blok podsumowania oferty](media/openshift-marketplace-self-managed/ocp-summary.png)  
 <br>
 
 **Kup**
 
-Potwierdź informacje kontaktowe na stronie Kup i kliknij przycisk **Kup,** aby zaakceptować warunki użytkowania i rozpocząć wdrażanie klastra Platformy kontenerowej OpenShift.
+Potwierdź informacje kontaktowe na stronie Kupowanie, a następnie kliknij przycisk **Kup** , aby zaakceptować warunki użytkowania i rozpocząć wdrażanie klastra platformy kontenerów OpenShift.
 
-   ![Oferta zakupu ostrze](media/openshift-marketplace-self-managed/ocp-purchase.png)  
+   ![Blok kupowania oferty](media/openshift-marketplace-self-managed/ocp-purchase.png)  
 <br>
 
 
-## <a name="connect-to-the-openshift-cluster"></a>Łączenie się z klastrem OpenShift
+## <a name="connect-to-the-openshift-cluster"></a>Nawiązywanie połączenia z klastrem OpenShift
 
-Po zakończeniu wdrażania pobierz połączenie z sekcji wyjściowej wdrożenia. Połącz się z konsolą OpenShift za pomocą przeglądarki, używając **adresu URL konsoli OpenShift**. można również SSH do hosta Bastion. Poniżej przedstawiono przykład, w którym nazwa użytkownika administratora jest clusteradmin i bastion publiczny IP DNS FQDN jest bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Po zakończeniu wdrażania Pobierz połączenie z sekcji Wyjście wdrożenia. Nawiąż połączenie z konsolą OpenShift z przeglądarką przy użyciu **adresu URL konsoli OpenShift**. można również przeprowadzić protokół SSH do hosta bastionu. Poniżej znajduje się przykład, w którym nazwa użytkownika administratora to clusteradmin, a bastionu publiczny adres IP DNS FQDN to bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
@@ -193,7 +193,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Polecenie [usuń grupę AZ](/cli/azure/group) służy do usuwania grupy zasobów, klastra OpenShift i wszystkich powiązanych zasobów, gdy nie są już potrzebne.
+Użyj polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, klaster OpenShift i wszystkie powiązane zasoby, gdy nie są już potrzebne.
 
 ```azurecli 
 az group delete --name openshiftrg
@@ -202,6 +202,6 @@ az group delete --name openshiftrg
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zadania po wdrożeniu](./openshift-container-platform-3x-post-deployment.md)
-- [Rozwiązywanie problemów z wdrażaniem usługi OpenShift na platformie Azure](./openshift-container-platform-3x-troubleshooting.md)
-- [Wprowadzenie do platformy kontenerowej OpenShift](https://docs.openshift.com)
+- [Rozwiązywanie problemów z wdrażaniem OpenShift na platformie Azure](./openshift-container-platform-3x-troubleshooting.md)
+- [Wprowadzenie do platformy kontenerów OpenShift](https://docs.openshift.com)
 - 

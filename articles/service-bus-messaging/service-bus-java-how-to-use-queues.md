@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z kolejek usługi Azure Service Bus w języku Java
-description: W tym samouczku dowiesz się, jak tworzyć aplikacje Java do wysyłania wiadomości do i odbierania wiadomości z kolejki usługi Azure Service Bus.
+title: Korzystanie z kolejek Azure Service Bus przy użyciu języka Java
+description: W ramach tego samouczka nauczysz się tworzyć aplikacje Java do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -16,39 +16,39 @@ ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 184ffd39281ea27d8596bc37a9f89fd22acfb1ba
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81732186"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Szybki start: wysyłanie i odbieranie wiadomości za pomocą kolejek usługi Azure Service Bus w języku Java
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Szybki Start: korzystanie z kolejek Azure Service Bus w języku Java do wysyłania i odbierania wiadomości
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-W tym samouczku dowiesz się, jak tworzyć aplikacje Java do wysyłania wiadomości do i odbierania wiadomości z kolejki usługi Azure Service Bus. 
+W ramach tego samouczka nauczysz się tworzyć aplikacje Java do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus. 
 
 > [!NOTE]
-> Przykłady oprogramowania Java można znaleźć w usłudze GitHub w [repozytorium magistrali azure.](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)
+> Przykłady dla języka Java w witrynie GitHub można znaleźć w [repozytorium Azure-Service-Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować [swoje korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub założyć bezpłatne [konto.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
-2. Jeśli nie masz kolejki do pracy, wykonaj kroki w [witrynie Azure portal, aby utworzyć kolejkę usługi Service Bus](service-bus-quickstart-portal.md) artykuł, aby utworzyć kolejkę.
-    1. Przeczytaj krótki **przegląd** **kolejek**usługi Service Bus . 
-    2. Tworzenie obszaru **nazw**usługi Service Bus . 
-    3. Pobierz **ciąg połączenia**.
-    4. Utwórz **kolejkę**usługi Service Bus .
-3. Zainstaluj [zestaw SDK platformy Azure dla języka Java][Azure SDK for Java]. 
+1. Subskrypcja platformy Azure. Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Możesz aktywować korzyści dla [subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Jeśli nie masz kolejki do współpracy z programem, postępuj zgodnie z instrukcjami w temacie [Use Azure Portal, aby utworzyć](service-bus-quickstart-portal.md) kolejkę Service Bus w celu utworzenia kolejki.
+    1. Zapoznaj się **overview** z krótkim omówieniem **kolejek**Service Bus. 
+    2. Utwórz **przestrzeń nazw**Service Bus. 
+    3. Pobierz **Parametry połączenia**.
+    4. Utwórz **kolejkę**Service Bus.
+3. Zainstaluj [zestaw Azure SDK dla języka Java][Azure SDK for Java]. 
 
 
-## <a name="configure-your-application-to-use-service-bus"></a>Konfigurowanie aplikacji do korzystania z usługi Service Bus
-Przed rozpoczęciem tworzenia tego przykładu upewnij się, że [zainstalowano zestaw SDK platformy Azure dla języka Java.][Azure SDK for Java] 
+## <a name="configure-your-application-to-use-service-bus"></a>Skonfiguruj aplikację do używania Service Bus
+Przed skompilowaniem tego przykładu upewnij się, że zainstalowano [zestaw Azure SDK dla języka Java][Azure SDK for Java] . 
 
-Jeśli używasz programu Eclipse, możesz zainstalować [zestaw narzędzi Azure Toolkit for Eclipse,][Azure Toolkit for Eclipse] który zawiera zestaw SDK platformy Azure dla języka Java. Następnie można dodać **biblioteki platformy Microsoft Azure dla oprogramowania Java** do projektu. Jeśli używasz IntelliJ, zobacz [Instalowanie zestawu narzędzi azure dla intellij](/azure/developer/java/toolkit-for-intellij/installation). 
+W przypadku korzystania z programu zaćmienie można zainstalować [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] zawierający zestaw Azure SDK dla języka Java. Następnie można dodać **biblioteki Microsoft Azure dla języka Java** do projektu. Jeśli używasz programu IntelliJ, zobacz [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
 
-![Dodawanie bibliotek platformy Microsoft Azure dla oprogramowania Java do projektu programu Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+![Dodaj biblioteki Microsoft Azure dla języka Java do projektu przezaćmienia](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 
-Dodaj następujące `import` instrukcje do górnej części pliku Java:
+Dodaj następujące `import` instrukcje na początku pliku Java:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -68,7 +68,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Wysyłanie komunikatów do kolejki
-Aby wysyłać wiadomości do kolejki usługi Service Bus, aplikacja wywołuje wystąpienie obiektu **QueueClient** i wysyła komunikaty asynchronicznie. Poniższy kod pokazuje, jak wysłać wiadomość dla kolejki, który został utworzony za pośrednictwem portalu.
+Aby wysyłać komunikaty do kolejki Service Bus, aplikacja tworzy wystąpienie obiektu **QueueClient** i asynchronicznie wysyła komunikaty. Poniższy kod przedstawia sposób wysyłania komunikatu dla kolejki, która została utworzona za pomocą portalu.
 
 ```java
 public void run() throws Exception {
@@ -116,20 +116,20 @@ public void run() throws Exception {
 
 ```
 
-Wiadomości wysyłane i odbierane z kolejek usługi Service Bus są wystąpieniami [message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) klasy. Obiekty wiadomości mają zestaw właściwości standardowych (takich jak Label i TimeToLive), słownik, który jest używany do przechowywania właściwości specyficzne dla aplikacji niestandardowych i treść dowolnych danych aplikacji. Aplikacja może ustawić treść wiadomości, przekazując dowolny serializable obiektu do konstruktora Message, a odpowiedni serializator będzie następnie używany do serializacji obiektu. Alternatywnie, można podać **java. Io. InputStream,** obiekt.
+Komunikaty wysyłane do i odbierane z kolejek Service Bus są wystąpieniami klasy [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) . Obiekty komunikatów mają zestaw właściwości standardowych (takich jak etykieta i TimeToLive), słownik używany do przechowywania niestandardowych właściwości specyficznych dla aplikacji oraz treść dowolnych danych aplikacji. Aplikacja może ustawić treść komunikatu przez przekazanie dowolnego obiektu możliwego do serializacji do konstruktora wiadomości, a następnie odpowiedni serializator zostanie użyty do serializacji obiektu. Alternatywnie możesz udostępnić **środowisko Java. /. Obiekt InputStream** .
 
 
 Kolejki usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [warstwie Standardowa](service-bus-premium-messaging.md) i 1 MB w [warstwie Premium](service-bus-premium-messaging.md). Nagłówek, który zawiera standardowe i niestandardowe właściwości aplikacji, może mieć maksymalny rozmiar 64 KB. Nie ma żadnego limitu liczby komunikatów w kolejce, ale jest ograniczenie całkowitego rozmiaru komunikatów przechowywanych przez kolejkę. Ten rozmiar kolejki jest definiowany w czasie tworzenia, z górnym limitem 5 GB.
 
-## <a name="receive-messages-from-a-queue"></a>Odbieranie wiadomości z kolejki
-Podstawowym sposobem odbierania wiadomości z kolejki jest użycie obiektu **ServiceBusContract.** Odebrane wiadomości mogą działać w dwóch różnych trybach: **ReceiveAndDelete** i **PeekLock**.
+## <a name="receive-messages-from-a-queue"></a>Odbieranie komunikatów z kolejki
+Podstawowym sposobem odbierania komunikatów z kolejki jest użycie obiektu **ServiceBusContract** . Odebrane komunikaty mogą być wykonywane w dwóch różnych trybach: **ReceiveAndDelete** i **PeekLock**.
 
-Korzystając z trybu **ReceiveAndDelete,** receive jest operacją pojedynczego strzału — oznacza to, że gdy usługa Service Bus odbiera żądanie odczytu wiadomości w kolejce, oznacza komunikat jako używany i zwraca ją do aplikacji. **ReceiveAndDelete** tryb (który jest trybem domyślnym) jest najprostszym modelem i działa najlepiej dla scenariuszy, w których aplikacja może tolerować nie przetwarzania wiadomości w przypadku awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem.
-Ponieważ usługa Service Bus oznaczyła komunikat jako zużyty, a następnie po ponownym uruchomieniu aplikacji i ponownym rozpoczęciu korzystania z wiadomości, nie odebrano komunikatu, który został zużyty przed awarią.
+W przypadku korzystania z trybu **ReceiveAndDelete** odbieranie jest operacją pojedynczego zrzutu, czyli gdy Service Bus odbiera żądanie odczytu komunikatu w kolejce, oznacza komunikat jako używany i zwraca go do aplikacji. Tryb **ReceiveAndDelete** (który jest domyślnym trybem) jest najprostszym modelem i najlepiej sprawdza się w scenariuszach, w których aplikacja może tolerować nieprzetwarzanie komunikatu w przypadku awarii. Aby to zrozumieć, rozważmy scenariusz, w którym konsument wystawia żądanie odbioru, a następnie ulega awarii przed jego przetworzeniem.
+Ponieważ Service Bus oznaczył komunikat jako używany, wtedy, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, zostanie pominięty komunikat, który był używany przed awarią.
 
-W trybie **PeekLock** receive staje się operacją dwuetapową, która umożliwia obsługę aplikacji, które nie tolerują brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Po zakończeniu przetwarzania wiadomości (lub magazynuje ją niezawodnie do przetwarzania w przyszłości), kończy drugi etap procesu odbierania, wywołując **complete()** w odebranej wiadomości. Gdy usługa Service Bus zobaczy wywołanie **complete(),** oznacza komunikat jako zużyty i usuwa ją z kolejki. 
+W trybie **PeekLock** , odbieranie staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania, wywołując metodę **Complete ()** dla odebranego komunikatu. Gdy Service Bus widzi **kompletne ()** wywołanie, oznacza komunikat jako używany i usuń go z kolejki. 
 
-Poniższy przykład pokazuje, jak wiadomości mogą być odbierane i przetwarzane w trybie **PeekLock** (nie w trybie domyślnym). W poniższym przykładzie użyto modelu wywołania zwrotnego z zarejestrowanym programem obsługi wiadomości i przetwarza wiadomości, gdy dotrą do naszego `TestQueue`. Ten tryb wywołuje **complete()** automatycznie, jak wywołania zwrotnego zwraca normalnie i wywołuje **abandon(),** jeśli wywołanie zwrotne zgłasza wyjątek. 
+W poniższym przykładzie pokazano, jak można odbierać i przetwarzać komunikaty przy użyciu trybu **PeekLock** (a nie trybu domyślnego). W poniższym przykładzie zastosowano model wywołania zwrotnego z zarejestrowaną obsługą komunikatów i przetwarza komunikaty w `TestQueue`miarę ich przybycia do naszej firmy. Ten tryb wywołuje **pełny ()** automatycznie, gdy wywołanie zwrotne zwraca się normalnie i wywołuje metodę **Abandon ()** , jeśli wywołanie zwrotne zgłasza wyjątek. 
 
 ```java
     public void run() throws Exception {
@@ -182,17 +182,17 @@ Poniższy przykład pokazuje, jak wiadomości mogą być odbierane i przetwarzan
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Sposób obsługi awarii aplikacji i komunikatów niemożliwych do odczytania
-Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbiorcy nie jest w stanie przetworzyć wiadomości z jakiegoś powodu, może wywołać metodę **abandon()** na obiekcie klienta za pomocą tokenu blokady odebranej wiadomości uzyskanego za pośrednictwem **getLockToken()**. Powoduje to odblokowanie komunikatu w kolejce przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
+Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w razie błędów w aplikacji lub trudności z przetwarzaniem komunikatu. Jeśli aplikacja odbiornika nie może przetworzyć komunikatu z jakiegoś powodu, może wywołać metodę **Abandon ()** w obiekcie Client z tokenem blokady otrzymanej wiadomości uzyskanym za pośrednictwem **getLockToken ()**. Powoduje to odblokowanie komunikatu w kolejce przez usługę Service Bus i ponowne udostępnienie go do odebrania przez tę samą lub inną odbierającą aplikację.
 
-Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce, a jeśli aplikacja nie może przetworzyć wiadomości przed upływem limitu czasu blokady (na przykład, jeśli aplikacja ulegnie awarii), usługa Service Bus automatycznie odblokowuje wiadomość i udostępnia ją do odebrania.
+Istnieje również limit czasu skojarzony z komunikatem zablokowanym w kolejce i jeśli aplikacja nie może przetworzyć komunikatu przed upływem limitu czasu blokady (na przykład jeśli awaria aplikacji), Service Bus odblokowywanie komunikatu automatycznie i udostępnienie go do ponownego odebrania.
 
-W przypadku awarii aplikacji po przetworzeniu wiadomości, ale przed wydaniem żądania **complete(),** komunikat jest ponownie dostarczony do aplikacji po ponownym uruchomieniu. Jest to często nazywane *przetwarzaniem co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu **getMessageId** metody wiadomości, która pozostaje stała w próbach dostarczenia.
+W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed wystawieniem **kompletnego żądania ()** , komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Jest to często nazywane *przetwarzaniem co najmniej raz*, co oznacza, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach ten sam komunikat może być dostarczony ponownie. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Jest to często osiągane przy użyciu metody **getmessageid** komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 > [!NOTE]
-> Zasoby usługi Service Bus można zarządzać za pomocą [Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/). Eksplorator usługi Service Bus umożliwia użytkownikom łączenie się z obszarem nazw usługi Service Bus i administrowanie jednostkami obsługi wiadomości w łatwy sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcje importu/eksportu lub możliwość testowania tematu, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
+> Za pomocą [eksploratora Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/)można zarządzać zasobami Service Bus. Eksplorator Service Bus umożliwia użytkownikom łączenie się z przestrzenią nazw Service Bus i administrowanie jednostkami obsługi komunikatów w prosty sposób. Narzędzie zapewnia zaawansowane funkcje, takie jak funkcja importowania/eksportowania lub możliwość testowania tematów, kolejek, subskrypcji, usług przekazywania, centrów powiadomień i centrów zdarzeń. 
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy poznasz podstawy kolejek usługi Service Bus, zobacz [Kolejki, tematy i subskrypcje,][Queues, topics, and subscriptions] aby uzyskać więcej informacji.
+Teraz, gdy znasz już podstawy Service Busych kolejek, zobacz sekcję [kolejki, tematy i subskrypcje][Queues, topics, and subscriptions] , aby uzyskać więcej informacji.
 
 Więcej informacji możesz znaleźć w [Centrum deweloperów języka Java](https://azure.microsoft.com/develop/java/).
 

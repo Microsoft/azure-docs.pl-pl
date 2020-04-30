@@ -1,6 +1,6 @@
 ---
-title: Używanie sieci VPN S2S jako kopii zapasowej prywatnej komunikacji równorzędnej usługi Azure ExpressRoute | Dokumenty firmy Microsoft
-description: Ta strona zawiera zalecenia architektoniczne dotyczące tworzenia kopii zapasowych prywatnej komunikacji równorzędnej usługi Azure ExpressRoute za pomocą sieci VPN S2S.
+title: Korzystanie z sieci VPN S2S jako kopii zapasowej prywatnej komunikacji równorzędnej Azure ExpressRoute | Microsoft Docs
+description: Na tej stronie przedstawiono zalecenia dotyczące architektury tworzenia kopii zapasowych prywatnej komunikacji równorzędnej Azure ExpressRoute przy użyciu sieci VPN S2S.
 services: networking
 author: rambk
 ms.service: expressroute
@@ -8,68 +8,68 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: rambala
 ms.openlocfilehash: a6a22b667bc66d6ee69bfbd7ad1db88f72d8df0e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687824"
 ---
-# <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Używanie sieci VPN S2S jako kopii zapasowej dla prywatnej komunikacji równorzędnej usługi ExpressRoute
+# <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Używanie sieci VPN S2S jako kopii zapasowej dla prywatnej komunikacji równorzędnej ExpressRoute
 
-W artykule zatytułowanym [Projektowanie do odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej usługi ExpressRoute][DR-PP]omówiliśmy potrzebę rozwiązania łączności kopii zapasowej dla prywatnej łączności równorzędnej usługi ExpressRoute oraz sposobu korzystania z geobbicznych obwodów usługi ExpressRoute w tym celu. W tym artykule zastanówmy się, jak wykorzystać i utrzymać sieć VPN typu lokacja-lokacja (S2S) jako powrót do prywatnej komunikacji równorzędnej usługi ExpressRoute. 
+W artykule zatytułowanym [projektowanie pod kątem odzyskiwania po awarii za pomocą prywatnej komunikacji równorzędnej ExpressRoute][DR-PP]omówiono potrzebę rozwiązania połączenia z kopią zapasową dla łączności prywatnej komunikacji równorzędnej ExpressRoute oraz sposób używania obwodów z geograficznie nadmiarowym ExpressRoute. W tym artykule poinformuj nas, jak korzystać z sieci VPN typu lokacja-lokacja (S2S) oraz jak z powrotem dla prywatnej komunikacji równorzędnej usługi ExpressRoute. 
 
-W przeciwieństwie do geobbicznych obwodów usługi ExpressRoute, można używać kombinacji odzyskiwania po awarii usługi ExpressRoute-VPN tylko w trybie aktywnym i pasywnym. Głównym wyzwaniem związanym z używaniem dowolnej kopii zapasowej łączności sieciowej w trybie pasywnym jest to, że połączenie pasywne często nie powiedzie się wraz z połączeniem podstawowym. Częstą przyczyną awarii połączenia pasywnego jest brak aktywnej konserwacji. W związku z tym w tym artykule skupmy się na tym, jak zweryfikować i aktywnie utrzymywać łączność sieci VPN S2S, która jest tworzenie kopii zapasowej prywatnej komunikacji równorzędnej usługi ExpressRoute.
+W odróżnieniu od geograficznie nadmiarowych obwodów usługi ExpressRoute, można użyć kombinacji odzyskiwania po awarii w sieci VPN ExpressRoute — tylko w trybie aktywny-pasywny. Głównym wyzwaniem korzystania z dowolnej kopii zapasowej łączności sieciowej w trybie pasywnym jest to, że połączenie pasywne często kończy się niepowodzeniem wraz z połączeniem podstawowym. Typowy powód niepowodzeń połączenia pasywnego to brak aktywnej konserwacji. Dlatego w tym artykule koncentrujemy się na sprawdzaniu i aktywnie utrzymaniu łączności sieci VPN S2S, która wykonuje kopię zapasową prywatnej komunikacji równorzędnej usługi ExpressRoute.
 
 >[!NOTE] 
->Gdy dana trasa jest anonsowana za pośrednictwem usługi ExpressRoute i SIECI VPN, platforma Azure wolałaby routingu za pośrednictwem usługi ExpressRoute.  
+>Gdy dana trasa jest anonsowana za pośrednictwem zarówno ExpressRoute, jak i sieci VPN, platforma Azure preferuje Routing na ExpressRoute.  
 >
 
-W tym artykule zobaczmy, jak zweryfikować łączność zarówno z punktu widzenia platformy Azure, jak i perspektywy krawędzi sieci po stronie klienta. Możliwość sprawdzania poprawności z obu stron pomoże niezależnie od tego, czy zarządzasz urządzeniami sieciowymi po stronie klienta, które równorzędne z jednostkami sieci firmy Microsoft. 
+W tym artykule dowiesz się, jak zweryfikować połączenie zarówno z perspektywy platformy Azure, jak i z perspektywy krawędzi sieci po stronie klienta. Możliwość weryfikacji z dowolnego końca będzie pomocna niezależnie od tego, czy zarządzasz urządzeniami sieciowymi po stronie klienta, które są równorzędne z jednostkami sieci firmy Microsoft. 
 
 ## <a name="example-topology"></a>Przykładowa topologia
 
-W naszej konfiguracji mamy sieć lokalną połączoną z siecią wirtualną usługi Azure hub za pośrednictwem obwodu usługi ExpressRoute i połączenia sieci VPN S2S. Sieć wirtualna usługi Azure hub jest z kolei równorzędna z siecią wirtualną szprychy, jak pokazano na poniższym diagramie:
+W naszej konfiguracji mamy sieć lokalną podłączoną do sieci wirtualnej usługi Azure Hub za pośrednictwem obwodu ExpressRoute i połączenia sieci VPN S2S. Sieć wirtualna usługi Azure Hub jest z kolei komunikacji równorzędnej z siecią wirtualną szprych, jak pokazano na poniższym diagramie:
 
 ![1][1]
 
-W konfiguracji obwód usługi ExpressRoute jest kończony na parach routerów "Customer Edge" (CE) w środowisku lokalnym. Lokalna sieć LAN jest podłączona do routerów CE za pośrednictwem pary zapór, które działają w trybie leader-follower. Sieć VPN S2S jest bezpośrednio zakończona na zaporach.
+W trakcie instalacji obwód ExpressRoute zostaje przerwany na parze routerów "brzegów klienta" (CE) w środowisku lokalnym. Lokalna sieć LAN jest połączona z routerami CE za pośrednictwem pary zapór, które działają w trybie podążania za liderem. Sieć VPN S2S jest bezpośrednio zakończona na zaporach.
 
-W poniższej tabeli wymieniono kluczowe prefiksy adresów IP topologii:
+W poniższej tabeli przedstawiono podstawowe prefiksy adresów IP topologii:
 
 | **Jednostka** | **Prefiks** |
 | --- | --- |
 | Lokalna sieć LAN | 10.1.11.0/25 |
-| Usługa Wirtualna usługi Azure Hub | 10.17.11.0/25 |
-| W sieci VNet z szprychami na platformie Azure | 10.17.11.128/26 |
+| Sieć wirtualna usługi Azure Hub | 10.17.11.0/25 |
+| Sieć wirtualna Azure szprych | 10.17.11.128/26 |
 | Lokalny serwer testowy | 10.1.11.10 |
-| Maszyna wirtualna szprychowa | 10.17.11.132 |
-| Podsieć połączenia podstawowego usługi ExpressRoute p2p | 192.168.11.16/30 |
-| Podsieć połączenia pomocniczego usługi ExpressRoute p2p | 192.168.11.20/30 |
+| Testowa maszyna wirtualna dla sieci VNet | 10.17.11.132 |
+| ExpressRoute połączenie podstawowe z podsiecią P2P | 192.168.11.16/30 |
+| ExpressRoute połączenie pomocnicze — podsieć P2P | 192.168.11.20/30 |
 | Podstawowy adres IP elementu równorzędnego BGP bramy sieci VPN | 10.17.11.76 |
-| Pomocniczy adres IP elementu równorzędnego BGP bramy sieci VPN | 10.17.11.77 |
-| Lokalny adres IP sieci VPN protokołu SIECI VPN | 192.168.11.88 |
-| Podstawowy router CE i/f w kierunku zapory IP | 192.168.11.0/31 |
-| Zapora i/f w kierunku podstawowego adresu IP routera CE | 192.168.11.1/31 |
-| Pomocniczy router CE i/f w kierunku zapory IP | 192.168.11.2/31 |
-| Zapora sieciowa i/f w kierunku pomocniczego adresu IP routera CE | 192.168.11.3/31 |
+| Dodatkowy adres IP elementu równorzędnego BGP bramy sieci VPN | 10.17.11.77 |
+| Adres IP elementu równorzędnego BGP sieci VPN zapory lokalnej | 192.168.11.88 |
+| Podstawowy router CE i/f w kierunku protokołu IP zapory | 192.168.11.0/31 |
+| Zapora i/f do podstawowego protokołu IP routera CE | 192.168.11.1/31 |
+| Router pomocniczy we/f na adres IP zapory | 192.168.11.2/31 |
+| Zapora i/f na dodatkowy adres IP routera CE | 192.168.11.3/31 |
 
 
-W poniższej tabeli wymieniono numery ASN topologii:
+W poniższej tabeli wymieniono WPW dla topologii:
 
-| **System autonomiczny** | **Asn** |
+| **System autonomiczny** | **Właściwość** |
 | --- | --- |
 | Lokalnie | 65020 |
 | Microsoft Enterprise Edge | 12076 |
-| Sieć wirtualna GW (ExR) | 65515 |
-| Sieć wirtualna GW (VPN) | 65515 |
+| Virtual Network GW (ExR) | 65515 |
+| Virtual Network GW (VPN) | 65515 |
 
-## <a name="high-availability-without-asymmetricity"></a>Wysoka dostępność bez asymetryczności
+## <a name="high-availability-without-asymmetricity"></a>Wysoka dostępność bez asymetryczny
 
 ### <a name="configuring-for-high-availability"></a>Konfigurowanie wysokiej dostępności
 
-[Konfiguruj połączenia współistniejące w układzie ExpressRoute i Lokacja w][Conf-CoExist] tym artykule omówiono sposób konfigurowania współistniejącego obwodu usługi ExpressRoute i połączeń sieci VPN S2S. Jak omówiliśmy w [Projektowanie dla wysokiej dostępności z usługi ExpressRoute][HA], aby poprawić wysoką dostępność usługi ExpressRoute, nasza konfiguracja utrzymuje nadmiarowość sieci (pozwala uniknąć pojedynczego punktu awarii) aż do punktów końcowych. Również połączenia podstawowe i pomocnicze obwodów usługi ExpressRoute są skonfigurowane do pracy w trybie aktywnym i aktywnym, reklamując prefiksy lokalne w ten sam sposób za pośrednictwem obu połączeń. 
+[Konfigurowanie współistniejących połączeń ExpressRoute i typu lokacja-lokacja][Conf-CoExist] omawia sposób konfigurowania współistniejącego obwodu ExpressRoute i połączeń sieci VPN S2S. Zgodnie z opisem w temacie [projektowanie pod kątem wysokiej dostępności przy użyciu usługi ExpressRoute][HA], aby zwiększyć ExpressRoute wysoką dostępność, nasza konfiguracja utrzymuje nadmiarowość sieci (pozwala uniknąć Single Point of Failure) we wszystkich punktach końcowych. Zarówno podstawowe, jak i pomocnicze połączenia obwodów usługi ExpressRoute są skonfigurowane do działania w trybie aktywny-aktywny przez reklamowanie lokalnych prefiksów w taki sam sposób, jak w przypadku obu połączeń. 
 
-Poniżej znajduje się lokalna reklama trasy podstawowego routera CE za pośrednictwem połączenia podstawowego obwodu usługi ExpressRoute (polecenia Junos):
+Anons trasy lokalnej podstawowego routera CE przy użyciu połączenia podstawowego obwodu usługi ExpressRoute jest wyświetlany poniżej (Junos polecenia):
 
     user@SEA-MX03-01> show route advertising-protocol bgp 192.168.11.18 
 
@@ -77,7 +77,7 @@ Poniżej znajduje się lokalna reklama trasy podstawowego routera CE za pośredn
       Prefix                  Nexthop              MED     Lclpref    AS path
     * 10.1.11.0/25            Self                                    I
 
-Poniżej znajduje się lokalna reklama trasy pomocniczego routera CE za pośrednictwem połączenia pomocniczego obwodu usługi ExpressRoute (polecenia Junos):
+Anons trasy lokalnej pomocniczego routera CE przez połączenie pomocnicze obwodu usługi ExpressRoute jest wyświetlany poniżej (Junos polecenia):
 
     user@SEA-MX03-02> show route advertising-protocol bgp 192.168.11.22 
 
@@ -85,11 +85,11 @@ Poniżej znajduje się lokalna reklama trasy pomocniczego routera CE za pośredn
       Prefix                  Nexthop              MED     Lclpref    AS path
     * 10.1.11.0/25            Self                                    I
 
-Aby zwiększyć wysoką dostępność połączenia kopii zapasowej, sieć VPN S2S jest również skonfigurowana w trybie aktywnym i aktywnym. Konfiguracja bramy sieci VPN platformy Azure jest przedstawiona poniżej. Uwaga W ramach sieci VPN konfiguracji sieci VPN znajdują się również adresy IP elementów równorzędnych BGP bramy — 10.17.11.76 i 10.17.11.77 — podano także.
+Aby zwiększyć wysoką dostępność połączenia kopii zapasowej, Sieć VPN S2S jest również konfigurowana w trybie aktywny-aktywny. Poniżej przedstawiono konfigurację bramy sieci VPN platformy Azure. Należy pamiętać, że jako część sieci VPN konfiguracja sieci VPN adresy IP elementu równorzędnego BGP bramy--10.17.11.76 i 10.17.11.77--są również wymienione na liście.
 
 ![2][2]
 
-Trasa lokalna jest anonsowana przez zapory do podstawowych i pomocniczych elementów równorzędnych BGP bramy sieci VPN. Poniżej przedstawiono reklamy trasy (Junos):
+Trasa lokalna jest anonsowana przez zapory dla podstawowych i pomocniczych elementów równorzędnych protokołu BGP bramy sieci VPN. Poniżej przedstawiono anonse tras (Junos):
 
     user@SEA-SRX42-01> show route advertising-protocol bgp 10.17.11.76 
 
@@ -105,16 +105,16 @@ Trasa lokalna jest anonsowana przez zapory do podstawowych i pomocniczych elemen
     * 10.1.11.0/25            Self                                    I
 
 >[!NOTE] 
->Konfigurowanie sieci VPN S2S w trybie aktywnym i aktywnym zapewnia nie tylko wysoką dostępność połączenia sieciowego kopii zapasowej odzyskiwania po awarii, ale także zapewnia wyższą przepustowość łączności kopii zapasowej. Innymi słowy, konfigurowanie sieci VPN S2S w trybie aktywnym i aktywnym jest zalecane, ponieważ wymusza tworzenie wielu tuneli źródłowych.
+>Konfigurowanie sieci VPN S2S w trybie aktywny-aktywny nie tylko zapewnia wysoką dostępność dla łączności sieciowej kopii zapasowej odzyskiwania po awarii, ale również zapewnia wyższą przepływność dla łączności kopii zapasowej. Innymi słowy zaleca się skonfigurowanie sieci VPN S2S w trybie aktywny-aktywny, ponieważ wymusza to utworzenie wielu podstawowych tuneli.
 >
 
-### <a name="configuring-for-symmetric-traffic-flow"></a>Konfigurowanie symetrycznego przepływu ruchu
+### <a name="configuring-for-symmetric-traffic-flow"></a>Konfigurowanie dla przepływu ruchu symetrycznego
 
-Firma Microsoft zauważyła, że gdy dana trasa lokalna jest anonsowana za pośrednictwem usługi ExpressRoute i S2S VPN, platforma Azure wolałaby ścieżkę usługi ExpressRoute. Aby wymusić, aby platforma Azure preferowała ścieżkę sieci VPN S2S nad współistniejącym programem ExpressRoute, musisz anonsować bardziej szczegółowe trasy (dłuższy prefiks z większą maską podsieci) za pośrednictwem połączenia sieci VPN. Naszym celem jest użycie połączeń VPN tylko jako z powrotem. Tak więc domyślne zachowanie wyboru ścieżki platformy Azure jest zgodne z naszym celem. 
+Zauważono, że gdy dana trasa lokalna jest anonsowana za pośrednictwem sieci VPN ExpressRoute i S2S, platforma Azure preferuje ścieżkę ExpressRoute. Aby wymusić, że platforma Azure preferuje ścieżkę sieci VPN S2S przez ExpressRoute, musisz anonsować bardziej szczegółowe trasy (dłuższy prefiks o większej masce podsieci) za pośrednictwem połączenia sieci VPN. Naszym celem jest użycie połączeń sieci VPN tylko z powrotem. W związku z tym domyślne zachowanie wyboru ścieżki na platformie Azure jest zgodne z naszym celem. 
 
-Naszym obowiązkiem jest upewnienie się, że ruch przeznaczony do platformy Azure z lokalnego preferuje również ścieżkę usługi ExpressRoute za pośrednictwem sieci VPN S2S. Domyślna preferencja lokalna routerów i zapór CE w naszej konfiguracji lokalnej wynosi 100. Tak więc, konfigurując lokalne preferencje tras odebranych za pośrednictwem prywatnych komunikacji równorzędnej usługi ExpressRoute większej niż 100 (powiedzmy 150), możemy sprawić, że ruch przeznaczony na platformę Azure preferuje obwód Usługi ExpressRoute w stanie stacjonarnym.
+Jest to nasza odpowiedzialność za zapewnienie, że ruch kierowany do platformy Azure z firmy lokalnej również preferuje ścieżkę ExpressRoute za pośrednictwem sieci VPN S2S. Domyślną preferencją lokalną routery i zapory CE w ramach instalacji lokalnej jest 100. Dlatego przez skonfigurowanie preferencji lokalnych dla tras odbieranych za pomocą prywatnych komunikacji równorzędnej ExpressRoute większej niż 100 (Powiedz 150), możemy wprowadzić ruch kierowany do platformy Azure preferuje obwód ExpressRoute w stanie stałym.
 
-Poniżej przedstawiono konfigurację protokołu BGP podstawowego routera CE, który kończy połączenie podstawowe obwodu usługi ExpressRoute. Należy zauważyć, że wartość preferencji lokalnych tras anonsowanych w ramach sesji iBGP jest skonfigurowana na 150. Podobnie musimy zapewnić lokalne preferencje pomocniczego routera CE, który kończy połączenie pomocnicze obwodu usługi ExpressRoute, jest również skonfigurowane na 150.
+Poniżej przedstawiono konfigurację protokołu BGP podstawowego routera CE, który kończy połączenie podstawowe obwodu usługi ExpressRoute. Należy pamiętać, że wartość lokalnego preferencji tras anonsowanych w sesji iBGP jest skonfigurowana jako 150. Podobnie musimy upewnić się, że lokalna preferencja dodatkowego routera CE, która przerywa połączenie pomocnicze obwodu usługi ExpressRoute, jest również skonfigurowana jako 150.
 
     user@SEA-MX03-01> show configuration routing-instances Cust11 
     description "Customer 11 VRF";
@@ -139,7 +139,7 @@ Poniżej przedstawiono konfigurację protokołu BGP podstawowego routera CE, kt�
       }
     }
 
-Tabela routingu zapory lokalnej potwierdza (pokazano poniżej), że dla ruchu lokalnego, który jest przeznaczony do platformy Azure preferowana ścieżka jest za pomocą usługi ExpressRoute w stanie stacjonarnym.
+Tabela routingu lokalnych zapór potwierdza (pokazane poniżej), która dla ruchu lokalnego, który jest przeznaczony dla platformy Azure, preferowaną ścieżką jest ponad ExpressRoute w stanie stałym.
 
     user@SEA-SRX42-01> show route table Cust11.inet.0 10.17.11.0/24    
 
@@ -177,11 +177,11 @@ Tabela routingu zapory lokalnej potwierdza (pokazano poniżej), że dla ruchu lo
                           AS path: 65515 I, validation-state: unverified
                         > via st0.119
 
-W powyższej tabeli tras trasy trasy sieci wirtualnej i szprychy --10.17.11.0/25 i 10.17.11.128/26 - widzimy, że obwód Usługi ExpressRoute jest preferowany w stosunku do połączeń VPN. 192.168.11.0 i 192.168.11.2 są adresami IP na interfejsie zapory w stosunku do routerów CE.
+W powyższej tabeli tras dla tras sieci wirtualnej Hub i szprych--10.17.11.0/25 i 10.17.11.128/26--widzimy obwód ExpressRoute jest preferowany przez połączenia VPN. 192.168.11.0 i 192.168.11.2 są adresami IP w interfejsie zapory skierowanymi do routerów CE.
 
-## <a name="validation-of-route-exchange-over-s2s-vpn"></a>Sprawdzanie poprawności wymiany trasy przez S2S VPN
+## <a name="validation-of-route-exchange-over-s2s-vpn"></a>Sprawdzanie poprawności trasy wymiany za pośrednictwem sieci VPN S2S
 
-Wcześniej w tym artykule zweryfikowaliśmy lokalną reklamę trasy zapór do podstawowych i pomocniczych elementów równorzędnych BGP bramy sieci VPN. Ponadto upewnijmy się, że trasy platformy Azure odebrane przez zapory z podstawowych i pomocniczych elementów równorzędnych BGP bramy sieci VPN.
+Wcześniej w tym artykule zostały zweryfikowane lokalne anonse dotyczące zapór w ramach podstawowych i pomocniczych elementów równorzędnych protokołu BGP bramy sieci VPN. Dodatkowo Potwierdźmy trasy platformy Azure odbierane przez zapory z podstawowego i pomocniczego elementu równorzędnego protokołu BGP bramy sieci VPN.
 
     user@SEA-SRX42-01> show route receive-protocol bgp 10.17.11.76 table Cust11.inet.0 
 
@@ -198,7 +198,7 @@ Wcześniej w tym artykule zweryfikowaliśmy lokalną reklamę trasy zapór do po
       10.17.11.0/25           10.17.11.77                             65515 I
       10.17.11.128/26         10.17.11.77                             65515 I
 
-Podobnie sprawdźmy prefiksy trasy sieci lokalnej odebrane przez bramę sieci VPN platformy Azure. 
+W podobny sposób sprawdzimy prefiksy tras sieci lokalnych odebrane przez bramę sieci VPN platformy Azure. 
 
     PS C:\Users\user> Get-AzVirtualNetworkGatewayLearnedRoute -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn | where {$_.Network -eq "10.1.11.0/25"} | select Network, NextHop, AsPath, Weight
 
@@ -213,9 +213,9 @@ Podobnie sprawdźmy prefiksy trasy sieci lokalnej odebrane przez bramę sieci VP
     10.1.11.0/25 10.17.11.69   12076-65020  32769
     10.1.11.0/25 10.17.11.69   12076-65020  32769
 
-Jak widać powyżej, brama sieci VPN ma trasy odebrane zarówno przez podstawowe, jak i pomocnicze elementy równorzędne BGP bramy sieci VPN. Ma również wgląd w trasy odbierane za pośrednictwem podstawowych i pomocniczych połączeń usługi ExpressRoute (te z as-path poprzedza 12076). Aby potwierdzić trasy odebrane za pośrednictwem połączeń SIECI VPN, musimy znać lokalny adres IP równorzędnych BGP połączeń. W naszej konfiguracji pod uwagę, jest to 192.168.11.88 i widzimy trasy otrzymane od niego.
+Jak pokazano powyżej, Brama sieci VPN ma trasy odbierane zarówno przez podstawowy, jak i pomocniczy element równorzędny protokołu BGP bramy sieci VPN. Ma także wgląd w trasy odbierane za pośrednictwem podstawowych i pomocniczych połączeń ExpressRoute (te, które zostały poprzedzone ścieżką do 12076). Aby potwierdzić trasy otrzymane za pośrednictwem połączeń sieci VPN, musimy znać lokalny adres IP elementu równorzędnego protokołu BGP dla połączeń. W naszym rozważaniu konfiguracja jest 192.168.11.88 i będziemy widzieć otrzymane trasy.
 
-Następnie sprawdźmy trasy anonsowane przez bramę sieci VPN platformy Azure do lokalnego elementu równorzędnego BGP zapory lokalnej (192.168.11.88).
+Następnie Sprawdźmy trasy anonsowane przez bramę sieci VPN platformy Azure do lokalnego elementu równorzędnego protokołu BGP zapory (192.168.11.88).
 
     PS C:\Users\user> Get-AzVirtualNetworkGatewayAdvertisedRoute -Peer 192.168.11.88 -ResourceGroupName SEA-Cust11 -VirtualNetworkGatewayName SEA-Cust11-VNet01-gw-vpn |  select Network, NextHop, AsPath, Weight
 
@@ -227,17 +227,17 @@ Następnie sprawdźmy trasy anonsowane przez bramę sieci VPN platformy Azure do
     10.17.11.128/26 10.17.11.77 65515       0
 
 
-Nieu wyświetlenie wymiany tras wskazuje błąd połączenia. Zobacz [Rozwiązywanie problemów: Połączenie sieci VPN między lokacjami platformy Azure nie może się połączyć i przestaje działać,][VPN Troubleshoot] aby uzyskać pomoc dotyczącą rozwiązywania problemów z połączeniem sieci VPN.
+Niepowodzenie wyświetlania wymiany tras wskazuje na błąd połączenia. Zobacz [Rozwiązywanie problemów: połączenie sieci VPN typu lokacja-lokacja platformy Azure nie może nawiązać połączenia i przestaje działać][VPN Troubleshoot] w celu uzyskania pomocy w rozwiązywaniu problemów z połączeniem sieci VPN
 
-## <a name="testing-failover"></a>Testowanie pracy awaryjnej
+## <a name="testing-failover"></a>Testowanie pracy w trybie failover
 
-Teraz, gdy potwierdziliśmy pomyślne wymiany tras za pośrednictwem połączenia VPN (płaszczyzny sterowania), jesteśmy ustawione, aby przełączyć ruch (płaszczyznę danych) z łączności ExpressRoute do łączności VPN. 
+Po potwierdzeniu pomyślnej wymiany trasy przez połączenie sieci VPN (płaszczyzna kontroli) ustawimy przełączenie ruchu (płaszczyzny danych) z łączności ExpressRoute na połączenie sieci VPN. 
 
 >[!NOTE] 
->W środowiskach produkcyjnych testowanie pracy awaryjnej musi być wykonane podczas zaplanowanej konserwacji sieci pracy okna, ponieważ może to być uciążliwe dla usług.
+>Testowanie trybu failover w środowisku produkcyjnym należy wykonać podczas zaplanowanej konserwacji sieci w oknie, ponieważ może to powodować zakłócenia działania usługi.
 >
 
-Przed zrobieniem przełącznika ruchu, let's śledzenia trasy bieżącej ścieżki w naszej konfiguracji z lokalnego serwera testowego do testowej maszyny Wirtualnej w sieci wirtualnej szprychy.
+Przed przełączeniem ruchu śledźmy bieżącą ścieżkę w naszej konfiguracji z lokalnego serwera testowego do testowej maszyny wirtualnej w sieci wirtualnej szprychy.
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -251,15 +251,15 @@ Przed zrobieniem przełącznika ruchu, let's śledzenia trasy bieżącej ścież
 
     Trace complete.
 
-Podstawowe i pomocnicze podsieci połączeń typu express-to-point naszej konfiguracji to odpowiednio 192.168.11.16/30 i 192.168.11.20/30. W powyższej trasie śledzenia, w kroku 3 widzimy, że uderzamy 192.168.11.18, który jest interfejs IP podstawowego MSEE. Obecność interfejsu MSEE potwierdza, że zgodnie z oczekiwaniami nasza bieżąca ścieżka znajduje się za platformą ExpressRoute.
+Podstawowa i pomocnicza podsieć połączeń punkt-punkt ExpressRoute Instalatora jest odpowiednio 192.168.11.16/30 i 192.168.11.20/30. W powyższej trasie śledzenia w kroku 3 zobaczymy, że 192.168.11.18, który jest interfejsem IP głównego MSEE. Obecność interfejsu MSEE potwierdza, że zgodnie z oczekiwaniami nasza bieżąca ścieżka znajduje się na ExpressRoute.
 
-Zgodnie z raportem w [resetowania układu równorzędnego obwodu usługi ExpressRoute][RST], użyjmy następujących poleceń programu PowerShell, aby wyłączyć zarówno podstawowe, jak i pomocnicze komunikacji równorzędnej obwodu usługi ExpressRoute.
+Jak zostało zgłoszone w [komunikacji równorzędnej obwodu usługi ExpressRoute][RST], użyj następujących poleceń programu PowerShell, aby wyłączyć podstawową i dodatkową komunikację równorzędną obwodu usługi ExpressRoute.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Disabled"
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Czas przełączania trybu failover zależy od czasu zbieżności BGP. W naszej konfiguracji przełącznik pracy awaryjnej trwa kilka sekund (mniej niż 10). Po przełączeniu powtórzenie traceroute pokazuje następującą ścieżkę:
+Czas przełączania trybu failover zależy od czasu zbieżności protokołu BGP. W naszej instalacji przełączanie trybu failover trwa kilka sekund (mniej niż 10). Po przełączniku Powtórz traceroute pokazuje następującą ścieżkę:
 
     C:\Users\PathLabUser>tracert 10.17.11.132
 
@@ -271,25 +271,25 @@ Czas przełączania trybu failover zależy od czasu zbieżności BGP. W naszej k
 
     Trace complete.
 
-Wynik traceroute potwierdza, że połączenie kopii zapasowej za pośrednictwem sieci VPN S2S jest aktywne i może zapewnić ciągłość usług, jeśli zarówno podstawowe, jak i pomocnicze połączenia usługi ExpressRoute nie powiodą się. Aby zakończyć testowanie pracy awaryjnej, włączmy połączenia usługi ExpressRoute z powrotem i znormalizuj przepływ ruchu, używając następującego zestawu poleceń.
+Wynik traceroute potwierdza, że połączenie kopii zapasowej za pośrednictwem sieci VPN S2S jest aktywne i może zapewnić ciągłość usługi, jeśli zarówno podstawowe, jak i pomocnicze połączenia ExpressRoute kończą się niepowodzeniem. Aby ukończyć Testowanie pracy w trybie failover, Włącz ExpressRoute połączenia z powrotem i normalizowanie przepływu ruchu przy użyciu następującego zestawu poleceń.
 
     $ckt = Get-AzExpressRouteCircuit -Name "expressroute name" -ResourceGroupName "SEA-Cust11"
     $ckt.Peerings[0].State = "Enabled"
     Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Aby potwierdzić, że ruch jest przełączany z powrotem do usługi ExpressRoute, powtórz traceroute i upewnij się, że przechodzi przez prywatną komunikację równorzędnie usługi ExpressRoute.
+Aby potwierdzić, że ruch jest przełączany z powrotem do ExpressRoute, powtórz traceroute i upewnij się, że przechodzą przez prywatną komunikację równorzędną ExpressRoute.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Usługa ExpressRoute jest przeznaczona do wysokiej dostępności bez pojedynczego punktu awarii w sieci Firmy Microsoft. Nadal obwód usługi ExpressRoute jest ograniczony do jednego regionu geograficznego i do dostawcy usług. S2S VPN może być dobrym rozwiązaniem do pasywnego odzyskiwania po awarii w obwodzie usługi ExpressRoute. W przypadku niezawodnego rozwiązania do pasywnego połączenia kopii zapasowej ważne jest regularne utrzymywanie konfiguracji pasywnej i okresowa weryfikacja połączenia. Istotne jest, aby nie pozwolić, aby konfiguracja sieci VPN się nie zestarzała, a okresowo (powiedzmy co kwartał) powtarzać kroki sprawdzania poprawności i pracy awaryjnej opisane w tym artykule podczas obsługi technicznej.
+ExpressRoute jest przeznaczona do wysokiej dostępności bez single point of failure w sieci firmy Microsoft. Nadal obwód usługi ExpressRoute jest ograniczony do jednego regionu geograficznego i dostawcy usług. Sieci VPN S2S mogą być dobrym rozwiązaniem do pasywnego odzyskiwania po awarii do obwodu ExpressRoute. W przypadku niezawodnego rozwiązania do obsługi połączeń pasywnych, regularnej konserwacji konfiguracji pasywnej i okresowego sprawdzania poprawności połączenia są ważne. Nie jest możliwe, aby konfiguracja sieci VPN stała się nieaktualna, i okresowo (co kwartał należy powiedzieć) Powtórz kroki testu walidacji i przełączenia w tryb failover opisany w tym artykule w oknie obsługi.
 
-Aby włączyć monitorowanie i alerty oparte na metrykach bramy sieci VPN, zobacz [Konfigurowanie alertów w metrykach bramy sieci VPN][VPN-alerts].
+Aby włączyć monitorowanie i alerty na podstawie metryki bramy sieci VPN, zobacz [Konfigurowanie alertów na VPN Gateway metrykach][VPN-alerts].
 
-Aby przyspieszyć konwergencję protokołu BGP po niepowodzeniu usługi ExpressRoute, [skonfiguruj program BFD za dodatkową treścią ExpressRoute][BFD].
+Aby przyspieszyć zbieżność protokołu BGP po wystąpieniu błędu ExpressRoute, [Skonfiguruj BFD na ExpressRoute][BFD].
 
 <!--Image References-->
-[1]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png "topologia pod uwagę"
-[2]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png "Konfiguracja VPN GW"
+[1]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/topology.png "topologia w rozważaniu"
+[2]: ./media/use-s2s-vpn-as-backup-for-expressroute-privatepeering/vpn-gw-config.png "Konfiguracja sieci VPN GW"
 
 <!--Link References-->
 [DR-PP]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering

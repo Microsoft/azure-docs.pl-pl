@@ -1,5 +1,5 @@
 ---
-title: Dodawanie certyfikatu aplikacji do klastra w programie Powershell
+title: Dodawanie certyfikatu aplikacji do klastra w programie PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — dodawanie certyfikatu aplikacji do klastra usługi Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: d657ef8d28b36d93bc923036254e446c7be4c2c8
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81769521"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Dodawanie certyfikatu aplikacji do klastra usługi Service Fabric
 
-Ten przykładowy skrypt zawiera informacje o tym, jak utworzyć certyfikat w ucho. W tym scenariuszu nie używa sieci szkieletowej usług bezpośrednio, ale raczej zależy od usługi Key Vault i zestawów skalowania maszyny wirtualnej.
+Ten przykładowy skrypt przedstawia sposób tworzenia certyfikatu w programie Key Vault, a następnie wdrażania go w jednym z zestawów skalowania maszyn wirtualnych, na których działa klaster. Ten scenariusz nie używa bezpośrednio Service Fabric, ale raczej zależy od Key Vault i w zestawach skalowania maszyn wirtualnych.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 W razie potrzeby zainstaluj program Azure PowerShell, korzystając z instrukcji w [przewodniku programu Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure. 
 
-## <a name="create-a-certificate-in-key-vault"></a>Tworzenie certyfikatu w magazynie kluczy
+## <a name="create-a-certificate-in-key-vault"></a>Tworzenie certyfikatu w Key Vault
 
 ```powershell
 $VaultName = ""
@@ -40,7 +40,7 @@ $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName 
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
 
-## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Lub prześlij istniejący certyfikat do usługi Key Vault
+## <a name="or-upload-an-existing-certificate-into-key-vault"></a>Lub Przekaż istniejący certyfikat do Key Vault
 
 ```powershell
 $VaultName= ""
@@ -65,7 +65,7 @@ $Secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValu
 
 ```
 
-## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Aktualizowanie profilu zestawów skalowania maszyny wirtualnej za pomocą certyfikatu
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>Aktualizowanie profilu zestawu skalowania maszyn wirtualnych przy użyciu certyfikatu
 
 ```powershell
 $ResourceGroupName = ""
@@ -87,12 +87,12 @@ $VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConf
 $VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
 ```
 
-## <a name="update-the-virtual-machine-scale-set"></a>Aktualizowanie zestawu skalowania maszyny wirtualnej
+## <a name="update-the-virtual-machine-scale-set"></a>Aktualizowanie zestawu skalowania maszyn wirtualnych
 ```powershell
 Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
 ```
 
-> Jeśli chcesz, aby certyfikat został umieszczony w wielu typach węzłów w klastrze, druga i trzecia część tego skryptu powinna zostać powtórzona dla każdego typu węzła, który powinien mieć certyfikat.
+> Jeśli chcesz, aby certyfikat został umieszczony na wielu typach węzłów w klastrze, należy powtórzyć drugą i trzecią część tego skryptu dla każdego typu węzła, który powinien mieć certyfikat.
 
 ## <a name="script-explanation"></a>Objaśnienia dla skryptu
 
@@ -100,13 +100,13 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 | Polecenie | Uwagi |
 |---|---|
-| [Nowy-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Tworzy zasadę w pamięci reprezentującą certyfikat |
-| [Certyfikat Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Wdraża zasady do certyfikatów magazynu kluczy |
-| [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/Set-AzKeyVaultSecret)| Wdraża zasady w wpisach tajnych magazynu kluczy |
-| [Nowy-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Tworzy konfigurę w pamięci reprezentującą certyfikat na maszynie wirtualnej |
+| [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | Tworzy zasady w pamięci reprezentujące certyfikat |
+| [Add-AzKeyVaultCertificate](/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| Wdraża zasady w celu Key Vault certyfikatów |
+| [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/Set-AzKeyVaultSecret)| Wdraża zasady w celu Key Vault wpisów tajnych |
+| [New-AzVmssVaultCertificateConfig](/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | Tworzy konfigurację w pamięci reprezentującą certyfikat w maszynie wirtualnej |
 | [Get-AzVmss](/powershell/module/az.compute/Get-AzVmss) |  |
-| [Dodatek AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Dodaje certyfikat do definicji w pamięci zestawu skalowania maszyny wirtualnej |
-| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Wdraża nową definicję zestawu skalowania maszyny wirtualnej |
+| [Add-AzVmssSecret](/powershell/module/az.compute/Add-AzVmssSecret) | Dodaje certyfikat do definicji w pamięci zestawu skalowania maszyn wirtualnych |
+| [Update-AzVmss](/powershell/module/az.compute/Update-AzVmss) | Wdraża nową definicję zestawu skalowania maszyn wirtualnych |
 
 ## <a name="next-steps"></a>Następne kroki
 

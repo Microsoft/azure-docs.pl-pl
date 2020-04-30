@@ -1,5 +1,5 @@
 ---
-title: Połącz się przy użyciu mysql workbench — usługa Azure Database for MySQL
+title: Nawiązywanie połączenia przy użyciu programu MySQL Workbench — Azure Database for MySQL
 description: Ten przewodnik Szybki start zawiera działania umożliwiające wykorzystanie aplikacji MySQL Workbench do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich.
 author: ajlam
 ms.author: andrela
@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81731876"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań przy użyciu aplikacji MySQL Workbench
@@ -52,12 +52,12 @@ Aby nawiązać połączenie z serwerem usługi Azure MySQL za pomocą narzędzia
    | Metoda połączenia | Standardowa (TCP/IP) | Metoda Standardowa (TCP/IP) jest wystarczająca. |
    | Nazwa hosta | *nazwa serwera* | Określ wartość nazwy serwera, która została użyta wcześniej podczas tworzenia usługi Azure Database for MySQL. Przedstawiony przykładowy serwer to mydemoserver.mysql.database.azure.com. Użyj w pełni kwalifikowanej nazwy domeny (\*.mysql.database.azure.com) tak jak pokazano w przykładzie. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy serwera.  |
    | Port | 3306 | Zawsze używaj portu 3306 podczas łączenia z usługą Azure Database for MySQL. |
-   | Nazwa użytkownika |  *nazwa logowania administratora serwera* | Wpisz nazwę logowania administratora serwera, którą podano wcześniej podczas tworzenia usługi Azure Database for MySQL. Przykładowa nazwa użytkownika to myadmin@mydemoserver. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy użytkownika. Format to *\@nazwa serwera nazwy użytkownika*.
-   | Hasło | Twoje hasło | Kliknij przycisk **Przechowuj w vaultie...,** aby zapisać hasło. |
+   | Nazwa użytkownika |  *nazwa logowania administratora serwera* | Wpisz nazwę logowania administratora serwera, którą podano wcześniej podczas tworzenia usługi Azure Database for MySQL. Przykładowa nazwa użytkownika to myadmin@mydemoserver. Postępuj zgodnie z instrukcjami w poprzedniej sekcji, aby uzyskać informacje dotyczące połączenia, jeśli nie pamiętasz nazwy użytkownika. Format to *username\@ServerName*.
+   | Hasło | Twoje hasło | Kliknij przycisk **Zapisz w magazynie...** , aby zapisać hasło. |
 
 3.   Kliknij przycisk **Testuj połączenie**, aby sprawdzić, czy wszystkie parametry zostały prawidłowo skonfigurowane. 
 
-4.   Kliknij **przycisk OK,** aby zapisać połączenie. 
+4.   Kliknij przycisk **OK** , aby zapisać połączenie. 
 
 5.   Na liście **MySQL Connections** (Połączenia MySQL) kliknij kafelek odpowiadający serwerowi, a następnie poczekaj na ustanowienie połączenia.
 

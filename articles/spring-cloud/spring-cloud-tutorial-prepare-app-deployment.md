@@ -1,48 +1,48 @@
 ---
-title: Instrukcje — przygotowanie aplikacji Java Spring do wdrożenia w chmurze Azure Spring Cloud
-description: W tym temacie należy przygotować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud.
+title: Jak przygotować aplikację ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
+description: W tym temacie opisano przygotowanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731177"
 ---
-# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowanie aplikacji Java Spring do wdrożenia w chmurze Azure Spring Cloud
+# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
-W tym temacie pokazano, jak przygotować istniejącą aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Jeśli usługa Azure Spring Cloud jest poprawnie skonfigurowana, zapewnia niezawodne usługi monitorowania, skalowania i aktualizowania aplikacji Java Spring Cloud.
+W tym temacie przedstawiono sposób przygotowania istniejącej aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej. W przypadku poprawnego skonfigurowania chmurowa usługa Azure wiosenna zapewnia niezawodne usługi do monitorowania, skalowania i aktualizowania aplikacji w chmurze ze sprężyną Java.
 
-Inne przykłady wyjaśniają, jak wdrożyć aplikację w usłudze Azure Spring Cloud, gdy plik POM jest skonfigurowany. 
-* [Uruchamianie aplikacji za pomocą portalu Azure](spring-cloud-quickstart-launch-app-portal.md)
+Inne przykłady wyjaśniają sposób wdrażania aplikacji w chmurze Azure sprężynowej po skonfigurowaniu pliku pliku pom. 
+* [Uruchom aplikację przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md)
 * [Uruchamianie aplikacji przy użyciu interfejsu wiersza polecenia platformy Azure](spring-cloud-quickstart-launch-app-cli.md)
 
-W tym artykule wyjaśniono wymagane zależności i jak dodać je do pliku POM.
+W tym artykule opisano wymagane zależności oraz sposób ich dodawania do pliku pliku pom.
 
-## <a name="java-runtime-version"></a>Wersja java runtime
+## <a name="java-runtime-version"></a>Wersja środowiska uruchomieniowego języka Java
 
-Tylko aplikacje Wiosna/Java mogą działać w usłudze Azure Spring Cloud.
+Tylko aplikacje sprężynowe/Java mogą działać w chmurze Azure wiosennej.
 
-Usługa Azure Spring Cloud obsługuje zarówno oprogramowanie Java 8, jak i Java 11. Środowisko hostingowe zawiera najnowszą wersję programu Azul Zulu OpenJDK for Azure. Aby uzyskać więcej informacji na temat Azul Zulu OpenJDK for Azure, zobacz [Instalowanie pliku JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Chmura sprężynowa platformy Azure obsługuje języki Java 8 i Java 11. Środowisko hostingu zawiera najnowszą wersję programu Azul Zulu OpenJDK for Azure. Aby uzyskać więcej informacji na temat Azul Zulu OpenJDK for Azure, zobacz [Instalowanie programu JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
 
-## <a name="spring-boot-and-spring-cloud-versions"></a>Wersje Spring Boot i Spring Cloud
+## <a name="spring-boot-and-spring-cloud-versions"></a>Sprężynowe wersje chmurowe i sprężynowe
 
-Aby przygotować istniejącą aplikację Spring Boot do wdrożenia w usłudze Azure Spring Cloud, uwzględnij zależności spring boot i spring cloud w pliku POM aplikacji, jak pokazano w poniższych sekcjach.
+Aby przygotować istniejącą aplikację do rozruchu ze sprężyną w celu wdrożenia w chmurze Azure wiosennej, Dołącz zależności chmurowego rozruchowego i sprężynowego w pliku pliku pom aplikacji, jak pokazano w poniższych sekcjach.
 
-Usługa Azure Spring Cloud obsługuje tylko aplikacje Spring Boot w wersji 2.1 lub 2.2. W poniższej tabeli wymieniono obsługiwane kombinacje Spring Boot i Spring Cloud:
+Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprężynowego w wersji 2,1 lub 2,2. W poniższej tabeli wymieniono obsługiwane kombinacje chmurowych rozruchowych i sprężynowych:
 
-Wersja Spring Boot | Wersja Spring Cloud
+Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
-2.1 | Greenwich.RELEASE (WYDANIE)
-2.2 | Hoxton.RELEASE
+2.1 | Greenwich. RELEASE
+2.2 | Hoxton. RELEASE
 
-### <a name="dependencies-for-spring-boot-version-21"></a>Zależności dla spring boot w wersji 2.1
+### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
 
-W przypadku rozruchu wiosennego w wersji 2.1 dodaj następujące zależności do pliku POM aplikacji.
+W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujące zależności do pliku pliku pom aplikacji.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -66,9 +66,9 @@ W przypadku rozruchu wiosennego w wersji 2.1 dodaj następujące zależności do
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-22"></a>Zależności dla spring boot w wersji 2.2
+### <a name="dependencies-for-spring-boot-version-22"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,2
 
-W przypadku rozruchu wiosennego w wersji 2.2 dodaj następujące zależności do pliku POM aplikacji.
+W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujące zależności do pliku pliku pom aplikacji.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -92,22 +92,22 @@ W przypadku rozruchu wiosennego w wersji 2.2 dodaj następujące zależności do
     </dependencyManagement>
 ```
 
-## <a name="azure-spring-cloud-client-dependency"></a>Zależność klienta chmury usługi Azure Spring Cloud
+## <a name="azure-spring-cloud-client-dependency"></a>Zależność klienta chmury ze sprężyną Azure
 
-Usługa Azure Spring Cloud obsługuje składniki spring cloud i zarządza nimi. Składniki obejmują Spring Cloud Service Registry i Spring Cloud Config Server. Dołącz bibliotekę klienta usługi Azure Spring Cloud do zależności, aby umożliwić komunikację z wystąpieniem usługi Azure Spring Cloud.
+Usługa Azure wiosny Cloud hostuje i zarządza składnikami chmury Wiosnowej. Składniki obejmują rejestr usługi w chmurze ze sprężyną i wiosną serwerów konfiguracji chmury. Uwzględnij w zależnościach bibliotekę kliencką chmury platformy Azure, aby umożliwić komunikację z wystąpieniem usługi w chmurze ze sprężyną Azure.
 
-W poniższej tabeli wymieniono poprawne wersje usługi Azure Spring Cloud dla aplikacji korzystającej z spring boot i spring cloud.
+W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla aplikacji, które korzystają z chmury rozruchowej i sprężyny.
 
-Wersja Spring Boot | Wersja Spring Cloud | Wersja usługi Azure Spring Cloud
+Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
 ---|---|---
-2.1 | Greenwich.RELEASE (WYDANIE) | 2.1
-2.2 | Hoxton.RELEASE | 2.2
+2.1 | Greenwich. RELEASE | 2.1
+2.2 | Hoxton. RELEASE | 2.2
 
-Dołącz jedną z następujących zależności w pliku pom.xml. Wybierz zależność, której wersja usługi Azure Spring Cloud jest zgodna z Twoją własną.
+Uwzględnij jedną z następujących zależności w pliku pliku pom. XML. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.
 
-### <a name="dependency-for-azure-spring-cloud-version-21"></a>Zależność dla usługi Azure Spring Cloud w wersji 2.1
+### <a name="dependency-for-azure-spring-cloud-version-21"></a>Zależność dla chmury wiosennej platformy Azure w wersji 2,1
 
-W przypadku rozruchu wiosennego w wersji 2.1 dodaj następującą zależność do pliku POM aplikacji.
+W przypadku rozruchu sprężynowego w wersji 2,1 Dodaj następujący zależność do pliku pliku pom aplikacji.
 
 ```xml
 <dependency>
@@ -117,9 +117,9 @@ W przypadku rozruchu wiosennego w wersji 2.1 dodaj następującą zależność d
 </dependency>
 ```
 
-### <a name="dependency-for-azure-spring-cloud-version-22"></a>Zależność dla usługi Azure Spring Cloud w wersji 2.2
+### <a name="dependency-for-azure-spring-cloud-version-22"></a>Zależność dla chmury wiosennej platformy Azure w wersji 2,2
 
-W przypadku rozruchu wiosennego w wersji 2.2 dodaj następującą zależność do pliku POM aplikacji.
+W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujący zależność do pliku pliku pom aplikacji.
 
 ```xml
 <dependency>
@@ -131,7 +131,7 @@ W przypadku rozruchu wiosennego w wersji 2.2 dodaj następującą zależność d
 
 ## <a name="other-required-dependencies"></a>Inne wymagane zależności
 
-Aby włączyć wbudowane funkcje usługi Azure Spring Cloud, aplikacja musi zawierać następujące zależności. To włączenie gwarantuje, że aplikacja konfiguruje się poprawnie z każdym składnikiem.
+Aby włączyć wbudowane funkcje chmury Azure wiosennej, aplikacja musi zawierać następujące zależności. To włączenie zapewnia, że aplikacja poprawnie skonfiguruje poszczególne składniki.
 
 ### <a name="enablediscoveryclient-annotation"></a>Adnotacja EnableDiscoveryClient
 
@@ -139,7 +139,7 @@ Dodaj następującą adnotację do kodu źródłowego aplikacji.
 ```java
 @EnableDiscoveryClient
 ```
-Na przykład zobacz piggymetrics aplikacji z wcześniejszych przykładów:
+Na przykład zapoznaj się z aplikacją piggymetrics z wcześniejszych przykładów:
 ```java
 package com.piggymetrics.gateway;
 
@@ -159,9 +159,9 @@ public class GatewayApplication {
 }
 ```
 
-### <a name="service-registry-dependency"></a>Zależność rejestru usług
+### <a name="service-registry-dependency"></a>Zależność rejestru usługi
 
-Aby korzystać z zarządzanej usługi `spring-cloud-starter-netflix-eureka-client` Azure Service Registry, należy uwzględnić zależność w pliku pom.xml, jak pokazano poniżej:
+Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy `spring-cloud-starter-netflix-eureka-client` uwzględnić zależność w pliku pliku pom. XML, jak pokazano poniżej:
 
 ```xml
     <dependency>
@@ -170,11 +170,11 @@ Aby korzystać z zarządzanej usługi `spring-cloud-starter-netflix-eureka-clien
     </dependency>
 ```
 
-Punkt końcowy serwera rejestru usług jest automatycznie wstrzykiwany jako zmienne środowiskowe z aplikacją. Aplikacje mogą zarejestrować się na serwerze rejestru usług i odnajdywać inne mikrousług zależne.
+Punkt końcowy serwera rejestru usługi jest automatycznie wprowadzany jako zmienne środowiskowe w aplikacji. Aplikacje mogą zarejestrować się na serwerze rejestru usługi i odnajdywać inne zależne mikrousługi.
 
 ### <a name="distributed-configuration-dependency"></a>Zależność konfiguracji rozproszonej
 
-Aby włączyć konfigurację rozproszoną, dołącz następujące `spring-cloud-config-client` zależności w sekcji zależności pliku pom.xml:
+Aby włączyć konfigurację rozproszoną, w sekcji `spring-cloud-config-client` zależności pliku pliku pom. XML Uwzględnij następującą zależność:
 
 ```xml
 <dependency>
@@ -184,11 +184,11 @@ Aby włączyć konfigurację rozproszoną, dołącz następujące `spring-cloud-
 ```
 
 > [!WARNING]
-> Nie określaj `spring.cloud.config.enabled=false` w konfiguracji bootstrap. W przeciwnym razie aplikacja przestanie działać z config server.
+> Nie określaj `spring.cloud.config.enabled=false` w konfiguracji ładowania początkowego. W przeciwnym razie aplikacja przestanie działać z serwerem konfiguracji.
 
 ### <a name="metrics-dependency"></a>Zależność metryk
 
-Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pom.xml, jak pokazano poniżej:
+Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pliku pom. XML, jak pokazano poniżej:
 
 ```xml
 <dependency>
@@ -197,11 +197,11 @@ Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pl
 </dependency>
 ```
 
- Metryki są okresowo pobierane z punktów końcowych JMX. Metryki można wizualizować za pomocą witryny Azure portal.
+ Metryki są okresowo ściągane z punktów końcowych JMX. Możesz wizualizować metryki przy użyciu Azure Portal.
 
 ### <a name="distributed-tracing-dependency"></a>Zależność śledzenia rozproszonego
 
-Uwzględnij `spring-cloud-starter-sleuth` następujące `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pom.xml:
+Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pliku pom. XML:
 
 ```xml
 <dependency>
@@ -214,20 +214,20 @@ Uwzględnij `spring-cloud-starter-sleuth` następujące `spring-cloud-starter-zi
 </dependency>
 ```
 
- Należy również włączyć wystąpienie usługi Azure Application Insights do pracy z wystąpieniem usługi Azure Spring Cloud. Przeczytaj [samouczek na temat śledzenia rozproszonego,](spring-cloud-tutorial-distributed-tracing.md) aby dowiedzieć się, jak korzystać z usługi Application Insights w usłudze Azure Spring Cloud.
+ Musisz również włączyć wystąpienie usługi Azure Application Insights, aby współpracowało z wystąpieniem usług w chmurze sieci Azure ze sprężyną. Zapoznaj się z [samouczkiem dotyczącym śledzenia rozproszonego](spring-cloud-tutorial-distributed-tracing.md) , aby dowiedzieć się, jak używać Application Insights z chmurą Azure wiosną.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Analizowanie dzienników i metryk aplikacji](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 * [Konfigurowanie serwera konfiguracji](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Korzystanie z śledzenia rozproszonego w usłudze Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
-* [Przewodnik szybki start sprężyny](https://spring.io/quickstart)
-* [Dokumentacja rozruchu sprężynowego](https://spring.io/projects/spring-boot)
+* [Korzystanie z rozproszonego śledzenia w chmurze Azure wiosennej](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Przewodnik szybkiego startu](https://spring.io/quickstart)
+* [Dokumentacja dotycząca rozruchu sprężynowego](https://spring.io/projects/spring-boot)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym temacie dowiesz się, jak skonfigurować aplikację Java Spring do wdrożenia w usłudze Azure Spring Cloud. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera config, zobacz następujący artykuł.
+W tym temacie opisano sposób konfigurowania aplikacji ze sprężyną Java na potrzeby wdrożenia w chmurze sieci platformy Azure. Aby dowiedzieć się, jak skonfigurować wystąpienie serwera konfiguracji, zapoznaj się z następującym artykułem.
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak skonfigurować wystąpienie serwera config](spring-cloud-tutorial-config-server.md)
+> [Dowiedz się, jak skonfigurować wystąpienie serwera konfiguracji](spring-cloud-tutorial-config-server.md)
 
-Więcej przykładów jest dostępnych w usłudze GitHub: [Samples w chmurze w chmurze Azure Spring.](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

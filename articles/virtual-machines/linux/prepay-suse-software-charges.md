@@ -1,6 +1,6 @@
 ---
-title: Przedpłata za plany oprogramowania — Rezerwacje platformy Azure
-description: Dowiedz się, jak możesz płacić z góry za plany oprogramowania, aby zaoszczędzić pieniądze na kosztach płatności zgodnie z rzeczywistym ratą.
+title: Przedpłata za plany oprogramowania — Azure Reservations
+description: Dowiedz się, jak możesz przednieść za plany oprogramowania, aby zaoszczędzić pieniądze w porównaniu z rzeczywistym użyciem.
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
@@ -9,56 +9,56 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759289"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Opłacanie planów oprogramowania platformy Azure z góry
 
-Gdy płacisz z góry za użycie oprogramowania SUSE i RedHat na platformie Azure, możesz zaoszczędzić pieniądze na kosztach płatności zgodnie z rzeczywistym użyciem. Rabaty dotyczą tylko mierników SUSE i RedHat, a nie użycia maszyny wirtualnej. Rezerwacji maszyn wirtualnych można kupić osobno, aby uzyskać dodatkowe oszczędności.
+Gdy płacisz za korzystanie z oprogramowania SUSE i RedHat na platformie Azure, możesz zaoszczędzić pieniądze w kosztach związanych z płatność zgodnie z rzeczywistym użyciem. Zniżki dotyczą tylko zasobów SUSE i RedHat, a nie do użycia maszyn wirtualnych. Rezerwacje dla maszyn wirtualnych można zakupić osobno w celu uzyskania dodatkowych oszczędności.
 
-Plany oprogramowania SUSE i RedHat można kupić w witrynie Azure portal. Aby kupić plan:
+W Azure Portal można kupić plany oprogramowania SUSE i RedHat. Aby kupić plan:
 
-- Musisz mieć rolę właściciela dla co najmniej jednej subskrypcji Enterprise lub indywidualnej z ceną płatności zgodnie z rzeczywistym użyciem.
-- W przypadku subskrypcji Enterprise w witrynie [EA portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli ustawienie jest wyłączone, musisz być administratorem EA dla subskrypcji.
-- W przypadku programu Dostawcy rozwiązań w chmurze (CSP) agenci administracyjni lub agenci sprzedaży mogą kupować plany oprogramowania.
+- Użytkownik musi mieć rolę właściciela dla co najmniej jednego przedsiębiorstwa lub subskrypcji indywidualnej z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem.
+- W przypadku subskrypcji Enterprise w witrynie [EA portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA dla subskrypcji.
+- W przypadku programu Cloud Solution Provider (CSP) agenci administracyjni lub agenci sprzedaży mogą kupić plany oprogramowania.
 
 ## <a name="buy-a-software-plan"></a>Kup plan oprogramowania
 
-1. Zaloguj się do witryny Azure portal i przejdź do [rezerwacji](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
-2. Kliknij **pozycję Dodaj,** a następnie wybierz plan oprogramowania, który chcesz kupić.
-Wypełnij wymagane pola. Każda maszyna wirtualna SUSE Linux lub Maszyna wirtualna RedHat, która pasuje do atrybutów tego, co kupujesz, otrzymuje rabat. Rzeczywista liczba wdrożeń, które otrzymują rabat zależy od wybranego zakresu i ilości.
-3. Wybierz subskrypcję. Jest używany do płacenia za plan.
-W przypadku rezerwacji pobierana jest opłata za opłatę z góry za rezerwację. Typ subskrypcji musi być umową Enterprise Agreement (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualną umową z cenami płatności zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P).
+1. Zaloguj się do Azure Portal i przejdź do pozycji [rezerwacje](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+2. Kliknij przycisk **Dodaj** , a następnie wybierz plan oprogramowania, który chcesz kupić.
+Wypełnij pola wymagane. Wszystkie maszyny wirtualne lub maszyny wirtualne z systemem SUSE Linux, które pasują do posiadanych przez Ciebie atrybutów, pobierają rabat. Rzeczywista liczba wdrożeń, które pobiera rabat, zależy od wybranego zakresu i ilości.
+3. Wybierz subskrypcję. Jest on używany do płacenia za plan.
+Metoda płatności za subskrypcję jest naliczana za koszty związane z pozostałymi kosztami rezerwacji. Typem subskrypcji musi być Umowa Enterprise (numery ofert: MS-AZR-0017P lub MS-AZR-0148P) lub indywidualna umowa z cenami z rabatem zgodnie z rzeczywistym użyciem (numery ofert: MS-AZR-0003P lub MS-AZR-0023P).
     - W przypadku subskrypcji Enterprise opłaty są odliczane od salda zobowiązania pieniężnego rejestracji lub naliczane jako nadwyżka.
-    - W przypadku pojedynczej subskrypcji z ceną płatności zgodnie z rzeczywistym użyciem opłaty są naliczane przy płatnościach karty kredytowej lub faktury w ramach subskrypcji.
+    - W przypadku indywidualnej subskrypcji z płatnością zgodnie z rzeczywistym użyciem opłaty są naliczane za kartę kredytową lub formę płatności faktury.
 4. Wybierz zakres. Zakres może obejmować jedną subskrypcję lub wiele subskrypcji (zakres udostępniony).
-    - Pojedyncza subskrypcja — rabat planu jest stosowany do pasującego użycia w subskrypcji.
-    - Udostępnione — rabat planu jest stosowany do pasujących wystąpień w dowolnej subskrypcji w kontekście rozliczeń. Dla klientów korporacyjnych kontekst rozliczeń jest rejestracją i obejmuje wszystkie subskrypcje w rejestracji. W przypadku planu indywidualnego z klientami cenowymi płatności zgodnie z rzeczywistym użyciem kontekst rozliczeń to wszystkie indywidualne plany z subskrypcjami cenowymi płatności zgodnie z rzeczywistym użyciem utworzonymi przez administratora konta.
-    - Pojedyncza grupa zasobów — stosuje rabat rezerwacji do pasujących zasobów tylko w wybranej grupie zasobów.
-5. Wybierz produkt, aby wybrać rozmiar maszyny Wirtualnej i typ obrazu. Rabat dotyczy tylko wybranego rozmiaru maszyny Wirtualnej.
-6. Wybierz okres jednego roku lub trzech lat.
-7. Wybierz ilość, która jest liczbą przedpłaconych wystąpień maszyn wirtualnych, które mogą uzyskać rabat rozliczeniowy.
-8. Dodaj produkt do koszyka, przejrzyj i kup.
+    - Pojedyncza subskrypcja — rabat planu jest stosowany do dopasowania użycia w subskrypcji.
+    - Udostępnione — rabat planu jest stosowany do zgodnych wystąpień w dowolnej subskrypcji w kontekście rozliczania. W przypadku klientów korporacyjnych kontekst rozliczeń to Rejestracja i zawiera wszystkie subskrypcje rejestracji. W przypadku pojedynczego planu z klientami z płatnością zgodnie z rzeczywistym użyciem kontekst rozliczeń to wszystkie plany z subskrypcją z płatnością zgodnie z rzeczywistym użyciem utworzoną przez administratora konta.
+    - Pojedyncza grupa zasobów — stosuje rabat rezerwacji do zasobów pasujących tylko w wybranej grupie zasobów.
+5. Wybierz produkt, aby wybrać rozmiar maszyny wirtualnej i typ obrazu. Rabat ma zastosowanie tylko do wybranego rozmiaru maszyny wirtualnej.
+6. Wybierz roczny lub trzyletni okres.
+7. Wybierz liczbę, która jest liczbą wystąpień maszyn wirtualnych przedpłaty, które mogą uzyskać rabat rozliczeń.
+8. Dodaj produkt do koszyka, przejrzyj i Kup.
 
-Zniżka na rezerwację jest automatycznie stosowana do licznika oprogramowania, za który płacisz z góry. Opłaty obliczeniowe maszyny Wirtualnej nie są objęte planem. Rezerwacje maszyn wirtualnych można kupić oddzielnie.
+Rabat związany z rezerwacją jest automatycznie stosowany do miernika oprogramowania, dla którego użytkownik jest wstępnie obciążany. Opłaty za obliczenia maszyn wirtualnych nie są objęte planem. Rezerwacje maszyn wirtualnych można zakupić osobno.
 
-## <a name="discount-applies-to-different-suse-vm-sizes"></a>Zniżka dotyczy różnych rozmiarów maszyn wirtualnych SUSE
+## <a name="discount-applies-to-different-suse-vm-sizes"></a>Rabat dotyczy różnych rozmiarów maszyn wirtualnych SUSE
 
-Podobnie jak zarezerwowane wystąpienia maszyn wirtualnych, plany SUSE Linux oferują elastyczność rozmiaru wystąpienia. Rabat ma zastosowanie nawet wtedy, gdy wdrażasz maszynę wirtualną o innym rozmiarze niż zakupiony plan SUSE. Aby uzyskać więcej informacji, zobacz [Opis sposobu stosowania rabatu planu oprogramowania](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+Podobnie jak w przypadku zarezerwowanych wystąpień maszyn wirtualnych, plany systemu SUSE Linux oferują elastyczność rozmiaru wystąpienia. Zniżka obowiązuje nawet w przypadku wdrożenia maszyny wirtualnej o innym rozmiarze niż zakupiony plan SUSE. Aby uzyskać więcej informacji, zobacz [Opis sposobu stosowania rabatu planu oprogramowania](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
-## <a name="redhat-plan-discount"></a>Rabat planu RedHat
+## <a name="redhat-plan-discount"></a>Rabat dla planu RedHat
 
-Plany są dostępne tylko dla maszyn wirtualnych Red Hat Enterprise Linux. Rabat nie ma zastosowania do maszyn wirtualnych RedHat Enterprise SAP HANA lub RedHat Enterprise Linux SAP Business Apps.
+Plany są dostępne tylko dla Red Hat Enterprise Linux maszyn wirtualnych. Rabat nie ma zastosowania do maszyn wirtualnych RedHat Enterprise Linux SAP HANA lub RedHat Enterprise Linux SAP Business Apps.
 
-Rabaty planu RedHat dotyczą tylko rozmiaru maszyny Wirtualnej wybranego w momencie zakupu. Planów RHEL nie można zwrócić ani wymienić po zakupie.
+Rabaty planu RedHat dotyczą tylko rozmiaru maszyny wirtualnej, który wybrano w momencie zakupu. Po zakupie nie można przeprowadzić zwrotów ani wymieniać planów RHEL.
 
 
-## <a name="cancellation-and-exchanges-not-allowed"></a>Anulowanie i wymiana nie jest dozwolona
+## <a name="cancellation-and-exchanges-not-allowed"></a>Anulowanie i zamiany są niedozwolone
 
-Nie można anulować ani wymienić zakupionego planu SUSE lub RedHat. Sprawdź użycie, aby upewnić się, że zakupiony plan jest właściwy. Aby uzyskać pomoc w określeniu, co kupić, zobacz [Opis sposobu stosowania rabatu planu oprogramowania](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
+Nie można anulować ani wymienić zakupionego planu SUSE lub RedHat. Sprawdź użycie, aby upewnić się, że zakupiony plan jest właściwy. Aby uzyskać pomoc dotyczącą określania, co należy kupić, zobacz [Opis sposobu stosowania rabatu planu oprogramowania](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
@@ -70,8 +70,8 @@ Aby dowiedzieć się, jak zarządzać rezerwacją, zobacz [Zarządzanie rezerwac
 
 Aby dowiedzieć się więcej, zobacz następujące artykuły:
 
-- [Co to jest Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Co to są Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Zarządzanie rezerwacjami na platformie Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
-- [Dowiedz się, jak stosowany jest rabat rezerwacjowy SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Informacje o sposobie stosowania rabatu w ramach rezerwacji SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

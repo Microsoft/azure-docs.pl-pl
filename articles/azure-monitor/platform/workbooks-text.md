@@ -1,6 +1,6 @@
 ---
-title: Parametry tekstu skoroszytów monitora Platformy Azure
-description: Uprość składanie złożonych raportów dzięki wstępnie utworzonym i niestandardowych skoroszytom sparametryzowanym. Dowiedz się więcej o parametrach tekstu skoroszytu.
+title: Azure Monitor parametry tekstu skoroszytu
+description: Uprość złożone raportowanie za pomocą wstępnie skompilowanych i niestandardowych skoroszytów z parametrami. Dowiedz się więcej na temat parametrów tekstu skoroszytu.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,82 +10,82 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687331"
 ---
 # <a name="workbook-text-parameters"></a>Parametry tekstu skoroszytu
 
-Parametry pola tekstowego zapewniają prosty sposób zbierania tekstu od użytkowników skoroszytu. Są one używane, gdy nie jest praktyczne użycie listy rozwijanej do zbierania danych wejściowych (na przykład dowolnego progu lub filtrów ogólnych). Skoroszyty umożliwiają autorom uzyskanie domyślnej wartości pola tekstowego z kwerendy. Dzięki temu ciekawe scenariusze, takie jak ustawienie domyślnego progu na podstawie p95 metryki.
+Parametry TextBox umożliwiają prostą metodę zbierania danych tekstowych od użytkowników ze skoroszytów. Są one używane, gdy nie jest praktyczne użycie listy rozwijanej w celu zebrania danych wejściowych (na przykład arbitralnego progu lub filtrów ogólnych). Skoroszyty umożliwiają autorom pobieranie wartości domyślnej pola tekstowego z zapytania. Pozwala to na interesujące scenariusze, takie jak ustawienie domyślnego progu na podstawie p95 metryki.
 
-Typowe użycie pól tekstowych jest jako zmienne wewnętrzne używane przez inne formanty skoroszytu. Odbywa się to za pomocą kwerendy dla wartości domyślnych i co formant danych wejściowych niewidoczne w trybie odczytu. Na przykład użytkownik może chcieć, aby próg pochodził z formuły (nie użytkownika), a następnie używał tego progu w kolejnych kwerendach.
+Typowym zastosowaniem pól tekstowych jest jako zmienne wewnętrzne używane przez inne kontrolki skoroszytu. Odbywa się to przy użyciu zapytania dla wartości domyślnych i sprawia, że formant wejściowy jest niewidoczny w trybie odczytu. Na przykład użytkownik może chcieć, aby próg pochodzi z formuły (nie użytkownika), a następnie użyć progu w kolejnych zapytaniach.
 
 ## <a name="creating-a-text-parameter"></a>Tworzenie parametru tekstowego
 1. Zacznij od pustego skoroszytu w trybie edycji.
-2. Wybierz _pozycję Dodaj parametry_ z łączy w skoroszycie.
-3. Kliknij niebieski przycisk _Dodaj parametr._
-4. W nowym okienku parametrów, które wyskakuje wpisać:
+2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
+3. Kliknij niebieski przycisk _Dodaj parametr_ .
+4. W okienku Nowy parametr, który jest podręczny ENTER:
     1. Nazwa parametru:`SlowRequestThreshold`
     2. Typ parametru:`Text`
     3. Wymagane:`checked`
-    4. Pobierz wartość domyślną z kwerendy:`unchecked`
-5. Wybierz "Zapisz" na pasku narzędzi, aby utworzyć parametr.
+    4. Pobierz wartość domyślną z zapytania:`unchecked`
+5. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
     ![Obraz przedstawiający tworzenie parametru tekstowego](./media/workbooks-text/text-create.png)
 
-Tak będzie wyglądał skoroszyt w trybie odczytu.
+W ten sposób skoroszyt będzie wyglądał jak w trybie odczytu.
 
 ![Obraz przedstawiający parametr tekstowy w trybie odczytu](./media/workbooks-text/text-readmode.png)
 
 ## <a name="referencing-a-text-parameter"></a>Odwoływanie się do parametru tekstowego
-1. Dodaj formant kwerendy do skoroszytu, zaznaczając niebieskie `Add query` łącze i wybierając zasób usługi Application Insights.
-2. W polu KQL dodaj ten fragment kodu:
+1. Dodaj kontrolkę zapytania do skoroszytu, wybierając niebieskie `Add query` łącze i wybierając zasób Application Insights.
+2. W polu KQL Dodaj następujący fragment kodu:
     ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= {SlowRequestThreshold}) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-3. Za pomocą parametru tekstowego o wartości 500 w połączeniu z kontrolą kwerendy skutecznie uruchamiasz zapytanie poniżej:
+3. Za pomocą parametru Text o wartości 500 połączonej z kontrolką zapytania efektywnie uruchamiasz poniższe zapytanie:
     ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= 500) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-4. Uruchom kwerendę, aby zobaczyć wyniki
+4. Uruchom zapytanie, aby zobaczyć wyniki
 
-    ![Obraz przedstawiający parametr tekstowy, do którego odwołuje się KQL](./media/workbooks-text/text-reference.png)
+    ![Obraz przedstawiający parametr tekstowy, do którego odwołuje się element KQL](./media/workbooks-text/text-reference.png)
 
 > [!NOTE]
-> W powyższym `{SlowRequestThreshold}` przykładzie reprezentuje wartość całkowitą. Jeśli były kwerendy dla `{ComputerName}` ciągu, jak trzeba by zmodyfikować kwerendy Kusto, aby dodać cudzysłowy `"{ComputerName}"` w kolejności dla pola parametru do akceptowania danych wejściowych bez cudzysłowów.
+> W powyższym przykładzie `{SlowRequestThreshold}` reprezentuje wartość całkowitą. Jeśli wykonano zapytanie dotyczące ciągu, takiego jak `{ComputerName}` należy zmodyfikować zapytanie Kusto, aby dodać cudzysłowy `"{ComputerName}"` , aby pole parametru akceptowało dane wejściowe bez cudzysłowów.
 
 ## <a name="setting-default-values"></a>Ustawianie wartości domyślnych
 1. Zacznij od pustego skoroszytu w trybie edycji.
-2. Wybierz _pozycję Dodaj parametry_ z łączy w skoroszycie.
-3. Kliknij niebieski przycisk _Dodaj parametr._
-4. W nowym okienku parametrów, które wyskakuje wpisać:
+2. Wybierz pozycję _Dodaj parametry_ z linków w skoroszycie.
+3. Kliknij niebieski przycisk _Dodaj parametr_ .
+4. W okienku Nowy parametr, który jest podręczny ENTER:
     1. Nazwa parametru:`SlowRequestThreshold`
     2. Typ parametru:`Text`
     3. Wymagane:`checked`
-    4. Pobierz wartość domyślną z kwerendy:`checked`
-5. W polu KQL dodaj ten fragment kodu:
+    4. Pobierz wartość domyślną z zapytania:`checked`
+5. W polu KQL Dodaj następujący fragment kodu:
     ```kusto
     requests
     | summarize round(percentile(duration, 95), 2)
     ```
-    Ta kwerenda ustawia domyślną wartość pola tekstowego na 95-ty percentyl czas trwania dla wszystkich żądań w aplikacji.
-6. Uruchom kwerendę, aby zobaczyć wynik
-7. Wybierz "Zapisz" na pasku narzędzi, aby utworzyć parametr.
+    To zapytanie ustawia wartość domyślną pola tekstowego na czas trwania używany 95. percentyl dla wszystkich żądań w aplikacji.
+6. Uruchom zapytanie, aby zobaczyć wynik
+7. Wybierz pozycję "Zapisz" na pasku narzędzi, aby utworzyć parametr.
 
-    ![Obraz przedstawiający parametr tekstowy o wartości domyślnej z KQL](./media/workbooks-text/text-default-value.png)
+    ![Obraz przedstawiający parametr tekstowy z wartością domyślną z KQL](./media/workbooks-text/text-default-value.png)
 
 > [!NOTE]
-> Podczas gdy w tym przykładzie kwerendy application insights danych, podejście może służyć do dowolnego źródła danych opartego na dzienniku — usługi Log Analytics, Azure Resource Graph, itp.
+> Podczas tego przykładowych zapytań Application Insights danych podejście może być używane dla każdego źródła danych opartego na dzienniku — Log Analytics, grafu zasobów platformy Azure itd.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozpocznij](workbooks-visualizations.md) naukę o skoroszytach wiele rozbudowanych opcji wizualizacji.
+* [Rozpocznij](workbooks-visualizations.md) naukę więcej o skoroszytach wiele opcji rozbudowanych wizualizacji.
 * [Kontroluj](workbooks-access-control.md) i udostępniaj dostęp do zasobów skoroszytu.

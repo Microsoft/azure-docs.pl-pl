@@ -1,6 +1,6 @@
 ---
-title: Przewodnik dla deweloperów usługi Azure IoT Hub | Dokumenty firmy Microsoft
-description: Przewodnik dla deweloperów usługi Azure IoT Hub zawiera dyskusje na temat punktów końcowych, zabezpieczeń, rejestru tożsamości, zarządzania urządzeniami, metod bezpośrednich, bliźniaczych urządzeń, przekazywania plików, zadań, języka zapytań usługi IoT Hub i obsługi wiadomości.
+title: Przewodnik dla deweloperów dla platformy Azure IoT Hub | Microsoft Docs
+description: Przewodnik dewelopera platformy Azure IoT Hub obejmuje dyskusje na temat punktów końcowych, zabezpieczeń, rejestru tożsamości, zarządzania urządzeniami, metod bezpośrednich, bliźniaczych reprezentacji urządzeń, przekazywania plików, zadań, języka zapytań IoT Hub i obsługi komunikatów.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,70 +10,70 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
 ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81728813"
 ---
-# <a name="azure-iot-hub-developer-guide"></a>Przewodnik dla deweloperów usługi Azure IoT Hub
+# <a name="azure-iot-hub-developer-guide"></a>Przewodnik dla deweloperów IoT Hub platformy Azure
 
-Usługa Azure IoT Hub to w pełni zarządzana usługa, która pomaga umożliwić niezawodną i bezpieczną dwukierunkową komunikację między milionami urządzeń i zaplecza rozwiązania.
+Azure IoT Hub to w pełni zarządzana usługa, która pomaga zapewnić niezawodne i niezawodną komunikację dwukierunkową między milionami urządzeń i zapleczem rozwiązania.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Usługa Azure IoT Hub zapewnia:
+Usługa Azure IoT Hub oferuje następujące informacje:
 
-* Bezpieczna komunikacja przy użyciu poświadczeń zabezpieczeń na urządzeniu i kontroli dostępu.
+* Bezpieczna komunikacja przy użyciu poświadczeń zabezpieczeń i kontroli dostępu dla poszczególnych urządzeń.
 
-* Wiele opcji komunikacji między urządzeniami a chmurą i chmurą na hiperskali.
+* Wiele opcji komunikacji między urządzeniami a chmurą i chmurą z urządzeniem.
 
-* Queryable przechowywania informacji o stanie na urządzeniu i meta-danych.
+* Queryable magazynu informacji o stanie urządzenia i metadanych.
 
-* Łatwa łączność urządzenia z bibliotekami urządzeń dla najpopularniejszych języków i platform.
+* Łatwe łączenie urządzeń z bibliotekami urządzeń dla najpopularniejszych języków i platform.
 
-Ten przewodnik dla deweloperów usługi IoT Hub zawiera następujące artykuły:
+Ten przewodnik dla deweloperów IoT Hub obejmuje następujące artykuły:
 
-* [Wskazówki dotyczące komunikacji między urządzeniami do chmury](iot-hub-devguide-d2c-guidance.md) ułatwiają wybór między komunikatami między urządzeniami a chmurami, właściwościami zgłaszanych bliźniaczej reprezentacji urządzenia i przekazywaniem plików.
+* [Wskazówki dotyczące komunikacji między urządzeniami i chmurą](iot-hub-devguide-d2c-guidance.md) ułatwiają wybór między komunikatami z urządzenia do chmury, zgłaszanymi właściwościami z przędzki urządzeń i przekazywaniem plików.
 
-* [Wskazówki dotyczące komunikacji między chmurą a urządzeniem](iot-hub-devguide-c2d-guidance.md) ułatwiają wybór między metodami bezpośrednimi, żądanymi właściwościami bliźniaczej reprezentacji urządzenia i komunikatami z chmury do urządzenia.
+* [Wskazówki dotyczące komunikacji między chmurą i urządzeniem](iot-hub-devguide-c2d-guidance.md) ułatwiają wybór między metodami bezpośrednimi, pożądanymi właściwościami sznurów urządzeń i komunikatami z chmury do urządzenia.
 
-* [Obsługa wiadomości między urządzeniami i chmurą z chmury na urządzenia z usługą IoT Hub](iot-hub-devguide-messaging.md) opisuje funkcje obsługi wiadomości (między urządzeniami do chmury i z chmury do urządzenia), które udostępnia centrum IoT Hub.
+* [Obsługa komunikatów przesyłanych z urządzeń do chmury i z chmury do urządzeń w IoT Hub](iot-hub-devguide-messaging.md) opisuje funkcje obsługi komunikatów (urządzenia do chmury i chmury do urządzeń), które IoT Hub uwidaczniają.
 
-  * [Wysyłanie wiadomości z urządzenia do chmury do centrum IoT Hub](iot-hub-devguide-messages-d2c.md).
+  * [Wysyłaj komunikaty z urządzenia do chmury do IoT Hub](iot-hub-devguide-messages-d2c.md).
 
   * [Odczytywanie komunikatów z urządzenia do chmury z wbudowanego punktu końcowego](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Użyj niestandardowych punktów końcowych i reguł routingu dla wiadomości z urządzenia do chmury](iot-hub-devguide-messages-read-custom.md).
+  * [Używanie niestandardowych punktów końcowych i reguł routingu na potrzeby komunikatów przesyłanych z urządzeń do chmury](iot-hub-devguide-messages-read-custom.md).
 
-  * [Wysyłanie komunikatów z chmury do urządzenia z usługi IoT Hub](iot-hub-devguide-messages-c2d.md).
+  * [Wysyłanie komunikatów z chmury do urządzeń z IoT Hub](iot-hub-devguide-messages-c2d.md).
 
-  * [Tworzenie i odczytywanie komunikatów Centrum IoT](iot-hub-devguide-messages-construct.md).
+  * [Tworzenie i odczytywanie wiadomości IoT Hub](iot-hub-devguide-messages-construct.md).
 
-* [Przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md) opisuje sposób przekazywania plików z urządzenia. Artykuł zawiera również informacje na tematy, takie jak powiadomienia, które proces przekazywania może wysyłać.
+* [Przekazywanie plików z urządzenia](iot-hub-devguide-file-upload.md) zawiera opis sposobu przekazywania plików z urządzenia. Artykuł zawiera również informacje dotyczące tematów, takich jak powiadomienia, które mogą być wysyłane przez proces przekazywania.
 
-* [Zarządzanie tożsamościami urządzeń w Centrum IoT opisuje,](iot-hub-devguide-identity-registry.md)jakie informacje przechowuje rejestr tożsamości każdego centrum IoT Hub. W artykule opisano również, jak można uzyskać do niego dostęp i zmodyfikować go.
+* [Zarządzanie tożsamościami urządzeń w IoT Hub](iot-hub-devguide-identity-registry.md)opisuje, jakie informacje są przechowywane w rejestrze tożsamości Centrum IoT Hub. W tym artykule opisano również, jak można uzyskać dostęp i zmodyfikować go.
 
-* [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md) opisuje model zabezpieczeń używany do udzielania dostępu do funkcji Usługi IoT Hub dla urządzeń i składników chmury. Ten artykuł zawiera informacje dotyczące używania tokenów i certyfikatów X.509 oraz szczegóły dotyczące uprawnień, które można udzielić.
+* [Kontrola dostępu do IoT Hub](iot-hub-devguide-security.md) opisuje model zabezpieczeń używany do udzielania dostępu do IoT Hub funkcji dla urządzeń i składników w chmurze. Artykuł zawiera informacje na temat używania tokenów i certyfikatów X. 509 oraz szczegóły uprawnień, które można udzielić.
 
-* [Użyj bliźniaczych reprezentacji urządzeń, aby zsynchronizować stan i konfiguracje](iot-hub-devguide-device-twins.md) opisuje koncepcję *bliźniaczej reprezentacji urządzenia.* W tym artykule opisano również funkcje bliźniaczych reprezentacji urządzenia uwidaczniać, takich jak synchronizowanie urządzenia z jego bliźniaczej reprezentacji urządzenia. Artykuł zawiera informacje o danych przechowywanych w bliźniaczej reprezentacji urządzenia.
+* [Aby synchronizować stan i konfiguracje, należy użyć bliźniaczych reprezentacji urządzeń](iot-hub-devguide-device-twins.md) . *device twin* W tym artykule opisano również funkcje udostępniane przez bliźniaczych reprezentacji urządzenia, takie jak Synchronizowanie urządzenia z jego sznurem. Artykuł zawiera informacje o danych przechowywanych w ramach sznurka urządzenia.
 
-* [Wywołać metodę bezpośrednią na urządzeniu](iot-hub-devguide-direct-methods.md) opisuje cykl życia metody bezpośredniej. W tym artykule opisano sposób wywoływania metod na urządzeniu z aplikacji zaplecza i obsługi metody bezpośredniej na urządzeniu.
+* [Wywoływanie metody bezpośredniej na urządzeniu](iot-hub-devguide-direct-methods.md) opisuje cykl życia metody bezpośredniej. W tym artykule opisano sposób wywoływania metod na urządzeniu z poziomu aplikacji zaplecza i obsługi metody bezpośredniej na urządzeniu.
 
-* [Planowanie zadań na wielu urządzeniach](iot-hub-devguide-jobs.md) opisuje sposób planowania zadań na wielu urządzeniach. W tym artykule opisano sposób przesyłania zadań, które wykonują zadania jako wykonywanie metody bezpośredniej, aktualizowanie urządzenia przy użyciu bliźniaczej reprezentacji urządzenia. Opisano w nim również sposób wykonywania zapytań o stan zadania.
+* [Planowanie zadań na wielu urządzeniach](iot-hub-devguide-jobs.md) opisuje sposób planowania zadań na wielu urządzeniach. W tym artykule opisano sposób przesyłania zadań wykonujących zadania jako metody bezpośredniej, aktualizowania urządzenia przy użyciu sznurka urządzenia. Opisano w nim również sposób wykonywania zapytań dotyczących stanu zadania.
 
-* [Odwołanie — wybierz protokół komunikacyjny](iot-hub-devguide-protocols.md) opisuje protokoły komunikacyjne, które obsługuje Centrum IoT dla komunikacji urządzenia i wyświetla listę portów, które powinny być otwarte.
+* [Odwołanie — wybór protokołu komunikacyjnego](iot-hub-devguide-protocols.md) zawiera opis protokołów komunikacyjnych, które IoT Hub obsługują komunikację z urządzeniem i wyświetla listę portów, które powinny być otwarte.
 
-* [Odwołanie — punkty końcowe usługi IoT Hub](iot-hub-devguide-endpoints.md) opisuje różne punkty końcowe, które każdy centrum IoT udostępnia dla środowiska uruchomieniowego i operacji zarządzania. W tym artykule opisano również, jak można utworzyć dodatkowe punkty końcowe w centrum IoT hub i jak używać bramy pola, aby włączyć łączność z punktami końcowymi usługi IoT Hub w niestandardowych scenariuszach.
+* [Punkty końcowe IoT Hub referencyjnych](iot-hub-devguide-endpoints.md) opisują różne punkty końcowe, które są uwidaczniane przez poszczególne usługi IoT Hub na potrzeby operacji środowiska uruchomieniowego i zarządzania. W tym artykule opisano również, jak można tworzyć dodatkowe punkty końcowe w usłudze IoT Hub oraz jak korzystać z bramy pól w celu umożliwienia łączności z punktami końcowymi IoT Hub w scenariuszach niestandardowych.
 
-* [Odwołanie — język zapytań usługi IoT Hub dla bliźniaczych urządzeń, zadań i routingu wiadomości](iot-hub-devguide-query-language.md) opisuje, że język zapytań Usługi IoT Hub, który umożliwia pobieranie informacji z koncentratora o bliźniaczych urządzeń i zadaniach.
+* Informacje dotyczące [języka zapytań dla bliźniaczych reprezentacji urządzeń, zadań i routingu komunikatów w programie Reference IoT Hub —](iot-hub-devguide-query-language.md) opis języka zapytań IoT Hub, który umożliwia pobieranie z centrum informacji o bliźniaczych reprezentacji i zadaniach związanych z urządzeniem.
 
-* [Odwołanie — przydziały i ograniczanie podsumowuje](iot-hub-devguide-quotas-throttling.md) przydziały ustawione w usłudze Centrum IoT i ograniczanie przepustowości, które występuje po przekroczeniu przydziału.
+* [Przydziały i ograniczanie przepustowości](iot-hub-devguide-quotas-throttling.md) zawiera podsumowanie przydziałów ustawionych w ramach usługi IoT Hub i ograniczania przepustowości w przypadku przekroczenia limitu przydziału.
 
-* [Odwołanie — cennika](iot-hub-devguide-pricing.md) zawiera ogólne informacje na temat różnych jednostek SKU i cen dla Usługi IoT Hub i szczegółowe informacje o tym, jak różne funkcje Usługi IoT Hub są mierzone jako komunikaty przez Centrum IoT Hub.
+* Informacje o [cenach referencyjnych](iot-hub-devguide-pricing.md) są ogólne dla różnych jednostek SKU i cen dla IoT Hub i szczegółowe informacje o tym, jak różne IoT Hub funkcje są mierzone jako komunikaty IoT Hub.
 
-* [Odwołanie — zestaw SDK urządzeń i usług](iot-hub-devguide-sdks.md) zawiera listę zestawów SDK usługi Azure IoT do tworzenia aplikacji urządzeń i usług, które współdziałają z centrum IoT hub. Ten artykuł zawiera łącza do dokumentacji interfejsu API online.
+* [Zestawy SDK dla urządzeń i usług zawierają](iot-hub-devguide-sdks.md) listę zestawów SDK usługi Azure IoT do tworzenia aplikacji dla urządzeń i usług, które współpracują z Centrum IoT. Artykuł zawiera linki do dokumentacji interfejsu API online.
 
-* [Odwołanie — obsługa MQTT usługi IoT Hub](iot-hub-mqtt-support.md) zawiera szczegółowe informacje o tym, jak IoT Hub obsługuje protokół MQTT. W tym artykule opisano obsługę protokołu MQTT wbudowanego w zestawY SDK usługi Azure IoT i zawiera informacje dotyczące bezpośredniego korzystania z protokołu MQTT.
+* [Dokumentacja-IoT Hub obsługa MQTT](iot-hub-mqtt-support.md) zawiera szczegółowe informacje dotyczące sposobu, w jaki IoT Hub obsługuje protokół MQTT. W tym artykule opisano obsługę protokołu MQTT wbudowanego w zestawach SDK usługi Azure IoT i podano informacje na temat bezpośredniego używania protokołu MQTT.
 
-* [Słowniczek](iot-hub-devguide-glossary.md) listę typowych terminów związanych z Centrum IoT.
+* [Glossary](iot-hub-devguide-glossary.md) Utwórz listę typowych warunków związanych z IoT Hub.

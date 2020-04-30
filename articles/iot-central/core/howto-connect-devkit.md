@@ -1,6 +1,6 @@
 ---
-title: Łączenie urządzenia DevKit z aplikacją Azure IoT Central | Dokumenty firmy Microsoft
-description: Jako deweloper urządzeń dowiedz się, jak połączyć urządzenie MXChip IoT DevKit z aplikacją Azure IoT Central przy użyciu funkcji IoT Plug and Play (wersja zapoznawcza).
+title: Połącz urządzenie DevKit z aplikacją usługi Azure IoT Central | Microsoft Docs
+description: Jako deweloper urządzenia dowiesz się, jak połączyć urządzenie zestawu deweloperskiego IoT DevKit z aplikacją platformy Azure IoT Central przy użyciu usługi IoT Plug and Play (wersja zapoznawcza).
 author: liydu
 ms.author: liydu
 ms.date: 12/03/2019
@@ -9,94 +9,94 @@ ms.service: iot-central
 services: iot-central
 manager: jeffya
 ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81756811"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Łączenie urządzenia MXChip IoT DevKit z aplikacją Azure IoT Central
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Łączenie urządzenia zestawu deweloperskiego IoT DevKit z aplikacją usługi Azure IoT Central
 
-*Ten artykuł dotyczy deweloperów urządzeń.*
+*Ten artykuł ma zastosowanie do deweloperów urządzeń.*
 
-W tym artykule pokazano, jak połączyć urządzenie MXChip IoT DevKit (DevKit) z aplikacją Azure IoT Central. Urządzenie używa certyfikowanego modelu IoT Plug and Play (wersja zapoznawcza) urządzenia DevKit do konfigurowania połączenia z centrum IoT.
+W tym artykule pokazano, jak podłączyć urządzenie zestawu deweloperskiego IoT DevKit (DevKit) do aplikacji IoT Central platformy Azure. Urządzenie używa certyfikowanego modelu IoT Plug and Play (wersja zapoznawcza) dla urządzenia DevKit, aby skonfigurować połączenie z IoT Central.
 
-W tym artykule in how-to:
+W tym artykule poznasz następujące informacje:
 
 - Pobierz szczegóły połączenia z aplikacji IoT Central.
-- Przygotuj urządzenie i podłącz go do aplikacji IoT Central.
-- Wyświetlanie danych telemetrycznych i właściwości z urządzenia w centrum IoT.
+- Przygotuj urządzenie i połącz je z aplikacją IoT Central.
+- Wyświetl dane telemetryczne i właściwości z urządzenia w IoT Central.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby wykonać kroki opisane w tym artykule, potrzebne są następujące zasoby:
 
 - [Urządzenie DevKit](https://aka.ms/iot-devkit-purchase).
-- Aplikacja IoT Central. Możesz wykonać kroki opisane w [aplikacji Tworzenie aplikacji IoT Central](./quick-deploy-iot-central.md).
+- Aplikacja IoT Central. Możesz wykonać kroki opisane w temacie [Tworzenie aplikacji IoT Central](./quick-deploy-iot-central.md).
 
-## <a name="get-device-connection-details"></a>Uzyskaj szczegóły połączenia urządzenia
+## <a name="get-device-connection-details"></a>Pobierz szczegóły połączenia z urządzeniem
 
-1. W aplikacji Azure IoT Central wybierz kartę **Szablony urządzeń** i wybierz pozycję **+ Nowy**. W sekcji **Użyj wstępnie skonfigurowanego szablonu urządzenia**wybierz **MXChip IoT DevKit**.
+1. W aplikacji IoT Central platformy Azure wybierz kartę **Szablony urządzeń** i wybierz pozycję **+ Nowy**. W sekcji **Użyj wstępnie skonfigurowanego szablonu urządzenia**wybierz pozycję **zestawu deweloperskiego IoT DevKit**.
 
-    ![Szablon urządzenia dla zestawu MXChip IoT DevKit](media/howto-connect-devkit/device-template.png)
+    ![Szablon urządzenia dla usługi zestawu deweloperskiego IoT DevKit](media/howto-connect-devkit/device-template.png)
 
-1. Wybierz **pozycję Dalej: Dostosuj,** a następnie **utwórz**.
+1. Wybierz pozycję **Dalej: Dostosuj** , a następnie **Utwórz**.
 
-1. Wybierz kartę **Urządzenia.** Na liście urządzeń wybierz **MXChip IoT DevKit** i wybierz **+ Nowy,** aby utworzyć nowe urządzenie z szablonu.
+1. Wybierz kartę **urządzenia** . Na liście urządzenia wybierz pozycję **zestawu deweloperskiego IoT DevKit** i wybierz pozycję **+ New (nowy** ), aby utworzyć nowe urządzenie na podstawie szablonu.
 
     ![Nowe urządzenie](media/howto-connect-devkit/new-device.png)
 
-1. W wyskakującym oknie **Device ID** wprowadź identyfikator `SampleDevKit` urządzenia jako `MXChip IoT DevKit - Sample`i nazwę **urządzenia** jako . Upewnij się, że opcja **Symulowana** jest wyłączona. Następnie wybierz pozycję **Utwórz**.
+1. W oknie podręcznym wprowadź **Identyfikator urządzenia** `SampleDevKit` i **nazwę urządzenia** jako `MXChip IoT DevKit - Sample`. Upewnij się, że **symulowana** opcja jest wyłączona. Następnie wybierz pozycję **Utwórz**.
 
     ![Identyfikator i nazwa urządzenia](media/howto-connect-devkit/device-id-name.png)
 
-1. Wybierz utworzone urządzenie, a następnie wybierz pozycję **Połącz**. Zanotuj **zakres identyfikatora,** **identyfikator urządzenia**i **klucz podstawowy**. Te wartości są potrzebne w dalszej części tego artykułu.
+1. Wybierz utworzone urządzenie, a następnie wybierz pozycję **Połącz**. Zanotuj **zakres identyfikatora**, **Identyfikator urządzenia**i **klucz podstawowy**. Te wartości są potrzebne w dalszej części tego artykułu.
 
     ![Informacje o połączeniu urządzenia](media/howto-connect-devkit/device-connection-info.png)
 
-## <a name="prepare-the-device"></a>Przygotowanie urządzenia
+## <a name="prepare-the-device"></a>Przygotowywanie urządzenia
 
-1. Pobierz najnowsze [wstępnie utworzone oprogramowanie układowe Azure IoT Central Plug and Play (wersja zapoznawcza)](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) dla urządzenia DevKit z usługi GitHub.
+1. Pobierz najnowsze [wstępnie skompilowane oprogramowanie układowe usługi Azure IoT Central Plug and Play (wersja zapoznawcza)](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) dla urządzenia DevKit z witryny GitHub.
 
-1. Podłącz urządzenie DevKit do urządzenia deweloperującego za pomocą kabla USB. W systemie Windows otwiera się okno Eksploratora plików na dysku mapowanym do magazynu na urządzeniu DevKit. Na przykład dysk może być nazywany **AZ3166 (D:)**.
+1. Podłącz urządzenie DevKit do komputera deweloperskiego przy użyciu kabla USB. W systemie Windows okno Eksploratora plików otwiera się na dysku mapowanym na magazyn na urządzeniu DevKit. Na przykład dysk może mieć nazwę **AZ3166 (D:)**.
 
-1. Przeciągnij plik **iotc_devkit.bin** na okno dysku. Po zakończeniu kopiowania urządzenie zostanie ponownie uruchomione z nowym oprogramowaniem układowym.
+1. Przeciągnij plik **iotc_devkit. bin** do okna dysku. Po zakończeniu kopiowania urządzenie zostanie uruchomione ponownie z nowym oprogramowaniem układowym.
 
     > [!NOTE]
-    > Jeśli na ekranie są widoczne błędy, takie jak **Brak sieci Wi-Fi,** jest to spowodowane tym, że DevKit nie został jeszcze połączony z siecią Wi-Fi.
+    > Jeśli widzisz błędy na ekranie, np. w przypadku **braku sieci Wi-Fi**, jest to spowodowane tym, że usługa DevKit nie została jeszcze połączona z siecią WiFi.
 
-1. Na DevKit przytrzymaj **przycisk B**, naciśnij i zwolnij przycisk **Reset,** a następnie zwolnij **przycisk B**. Urządzenie jest teraz w trybie punktu dostępu. Aby potwierdzić, na ekranie jest wyświetlany komunikat "IoT DevKit - AP" i adres IP portalu konfiguracji.
+1. Na DevKit, przytrzymaj **przycisk B**, wypchnij i zwolnij przycisk **Reset** , a następnie zwolnij **przycisk b**. Urządzenie jest teraz w trybie punktu dostępu. Aby potwierdzić, na ekranie zostanie wyświetlony komunikat "IoT DevKit-AP" oraz adres IP portalu konfiguracji.
 
-1. Na komputerze lub tablecie połącz się z nazwą sieci Wi-Fi wyświetlaną na ekranie urządzenia. Sieć WiFi zaczyna się od **AZ,** po którym następuje adres MAC. Gdy łączysz się z tą siecią, nie masz dostępu do Internetu. Ten stan jest oczekiwany, a połączenie z tą siecią jest podłączane tylko przez krótki czas podczas konfigurowania urządzenia.
+1. Na komputerze lub tablecie Połącz się z nazwą sieci Wi-Fi widoczną na ekranie urządzenia. Sieć Wi-Fi zaczyna się od **AZ-** a po nim adresu Mac. Po nawiązaniu połączenia z tą siecią nie masz dostępu do Internetu. Ten stan jest oczekiwany, a połączenie z tą siecią jest nawiązywane przez krótki czas podczas konfigurowania urządzenia.
 
-1. Otwórz przeglądarkę internetową [http://192.168.0.1/](http://192.168.0.1/)i przejdź do pliku . Na następującej stronie internetowej są wyświetlane:
+1. Otwórz przeglądarkę internetową i przejdź do [http://192.168.0.1/](http://192.168.0.1/). Zostanie wyświetlona następująca strona sieci Web:
 
     ![Interfejs użytkownika konfiguracji](media/howto-connect-devkit/config-ui.png)
 
-    Na stronie internetowej wpisz:
+    Na stronie sieci Web wprowadź:
 
     - Nazwa sieci Wi-Fi (SSID).
-    - Hasło do sieci Wi-Fi.
-    - Szczegóły połączenia: wprowadź **identyfikator urządzenia,** **zakres identyfikatora**i **klucza podstawowego SAS,** o których wcześniej zanotowano.
+    - Hasło sieciowe sieci Wi-Fi.
+    - Szczegóły połączenia: wprowadź **Identyfikator urządzenia**, **zakres identyfikatora**i **klucz podstawowy sygnatury dostępu współdzielonego** , które zostało wcześniej wykonane.
 
     > [!NOTE]
-    > Obecnie IoT DevKit może łączyć się tylko z siecią Wi-Fi 2,4 GHz, 5 GHz nie jest obsługiwane z powodu ograniczeń sprzętowych.
+    > Obecnie DevKit IoT może łączyć się tylko z 2,4 GHz Wi-Fi, 5 GHz nie jest obsługiwany z powodu ograniczeń sprzętowych.
 
-1. Wybierz **pozycję Konfiguruj urządzenie**, urządzenie DevKit uruchamia ponownie i uruchamia aplikację:
+1. Wybierz pozycję **Konfiguruj urządzenie**, a urządzenie DevKit wykonuje ponowny rozruch i uruchomi aplikację:
 
-    ![Ponowne uruchomienie interfejsu użytkownika](media/howto-connect-devkit/reboot-ui.png)
+    ![Uruchom ponownie interfejs użytkownika](media/howto-connect-devkit/reboot-ui.png)
 
-    Na ekranie DevKit jest wyświetlane potwierdzenie, że aplikacja jest uruchomiona:
+    Na ekranie DevKit zostanie wyświetlone potwierdzenie, że aplikacja jest uruchomiona:
 
-    ![DevKit uruchomiony](media/howto-connect-devkit/devkit-running.png)
+    ![DevKit uruchomione](media/howto-connect-devkit/devkit-running.png)
 
-DevKit najpierw rejestruje nowe urządzenie w aplikacji IoT Central, a następnie rozpoczyna wysyłanie danych.
+DevKit najpierw rejestruje nowe urządzenie w IoT Central aplikacji, a następnie uruchamia wysyłanie danych.
 
-## <a name="view-the-telemetry"></a>Wyświetlanie danych telemetrycznych
+## <a name="view-the-telemetry"></a>Wyświetlanie telemetrii
 
-W tym kroku można wyświetlić dane telemetryczne w aplikacji Azure IoT Central.
+Ten krok umożliwia wyświetlenie danych telemetrycznych w aplikacji IoT Central platformy Azure.
 
-W aplikacji IoT Central wybierz kartę **Urządzenia,** wybierz dodane urządzenie. Na karcie **Przegląd** można wyświetlić dane telemetryczne z urządzenia DevKit:
+W aplikacji IoT Central wybierz kartę **urządzenia** , wybierz urządzenie, które zostało dodane. Na karcie **Omówienie** można wyświetlić dane telemetryczne z urządzenia DevKit:
 
 ![Omówienie urządzenia IoT Central](media/howto-connect-devkit/mxchip-overview-page.png)
 
@@ -106,7 +106,7 @@ Aby przejrzeć kod lub zmodyfikować go i skompilować, przejdź do [przykładó
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli jesteś deweloperem urządzeń, niektóre z sugerowanych następnych kroków to:
+Jeśli jesteś deweloperem urządzenia, Oto kilka sugerowanych następnych kroków:
 
-- Przeczytaj o [łączności urządzenia w usłudze Azure IoT Central](./concepts-get-connected.md)
-- Dowiedz się, jak [monitorować łączność urządzenia przy użyciu interfejsu wiersza polecenia platformy Azure](./howto-monitor-devices-azure-cli.md)
+- Przeczytaj o [łączności urządzeń w usłudze Azure IoT Central](./concepts-get-connected.md)
+- Dowiedz się, jak [monitorować łączność z urządzeniem przy użyciu interfejsu wiersza polecenia platformy Azure](./howto-monitor-devices-azure-cli.md)

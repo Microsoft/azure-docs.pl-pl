@@ -1,6 +1,6 @@
 ---
 title: Synchronizowanie stanu urządzenia z usługi Azure IoT Hub | Microsoft Docs
-description: Dowiedz się, jak używać bliźniąt bliźniąt urządzeń do konfigurowania urządzeń z chmury oraz odbierania danych o stanie i zgodności z urządzeń.
+description: Dowiedz się, jak za pomocą usługi Device bliźniaczych reprezentacji skonfigurować urządzenia z chmury i odbierać dane o stanie i zgodności z urządzeń.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -12,10 +12,10 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: a7e68999bf516bffa08fb97eb8c88f2f8abb428d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81767811"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -37,13 +37,13 @@ Ten samouczek obejmuje wykonanie następujących zadań:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Na komputerze deweloperskim potrzebny jest plik Node.js v10.x.x lub nowszy.
+Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane przy użyciu środowiska Node.js. Potrzebujesz środowiska Node. js v10. x. x lub nowszego na komputerze deweloperskim.
 
-Node.js można pobrać z [nodejs.org.](https://nodejs.org)
+W programie Node. js można pobrać wiele platform z [NodeJS.org](https://nodejs.org).
 
 Możesz sprawdzić bieżącą wersję środowiska Node.js na komputerze deweloperskim przy użyciu następującego polecenia:
 
@@ -53,13 +53,13 @@ node --version
 
 Pobierz przykładowy projekt Node.js z https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip i wyodrębnij archiwum ZIP.
 
-Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym samouczku używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Konfigurowanie zasobów platformy Azure
 
 Do ukończenia czynności z tego samouczka niezbędna jest subskrypcja platformy Azure zawierająca centrum IoT Hub z urządzeniem dodanym do rejestru tożsamości urządzeń. Wpis w rejestrze tożsamości urządzeń umożliwia łączenie urządzenia symulowanego uruchamianego w tym samouczku z centrum.
 
-Jeśli nie masz jeszcze centrum IoT w ramach subskrypcji, możesz go skonfigurować za pomocą następującego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA**, który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowym zapleczu w celi połączenia z centrum IoT Hub:
+Jeśli nie masz jeszcze skonfigurowanej usługi IoT Hub w ramach subskrypcji, możesz ją skonfigurować przy użyciu następującego skryptu interfejsu wiersza polecenia. Ten skrypt używa nazwy **tutorial-iot-hub** dla centrum IoT Hub. Po uruchomieniu skryptu zastąp tę nazwę własną unikatową nazwą. Skrypt tworzy grupę zasobów i centrum w regionie **Środkowe stany USA**, który można zmienić na bliższy. Skrypt pobiera parametry połączenia usługi IoT Hub używane w przykładowym zapleczu w celi połączenia z centrum IoT Hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -240,7 +240,7 @@ Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji urządzenia symul
 
 ![Symulowane urządzenie](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i podkreśla, jak odbiera i przetwarza raportowane aktualizacji właściwości z urządzenia:
+Poniższy zrzut ekranu przedstawia dane wyjściowe z aplikacji zaplecza i wyróżnia informacje o sposobie odbierania i przetwarzania zgłoszonej aktualizacji właściwości z urządzenia:
 
 ![Aplikacja zaplecza](./media/tutorial-device-twins/BackEnd2.png)
 

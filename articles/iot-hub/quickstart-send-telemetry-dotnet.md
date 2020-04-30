@@ -13,13 +13,13 @@ ms.custom:
 - mqtt
 ms.date: 06/21/2019
 ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81769132"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Szybki start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT hub i odczytywanie go za pomocą aplikacji zaplecza (.NET)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -29,7 +29,7 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji języka C#,
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -43,7 +43,7 @@ Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim prz
 dotnet --version
 ```
 
-Uruchom następujące polecenie, aby dodać rozszerzenie IoT usługi Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia usługi Cloud Shell. Rozszerzenie IOT dodaje IoT Hub, IoT Edge i Usługi inicjowania obsługi administracyjnej urządzeń IoT (DPS) polecenia do interfejsu wiersza polecenia platformy Azure.
+Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
 
 ```azurecli-interactive
 az extension add --name azure-iot
@@ -51,9 +51,9 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Pobierz przykłady usługi Azure IoT C# z [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) archiwum ZIP i wyodrębnij je.
+Pobierz przykłady w języku C# usługi Azure [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) IoT z programu i Wyodrębnij archiwum zip.
 
-Upewnij się, że port 8883 jest otwarty w zaporze. Próbka urządzenia w tym przewodniku Szybki start korzysta z protokołu MQTT, który komunikuje się za pomocą portu 8883. Ten port może być zablokowany w niektórych środowiskach sieci firmowych i edukacyjnych. Aby uzyskać więcej informacji i sposobów obejść ten problem, zobacz [Łączenie się z centrum IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Tworzenie centrum IoT Hub
 
@@ -63,17 +63,17 @@ Upewnij się, że port 8883 jest otwarty w zaporze. Próbka urządzenia w tym pr
 
 Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tym przewodniku Szybki start opisano rejestrowanie urządzenia symulowanego przy użyciu usługi Azure Cloud Shell.
 
-1. Uruchom następujące polecenie w usłudze Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
+1. Uruchom następujące polecenie w Azure Cloud Shell, aby utworzyć tożsamość urządzenia.
 
    **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
-   **MyDotnetDevice**: Jest to nazwa zarejestrowanego urządzenia. Zaleca się stosowanie **MyDotnetDevice,** jak pokazano na rysunku. Jeśli wybierzesz inną nazwę urządzenia, musisz również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
+   **MyDotnetDevice**: jest to nazwa urządzenia, które jest rejestrowany. Zaleca się użycie **MyDotnetDevice** , jak pokazano. W przypadku wybrania innej nazwy dla urządzenia należy również użyć tej nazwy w tym artykule i zaktualizować nazwę urządzenia w przykładowych aplikacjach przed ich uruchomieniem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
     ```
 
-2. Uruchom następujące polecenie w usłudze Azure Cloud Shell, aby uzyskać _parametry połączenia urządzenia_ dla właśnie zarejestrowanego urządzenia:
+2. Uruchom następujące polecenie w Azure Cloud Shell, aby uzyskać _Parametry połączenia urządzenia_ dla zarejestrowanego urządzenia:
 
    **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
@@ -85,9 +85,9 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Użyjesz tej wartości w dalszej części przewodnika Szybki start.
+    Ta wartość zostanie użyta w dalszej części przewodnika Szybki Start.
 
-3. Potrzebny jest również _punkt końcowy zgodny z centrum zdarzeń,_ ścieżka zgodna z centrum _zdarzeń_i klucz _podstawowy usługi_ z centrum IoT hub, aby umożliwić aplikacji zaplecza łączenie się z centrum IoT i pobieranie wiadomości. Następujące polecenie pobiera te wartości dla Twojego centrum IoT:
+3. Wymagany jest również _Event Hubs punkt końcowy zgodny_ze standardem _Event Hubs_i _klucz podstawowy usługi_ z Centrum IoT, aby umożliwić aplikacji zaplecza łączenie się z Centrum IoT Hub i pobieranie komunikatów. Następujące polecenie pobiera te wartości dla Twojego centrum IoT:
 
    **YourIoTHubName**: zamień ten symbol zastępczy poniżej na wybraną nazwę centrum IoT Hub.
 
@@ -99,7 +99,7 @@ Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw za
     az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    Zanotuj te trzy wartości, których użyjesz w dalszej części przewodnika Szybki start.
+    Zanotuj te trzy wartości, których będziesz używać w dalszej części przewodnika Szybki Start.
 
 ## <a name="send-simulated-telemetry"></a>Wysyłanie symulowanych danych telemetrycznych
 
@@ -109,7 +109,7 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym
 
 2. Otwórz plik **SimulatedDevice.cs** w wybranym edytorze.
 
-    Zastąp `s_connectionString` wartość zmiennej ciągiem połączenia urządzenia, który został zanotowany wcześniej. Następnie zapisz zmiany w **SimulatedDevice.cs**.
+    Zastąp wartość `s_connectionString` zmiennej parametrami połączenia urządzenia, które zostały wykonane wcześniej w notatce. Następnie Zapisz zmiany w **SimulatedDevice.cs**.
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane pakiety dla aplikacji urządzenia symulowanego:
 
@@ -137,9 +137,9 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
     | Zmienna | Wartość |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Zastąp wartość zmiennej punktem końcowym zgodnym z centrum zdarzeń, o który została zanotowano wcześniej. |
-    | `s_eventHubsCompatiblePath`     | Zastąp wartość zmiennej ścieżką zgodną z centrum zdarzeń, którą zanotowano wcześniej. |
-    | `s_iotHubSasKey`                | Zastąp wartość zmiennej kluczem podstawowym usługi, o której została zanotowana wcześniej. |
+    | `s_eventHubsCompatibleEndpoint` | Zastąp wartość zmiennej tym punktem końcowym zgodnym z Event Hubs, który został wcześniej zanotowany. |
+    | `s_eventHubsCompatiblePath`     | Zastąp wartość zmiennej ścieżką zgodną Event Hubs zanotowaną wcześniej. |
+    | `s_iotHubSasKey`                | Zastąp wartość zmiennej kluczem podstawowym usługi sporządzonym wcześniej w notatce. |
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji zaplecza:
 
@@ -163,7 +163,7 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start skonfigurujesz centrum IoT hub, zarejestrowano urządzenie, wysłano symulowane dane telemetryczne do koncentratora przy użyciu aplikacji języka C# i odczytano dane telemetryczne z koncentratora przy użyciu prostej aplikacji zaplecza.
+W tym przewodniku szybki start skonfigurujesz Centrum IoT, zarejestrowano urządzenie, wysłało symulowane dane telemetryczne do centrum przy użyciu aplikacji języka C# i odczytuje dane telemetryczne z centrum przy użyciu prostej aplikacji zaplecza.
 
 Aby dowiedzieć się, jak kontrolować urządzenie symulowane z poziomu aplikacji zaplecza, przejdź do następnego przewodnika Szybki start.
 

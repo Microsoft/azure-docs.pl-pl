@@ -1,42 +1,42 @@
 ---
-title: Szczegółowe instrukcje programu Azure Application Insights Agent | Dokumenty firmy Microsoft
-description: Szczegółowe instrukcje dotyczące rozpoczynania pracy z agentem usługi Application Insights. Monitoruj działanie witryny bez ponownego rozmieszczania witryny. Współpracuje ze ASP.NET aplikacjami sieci web hostowanymi lokalnie, na maszynach wirtualnych lub na platformie Azure.
+title: Szczegółowe instrukcje dotyczące agenta Application Insights platformy Azure | Microsoft Docs
+description: Szczegółowe instrukcje dotyczące rozpoczynania pracy z agentem Application Insights. Monitorowanie wydajności witryny sieci Web bez ponownego wdrażania witryny sieci Web. Współpracuje z usługą ASP.NET Web Apps hostowaną lokalnie, na maszynach wirtualnych lub na platformie Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81766864"
 ---
-# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agent usługi Application Insights (dawniej Monitor stanu w wersji 2): szczegółowe instrukcje
+# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agent Application Insights (dawniej nazwany monitor stanu v2): szczegółowe instrukcje
 
-W tym artykule opisano sposób dołączania do galerii programu PowerShell i pobierania modułu ApplicationMonitor.
-Zawarte są najczęstsze parametry, które trzeba rozpocząć.
-Udostępniliśmy również instrukcje do pobrania ręcznego w przypadku, gdy nie masz dostępu do Internetu.
+W tym artykule opisano, jak dołączyć do Galeria programu PowerShell i pobrać moduł ApplicationMonitor.
+Uwzględniono najbardziej typowe parametry, które należy rozpocząć.
+Instrukcje pobierania ręcznego są również udostępniane w przypadku braku dostępu do Internetu.
 
-## <a name="get-an-instrumentation-key"></a>Pobierz klucz oprzyrządowania
+## <a name="get-an-instrumentation-key"></a>Pobieranie klucza Instrumentacji
 
-Aby rozpocząć, potrzebny jest klucz oprzyrządowania. Aby uzyskać więcej informacji, zobacz [Tworzenie zasobu usługi Application Insights](create-new-resource.md#copy-the-instrumentation-key).
+Aby rozpocząć, musisz dysponować kluczem Instrumentacji. Aby uzyskać więcej informacji, zobacz [Tworzenie zasobu Application Insights](create-new-resource.md#copy-the-instrumentation-key).
 
-## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Uruchamianie programu PowerShell jako administratora z podwyższonym poziomem uprawnień zasady wykonywania
+## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Uruchom program PowerShell jako administrator z zasadami wykonywania podwyższonego poziomu
 
 ### <a name="run-as-admin"></a>Uruchom jako administrator
 
-Program PowerShell potrzebuje uprawnień na poziomie administratora, aby wprowadzić zmiany na komputerze.
+Program PowerShell wymaga uprawnień na poziomie administratora, aby wprowadzać zmiany na komputerze.
 ### <a name="execution-policy"></a>Zasady wykonywania
-- Opis: domyślnie uruchamianie skryptów programu PowerShell jest wyłączone. Zaleca się zezwolenie skryptom RemoteSigned tylko dla bieżącego zakresu.
-- Odwołanie: [Informacje o zasadach wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) i [zasadach ustawiania-wykonywania](
+- Opis: domyślnie uruchamianie skryptów programu PowerShell jest wyłączone. Zalecamy Zezwalanie na skrypty RemoteSigned tylko dla bieżącego zakresu.
+- Dokumentacja: [informacje na temat zasad wykonywania](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) i [Set-executionpolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 ).
 - Polecenie: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
-- Parametr opcjonalny:
-    - `-Force`. Pomija monit potwierdzenia.
+- Opcjonalny parametr:
+    - `-Force`. Pomija monit o potwierdzenie.
 
-**Przykładowe błędy**
+**Przykłady błędów**
 
 ```
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
@@ -48,10 +48,10 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 ```
 
 
-## <a name="prerequisites-for-powershell"></a>Wymagania wstępne programu PowerShell
+## <a name="prerequisites-for-powershell"></a>Wymagania wstępne dotyczące programu PowerShell
 
-Inspekcja wystąpienia programu PowerShell `$PSVersionTable` przez uruchomienie polecenia.
-To polecenie generuje następujące dane wyjściowe:
+Inspekcja wystąpienia programu PowerShell przez uruchomienie `$PSVersionTable` polecenia.
+To polecenie tworzy następujące dane wyjściowe:
 
 
 ```
@@ -67,27 +67,27 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-Te instrukcje zostały napisane i przetestowane na komputerze z systemem Windows 10 i wersjach wymienionych powyżej.
+Te instrukcje zostały zanotowane i przetestowane na komputerze z systemem Windows 10 i wymienionych powyżej wersjach.
 
-## <a name="prerequisites-for-powershell-gallery"></a>Wymagania wstępne dla galerii programu PowerShell
+## <a name="prerequisites-for-powershell-gallery"></a>Wymagania wstępne dotyczące Galeria programu PowerShell
 
-Te kroki przygotują serwer do pobrania modułów z galerii programu PowerShell.
+Te kroki spowodują przygotowanie serwera do pobierania modułów z Galeria programu PowerShell.
 
 > [!NOTE] 
 > Galeria programu PowerShell jest obsługiwana w systemach Windows 10, Windows Server 2016 i PowerShell 6.
-> Aby uzyskać informacje o wcześniejszych wersjach, zobacz [Instalowanie programu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+> Aby uzyskać informacje na temat wcześniejszych wersji, zobacz [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
-1. Uruchom program PowerShell jako administrator z podwyższonym poziomem uprawnień.
-2. Zainstaluj dostawcę pakietu NuGet.
-    - Opis: ten dostawca jest potrzebny do interakcji z repozytoriami opartymi na nuget, takimi jak Galeria programu PowerShell.
-    - [Referencje: Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+1. Uruchom program PowerShell jako administrator z zasadami wykonywania podwyższonego poziomu uprawnień.
+2. Zainstaluj dostawcę pakietów NuGet.
+    - Opis: ten dostawca jest potrzebny do współpracy z repozytoriami opartymi na narzędziu NuGet, takimi jak Galeria programu PowerShell.
+    - Odwołanie: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Polecenie: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Parametry opcjonalne:
-        - `-Proxy`. Określa serwer proxy dla żądania.
-        - `-Force`. Pomija monit potwierdzenia.
+        - `-Proxy`. Określa serwer proxy żądania.
+        - `-Force`. Pomija monit o potwierdzenie.
     
-    Ten monit zostanie wyświetlony, jeśli nuget nie jest skonfigurowany:
+    Ten monit zostanie wyświetlony, jeśli nie skonfigurowano narzędzia NuGet:
         
         NuGet provider is required to continue
         PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
@@ -97,14 +97,14 @@ Te kroki przygotują serwer do pobrania modułów z galerii programu PowerShell.
          the NuGet provider now?
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     
-3. Skonfiguruj galerię programu PowerShell jako zaufane repozytorium.
-    - Opis: Domyślnie Galeria programu PowerShell jest niezaufanym repozytorium.
-    - Referencje: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+3. Skonfiguruj Galeria programu PowerShell jako zaufane repozytorium.
+    - Opis: domyślnie Galeria programu PowerShell jest niezaufanym repozytorium.
+    - Odwołanie: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Polecenie: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
-    - Parametr opcjonalny:
-        - `-Proxy`. Określa serwer proxy dla żądania.
+    - Opcjonalny parametr:
+        - `-Proxy`. Określa serwer proxy żądania.
 
-    Ten monit zostanie wyświetlony, jeśli galeria programu PowerShell nie jest zaufana:
+    Ten monit zostanie wyświetlony, jeśli Galeria programu PowerShell nie jest zaufany:
 
         Untrusted repository
         You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -112,14 +112,14 @@ Te kroki przygotują serwer do pobrania modułów z galerii programu PowerShell.
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    Możesz potwierdzić tę zmianę i przeprowadzić inspekcję `Get-PSRepository` wszystkich psrepositories, uruchamiając polecenie.
+    Możesz potwierdzić tę zmianę i Przeprowadź inspekcję wszystkich PSRepositories, `Get-PSRepository` uruchamiając polecenie.
 
 4. Zainstaluj najnowszą wersję programu PowerShellGet.
-    - Opis: Ten moduł zawiera narzędzia używane do uzyskania innych modułów z galerii programu PowerShell. Wersja 1.0.0.1 jest dostarczana z systemami Windows 10 i Windows Server. Wymagana jest wersja 1.6.0 lub nowsza. Aby ustalić, która wersja `Get-Command -Module PowerShellGet` jest zainstalowana, uruchom polecenie.
-    - Odwołanie: [Instalowanie programu PowerShellGet](/powershell/scripting/gallery/installing-psget).
+    - Opis: ten moduł zawiera narzędzia używane do uzyskiwania innych modułów z Galeria programu PowerShell. Wersja 1.0.0.1 jest dostarczana z systemami Windows 10 i Windows Server. Wymagana jest wersja 1.6.0 lub nowsza. Aby określić, która wersja jest zainstalowana, uruchom `Get-Command -Module PowerShellGet` polecenie.
+    - Odwołanie: [Instalowanie PowerShellGet](/powershell/scripting/gallery/installing-psget).
     - Polecenie: `Install-Module -Name PowerShellGet`.
     - Parametry opcjonalne:
-        - `-Proxy`. Określa serwer proxy dla żądania.
+        - `-Proxy`. Określa serwer proxy żądania.
         - `-Force`. Pomija ostrzeżenie "już zainstalowane" i instaluje najnowszą wersję.
 
     Ten błąd zostanie wyświetlony, jeśli nie używasz najnowszej wersji programu PowerShellGet:
@@ -131,43 +131,43 @@ Te kroki przygotują serwer do pobrania modułów z galerii programu PowerShell.
             CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
             FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
     
-5. Uruchom ponownie program PowerShell. Nie można załadować nowej wersji w bieżącej sesji. Nowe sesje programu PowerShell załadują najnowszą wersję programu PowerShellGet.
+5. Uruchom ponownie program PowerShell. Nie można załadować nowej wersji w bieżącej sesji. Nowe sesje programu PowerShell będą ładować najnowszą wersję programu PowerShellGet.
 
-## <a name="download-and-install-the-module-via-powershell-gallery"></a>Pobierz i zainstaluj moduł za pośrednictwem programu PowerShell Gallery
+## <a name="download-and-install-the-module-via-powershell-gallery"></a>Pobierz i zainstaluj moduł za pośrednictwem Galeria programu PowerShell
 
-Te kroki zostaną pobrane moduł Az.ApplicationMonitor z Galerii Programu PowerShell.
+Te kroki spowodują pobranie modułu AZ. ApplicationMonitor z Galeria programu PowerShell.
 
-1. Upewnij się, że wszystkie wymagania wstępne dla galerii programu PowerShell są spełnione.
-2. Uruchom program PowerShell jako administrator z podwyższonym poziomem uprawnień.
-3. Zainstaluj moduł Az.ApplicationMonitor.
-    - Referencje: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+1. Upewnij się, że spełniono wszystkie wymagania wstępne dotyczące Galeria programu PowerShell.
+2. Uruchom program PowerShell jako administrator z zasadami wykonywania podwyższonego poziomu uprawnień.
+3. Zainstaluj moduł AZ. ApplicationMonitor.
+    - Reference: [Install-module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
     - Polecenie: `Install-Module -Name Az.ApplicationMonitor`.
     - Parametry opcjonalne:
-        - `-Proxy`. Określa serwer proxy dla żądania.
-        - `-AllowPrerelease`. Umożliwia instalację wersji alfa i beta.
+        - `-Proxy`. Określa serwer proxy żądania.
+        - `-AllowPrerelease`. Umożliwia instalację wersji Alpha i beta.
         - `-AcceptLicense`. Pomija monit "Akceptuj licencję"
-        - `-Force`. Pomija ostrzeżenie "Niezaufane repozytorium".
+        - `-Force`. Pomija ostrzeżenie "niezaufane repozytorium".
 
-## <a name="download-and-install-the-module-manually-offline-option"></a>Pobieranie i instalowanie modułu ręcznie (opcja offline)
+## <a name="download-and-install-the-module-manually-offline-option"></a>Pobierz i zainstaluj moduł ręcznie (opcja offline)
 
-Jeśli z jakiegoś powodu nie można połączyć się z modułem programu PowerShell, można ręcznie pobrać i zainstalować moduł Az.ApplicationMonitor.
+Jeśli z jakiegoś powodu nie można nawiązać połączenia z modułem programu PowerShell, można ręcznie pobrać i zainstalować moduł AZ. ApplicationMonitor.
 
-### <a name="manually-download-the-latest-nupkg-file"></a>Ręcznie pobierz najnowszy plik nupkg
+### <a name="manually-download-the-latest-nupkg-file"></a>Ręcznie Pobierz najnowszy plik NUPKG
 
-1. Przejdź do pozycji https://www.powershellgallery.com/packages/Az.ApplicationMonitor (Plik > Nowy > Inny).
-2. Wybierz najnowszą wersję pliku w **tabeli Historia wersji.**
-3. W obszarze **Opcje instalacji**wybierz pozycję **Ręczne pobieranie**.
+1. Przejdź do witryny https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+2. Wybierz najnowszą wersję pliku w tabeli **historii wersji** .
+3. W obszarze **Opcje instalacji**wybierz pozycję **Pobieranie ręczne**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>Opcja 1: Instalacja w katalogu modułów programu PowerShell
-Zainstaluj ręcznie pobrany moduł programu PowerShell w katalogu programu PowerShell, aby był wykrywalny przez sesje programu PowerShell.
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>Opcja 1: Instalowanie w katalogu modułów programu PowerShell
+Zainstaluj ręcznie pobrany moduł programu PowerShell w katalogu programu PowerShell, aby można było go odnajdywać za pomocą sesji programu PowerShell.
 Aby uzyskać więcej informacji, zobacz [Instalowanie modułu programu PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
-#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Rozpaj nupkg jako plik zip za pomocą Rozwiń-Archiwum (v1.0.1.0)
+#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Rozpakuj NUPKG jako plik zip przy użyciu polecenia expand-Archive (v 1.0.1.0)
 
-- Opis: podstawowa wersja programu Microsoft.PowerShell.Archive (wersja 1.0.1.0) nie może rozpakować plików nupkg. Zmień nazwę pliku za pomocą rozszerzenia zip.
-- [Referencje: Rozwiń archiwum](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
-- Polecenia:
+- Opis: podstawowa wersja programu Microsoft. PowerShell. Archive (v 1.0.1.0) nie może rozpakować plików NUPKG. Zmień nazwę pliku na rozszerzenie zip.
+- Reference: [expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Dotyczące
 
     ```
     $pathToNupkg = "C:\az.applicationmonitor.0.3.0-alpha.nupkg"
@@ -177,11 +177,11 @@ Aby uzyskać więcej informacji, zobacz [Instalowanie modułu programu PowerShel
     Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
     ```
 
-#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Rozpaj nupkg za pomocą Rozwiń-Archiwum (v1.1.0.0)
+#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Rozpakuj NUPKG za pomocą polecenia expand-Archive (v 1.1.0.0)
 
-- Opis: użyj bieżącej wersji Expand-Archive, aby rozpakować pliki nupkg bez zmiany rozszerzenia.
-- Odwołanie: [Rozwiń archiwum](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) i [microsoft.powershell.archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
-- Polecenia:
+- Opis: Użyj bieżącej wersji rozszerzenia expand-Archiwaln, aby rozpakować pliki NUPKG bez zmiany rozszerzenia.
+- Reference: [expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) i [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Dotyczące
 
     ```
     $pathToNupkg = "C:\az.applicationmonitor.0.2.1-alpha.nupkg"
@@ -189,37 +189,37 @@ Aby uzyskać więcej informacji, zobacz [Instalowanie modułu programu PowerShel
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>Opcja 2: Rozpaj i importuj nupkg ręcznie
-Zainstaluj ręcznie pobrany moduł programu PowerShell w katalogu programu PowerShell, aby był wykrywalny przez sesje programu PowerShell.
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>Opcja 2: ręczne rozpakowywanie i import NUPKG
+Zainstaluj ręcznie pobrany moduł programu PowerShell w katalogu programu PowerShell, aby można było go odnajdywać za pomocą sesji programu PowerShell.
 Aby uzyskać więcej informacji, zobacz [Instalowanie modułu programu PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-Jeśli instalujesz moduł w innym katalogu, zaimportuj moduł ręcznie za pomocą [importu modułu](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
+Jeśli instalujesz moduł w innym katalogu, ręcznie zaimportuj moduł za pomocą polecenia [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 
 > [!IMPORTANT] 
-> Biblioteki DLL zostaną zainstalowane za pomocą ścieżek względnych.
-> Przechowuj zawartość pakietu w katalogu zamierzonego środowiska wykonawczego i upewnij się, że uprawnienia dostępu zezwalają na odczyt, ale nie zapis.
+> Biblioteki DLL zostaną zainstalowane za pośrednictwem ścieżek względnych.
+> Przechowuj zawartość pakietu w Twoim zamierzonym katalogu środowiska uruchomieniowego i upewnij się, że uprawnienia dostępu Zezwalaj na odczyt, ale nie do zapisu.
 
-1. Zmień rozszerzenie na ".zip" i wyodrębnij zawartość pakietu do katalogu instalacji zamierzonej.
-2. Znajdź ścieżkę pliku Az.ApplicationMonitor.psd1.
-3. Uruchom program PowerShell jako administrator z podwyższonym poziomem uprawnień.
-4. Załaduj `Import-Module Az.ApplicationMonitor.psd1` moduł za pomocą polecenia.
+1. Zmień rozszerzenie na "zip" i Wyodrębnij zawartość pakietu w żądanym katalogu instalacyjnym.
+2. Znajdź ścieżkę pliku AZ. ApplicationMonitor. psd1.
+3. Uruchom program PowerShell jako administrator z zasadami wykonywania podwyższonego poziomu uprawnień.
+4. Załaduj moduł przy użyciu `Import-Module Az.ApplicationMonitor.psd1` polecenia.
     
 
 ## <a name="route-traffic-through-a-proxy"></a>Kierowanie ruchu przez serwer proxy
 
-Podczas monitorowania komputera w prywatnym intranecie należy rozsyłać ruch HTTP za pośrednictwem serwera proxy.
+W przypadku monitorowania komputera w prywatnym intranecie należy kierować ruchem HTTP za pośrednictwem serwera proxy.
 
-Polecenia programu PowerShell do pobrania i zainstalowania programu Az.ApplicationMonitor z galerii programu PowerShell obsługują `-Proxy` parametr.
-Zapoznaj się z poprzednimi instrukcjami podczas pisania skryptów instalacyjnych.
+Polecenia programu PowerShell do pobrania i zainstalowania AZ. ApplicationMonitor z Galeria programu PowerShell obsługują `-Proxy` parametr.
+Zapoznaj się z powyższymi instrukcjami podczas pisania skryptów instalacji.
 
-Pakiet SDK usługi Application Insights będzie musiał wysłać dane telemetryczne aplikacji do firmy Microsoft. Zaleca się skonfigurowanie ustawień serwera proxy dla aplikacji w pliku web.config. Aby uzyskać więcej informacji, zobacz [Usługa Application Insights często zadawane pytania: Przekazywanie serwera proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
+Zestaw Application Insights SDK będzie musiał wysłać dane telemetryczne aplikacji do firmy Microsoft. Zalecamy skonfigurowanie ustawień serwera proxy dla aplikacji w pliku Web. config. Aby uzyskać więcej informacji, zobacz [Application Insights często zadawanych pytań: przekazywania proxy](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Włączanie monitorowania
 
-Użyj `Enable-ApplicationInsightsMonitoring` polecenia, aby włączyć monitorowanie.
+Użyj polecenia `Enable-ApplicationInsightsMonitoring` , aby włączyć monitorowanie.
 
-Szczegółowe opis sposobu używania tego polecenia cmdlet można znaleźć w [odwołaniu do interfejsu API.](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+Szczegółowy opis sposobu korzystania z tego polecenia cmdlet można znaleźć w [dokumentacji interfejsu API](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) .
 
 
 
@@ -227,17 +227,17 @@ Szczegółowe opis sposobu używania tego polecenia cmdlet można znaleźć w [o
 
  Wyświetlanie telemetrii:
 
-- [Eksploruj metryki,](../../azure-monitor/platform/metrics-charts.md) aby monitorować wydajność i użycie.
-- [Szukaj zdarzeń i dzienników](../../azure-monitor/app/diagnostic-search.md) w celu zdiagnozowania problemów.
-- [Korzystaj z analizy](../../azure-monitor/app/analytics.md) w przypadku bardziej zaawansowanych zapytań.
+- [Poznaj metryki](../../azure-monitor/platform/metrics-charts.md) , aby monitorować wydajność i użycie.
+- [Wyszukaj zdarzenia i dzienniki](../../azure-monitor/app/diagnostic-search.md) , aby zdiagnozować problemy.
+- [Użyj analizy](../../azure-monitor/app/analytics.md) , aby uzyskać bardziej zaawansowane zapytania.
 - [Tworzenie pulpitów nawigacyjnych](../../azure-monitor/app/overview-dashboard.md).
 
  Dodawanie kolejnych funkcji telemetrii:
 
 - [Tworzenie testów sieci Web](monitor-web-app-availability.md), aby upewnić się, że witryna pozostaje aktywna.
-- [Dodaj dane telemetryczne klienta sieci Web,](../../azure-monitor/app/javascript.md) aby wyświetlić wyjątki od kodu strony sieci web i włączyć śledzenie wywołań.
-- [Dodaj SDK usługi Application Insights do kodu, dzięki](../../azure-monitor/app/asp-net.md) czemu można wstawić śledzenie i rejestrowanie wywołań.
+- [Dodaj telemetrię klienta sieci Web](../../azure-monitor/app/javascript.md) , aby zobaczyć wyjątki z kodu strony sieci Web i włączyć wywołania śledzenia.
+- [Dodaj do kodu zestaw SDK Application Insights](../../azure-monitor/app/asp-net.md) , aby móc wstawiać wywołania śledzenia i rejestrowania.
 
-Więcej informacji za pomocą agenta usługi Application Insights:
+Zrób więcej dzięki Application Insights agentowi:
 
-- Skorzystaj z naszego [przewodnika,](status-monitor-v2-troubleshoot.md) aby rozwiązać problem z agentem aplikacji Insights.
+- Skorzystaj z naszego przewodnika, aby [rozwiązać problemy z](status-monitor-v2-troubleshoot.md) agentem Application Insights.

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie zadań elastycznej bazy danych i zarządzanie nimi za pomocą programu Transact-SQL (T-SQL)
-description: Uruchom skrypty w wielu bazach danych za pomocą agenta zadania elastycznej bazy danych przy użyciu usługi Transact-SQL (T-SQL).
+title: Twórz Elastic Database zadania i zarządzaj nimi za pomocą języka Transact-SQL (T-SQL)
+description: Uruchamianie skryptów w wielu bazach danych za pomocą Elastic Database agenta zadań przy użyciu języka Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,24 +12,24 @@ author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687766"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Tworzenie zadań elastycznej bazy danych za pomocą funkcji Transact-SQL (T-SQL) i zarządzanie nimi
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Tworzenie Elastic Database zadań i zarządzanie nimi przy użyciu języka Transact-SQL (T-SQL)
 
-Ten artykuł zawiera wiele przykładowych scenariuszy, aby rozpocząć pracę z zadaniami elastycznymi przy użyciu języka T-SQL.
+Ten artykuł zawiera wiele przykładowych scenariuszy ułatwiających rozpoczęcie pracy z zadaniami elastycznymi przy użyciu języka T-SQL.
 
 W przykładach użyto [procedur składowanych](#job-stored-procedures) i [widoków](#job-views) dostępnych w [*bazie danych zadań*](sql-database-job-automation-overview.md#job-database).
 
-Transact-SQL (T-SQL) służy do tworzenia, konfigurowania, wykonywania i zarządzania zadaniami. Tworzenie agenta zadania elastycznego nie jest obsługiwane w języku T-SQL, dlatego należy najpierw utworzyć *agenta zadania elastycznego* za pomocą portalu lub [programu PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+Język Transact-SQL (T-SQL) służy do tworzenia, konfigurowania, wykonywania i zarządzania zadaniami. Tworzenie agenta zadań elastycznych nie jest obsługiwane w języku T-SQL, dlatego należy najpierw utworzyć *agenta elastycznego zadania* przy użyciu portalu lub [programu PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
 
-## <a name="create-a-credential-for-job-execution"></a>Tworzenie poświadczenia do wykonania zadania
+## <a name="create-a-credential-for-job-execution"></a>Utwórz poświadczenie do wykonania zadania
 
-Poświadczenia są używane do łączenia się z docelowymi bazami danych w celu wykonania skryptu. Poświadczenie wymaga odpowiednich uprawnień w bazach danych określonych przez grupę docelową, aby pomyślnie wykonać skrypt. Podczas korzystania z serwera i/lub puli element członkowski grupy docelowej, jest wysoce zalecane, aby utworzyć poświadczenia głównego do użycia w celu odświeżenia poświadczeń przed rozszerzeniem serwera i/lub puli w czasie wykonywania zadania. Poświadczenia o określonym zakresie bazy danych są tworzone w bazie danych agenta zadań. Te same poświadczenia muszą być używane do *tworzenia logowania* i tworzenia użytkownika *z logowania, aby udzielić uprawnień bazy danych logowania* w docelowych bazach danych.
+Poświadczenie jest używane do nawiązywania połączenia z docelowymi bazami danych w celu wykonania skryptu. Poświadczenie musi mieć odpowiednie uprawnienia do baz danych określonych przez grupę docelową, aby pomyślnie wykonać skrypt. W przypadku korzystania z elementu członkowskiego serwera i/lub grupy docelowej puli zdecydowanie zaleca się utworzenie poświadczeń głównych do użycia w celu odświeżenia poświadczenia przed rozszerzeniem serwera i/lub puli w czasie wykonywania zadania. Poświadczenia w zakresie bazy danych są tworzone w bazie danych agenta zadań. To samo poświadczenie musi być użyte do *utworzenia nazwy logowania* i *utworzenia użytkownika z logowania w celu przyznania uprawnień bazy danych logowania do* docelowych baz danych.
 
 
 ```sql
@@ -49,10 +49,10 @@ CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
 GO
 ```
 
-## <a name="create-a-target-group-servers"></a>Tworzenie grupy docelowej (serwerów)
+## <a name="create-a-target-group-servers"></a>Tworzenie grupy docelowej (serwery)
 
-W poniższym przykładzie pokazano, jak wykonać zadanie dla wszystkich baz danych na serwerze.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak wykonać zadanie dla wszystkich baz danych na serwerze.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 
 ```sql
@@ -76,8 +76,8 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## <a name="exclude-an-individual-database"></a>Wykluczanie pojedynczej bazy danych
 
-W poniższym przykładzie pokazano, jak wykonać zadanie dla wszystkich baz danych na serwerze bazy danych SQL, z wyjątkiem bazy danych o nazwie *MappingDB*.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak wykonać zadanie dla wszystkich baz danych na serwerze SQL Database, z wyjątkiem bazy danych o nazwie *MappingDB*.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -119,8 +119,8 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 
 ## <a name="create-a-target-group-pools"></a>Tworzenie grupy docelowej (pule)
 
-W poniższym przykładzie pokazano, jak kierować wszystkie bazy danych w jednej lub więcej pul elastycznych.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak skierować wszystkie bazy danych w co najmniej jednej puli elastycznej.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -142,10 +142,10 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ```
 
 
-## <a name="deploy-new-schema-to-many-databases"></a>Wdrażanie nowego schematu w wielu bazach danych
+## <a name="deploy-new-schema-to-many-databases"></a>Wdróż nowy schemat w wielu bazach danych
 
-W poniższym przykładzie pokazano, jak wdrożyć nowy schemat do wszystkich baz danych.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak wdrożyć nowy schemat dla wszystkich baz danych.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 
 ```sql
@@ -166,18 +166,18 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 ## <a name="data-collection-using-built-in-parameters"></a>Zbieranie danych przy użyciu wbudowanych parametrów
 
-W wielu scenariuszach zbierania danych może być przydatne do uwzględnienia niektórych z tych zmiennych skryptów, aby pomóc po przetworzeniu wyników zadania.
+W wielu scenariuszach zbierania danych przydatne może być uwzględnienie niektórych z tych zmiennych skryptów, aby pomóc w zainicjowaniu przetwarzania wyników zadania.
 
-- $(job_name)
-- $(job_id)
-- $(job_version)
-- $(step_id)
-- $(step_name)
-- $(job_execution_id)
-- $(job_execution_create_time)
-- $(target_group_name)
+- $ (job_name)
+- $ (job_id)
+- $ (job_version)
+- $ (step_id)
+- $ (step_name)
+- $ (job_execution_id)
+- $ (job_execution_create_time)
+- $ (target_group_name)
 
-Na przykład, aby zgrupować wszystkie wyniki z tego samego wykonania zadania razem, użyj *$(job_execution_id),* jak pokazano w następującym poleceniu:
+Aby na przykład zgrupować wszystkie wyniki z tego samego wykonania zadania, należy użyć *$ (job_execution_id)* , jak pokazano w następującym poleceniu:
 
 
 ```sql
@@ -187,17 +187,17 @@ Na przykład, aby zgrupować wszystkie wyniki z tego samego wykonania zadania ra
 
 ## <a name="monitor-database-performance"></a>Monitorowanie wydajności bazy danych
 
-Poniższy przykład tworzy nowe zadanie do zbierania danych o wydajności z wielu baz danych.
+Poniższy przykład tworzy nowe zadanie w celu zbierania danych wydajności z wielu baz danych.
 
-Domyślnie agent zadania utworzy tabelę danych wyjściowych do przechowywania zwróconych wyników. W związku z tym podmiot bazy danych skojarzony z poświadczeniami `CREATE TABLE` wyjściowymi musi `ALTER` `SELECT`mieć `INSERT` `DELETE` co najmniej następujące uprawnienia: w `SELECT` bazie danych , , , w tabeli danych wyjściowych lub jej schemacie i w widoku katalogu [sys.indexes.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)
+Domyślnie Agent zadania utworzy tabelę wyjściową do przechowywania zwracanych wyników. W związku z tym podmiot zabezpieczeń bazy danych skojarzony z poświadczeniem danych wyjściowych musi mieć co `CREATE TABLE` najmniej następujące uprawnienia: `ALTER`w `SELECT`bazie `INSERT`danych `DELETE` ,,, w tabeli wyjściowej lub jej `SELECT` schemacie oraz w widoku wykazu [sys. indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) .
 
-Jeśli chcesz ręcznie utworzyć tabelę z wyprzedzeniem, musi mieć następujące właściwości:
-1. Kolumny z poprawną nazwą i typami danych dla zestawu wyników.
-2. Dodatkowa kolumna dla internal_execution_id z typem danych uniqueidentifier.
-3. Indeks nieklastrowany `IX_<TableName>_Internal_Execution_ID` nazwany w kolumnie internal_execution_id.
-4. Wszystkie uprawnienia wymienione powyżej `CREATE TABLE` z wyjątkiem uprawnień do bazy danych.
+Jeśli chcesz ręcznie utworzyć tabelę przed czasem, musi ona mieć następujące właściwości:
+1. Kolumny o poprawnej nazwie i typach danych dla zestawu wyników.
+2. Dodatkowa kolumna dla internal_execution_id z typem danych unikatowym.
+3. Indeks nieklastrowany o nazwie `IX_<TableName>_Internal_Execution_ID` w kolumnie internal_execution_id.
+4. Wszystkie uprawnienia wymienione powyżej, z `CREATE TABLE` wyjątkiem uprawnień w bazie danych.
 
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenia:
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenia:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -265,10 +265,10 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ```
 
 
-## <a name="view-job-definitions"></a>Wyświetlanie definicji zadań
+## <a name="view-job-definitions"></a>Wyświetl definicje zadań
 
-W poniższym przykładzie pokazano, jak wyświetlić bieżące definicje zadań.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak wyświetlić bieżące definicje zadań.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -286,10 +286,10 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>Rozpoczynanie doraźnego wykonywania zadania
+## <a name="begin-ad-hoc-execution-of-a-job"></a>Rozpoczęcie wykonywania zadania ad hoc
 
-W poniższym przykładzie pokazano, jak natychmiast rozpocząć zadanie.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak natychmiast uruchomić zadanie.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -309,10 +309,10 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ```
 
 
-## <a name="schedule-execution-of-a-job"></a>Planowanie wykonywania zadania
+## <a name="schedule-execution-of-a-job"></a>Zaplanuj wykonywanie zadania
 
-W poniższym przykładzie pokazano, jak zaplanować zadanie do wykonania w przyszłości.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak zaplanować zadanie do wykonania w przyszłości.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -326,8 +326,8 @@ EXEC jobs.sp_update_job
 
 ## <a name="monitor-job-execution-status"></a>Monitorowanie stanu wykonania zadania
 
-W poniższym przykładzie pokazano, jak wyświetlić szczegóły stanu wykonania dla wszystkich zadań.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak wyświetlić szczegóły stanu wykonania dla wszystkich zadań.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -355,8 +355,8 @@ ORDER BY start_time DESC
 
 ## <a name="cancel-a-job"></a>Anulowanie zadania
 
-W poniższym przykładzie pokazano, jak anulować zadanie.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak anulować zadanie.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -372,10 +372,10 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ```
 
 
-## <a name="delete-old-job-history"></a>Usuwanie starej historii zadań
+## <a name="delete-old-job-history"></a>Usuń starą historię zadania
 
-W poniższym przykładzie pokazano, jak usunąć historię zadań przed określoną datą.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak usunąć historię zadania przed określoną datą.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -386,10 +386,10 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
-## <a name="delete-a-job-and-all-its-job-history"></a>Usuwanie zadania i całej jego historii zadań
+## <a name="delete-a-job-and-all-its-job-history"></a>Usuń zadanie i całą jego historię zadań
 
-W poniższym przykładzie pokazano, jak usunąć zadanie i całą powiązaną historię zadań.  
-Połącz się z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
+Poniższy przykład pokazuje, jak usunąć zadanie i wszystkie powiązane z nimi historię zadań.  
+Nawiąż połączenie z [*bazą danych zadań*](sql-database-job-automation-overview.md#job-database) i uruchom następujące polecenie:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,27 +402,27 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 
 
-## <a name="job-stored-procedures"></a>Procedury przechowywane w zadaniach
+## <a name="job-stored-procedures"></a>Procedury składowane zadań
 
-Poniższe procedury przechowywane znajdują się w [bazie danych zadań](sql-database-job-automation-overview.md#job-database).
+Poniższe procedury składowane znajdują się w [bazie danych zadań](sql-database-job-automation-overview.md#job-database).
 
 
 
 |Procedura składowana  |Opis  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     Dodaje nowe zadanie.    |
-|[Sp_update_job](#sp_update_job)    |      Aktualizuje istniejące zadanie.   |
+|[sp_update_job](#sp_update_job)    |      Aktualizuje istniejące zadanie.   |
 |[sp_delete_job](#sp_delete_job)     |      Usuwa istniejące zadanie.   |
-|[Sp_add_jobstep](#sp_add_jobstep)    |    Dodaje krok do zadania.     |
+|[sp_add_jobstep](#sp_add_jobstep)    |    Dodaje krok do zadania.     |
 |[sp_update_jobstep](#sp_update_jobstep)     |     Aktualizuje krok zadania.    |
 |[sp_delete_jobstep](#sp_delete_jobstep)     |     Usuwa krok zadania.    |
-|[Sp_start_job](#sp_start_job)    |  Rozpoczyna wykonywanie zadania.       |
-|[Sp_stop_job](#sp_stop_job)     |     Zatrzymuje wykonywanie zadania.   |
+|[sp_start_job](#sp_start_job)    |  Uruchamia wykonywanie zadania.       |
+|[sp_stop_job](#sp_stop_job)     |     Kończy wykonywanie zadania.   |
 |[sp_add_target_group](#sp_add_target_group)    |     Dodaje grupę docelową.    |
 |[sp_delete_target_group](#sp_delete_target_group)     |    Usuwa grupę docelową.     |
 |[sp_add_target_group_member](#sp_add_target_group_member)     |    Dodaje bazę danych lub grupę baz danych do grupy docelowej.     |
-|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Usuwa członka grupy docelowej z grupy docelowej.    |
-|[Sp_purge_jobhistory](#sp_purge_jobhistory)    |    Usuwa rekordy historii dla zadania.     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Usuwa element członkowski grupy docelowej z grupy docelowej.    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Usuwa rekordy historii zadania.     |
 
 
 
@@ -450,51 +450,51 @@ Dodaje nowe zadanie.
 #### <a name="arguments"></a>Argumenty  
 
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania. Nazwa musi być unikatowa i nie może zawierać procentu (%) Znaków. job_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa zadania. Nazwa musi być unikatowa i nie może zawierać wartości procentowej (%) Opis. job_name jest nvarchar (128), bez domyślnego.
 
-[ ** \@opis =** ] "opis"  
-Opis zadania. opis to nvarchar(512), z wartością null. Jeśli opis zostanie pominięty, używany jest pusty ciąg.
+[ ** \@Description =** ] zharmonizowan  
+Opis zadania. Opis to nvarchar (512) z wartością domyślną NULL. Jeśli opis zostanie pominięty, zostanie użyty pusty ciąg.
 
-[ ** \@włączony =** ] włączony  
-Czy harmonogram zadania jest włączony. Enabled jest bit, z domyślną wartością 0 (wyłączona). Jeśli 0, zadanie nie jest włączone i nie działa zgodnie z jego harmonogramem; jednak można go uruchomić ręcznie. Jeśli 1, zadanie będzie działać zgodnie z jego harmonogramem i może być również uruchamiane ręcznie.
+[ ** \@Enabled =** ] włączone  
+Czy harmonogram zadania jest włączony. Włączony jest bit z wartością domyślną 0 (wyłączone). Jeśli wartość wynosi 0, zadanie nie jest włączone i nie jest uruchamiane zgodnie ze swoim harmonogramem. można go jednak uruchomić ręcznie. Jeśli 1, zadanie zostanie uruchomione zgodnie z harmonogramem i może być również uruchamiane ręcznie.
 
 [ ** \@schedule_interval_type =**] schedule_interval_type  
-Wartość wskazuje, kiedy zadanie ma zostać wykonane. schedule_interval_type jest nvarchar(50), z domyślną wartośćą Once i może być jedną z następujących wartości:
+Wartość wskazuje, kiedy zadanie ma zostać wykonane. schedule_interval_type jest nvarchar (50) z wartością domyślną jednokrotnie i może być jedną z następujących wartości:
 - "Raz",
-- "Minuty",
-- "Godziny",
+- "Min",
+- "Godz.",
 - "Dni",
 - "Tygodnie",
-- "Miesiące"
+- Od
 
 [ ** \@schedule_interval_count =** ] schedule_interval_count  
-Liczba schedule_interval_count okresów, które mają wystąpić między każdym wykonaniem zadania. schedule_interval_count jest int, z domyślnym 1. Wartość musi być większa lub równa 1.
+Liczba schedule_interval_countych okresów między każdym wykonaniem zadania. schedule_interval_count jest int z wartością domyślną 1. Wartość musi być większa lub równa 1.
 
 [ ** \@schedule_start_time =** ] schedule_start_time  
-Data rozpoczęcia wykonywania zadania. schedule_start_time jest DATETIME2, z domyślną wartością 0001-01-01 00:00:00.000000.
+Data rozpoczęcia wykonywania zadania. schedule_start_time to DATETIME2, z wartością domyślną 0001-01-01 00:00:00.0000000.
 
 [ ** \@schedule_end_time =** ] schedule_end_time  
-Data zatrzymania wykonania zadania. schedule_end_time jest DATETIME2, z domyślną wartością 9999-12-31 11:59:59.0000000. 
+Data, w której wykonywanie zadania może zostać zatrzymane. schedule_end_time to DATETIME2, a wartość domyślna to 9999-12-31 11:59:59.0000000. 
 
-[ ** \@job_id =** ] job_id WYJŚCIE  
-Numer identyfikacyjny zadania przypisany do zadania, jeśli został pomyślnie utworzony. job_id jest zmienną wyjściową typu uniqueidentifier.
+[ ** \@job_id =** ] job_id dane wyjściowe  
+Numer identyfikacyjny zadania przypisany do zadania, jeśli został utworzony pomyślnie. job_id to zmienna wyjściowa typu o unikatowych wartościach.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
+#### <a name="return-code-values"></a>Zwróć wartości kodu
 
-0 (sukces) lub 1 (porażka)
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-sp_add_job musi być uruchamiany z bazy danych agenta zadań określonej podczas tworzenia agenta zadania.
-Po wykonaniu sp_add_job, aby dodać zadanie, sp_add_jobstep może służyć do dodawania kroków, które wykonują działania dla zadania. Początkowy numer wersji zadania wynosi 0, który zostanie zwiększony do 1 po dodaniu pierwszego kroku.
+sp_add_job należy uruchomić z bazy danych agenta zadań określonej podczas tworzenia agenta zadań.
+Gdy sp_add_job zostało wykonane w celu dodania zadania, sp_add_jobstep może służyć do dodawania kroków, które wykonują działania dla tego zadania. Początkowy numer wersji zadania to 0, który zostanie zwiększony do 1 po dodaniu pierwszego kroku.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
-### <a name="sp_update_job"></a><a name="sp_update_job"></a>Sp_update_job
+### <a name="sp_update_job"></a><a name="sp_update_job"></a>sp_update_job
 
 Aktualizuje istniejące zadanie.
 
@@ -513,47 +513,47 @@ Aktualizuje istniejące zadanie.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, które ma zostać zaktualizowane. job_name jest nvarchar(128).
+Nazwa zadania do zaktualizowania. job_name jest nvarchar (128).
 
 [ ** \@new_name =** ] "new_name"  
-Nowa nazwa zadania. new_name jest nvarchar(128).
+Nowa nazwa zadania. new_name jest nvarchar (128).
 
-[ ** \@opis =** ] "opis"  
-Opis zadania. opis jest nvarchar(512).
+[ ** \@Description =** ] zharmonizowan  
+Opis zadania. Opis to nvarchar (512).
 
-[ ** \@włączony =** ] włączony  
-Określa, czy harmonogram zadania jest włączony (1) czy nie włączony (0). Włączona jest bit.
+[ ** \@Enabled =** ] włączone  
+Określa, czy harmonogram zadania jest włączony (1) czy nie jest włączony (0). Włączony jest bit.
 
 [ ** \@schedule_interval_type =** ] schedule_interval_type  
-Wartość wskazuje, kiedy zadanie ma zostać wykonane. schedule_interval_type jest nvarchar(50) i może być jedną z następujących wartości:
+Wartość wskazuje, kiedy zadanie ma zostać wykonane. schedule_interval_type jest nvarchar (50) i może być jedną z następujących wartości:
 
 - "Raz",
-- "Minuty",
-- "Godziny",
+- "Min",
+- "Godz.",
 - "Dni",
 - "Tygodnie",
-- "Miesiące"
+- Od
 
 [ ** \@schedule_interval_count =** ] schedule_interval_count  
-Liczba schedule_interval_count okresów, które mają wystąpić między każdym wykonaniem zadania. schedule_interval_count jest int, z domyślnym 1. Wartość musi być większa lub równa 1.
+Liczba schedule_interval_countych okresów między każdym wykonaniem zadania. schedule_interval_count jest int z wartością domyślną 1. Wartość musi być większa lub równa 1.
 
 [ ** \@schedule_start_time =** ] schedule_start_time  
-Data rozpoczęcia wykonywania zadania. schedule_start_time jest DATETIME2, z domyślną wartością 0001-01-01 00:00:00.000000.
+Data rozpoczęcia wykonywania zadania. schedule_start_time to DATETIME2, z wartością domyślną 0001-01-01 00:00:00.0000000.
 
 [ ** \@schedule_end_time =** ] schedule_end_time  
-Data zatrzymania wykonania zadania. schedule_end_time jest DATETIME2, z domyślną wartością 9999-12-31 11:59:59.0000000. 
+Data, w której wykonywanie zadania może zostać zatrzymane. schedule_end_time to DATETIME2, a wartość domyślna to 9999-12-31 11:59:59.0000000. 
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Po wykonaniu sp_add_job, aby dodać zadanie, sp_add_jobstep może służyć do dodawania kroków, które wykonują działania dla zadania. Początkowy numer wersji zadania wynosi 0, który zostanie zwiększony do 1 po dodaniu pierwszego kroku.
+Gdy sp_add_job zostało wykonane w celu dodania zadania, sp_add_jobstep może służyć do dodawania kroków, które wykonują działania dla tego zadania. Początkowy numer wersji zadania to 0, który zostanie zwiększony do 1 po dodaniu pierwszego kroku.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 
 
@@ -570,26 +570,26 @@ Usuwa istniejące zadanie.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania do usunięcia. job_name jest nvarchar(128).
+Nazwa zadania, które ma zostać usunięte. job_name jest nvarchar (128).
 
-[ ** \@force =** ] siła  
-Określa, czy usunąć, jeśli zadanie ma żadnych wykonań w toku i anulować wszystkie wykonania w toku (1) lub zakończyć się niepowodzeniem, jeśli wszystkie wykonania zadania są w toku (0). siła jest nieco.
+[ ** \@Force =** ] Wymuś  
+Określa, czy należy usunąć, czy zadanie ma wszystkie wykonania w toku, i anulować wszystkie wykonania w toku (1) lub zakończyć się niepowodzeniem, jeśli jakieś wykonania zadania są w toku (0). Wymuś to bit.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Historia zadań jest automatycznie usuwana po usunięciu zadania.
+Historia zadania jest automatycznie usuwana po usunięciu zadania.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 
 
-### <a name="sp_add_jobstep"></a><a name="sp_add_jobstep"></a>Sp_add_jobstep
+### <a name="sp_add_jobstep"></a><a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Dodaje krok do zadania.
 
@@ -625,93 +625,93 @@ Dodaje krok do zadania.
 #### <a name="arguments"></a>Argumenty
 
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, do którego należy dodać krok. job_name jest nvarchar(128).
+Nazwa zadania, do którego ma zostać dodany krok. job_name jest nvarchar (128).
 
 [ ** \@step_id =** ] step_id  
-Numer identyfikacyjny sekwencji dla kroku zadania. Numery identyfikacyjne kroków zaczynają się od 1 i przyrostowe bez przerw. Jeśli istniejący krok ma już ten identyfikator, ten krok i wszystkie poniższe kroki będą zwiększane w celu zwiększenia ich identyfikatora, tak aby ten nowy krok można było wstawić do sekwencji. Jeśli nie zostanie określony, step_id zostanie automatycznie przypisany do ostatniego w sekwencji kroków. step_id jest int.
+Numer identyfikacyjny sekwencji dla kroku zadania. Numery identyfikacyjne kroków rozpoczynają się od 1 i zwiększają się bez przerw. Jeśli istniejący krok ma już ten identyfikator, ten krok i wszystkie poniższe kroki zostaną narastane, aby można było wstawić ten nowy krok do sekwencji. Jeśli nie zostanie określony, step_id zostanie automatycznie przypisana do ostatniego z sekwencji kroków. step_id jest liczbą całkowitą.
 
 [ ** \@step_name =** ] step_name  
-Nazwa kroku. Należy określić, z wyjątkiem pierwszego kroku zadania, które (dla wygody) ma domyślną nazwę "JobStep". step_name jest nvarchar(128).
+Nazwa kroku. Musi być określony, z wyjątkiem pierwszego kroku zadania, które (dla wygody) ma domyślną nazwę "JobStep". step_name jest nvarchar (128).
 
 [ ** \@command_type =** ] "command_type"  
-Typ polecenia wykonywanego przez ten krok zadania. command_type jest nvarchar(50), z domyślną wartością TSql, co @command_type oznacza, że wartość parametru jest skryptem T-SQL.
+Typ polecenia, które jest wykonywane przez ten JobStep. command_type jest nvarchar (50) z wartością domyślną TSql, co oznacza, że wartość @command_type parametru jest skrypt T-SQL.
 
-Jeśli jest określony, wartość musi być TSql.
+Jeśli ta wartość jest określona, musi być TSql.
 
 [ ** \@command_source =** ] "command_source"  
-Typ lokalizacji, w której jest przechowywane polecenie. command_source jest nvarchar(50), z domyślną wartością Inline, co @command_source oznacza, że wartość parametru jest tekstem dosłownym polecenia.
+Typ lokalizacji, w której jest przechowywane Polecenie. command_source jest nvarchar (50) z wartością domyślną Śródwierszowego, co oznacza, że wartość @command_source parametru jest tekstem literału polecenia.
 
-Jeśli określono, wartość musi być wbudowana.
+Jeśli ta wartość jest określona, musi być wbudowana.
 
-[ ** \@polecenie =** ] 'polecenie'  
-Polecenie musi być prawidłowy skrypt T-SQL, a następnie wykonywane przez ten krok zadania. jest nvarchar(max), z wartością null.
+[ ** \@polecenie =** ] dotyczące  
+Polecenie musi być prawidłowym skryptem T-SQL i jest wykonywane przez ten krok zadania. polecenie jest typu nvarchar (max) i ma domyślnie wartość NULL.
 
 [ ** \@credential_name =** ] "credential_name"  
-Nazwa poświadczeń o zakresie bazy danych przechowywanych w tej bazie danych kontroli zadania, która jest używana do łączenia się z każdą z docelowych baz danych w grupie docelowej podczas wykonywania tego kroku. credential_name jest nvarchar(128).
+Nazwa poświadczenia zakresu bazy danych przechowywanej w tej bazie danych kontroli zadań, która jest używana do nawiązywania połączenia z każdą z docelowych baz danych w grupie docelowej po wykonaniu tego kroku. credential_name jest nvarchar (128).
 
-[ ** \@target_group_name =** ] "group_name docelowa"  
-Nazwa grupy docelowej, która zawiera docelowe bazy danych, na których zostanie wykonany krok zadania. target_group_name jest nvarchar(128).
+[ ** \@target_group_name =** ] "Target-group_name"  
+Nazwa grupy docelowej zawierającej docelowe bazy danych, w których zostanie wykonany krok zadania. target_group_name jest nvarchar (128).
 
 [ ** \@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
-Opóźnienie przed pierwszą próbą ponowienia próby, jeśli krok zadania nie powiedzie się przy próbie wykonania początkowego. initial_retry_interval_seconds jest int, z domyślną wartością 1.
+Opóźnienie przed pierwszym ponowieniem próby, jeśli etap zadania zakończy się niepowodzeniem podczas próby wykonania początkowej. initial_retry_interval_seconds jest int z wartością domyślną 1.
 
 [ ** \@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
-Maksymalne opóźnienie między próbami ponawiania. Jeśli opóźnienie między ponownych prób wzrośnie większy niż ta wartość, jest ograniczona do tej wartości zamiast tego. maximum_retry_interval_seconds jest int, z domyślną wartością 120.
+Maksymalne opóźnienie między ponownymi próbami. Jeśli opóźnienie między kolejnymi próbami będzie większe niż ta wartość, zostanie ona ograniczona do tej wartości. maximum_retry_interval_seconds jest int z wartością domyślną 120.
 
 [ ** \@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
-Mnożnik do zastosowania do opóźnienia ponawiania próby, jeśli wiele prób wykonania kroku zadania zakończy się niepowodzeniem. Na przykład jeśli pierwsza ponowna próbę miała opóźnienie 5 sekund, a mnożnik wycofywania wynosi 2,0, druga ponowna próby będzie miała opóźnienie 10 sekund, a trzecia ponowna próbę będzie miała opóźnienie 20 sekund. retry_interval_backoff_multiplier jest rzeczywista, z domyślną wartością 2.0.
+Mnożnik, który ma zostać zastosowany do opóźnienia ponowienia próby w przypadku niepowodzenia wykonywania wielu kroków zadania. Na przykład jeśli pierwsze ponowienie próby miało opóźnienie 5 sekund, a mnożnik wycofywania to 2,0, drugie ponowienie próby będzie miało opóźnienie 10 sekund, a trzecia ponowna próba będzie miała opóźnienie 20 sekund. retry_interval_backoff_multiplier jest prawdziwy, a wartość domyślna to 2,0.
 
 [ ** \@retry_attempts =** ] retry_attempts  
-Liczba ponownych ponów wykonania, jeśli początkowa próba nie powiedzie się. Na przykład jeśli wartość retry_attempts wynosi 10, będzie 1 próba początkowa i 10 ponownych prób, co daje łącznie 11 prób. Jeśli ostateczna próba ponowienia nie powiedzie się, wykonanie zadania zakończy się z cyklem życia niepowodzenie. retry_attempts jest int, z domyślną wartością 10.
+Liczba ponownych prób wykonania, jeśli próba początkowa nie powiedzie się. Jeśli na przykład wartość retry_attempts wynosi 10, zostanie wykorzystana 1 próba początkowa i 10 ponownych prób, co spowoduje całkowite 11 prób. Jeśli końcowa próba ponowienia nie powiedzie się, wykonywanie zadania zakończy się niepowodzeniem z cyklem życia. retry_attempts jest int, z wartością domyślną 10.
 
 [ ** \@step_timeout_seconds =** ] step_timeout_seconds  
-Maksymalny czas wykonania kroku. Jeśli ten czas zostanie przekroczony, wykonanie zadania zakończy się z cyklem życia TimedOut. step_timeout_seconds jest int, z domyślną wartością 43 200 sekund (12 godzin).
+Maksymalny czas, jaki może wykonać krok. W przypadku przekroczenia tego czasu wykonywanie zadania zakończy się z cyklem życia TimedOut. step_timeout_seconds jest int z wartością domyślną 43 200 sekund (12 godzin).
 
 [ ** \@output_type =** ] "output_type"  
-Jeśli nie null, typ miejsca docelowego, do których jest zapisywany pierwszy zestaw wyników polecenia. output_type jest nvarchar(50), z wartością null.
+Jeśli wartość nie jest równa null, typ lokalizacji docelowej, w której jest zapisywana pierwszy zestaw wyników polecenia. output_type jest nvarchar (50) z wartością domyślną RÓWNą NULL.
 
-Jeśli określono, wartość musi być SqlDatabase.
+Jeśli ta wartość jest określona, musi to być SQLDatabase.
 
 [ ** \@output_credential_name =** ] "output_credential_name"  
-Jeśli nie wartość null, nazwa poświadczenia o zakresie bazy danych, który jest używany do łączenia się z wyjściową docelową bazą danych. Należy określić, jeśli output_type jest równa SqlDatabase. output_credential_name jest nvarchar(128), z domyślną wartością NULL.
+Jeśli wartość nie jest równa null, nazwa poświadczenia zakresu bazy danych, która jest używana do nawiązywania połączenia z wyjściową docelową bazą danych. Należy określić, jeśli output_type jest równa SQLDatabase. output_credential_name jest nvarchar (128) z wartością domyślną RÓWNą NULL.
 
 [ ** \@output_subscription_id =** ] "output_subscription_id"  
-Potrzebuje opisu.
+Wymaga opisu.
 
 [ ** \@output_resource_group_name =** ] "output_resource_group_name"  
-Potrzebuje opisu.
+Wymaga opisu.
 
 [ ** \@output_server_name =** ] "output_server_name"  
-Jeśli nie wartość null, w pełni kwalifikowana nazwa DNS serwera zawierającego wyjściową docelową bazę danych. Należy określić, jeśli output_type jest równa SqlDatabase. output_server_name jest nvarchar(256), z wartością null.
+Jeśli wartość nie jest równa null, w pełni kwalifikowana nazwa DNS serwera, który zawiera wyjściową bazę danych wyjściowych. Należy określić, jeśli output_type jest równa SQLDatabase. output_server_name jest nvarchar (256), z wartością domyślną NULL.
 
 [ ** \@output_database_name =** ] "output_database_name"  
-Jeśli nie null, nazwa bazy danych, która zawiera tabelę docelową danych wyjściowych. Należy określić, jeśli output_type jest równa SqlDatabase. output_database_name jest nvarchar(128), z wartością null.
+Jeśli wartość nie jest równa null, nazwa bazy danych zawierającej wyjściową tabelę docelową. Należy określić, jeśli output_type jest równa SQLDatabase. output_database_name jest nvarchar (128), z domyślną wartością NULL.
 
 [ ** \@output_schema_name =** ] "output_schema_name"  
-Jeśli nie wartość null, nazwa schematu SQL, który zawiera tabelę docelową danych wyjściowych. Jeśli output_type jest równa SqlDatabase, wartość domyślna jest dbo. output_schema_name jest nvarchar(128).
+Jeśli wartość nie jest równa null, nazwa schematu SQL zawierającego wyjściową tabelę docelową. Jeśli output_type jest równe SQLDatabase, wartość domyślna to dbo. output_schema_name jest nvarchar (128).
 
 [ ** \@output_table_name =** ] "output_table_name"  
-Jeśli nie null, nazwa tabeli, do których zostanie zapisany pierwszy zestaw wyników polecenia. Jeśli tabela jeszcze nie istnieje, zostanie utworzona na podstawie schematu zwracanego zestawu wyników. Należy określić, jeśli output_type jest równa SqlDatabase. output_table_name jest nvarchar(128), z domyślną wartością NULL.
+Jeśli wartość nie jest równa null, nazwa tabeli, w której zostanie zapisany pierwszy zestaw wyników polecenia. Jeśli tabela jeszcze nie istnieje, zostanie utworzona na podstawie schematu zestawu wynik zwracanego. Należy określić, jeśli output_type jest równa SQLDatabase. output_table_name jest nvarchar (128) z wartością domyślną RÓWNą NULL.
 
-[ ** \@job_version =** ] job_version WYJŚCIE  
-Parametr wyjściowy, który zostanie przypisany nowy numer wersji zadania. job_version jest int.
+[ ** \@job_version =** ] job_version dane wyjściowe  
+Parametr wyjściowy, do którego zostanie przypisany nowy numer wersji zadania. job_version jest int.
 
-[ ** \@max_parallelism =** ] max_parallelism WYJŚCIE  
-Maksymalny poziom równoległości na elastyczną pulę. Jeśli ustawiona, krok zadania będzie ograniczony tylko do uruchamiania na maksymalnie tyle baz danych na pulę elastyczną. Dotyczy to każdej puli elastycznej, która jest bezpośrednio uwzględniona w grupie docelowej lub znajduje się wewnątrz serwera, który znajduje się w grupie docelowej. max_parallelism jest int.
+[ ** \@max_parallelism =** ] max_parallelism dane wyjściowe  
+Maksymalny poziom równoległości na pulę elastyczną. Jeśli ta wartość jest ustawiona, krok zadania będzie ograniczony tylko do liczby baz danych na pulę elastyczną. Dotyczy to każdej puli elastycznej, która jest bezpośrednio uwzględniona w grupie docelowej lub znajduje się wewnątrz serwera, który znajduje się w grupie docelowej. max_parallelism jest int.
 
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Gdy sp_add_jobstep powiedzie się, bieżący numer wersji zadania jest zwiększany. Przy następnym wykonaniu zadania zostanie użyta nowa wersja. Jeśli zadanie jest obecnie wykonywane, to wykonanie nie będzie zawierać nowy krok.
+Po pomyślnym zasp_add_jobstepu numer bieżącej wersji zadania zostanie zwiększony. Przy następnym wykonaniu zadania zostanie użyta Nowa wersja. Jeśli zadanie jest aktualnie wykonywane, wykonanie nie będzie zawierać nowego kroku.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:  
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:  
 
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 
 
@@ -749,93 +749,93 @@ Aktualizuje krok zadania.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, do którego należy krok. job_name jest nvarchar(128).
+Nazwa zadania, do którego należy ten krok. job_name jest nvarchar (128).
 
 [ ** \@step_id =** ] step_id  
-Numer identyfikacyjny kroku zadania, który ma zostać zmodyfikowany. Należy określić step_id lub step_name. step_id jest int.
+Numer identyfikacyjny kroku zadania, który ma zostać zmodyfikowany. Należy określić wartość step_id lub step_name. step_id jest liczbą całkowitą.
 
 [ ** \@step_name =** ] "step_name"  
-Nazwa kroku, który ma zostać zmodyfikowany. Należy określić step_id lub step_name. step_name jest nvarchar(128).
+Nazwa kroku do zmodyfikowania. Należy określić wartość step_id lub step_name. step_name jest nvarchar (128).
 
 [ ** \@new_id =** ] new_id  
-Nowy numer identyfikacyjny sekwencji dla kroku zadania. Numery identyfikacyjne kroków zaczynają się od 1 i przyrostowe bez przerw. Jeśli krok zostanie ponownie zamówiony, inne kroki zostaną automatycznie ponumerowane.
+Numer identyfikacyjny nowej sekwencji dla kroku zadania. Numery identyfikacyjne kroków rozpoczynają się od 1 i zwiększają się bez przerw. W przypadku zmiany kolejności kroków kolejne kroki zostaną automatycznie roznumerowane.
 
 [ ** \@new_name =** ] "new_name"  
-Nowa nazwa kroku. new_name jest nvarchar(128).
+Nowa nazwa kroku. new_name jest nvarchar (128).
 
 [ ** \@command_type =** ] "command_type"  
-Typ polecenia wykonywanego przez ten krok zadania. command_type jest nvarchar(50), z domyślną wartością TSql, co @command_type oznacza, że wartość parametru jest skryptem T-SQL.
+Typ polecenia, które jest wykonywane przez ten JobStep. command_type jest nvarchar (50) z wartością domyślną TSql, co oznacza, że wartość @command_type parametru jest skrypt T-SQL.
 
-Jeśli jest określony, wartość musi być TSql.
+Jeśli ta wartość jest określona, musi być TSql.
 
 [ ** \@command_source =** ] "command_source"  
-Typ lokalizacji, w której jest przechowywane polecenie. command_source jest nvarchar(50), z domyślną wartością Inline, co @command_source oznacza, że wartość parametru jest tekstem dosłownym polecenia.
+Typ lokalizacji, w której jest przechowywane Polecenie. command_source jest nvarchar (50) z wartością domyślną Śródwierszowego, co oznacza, że wartość @command_source parametru jest tekstem literału polecenia.
 
-Jeśli określono, wartość musi być wbudowana.
+Jeśli ta wartość jest określona, musi być wbudowana.
 
-[ ** \@polecenie =** ] 'polecenie'  
-Polecenia muszą być prawidłowym skryptem T-SQL, a następnie wykonywane przez ten krok zadania. jest nvarchar(max), z wartością null.
+[ ** \@polecenie =** ] dotyczące  
+Polecenia muszą być prawidłowym skryptem T-SQL i są następnie wykonywane przez ten krok zadania. polecenie jest typu nvarchar (max) i ma domyślnie wartość NULL.
 
 [ ** \@credential_name =** ] "credential_name"  
-Nazwa poświadczeń o zakresie bazy danych przechowywanych w tej bazie danych kontroli zadania, która jest używana do łączenia się z każdą z docelowych baz danych w grupie docelowej podczas wykonywania tego kroku. credential_name jest nvarchar(128).
+Nazwa poświadczenia zakresu bazy danych przechowywanej w tej bazie danych kontroli zadań, która jest używana do nawiązywania połączenia z każdą z docelowych baz danych w grupie docelowej po wykonaniu tego kroku. credential_name jest nvarchar (128).
 
-[ ** \@target_group_name =** ] "group_name docelowa"  
-Nazwa grupy docelowej, która zawiera docelowe bazy danych, na których zostanie wykonany krok zadania. target_group_name jest nvarchar(128).
+[ ** \@target_group_name =** ] "Target-group_name"  
+Nazwa grupy docelowej zawierającej docelowe bazy danych, w których zostanie wykonany krok zadania. target_group_name jest nvarchar (128).
 
 [ ** \@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
-Opóźnienie przed pierwszą próbą ponowienia próby, jeśli krok zadania nie powiedzie się przy próbie wykonania początkowego. initial_retry_interval_seconds jest int, z domyślną wartością 1.
+Opóźnienie przed pierwszym ponowieniem próby, jeśli etap zadania zakończy się niepowodzeniem podczas próby wykonania początkowej. initial_retry_interval_seconds jest int z wartością domyślną 1.
 
 [ ** \@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
-Maksymalne opóźnienie między próbami ponawiania. Jeśli opóźnienie między ponownych prób wzrośnie większy niż ta wartość, jest ograniczona do tej wartości zamiast tego. maximum_retry_interval_seconds jest int, z domyślną wartością 120.
+Maksymalne opóźnienie między ponownymi próbami. Jeśli opóźnienie między kolejnymi próbami będzie większe niż ta wartość, zostanie ona ograniczona do tej wartości. maximum_retry_interval_seconds jest int z wartością domyślną 120.
 
 [ ** \@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
-Mnożnik do zastosowania do opóźnienia ponawiania próby, jeśli wiele prób wykonania kroku zadania zakończy się niepowodzeniem. Na przykład jeśli pierwsza ponowna próbę miała opóźnienie 5 sekund, a mnożnik wycofywania wynosi 2,0, druga ponowna próby będzie miała opóźnienie 10 sekund, a trzecia ponowna próbę będzie miała opóźnienie 20 sekund. retry_interval_backoff_multiplier jest rzeczywista, z domyślną wartością 2.0.
+Mnożnik, który ma zostać zastosowany do opóźnienia ponowienia próby w przypadku niepowodzenia wykonywania wielu kroków zadania. Na przykład jeśli pierwsze ponowienie próby miało opóźnienie 5 sekund, a mnożnik wycofywania to 2,0, drugie ponowienie próby będzie miało opóźnienie 10 sekund, a trzecia ponowna próba będzie miała opóźnienie 20 sekund. retry_interval_backoff_multiplier jest prawdziwy, a wartość domyślna to 2,0.
 
 [ ** \@retry_attempts =** ] retry_attempts  
-Liczba ponownych ponów wykonania, jeśli początkowa próba nie powiedzie się. Na przykład jeśli wartość retry_attempts wynosi 10, będzie 1 próba początkowa i 10 ponownych prób, co daje łącznie 11 prób. Jeśli ostateczna próba ponowienia nie powiedzie się, wykonanie zadania zakończy się z cyklem życia niepowodzenie. retry_attempts jest int, z domyślną wartością 10.
+Liczba ponownych prób wykonania, jeśli próba początkowa nie powiedzie się. Jeśli na przykład wartość retry_attempts wynosi 10, zostanie wykorzystana 1 próba początkowa i 10 ponownych prób, co spowoduje całkowite 11 prób. Jeśli końcowa próba ponowienia nie powiedzie się, wykonywanie zadania zakończy się niepowodzeniem z cyklem życia. retry_attempts jest int, z wartością domyślną 10.
 
 [ ** \@step_timeout_seconds =** ] step_timeout_seconds  
-Maksymalny czas wykonania kroku. Jeśli ten czas zostanie przekroczony, wykonanie zadania zakończy się z cyklem życia TimedOut. step_timeout_seconds jest int, z domyślną wartością 43 200 sekund (12 godzin).
+Maksymalny czas, jaki może wykonać krok. W przypadku przekroczenia tego czasu wykonywanie zadania zakończy się z cyklem życia TimedOut. step_timeout_seconds jest int z wartością domyślną 43 200 sekund (12 godzin).
 
 [ ** \@output_type =** ] "output_type"  
-Jeśli nie null, typ miejsca docelowego, do których jest zapisywany pierwszy zestaw wyników polecenia. Aby zresetować wartość output_type z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_type jest nvarchar(50), z wartością null.
+Jeśli wartość nie jest równa null, typ lokalizacji docelowej, w której jest zapisywana pierwszy zestaw wyników polecenia. Aby zresetować wartość output_type z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_type jest nvarchar (50) z wartością domyślną RÓWNą NULL.
 
-Jeśli określono, wartość musi być SqlDatabase.
+Jeśli ta wartość jest określona, musi to być SQLDatabase.
 
 [ ** \@output_credential_name =** ] "output_credential_name"  
-Jeśli nie wartość null, nazwa poświadczenia o zakresie bazy danych, który jest używany do łączenia się z wyjściową docelową bazą danych. Należy określić, jeśli output_type jest równa SqlDatabase. Aby zresetować wartość output_credential_name z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_credential_name jest nvarchar(128), z domyślną wartością NULL.
+Jeśli wartość nie jest równa null, nazwa poświadczenia zakresu bazy danych, która jest używana do nawiązywania połączenia z wyjściową docelową bazą danych. Należy określić, jeśli output_type jest równa SQLDatabase. Aby zresetować wartość output_credential_name z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_credential_name jest nvarchar (128) z wartością domyślną RÓWNą NULL.
 
 [ ** \@output_server_name =** ] "output_server_name"  
-Jeśli nie wartość null, w pełni kwalifikowana nazwa DNS serwera zawierającego wyjściową docelową bazę danych. Należy określić, jeśli output_type jest równa SqlDatabase. Aby zresetować wartość output_server_name z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_server_name jest nvarchar(256), z wartością null.
+Jeśli wartość nie jest równa null, w pełni kwalifikowana nazwa DNS serwera, który zawiera wyjściową bazę danych wyjściowych. Należy określić, jeśli output_type jest równa SQLDatabase. Aby zresetować wartość output_server_name z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_server_name jest nvarchar (256), z wartością domyślną NULL.
 
 [ ** \@output_database_name =** ] "output_database_name"  
-Jeśli nie null, nazwa bazy danych, która zawiera tabelę docelową danych wyjściowych. Należy określić, jeśli output_type jest równa SqlDatabase. Aby zresetować wartość output_database_name z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_database_name jest nvarchar(128), z wartością null.
+Jeśli wartość nie jest równa null, nazwa bazy danych zawierającej wyjściową tabelę docelową. Należy określić, jeśli output_type jest równa SQLDatabase. Aby zresetować wartość output_database_name z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_database_name jest nvarchar (128), z domyślną wartością NULL.
 
 [ ** \@output_schema_name =** ] "output_schema_name"  
-Jeśli nie wartość null, nazwa schematu SQL, który zawiera tabelę docelową danych wyjściowych. Jeśli output_type jest równa SqlDatabase, wartość domyślna jest dbo. Aby zresetować wartość output_schema_name z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_schema_name jest nvarchar(128).
+Jeśli wartość nie jest równa null, nazwa schematu SQL zawierającego wyjściową tabelę docelową. Jeśli output_type jest równe SQLDatabase, wartość domyślna to dbo. Aby zresetować wartość output_schema_name z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_schema_name jest nvarchar (128).
 
 [ ** \@output_table_name =** ] "output_table_name"  
-Jeśli nie null, nazwa tabeli, do których zostanie zapisany pierwszy zestaw wyników polecenia. Jeśli tabela jeszcze nie istnieje, zostanie utworzona na podstawie schematu zwracanego zestawu wyników. Należy określić, jeśli output_type jest równa SqlDatabase. Aby zresetować wartość output_server_name z powrotem do wartości NULL, ustaw wartość tego parametru na '' (pusty ciąg). output_table_name jest nvarchar(128), z domyślną wartością NULL.
+Jeśli wartość nie jest równa null, nazwa tabeli, w której zostanie zapisany pierwszy zestaw wyników polecenia. Jeśli tabela jeszcze nie istnieje, zostanie utworzona na podstawie schematu zestawu wynik zwracanego. Należy określić, jeśli output_type jest równa SQLDatabase. Aby zresetować wartość output_server_name z powrotem do wartości NULL, ustaw wartość tego parametru na "" (pusty ciąg). output_table_name jest nvarchar (128) z wartością domyślną RÓWNą NULL.
 
-[ ** \@job_version =** ] job_version WYJŚCIE  
-Parametr wyjściowy, który zostanie przypisany nowy numer wersji zadania. job_version jest int.
+[ ** \@job_version =** ] job_version dane wyjściowe  
+Parametr wyjściowy, do którego zostanie przypisany nowy numer wersji zadania. job_version jest int.
 
-[ ** \@max_parallelism =** ] max_parallelism WYJŚCIE  
-Maksymalny poziom równoległości na elastyczną pulę. Jeśli ustawiona, krok zadania będzie ograniczony tylko do uruchamiania na maksymalnie tyle baz danych na pulę elastyczną. Dotyczy to każdej puli elastycznej, która jest bezpośrednio uwzględniona w grupie docelowej lub znajduje się wewnątrz serwera, który znajduje się w grupie docelowej. Aby zresetować wartość max_parallelism z powrotem do wartości null, należy ustawić wartość tego parametru na -1. max_parallelism jest int.
+[ ** \@max_parallelism =** ] max_parallelism dane wyjściowe  
+Maksymalny poziom równoległości na pulę elastyczną. Jeśli ta wartość jest ustawiona, krok zadania będzie ograniczony tylko do liczby baz danych na pulę elastyczną. Dotyczy to każdej puli elastycznej, która jest bezpośrednio uwzględniona w grupie docelowej lub znajduje się wewnątrz serwera, który znajduje się w grupie docelowej. Aby zresetować wartość max_parallelism z powrotem do wartości null, ustaw wartość tego parametru na-1. max_parallelism jest int.
 
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Nie będzie to miało wpływu na wszelkie wykonania zadania w toku. Gdy sp_update_jobstep powiedzie się, numer wersji zadania jest zwiększany. Przy następnym wykonaniu zadania zostanie użyta nowa wersja.
+Nie wpłynie to na żadne wykonywanie zadania w toku. Po pomyślnym zasp_update_jobstepu numer wersji zadania zostanie zwiększony. Przy następnym wykonaniu zadania zostanie użyta Nowa wersja.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników
 
 
 
@@ -856,39 +856,39 @@ Usuwa krok zadania z zadania.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, z którego zostanie usunięty krok. job_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa zadania, z którego zostanie usunięty krok. job_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@step_id =** ] step_id  
-Numer identyfikacyjny kroku zadania do usunięcia. Należy określić step_id lub step_name. step_id jest int.
+Numer identyfikacyjny kroku zadania, który ma zostać usunięty. Należy określić wartość step_id lub step_name. step_id jest liczbą całkowitą.
 
 [ ** \@step_name =** ] "step_name"  
-Nazwa kroku do usunięcia. Należy określić step_id lub step_name. step_name jest nvarchar(128).
+Nazwa kroku, który ma zostać usunięty. Należy określić wartość step_id lub step_name. step_name jest nvarchar (128).
 
-[ ** \@job_version =** ] job_version WYJŚCIE  
-Parametr wyjściowy, który zostanie przypisany nowy numer wersji zadania. job_version jest int.
+[ ** \@job_version =** ] job_version dane wyjściowe  
+Parametr wyjściowy, do którego zostanie przypisany nowy numer wersji zadania. job_version jest int.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Nie będzie to miało wpływu na wszelkie wykonania zadania w toku. Gdy sp_update_jobstep powiedzie się, numer wersji zadania jest zwiększany. Przy następnym wykonaniu zadania zostanie użyta nowa wersja.
+Nie wpłynie to na żadne wykonywanie zadania w toku. Po pomyślnym zasp_update_jobstepu numer wersji zadania zostanie zwiększony. Przy następnym wykonaniu zadania zostanie użyta Nowa wersja.
 
-Pozostałe kroki zadania zostaną automatycznie ponumerowane, aby wypełnić lukę pozostawioną przez usunięty krok zadania.
+Pozostałe kroki zadania zostaną automatycznie zmienione w celu wypełnienia przerwy pozostawionej przez usunięty krok zadania.
  
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 
 
 
 
 
-### <a name="sp_start_job"></a><a name="sp_start_job"></a>Sp_start_job
+### <a name="sp_start_job"></a><a name="sp_start_job"></a>sp_start_job
 
-Rozpoczyna wykonywanie zadania.
+Uruchamia wykonywanie zadania.
 
 #### <a name="syntax"></a>Składnia
 
@@ -900,26 +900,26 @@ Rozpoczyna wykonywanie zadania.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, z którego zostanie usunięty krok. job_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa zadania, z którego zostanie usunięty krok. job_name jest nvarchar (128), bez domyślnego.
 
-[ ** \@job_execution_id =** ] job_execution_id WYJŚCIE  
-Parametr wyjściowy, który zostanie przypisany identyfikator wykonania zadania. job_version jest unikalnyidentyfikator.
+[ ** \@job_execution_id =** ] job_execution_id dane wyjściowe  
+Parametr wyjściowy, do którego zostanie przypisany identyfikator wykonywania zadania. job_version jest unikatowym identyfikatorem.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
 Brak.
  
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
-### <a name="sp_stop_job"></a><a name="sp_stop_job"></a>Sp_stop_job
+### <a name="sp_stop_job"></a><a name="sp_stop_job"></a>sp_stop_job
 
-Zatrzymuje wykonywanie zadania.
+Kończy wykonywanie zadania.
 
 #### <a name="syntax"></a>Składnia
 
@@ -931,19 +931,19 @@ Zatrzymuje wykonywanie zadania.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_execution_id =** ] job_execution_id  
-Numer identyfikacyjny wykonania zadania do zatrzymania. job_execution_id jest unikatowyidentyfikator, z domyślną wartością NULL.
+Numer identyfikacyjny wykonania zadania, który ma zostać zatrzymany. job_execution_id jest identyfikatorem unikatowym z wartością domyślną NULL.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
 Brak.
  
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 
 ### <a name="sp_add_target_group"></a><a name="sp_add_target_group"></a>sp_add_target_group
@@ -961,21 +961,21 @@ Dodaje grupę docelową.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@target_group_name =** ] "target_group_name"  
-Nazwa grupy docelowej do utworzenia. target_group_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa grupy docelowej do utworzenia. target_group_name jest nvarchar (128), bez domyślnego.
 
-[ ** \@target_group_id =** ] target_group_id DANE WYJŚCIOWE Numer identyfikacyjny grupy docelowej przypisany do zadania, jeśli został pomyślnie utworzony. target_group_id jest zmienną wyjściową typu uniqueidentifier, z wartością domyślną NULL.
+[ ** \@target_group_id =** ] target_group_id dane wyjściowe numeru identyfikacyjnego grupy docelowej przypisanego do zadania, jeśli zostało pomyślnie utworzone. target_group_id to zmienna wyjściowa typu o unikatowych wartościach z wartością NULL.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Grupy docelowe zapewniają łatwy sposób kierowania zadania w kolekcji baz danych.
+Grupy docelowe umożliwiają łatwe kierowanie zadania w kolekcji baz danych.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 ### <a name="sp_delete_target_group"></a><a name="sp_delete_target_group"></a>sp_delete_target_group
 
@@ -991,19 +991,19 @@ Usuwa grupę docelową.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@target_group_name =** ] "target_group_name"  
-Nazwa grupy docelowej do usunięcia. target_group_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa grupy docelowej do usunięcia. target_group_name jest nvarchar (128), bez domyślnego.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
 Brak.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 ### <a name="sp_add_target_group_member"></a><a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
@@ -1025,44 +1025,44 @@ Dodaje bazę danych lub grupę baz danych do grupy docelowej.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@target_group_name =** ] "target_group_name"  
-Nazwa grupy docelowej, do której zostanie dodany element członkowski. target_group_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa grupy docelowej, do której zostanie dodany członek. target_group_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@membership_type =** ] "membership_type"  
-Określa, czy członek grupy docelowej zostanie uwzględniony lub wykluczony. target_group_name jest nvarchar(128), z domyślnym "Include". Prawidłowe wartości dla target_group_name to "Uwzględnij" lub "Wyklucz".
+Określa, czy element członkowski grupy docelowej zostanie uwzględniony lub wykluczony. target_group_name jest nvarchar (128) z wartością domyślną "include". Prawidłowe wartości dla target_group_name to "include" lub "exclude".
 
 [ ** \@target_type =** ] "target_type"  
-Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkie bazy danych na serwerze, wszystkie bazy danych w puli elastycznej, wszystkie bazy danych na mapie niezależnego fragmentu lub pojedynczej bazy danych. target_type jest nvarchar(128), bez wartości domyślnej. Prawidłowe wartości dla target_type to "SqlServer", "SqlElasticPool", "SqlDatabase" lub "SqlShardMap". 
+Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkich baz danych na serwerze, wszystkich baz danych w puli elastycznej, wszystkich baz danych na mapie fragmentu lub pojedynczej bazy danych. target_type jest nvarchar (128), bez domyślnego. Prawidłowe wartości target_type to "SqlServer", "SqlElasticPool", "SQLDatabase" i "SqlShardMap". 
 
 [ ** \@refresh_credential_name =** ] "refresh_credential_name"  
-Nazwa serwera bazy danych SQL. refresh_credential_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa serwera SQL Database. refresh_credential_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@server_name =** ] "server_name"  
-Nazwa serwera bazy danych SQL, który powinien zostać dodany do określonej grupy docelowej. server_name należy określić, gdy target_type jest "SqlServer". server_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa serwera SQL Database, który ma zostać dodany do określonej grupy docelowej. server_name należy określić, gdy target_type to "SqlServer". server_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@database_name =** ] "database_name"  
-Nazwa bazy danych, która powinna zostać dodana do określonej grupy docelowej. database_name należy określić, gdy target_type jest "SqlDatabase". database_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa bazy danych, która powinna zostać dodana do określonej grupy docelowej. database_name należy określić, gdy target_type to "SQLDatabase". database_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@elastic_pool_name =** ] "elastic_pool_name"  
-Nazwa puli elastycznej, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlElasticPool". elastic_pool_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa puli elastycznej, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlElasticPool". elastic_pool_name jest nvarchar (128), bez domyślnego.
 
 [ ** \@shard_map_name =** ] "shard_map_name"  
-Nazwa puli map niezależnego fragmentu, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlSqlShardMap". shard_map_name jest nvarchar(128), bez wartości domyślnej.
+Nazwa puli map fragmentu, która powinna zostać dodana do określonej grupy docelowej. elastic_pool_name należy określić, gdy target_type jest "SqlSqlShardMap". shard_map_name jest nvarchar (128), bez domyślnego.
 
-[ ** \@target_id =** ] target_group_id WYJŚCIE  
-Docelowy numer identyfikacyjny przypisany do członka grupy docelowej, jeśli został utworzony, został dodany do grupy docelowej. target_id jest zmienną wyjściową typu uniqueidentifier, z wartością domyślną NULL.
-Wartości kodu zwrotu 0 (sukces) lub 1 (niepowodzenie)
+[ ** \@target_id =** ] target_group_id dane wyjściowe  
+Docelowy numer identyfikacyjny przypisany do elementu członkowskiego grupy docelowej, jeśli został dodany do grupy docelowej. target_id to zmienna wyjściowa typu o unikatowych wartościach z wartością NULL.
+Zwróć wartości kodu 0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Zadanie jest wykonywane we wszystkich pojedynczych bazach danych w ramach serwera bazy danych SQL lub w puli elastycznej w czasie wykonywania, gdy serwer bazy danych SQL lub pula elastyczna znajduje się w grupie docelowej.
+Zadanie jest wykonywane na wszystkich pojedynczych bazach danych w ramach serwera SQL Database lub w puli elastycznej w czasie wykonywania, gdy w grupie docelowej znajduje się serwer SQL Database lub Pula elastyczna.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 #### <a name="examples"></a>Przykłady
-Poniższy przykład dodaje wszystkie bazy danych na serwerach Londyn i NewYork do grupy Serwery obsługi informacji o klientach. Należy połączyć się z bazą danych zadań określoną podczas tworzenia agenta zadania, w tym przypadku ElasticJobs.
+Poniższy przykład dodaje wszystkie bazy danych na serwerach Londyn i NewYork do serwerów grup, które utrzymują informacje o klientach. Należy nawiązać połączenie z bazą danych zadań określoną podczas tworzenia agenta zadań, w tym przypadku ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1096,7 +1096,7 @@ GO
 
 ### <a name="sp_delete_target_group_member"></a><a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
-Usuwa członka grupy docelowej z grupy docelowej.
+Usuwa element członkowski grupy docelowej z grupy docelowej.
 
 #### <a name="syntax"></a>Składnia
 
@@ -1108,26 +1108,26 @@ Usuwa członka grupy docelowej z grupy docelowej.
 
 
 
-Argumenty @target_group_name [ = ] 'target_group_name'  
-Nazwa grupy docelowej, z której ma usunąć członka grupy docelowej. target_group_name jest nvarchar(128), bez wartości domyślnej.
+Argumenty [ @target_group_name =] "target_group_name"  
+Nazwa grupy docelowej, z której ma zostać usunięty członek grupy docelowej. target_group_name jest nvarchar (128), bez domyślnego.
 
-[ @target_id = ] target_id  
- Docelowy numer identyfikacyjny przypisany do członka grupy docelowej do usunięcia. target_id jest unikatowymidentyfikatorem, z wartością null.
+[ @target_id =] target_id  
+ Docelowy numer identyfikacyjny przypisany do elementu członkowskiego grupy docelowej, który ma zostać usunięty. target_id jest unikatowym identyfikatorem i ma domyślnie wartość NULL.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (porażka)
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (sukces) lub 1 (niepowodzenie)
 
 #### <a name="remarks"></a>Uwagi
-Grupy docelowe zapewniają łatwy sposób kierowania zadania w kolekcji baz danych.
+Grupy docelowe umożliwiają łatwe kierowanie zadania w kolekcji baz danych.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 #### <a name="examples"></a>Przykłady
-Poniższy przykład usuwa serwer w Londynie z grupy Serwery obsługi informacji o klientach. Należy połączyć się z bazą danych zadań określoną podczas tworzenia agenta zadania, w tym przypadku ElasticJobs.
+Poniższy przykład usuwa serwer Londyn z serwerów grupy, które utrzymują informacje o klientach. Należy nawiązać połączenie z bazą danych zadań określoną podczas tworzenia agenta zadań, w tym przypadku ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1145,9 +1145,9 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>Sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
-Usuwa rekordy historii dla zadania.
+Usuwa rekordy historii zadania.
 
 #### <a name="syntax"></a>Składnia
 
@@ -1160,25 +1160,25 @@ Usuwa rekordy historii dla zadania.
 
 #### <a name="arguments"></a>Argumenty
 [ ** \@job_name =** ] "job_name"  
-Nazwa zadania, dla którego ma być usuwana historia rekordów. job_name jest nvarchar(128), z wartością null. Należy określić job_id lub job_name, ale nie można określić obu tych rozwiązań.
+Nazwa zadania, dla którego mają zostać usunięte rekordy historii. job_name jest nvarchar (128), z domyślną wartością NULL. Należy określić parametr job_id lub job_name, ale nie można określić obu tych wartości.
 
 [ ** \@job_id =** ] job_id  
- Numer identyfikacyjny zadania zadania dla rekordów do usunięcia. job_id jest unikatowyidentyfikator, z wartością null. Należy określić job_id lub job_name, ale nie można określić obu tych rozwiązań.
+ Numer identyfikacyjny zadania, dla którego mają zostać usunięte rekordy. job_id jest unikatowym identyfikatorem z wartością NULL. Należy określić parametr job_id lub job_name, ale nie można określić obu tych wartości.
 
 [ ** \@oldest_date =** ] oldest_date  
- Najstarszy rekord do zachowania w historii. oldest_date jest DATETIME2, z wartością null. Po określeniu oldest_date sp_purge_jobhistory usuwa tylko rekordy starsze niż określona wartość.
+ Najstarszy rekord do zachowania w historii. oldest_date jest DATETIME2, a wartością domyślną jest NULL. Gdy oldest_date jest określony, sp_purge_jobhistory usuwa tylko te rekordy, które są starsze niż określona wartość.
 
-#### <a name="return-code-values"></a>Zwracane wartości kodu
-0 (sukces) lub 1 (niepowodzenie) Uwagi Grupy docelowe zapewniają łatwy sposób kierowania zadania w kolekcji baz danych.
+#### <a name="return-code-values"></a>Zwróć wartości kodu
+0 (powodzenie) lub 1 (niepowodzenie) grupy docelowe uwag umożliwiają łatwe kierowanie zadania w kolekcji baz danych.
 
 #### <a name="permissions"></a>Uprawnienia
-Domyślnie członkowie roli serwera stałego sysadmin mogą wykonać tę procedurę składowaną. Ograniczają one użytkownika do po prostu być w stanie monitorować zadania, można przyznać użytkownikowi, aby być częścią następującej roli bazy danych w bazie danych agenta zadań określony podczas tworzenia agenta zadania:
+Domyślnie członkowie stałej roli serwera sysadmin mogą wykonać tę procedurę składowaną. Ograniczają użytkownikowi możliwość monitorowania zadań, ale użytkownik może należeć do następującej roli bazy danych w bazie danych agentów zadań określonej podczas tworzenia agenta zadania:
 - jobs_reader
 
-Aby uzyskać szczegółowe informacje na temat uprawnień tych ról, zobacz permission sekcji w tym dokumencie. Tylko członkowie sysadmin można użyć tej procedury składowanej do edycji atrybutów zadań, które są własnością innych użytkowników.
+Aby uzyskać szczegółowe informacje o uprawnieniach tych ról, zobacz sekcję dotyczącą uprawnień w tym dokumencie. Tylko członkowie roli sysadmin mogą używać tej procedury składowanej do edytowania atrybutów zadań należących do innych użytkowników.
 
 #### <a name="examples"></a>Przykłady
-Poniższy przykład dodaje wszystkie bazy danych na serwerach Londyn i NewYork do grupy Serwery obsługi informacji o klientach. Należy połączyć się z bazą danych zadań określoną podczas tworzenia agenta zadania, w tym przypadku ElasticJobs.
+Poniższy przykład dodaje wszystkie bazy danych na serwerach Londyn i NewYork do serwerów grup, które utrzymują informacje o klientach. Należy nawiązać połączenie z bazą danych zadań określoną podczas tworzenia agenta zadań, w tym przypadku ElasticJobs.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
@@ -1192,23 +1192,23 @@ GO
 
 ## <a name="job-views"></a>Widoki zadań
 
-Następujące widoki są dostępne w [bazie danych zadań](sql-database-job-automation-overview.md#job-database).
+Poniższe widoki są dostępne w [bazie danych zadań](sql-database-job-automation-overview.md#job-database).
 
 
 |Widok  |Opis  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Pokazuje historię wykonywania zadań.      |
-|[Zadania](#jobs-view)     |   Pokazuje wszystkie zadania.      |
+|[zadania](#jobs-view)     |   Pokazuje wszystkie zadania.      |
 |[job_versions](#job_versions-view)     |   Pokazuje wszystkie wersje zadań.      |
-|[Jobsteps](#jobsteps-view)     |     Pokazuje wszystkie kroki w bieżącej wersji każdego zadania.    |
-|[jobstep_versions](#jobstep_versions-view)     |     Pokazuje wszystkie kroki we wszystkich wersjach każdego zadania.    |
+|[jobsteps](#jobsteps-view)     |     Przedstawia wszystkie kroki w bieżącej wersji każdego zadania.    |
+|[jobstep_versions](#jobstep_versions-view)     |     Przedstawia wszystkie kroki we wszystkich wersjach każdego zadania.    |
 |[target_groups](#target_groups-view)     |      Pokazuje wszystkie grupy docelowe.   |
-|[target_group_members](#target_group_members-view)     |   Pokazuje wszystkich członków wszystkich grup docelowych.      |
+|[target_group_members](#target_group_members-view)     |   Pokazuje wszystkie elementy członkowskie wszystkich grup docelowych.      |
 
 
 ### <a name="job_executions-view"></a><a name="job_executions-view"></a>Widok job_executions
 
-[praca]. [job_executions]
+[zadania]. [job_executions]
 
 Pokazuje historię wykonywania zadań.
 
@@ -1216,136 +1216,136 @@ Pokazuje historię wykonywania zadań.
 |Nazwa kolumny|   Typ danych   |Opis|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  Unikatowy identyfikator wystąpienia wykonania zadania.
-|**Job_name**   |nvarchar(128)  |Nazwa zadania.
-|**Job_id** |uniqueidentifier|  Unikatowy identyfikator zadania.
+|**job_name**   |nvarchar (128)  |Nazwa zadania.
+|**job_id** |uniqueidentifier|  Unikatowy identyfikator zadania.
 |**job_version**    |int    |Wersja zadania (automatycznie aktualizowana za każdym razem, gdy zadanie jest modyfikowane).
-|**step_id**    |int|   Unikatowy identyfikator (dla tego zadania) dla kroku. NULL wskazuje, że jest to zadanie nadrzędne.
-|**is_active**| bit |Wskazuje, czy informacje są aktywne, czy nieaktywne. 1 oznacza aktywne zadania, a 0 oznacza nieaktywne.
-|**Cyklem życia**| nvarchar(50)|Wartość wskazująca stan zadania: "Utworzony", "W toku", "Nie powiodło się", "Powiódł się", "Pominięty", "Zastąpiony z paskiem"|
-|**create_time**|   datetime2(7)|   Data i godzina utworzenia zadania.
-|**Start_time** |datetime2(7)|  Data i godzina rozpoczęcia wykonywania zadania. NULL, jeśli zadanie nie zostało jeszcze wykonane.
-|**End_time**|  datetime2(7)    |Data i godzina wykonania zadania. NULL, jeśli zadanie nie zostało jeszcze wykonane lub nie zostało jeszcze ukończone wykonanie.
-|**current_attempts**   |int    |Ile razy krok został ponowiony. Zadanie nadrzędne będzie 0, wykonanie zadań podrzędnych będzie 1 lub więcej na podstawie zasad wykonywania.
-|**current_attempt_start_time** |datetime2(7)|  Data i godzina rozpoczęcia wykonywania zadania. NULL wskazuje, że jest to zadanie nadrzędne.
-|**last_message**   |Nvarchar(max)| Komunikat historii zadania lub kroku. 
-|**target_type**|   nvarchar(128)   |Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkie bazy danych na serwerze, wszystkie bazy danych w puli elastycznej lub bazy danych. Prawidłowe wartości dla target_type to "SqlServer", "SqlElasticPool" lub "SqlDatabase". NULL wskazuje, że jest to zadanie nadrzędne.
-|**target_id**  |uniqueidentifier|  Unikatowy identyfikator członka grupy docelowej.  NULL wskazuje, że jest to zadanie nadrzędne.
-|**target_group_name**  |nvarchar(128)  |Nazwa grupy docelowej. NULL wskazuje, że jest to zadanie nadrzędne.
-|**target_server_name**|    nvarchar(256)|  Nazwa serwera bazy danych SQL zawartej w grupie docelowej. Określono tylko wtedy, gdy target_type jest "SqlServer". NULL wskazuje, że jest to zadanie nadrzędne.
-|**target_database_name**   |nvarchar(128)| Nazwa bazy danych zawartej w grupie docelowej. Określony tylko wtedy, gdy target_type jest "SqlDatabase". NULL wskazuje, że jest to zadanie nadrzędne.
+|**step_id**    |int|   Unikatowy identyfikator (dla tego zadania) dla kroku. Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**is_active**| bit |Wskazuje, czy informacje są aktywne, czy nieaktywne. 1 oznacza aktywne zadania, a wartość 0 oznacza nieaktywną.
+|**witrynę**| nvarchar (50)|Wartość wskazująca stan zadania: "created", "w toku", "zakończony niepowodzeniem", "powodzenie", "Pominięcie", "SucceededWithSkipped"|
+|**create_time**|   datetime2 (7)|   Data i godzina utworzenia zadania.
+|**start_time** |datetime2 (7)|  Data i godzina wykonania zadania. Wartość NULL, jeśli zadanie nie zostało jeszcze wykonane.
+|**end_time**|  datetime2 (7)    |Data i godzina zakończenia wykonywania zadania. Wartość NULL, jeśli zadanie nie zostało jeszcze wykonane lub nie zostało jeszcze ukończone.
+|**current_attempts**   |int    |Liczba ponownych prób wykonania kroku. Zadanie nadrzędne zostanie równe 0, a podrzędne wykonania zadania będą mieć wartość 1 lub wyższą na podstawie zasad wykonywania.
+|**current_attempt_start_time** |datetime2 (7)|  Data i godzina wykonania zadania. Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**last_message**   |nvarchar (max)| Komunikat historii zadania lub kroku. 
+|**target_type**|   nvarchar (128)   |Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkich baz danych na serwerze, wszystkich baz danych w puli elastycznej lub w bazie danych. Prawidłowe wartości dla target_type to "SqlServer", "SqlElasticPool" lub "SQLDatabase". Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**target_id**  |uniqueidentifier|  Unikatowy identyfikator członka grupy docelowej.  Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**target_group_name**  |nvarchar (128)  |Nazwa grupy docelowej. Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**target_server_name**|    nvarchar (256)|  Nazwa serwera SQL Database znajdującego się w grupie docelowej. Określany tylko wtedy, gdy target_type to "SqlServer". Wartość NULL wskazuje, że jest to zadanie nadrzędne.
+|**target_database_name**   |nvarchar (128)| Nazwa bazy danych zawartej w grupie docelowej. Określany tylko wtedy, gdy target_type jest "SQLDatabase". Wartość NULL wskazuje, że jest to zadanie nadrzędne.
 
 
-### <a name="jobs-view"></a>widok zadań
+### <a name="jobs-view"></a>Widok zadań
 
-[praca]. [praca]
+[zadania]. zadania
 
 Pokazuje wszystkie zadania.
 
 |Nazwa kolumny|   Typ danych|  Opis|
 |------|------|-------|
-|**Job_name**|  nvarchar(128)   |Nazwa zadania.|
-|**Job_id**|    uniqueidentifier    |Unikatowy identyfikator zadania.|
+|**job_name**|  nvarchar (128)   |Nazwa zadania.|
+|**job_id**|    uniqueidentifier    |Unikatowy identyfikator zadania.|
 |**job_version**    |int    |Wersja zadania (automatycznie aktualizowana za każdym razem, gdy zadanie jest modyfikowane).|
-|**Opis**    |nvarchar(512)| Opis zadania. bit z włączoną włączona Wskazuje, czy zadanie jest włączone, czy wyłączone. 1 wskazuje włączone zadania, a 0 oznacza zadania niepełnosprawne.|
-|**schedule_interval_type** |nvarchar(50)   |Wartość wskazująca, kiedy zadanie ma zostać wykonane:'Once', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months'
-|**schedule_interval_count**|   int|    Liczba schedule_interval_type okresów, które mają wystąpić między każdym wykonaniem zadania.|
-|**schedule_start_time**    |datetime2(7)|  Data i godzina ostatniego rozpoczęcia wykonywania zadania.|
-|**schedule_end_time**| datetime2(7)|   Data i godzina ostatniego wykonania zadania.|
+|**zharmonizowan**    |nvarchar (512)| Opis zadania. wartość bit włączony wskazuje, czy zadanie jest włączone, czy wyłączone. 1 oznacza włączone zadania, a wartość 0 oznacza wyłączone zadania.|
+|**schedule_interval_type** |nvarchar (50)   |Wartość wskazująca, kiedy zadanie ma zostać wykonane: "raz", "min", "godz.", "Days", "tygodnie", "months"
+|**schedule_interval_count**|   int|    Liczba schedule_interval_typeych okresów między każdym wykonaniem zadania.|
+|**schedule_start_time**    |datetime2 (7)|  Data i godzina ostatniego uruchomienia zadania.|
+|**schedule_end_time**| datetime2 (7)|   Data i godzina ostatniego wykonania zadania.|
 
 
-### <a name="job_versions-view"></a><a name="job_versions-view"></a>widok job_versions
+### <a name="job_versions-view"></a><a name="job_versions-view"></a>Widok job_versions
 
-[praca]. [job_versions]
+[zadania]. [job_versions]
 
 Pokazuje wszystkie wersje zadań.
 
 |Nazwa kolumny|   Typ danych|  Opis|
 |------|------|-------|
-|**Job_name**|  nvarchar(128)   |Nazwa zadania.|
-|**Job_id**|    uniqueidentifier    |Unikatowy identyfikator zadania.|
+|**job_name**|  nvarchar (128)   |Nazwa zadania.|
+|**job_id**|    uniqueidentifier    |Unikatowy identyfikator zadania.|
 |**job_version**    |int    |Wersja zadania (automatycznie aktualizowana za każdym razem, gdy zadanie jest modyfikowane).|
 
 
-### <a name="jobsteps-view"></a>widok jobsteps
+### <a name="jobsteps-view"></a>Widok JobSteps
 
-[praca]. [jobsteps]
+[zadania]. [jobsteps]
 
-Pokazuje wszystkie kroki w bieżącej wersji każdego zadania.
+Przedstawia wszystkie kroki w bieżącej wersji każdego zadania.
 
 |Nazwa kolumny    |Typ danych| Opis|
 |------|------|-------|
-|**Job_name**   |nvarchar(128)| Nazwa zadania.|
-|**Job_id** |uniqueidentifier   |Unikatowy identyfikator zadania.|
+|**job_name**   |nvarchar (128)| Nazwa zadania.|
+|**job_id** |uniqueidentifier   |Unikatowy identyfikator zadania.|
 |**job_version**|   int|    Wersja zadania (automatycznie aktualizowana za każdym razem, gdy zadanie jest modyfikowane).|
 |**step_id**    |int    |Unikatowy identyfikator (dla tego zadania) dla kroku.|
-|**step_name**  |nvarchar(128)  |Unikatowa (dla tego zadania) nazwa kroku.|
-|**command_type**   |nvarchar(50)   |Typ polecenia do wykonania w kroku zadania. W przypadku wersji 1 wartość musi być równa wartości "TSql" i wartość domyślna.|
-|**command_source** |nvarchar(50)|  Lokalizacja polecenia. W przypadku wersji 1 wartość "Inline" jest wartością domyślną i akceptowaną tylko jako akceptowaną.|
-|**Polecenia**|   Nvarchar(max)|  Polecenia, które mają być wykonywane przez zadania elastyczne za pośrednictwem command_type.|
-|**credential_name**|   nvarchar(128)   |Nazwa poświadczenia o zakresie bazy danych używanego do wykonania zadania.|
-|**target_group_name**| nvarchar(128)   |Nazwa grupy docelowej.|
+|**step_name**  |nvarchar (128)  |Unikatowa nazwa (dla tego zadania) dla tego kroku.|
+|**command_type**   |nvarchar (50)   |Typ polecenia do wykonania w kroku zadania. Dla wersji 1 musi być równa i domyślna wartość "TSql".|
+|**command_source** |nvarchar (50)|  Lokalizacja polecenia. W wersji 1 wartość "inline" jest wartością domyślną i jedyną zaakceptowaną wartością.|
+|**dotyczące**|   nvarchar (max)|  Polecenia, które mają być wykonywane przez zadania elastyczne za pomocą command_type.|
+|**credential_name**|   nvarchar (128)   |Nazwa poświadczenia w zakresie bazy danych używanej do wykonywania zadania.|
+|**target_group_name**| nvarchar (128)   |Nazwa grupy docelowej.|
 |**target_group_id**|   uniqueidentifier|   Unikatowy identyfikator grupy docelowej.|
-|**initial_retry_interval_seconds**|    int |Opóźnienie przed pierwszą próbą ponowienia próby. Wartość domyślna to 1.|
-|**maximum_retry_interval_seconds** |int|   Maksymalne opóźnienie między próbami ponawiania. Jeśli opóźnienie między ponownych prób wzrośnie większy niż ta wartość, jest ograniczona do tej wartości zamiast tego. Wartość domyślna to 120.|
-|**retry_interval_backoff_multiplier**  |rzeczywiste|  Mnożnik do zastosowania do opóźnienia ponawiania próby, jeśli wiele prób wykonania kroku zadania zakończy się niepowodzeniem. Wartość domyślna to 2.0.|
-|**retry_attempts** |int|   Liczba ponownych prób użycia, jeśli ten krok nie powiedzie się. Domyślnie 10, co oznacza, że nie ma prób ponowienia próby.|
-|**step_timeout_seconds**   |int|   Czas w minutach między próbami ponawiania. Wartość domyślna to 0, która wskazuje interwał 0-minutowy.|
-|**output_type**    |nvarchar(11)|  Lokalizacja polecenia. W bieżącej wersji zapoznawczej wartość "Inline" jest wartością domyślną i akceptowaną tylko jako akceptowaną.|
-|**output_credential_name**|    nvarchar(128)   |Nazwa poświadczeń, które mają być używane do łączenia się z serwerem docelowym do przechowywania zestawu wyników.|
-|**output_subscription_id**|    uniqueidentifier|   Unikatowy identyfikator subskrypcji serwera docelowego\bazy danych dla wyników ustawionych na podstawie wykonania kwerendy.|
-|**output_resource_group_name** |nvarchar(128)| Nazwa grupy zasobów, w której znajduje się serwer docelowy.|
-|**output_server_name**|    nvarchar(256)   |Nazwa serwera docelowego dla zestawu wyników.|
-|**output_database_name**   |nvarchar(128)| Nazwa docelowej bazy danych dla zestawu wyników.|
-|**output_schema_name** |Nvarchar(max)| Nazwa schematu docelowego. Domyślnie dbo, jeśli nie określono.|
-|**output_table_name**| Nvarchar(max)|  Nazwa tabeli do przechowywania wyników zestawu z wyników kwerendy. Tabela zostanie utworzona automatycznie na podstawie schematu zestawu wyników, jeśli jeszcze nie istnieje. Schemat musi być zgodny ze schematem zestawu wyników.|
-|**max_parallelism**|   int|    Maksymalna liczba baz danych na pulę elastyczną, na której zostanie uruchomiony krok zadania w czasie. Wartość domyślna to NULL, co oznacza brak limitu. |
+|**initial_retry_interval_seconds**|    int |Opóźnienie przed pierwszym ponowieniem próby. Wartość domyślna to 1.|
+|**maximum_retry_interval_seconds** |int|   Maksymalne opóźnienie między ponownymi próbami. Jeśli opóźnienie między kolejnymi próbami będzie większe niż ta wartość, zostanie ona ograniczona do tej wartości. Wartość domyślna to 120.|
+|**retry_interval_backoff_multiplier**  |liczba rzeczywista|  Mnożnik, który ma zostać zastosowany do opóźnienia ponowienia próby w przypadku niepowodzenia wykonywania wielu kroków zadania. Wartość domyślna to 2,0.|
+|**retry_attempts** |int|   Liczba ponownych prób do użycia, jeśli ten krok zakończy się niepowodzeniem. Wartość domyślna to 10, co oznacza, że nie ponowienia próby.|
+|**step_timeout_seconds**   |int|   Czas (w minutach) między ponownymi próbami. Wartość domyślna to 0, co oznacza interwał 0 minut.|
+|**output_type**    |nvarchar (11)|  Lokalizacja polecenia. W bieżącej wersji zapoznawczej "inline" jest wartością domyślną i jedyną zaakceptowaną wartością.|
+|**output_credential_name**|    nvarchar (128)   |Nazwa poświadczeń do użycia w celu nawiązania połączenia z serwerem docelowym w celu zapisania zestawu wyników.|
+|**output_subscription_id**|    uniqueidentifier|   Unikatowy identyfikator subskrypcji server\database docelowego dla zestawu wyników w wyniku wykonywania zapytania.|
+|**output_resource_group_name** |nvarchar (128)| Nazwa grupy zasobów, w której znajduje się serwer docelowy.|
+|**output_server_name**|    nvarchar (256)   |Nazwa serwera docelowego dla zestawu wyników.|
+|**output_database_name**   |nvarchar (128)| Nazwa docelowej bazy danych dla zestawu wyników.|
+|**output_schema_name** |nvarchar (max)| Nazwa schematu docelowego. Jeśli nie zostanie określony, domyślnie jest używany obiekt dbo.|
+|**output_table_name**| nvarchar (max)|  Nazwa tabeli, w której mają być przechowywane wyniki z wyników zapytania. Tabela zostanie utworzona automatycznie na podstawie schematu zestawu wyników, jeśli jeszcze nie istnieje. Schemat musi być zgodny ze schematem zestawu wyników.|
+|**max_parallelism**|   int|    Maksymalna liczba baz danych na pulę elastyczną, w której krok zadania będzie uruchamiany w danym momencie. Wartość domyślna to NULL, co oznacza brak limitu. |
 
 
 ### <a name="jobstep_versions-view"></a><a name="jobstep_versions-view"></a>Widok jobstep_versions
 
-[praca]. [jobstep_versions]
+[zadania]. [jobstep_versions]
 
-Pokazuje wszystkie kroki we wszystkich wersjach każdego zadania. Schemat jest identyczny z [jobsteps](#jobsteps-view).
+Przedstawia wszystkie kroki we wszystkich wersjach każdego zadania. Schemat jest taki sam jak [JobSteps](#jobsteps-view).
 
 ### <a name="target_groups-view"></a><a name="target_groups-view"></a>Widok target_groups
 
-[praca]. [target_groups]
+[zadania]. [target_groups]
 
 Wyświetla listę wszystkich grup docelowych.
 
 |Nazwa kolumny|Typ danych| Opis|
 |-----|-----|-----|
-|**target_group_name**| nvarchar(128)   |Nazwa grupy docelowej, zbiór baz danych. 
+|**target_group_name**| nvarchar (128)   |Nazwa grupy docelowej, kolekcja baz danych. 
 |**target_group_id**    |uniqueidentifier   |Unikatowy identyfikator grupy docelowej.
 
-### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>widok target_group_members
+### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>Widok target_group_members
 
-[praca]. [target_group_members]
+[zadania]. [target_group_members]
 
-Pokazuje wszystkich członków wszystkich grup docelowych.
+Pokazuje wszystkie elementy członkowskie wszystkich grup docelowych.
 
 |Nazwa kolumny|Typ danych| Opis|
 |-----|-----|-----|
-|**target_group_name**  |nvarchar(128|Nazwa grupy docelowej, zbiór baz danych. |
+|**target_group_name**  |nvarchar (128|Nazwa grupy docelowej, kolekcja baz danych. |
 |**target_group_id**    |uniqueidentifier   |Unikatowy identyfikator grupy docelowej.|
-|**membership_type**    |int|   Określa, czy członek grupy docelowej jest uwzględniony lub wykluczony w grupie docelowej. Prawidłowe wartości dla target_group_name to "Uwzględnij" lub "Wyklucz".|
-|**target_type**    |nvarchar(128)| Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkie bazy danych na serwerze, wszystkie bazy danych w puli elastycznej lub bazy danych. Prawidłowe wartości dla target_type to "SqlServer", "SqlElasticPool", "SqlDatabase" lub "SqlShardMap".|
+|**membership_type**    |int|   Określa, czy element członkowski grupy docelowej jest dołączony lub wykluczony w grupie docelowej. Prawidłowe wartości dla target_group_name to "include" lub "exclude".|
+|**target_type**    |nvarchar (128)| Typ docelowej bazy danych lub kolekcji baz danych, w tym wszystkich baz danych na serwerze, wszystkich baz danych w puli elastycznej lub w bazie danych. Prawidłowe wartości target_type to "SqlServer", "SqlElasticPool", "SQLDatabase" i "SqlShardMap".|
 |**target_id**  |uniqueidentifier|  Unikatowy identyfikator członka grupy docelowej.|
-|**refresh_credential_name**    |nvarchar(128)  |Nazwa poświadczenia o zakresie bazy danych używanego do łączenia się z członkiem grupy docelowej.|
+|**refresh_credential_name**    |nvarchar (128)  |Nazwa poświadczenia w zakresie bazy danych używanej do łączenia się z członkiem grupy docelowej.|
 |**subscription_id**    |uniqueidentifier|  Unikatowy identyfikator subskrypcji.|
-|**resource_group_name**    |nvarchar(128)| Nazwa grupy zasobów, w której znajduje się członek grupy docelowej.|
-|**Nazwa_serwera**    |nvarchar(128)  |Nazwa serwera bazy danych SQL zawartej w grupie docelowej. Określono tylko wtedy, gdy target_type jest "SqlServer". |
-|**Nazwa_bazy_danych**  |nvarchar(128)  |Nazwa bazy danych zawartej w grupie docelowej. Określony tylko wtedy, gdy target_type jest "SqlDatabase".|
-|**elastic_pool_name**  |nvarchar(128)| Nazwa puli elastycznej zawartej w grupie docelowej. Określony tylko wtedy, gdy target_type jest "SqlElasticPool".|
-|**shard_map_name** |nvarchar(128)| Nazwa mapy niezależnego fragmentu zawartej w grupie docelowej. Określony tylko wtedy, gdy target_type jest "SqlShardMap".|
+|**resource_group_name**    |nvarchar (128)| Nazwa grupy zasobów, w której znajduje się członek grupy docelowej.|
+|**server_name**    |nvarchar (128)  |Nazwa serwera SQL Database znajdującego się w grupie docelowej. Określany tylko wtedy, gdy target_type to "SqlServer". |
+|**database_name**  |nvarchar (128)  |Nazwa bazy danych zawartej w grupie docelowej. Określany tylko wtedy, gdy target_type jest "SQLDatabase".|
+|**elastic_pool_name**  |nvarchar (128)| Nazwa elastycznej puli zawartej w grupie docelowej. Określany tylko wtedy, gdy target_type jest "SqlElasticPool".|
+|**shard_map_name** |nvarchar (128)| Nazwa mapy fragmentu znajdująca się w grupie docelowej. Określany tylko wtedy, gdy target_type jest "SqlShardMap".|
 
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
- - ![Ikona łącza tematu](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ikona linku tematu") [Konwencje składniowe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Ikona linku tematu](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ikona linku tematu") [— konwencje języka Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Tworzenie zadań elastycznych i zarządzanie nimi przy użyciu programu PowerShell](elastic-jobs-powershell.md)
-- [Autoryzacja i uprawnienia PROGRAMU SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [SQL Server autoryzacji i uprawnień](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
