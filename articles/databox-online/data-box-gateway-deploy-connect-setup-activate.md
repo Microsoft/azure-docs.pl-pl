@@ -1,6 +1,6 @@
 ---
-title: Łączenie się, konfigurowanie i aktywowanie bramy usługi Azure Data Box w witrynie Azure portal
-description: Trzeci samouczek do wdrażania bramy pola danych nakazuje nawiązywać połączenie, skonfigurowanie i aktywowanie urządzenia wirtualnego.
+title: Łączenie z usługą Azure Data Box Gateway, Konfigurowanie i aktywowanie w programie Azure Portal
+description: Trzeci samouczek dotyczący wdrażania Data Box Gateway powoduje nawiązanie połączenia, skonfigurowanie i aktywowanie urządzenia wirtualnego.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,143 +9,143 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81686875"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: Łączenie, konfigurowanie, aktywowanie bramy usługi Azure Data Box
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: łączenie, konfigurowanie, aktywowanie Azure Data Box Gateway
 
 ## <a name="introduction"></a>Wprowadzenie
 
-W tym samouczku opisano sposób łączenia się, konfigurowania i aktywowania urządzenia bramy pola danych przy użyciu lokalnego interfejsu użytkownika sieci Web. 
+W tym samouczku opisano sposób nawiązywania połączenia z usługą, konfigurowania i aktywowania urządzenia Data Box Gateway przy użyciu lokalnego interfejsu użytkownika sieci Web. 
 
-Proces konfiguracji i aktywacji może potrwać około 10 minut. 
+Proces instalacji i aktywacji może potrwać około 10 minut. 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Łączenie się z urządzeniem wirtualnym
+> * Nawiązywanie połączenia z urządzeniem wirtualnym
 > * Konfigurowanie i aktywowanie urządzenia wirtualnego
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed skonfigurowaniem i skonfigurowaniem bramy pola danych upewnij się, że:
+Przed skonfigurowaniem i skonfigurowaniem Data Box Gateway upewnij się, że:
 
-* Udostępniono urządzenie wirtualne i uzyskano do niego podłączony adres URL, jak opisano w [programie A Provision a Data Box Gateway w funkcji Hyper-V](data-box-gateway-deploy-provision-hyperv.md) lub [Aprowizuj bramę pola danych w VMware](data-box-gateway-deploy-provision-vmware.md).
-* Masz klucz aktywacyjny z usługi Brama pola danych, który został utworzony w celu zarządzania urządzeniami Bramy pola danych. Aby uzyskać więcej informacji, przejdź do [witryny Przygotowanie do wdrożenia bramy usługi Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
+* Zainicjowano obsługę administracyjną urządzenia wirtualnego i uzyskano do niego połączony adres URL zgodnie z opisem w temacie [Inicjowanie obsługi Data Box Gateway w funkcji Hyper-V](data-box-gateway-deploy-provision-hyperv.md) lub [Inicjowanie obsługi Data Box Gateway w oprogramowaniu VMware](data-box-gateway-deploy-provision-vmware.md).
+* Masz klucz aktywacji z usługi Data Box Gateway utworzonej w celu zarządzania urządzeniami Data Box Gateway. Aby uzyskać więcej informacji, przejdź do obszaru [Przygotowywanie do wdrożenia Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
 
-## <a name="connect-to-the-local-web-ui-setup"></a>Łączenie się z lokalną konfiguracją interfejsu użytkownika sieci Web 
+## <a name="connect-to-the-local-web-ui-setup"></a>Nawiązywanie połączenia z konfiguracją lokalnego interfejsu użytkownika sieci Web 
 
-1. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika urządzenia pod adresem:
+1. Otwórz okno przeglądarki i uzyskaj dostęp do lokalnego interfejsu użytkownika sieci Web urządzenia w:
    
-   https:\//ip-address-of-network-interface
+   https:\//IP-address-of-Network-Interface
    
-   Użyj adresu URL połączenia odnotowanego w poprzednim samouczku. Zostanie wyświetlony błąd lub ostrzeżenie wskazujące, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
+   Użyj adresu URL połączenia zanotowanego w poprzednim samouczku. Zostanie wyświetlony komunikat o błędzie lub ostrzeżenie wskazujący, że wystąpił problem z certyfikatem zabezpieczeń witryny sieci Web.
 
-2. Wybierz **pozycję Kontynuuj do tej strony sieci Web**. Te kroki mogą się różnić w zależności od używanej przeglądarki.
+2. Wybierz pozycję **Kontynuuj na tej stronie sieci Web**. Te kroki mogą się różnić w zależności od używanej przeglądarki.
    
-    ![Komunikat o błędzie certyfikatu zabezpieczeń witryny sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Komunikat o błędzie dotyczący certyfikatu zabezpieczeń witryny sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
-3. Zaloguj się do internetowego interfejsu użytkownika urządzenia wirtualnego. Domyślnym hasłem jest *Password1*. 
+3. Zaloguj się do internetowego interfejsu użytkownika urządzenia wirtualnego. Domyślne hasło to *Password1*. 
    
-    ![Logowanie się do lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Zaloguj się do lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-4. W wierszu polecenia zmień hasło urządzenia. Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać 3 z następujących znaków: wielkie, małe, numeryczne i znaki specjalne.
+4. W wierszu polecenia Zmień hasło urządzenia. Nowe hasło musi zawierać od 8 do 16 znaków. Musi zawierać 3 z następujących elementów: wielkie litery, małe litery, cyfry i znaki specjalne.
 
     ![Zmienianie hasła urządzenia](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
-Jesteś teraz na **pulpicie nawigacyjnym** urządzenia.
+Jesteś teraz na **pulpicie nawigacyjnym** Twojego urządzenia.
 
 ## <a name="set-up-and-activate-the-virtual-device"></a>Konfigurowanie i aktywowanie urządzenia wirtualnego
  
-Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfigurowania i zarejestrowania urządzenia wirtualnego w usłudze Brama pól danych. **Nazwa urządzenia,** **ustawienia sieciowe,** ustawienia serwera proxy **sieci Web**i **ustawienia czasu** są opcjonalne. Jedynymi wymaganymi ustawieniami są **ustawienia chmury**.
+Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfigurowania i zarejestrowania urządzenia wirtualnego w usłudze Data Box Gateway. **Nazwa urządzenia**, **Ustawienia sieci**, **Ustawienia serwera proxy sieci Web**i **Ustawienia czasu** są opcjonalne. Jedyne wymagane ustawienia to **Ustawienia chmury**.
    
-![Strona "Pulpit nawigacyjny" interfejsu użytkownika sieci web](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+![Strona "pulpit nawigacyjny" lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. W lewym okienku wybierz **pozycję Nazwa urządzenia**, a następnie wprowadź przyjazną nazwę urządzenia. Przyjazna nazwa musi zawierać od 1 do 15 znaków i zawierać litery, cyfry i łączniki.
+1. W okienku po lewej stronie wybierz pozycję **Nazwa urządzenia**, a następnie wprowadź przyjazną nazwę urządzenia. Przyjazna nazwa musi zawierać od 1 do 15 znaków i zawierać litery, cyfry i łączniki.
 
-    ![Strona lokalny interfejs użytkownika sieci Web "Nazwa urządzenia"](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Strona "nazwa urządzenia" lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
-2. (Opcjonalnie) W lewym okienku wybierz pozycję **Ustawienia sieciowe,** a następnie skonfiguruj ustawienia. Na urządzeniu wirtualnym zobaczysz co najmniej jeden interfejs sieciowy i więcej w zależności od liczby skonfigurowanych w podstawowej maszynie wirtualnej. Strona **Ustawienia sieci** dla urządzenia wirtualnego z włączonym jednym interfejsem sieciowym jest jak pokazano poniżej.
+2. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia sieci** , a następnie skonfiguruj ustawienia. Na urządzeniu wirtualnym zobaczysz co najmniej jeden interfejs sieciowy i więcej, w zależności od liczby skonfigurowanych w podstawowej maszynie wirtualnej. Strona **Ustawienia sieci** dla urządzenia wirtualnego z włączonym jednym interfejsem sieciowym jest pokazana poniżej.
     
-    ![Strona Lokalny interfejs użytkownika sieci web "Ustawienia sieci"](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Strona ustawień sieciowych lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
-    Podczas konfigurowania ustawień sieciowych należy pamiętać:
+    Podczas konfigurowania ustawień sieciowych należy pamiętać o następujących kwestiach:
 
-    - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, brama i dns są przypisywane automatycznie.
-    - Jeśli usługa DHCP nie jest włączona, w razie potrzeby można przypisać statyczne serwery IP.
-    - Interfejs sieciowy można skonfigurować jako IPv4.
+    - Jeżeli w Twoim środowisku włączony jest protokół DHCP, interfejsy sieciowe są automatycznie konfigurowane. Adres IP, podsieć, Brama i DNS są przypisywane automatycznie.
+    - Jeśli usługa DHCP nie jest włączona, w razie konieczności można przypisywać statyczne adresy IP.
+    - Interfejs sieciowy można skonfigurować jako adres IPv4.
 
      >[!NOTE] 
-     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na DHCP, chyba że masz inny adres IP do łączenia się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączenia się na protokół DHCP nie można określić adresu DHCP. Jeśli chcesz zmienić adres DHCP, poczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie zmień. Następnie można wyświetlić ustawienia IP wszystkich kart we **właściwościach urządzenia** w witrynie Azure portal dla twojej usługi.
+     > Zaleca się, aby nie przełączać lokalnego adresu IP interfejsu sieciowego ze statycznego na DHCP, chyba że masz inny adres IP, aby połączyć się z urządzeniem. W przypadku korzystania z jednego interfejsu sieciowego i przełączania do usługi DHCP nie byłoby możliwe określenie adresu DHCP. Jeśli chcesz zmienić adres DHCP, zaczekaj, aż urządzenie zostanie zarejestrowane w usłudze, a następnie Zmień. Następnie można wyświetlić adresy IP wszystkich kart we **właściwościach urządzenia** w Azure Portal dla usługi.
 
-3. Opcjonalnie skonfiguruj serwer proxy sieci Web. Chociaż konfiguracja serwera proxy sieci Web jest opcjonalna, jeśli używasz serwera proxy sieci Web, można go skonfigurować tylko na tej stronie.
+3. Opcjonalnie skonfiguruj serwer proxy sieci Web. Mimo że konfiguracja serwera proxy sieci Web jest opcjonalna, jeśli używasz serwera proxy sieci Web, możesz go skonfigurować tylko na tej stronie.
    
-   ![Strona lokalny interfejs użytkownika sieci Web "Ustawienia serwera proxy sieci Web"](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Strona lokalnego interfejsu użytkownika sieci Web — ustawienia serwera proxy sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
-   Na stronie **serwera proxy sieci Web** wykonaj następujące czynności:
+   Na stronie **serwer proxy sieci Web** wykonaj następujące czynności:
    
-   1. W polu **Adres URL serwera proxy sieci** `http://&lt;host-IP address or FQDN&gt;:Port number`Web wprowadź adres URL w tym formacie: . Adresy URL HTTPS nie są obsługiwane.
-   2. W obszarze **Uwierzytelnianie**wybierz **pozycję Brak** lub **NTLM**.
+   1. W polu **adres URL serwera proxy sieci Web** wprowadź adres URL w tym formacie `http://&lt;host-IP address or FQDN&gt;:Port number`:. Adresy URL HTTPS nie są obsługiwane.
+   2. W obszarze **uwierzytelnianie**wybierz opcję **Brak** lub **NTLM**.
    3. Jeśli używasz uwierzytelniania, wprowadź **nazwę użytkownika** i **hasło**.
-   4. Aby sprawdzić poprawność i zastosować skonfigurowane ustawienia serwera proxy sieci Web, wybierz pozycję **Zastosuj**.
+   4. Aby sprawdzić poprawność skonfigurowanych ustawień serwera proxy sieci Web i zastosować je, wybierz pozycję **Zastosuj**.
 
    > [!NOTE]
-   > Pliki konfiguracji proxy-auto (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki internetowe i inni agenci użytkowników mogą automatycznie wybrać odpowiedni serwer proxy (metodę dostępu) do pobierania danego adresu URL.
-   > Serwery proxy, które próbują przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko z własnej certyfikacji) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
-   > Zazwyczaj przezroczyste serwery proxy działają dobrze z bramą usługi Azure Data Box.
+   > Pliki proxy-autoconfig (PAC) nie są obsługiwane. Plik PAC definiuje, w jaki sposób przeglądarki sieci Web i inni agenci użytkowników mogą automatycznie wybierać odpowiedni serwer proxy (metoda dostępu) do pobierania danego adresu URL.
+   > Serwery proxy próbujące przechwycić i odczytać cały ruch (a następnie ponownie podpisać wszystko z własnym certyfikatem) nie są zgodne, ponieważ certyfikat serwera proxy nie jest zaufany.
+   > Zazwyczaj przezroczyste serwery proxy działają dobrze z Azure Data Box Gateway.
 
-4. (Opcjonalnie) W lewym okienku wybierz **pozycję Ustawienia czasu**, a następnie skonfiguruj strefę czasową oraz podstawowe i pomocnicze serwery NTP dla urządzenia. 
+4. Obowiązkowe W okienku po lewej stronie wybierz pozycję **Ustawienia czasu**, a następnie skonfiguruj strefę czasową i serwery NTP w podstawowym i pomocniczym urządzeniu. 
 
     Serwery NTP są wymagane, ponieważ urządzenie musi synchronizować czas, aby można było uwierzytelnić się z dostawcami usług w chmurze.
     
-    ![Strona lokalny interfejs użytkownika sieci Web "Ustawienia czasu"](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Strona Ustawienia czasu dla lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     Na stronie **Ustawienia czasu** wykonaj następujące czynności:
     
-    1. Na liście rozwijanej **Strefa czasowa** wybierz strefę czasową odpowiadającą lokalizacji geograficznej, w której urządzenie jest wdrażane.
-        Domyślną strefą czasową urządzenia jest PST. Wszystkie zaplanowane operacje urządzenia będą wykonywane w ramach tej strefy czasowej.
+    1. Z listy rozwijanej **strefa czasowa** wybierz strefę czasową, która odnosi się do lokalizacji geograficznej, w której jest wdrożone urządzenie.
+        Domyślna strefa czasowa urządzenia to PST. Wszystkie zaplanowane operacje urządzenia będą wykonywane w ramach tej strefy czasowej.
 
-    2. Określ **podstawowy serwer NTP** dla urządzenia lub `time.windows.com`zaakceptuj domyślną wartość programu .   
+    2. Określ **podstawowy serwer NTP** dla urządzenia lub Zaakceptuj wartość domyślną `time.windows.com`.   
         Upewnij się, że sieć zezwala na ruch NTP z centrum danych do Internetu.
 
-    3. Opcjonalnie w polu **Serwer pomocniczy NTP** wprowadź serwer pomocniczy dla urządzenia.
+    3. Opcjonalnie w polu **pomocniczy serwer NTP** wprowadź serwer pomocniczy dla urządzenia.
 
-    4. Aby sprawdzić poprawność i zastosować skonfigurowane ustawienia czasu, wybierz opcję **Zastosuj**.
+    4. Aby sprawdzić poprawność i zastosować skonfigurowane ustawienia czasu, wybierz pozycję **Zastosuj**.
 
-6. W lewym okienku wybierz **pozycję Ustawienia chmury**, a następnie aktywuj urządzenie za pomocą usługi Brama pola danych w witrynie Azure portal.
+6. W okienku po lewej stronie wybierz pozycję **Ustawienia chmury**, a następnie aktywuj urządzenie w usłudze Data Box Gateway w Azure Portal.
     
-    1. W polu **Klucz aktywacji** wprowadź **klucz aktywacyjny,** który otrzymałeś w [pobierz klucz aktywacyjny](data-box-gateway-deploy-prep.md#get-the-activation-key) bramy pola danych.
+    1. W polu **klucz aktywacji** wprowadź **klucz aktywacji** uzyskany w polu [Pobierz klucz aktywacji](data-box-gateway-deploy-prep.md#get-the-activation-key) dla Data Box Gateway.
 
-    2. Wybierz **pozycję Aktywuj**.
+    2. Wybierz pozycję **Aktywuj**.
        
-         ![Strona lokalny interfejs użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
+         ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Urządzenie jest aktywowane, a aktualizacje krytyczne, jeśli są dostępne, są stosowane automatycznie. Zobaczysz powiadomienie w tej sprawie. Monitorowanie postępu aktualizacji za pośrednictwem witryny Azure portal.
+    3. Urządzenie jest aktywowane i aktualizacje krytyczne, jeśli są dostępne, są automatycznie stosowane. Zobaczysz powiadomienie w tym efekcie. Monitoruj postęp aktualizacji za pomocą Azure Portal.
 
-        ![Strona lokalny interfejs użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
-        **Okno dialogowe zawiera również klucz odzyskiwania, który należy skopiować i zapisać w bezpiecznej lokalizacji. Ten klucz służy do odzyskiwania danych w przypadku, gdy urządzenie nie może się uruchomić.**
+        **W oknie dialogowym znajduje się również klucz odzyskiwania, który należy skopiować i zapisać w bezpiecznej lokalizacji. Ten klucz służy do odzyskiwania danych w przypadku, gdy urządzenie nie może się uruchomić.**
 
 
-    4. Może być konieczne odczekanie kilku minut na pomyślne zakończenie aktualizacji. Po zakończeniu aktualizacji zaloguj się do urządzenia. Strona **Ustawienia chmury** zostanie zaktualizowana, aby wskazać, że urządzenie zostało pomyślnie aktywowane.
+    4. Aby aktualizacja została pomyślnie ukończona, może być konieczne odczekanie kilku minut. Po zakończeniu aktualizacji Zaloguj się do urządzenia. Strona **Ustawienia chmury** jest aktualizowana, aby wskazać, że urządzenie zostało pomyślnie aktywowane.
 
-        ![Zaktualizowano stronę lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury"](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
+        ![Strona lokalnego interfejsu użytkownika sieci Web "Ustawienia chmury" została zaktualizowana](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
-Konfiguracja urządzenia została zakończona. Teraz możesz dodać udziały na swoim urządzeniu.
+Konfiguracja urządzenia została ukończona. Możesz teraz dodawać udziały na urządzeniu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Łączenie się z urządzeniem wirtualnym
+> * Nawiązywanie połączenia z urządzeniem wirtualnym
 > * Konfigurowanie i aktywowanie urządzenia wirtualnego
 
-Aby dowiedzieć się, jak przesyłać dane za pomocą bramy pól danych, zobacz:
+Aby dowiedzieć się, jak transferować dane za pomocą Data Box Gateway, zobacz:
 
 > [!div class="nextstepaction"]
-> [Przesyłanie danych za pomocą bramy pola danych](./data-box-gateway-deploy-add-shares.md).
+> [Transferuj dane przy użyciu Data Box Gateway](./data-box-gateway-deploy-add-shares.md).

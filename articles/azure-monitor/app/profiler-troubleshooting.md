@@ -1,147 +1,147 @@
 ---
-title: Rozwiązywanie problemów z profilera usługi Azure Application Insights
-description: W tym artykule przedstawiono kroki rozwiązywania problemów i informacje, aby pomóc deweloperom, którzy mają problemy z włączaniem lub używaniem programu Profiler usługi Application Insights.
+title: Rozwiązywanie problemów z usługą Azure Application Insights Profiler
+description: W tym artykule przedstawiono kroki rozwiązywania problemów oraz informacje pomocne w przypadku deweloperów, którzy mają problemy z włączaniem lub używaniem Application Insights Profiler.
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640961"
 ---
-# <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Rozwiązywanie problemów z włączaniem lub wyświetlaniem programu Profiler usługi Application Insights
+# <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Rozwiązywanie problemów z włączaniem lub wyświetlaniem Application Insights Profiler
 
 ## <a name="active-issues"></a>Aktywne problemy
 
-* Profilowanie aplikacji ASP.NET Core 3.x jest teraz obsługiwane w usługach Azure App Services.
+* Profilowanie aplikacji ASP.NET Core 3. x jest obsługiwane teraz w usłudze Azure App Services.
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Ogólne rozwiązywanie problemów
 
-### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profile są przekazywane tylko wtedy, gdy istnieją żądania do aplikacji, gdy profiler jest uruchomiony
+### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profile są przekazywane tylko wtedy, gdy do aplikacji są wysyłane żądania, gdy profiler jest uruchomiony
 
-Usługa Azure Application Insights Profiler zbiera dane profilowania przez dwie minuty co godzinę. Zbiera również dane po wybraniu przycisku **Profil teraz** w okienku **Konfigurowanie profilowania aplikacji.** Ale dane profilowania są przekazywane tylko wtedy, gdy można dołączyć do żądania, które miało miejsce podczas profilowania był uruchomiony. 
+Usługa Azure Application Insights Profiler zbiera dane profilowania przez dwie minuty co godzinę. Gromadzi również dane po wybraniu przycisku **profilu teraz** w okienku **Konfigurowanie Application Insights Profiler** . Ale dane profilowania są przekazywane tylko wtedy, gdy można je dołączyć do żądania, które wystąpiło, gdy profiler był uruchomiony. 
 
-Profiler zapisuje komunikaty śledzenia i zdarzenia niestandardowe do zasobu usługi Application Insights. Można użyć tych zdarzeń, aby zobaczyć, jak profiler jest uruchomiony. Jeśli uważasz, że profiler powinien być uruchomiony i przechwytywania śladów, ale nie są one wyświetlane w okienku **wydajność,** można sprawdzić, jak profiler jest uruchomiony:
+Profiler zapisuje komunikaty śledzenia i zdarzenia niestandardowe do zasobu Application Insights. Możesz użyć tych zdarzeń, aby zobaczyć, w jaki sposób Profiler jest uruchomiony. Jeśli uważasz, że profiler powinien działać i przechwytywać ślady, ale nie są wyświetlane w okienku **wydajności** , możesz sprawdzić, jak działa profiler:
 
-1. Wyszukaj komunikaty śledzenia i zdarzenia niestandardowe wysyłane przez profiler do zasobu usługi Application Insights. Za pomocą tego ciągu wyszukiwania można znaleźć odpowiednie dane:
+1. Wyszukaj komunikaty śledzenia i zdarzenia niestandardowe wysyłane przez profiler do zasobu Application Insights. Możesz użyć tego ciągu wyszukiwania, aby znaleźć odpowiednie dane:
 
     ```
     stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
     ```
-    Na poniższej ilustracji przedstawiono dwa przykłady wyszukiwań z dwóch zasobów SI: 
+    Na poniższej ilustracji przedstawiono dwa przykłady wyszukiwania z dwóch zasobów AI: 
     
-   * Po lewej stronie aplikacja nie odbiera żądań, gdy profiler jest uruchomiony. Komunikat wyjaśnia, że przekazywanie zostało anulowane z powodu braku aktywności. 
+   * Po lewej stronie aplikacja nie otrzymuje żądań, gdy profiler jest uruchomiony. Komunikat wyjaśnia, że przekazywanie zostało anulowane z powodu braku aktywności. 
 
-   * Po prawej stronie profiler rozpoczął i wysłał zdarzenia niestandardowe, gdy wykrył żądania, które miały miejsce podczas uruchamiania programu Profiler. Jeśli ServiceProfilerSample zdarzenie niestandardowe jest wyświetlany, oznacza to, że profiler dołączone śledzenia do żądania i można wyświetlić śledzenia w okienku **wydajności usługi Application Insights.**
+   * Po prawej stronie Profiler uruchomił i wysłał zdarzenia niestandardowe, gdy wykryje żądania, które wystąpiły podczas działania profilera. Jeśli zostanie wyświetlone zdarzenie niestandardowe ServiceProfilerSample, oznacza to, że profiler dołączył ślad do żądania, a śledzenie można wyświetlić w okienku **wydajności Application Insights** .
 
-     Jeśli nie jest wyświetlana żadna telemetria, profiler nie jest uruchomiony. Aby rozwiązać problem, zobacz sekcje rozwiązywania problemów dla określonego typu aplikacji w dalszej części tego artykułu.  
+     Jeśli nie zostanie wyświetlona żadna Telemetria, profiler nie jest uruchomiony. Aby rozwiązać problem, zobacz sekcję Rozwiązywanie problemów dotyczących określonego typu aplikacji w dalszej części tego artykułu.  
 
-     ![Wyszukiwanie danych telemetrycznych profilera][profiler-search-telemetry]
+     ![Wyszukaj dane telemetryczne profilera][profiler-search-telemetry]
 
-1. Jeśli były żądania podczas profilowania uruchomiony, upewnij się, że żądania są obsługiwane przez część aplikacji, która ma profiler włączone. Chociaż aplikacje czasami składają się z wielu składników, profiler jest włączony tylko dla niektórych składników. W okienku **Konfigurowanie profilera usługi Application Insights** są wyświetlane składniki, które przekazały ślady.
+1. Jeśli wystąpiły żądania podczas działania profilera, upewnij się, że żądania są obsługiwane przez część aplikacji z włączonym profilerem. Chociaż aplikacje są czasami składają się z wielu składników, profiler jest włączony tylko dla niektórych składników. W okienku **konfigurowanie Application Insights Profiler** są wyświetlane składniki, które przesłały dane śledzenia.
 
-### <a name="other-things-to-check"></a>Inne rzeczy do sprawdzenia
-* Upewnij się, że aplikacja jest uruchomiona w programie .NET Framework 4.6.
-* Jeśli aplikacja sieci web jest aplikacją ASP.NET Core, musi działać co najmniej ASP.NET Core 2.0.
-* Jeśli dane, które próbujesz wyświetlić, są starsze niż kilka tygodni, spróbuj ograniczyć filtr czasu i spróbuj ponownie. Ślady są usuwane po siedmiu dniach.
-* Upewnij się, że serwery proxy lub zapora nie zablokowały dostępu do https://gateway.azureserviceprofiler.netpliku .
-* Profiler nie jest obsługiwany w bezpłatnych lub udostępnionych planach usług aplikacji. Jeśli używasz jednego z tych planów, spróbuj skalować do jednego z podstawowych planów i profiler powinien rozpocząć pracę.
+### <a name="other-things-to-check"></a>Inne elementy do sprawdzenia
+* Upewnij się, że aplikacja działa na .NET Framework 4,6.
+* Jeśli aplikacja sieci Web jest aplikacją ASP.NET Core, musi być uruchomiona co najmniej ASP.NET Core 2,0.
+* Jeśli dane, które próbujesz wyświetlić, są starsze niż kilka tygodni, spróbuj ograniczyć filtr czasu i spróbuj ponownie. Ślady są usuwane po upływie siedmiu dni.
+* Upewnij się, że serwery proxy lub zapora nie zablokowali dostępu do https://gateway.azureserviceprofiler.netprogramu.
+* Profiler nie jest obsługiwany w planach usługi App Service w warstwie Bezpłatna lub współdzielona. Jeśli używasz jednego z tych planów, spróbuj przeprowadzić skalowanie do jednego z podstawowych planów i profilera powinien zacząć pracę.
 
-### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Podwójna liczenie w równoległych gwintach
+### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Podwójne zliczanie w wątkach równoległych
 
-W niektórych przypadkach metryka całkowitego czasu w przeglądarce stosu jest większa niż czas trwania żądania.
+W niektórych przypadkach Metryka łącznego czasu w podglądzie stosu przekracza czas trwania żądania.
 
-Taka sytuacja może wystąpić, gdy dwa lub więcej wątków są skojarzone z żądaniem i działają równolegle. W takim przypadku całkowity czas wątku jest więcej niż czas, który upłynął. Jeden wątek może czekać na innych do ukończenia. Widz próbuje wykryć tę sytuację i pomija nieciekawe oczekiwanie. W ten sposób błądzi po stronie wyświetlania zbyt dużej ilości informacji, zamiast pomijać to, co może być informacjami krytycznymi.
+Taka sytuacja może wystąpić, gdy dwa lub więcej wątków jest skojarzonych z żądaniem i działają równolegle. W takim przypadku łączny czas wątku jest większy niż czas, który upłynął. Jeden wątek może oczekiwać na zakończenie. Przeglądarka próbuje wykryć tę sytuację i pomija nieinteresujące oczekiwania. W takim przypadku ERRS się na stronie wyświetlanie zbyt dużej ilości informacji zamiast pomijania, co może być istotnymi informacjami.
 
-Po wyświetleniu równoległych wątków w ślady, należy określić, które wątki czekają, dzięki czemu można ustalić ścieżkę krytyczną dla żądania. Zwykle wątek, który szybko przechodzi w stan oczekiwania, po prostu czeka na inne wątki. Skoncentruj się na innych wątkach i ignoruj czas w wątkach oczekujących.
+Gdy widzisz wątki równoległe w śladach, ustal, które wątki oczekują na realizację, aby umożliwić ustalenie ścieżki krytycznej dla żądania. Zwykle wątek, który szybko przechodzi do stanu oczekiwania, jest po prostu czekał na inne wątki. Skoncentrowanie się na innych wątkach i ignorowanie czasu w oczekujących wątkach.
 
-### <a name="error-report-in-the-profile-viewer"></a>Raport o błędach w przeglądarce profili
-Prześlij zgłoszenie pomocy technicznej w portalu. Pamiętaj, aby dołączyć identyfikator korelacji z komunikatu o błędzie.
+### <a name="error-report-in-the-profile-viewer"></a>Raport o błędach w podglądzie profilów
+Prześlij bilet pomocy technicznej w portalu. Pamiętaj, aby dołączyć identyfikator korelacji z komunikatu o błędzie.
 
-## <a name="troubleshoot-profiler-on-azure-app-service"></a>Rozwiązywanie problemów z profilera w usłudze Azure App Service
-Aby profiler działał poprawnie:
-* Plan usługi aplikacji sieci web musi być warstwą podstawową lub wyższą.
-* Aplikacja sieci Web musi mieć włączoną statystykę aplikacji.
-* Aplikacja internetowa musi mieć następujące ustawienia aplikacji:
+## <a name="troubleshoot-profiler-on-azure-app-service"></a>Rozwiązywanie problemów z profilerem na Azure App Service
+Aby Profiler działał prawidłowo:
+* Plan usługi aplikacji sieci Web musi być w warstwie Podstawowa lub wyższej.
+* Aplikacja sieci Web musi mieć włączony Application Insights.
+* Aplikacja sieci Web musi mieć następujące ustawienia aplikacji:
 
     |Ustawienia aplikacji    | Wartość    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Aplikacja iKey dla zasobu usługi Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey zasobów Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-* **AplikacjaInsightsProfiler3** webjob musi być uruchomiona. Aby sprawdzić webjob:
-   1. Przejdź do [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
-   1. W menu **Narzędzia** wybierz polecenie **Pulpit nawigacyjny aplikacji WebJobs**.  
-      Zostanie otwarte okienko **WebJobs.** 
+* Zadanie WebJob **ApplicationInsightsProfiler3** musi być uruchomione. Aby sprawdzić zadanie WebJob:
+   1. Przejdź do [kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. W menu **Narzędzia** wybierz pozycję **pulpit nawigacyjny WebJobs**.  
+      Zostanie otwarte okienko **Zadania WebJob** . 
    
-      ![profiler-webjob]   
+      ![Profiler — zadanie WebJob]   
    
-   1. Aby wyświetlić szczegóły webjob, w tym dziennika, wybierz **ApplicationInsightsProfiler3** link.  
-     Zostanie otwarte **okienko Ciągłe szczegóły usługi WebJob.**
+   1. Aby wyświetlić szczegóły zadania WebJob, w tym dziennik, wybierz łącze **ApplicationInsightsProfiler3** .  
+     Zostanie otwarte okienko **szczegóły ciągłego Zadania WebJob** .
 
-      ![profiler-webjob-log]
+      ![Profiler-WebJob-log]
 
-Jeśli nie możesz dowiedzieć się, dlaczego Profiler nie działa dla Ciebie, możesz pobrać dziennik serviceprofilerhelp@microsoft.comi wysłać go do naszego zespołu, aby uzyskać pomoc, . 
+Jeśli nie możesz ustalić, dlaczego Profiler nie działa, możesz pobrać dziennik i wysłać go do naszego zespołu w celu uzyskania pomocy serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Instalacja ręczna
 
-Podczas konfigurowania profilera są aktualizowane w ustawieniach aplikacji sieci web. Jeśli środowisko tego wymaga, można zastosować aktualizacje ręcznie. Przykładem może być to, że aplikacja jest uruchomiona w środowisku aplikacji sieci Web dla usługi PowerApps. Aby ręcznie zastosować aktualizacje:
+Podczas konfigurowania programu Profiler są wprowadzane aktualizacje ustawień aplikacji sieci Web. Jeśli środowisko tego wymaga, można zastosować aktualizacje ręcznie. Przykładem może być to, że aplikacja działa w środowisku Web Apps dla usługi PowerApps. Aby ręcznie zastosować aktualizacje:
 
-1. W okienku **Formantu aplikacji sieci Web** otwórz okno **Ustawienia**.
+1. W okienku **kontroli aplikacji sieci Web** Otwórz pozycję **Ustawienia**.
 
-1. Ustaw **wersję programu .NET Framework** na wersję **4.6**.
+1. Ustaw **wersję .NET Framework** na **v 4.6**.
 
-1. Ustaw **zawsze włączone** **.**
+1. Ustawienie **zawsze włączone** . **On**
 1. Utwórz następujące ustawienia aplikacji:
 
     |Ustawienia aplikacji    | Wartość    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Aplikacja iKey dla zasobu usługi Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey zasobów Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
-    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+    |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>Zbyt wiele aktywnych sesji profilowania
 
-Obecnie można włączyć profiler na maksymalnie cztery aplikacje sieci web platformy Azure i gniazda wdrażania, które są uruchomione w tym samym planie usługi. Jeśli masz więcej niż cztery aplikacje sieci web uruchomione w jednym planie usługi aplikacji, profiler może zgłosić *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. Profiler działa oddzielnie dla każdej aplikacji sieci web i próbuje uruchomić sesję śledzenia zdarzeń dla systemu Windows (ETW) dla każdej aplikacji. Ale ograniczona liczba sesji ETW może być aktywna w tym czasie. Jeśli schemat webjob zgłasza zbyt wiele aktywnych sesji profilowania, przenieś niektóre aplikacje sieci web do innego planu usługi.
+Obecnie można włączyć program Profiler dla maksymalnie czterech usługi Azure Web Apps i miejsc wdrożenia, które działają w ramach tego samego planu usługi. Jeśli masz więcej niż cztery aplikacje sieci Web działające w ramach jednego planu usługi App Service, profiler może zgłosić element *Microsoft. Serviceprofiling. Exceptions. TooManyETWSessionException*. Profiler jest uruchamiany oddzielnie dla każdej aplikacji sieci Web i podejmuje próbę uruchomienia sesji śledzenia zdarzeń systemu Windows (ETW) dla każdej aplikacji. Jednak w tej chwili może być aktywna ograniczona liczba sesji ETW. Jeśli zadanie WebJob profilera raportuje zbyt wiele aktywnych sesji profilowania, przenieś niektóre aplikacje sieci Web do innego planu usługi.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Błąd wdrożenia: Katalog nie jest\\\\pusty\\"D: strona główna wwwroot\\App_Data\\zadania"
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Błąd wdrożenia: katalog nie jest pusty.\\:\\Witryna\\główna\\wwwroot\\App_Data zadania "
 
-Jeśli ponownie rozmieszczasz aplikację sieci web do zasobu aplikacji sieci Web z włączonym profilem, może zostać wyświetlony następujący komunikat:
+W przypadku ponownego wdrażania aplikacji sieci Web w ramach zasobu Web Apps z włączonym profilerem może zostać wyświetlony następujący komunikat:
 
-*Katalog\\nie pusty "D:\\strona\\główna\\\\wwwroot App_Data pracach"*
+*Katalog nie jest pusty:\\Witryna\\\\główna katalogu\\wwwroot\\App_Data zadania "*
 
-Ten błąd występuje, jeśli uruchomisz wdrażanie w sieci Web ze skryptów lub z potoku wdrażania usługi Azure DevOps. Rozwiązaniem jest dodanie następujących dodatkowych parametrów wdrażania do zadania wdrażania w sieci Web:
+Ten błąd występuje w przypadku uruchamiania Web Deploy ze skryptów lub z potoku wdrażania usługi Azure DevOps. Rozwiązaniem jest dodanie następujących dodatkowych parametrów wdrażania do zadania Web Deploy:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
-Te parametry usuwają folder używany przez program Application Insights Profiler i odblokowuj proces ponownego rozmieszczania. Nie mają one wpływu na wystąpienie profilera, które jest aktualnie uruchomione.
+Te parametry usuwają folder, który jest używany przez Application Insights Profiler i odblokowywają proces ponownego wdrażania. Nie wpływają one na już uruchomione wystąpienie profilera.
 
-### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Jak ustalić, czy program Profiler usługi Application Insights jest uruchomiony?
+### <a name="how-do-i-determine-whether-application-insights-profiler-is-running"></a>Jak mogę określić, czy Application Insights Profiler jest uruchomiony?
 
-Profiler działa jako ciągły webjob w aplikacji sieci web. Zasób aplikacji sieci Web można otworzyć w [witrynie Azure portal](https://portal.azure.com). W okienku **WebJobs** sprawdź stan **aplikacji ApplicationInsightsProfiler**. Jeśli nie jest uruchomiony, otwórz **dzienniki,** aby uzyskać więcej informacji.
+Profiler działa jako ciągły element WebJob w aplikacji sieci Web. Możesz otworzyć zasób aplikacji sieci Web w [Azure Portal](https://portal.azure.com). W okienku **Zadania WebJob** Sprawdź stan **ApplicationInsightsProfiler**. Jeśli nie jest uruchomiona, Otwórz **dzienniki** , aby uzyskać więcej informacji.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Rozwiązywanie problemów z profilera i diagnostyki platformy Azure
+## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Rozwiązywanie problemów z programem Profiler i Diagnostyka Azure
 
->**Naprawiono błąd w profilu, który jest dostarczany w wad dla usług w chmurze.** Najnowsza wersja wad (1.12.2.0) dla usług w chmurze współpracuje ze wszystkimi najnowszymi wersjami SDK usługi App Insights. Hosty usługi w chmurze uaktualnią wad automatycznie, ale nie jest natychmiastowe. Aby wymusić uaktualnienie, można ponownie wdrożyć usługę lub ponownie uruchomić węzeł.
+>**Usterka w profilerze, która jest dostarczana w funkcji wad dla Cloud Services, została naprawiona.** Najnowsza wersja programu funkcji wad (1.12.2.0) dla Cloud Services współpracuje ze wszystkimi najnowszymi wersjami zestawu SDK usługi App Insights. Hosty usługi w chmurze uaktualniają funkcji wad automatycznie, ale nie będą natychmiast. Aby wymusić uaktualnienie, można ponownie wdrożyć usługę lub przeprowadzić ponowny rozruch węzła.
 
-Aby sprawdzić, czy profiler jest poprawnie skonfigurowany przez usługę Azure Diagnostics, wykonaj następujące trzy czynności: 
-1. Najpierw sprawdź, czy zawartość konfiguracji diagnostyki platformy Azure, które są wdrażane są oczekiwane. 
+Aby sprawdzić, czy Profiler jest skonfigurowany prawidłowo Diagnostyka Azure, wykonaj następujące trzy czynności: 
+1. Najpierw sprawdź, czy zawartość wdrożonej konfiguracji Diagnostyka Azure jest oczekiwana. 
 
-1. Po drugie upewnij się, że diagnostyka platformy Azure przekazuje prawidłowy klucz iKey w wierszu polecenia profilera. 
+1. Następnie upewnij się, że Diagnostyka Azure przekazuje odpowiednie iKey w wierszu polecenia profilera. 
 
-1. Po trzecie, sprawdź plik dziennika profilera, aby zobaczyć, czy profiler został uruchomiony, ale zwrócił błąd. 
+1. Po trzecie Sprawdź plik dziennika profilera, aby sprawdzić, czy profiler został uruchomiony, ale zwrócił błąd. 
 
-Aby sprawdzić ustawienia używane do konfigurowania diagnostyki platformy Azure:
+Aby sprawdzić ustawienia, które zostały użyte do skonfigurowania Diagnostyka Azure:
 
-1. Zaloguj się do maszyny wirtualnej (VM), a następnie otwórz plik dziennika w tej lokalizacji. (Dysk może być c: lub d: a wersja wtyczki może być inna.)
+1. Zaloguj się do maszyny wirtualnej, a następnie otwórz plik dziennika w tej lokalizacji. (Może to być dysk c: lub d:, a wersja wtyczki może być inna).
 
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
@@ -151,31 +151,31 @@ Aby sprawdzić ustawienia używane do konfigurowania diagnostyki platformy Azure
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
-1. W pliku można wyszukać ciąg **WadCfg,** aby znaleźć ustawienia, które zostały przekazane do maszyny Wirtualnej, aby skonfigurować diagnostykę platformy Azure. Można sprawdzić, czy iKey używany przez ujście profilera jest poprawna.
+1. W pliku można wyszukać ciąg **WadCfg** , aby znaleźć ustawienia, które zostały przesłane do maszyny wirtualnej w celu skonfigurowania Diagnostyka Azure. Możesz sprawdzić, czy iKey używany przez ujścia profilera jest prawidłowy.
 
-1. Sprawdź wiersz polecenia używany do uruchamiania programu Profiler. Argumenty, które są używane do uruchamiania Profiler znajdują się w następującym pliku. (Napęd może być c: lub d:)
+1. Sprawdź wiersz polecenia, który służy do uruchamiania profilera. Argumenty, które są używane do uruchamiania profilera, znajdują się w następującym pliku. (Dysk może mieć wartość c: lub d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
-1. Upewnij się, że klawisz iKey w wierszu polecenia profilera jest poprawny. 
+1. Upewnij się, że iKey w wierszu polecenia profilera jest prawidłowy. 
 
-1. Korzystając ze ścieżki znalezionej w poprzednim pliku *config.json,* sprawdź plik dziennika profilera. Wyświetla informacje debugowania, który wskazuje ustawienia, które profiler używa. Wyświetla również komunikaty o stanie i błędach z profilera.  
+1. Przy użyciu ścieżki znalezionej w poprzednim pliku *config. JSON* Sprawdź plik dziennika profilera. Wyświetla informacje o debugowaniu, które wskazują ustawienia, które są używane przez profiler. Wyświetla również komunikaty o stanie i błędach z profilera.  
 
-    Jeśli profiler jest uruchomiony podczas odbierania żądań przez aplikację, wyświetlany jest następujący komunikat: *Działanie wykryte z programu iKey*. 
+    Jeśli profiler jest uruchomiony, gdy aplikacja otrzymuje żądania, zostanie wyświetlony następujący komunikat: *działanie wykryte z iKey*. 
 
-    Podczas przekazywania śledzenia wyświetlany jest następujący komunikat: *Start do przekazywania śledzenia*. 
+    Podczas przekazywania śladu zostanie wyświetlony następujący komunikat: *Rozpocznij przekazywanie śledzenia*. 
 
 
-## <a name="edit-network-proxy-or-firewall-rules"></a>Edytowanie reguł serwera proxy lub zapory sieciowej
+## <a name="edit-network-proxy-or-firewall-rules"></a>Edytowanie sieci proxy lub reguł zapory
 
-Jeśli aplikacja łączy się z Internetem za pośrednictwem serwera proxy lub zapory, może być konieczne edytowanie reguł, aby umożliwić aplikacji komunikowanie się z usługą Profiler usługi Application Insights. Pliki IP używane przez profiler usługi Application Insights są uwzględniane w tagu usługi Usługi Azure Monitor.
+Jeśli aplikacja łączy się z Internetem za pośrednictwem serwera proxy lub zapory, może być konieczne edytowanie reguł, aby umożliwić aplikacji komunikację z usługą Application Insights Profiler. Adresy IP używane przez Application Insights Profiler są zawarte w tagu usługi Azure Monitor.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
-[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[Profiler — zadanie WebJob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[Profiler-WebJob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

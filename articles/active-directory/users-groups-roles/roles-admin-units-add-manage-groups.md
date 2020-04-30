@@ -1,6 +1,6 @@
 ---
-title: Dodawanie, usuwanie i listy grup w jednostce administracyjnej (wersja zapoznawcza) — Usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Zarządzanie grupami i ich uprawnieniami do roli w jednostce administracyjnej usługi Azure Active Directory
+title: Dodawanie, usuwanie i wyświetlanie grup w jednostce administracyjnej (wersja zapoznawcza) — Azure Active Directory | Microsoft Docs
+description: Zarządzanie grupami i ich uprawnieniami roli w jednostce administracyjnej w Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,35 +15,35 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683270"
 ---
-# <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Dodawanie grup w jednostkach administracyjnych w usłudze Azure Active Directory i zarządzanie nimi
+# <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Dodawanie grup i zarządzanie nimi w jednostkach administracyjnych w Azure Active Directory
 
-W usłudze Azure Active Directory (Azure AD) można dodać grupy do jednostki administracyjnej (UA), aby uzyskać bardziej szczegółowy zakres administracyjny kontroli.
+W Azure Active Directory (Azure AD) można dodać grupy do jednostki administracyjnej (AU), aby uzyskać bardziej szczegółowy zakres administracyjny kontroli.
 
-Aby uzyskać instrukcje przygotowania do używania programów PowerShell i Microsoft Graph do zarządzania jednostkami administracyjnymi, zobacz [Wprowadzenie](roles-admin-units-manage.md#get-started).
+Aby dowiedzieć się, jak przygotować się do korzystania z programu PowerShell i Microsoft Graph do zarządzania jednostką administracyjną, zobacz [wprowadzenie](roles-admin-units-manage.md#get-started).
 
-## <a name="add-groups-to-an-au"></a>Dodawanie grup do ua
+## <a name="add-groups-to-an-au"></a>Dodawanie grup do funkcji AU
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W wersji zapoznawczej grupy można przypisywać tylko indywidualnie do jednostki administracyjnej. Nie ma możliwości zbiorczego przypisywania grup do jednostki administracyjnej. Grupę można przypisać do jednostki administracyjnej w jeden z dwóch sposobów w portalu:
+W wersji zapoznawczej można przypisywać grupy tylko pojedynczo do jednostki administracyjnej. Nie ma możliwości zbiorczego przypisywania grup do jednostki administracyjnej. Grupę można przypisać do jednostki administracyjnej w jeden z dwóch sposobów w portalu:
 
-1. Ze strony **Grupy > usługi Azure AD**
+1. Na stronie **grupy > usługi Azure AD**
 
-    Otwórz stronę Przegląd grup w usłudze Azure AD i wybierz grupę, która musi zostać przypisana do jednostki administracyjnej. Po lewej stronie wybierz **pozycję Jednostki administracyjne,** aby wyświetlić listę jednostek administracyjnych, do które grupa jest przypisana. Na górze znajdziesz opcję Przypisz do jednostki administracyjnej, a kliknięcie na nią da panel po prawej stronie, aby wybrać jednostkę administracyjną.
+    Otwórz stronę przegląd grup w usłudze Azure AD i wybierz grupę, która ma zostać przypisana do jednostki administracyjnej. Po lewej stronie wybierz pozycję **jednostki administracyjne** , aby wyświetlić jednostki administracyjne, do których grupa jest przypisana. W górnej części znajdziesz opcję Przypisz do jednostki administracyjnej i kliknięcie jej spowoduje udostępnienie panelu po prawej stronie, aby wybrać jednostkę administracyjną.
 
-    ![przypisywanie grupy indywidualnie do jednostki administracyjnej](./media/roles-admin-units-add-manage-groups/assign-to-group-1.png)
+    ![Przypisz grupę pojedynczo do jednostki administracyjnej](./media/roles-admin-units-add-manage-groups/assign-to-group-1.png)
 
-1. Na stronie **Jednostki administracyjne usługi Azure AD > > wszystkie grupy**
+1. Na stronie **jednostki administracyjne > usługi Azure AD > wszystkie grupy**
 
-    Otwórz wszystkie grupy bloku w usłudze Azure AD > jednostek administracyjnych. Jeśli istnieją grupy już przypisane do jednostki administracyjnej, zostaną one wyświetlone po prawej stronie. Wybierz **pozycję Dodaj** u góry, a prawy panel zostanie przesunie się z listą grup dostępnych w organizacji usługi Azure AD. Wybierz jedną lub więcej grup, które mają być przypisane do jednostek administracyjnych.
+    Otwórz blok wszystkie grupy w usłudze Azure AD > jednostki administracyjne. Jeśli istnieją już przypisane grupy do jednostki administracyjnej, zostaną one wyświetlone po prawej stronie. Wybierz pozycję **Dodaj** u góry, a prawy panel wyświetli listę grup dostępnych w organizacji usługi Azure AD. Wybierz co najmniej jedną grupę, która ma zostać przypisana do jednostek administracyjnych.
 
-    ![wybierz jednostkę administracyjną, a następnie wybierz pozycję Dodaj element członkowski](./media/roles-admin-units-add-manage-groups/assign-to-admin-unit.png)
+    ![Wybierz jednostkę administracyjną, a następnie wybierz pozycję Dodaj członka](./media/roles-admin-units-add-manage-groups/assign-to-admin-unit.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -51,7 +51,7 @@ W wersji zapoznawczej grupy można przypisywać tylko indywidualnie do jednostki
     $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
     Add-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 
-W tym przykładzie dodawania polecenia cmdlet Add-AzureADAdministrativeUnitMember jest używany do dodawania grupy do jednostki administracyjnej. Jako argument przyjmowany jest identyfikator obiektu jednostki administracyjnej i identyfikator obiektu grupy, która ma zostać dodana. Wyróżniona sekcja może zostać zmieniona zgodnie z wymaganiami dla określonego środowiska.
+W tym przykładzie polecenie cmdlet Add-AzureADAdministrativeUnitMember służy do dodawania grupy do jednostki administracyjnej. Identyfikator obiektu jednostki administracyjnej i identyfikator obiektu grupy, która ma zostać dodana, są brane jako argument. Wyróżnioną sekcję można zmienić zgodnie z wymaganiami określonego środowiska.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
@@ -69,11 +69,11 @@ Przykład:
       "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
     }
 
-## <a name="list-groups-in-an-au"></a>Lista grup w UA
+## <a name="list-groups-in-an-au"></a>Wyświetl listę grup w usłudze AU
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Przejdź do **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną, dla której chcesz wyświetlić listę użytkowników. Domyślnie **wszyscy użytkownicy** są już wybierani na lewym panelu. Wybierz **wszystkie grupy,** a po prawej stronie znajdziesz listę grup, które są członkami wybranej jednostki administracyjnej.
+Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną, dla której chcesz wyświetlić listę użytkowników. Domyślnie **Wszyscy użytkownicy** są wybierani już w lewym panelu. Zaznacz **wszystkie grupy** i po prawej stronie znajdziesz listę grup, które są członkami wybranej jednostki administracyjnej.
 
 ![Wybierz jednostkę administracyjną do usunięcia](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
@@ -82,7 +82,7 @@ Przejdź do **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
 
-Pomoże ci to uzyskać wszystkich członków jednostki administracyjnej. Aby wyświetlić wszystkie grupy, które są członkami jednostki administracyjnej, możesz użyć poniższego fragmentu kodu:
+Pomoże to uzyskać wszystkich członków jednostki administracyjnej. Aby wyświetlić wszystkie grupy, które są członkami jednostki administracyjnej, można użyć poniższego fragmentu kodu:
 
     foreach ($member in (Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
     {
@@ -99,13 +99,13 @@ Pomoże ci to uzyskać wszystkich członków jednostki administracyjnej. Aby wy�
     Request body
     {}
 
-## <a name="list-aus-for-a-group"></a>Lista aus dla grupy
+## <a name="list-aus-for-a-group"></a>Wystaw jako grupę
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W portalu usługi Azure AD można otworzyć szczegóły grupy, otwierając **grupę**. Wybierz grupę, aby otworzyć profil grupy. Wybierz **jednostki administracyjne,** aby wyświetlić listę wszystkich jednostek administracyjnych, których grupa jest członkiem.
+W portalu usługi Azure AD można otworzyć Szczegóły grupy, otwierając **grupy**. Wybierz grupę, aby otworzyć profil grupy. Wybierz pozycję **jednostki administracyjne** , aby wyświetlić listę wszystkich jednostek administracyjnych, w których grupa jest członkiem.
 
-![Wyświetlanie listy jednostek administracyjnych dla grupy](./media/roles-admin-units-add-manage-groups/list-group-au.png)
+![Wyświetl listę jednostek administracyjnych dla grupy](./media/roles-admin-units-add-manage-groups/list-group-au.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -115,19 +115,19 @@ W portalu usługi Azure AD można otworzyć szczegóły grupy, otwierając **gru
 
     https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
 
-## <a name="remove-a-group-from-an-au"></a>Usuwanie grupy z UA
+## <a name="remove-a-group-from-an-au"></a>Usuwanie grupy z funkcji AU
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Istnieją dwa sposoby usuwania grupy z jednostki administracyjnej w witrynie Azure portal.
+Istnieją dwa sposoby usuwania grupy z jednostki administracyjnej w Azure Portal.
 
-Otwórz**grupy** **usługi Azure AD** > i otwórz profil grupy, którą chcesz usunąć z jednostki administracyjnej. Wybierz **pozycję Jednostki administracyjne** w lewym panelu, aby wyświetlić listę wszystkich jednostek administracyjnych, których członkiem jest grupa. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
+Otwórz**grupy** **usługi Azure AD** > i Otwórz profil dla grupy, którą chcesz usunąć z jednostki administracyjnej. Wybierz pozycję **jednostki administracyjne** w lewym panelu, aby wyświetlić listę wszystkich jednostek administracyjnych, w których grupa jest członkiem. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
 
 ![Usuwanie grupy z jednostki administracyjnej](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-Alternatywnie można przejść do**jednostek administracyjnych** **usługi Azure AD** > i wybrać jednostkę administracyjną, której członkiem jest grupa. Wybierz **pozycję Grupy** w lewym panelu, aby wyświetlić listę grup członkowskich. Wybierz grupę, która ma zostać usunięta z jednostki administracyjnej, a następnie wybierz pozycję **Usuń grupy**.
+Alternatywnie możesz przejść do pozycji**jednostki administracyjne** **usługi Azure AD** > i wybrać jednostkę administracyjną, do której należy Grupa. Wybierz **grupy** w lewym panelu, aby wyświetlić listę grup elementów członkowskich. Wybierz grupę, która ma zostać usunięta z jednostki administracyjnej, a następnie wybierz pozycję **Usuń grupy**.
 
-![Lista grup w jednostce administracyjnej](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+![Wyświetl listę grup w jednostce administracyjnej](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

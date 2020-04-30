@@ -1,6 +1,6 @@
 ---
-title: Architektura IoT Inteligentne zarządzanie zapasami | Dokumenty firmy Microsoft
-description: Architektura szablonu IoT Smart Inventory Management dla usługi IoT Central
+title: Architektura zarządzania magazynem w usłudze IoT Smart Microsoft Docs
+description: Architektura szablonu zarządzania magazynem inteligentnym usługi IoT dla IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -9,50 +9,50 @@ ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
 ms.openlocfilehash: 9e0b4a3c22c1e6008bdce7fecc1d122fe317dd58
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81686202"
 ---
-# <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architektura szablonu aplikacji do inteligentnego zarządzania zapasami IoT Central
+# <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Architektura szablonu IoT Central aplikacji do zarządzania magazynem inteligentnym
 
-Partnerzy i klienci mogą korzystać z szablonu aplikacji i postępować zgodnie ze wskazówkami, aby opracować kompleksowe rozwiązania do **zarządzania inteligentnymi zapasami.**
+Partnerzy i klienci mogą korzystać z szablonu aplikacji i uzyskać wskazówki dotyczące tworzenia kompleksowych rozwiązań do **zarządzania magazynem inteligentnym** .
 
 > [!div class="mx-imgBorder"]
-> ![inteligentne zarządzanie zapasami](./media/concept-smart-inventory-mgmt-architecture/smart-inventory-management-architecture.png)
+> ![Zarządzanie zapasami inteligentnymi](./media/concept-smart-inventory-mgmt-architecture/smart-inventory-management-architecture.png)
 
-1. Zestaw czujników IoT wysyłających dane telemetryczne do urządzenia bramy
-2. Urządzenia bramy wysyłające dane telemetryczne i zagregowane szczegółowe informacje do usługi IoT Central
-3. Dane są kierowane do żądanej usługi platformy Azure w celu manipulacji
-4. Usługi platformy Azure, takie jak ASA lub Usługi Azure Functions, mogą służyć do formatowania strumieni danych i wysyłania ich do żądanych kont magazynu 
-5. Przetwarzane dane są przechowywane w magazynie na gorąco dla akcji w czasie zbliżonym do rzeczywistego lub chłodni, aby uzyskać dodatkowe ulepszenia wglądu, które są oparte na analizie uczenia maszynowego lub wsadowej. 
-6. Aplikacje logiki mogą być używane do zasilania różnych przepływów pracy biznesowych w aplikacjach biznesowych użytkowników końcowych
+1. Zbiór czujników IoT wysyłających dane telemetryczne do urządzenia bramy
+2. Urządzenia bramy wysyłające dane telemetryczne i agregowane szczegółowe dane do IoT Central
+3. Dane są kierowane do żądanej usługi platformy Azure w celu manipulowania
+4. Za pomocą usług systemu Azure, takich jak ASA lub Azure Functions, można ponownie formatować strumienie danych i wysyłać je do żądanych kont magazynu 
+5. Przetworzone dane są przechowywane w magazynie gorącym dla akcji niemal w czasie rzeczywistym lub w chłodnym magazynie w celu uzyskania dodatkowych ulepszeń szczegółowych, które opierają się na analizie ML lub partii. 
+6. Logic Apps może służyć do zarządzania różnymi przepływami pracy w aplikacjach dla użytkowników końcowych
 
 ## <a name="details"></a>Szczegóły
-W poniższej sekcji przedstawiono każdą część architektury koncepcyjnej Połkliwienie telemetrii z oznaczeń identyfikacji radiowej (RFID), niskiej energii Bluetooth (BLE)
+W poniższej sekcji przedstawiono każdą część pozyskiwania danych telemetrycznych architektury koncepcyjnej z identyfikacji radiowej (RFID), Tagi Bluetooth Low Energy (beli)
 
 ## <a name="rfid-tags"></a>Znaczniki RFID
-Znaczniki RFID przesyłają dane o elemencie za pośrednictwem fal radiowych. Znaczniki RFID zazwyczaj nie mają baterii, chyba że określono. Znaczniki odbierają energię z fal radiowych generowanych przez czytnik i przekazują sygnał z powrotem do czytnika RFID.
+Tagi RFID przesyłają dane dotyczące elementu za za poorednictwem fal radiowych. Tagi RFID zazwyczaj nie mają baterii, chyba że zostanie określony. Tagi odbierają energię z fal radiowych generowanych przez czytnik i przesyłają sygnał z powrotem do czytnika RFID.
 
-## <a name="ble-tags"></a>Tagi BLE
-Energy beacon emituje pakiety danych w regularnych odstępach czasu. Dane beacon są wykrywane przez czytniki BLE lub zainstalowane usługi na smartfonach, a następnie przesyłane do chmury.
+## <a name="ble-tags"></a>Tagi dotyczące beli
+Sygnał energetyczny emituje pakiety danych w regularnych odstępach czasu. Dane sygnałów są wykrywane przez czytniki beli lub zainstalowane usługi na smartfonach, a następnie przesyłane do chmury.
 
-## <a name="rfid--ble-readers"></a>Czytniki RFID & BLE
-Czytnik RFID konwertuje fale radiowe na bardziej użyteczną formę danych. Informacje zebrane z tagów są następnie przechowywane w lokalnym serwerze brzegowym lub wysyłane do chmury przy użyciu JSON-RPC 2.0 przez MQTT.
-Czytnik BLE znany również jako punkty dostępu (AP) są podobne do czytnika RFID. Służy do wykrywania pobliskich sygnałów Bluetooth i przekazywania jego wiadomości do lokalnej usługi Azure IoT Edge lub chmury przy użyciu JSON-RPC 2.0 przez MQTT.
-Wiele czytników jest w stanie odczytywać sygnały RFID i sygnały nawigacyjne, a także zapewniać dodatkowe możliwości czujników związane z temperaturą, wilgotnością, akcelerometrem i żyroskopem.
+## <a name="rfid--ble-readers"></a>Czytniki dotyczące &ów RFID
+Czytnik RFID konwertuje fale radiowe na bardziej użyteczną formę danych. Informacje zbierane ze znaczników są następnie przechowywane na lokalnym serwerze brzegowym lub wysyłane do chmury przy użyciu JSON-RPC 2,0 przez MQTT.
+Czytniki beli znane również jako punkty dostępu (AP) są podobne do czytnika RFID. Służy do wykrywania pobliskich sygnałów Bluetooth i przekazywania wiadomości do lokalnego Azure IoT Edge lub chmury przy użyciu JSON-RPC 2,0 przez MQTT.
+Wielu czytników może odczytywać sygnały RFID i sygnałów sygnalizacyjnych oraz zapewniać dodatkową możliwość czujnika odnoszącą się do temperatury, wilgotności, przyspieszeniomierza i żyroskop.
 
-## <a name="azure-iot-edge-gateway"></a>Brama usługi Azure IoT Edge
-Serwer usługi Azure IoT Edge zapewnia miejsce do wstępnego przetwarzania tych danych lokalnie przed wysłaniem ich do chmury. Możemy również wdrażać obciążenia w chmurze sztucznej inteligencji, platformy Azure i usług innych firm, logiki biznesowej przy użyciu standardowych kontenerów.
+## <a name="azure-iot-edge-gateway"></a>Azure IoT Edge Gateway
+Serwer Azure IoT Edge zapewnia wstępne przetwarzanie danych lokalnie przed wysłaniem ich do chmury. Możemy również wdrożyć rozmieszczenie obciążeń w chmurze sztuczną inteligencję, platformę Azure i usługi innych firm, logikę biznesową przy użyciu standardowych kontenerów.
 
-## <a name="device-management-with-iot-central"></a>Zarządzanie urządzeniami za pomocą usługi IoT Central 
-Usługa Azure IoT Central to platforma programowa, która upraszcza łączność, konfigurację i zarządzanie urządzeniami IoT. Platforma znacznie zmniejsza obciążenie i koszty zarządzania urządzeniami IoT, operacji i związanych z nimi zmian. Klienci & partnerzy mogą tworzyć kompleksowe rozwiązania dla przedsiębiorstw, aby uzyskać cyfrową pętlę sprzężenia zwrotnego w zarządzaniu zapasami.
+## <a name="device-management-with-iot-central"></a>Zarządzanie urządzeniami za pomocą IoT Central 
+Azure IoT Central to platforma programistyczna rozwiązań, która upraszcza łączność, konfigurację i zarządzanie urządzeniami IoT. Platforma znacznie zmniejsza obciążenie i koszty związane z zarządzaniem urządzeniami IoT, operacjami i powiązanymi rozwiązaniami. Klienci & partnerzy mogą tworzyć kompleksowe rozwiązania dla przedsiębiorstw, aby uzyskać pętlę do zarządzania spisem.
 
-## <a name="business-insights--actions-using-data-egress"></a>Wgląd w dane biznesowe & akcji przy użyciu transferu danych wychodzących 
-Platforma IoT Central zapewnia zaawansowane opcje rozszerzalności za pośrednictwem ciągłego eksportowania danych (CDE) i interfejsów API. Szczegółowe informacje biznesowe oparte na przetwarzaniu danych telemetrycznych lub nieprzetworzonych danych telemetrycznych są zazwyczaj eksportowane do preferowanej aplikacji biznesowej. Można to osiągnąć za pomocą elementu webhook, magistrali usług, centrum zdarzeń lub magazynu obiektów blob do tworzenia, uczenia i wdrażania modeli uczenia maszynowego, & dalszego wzbogacania szczegółowych informacji.
+## <a name="business-insights--actions-using-data-egress"></a>Szczegółowe informacje biznesowe & działania przy użyciu danych wyjściowych 
+Platforma IoT Central zapewnia zaawansowane opcje rozszerzalności za poorednictwem ciągłego eksportowania danych (CDE) i interfejsów API. Szczegółowe informacje biznesowe oparte na przetwarzaniu danych telemetrycznych lub nieprzetworzonej telemetrii są zwykle eksportowane do preferowanych aplikacji biznesowych. Można to osiągnąć za pomocą elementów webhook, Service Bus, Event Hub lub BLOB Storage do kompilowania, uczenia i wdrażania modeli uczenia maszynowego & dodatkowego wzbogacania szczegółowych informacji.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak wdrożyć [szablon zarządzania inteligentnymi zapasami](./tutorial-iot-central-smart-inventory-management.md)
+* Dowiedz się, jak wdrożyć [szablon zarządzania magazynem inteligentnym](./tutorial-iot-central-smart-inventory-management.md)
 * Dowiedz się więcej o [szablonach detalicznych IoT Central](./overview-iot-central-retail.md)
-* Dowiedz się więcej o IoT Central zapoznaj się z [przeglądem IoT Central](../core/overview-iot-central.md)
+* Dowiedz się więcej o IoT Central zapoznaj się z [omówieniem IoT Central](../core/overview-iot-central.md)

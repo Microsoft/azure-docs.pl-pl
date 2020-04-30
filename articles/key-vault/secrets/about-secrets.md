@@ -1,6 +1,6 @@
 ---
-title: Wpisy tajne usługi Azure Key Vault — usługa Azure Key Vault
-description: Omówienie interfejsu REST usługi Azure Key Vault i szczegóły dewelopera dla wpisów tajnych.
+title: Informacje o kluczach tajnych Azure Key Vault — Azure Key Vault
+description: Omówienie Azure Key Vault interfejsu REST i szczegółów dla deweloperów dla wpisów tajnych.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,104 +11,104 @@ ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81685436"
 ---
-# <a name="about-azure-key-vault-secrets"></a>Wpisy tajne usługi Azure Key Vault – informacje
+# <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
 
-Usługa Key Vault zapewnia bezpieczne przechowywanie wpisów tajnych, takich jak hasła i parametry połączenia bazy danych.
+Key Vault zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych.
 
-Z punktu widzenia dewelopera interfejsy API usługi Key Vault akceptują i zwracają tajne wartości jako ciągi. Wewnętrznie Usługa Key Vault przechowuje i zarządza wpisami tajnymi jako sekwencje oktetów (8-bitowych bajtów), o maksymalnym rozmiarze 25 k bajtów. Usługa Usługi Usługi Przechowalnia kluczy nie zapewnia semantyki wpisów tajnych. Po prostu akceptuje dane, szyfruje je, przechowuje i zwraca tajny identyfikator ("id"). Identyfikator może służyć do pobierania klucza tajnego w późniejszym czasie.  
+Z perspektywy deweloperów Key Vault interfejsy API akceptują i zwracają wartości tajne jako ciągi. Wewnętrznie program Key Vault przechowuje klucze tajne i zarządza nimi jako sekwencje oktetów (8-bitowych bajtów), a każdy z nich ma maksymalny rozmiar 25k bajtów. Usługa Key Vault nie zapewnia semantyki dla wpisów tajnych. Tylko akceptuje dane, szyfruje je, zapisuje i zwraca identyfikator tajny ("ID"). Identyfikatora można użyć do pobrania klucza tajnego w późniejszym czasie.  
 
 W przypadku wysoce poufnych danych klienci powinni rozważyć zastosowanie dodatkowych warstw ochrony danych. Jednym z przykładów jest szyfrowanie danych przy użyciu oddzielnego klucza ochrony w celu przechowywania ich w usłudze Key Vault.  
 
-Usługa Key Vault obsługuje również pole contentType dla wpisów tajnych. Klienci mogą określić typ zawartości klucza tajnego, aby pomóc w interpretacji tajnych danych podczas ich pobierania. Maksymalna długość tego pola wynosi 255 znaków. Nie ma wstępnie zdefiniowanych wartości. Sugerowane użycie jest wskazówką do interpretacji tajnych danych. Na przykład implementacja może przechowywać hasła i certyfikaty jako wpisy tajne, a następnie użyć tego pola do rozróżnienia. Nie ma wstępnie zdefiniowanych wartości.  
+Key Vault obsługuje również pole ContentType dla wpisów tajnych. Klienci mogą określić typ zawartości wpisu tajnego, aby pomóc w interpretacji danych tajnych podczas pobierania. Maksymalna długość tego pola to 255 znaków. Brak wstępnie zdefiniowanych wartości. Sugerowane użycie jest wskazówką dotyczącą interpretacji danych tajnych. Na przykład implementacja może przechowywać hasła i certyfikaty jako wpisy tajne, a następnie używać tego pola do rozróżniania. Brak wstępnie zdefiniowanych wartości.  
 
-## <a name="secret-attributes"></a>Atrybuty tajne
+## <a name="secret-attributes"></a>Atrybuty wpisu tajnego
 
-Oprócz tajnych danych można określić następujące atrybuty:  
+Oprócz danych tajnych można określić następujące atrybuty:  
 
-- *exp*: IntDate, opcjonalnie, domyślnie jest **zawsze**. Atrybut *exp* (czas wygaśnięcia) identyfikuje czas wygaśnięcia, po którym tajne dane nie powinny być pobierane, z wyjątkiem [szczególnych sytuacji](#date-time-controlled-operations). To pole służy do celów **informacyjnych** tylko wtedy, gdy informuje użytkowników usługi magazynu kluczy, że określony klucz tajny nie może być używany. Jego wartość MUSI być liczbą zawierającą wartość IntDate.   
-- *nbf*: IntDate, opcjonalnie, domyślnie jest **teraz**. Atrybut *nbf* (nie wcześniej) określa czas, przed którym tajne dane NIE powinny być pobierane, z wyjątkiem [szczególnych sytuacji](#date-time-controlled-operations). To pole służy wyłącznie celom **informacyjnym.** Jego wartość MUSI być liczbą zawierającą wartość IntDate. 
-- *włączone*: logiczne, opcjonalne, domyślnie jest **prawdziwe**. Ten atrybut określa, czy tajne dane mogą być pobierane. Włączony atrybut jest używany w połączeniu z *nbf* i *exp,* gdy operacja występuje między *nbf* i *exp*, będzie dozwolone tylko wtedy, gdy włączona jest ustawiona na **true**. Operacje poza oknem *nbf* i *exp* są automatycznie niedozwolone, z wyjątkiem [szczególnych sytuacji.](#date-time-controlled-operations)  
+- *EXP*: IntDate, opcjonalne, wartość domyślna to **nieskończoność**. Atrybut *EXP* (czas wygaśnięcia) określa czas wygaśnięcia lub po którym dane tajne nie powinny być pobierane, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations). To pole służy tylko do celów **informacyjnych** , ponieważ informuje użytkowników usługi magazynu kluczy, że nie można użyć określonego klucza tajnego. Wartość musi być liczbą zawierającą wartość IntDate.   
+- *NBF*: IntDate, opcjonalnie, domyślnie jest **teraz**. Atrybut *NBF* (nie wcześniej) określa czas, po którym dane tajne nie powinny być pobierane, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations). To pole służy tylko do celów **informacyjnych** . Wartość musi być liczbą zawierającą wartość IntDate. 
+- *włączone*: wartość logiczna, opcjonalna, **wartość**domyślna to true. Ten atrybut określa, czy można pobrać dane tajne. Atrybut Enabled jest używany w połączeniu z *NBF* i *EXP* , gdy operacja przejdzie między *NBF* i *EXP*, będzie dozwolona tylko wtedy, gdy ustawienie Enabled ma **wartość true**. Operacje poza oknem *NBF* i *EXP* są automatycznie niedozwolone, z wyjątkiem [określonych sytuacji](#date-time-controlled-operations).  
 
-Istnieją dodatkowe atrybuty tylko do odczytu, które są zawarte w każdej odpowiedzi, która zawiera atrybuty tajne:  
+Istnieją dodatkowe atrybuty tylko do odczytu, które znajdują się w dowolnej odpowiedzi zawierającej atrybuty tajne:  
 
-- *utworzony*: IntDate, opcjonalnie. Utworzony atrybut wskazuje, kiedy ta wersja klucza tajnego została utworzona. Ta wartość jest null dla wpisów tajnych utworzonych przed dodaniem tego atrybutu. Jego wartość musi być liczbą zawierającą wartość IntDate.  
-- *aktualizacja*: IntDate, opcjonalnie. Zaktualizowany atrybut wskazuje, kiedy ta wersja klucza tajnego została zaktualizowana. Ta wartość jest null dla wpisów tajnych, które zostały ostatnio zaktualizowane przed dodaniem tego atrybutu. Jego wartość musi być liczbą zawierającą wartość IntDate.
+- *utworzono*: IntDate, opcjonalnie. Utworzony atrybut wskazuje, kiedy ta wersja wpisu tajnego została utworzona. Ta wartość jest zerowa dla wpisów tajnych utworzonych przed dodaniem tego atrybutu. Wartość musi być liczbą zawierającą wartość IntDate.  
+- *Zaktualizowano*: IntDate, opcjonalnie. Zaktualizowany atrybut wskazuje, kiedy ta wersja wpisu tajnego została zaktualizowana. Ta wartość jest zerowa dla wpisów tajnych, które były ostatnio aktualizowane przed dodaniem tego atrybutu. Wartość musi być liczbą zawierającą wartość IntDate.
 
 ### <a name="date-time-controlled-operations"></a>Operacje kontrolowane przez datę i godzinę
 
-Operacja **get** secret będzie działać dla nie-jeszcze ważne i wygasłe wpisy tajne, poza *nbf* / *exp* okna. Wywołanie operacji **get** klucza tajnego, dla nieustałego jeszcze tajnego, może służyć do celów testowych. Pobieranie **(get**ting) wygasły klucz tajny, może służyć do odzyskiwania operacji.
+Operacja **pobrania** wpisu tajnego będzie działała w przypadku nieprawidłowych i wygasłych wpisów tajnych poza oknem*wygaśnięcia* protokołu *NBF* / . Wywoływanie operacji **Get** wpisu tajnego dla nieprawidłowego hasła tajnego może być używane do celów testowych. Pobieranie (**pobieranie**) wygasłego klucza tajnego może być używane na potrzeby operacji odzyskiwania.
 
 ## <a name="secret-access-control"></a>Kontrola dostępu do wpisów tajnych
 
-Kontrola dostępu dla wpisów tajnych zarządzanych w magazynie kluczy jest dostarczana na poziomie magazynu kluczy, który zawiera te wpisy tajne. Zasady kontroli dostępu dla wpisów tajnych, różni się od zasad kontroli dostępu dla kluczy w tym samym Magazynie kluczy. Użytkownicy mogą utworzyć jeden lub więcej magazynów do przechowywania wpisów tajnych i są wymagane do utrzymania scenariusza odpowiedniej segmentacji i zarządzania wpisami tajnymi.   
+Access Control dla wpisów tajnych zarządzanych w programie Key Vault jest dostępny na poziomie Key Vault, który zawiera te klucze tajne. Zasady kontroli dostępu dla wpisów tajnych, różnią się od zasad kontroli dostępu dla kluczy w tym samym Key Vault. Użytkownicy mogą utworzyć jeden lub więcej magazynów w celu przechowywania wpisów tajnych i muszą utrzymywać odpowiednie segmentacje i zarządzanie wpisami tajnymi.   
 
-Następujące uprawnienia mogą być używane, na zasadzie jednostkowej, we wpisie kontroli dostępu do wpisu nieudzielonych wpisów w przechowalni i ściśle dublować operacje dozwolone w obiekcie tajnym:  
+Następujące uprawnienia mogą być używane dla każdego podmiotu zabezpieczeń w ramach wpisu kontroli dostępu tajnego w magazynie i ściśle duplikaty operacji dozwolonych na obiekcie tajnym:  
 
-- Uprawnienia do tajnych operacji zarządzania
-  - *get*: Przeczytaj tajemnicę  
-  - *lista*: Lista wpisów tajnych lub wersji klucza tajnego przechowywanego w magazynie kluczy  
-  - *zestaw*: Tworzenie klucza tajnego  
-  - *delete*: Usuwanie klucza tajnego  
-  - *recover*: Odzyskiwanie usuniętego klucza tajnego
-  - *kopia zapasowa*: Tworzenie kopii zapasowej klucza tajnego w magazynie kluczy
-  - *przywracanie*: Przywracanie kopii zapasowej klucza tajnego do magazynu kluczy
+- Uprawnienia do operacji zarządzania kluczami tajnymi
+  - *pobieranie*: odczytywanie wpisu tajnego  
+  - *Lista*: wyświetlenie wpisów tajnych lub wersji wpisu Secret przechowywanych w Key Vault  
+  - *Ustaw*: Utwórz klucz tajny  
+  - *usuwanie*: Usuwanie wpisu tajnego  
+  - *Odzyskaj*: Odzyskaj usunięty klucz tajny
+  - *kopia zapasowa*: Tworzenie kopii zapasowej wpisu tajnego w magazynie kluczy
+  - *przywracanie*: Przywracanie wpisu tajnego kopii zapasowej do magazynu kluczy
 
 - Uprawnienia dla operacji uprzywilejowanych
-  - *przeczyścić*: Przeczyścić (trwale usunąć) usunięty klucz tajny
+  - *przeczyszczanie*: przeczyszczanie (trwałe usuwanie) usuniętego klucza tajnego
 
-Aby uzyskać więcej informacji na temat pracy z wpisami tajnymi, zobacz [Operacje tajne w odwołaniu do interfejsu API REST magazynu kluczy](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz [Vaults - Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [przechowalnia — Aktualizowanie zasad dostępu](/rest/api/keyvault/vaults/updateaccesspolicy). 
+Aby uzyskać więcej informacji na temat pracy z wpisami tajnymi, zobacz [Secret Operations w temacie Informacje o interfejsie API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="secret-tags"></a>Tajne tagi  
-Można określić dodatkowe metadane specyficzne dla aplikacji w postaci tagów. Usługa Key Vault obsługuje maksymalnie 15 znaczników, z których każdy może mieć 256 znaków i wartość 256 znaków.  
+## <a name="secret-tags"></a>Tagi tajne  
+W postaci tagów można określić dodatkowe metadane specyficzne dla aplikacji. Key Vault obsługuje do 15 tagów, z których każdy może mieć nazwę znaku 256 i wartość znaku 256.  
 
 >[!Note]
->Tagi są czytelne przez rozmówcę, jeśli mają *listę* lub *uzyskać* pozwolenie.
+>Tagi są odczytywane przez obiekt wywołujący, jeśli mają uprawnienie *list* lub *Get* .
 
 ## <a name="azure-storage-account-key-management"></a>Zarządzanie kluczami konta usługi Azure Storage
 
-Usługa Key Vault może zarządzać kluczami kont magazynu platformy Azure:
+Key Vault może zarządzać kluczami konta usługi Azure Storage:
 
-- Wewnętrznie usługa Key Vault może wymieniać (synchronizować) klucze z kontem magazynu platformy Azure. 
-- Magazyn kluczy okresowo regeneruje (obraca) klawisze.
-- Wartości klucza nigdy nie są zwracane w odpowiedzi na wywołującego.
-- Usługa Key Vault zarządza kluczami zarówno kont magazynu, jak i klasycznych kont magazynu.
+- Wewnętrznie, Key Vault mogą wyświetlać (synchronizować) klucze za pomocą konta usługi Azure Storage. 
+- Key Vault regeneruje ponownie klucze (obraca) okresowo.
+- Wartości klucza nigdy nie są zwracane w odpowiedzi na obiekt wywołujący.
+- Key Vault zarządza kluczami obu kont magazynu i klasycznych kont magazynu.
 
-Aby uzyskać więcej informacji, zobacz [Klucze kont usługi Azure Key Storage](../secrets/overview-storage-keys.md))
+Aby uzyskać więcej informacji, zobacz [Azure Key Vault klucze kont magazynu](../secrets/overview-storage-keys.md)).
 
 ## <a name="storage-account-access-control"></a>Kontrola dostępu do konta magazynu
 
-Podczas autoryzowania jednostki zabezpieczeń użytkownika lub podmiotu zabezpieczeń aplikacji można używać następujących uprawnień:  
+Podczas autoryzacji użytkownika lub podmiotu zabezpieczeń aplikacji można używać następujących uprawnień do wykonywania operacji na zarządzanym koncie magazynu:  
 
-- Uprawnienia dla zarządzanych kont magazynu i operacji definicji SaS
-  - *get*: Pobiera informacje o koncie magazynu 
-  - *lista*: Lista kont magazynu zarządzanych przez Magazyn kluczy
-  - *aktualizacja*: Aktualizowanie konta magazynu
-  - *delete*: Usuwanie konta magazynu  
+- Uprawnienia do zarządzanego konta magazynu i operacji w definicji sygnatury dostępu współdzielonego
+  - *Get*: Pobiera informacje o koncie magazynu 
+  - *Lista*: Wyświetl listę kont magazynu zarządzanych przez Key Vault
+  - *Aktualizacja*: aktualizowanie konta magazynu
+  - *usuwanie*: usuwanie konta magazynu  
   - *odzyskiwanie*: Odzyskiwanie usuniętego konta magazynu
   - *kopia zapasowa*: Tworzenie kopii zapasowej konta magazynu
-  - *przywracanie*: Przywracanie konta magazynu kopii zapasowej do magazynu kluczy
+  - *przywracanie*: Przywracanie kopii zapasowej konta magazynu do Key Vault
   - *zestaw*: Tworzenie lub aktualizowanie konta magazynu
-  - *regeneratekey*: Ponowne generowanie określonej wartości klucza dla konta magazynu
-  - *getsas*: Uzyskaj informacje o definicji sygnatury dostępu Współdzielonego dla konta magazynu
-  - *listsas*: Lista definicji sygnatury dostępu Współdzielonego magazynu dla konta magazynu
-  - *deletesas*: Usuwanie definicji sygnatury dostępu Współdzielonego z konta magazynu
-  - *setsas*: Tworzenie lub aktualizowanie nowej definicji/atrybutów sygnatury dostępu Współdzielonego dla konta magazynu
+  - *regeneratekey*: Wygeneruj ponownie określoną wartość klucza dla konta magazynu
+  - *getsas*: Uzyskaj informacje na temat definicji sygnatury dostępu współdzielonego dla konta magazynu
+  - *listsas*: Wyświetl definicje sygnatury dostępu współdzielonego magazynu dla konta magazynu
+  - *deletesas*: usuwanie definicji sygnatury dostępu współdzielonego z konta magazynu
+  - *setsas*: Utwórz lub zaktualizuj nowe definicje/atrybuty sygnatury dostępu współdzielonego dla konta magazynu
 
 - Uprawnienia dla operacji uprzywilejowanych
-  - *przeczyszczanie*: Przeczyszcz (trwale usuń) zarządzane konto magazynu
+  - *przeczyszczanie*: przeczyszczanie (trwałe usuwanie) zarządzanego konta magazynu
 
-Aby uzyskać więcej informacji, zobacz [operacje konta magazynu w interfejsie API REST magazynu kluczy](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz [Vaults - Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [przechowalnia — Aktualizowanie zasad dostępu](/rest/api/keyvault/vaults/updateaccesspolicy).
+Aby uzyskać więcej informacji, zobacz [operacje związane z kontem magazynu w temacie Informacje o interfejsie API REST Key Vault](/rest/api/keyvault). Aby uzyskać informacje dotyczące ustanawiania uprawnień, zobacz temat [magazyny — Tworzenie lub aktualizowanie](/rest/api/keyvault/vaults/createorupdate) i [magazyny — zasady dostępu aktualizacji](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Informacje o usłudze Key Vault](../general/overview.md)
-- [Klucze, wpisy tajne i certyfikaty — informacje](../general/about-keys-secrets-certificates.md)
+- [Informacje o kluczach, wpisach tajnych i certyfikatach](../general/about-keys-secrets-certificates.md)
 - [Informacje o kluczach](../keys/about-keys.md)
 - [Informacje o certyfikatach](../certificates/about-certificates.md)
 - [Uwierzytelnianie, żądania i odpowiedzi](../general/authentication-requests-and-responses.md)

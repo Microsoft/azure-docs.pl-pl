@@ -1,111 +1,111 @@
 ---
-title: Gdzie i jak używać - Personalizer
-description: Personalizer może być stosowany w każdej sytuacji, w której aplikacja może wybrać odpowiedni element, działanie lub produkt do wyświetlenia - w celu poprawy doświadczenia, osiągnięcia lepszych wyników biznesowych lub poprawy wydajności.
+title: Gdzie i jak używać programu-Personalizacja
+description: Personalizacja może być stosowana w każdej sytuacji, w której aplikacja może wybrać odpowiedni element, akcję lub produkt do wyświetlenia — w celu lepszego działania, osiągnięcia lepszych wyników firmy lub zwiększenia produktywności.
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81617684"
 ---
-# <a name="where-and-how-to-use-personalizer"></a>Gdzie i jak korzystać z Personalizer
+# <a name="where-and-how-to-use-personalizer"></a>Gdzie i jak używać personalizacji
 
-Personalizer należy używać w każdej sytuacji, w której aplikacja musi wybrać prawidłowe działanie (zawartość) do wyświetlenia - w celu poprawy doświadczenia, osiągnięcia lepszych wyników biznesowych lub zwiększenia wydajności.
+Użyj personalizacji w każdej sytuacji, w której aplikacja musi wybrać poprawną akcję (zawartość) do wyświetlenia — aby zapewnić lepszą wydajność, osiągać lepsze wyniki biznesowe lub zwiększyć produktywność.
 
-Personalizer używa uczenia wzmacniania, aby wybrać akcję (zawartość), aby pokazać użytkownikowi. Wybór może się znacznie różnić w zależności od ilości, jakości i dystrybucji danych wysyłanych do usługi.
+Personalizacja używa uczenia wzmacniania, aby wybrać akcję (zawartość), która ma być wyświetlana użytkownikowi. Wybór może się różnić w zależności od ilości, jakości i dystrybucji danych wysyłanych do usługi.
 
-## <a name="example-use-cases-for-personalizer"></a>Przykładowe przypadki użycia personalizatora
+## <a name="example-use-cases-for-personalizer"></a>Przykładowe przypadki użycia dla personalizacji
 
-* **Wyjaśnienie intencji & niejednoznaczności:** pomóż użytkownikom mieć lepsze wrażenia, gdy ich intencja nie jest jasna, zapewniając opcję spersonalizowaną.
-* **Domyślne sugestie** dotyczące menu & opcji: niech bot zaproponuje najbardziej prawdopodobny element w spersonalizowany sposób jako pierwszy krok, zamiast przedstawiać bezosobowe menu lub listę alternatyw.
-* **Cechy botów & ton:** dla botów, które mogą zmieniać ton, szczegółowość i styl pisania, należy rozważyć zmianę tych cech.
-* **Powiadomienie & treści alertów:** zdecyduj, jakiego tekstu użyć w przypadku alertów, aby przyciągnąć użytkowników.
-* **Powiadomienie & czas alertu:** mieć spersonalizowane uczenie się, kiedy wysyłać powiadomienia do użytkowników, aby zaangażować ich bardziej.
+* **Wyjaśnienie Zamiaru & uściślania**: Pomóż użytkownikom w lepszym działaniu, gdy ich intencje nie są jasne, zapewniając spersonalizowaną opcję.
+* **Domyślne sugestie** dotyczące menu & opcje: bot Sugeruj najbardziej prawdopodobną pozycję w spersonalizowanym trybie jako pierwszy krok, zamiast przedstawiać menu lub listę alternatyw.
+* **Cechy Bot & ton**: dla botów, które mogą różnić się od tonu, szczegółowości i stylu pisania, należy rozważyć zróżnicowanie tych cech.
+* **Treść alertu & powiadomień**: określ tekst, który ma być używany na potrzeby alertów, aby zapewnić użytkownikom więcej.
+* **Czas alertu & powiadomień**: masz spersonalizowaną naukę podczas wysyłania powiadomień do użytkowników w celu ich przeprowadzenia.
 
 
-## <a name="expectations-required-to-use-personalizer"></a>Oczekiwania wymagane do korzystania z Personalizer
+## <a name="expectations-required-to-use-personalizer"></a>Oczekiwania wymagane do korzystania z programu Personalizujer
 
-Personalizer można zastosować w sytuacjach, w których spełniasz lub można wdrożyć następujące wskazówki.
+Można zastosować personalizację w sytuacjach, w których są spełnione lub można zaimplementować następujące wytyczne.
 
 |Wytyczna|Wyjaśnienie|
 |--|--|
-|Cel biznesowy|Masz cel biznesowy lub użyteczność dla aplikacji.|
-|Zawartość|Masz miejsce w aplikacji, gdzie podejmowanie kontekstowej decyzji, co pokazać użytkownikom poprawi ten cel.|
+|Cel biznesowy|Użytkownik ma cel biznesowy lub użyteczny dla Twojej aplikacji.|
+|Zawartość|Masz miejsce w aplikacji, w którym należy wprowadzić kontekstową decyzję, którą należy pokazać użytkownikom w celu usprawnienia tego celu.|
 |Ilość zawartości|Masz mniej niż 50 akcji do rangi na wywołanie.|
-|Zagregowane dane|Najlepszy wybór można i należy wyciągnąć z zbiorowego zachowania użytkownika i całkowitego wyniku nagrody.|
-|Etyczne stosowanie|Korzystanie z uczenia maszynowego do personalizacji jest zgodne z [wytycznymi odpowiedzialnego użytkowania](ethics-responsible-use.md) i wybranymi wyborami.
-|Najlepsza pojedyncza opcja|Decyzja kontekstowa może być wyrażona jako ranking najlepszą opcją (działanie) z ograniczonego zestawu opcji.|
-|Wynik strzelony|Jak dobrze wybór w rankingu pracował dla aplikacji można określić, mierząc jakiś aspekt zachowania użytkownika i wyrażając go w _[wyniku nagrody](concept-rewards.md)_.|
-|Odpowiedni termin|Wynik nagrody nie przynosi zbyt wielu czynników zakłócających lub zewnętrznych. Czas trwania eksperymentu jest na tyle niski, że wynik nagrody można obliczyć, gdy jest on nadal aktualny.|
-|Wystarczające funkcje kontekstowe|Możesz wyrazić kontekst rangi jako listę co najmniej 5 [funkcji,](concepts-features.md) które uważasz, że pomogą ci dokonać właściwego wyboru, a które nie zawierają informacji umożliwiających identyfikację użytkownika.|
-|Wystarczające funkcje działania|Masz informacje o każdym wyborze treści, _akcji,_ jako listę co najmniej 5 [funkcji,](concepts-features.md) które uważasz, że pomoże Personalizer dokonać właściwego wyboru.|
-|Dane dzienne|Jest wystarczająco dużo wydarzeń, aby być na szczycie optymalnej personalizacji, jeśli problem dryfuje w czasie (takich jak preferencje w wiadomościach lub modzie). Personalizer dostosuje się do ciągłych zmian w świecie rzeczywistym, ale wyniki nie będą optymalne, jeśli nie ma wystarczającej ilości zdarzeń i danych, z których można się nauczyć, aby odkryć i osiedlić się na nowych wzorcach. Należy wybrać przypadek użycia, który zdarza się wystarczająco często. Rozważ poszukanie przypadków użycia, które zdarzają się co najmniej 500 razy dziennie.|
-|Dane historyczne|Aplikacja może przechowywać dane wystarczająco długo, aby zgromadzić historię co najmniej 100 000 interakcji. Dzięki temu Personalizer do zbierania wystarczającej ilości danych do wykonywania ocen w trybie offline i optymalizacji zasad.|
+|Agregowanie danych|Najlepszym wyborem może być i powinna być uczenie się od rozłącznych zachowań użytkowników i łącznego wyniku.|
+|Użycie etyczne|Korzystanie z uczenia maszynowego na potrzeby personalizacji odbywa się zgodnie z [właściwymi wskazówkami dotyczącymi użycia](ethics-responsible-use.md) .
+|Najlepsza opcja|Decyzja kontekstowa może być wyrażona jako Klasyfikacja najlepszej opcji (Akcja) z ograniczonego zestawu opcji.|
+|Wynik wynikowy|Sposób, w jaki zamierzone wybór działa dla aplikacji, można określić przez zmierzenie pewnego aspektu zachowania użytkownika i wyrażanie go w _[wyniku nagrody](concept-rewards.md)_.|
+|Odpowiedni czas|Wynik nagrody nie powoduje zbyt wielu lub zewnętrznych czynników. Czas trwania eksperymentu jest niski, ponieważ wynik nagrody może być obliczany, gdy nadal ma zastosowanie.|
+|Wystarczające funkcje kontekstu|Można wyrazić kontekst dla rangi jako listę co najmniej 5 [funkcji](concepts-features.md) , które można wybrać, aby pomóc w wyborze odpowiedniego wyboru, które nie zawierają informacji specyficznych dla użytkownika.|
+|Wystarczające funkcje akcji|Istnieją informacje o każdej wybranej zawartości, _akcji_, jako lista co najmniej 5 [funkcji](concepts-features.md) , które należy wziąć pod uwagę, aby ułatwić sobie wybranie.|
+|Dzienne dane|Istnieje wystarczająco dużo zdarzeń, aby zachować dostęp do optymalnej personalizacji, jeśli problem zostanie odczytany z upływem czasu (na przykład preferencje w wiadomościach lub w sposób). Personalizowanie dostosuje się do ciągłej zmiany w świecie rzeczywistym, ale wyniki nie będą optymalne, jeśli nie ma wystarczającej liczby zdarzeń i danych, które należy poznać, aby odkryć i rozliczyć nowe wzorce. Należy wybrać przypadek użycia, który ma być często wystarczający. Rozważ wyszukiwanie przypadków użycia, które wystąpią co najmniej 500 razy dziennie.|
+|Dane historyczne|Aplikacja może przechowywać dane przez wystarczająco dużo, aby gromadzić historię co najmniej 100 000 interakcji. Umożliwia to programowi Personalizujemu zbieranie wystarczającej ilości danych w celu przeprowadzenia oceny w trybie offline i optymalizacji zasad.|
 
-**Nie używaj Personalizer,** gdzie spersonalizowane zachowanie nie jest czymś, co można odkryć we wszystkich użytkownikach. Na przykład, za pomocą Personalizer zaproponować pierwsze zamówienie pizzy z listy 20 możliwych elementów menu jest przydatna, ale kontakt, aby zadzwonić z listy kontaktów użytkowników, gdy wymaga pomocy w opiece nad dziećmi (takich jak "Babcia") nie jest coś, co jest personalizacji w całej bazy użytkowników.
+**Nie używaj personalizacji** , gdy spersonalizowane zachowanie nie jest elementem, który można odnaleźć dla wszystkich użytkowników. Na przykład za pomocą narzędzia Personalizacja można zasugerować pierwsze zamówienie Pizza z listy 20 możliwych elementów menu jest przydatne, ale które kontaktuje się z listą kontaktów użytkowników, jeśli wymagają pomocy w zakresie pielęgnacji dzieci (na przykład "Grandma"), ale nie jest to coś, co jest Personalizable w bazie użytkownika.
 
-## <a name="how-to-use-personalizer-in-a-web-application"></a>Jak korzystać z Personalizer w aplikacji internetowej
+## <a name="how-to-use-personalizer-in-a-web-application"></a>Jak używać personalizacji w aplikacji sieci Web
 
-Dodawanie pętli uczenia się do aplikacji sieci web obejmuje:
+Dodawanie pętli szkoleniowej do aplikacji sieci Web obejmuje:
 
-* Określ, które środowisko spersonalizować, jakie masz działania i funkcje, jakie funkcje kontekstu użyć i jaką nagrodę ustawisz.
-* Dodaj odwołanie do sdk personalizacji w aplikacji.
-* Wywołanie interfejsu API rangi, gdy jesteś gotowy do personalizacji.
-* Zapisz identyfikator zdarzenia. Później wyślesz nagrodę za pomocą interfejsu API nagrody.
-1. Zawołaj aktywuj wydarzenie, gdy masz pewność, że użytkownik zobaczył Twoją spersonalizowaną stronę.
-1. Poczekaj na wybór zawartości rankingowej przez użytkownika.
-1. Wywołaj interfejs API nagrody, aby określić, jak dobrze dane wyjściowe interfejsu API rangi nie.
+* Określ, które środowisko ma być personalizowane, jakie akcje i funkcje, jakie funkcje kontekstu mają być używane, i jakie znaczenie ma.
+* Dodaj odwołanie do zestawu SDK personalizacji w swojej aplikacji.
+* Wywołaj interfejs API rangi, gdy wszystko będzie gotowe do personalizacji.
+* Zapisz eventId. Za pomocą interfejsu API nagradzania wysyłasz premię później.
+1. Wywołaj aktywację dla zdarzenia po upewnieniu się, że użytkownik zobaczy spersonalizowaną stronę.
+1. Zaczekaj, aż użytkownik wybierze sklasyfikowaną zawartość.
+1. Wywołaj interfejs API nagradzania, aby określić, jak dobrze dane wyjściowe interfejsu API rangi zostały wykonane.
 
-## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Jak korzystać z Personalizer z chat bot
+## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Jak używać funkcji personalizowania z usługą Chat bot
 
-W tym przykładzie zobaczysz, jak za pomocą personalizacji, aby dokonać domyślnej sugestii zamiast wysyłania użytkownika w dół serii menu lub wyborów za każdym razem.
+W tym przykładzie zobaczysz, jak za pomocą personalizacji wprowadzić domyślną sugestię zamiast wysyłania użytkownika w dół szereg menu lub opcji za każdym razem.
 
 * Pobierz [kod](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) dla tego przykładu.
-* Skonfiguruj rozwiązanie bota. Upewnij się, aby opublikować aplikację usługi LUIS.
-* Zarządzanie wezwaniami interfejsu API rangi i nagrody dla bota.
-    * Dodaj kod do zarządzania przetwarzaniem intencji usługi LUIS. Jeśli **None** jest zwracany jako najwyższej intencji lub wynik najwyższego intencji jest poniżej progu logiki biznesowej, wyślij listę intencji do Personalizer do rangi intencji.
-    * Pokaż listę intencji użytkownikowi jako łącza do wyboru z pierwszą intencją, która jest intencją najwyższej rangi z odpowiedzi interfejsu API rangi.
-    * Przechwyć wybór użytkownika i wyślij to w wywołaniu interfejsu API nagrody.
+* Skonfiguruj rozwiązanie bot. Upewnij się, że aplikacja LUIS została opublikowana.
+* Zarządzaj wywołaniami interfejsu API rangi i nagradzania dla bot.
+    * Dodaj kod, aby zarządzać LUIS zamiarem. Jeśli wartość **none** nie jest zwracana jako zamierzenie górne lub wartość oceny najwyższego poziomu jest niższa od progu logiki biznesowej, Wyślij listę intencji do personalizacji, aby zaklasyfikować intencje.
+    * Pokaż listę intencji użytkownikom jako wybrane linki z pierwszym zamiarem w celu uzyskania najwyższej rangi zamiaru z odpowiedzi interfejsu API rangi.
+    * Przechwyć wybór użytkownika i wyślij go w wywołaniu interfejsu API nagradzania.
 
-### <a name="recommended-bot-patterns"></a>Zalecane wzorce botów
+### <a name="recommended-bot-patterns"></a>Zalecane wzorce bot
 
-* Make Personalizer Rank wywołane przez interfejs API za każdym razem, gdy wymagana jest niejednoznaczna, w przeciwieństwie do wyników buforowania dla każdego użytkownika. Wynik rozróżniania intencji może z czasem ulec zmianie dla jednej osoby, a zezwolenie interfejsowi API rangi na eksplorowanie wariancji przyspieszy ogólne uczenie się.
-* Wybierz interakcję, która jest wspólna dla wielu użytkowników, aby mieć wystarczającą ilość danych do personalizacji. Na przykład pytania wprowadzające mogą być lepsze niż mniejsze wyjaśnienia głęboko na wykresie konwersacji, do których może dostać się tylko kilku użytkowników.
-* Użyj wywołań interfejsu API rangi, aby włączyć konwersacje "pierwsza sugestia jest właściwa", w których użytkownik otrzymuje pytanie "Czy chcesz X?" lub "Czy miałeś na myśli X?" a użytkownik może po prostu potwierdzić; w przeciwieństwie do dawania opcji użytkownikowi, gdzie musi wybrać z menu. Na przykład Użytkownik:"Chciałbym zamówić kawę" Bot:"Czy chcesz podwójne espresso?". W ten sposób sygnał nagrody jest również silny, ponieważ odnosi się bezpośrednio do jednej sugestii.
+* Nadaje się wywołania interfejsu API rangi personalizacji za każdym razem, gdy konieczne jest odróżnienie, w przeciwieństwie do buforowania wyników dla każdego użytkownika. Wynik niedozwolonego zamiaru może ulec zmianie w czasie dla jednej osoby i umożliwienie interfejsowi API rangi Eksplorowanie wariancji spowoduje przyspieszenie ogólnej nauki.
+* Wybierz interakcję, która jest wspólna dla wielu użytkowników, aby mieć wystarczającą ilość danych do spersonalizowania. Na przykład monity wprowadzające mogą być lepiej dopasowane od mniejszych wyjaśnień na grafie konwersacji, do których może przejść tylko kilku użytkowników.
+* Użyj wywołań interfejsu API rangi, aby włączyć funkcję "Pierwsza sugestia jest właściwa", gdzie użytkownik otrzymuje monit "czy chcesz X?". lub "Czy chodziło o X?" Użytkownik może po prostu potwierdzić; w przeciwieństwie do udzielania użytkownikom opcji, gdzie muszą wybierać z menu. Na przykład użytkownik: ' chcę zamówić kawę "bot:" czy chcesz mieć podwójny Espresso? ". W ten sposób sygnał zarobkowy jest również silny, ponieważ odnosi się bezpośrednio do jednej sugestii.
 
-## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Jak używać Personalizer z rozwiązaniem rekomendacji
+## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Jak używać narzędzia Personalizacja z rozwiązaniem rekomendacji
 
-Wiele firm korzysta z aparatów rekomendacji, narzędzi marketingowych i kampanijnych, segmentacji odbiorców i klastrowania, filtrowania opartego na współpracy i innych środków, aby polecać klientom produkty z dużego katalogu.
+Wiele firm używa aparatów rekomendacji, narzędzi marketingowych i kampanii, segmentacji odbiorców i klastrowania, filtrowania do współpracy i innych metod, aby zalecać produkty z dużego wykazu klientom.
 
-[Repozytorium GitHub firmy Microsoft rekomenduje](https://github.com/Microsoft/Recommenders) przykłady i najlepsze rozwiązania dotyczące tworzenia systemów rekomendacji, dostarczane jako notesy Jupyter. Zawiera przykłady pracy do przygotowywania danych, tworzenia modeli, oceny, strojenia i operacjonalizacji aparatów rekomendacji, dla wielu typowych podejść, w tym xDeepFM, SAR, ALS, RBM, DKN.
+[Repozytorium GitHub firmy Microsoft](https://github.com/Microsoft/Recommenders) zawiera przykłady i najlepsze rozwiązania dotyczące kompilowania systemów zaleceń, które są udostępniane jako notesy Jupyter. Zawiera ona przykładowe działania dotyczące przygotowywania danych, tworzenia modeli, oceniania, dostrajania i operacjonalizowaniai aparatów rekomendacji dla wielu wspólnych metod, takich jak xDeepFM, SAR, ALS, KMS, DKN.
 
-Personalizer może pracować z aparatem rekomendacji, gdy jest obecny.
+Personalizowanie może współdziałać z aparatem rekomendacji, gdy jest obecny.
 
-* Aparaty rekomendacji przyjmują duże ilości elementów (na przykład 500 000) i polecają podzbiór (na przykład 20 najlepszych) z setek lub tysięcy opcji.
-* Personalizer wykonuje niewielką liczbę akcji z dużą ilością informacji o nich i plasuje je w czasie rzeczywistym dla danego bogatego kontekstu, podczas gdy większość aparatów rekomendacji używa tylko kilku atrybutów dotyczących użytkowników, produktów i ich interakcji.
-* Personalizer jest przeznaczony do autonomicznego eksplorowania preferencji użytkownika przez cały czas, co przyniesie lepsze wyniki tam, gdzie zawartość szybko się zmienia, takie jak wiadomości, wydarzenia na żywo, treści społeczności na żywo, treści z codziennymi aktualizacjami lub treści sezonowe.
+* Aparaty rekomendacji pobierają duże ilości elementów (na przykład 500 000) i zalecają podzbiór (np. 20 najważniejszych) z setek lub tysięcy opcji.
+* Personalizacja wykonuje niewielką liczbę akcji z wieloma informacjami o nich i ustala ich rangę w czasie rzeczywistym dla danego rozbudowanego kontekstu, a większość aparatów rekomendacji używa tylko kilku atrybutów dotyczących użytkowników, produktów i ich interakcji.
+* Personalizacja została zaprojektowana, aby samodzielnie eksplorować preferencje użytkownika przez cały czas, co zapewni lepsze wyniki, dzięki czemu zawartość będzie szybko zmieniana, taka jak Aktualności, wydarzenia na żywo, zawartość społeczności na żywo, zawartość z codziennymi aktualizacjami lub zawartość sezonowa.
 
-Typowym zastosowaniem jest podjęcie danych wyjściowych aparatu rekomendacji (na przykład 20 najlepszych produktów dla określonego klienta) i użycie go jako akcji wejściowych dla Personalizer.
+Typowym zastosowaniem jest przejęcie danych wyjściowych aparatu rekomendacji (na przykład 20 najważniejszych produktów dla określonego klienta) i użycie go jako akcji wejściowych dla personalizacji.
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Dodawanie zabezpieczeń zawartości do aplikacji
 
-Jeśli aplikacja pozwala na duże odchylenia w treści wyświetlane dla użytkowników, a niektóre z tych treści mogą być niebezpieczne lub nieodpowiednie dla niektórych użytkowników, należy zaplanować z wyprzedzeniem, aby upewnić się, że odpowiednie zabezpieczenia są w miejscu, aby uniemożliwić użytkownikom widzenie niedopuszczalnej zawartości. Najlepszym wzorcem do wdrożenia zabezpieczeń jest:
+Jeśli aplikacja zezwala na duże Wariancje w zawartości widocznej dla użytkowników, a niektóre z nich mogą być niebezpieczne lub nieodpowiednie dla niektórych użytkowników, należy zaplanować z wyprzedzeniem, aby upewnić się, że odpowiednie zabezpieczenia są stosowane w celu uniemożliwienia użytkownikom wyświetlania nieakceptowalnej zawartości. Najlepszym wzorcem do implementowania zabezpieczeń są:
     * Uzyskaj listę akcji do rangi.
-    * Odfiltruj te, które nie są opłacalne dla odbiorców.
-    * Tylko rangi tych realnych działań.
-    * Wyświetl użytkownikowi najwyższą akcję rankingowa.
+    * Odfiltruj te, które nie są przeznaczone dla odbiorców.
+    * Należy tylko klasyfikować te działania.
+    * Wyświetl dla użytkownika górną rangę.
 
-W niektórych architekturach powyższej sekwencji może być trudne do zaimplementowania. W takim przypadku istnieje alternatywne podejście do wdrażania zabezpieczeń po rankingu, ale należy wprowadzić przepis, aby działania, które nie mieszczą się w zabezpieczeniach, nie były wykorzystywane do szkolenia modelu Personalizer.
+W niektórych architekturach powyższa sekwencja może być trudna do zaimplementowania. W takim przypadku istnieje alternatywne podejście do implementowania zabezpieczeń po klasyfikacji, ale należy wprowadzić, aby działania, które wykraczają poza zabezpieczenie, nie są używane do uczenia modelu personalizowania.
 
-* Uzyskaj listę akcji do rangi, z nauką dezaktywowane.
+* Uzyskaj listę akcji do rangi, z zdezaktywowaną nauką.
 * Akcje rangi.
-* Sprawdź, czy najważniejsze działanie jest opłacalne.
-    * Jeśli najlepsze działanie jest opłacalne, aktywuj naukę dla tej rangi, a następnie pokaż ją użytkownikowi.
-    * Jeśli najlepsze działanie nie jest opłacalne, nie należy aktywować uczenia się dla tego rankingu i zdecydować za pomocą własnej logiki lub alternatywnych podejść, co pokazać użytkownikowi. Nawet jeśli korzystasz z drugiej najlepszej opcji rankingowej, nie aktywuj nauki w tym rankingu.
+* Sprawdź, czy górna akcja jest opłacalna.
+    * Jeśli Górna akcja jest wykonalna, Aktywuj uczenie dla tej rangi, a następnie Pokaż ją użytkownikowi.
+    * Jeśli najwyższe działanie nie jest możliwe, nie należy aktywować uczenia w ramach tej klasyfikacji i zdecydować się na podstawie własnej logiki lub alternatywnej metody, które mają być widoczne dla użytkownika. Nawet jeśli używasz opcji Second-Najlepsza w rankingu, nie Uaktywniaj uczenia dla tej klasyfikacji.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Etyka & odpowiedzialne użytkowanie.](ethics-responsible-use.md)
+[Etyka & odpowiedzialna za użycie](ethics-responsible-use.md).

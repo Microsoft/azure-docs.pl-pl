@@ -9,39 +9,39 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: b8869e93a7156b24d61ac555c95b9ca7f850ae34
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678570"
 ---
-1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **Konfiguracja** wypełnij pola, jak pokazano tutaj.
+1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **Konfiguracja** Wypełnij pola, jak pokazano poniżej.
 
     > [!div class="mx-imgBorder"]
-    > ![Tworzenie typu komunikacji równorzędnej programu Exchange](../media/setup-exchange-conf-tab.png)
+    > ![Tworzenie komunikacji równorzędnej — typ komunikacji równorzędnej programu Exchange](../media/setup-exchange-conf-tab.png)
 
-    * W przypadku **typu komunikacji równorzędnej**wybierz pozycję **Exchange**.
-    * Wybierz **jednostkę SKU** jako **bezpłatną opcję Basic**.
-    * Wybierz lokalizację **metro,** w której chcesz przekonwertować komunikację równorzędną na zasób platformy Azure. Jeśli masz połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **metro,** które nie są konwertowane na zasób platformy Azure, te połączenia zostaną wyświetlone w sekcji **Połączenia równorzędne,** jak pokazano. Teraz można przekonwertować te połączenia komunikacji równorzędnej na zasób platformy Azure.
+    * W obszarze **Typ komunikacji równorzędnej**wybierz pozycję **Exchange**.
+    * Wybierz **jednostkę SKU** jako **bezpłatnie jako podstawową**.
+    * Wybierz lokalizację **, w której chcesz** skonwertować komunikację równorzędną z zasobem platformy Azure. Jeśli masz połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **Metro** , która nie jest konwertowana na zasób platformy Azure, te połączenia będą wyświetlane w sekcji **połączenia komunikacji równorzędnej** , jak pokazano. Teraz możesz przekonwertować te połączenia komunikacji równorzędnej na zasób platformy Azure.
 
         > [!div class="mx-imgBorder"]
         > ![Lista połączeń komunikacji równorzędnej](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > Nie można modyfikować ustawień starszych połączeń komunikacji równorzędnej. Jeśli chcesz dodać dodatkowe połączenia komunikacji równorzędnej z firmą Microsoft w wybranej lokalizacji **metro,** wybierz pozycję **Utwórz nowy**. Aby uzyskać więcej informacji, zobacz [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](../howto-exchange-portal.md).
+        > Nie można modyfikować ustawień starszych połączeń komunikacji równorzędnej. Jeśli chcesz dodać dodatkowe połączenia komunikacji równorzędnej do firmy Microsoft w wybranej lokalizacji **Metro** , wybierz pozycję **Utwórz nowy**. Aby uzyskać więcej informacji, zobacz [Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu portalu](../howto-exchange-portal.md).
         >
 
-1. Wybierz pozycję **Przegląd + utwórz**. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *Trwa sprawdzanie poprawności końcowej...*.
+1. Wybierz pozycję **Przegląd + utwórz**. Należy zauważyć, że portal uruchamia podstawowe sprawdzanie poprawności wprowadzonych informacji. Wstążka u góry wyświetla komunikat *z uruchomioną weryfikacją ostateczną...*
 
     > [!div class="mx-imgBorder"]
-    > ![Karta Sprawdzanie poprawności komunikacji równorzędnej](../media/setup-direct-review-tab-validation.png)
+    > ![Karta Walidacja komunikacji równorzędnej](../media/setup-direct-review-tab-validation.png)
 
-1. Po zmianie wiadomości na *Sprawdzanie poprawności sprawdź*swoje informacje. Prześlij żądanie, wybierając pozycję **Utwórz**. Jeśli chcesz zmodyfikować żądanie, wybierz **poprzedni** i powtórz kroki.
+1. Gdy wiadomość zostanie *przeniesiona na weryfikację*, sprawdź informacje. Prześlij żądanie, wybierając pozycję **Utwórz**. Jeśli musisz zmodyfikować żądanie, wybierz pozycję **Poprzednia** i powtórz te kroki.
 
     > [!div class="mx-imgBorder"]
     > ![Przesyłanie komunikacji równorzędnej](../media/setup-exchange-review-tab-submit.png)
 
-1. Po przesłaniu żądania poczekaj na zakończenie wdrożenia. Jeśli wdrożenie nie powiedzie się, skontaktuj się z [programem Microsoft w komunikacji równorzędnej](mailto:peering@microsoft.com). Pomyślne wdrożenie jest wyświetlane w sposób pokazany.
+1. Po przesłaniu żądania poczekaj na zakończenie wdrożenia. Jeśli wdrożenie nie powiedzie się, skontaktuj się z pomocą techniczną [firmy Microsoft](mailto:peering@microsoft.com). Pomyślne wdrożenie wygląda tak, jak pokazano.
 
     > [!div class="mx-imgBorder"]
-    > ![Sukces rówieśników](../media/setup-direct-success.png)
+    > ![Pomyślne sukcesy komunikacji równorzędnej](../media/setup-direct-success.png)

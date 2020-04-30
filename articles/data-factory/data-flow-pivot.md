@@ -1,6 +1,6 @@
 ---
-title: Transformacja przestawna w przepływie danych mapowania
-description: Dane przestawne z wierszy do kolumn przy użyciu transformacji przestawnej przepływu danych usługi Azure Data Factory mapowania
+title: Przekształcenie tabeli przestawnej w mapowaniu przepływu danych
+description: Przestawianie danych z wierszy do kolumn przy użyciu funkcji mapowania Azure Data Factory przekształcenie przestawnego przepływu danych
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,76 +8,76 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686409"
 ---
-# <a name="pivot-transformation-in-mapping-data-flow"></a>Transformacja przestawna w przepływie danych mapowania
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Przekształcenie tabeli przestawnej w mapowaniu przepływu danych
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Transformacja przestawna służy do tworzenia wielu kolumn z unikatowych wartości wierszy pojedynczej kolumny. Pivot to transformacja agregacji, w której wybiera się grupowanie według kolumn i generujesz kolumny przestawne przy użyciu [funkcji agregujących](data-flow-expression-functions.md#aggregate-functions).
+Użyj transformacji przestawnej, aby utworzyć wiele kolumn z unikatowych wartości wierszy pojedynczej kolumny. Pivot to transformacja agregacji, w której wybiera się pozycję Grupuj według kolumn i generuje kolumny tabeli przestawnej przy użyciu [funkcji agregujących](data-flow-expression-functions.md#aggregate-functions).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-Transformacja przestawna wymaga trzech różnych wejść: grupowanie według kolumn, klawisz przestawny i generowanie kolumn przestawnych
+Przekształcenie przestawne wymaga trzech różnych danych wejściowych: Grupuj według kolumn, klucz przestawny i sposób generowania kolumn przestawnych
 
 ### <a name="group-by"></a>Grupuj według
 
 ![Grupuj według opcji](media/data-flow/pivot2.png "[Grupuj według opcji")
 
-Wybierz kolumny, które mają agregować kolumny przestawne. Dane wyjściowe pogrupują wszystkie wiersze z tą samą grupą według wartości w jednym wierszu. Agregacja wykonana w kolumnie przestawnej będzie występować w każdej grupie.
+Wybierz kolumny, dla których mają zostać zagregowane przestawiane kolumny. Dane wyjściowe będą grupować wszystkie wiersze z tą samą grupą według wartości w jednym wierszu. Agregacja wykonana w kolumnie przestawnej będzie miała miejsce dla każdej grupy.
 
-Ta sekcja jest opcjonalna. Jeśli nie wybrano żadnej grupy według kolumn, cały strumień danych zostanie zagregowany i zostanie wysunięty tylko jeden wiersz.
+Ta sekcja jest opcjonalna. Jeśli nie wybrano żadnej kolumny Grupuj według, cały strumień danych zostanie zagregowany i tylko jeden wiersz zostanie wyszukany.
 
-### <a name="pivot-key"></a>Klawisz przestawny
+### <a name="pivot-key"></a>Klucz przestawny
 
-![Klawisz przestawny](media/data-flow/pivot3.png "Klawisz przestawny")
+![Klucz przestawny](media/data-flow/pivot3.png "Klucz przestawny")
 
-Klawisz przestawny to kolumna, której wartości wierszy są przestawiane na nowe kolumny. Domyślnie transformacja przestawna utworzy nową kolumnę dla każdej unikatowej wartości wiersza.
+Klucz przestawny to kolumna, której wartości wierszy są przestawiane na nowe kolumny. Domyślnie transformacja przestawna spowoduje utworzenie nowej kolumny dla każdej unikatowej wartości wiersza.
 
-W sekcji z etykietą **Wartość**można wprowadzić określone wartości wierszy, które mają być przestawne. Tylko wartości wierszy wprowadzone w tej sekcji zostaną przestawne. Włączenie **wartości Null** spowoduje utworzenie kolumny przestawnej dla wartości null w kolumnie.
+W sekcji z etykietą **wartość**możesz wprowadzić określone wartości wierszy do przestawienia. Tylko wartości wierszy wprowadzonych w tej sekcji zostaną przestawiane. Włączenie **wartości null** spowoduje utworzenie kolumny przestawnej dla wartości null w kolumnie.
 
 ### <a name="pivoted-columns"></a>Kolumny przestawne
 
 ![Kolumny przestawne](media/data-flow/pivot4.png "Kolumny przestawne")
 
-Dla każdej unikatowej wartości klucza przestawnego, która staje się kolumną, wygeneruj zagregowane wartości wiersza dla każdej grupy. Można utworzyć wiele kolumn na klawisz przestawny. Każda kolumna przestawna musi zawierać co najmniej jedną [funkcję agregującą](data-flow-expression-functions.md#aggregate-functions).
+Dla każdej unikatowej wartości klucza przestawnego, która jest kolumną, wygeneruj zagregowaną wartość wiersza dla każdej grupy. Można utworzyć wiele kolumn dla każdego klucza tabeli przestawnej. Każda kolumna przestawna musi zawierać co najmniej jedną [funkcję agregującą](data-flow-expression-functions.md#aggregate-functions).
 
-**Wzór nazwy kolumny:** Wybierz sposób formatowania nazwy kolumny każdej kolumny przestawnej. Wysuwna nazwa kolumny będzie kombinacją wartości klawisza obrotu, prefiksu kolumny i opcjonalnego prefiksu, wystarczy, znaki środkowe. 
+**Wzorzec nazwy kolumny:** Wybierz sposób formatowania nazwy kolumny dla każdej kolumny tabeli przestawnej. Nazwa kolumny, która zostanie wywstawiana, będzie kombinacją wartości klucza przestawnego, prefiksu kolumny i opcjonalnego prefiksu, wystarczającej liczby znaków środkowych. 
 
-**Układ kolumny:** Jeśli generujesz więcej niż jedną kolumnę przestawną na klawisz przestawny, wybierz sposób zamawiania kolumn. 
+**Układ kolumny:** W przypadku generowania więcej niż jednej kolumny tabeli przestawnej dla każdego klucza tabeli przestawnej wybierz, jak mają być uporządkowane kolumny. 
 
-**Prefiks kolumny:** Jeśli generujesz więcej niż jedną kolumnę przestawną na klawisz przestawny, wprowadź prefiks kolumny dla każdej kolumny. To ustawienie jest opcjonalne, jeśli masz tylko jedną kolumnę przestawną.
+**Prefiks kolumny:** W przypadku generowania więcej niż jednej kolumny tabeli przestawnej dla każdego klucza tabeli przestawnej wprowadź prefiks kolumny dla każdej kolumny. To ustawienie jest opcjonalne, jeśli istnieje tylko jedna kolumna przestawna.
 
 ## <a name="help-graphic"></a>Grafika pomocy
 
-Poniższa grafika pomocy pokazuje, jak różne składniki przestawne współdziałają ze sobą
+Poniższa ilustracja pomocy pokazuje, jak różne składniki Pivot współdziałają ze sobą
 
-![Grafika pomocy przestawiania](media/data-flow/pivot5.png "Grafika pomocy przestawiania")
+![Grafika dotycząca pomocy](media/data-flow/pivot5.png "Grafika dotycząca pomocy Pivot")
 
-## <a name="pivot-metadata"></a>Metadane przestawne
+## <a name="pivot-metadata"></a>Metadane tabeli przestawnej
 
-Jeśli w konfiguracji klucza przestawnego nie określono żadnych wartości, kolumny przestawne będą generowane dynamicznie w czasie wykonywania. Liczba kolumn przestawnych będzie równa liczbie unikatowych wartości klucza obrotu pomnożonych przez liczbę kolumn przestawnych. Ponieważ może to być zmieniająca się liczba, środowisko użytkownika nie wyświetli metadanych kolumny na karcie **Inspekcja** i nie będzie propagacji kolumn. Aby znoważyć te kolumny, należy użyć możliwości [wzorca kolumny](concepts-data-flow-column-pattern.md) mapowania przepływu danych. 
+Jeśli w konfiguracji klucza przestawnego nie określono żadnych wartości, kolumny przestawne będą dynamicznie generowane w czasie wykonywania. Liczba przestawianych kolumn będzie równa liczbie unikatowych wartości klucza przestawnego pomnożonej przez liczbę kolumn tabeli przestawnej. Ponieważ może to być zmiana numeru, środowisko użytkownika nie będzie wyświetlało metadanych kolumn na karcie **Inspekcja** i nie będzie można propagować kolumn. Aby przekształcać te kolumny, użyj funkcji [wzorca kolumny](concepts-data-flow-column-pattern.md) w celu mapowania przepływu danych. 
 
-Jeśli ustawiono określone wartości klawiszy przestawnych, kolumny przestawne pojawią się w metadanych.e nazwy kolumn będą dostępne w mapowaniu Inspekcja i Ujście.
+W przypadku ustawienia określonych wartości klucza przestawnego w metadanych. e nazwy kolumn będą dostępne dla Ciebie w mapowaniu inspekcji i ujścia.
 
-### <a name="generate-metadata-from-drifted-columns"></a>Generowanie metadanych z dryfowanych kolumn
+### <a name="generate-metadata-from-drifted-columns"></a>Generuj metadane na podstawie kolumn z przedryfem
 
-Pivot generuje nowe nazwy kolumn dynamicznie na podstawie wartości wierszy. Możesz dodać te nowe kolumny do metadanych, do których można się odwoływać później w przepływie danych. Aby to zrobić, użyj [mapy dryfował](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) szybkie działanie w podglądzie danych. 
+Pivot automatycznie generuje nowe nazwy kolumn na podstawie wartości wierszy. Te nowe kolumny można dodać do metadanych, do których można przystąpić później w przepływie danych. Aby to zrobić, użyj szybkiej akcji [Mapuj](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) w podglądzie danych. 
 
-![Przestawianie kolumn](media/data-flow/newpivot1.png "Mapa dryfowała kolumnach przestawnych")
+![Przestawianie kolumn](media/data-flow/newpivot1.png "Mapuj kolumny tabeli przestawnej z przełożeń")
 
-### <a name="sinking-pivoted-columns"></a>Zatopienie kolumn przestawnych
+### <a name="sinking-pivoted-columns"></a>Wystawianie kolumn na wystawienie
 
-Chociaż kolumny przestawne są dynamiczne, nadal można je zapisywać w docelowym magazynie danych. Włącz **zezwalaj na dryft schematu** w ustawieniach ujścia. Umożliwi to pisanie kolumn, które nie są zawarte w metadanych. metadanych kolumny, ale opcja dryfu schematu pozwoli na wyładowanie danych.
+Mimo że przestawiane kolumny są dynamiczne, nadal mogą być zapisywane w docelowym magazynie danych. Włącz opcję **Zezwalaj na dryf schematu** w ustawieniach ujścia. Pozwoli to na pisanie kolumn, które nie są uwzględnione w metadanych. metadane kolumn, ale opcja dryfowania schematu umożliwi wygruntowanie danych.
 
-### <a name="rejoin-original-fields"></a>Dołączanie do oryginalnych pól
+### <a name="rejoin-original-fields"></a>Odłączanie oryginalnych pól
 
-Transformacja przestawna będzie rzutować tylko kolumny grupy według i przestawne. Jeśli chcesz, aby dane wyjściowe zawierały inne kolumny wejściowe, użyj wzorca [samoskładania.](data-flow-join.md#self-join)
+Przekształcenie przestawne będzie dotyczyć tylko kolumn Grupuj według i przestawnych. Jeśli chcesz, aby dane wyjściowe zawierały inne kolumny wejściowe, użyj wzorca [samosprzężenia](data-flow-join.md#self-join) .
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 
@@ -107,4 +107,4 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ## <a name="next-steps"></a>Następne kroki
 
-Spróbuj [przekształcenia unpivot,](data-flow-unpivot.md) aby przekształcić wartości kolumn w wartości wierszy. 
+Wypróbuj [transformację UNPIVOT](data-flow-unpivot.md) , aby przekształcić wartości kolumn w wartości wierszy. 

@@ -1,122 +1,122 @@
 ---
-title: Tworzenie szablonu — kod programu Visual Studio
+title: Utwórz szablon — Visual Studio Code
 description: Program Visual Studio Code i rozszerzenie Narzędzia usługi Azure Resource Manager służą do pracy z szablonami usługi Resource Manager.
 author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
 ms.openlocfilehash: cd107db5220a96d75092a94736e060ae46672926
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81686610"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki start: tworzenie szablonów usługi Azure Resource Manager za pomocą kodu programu Visual Studio
+# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Szybki Start: Tworzenie szablonów Azure Resource Manager przy użyciu Visual Studio Code
 
-Narzędzia usługi Azure Resource Manager dla kodu programu Visual Studio zapewniają obsługę języka, fragmenty kodu zasobów i autouzupełnienie zasobów. Te narzędzia pomagają tworzyć i weryfikować szablony usługi Azure Resource Manager. W tym przewodniku Szybki start można użyć rozszerzenia do utworzenia szablonu usługi Azure Resource Manager od podstaw. W ten sposób występują funkcje rozszerzeń, takie jak fragmenty kodu szablonu ARM, sprawdzanie poprawności, uzupełnienia i obsługa plików parametrów.
+Azure Resource Manager narzędzia dla Visual Studio Code zapewniają obsługę języków, fragmenty zasobów i Autouzupełnianie zasobów. Te narzędzia ułatwiają tworzenie i weryfikowanie szablonów Azure Resource Manager. W tym przewodniku szybki start użyjesz rozszerzenia, aby utworzyć szablon Azure Resource Manager od podstaw. Podczas wykonywania tych czynności są dostępne funkcje rozszerzeń, takie jak fragmenty szablonów ARM, Walidacja, uzupełnianie i obsługa plików parametrów.
 
-Aby ukończyć ten szybki start, potrzebujesz [programu Visual Studio Code](https://code.visualstudio.com/), z zainstalowanym [rozszerzeniem narzędzi usługi Azure Resource Manager.](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) Należy również zainstalować i uwierzytelnić moduł [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) lub usługi Azure [PowerShell.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0)
+Aby ukończyć ten przewodnik Szybki Start, musisz [Visual Studio Code](https://code.visualstudio.com/)z zainstalowanym [rozszerzeniem narzędzi Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) . Wymagany jest również [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) lub [moduł Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) zainstalowany i uwierzytelniony.
 
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="create-an-arm-template"></a>Tworzenie szablonu ARM
 
-Utwórz i otwórz za pomocą programu Visual Studio Code nowy plik o nazwie *azuredeploy.json*. Wprowadź `arm` do edytora kodu, który inicjuje fragmenty usługi Azure Resource Manager dla szkieletu szablonu ARM.
+Utwórz i Otwórz przy użyciu Visual Studio Code nowy plik o nazwie *azuredeploy. JSON*. Przejdź `arm` do edytora kodu, który inicjuje Azure Resource Manager fragmenty kodu umożliwiające tworzenie szkieletu szablonu usługi ARM.
 
-Wybierz, `arm!` aby utworzyć szablon o zakresie wdrożenia grupy zasobów platformy Azure.
+Wybierz `arm!` , aby utworzyć szablon dla wdrożenia grupy zasobów platformy Azure.
 
-![Obraz przedstawiający rusztowania usługi Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Obraz przedstawiający tworzenie szkieletów Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-Ten fragment kodu tworzy podstawowe bloki konstrukcyjne szablonu ARM.
+Ten fragment kodu tworzy podstawowe bloki konstrukcyjne dla szablonu ARM.
 
 ![Obraz przedstawiający w pełni szkieletowy szablon ARM](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Należy zauważyć, że tryb języka kodu programu Visual Studio został zmieniony z *JSON* na *szablon usługi Azure Resource Manager*. Rozszerzenie zawiera serwer języka specyficzny dla szablonów ARM, który zapewnia sprawdzanie poprawności, uzupełnianie i inne usługi językowe specyficzne dla szablonu ARM.
+Należy zauważyć, że tryb języka Visual Studio Code został zmieniony z *JSON* na *szablon Azure Resource Manager*. Rozszerzenie zawiera serwer języka specyficzny dla szablonów ARM, który zapewnia sprawdzanie poprawności, uzupełnianie i inne usługi językowe specyficzne dla szablonu ARM.
 
-![Obraz przedstawiający usługę Azure Resource Manager jako tryb języka kodu programu Visual Studio](./media/quickstart-create-templates-use-visual-studio-code/3.png)
+![Obraz przedstawiający Azure Resource Manager jako tryb języka Visual Studio Code](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
 ## <a name="add-an-azure-resource"></a>Dodawanie zasobu platformy Azure
 
-Rozszerzenie zawiera fragmenty kodu dla wielu zasobów platformy Azure. Te fragmenty kodu można użyć do łatwego dodawania zasobów do wdrożenia szablonu.
+Rozszerzenie zawiera fragmenty kodu dla wielu zasobów platformy Azure. Te fragmenty kodu mogą służyć do łatwego dodawania zasobów do wdrożenia szablonu.
 
-Umieść kursor w bloku **zasobów** szablonu, wpisz `storage`i wybierz fragment kodu magazynu *arm.*
+Umieść kursor w bloku **zasoby** szablonu, wpisz tekst `storage`i wybierz fragment *magazynu ARM* .
 
 ![Obraz przedstawiający zasób dodawany do szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-Ta akcja dodaje zasób magazynu do szablonu.
+Ta akcja powoduje dodanie zasobu magazynu do szablonu.
 
 ![Obraz przedstawiający zasób usługi Azure Storage w szablonie ARM](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-Klucz **tabulacji** może służyć do zakładki za pomocą konfigurowalnych właściwości na koncie magazynu.
+Klawisz **Tab** może służyć do przechodzenia przez konfigurowalne właściwości konta magazynu.
 
-![Obraz przedstawiający, jak można używać klawisza tab do poruszania się po konfiguracji zasobów](./media/quickstart-create-templates-use-visual-studio-code/6.png)
+![Obraz przedstawiający sposób nawigowania po konfiguracji zasobów przy użyciu klawisza Tab](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-## <a name="completion-and-validation"></a>Ukończenie i walidacja
+## <a name="completion-and-validation"></a>Ukończenie i weryfikacja
 
-Jednym z najbardziej zaawansowanych możliwości rozszerzenia jest jego integracja ze schematami platformy Azure. Schematy platformy Azure zapewniają rozszerzenie z możliwości sprawdzania poprawności i funkcji uzupełniania z uwzględnieniem zasobów. Zmodyfikujmy konto magazynu, aby wyświetlić sprawdzanie poprawności i zakończenie w działaniu. 
+Jedną z najbardziej zaawansowanych możliwości rozszerzenia jest integracja ze schematami platformy Azure. Usługa Azure schematy udostępnia rozszerzenie z możliwościami weryfikacji i uzupełniania z uwzględnieniem zasobów. Zmodyfikujmy konto magazynu, aby zobaczyć sprawdzanie poprawności i zakończenie działania. 
 
-Najpierw zaktualizuj rodzaj konta magazynu `megaStorage`do nieprawidłowej wartości, takiej jak . Należy zauważyć, że ta akcja `megaStorage` generuje ostrzeżenie wskazujące, że nie jest prawidłową wartością.
+Najpierw zaktualizuj rodzaj konta magazynu do nieprawidłowej wartości takiej jak `megaStorage`. Należy zauważyć, że ta akcja powoduje ostrzeżenie wskazujące, że `megaStorage` nie jest prawidłową wartością.
 
 ![Obraz przedstawiający nieprawidłową konfigurację magazynu](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
-Aby skorzystać z możliwości `megaStorage`uzupełniania, usuń , umieść kursor wewnątrz `ctrl`  +  `space`cudzysłowów podwójnych i naciśnij . Ta akcja przedstawia listę uzupełnień prawidłowych wartości.
+Aby skorzystać z możliwości ukończenia, Usuń `megaStorage`, umieść kursor wewnątrz podwójnych cudzysłowów, a następnie naciśnij `ctrl`  +  `space`klawisz. Ta akcja przedstawia listę uzupełniania prawidłowych wartości.
 
-![Obraz przedstawiający automatyczne uzupełnianie rozszerzenia](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+![Obraz przedstawiający Autouzupełnianie rozszerzeń](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
-## <a name="add-template-parameters"></a>Dodawanie parametrów szablonu
+## <a name="add-template-parameters"></a>Dodaj parametry szablonu
 
-Teraz utwórz i użyj parametru, aby określić nazwę konta magazynu.
+Teraz Utwórz i użyj parametru, aby określić nazwę konta magazynu.
 
-Umieść kursor w bloku parametrów, dodaj powrót `par`karetki, `arm-param-value` wpisz , a następnie wybierz fragment kodu. Ta akcja dodaje parametr ogólny do szablonu.
+Umieść kursor w bloku parametry, Dodaj znak powrotu karetki, wpisz `par`, a następnie wybierz `arm-param-value` fragment kodu. Ta akcja dodaje parametr generyczny do szablonu.
 
 ![Obraz przedstawiający parametr dodawany do szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
-Zaktualizuj nazwę `storageAccountName` parametru `Storage Account Name`i opis do .
+Zaktualizuj nazwę parametru do `storageAccountName` i opis. `Storage Account Name`
 
 ![Obraz przedstawiający ukończony parametr w szablonie ARM](./media/quickstart-create-templates-use-visual-studio-code/10.png)
 
-Nazwy kont magazynu platformy Azure mają minimalną długość 3 znaków i maksymalnie 24. Dodaj `minLength` zarówno `maxLength` i do parametru i podać odpowiednie wartości.
+Nazwy kont usługi Azure Storage mają minimalną długość 3 znaków i maksymalnie 24. Dodaj oba `minLength` parametry `maxLength` i do parametru i podaj odpowiednie wartości.
 
-![Obraz przedstawiający minLength i maxLength dodawanych do parametru szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+![Obraz przedstawiający element minLength i element maxLength dodawane do parametru szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
-Teraz na zasobie magazynu zaktualizuj właściwość name, aby użyć parametru. Aby to zrobić, usuń bieżącą nazwę. Wprowadź podwójny cudzysłów `[`i otwierający nawias kwadratowy, który tworzy listę funkcji szablonu ARM. Wybierz *parametry* z listy. 
+Teraz w zasobów magazynu zaktualizuj właściwość Name, aby użyć parametru. Aby to zrobić, Usuń bieżącą nazwę. Wprowadź podwójny cudzysłów i otwierający nawias `[`kwadratowy, który tworzy listę funkcji szablonu ARM. Z listy wybierz *Parametry* . 
 
-![Obraz przedstawiający automatyczne uzupełnianie podczas korzystania z parametrów w zasobach szablonów ARM](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+![Obraz przedstawiający Autouzupełnianie przy użyciu parametrów w zasobach szablonów ARM](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
-Wprowadzenie pojedynczego `'` cudzysłowu wewnątrz nawiasów okrągłych tworzy listę wszystkich parametrów zdefiniowanych w szablonie, w tym przypadku *storageAccountName*. Wybierz parametr.
+Wprowadzenie pojedynczego cudzysłowu `'` w nawiasach okrągłych powoduje utworzenie listy wszystkich parametrów zdefiniowanych w szablonie, w tym przypadku *storageAccountName*. Wybierz parametr.
 
 ![Obraz przedstawiający ukończony parametr w zasobie szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/13.png)
 
-## <a name="create-a-parameter-file"></a>Tworzenie pliku parametrów
+## <a name="create-a-parameter-file"></a>Utwórz plik parametrów
 
-Plik parametru szablonu ARM umożliwia przechowywanie wartości parametrów specyficznych dla środowiska i przekazywanie tych wartości jako grupy w czasie wdrażania. Na przykład może mieć plik parametru z wartościami specyficznymi dla środowiska testowego i inny dla środowiska produkcyjnego.
+Plik parametrów szablonu ARM umożliwia przechowywanie wartości parametrów specyficznych dla środowiska i przekazywanie tych wartości jako grupy w czasie wdrażania. Na przykład może istnieć plik parametrów z wartościami specyficznymi dla środowiska testowego i innego dla środowiska produkcyjnego.
 
-Rozszerzenie ułatwia tworzenie pliku parametrów z istniejących szablonów. Aby to zrobić, kliknij prawym przyciskiem myszy `Select/Create Parameter File`szablon w edytorze kodu i wybierz opcję .
+Rozszerzenie ułatwia tworzenie pliku parametrów z istniejących szablonów. Aby to zrobić, kliknij prawym przyciskiem myszy szablon w edytorze kodu i wybierz polecenie `Select/Create Parameter File`.
 
-![Obraz przedstawiający proces kliknięcia prawym przyciskiem myszy w celu utworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+![Obraz przedstawiający proces kliknij prawym przyciskiem myszy w celu utworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
-`New`  >  Wybierz `All Parameters` > Wybierz nazwę i lokalizację pliku parametrów.
+`New`  >  Wybierz `All Parameters` > wybierz nazwę i lokalizację pliku parametrów.
 
-![Obraz przedstawiający okno dialogowe nazwa i zapisz plik podczas tworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+![Obraz przedstawiający okno dialogowe Nazwa i Zapisz plik podczas tworzenia pliku parametrów z szablonu ARM](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
-Ta akcja tworzy nowy plik parametrów i mapuje go za pomocą szablonu, z którego został utworzony. Możesz zobaczyć i zmodyfikować bieżące mapowanie pliku szablonu/parametru na pasku stanu kodu programu Visual Studio, gdy szablon jest zaznaczony.
+Ta akcja tworzy nowy plik parametrów i mapuje go z szablonem, z którego został utworzony. Podczas zaznaczania szablonu można zobaczyć i zmodyfikować bieżące mapowanie pliku szablonu/parametru na pasku stanu Visual Studio Code.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
-Teraz, gdy plik parametrów został zamapowany na szablon, rozszerzenie sprawdza zarówno plik szablonu, jak i parametru razem. Aby wyświetlić tę walidację w praktyce, dodaj wartość dwuznakową do parametru `storageAccountName` w pliku parametru i zapisz plik.
+Teraz, gdy plik parametrów został zmapowany do szablonu, rozszerzenie weryfikuje jednocześnie szablon i plik parametrów. Aby wyświetlić tę weryfikację w ćwiczeniach, Dodaj wartość dwuznakową do `storageAccountName` parametru w pliku parametrów i Zapisz plik.
 
 ![Obraz przedstawiający unieważniony szablon z powodu problemu z plikiem parametru](./media/quickstart-create-templates-use-visual-studio-code/17.png)
 
-Przejdź z powrotem do szablonu ARM i zwróć uwagę, że został zgłoszony błąd wskazujący, że wartość nie spełnia kryteriów parametru.
+Wróć do szablonu ARM i zwróć uwagę, że został zgłoszony błąd wskazujący, że wartość nie spełnia kryteriów parametrów.
 
 ![Obraz przedstawiający prawidłowy szablon ARM](./media/quickstart-create-templates-use-visual-studio-code/18.png)
 
-Zaktualizuj wartość do czegoś odpowiedniego, zapisz plik i przejdź z powrotem do szablonu. Należy zauważyć, że błąd na parametr został rozwiązany.
+Zaktualizuj wartość do odpowiedniej wartości, Zapisz plik i przejdź z powrotem do szablonu. Zwróć uwagę, że błąd w parametrze został rozwiązany.
 
 ## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-Otwórz terminal kodu zintegrowanego `ctrl`  +  ```` ` ```` programu Visual Studio przy użyciu kombinacji klawiszy i użyj modułu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell do wdrożenia szablonu.
+Otwórz Visual Studio Code terminalu zintegrowanego przy użyciu `ctrl`  +  ```` ` ```` kombinacji klawiszy, a następnie wdróż szablon przy użyciu interfejsu wiersza polecenia platformy Azure lub modułu Azure PowerShell.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
@@ -137,7 +137,7 @@ New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azur
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy zasoby platformy Azure nie są już potrzebne, użyj modułu interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell, aby usunąć grupę zasobów szybki start.
+Gdy zasoby platformy Azure nie są już potrzebne, użyj interfejsu wiersza polecenia platformy Azure lub modułu Azure PowerShell, aby usunąć grupę zasobów szybkiego startu.
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 

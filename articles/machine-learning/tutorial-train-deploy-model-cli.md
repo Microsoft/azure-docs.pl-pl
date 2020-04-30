@@ -1,7 +1,7 @@
 ---
-title: Szkolenie i wdrażanie modeli z interfejsu wiersza polecenia
+title: Uczenie i wdrażanie modeli z interfejsu wiersza polecenia
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak używać rozszerzenia uczenia maszynowego dla interfejsu wiersza polecenia platformy Azure do uczenia, rejestrowania i wdrażania modelu z wiersza polecenia.
+description: Dowiedz się, jak używać rozszerzenia Uczenie maszynowe dla interfejsu wiersza polecenia platformy Azure, aby uczenie, zarejestrować i wdrożyć model z wiersza poleceń.
 ms.author: larryfr
 author: Blackmist
 services: machine-learning
@@ -10,44 +10,44 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 1cafc311c842cd5bc17fefe34eacbdfc99b7147a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617727"
 ---
-# <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Samouczek: Trenuj i wdrażaj model z interfejsu wiersza polecenia
+# <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Samouczek: uczenie i wdrażanie modelu z poziomu interfejsu wiersza polecenia
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku użyj rozszerzenie uczenia maszynowego dla interfejsu wiersza polecenia platformy Azure do szkolenia, rejestracji i wdrażania modelu.
+W tym samouczku użyjesz rozszerzenia Machine Learning dla interfejsu wiersza polecenia platformy Azure, aby nauczyć, zarejestrować i wdrożyć model.
 
-Skrypty szkoleniowe języka Python w tym samouczku używają [scikit-learn](https://scikit-learn.org/) do uczenia podstawowego modelu. W centrum tego samouczka nie jest na skrypty lub modelu, ale proces przy użyciu interfejsu wiersza polecenia do pracy z usługi Azure Machine Learning.
+Skrypty szkoleniowe dotyczące języka Python w tym samouczku wykorzystują [scikit — Dowiedz się, jak](https://scikit-learn.org/) nauczyć model podstawowy. Fokus tego samouczka nie znajduje się na skryptach lub modelu, ale proces używania interfejsu wiersza polecenia do pracy z Azure Machine Learning.
 
 Dowiedz się, jak wykonać następujące czynności:
 
 > [!div class="checklist"]
-> * Instalowanie rozszerzenia uczenia maszynowego
-> * Tworzenie obszaru roboczego usługi Azure Machine Learning
-> * Tworzenie zasobu obliczeniowego używanego do szkolenia modelu
-> * Definiowanie i rejestrowanie zestawu danych używanego do trenowania modelu
-> * Rozpoczynanie treningu
-> * Zarejestruj się i pobierz model
-> * Wdrażanie modelu jako usługi sieci web
-> * Oceniaj dane za pomocą usługi internetowej
+> * Zainstaluj rozszerzenie uczenia maszynowego
+> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Utwórz zasób obliczeniowy służący do uczenia modelu
+> * Definiowanie i rejestrowanie zestawu danych używanego do uczenia modelu
+> * Rozpocznij pracę szkoleniową
+> * Rejestrowanie i pobieranie modelu
+> * Wdróż model jako usługę sieci Web
+> * Dane oceny przy użyciu usługi sieci Web
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję usługi Azure Machine Learning](https://aka.ms/AMLFree) już dziś.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz bezpłatne konto. Wypróbuj [bezpłatną lub płatną wersję Azure Machine Learning](https://aka.ms/AMLFree) dzisiaj.
 
-* Aby użyć poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego,** potrzebujesz [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-    Jeśli używasz [usługi Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)interfejs wiersza polecenia jest dostępny za pośrednictwem przeglądarki i mieszka w chmurze.
+    Jeśli używasz [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), interfejs wiersza polecenia jest dostępny za pomocą przeglądarki i przebywa w chmurze.
 
 ## <a name="download-the-example-project"></a>Pobierz przykładowy projekt
 
-W tym samouczku [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) pobierz projekt. Pliki w `examples/cli-train-deploy` katalogu są używane przez kroki opisane w tym samouczku.
+Na potrzeby tego samouczka Pobierz [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) projekt. Pliki w `examples/cli-train-deploy` katalogu są używane przez kroki opisane w tym samouczku.
 
-Aby uzyskać lokalną kopię plików, [pobierz archiwum .zip](https://github.com/microsoft/MLOps/archive/master.zip)lub użyj następującego polecenia Git, aby sklonować repozytorium:
+Aby uzyskać kopię lokalną plików, [Pobierz archiwum zip](https://github.com/microsoft/MLOps/archive/master.zip)lub użyj następującego polecenia git, aby sklonować repozytorium:
 
 ```azurecli-interactive
 git clone https://github.com/microsoft/MLOps.git
@@ -55,45 +55,45 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### <a name="training-files"></a>Pliki szkoleniowe
 
-Katalog `examples/cli-train-deploy` z projektu zawiera następujące pliki, które są używane podczas szkolenia modelu:
+`examples/cli-train-deploy` Katalog z projektu zawiera następujące pliki, które są używane podczas uczenia modelu:
 
-* `.azureml\mnist.runconfig`: Uruchom plik __konfiguracyjny.__ Ten plik definiuje środowisko wykonawcze potrzebne do szkolenia modelu. W tym przykładzie również montuje dane używane do szkolenia modelu w środowisku szkoleniowym.
-* `scripts\train.py`: Skrypt szkoleniowy. Ten plik trenuje model.
-* `scripts\utils.py`: Plik pomocnika używany przez skrypt szkolenia.
-* `.azureml\conda_dependencies.yml`: Definiuje zależności oprogramowania potrzebne do uruchomienia skryptu szkoleniowego.
-* `dataset.json`: Definicja zestawu danych. Służy do rejestrowania zestawu danych MNIST w obszarze roboczym usługi Azure Machine Learning.
+* `.azureml\mnist.runconfig`: Plik __konfiguracji uruchomieniowej__ . Ten plik definiuje środowisko uruchomieniowe potrzebne do uczenia modelu. W tym przykładzie instaluje również dane używane do uczenia modelu w środowisku szkoleniowym.
+* `scripts\train.py`: Skrypt szkoleniowy. Ten plik pociąga za model.
+* `scripts\utils.py`: Plik pomocnika używany przez skrypt szkoleniowy.
+* `.azureml\conda_dependencies.yml`: Definiuje zależności oprogramowania wymagające do uruchomienia skryptu szkoleniowego.
+* `dataset.json`: Definicja zestawu danych. Służy do rejestrowania zestawu danych MNIST ręcznie w obszarze roboczym Azure Machine Learning.
 
-### <a name="deployment-files"></a>Pliki wdrażania
+### <a name="deployment-files"></a>Pliki wdrożenia
 
-Repozytorium zawiera następujące pliki, które są używane do wdrażania uczonego modelu jako usługi sieci web:
+Repozytorium zawiera następujące pliki, które są używane do wdrożenia przeszkolonego modelu jako usługi sieci Web:
 
-* `aciDeploymentConfig.yml`: Plik __konfiguracji wdrożenia.__ Ten plik definiuje środowisko hostingu potrzebne dla modelu.
-* `inferenceConfig.json`: Plik __konfiguracyjny wnioskowania.__ Ten plik definiuje środowisko oprogramowania używane przez usługę do oceniania danych za pomocą modelu.
-* `score.py`: Skrypt języka python, który akceptuje przychodzące dane, ocenia go przy użyciu modelu, a następnie zwraca odpowiedź.
-* `scoring-env.yml`: zależności conda potrzebne do uruchomienia `score.py` modelu i skryptu.
-* `testdata.json`: Plik danych, który może służyć do testowania wdrożonej usługi sieci web.
+* `aciDeploymentConfig.yml`: Plik __konfiguracji wdrożenia__ . Ten plik definiuje środowisko hostingu, które jest niezbędne dla modelu.
+* `inferenceConfig.json`: Plik __konfiguracyjny wnioskowania__ . Ten plik definiuje środowisko oprogramowania używane przez usługę do oceny danych w modelu.
+* `score.py`: Skrypt języka Python, który akceptuje dane przychodzące, ocenia je przy użyciu modelu, a następnie zwraca odpowiedź.
+* `scoring-env.yml`: Conda zależności, które są konieczne do uruchomienia modelu `score.py` i skryptu.
+* `testdata.json`: Plik danych, który może służyć do testowania wdrożonej usługi sieci Web.
 
 ## <a name="connect-to-your-azure-subscription"></a>Nawiązywanie połączenia z subskrypcją platformy Azure
 
-Istnieje kilka sposobów, które można uwierzytelnić do subskrypcji platformy Azure z interfejsu wiersza polecenia. Najbardziej podstawowe jest interaktywne uwierzytelnienie za pomocą przeglądarki. Aby uwierzytelnić się interaktywnie, otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
+Istnieje kilka sposobów uwierzytelniania w ramach subskrypcji platformy Azure z poziomu interfejsu wiersza polecenia. Najbardziej podstawowa jest możliwość interakcyjnego uwierzytelniania przy użyciu przeglądarki. Aby uwierzytelnić interaktywnie, Otwórz wiersz polecenia lub terminal i użyj następującego polecenia:
 
 ```azurecli-interactive
 az login
 ```
 
-Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacyjnego.
+Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacji.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-## <a name="install-the-machine-learning-extension"></a>Instalowanie rozszerzenia uczenia maszynowego
+## <a name="install-the-machine-learning-extension"></a>Zainstaluj rozszerzenie uczenia maszynowego
 
-Aby zainstalować rozszerzenie uczenia maszynowego, użyj następującego polecenia:
+Aby zainstalować rozszerzenie Uczenie maszynowe, użyj następującego polecenia:
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
 ```
 
-Jeśli zostanie wyświetlony komunikat, że rozszerzenie jest już zainstalowane, użyj następującego polecenia, aby zaktualizować do najnowszej wersji:
+Jeśli zostanie wyświetlony komunikat o tym, że rozszerzenie jest już zainstalowane, użyj następującego polecenia, aby zaktualizować najnowszą wersję:
 
 ```azurecli-interactive
 az extension update -n azure-cli-ml
@@ -101,18 +101,18 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów jest podstawowym kontenerem zasobów na platformie Azure. Podczas pracy z usługą Azure Machine Learning grupa zasobów będzie zawierać obszar roboczy usługi Azure Machine Learning. Będzie również zawierać inne usługi platformy Azure używane przez obszar roboczy. Na przykład jeśli trenujesz model przy użyciu zasobu obliczeniowego opartego na chmurze, ten zasób jest tworzony w grupie zasobów.
+Grupa zasobów to podstawowy kontener zasobów na platformie Azure. Podczas pracy z Azure Machine Learning Grupa zasobów będzie zawierać obszar roboczy Azure Machine Learning. Będzie również zawierać inne usługi platformy Azure używane przez obszar roboczy. Na przykład jeśli nauczysz model przy użyciu zasobów obliczeniowych opartych na chmurze, ten zasób zostanie utworzony w grupie zasobów.
 
-Aby __utworzyć nową grupę zasobów,__ użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę używana dla tej grupy zasobów. Zamień `<location>` region platformy Azure do użycia dla tej grupy zasobów:
+Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę, która ma być używana dla tej grupy zasobów. Zamień `<location>` na region platformy Azure, który ma być używany dla tej grupy zasobów:
 
 > [!TIP]
-> Należy wybrać region, w którym usługa Azure Machine Learning jest dostępna. Aby uzyskać więcej informacji, zobacz [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> Należy wybrać region, w którym Azure Machine Learning jest dostępna. Aby uzyskać więcej informacji, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
 ```
 
-Odpowiedź z tego polecenia jest podobna do następującej JSON:
+Odpowiedź z tego polecenia jest podobna do następującej:
 
 ```json
 {
@@ -128,17 +128,17 @@ Odpowiedź z tego polecenia jest podobna do następującej JSON:
 }
 ```
 
-Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+Aby uzyskać więcej informacji na temat pracy z grupami zasobów, zobacz [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Aby utworzyć nowy obszar roboczy, użyj następującego polecenia. Zamień `<workspace-name>` na nazwę, której chcesz użyć dla tego obszaru roboczego. Zamień `<resource-group-name>` na nazwę grupy zasobów:
+Aby utworzyć nowy obszar roboczy, użyj następującego polecenia. Zamień `<workspace-name>` na nazwę, która ma być używana dla tego obszaru roboczego. Zamień `<resource-group-name>` na nazwę grupy zasobów:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
-Dane wyjściowe tego polecenia są podobne do następującego JSON:
+Dane wyjściowe tego polecenia są podobne do następujących:
 
 ```json
 {
@@ -161,16 +161,16 @@ Dane wyjściowe tego polecenia są podobne do następującego JSON:
 }
 ```
 
-## <a name="connect-local-project-to-workspace"></a>Łączenie projektu lokalnego z obszarem roboczym
+## <a name="connect-local-project-to-workspace"></a>Połącz projekt lokalny z obszarem roboczym
 
-W wierszu polecenia terminala lub polecenia użyj następujących `cli-train-deploy` poleceń zmień katalogi do katalogu, a następnie połącz się z obszarem roboczym:
+Z poziomu terminalu lub wiersza polecenia Użyj następujących poleceń zmień katalogi na `cli-train-deploy` katalog, a następnie połącz się z obszarem roboczym:
 
 ```azurecli-interactive
 cd ~/MLOps/examples/cli-train-deploy
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
-Dane wyjściowe tego polecenia są podobne do następującego JSON:
+Dane wyjściowe tego polecenia są podobne do następujących:
 
 ```json
 {
@@ -182,17 +182,17 @@ Dane wyjściowe tego polecenia są podobne do następującego JSON:
 }
 ```
 
-To polecenie `.azureml/config.json` tworzy plik, który zawiera informacje potrzebne do nawiązania połączenia z obszarem roboczym. Pozostałe `az ml` polecenia użyte w tym samouczku będą używać tego pliku, więc nie trzeba dodawać obszaru roboczego i grupy zasobów do wszystkich poleceń.
+To polecenie tworzy `.azureml/config.json` plik, który zawiera informacje, które są konieczne do nawiązania połączenia z obszarem roboczym. Pozostałe `az ml` polecenia używane w tym samouczku będą używać tego pliku, więc nie trzeba dodawać obszaru roboczego i grupy zasobów do wszystkich poleceń.
 
-## <a name="create-the-compute-target-for-training"></a>Tworzenie celu obliczeniowego dla szkolenia
+## <a name="create-the-compute-target-for-training"></a>Utwórz element docelowy obliczeń na potrzeby szkolenia
 
-W tym przykładzie użyto klastra obliczeniowego usługi Azure Machine Learning do uczenia modelu. Aby utworzyć nowy klaster obliczeniowy, użyj następującego polecenia:
+W tym przykładzie zastosowano Azure Machine Learning klaster obliczeniowy do uczenia modelu. Aby utworzyć nowy klaster obliczeniowy, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu-cluster --max-nodes 4 --vm-size Standard_D2_V2
 ```
 
-Dane wyjściowe tego polecenia są podobne do następującego JSON:
+Dane wyjściowe tego polecenia są podobne do następujących:
 
 ```json
 {
@@ -203,22 +203,22 @@ Dane wyjściowe tego polecenia są podobne do następującego JSON:
 }
 ```
 
-To polecenie tworzy nowy obiekt `cpu-cluster`docelowy obliczeń o nazwie , z maksymalnie czterema węzłami. Wybrany rozmiar maszyny Wirtualnej zapewnia maszynę wirtualną z zasobem GPU. Aby uzyskać informacje na temat rozmiaru maszyny Wirtualnej, zobacz [Typy i rozmiary maszyn wirtualnych].
+To polecenie tworzy nowy obiekt docelowy obliczeń o `cpu-cluster`nazwie z maksymalnie czterema węzłami. Wybrany rozmiar maszyny wirtualnej zapewnia maszynę wirtualną z zasobem procesora GPU. Aby uzyskać informacje na temat rozmiaru maszyny wirtualnej, zobacz [typy maszyn wirtualnych i rozmiary].
 
 > [!IMPORTANT]
-> Nazwa obiektu docelowego obliczeń (w`cpu-cluster` tym przypadku) jest ważna; odwołuje się do `.azureml/mnist.runconfig` niego plik użyty w następnej sekcji.
+> Nazwa elementu docelowego obliczeń (`cpu-cluster` w tym przypadku) jest ważna; odwołuje się do niego `.azureml/mnist.runconfig` plik używany w następnej sekcji.
 
-## <a name="define-the-dataset"></a>Definiowanie zestawu danych
+## <a name="define-the-dataset"></a>Zdefiniuj zestaw danych
 
-Aby uszkoliwać model, można podać dane szkoleniowe przy użyciu zestawu danych. Aby utworzyć zestaw danych z interfejsu wiersza polecenia, należy podać plik definicji zestawu danych. Plik `dataset.json` podany w repozytorium tworzy nowy zestaw danych przy użyciu danych MNIST. Zestaw danych, który `mnist-dataset`tworzy, nosi nazwę .
+Aby szkolić model, możesz dostarczyć dane szkoleniowe za pomocą zestawu danych. Aby utworzyć zestaw danych z interfejsu wiersza polecenia, należy podać plik definicji zestawu danych. `dataset.json` Plik podany w repozytorium tworzy nowy zestaw danych przy użyciu danych mnist ręcznie. Tworzony zestaw danych ma nazwę `mnist-dataset`.
 
-Aby zarejestrować zestaw `dataset.json` danych przy użyciu pliku, użyj następującego polecenia:
+Aby zarejestrować zestaw danych przy użyciu `dataset.json` pliku, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml dataset register -f dataset.json --skip-validation
 ```
 
-Dane wyjściowe tego polecenia są podobne do następującego JSON:
+Dane wyjściowe tego polecenia są podobne do następujących:
 
 ```json
 {
@@ -245,17 +245,17 @@ Dane wyjściowe tego polecenia są podobne do następującego JSON:
 ```
 
 > [!IMPORTANT]
-> Skopiuj `id` wartość wpisu, ponieważ jest używana w następnej sekcji.
+> Skopiuj wartość `id` wpisu, ponieważ jest używana w następnej sekcji.
 
-Aby wyświetlić bardziej kompleksowy szablon zestawu danych, użyj następującego polecenia:
+Aby wyświetlić bardziej szczegółowy szablon zestawu danych, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
 
-## <a name="reference-the-dataset"></a>Odwoływanie się do zestawu danych
+## <a name="reference-the-dataset"></a>Odwołuje się do zestawu danych
 
-Aby udostępnić zestaw danych w środowisku szkoleniowym, należy odwoływać się do niego z pliku runconfig. Plik `.azureml/mnist.runconfig` zawiera następujące wpisy YAML:
+Aby udostępnić zestaw danych w środowisku szkoleniowym, należy odwołać się do niego z pliku runconfig. `.azureml/mnist.runconfig` Plik zawiera następujące wpisy YAML:
 
 ```yaml
 # The arguments to the script file.
@@ -288,58 +288,58 @@ data:
     overwrite: false
 ```
 
-Zmień wartość wpisu, `id` aby dopasować wartość zwróconą po zarejestrowaniu zestawu danych. Ta wartość jest używana do ładowania danych do obiektu docelowego obliczeń podczas szkolenia.
+Zmień wartość `id` wpisu, aby odpowiadała wartości zwróconej podczas rejestrowania zestawu danych. Ta wartość jest używana do ładowania danych do obiektu docelowego obliczeń podczas szkolenia.
 
-Ten YAML powoduje następujące działania podczas szkolenia:
+Ta YAML skutkuje następującymi akcjami podczas szkoleń:
 
-* Montuje zestaw danych (na podstawie identyfikatora zestawu danych) w środowisku szkoleniowym i przechowuje ścieżkę do punktu instalacji w zmiennej środowiskowej. `mnist`
-* Przekazuje lokalizację danych (punkt instalacji) wewnątrz środowiska szkoleniowego `--data-folder` do skryptu przy użyciu argumentu.
+* Instaluje zestaw danych (na podstawie identyfikatora zestawu danych) w środowisku szkoleniowym i zapisuje ścieżkę do punktu instalacji w zmiennej `mnist` środowiskowej.
+* Przekazuje lokalizację danych (punkt instalacji) w środowisku szkoleniowym do skryptu za pomocą `--data-folder` argumentu.
 
-Plik runconfig zawiera również informacje używane do konfigurowania środowiska używanego przez przebieg szkolenia. Jeśli sprawdzisz ten plik, zobaczysz, że `cpu-compute` odwołuje się on do obiektu docelowego obliczeń utworzonego wcześniej. Zawiera również listę liczby węzłów do`"nodeCount": "4"`użycia podczas `"condaDependencies"` szkolenia ( ) i zawiera sekcję, która zawiera listę pakietów języka Python potrzebnych do uruchomienia skryptu szkoleniowego.
+Plik runconfig zawiera również informacje służące do konfigurowania środowiska używanego w ramach przebiegu szkoleniowego. Po sprawdzeniu tego pliku zobaczysz, że odwołuje się do `cpu-compute` utworzonego wcześniej elementu docelowego obliczeń. Zawiera również listę liczby węzłów, które mają być używane podczas uczenia (`"nodeCount": "4"`) i zawiera `"condaDependencies"` sekcję zawierającą listę pakietów języka Python wymaganych do uruchomienia skryptu szkoleniowego.
 
 > [!TIP]
-> Chociaż możliwe jest ręczne utworzenie pliku runconfig, ten w `generate-runconfig.py` tym przykładzie został utworzony przy użyciu pliku zawartego w repozytorium. Ten plik pobiera odwołanie do zarejestrowanego zestawu danych, tworzy plik konfiguracyjny, a następnie utrwala go do pliku.
+> Chociaż istnieje możliwość ręcznego utworzenia pliku runconfig, ten kod w tym przykładzie został utworzony przy użyciu `generate-runconfig.py` pliku zawartego w repozytorium. Ten plik pobiera odwołanie do zarejestrowanego zestawu danych, tworzy konfigurację uruchomieniową programowo, a następnie utrwala ją z plikiem.
 
-Aby uzyskać więcej informacji na temat uruchamiania plików konfiguracyjnych, zobacz [Konfigurowanie i używanie obiektów docelowych obliczeń do szkolenia modelu](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Aby uzyskać pełne odwołanie JSON, zobacz [plik runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Aby uzyskać więcej informacji na temat uruchamiania plików konfiguracji, zobacz [Konfigurowanie elementów docelowych obliczeń i używanie ich do uczenia modelu](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Aby uzyskać pełne odwołanie JSON, zobacz plik [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Prześlij przebieg szkolenia
 
-Aby rozpocząć szkolenie na `cpu-cluster` celu obliczeniowym, użyj następującego polecenia:
+Aby uruchomić szkolenie w miejscu docelowym `cpu-cluster` obliczeń, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
 ```
 
-To polecenie określa nazwę eksperymentu`myexperiment`( ). Eksperyment przechowuje informacje o tym uruchomieniu w obszarze roboczym.
+To polecenie określa nazwę eksperymentu (`myexperiment`). Eksperyment zapisuje informacje o tym przebiegu w obszarze roboczym.
 
-Parametr `-c mnist` określa `.azureml/mnist.runconfig` plik.
+`-c mnist` Parametr określa `.azureml/mnist.runconfig` plik.
 
-Parametr `-t` przechowuje odwołanie do tego uruchomienia w pliku JSON i będzie używany w następnych krokach do rejestracji i pobierania modelu.
+`-t` Parametr przechowuje odwołanie do tego przebiegu w pliku JSON i zostanie użyte w następnych krokach w celu zarejestrowania i pobrania modelu.
 
-W miarę uruchamiania szkolenia przetwarza informacje z sesji szkoleniowej na zdalnym zasobie obliczeniowym. Część informacji jest podobna do następującego tekstu:
+W miarę przebiegu szkolenia program przesyła strumieniowo informacje z sesji szkoleniowej do zdalnego zasobu obliczeniowego. Część informacji jest podobna do poniższego tekstu:
 
 ```output
 Predict the test set
 Accuracy is 0.9185
 ```
 
-Ten tekst jest rejestrowany ze skryptu szkoleniowego i wyświetla dokładność modelu. Inne modele będą miały różne metryki wydajności.
+Ten tekst jest rejestrowany ze skryptu szkoleniowego i zawiera dokładność modelu. Inne modele będą mieć różne metryki wydajności.
 
-Jeśli sprawdzisz skrypt szkolenia, zauważysz, że używa również wartości alfa, `outputs/sklearn_mnist_model.pkl`gdy przechowuje przeszkolony model do .
+W przypadku inspekcji skryptu szkoleniowego należy zauważyć, że program używa również wartości alfa, gdy przechowuje przeszkolony model do `outputs/sklearn_mnist_model.pkl`.
 
-Model został zapisany `./outputs` w katalogu w miejscu docelowym obliczeń, w którym został przeszkolony. W takim przypadku wystąpienie obliczeń usługi Azure Machine Learning w chmurze platformy Azure. Proces szkolenia automatycznie przekazuje zawartość `./outputs` katalogu z obiektu docelowego obliczeń, w którym odbywa się szkolenie do obszaru roboczego usługi Azure Machine Learning. Jest przechowywany jako część eksperymentu`myexperiment` (w tym przykładzie).
+Model został zapisany w `./outputs` katalogu w miejscu docelowym obliczeń, w którym został przeszkolony. W tym przypadku wystąpienie obliczeniowe Azure Machine Learning w chmurze platformy Azure. Proces uczenia automatycznie przekazuje zawartość `./outputs` katalogu z elementu docelowego obliczeń, w którym szkolenia odbywają się w obszarze roboczym Azure Machine Learning. Jest ona przechowywana w ramach eksperymentu (`myexperiment` w tym przykładzie).
 
 ## <a name="register-the-model"></a>Rejestrowanie modelu
 
-Aby zarejestrować model bezpośrednio z zapisanej wersji w eksperymencie, użyj następującego polecenia:
+Aby zarejestrować model bezpośrednio z wersji zapisanej w eksperymentie, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_mnist_model.pkl" -t registeredmodel.json
 ```
 
-To polecenie rejestruje `outputs/sklearn_mnist_model.pkl` plik utworzony przez szkolenie uruchamiany `mymodel`jako nowa rejestracja modelu o nazwie . Odwołuje `--assets-path` się do ścieżki w eksperymencie. W takim przypadku informacje o eksperymencie i uruchomieniu są ładowane z `runoutput.json` pliku utworzonego przez polecenie szkolenia. Tworzy `-t registeredmodel.json` plik JSON, który odwołuje się do nowego zarejestrowanego modelu utworzonego przez to polecenie i jest używany przez inne polecenia interfejsu wiersza polecenia, które działają z zarejestrowanymi modelami.
+To polecenie rejestruje `outputs/sklearn_mnist_model.pkl` plik utworzony przez program szkoleniowy jako nową rejestrację modelu o nazwie `mymodel`. `--assets-path` Odwołuje się do ścieżki w eksperymentie. W takim przypadku eksperyment i informacje o przebiegu są ładowane z `runoutput.json` pliku utworzonego przez polecenie szkolenia. `-t registeredmodel.json` Tworzy plik JSON, który odwołuje się do nowego zarejestrowanego modelu utworzonego przez to polecenie, i jest używany przez inne polecenia CLI, które działają z zarejestrowanymi modelami.
 
-Dane wyjściowe tego polecenia są podobne do następującego JSON:
+Dane wyjściowe tego polecenia są podobne do następujących:
 
 ```json
 {
@@ -359,14 +359,14 @@ Dane wyjściowe tego polecenia są podobne do następującego JSON:
 
 ### <a name="model-versioning"></a>Przechowywanie wersji modelu
 
-Zwróć uwagę na numer wersji zwrócony dla modelu. Wersja jest zwiększana za każdym razem, gdy rejestrujesz nowy model o tej nazwie. Na przykład można pobrać model i zarejestrować go z pliku lokalnego za pomocą następujących poleceń:
+Zwróć uwagę na numer wersji zwrócony dla modelu. Ta wersja jest zwiększana za każdym razem, gdy rejestrujesz nowy model o tej nazwie. Na przykład możesz pobrać model i zarejestrować go z pliku lokalnego przy użyciu następujących poleceń:
 
 ```azurecli-interactive
 az ml model download -i "mymodel:1" -t .
 az ml model register -n mymodel -p "sklearn_mnist_model.pkl"
 ```
 
-Pierwsze polecenie pobiera zarejestrowany model do bieżącego katalogu. Nazwa pliku `sklearn_mnist_model.pkl`jest , który jest plikiem, do którego odwołuje się podczas rejestracji modelu. Drugie polecenie rejestruje model lokalny`-p "sklearn_mnist_model.pkl"`( ) o tej samej nazwie co poprzednia rejestracja (`mymodel`). Tym razem zwrócone dane JSON wyświetla wersję jako 2.
+Pierwsze polecenie pobiera zarejestrowany model do bieżącego katalogu. Nazwa pliku to `sklearn_mnist_model.pkl`, czyli plik, do którego odwołuje się po zarejestrowaniu modelu. Drugie polecenie rejestruje model lokalny (`-p "sklearn_mnist_model.pkl"`) o takiej samej nazwie jak w poprzedniej rejestracji (`mymodel`). Tym razem dane JSON zwracają listę wersji jako 2.
 
 ## <a name="deploy-the-model"></a>Wdrażanie modelu
 
@@ -377,22 +377,22 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.json --dc ac
 ```
 
 > [!NOTE]
-> Może pojawić się ostrzeżenie o "Nie można sprawdzić istnienie LocalWebservice" lub "Nie można utworzyć klienta platformy Docker". Można bezpiecznie zignorować tę opcję, ponieważ nie wdrażasz lokalnej usługi sieci web.
+> Może pojawić się ostrzeżenie dotyczące "nie można sprawdzić istnienia LocalWebservice" lub "nie można utworzyć klienta platformy Docker". Można bezpiecznie zignorować ten element, ponieważ nie jest wdrażana lokalna usługa sieci Web.
 
-To polecenie wdraża nową `myservice`usługę o nazwie , przy użyciu wersji 1 modelu, który został zarejestrowany wcześniej.
+To polecenie wdraża nową usługę o nazwie `myservice`przy użyciu wersji 1 modelu, który został wcześniej zarejestrowany.
 
-Plik `inferenceConfig.yml` zawiera informacje na temat sposobu korzystania z modelu do wnioskowania. Na przykład odwołuje się do`score.py`skryptu wpisu ( ) i zależności oprogramowania.
+`inferenceConfig.yml` Plik zawiera informacje na temat sposobu użycia modelu do wnioskowania. Na przykład odwołuje się do skryptu wejścia (`score.py`) i zależności oprogramowania.
 
-Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [schemat konfiguracji wnioskowania](reference-azure-machine-learning-cli.md#inference-configuration-schema). Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [Wdrażanie modeli za pomocą usługi Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [Schemat konfiguracji wnioskowania](reference-azure-machine-learning-cli.md#inference-configuration-schema). Aby uzyskać więcej informacji na temat skryptów wprowadzania, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
-Opisuje `aciDeploymentConfig.yml` środowisko wdrażania używane do hostowania usługi. Konfiguracja wdrożenia jest specyficzna dla typu obliczeniowego używanego do wdrożenia. W takim przypadku jest używany wystąpienie kontenera platformy Azure. Aby uzyskać więcej informacji, zobacz [schemat konfiguracji wdrożenia](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+`aciDeploymentConfig.yml` Opisuje środowisko wdrażania używane do hostowania usługi. Konfiguracja wdrożenia jest specyficzna dla typu obliczenia używanego na potrzeby wdrożenia. W takim przypadku używane jest wystąpienie kontenera platformy Azure. Aby uzyskać więcej informacji, zobacz [Schemat konfiguracji wdrożenia](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-Potrwa kilka minut przed zakończeniem procesu wdrażania.
+Ukończenie procesu wdrażania potrwa kilka minut.
 
 > [!TIP]
-> W tym przykładzie są używane wystąpienia kontenera platformy Azure. Wdrożenia w UA automatycznie tworzą potrzebny zasób ACI. Jeśli zamiast tego należy wdrożyć w usłudze Azure Kubernetes, należy utworzyć klaster AKS z wyprzedzeniem i określić go jako część `az ml model deploy` polecenia. Na przykład wdrażania w usłudze AKS zobacz [Wdrażanie modelu w klastrze usługi Azure Kubernetes.](how-to-deploy-azure-kubernetes-service.md)
+> W tym przykładzie użyto Azure Container Instances. Wdrożenia do ACI automatycznie tworzą wymagany zasób ACI. Jeśli zamiast tego chcesz przeprowadzić wdrożenie w usłudze Azure Kubernetes, należy utworzyć klaster AKS przed czasem i określić go jako część `az ml model deploy` polecenia. Aby zapoznać się z przykładem wdrażania do AKS, zobacz [Wdrażanie modelu w klastrze usługi Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
-Po kilku minutach zwracane są informacje podobne do następujących JSON:
+Po kilku minutach zwracane są informacje podobne do następującego kodu JSON:
 
 ```json
 ACI service creation operation finished, operation "Succeeded"
@@ -409,63 +409,63 @@ ACI service creation operation finished, operation "Succeeded"
 
 ### <a name="the-scoring-uri"></a>Identyfikator URI oceniania
 
-Zwrócony `scoringUri` z wdrożenia jest punktem końcowym REST dla modelu wdrożonego jako usługa sieci web. Ten identyfikator URI można również uzyskać za pomocą następującego polecenia:
+`scoringUri` Wynikiem wdrożenia jest punkt końcowy REST dla modelu wdrożonego jako usługa sieci Web. Ten identyfikator URI można także uzyskać za pomocą następującego polecenia:
 
 ```azurecli-interactive
 az ml service show -n myservice
 ```
 
-To polecenie zwraca ten sam dokument `scoringUri`JSON, łącznie z .
+To polecenie zwraca ten sam dokument JSON, w tym `scoringUri`.
 
-Punkt końcowy REST może służyć do wysyłania danych do usługi. Aby uzyskać informacje dotyczące tworzenia aplikacji klienckiej, która wysyła dane do usługi, zobacz [Korzystanie z modelu usługi Azure Machine Learning wdrożonego jako usługa sieci web](how-to-consume-web-service.md)
+Punkt końcowy REST może służyć do wysyłania danych do usługi. Aby uzyskać informacje na temat tworzenia aplikacji klienckiej, która wysyła dane do usługi, zobacz temat [Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](how-to-consume-web-service.md) .
 
-### <a name="send-data-to-the-service"></a>Wysyłanie danych do usługi
+### <a name="send-data-to-the-service"></a>Wyślij dane do usługi
 
-Chociaż można utworzyć aplikację kliencką do wywołania punktu końcowego, interfejs wiersza polecenia uczenia maszynowego zapewnia narzędzie, które może działać jako klient testowy. Użyj następującego polecenia, aby `testdata.json` wysłać dane w pliku do usługi:
+Chociaż można utworzyć aplikację kliencką do wywoływania punktu końcowego, interfejs wiersza polecenia Machine Learning udostępnia narzędzie, które może działać jako klient testowy. Użyj następującego polecenia, aby wysłać dane do usługi `testdata.json` w pliku:
 
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
 
 > [!TIP]
-> Jeśli używasz programu PowerShell, użyj następującego polecenia:
+> Jeśli używasz programu PowerShell, użyj następującego polecenia zamiast:
 >
 > ```azurecli-interactive
 > az ml service run -n myservice -d `@testdata.json
 > ```
 
-Odpowiedź z polecenia jest `[ 3 ]`podobna do .
+Odpowiedź polecenia jest podobna do `[ 3 ]`.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 > [!IMPORTANT]
 > Utworzone zasoby mogą być używane jako wstępnie wymagane składniki w innych samouczkach usługi Azure Machine Learning i artykułach z instrukcjami.
 
-### <a name="delete-deployed-service"></a>Usuwanie wdrożonej usługi
+### <a name="delete-deployed-service"></a>Usuń wdrożoną usługę
 
-Jeśli planujesz nadal korzystać z obszaru roboczego usługi Azure Machine Learning, ale chcesz pozbyć się wdrożonej usługi w celu zmniejszenia kosztów, użyj następującego polecenia:
+Jeśli planujesz kontynuować korzystanie z obszaru roboczego Azure Machine Learning, ale chcesz pozbyć się wdrożonej usługi w celu obniżenia kosztów, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml service delete -n myservice
 ```
 
-To polecenie zwraca dokument JSON zawierający nazwę usuniętej usługi. Może upłynąć kilka minut, zanim usługa zostanie usunięta.
+To polecenie zwraca dokument JSON zawierający nazwę usuniętej usługi. Usunięcie usługi może potrwać kilka minut.
 
-### <a name="delete-the-training-compute"></a>Usuwanie obliczeń szkoleniowych
+### <a name="delete-the-training-compute"></a>Usuń obliczenia szkoleniowe
 
-Jeśli planujesz nadal korzystać z obszaru roboczego usługi Azure `cpu-cluster` Machine Learning, ale chcesz pozbyć się celu obliczeniowego utworzonego dla szkolenia, użyj następującego polecenia:
+Jeśli planujesz kontynuować korzystanie z obszaru roboczego Azure Machine Learning, ale chcesz pozbyć się elementu docelowego `cpu-cluster` obliczeń utworzonego na potrzeby szkolenia, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu-cluster
 ```
 
-To polecenie zwraca dokument JSON, który zawiera identyfikator usuniętego obiektu docelowego obliczeń. Może upłynąć kilka minut, zanim obiekt docelowy obliczeń został usunięty.
+To polecenie zwraca dokument JSON zawierający identyfikator usuniętego elementu docelowego obliczeń. Usunięcie elementu docelowego obliczeń może potrwać kilka minut.
 
 ### <a name="delete-everything"></a>Usuń wszystko
 
-Jeśli nie zamierzasz korzystać z utworzonych zasobów, usuń je, aby nie ponosić dodatkowych opłat.
+Jeśli nie planujesz używania utworzonych zasobów, usuń je, aby nie nawiązać dodatkowych opłat.
 
-Aby usunąć grupę zasobów i wszystkie zasoby platformy Azure utworzone w tym dokumencie, należy użyć następującego polecenia. Zamień `<resource-group-name>` nazwę utworzonej wcześniej grupy zasobów:
+Aby usunąć grupę zasobów i wszystkie zasoby platformy Azure utworzone w tym dokumencie, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę utworzonej wcześniej grupy zasobów:
 
 ```azurecli-interactive
 az group delete -g <resource-group-name> -y
@@ -473,16 +473,16 @@ az group delete -g <resource-group-name> -y
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku usługi Azure Machine Learning użyto interfejsu wiersza polecenia uczenia maszynowego dla następujących zadań:
+W tym samouczku Azure Machine Learning użyto interfejsu wiersza polecenia usługi Machine Learning do wykonywania następujących zadań:
 
 > [!div class="checklist"]
-> * Instalowanie rozszerzenia uczenia maszynowego
-> * Tworzenie obszaru roboczego usługi Azure Machine Learning
-> * Tworzenie zasobu obliczeniowego używanego do szkolenia modelu
-> * Definiowanie i rejestrowanie zestawu danych używanego do trenowania modelu
-> * Rozpoczynanie treningu
-> * Zarejestruj się i pobierz model
-> * Wdrażanie modelu jako usługi sieci web
-> * Oceniaj dane za pomocą usługi internetowej
+> * Zainstaluj rozszerzenie uczenia maszynowego
+> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Utwórz zasób obliczeniowy służący do uczenia modelu
+> * Definiowanie i rejestrowanie zestawu danych używanego do uczenia modelu
+> * Rozpocznij pracę szkoleniową
+> * Rejestrowanie i pobieranie modelu
+> * Wdróż model jako usługę sieci Web
+> * Dane oceny przy użyciu usługi sieci Web
 
-Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia, zobacz [Używanie rozszerzenia interfejsu wiersza polecenia dla usługi Azure Machine Learning](reference-azure-machine-learning-cli.md).
+Aby uzyskać więcej informacji na temat korzystania z interfejsu wiersza polecenia, zobacz [Używanie rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning](reference-azure-machine-learning-cli.md).

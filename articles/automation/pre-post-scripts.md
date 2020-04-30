@@ -1,65 +1,65 @@
 ---
-title: Zarządzanie skryptami wstępnymi i skryptami po skryptach we wdrażaniu usługi Update Management na platformie Azure
-description: W tym artykule opisano sposób konfigurowania skryptów wstępnych i skryptów po zaktualizowaniu oraz zarządzania nimi.
+title: Zarządzanie skryptami wstępnymi i skryptami we wdrożeniu Update Management na platformie Azure
+description: W tym artykule opisano sposób konfigurowania i zarządzania skryptami wstępnymi i skryptami dla wdrożeń aktualizacji.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81679988"
 ---
-# <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i skryptami post-script
+# <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i skryptami
 
-Skrypty wstępne i skrypty po są elementami uruchamiania na koncie usługi Azure Automation przed wdrożeniem aktualizacji (przed zadaniem) i po (po zadaniu). Skrypty wstępne i skrypty post są uruchamiane w kontekście platformy Azure, a nie lokalnie. Skrypty wstępne są uruchamiane na początku wdrażania aktualizacji. Skrypty post są uruchamiane po zakończeniu wdrażania i po każdym ponownym uruchomieniu, które są skonfigurowane.
+Przed skryptami i po nim skrypty są elementami Runbook, które są uruchamiane na koncie Azure Automation przed (przed zadaniami) i po nim (po zadaniu) wdrożenia aktualizacji. Przed skryptami i skryptami uruchamianymi w kontekście platformy Azure, a nie lokalnie. Przed rozpoczęciem wdrażania aktualizacji skrypty przeduruchomieniowe są uruchamiane na początku. Po wykonaniu tych czynności skrypty po zakończeniu wdrożenia i po każdym skonfigurowanym ponownym uruchomieniu zostaną uruchomione.
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Aby uzyskać instrukcje instalacji modułu Az w hybrydowym usłudze Runbook Worker, zobacz [Instalowanie modułu programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Dla konta automatyzacji można zaktualizować moduły do najnowszej wersji przy użyciu [jak zaktualizować moduły programu Azure PowerShell w usłudze Azure Automation.](automation-update-azure-modules.md)
+>Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
-## <a name="pre-script-and-post-script-requirements"></a>Wymagania dotyczące skryptów wstępnych i post-script
+## <a name="pre-script-and-post-script-requirements"></a>Wymagania przed skryptami i po skrypcie
 
-Aby system runbook był używany jako skrypt wstępny lub skrypt po skrypcie, należy zaimportować go do konta automatyzacji i [opublikować program runbook](manage-runbooks.md#publishing-a-runbook).
+Aby element Runbook był używany jako skrypt poprzedzający lub po skrypcie, należy zaimportować go do konta usługi Automation i [opublikować element Runbook](manage-runbooks.md#publishing-a-runbook).
 
-## <a name="pre-script-and-post-script-parameters"></a>Parametry przeds script i post-script
+## <a name="pre-script-and-post-script-parameters"></a>Parametry przed skryptami i po skrypcie
 
-Podczas konfigurowania skryptów wstępnych i skryptów post, można przekazać w parametrach, takich jak planowanie żyjącego. Parametry są definiowane w momencie tworzenia wdrożenia aktualizacji. Skrypty wstępne i skrypty post-script obsługują następujące typy:
+Podczas konfigurowania skryptów przedskryptowych i po skrypcie można przekazać parametry w taki sam sposób, jak planowanie elementu Runbook. Parametry są definiowane w momencie tworzenia wdrożenia aktualizacji. Skrypty wstępne i skrypty po stronie obsługują następujące typy:
 
-* [char]
-* [bajt]
-* [int]
-* [długo]
-* [dziesiętne]
-* [syt.]
-* [double]
-* [DateTime]
-* [ciąg]
+* delikatn
+* Bajc
+* ZAOKR
+* długo
+* dokładności
+* wiersz
+* Double
+* Datę
+* parametry
 
-Parametry elementów runbooka przed skryptem i po skrypcie nie obsługują typów logicznych, obiektowych ani tablic. Te wartości powodują niepowodzenie śmięty. 
+Parametry elementu Runbook wykonywane przed skryptami i po skrypcie nie obsługują typów Boolean, Object ani Array. Te wartości powodują niepowodzenie elementów Runbook. 
 
-Jeśli potrzebujesz innego typu obiektu, można rzutować go do innego typu z własnej logiki w obiekcie runbook.
+Jeśli potrzebujesz innego typu obiektu, możesz rzutować go na inny typ z własną logiką w elemencie Runbook.
 
-Oprócz standardowych parametrów uruchomieniu `SoftwareUpdateConfigurationRunContext` podany jest parametr (ciąg typu JSON). Jeśli zdefiniujesz parametr w uruchomieniu skrycie wstępnym lub w yskrypcie po skrypcie, zostanie on automatycznie przekazany przez wdrożenie aktualizacji. Parametr zawiera informacje o wdrożeniu aktualizacji, które jest podzbiorem informacji zwracanych przez [interfejs API konfiguracji SoftwareUpdate.](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) Poniższe sekcje definiują skojarzone właściwości.
+Oprócz standardowych parametrów elementu Runbook podano `SoftwareUpdateConfigurationRunContext` parametr (ciąg JSON typu). Jeśli parametr zostanie zdefiniowany w elemencie Runbook poprzedzającym lub po skrypcie, jest on automatycznie przekazywać przez wdrożenie aktualizacji. Parametr zawiera informacje o wdrożeniu aktualizacji, który jest podzbiorem informacji zwracanych przez [interfejs API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Poniższe sekcje definiują skojarzone właściwości.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Właściwości SoftwareUpdateConfigurationRunContext
 
 |Właściwość  |Opis  |
 |---------|---------|
-|Nazwa konfiguracji oprogramowania     | Nazwa konfiguracji aktualizacji oprogramowania.        |
-|Identyfikator SoftwareUpdateConfigurationRunId     | Unikatowy identyfikator biegu.        |
-|Instalacje konfiguracji softwareupdateconfigurations     | Kolekcja właściwości związanych z konfiguracją aktualizacji oprogramowania.         |
-|OprogramowanieUpdateConfigurationSettings.operatingSystem     | Systemy operacyjne przeznaczone do wdrożenia aktualizacji.         |
-|SoftwareUpdateConfigurationSettings.duration     | Maksymalny czas trwania wdrożenia `PT[n]H[n]M[n]S` aktualizacji jest uruchamiany zgodnie z iso8601; zwane również oknem konserwacji.          |
-|OprogramowanieUpdateConfigurationSettings.Windows     | Kolekcja właściwości związanych z komputerami z systemem Windows.         |
-|OprogramowanieUpdateConfigurationSettings.Windows.excludedKbNumbers     | Lista kbc, które są wykluczone z wdrożenia aktualizacji.        |
-|OprogramowanieUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Aktualizuj klasyfikacje wybrane dla wdrożenia aktualizacji.        |
-|OprogramowanieUpdateConfigurationSettings.Windows.rebootSetting     | Ustawienia ponownego uruchomienia wdrożenia aktualizacji.        |
-|azureVirtualMachines     | Lista identyfikatorów zasobów dla maszyn wirtualnych platformy Azure we wdrożeniu aktualizacji.        |
-|nonAzureComputerNames|Lista sieci FQDN komputerów innych niż platformy Azure we wdrożeniu aktualizacji.|
+|. Softwareupdateconfigurationname     | Nazwa konfiguracji aktualizacji oprogramowania.        |
+|. Softwareupdateconfigurationrunid     | Unikatowy identyfikator dla przebiegu.        |
+|SoftwareUpdateConfigurationSettings     | Kolekcja właściwości związanych z konfiguracją aktualizacji oprogramowania.         |
+|SoftwareUpdateConfigurationSettings. operatingSystem     | Systemy operacyjne przeznaczone do wdrożenia aktualizacji.         |
+|SoftwareUpdateConfigurationSettings. Duration     | Maksymalny czas trwania wdrożenia aktualizacji działa tak jak `PT[n]H[n]M[n]S` na ISO8601; nazywana również oknem obsługi.          |
+|SoftwareUpdateConfigurationSettings. Windows     | Kolekcja właściwości związanych z komputerami z systemem Windows.         |
+|SoftwareUpdateConfigurationSettings. Windows. excludedKbNumbers     | Lista artykułów bazy wiedzy, które są wykluczone ze wdrożenia aktualizacji.        |
+|SoftwareUpdateConfigurationSettings. Windows. includedUpdateClassifications     | Klasyfikacje aktualizacji wybrane dla wdrożenia aktualizacji.        |
+|SoftwareUpdateConfigurationSettings. Windows. rebootSetting     | Ustawienia ponownego uruchamiania wdrożenia aktualizacji.        |
+|azureVirtualMachines     | Lista elementów resourceId dla maszyn wirtualnych platformy Azure we wdrożeniu aktualizacji.        |
+|nonAzureComputerNames|Lista nazw FQDN komputerów nienależących do platformy Azure we wdrożeniu aktualizacji.|
 
-Poniższy przykład jest ciąg JSON przekazywane do **Parametru SoftwareUpdateConfigurationRunContext:**
+Poniższy przykład jest ciągiem JSON przekazaną do parametru **SoftwareUpdateConfigurationRunContext** :
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -89,40 +89,40 @@ Poniższy przykład jest ciąg JSON przekazywane do **Parametru SoftwareUpdateCo
    }
 ```
 
-Pełny przykład ze wszystkimi właściwościami można znaleźć na stronie: [Pobierz konfigurację aktualizacji oprogramowania według nazwy](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
+Pełny przykład ze wszystkimi właściwościami można znaleźć w: [Pobieranie konfiguracji aktualizacji oprogramowania według nazwy](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
-> Obiekt `SoftwareUpdateConfigurationRunContext` może zawierać zduplikowane wpisy dla maszyn. Może to spowodować, że skrypty wstępne i skrypty post są uruchamiane wiele razy na tym samym komputerze. Aby obejść to `Sort-Object -Unique` zachowanie, należy wybrać tylko unikatowe nazwy maszyn wirtualnych.
+> `SoftwareUpdateConfigurationRunContext` Obiekt może zawierać zduplikowane wpisy dla maszyn. Może to spowodować, że skrypty i skrypty są uruchamiane wiele razy na tym samym komputerze. Aby obejść to zachowanie, użyj `Sort-Object -Unique` , aby wybrać tylko unikatowe nazwy maszyn wirtualnych.
 
-## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Używanie skryptu wstępnego lub skryptu post w wdrożeniu
+## <a name="using-a-pre-script-or-post-script-in-a-deployment"></a>Używanie skryptu wstępnego lub po skrypcie we wdrożeniu
 
-Aby użyć skryptu wstępnego lub skryptu po wdrożeniu aktualizacji, należy rozpocząć od utworzenia wdrożenia aktualizacji. Wybierz **skrypty wstępne + post-skrypty**. Ta akcja powoduje otwarcie strony **Wybierz skrypty wstępne + Post-skrypty.**
+Aby użyć skryptu wstępnego lub po skrypcie w wdrożeniu aktualizacji, Zacznij od utworzenia wdrożenia aktualizacji. Wybierz polecenie **pre-scripts + post-scripts**. Ta akcja powoduje otwarcie strony **Wybieranie skryptów przed skryptami + po skrypcie** .
 
 ![Wybieranie skryptów](./media/pre-post-scripts/select-scripts.png)
 
-Wybierz skrypt, którego chcesz użyć. W tym przykładzie używamy **updateManagement-TurnOnVms** runbook. Po wybraniu kreślić zostanie otwarta strona **Konfiguruj skrypt.** Wybierz **opcję Przedserwowy**, a następnie wybierz przycisk **OK**.
+Wybierz skrypt, którego chcesz użyć. W tym przykładzie używamy elementu Runbook **UpdateManagement-TurnOnVms** . Po wybraniu elementu Runbook zostanie otwarta strona **Konfigurowanie skryptu** . Wybierz opcję **pre-Script**, a następnie wybierz przycisk **OK**.
 
-Powtórz ten proces dla skryptu **UpdateManagement-TurnOffVms.** Ale po wybraniu **typu skryptu**wybierz **opcję Post-Script**.
+Powtórz ten proces dla skryptu **UpdateManagement-TurnOffVms** . Ale w przypadku wybrania **typu skryptu**wybierz pozycję **po skrypcie**.
 
-Sekcja **Wybrane elementy** pokazuje teraz oba wybrane skrypty. Jeden jest pre-script, a drugi jest post-script:
+Sekcja **wybrane elementy** zawiera teraz wszystkie wybrane skrypty. Jednym z nich jest skrypt poprzedzający, a drugi to skrypt po stronie:
 
 ![Wybrane elementy](./media/pre-post-scripts/selected-items.png)
 
 Zakończ konfigurowanie wdrożenia aktualizacji.
 
-Po zakończeniu wdrażania aktualizacji można przejść do **aktualizacji wdrożeń,** aby wyświetlić wyniki. Jak widać, stan jest przewidziany dla pre-script i post-script:
+Po zakończeniu wdrażania aktualizacji możesz przejść do obszaru **wdrożenia aktualizacji** , aby wyświetlić wyniki. Jak widać, stan jest dostarczany dla skryptu wstępnego i po skrypcie:
 
-![Aktualizuj wyniki](./media/pre-post-scripts/update-results.png)
+![Aktualizowanie wyników](./media/pre-post-scripts/update-results.png)
 
-Wybierając uruchomienie wdrożenia aktualizacji, zostaną wyświetlone dodatkowe szczegóły skryptów wstępnych i skryptów post-script. Łącze do źródła skryptu w czasie uruchamiania jest dostarczane.
+Po wybraniu przebiegu wdrożenia aktualizacji są wyświetlane dodatkowe szczegóły dotyczące skryptów i skryptów. Podano link do źródła skryptu w czasie wykonywania.
 
-![Wyniki uruchomienia wdrożenia](./media/pre-post-scripts/deployment-run.png)
+![Wyniki uruchamiania wdrożenia](./media/pre-post-scripts/deployment-run.png)
 
-w skrypcie.
+ES w skrypcie.
 
 ## <a name="stopping-a-deployment"></a>Zatrzymywanie wdrożenia
 
-Jeśli chcesz zatrzymać wdrożenie na podstawie skryptu wstępnego, należy [zgłosić](automation-runbook-execution.md#throw) wyjątek. Jeśli nie, wdrożenie i skrypt po będzie nadal działać. Poniższy fragment kodu pokazuje, jak zgłosić wyjątek.
+Jeśli chcesz zatrzymać wdrożenie na podstawie skryptu wstępnego, musisz [zgłosić](automation-runbook-execution.md#throw) wyjątek. Jeśli tego nie zrobisz, wdrożenie i skrypt po skrypcie będą nadal działać. Poniższy fragment kodu pokazuje, jak zgłosić wyjątek.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -139,33 +139,33 @@ foreach($summary in $finalStatus)
 
 
 
-## <a name="interacting-with-machines"></a>Interakcja z maszynami
+## <a name="interacting-with-machines"></a>Korzystanie z maszyn
 
-Skrypty wstępne i zadania po uruchomieniu są uruchamiane jako elementy runbook na koncie automatyzacji, a nie bezpośrednio na komputerach we wdrożeniu. Zadania wstępne i zadania po uruchomieniu również w kontekście platformy Azure i nie mają dostępu do maszyn innych niż azure. W poniższych sekcjach pokazano, jak można bezpośrednio wchodzić w interakcje z maszynami, niezależnie od tego, czy są to maszyny wirtualne platformy Azure, czy maszyny platformy non-Azure.
+Wstępnie skrypty i zadania są uruchamiane jako elementy Runbook na koncie usługi Automation, a nie bezpośrednio na maszynach we wdrożeniu. Zadania i zadania podrzędne są również uruchamiane w kontekście platformy Azure i nie mają dostępu do maszyn spoza platformy Azure. W poniższych sekcjach pokazano, jak można bezpośrednio korzystać z maszyn, niezależnie od tego, czy są to maszyny wirtualne platformy Azure, czy na maszynach spoza platformy Azure.
 
-### <a name="interact-with-azure-machines"></a>Interakcja z komputerami platformy Azure
+### <a name="interact-with-azure-machines"></a>Korzystanie z maszyn platformy Azure
 
-Zadania wstępne i zadania po uruchomieniu są uruchamiane jako podręczniki i nie są natywnie uruchamiane na maszynach wirtualnych platformy Azure we wdrożeniu. Aby wchodzić w interakcje z maszynami wirtualnymi platformy Azure, musisz mieć następujące elementy:
-
-* Konto Uruchom jako
-* Runbook, który chcesz uruchomić
-
-Aby wchodzić w interakcje z maszynami platformy Azure, należy użyć polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) do interakcji z maszynami wirtualnymi platformy Azure. Na przykład, jak to zrobić, zobacz przykładowy element zarządzania [aktualizacjami](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)w yskusuj — uruchom skrypt za pomocą polecenia Uruchom .
-
-### <a name="interact-with-non-azure-machines"></a>Interakcja z komputerami spoza platformy Azure
-
-Zadania wstępne i zadania po uruchomieniu w kontekście platformy Azure i nie mają dostępu do maszyn innych niż azure. Aby wchodzić w interakcje z komputerami spoza platformy Azure, musisz mieć następujące elementy:
+Zadania podrzędne i zadania podrzędne są uruchamiane jako elementy Runbook i nie są natywnie uruchamiane na maszynach wirtualnych platformy Azure we wdrożeniu. Aby móc korzystać z maszyn wirtualnych platformy Azure, musisz dysponować następującymi elementami:
 
 * Konto Uruchom jako
-* Hybrydowy pracownik eksbrytyjny zainstalowany na komputerze
-* System runbook, który chcesz uruchomić lokalnie
-* Element runbook nadrzędny
+* Element Runbook, który chcesz uruchomić
 
-Aby wchodzić w interakcje z komputerami spoza platformy Azure, nadrzędny element runbook jest uruchamiany w kontekście platformy Azure. Ten projekt runbook wywołuje podrzędny system runbook z poleceniem cmdlet [Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego uruchomieniu dla skryptu, na który ma być uruchomiony. Zobacz przykładowy program zarządzania aktualizacjami w [yskusuj — uruchamiaj skrypt lokalnie](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+Aby móc korzystać z maszyn platformy Azure, użyj polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0) , aby móc korzystać z maszyn wirtualnych platformy Azure. Aby zapoznać się z przykładem, jak to zrobić, zobacz przykład elementu Runbook [Update Management — uruchom skrypt z poleceniem Run](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
 
-## <a name="aborting-patch-deployment"></a>Przerywanie wdrażania poprawek
+### <a name="interact-with-non-azure-machines"></a>Korzystanie z maszyn nienależących do platformy Azure
 
-Jeśli skrypt wstępny zwraca błąd, można przerwać wdrożenie. Aby to zrobić, należy [zgłosić](/powershell/module/microsoft.powershell.core/about/about_throw) błąd w skrypcie dla dowolnej logiki, która stanowiłaby błąd.
+Zadania poprzedzające i zadania wykonywane w kontekście platformy Azure i nie mają dostępu do maszyn spoza platformy Azure. Aby móc korzystać z maszyn spoza platformy Azure, musisz dysponować następującymi elementami:
+
+* Konto Uruchom jako
+* Na maszynie zainstalowano hybrydowy proces roboczy elementu Runbook
+* Element Runbook, który ma być uruchamiany lokalnie
+* Nadrzędny element Runbook
+
+Aby można było korzystać z maszyn nienależących do platformy Azure, nadrzędny element Runbook jest uruchamiany w kontekście platformy Azure. Ten element Runbook wywołuje podrzędny element Runbook za pomocą polecenia cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) . Należy określić `RunOn` parametr i podać nazwę hybrydowego procesu roboczego elementu Runbook, na którym ma być uruchamiany skrypt. Zapoznaj się z przykładem elementu Runbook [Update Management — uruchom skrypt lokalnie](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
+
+## <a name="aborting-patch-deployment"></a>Przerywanie wdrożenia poprawki
+
+Jeśli skrypt poprzedzający błąd, może być konieczne przerwanie wdrożenia. W tym celu należy [zgłosić](/powershell/module/microsoft.powershell.core/about/about_throw) błąd w skrypcie dla każdej logiki, która spowodowałaby wystąpienie błędu.
 
 ```powershell
 if (<My custom error logic>)
@@ -177,22 +177,22 @@ if (<My custom error logic>)
 
 ## <a name="samples"></a>Samples
 
-Przykłady dla skryptów wstępnych i skryptów post można znaleźć w [Galerii Centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) i [galerii programu PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)lub zaimportować je za pośrednictwem witryny Azure portal. Aby to zrobić, na koncie automatyzacji, w obszarze **Automatyzacja procesów**wybierz **galerię śmiób**. Użyj **zarządzania aktualizacjami** dla filtru.
+Przykłady skryptów przedskryptowych i skryptów po stronie można znaleźć w [galerii centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) i w [Galeria programu PowerShell](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22)lub można je zaimportować za pomocą Azure Portal. Aby to zrobić, na koncie usługi Automation w obszarze **Automatyzacja procesów**wybierz pozycję **Galeria elementów Runbook**. Użyj **Update Management** filtru.
 
 ![Lista galerii](./media/pre-post-scripts/runbook-gallery.png)
 
-Możesz też wyszukać je według ich nazwy skryptu, jak pokazano na poniższej liście:
+Możesz też wyszukać je według nazwy skryptu, jak pokazano na poniższej liście:
 
-* Zarządzanie aktualizacjami — włączanie maszyn wirtualnych
-* Zarządzanie aktualizacjami — wyłączanie maszyn wirtualnych
-* Zarządzanie aktualizacjami — uruchamianie skryptu lokalnie
-* Zarządzanie aktualizacjami — szablon dla skryptów przed/postem
-* Zarządzanie aktualizacjami — uruchom skrypt za pomocą polecenia Uruchom
+* Update Management Włącz maszyny wirtualne
+* Update Management — Wyłącz maszyny wirtualne
+* Update Management — uruchom skrypt lokalnie
+* Szablon Update Management na potrzeby skryptów poprzedzających/post
+* Update Management — uruchom skrypt z poleceniem Run
 
 > [!IMPORTANT]
-> Po zaimportowaniu ślikmy runbook, należy opublikować je, zanim będą mogły być używane. Aby to zrobić, znajdź program runbook na koncie automatyzacji, wybierz pozycję **Edytuj**, a następnie wybierz pozycję **Publikuj**.
+> Po zaimportowaniu elementów Runbook należy je opublikować, aby można było ich użyć. Aby to zrobić, Znajdź element Runbook na koncie usługi Automation, wybierz pozycję **Edytuj**, a następnie wybierz pozycję **Publikuj**.
 
-Wszystkie przykłady są oparte na szablonie podstawowym, który jest zdefiniowany w poniższym przykładzie. Ten szablon może służyć do tworzenia własnego śmigła do użycia z pre-skryptów i post-skryptów. Logika niezbędne do uwierzytelniania za `SoftwareUpdateConfigurationRunContext` pomocą platformy Azure i obsługi parametru jest uwzględniony.
+Wszystkie te przykłady są zależne od szablonu podstawowego zdefiniowanego w poniższym przykładzie. Ten szablon może służyć do tworzenia własnego elementu Runbook do użycia ze skryptami wstępnymi i skryptami. Niezbędna logika do uwierzytelniania za pomocą platformy Azure `SoftwareUpdateConfigurationRunContext` i obsługa parametru jest uwzględniona.
 
 ```powershell
 <#
@@ -246,11 +246,11 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> W przypadku niegraficzowych wiązków czągo programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` aliasów [connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Można użyć tych poleceń cmdlet lub można [zaktualizować moduły](automation-update-azure-modules.md) na koncie automatyzacji do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli właśnie utworzono nowe konto automatyzacji.
+> Dla niegraficznych elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są aliasami dla polecenia [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Możesz użyć tych poleceń cmdlet lub [zaktualizować moduły](automation-update-azure-modules.md) na koncie usługi Automation do najnowszych wersji. Może być konieczne zaktualizowanie modułów, nawet jeśli utworzono nowe konto usługi Automation.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następującego samouczka, aby dowiedzieć się, jak zarządzać aktualizacjami maszyn wirtualnych systemu Windows:
+Przejdź do następującego samouczka, aby dowiedzieć się, jak zarządzać aktualizacjami dla maszyn wirtualnych z systemem Windows:
 
 > [!div class="nextstepaction"]
 > [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych z systemem Windows na platformie Azure](automation-tutorial-update-management.md)

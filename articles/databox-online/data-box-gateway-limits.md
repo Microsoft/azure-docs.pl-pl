@@ -1,6 +1,6 @@
 ---
-title: Limity bramy usługi Azure Data Box Gateway | Dokumenty firmy Microsoft
-description: W tym artykule opisano limity systemowe i zalecane rozmiary bramy usługi Microsoft Azure Data Box Gateway.
+title: Limity Azure Data Box Gateway | Microsoft Docs
+description: Opisuje limity systemowe i zalecane rozmiary Data Box Gateway Microsoft Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683353"
 ---
-# <a name="azure-data-box-gateway-limits"></a>Limity bramy usługi Azure Data Box
+# <a name="azure-data-box-gateway-limits"></a>Limity Azure Data Box Gateway
 
-Należy wziąć pod uwagę te limity podczas wdrażania i obsługi rozwiązania usługi Microsoft Azure Data Box Gateway. 
+Te limity należy wziąć pod uwagę podczas wdrażania i obsługi rozwiązania Data Box Gateway Microsoft Azure. 
 
-## <a name="data-box-gateway-service-limits"></a>Limity usług bramy pola danych
+## <a name="data-box-gateway-service-limits"></a>Limity usługi Data Box Gateway
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="data-box-gateway-device-limits"></a>Limity urządzeń bramy pól danych
+## <a name="data-box-gateway-device-limits"></a>Data Box Gateway limitów urządzeń
 
-W poniższej tabeli opisano limity dla urządzenia Bramy pola danych.
+W poniższej tabeli opisano limity dotyczące urządzenia Data Box Gateway.
 
 | Opis | Wartość |
 |---|---|
-|Nie. plików na urządzenie |100 milionów <br> Na każde 25 milionów dodawanych plików (z maksymalnym limitem 100 milionów) należy dodać 2 TB miejsca na dysku, 8 GB pamięci RAM i 4 rdzenie procesora. |
-|Nie. udziałów na urządzeniu |24 |
-|Nie. udziałów na kontener magazynu platformy Azure |1 |
-|Maksymalny rozmiar pliku zapisany w udziale|W przypadku urządzenia wirtualnego o pojemności 2 TB maksymalny rozmiar pliku to 500 GB. <br> Maksymalny rozmiar pliku zwiększa się wraz z rozmiarem dysku danych w poprzednim stosunku, aż osiągnie maksymalnie 5 TB. |
+|Nie. plików na urządzenie |100 000 000 <br> Dla każdego dodawanego pliku 25 000 000 (z maksymalnym limitem o 100 000 000) należy dodać 2 TB miejsca na dysku, 8 GB pamięci RAM i 4 rdzenie procesora CPU. |
+|Nie. udziałów na urządzenie |24 |
+|Nie. udziałów na kontener usługi Azure Storage |1 |
+|Maksymalny rozmiar pliku zapisany w udziale|W przypadku urządzenia wirtualnego 2 TB maksymalny rozmiar pliku to 500 GB. <br> Maksymalny rozmiar pliku zwiększa się wraz z rozmiarem dysku danych w powyższym współczynniku, dopóki nie osiągnie on maksymalnie 5 TB. |
 
-## <a name="azure-storage-limits"></a>Limity magazynu platformy Azure
+## <a name="azure-storage-limits"></a>Limity usługi Azure Storage
 
 [!INCLUDE [data-box-edge-gateway-storage-limits](../../includes/data-box-edge-gateway-storage-limits.md)]
 
@@ -42,11 +42,11 @@ W poniższej tabeli opisano limity dla urządzenia Bramy pola danych.
 
 [!INCLUDE [data-box-edge-gateway-storage-data-upload-caveats](../../includes/data-box-edge-gateway-storage-data-upload-caveats.md)]
 
-## <a name="azure-storage-account-size-and-object-size-limits"></a>Limity rozmiaru konta magazynu platformy Azure i rozmiaru obiektu
+## <a name="azure-storage-account-size-and-object-size-limits"></a>Limity rozmiaru i rozmiaru obiektu usługi Azure Storage
 
 [!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
-## <a name="azure-object-size-limits"></a>Limity rozmiaru obiektu platformy Azure
+## <a name="azure-object-size-limits"></a>Limity rozmiaru obiektów platformy Azure
 
 [!INCLUDE [data-box-edge-gateway-storage-object-limits](../../includes/data-box-edge-gateway-storage-object-limits.md)]
 

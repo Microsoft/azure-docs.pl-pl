@@ -1,54 +1,54 @@
 ---
 title: Wymagania dotyczące sieci
-description: Wymagania sieciowe i najlepsze rozwiązania sieciowe dla optymalnego środowiska
+description: Wymagania sieciowe i najlepsze praktyki sieciowe umożliwiające optymalne środowisko
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
 ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617881"
 ---
 # <a name="network-requirements"></a>Wymagania dotyczące sieci
 
-Stabilne połączenie sieciowe o małym opóźnieniu z centrum danych platformy Azure ma kluczowe znaczenie dla dobrego środowiska użytkownika w renderowaniu zdalnym platformy Azure. Złe warunki w sieci mogą spowodować przerwanie połączeń, niestabilne, zdenerwowanie lub "skoki" hologramów i zauważalne opóźnienie podczas aktualizowania wykresu sceny po stronie serwera.
+Stabilne połączenie sieciowe o małym opóźnieniu z centrum danych platformy Azure ma kluczowe znaczenie dla dobrego środowiska użytkownika w przypadku renderowania zdalnego na platformie Azure. Słabe warunki w sieci mogą spowodować przerwanie połączeń, niestabilne, zakłócenia lub Hologramy, a także zauważalne opóźnienia podczas aktualizowania wykresu sceny po stronie serwera.
 
 ## <a name="guidelines-for-network-connectivity"></a>Wskazówki dotyczące łączności sieciowej
 
-Dokładne wymagania sieciowe zależą od konkretnego przypadku użycia, takiego jak liczba i częstotliwość modyfikacji wykresu sceny zdalnej, a także złożoność renderowanego widoku, ale istnieje szereg wskazówek, aby zapewnić, że doświadczenie jest tak dobre, jak to możliwe:
+Dokładne wymagania dotyczące sieci są zależne od konkretnego przypadku użycia, takich jak liczba i częstotliwość modyfikacji zdalnego wykresu sceny, a także złożoność renderowanego widoku, ale istnieje kilka wytycznych, które zapewniają, że środowisko jest równie dobre:
 
-* Łączność z Internetem musi obsługiwać co najmniej **50 Mb/s w dół i** **10 Mb/s w górę** konsekwentnie dla pojedynczej sesji użytkownika renderowania zdalnego platformy Azure, przy założeniu, że nie ma konkurencyjnego ruchu w sieci. Zalecamy wyższe stawki dla lepszych doświadczeń. Przy większej liczbie użytkowników w tej samej sieci te wymagania są odpowiednio skalowane w górę.
-* Korzystanie z **pasma Wi-Fi 5 GHz** zwykle daje lepsze wyniki niż pasmo Wi-Fi 2,4 GHz, choć oba powinny działać.
-* Jeśli w pobliżu znajdują się inne sieci Wi-Fi, unikaj używania kanałów Wi-Fi używanych przez te inne sieci. Za pomocą narzędzi do skanowania sieci, takich jak [WifiInfoView,](https://www.nirsoft.net/utils/wifi_information_view.html) można sprawdzić, czy kanały używane przez sieć Wi-Fi są wolne od konkurencyjnego ruchu.
-* Należy **bezwzględnie unikać używania repeaterów Wi-Fi** lub przekazywania lan-over-powerline.
-* **Unikaj konkurencyjnego ruchu o dużej przepustowości** , takiego jak przesyłanie strumieniowe wideo lub gier, w tej samej sieci Wi-Fi.
-* Posiadanie **dobrej siły sygnału Wi-Fi** jest niezbędne. Jeśli to możliwe, trzymaj się blisko punktu dostępu Wi-Fi i unikaj przeszkód między urządzeniem klienckim a punktami dostępu.
-* Upewnij się, że zawsze łączysz się z **najbliższym centrum danych platformy Azure** dla swojego [regionu](regions.md). Im bliżej centrum danych, tym mniejsze opóźnienie sieci, co ma ogromny wpływ na stabilność hologramu.
+* Łączność z Internetem musi obsługiwać co najmniej **50 MB/s na poziomie podrzędnym** i **10 MB/s** dla jednej sesji użytkownika na potrzeby renderowania zdalnego na platformie Azure, przy założeniu, że nie istnieje konkurencyjny ruch sieciowy. Zalecamy wyższe stawki za lepsze środowiska. W przypadku większej liczby użytkowników w tej samej sieci te wymagania są skalowane odpowiednio.
+* Użycie **pasma Wi-Fi 5 GHz** zwykle daje lepsze wyniki niż pasmo Wi-Fi 2,4 GHz, chociaż obie powinny być wykonane.
+* Jeśli w pobliżu istnieją inne sieci Wi-Fi, należy unikać używania kanałów sieci Wi-Fi używanych przez te inne sieci. Możesz użyć narzędzi do skanowania sieci, takich jak [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) , aby sprawdzić, czy kanały używane przez sieć Wi-Fi są bezpłatne.
+* **Należy ściśle unikać korzystania z funkcji powtarzania Wi-Fi** lub przekazywania sieci LAN przez sieć PowerLine.
+* W tej samej sieci Wi-Fi nie **należy unikać konkurowania ruchu sieciowego intensywnie wykorzystującego przepustowość** , takiego jak wideo czy przesyłanie strumieniowe.
+* Posiadanie **dobrej siły sygnału sieci Wi-Fi** jest niezbędne. Jeśli to możliwe, pozostaw blisko punktu dostępu Wi-Fi i unikaj przeszkód między urządzeniem klienckim a punktami dostępu.
+* Upewnij się, że zawsze nawiązujesz połączenie z **najbliższym centrum danych platformy Azure** w Twoim [regionie](regions.md). Im bliżej centrum danych, tym niższe opóźnienie sieci, które ma ogromny wpływ na stabilność z hologramów.
 
 > [!NOTE]
-> Przepustowość niższego rzędu jest najczęściej zużywana przez strumień wideo, który z kolei jest podzielony między informacje o kolorze i głębi (zarówno 60 Hz, stereo.
+> Przepustowość w trybie podrzędnym jest głównie zużywana przez strumień wideo, który z kolei jest podzielony między informacje o kolorach i głębi (zarówno 60 Hz, stereo).
 
 ## <a name="network-performance-tests"></a>Testy wydajności sieci
 
-Jeśli chcesz uzyskać wstępne zrozumienie, czy jakość łączności sieciowej jest wystarczająca do uruchomienia renderowania zdalnego platformy Azure, istnieją istniejące narzędzia online, których można użyć. Zdecydowanie zaleca się uruchamianie tych narzędzi online z rozsądnie wydajnego laptopa podłączonego do tej samej sieci Wi-Fi, co urządzenie, na które planujesz uruchomić aplikację klienta renderowania zdalnego platformy Azure. Wyniki uzyskane z uruchomienia testów na telefonie komórkowym lub HoloLens2 są zwykle mniej przydatne, ponieważ okazały się wykazywać znaczne różnice w urządzeniach o niskim pozycjowym punkcie końcowym. Lokalizacja, w której można umieścić komputer przenośny powinien znajdować się mniej więcej w tym samym miejscu, w którym można oczekiwać, aby użyć urządzenia, które uruchamia aplikację klienta renderowania zdalnego platformy Azure.
+Jeśli chcesz uzyskać początkowe informacje o tym, czy jakość łączności sieciowej wystarcza do uruchomienia renderowania zdalnego na platformie Azure, dostępne są narzędzia online, których można użyć. Zdecydowanie zalecamy uruchamianie tych narzędzi online z poziomu odpowiednio zaawansowanego laptopa podłączonego do tej samej sieci Wi-Fi, co urządzenie, na którym planujesz uruchomić aplikację kliencką zdalnego renderowania platformy Azure. Wyniki uzyskane z uruchamiania testów na telefonie komórkowym lub HoloLens2 są zwykle mniej użyteczne, ponieważ sprawdzono, aby pokazać znaczną odmianę urządzeń punktu końcowego z niską kontrolą. Lokalizacja, w której umieszcza się laptop powinien znajdować się w tym samym miejscu, w którym oczekuje się, że używasz urządzenia z uruchomioną aplikacją kliencką renderowania zdalnego platformy Azure.
 
-Oto kilka prostych kroków, aby szybko przetestować łączność sieciową:
+Poniżej przedstawiono kilka prostych kroków służących do szybkiego testowania łączności sieciowej:
 
-1. **Uruchom narzędzie do testowania sieci, takie jak www.speedtest.net, aby uzyskać dane dotyczące ogólnego opóźnienia i przepustowości połączenia sieciowego w górę/w dół.**
-Wybierz serwer najbliżej Ciebie i uruchom test. Chociaż serwer nie będzie centrum danych platformy Azure, z które będzie się łączyć zdalne renderowanie platformy Azure, wynikowe dane są nadal przydatne do zrozumienia wydajności połączenia internetowego i sieci Wi-Fi.
-   * **Minimalne wymagania dotyczące** zdalnego renderowania platformy Azure: około 40 Mb/s w dół i 5 Mb/s w górę.
-   * **Zalecane** dla renderowania zdalnego platformy Azure: około 100 Mb/s w dół i 10 Mb/s w górę.
-Zalecamy wielokrotne uruchamianie testu i podejmowanie najgorszych wyników.
-1. **Użyj narzędzia, takiego jak www.azurespeed.com, które mierzy opóźnienia w centrach danych platformy Azure.** Wybierz centrum danych platformy Azure obsługiwane przez zdalne renderowanie platformy Azure, które jest najbliżej Ciebie (zobacz [obsługiwane regiony)](regions.md)i uruchom **test opóźnienia**. Jeśli istnieją różnice w liczbach, które widzisz, daj wyniki trochę czasu na stabilizację.
-   * **Minimalne wymagania dotyczące** zdalnego renderowania platformy Azure: opóźnienie powinno być stale mniejsze niż 100 ms.
-   * **Zalecane** dla renderowania zdalnego platformy Azure: opóźnienie powinno być stale mniejsze niż 70 ms.
+1. **Uruchom narzędzie do testowania sieci, takie jak www.speedtest.net, aby uzyskać dane o ogólnym opóźnieniu i przepustowości pasma/podrzędnego połączenia sieciowego.**
+Wybierz serwer najbliższy i uruchom test. Serwer nie będzie centrum danych platformy Azure, z którym zostanie nawiązane zdalne renderowanie przy użyciu platformy Azure, a dane wynikowe są nadal przydatne do zrozumienia wydajności połączenia internetowego i sieci Wi-Fi.
+   * **Minimalne wymaganie** dla zdalnego renderowania na platformie Azure: około 40 MB/s, nadrzędny i 5 MB/s.
+   * **Zalecane** w przypadku renderowania zdalnego na platformie Azure: około 100 MB/s, nadrzędny i 10 MB/s.
+Zalecamy przeprowadzenie testu wiele razy i podjęcie najgorszych wyników.
+1. **Użyj narzędzia takiego jak www.azurespeed.com, które mierzy opóźnienie w centrach danych platformy Azure**. Wybierz centrum danych platformy Azure obsługiwane przez zdalne renderowanie na platformie Azure, które jest najbliżej siebie (zobacz [Obsługiwane regiony](regions.md)) i uruchom **test opóźnienia**. Jeśli występują zmiany w liczbie widoczne, podawanie wyników trochę czasu.
+   * **Minimalne wymaganie** dla zdalnego renderowania na platformie Azure: opóźnienie powinno być stale mniejsze niż 100 ms.
+   * **Zalecane** dla zdalnego renderowania na platformie Azure: opóźnienie powinno być stale mniejsze niż 70 MS.
 
-Podczas gdy małe opóźnienia nie jest gwarancją, że zdalne renderowanie platformy Azure będzie działać dobrze w sieci, zwykle widzieliśmy go wykonać poprawnie w sytuacjach, gdy te testy pomyślnie.
-Jeśli podczas uruchamiania renderowania zdalnego platformy Azure występują artefakty, takie jak niestabilne, zdenerwowanie lub przeskakiwanie hologramów, zapoznaj się z [przewodnikiem rozwiązywania problemów](../resources/troubleshoot.md).
+Chociaż małe opóźnienia nie są gwarancją, że zdalne renderowanie na platformie Azure będzie dobrze działać w sieci, zazwyczaj zobaczymy, że te testy zakończyły się pomyślnie.
+Jeśli napotykasz artefakty, takie jak niestabilne, zakłócenia lub hologramy przeskoków podczas uruchamiania zdalnego renderowania platformy Azure, zapoznaj się z [przewodnikiem rozwiązywania problemów](../resources/troubleshoot.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Szybki start: renderowanie modelu za pomocą unity](../quickstarts/render-model.md)
+* [Szybki Start: renderowanie modelu przy użyciu aparatu Unity](../quickstarts/render-model.md)

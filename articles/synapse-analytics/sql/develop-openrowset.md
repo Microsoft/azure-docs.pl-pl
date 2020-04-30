@@ -1,6 +1,6 @@
 ---
-title: Jak używać funkcji OPENROWSET w języku SQL na żądanie (wersja zapoznawcza)
-description: Ten artykuł zawiera opis składni programu OPENROWSET w programie SQL on-demand (wersja zapoznawcza) i wyjaśniono, jak używać argumentów.
+title: Jak używać funkcji OPENROWSET w programie SQL na żądanie (wersja zapoznawcza)
+description: W tym artykule opisano składnię funkcji OPENROWSET w SQL na żądanie (wersja zapoznawcza) i wyjaśniono, jak używać argumentów.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6325d5555b01373b148dce69731ec64896d6e1fd
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81680488"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać programu OPENROWSET z programem SQL na żądanie (wersja zapoznawcza)
+# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
-Funkcja OPENROWSET(BULK...) umożliwia dostęp do plików w usłudze Azure Storage. W zasobie SQL on-demand (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny, wywołując funkcję OPENROWSET i określając opcję BULK.  
+Funkcja OPENROWSET (BULK...) umożliwia dostęp do plików w usłudze Azure Storage. W ramach zasobu SQL na żądanie (wersja zapoznawcza) dostawca zestawu wierszy zbiorczych OPENROWSET jest dostępny przez wywołanie funkcji OPENROWSET i określenie opcji BULK.  
 
-Do funkcji OPENROWSET można odwoływać się w klauzuli FROM kwerendy tak, jakby była to nazwa tabeli OPENROWSET. Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy bulk, który umożliwia odczyt danych z pliku i zwracane jako zestaw wierszy.
+Do funkcji OPENROWSET można odwoływać się w klauzuli FROM zapytania, tak jakby była to nazwa tabeli OPENROWSET. Obsługuje operacje zbiorcze za pośrednictwem wbudowanego dostawcy ZBIORCZego, który umożliwia odczytywanie danych z pliku i zwracanie ich jako zestawu wierszy.
 
 Funkcja OPENROWSET nie jest obecnie obsługiwana w puli SQL.
 
@@ -56,39 +56,39 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 
 Dostępne są dwie opcje dla plików wejściowych, które zawierają dane docelowe do wykonywania zapytań. Prawidłowe wartości:
 
-- "CSV" - Zawiera dowolny rozdzielony plik tekstowy z separatorami wierszy/kolumn. Dowolny znak może być użyty jako separator pól, taki jak TSV: FIELDTERMINATOR = tab.
+- "CSV" — zawiera dowolny rozdzielany plik tekstowy z separatorami wierszy/kolumn. Dowolny znak może być używany jako separator pola, na przykład TSV: FIELDTERMINATOR = Tab.
 
-- 'PARKIET' - Plik binarny w formacie Parkietu 
+- "PARQUET" — plik binarny w formacie Parquet 
 
 **"unstructured_data_path"**
 
-unstructured_data_path, która ustanawia ścieżkę do danych, jest skonstruowana w następujący sposób:  
-'\<przedrostek>://\<> storage_account_path/\<storage_path>"
+Unstructured_data_path, które ustalają ścieżkę do danych, są uporządkowane w następujący sposób:  
+"\<prefix>://\<storage_account_path>/\<storage_path>"
  
  
- Poniżej znajdziesz odpowiednie ścieżki kont magazynu, które będą zawierać łącze do konkretnego zewnętrznego źródła danych. 
+ Poniżej znajdziesz odpowiednie ścieżki kont magazynu, które zostaną połączone z określonym zewnętrznym źródłem danych. 
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+| Azure Blob Storage         | https  | \<storage_account>. blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>. dfs.core.windows.net              |
 ||||
 
 "\<storage_path>"
 
- Określa ścieżkę w magazynie, która wskazuje folder lub plik, który chcesz odczytać. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z tego określonego kontenera lub folderu. Pliki w podfolderach nie zostaną uwzględnione. 
+ Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
  
- Symbole wieloznaczne można używać do kierowania na wiele plików lub folderów. Użycie wielu nieposiących po sobie symboli wieloznacznych jest dozwolone.
-Poniżej znajduje się przykład, który odczytuje wszystkie pliki *csv,* zaczynając od *populacji* ze wszystkich folderów, zaczynając od */csv/population:*  
+ Możesz użyć symboli wieloznacznych, aby docelowa była wiele plików lub folderów. Dozwolone jest użycie wielu niesąsiadujących symboli wieloznacznych.
+Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczynające się od *populacji* ze wszystkich folderów zaczynających się od */CSV/Population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Jeśli określisz unstructured_data_path do folderu, kwerenda SQL na żądanie pobierze pliki z tego folderu. 
+Jeśli określisz unstructured_data_path jako folder, zapytanie SQL na żądanie pobierze pliki z tego folderu. 
 
 > [!NOTE]
-> W przeciwieństwie do Hadoop i PolyBase, SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do Hadoop i PloyBase, SQL na żądanie zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do usługi Hadoop i PloyBase, SQL na żądanie zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
-W poniższym przykładzie, jeśli`https://mystorageaccount.dfs.core.windows.net/webdata/`unstructured_data_path= kwerenda SQL na żądanie zwróci wiersze z pliku mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się one w podfolderze.
+W poniższym przykładzie, jeśli unstructured_data_path =`https://mystorageaccount.dfs.core.windows.net/webdata/`, zapytanie SQL na żądanie zwróci wiersze z elementu webdata. txt i _hidden. txt. Nie zwróci mydata2. txt i mydata3. txt, ponieważ znajdują się one w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 
@@ -96,17 +96,17 @@ W poniższym przykładzie, jeśli`https://mystorageaccount.dfs.core.windows.net/
 
 Klauzula WITH umożliwia określenie kolumn, które mają być odczytywane z plików.
 
-- W przypadku plików danych CSV, aby odczytać wszystkie kolumny, podaj nazwy kolumn i ich typy danych. Jeśli chcesz podzbiór kolumn, użyj liczb porządkowych, aby wybrać kolumny z źródłowych plików danych według liczby porządkowej. Kolumny będą powiązane oznaczeniem porządkowym. 
+- W przypadku plików danych CSV odczytywanie wszystkich kolumn, dostarczanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym. 
 
 > [!IMPORTANT]
-> Klauzula WITH jest obowiązkowa dla plików CSV.
-- W przypadku plików danych parkietu podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parkietu.
+> Klauzula WITH jest wymagana dla plików CSV.
+- W przypadku plików danych Parquet Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy. Jeśli klauzula WITH zostanie pominięta, zostaną zwrócone wszystkie kolumny z plików Parquet.
 
-column_name = Nazwa kolumny wyjściowej. Jeśli jest podana, ta nazwa zastępuje nazwę kolumny w pliku źródłowym.
+column_name = nazwa kolumny wyjściowej. W przypadku podanej nazwy zastępuje nazwę kolumny w pliku źródłowym.
 
-column_type = Typ danych dla kolumny wyjściowej. Konwersja typu danych niejawnych odbędzie się tutaj.
+column_type = typ danych dla kolumny wyjściowej. Niejawna konwersja typu danych zostanie przeprowadzona tutaj.
 
-column_ordinal = Liczba porządkowa kolumny w pliku źródłowym(-ach). Ten argument jest ignorowany dla plików Parkietu, ponieważ powiązanie odbywa się według nazwy. Poniższy przykład spowoduje zwrócenie drugiej kolumny tylko z pliku CSV:
+column_ordinal = numer porządkowy kolumny w plikach źródłowych. Ten argument jest ignorowany dla plików Parquet, ponieważ wiązanie jest wykonywane według nazwy. Poniższy przykład zwróci drugą kolumnę tylko z pliku CSV:
 
 ```sql
 WITH (
@@ -119,31 +119,31 @@ WITH (
 
 **\<bulk_options>**
 
-FIELDTERMINATOR ='field_terminator'
+FIELDTERMINATOR = "field_terminator"
 
-Określa terminator pola, który ma być używany. Domyślnym terminatorem pola jest przecinek ("**,**").
+Określa terminator pola do użycia. Domyślny terminator pola jest przecinkiem ("**,**").
 
-ROWTERMINATOR ='row_terminator''
+ROWTERMINATOR = "row_terminator" "
 
-Określa terminator wierszy, który ma być używany. Domyślny terminator wiersza to znak nowego wiersza, taki jak \r\n.
+Określa terminator wiersza, który ma być używany. Domyślny terminator wiersza to znak nowego wiersza, taki jak \r\n.
 
-ESCAPE_CHAR = 'char'
+ESCAPE_CHAR = "char"
 
-Określa znak w pliku, który jest używany do ucieczki się i wszystkie wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż ona lub dowolna z wartości ogranicznika, znak ucieczki jest odrzucany podczas odczytywania wartości. 
+Określa znak w pliku, który jest używany do wyprowadzania samego siebie i wszystkich wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości. 
 
-Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy funkcja FIELDQUOTE jest lub nie jest włączona. Nie będzie używany do ucieczki znak cytowanie. Znak cudzysłowu jest zmieniany z cudzysłowami podwójnymi w zgodzie z zachowaniem CSV programu Excel.
+Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
 
-FIRSTROW = 'first_row' 
+FIRSTROW = "first_row" 
 
-Określa numer pierwszego wiersza do załadowania. Domyślnym ustawieniem jest 1. Oznacza to pierwszy wiersz w określonym pliku danych. Liczby wierszy są określane przez zliczanie terminatorów wierszy. FIRSTROW jest oparty na 1.
+Określa numer pierwszego wiersza do załadowania. Domyślnym ustawieniem jest 1. Wskazuje pierwszy wiersz w określonym pliku danych. Numery wierszy są określane przez liczenie terminatorów wierszy. FIRSTROW jest oparty na 1.
 
-CYTAT FIELDQUOTE = 'field_quote' 
+FIELDQUOTE = "field_quote" 
 
 Określa znak, który będzie używany jako znak cudzysłowu w pliku CSV. Jeśli nie zostanie określony, zostanie użyty znak cudzysłowu ("). 
 
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład zwraca tylko dwie kolumny z liczbami porządkowymi 1 i 4 z plików population*.csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpoczyna się odczyt od pierwszego wiersza:
+Poniższy przykład zwraca tylko dwie kolumny z numerami porządkowymi 1 i 4 z plików Population*. csv. Ponieważ w plikach nie ma wiersza nagłówka, rozpocznie się odczytywanie z pierwszego wiersza:
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -171,7 +171,7 @@ WITH (
 
 
 
-Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu w formacie Parkiet bez określania nazw kolumn i typów danych: 
+Poniższy przykład zwraca wszystkie kolumny pierwszego wiersza z zestawu danych spisu w formacie Parquet bez określania nazw kolumn i typów danych: 
 
 ```sql
 /* make sure you have credentials for storage account access created
@@ -198,4 +198,4 @@ FROM
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów, przejdź do [przewodnika Szybki start](query-data-storage.md) lub zapisz wyniki kwerendy w usłudze Azure Storage przy użyciu [programu CETAS.](develop-tables-cetas.md)
+Aby uzyskać więcej przykładów, przejdź do [przewodników szybki start](query-data-storage.md) lub Zapisz wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).

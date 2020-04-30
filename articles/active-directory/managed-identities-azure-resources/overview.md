@@ -16,13 +16,13 @@ ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81682587"
 ---
-# <a name="what-are-managed-identities-for-azure-resources"></a>Co to są tożsamości zarządzane dla zasobów platformy Azure?
+# <a name="what-are-managed-identities-for-azure-resources"></a>Jakie są zarządzane tożsamości dla zasobów platformy Azure?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -39,9 +39,9 @@ Funkcja tożsamości zarządzanych dla zasobów platformy Azure jest bezpłatna 
 
 Poniższe terminy są używane w zestawie dokumentacji dotyczącej tożsamości zarządzanych dla zasobów platformy Azure:
 
-- **Identyfikator klienta** — unikatowy identyfikator generowany przez usługę Azure AD, który jest powiązany z jednostką aplikacji i usługi podczas początkowego inicjowania obsługi administracyjnej.
+- **Identyfikator klienta** — unikatowy identyfikator wygenerowany przez usługę Azure AD, który jest powiązany z aplikacją i jednostką usługi podczas początkowej aprowizacji.
 - **Identyfikator podmiotu zabezpieczeń** — identyfikator obiektu nazwy głównej usługi dla tożsamości zarządzanej, która jest używana w celu udzielenia dostępu opartego na rolach do zasobu platformy Azure.
-- **Usługa metadanych wystąpienia platformy Azure (IMDS)** — punkt końcowy REST dostępny dla wszystkich maszyn wirtualnych IaaS utworzonych za pośrednictwem usługi Azure Resource Manager. Punkt końcowy jest dostępny pod dobrze znanym, nierutowalnym adresem IP (169.254.169.254), do którego dostęp można uzyskać tylko z poziomu maszyny wirtualnej.
+- **Azure instance Metadata Service (IMDS)** — punkt końcowy REST dostępny dla wszystkich maszyn wirtualnych IaaS utworzonych za pośrednictwem Azure Resource Manager. Punkt końcowy jest dostępny pod dobrze znanym, nierutowalnym adresem IP (169.254.169.254), do którego dostęp można uzyskać tylko z poziomu maszyny wirtualnej.
 
 ## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Jak działają tożsamości zarządzane dla zasobów platformy Azure?
 
@@ -50,24 +50,24 @@ Istnieją dwa typy tożsamości zarządzanych:
 - **Tożsamość zarządzana przypisana przez system** jest włączana bezpośrednio w wystąpieniu usługi platformy Azure. Po włączeniu tożsamości platforma Azure tworzy tożsamość wystąpienia w dzierżawie usługi Azure AD, która jest zaufaną dzierżawą subskrypcji wystąpienia. Po utworzeniu tożsamości poświadczenia są aprowizowane w wystąpieniu. Cykl życiowy tożsamości przypisanej przez system jest bezpośrednio powiązany z wystąpieniem usługi platformy Azure, w którym została ona włączona. Usunięcie wystąpienia spowoduje, że platforma Azure automatycznie oczyści poświadczenia i tożsamość w usłudze Azure AD.
 - **Tożsamość zarządzana przypisana przez użytkownika** jest tworzona jako autonomiczny zasób platformy Azure. W ramach procesu tworzenia platforma Azure tworzy tożsamość w dzierżawie usługi Azure AD, której ufa używana subskrypcja. Utworzoną tożsamość można przypisać do co najmniej jednego wystąpienia usługi platformy Azure. Cykl życiowy tożsamości przypisanej przez użytkownika jest zarządzany oddzielnie od cyklu życiowego wystąpień usługi platformy Azure, do których została przypisana.
 
-Wewnętrznie tożsamości zarządzane są jednostki usługi specjalnego typu, które są zablokowane tylko do użycia z zasobami platformy Azure. Po usunięciu tożsamości zarządzanej odpowiedni podmiot usługi jest automatycznie usuwany.
-Ponadto po utworzeniu tożsamości przypisanej przez użytkownika lub tożsamości przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie do tej tożsamości. 
+Wewnętrznie tożsamości zarządzane są nazwami podmiotu usługi typu specjalnego, które są zablokowane tylko w przypadku zasobów platformy Azure. Po usunięciu tożsamości zarządzanej jest automatycznie usuwana odpowiednia jednostka usługi.
+Ponadto po utworzeniu tożsamości przypisanej do użytkownika lub przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
 
 Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
 
 ## <a name="credential-rotation"></a>Obrót poświadczeń
-Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który obsługuje zasób platformy Azure. Domyślny obrót poświadczeń występuje co 46 dni. Dostawca zasobów może wymagać nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
+Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współpracują z maszynami wirtualnymi platformy Azure:
 
 ![Tożsamości usługi zarządzanej i maszyny wirtualne platformy Azure](media/overview/data-flow.png)
 
-|  Właściwość    | Tożsamość zarządzana przypisana do systemu | Tożsamość zarządzana przypisana przez użytkownika |
+|  Właściwość    | Tożsamość zarządzana przypisana przez system | Tożsamość zarządzana przypisana przez użytkownika |
 |------|----------------------------------|--------------------------------|
-| Tworzenie |  Utworzony jako część zasobu platformy Azure (na przykład maszyny wirtualnej platformy Azure lub usługi Azure App Service) | Utworzony jako autonomiczny zasób platformy Azure |
-| Cykl życia | Współużytkowane cykl życia z zasobem platformy Azure, z którym jest tworzona tożsamość zarządzana. <br/> Po usunięciu zasobu nadrzędnego tożsamość zarządzana jest również usuwana. | Niezależny cykl życia. <br/> Musi być jawnie usunięty. |
-| Udostępnianie zasobów platformy Azure | Nie można udostępnić. <br/> Można go skojarzyć tylko z jednym zasobem platformy Azure. | Możliwość udostępniania <br/> Ta sama tożsamość zarządzana przypisana przez użytkownika może być skojarzona z więcej niż jednym zasobem platformy Azure. |
-| Typowe przypadki użycia | Obciążenia zawarte w jednym zasobie platformy Azure <br/> Obciążenia, dla których potrzebne są niezależne tożsamości. <br/> Na przykład aplikacja uruchamiana na jednej maszynie wirtualnej | Obciążenia, które działają na wielu zasobach i które mogą współużytkować jedną tożsamość. <br/> Obciążenia, które wymagają wstępnej autoryzacji do bezpiecznego zasobu w ramach przepływu inicjowania obsługi administracyjnej. <br/> Obciążenia, w których zasoby są często poddawanych recyklingowi, ale uprawnienia powinny pozostać spójne. <br/> Na przykład obciążenie, w którym wiele maszyn wirtualnych musi uzyskać dostęp do tego samego zasobu |
+| Tworzenie |  Utworzone w ramach zasobu platformy Azure (na przykład maszyny wirtualnej platformy Azure lub Azure App Service) | Utworzono jako autonomiczny zasób platformy Azure |
+| Cykl życia | Udostępniony cykl życia z zasobem platformy Azure, za pomocą którego utworzono tożsamość zarządzaną. <br/> Po usunięciu zasobu nadrzędnego tożsamość zarządzana również jest usuwana. | Niezależny cykl życia. <br/> Musi być jawnie usunięty. |
+| Udostępnianie w zasobach platformy Azure | Nie można udostępnić. <br/> Może być skojarzony tylko z jednym zasobem platformy Azure. | Mogą być udostępniane <br/> Ta sama tożsamość zarządzana przypisana przez użytkownika może być skojarzona z więcej niż jednym zasobem platformy Azure. |
+| Typowe przypadki użycia | Obciążenia zawarte w pojedynczym zasobie platformy Azure <br/> Obciążenia, dla których są potrzebne niezależne tożsamości. <br/> Na przykład aplikacja działająca na jednej maszynie wirtualnej | Obciążenia działające na wielu zasobach, które mogą współużytkować jedną tożsamość. <br/> Obciążenia wymagające wstępnej autoryzacji do bezpiecznego zasobu w ramach przepływu aprowizacji. <br/> Obciążenia, w których zasoby są często odtwarzane, ale uprawnienia powinny pozostać spójne. <br/> Na przykład obciążenie, w przypadku którego wiele maszyn wirtualnych potrzebuje dostępu do tego samego zasobu |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Jak tożsamość zarządzana przypisana przez system współpracuje z maszyną wirtualną platformy Azure
 
@@ -75,11 +75,11 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 
 2. Usługa Azure Resource Manager tworzy w usłudze Azure AD jednostkę usługi potrzeby tożsamości maszyny wirtualnej. Jednostka usługi jest tworzona w dzierżawie usługi Azure AD, która jest zaufana w ramach subskrypcji.
 
-3. Usługa Azure Resource Manager konfiguruje tożsamość na maszynie Wirtualnej, aktualizując punkt końcowy tożsamości usługi metadanych wystąpienia platformy Azure przy przy obliczu identyfikatora klienta i certyfikatu głównego dostawcy usług.
+3. Azure Resource Manager konfiguruje tożsamość na maszynie wirtualnej przez zaktualizowanie punktu końcowego tożsamości usługi Azure Instance Metadata Service przy użyciu identyfikatora klienta i certyfikatu jednostki usługi.
 
 4. Teraz, gdy maszyna wirtualna zyskała tożsamość, używamy informacji o jednostce usługi w celu przyznania maszynie wirtualnej dostępu do zasobów platformy Azure. Aby wywołać usługę Azure Resource Manager, należy użyć kontroli dostępu opartej na rolach (RBAC) w usłudze Azure AD w celu przypisania odpowiedniej roli do jednostki usługi maszyny wirtualnej. Aby wywołać usługę Key Vault, należy przyznać kodowi dostęp do określonego wpisu tajnego lub klucza w usłudze Key Vault.
 
-5. Twój kod, który jest uruchomiony na maszynie Wirtualnej można zażądać tokenu z punktu końcowego usługi metadanych wystąpienia platformy Azure, dostępne tylko z poziomu maszyny Wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego usługi metadanych wystąpienia platformy Azure, dostępne tylko z poziomu maszyny wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
     - Parametr zasobu określa usługę, do której jest wysyłany token. Aby przeprowadzić uwierzytelnianie w usłudze Azure Resource Manager, należy użyć elementu `resource=https://management.azure.com/`.
     - Parametr wersji interfejsu API określa wersję usługi IMDS, użyj wartości api-version=2018-02-01 lub nowszej.
 
@@ -93,14 +93,14 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 
 2. Usługa Azure Resource Manager tworzy w usłudze Azure AD jednostkę usługi na potrzeby tożsamości zarządzanej przypisanej przez użytkownika. Jednostka usługi jest tworzona w dzierżawie usługi Azure AD, która jest zaufana w ramach subskrypcji.
 
-3. Usługa Azure Resource Manager odbiera żądanie skonfigurowania tożsamości zarządzanej przypisanej przez użytkownika na maszynie Wirtualnej i aktualizuje punkt końcowy tożsamości usługi metadanych usługi wystąpienia platformy Azure za pomocą identyfikatora i certyfikatu głównego klienta usługi tożsamości przypisanego przez użytkownika.
+3. Azure Resource Manager odbiera żądanie skonfigurowania tożsamości zarządzanej przypisanej przez użytkownika na maszynie wirtualnej i aktualizuje punkt końcowy tożsamości usługi Azure Instance Metadata Service przy użyciu identyfikatora klienta i certyfikatu podmiotu zarządzania tożsamościami zarządzanymi przez użytkownika.
 
 4. Po utworzeniu tożsamości zarządzanej przypisanej przez użytkownika należy użyć informacji o jednostce usługi w celu przyznania dostępu do zasobów platformy Azure. Aby wywołać usługę Azure Resource Manager, należy użyć funkcji RBAC w usłudze Azure AD w celu przypisania odpowiedniej roli do jednostki usługi tożsamości przypisanej przez użytkownika. Aby wywołać usługę Key Vault, należy przyznać kodowi dostęp do określonego wpisu tajnego lub klucza w usłudze Key Vault.
 
    > [!Note]
    > Ten krok można również wykonać przed krokiem 3.
 
-5. Twój kod, który jest uruchomiony na maszynie Wirtualnej można zażądać tokenu z punktu końcowego tożsamości usługi metadanych wystąpienia platformy Azure, dostępne tylko z poziomu maszyny Wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Kod uruchomiony na maszynie wirtualnej może zażądać tokenu z punktu końcowego tożsamości usługi Azure Instance Metadata Service, dostępnego tylko z poziomu maszyny wirtualnej:`http://169.254.169.254/metadata/identity/oauth2/token`
     - Parametr zasobu określa usługę, do której jest wysyłany token. Aby przeprowadzić uwierzytelnianie w usłudze Azure Resource Manager, należy użyć elementu `resource=https://management.azure.com/`.
     - Parametr Identyfikator klienta określa tożsamość, dla której jest żądany token. Ta wartość jest wymagana do przeprowadzenia uściślania, gdy na jednej maszynie wirtualnej znajduje się więcej niż jedna tożsamość przypisana przez użytkownika.
     - Parametr wersji interfejsu API określa wersję usługi Azure Instance Metadata Service. Należy użyć wersji `api-version=2018-02-01` lub nowszej.

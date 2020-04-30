@@ -1,7 +1,7 @@
 ---
-title: Szybki start — tworzenie profilu i punktu końcowego przy użyciu szablonów Menedżera zasobów
+title: Szybki Start — Tworzenie profilu i punktu końcowego przy użyciu szablonów Menedżer zasobów
 titleSuffix: Azure Content Delivery Network
-description: Dowiedz się, jak utworzyć profil i punkt końcowy dostarczania zawartości platformy Azure przy użyciu szablonów Menedżera zasobów
+description: Dowiedz się, jak utworzyć profil sieci i punkt końcowy dostarczania zawartości platformy Azure przy użyciu szablonów Menedżer zasobów
 services: cdn
 documentationcenter: ''
 author: senthuransivananthan
@@ -17,30 +17,30 @@ ms.date: 03/05/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: dfd7b933502b96c0952a24dbee563e9b537dcdd8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81683472"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Szybki start: tworzenie profilu i punktu końcowego usługi Azure CDN przy użyciu szablonu Menedżera zasobów
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Szybki Start: Tworzenie profilu Azure CDN i punktu końcowego przy użyciu szablonu Menedżer zasobów
 
-W tym przewodniku Szybki start można wdrożyć szablon usługi Azure Resource Manager przy użyciu interfejsu wiersza polecenia. Utworzony szablon wdraża profil sieci CDN i punkt końcowy usługi CDN z przodu aplikacji sieci web.
-Wykonanie tych kroków powinno potrwać około dziesięciu minut.
+W tym przewodniku szybki start wdrażasz szablon Azure Resource Manager przy użyciu interfejsu wiersza polecenia. Tworzony szablon wdraża profil usługi CDN i punkt końcowy usługi CDN na potrzeby aplikacji sieci Web.
+Wykonanie tych kroków powinno potrwać około 10 minut.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prequisites"></a>Wymagania wstępne
 
-Na potrzeby tego przewodnika Szybki start musisz mieć aplikację sieci Web, która będzie używana jako źródło pochodzenia. Przykładowa aplikacja sieci Web użyta w tym przewodniku Szybki start została wdrożonahttps://cdndemo.azurewebsites.net
+Na potrzeby tego przewodnika Szybki Start aplikacja sieci Web musi być używana jako źródło. Przykładowa aplikacja sieci Web używana w tym przewodniku szybki start została wdrożona w programiehttps://cdndemo.azurewebsites.net
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie statycznej aplikacji sieci Web HTML na platformie Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
+Aby uzyskać więcej informacji, zobacz [Tworzenie statycznej aplikacji sieci Web w języku HTML na platformie Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Wszystkie zasoby muszą być wdrożone w tej samej grupie zasobów.
+Wszystkie zasoby muszą zostać wdrożone w tej samej grupie zasobów.
 
-Utwórz grupę zasobów w wybranej lokalizacji. W tym przykładzie pokazano utworzenie grupy zasobów o nazwie cdn w lokalizacji wschodnich stanów USA.
+Utwórz grupę zasobów w wybranej lokalizacji. Ten przykład pokazuje Tworzenie grupy zasobów o nazwie CDN w lokalizacji Wschodnie stany USA.
 
 ```azurecli-interactive
 az group create --name cdn --location eastus
@@ -50,13 +50,13 @@ az group create --name cdn --location eastus
 
 ## <a name="create-the-resource-manager-template"></a>Tworzenie szablonu usługi Resource Manager
 
-W tym kroku należy utworzyć plik szablonu, który wdraża zasoby.
+W tym kroku utworzysz plik szablonu, który wdraża zasoby.
 
-W tym przykładzie można przejść przez scenariusz ogólnego przyspieszenia witryny sieci Web, istnieje wiele innych ustawień, które można skonfigurować. Te ustawienia są dostępne w odwołaniu do szablonu usługi Azure Resource Manager. Zapoznaj się z odwołaniami do [punktu końcowego profilu sieci CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) i [punktu końcowego profilu SIECI CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Ten przykład przeprowadzi Cię przez ogólny scenariusz przyspieszania witryn sieci Web, ale istnieje wiele innych ustawień, które można skonfigurować. Te ustawienia są dostępne w odniesieniu do szablonu Azure Resource Manager. Zobacz odwołania do [profilu usługi CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) i [punktu końcowego profilu sieci CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
-Należy zauważyć, że usługa Microsoft CDN nie obsługuje modyfikowania listy typów zawartości.
+Należy pamiętać, że usługa Microsoft CDN nie obsługuje modyfikowania listy typów zawartości.
 
-Zapisz szablon jako **resource-manager-cdn.json**.
+Zapisz szablon jako **Resource-Manager-CDN. JSON**.
 
 ```json
 {
@@ -178,40 +178,40 @@ Zapisz szablon jako **resource-manager-cdn.json**.
 
 ## <a name="create-the-resources"></a>Tworzenie zasobów
 
-Wdrażanie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure. Zostanie wyświetlony monit o 2 wejścia:
+Wdróż szablon przy użyciu interfejsu wiersza polecenia platformy Azure. Zostanie wyświetlony monit o 2 dane wejściowe:
 
-**cdnProfileSku** - dostawca CDN, którego chcesz użyć. Dostępne opcje to:
+**cdnProfileSku** — Dostawca usługi CDN, którego chcesz użyć. Dostępne są następujące opcje:
 
 * Standard_Microsoft
 * Standard_Akamai
 * Standard_Verizon
 * Premium_Verizon.
 
-**endpointOriginHostName** — punkt końcowy, który będzie obsługiwany za pośrednictwem sieci CDN, na przykład cdndemo.azurewebsites.net.
+**endpointOriginHostName** — punkt końcowy, który będzie obsługiwany w sieci CDN, na przykład cdndemo.azurewebsites.NET.
 
 ```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
-![Wdrażanie szablonu Menedżera zasobów](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
+![Wdróż szablon Menedżer zasobów](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
 
-## <a name="view-the-cdn-profile"></a>Wyświetlanie profilu sieci CDN
+## <a name="view-the-cdn-profile"></a>Wyświetlanie profilu usługi CDN
 
 ```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
-![Wyświetl profil sieci CDN](./media/create-profile-resource-manager-template/cdn-view-profile.png)
+![Wyświetl profil usługi CDN](./media/create-profile-resource-manager-template/cdn-view-profile.png)
 
-## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Wyświetlanie punktu końcowego sieci CDN dla profilu standard-microsoft
+## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Wyświetlanie punktu końcowego usługi CDN dla profilu Standard — Microsoft
 
 ```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
-![Wyświetlanie punktu końcowego sieci CDN](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
+![Wyświetl punkt końcowy usługi CDN](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Użyj nazwy hosta, aby wyświetlić zawartość. Na przykład dostęp https:\//cdndemo-azurewebsites-net.azureedge.net za pomocą przeglądarki.
+Użyj nazwy hosta, aby wyświetlić zawartość. Na przykład dostęp do usługi https\/:/cdndemo-azurewebsites-net.azureedge.NET za pomocą przeglądarki.
 
 ## <a name="clean-up"></a>Czyszczenie
 
@@ -225,8 +225,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Dokumentacja
 
-* Profil usługi CDN — [odwołanie do szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* Punkt końcowy usługi CDN — [dokumentacja odwołania do szablonu usługi Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* Profil usługi CDN — [Dokumentacja szablonu Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* Punkt końcowy usługi CDN — [Dokumentacja szablonu Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Następne kroki
 

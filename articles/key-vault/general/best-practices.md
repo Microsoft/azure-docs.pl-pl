@@ -1,6 +1,6 @@
 ---
-title: Najważniejsze wskazówki dotyczące korzystania z usługi Key Vault — Usługa Azure Key Vault | Dokumenty firmy Microsoft
-description: W tym dokumencie wyjaśniono niektóre z najlepszych rozwiązań w zakresie korzystania z usługi Key Vault
+title: Najlepsze rozwiązania dotyczące korzystania z Key Vault Azure Key Vault | Microsoft Docs
+description: W tym dokumencie wyjaśniono niektóre najlepsze rozwiązania dotyczące korzystania z Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,37 +11,37 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617911"
 ---
-# <a name="best-practices-to-use-key-vault"></a>Najważniejsze wskazówki dotyczące korzystania z usługi Key Vault
+# <a name="best-practices-to-use-key-vault"></a>Najlepsze rozwiązania w zakresie używania Key Vault
 
-## <a name="control-access-to-your-vault"></a>Sterowanie dostępem do skarbca
+## <a name="control-access-to-your-vault"></a>Kontrola dostępu do magazynu
 
-Usługa Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, parametry połączenia i hasła. Ponieważ te dane są poufne i krytyczne dla firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko autoryzowanym aplikacjom i użytkownikom. W tym [artykule](secure-your-key-vault.md)) zawiera omówienie modelu dostępu usługi Key Vault. Wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób bezpiecznego dostępu do magazynów kluczy.
+Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła. Ponieważ te dane są poufne i krytyczne dla działania firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko na autoryzowane aplikacje i użytkowników. Ten [artykuł](secure-your-key-vault.md)zawiera omówienie modelu dostępu Key Vault. W tym artykule wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do magazynów kluczy.
 
-Sugestie podczas kontrolowania dostępu do przechowalni są następujące:
-1. Blokowanie dostępu do subskrypcji, grupy zasobów i magazynów kluczy (RBAC)
-2. Tworzenie zasad programu Access dla każdego przechowalni
-3. Używanie jednostki dostępu z najmniejszymi uprawnieniami do udzielania dostępu
-4. Włączanie punktów końcowych zapory i [sieci wirtualnej)](overview-vnet-service-endpoints.md)
+Sugestie dotyczące kontroli dostępu do magazynu są następujące:
+1. Zablokuj dostęp do subskrypcji, grupy zasobów i magazynów kluczy (RBAC)
+2. Utwórz zasady dostępu dla każdego magazynu
+3. Użyj najmniejszej nazwy podmiotu zabezpieczeń dostępu, aby udzielić dostępu
+4. Włącz funkcję Zapora i [punkty końcowe usługi sieci wirtualnej](overview-vnet-service-endpoints.md)
 
-## <a name="use-separate-key-vault"></a>Użyj oddzielnego magazynu kluczy
+## <a name="use-separate-key-vault"></a>Użyj oddzielnego Key Vault
 
-Naszym zaleceniem jest użycie magazynu dla aplikacji na środowisko (programistyczne, przedprodukcjowe i produkcyjne). Pomaga to nie udostępniać wpisów tajnych w środowiskach, a także zmniejsza zagrożenie w przypadku naruszenia.
+Nasze zalecenie polega na użyciu magazynu dla każdej aplikacji na środowisko (projektowanie, przedprodukcyjne i produkcyjne). Ułatwia to nie udostępnianie wpisów tajnych w różnych środowiskach i zmniejsza zagrożenie w przypadku naruszenia.
 
 ## <a name="backup"></a>Backup
 
-Upewnij się, że regularnie korzystasz z kopii zapasowych [skarbca](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) podczas aktualizacji/usuwania/tworzenia obiektów w skarbcu.
+Zadbaj o to, aby regularnie korzystać z [magazynu](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) w celu aktualizowania/usuwania/tworzenia obiektów w magazynie.
 
-## <a name="turn-on-logging"></a>Włączanie rejestrowania
+## <a name="turn-on-logging"></a>Włącz rejestrowanie
 
-[Włącz rejestrowanie](logging.md)) dla Skarbca. Skonfiguruj również alerty.
+[Włącz rejestrowanie](logging.md) dla Twojego magazynu. Skonfiguruj również alerty.
 
-## <a name="turn-on-recovery-options"></a>Włączanie opcji odzyskiwania
+## <a name="turn-on-recovery-options"></a>Włącz opcje odzyskiwania
 
-1. Włącz [usuwanie trędowak).](overview-soft-delete.md)
-2. Włącz ochronę przed przeczyszczaniem, jeśli chcesz zabezpieczyć się przed wymuszaniem usunięcia klucza tajnego / skarbca nawet po włączeniu soft-delete.
+1. Włącz [usuwanie nietrwałe](overview-soft-delete.md).
+2. Włącz ochronę przed przeczyszczeniem, jeśli chcesz chronić przed usunięciem wpisu tajnego lub magazynu, nawet po włączeniu usuwania nietrwałego.

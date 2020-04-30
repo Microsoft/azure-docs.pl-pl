@@ -1,76 +1,76 @@
 ---
-title: Co nowego w usłudze Azure Migrate
-description: Dowiedz się więcej o nowościach i najnowszych aktualizacjach w usłudze Migracji platformy Azure.
+title: Co nowego w Azure Migrate
+description: Dowiedz się więcej na temat Nowości i ostatnich aktualizacji w usłudze Azure Migrate.
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
 ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81677241"
 ---
-# <a name="whats-new-in-azure-migrate"></a>Co nowego w usłudze Azure Migrate
+# <a name="whats-new-in-azure-migrate"></a>Co nowego w Azure Migrate
 
-[Usługa Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenę i migrację lokalnych serwerów, aplikacji i danych do chmury platformy Microsoft Azure. W tym artykule podsumowano nowe wersje i funkcje w usłudze Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) ułatwia odnajdywanie, ocenianie i migrowanie lokalnych serwerów, aplikacji i danych do chmury Microsoft Azure. W tym artykule zestawiono nowe wersje i funkcje programu Azure Migrate.
 
 
-## <a name="update-april-2020"></a>Aktualizacja (kwiecień 2020 r.)
+## <a name="update-april-2020"></a>Aktualizacja (kwiecień 2020)
 
-Usługa Azure Migrate obsługuje wdrożenia w usłudze Azure Dla Instytucji. 
+Azure Migrate obsługuje wdrożenia w Azure Government. 
 
-- Maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne można wykrywać i oceniać.
-- Maszyny wirtualne vmware, maszyny wirtualne funkcji Hyper V i serwery fizyczne można migrować na platformę Azure.
-- W przypadku migracji VMware można użyć migracji bez agenta lub opartej na agentach. [Dowiedz się więcej](server-migrate-overview.md).
-- [Przejrzyj](migrate-support-matrix.md#supported-geographies-azure-government) obsługiwane regiony geograficzne i regiony dla platformy Azure dla instytucji rządowych.
-- [Analiza zależności oparta na agentach](concepts-dependency-visualization.md#agent-based-analysis) nie jest obsługiwana w usłudze Azure Government.
-- Funkcje w wersji zapoznawczej są obsługiwane w usłudze Azure Government, w szczególności [w bezagentowej analizie zależności](concepts-dependency-visualization.md#agentless-analysis)i [odnajdowaniu aplikacji.](how-to-discover-applications.md)
+- Można odnajdywać i oceniać maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne.
+- Maszyny wirtualne programu VMware, maszyny wirtualne funkcji Hyper-V i serwery fizyczne można migrować do platformy Azure.
+- W przypadku migracji oprogramowania VMware można korzystać z migracji bez wykorzystania agentów lub z wykorzystaniem agentów. [Dowiedz się więcej](server-migrate-overview.md).
+- [Przejrzyj](migrate-support-matrix.md#supported-geographies-azure-government) obsługiwane lokalizacje geograficzne i regiony Azure Government.
+- [Analiza zależności oparta na agentach](concepts-dependency-visualization.md#agent-based-analysis) nie jest obsługiwana w Azure Government.
+- Funkcje w wersji zapoznawczej są obsługiwane w Azure Government, w ramach [analizy zależności bez agenta](concepts-dependency-visualization.md#agentless-analysis)i [odnajdywania aplikacji](how-to-discover-applications.md).
 
-## <a name="update-march-2020"></a>Aktualizacja (marzec 2020 r.)
+## <a name="update-march-2020"></a>Aktualizacja (marzec 2020)
 
-Instalacja oparta na skryptach jest teraz dostępna do skonfigurowania [urządzenia migracji platformy Azure:](migrate-appliance.md)
+W celu skonfigurowania [urządzenia Azure Migrate](migrate-appliance.md)jest teraz dostępna Instalacja oparta na skrypcie:
 
-- Instalacja oparta na skryptach jest alternatywą dla pliku . instalacji urządzenia OVA (VMware)/VHD (Hyper-V).
-- Udostępnia skrypt instalatora programu PowerShell, który może służyć do konfigurowania urządzenia dla VMware/Hyper-V na istniejącym komputerze z systemem Windows Server 2016.
+- Instalacja oparta na skrypcie jest alternatywą dla. Instalacja urządzenia komórki jajowe (VMware)/VHD (Hyper-V).
+- Zawiera skrypt Instalatora programu PowerShell, którego można użyć do skonfigurowania urządzenia dla oprogramowania VMware/Hyper-V na istniejącym komputerze z systemem Windows Server 2016.
 
 ## <a name="update-november-2019"></a>Aktualizacja (listopad 2019)
 
-Do usługi Azure Migrate dodano szereg nowych funkcji:
+Dodano kilka nowych funkcji do Azure Migrate:
 
-- **Ocena serwera fizycznego**. Ocena lokalnych serwerów fizycznych jest teraz obsługiwana, oprócz migracji serwera fizycznego, która jest już obsługiwana.
-- **Ocena oparta na imporcie**. Ocena maszyn przy użyciu metadanych i danych dotyczących wydajności podanych w pliku CSV jest teraz obsługiwana.
-- **Odnajdowanie aplikacji:** Usługa Azure Migrate obsługuje teraz odnajdowanie aplikacji, ról i funkcji na poziomie aplikacji przy użyciu urządzenia migracji platformy Azure. Jest to obecnie obsługiwane tylko dla maszyn wirtualnych VMware i jest ograniczone tylko do odnajdowania (ocena nie jest obecnie obsługiwana). [Dowiedz się więcej](how-to-discover-applications.md)
-- **Wizualizacja zależności bez agenta:** nie trzeba już jawnie instalować agentów do wizualizacji zależności. Obsługiwane są teraz zarówno bez agenta, jak i oparte na agentach.
-- **Pulpit wirtualny:** Użyj narzędzi isv do oceny i migracji lokalnej infrastruktury pulpitu wirtualnego (VDI) do pulpitu wirtualnego systemu Windows na platformie Azure.
-- **Aplikacja sieci Web:** Asystent migracji usługi Azure App Service, używany do oceny i migracji aplikacji sieci web, jest teraz zintegrowany z programem Azure Migrate.
+- **Ocena serwera fizycznego**. Teraz jest obsługiwana Ocena lokalnych serwerów fizycznych, oprócz migracji serwera fizycznego, która jest już obsługiwana.
+- **Ocena na podstawie importu**. Teraz obsługiwana jest ocena maszyn przy użyciu metadanych i danych wydajności dostępnych w pliku CSV.
+- **Odnajdywanie aplikacji**: Azure Migrate obsługuje teraz odnajdywanie aplikacji, ról i funkcji na poziomie aplikacji przy użyciu urządzenia Azure Migrate. Jest to obecnie obsługiwane tylko w przypadku maszyn wirtualnych VMware i jest ograniczone tylko do odnajdowania (ocena nie jest obecnie obsługiwana). [Dowiedz się więcej](how-to-discover-applications.md)
+- **Wizualizacja zależności bez agenta**: nie trzeba już jawnie instalować agentów w celu wizualizacji zależności. Teraz obsługiwane są zarówno Agent, jak i oparte na agentach.
+- **Pulpit wirtualny**: Użyj narzędzi niezależnych dostawców oprogramowania, aby ocenić i zmigrować lokalną infrastrukturę pulpitu wirtualnego (VDI) do pulpitu wirtualnego systemu Windows na platformie Azure.
+- **Aplikacja internetowa**: Asystent migracji Azure App Service używany do oceniania i migracji aplikacji sieci Web, jest teraz zintegrowana z Azure Migrate.
 
-Nowe narzędzia oceny i migracji zostały dodane do usługi Azure Migrate:
+Dodano nowe narzędzia do oceny i migracji do Azure Migrate:
 
-- **Rackware**: Oferuje migrację do chmury.
-- **Movere**: Ocena oferty.
+- **Stojak**: zapewnianie migracji do chmury.
+- Produkt **przenoszenia**: Ocena oferty.
 
-[Dowiedz się więcej](migrate-services-overview.md) o używaniu narzędzi i ofert internetowych do oceny i migracji w usłudze Azure Migrate.
+[Dowiedz się więcej](migrate-services-overview.md) o korzystaniu z narzędzi i ofert niezależnych dostawców oprogramowania na potrzeby oceny i migracji w programie Azure Migrate.
 
-## <a name="azure-migrate-current-version"></a>Migracja do bieżącej wersji usługi Azure
+## <a name="azure-migrate-current-version"></a>Azure Migrate bieżąca wersja
 
-Bieżąca wersja usługi Azure Migrate (wydana w lipcu 2019 r.) zawiera szereg nowych funkcji:
+Bieżąca wersja Azure Migrate (wydana w lipcu 2019) zawiera wiele nowych funkcji:
 
-- **Ujednolicona platforma migracji:** usługa Azure Migrate zapewnia teraz jeden portal do scentralizowania, zarządzania i śledzenia podróży migracji na platformę Azure dzięki ulepszonemu przepływowi wdrażania i doświadczeniu portalu.
-- **Narzędzia do oceny i migracji:** Usługa Azure Migrate udostępnia narzędzia natywne i integruje się z innymi usługami platformy Azure, a także z narzędziami niezależnego dostawcy oprogramowania (ISV). [Dowiedz się więcej](migrate-services-overview.md#isv-integration) o integracji z siecią ISV.
-- **Ocena migracji platformy Azure:** za pomocą narzędzia oceny serwera migracji usługi Azure można ocenić maszyny wirtualne i maszyny wirtualne z użyciem technologii Hyper-V do migracji na platformę Azure. Można również ocenić migracji przy użyciu innych usług platformy Azure i narzędzi isv.
-- **Migracja za pomocą usługi Azure Migrate**Server za pomocą narzędzia Do migracji usługi Azure można migrować lokalne maszyny wirtualne vmware i maszyny wirtualne funkcji Hyper V na platformę Azure, a także serwery fizyczne, inne serwery zwirtualizowane oraz maszyny wirtualne chmury prywatnej i publicznej. Ponadto można przeprowadzić migrację na platformę Azure przy użyciu narzędzi isv.
-- **Urządzenie migracji platformy Azure:** usługa Azure Migrate wdraża lekkie urządzenie do odnajdowania i oceny lokalnych maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V.
-    - To urządzenie jest używane przez usługę Azure Migrate Server Assessment i migrację serwera migracji usługi Azure Migrate Server do migracji bez agenta.
-    - Urządzenie stale odnajduje metadane serwera i dane dotyczące wydajności, do celów oceny i migracji.  
-- **Migracja maszyn wirtualnych VMware:** Migracja serwera migracji usługi Azure udostępnia kilka metod migracji lokalnych maszyn wirtualnych VMware na platformę Azure.  Migracja bez agenta przy użyciu urządzenia migracji platformy Azure i migracja oparta na agentach, która używa urządzenia replikacji i wdraża agenta na każdej maszynie wirtualnej, którą chcesz przeprowadzić migrację. [Dowiedz się więcej](server-migrate-overview.md)
- - **Ocena i migracja bazy danych:** Z usługi Azure Migrate można ocenić lokalne bazy danych do migracji na platformę Azure przy użyciu Usługi Azure Database Migration Assistant. Bazy danych można migrować przy użyciu usługi migracji bazy danych azure.
-- **Migracja aplikacji sieci Web:** Aplikacje sieci Web można oceniać przy użyciu publicznego adresu URL punktu końcowego za pomocą usługi Azure App Service. W przypadku migracji wewnętrznych aplikacji platformy .NET można pobrać i uruchomić Asystenta migracji usługi App Service.
-- **Pole danych:** Importowanie dużych ilości danych w trybie offline na platformę Azure przy użyciu usługi Azure Data Box w usłudze Azure Migrate.
+- **Ujednolicona platforma migracji**: Azure Migrate teraz oferuje pojedynczy Portal, który pozwala na scentralizowanie i monitorowanie podróży migracji do platformy Azure oraz zarządzanie nią przy użyciu ulepszonego przepływu wdrożenia i środowiska portalu.
+- **Narzędzia do oceny i migracji**: usługa Azure Migrate udostępnia narzędzia natywne i integruje się z innymi usługami platformy Azure, a także z narzędziami niezależnych dostawców oprogramowania (ISV). [Dowiedz się więcej](migrate-services-overview.md#isv-integration) o integracji niezależnego dostawcy oprogramowania.
+- **Azure Migrate oceny**: za pomocą narzędzia do oceny serwera Azure Migrate można ocenić maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V do migracji na platformę Azure. Możesz również ocenić migrację przy użyciu innych usług platformy Azure i narzędzi niezależnych dostawców oprogramowania.
+- **Azure Migrate migracji**: za pomocą narzędzia migracji serwera Azure Migrate można migrować lokalne maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V do platformy Azure, a także serwery fizyczne, inne serwery zwirtualizowane oraz maszyny wirtualne w chmurze prywatnej/publicznej. Ponadto można migrować do platformy Azure za pomocą narzędzi niezależnych dostawców oprogramowania.
+- **Urządzenie Azure Migrate**: Azure Migrate wdraża lekkim urządzeniem do odnajdywania i oceniania lokalnych maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V.
+    - To urządzenie jest używane przez Azure Migrate oceny serwera i migracji serwera Azure Migrate na potrzeby migracji bez agentów.
+    - Urządzenie stale odnajduje metadane serwera i dane wydajności na potrzeby oceny i migracji.  
+- **Migracja maszyny wirtualnej VMware**: migracja serwera Azure Migrate zapewnia kilka metod migrowania lokalnych maszyn wirtualnych programu VMware na platformę Azure.  Migracja bez agentów przy użyciu urządzenia Azure Migrate oraz migracja oparta na agentach, która korzysta z urządzenia replikacji, i wdraża agenta na każdej maszynie wirtualnej, która ma zostać zmigrowana. [Dowiedz się więcej](server-migrate-overview.md)
+ - **Ocena i migracja bazy danych**: w Azure Migrate można ocenić lokalne bazy danych na potrzeby migracji na platformę Azure przy użyciu usługi azure Database Asystent migracji. Bazę danych można migrować przy użyciu Azure Database Migration Service.
+- **Migracja aplikacji sieci Web**: możesz ocenić aplikacje sieci Web przy użyciu publicznego adresu URL punktu końcowego z Azure App Service. W przypadku migracji wewnętrznych aplikacji .NET można pobrać i uruchomić App Service Asystent migracji.
+- **Urządzenie Data Box**: zaimportuj duże ilości danych w trybie offline na platformę Azure przy użyciu Azure Data Box w Azure Migrate.
 
-## <a name="azure-migrate-previous-version"></a>Migracja usługi Azure do poprzedniej wersji
+## <a name="azure-migrate-previous-version"></a>Azure Migrate poprzednią wersję
 
-Jeśli używasz poprzedniej wersji usługi Azure Migrate (obsługiwano tylko ocenę lokalnych maszyn wirtualnych VMware), należy teraz użyć bieżącej wersji. W poprzedniej wersji nie można już tworzyć nowych projektów migracji platformy Azure ani wykonywać nowych odnajdek. Nadal można uzyskać dostęp do istniejących projektów. Aby to zrobić w witrynie Azure portal > **wszystkie usługi,** wyszukaj **usługę Azure Migrate**. W powiadomieniach migracji platformy Azure istnieje łącze umożliwiające dostęp do starych projektów migracji platformy Azure.
+Jeśli używasz wcześniejszej wersji Azure Migrate (obsługiwana jest tylko Ocena lokalnych maszyn wirtualnych programu VMware), należy teraz używać bieżącej wersji. W poprzedniej wersji nie można już tworzyć nowych projektów Azure Migrate ani wykonywać nowych odkrycia. Nadal możesz uzyskiwać dostęp do istniejących projektów. Aby to zrobić, w Azure Portal > **wszystkie usługi**, Wyszukaj **Azure Migrate**. W Azure Migrate powiadomieniach jest dostępny link umożliwiający dostęp do starych projektów Azure Migrate.
 
 
 
@@ -78,4 +78,4 @@ Jeśli używasz poprzedniej wersji usługi Azure Migrate (obsługiwano tylko oce
 
 - [Uzyskaj więcej informacji](https://azure.microsoft.com/pricing/details/azure-migrate/) o cenach usługi Azure Migrate.
 - [Przejrzyj często zadawane pytania](resources-faq.md) dotyczące usługi Azure Migrate.
-- Wypróbuj nasze samouczki do oceny [maszyn wirtualnych VMware](tutorial-assess-vmware.md) i [maszyn wirtualnych z oprogramowaniem Hyper-V.](tutorial-assess-hyper-v.md)
+- Wypróbuj nasze samouczki, aby ocenić [maszyny wirtualne VMware](tutorial-assess-vmware.md) i [maszyny wirtualne funkcji Hyper-V](tutorial-assess-hyper-v.md).

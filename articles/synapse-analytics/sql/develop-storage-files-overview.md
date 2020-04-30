@@ -1,6 +1,6 @@
 ---
-title: Pliki magazynu zapytań przy użyciu SQL na żądanie (wersja zapoznawcza) w synapse SQL
-description: W tym artykule opisano wykonywanie zapytań dotyczących plików magazynu przy użyciu zasobów SQL on-demand (preview) w ramach programu Synapse SQL.
+title: Wykonywanie zapytań dotyczących plików magazynu przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
+description: Opisuje wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,57 +10,57 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81676670"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Pliki magazynu zapytań przy użyciu zasobów SQL on-demand (preview) w synapse SQL
+# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
-SQL na żądanie (wersja zapoznawcza) umożliwia wykonywanie zapytań o dane w aplikacji data lake. Oferuje powierzchni zapytania T-SQL, który obsługuje półstrukturalnych i niestrukturalnych zapytań danych.
+SQL na żądanie (wersja zapoznawcza) umożliwia wykonywanie zapytań dotyczących danych w usłudze Data Lake. Oferuje obszar powierzchni zapytania T-SQL, który służy do obsługi zapytań o dane z częściową strukturą i bez struktury.
 
-W przypadku wykonywania zapytań obsługiwane są następujące aspekty T-SQL:
+Do wykonywania zapytań są obsługiwane następujące aspekty języka T-SQL:
 
-- Pełna [powierzchnia SELECT,](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) w tym większość funkcji SQL, operatorów i tak dalej.
-- UTWÓRZ TABELĘ ZEWNĘTRZNĄ JAKO SELECT[(CETAS)](develop-tables-cetas.md)tworzy [tabelę zewnętrzną,](develop-tables-external-tables.md) a następnie eksportuje równolegle wyniki instrukcji Transact-SQL SELECT do usługi Azure Storage.
+- Pełny [wybór](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) obszaru powierzchni, w tym większość funkcji SQL, operatorów i tak dalej.
+- Utwórz tabelę ZEWNĘTRZną jako SELECT ([CETAS](develop-tables-cetas.md)) tworzy [tabelę zewnętrzną](develop-tables-external-tables.md) , a następnie eksportuje, równolegle, wyniki instrukcji SELECT języka Transact-SQL do usługi Azure Storage.
 
-Aby uzyskać więcej informacji na temat tego, co jest w porównaniu z tym, co nie jest obecnie obsługiwane, przeczytaj artykuł [omówienie sql na żądanie.](on-demand-workspace-overview.md)
+Aby uzyskać więcej informacji na temat tego, co to jest program vs. co nie jest obecnie obsługiwane, przeczytaj artykuł [Omówienie usługi SQL na żądanie](on-demand-workspace-overview.md) .
 
-Gdy użytkownicy usługi Azure AD uruchamiają kwerendy, domyślnie jest to, aby konta magazynu były dostępne przy użyciu protokołu uwierzytelniania przekazywania usługi Azure AD. W związku z tym użytkownicy będą personifikowani i uprawnienia sprawdzane na poziomie magazynu. Możesz kontrolować dostęp do [pamięci masowej](develop-storage-files-storage-access-control.md) zgodnie z twoimi potrzebami.
+Gdy użytkownicy usługi Azure AD uruchamiają zapytania, wartością domyślną jest dostęp do kont magazynu przy użyciu protokołu uwierzytelniania przekazującego usługi Azure AD. W związku z tym użytkownicy będą personifikowani, a uprawnienia są sprawdzane na poziomie magazynu. Dostęp do [magazynu można kontrolować](develop-storage-files-storage-access-control.md) odpowiednio do własnych potrzeb.
 
 ## <a name="extensions"></a>Rozszerzenia
 
-Aby zapewnić płynne środowisko dla wykonywania zapytań o dane znajdujące się w plikach usługi Azure Storage, sql na żądanie używa funkcji [OPENROWSET](develop-openrowset.md) z dodatkowymi możliwościami:
+Aby zapewnić bezproblemowe środowisko wykonywania zapytań dotyczących danych znajdujących się w plikach usługi Azure Storage, usługa SQL na żądanie używa funkcji [OPENROWSET](develop-openrowset.md) z dodatkowymi możliwościami:
 
-- [Kwerenda z wieloma plikami lub folderami](#query-multiple-files-or-folders)
-- [Format pliku PARKIET](#parquet-file-format)
-- [Dodatkowe opcje pracy z tekstem rozdzielanym (terminator pól, terminator wierszy, znak ucieczki)](#additional-options-for-working-with-delimited-text)
-- [Odczytywanie wybranego podzbioru kolumn](#read-a-chosen-subset-of-columns)
-- [Wnioskowanie ze schematu](#schema-inference)
-- [nazwa pliku, funkcja](#filename-function)
-- [filepath, funkcja](#filepath-function)
-- [Praca ze złożonymi typami i zagnieżdżonymi lub powtarzającymi się strukturami danych](#work-with-complex-types-and-nested-or-repeated-data-structures)
+- [Kwerenda wielu plików lub folderów](#query-multiple-files-or-folders)
+- [Format pliku PARQUET](#parquet-file-format)
+- [Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](#additional-options-for-working-with-delimited-text)
+- [Odczytaj wybrany podzestaw kolumn](#read-a-chosen-subset-of-columns)
+- [Wnioskowanie schematu](#schema-inference)
+- [Funkcja filename](#filename-function)
+- [FilePath — funkcja](#filepath-function)
+- [Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](#work-with-complex-types-and-nested-or-repeated-data-structures)
 
-### <a name="query-multiple-files-or-folders"></a>Kwerenda z wieloma plikami lub folderami
+### <a name="query-multiple-files-or-folders"></a>Kwerenda wielu plików lub folderów
 
-Aby uruchomić kwerendę T-SQL nad zestawem plików w folderze lub zestawie folderów, traktując je jako pojedynczą jednostkę lub zestaw wierszy, podaj ścieżkę do folderu lub wzorca (przy użyciu symboli wieloznacznych) nad zestawem plików lub folderów.
+Aby uruchomić zapytanie T-SQL dotyczące zestawu plików w folderze lub w zestawie folderów podczas traktowania ich jako pojedynczej jednostki lub zestawu wierszy, podaj ścieżkę do folderu lub wzorca (przy użyciu symboli wieloznacznych) w zestawie plików lub folderów.
 
 Mają zastosowanie następujące zasady:
 
-- Wzorce mogą pojawić się w części ścieżki katalogu lub w nazwach plików.
-- W tym samym kroku lub nazwie pliku może pojawić się kilka wzorców.
-- Jeśli istnieje wiele symboli wieloznacznych, pliki we wszystkich pasujących ścieżkach zostaną uwzględnione w wynikowym zestawie plików.
+- Wzorce mogą pojawić się w części ścieżki katalogu lub pliku.
+- Kilka wzorców może pojawić się w tym samym kroku katalogu lub nazwie pliku.
+- Jeśli istnieje wiele symboli wieloznacznych, pliki we wszystkich zgodnych ścieżkach zostaną uwzględnione w wyznaczonym zestawie plików.
 
 ```
 N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
 ```
 
-Zapoznaj się [z folderami kwerend i wieloma plikami,](query-folders-multiple-csv-files.md) aby zapoznać się z przykładami użycia.
+Przykłady użycia znajdują się w [folderach zapytań i wielu plikach](query-folders-multiple-csv-files.md) .
 
-### <a name="parquet-file-format"></a>Format pliku PARKIET
+### <a name="parquet-file-format"></a>Format pliku PARQUET
 
-Aby zbadać dane źródłowe parkietu, użyj format = 'PARKIET'
+Aby wykonać zapytanie dotyczące danych źródłowych Parquet, użyj formatu = "PARQUET"
 
 ```syntaxsql
 OPENROWSET
@@ -74,11 +74,11 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ]
 ```
 
-Przejrzyj artykuł [o plikach parkietu kwerendy,](query-parquet-files.md) aby zapoznać się z przykładami użycia.
+Zapoznaj się z artykułem [pliki Parquet zapytania](query-parquet-files.md) , aby zapoznać się z przykładami użycia.
 
-### <a name="additional-options-for-working-with-delimited-text"></a>Dodatkowe opcje pracy z tekstem rozdzielanym
+### <a name="additional-options-for-working-with-delimited-text"></a>Dodatkowe opcje pracy z rozdzielonym tekstem
 
-Te dodatkowe parametry są wprowadzane do pracy z plikami CSV (tekst rozdzielany):
+Te dodatkowe parametry są wprowadzane do pracy z plikami CSV (rozdzielanymi tekstem):
 
 ```syntaxsql
 <bulk_options> ::=
@@ -89,17 +89,17 @@ Te dodatkowe parametry są wprowadzane do pracy z plikami CSV (tekst rozdzielany
 ...
 ```
 
-- ESCAPE_CHAR = 'char' Określa znak w pliku, który jest używany do ucieczki się i wszystkie wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż ona lub którakolwiek z wartości ogranicznika, znak ucieczki jest odrzucany podczas odczytywania wartości.
-Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy funkcja FIELDQUOTE jest lub nie jest włączona. Nie będzie on używany do ucieczki znak cytowanie. Znak cudzysłowu jest zmieniany z cudzysłowami podwójnymi w zgodzie z zachowaniem CSV programu Excel.
-- FIELDTERMINATOR ='field_terminator' Określa terminator pola, który ma być używany. Domyślnym terminatorem pola jest przecinek ("**,**")
-- ROWTERMINATOR ='row_terminator' Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
+- ESCAPE_CHAR = "char" określa znak w pliku, który jest używany do wyprowadzania siebie i wszystkich wartości ograniczników w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości.
+Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
+- FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem ("**,**")
+- ROWTERMINATOR = "row_terminator" Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
 
-### <a name="read-a-chosen-subset-of-columns"></a>Odczytywanie wybranego podzbioru kolumn
+### <a name="read-a-chosen-subset-of-columns"></a>Odczytaj wybrany podzestaw kolumn
 
-Aby określić kolumny, które chcesz odczytać, można podać opcjonalną klauzulę WITH w instrukcji OPENROWSET.
+Aby określić kolumny, które mają zostać odczytane, możesz podać opcjonalną klauzulę WITH w instrukcji OPENROWSET.
 
-- Jeśli istnieją pliki danych CSV, aby odczytać wszystkie kolumny, podaj nazwy kolumn i ich typy danych. Jeśli chcesz podzbiór kolumn, użyj liczb porządkowych, aby wybrać kolumny z źródłowych plików danych według liczby porządkowej. Kolumny będą powiązane oznaczeniem porządkowym.
-- Jeśli istnieją pliki danych parkietu, podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy.
+- Jeśli istnieją pliki danych CSV, odczytywanie wszystkich kolumn, podawanie nazw kolumn i ich typów danych. Jeśli chcesz podzbiór kolumn, Użyj numerów porządkowych, aby wybrać kolumny z plików danych źródłowych według liczby porządkowej. Kolumny będą powiązane z oznaczeniem porządkowym.
+- Jeśli istnieją pliki danych Parquet, Podaj nazwy kolumn, które pasują do nazw kolumn w źródłowych plikach danych. Kolumny będą powiązane według nazwy.
 
 ```syntaxsql
 OPENROWSET
@@ -109,42 +109,42 @@ OPENROWSET
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 
-W przypadku przykładów można znaleźć w [obszarze Odczyt plików CSV bez określania wszystkich kolumn](query-single-csv-file.md#returning-subset-of-columns).
+Aby zapoznać się z przykładami, zobacz [odczytywanie plików CSV bez określania wszystkich kolumn](query-single-csv-file.md#returning-subset-of-columns).
 
-### <a name="schema-inference"></a>Wnioskowanie ze schematu
+### <a name="schema-inference"></a>Wnioskowanie schematu
 
-Pomijając klauzulę WITH z instrukcji OPENROWSET, można poinstruować usługę, aby automatycznie wykrywała (wywnioskować) schemat z plików źródłowych.
+Pomijając klauzulę WITH z instrukcji OPENROWSET, można nakazać usłudze automatyczne wykrywanie (wnioskowanie) schematu z plików źródłowych.
 
 > [!NOTE]
-> Obecnie działa to tylko w formacie pliku PARKIET.
+> Obecnie działa tylko w przypadku formatu pliku PARQUET.
 
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
-### <a name="filename-function"></a>Nazwa pliku, funkcja
+### <a name="filename-function"></a>Funkcja filename
 
 Ta funkcja zwraca nazwę pliku, z którego pochodzi wiersz.
 
-Aby zbadać określone pliki, przeczytaj sekcję Nazwa pliku w artykule [Zapytanie o określone pliki.](query-specific-files.md#filename)
+Aby wykonać zapytanie dotyczące określonych plików, przeczytaj sekcję filename w artykule [dotyczącej określonych plików](query-specific-files.md#filename) .
 
-### <a name="filepath-function"></a>Ścieżka pliku, funkcja
+### <a name="filepath-function"></a>FilePath — funkcja
 
 Ta funkcja zwraca pełną ścieżkę lub część ścieżki:
 
-- Po wywołaniu bez parametru zwraca pełną ścieżkę pliku, z której pochodzi wiersz.
-- Po wywołaniu z parametrem zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
+- Gdy wywoływana bez parametru zwraca pełną ścieżkę do pliku, z którego pochodzi wiersz.
+- Gdy jest wywoływana z parametrem, zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
 
-Aby uzyskać dodatkowe informacje, przeczytaj sekcję Ścieżka plików w artykule [Kwerenda określonych plików.](query-specific-files.md#filepath)
+Aby uzyskać dodatkowe informacje, zapoznaj się z sekcją FilePath artykułu dotyczącego [określonych plików zapytania](query-specific-files.md#filepath) .
 
-### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Praca ze złożonymi typami i zagnieżdżonymi lub powtarzającymi się strukturami danych
+### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych
 
-Aby włączyć płynne środowisko podczas pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzających się typach danych, takich jak pliki [parkietu,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) sql na żądanie dodał rozszerzenia poniżej.
+Aby zapewnić bezproblemowe środowisko podczas pracy z danymi przechowywanymi w zagnieżdżonych lub powtarzanych typach danych, na przykład w plikach [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) , w usłudze SQL na żądanie dodano poniższe rozszerzenia.
 
-#### <a name="project-nested-or-repeated-data"></a>Zagnieżdżone lub powtarzane dane projektu
+#### <a name="project-nested-or-repeated-data"></a>Dane zagnieżdżone lub powtórzone projektu
 
-Aby projektować dane, uruchom instrukcję SELECT za plikiem Parkietu zawierającą kolumny zagnieżdżonych typów danych. Na wyjściu wartości zagnieżdżone będą serializowane w języku JSON i zwracane jako typ danych SQL varchar(8000).
+Aby uzyskać dane projektu, uruchom instrukcję SELECT na pliku Parquet, który zawiera kolumny zagnieżdżonych typów danych. W danych wyjściowych zagnieżdżone wartości zostaną zserializowane do formatu JSON i zwracane jako typ danych SQL varchar (8000).
 
 ```sql
     SELECT * FROM
@@ -154,11 +154,11 @@ Aby projektować dane, uruchom instrukcję SELECT za plikiem Parkietu zawierają
     [AS alias]
 ```
 
-Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z sekcji Zagnieżdżone lub powtarzane dane projektu w klasie [kwerendy zagnieżdżonych typów](query-parquet-nested-types.md#project-nested-or-repeated-data) artykułu.
+Aby uzyskać bardziej szczegółowe informacje, zapoznaj się z sekcją dane zagnieżdżonych lub powtarzanych danych w artykule " [typy zagnieżdżone zapytania Parquet](query-parquet-nested-types.md#project-nested-or-repeated-data) ".
 
-#### <a name="access-elements-from-nested-columns"></a>Dostęp do elementów z kolumn zagnieżdżonych
+#### <a name="access-elements-from-nested-columns"></a>Dostęp do elementów z zagnieżdżonych kolumn
 
-Aby uzyskać dostęp do elementów zagnieżdżonych z kolumny zagnieżdżonej, takich jak Struktura, użyj "notacji punktowej", aby łączyć nazwy pól ze ścieżką. Podaj ścieżkę jako column_name w klauzuli WITH funkcji OPENROWSET.
+Aby uzyskać dostęp do zagnieżdżonych elementów z zagnieżdżonej kolumny, takiej jak struktura, użyj "notacji kropkowej" do łączenia nazw pól ze ścieżką. Podaj ścieżkę jako column_name w klauzuli WITH funkcji OPENROWSET.
 
 Przykład fragmentu składni jest następujący:
 
@@ -171,28 +171,28 @@ Przykład fragmentu składni jest następujący:
     'column_name' ::= '[field_name.] field_name'
 ```
 
-Domyślnie funkcja OPENROWSET jest zgodna z nazwą pola źródłowego i ścieżką z nazwami kolumn podanymi w klauzuli WITH. Elementy zawarte na różnych poziomach zagnieżdżania w tym samym źródłowym pliku Parkietu są dostępne za pośrednictwem klauzuli WITH.
+Domyślnie funkcja OPENROWSET jest zgodna z nazwą pola źródłowego i ścieżką z nazwami kolumn podanymi w klauzuli WITH. Do elementów zawartych na różnych poziomach zagnieżdżenia w tym samym pliku źródłowym Parquet można uzyskać dostęp za pośrednictwem klauzuli WITH.
 
 **Zwracane wartości**
 
-- Funkcja zwraca wartość skalarną, taką jak int, decimal i varchar, z określonego elementu i na określonej ścieżce dla wszystkich typów parkietu, które nie znajdują się w grupie Typ zagnieżdżony.
-- Jeśli ścieżka wskazuje na element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, począwszy od górnego elementu na określonej ścieżce. Fragment JSON jest typu varchar(8000).
-- Jeśli właściwości nie można znaleźć w określonym column_name, funkcja zwraca błąd.
-- Jeśli właściwości nie można znaleźć w określonym column_path, w zależności od [trybu path,](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)funkcja zwraca błąd, gdy w trybie ścisłym lub null, gdy w trybie lax.
+- Funkcja zwraca wartość skalarną, taką jak int, Decimal i varchar, z określonego elementu i w określonej ścieżce dla wszystkich typów Parquet, które nie należą do grupy typów zagnieżdżonych.
+- Jeśli ścieżka wskazuje element, który jest typu zagnieżdżonego, funkcja zwraca fragment JSON, zaczynając od górnego elementu w określonej ścieżce. Fragment JSON jest typu varchar (8000).
+- Jeśli nie można odnaleźć właściwości w określonym column_name, funkcja zwróci błąd.
+- Jeśli nie można odnaleźć właściwości w określonym column_path, w zależności od [trybu ścieżki](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)funkcja zwraca błąd w trybie Strict lub null w trybie swobodny.
 
-W przypadku przykładów kwerend przejrzyj sekcję Dostęp z zagnieżdżonych kolumn w artykule [Typy zagnieżdżone Parkiet kwerendy.](query-parquet-nested-types.md#access-elements-from-nested-columns)
+Aby zapoznać się z przykładami zapytań, zapoznaj się z sekcją elementy dostępu z zagnieżdżonych kolumn w artykule [Parquet typów zagnieżdżonych](query-parquet-nested-types.md#access-elements-from-nested-columns) .
 
-#### <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtarzających się kolumn
+#### <a name="access-elements-from-repeated-columns"></a>Dostęp do elementów z powtórzonych kolumn
 
-Aby uzyskać dostęp do elementów z powtarzanej kolumny, takich jak element Array lub Map, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego elementu skalarnego, który należy projektować i dostarczać:
+Aby uzyskać dostęp do elementów z powtórzonej kolumny, takich jak element tablicy lub mapy, użyj funkcji [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego elementu skalarnego, który jest potrzebny do projektu i zapewnia:
 
-- Zagnieżdżona lub powtarzana kolumna jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość dostępu jako drugi parametr
+- Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
-Aby uzyskać dostęp do elementów nieskarzalnych z powtarzanej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego elementu nieskawarowego, który należy projektować i dostarczać:
+Aby uzyskać dostęp do nieskalarnych elementów z powtórzonej kolumny, użyj funkcji [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) dla każdego nieskalarnego elementu, który jest potrzebny do projektu i zapewnia:
 
-- Zagnieżdżona lub powtarzana kolumna jako pierwszy parametr
-- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość dostępu jako drugi parametr
+- Kolumna zagnieżdżona lub powtarzana, jako pierwszy parametr
+- [Ścieżka JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) określająca element lub właściwość do uzyskania dostępu, jako drugi parametr
 
 Zobacz fragment składni poniżej:
 
@@ -207,16 +207,16 @@ Zobacz fragment składni poniżej:
     [AS alias]
 ```
 
-Przykłady kwerend dotyczące uzyskiwania dostępu do elementów z powtarzających się kolumn można znaleźć w artykule [Typy zagnieżdżone parkietu kwerendy.](query-parquet-nested-types.md#access-elements-from-repeated-columns)
+Przykłady zapytań umożliwiające uzyskiwanie dostępu do elementów z powtórzonych kolumn w artykule [Parquet typów zagnieżdżonych zapytania](query-parquet-nested-types.md#access-elements-from-repeated-columns) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wykonywania zapytań o różne typy plików oraz tworzenia i używania widoków, zobacz następujące artykuły:
+Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących różnych typów plików i tworzenia i używania widoków, zobacz następujące artykuły:
 
-- [Zapytanie o pojedynczy plik CSV](query-single-csv-file.md)
+- [Kwerenda pojedynczego pliku CSV](query-single-csv-file.md)
 - [Wykonywanie zapytań względem plików Parquet](query-parquet-files.md)
 - [Wykonywanie zapytań względem plików JSON](query-json-files.md)
 - [Wykonywanie zapytań względem typów zagnieżdżonych Parquet](query-parquet-nested-types.md)
-- [Foldery kwerend i wiele plików CSV](query-folders-multiple-csv-files.md)
-- [Używanie metadanych plików w kwerendach](query-specific-files.md)
+- [Foldery zapytań i wiele plików CSV](query-folders-multiple-csv-files.md)
+- [Korzystanie z metadanych plików w zapytaniach](query-specific-files.md)
 - [Tworzenie widoków i korzystanie z nich](create-use-views.md)

@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie zasad WAF dla witryn przy użyciu programu PowerShell
+title: Konfigurowanie zasad WAF dla poszczególnych witryn przy użyciu programu PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Dowiedz się, jak skonfigurować zasady zapory aplikacji sieci Web dla witryny w bramie aplikacji przy użyciu programu Azure PowerShell.
+description: Informacje na temat konfigurowania zasad zapory aplikacji sieci Web dla poszczególnych lokacji w bramie aplikacji przy użyciu Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -9,19 +9,19 @@ ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 1301db56cab36ae623bb94cfac97b8e4bdb934e5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682477"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurowanie zasad WAF dla witryn przy użyciu programu Azure PowerShell
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Konfigurowanie zasad WAFymi dla poszczególnych witryn przy użyciu Azure PowerShell
 
-Ustawienia zapory aplikacji sieci Web (WAF) są zawarte w zasadach WAF, a w celu zmiany konfiguracji WAF można zmodyfikować zasady WAF.
+Ustawienia zapory aplikacji sieci Web (WAF) są zawarte w zasadach WAF, a zmiana konfiguracji WAF polega na zmodyfikowaniu zasad WAF.
 
-Po skojarzeniu z bramą aplikacji zasady i wszystkie ustawienia są odzwierciedlane globalnie. Tak więc, jeśli masz pięć witryn za WAF, wszystkie pięć witryn są chronione przez tę samą Politykę WAF. Jest to świetne rozwiązanie, jeśli potrzebujesz tych samych ustawień zabezpieczeń dla każdej witryny. Ale można również zastosować zasady WAF do poszczególnych odbiorników, aby umożliwić konfigurację WAF specyficzne dla witryny.
+Po skojarzeniu z Application Gateway zasady i wszystkie ustawienia zostaną odzwierciedlone globalnie. Tak więc, jeśli masz pięć witryn za WAF, wszystkie pięć lokacji są chronione przez te same zasady WAF. Jest to doskonałe rozwiązanie, jeśli potrzebne są te same ustawienia zabezpieczeń dla każdej lokacji. Można jednak zastosować zasady WAFymi do poszczególnych odbiorników, aby umożliwić konfigurację WAF dla konkretnej lokacji.
 
-Stosując zasady WAF do odbiornika, można skonfigurować ustawienia WAF dla poszczególnych witryn bez zmian mających wpływ na każdą witrynę. Najbardziej specyficzna polityka ma precedens. Jeśli istnieje zasada globalna i zasady dla witryny (zasady WAF skojarzone z odbiornikiem), zasady dotyczące witryny zastępują globalne zasady WAF dla tego odbiornika. Na innych słuchaczy bez własnej polityki będzie miała wpływ tylko globalna polityka WAF.
+Stosując zasady WAFymi do odbiornika, można skonfigurować ustawienia WAF dla poszczególnych witryn bez zmian wpływających na każdą lokację. Najważniejsze zasady mają pierwszeństwo. Jeśli istnieją zasady globalne i zasady dotyczące poszczególnych lokacji (zasady WAF skojarzone z odbiornikiem), zasady dla poszczególnych lokacji zastępują globalne zasady WAF dla tego odbiornika. Zasady globalne WAF mają wpływ na inne odbiorniki bez własnych zasad.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -29,24 +29,24 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Konfigurowanie sieci
 > * Tworzenie zasad WAF
 > * Tworzenie bramy aplikacji z włączoną zaporą aplikacji internetowych
-> * Stosowanie zasad WAF globalnie, na lokację i identyfikator URI
+> * Stosowanie zasad WAF globalnie, dla poszczególnych witryn i według identyfikatorów URI
 > * Tworzenie zestawu skalowania maszyn wirtualnych
 > * Tworzenie konta magazynu i konfigurowanie diagnostyki
 > * Testowanie bramy aplikacji
 
 ![Przykład zapory aplikacji internetowych](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać programu PowerShell lokalnie, ten artykuł wymaga modułu programu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten artykuł będzie wymagał modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Login-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure przy użyciu [programu New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów platformy Azure przy użyciu polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 $rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -54,7 +54,7 @@ $rgname = New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Tworzenie zasobów sieciowych 
 
-Utwórz konfiguracje podsieci o nazwie *myBackendSubnet* i *myAGSubnet* za pomocą [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Utwórz sieć wirtualną o nazwie *myVNet* przy użyciu [sieci New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) z konfiguracjami podsieci. I wreszcie, utworzyć publiczny adres IP o nazwie *myAGPublicIPAddress* za pomocą [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Te zasoby służą do zapewniania łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami.
+Utwórz konfiguracje podsieci o nazwie *myBackendSubnet* i *myAGSubnet* przy użyciu polecenia [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Utwórz sieć wirtualną o nazwie *myVNet* przy użyciu polecenia [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) z konfiguracjami podsieci. Na koniec Utwórz publiczny adres IP o nazwie *myAGPublicIPAddress* przy użyciu polecenia [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Te zasoby służą do zapewniania łączności sieciowej z bramą aplikacji i skojarzonymi z nią zasobami.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -82,7 +82,7 @@ $pip = New-AzPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-W tej sekcji utworzysz zasoby, które obsługują bramę aplikacji, a następnie ostatecznie utwórz ją i WAF. Zasoby, które utworzysz, obejmują:
+W tej sekcji utworzysz zasoby obsługujące bramę aplikacji, a następnie utwórz ją i WAF. Zasoby, które utworzysz, obejmują:
 
 - *Konfiguracje adresów IP i port frontonu* — umożliwiają skojarzenie wcześniej utworzonej podsieci z bramą aplikacji i przypisanie portu, który ma być używany do uzyskiwania do niej dostępu.
 - *Domyślna pula* — wszystkie bramy aplikacji muszą mieć co najmniej jedną pulę serwerów zaplecza.
@@ -90,7 +90,7 @@ W tej sekcji utworzysz zasoby, które obsługują bramę aplikacji, a następnie
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Tworzenie konfiguracji adresów IP i portu frontonu
 
-Skojarz *myAGSubnet,* który został wcześniej utworzony z bramą aplikacji przy użyciu [new-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Przypisz *myAGPublicIPAddress* do bramy aplikacji za pomocą [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
+Skojarz *myAGSubnet* , który został wcześniej utworzony do bramy aplikacji przy użyciu polecenia [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Przypisz *myAGPublicIPAddress* do bramy aplikacji przy użyciu polecenia [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -118,7 +118,7 @@ $frontendport8080 = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Tworzenie puli zaplecza i ustawień
 
-Utwórz pulę zaplecza o nazwie *appGatewayBackendPool* dla bramy aplikacji przy użyciu [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Skonfiguruj ustawienia pul adresów wewnętrznej bazy danych przy użyciu [funkcji New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
+Utwórz pulę zaplecza o nazwie *appGatewayBackendPool* dla bramy aplikacji za pomocą polecenia [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Skonfiguruj ustawienia dla pul adresów zaplecza za pomocą polecenia [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -134,9 +134,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-two-waf-policies"></a>Tworzenie dwóch zasad WAF
 
-Utwórz dwie zasady WAF, jedną globalną i jedną na witrynę, i dodaj reguły niestandardowe. 
+Utwórz dwie zasady WAF, jedną globalną i jedną dla każdej witryny oraz Dodaj reguły niestandardowe. 
 
-Zasady dotyczące witryny ograniczają limit przekazywania plików do 5 MB. Wszystko inne jest takie samo.
+Zasady dotyczące poszczególnych lokacji ograniczają limit przekazywania plików do 5 MB. Wszystko inne jest takie samo.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -194,7 +194,7 @@ $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
 
 Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do pul adresów zaplecza. W tym przykładzie utworzysz podstawowy odbiornik, który nasłuchuje ruchu pod głównym adresem URL. 
 
-Utwórz odbiornik o nazwie *mydefaultListener* przy użyciu [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) z konfiguracją frontendu i portem frontendu, który został wcześniej utworzony. Reguła jest wymagana, aby odbiornik wiedział, której puli zaplecza używać dla ruchu przychodzącego. Utwórz podstawową regułę o nazwie *rule1* przy użyciu [funkcji New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Utwórz odbiornik o nazwie *mydefaultListener* przy użyciu polecenia [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) z konfiguracją frontonu i wcześniej utworzonym portem frontonu. Reguła jest wymagana, aby odbiornik wiedział, której puli zaplecza używać dla ruchu przychodzącego. Utwórz podstawową regułę o nazwie *RULE1* przy użyciu polecenia [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $globalListener = New-AzApplicationGatewayHttpListener `
@@ -227,7 +227,7 @@ $frontendRuleSite = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>Utwórz bramę aplikacji z zaporą aplikacji internetowych
 
-Teraz, gdy utworzono niezbędne zasoby pomocnicze, określ parametry bramy aplikacji za pomocą [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Określ zasady zapory za pomocą [new-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). A następnie utworzyć bramę aplikacji o nazwie *myAppGateway* za pomocą [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Po utworzeniu niezbędnych zasobów pomocniczych Określ parametry bramy aplikacji przy użyciu polecenia [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Określ zasady zapory za pomocą polecenia [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). Następnie utwórz bramę aplikacji o nazwie *myAppGateway* przy użyciu polecenia [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -250,9 +250,9 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Stosowanie zasad dotyczących identyfikatoraURI
+### <a name="apply-a-per-uri-policy"></a>Zastosowanie zasad dla identyfikatora URI
 
-Aby zastosować zasady na identyfikator URI, wystarczy utworzyć nową zasadę i zastosować ją do konfiguracji reguł ścieżki. 
+Aby zastosować zasady dotyczące identyfikatorów URI, wystarczy utworzyć nowe zasady i zastosować je do konfiguracji reguły ścieżki. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -368,11 +368,11 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Tworzenie konta magazynu i konfigurowanie diagnostyki
 
-W tym artykule brama aplikacji używa konta magazynu do przechowywania danych do celów wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub.
+W tym artykule Brama aplikacji używa konta magazynu do przechowywania danych na potrzeby wykrywania i zapobiegania. Do rejestrowania danych można też użyć dzienników usługi Azure Monitor lub usługi Event Hub.
 
 ### <a name="create-the-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz konto magazynu o nazwie *myagstore1* przy użyciu [new-azStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+Utwórz konto magazynu o nazwie *myagstore1* przy użyciu polecenia [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
 ```azurepowershell-interactive
 $storageAccount = New-AzStorageAccount `
@@ -384,7 +384,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### <a name="configure-diagnostics"></a>Konfigurowanie diagnostyki
 
-Skonfiguruj diagnostykę do rejestrowania danych w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog przy użyciu [set-azdiagnosticsetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
+Skonfiguruj diagnostykę, aby rejestrować dane w dziennikach ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog i ApplicationGatewayFirewallLog przy użyciu polecenia [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Można użyć [Get-AzPublicIPAddress,](/powershell/module/az.network/get-azpublicipaddress) aby uzyskać publiczny adres IP bramy aplikacji. Następnie użyj tego adresu IP, aby zwijać się (wymień 1.1.1.1 pokazane poniżej). 
+Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Następnie użyj tego adresu IP do zwinięcia przed (Zastąp 1.1.1.1 pokazany poniżej). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -437,7 +437,7 @@ curl 1.1.1.1/URIAllow?1=1
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebna, usuń grupę zasobów, bramę aplikacji i wszystkie powiązane zasoby za pomocą [programu Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+Gdy grupa zasobów, Brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupAG

@@ -1,6 +1,6 @@
 ---
-title: Format JSON w fabryce danych platformy Azure
-description: W tym temacie opisano sposób postępowania z formatem JSON w usłudze Azure Data Factory.
+title: Format JSON w Azure Data Factory
+description: W tym temacie opisano sposób postępowania z formatem JSON w Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,31 +10,31 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686277"
 ---
-# <a name="json-format-in-azure-data-factory"></a>Format JSON w fabryce danych platformy Azure
+# <a name="json-format-in-azure-data-factory"></a>Format JSON w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Ten artykuł należy wykonać, aby **przeanalizować pliki JSON lub zapisać je w formacie JSON**. 
+Postępuj zgodnie z tym artykułem, jeśli chcesz **przeanalizować pliki JSON lub zapisać dane w formacie JSON**. 
 
-Format JSON jest obsługiwany dla następujących łączników: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), System [plików](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)i [SFTP](connector-sftp.md).
+Format JSON jest obsługiwany dla następujących łączników: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [system plików](connector-file-system.md), [FTP](connector-ftp.md), [Magazyn w chmurze Google](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)i [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Właściwości zestawu danych
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [Zestawy danych.](concepts-datasets-linked-services.md) Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych JSON.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz artykuł [zestawy danych](concepts-datasets-linked-services.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez zestaw danych JSON.
 
 | Właściwość         | Opis                                                  | Wymagany |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Właściwość typu zestawu danych musi być ustawiona na **Json**. | Tak      |
-| location         | Ustawienia lokalizacji plików. Każdy łącznik oparty na plikach ma swój własny `location`typ lokalizacji i obsługiwane właściwości w obszarze . **Zobacz szczegóły w sekcji właściwości łącznika - > Dataset .** | Tak      |
-| encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Nie       |
-| kompresja | Grupa właściwości do skonfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz wykonać kompresję/dekompresję podczas wykonywania działania. | Nie |
-| type | Koder-dekodusz kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**lub **lz4**. , aby użyć go podczas zapisywania pliku. Wartość domyślna nie jest skompresowana.<br>**Uwaga** obecnie Copy activity nie obsługuje "snappy" & "lz4", a mapowanie przepływu danych nie obsługuje "ZipDeflate".<br>**Uwaga** Podczas korzystania z działania kopiowania do dekompresji plików ZipDeflate i zapisu do magazynu `<path specified in dataset>/<folder named as source zip file>/`danych ujścia opartego na plikach pliki zostaną wyodrębnione do folderu: . | Nie.  |
-| poziom | Stopień kompresji. <br>Dozwolone wartości są **optymalne** lub **najszybsze**.<br>- **Najszybszy:** Operacja kompresji powinna zakończyć się tak szybko, jak to możliwe, nawet jeśli wynikowy plik nie jest optymalnie skompresowany.<br>- **Optymalne**: Operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [Poziom kompresji.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Nie       |
+| type             | Właściwość Type zestawu danych musi być ustawiona na wartość **JSON**. | Tak      |
+| location         | Ustawienia lokalizacji plików. Każdy Łącznik oparty na plikach ma własny typ lokalizacji i obsługiwane właściwości w sekcji `location`. **Zobacz szczegóły w sekcji łącznik — > właściwości zestawu danych**. | Tak      |
+| encodingName     | Typ kodowania używany do odczytu/zapisu plików testowych. <br>Dozwolone wartości są następujące: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Nie       |
+| kompresja | Grupa właściwości do konfigurowania kompresji plików. Skonfiguruj tę sekcję, jeśli chcesz przeprowadzić kompresję/dekompresowanie podczas wykonywania działania. | Nie |
+| type | Koder-dekoder kompresji używany do odczytu/zapisu plików JSON. <br>Dozwolone wartości to **bzip2**, **gzip**, **Wklęśnięcie**, **ZipDeflate**, **przyciąganie**lub **lz4**. do użycia podczas zapisywania pliku. Wartość domyślna nie jest skompresowana.<br>Działanie kopiowania w **tej chwili nie** obsługuje "przyciągania" & "lz4", a przepływ danych mapowania nie obsługuje "ZipDeflate".<br>**Uwaga** w przypadku używania działania kopiowania do dekompresowania plików ZipDeflate i zapisywania w magazynie danych ujścia opartych na plikach pliki zostaną wyodrębnione do folderu: `<path specified in dataset>/<folder named as source zip file>/`. | Nie.  |
+| poziom | Współczynnik kompresji. <br>Dozwolone wartości to **optymalne** lub **najszybszy**.<br>- **Najszybsze:** Operacja kompresji powinna zostać ukończona tak szybko, jak to możliwe, nawet jeśli plik nie jest optymalnie kompresowany.<br>- **Optymalnie**: operacja kompresji powinna być optymalnie skompresowana, nawet jeśli operacja trwa dłużej. Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nie       |
 
 Poniżej znajduje się przykład zestawu danych JSON w usłudze Azure Blob Storage:
 
@@ -64,32 +64,32 @@ Poniżej znajduje się przykład zestawu danych JSON w usłudze Azure Blob Stora
 
 ## <a name="copy-activity-properties"></a>Właściwości działania kopiowania
 
-Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz [Pipelines](concepts-pipelines-activities.md) artykułu. Ta sekcja zawiera listę właściwości obsługiwanych przez źródło JSON i ujście.
+Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania działań, zobacz artykuł [potoki](concepts-pipelines-activities.md) . Ta sekcja zawiera listę właściwości obsługiwanych przez źródło i ujścia danych JSON.
 
-### <a name="json-as-source"></a>JSON jako źródło
+### <a name="json-as-source"></a>KOD JSON jako źródło
 
-Następujące właściwości są obsługiwane w sekcji *** \*\* źródła*** działania kopiowania.
-
-| Właściwość      | Opis                                                  | Wymagany |
-| ------------- | ------------------------------------------------------------ | -------- |
-| type          | Właściwość typu źródła działania kopiowania musi być ustawiona na **JSONSource**. | Tak      |
-| sklepyWystawy | Grupa właściwości dotyczące sposobu odczytywania danych z magazynu danych. Każdy łącznik oparty na plikach ma `storeSettings`własne obsługiwane ustawienia odczytu w obszarze . **Zobacz szczegóły w artykule łącznika -> Sekcji Właściwości działania kopiowania**. | Nie       |
-
-### <a name="json-as-sink"></a>JSON jako zlew
-
-Następujące właściwości są obsługiwane w sekcji *** \*ujście działania kopiowania.\* ***
+W sekcji *** \*źródło\* *** działania kopiowania są obsługiwane następujące właściwości.
 
 | Właściwość      | Opis                                                  | Wymagany |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Właściwość typu źródła działania kopiowania musi być ustawiona na **JSONSink**. | Tak      |
-| formatYStawienia | Grupa właściwości. Zapoznaj się z poniższą tabelą **ustawień zapisu JSON.** | Nie       |
-| sklepyWystawy | Grupa właściwości dotyczące sposobu zapisywania danych w magazynie danych. Każdy łącznik oparty na plikach ma `storeSettings`własne obsługiwane ustawienia zapisu w obszarze . **Zobacz szczegóły w artykule łącznika -> Sekcji Właściwości działania kopiowania**. | Nie       |
+| type          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSource**. | Tak      |
+| storeSettings | Grupa właściwości do odczytywania danych z magazynu danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia odczytu w obszarze `storeSettings`. **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
 
-Obsługiwane **ustawienia zapisu JSON** w obszarze: `formatSettings`
+### <a name="json-as-sink"></a>JSON jako ujścia
+
+W sekcji *** \*ujścia\* *** działania kopiowania są obsługiwane następujące właściwości.
+
+| Właściwość      | Opis                                                  | Wymagany |
+| ------------- | ------------------------------------------------------------ | -------- |
+| type          | Właściwość Type źródła działania Copy musi być ustawiona na wartość **JSONSink**. | Tak      |
+| formatSettings | Grupa właściwości. Zapoznaj się z tabelą **ustawień zapisu JSON** poniżej. | Nie       |
+| storeSettings | Grupa właściwości do zapisywania danych w magazynie danych. Każdy Łącznik oparty na plikach ma własne obsługiwane ustawienia zapisu w obszarze `storeSettings`. **Zobacz szczegóły w artykule łącznik — > właściwości działania kopiowania**. | Nie       |
+
+Obsługiwane **Ustawienia zapisu** w formacie `formatSettings`json w obszarze:
 
 | Właściwość      | Opis                                                  | Wymagany                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | Typ formatuStawienia muszą być ustawione na **JsonWriteSettings**. | Tak                                                   |
+| type          | Typ formatSettings musi być ustawiony na **JsonWriteSettings**. | Tak                                                   |
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 
 ### <a name="json-file-patterns"></a>Wzorce plików JSON
@@ -99,7 +99,7 @@ Działanie kopiowania może automatycznie wykrywać i analizować następujące 
 - **Typ I: setOfObjects**
 
     Każdy plik zawiera pojedynczy obiekt lub wiele obiektów rozdzielonych wierszami bądź połączonych. 
-    Gdy ta opcja jest wybrana w ujściu działania kopiowania, działanie kopiowania tworzy pojedynczy plik JSON z każdym obiektem w wierszu (rozdzielane linią).
+    Po wybraniu tej opcji w obiekcie ujścia działania kopiowania działanie kopiowania tworzy pojedynczy plik JSON z każdym obiektem w wierszu (rozdzielonym wierszem).
 
     * **przykład kodu JSON z pojedynczym obiektem**
 
@@ -186,25 +186,25 @@ Działanie kopiowania może automatycznie wykrywać i analizować następujące 
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
-Typy plików JSON mogą być używane zarówno jako ujście, jak i źródło w przepływie danych mapowania.
+Typy plików JSON mogą być używane jako ujścia i źródło w przepływie danych mapowania.
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Tworzenie struktur JSON w kolumnie pochodnej
 
-Do przepływu danych można dodać złożoną kolumnę za pośrednictwem konstruktora wyrażeń kolumn wyprowadzonych. W transformacji kolumny pochodnej dodaj nową kolumnę i otwórz konstruktora wyrażeń, klikając niebieskie pole. Aby uczynić kolumnę złożoną, można wprowadzić strukturę JSON ręcznie lub użyć środowiska użytkownika, aby interaktywnie dodać podkolumny.
+Do przepływu danych można dodać kolumnę złożoną za pośrednictwem konstruktora wyrażeń kolumn pochodnych. W transformację kolumn pochodnych Dodaj nową kolumnę, a następnie otwórz konstruktora wyrażeń, klikając niebieską ramkę. Aby utworzyć kolumnę złożoną, można wprowadzić strukturę JSON ręcznie lub użyć środowiska użytkownika do interaktywnego dodawania podkolumn.
 
-#### <a name="using-the-expression-builder-ux"></a>Korzystanie z ux konstruktora wyrażeń
+#### <a name="using-the-expression-builder-ux"></a>Korzystanie z środowiska programu Expression Builder
 
-W okienku bocznym schematu wyjściowego umieść wskaźnik myszy na kolumnie i kliknij ikonę plus. Wybierz **dodaj podkolumnę,** aby kolumna była typem złożonym.
+W okienku po stronie schematu danych wyjściowych Umieść kursor nad kolumną i kliknij ikonę znaku plus. Wybierz pozycję **Dodaj podkolumnę** , aby utworzyć kolumnę typu złożonego.
 
-![Dodaj podkolumny](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
+![Dodaj podkolumnę](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
 
-W ten sam sposób można dodać dodatkowe kolumny i podkolumny. Dla każdego pola niezłowieczne wyrażenie można dodać w edytorze wyrażeń po prawej stronie.
+W ten sam sposób można dodać dodatkowe kolumny i podkolumny. W przypadku każdego niezłożonej pola wyrażenie może być dodane w edytorze wyrażeń z prawej strony.
 
 ![Kolumna złożona](media/data-flow/complexcolumn.png "Kolumna złożona")
 
-#### <a name="entering-the-json-structure-manually"></a>Ręczne wprowadzanie konstrukcji JSON
+#### <a name="entering-the-json-structure-manually"></a>Ręczne wprowadzanie struktury JSON
 
-Aby ręcznie dodać strukturę JSON, dodaj nową kolumnę i wprowadź wyrażenie w edytorze. Wyrażenie jest zgodne z następującym ogólnym formatem:
+Aby ręcznie dodać strukturę JSON, Dodaj nową kolumnę i wprowadź wyrażenie w edytorze. Wyrażenie jest zgodne z następującym formatem ogólnym:
 
 ```
 @(
@@ -215,7 +215,7 @@ Aby ręcznie dodać strukturę JSON, dodaj nową kolumnę i wprowadź wyrażenie
 )
 ```
 
-Jeśli to wyrażenie zostało wprowadzone dla kolumny o nazwie "complexColumn", a następnie zostanie zapisany do ujścia jako następujące JSON:
+Jeśli to wyrażenie zostało wprowadzone dla kolumny o nazwie "complexColumn", zostanie ona zapisywana w ujścia jako następujący kod JSON:
 
 ```
 {
@@ -256,11 +256,11 @@ Jeśli to wyrażenie zostało wprowadzone dla kolumny o nazwie "complexColumn", 
 
 ### <a name="source-format-options"></a>Opcje formatu źródła
 
-Użycie zestawu danych JSON jako źródła w przepływie danych umożliwia ustawienie pięciu dodatkowych ustawień. Te ustawienia można znaleźć w obszarze **ustawienia JSON** na karcie **Opcje źródłowe.**  
+Używanie zestawu danych JSON jako źródła w przepływie danych pozwala na ustawienie pięciu dodatkowych ustawień. Te ustawienia można znaleźć w obszarze **Ustawienia JSON** zgodnie z opisem na karcie **Opcje źródła** .  
 
 ![Ustawienia JSON](media/data-flow/json-settings.png "Ustawienia JSON")
 
-#### <a name="default"></a>Domyślne
+#### <a name="default"></a>Domyślny
 
 Domyślnie dane JSON są odczytywane w następującym formacie.
 
@@ -272,7 +272,7 @@ Domyślnie dane JSON są odczytywane w następującym formacie.
 
 #### <a name="single-document"></a>Pojedynczy dokument
 
-Jeśli **wybrano pojedynczy dokument,** przepływy danych mapowania odczytują jeden dokument JSON z każdego pliku. 
+W przypadku wybrania **jednego dokumentu** mapowanie przepływów danych odczytuje jeden dokument JSON z każdego pliku. 
 
 ``` json
 File1.json
@@ -289,11 +289,11 @@ File3.json
 }
 ```
 > [!NOTE]
-> Jeśli przepływy danych zgłosić błąd informujący "corrupt_record" podczas wyświetlania podglądu danych JSON, jest prawdopodobne, że dane zawiera jeden dokument w pliku JSON. Ustawienie "pojedynczego dokumentu" powinno usunąć ten błąd.
+> Jeśli przepływy danych zgłaszają błąd informujący o błędzie "corrupt_record" podczas wyświetlania podglądu danych JSON, prawdopodobnie dane zawierają pojedynczy dokument w pliku JSON. Ustawienie "pojedynczego dokumentu" powinno wyczyścić Ten błąd.
 
-#### <a name="unquoted-column-names"></a>Niecytowane nazwy kolumn
+#### <a name="unquoted-column-names"></a>Nazwy kolumn bez cytowania
 
-Jeśli zaznaczone są **nazwy kolumn niecytowanych,** przepływ danych mapowania odczytuje kolumny JSON, które nie są otoczone cudzysłowami. 
+Jeśli wybrano **nazwy kolumn bez cudzysłowów** , mapowanie przepływów danych odczytuje kolumny JSON, które nie są ujęte w cudzysłowy. 
 
 ```
 { json: "record 1" }
@@ -301,9 +301,9 @@ Jeśli zaznaczone są **nazwy kolumn niecytowanych,** przepływ danych mapowania
 { json: "record 3" }
 ```
 
-#### <a name="has-comments"></a>Ma komentarze
+#### <a name="has-comments"></a>Ma Komentarze
 
-Wybierz pozycję **Ma komentarze,** jeśli dane JSON mają komentowanie w stylu C lub C++.
+Zaznacz pole **ma Komentarze** , jeśli dane JSON mają komentarz w stylu C lub C++.
 
 ``` json
 { "json": /** comment **/ "record 1" }
@@ -311,9 +311,9 @@ Wybierz pozycję **Ma komentarze,** jeśli dane JSON mają komentowanie w stylu 
 { /** comment **/ "json": "record 3" }
 ```
 
-#### <a name="single-quoted"></a>Cytowana pojedyncza
+#### <a name="single-quoted"></a>Pojedyncze cudzysłowy
 
-Wybierz **opcję Pojedyncze cytowane,** jeśli pola json i wartości używają cudzysłowów pojedynczych zamiast cudzysłowów podwójnych.
+Wybierz opcję **pojedyncze cudzysłowy** , jeśli pola i wartości JSON używają apostrofów zamiast podwójnych cudzysłowów.
 
 ```
 { 'json': 'record 1' }
@@ -321,9 +321,9 @@ Wybierz **opcję Pojedyncze cytowane,** jeśli pola json i wartości używają c
 { 'json': 'record 3' }
 ```
 
-#### <a name="backslash-escaped"></a>Ukośnik odwrotny uciekł
+#### <a name="backslash-escaped"></a>Odwrócony ukośnik odwrotny
 
-Wybierz **Pojedynczy cudzysłow,** jeśli ukośniki odwrotne są używane do usuwania znaków w danych JSON.
+Wybierz opcję **pojedyncze cudzysłowy** , jeśli ukośniki odwrotne są używane do ucieczki znaków w danych JSON.
 
 ```
 { "json": "record 1" }
@@ -333,7 +333,7 @@ Wybierz **Pojedynczy cudzysłow,** jeśli ukośniki odwrotne są używane do usu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Omówienie działania kopiowania](copy-activity-overview.md)
+- [Przegląd działania kopiowania](copy-activity-overview.md)
 - [Mapowanie przepływu danych](concepts-data-flow-overview.md)
-- [Działanie odnośnika](control-flow-lookup-activity.md)
+- [Działanie Lookup](control-flow-lookup-activity.md)
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)

@@ -1,50 +1,50 @@
 ---
-title: Jak uaktualnić agenta zależności usługi Azure Monitor dla maszyn wirtualnych
-description: W tym artykule opisano sposób uaktualniania agenta zależności usługi Azure Monitor dla maszyn wirtualnych przy użyciu wiersza polecenia, kreatora instalacji i innych metod.
+title: Jak uaktualnić agenta zależności Azure Monitor dla maszyn wirtualnych
+description: W tym artykule opisano sposób uaktualniania agenta zależności Azure Monitor dla maszyn wirtualnych przy użyciu wiersza polecenia, Kreatora instalacji i innych metod.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617846"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Jak uaktualnić agenta zależności usługi Azure Monitor dla maszyn wirtualnych
+# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Jak uaktualnić agenta zależności Azure Monitor dla maszyn wirtualnych
 
-Po początkowym wdrożeniu agenta zależności usługi Azure Monitor dla maszyn wirtualnych są wydawane aktualizacje, które zawierają poprawki błędów lub obsługę nowych funkcji lub funkcji.  Ten artykuł pomaga zrozumieć dostępne metody i jak przeprowadzić uaktualnienie ręcznie lub za pośrednictwem automatyzacji.
+Po początkowym wdrożeniu agenta zależności Azure Monitor dla maszyn wirtualnych zostaną wydane aktualizacje zawierające poprawki błędów lub obsługę nowych funkcji lub funkcji.  Ten artykuł ułatwia zapoznanie się z dostępnymi metodami oraz jak przeprowadzić uaktualnienie ręcznie lub za pomocą automatyzacji.
 
-## <a name="upgrade-options"></a>Opcje uaktualnienia 
+## <a name="upgrade-options"></a>Opcje uaktualniania 
 
-Agent zależności dla systemów Windows i Linux można uaktualnić do najnowszej wersji ręcznie lub automatycznie w zależności od scenariusza wdrażania i środowiska, w które działa komputer. Następujące metody mogą służyć do uaktualnienia agenta.
+Agenta zależności dla systemów Windows i Linux można uaktualnić do najnowszej wersji ręcznie lub automatycznie, w zależności od scenariusza wdrażania i środowiska, w którym jest uruchomiona maszyna. Do uaktualnienia agenta można użyć poniższych metod.
 
 |Środowisko |Metoda instalacji |Metoda uaktualniania |
 |------------|--------------------|---------------|
-|Maszyna wirtualna platformy Azure | Rozszerzenie maszyny Wirtualnej agenta zależności dla [systemów Windows](../../virtual-machines/extensions/agent-dependency-windows.md) i [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agent jest automatycznie uaktualniany domyślnie, chyba że szablon usługi Azure Resource Manager został skonfigurowany do rezygnacji, ustawiając właściwość *autoUpgradeMinorVersion* na **false**. Uaktualnienie dla wersji pomocniczej, w której automatyczne uaktualnianie jest wyłączone, a uaktualnienie wersji głównej odbywa się tą samą metodą — odinstaluj i zainstaluj ponownie rozszerzenie. |
-| Niestandardowe obrazy maszyn wirtualnych platformy Azure | Ręczna instalacja agenta zależności dla systemu Windows/Linux | Aktualizowanie maszyn wirtualnych do najnowszej wersji agenta musi być wykonywane z wiersza polecenia z uruchomionym pakietem instalatora Windows lub pakietem skryptów powłoki samorozłącznej i instalowalnej systemu Linux.|
-| Maszyny wirtualne spoza platformy Azure | Ręczna instalacja agenta zależności dla systemu Windows/Linux | Aktualizowanie maszyn wirtualnych do najnowszej wersji agenta musi być wykonywane z wiersza polecenia z uruchomionym pakietem instalatora Windows lub pakietem skryptów powłoki samorozłącznej i instalowalnej systemu Linux. |
+|Maszyna wirtualna platformy Azure | Rozszerzenie maszyny wirtualnej agenta zależności dla [systemów Windows](../../virtual-machines/extensions/agent-dependency-windows.md) i [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agent jest automatycznie uaktualniany, chyba że skonfigurowano szablon Azure Resource Manager, aby zrezygnował z ustawienia właściwości *włączoną flagą autoupgrademinorversion* na **wartość false**. Uaktualnienie wersji pomocniczej, w której funkcja autouaktualnienia jest wyłączona, a uaktualnienie wersji głównej jest zgodne z tą samą metodą — Odinstaluj i ponownie zainstaluj rozszerzenie. |
+| Niestandardowe obrazy maszyn wirtualnych platformy Azure | Ręczna instalacja agenta zależności dla systemu Windows/Linux | Aktualizowanie maszyn wirtualnych do najnowszej wersji agenta należy wykonać z poziomu wiersza polecenia z uruchomionym pakietem Instalatora Windows lub z samowyodrębniającym się zestawem skryptów powłoki programu Linux.|
+| Maszyny wirtualne spoza platformy Azure | Ręczna instalacja agenta zależności dla systemu Windows/Linux | Aktualizowanie maszyn wirtualnych do najnowszej wersji agenta należy wykonać z poziomu wiersza polecenia z uruchomionym pakietem Instalatora Windows lub z samowyodrębniającym się zestawem skryptów powłoki programu Linux. |
 
-## <a name="upgrade-windows-agent"></a>Uaktualnienie agenta systemu Windows 
+## <a name="upgrade-windows-agent"></a>Uaktualnij agenta systemu Windows 
 
-Aby zaktualizować agenta na maszynie Wirtualnej systemu Windows do najnowszej wersji, która nie została zainstalowana przy użyciu rozszerzenia maszyny Wirtualnej agenta zależności, należy uruchomić z wiersza polecenia, skryptu lub innego rozwiązania automatyzacji lub przy użyciu Kreatora instalacji InstallDependencyAgent-Windows.exe.  
+Aby zaktualizować agenta na maszynie wirtualnej z systemem Windows do najnowszej wersji, która nie jest zainstalowana przy użyciu rozszerzenia maszyny wirtualnej agenta zależności, można uruchomić polecenie z wiersza polecenia, skryptu lub innego rozwiązania do automatyzacji lub przy użyciu Kreatora instalacji programu InstallDependencyAgent-Windows. exe.  
 
-Możesz pobrać najnowszą wersję agenta systemu Windows [tutaj](https://aka.ms/dependencyagentwindows).
+W [tym miejscu](https://aka.ms/dependencyagentwindows)możesz pobrać najnowszą wersję agenta systemu Windows.
 
 ### <a name="using-the-setup-wizard"></a>Korzystanie z Kreatora instalacji
 
-1. Zaloguj się do komputera przy użyciu konta z uprawnieniami administracyjnymi.
+1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Uruchom **program InstallDependencyAgent-Windows.exe,** aby uruchomić Kreatora instalacji.
+2. Wykonaj **InstallDependencyAgent-Windows. exe** , aby uruchomić Kreatora instalacji.
    
-3. Postępuj zgodnie z Kreatorem **instalacji agenta zależności,** aby odinstalować poprzednią wersję agenta zależności, a następnie zainstalować najnowszą wersję.
+3. Wykonaj czynności opisane w kreatorze **instalacji agent zależności** , aby odinstalować poprzednią wersję agenta zależności, a następnie zainstalować najnowszą wersję.
 
 
 ### <a name="from-the-command-line"></a>Z wiersza polecenia
 
-1. Zaloguj się do komputera przy użyciu konta z uprawnieniami administracyjnymi.
+1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
 2. Uruchom następujące polecenie.
 
@@ -52,22 +52,22 @@ Możesz pobrać najnowszą wersję agenta systemu Windows [tutaj](https://aka.ms
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
-    Parametr `/RebootMode=manual` zapobiega automatycznemu ponownemu uruchomieniu komputera przez uaktualnienie, jeśli niektóre procesy używają plików z poprzedniej wersji i mają na nich blokadę. 
+    Ten `/RebootMode=manual` parametr uniemożliwia automatyczne ponowne uruchomienie komputera przez proces uaktualniania, jeśli niektóre procesy używają plików z poprzedniej wersji i mają blokadę. 
 
-3. Aby potwierdzić, że uaktualnienie zakończyło się pomyślnie, sprawdź `install.log` szczegółowe informacje o konfiguracji. Katalog dziennika to *%Programfiles%\Agent zależności firmy Microsoft\logi*.
+3. Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, Sprawdź szczegółowe informacje `install.log` dotyczące instalacji. Katalog dziennika to *%ProgramFiles%\Microsoft Dependency Agent\logs*.
 
-## <a name="upgrade-linux-agent"></a>Uaktualnienie agenta Linuksa 
+## <a name="upgrade-linux-agent"></a>Uaktualnij agenta systemu Linux 
 
-Uaktualnienie z wcześniejszych wersji agenta zależności w systemie Linux jest obsługiwane i wykonywane zgodnie z tym samym poleceniem co nowa instalacja.
+Uaktualnienie z wcześniejszych wersji agenta zależności w systemie Linux jest obsługiwane i wykonywane przy użyciu tego samego polecenia, co w przypadku nowej instalacji.
 
-Możesz pobrać najnowszą wersję agenta Linuksa [stąd](https://aka.ms/dependencyagentlinux).
+W [tym miejscu](https://aka.ms/dependencyagentlinux)możesz pobrać najnowszą wersję agenta systemu Linux.
 
-1. Zaloguj się do komputera przy użyciu konta z uprawnieniami administracyjnymi.
+1. Zaloguj się na komputerze przy użyciu konta z uprawnieniami administracyjnymi.
 
-2. Uruchom następujące polecenie`sh InstallDependencyAgent-Linux64.bin -s`jako katalog główny . 
+2. Uruchom następujące polecenie jako element główny`sh InstallDependencyAgent-Linux64.bin -s`. 
 
-Jeśli agent zależności nie może uruchomić, sprawdź dzienniki szczegółowe informacje o błędzie. W agentach systemu Linux katalog dziennika to */var/opt/microsoft/dependency-agent/log*. 
+Jeśli uruchomienie agenta zależności nie powiedzie się, Sprawdź dzienniki, aby uzyskać szczegółowe informacje o błędzie. W przypadku agentów systemu Linux katalog dziennika to */var/opt/Microsoft/Dependency-Agent/log*. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz zatrzymać monitorowanie maszyn wirtualnych przez pewien czas lub całkowicie usunąć usługę Azure Monitor dla maszyn wirtualnych, zobacz [Wyłączanie monitorowania maszyn wirtualnych w usłudze Azure Monitor dla maszyn wirtualnych.](vminsights-optout.md)
+Jeśli chcesz zatrzymać monitorowanie maszyn wirtualnych przez pewien czas lub całkowicie usunąć Azure Monitor dla maszyn wirtualnych, zobacz temat [wyłączanie monitorowania maszyn wirtualnych w Azure monitor dla maszyn wirtualnych](vminsights-optout.md).

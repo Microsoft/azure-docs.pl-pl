@@ -1,45 +1,45 @@
 ---
 title: Modele
-description: W tym artykule opisano, jaki jest model w renderowaniu zdalnym platformy Azure
+description: Opisuje, co model znajduje się w usłudze Azure Remote rendering
 author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617957"
 ---
 # <a name="models"></a>Modele
 
-*Model* w renderowaniu zdalnym platformy Azure odnosi się do pełnej reprezentacji obiektów, składającej się z [jednostek](entities.md) i [składników.](components.md) Modele są głównym sposobem, aby uzyskać niestandardowe dane do usługi zdalnego renderowania.
+*Model* w ramach renderowania zdalnego na platformie Azure odnosi się do pełnej reprezentacji obiektu, składającej się z [jednostek](entities.md) i [składników](components.md). Modele są głównym sposobem uzyskiwania niestandardowych danych do zdalnej usługi renderowania.
 
 ## <a name="model-structure"></a>Struktura modelu
 
-Model ma dokładnie jedną [jednostkę](entities.md) jako węzeł główny. Poniżej, że może mieć dowolną hierarchię jednostek podrzędnych. Podczas ładowania modelu zwracane jest odwołanie do tej jednostki głównej.
+Model ma dokładnie jedną [jednostkę](entities.md) jako węzeł główny. Poniżej może istnieć arbitralna hierarchia jednostek podrzędnych. Podczas ładowania modelu zwracane jest odwołanie do tej jednostki głównej.
 
-Każda jednostka może mieć [dołączone składniki.](components.md) W najczęstszym przypadku jednostki mają *MeshComponents*, które odwołują się do [zasobów siatki](meshes.md).
+Każda jednostka może mieć dołączone [składniki](components.md) . W najbardziej typowym przypadku jednostki mają *MeshComponents*, które odwołują się do [zasobów siatki](meshes.md).
 
 ## <a name="creating-models"></a>Tworzenie modeli
 
-Tworzenie modeli dla środowiska wykonawczego odbywa się poprzez [konwersję modeli wejściowych](../how-tos/conversion/model-conversion.md) z formatów plików, takich jak FBX i GLTF. Proces konwersji wyodrębnia wszystkie zasoby, takie jak tekstury, materiały i siatki, i konwertuje je na zoptymalizowane formaty środowiska uruchomieniowego. Wyodrębni również informacje strukturalne i przekształci je w strukturę wykresu jednostki/komponentu ARR.
+Tworzenie modeli dla środowiska uruchomieniowego jest realizowane przez [konwertowanie modeli wejściowych](../how-tos/conversion/model-conversion.md) z formatów plików, takich jak FBX i GLTF. Proces konwersji wyodrębnia wszystkie zasoby, takie jak tekstury, materiały i siatki, i konwertuje je na zoptymalizowane formaty środowiska uruchomieniowego. Wyodrębni również informacje strukturalne i przekonwertuje je na strukturę grafu jednostki/składnika modelu ARR.
 
 > [!IMPORTANT]
 >
-> [Konwersja modelu](../how-tos/conversion/model-conversion.md) jest jedynym sposobem tworzenia [siatek](meshes.md). Mimo że siatki mogą być współużytkowane między jednostkami w czasie wykonywania, nie ma innego sposobu, aby uzyskać siatki w czasie wykonywania, inne niż ładowanie modelu.
+> [Konwersja modelu](../how-tos/conversion/model-conversion.md) jest jedynym sposobem tworzenia [siatek](meshes.md). Chociaż siatki mogą być współdzielone między jednostkami w czasie wykonywania, nie istnieje żaden inny sposób na uzyskanie siatki w środowisku uruchomieniowym, innym niż ładowanie modelu.
 
-## <a name="loading-models"></a>Modele ładowania
+## <a name="loading-models"></a>Ładowanie modeli
 
-Po przekonwertowaniu modelu można go załadować z magazynu obiektów blob platformy Azure do środowiska wykonawczego.
+Po przekonwertowaniu modelu można go załadować z usługi Azure Blob Storage do środowiska uruchomieniowego.
 
-Istnieją dwie różne funkcje ładowania, które różnią się w zależności od sposobu, w jaki zasób jest adresowany w magazynie obiektów blob:
+Istnieją dwie odrębne funkcje ładowania, które różnią się w zależności od sposobu, w jaki zasób jest rozliczane w usłudze BLOB Storage:
 
-* Model może być rozwiązany przez jego identyfikator URI SAS. Odpowiednia funkcja `LoadModelFromSASAsync` ładowania `LoadModelFromSASParams`jest z parametrem . Użyj tego wariantu również podczas ładowania [wbudowanych modeli](../samples/sample-model.md).
-* Model można rozwiązać za pomocą parametrów magazynu obiektów blob bezpośrednio, w przypadku, gdy [magazyn obiektów blob jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania `LoadModelAsync` w `LoadModelParams`tym przypadku jest z parametrem .
+* Model może być adresem URI sygnatury dostępu współdzielonego. Odpowiednia funkcja ładowania jest `LoadModelFromSASAsync` z parametrem `LoadModelFromSASParams`. Użyj tego wariantu również podczas ładowania [wbudowanych modeli](../samples/sample-model.md).
+* Model może być rozwiązany bezpośrednio przez parametry magazynu obiektów blob, w przypadku gdy [Magazyn obiektów BLOB jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania w tym przypadku jest `LoadModelAsync` parametrem `LoadModelParams`.
 
-Poniższe fragmenty kodu pokazują, jak załadować modele za pomocą jednej z funkcji. Aby załadować model przy użyciu identyfikatora URI sygnatury dostępu Współdzielonego, należy użyć kodu podobnego do poniższego:
+Poniższe fragmenty kodu przedstawiają sposób ładowania modeli przy użyciu dowolnej funkcji. Aby załadować model przy użyciu identyfikatora URI sygnatury dostępu współdzielonego, należy użyć kodu takiego jak poniższy:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
@@ -58,7 +58,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
-Jeśli chcesz załadować model bezpośrednio przy użyciu jego parametrów magazynu obiektów blob, należy użyć kodu podobnego do następującego fragmentu kodu:
+Jeśli chcesz załadować model bezpośrednio przy użyciu jego parametrów magazynu obiektów blob, użyj kodu podobnego do poniższego kodu:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
@@ -77,10 +77,10 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 }
 ```
 
-Następnie można przechodzić przez hierarchię jednostek i modyfikować elementy i komponenty. Ładowanie tego samego modelu wiele razy tworzy wiele wystąpień, z których każdy z własną kopię struktury jednostki/składnika. Ponieważ siatki, materiały i tekstury są [zasobami udostępnionymi,](../concepts/lifetime.md)ich dane nie zostaną ponownie załadowane. W związku z tym tworzenie wystąpienia modelu więcej niż jeden raz wiąże się stosunkowo mało narzutów pamięci.
+Następnie można przejść do hierarchii jednostek i zmodyfikować jednostki i składniki. Załadowanie tego samego modelu wielokrotne powoduje utworzenie wielu wystąpień, z których każda ma własną kopię struktury jednostki/składnika. Ponieważ siatki, materiały i tekstury są [zasobami udostępnionymi](../concepts/lifetime.md), ich dane nie zostaną ponownie załadowane. W związku z tym utworzenie wystąpienia modelu więcej niż raz powoduje stosunkowo małe obciążenie pamięci.
 
 > [!CAUTION]
-> Wszystkie *funkcje asynchroniczne* w ARR zwracają obiekty operacji asynchronialnych. Należy przechowywać odwołanie do tych obiektów, dopóki operacja nie zostanie zakończona. W przeciwnym razie moduł odśmiecania elementów bezużytecznych języka C# może usunąć operację wcześniej i nigdy nie może zakończyć. W powyższym kodzie przykładowym użycie *await* gwarantuje, że zmienna lokalna "loadOp" zawiera odwołanie do momentu zakończenia ładowania modelu. Jednak jeśli zamiast tego można użyć *completed* zdarzenia, należy przechowywać operację asynchroniza w zmiennej członkowskiej.
+> Wszystkie funkcje *asynchroniczne* w asynchronicznych obiektach operacji Return. Odwołanie do tych obiektów należy przechowywać do momentu ukończenia operacji. W przeciwnym razie Moduł wyrzucania elementów bezużytecznych języka C# może usunąć operację wczesną i nigdy nie zakończy się. W przykładowym kodzie powyżej użycia programu *await* gwarantuje, że zmienna lokalna "loadOp" przechowuje odwołanie do momentu zakończenia ładowania modelu. Jeśli jednak zamiast tego użyć zdarzenia *ukończone* , należy zapisać operację asynchroniczną w zmiennej składowej.
 
 ## <a name="next-steps"></a>Następne kroki
 

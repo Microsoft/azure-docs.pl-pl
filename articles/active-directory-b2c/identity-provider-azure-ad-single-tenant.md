@@ -1,7 +1,7 @@
 ---
-title: Konfigurowanie logowania do organizacji usługi Azure AD
+title: Konfigurowanie logowania dla organizacji usługi Azure AD
 titleSuffix: Azure AD B2C
-description: Konfigurowanie logowania dla określonej organizacji usługi Azure Active Directory w usłudze Azure Active Directory B2C.
+description: Skonfiguruj logowanie do konkretnej organizacji Azure Active Directory w Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,25 +13,25 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5b21fcd2d3ec5560b01352b112e9ed1bb2404766
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678066"
 ---
-# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla określonej organizacji usługi Azure Active Directory w usłudze Azure Active Directory B2C
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurowanie logowania dla konkretnej organizacji Azure Active Directory w programie Azure Active Directory B2C
 
-Aby użyć usługi Azure Active Directory (Azure AD) jako [dostawcy tożsamości](authorization-code-flow.md) w usłudze Azure AD B2C, należy utworzyć aplikację, która go reprezentuje. W tym artykule pokazano, jak włączyć logowanie dla użytkowników z określonej organizacji usługi Azure AD przy użyciu przepływu użytkownika w usłudze Azure AD B2C.
+Aby użyć Azure Active Directory (Azure AD) jako [dostawcy tożsamości](authorization-code-flow.md) w Azure AD B2C, należy utworzyć aplikację, która go reprezentuje. W tym artykule opisano sposób włączania logowania dla użytkowników z określonej organizacji usługi Azure AD przy użyciu przepływu użytkownika w Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Konfigurowanie usługi Azure AD jako dostawcy tożsamości
 
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **subskrypcja katalogu +** w górnym menu i wybierz katalog zawierający dzierżawę usługi Azure AD B2C.
+1. Upewnij się, że używasz katalogu, który zawiera Azure AD B2C dzierżawcy. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Wybierz **pozycję Dostawcy tożsamości**, a następnie wybierz pozycję Nowy dostawca **OpenID Connect**.
-1. Wprowadź **nazwę**. Na przykład wprowadź *contoso azure ad*.
-1. W przypadku **adresu URL metadanych**wprowadź następujący adres URL zastępujący `{tenant}` nazwą domeny dzierżawy usługi Azure AD:
+1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
+1. Wprowadź **nazwę**. Na przykład wprowadź nazwę *contoso Azure AD*.
+1. W polu **adres URL metadanych**wprowadź następujący adres URL `{tenant}` zastępujący nazwą domeny dzierżawy usługi Azure AD:
 
     ```
     https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
@@ -39,17 +39,17 @@ Aby użyć usługi Azure Active Directory (Azure AD) jako [dostawcy tożsamości
 
     Na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`.
 
-1. W przypadku **identyfikatora klienta**wprowadź identyfikator aplikacji, który został wcześniej zarejestrowany.
-1. W przypadku **klucza tajnego klienta**wprowadź klucz tajny klienta, który został wcześniej zarejestrowany.
-1. W przypadku **pola** `openid profile`Zakres wprowadź plik .
+1. W polu **Identyfikator klienta**wprowadź wcześniej zarejestrowany identyfikator aplikacji.
+1. W polu **klucz tajny klienta**wprowadź wcześniej zarejestrowany klucz tajny klienta.
+1. Dla **zakresu**, wprowadź `openid profile`.
 1. Pozostaw wartości domyślne dla **typu odpowiedzi**i **trybu odpowiedzi**.
-1. (Opcjonalnie) Aby uzyskać **wskazówkę dotyczącą domeny,** wprowadź `contoso.com`. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpośredniego logowania przy użyciu usługi Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
+1. Obowiązkowe Dla wskazówki dotyczącej **domeny**wprowadź `contoso.com`wartość. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpośredniego logowania przy użyciu Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. W obszarze **Mapowanie oświadczeń dostawcy tożsamości**wybierz następujące oświadczenia:
 
-    * **Identyfikator użytkownika**: *oid*
-    * **Nazwa wyświetlana**: *nazwa*
-    * **Imię i nazwisko**: *given_name*
+    * **Identyfikator użytkownika**: *OID*
+    * **Nazwa wyświetlana**: *Nazwa*
+    * **Imię:** *given_name*
     * **Nazwisko**: *family_name*
-    * **E-mail**: *unique_name*
+    * **Adres e-mail**: *unique_name*
 
 1. Wybierz pozycję **Zapisz**.

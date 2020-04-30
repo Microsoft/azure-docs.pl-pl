@@ -7,69 +7,69 @@ ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
 ms.openlocfilehash: 563ac8748e9d4f8a254a151814491113b9c816e6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81685134"
 ---
-W tym kroku utworzysz serwer bazy danych SQL Azure i pojedynczą bazę danych, która używa przykładowych danych AdventureWorksLT. Bazę danych można utworzyć przy użyciu menu i ekranów witryny Azure portal lub przy użyciu skryptu interfejsu wiersza polecenia platformy Azure lub programu PowerShell w usłudze Azure Cloud Shell.
+W tym kroku utworzysz serwer Azure SQL Database i pojedynczą bazę danych, która korzysta z przykładowych danych AdventureWorksLT. Bazę danych można utworzyć za pomocą menu Azure Portal i ekranów, a także za pomocą interfejsu wiersza polecenia platformy Azure lub skryptu programu PowerShell w Azure Cloud Shell.
 
-Wszystkie metody obejmują konfigurowanie reguły zapory na poziomie serwera, aby zezwolić na publiczny adres IP komputera, którego używasz, aby uzyskać dostęp do serwera. Aby uzyskać więcej informacji na temat tworzenia reguł zapory serwera, zobacz [Tworzenie zapory na poziomie serwera](../sql-database-server-level-firewall-rule.md). Można również ustawić reguły zapory na poziomie bazy danych. Zobacz [Tworzenie reguły zapory na poziomie bazy danych](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
+Wszystkie metody obejmują skonfigurowanie reguły zapory na poziomie serwera, aby zezwolić na publiczny adres IP komputera, którego używasz do uzyskiwania dostępu do serwera. Aby uzyskać więcej informacji na temat tworzenia reguł zapory serwera, zobacz [Tworzenie zapory na poziomie serwera](../sql-database-server-level-firewall-rule.md). Można również ustawić reguły zapory na poziomie bazy danych. Zobacz [Tworzenie reguły zapory na poziomie bazy danych](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Aby utworzyć grupę zasobów, serwer SQL i pojedynczą bazę danych w witrynie Azure portal:
+Aby utworzyć grupę zasobów, program SQL Server i pojedynczą bazę danych w Azure Portal:
 
 1. Zaloguj się do [portalu](https://portal.azure.com).
-1. Na pasku wyszukiwania wyszukaj i wybierz pozycję **Azure SQL**.
-1. Na stronie **Sql platformy Azure** wybierz pozycję **Dodaj**. 
+1. Na pasku wyszukiwania Wyszukaj i wybierz pozycję **Azure SQL**.
+1. Na stronie **Azure SQL** wybierz pozycję **Dodaj**. 
    
-   ![Dodaj do usługi Azure SQL](../media/sql-database-single-database-get-started/sqldbportal.png)
+   ![Dodawanie do usługi Azure SQL](../media/sql-database-single-database-get-started/sqldbportal.png)
    
-1. Na stronie **opcji Wybierz wdrożenie SQL** wybierz kafelek bazy danych **SQL** z **pojedynczą bazą danych** w obszarze **Typ zasobu**. Więcej informacji o różnych bazach danych można wyświetlić, wybierając pozycję **Pokaż szczegóły**.
-1. Wybierz pozycję **Utwórz**.
+1. Na stronie **Wybierz opcję wdrożenia SQL** wybierz kafelek **bazy danych SQL** z **pojedynczą bazą danych** w obszarze **Typ zasobu**. Aby wyświetlić więcej informacji na temat różnych baz danych, wybierz pozycję **Pokaż szczegóły**.
+1. Wybierz przycisk **Utwórz**.
    
    ![Tworzenie pojedynczej bazy danych](../media/sql-database-single-database-get-started/create-single-database.png)
    
-1. Na karcie **Podstawy** formularza **Tworzenie bazy danych SQL** w obszarze Szczegóły **projektu**wybierz poprawną **subskrypcję** platformy Azure, jeśli nie jest jeszcze zaznaczona.
-1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nowy**, wprowadź *myResourceGroup*i wybierz przycisk **OK**.
-1. W obszarze **Szczegóły bazy danych**dla nazwy bazy danych wprowadź *mySampleDatabase*. **Database name**
-1. W przypadku **opcji Serwer**wybierz **pozycję Utwórz nowy**i wypełnij formularz Nowy **serwer** w następujący sposób:
-   - **Nazwa serwera**: Wprowadź *mysqlserver*, a niektóre znaki dla unikatowości.
-   - **Logowanie administratora serwera**: Wprowadź *azureuser*.
-   - **Hasło:** Wprowadź hasło spełniające wymagania i wprowadź go ponownie w polu **Potwierdź hasło.**
-   - **Lokalizacja**: Rozwijana i wybierz lokalizację, na przykład **(USA) Wschodnie stany USA**.
+1. Na karcie **podstawowe** w formularzu **Tworzenie bazy danych SQL** w obszarze **szczegóły projektu**Wybierz poprawną **subskrypcję** platformy Azure, jeśli nie została jeszcze wybrana.
+1. W obszarze **Grupa zasobów**wybierz pozycję **Utwórz nową**, wprowadź pozycję Grupa *zasobów*, a następnie wybierz pozycję **OK**.
+1. W obszarze **szczegóły bazy danych**w polu **Nazwa bazy danych** wprowadź *mySampleDatabase*.
+1. W polu **serwer**wybierz pozycję **Utwórz nowy**i wypełnij formularz **nowy serwer** w następujący sposób:
+   - **Nazwa serwera**: wprowadź dla elementu *SqlServer*, a niektóre znaki są unikatowe.
+   - **Identyfikator logowania administratora serwera**: wprowadź *azureuser*.
+   - **Hasło**: wprowadź hasło spełniające wymagania i wprowadź je ponownie w polu **Potwierdź hasło** .
+   - **Lokalizacja**: Lista rozwijana i wybierz lokalizację, na przykład **(US) Wschodnie stany USA**.
    
-   Kliknij przycisk **OK**.
+   Wybierz przycisk **OK**.
    
    ![Nowy serwer](../media/sql-database-single-database-get-started/new-server.png)
    
-   Zarejestruj login i hasło administratora serwera, aby można było zalogować się do serwera i baz danych. Jeśli zapomnisz loginu lub hasła, możesz uzyskać nazwę logowania lub zresetować hasło na stronie **serwera SQL** po utworzeniu bazy danych. Aby otworzyć stronę **serwera SQL,** wybierz nazwę serwera na stronie **Przegląd** bazy danych.
+   Zarejestruj nazwę logowania administratora serwera i hasło, aby można było zalogować się do serwera i baz danych. Jeśli zapomnisz o logowaniu lub haśle, możesz uzyskać nazwę logowania lub zresetować hasło na stronie **programu SQL Server** po utworzeniu bazy danych. Aby otworzyć stronę **programu SQL Server** , wybierz nazwę serwera na stronie **Przegląd** bazy danych.
    
-1. W obszarze **Obliczaj + magazyn**, jeśli chcesz ponownie skonfigurować ustawienia domyślne, wybierz pozycję **Konfiguruj bazę danych**.
+1. Jeśli chcesz zmienić ustawienia domyślne w obszarze **obliczeniowy + magazyn**, wybierz pozycję **Konfiguruj bazę danych**.
    
-   Na stronie **Konfigurowanie** można opcjonalnie:
-   - Zmień **warstwę obliczeniową** z **Aprowizowana** na **Bezserwerową**.
-   - Przejrzyj i zmień ustawienia dla **rów wirtualnych** i **maksymalnego rozmiaru danych**.
-   - Wybierz **zmień konfigurację,** aby zmienić generowanie sprzętu.
+   Na stronie **Konfiguracja** można opcjonalnie:
+   - Zmień **warstwę obliczeń** z **aprowizacji** na **bezserwerowe**.
+   - Przejrzyj i Zmień ustawienia dla **rdzeni wirtualnych** i **Maksymalny rozmiar danych**.
+   - Wybierz pozycję **Zmień konfigurację** , aby zmienić generowanie sprzętu.
    
-   Po dokonaniu jakichkolwiek zmian wybierz pozycję **Zastosuj**.
+   Po wprowadzeniu zmian wybierz pozycję **Zastosuj**.
    
-1. **Wybierz dalej: Sieć** u dołu strony.
+1. Wybierz pozycję **Dalej: sieci** w dolnej części strony.
    
-   ![Nowa baza danych SQL — karta Podstawowe](../media/sql-database-single-database-get-started/new-sql-database-basics.png)
+   ![Nowa baza danych SQL — Karta podstawowa](../media/sql-database-single-database-get-started/new-sql-database-basics.png)
    
-1. Na karcie **Sieć** w obszarze **Metoda Łączność**wybierz pozycję **Publiczny punkt końcowy**. 
-1. W obszarze **Reguły zapory**ustaw **dodaj bieżący adres IP klienta** do **Tak**.
-1. **Wybierz dalej: Dodatkowe ustawienia** u dołu strony.
+1. Na karcie **Sieć** w obszarze **Metoda połączenia**wybierz pozycję **publiczny punkt końcowy**. 
+1. W obszarze **reguły zapory**ustaw opcję **Dodaj bieżący adres IP klienta** na **wartość tak**.
+1. Wybierz pozycję **Dalej: dodatkowe ustawienia** w dolnej części strony.
    
    ![Karta Sieć](../media/sql-database-single-database-get-started/networking.png)
    
-   Aby uzyskać więcej informacji na temat ustawień zapory, zobacz [Zezwalanie usługom i zasobom platformy Azure na dostęp do tego serwera](../sql-database-networkaccess-overview.md) i dodawanie prywatnego punktu [końcowego](../../private-link/private-endpoint-overview.md).
+   Aby uzyskać więcej informacji na temat ustawień zapory, zobacz [Zezwalanie usługom i zasobom platformy Azure na dostęp do tego serwera](../sql-database-networkaccess-overview.md) i [Dodawanie prywatnego punktu końcowego](../../private-link/private-endpoint-overview.md).
    
-1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** w obszarze Korzystanie z **istniejących danych**wybierz pozycję **Przykładowy**.
-1. Wybierz **pozycję Recenzja + utwórz** u dołu strony.
+1. Na karcie **Ustawienia dodatkowe** w sekcji **Źródło danych** wybierz pozycję **przykład**, aby **użyć istniejących danych**.
+1. Wybierz pozycję **Recenzja + Utwórz** w dolnej części strony.
    
    ![Karta Ustawienia dodatkowe](../media/sql-database-single-database-get-started/additional-settings.png)
    
@@ -77,19 +77,19 @@ Aby utworzyć grupę zasobów, serwer SQL i pojedynczą bazę danych w witrynie 
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Można utworzyć grupę zasobów platformy Azure, serwer SQL i pojedynczą bazę danych przy użyciu interfejsu wiersza polecenia platformy Azure (Azure CLI). Jeśli nie chcesz używać usługi Azure Cloud Shell, [zainstaluj narzędzie Azure CLI](/cli/azure/install-azure-cli) na swoim komputerze.
+Można utworzyć grupę zasobów platformy Azure, program SQL Server i pojedynczą bazę danych przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Jeśli nie chcesz używać Azure Cloud Shell, [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) na komputerze.
 
-Aby uruchomić poniższy przykład kodu w usłudze Azure Cloud Shell, wybierz pozycję **Wypróbuj na** pasku tytułu przykładowego kodu. Po otwarciu powłoki chmury wybierz **pozycję Kopiuj** na pasku tytułu przykładowego kodu i wklej przykładowy kod do okna Powłoki chmury. W kodzie `<Subscription ID>` zastąp identyfikatorem subskrypcji `$startip` `$endip`platformy `0.0.0.0` Azure oraz za i , za pomocą publicznego adresu IP używanego komputera.
+Aby uruchomić następujący przykład kodu w Azure Cloud Shell, wybierz opcję **Wypróbuj** na pasku tytułu przykładu kodu. Po otwarciu Cloud Shell wybierz pozycję **Kopiuj** na pasku tytułu przykład kodu, a następnie wklej przykładowy kod do okna Cloud Shell. W kodzie Zastąp `<Subscription ID>` ciąg identyfikatorem subskrypcji platformy Azure, a dla `$startip` i `$endip`Zastąp `0.0.0.0` ciąg adresem IP używanego komputera.
 
-Postępuj zgodnie z monitami wyświetlanymi na ekranie, aby zalogować się na platformę Azure i uruchomić kod. 
+Postępuj zgodnie z monitami na ekranie, aby zalogować się do platformy Azure i uruchomić kod. 
 
-Możesz również użyć usługi Azure Cloud Shell z witryny Azure portal, wybierając ikonę powłoki chmury na górnym pasku. 
+Możesz również użyć Azure Cloud Shell z Azure Portal, wybierając ikonę Cloud Shell na górnym pasku. 
    
    ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
    
-Przy pierwszym użyciu powłoki chmury w portalu wybierz pozycję **Bash** w oknie dialogowym **Powitanie.** Kolejne sesje będą używać interfejsu wiersza polecenia platformy Azure w środowisku bash lub można wybrać **bash** z paska sterowania powłoki chmury. 
+Przy pierwszym użyciu Cloud Shell w portalu wybierz pozycję **bash** w oknie dialogowym **powitalnym** . Kolejne sesje będą używać interfejsu wiersza polecenia platformy Azure w środowisku bashu lub można wybrać **bash** z paska sterowania Cloud Shell. 
 
-Poniższy kod interfejsu wiersza polecenia platformy Azure tworzy grupę zasobów platformy Azure, serwer SQL, pojedynczą bazę danych i regułę zapory w celu uzyskania dostępu do serwera. Pamiętaj, aby rejestrować wygenerowane nazwy grup zasobów i serwerów, aby później zarządzać tymi zasobami.
+Poniższy kod interfejsu wiersza polecenia platformy Azure umożliwia utworzenie grupy zasobów platformy Azure, programu SQL Server, pojedynczej bazy danych i reguły zapory w celu uzyskania dostępu do serwera. Upewnij się, że zarejestrowano wytworzoną grupę zasobów i nazwy serwerów, aby można było później zarządzać tymi zasobami.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -149,31 +149,31 @@ Poprzedni kod używa tych poleceń interfejsu wiersza polecenia platformy Azure:
 
 | Polecenie | Opis |
 |---|---|
-| [az zestaw kont](/cli/azure/account?view=azure-cli-latest#az-account-set) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. | 
+| [AZ Account Set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Ustawia subskrypcję jako bieżącą aktywną subskrypcję. | 
 | [az group create](/cli/azure/group#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
-| [az sql server firewall-rule create az sql server firewall-rule create az sql server firewall-rule create az](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Tworzy reguły zapory serwera. | 
+| [AZ SQL Server firewall-Rule Create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Tworzy reguły zapory serwera. | 
 | [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Tworzy bazę danych. | 
 
-Aby uzyskać więcej przykładów interfejsu wiersza polecenia platformy Azure bazy danych SQL, zobacz [przykłady interfejsu wiersza polecenia platformy Azure.](../sql-database-cli-samples.md)
+Aby uzyskać więcej Azure SQL Database przykładów interfejsu wiersza polecenia platformy Azure, zobacz [przykłady interfejsu wiersza polecenia platformy Azure](../sql-database-cli-samples.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Za pomocą programu Windows PowerShell można utworzyć grupę zasobów platformy Azure, serwer SQL i pojedynczą bazę danych. Jeśli nie chcesz używać usługi Azure Cloud Shell, [zainstaluj moduł programu Azure PowerShell.](/powershell/azure/install-az-ps)
+Korzystając z programu Windows PowerShell, można utworzyć grupę zasobów platformy Azure, program SQL Server i pojedynczą bazę danych. Jeśli nie chcesz używać Azure Cloud Shell, [Zainstaluj moduł Azure PowerShell](/powershell/azure/install-az-ps).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Aby uruchomić poniższy przykład kodu w usłudze Azure Cloud Shell, wybierz pozycję **Wypróbuj na** pasku tytułu kodu. Po otwarciu powłoki chmury wybierz **pozycję Kopiuj** na pasku tytułu przykładowego kodu i wklej przykładowy kod do okna Powłoki chmury. W kodzie `<Subscription ID>` zastąp identyfikatorem subskrypcji `$startIp` `$endIp`platformy `0.0.0.0` Azure oraz za i , za pomocą publicznego adresu IP używanego komputera. 
+Aby uruchomić Poniższy przykład kodu w Azure Cloud Shell, wybierz opcję **Wypróbuj** na pasku tytułu kodu. Po otwarciu Cloud Shell wybierz pozycję **Kopiuj** na pasku tytułu przykład kodu, a następnie wklej przykładowy kod do okna Cloud Shell. W kodzie Zastąp `<Subscription ID>` ciąg identyfikatorem subskrypcji platformy Azure, a dla `$startIp` i `$endIp`Zastąp `0.0.0.0` ciąg adresem IP używanego komputera. 
 
-Postępuj zgodnie z monitami wyświetlanymi na ekranie, aby zalogować się na platformę Azure i uruchomić kod. 
+Postępuj zgodnie z monitami na ekranie, aby zalogować się do platformy Azure i uruchomić kod. 
 
-Możesz również użyć usługi Azure Cloud Shell z witryny Azure portal, wybierając ikonę powłoki chmury na górnym pasku. 
+Możesz również użyć Azure Cloud Shell z Azure Portal, wybierając ikonę Cloud Shell na górnym pasku. 
    
    ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
    
-Przy pierwszym użyciu powłoki chmury z portalu wybierz pozycję **PowerShell** w oknie dialogowym **Powitalny.** Kolejne sesje będą używać programu PowerShell lub można go wybrać z paska sterowania powłoki chmury. 
+Przy pierwszym użyciu Cloud Shell z portalu wybierz opcję **PowerShell** w oknie dialogowym **powitalnym** . Kolejne sesje będą korzystać z programu PowerShell lub można je wybrać z paska sterowania Cloud Shell. 
 
-Poniższy kod programu PowerShell tworzy grupę zasobów platformy Azure, serwer SQL, pojedynczą bazę danych i regułę zapory w celu uzyskania dostępu do serwera. Pamiętaj, aby rejestrować wygenerowane nazwy grup zasobów i serwerów, aby później zarządzać tymi zasobami.
+Poniższy kod programu PowerShell umożliwia utworzenie grupy zasobów platformy Azure, programu SQL Server, pojedynczej bazy danych i reguły zapory w celu uzyskania dostępu do serwera. Upewnij się, że zarejestrowano wytworzoną grupę zasobów i nazwy serwerów, aby można było później zarządzać tymi zasobami.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -233,15 +233,15 @@ Poniższy kod programu PowerShell tworzy grupę zasobów platformy Azure, serwer
    $database
    ```
 
-Poprzedni kod używa tych poleceń cmdlet programu PowerShell:
+Poprzedni kod używa następujących poleceń cmdlet programu PowerShell:
 
 | Polecenie | Uwagi |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
-| [Nowy serwer AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer usługi SQL Database hostujący pojedyncze bazy danych i elastyczne pule. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Tworzy regułę zapory dla serwera logicznego. | 
-| [Nowa baza danych AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Tworzy pojedynczą bazę danych usługi Azure SQL Database. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Tworzy Azure SQL Database pojedynczą bazę danych. | 
 
-Aby uzyskać więcej przykładów programu Azure SQL Database PowerShell, zobacz [przykłady programu Azure PowerShell.](../sql-database-powershell-samples.md)
+Aby uzyskać więcej Azure SQL Database przykładów programu PowerShell, zobacz [Azure PowerShell Samples](../sql-database-powershell-samples.md).
 
 ---
