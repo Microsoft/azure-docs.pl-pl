@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: trenuj z etykietami przy użyciu interfejsu API REST i Pythona — aparat rozpoznawania formularzy'
+title: 'Szybki Start: uczenie się z etykietami przy użyciu interfejsu API REST i aparatu rozpoznawania języka Python'
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak za pomocą funkcji danych z etykietą rozpoznawania formularzy z interfejsem API REST i pythonem do uczenia modelu niestandardowego.
+description: Dowiedz się, jak za pomocą funkcji rozpoznawania danych z etykietami z interfejsem API REST i Python utworzyć niestandardową model przy użyciu narzędzia z możliwością uzyskiwania informacji.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,60 +10,60 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531104"
 ---
-# <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Trenuj model aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
+# <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
-W tym przewodniku Szybki start użyjesz interfejsu API REST rozpoznawania formularzy w języku Python, aby wyszkolić model niestandardowy z danymi oznaczonymi ręcznie. Zobacz [Train with labels](../overview.md#train-with-labels) sekcji przeglądu, aby dowiedzieć się więcej o tej funkcji.
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy w języku Python, aby nauczyć model niestandardowy z ręcznie oznaczonymi danymi. Aby dowiedzieć się więcej na temat tej funkcji, zobacz sekcję [uczenie z etykietami](../overview.md#train-with-labels) .
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten szybki start, musisz mieć:
-- [Python](https://www.python.org/downloads/) zainstalowany (jeśli chcesz uruchomić przykład lokalny).
-- Zestaw co najmniej sześciu form tego samego typu. Użyjesz tych danych do szkolenia modelu i przetestowania formularza. Do tego szybkiego startu można użyć [przykładowego zestawu danych.](https://go.microsoft.com/fwlink/?linkid=2090451) Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów blob na koncie usługi Azure Storage.
+Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
+- Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
+- Zestaw składający się z co najmniej sześciu formularzy tego samego typu. Te dane będą używane do uczenia modelu i testowania formularza. Możesz użyć [przykładowego zestawu danych](https://go.microsoft.com/fwlink/?linkid=2090451) dla tego przewodnika Szybki Start. Przekaż pliki szkoleniowe do katalogu głównego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage.
 
-## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularzy
+## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="set-up-training-data"></a>Konfigurowanie danych szkoleniowych
+## <a name="set-up-training-data"></a>Skonfiguruj dane szkoleniowe
 
-Następnie musisz skonfigurować wymagane dane wejściowe. Funkcja danych oznaczonych etykietą ma specjalne wymagania wejściowe wykraczające poza wymagania potrzebne do szkolenia modelu niestandardowego. 
+Następnie musisz skonfigurować wymagane dane wejściowe. Funkcja dane z etykietą ma specjalne wymagania wejściowe poza tymi, które są wymagane do uczenia modelu niestandardowego. 
 
-Upewnij się, że wszystkie dokumenty szkoleniowe są w tym samym formacie. Jeśli masz formularze w wielu formatach, zorganizuj je w podfoldery na podstawie wspólnego formatu. Podczas szkolenia należy skierować interfejs API do podfolderu.
+Upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, zorganizuj je w podfolderach w oparciu o wspólny format. Podczas uczenia należy skierować interfejs API do podfolderu.
 
-Aby wyszkolić model przy użyciu danych oznaczonych etykietą, potrzebne są następujące pliki jako dane wejściowe w podfolderze. Dowiesz się, jak utworzyć ten plik poniżej.
+Aby zapewnić uczenie modelu przy użyciu danych z etykietami, potrzebne są następujące pliki jako dane wejściowe w podfolderze. Dowiesz się, jak utworzyć poniższe pliki.
 
-* **Formularze źródłowe** — formularze do wyodrębniania danych. Obsługiwane typy to JPEG, PNG, PDF lub TIFF.
-* **Pliki układu OCR** - pliki JSON, które opisują rozmiary i pozycje wszystkich czytelnych tekstu w każdym formularzu źródłowym. Do wygenerowania tych danych użyjesz interfejsu API układu aparatu rozpoznawania formularzy. 
-* **Pliki etykiet** — pliki JSON opisujące etykiety danych wprowadzone ręcznie przez użytkownika.
+* **Formularze źródłowe** — formularze, z których mają zostać wyodrębnione dane. Obsługiwane typy to JPEG, PNG, PDF lub TIFF.
+* **Pliki układów OCR** — pliki JSON opisujące rozmiary i położenia wszystkich czytelnych tekstu w każdym formularzu źródłowym. Użyjesz interfejsu API układu aparatu rozpoznawania formularzy do wygenerowania tych danych. 
+* **Pliki etykiet** — pliki JSON opisujące etykiety danych wprowadzane ręcznie przez użytkownika.
 
-Wszystkie te pliki powinny zajmować ten sam podfolder i być w następującym formacie:
+Wszystkie te pliki powinny zajmować ten sam podfolder i mieć następujący format:
 
-* input_file1.pdf 
-* input_file1.pdf.ocr.json
-* input_file1.pdf.labels.json 
-* input_file2.pdf 
-* input_file2.pdf.ocr.json
-* input_file2.pdf.labels.json
+* input_file1. PDF 
+* input_file1. PDF. OCR. JSON
+* input_file1. PDF. labels. JSON 
+* input_file2. PDF 
+* input_file2. PDF. OCR. JSON
+* input_file2. PDF. labels. JSON
 * ...
 
 > [!TIP]
-> Podczas etykietowania formularzy za pomocą narzędzia do [etykietowania przykładowego](./label-tool.md)aparatu rozpoznawania formularzy narzędzie automatycznie tworzy te pliki układowe etykiet i ocr.
+> Podczas etykietowania formularzy przy użyciu narzędzia do [etykietowania przykładowego](./label-tool.md)aparatu rozpoznawania formularzy narzędzie tworzy te pliki etykiet i układów OCR automatycznie.
 
-### <a name="create-the-ocr-output-files"></a>Tworzenie plików wyjściowych OCR
+### <a name="create-the-ocr-output-files"></a>Utwórz pliki wyjściowe OCR
 
-Potrzebne są pliki wyników OCR, aby usługa rozważyła odpowiednie pliki wejściowe dla szkolenia z etykietami. Aby uzyskać wyniki OCR dla danego formularza źródłowego, wykonaj poniższe czynności:
+Potrzebujesz plików wyników OCR, aby usługa mogła rozważyć odpowiednie pliki wejściowe dla szkolenia z etykietą. Aby uzyskać wyniki OCR dla danego formularza źródłowego, wykonaj poniższe kroki:
 
-1. Wywołanie interfejsu API **[układu analizy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** w kontenerze układu odczytu z plikiem wejściowym jako częścią treści żądania. Zapisz identyfikator znaleziony w nagłówku **lokalizacja operacji i lokalizacji** odpowiedzi.
-1. Wywołanie interfejsu API **[wyniku analizy analizy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** przy użyciu identyfikatora operacji z poprzedniego kroku.
-1. Pobierz odpowiedź i zapisz zawartość do pliku. Dla każdego formularza źródłowego odpowiedni plik OCR powinien mieć `.ocr.json`oryginalną nazwę pliku dołączona do pliku . Dane wyjściowe JSON OCR powinny mieć następujący format. Zobacz [przykładowy plik OCR,](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) aby uzyskać pełny przykład. 
+1. Wywołaj interfejs API **[analizowania układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** w kontenerze układu odczytu z plikiem wejściowym w ramach treści żądania. Zapisz identyfikator znaleziony w nagłówku **operacji** odpowiedzi.
+1. Wywołaj interfejs API **[wyników Get analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** przy użyciu identyfikatora operacji z poprzedniego kroku.
+1. Pobierz odpowiedź i Zapisz zawartość do pliku. Dla każdego formularza źródłowego odpowiedni plik OCR powinien zawierać oryginalną nazwę pliku `.ocr.json`. Dane wyjściowe OCR w formacie JSON powinny mieć następujący format. Zobacz [przykładowy plik OCR](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) , aby zapoznać się z pełnym przykładem. 
 
     ```json
     {
@@ -114,13 +114,13 @@ Potrzebne są pliki wyników OCR, aby usługa rozważyła odpowiednie pliki wej�
                     ...
     ```
 
-### <a name="create-the-label-files"></a>Tworzenie plików etykiet
+### <a name="create-the-label-files"></a>Utwórz pliki etykiet
 
-Pliki etykiet zawierają skojarzenia klucz-wartość wprowadzone ręcznie przez użytkownika. Są one potrzebne do szkolenia danych etykietą, ale nie każdy plik źródłowy musi mieć odpowiedni plik etykiety. Pliki źródłowe bez etykiet będą traktowane jako zwykłe dokumenty szkoleniowe. Firma Microsoft zaleca pięć lub więcej oznaczonych plików dla niezawodnego szkolenia.
+Pliki etykiet zawierają skojarzenia klucz-wartość wprowadzone ręcznie przez użytkownika. Są one potrzebne do szkolenia danych z etykietami, ale nie każdy plik źródłowy musi mieć odpowiedni plik etykiet. Pliki źródłowe bez etykiet będą traktowane jako zwykłe dokumenty szkoleniowe. Zalecamy używanie co najmniej pięciu plików z etykietą w celu zapewnienia niezawodnego szkolenia.
 
-Podczas tworzenia pliku etykiety można opcjonalnie określić&mdash;dokładne położenie wartości w dokumencie. To da szkolenia jeszcze większą dokładność. Regiony są formatowane jako zestaw ośmiu wartości odpowiadających czterem współrzędnym X,Y: lewy górny, prawy górny, prawy dolny i lewy dolny. Wartości współrzędnych są od zera do jednego, skalowane do wymiarów strony.
+Podczas tworzenia pliku etykiet można opcjonalnie określić regiony&mdash;dokładne położenia wartości w dokumencie. Zapewni to uczenie nawet wyższą dokładność. Regiony są sformatowane jako zbiór ośmiu wartości odpowiadających czterem X, współrzędnej Y: w lewym górnym rogu, w prawym górnym rogu i w lewym dolnym rogu. Wartości współrzędnych należą do zakresu od zera do jednego, skalowane do wymiarów strony.
 
-Dla każdego formularza źródłowego odpowiedni plik etykiety powinien mieć `.labels.json`oryginalną nazwę pliku dołączona do pliku . Plik etykiety powinien mieć następujący format. Zobacz [przykładowy plik etykiety,](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) aby uzyskać pełny przykład.
+Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginalną nazwę pliku `.labels.json`. Plik etykiety powinien mieć następujący format. Zapoznaj się z przykładowym [plikiem etykiet](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) .
 
 ```json
 {
@@ -188,16 +188,16 @@ Dla każdego formularza źródłowego odpowiedni plik etykiety powinien mieć `.
 ```
 
 > [!NOTE]
-> Do każdego elementu tekstowego można zastosować tylko jedną etykietę, a każdą etykietę można zastosować tylko raz na stronę. Obecnie nie można zastosować etykiety na wielu stronach.
+> Do każdego elementu tekstowego można zastosować tylko jedną etykietę, a każda etykieta może zostać zastosowana tylko raz na stronie. Nie można obecnie zastosować etykiety na wielu stronach.
 
 
-## <a name="train-a-model-using-labeled-data"></a>Szkolenie modelu przy użyciu danych oznaczonych etykietą
+## <a name="train-a-model-using-labeled-data"></a>Uczenie modelu przy użyciu danych z etykietami
 
-Aby uszkoliiwać model z oznaczonymi danymi, należy wywołać interfejs API **[modelu niestandardowego pociągu,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** uruchamiając następujący kod języka Python. Przed uruchomieniem kodu należy wprowadzić następujące zmiany:
+Aby przeprowadzić uczenie modelu z danymi z etykietami, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na adres URL punktu końcowego zasobu aparatu rozpoznawania formularzy.
-1. Zamień `<SAS URL>` adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów Blob platformy Azure. Aby pobrać adres URL sygnatury dostępu Współdzielonego, otwórz Eksploratora magazynu Platformy Microsoft Azure, kliknij prawym przyciskiem myszy kontener i wybierz pozycję **Pobierz podpis dostępu współdzielonego**. Upewnij się, że uprawnienia **Do odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość w sekcji **ADRES URL.** Powinien mieć formularz: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Zamień `<Blob folder name>` na nazwę folderu w kontenerze obiektów blob, w którym znajdują się dane wejściowe. Lub, jeśli dane są w katalogu głównym, `"prefix"` pozostaw to puste i usuń pole z treści żądania HTTP.
+1. Zamień `<Endpoint>` na adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
+1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Zamień `<Blob folder name>` na nazwę folderu w kontenerze obiektów blob, w którym znajdują się dane wejściowe. Lub, jeśli Twoje dane są w katalogu głównym, pozostaw to pole puste i Usuń `"prefix"` je z treści żądania HTTP.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
@@ -240,9 +240,9 @@ except Exception as e:
     quit() 
 ```
 
-## <a name="get-training-results"></a>Uzyskaj wyniki treningów
+## <a name="get-training-results"></a>Pobierz wyniki szkoleń
 
-Po rozpoczęciu operacji pociągu, należy użyć zwróconego identyfikatora, aby uzyskać stan operacji. Dodaj następujący kod na dole skryptu Pythona. Używa wartości identyfikatora z wywołania szkoleniowego w nowym wywołaniu interfejsu API. Operacja szkoleniowa jest asynchronizawo, więc ten skrypt wywołuje interfejs API w regularnych odstępach czasu, aż do ukończenia stanu szkolenia. Zalecamy interwał jednej sekundy lub więcej.
+Po rozpoczęciu operacji pouczenia należy użyć zwróconego identyfikatora, aby pobrać stan operacji. Dodaj następujący kod w dolnej części skryptu języka Python. Spowoduje to użycie wartości identyfikatora z rozmowy szkoleniowej w nowym wywołaniu interfejsu API. Operacja szkoleniowa jest asynchroniczna, dlatego skrypt wywołuje interfejs API w regularnych odstępach czasu, aż do momentu ukończenia stanu szkolenia. Zalecamy interwał co najmniej jednej sekundy.
 
 ```python 
 n_tries = 15
@@ -274,7 +274,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-Po zakończeniu procesu szkolenia otrzymasz odpowiedź `201 (Success)` z zawartością JSON, taką jak następująca. Odpowiedź została skrócona dla uproszczenia.
+Po zakończeniu procesu szkolenia otrzymasz `201 (Success)` odpowiedź z zawartością JSON, taką jak poniższy. Odpowiedź została skrócona dla uproszczenia.
 
 ```json
 { 
@@ -346,7 +346,7 @@ Skopiuj `"modelId"` wartość do użycia w poniższych krokach.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-Po zakończeniu procesu otrzymasz odpowiedź `202 (Success)` z zawartością JSON w następującym formacie. Odpowiedź została skrócona dla uproszczenia. Główne skojarzenia klucza/wartości `"documentResults"` znajdują się w węźle. Wyniki interfejsu API układu (zawartość i pozycje całego tekstu w `"readResults"` dokumencie) znajdują się w węźle.
+Po zakończeniu procesu otrzymasz `202 (Success)` odpowiedź z zawartością JSON w następującym formacie. Odpowiedź została skrócona dla uproszczenia. Główne skojarzenia klucz/wartość znajdują się w `"documentResults"` węźle. Wyniki interfejsu API układu (zawartość i położenie całego tekstu w dokumencie) znajdują się w `"readResults"` węźle.
 
 ```json
 { 
@@ -549,18 +549,18 @@ Po zakończeniu procesu otrzymasz odpowiedź `202 (Success)` z zawartością JSO
 }
 ```
 
-## <a name="improve-results"></a>Poprawa wyników
+## <a name="improve-results"></a>Popraw wyniki
 
-Sprawdź `"confidence"` wartości dla każdego wyniku klucz/wartość w węźle. `"documentResults"` Należy również spojrzeć na wyniki `"readResults"` zaufania w węźle, które odpowiadają operacji Układu. Zaufanie wyników układu nie wpływa na zaufanie wyników wyodrębniania klucz/wartość, dlatego należy sprawdzić oba.
-* Jeśli wyniki zaufania dla operacji Układ są niskie, spróbuj poprawić jakość dokumentów wejściowych (zobacz [Wymagania wejściowe](../overview.md#input-requirements)).
-* Jeśli wyniki zaufania dla operacji wyodrębniania klucz/wartość są niskie, upewnij się, że analizowane dokumenty są tego samego typu, co dokumenty używane w zestawie szkoleniowym. Jeśli dokumenty w zestawie szkoleniowym mają różnice w wyglądzie, należy rozważyć podzielenie ich na różne foldery i szkolenie jednego modelu dla każdej odmiany.
+Przeanalizuj `"confidence"` wartości dla każdego wyniku klucza/wartości pod `"documentResults"` węzłem. Należy również przyjrzeć się ocenom zaufania w `"readResults"` węźle, który odpowiada operacji układu. Wiarygodność wyników układu nie wpływa na wiarygodność wyników wyodrębniania klucza/wartości, dlatego należy zaznaczyć oba te elementy.
+* Jeśli oceny pewności dla operacji układu są niskie, spróbuj poprawić jakość dokumentów wejściowych (zobacz [wymagania wejściowe](../overview.md#input-requirements)).
+* Jeśli oceny zaufania dla operacji wyodrębniania klucza/wartości są niskie, upewnij się, że analizowane dokumenty są tego samego typu co dokumenty używane w zestawie szkoleniowym. Jeśli dokumenty w zestawie szkoleniowym mają różne wahania, należy podzielić je na różne foldery i przeanalizować jeden model dla każdej odmiany.
 
-### <a name="avoid-cluttered-labels"></a>Unikaj zaśmieconych etykiet
+### <a name="avoid-cluttered-labels"></a>Unikaj nieczytelnych etykiet
 
-Czasami po zastosowaniu różnych etykiet w tym samym wierszu tekstu usługa może scalić te etykiety w jedno pole. Na przykład w adresie można oznaczyć miasto, stan i kod pocztowy jako różne pola, ale podczas przewidywania te pola nie są rozpoznawane oddzielnie.
+Czasami w przypadku zastosowania różnych etykiet w tym samym wierszu tekstu usługa może scalić te etykiety w jedno pole. Na przykład w adresie można oznaczyć miasto, Województwo i kod pocztowy jako różne pola, ale podczas przewidywania te pola nie są rozpoznawane osobno.
 
-Rozumiemy, że ten scenariusz jest niezbędny dla naszych klientów i pracujemy nad poprawą tego w przyszłości. Obecnie zalecamy naszym użytkownikom, aby oznaczyć wiele zagraconych pól jako jedno pole, a następnie oddzielić terminy w post-processing wyników ekstrakcji.
+Rozumiemy, że ten scenariusz jest istotny dla naszych klientów i pracujemy nad ulepszeniem tego scenariusza w przyszłości. Obecnie zaleca się, aby nasi użytkownicy mogli etykietować wiele pól, które są w jednym polu, a następnie oddzielić te warunki w trakcie przetwarzania końcowego wyników wyodrębniania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start nauczysz się, jak używać interfejsu API REST rozpoznawania formularzy w języku Python do szkolenia modelu z danymi oznaczonymi ręcznie. Następnie zobacz [dokumentację odwołania interfejsu API,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) aby zbadać interfejs API rozpoznawania formularzy bardziej szczegółowo.
+W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu uczenia modelu z ręcznymi etykietami danych. Następnie zapoznaj się z [dokumentacją interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) w celu EKSPLOROWANIA interfejsu API rozpoznawania formularzy o większej głębokości.

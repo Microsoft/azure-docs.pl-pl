@@ -1,22 +1,22 @@
 ---
-title: Centra zadań w funkcjach trwałych — Azure
-description: Dowiedz się, co centrum zadań znajduje się w rozszerzeniu Funkcje trwałe dla usługi Azure Functions. Dowiedz się, jak skonfigurować centra zadań.
+title: Centra zadań w Durable Functions — Azure
+description: Dowiedz się, co to jest centrum zadań w Durable Functions rozszerzeniu Azure Functions. Dowiedz się, jak skonfigurować centra zadań.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604610"
 ---
-# <a name="task-hubs-in-durable-functions-azure-functions"></a>Centra zadań w funkcjach trwałych (usługi Azure)
+# <a name="task-hubs-in-durable-functions-azure-functions"></a>Centra zadań w Durable Functions (Azure Functions)
 
-*Centrum zadań* w [funkcji trwałych](durable-functions-overview.md) jest kontener logiczny dla zasobów usługi Azure Storage, które są używane do aranżacji. Funkcje koordynatora i działania mogą wchodzić ze sobą w interakcje tylko wtedy, gdy należą do tego samego centrum zadań.
+*Centrum zadań* w [Durable Functions](durable-functions-overview.md) jest kontenerem logicznym dla zasobów usługi Azure Storage, które są używane dla aranżacji. Funkcje programu Orchestrator i Activity mogą współdziałać ze sobą tylko wtedy, gdy należą do tego samego centrum zadań.
 
-Jeśli wiele aplikacji funkcji współużytkuje konto magazynu, każda aplikacja funkcji *musi* być skonfigurowana z osobną nazwą centrum zadań. Konto magazynu może zawierać wiele centrów zadań. Na poniższym diagramie przedstawiono jedno centrum zadań na aplikację funkcji na kontach magazynu udostępnionego i dedykowanego.
+Jeśli wiele aplikacji funkcji udostępnia konto magazynu, każda aplikacja funkcji *musi* być skonfigurowana przy użyciu oddzielnej nazwy centrum zadań. Konto magazynu może zawierać wiele centrów zadań. Na poniższym diagramie przedstawiono jeden centrum zadań dla każdej aplikacji funkcji na udostępnionych i dedykowanych kontach magazynu.
 
 ![Diagram przedstawiający udostępnione i dedykowane konta magazynu.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -24,26 +24,26 @@ Jeśli wiele aplikacji funkcji współużytkuje konto magazynu, każda aplikacja
 
 Centrum zadań składa się z następujących zasobów magazynu:
 
-* Co najmniej jedna kolejka kontrolna.
+* Jedna lub więcej kolejek kontroli.
 * Jedna kolejka elementów roboczych.
-* Jeden stół historii.
-* Tabela wystąpień.
-* Jeden kontener magazynu zawierający jeden lub więcej obiektów blob dzierżawy.
-* Kontener magazynu zawierający duże ładunki wiadomości, jeśli ma to zastosowanie.
+* Jedna tabela historii.
+* Jedna tabela wystąpień.
+* Jeden kontener magazynu zawierający co najmniej jeden obiekt BLOB dzierżawy.
+* Kontener magazynu zawierający duże ładunki komunikatów, jeśli ma zastosowanie.
 
-Wszystkie te zasoby są tworzone automatycznie na domyślnym koncie usługi Azure Storage, gdy funkcje programu orchestrator, encji lub działania są uruchamiane lub są planowane do uruchomienia. W artykule [Wydajność i skalowanie](durable-functions-perf-and-scale.md) wyjaśniono, jak te zasoby są używane.
+Wszystkie te zasoby są tworzone automatycznie w domyślnym koncie usługi Azure Storage, gdy funkcje programu Orchestrator, Entity lub Activity działają lub są zaplanowane do uruchomienia. W artykule [wydajność i skalowanie](durable-functions-perf-and-scale.md) wyjaśniono, jak te zasoby są używane.
 
-## <a name="task-hub-names"></a>Nazwy centrum zadań
+## <a name="task-hub-names"></a>Nazwy centrów zadań
 
-Centra zadań są identyfikowane za pomocą nazwy zgodnej z tymi regułami:
+Centra zadań są identyfikowane za pomocą nazwy, która jest zgodna z następującymi regułami:
 
 * Zawiera tylko znaki alfanumeryczne
-* Zaczyna się od litery
-* Ma minimalną długość 3 znaków, maksymalną długość 45 znaków
+* Rozpoczyna się od litery
+* Ma minimalną długość wynoszącą 3 znaki, maksymalną długość 45 znaków
 
-Nazwa centrum zadań jest zadeklarowana w pliku *host.json,* jak pokazano w poniższym przykładzie:
+Nazwa centrum zadań jest zadeklarowana w pliku *host. JSON* , jak pokazano w następującym przykładzie:
 
-### <a name="hostjson-functions-20"></a>host.json (Funkcje 2.0)
+### <a name="hostjson-functions-20"></a>Host. JSON (funkcje 2,0)
 
 ```json
 {
@@ -56,7 +56,7 @@ Nazwa centrum zadań jest zadeklarowana w pliku *host.json,* jak pokazano w poni
 }
 ```
 
-### <a name="hostjson-functions-1x"></a>host.json (Funkcje 1.x)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funkcje 1. x)
 
 ```json
 {
@@ -66,9 +66,9 @@ Nazwa centrum zadań jest zadeklarowana w pliku *host.json,* jak pokazano w poni
 }
 ```
 
-Koncentratory zadań można również skonfigurować przy użyciu ustawień `host.json` aplikacji, jak pokazano w poniższym przykładowym pliku:
+Centra zadań można również skonfigurować za pomocą ustawień aplikacji, jak pokazano w następującym `host.json` przykładowym pliku:
 
-### <a name="hostjson-functions-10"></a>host.json (Funkcje 1.0)
+### <a name="hostjson-functions-10"></a>Host. JSON (funkcje 1,0)
 
 ```json
 {
@@ -78,7 +78,7 @@ Koncentratory zadań można również skonfigurować przy użyciu ustawień `hos
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host.json (Funkcje 2.0)
+### <a name="hostjson-functions-20"></a>Host. JSON (funkcje 2,0)
 
 ```json
 {
@@ -91,7 +91,7 @@ Koncentratory zadań można również skonfigurować przy użyciu ustawień `hos
 }
 ```
 
-Nazwa centrum zadań zostanie ustawiona na `MyTaskHub` wartość ustawienia aplikacji. Poniżej `local.settings.json` przedstawiono sposób `MyTaskHub` definiowania `samplehubname`ustawienia jako:
+Nazwa centrum zadań zostanie ustawiona na wartość ustawienia `MyTaskHub` aplikacji. Poniżej `local.settings.json` przedstawiono sposób definiowania `MyTaskHub` ustawienia jako: `samplehubname`
 
 ```json
 {
@@ -102,9 +102,9 @@ Nazwa centrum zadań zostanie ustawiona na `MyTaskHub` wartość ustawienia apli
 }
 ```
 
-Poniższy kod pokazuje, jak napisać funkcję, która używa [powiązania klienta aranżacji](durable-functions-bindings.md#orchestration-client) do pracy z centrum zadań, który jest skonfigurowany jako ustawienie aplikacji:
+Poniższy kod ilustruje sposób pisania funkcji, która używa [powiązania klienta aranżacji](durable-functions-bindings.md#orchestration-client) do pracy z centrum zadań, które jest skonfigurowane jako ustawienie aplikacji:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -125,11 +125,11 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> Poprzedni przykład języka C# jest dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzedni przykład w języku C# jest przeznaczony dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Właściwość centrum zadań `function.json` w pliku jest ustawiana za pomocą ustawienia aplikacji:
+Właściwość centrum zadań w `function.json` pliku jest ustawiana za pośrednictwem ustawienia aplikacji:
 
 ```json
 {
@@ -142,19 +142,19 @@ Właściwość centrum zadań `function.json` w pliku jest ustawiana za pomocą 
 
 ---
 
-Nazwy centrum zadań muszą zaczynać się od litery i składać się tylko z liter i cyfr. Jeśli nie zostanie określona, domyślna nazwa centrum zadań będzie używana w sposób pokazany w poniższej tabeli:
+Nazwy centrów zadań muszą zaczynać się literą i składać się tylko z liter i cyfr. Jeśli nie zostanie określony, zostanie użyta domyślna nazwa centrum zadań, jak pokazano w poniższej tabeli:
 
-| Trwała wersja przedłużająca | Domyślna nazwa centrum zadań |
+| Wersja rozszerzenia trwałego | Nazwa domyślnego centrum zadań |
 | - | - |
-| 2.x | Po wdrożeniu na platformie Azure nazwa centrum zadań pochodzi od nazwy _aplikacji funkcji_. Gdy działa poza platformą Azure, `TestHubName`domyślną nazwą centrum zadań jest . |
-| 1.x | Domyślna nazwa centrum zadań dla `DurableFunctionsHub`wszystkich środowisk to . |
+| 2.x | Po wdrożeniu na platformie Azure nazwa centrum zadań jest tworzona na podstawie nazwy _aplikacji funkcji_. W przypadku uruchamiania poza platformą Azure domyślna nazwa centrum zadań to `TestHubName`. |
+| 1.x | Domyślną nazwą centrum zadań dla wszystkich środowisk jest `DurableFunctionsHub`. |
 
-Aby uzyskać więcej informacji na temat różnic między wersjami rozszerzenia, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+Aby uzyskać więcej informacji o różnicach między wersjami rozszerzeń, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
 > [!NOTE]
-> Nazwa jest tym, co odróżnia jedno centrum zadań od drugiego, gdy na koncie udostępnionego magazynu znajduje się wiele centrów zadań. Jeśli masz wiele aplikacji funkcji współużytkuje udostępnione konto magazynu, należy jawnie skonfigurować różne nazwy dla każdego centrum zadań w plikach *host.json.* W przeciwnym razie wiele aplikacji funkcji będzie konkurować ze sobą dla wiadomości, co może spowodować niezdefiniowane zachowanie, w tym aranżacji coraz nieoczekiwanie "zatrzymany" w `Pending` stanie lub. `Running`
+> Nazwa różni się od jednego centrum zadań, gdy istnieje wiele centrów zadań na koncie magazynu udostępnionego. Jeśli masz wiele aplikacji funkcji współużytkujących udostępnione konto magazynu, musisz jawnie skonfigurować różne nazwy dla każdego centrum zadań w plikach *host. JSON* . W przeciwnym razie wiele aplikacji funkcji będzie współdziałać ze sobą dla komunikatów, co może spowodować niezdefiniowane zachowanie, w tym aranżacje nieoczekiwanie " `Pending` zablokowane `Running` " w stanie lub.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak radzić sobie z przechowywaniem wersji aranżacji](durable-functions-versioning.md)
+> [Dowiedz się, jak obsługiwać przechowywanie wersji aranżacji](durable-functions-versioning.md)

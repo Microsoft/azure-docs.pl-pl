@@ -1,6 +1,6 @@
 ---
-title: Skrypt programu PowerShell, aby uzyskać przepływność (RU/s) dla interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
-description: Skrypt programu Azure PowerShell — przepływność usługi Azure Cosmos DB (RU/s) dla interfejsu API usługi MongoDB
+title: Skrypt programu PowerShell umożliwiający uzyskanie przepływności (RU/s) dla interfejsu API Azure Cosmos DB dla MongoDB
+description: Skrypt Azure PowerShell — Azure Cosmos DB uzyskiwania przepływności (RU/s) dla interfejsu API MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 6421636b806f2c32f5beba8c3cfafc6cd146e945
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81461331"
 ---
-# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Pobierz przepływność (RU/s) dla bazy danych lub kolekcji dla usługi Azure Cosmos DB — interfejs API MongoDB
+# <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Pobieranie przepływności (RU/s) dla bazy danych lub kolekcji dla Azure Cosmos DB-MongoDB interfejsu API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -39,8 +39,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Pobiera wartość przepływności określonej bazy danych interfejsu API mongodb. |
-| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Pobiera wartość przepływności określonej kolekcji interfejsu API usługi MongoDB. |
+| [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Pobiera wartość przepływności określonej bazy danych interfejsu API MongoDB. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Pobiera wartość przepływności określonej kolekcji interfejsów API MongoDB. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

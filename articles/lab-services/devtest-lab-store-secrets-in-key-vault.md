@@ -1,6 +1,6 @@
 ---
-title: Przechowywanie wpisów tajnych w magazynie kluczy w laboratoriach devtest azure | Dokumenty firmy Microsoft
-description: Dowiedz się, jak przechowywać wpisy tajne w magazynie kluczy platformy Azure i używać ich podczas tworzenia maszyny Wirtualnej, formuły lub środowiska.
+title: Przechowywanie wpisów tajnych w magazynie kluczy w Azure DevTest Labs | Microsoft Docs
+description: Dowiedz się, jak przechowywać wpisy tajne w Azure Key Vault i korzystać z nich podczas tworzenia maszyny wirtualnej, formuły lub środowiska.
 services: devtest-lab
 documentationcenter: na
 author: spelluru
@@ -15,39 +15,39 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461518"
 ---
-# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Przechowywanie wpisów tajnych w magazynie kluczy w laboratorium devtest azure
-Może być konieczne wprowadzenie złożonego klucza tajnego podczas korzystania z usługi Azure DevTest Labs: hasło dla maszyny Wirtualnej systemu Windows, publiczny klucz SSH dla maszyny Wirtualnej systemu Linux lub token dostępu osobistego w celu sklonowania repozytorium Git za pośrednictwem artefaktu. Sekrety są zwykle długie i mają losowe postacie. Dlatego wprowadzanie ich może być trudne i niewygodne, zwłaszcza jeśli używasz tego samego tajnego wiele razy.
+# <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Przechowywanie wpisów tajnych w magazynie kluczy w Azure DevTest Labs
+W przypadku używania Azure DevTest Labs: hasło dla maszyny wirtualnej z systemem Windows, publicznego klucza SSH dla maszyny wirtualnej z systemem Linux lub osobistego tokenu dostępu w celu sklonowania repozytorium Git za pośrednictwem artefaktu może być konieczne wprowadzenie złożonego hasła. Wpisy tajne są zwykle długie i mają losowe znaki. W związku z tym wprowadzenie ich może być kłopotliwe i niewygodne, szczególnie w przypadku korzystania z tego samego klucza tajnego wiele razy.
 
-Aby rozwiązać ten problem, a także zachować swoje wpisy tajne w bezpiecznym miejscu, DevTest Labs obsługuje przechowywanie wpisów tajnych w [magazynie kluczy platformy Azure.](../key-vault/general/overview.md) Gdy użytkownik zapisuje klucz tajny po raz pierwszy, usługa DevTest Labs automatycznie tworzy magazyn kluczy w tej samej grupie zasobów, która zawiera laboratorium i przechowuje klucz tajny w magazynie kluczy. DevTest Labs tworzy oddzielny magazyn kluczy dla każdego użytkownika. 
+Aby rozwiązać ten problem, a także zachować swoje wpisy tajne w bezpiecznym miejscu, DevTest Labs obsługuje przechowywanie wpisów tajnych w [magazynie kluczy platformy Azure](../key-vault/general/overview.md). Gdy użytkownik zapisuje wpis tajny po raz pierwszy, usługa DevTest Labs automatycznie tworzy magazyn kluczy w tej samej grupie zasobów, która zawiera laboratorium i zapisuje wpis tajny w magazynie kluczy. DevTest Labs tworzy osobny Magazyn kluczy dla każdego użytkownika. 
 
-Należy pamiętać, że użytkownik laboratorium będzie musiał najpierw utworzyć maszynę wirtualną laboratorium, zanim będzie mógł utworzyć klucz tajny w magazynie kluczy. Dzieje się tak, ponieważ usługa DevTest Lab musi skojarzyć użytkownika laboratorium z prawidłowym dokumentem użytkownika, zanim będą mogli tworzyć i przechowywać wpisy tajne w magazynie kluczy. 
+Należy pamiętać, że użytkownik laboratorium musi najpierw utworzyć maszynę wirtualną laboratorium, aby można było utworzyć wpis tajny w magazynie kluczy. Wynika to z faktu, że usługa laboratoryjna DevTest musi skojarzyć użytkownika laboratorium z prawidłowym dokumentem użytkownika, zanim będzie można tworzyć i przechowywać wpisy tajne w magazynie kluczy. 
 
 
-## <a name="save-a-secret-in-azure-key-vault"></a>Zapisywanie klucza tajnego w usłudze Azure Key Vault
-Aby zapisać swój klucz tajny w usłudze Azure Key Vault, wykonaj następujące czynności:
+## <a name="save-a-secret-in-azure-key-vault"></a>Zapisz klucz tajny w Azure Key Vault
+Aby zapisać klucz tajny w Azure Key Vault, wykonaj następujące czynności:
 
-1. Wybierz **pozycję Moje wpisy tajne** w menu po lewej stronie.
-2. Wprowadź **nazwę** klucza tajnego. Ta nazwa jest widoczna na liście rozwijanej podczas tworzenia maszyny Wirtualnej, formuły lub środowiska. 
+1. W menu po lewej stronie wybierz pozycję **moje wpisy tajne** .
+2. Wprowadź **nazwę** wpisu tajnego. Ta nazwa zostanie wyświetlona na liście rozwijanej podczas tworzenia maszyny wirtualnej, formuły lub środowiska. 
 3. Wprowadź klucz tajny jako **wartość**.
 
-    ![Tajemnica sklepu](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
+    ![Wpis tajny sklepu](media/devtest-lab-store-secrets-in-key-vault/store-secret.png)
 
-## <a name="use-a-secret-from-azure-key-vault"></a>Używanie klucza tajnego z usługi Azure Key Vault
-Jeśli trzeba wprowadzić klucz tajny, aby utworzyć maszynę wirtualną, formułę lub środowisko, można ręcznie wprowadzić klucz tajny lub wybrać zapisany klucz tajny z magazynu kluczy. Aby użyć klucza tajnego przechowywanego w magazynie kluczy, wykonaj następujące czynności:
+## <a name="use-a-secret-from-azure-key-vault"></a>Użyj klucza tajnego z Azure Key Vault
+Jeśli musisz wprowadzić klucz tajny, aby utworzyć maszynę wirtualną, formułę lub środowisko, możesz ręcznie wprowadzić wpis tajny lub wybrać zapisany klucz tajny z magazynu kluczy. Aby użyć wpisu tajnego przechowywanego w magazynie kluczy, wykonaj następujące czynności:
 
-1. Wybierz **pozycję Użyj zapisanego klucza tajnego**. 
-2. Wybierz swój sekret z listy rozwijanej **Wybierz klucz tajny**. 
+1. Wybierz pozycję **Użyj zapisanego klucza tajnego**. 
+2. Wybierz klucz tajny z listy rozwijanej, aby **wybrać wpis tajny**. 
 
-    ![Używanie klucza tajnego w maszynie wirtualnej](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
+    ![Użyj wpisu tajnego w maszynie wirtualnej](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 
-## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Używanie klucza tajnego w szablonie usługi Azure Resource Manager
-Nazwę tajnego można określić w szablonie usługi Azure Resource Manager, który jest używany do tworzenia maszyny Wirtualnej, jak pokazano w poniższym przykładzie:
+## <a name="use-a-secret-in-an-azure-resource-manager-template"></a>Używanie wpisu tajnego w szablonie Azure Resource Manager
+Możesz określić nazwę tajnego szablonu Azure Resource Manager, który służy do tworzenia maszyny wirtualnej, jak pokazano w następującym przykładzie:
 
 ![Używanie klucza tajnego w formule lub środowisku](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
 

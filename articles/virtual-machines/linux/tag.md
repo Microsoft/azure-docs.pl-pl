@@ -1,6 +1,6 @@
 ---
-title: Jak oznaczyć maszynę wirtualną systemu Azure Linux
-description: Dowiedz się więcej o oznaczaniu maszyny wirtualnej systemu Azure Linux utworzonej na platformie Azure przy użyciu modelu wdrażania usługi Resource Manager.
+title: Jak oznaczyć maszynę wirtualną z systemem Linux na platformie Azure
+description: Dowiedz się więcej na temat tagowania maszyny wirtualnej platformy Azure z systemem Linux utworzonej na platformie Azure przy użyciu modelu wdrażania Menedżer zasobów.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
@@ -14,28 +14,28 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: fd4a93f4c0b2f052fe5c9890bee01e5da0dcead2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460957"
 ---
-# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Jak oznaczyć maszynę wirtualną systemu Linux na platformie Azure
-W tym artykule opisano różne sposoby tagowania maszyny wirtualnej systemu Linux na platformie Azure za pośrednictwem modelu wdrażania usługi Resource Manager. Tagi są parami kluczy/wartości zdefiniowanych przez użytkownika, które można umieścić bezpośrednio w zasobie lub grupie zasobów. Platforma Azure obsługuje obecnie do 50 tagów na grupę zasobów i zasobów. Tagi mogą być umieszczane w zasobie w momencie tworzenia lub dodawane do istniejącego zasobu. Należy pamiętać, że tagi są obsługiwane dla zasobów utworzonych tylko za pośrednictwem modelu wdrażania Menedżera zasobów.
+# <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Jak oznaczyć maszynę wirtualną z systemem Linux na platformie Azure
+W tym artykule opisano różne sposoby tagowania maszyny wirtualnej z systemem Linux na platformie Azure za pomocą modelu wdrażania Menedżer zasobów. Tagi to zdefiniowane przez użytkownika pary klucz/wartość, które mogą być umieszczone bezpośrednio w ramach zasobu lub grupy zasobów. Platforma Azure obsługuje obecnie do 50 tagów na zasób i grupę zasobów. Tagi mogą być umieszczane na zasobie w momencie tworzenia lub dodawane do istniejącego zasobu. Należy pamiętać, że Tagi są obsługiwane tylko dla zasobów utworzonych za pośrednictwem modelu wdrażania Menedżer zasobów.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
-## <a name="tagging-with-azure-cli"></a>Oznaczanie za pomocą interfejsu wiersza polecenia platformy Azure
+## <a name="tagging-with-azure-cli"></a>Tagowanie przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby rozpocząć, potrzebujesz najnowszego interfejsu [wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) zainstalowanego i zalogowanego do konta platformy Azure przy użyciu [logowania az.](/cli/azure/reference-index#az-login)
+Aby rozpocząć, musisz zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zalogować się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index#az-login).
 
-Za pomocą tego polecenia można wyświetlić wszystkie właściwości danej maszyny wirtualnej, w tym znaczniki:
+Można wyświetlić wszystkie właściwości danej maszyny wirtualnej, w tym Tagi, za pomocą tego polecenia:
 
 ```azurecli
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Aby dodać nowy tag maszyny Wirtualnej za pośrednictwem `azure vm update` interfejsu wiersza polecenia platformy Azure, można użyć polecenia wraz z parametrem tag **--set:**
+Aby dodać nowy tag maszyny wirtualnej za pomocą interfejsu wiersza polecenia platformy Azure, można `azure vm update` użyć polecenia wraz z parametrem tag **--Set**:
 
 ```azurecli
 az vm update \
@@ -44,19 +44,19 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-Aby usunąć znaczniki, można użyć parametru `azure vm update` **--remove** w poleceniu.
+Aby usunąć Tagi, można użyć parametru **--Remove** w `azure vm update` poleceniu.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
 ```
 
-Teraz, gdy zastosowaliśmy tagi do naszych zasobów interfejsu wiersza polecenia platformy Azure i portalu, przyjrzyjmy się szczegółom użycia, aby wyświetlić tagi w portalu rozliczeniowym.
+Teraz, po zastosowaniu tagów do naszych zasobów interfejsu wiersza polecenia platformy Azure i portalu, zapoznaj się z informacjami na temat użycia, aby zobaczyć Tagi w portalu rozliczeń.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się więcej o oznaczaniu zasobów platformy Azure, zobacz [Omówienie usługi Azure Resource Manager][Azure Resource Manager Overview] i [organizowanie zasobów platformy Azure przy użyciu tagów.][Using Tags to organize your Azure Resources]
-* Aby zobaczyć, jak tagi mogą pomóc w zarządzaniu korzystaniem z zasobów platformy Azure, zobacz [Opis rachunku za korzystanie][Understanding your Azure Bill] z platformy Azure i uzyskaj wgląd w zużycie zasobów platformy Microsoft [Azure.][Gain insights into your Microsoft Azure resource consumption]
+* Aby dowiedzieć się więcej o znakowaniu zasobów platformy Azure, zobacz [Azure Resource Manager omówienie][Azure Resource Manager Overview] i [Używanie tagów do organizowania zasobów platformy Azure][Using Tags to organize your Azure Resources].
+* Aby dowiedzieć się, jak tagi mogą ułatwić zarządzanie użyciem zasobów platformy Azure, zobacz [Opis rachunku na korzystanie z platformy Azure][Understanding your Azure Bill] i [Uzyskiwanie szczegółowych informacji o zużyciu zasobów Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md

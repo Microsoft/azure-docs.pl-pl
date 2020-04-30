@@ -6,17 +6,17 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535642"
 ---
 # <a name="app-service-overview"></a>Omówienie usługi App Service
 
-*Usługa Azure App Service* to usługa oparta na protoko web do obsługi aplikacji sieci Web, interfejsów API REST i zaplecza mobilnego. Możesz programować w ulubionym języku — .NET, .NET Core, Java, Ruby, Node.js, PHP lub Python. Aplikacje można łatwo uruchamiać i skalować w środowiskach opartych zarówno na systemie Windows, jak i Linux. W przypadku środowisk opartych na systemie Linux zobacz [Usługa App Service w systemie Linux](containers/app-service-linux-intro.md). 
+*Azure App Service* to usługa oparta na protokole HTTP do hostowania aplikacji sieci Web, interfejsów API REST i zaplecza mobilnego. Możesz programować w ulubionym języku — .NET, .NET Core, Java, Ruby, Node.js, PHP lub Python. Aplikacje można łatwo uruchamiać i skalować w środowiskach opartych zarówno na systemie Windows, jak i Linux. W przypadku środowisk opartych na systemie Linux zobacz [Usługa App Service w systemie Linux](containers/app-service-linux-intro.md). 
 
-Usługa App Service nie tylko dodaje do aplikacji możliwości platformy Microsoft Azure, takie jak zabezpieczenia, równoważenie obciążenia, automatyczne skalowanie i automatyczne zarządzanie. Można również skorzystać z jego możliwości DevOps, takich jak ciągłe wdrażanie z usługi Azure DevOps, GitHub, Docker Hub i innych źródeł, zarządzanie pakietami, środowiska przejściowe, domeny niestandardowej i certyfikatów TLS/SSL. 
+Usługa App Service nie tylko dodaje do aplikacji możliwości platformy Microsoft Azure, takie jak zabezpieczenia, równoważenie obciążenia, automatyczne skalowanie i automatyczne zarządzanie. Możesz również skorzystać z możliwości DevOps, takich jak ciągłe wdrażanie z usługi Azure DevOps, GitHub, Hub Docker i innych źródeł, zarządzania pakietami, środowisk przejściowych, domeny niestandardowej i certyfikatów TLS/SSL. 
 
 Korzystając z usługi App Service, płacisz tylko za faktycznie wykorzystane zasoby obliczeniowe platformy Azure. Używane zasoby obliczeniowe są określane przez _Plan usługi App Service_, w ramach którego uruchamiasz swoje aplikacje. Aby uzyskać więcej informacji, zobacz [Omówienie planów usługi App Service](overview-hosting-plans.md).
 

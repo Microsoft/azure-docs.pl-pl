@@ -1,6 +1,6 @@
 ---
-title: Klastry usługi Azure HDInsight z szyfrowaniem dysku tracą dostęp do usługi Key Vault
-description: Rozwiązywanie problemów z instrukcjami i możliwymi rozwiązaniami problemów podczas interakcji z klastrami usługi Azure HDInsight.
+title: Klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
+description: Kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas pracy z klastrami usługi Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,84 +8,84 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461535"
 ---
-# <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenariusz: klastry usługi Azure HDInsight z szyfrowaniem dysku tracą dostęp do usługi Key Vault
+# <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenariusz: klastry usługi Azure HDInsight z szyfrowaniem dysków tracą dostęp Key Vault
 
-W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów podczas interakcji z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
 
 ## <a name="issue"></a>Problem
 
-Alert `The HDInsight cluster is unable to access the key for BYOK encryption at rest`Centrum kondycji zasobów (RHC) jest wyświetlany dla klastrów Bring Your Own Key (BYOK), w których węzły klastra utraciły dostęp do klientów, aby przechowalnia kluczy (KV). Podobne alerty można również zobaczyć na Apache Ambari UI.
+Alert Resource Health Center (systemie RHC występuje), `The HDInsight cluster is unable to access the key for BYOK encryption at rest`,, jest pokazywany dla klastrów Bring Your Own Key (BYOK), w których węzły klastra utraciły dostęp do klientów Key Vault (KV). Podobne alerty mogą być również widoczne w interfejsie użytkownika Apache Ambari.
 
 ## <a name="cause"></a>Przyczyna
 
-Alert zapewnia, że KV jest dostępny z węzłów klastra, zapewniając w ten sposób połączenie sieciowe, kondycję KV i zasady dostępu dla użytkownika przypisanego tożsamości zarządzanej. Ten alert jest tylko ostrzeżenie o zbliżającym się zamknięciu brokera po kolejnych ponownych rozruchów węzła, klaster nadal działa do ponownego uruchomienia węzłów.
+Alert zapewnia dostęp do elementu KV z węzłów klastra, dzięki czemu zapewnianie połączenia sieciowego, kondycji KV i zasad dostępu dla tożsamości zarządzanej przypisanej przez użytkownika. Ten alert jest tylko ostrzeżeniem o zbliżającym się zamykaniu brokera w kolejnych ponownych uruchomieniach węzła, klaster będzie działał do momentu ponownego uruchomienia węzłów.
 
-Przejdź do interfejsu apache Ambari, aby uzyskać więcej informacji na temat alertu ze **stanu magazynu kluczy szyfrowania dysku**. Ten alert będzie miał szczegółowe informacje o przyczynie niepowodzenia weryfikacji.
+Przejdź do interfejsu użytkownika Apache Ambari, aby uzyskać więcej informacji na temat alertu na podstawie **stanu szyfrowania dysku Key Vault**. Ten alert zawiera szczegółowe informacje o przyczynie niepowodzenia weryfikacji.
 
 ## <a name="resolution"></a>Rozwiązanie
 
 ### <a name="kvaad-outage"></a>Awaria KV/AAD
 
-Więcej informacji znajdziesz na [stronie dostępności i nadmiarowości](../../key-vault/general/disaster-recovery-guidance.md) usługi Azure Key Vault oraz stronie stanu usługi Azurehttps://status.azure.com/
+Zapoznaj się z informacjami na [Azure Key Vault dostępności i nadmiarowości](../../key-vault/general/disaster-recovery-guidance.md) oraz na stronie stanu platformy Azure, aby uzyskać więcej szczegółówhttps://status.azure.com/
 
-### <a name="kv-accidental-deletion"></a>Przypadkowe usunięcie KV
+### <a name="kv-accidental-deletion"></a>Przypadkowe usunięcie
 
-* Przywróć usunięty klucz na KV, aby automatycznie odzyskać. Aby uzyskać więcej informacji, zobacz [Odzyskiwanie usuniętego klucza](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
-* Skontaktuj się z zespołem KV, aby odzyskać siły po przypadkowych usunięciach.
+* Przywróć usunięty klucz z KV do automatycznego odzyskiwania. Aby uzyskać więcej informacji, zobacz [Odzyskiwanie usuniętego klucza](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey).
+* Skontaktuj się z zespołem KV, aby odzyskać sprawność po przypadkowym usunięciu.
 
-### <a name="kv-access-policy-changed"></a>Zmieniono zasady dostępu kv
+### <a name="kv-access-policy-changed"></a>Zmieniono zasady dostępu KV
 
-Przywróć zasady dostępu dla użytkownika przypisanego do tożsamości zarządzanej przypisanej do klastra HDI w celu uzyskania dostępu do kv.
+Przywróć zasady dostępu dla tożsamości zarządzanej przypisanej przez użytkownika przypisanej do klastra HDI, aby uzyskać dostęp do KV.
 
-### <a name="key-permitted-operations"></a>Kluczowe dozwolone operacje
+### <a name="key-permitted-operations"></a>Operacje dozwolone dla klucza
 
-Dla każdego klucza w KV, można wybrać zestaw dozwolonych operacji. Upewnij się, że dla klucza BYOK włączono operacje zawijania i odwijania
+Dla każdego klucza w KV można wybrać zestaw dozwolonych operacji. Upewnij się, że masz włączone operacje zawijania i odpakowania dla klucza BYOK
 
-### <a name="expired-key"></a>Wygasły klucz
+### <a name="expired-key"></a>Klucz wygasły
 
-Jeśli wygaśnięcie minęło, a klucz nie zostanie obrócony, przywróć klucz z kopii zapasowej modułu HSM lub skontaktuj się z zespołem KV, aby wyczyścić datę wygaśnięcia.
+Jeśli upłynął okres ważności i klucz nie jest obrócony, Przywróć klucz z modułu HSM kopii zapasowej lub skontaktuj się z zespołem KV, aby wyczyścić datę wygaśnięcia.
 
-### <a name="kv-firewall-blocking-access"></a>Dostęp do zapory KV
+### <a name="kv-firewall-blocking-access"></a>Dostęp do blokowania zapory KV
 
-Napraw ustawienia zapory KV, aby umożliwić węzłom klastra BYOK dostęp do KV.
+Popraw ustawienia zapory KV, aby zezwolić BYOK węzłom klastra na dostęp do KV.
 
-### <a name="nsg-rules-on-virtual-network-blocking-access"></a>Zasady sieciowej sieciowej dotyczące blokowania dostępu do sieci wirtualnej
+### <a name="nsg-rules-on-virtual-network-blocking-access"></a>SIECIOWEJ grupy zabezpieczeń reguły dotyczące dostępu blokowania sieci wirtualnej
 
-Sprawdź reguły sieciowej grupy sieciowej skojarzone z siecią wirtualną dołączoną do klastra.
+Sprawdź reguły sieciowej grupy zabezpieczeń skojarzone z siecią wirtualną dołączoną do klastra.
 
-## <a name="mitigation-and-prevention-steps"></a>Działania łagodzące i zapobiegawcze
+## <a name="mitigation-and-prevention-steps"></a>Kroki zaradcze i zapobiegania
 
-### <a name="kv-accidental-deletion"></a>Przypadkowe usunięcie KV
+### <a name="kv-accidental-deletion"></a>Przypadkowe usunięcie
 
-* Skonfiguruj magazyn [kluczy](../../azure-resource-manager/management/lock-resources.md)za pomocą zestawu blokad zasobów .
-* Śmiuj zapas kluczy do sprzętowego modułu zabezpieczeń.
+* Skonfiguruj Key Vault z [zestawem blokad zasobów](../../azure-resource-manager/management/lock-resources.md).
+* Wykonaj kopię zapasową kluczy do ich sprzętowego modułu zabezpieczeń.
 
-### <a name="key-deletion"></a>Usuwanie kluczy
+### <a name="key-deletion"></a>Usuwanie klucza
 
 Klaster powinien zostać usunięty przed usunięciem klucza.
 
-### <a name="kv-access-policy-changed"></a>Zmieniono zasady dostępu kv
+### <a name="kv-access-policy-changed"></a>Zmieniono zasady dostępu KV
 
-Regularne inspekcje i testowanie zasad dostępu.
+Regularnie przeprowadzaj inspekcję i testowanie zasad dostępu.
 
-### <a name="expired-key"></a>Wygasły klucz
+### <a name="expired-key"></a>Klucz wygasły
 
-* Śmiuj zapas kluczy do modułu HSM.
-* Użyj klucza bez zestawu wygaśnięcia.
-* Jeśli należy ustawić wygaśnięcie, obróć klucze przed datą wygaśnięcia.
+* Wykonaj kopię zapasową kluczy w module HSM.
+* Użyj klucza bez żadnego zestawu wygasania.
+* Jeśli należy ustawić wygaśnięcie, Obróć klucze przed datą wygaśnięcia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz problemu lub nie możesz rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy technicznej:
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
-* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej platformy Azure Community.](https://azure.microsoft.com/support/community/)
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz [@AzureSupport](https://twitter.com/azuresupport) się z — oficjalnym kontem platformy Microsoft Azure w celu poprawy jakości obsługi klienta. Łączenie społeczności platformy Azure z odpowiednimi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy z [witryny Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Wybierz **pozycję Obsługa z** paska menu lub otwórz centrum pomocy + pomocy **technicznej.** Aby uzyskać bardziej szczegółowe informacje, zapoznaj [się z instrukcjami tworzenia żądania pomocy technicznej platformy Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Dostęp do obsługi zarządzania subskrypcjami i rozliczeń jest dołączony do subskrypcji platformy Microsoft Azure, a pomoc techniczna jest świadczona za pośrednictwem jednego z [planów pomocy technicznej platformy Azure.](https://azure.microsoft.com/support/plans/)
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

@@ -1,6 +1,6 @@
 ---
-title: Samouczek — dostosowywanie maszyny Wirtualnej systemu Linux za pomocą init w chmurze na platformie Azure
-description: W tym samouczku dowiesz się, jak używać funkcji cloud-init i key vault do dostosowywania maszyn wirtualnych z systemem Linux przy pierwszym uruchomieniu platformy Azure
+title: Samouczek — Dostosowywanie maszyny wirtualnej z systemem Linux przy użyciu funkcji Cloud-init na platformie Azure
+description: W tym samouczku dowiesz się, jak za pomocą funkcji Cloud-init i Key Vault dostosować maszyny wirtualne z systemem Linux podczas pierwszego rozruchu na platformie Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,10 +15,10 @@ ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81461484"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Samouczek — dostosowywanie maszyny wirtualnej z systemem Linux na platformie Azure podczas pierwszego rozruchu za pomocą pakietu cloud-init
@@ -41,21 +41,21 @@ Pakiet cloud-init działa również w różnych dystrybucjach. Przykładowo nie 
 
 Wraz z partnerami pracujemy nad tym, aby pakiet cloud-init był uwzględniany i uruchamiany w obrazach, których dostarczają na platformie Azure. W poniższej tabeli przedstawiono bieżącą dostępność pakietu cloud-init w obrazach na platformie Azure:
 
-| Wydawca | Oferta | SKU | Wersja | chmura-init gotowy |
+| Wydawca | Oferta | SKU | Wersja | Cloud-init gotowe |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |najnowsza |tak | 
+|Canonical |UbuntuServer |18,04 – LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |16.04-LTS |najnowsza |tak | 
 |Canonical |UbuntuServer |14.04.5-LTS |najnowsza |tak |
 |CoreOS |CoreOS |Stable |najnowsza |tak |
-|OpenLogic 7.6 |CentOS |7-CI |najnowsza |podgląd |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |tak |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |podgląd |
+|OpenLogic 7,6 |CentOS |7-CI |najnowsza |preview |
+|RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak |
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
 ## <a name="create-cloud-init-config-file"></a>Tworzenie pliku konfiguracji cloud-init
 Aby zobaczyć pakiet cloud-init w akcji, utwórz maszynę wirtualną instalującą NGINX i uruchamiającą prostą aplikację Node.js „Hello World”. Następująca konfiguracja cloud-init instaluje wymagane pakiety, tworzy aplikację Node.js, a następnie inicjuje i uruchamia aplikację.
 
-W wierszu polecenia bash lub w usłudze Cloud Shell utwórz plik o nazwie *cloud-init.txt* i wklej następującą konfigurację. Na przykład `sensible-editor cloud-init.txt` wpisz, aby utworzyć plik i zobacz listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
+W wierszu polecenia bash lub w Cloud Shell Utwórz plik o nazwie *Cloud-init. txt* i wklej następującą konfigurację. Na przykład wpisz `sensible-editor cloud-init.txt` , aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
 ```bash
 #cloud-config
@@ -108,7 +108,7 @@ Zanim będzie można utworzyć maszynę wirtualną, utwórz grupę zasobów za p
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt*, jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM:*
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). Użyj parametru `--custom-data` do przekazania w pliku konfiguracji cloud-init. Podaj pełną ścieżkę do pliku konfiguracji *cloud-init.txt*, jeśli plik został zapisany poza aktualnym katalogiem roboczym. Poniższy przykład tworzy maszynę wirtualną o nazwie *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -183,7 +183,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Tworzenie konfiguracji cloud-init do zabezpieczenia serwera NGINX
 Podczas tworzenia maszyny wirtualnej certyfikaty i klucze są przechowywane w chronionym katalogu */var/lib/agentawaagent/*. Aby zautomatyzować dodawanie certyfikatu do maszyny wirtualnej i konfigurowanie serwera NGINX, możesz użyć zaktualizowanego pliku konfiguracji cloud-init z poprzedniego przykładu.
 
-Utwórz plik o nazwie *cloud-init-secured.txt* i wklej następującą konfigurację. Jeśli używasz cloud shell, należy utworzyć plik konfiguracyjny cloud-init tam, a nie na komputerze lokalnym. Na przykład `sensible-editor cloud-init-secured.txt` wpisz, aby utworzyć plik i zobacz listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
+Utwórz plik o nazwie *cloud-init-secured.txt* i wklej następującą konfigurację. Jeśli używasz Cloud Shell, Utwórz plik konfiguracji Cloud-init w tym miejscu, a nie na komputerze lokalnym. Na przykład wpisz `sensible-editor cloud-init-secured.txt` , aby utworzyć plik i wyświetlić listę dostępnych edytorów. Upewnij się, że skopiowano cały plik cloud-init chmury, a szczególnie pierwszy wiersz:
 
 ```yaml
 #cloud-config
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testowanie bezpiecznej aplikacji internetowej
-Teraz możesz otworzyć przeglądarkę internetową i wprowadzić *https:\/\/\<publicIpAddress>* na pasku adresu. Podaj własny publiczny adres IP, widoczny w danych wyjściowych poprzedniego procesu tworzenia maszyny wirtualnej. Jeśli został użyty certyfikat z podpisem własnym, zaakceptuj ostrzeżenie dotyczące zabezpieczeń:
+Teraz możesz otworzyć przeglądarkę internetową i wprowadzić wartość *https:\/\/\<publicIpAddress>* na pasku adresu. Podaj własny publiczny adres IP, widoczny w danych wyjściowych poprzedniego procesu tworzenia maszyny wirtualnej. Jeśli został użyty certyfikat z podpisem własnym, zaakceptuj ostrzeżenie dotyczące zabezpieczeń:
 
 ![Akceptowanie ostrzeżenia dotyczącego zabezpieczeń w przeglądarce sieci Web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

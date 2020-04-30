@@ -1,6 +1,6 @@
 ---
-title: Kopiowanie dysków zarządzanych do subskrypcji — przykładowy wiersza polecenia
-description: Przykład skryptu interfejsu wiersza polecenia platformy Azure — kopiowanie (lub przenoszenie) dysków zarządzanych do tej samej lub innej subskrypcji
+title: Kopiuj dyski zarządzane do przykładu subskrypcji — interfejsu wiersza polecenia
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure — kopiowanie (lub przenoszenie) dysków zarządzanych do tej samej lub innej subskrypcji
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,10 +16,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 540f11e2089d6aeac1b6c664695d1dafbf31d65a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460889"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Kopiowanie dysków zarządzanych do tej samej lub innej subskrypcji za pomocą interfejsu wiersza polecenia

@@ -1,7 +1,7 @@
 ---
 title: Co nowego w usłudze Rozpoznawanie formularzy?
 titleSuffix: Azure Cognitive Services
-description: Poznaj najnowsze zmiany w interfejsie API aparatu rozpoznawania formularzy.
+description: Zapoznaj się z najnowszymi zmianami w interfejsie API aparatu rozpoznawania formularzy.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,100 +10,100 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81531086"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
-Usługa rozpoznawania formularzy jest aktualizowana na bieżąco. Ten artykuł umożliwia aktualizowanie funkcji, poprawek i aktualizacji dokumentacji.
+Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzystaj z tego artykułu, aby uzyskać aktualne informacje dotyczące ulepszeń, poprawek i aktualizacji dokumentacji.
 
 > [!NOTE]
-> Przewodniki szybki start i przewodniki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że określono.
+> Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
 
 ## <a name="march-2020"></a>Marzec 2020 r. 
 
 ### <a name="new-features"></a>Nowe funkcje
 
-* **Typy wartości do etykietowania** Teraz można określić typy wartości, które oznaczasz, za pomocą narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Następujące typy wartości i odmiany są obecnie obsługiwane:
+* **Typy wartości dla etykietowania** Teraz możesz określić typy wartości, które są oznaczone etykietami, za pomocą narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Następujące typy wartości i różnice są obecnie obsługiwane:
   * `string`
-    * domyślnie, `no-whitespaces`,`alphanumeric`
+    * domyślne, `no-whitespaces`,`alphanumeric`
   * `number`
-    * Domyślny`currency`
+    * wartooć`currency`
   * `date` 
-    * `dmy`domyślnie, `mdy`,`ymd`
+    * domyślne, `dmy`, `mdy`,`ymd`
   * `time`
   * `integer`
 
-  Zobacz przykładowy przewodnik po narzędziach do [etykietowania,](./quickstarts/label-tool.md#specify-tag-value-types) aby dowiedzieć się, jak korzystać z tej funkcji.
+  Aby dowiedzieć się, jak korzystać z tej funkcji, zobacz Przewodnik po [przykładowym narzędziu do etykietowania](./quickstarts/label-tool.md#specify-tag-value-types) .
 
 
-* **Wizualizacja tabeli** Narzędzie do etykietowania przykładowego wyświetla teraz tabele, które zostały rozpoznane w dokumencie. Dzięki temu można wyświetlić tabele, które zostały rozpoznane i wyodrębnione z dokumentu, przed etykietowaniem i analizą. Tę funkcję można włączać/wyłączać za pomocą opcji warstw.
+* **Wizualizacja tabeli** Narzędzie przykładowe etykietowanie wyświetla teraz tabele, które zostały rozpoznane w dokumencie. Pozwala to wyświetlić tabele, które zostały rozpoznane i wyodrębnione z dokumentu przed oznaczeniem i analizą. Tę funkcję można włączyć/wyłączyć przy użyciu opcji warstwy.
 
-  Jest to przykład sposobu rozpoznawanie i wyodrębnianie tabel:
+  Oto przykład sposobu, w jaki tabele są rozpoznawane i wyodrębniane:
 
   > [!div class="mx-imgBorder"]
-  > ![Wizualizacja tabeli przy użyciu przykładowego narzędzia do etykietowania](./media/whats-new/formre-table-viz.png)
+  > ![Wizualizacja tabeli przy użyciu narzędzia do etykietowania przykładowego](./media/whats-new/formre-table-viz.png)
 
-    Wyodrębnione tabele są dostępne w `"pageResults"`danych wyjściowych JSON w obszarze .
+    Wyodrębnione tabele są dostępne w danych wyjściowych JSON `"pageResults"`poniżej.
 
   > [!IMPORTANT]
-  > Tabele etykietowania nie są obsługiwane. Jeśli tabele nie są rozpoznawane i ekstrakowane automatycznie, można je oznaczyć tylko jako pary klucz/wartość. Podczas etykietowania tabel jako par klucz/wartość oznaczaj każdą komórkę jako unikatową wartość.
+  > Tabele etykiet nie są obsługiwane. Jeśli tabele nie są rozpoznawane i extrated automatycznie, można je oznaczyć tylko jako pary klucz/wartość. Podczas etykietowania tabel jako par klucz/wartość, Oznacz każdą komórkę jako wartość unikatową.
 
-### <a name="extraction-enhancements"></a>Ulepszenia ekstrakcji
+### <a name="extraction-enhancements"></a>Ulepszenia wyodrębniania
 
-Ta wersja zawiera ulepszenia ekstrakcji i ulepszenia dokładności, w szczególności możliwość etykietowania i wyodrębniania wielu par klucz/wartość w tym samym wierszu tekstu. 
+Ta wersja obejmuje ulepszenia wyodrębniania i ulepszenia dokładności, w oddzielnym zakresie, możliwość etykietowania i wyodrębniania wielu par klucz/wartość w tym samym wierszu tekstu. 
  
-### <a name="sample-labeling-tool-is-now-open-source"></a>Przykładowe narzędzie do etykietowania jest teraz open-source
+### <a name="sample-labeling-tool-is-now-open-source"></a>Przykładowe narzędzie do etykietowania jest teraz otwarte — źródło
 
-Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy jest teraz dostępne jako projekt typu open source. Możesz zintegrować go ze swoimi rozwiązaniami i wprowadzić zmiany specyficzne dla klienta, aby spełnić Twoje potrzeby.
+Narzędzie do etykietowania przykładowego aparatu rozpoznawania formularzy jest teraz dostępne jako projekt Open-Source. Możesz zintegrować je w swoich rozwiązaniach i wprowadzić zmiany specyficzne dla klienta, aby zaspokoić Twoje potrzeby.
 
-Aby uzyskać więcej informacji na temat narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy, zapoznaj się z dokumentacją dostępną w [usłudze GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+Aby uzyskać więcej informacji na temat narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy, zapoznaj się z dokumentacją dostępną w witrynie [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### <a name="tls-12-enforcement"></a>Wymuszanie protokołu TLS 1.2
 
-Protokół TLS 1.2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [zabezpieczenia usług Azure Cognitive Services](../cognitive-services-security.md).
+Protokół TLS 1,2 jest teraz wymuszany dla wszystkich żądań HTTP do tej usługi. Aby uzyskać więcej informacji, zobacz [Azure Cognitive Services Security](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
-W tej wersji wprowadzono aparat rozpoznawania formularzy 2.0 (wersja zapoznawcza). W poniższych sekcjach znajdziesz więcej informacji o nowych funkcjach, ulepszeniach i zmianach. 
+W tej wersji wprowadzono aparat rozpoznawania formularzy 2,0 (wersja zapoznawcza). W poniższych sekcjach znajdziesz więcej informacji na temat nowych funkcji, ulepszeń i zmian. 
 
 ### <a name="new-features"></a>Nowe funkcje
 
 * **Model niestandardowy**
-  * **Trenuj z etykietami** Teraz można trenować model niestandardowy z danymi oznaczonymi ręcznie. Powoduje to lepszą wydajność modeli i może tworzyć modele, które działają ze złożonymi formularzami lub formularzami zawierającymi wartości bez kluczy.
-  * **Asynchroniczne API** Wywołania asynchronii można używać do trenowania i analizowania dużych zestawów danych i plików.
-  * **Obsługa plików TIFF** Teraz można trenować z i wyodrębnić dane z dokumentów TIFF.
-  * **Ulepszenia dokładności ekstrakcji**
+  * **Uczenie z etykietami** Teraz można nauczyć model niestandardowy z ręcznie oznaczonymi danymi. Prowadzi to do lepszego wykonywania modeli i może generować modele, które współpracują z złożonymi formularzami lub formularzami zawierającymi wartości bez kluczy.
+  * **Asynchroniczny interfejs API** Za pomocą asynchronicznych wywołań interfejsu API można uczenie się i analizować duże zestawy danych i pliki.
+  * **Obsługa plików TIFF** Teraz można nauczyć się i wyodrębnić dane z dokumentów TIFF.
+  * **Ulepszenia dokładności wyodrębniania**
 
-* **Wstępnie utworzony model paragonu**
-  * **Kwoty napiwków** Teraz można wyodrębnić kwoty końcówki i inne wartości odręczne.
-  * **Wyodrębnianie pozycji** Wartości elementów zamówienia można wyodrębnić z przyjęć.
-  * **Wartości ufności** Można wyświetlić zaufanie modelu dla każdej wyodrębnionewarte.
-  * **Ulepszenia dokładności ekstrakcji**
+* **Wstępnie utworzony model przyjęcia**
+  * **Kwoty Porada** Teraz można wyodrębnić kwoty etykiet i inne odręczne wartości.
+  * **Wyodrębnianie elementu wiersza** Można wyodrębnić wartości elementów wiersza z przyjęć.
+  * **Wartości zaufania** Można wyświetlić zaufanie modelu dla każdej wyodrębnionej wartości.
+  * **Ulepszenia dokładności wyodrębniania**
 
-* **Wyodrębnianie układu** Teraz można użyć interfejsu API układu, aby wyodrębnić dane tekstowe i dane tabeli z formularzy.
+* **Wyodrębnianie układu** Teraz można używać interfejsu API układu do wyodrębniania danych tekstowych i danych tabeli z formularzy.
 
-### <a name="custom-model-api-changes"></a>Zmiany interfejsu API modelu niestandardowego
+### <a name="custom-model-api-changes"></a>Zmiany modelu niestandardowego interfejsu API
 
-Zmieniono nazwę wszystkich interfejsów API do szkolenia i używania modeli niestandardowych, a niektóre metody synchroniczne są teraz asynchroniczne. Poniżej przedstawiono istotne zmiany:
+Wszystkie interfejsy API do szkolenia i korzystania z modeli niestandardowych zostały zmienione, a niektóre metody synchroniczne są teraz asynchroniczne. Poniżej przedstawiono istotne zmiany:
 
-* Proces szkolenia modelu jest teraz asynchroniczne. Inicjowanie szkolenia za pośrednictwem **/custom/models wywołanie** interfejsu API. To wywołanie zwraca identyfikator operacji, który można przekazać do **niestandardowych/models/{modelID}** do zwrócenia wyników szkolenia.
-* Wyodrębnianie klucza/wartości jest teraz inicjowane przez wywołanie **/custom/models/{modelID}/analyze.** To wywołanie zwraca identyfikator operacji, który można przekazać do **niestandardowych/models/{modelID}/analyzeResults/{resultID},** aby zwrócić wyniki wyodrębniania.
-* Identyfikatory operacji dla operacji Train znajdują się teraz w nagłówku **Lokalizacja** odpowiedzi HTTP, a nie w nagłówku **Lokalizacja-Lokalizacja.**
+* Proces uczenia modelu jest teraz asynchroniczny. Możesz inicjować szkolenia za pomocą wywołania interfejsu API **/Custom/models** . To wywołanie zwraca identyfikator operacji, który można przekazać do **niestandardowych/modeli/{modelID}** w celu zwrócenia wyników szkoleniowych.
+* Wyodrębnianie klucza/wartości jest teraz inicjowane przez wywołanie interfejsu API **/Custom/models/{modelID}/analyze** . To wywołanie zwraca identyfikator operacji, który można przekazać do **niestandardowych/modeli/{modelID}/analyzeResults/{identyfikatora resultid}** , aby zwrócić wyniki wyodrębniania.
+* Identyfikatory operacji dla operacji pouczenia znajdują się teraz w nagłówku **lokalizacji** odpowiedzi HTTP, a nie w nagłówku **lokalizacji operacji** .
 
-### <a name="receipt-api-changes"></a>Zmiany interfejsu API odbioru
+### <a name="receipt-api-changes"></a>Zmiany interfejsu API paragonów
 
-Zmieniono nazwę interfejsów API do odczytu wpływów sprzedaży.
+Nazwy interfejsów API do odczytywania przyjęć sprzedaży zostały zmienione.
 
-* Wyodrębnianie danych odbioru jest teraz inicjowane przez wywołanie interfejsu API **/prebuilt/receipt/analyze.** To wywołanie zwraca identyfikator operacji, który można przekazać do **/prebuilt/receipt/analyzeResults/{resultID}** w celu zwrócenia wyników wyodrębniania.
+* Wyodrębnianie danych przyjęcia jest teraz inicjowane przez wywołanie interfejsu API **/prebuilt/receipt/analyze** . To wywołanie zwraca identyfikator operacji, który można przekazać do **/prebuilt/receipt/analyzeResults/{resultID}** w celu zwrócenia wyników wyodrębniania.
 
-### <a name="output-format-changes"></a>Zmiany formatu wyjściowego
+### <a name="output-format-changes"></a>Zmiany formatu danych wyjściowych
 
-Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niektóre klucze i wartości zostały dodane, usunięte lub zmieniono ich nazwę. Zobacz przewodniki Szybki start, aby zapoznać się z przykładami bieżących formatów JSON.
+Odpowiedzi JSON dla wszystkich wywołań interfejsu API mają nowe formaty. Niektóre klucze i wartości zostały dodane, usunięte lub zmieniono ich nazwy. Przykłady bieżących formatów JSON można znaleźć w przewodnikach Szybki Start.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Ukończ [przewodnik Szybki start,](quickstarts/curl-train-extract.md) aby rozpocząć korzystanie z [interfejsów API aparatu rozpoznawania formularzy.](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+Ukończ [Przewodnik Szybki Start](quickstarts/curl-train-extract.md) , aby rozpocząć pracę z [interfejsami API aparatu rozpoznawania formularzy](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

@@ -7,43 +7,43 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81536985"
 ---
 # <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
-Konto usługi Azure Automation można utworzyć za pośrednictwem platformy Azure przy użyciu witryny Azure portal, interfejsu użytkownika opartego na przeglądarce, umożliwiającego dostęp do wielu zasobów. Jedno konto automatyzacji może zarządzać zasobami we wszystkich regionach i subskrypcjach dla danej dzierżawy. 
+Możesz utworzyć konto Azure Automation za pośrednictwem platformy Azure, korzystając z Azure Portal, interfejsu użytkownika opartego na przeglądarce, który umożliwia dostęp do wielu zasobów. Jedno konto usługi Automation może zarządzać zasobami między wszystkimi regionami i subskrypcjami dla danej dzierżawy. 
 
-Ten przewodnik szybki start prowadzi cię podczas tworzenia konta automatyzacji i uruchamiania ego księgi runbook na koncie. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Ten przewodnik Szybki Start przedstawia sposób tworzenia konta usługi Automation i uruchamiania elementu Runbook w ramach konta. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-[Zaloguj się na platformie Azure](https://portal.azure.com).
+[Zaloguj się do platformy Azure](https://portal.azure.com).
 
 ## <a name="create-automation-account"></a>Tworzenie konta usługi Automation
 
-1. Wybierz nazwę swojego konta platformy Azure. Nazwy kont automatyzacji są unikatowe dla regionu i grupy zasobów. Nazwy kont automatyzacji, które zostały usunięte, mogą nie być natychmiast dostępne.
+1. Wybierz nazwę swojego konta platformy Azure. Nazwy kont usługi Automation są unikatowe dla poszczególnych regionów i grup zasobów. Nazwy kont usługi Automation, które zostały usunięte, mogą nie być od razu dostępne.
 
     > [!NOTE]
-    > Nie można zmienić nazwy konta po wprowadzeniu jej w interfejsie użytkownika. 
+    > Nie można zmienić nazwy konta, gdy została wprowadzona w interfejsie użytkownika. 
 
-2. Kliknij przycisk **Utwórz zasób** znaleziony w lewym górnym rogu witryny Azure Portal.
+2. Kliknij przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal.
 
-3. Wybierz **pozycję Narzędzia do zarządzania &** IT, a następnie wybierz pozycję **Automatyzacja**.
+3. Wybierz **go & narzędzia do zarządzania**, a następnie wybierz **automatyzację**.
 
-4. Wprowadź informacje o koncie, w tym nazwę wybranego konta. W obszarze **Utwórz konto Uruchom jako platformy Azure** wybierz pozycję **Tak**, aby artefakty upraszczające uwierzytelnianie zostały automatycznie włączone. Po zakończeniu tych informacji kliknij przycisk **Utwórz,** aby rozpocząć wdrażanie konta automatyzacji.
+4. Wprowadź informacje o koncie, w tym nazwę wybranego konta. W obszarze **Utwórz konto Uruchom jako platformy Azure** wybierz pozycję **Tak**, aby artefakty upraszczające uwierzytelnianie zostały automatycznie włączone. Po zakończeniu tych informacji kliknij pozycję **Utwórz** , aby rozpocząć wdrażanie konta usługi Automation.
 
     ![Wprowadzanie na stronie informacji dotyczących konta usługi Automation](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Aby uzyskać zaktualizowaną listę lokalizacji, do których można wdrożyć konto automatyzacji, zobacz [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+    > Zaktualizowaną listę lokalizacji, do których można wdrożyć konto usługi Automation, znajduje się w temacie [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
-5. Po zakończeniu wdrażania kliknij pozycję **Wszystkie usługi**.
+5. Po zakończeniu wdrażania kliknij pozycję **wszystkie usługi**.
 
-6. Wybierz **pozycję Konta automatyzacji,** a następnie wybierz utworzone konto automatyzacji.
+6. Wybierz pozycję **konta usługi Automation** , a następnie wybierz utworzone konto usługi Automation.
 
     ![Przegląd konta usługi Automation](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -51,7 +51,7 @@ Ten przewodnik szybki start prowadzi cię podczas tworzenia konta automatyzacji 
 
 Uruchom jeden z elementów runbook z samouczka.
 
-1. Kliknij **pozycję Elementy runbook w** obszarze **Automatyzacja procesów**. Zostanie wyświetlona lista elementów runbook. Domyślnie na koncie jest włączonych kilka uruchomieniu cząs.
+1. Kliknij pozycję **elementy Runbook** w obszarze **Automatyzacja procesów**. Zostanie wyświetlona lista elementów runbook. Domyślnie na koncie jest włączonych kilka elementów Runbook samouczków.
 
     ![Lista elementów runbook konta usługi Automation](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
@@ -63,7 +63,7 @@ Uruchom jeden z elementów runbook z samouczka.
 
     ![Strona zadania elementu runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. Po stanie zadania `Running`kliknij pozycję **Dane wyjściowe** lub **Wszystkie dzienniki,** aby wyświetlić dane wyjściowe zadania runbook. W przypadku tego elementu runbook z samouczka danymi wyjściowymi jest lista Twoich zasobów platformy Azure.
+1. Po stanie zadania kliknij pozycję `Running` **dane wyjściowe** lub **wszystkie dzienniki** , aby wyświetlić dane wyjściowe zadania elementu Runbook. W przypadku tego elementu runbook z samouczka danymi wyjściowymi jest lista Twoich zasobów platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
 title: Obsługa języków
 titleSuffix: Azure Cognitive Services
-description: Usługa Azure Cognitive Services umożliwia tworzenie aplikacji, które widzą, słyszą, rozmawiają z użytkownikami i rozumieją ich. Między tymi usługami obsługiwanych jest ponad trzy tuziny języków, co umożliwia użytkownikom komunikację z aplikacją w naturalny sposób.
+description: Usługa Azure Cognitive Services umożliwia tworzenie aplikacji, które zobaczą, słyszą, mówią i wiedzą o użytkownikach. Między tymi usługami obsługiwana jest więcej niż trzy dziesiątki języków, dzięki czemu użytkownicy mogą komunikować się z aplikacją w naturalny sposób.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,17 +11,17 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530979"
 ---
-# <a name="natural-language-support-for-azure-cognitive-services"></a>Obsługa języka naturalnego dla usług Azure Cognitive Services
+# <a name="natural-language-support-for-azure-cognitive-services"></a>Obsługa języka naturalnego na platformie Azure Cognitive Services
 
-Usługi Azure Cognitive Services umożliwiają tworzenie aplikacji, które widzą, słyszą, rozmawiają z użytkownikami i rozumieją ich. Między tymi usługami obsługiwanych jest ponad trzy tuziny języków, co umożliwia użytkownikom komunikację z aplikacją w naturalny sposób. Skorzystaj z poniższych łączy, aby wyświetlić dostępność języka według usługi.
+Usługa Azure Cognitive Services umożliwia tworzenie aplikacji, które zobaczą, słyszą, mówią i wiedzą o użytkownikach. Między tymi usługami obsługiwana jest więcej niż trzy dziesiątki języków, dzięki czemu użytkownicy mogą komunikować się z aplikacją w naturalny sposób. Skorzystaj z poniższych linków, aby wyświetlić dostępność języka według usługi.
 
-Te usługi cognitive services są niezależne od języka i nie mają ograniczeń opartych na ludzkim języku.
+Te Cognitive Services są w języku niezależny od i nie mają ograniczeń opartych na języku ludzkim.
 
 * [Narzędzie do wykrywania anomalii (wersja zapoznawcza)](./anomaly-detector/index.yml)
 * [Custom Vision](./Custom-Vision-Service/index.yml)
@@ -46,8 +46,8 @@ Te usługi cognitive services są niezależne od języka i nie mają ograniczeń
 ## <a name="speech"></a>Mowa
 
 * [Usługa mowy: zamiana mowy na tekst](./speech-service/supported-languages.md#speech-to-text)
-* [Usługa mowy:Zamiana tekstu na mowę](./speech-service/supported-languages.md#text-to-speech)
-* [Usługa mowy: tłumaczenie mowy](./speech-service/supported-languages.md#speech-translation)
+* [Usługa mowy: zamiana tekstu na mowę](./speech-service/supported-languages.md#text-to-speech)
+* [Usługa mowy: Tłumaczenie mowy](./speech-service/supported-languages.md#speech-translation)
 
 ## <a name="search"></a>Wyszukiwanie
 
@@ -63,7 +63,7 @@ Te usługi cognitive services są niezależne od języka i nie mają ograniczeń
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
-* [Co to są usługi Cognitive Services?](welcome.md)
+* [Co to jest Cognitive Services?](welcome.md)
 * [Tworzenie konta](cognitive-services-apis-create-account.md)

@@ -14,7 +14,7 @@ ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535778"

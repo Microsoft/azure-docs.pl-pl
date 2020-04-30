@@ -1,7 +1,7 @@
 ---
-title: Funkcje — USŁUGA LUIS
+title: Funkcje — LUIS
 titleSuffix: Azure Cognitive Services
-description: Dodaj funkcje do modelu języka, aby zapewnić wskazówki dotyczące rozpoznawania danych wejściowych, które chcesz oznaczyć lub sklasyfikować.
+description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,84 +12,84 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: 5b8257e24cf52d01be8065d97db17fd685aa316d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81531902"
 ---
-# <a name="machine-learned-features"></a>Funkcje maszynowe
+# <a name="machine-learned-features"></a>Funkcje uczenia maszynowego
 
-W uczeniu maszynowym _funkcja_ jest cechą wyróżniającą lub atrybutem danych, które system obserwuje & uczy się za pośrednictwem. W języku zrozumienia (LUIS) funkcja opisuje i wyjaśnia, co jest istotne dla intencji i jednostek.
+W uczeniu maszynowym _Funkcja_ jest odróżnianą cechą lub atrybutem danych, które system obserwuje &. W Language Understanding (LUIS) funkcja opisuje i wyjaśnia, co jest istotne dla Twoich intencji i jednostek.
 
-W [portalu usługi LUIS w wersji zapoznawczej](https://preview.luis.ai)funkcje są _deskryptorami,_ ponieważ są używane do _opisywania_ intencji lub encji.
+W [portalu Luis w wersji zapoznawczej](https://preview.luis.ai)funkcje są _deskryptorami_ , ponieważ są używane do _opisywania_ zamiaru lub jednostki.
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Funkcje _(deskryptory)_ w opisie języka
+## <a name="features-_descriptors_-in-language-understanding"></a>Funkcje (_deskryptory_) w Language Understanding
 
-Funkcje, znany również jako deskryptory, opisują wskazówki, aby ułatwić zrozumienie języka zidentyfikować wypowiedzi przykład. Funkcje obejmują:
+Funkcje, znane także jako deskryptory, opisują wskazówki ułatwiające Language Understanding identyfikowanie przykładu wyrażenia długości. Funkcje obejmują:
 
-* Lista fraz jako funkcja intencji lub encji
-* Encje jako funkcje intencji lub encji
+* Lista fraz jako funkcja dla intencji lub jednostek
+* Jednostki jako funkcje dla intencji lub jednostek
 
-Funkcje powinny być traktowane jako niezbędna część schematu dla rozkładu modelu.
+Funkcje powinny być traktowane jako niezbędna część schematu do dekompozycji modelu.
 
 ## <a name="what-is-a-phrase-list"></a>Co to jest lista fraz
 
-Lista fraz to lista słów, fraz, liczb lub innych znaków, które pomagają zidentyfikować koncepcję, którą próbujesz zidentyfikować. Lista jest niewrażliwa na argumenty.
+Lista fraz jest listą wyrazów, fraz, cyfr lub innych znaków, które ułatwiają zidentyfikowanie koncepcji, którą próbujesz zidentyfikować. Na liście nie jest rozróżniana wielkość liter.
 
 ## <a name="when-to-use-a-phrase-list"></a>Kiedy używać listy fraz
 
-Z listy fraz usługi LUIS uwzględnia kontekst i uogólnia do identyfikowania elementów, które są podobne do, ale nie dokładne dopasowanie tekstu. Jeśli potrzebujesz aplikacji usługi LUIS, aby móc uogólniać i identyfikować nowe elementy, użyj listy fraz.
+Za pomocą listy fraz LUIS traktuje kontekst i generalizacje w celu zidentyfikowania elementów, które są podobne do, ale nie dokładnego dopasowania tekstu. Jeśli potrzebujesz aplikacji LUIS, aby móc uogólniać i identyfikować nowe elementy, Użyj listy fraz.
 
-Jeśli chcesz być w stanie rozpoznać nowe wystąpienia, takie jak harmonogram spotkań, który powinien rozpoznawać nazwy nowych kontaktów lub aplikacja do magazynowania, która powinna rozpoznawać nowe produkty, zacznij od jednostki nauczającej maszyną. Następnie utwórz listę fraz, która pomaga usługi LUIS znaleźć wyrazy o podobnym znaczeniu. Ta lista fraz prowadzi usługę LUIS do rozpoznawania przykładów przez dodanie dodatkowego znaczenia do wartości tych słów.
+Aby można było rozpoznać nowe wystąpienia, takie jak harmonogram spotkań, który powinien rozpoznawać nazwy nowych kontaktów lub aplikację spisu, która powinna rozpoznawać nowe produkty, Zacznij od jednostki, na której nauczy się Uczenie maszynowe. Następnie utwórz listę zwrotów ułatwiającą LUIS znalezienie wyrazów o podobnym znaczeniu. W tej frazie przedstawiono wskazówki LUIS do rozpoznawania przykładów poprzez dodanie dodatkowego znaczenia do wartości tych wyrazów.
 
-Listy fraz są podobne do słownictwa specyficznego dla domeny, które pomagają w poprawie jakości zrozumienia intencji i jednostek.
+Listy fraz są podobne do słownictwa specyficznego dla domeny, który ułatwia zwiększenie jakości wiedzy o intencjach i jednostkach.
 
 ## <a name="considerations-when-using-a-phrase-list"></a>Zagadnienia dotyczące korzystania z listy fraz
 
-Lista fraz jest domyślnie stosowana do wszystkich modeli w aplikacji. Będzie to działać dla list fraz, które mogą przekraczać wszystkie intencje i jednostki. W celu dekompilowania należy zastosować listę fraz tylko do modeli, które są istotne dla.
+Lista fraz jest domyślnie stosowana do wszystkich modeli w aplikacji. To działanie będzie działało dla list fraz, które mogą przekroczyć wszystkie intencje i jednostki. W celu odtworzenia listy wyrazów należy zastosować tylko do modeli, do których odnosi się.
 
-Jeśli utworzysz listę fraz (utworzoną domyślnie globalnie), a następnie zastosuj ją jako deskryptor (operację) do określonego modelu, zostanie ona usunięta z innych modeli. To usunięcie dodaje znaczenie do listy fraz dla modelu, który jest stosowany do, pomagając poprawić dokładność zapewnia w modelu.
+Jeśli utworzysz listę fraz (domyślnie utworzoną globalnie), później Zastosuj ją jako deskryptor (funkcję) do określonego modelu, zostanie ona usunięta z innych modeli. To usunięcie dodaje istotność do listy fraz dla modelu, do którego jest stosowana, pomagając poprawić dokładność zapewnianą przez ten model.
 
-Flaga `enabledForAllModels` steruje tym zakresem modelu w interfejsie API.
+`enabledForAllModels` Flaga steruje zakresem tego modelu w interfejsie API.
 
 <a name="how-to-use-phrase-lists"></a>
 
-### <a name="how-to-use-a-phrase-list"></a>Jak korzystać z listy fraz
+### <a name="how-to-use-a-phrase-list"></a>Jak używać listy fraz
 
-[Utwórz listę fraz,](luis-how-to-add-features.md) gdy intencja lub encja zawiera ważne wyrazy lub frazy, takie jak:
+[Utwórz listę fraz](luis-how-to-add-features.md) , gdy zamiara lub jednostka ma słowa lub frazy, które są ważne, takie jak:
 
 * warunki branżowe
-* Slang
-* Skróty
-* język specyficzny dla firmy
-* języku pochodzącym z innego języka, ale często używanym w aplikacji
-* słowa kluczowe i frazy w wypowiedziach przykładowych
+* żargonu
+* skróty
+* Język specyficzny dla firmy
+* Język pochodzący z innego języka, ale często używany w aplikacji
+* kluczowe słowa i frazy w przykładowym wyrażenia długości
 
-**Nie** dodawaj każdego możliwego słowa lub frazy. Zamiast tego dodaj kilka słów lub fraz naraz, a następnie przekwalifikuj się i opublikuj. Wraz z rozwojem listy w czasie, może się okazać, że niektóre terminy mają wiele form (synonimy). Podziel je na inną listę.
+**Nie** należy dodawać każdego wyrazu lub frazy. Zamiast tego Dodaj kilka wyrazów lub fraz jednocześnie, a następnie ponów próbę i Opublikuj. Gdy lista rośnie wraz z upływem czasu, niektóre terminy mogą zawierać wiele form (synonimy). Podziel je na inną listę.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>Kiedy używać encji jako elementu
+## <a name="when-to-use-an-entity-as-a-feature"></a>Kiedy używać jednostki jako funkcji
 
-Jednostki można dodać jako obiekt na poziomie intencji lub jednostki.
+Jednostkę można dodać jako funkcję w celu zamiaru lub poziomu jednostki.
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Encja jako funkcja do intencji
+### <a name="entity-as-a-feature-to-an-intent"></a>Jednostka jako funkcja do celu
 
-Dodaj jednostkę jako deskryptor (operację) do intencji, gdy wykrycie tej jednostki jest istotne dla intencji.
+Dodaj jednostkę jako deskryptor (funkcję) do celu, gdy wykrycie tego obiektu jest istotne dla zamiaru.
 
-Na przykład jeśli intencją jest rezerwacja lotu, a jednostka jest informacjami o biletach (takimi jak liczba miejsc, pochodzenie i miejsce docelowe), znalezienie jednostki informacji o bilecie powinno zwiększyć wagę do przewidywania intencji lotu książki.
+Na przykład, jeśli zachodzi taka potrzeba dla rezerwacji, a jednostka jest informacji o biletach (takich jak liczba miejsc, pochodzenia i miejsca przeznaczenia), znalezienie jednostki informacji o biletach powinno spowodować dodanie wagi do przewidywania zamiaru lotów do książki.
 
-### <a name="entity-as-a-feature-to-another-entity"></a>Jednostka jako element dla innej jednostki
+### <a name="entity-as-a-feature-to-another-entity"></a>Jednostka jako funkcja innej jednostki
 
-Jednostka (A) powinna zostać dodana jako element do innej jednostki (B), gdy wykrycie tej jednostki (A) jest istotne dla przewidywania jednostki (B).
+Jednostkę (A) należy dodać jako funkcję do innej jednostki (B), gdy wykrycie tej jednostki (A) jest istotne dla przewidywania jednostki (B).
 
-Na przykład jeśli zostanie wykryta jednostka adresu ulicy (A), znalezienie adresu ulicy (A) zwiększa wagę prognozy dla jednostki adresu wysyłki (B).
+Na przykład jeśli wykryto jednostkę ulica (A), a następnie znalezienie adresu ulicy (A) powoduje dodanie wagi do prognozowania jednostki adres wysyłkowy (B).
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
-Poznaj [najlepsze wskazówki](luis-concept-best-practices.md).
+Poznaj [najlepsze rozwiązania](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Rozszerzanie](schema-change-prediction-runtime.md) modeli aplikacji w czasie wykonywania prognozowania
-* Zobacz [Dodawanie funkcji,](luis-how-to-add-features.md) aby dowiedzieć się więcej o dodaniu funkcji do aplikacji usługi LUIS.
+* [Zwiększanie](schema-change-prediction-runtime.md) modeli aplikacji w środowisku uruchomieniowym przewidywania
+* Zobacz [Dodawanie funkcji](luis-how-to-add-features.md) , aby dowiedzieć się więcej na temat dodawania funkcji do aplikacji Luis.

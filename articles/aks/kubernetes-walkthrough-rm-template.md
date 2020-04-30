@@ -1,20 +1,20 @@
 ---
 title: Szybki start — tworzenie klastra usługi Azure Kubernetes Service (AKS)
-description: Dowiedz się, jak szybko utworzyć klaster kubernetes przy użyciu szablonu usługi Azure Resource Manager i wdrożyć aplikację w usłudze Azure Kubernetes (AKS)
+description: Dowiedz się, jak szybko utworzyć klaster Kubernetes przy użyciu szablonu Azure Resource Manager i wdrożyć aplikację w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81602644"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Szybki start: wdrażanie klastra usługi Kubernetes platformy Azure (AKS) przy użyciu szablonu usługi Azure Resource Manager
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu szablonu Azure Resource Manager
 
-Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. W tym przewodniku Szybki start można wdrożyć klaster AKS przy użyciu szablonu usługi Azure Resource Manager. W klastrze jest uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis.
+Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. W tym przewodniku szybki start wdrożono klaster AKS przy użyciu szablonu Azure Resource Manager. W klastrze jest uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis.
 
 ![Obraz przedstawiający przechodzenie do aplikacji Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -22,33 +22,33 @@ Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, któ
 
 W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten szybki start wymaga, aby uruchomić interfejsu wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik Szybki Start będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.61 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby utworzyć klaster AKS przy użyciu szablonu Menedżera zasobów, należy podać klucz publiczny SSH i jednostkę usługi Azure Active Directory.  Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast jednostki usługi dla uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję; w przeciwnym razie przejdź do sekcji [Tworzenie klastra AKS.](#create-an-aks-cluster)
+Aby utworzyć klaster AKS przy użyciu szablonu Menedżer zasobów, należy podać klucz publiczny SSH i Azure Active Directory nazwę główną usługi.  Alternatywnie można użyć [tożsamości zarządzanej](use-managed-identity.md) zamiast nazwy głównej usługi w celu uzyskania uprawnień. Jeśli potrzebujesz jednego z tych zasobów, zobacz następującą sekcję: w przeciwnym razie przejdź do sekcji [Tworzenie klastra AKS](#create-an-aks-cluster) .
 
 ### <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
-Aby uzyskać dostęp do węzłów AKS, należy połączyć się przy użyciu pary kluczy SSH. `ssh-keygen` Polecenie służy do generowania plików kluczy publicznych i prywatnych SSH. Domyślnie pliki te są tworzone w katalogu *~/.ssh.* Jeśli para kluczy SSH o tej samej nazwie istnieje w danej lokalizacji, pliki te są zastępowane.
+Aby uzyskać dostęp do węzłów AKS, Połącz się za pomocą pary kluczy SSH. Użyj polecenia `ssh-keygen` , aby wygenerować pliki publicznego i prywatnego klucza SSH. Domyślnie te pliki są tworzone w katalogu *~/.SSH* . Jeśli para kluczy SSH o tej samej nazwie istnieje w danej lokalizacji, te pliki są zastępowane.
 
-Przejdź [https://shell.azure.com](https://shell.azure.com) do, aby otworzyć Cloud Shell w przeglądarce.
+Przejdź do [https://shell.azure.com](https://shell.azure.com) okna, aby otworzyć Cloud Shell w przeglądarce.
 
-Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i długości bitowej 2048:
+Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i długość bitową 2048:
 
 ```console
 ssh-keygen -t rsa -b 2048
 ```
 
-Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie kluczy SSH i zarządzanie nimi do uwierzytelniania na platformie Azure][ssh-keys].
+Aby uzyskać więcej informacji na temat tworzenia kluczy SSH, zobacz [Tworzenie kluczy SSH i zarządzanie nimi na potrzeby uwierzytelniania na platformie Azure][ssh-keys].
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Jednostka usługi Azure Active Directory zezwala klastrowi usługi AKS na interakcje z innymi zasobami platformy Azure. Utwórz jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametr `--skip-assignment` umożliwia ograniczenie przypisywania dodatkowych uprawnień. Domyślnie ta jednostka usługi jest ważna przez rok. Należy zauważyć, że można użyć tożsamości zarządzanej zamiast jednostki usługi. Aby uzyskać więcej informacji, zobacz [Używanie tożsamości zarządzanych](use-managed-identity.md).
+Jednostka usługi Azure Active Directory zezwala klastrowi usługi AKS na interakcje z innymi zasobami platformy Azure. Utwórz jednostkę usługi za pomocą polecenia [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametr `--skip-assignment` umożliwia ograniczenie przypisywania dodatkowych uprawnień. Domyślnie ta jednostka usługi jest ważna przez rok. Należy pamiętać, że można użyć tożsamości zarządzanej zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -70,13 +70,13 @@ Zwróć uwagę na wartości *appId* i *password*. Te wartości są używane w ko
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-### <a name="review-the-template"></a>Przejrzyj szablon
+### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku Szybki start pochodzi z [szablonów szybki start platformy Azure](https://azure.microsoft.com/resources/templates/101-aks/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-aks/).
 
 :::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
 
-Aby uzyskać więcej przykładów usługi AKS, zobacz witrynę [szablonów szybkiego startu usługi AKS.][aks-quickstart-templates]
+Więcej przykładów AKS można znaleźć w witrynie [szablonów szybkiego startu AKS][aks-quickstart-templates] .
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -86,24 +86,24 @@ Aby uzyskać więcej przykładów usługi AKS, zobacz witrynę [szablonów szybk
 
 2. Wybierz lub wprowadź następujące wartości.
 
-    W przypadku tego przewodnika Szybki start pozostaw wartości domyślne dla *rozmiaru dysku systemu operacyjnego GB,* *liczby agentów,* *rozmiaru maszyny wirtualnej agenta,* *typu systemu operacyjnego*i *wersji kubernetes*. Podaj własne wartości dla następujących parametrów szablonu:
+    W tym przewodniku szybki start pozostaw wartości domyślne dla *rozmiaru dysku systemu operacyjnego GB*, *liczby agentów*, *rozmiaru maszyny wirtualnej agenta*, *typu systemu operacyjnego*i *wersji Kubernetes*. Podaj własne wartości dla następujących parametrów szablonu:
 
-    * **Subskrypcja**: Wybierz subskrypcję platformy Azure.
-    * **Grupa zasobów**: Wybierz **pozycję Utwórz nowy**. Wprowadź unikatową nazwę grupy zasobów, taką jak *myResourceGroup,* a następnie wybierz przycisk **OK**.
+    * **Subskrypcja**: wybierz subskrypcję platformy Azure.
+    * **Grupa zasobów**: wybierz pozycję **Utwórz nową**. Wprowadź unikatową nazwę grupy zasobów, *na przykład grupa zasobów, a*następnie wybierz przycisk **OK**.
     * **Lokalizacja**: Wybierz lokalizację, na przykład **Wschodnie stany USA**.
-    * **Nazwa klastra**: Wprowadź unikatową nazwę klastra AKS, taką jak *myAKSCluster*.
-    * **Prefiks DNS:** Wprowadź unikatowy prefiks DNS klastra, taki jak *myakscluster*.
-    * **Nazwa administratora Linuksa**: Wprowadź nazwę użytkownika, aby połączyć się za pomocą SSH, takich jak *azureuser*.
-    * **Klucz publiczny SSH RSA**: Skopiuj i wklej *publiczną* część pary kluczy SSH (domyślnie zawartość *~/.ssh/id_rsa.pub).*
-    * **Identyfikator klienta jednostki usługi:** Skopiuj i wklej *identyfikator appId* jednostki usługi z `az ad sp create-for-rbac` polecenia.
-    * **Klucz tajny klienta głównego usługi:** skopiuj `az ad sp create-for-rbac` i wklej *hasło* jednostki usługi z polecenia.
-    * **Wyrażam zgodę na powyższe warunki:** zaznacz to pole, w tym wyrażenie zgody.
+    * **Nazwa klastra**: Wprowadź unikatową nazwę klastra AKS, na przykład *myAKSCluster*.
+    * **Prefiks DNS**: wprowadź unikatowy prefiks DNS dla klastra, taki jak *myakscluster*.
+    * **Nazwa użytkownika administratora systemu Linux**: Wprowadź nazwę użytkownika, aby nawiązać połączenie przy użyciu protokołu SSH, takiego jak *azureuser*.
+    * **Klucz publiczny SSH RSA**: Skopiuj i wklej *publiczną* część pary kluczy SSH (domyślnie zawartość *~/.ssh/id_rsa. pub*).
+    * **Identyfikator klienta jednostki usługi**: Skopiuj i wklej *identyfikator appid* swojej jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
+    * **Klucz tajny klienta jednostki usługi**: Skopiuj i wklej *hasło* jednostki usługi przy użyciu `az ad sp create-for-rbac` polecenia.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia**: zaznacz to pole wyboru, aby zgadzać się.
 
-    ![Szablon Menedżera zasobów do tworzenia klastra usługi Kubernetes platformy Azure w portalu](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
+    ![Menedżer zasobów szablon do tworzenia klastra usługi Azure Kubernetes w portalu](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
 3. Wybierz pozycję **Kup**.
 
-Utworzenie klastra usługi AKS zajmuje kilka minut. Poczekaj na pomyślne wdrożenie klastra przed przejściem do następnego kroku.
+Utworzenie klastra AKS może potrwać kilka minut. Poczekaj na pomyślne wdrożenie klastra, zanim przejdziesz do kolejnego kroku.
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
@@ -127,7 +127,7 @@ Aby sprawdzić połączenie z klastrem, użyj polecenia [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-Poniższy przykład danych wyjściowych pokazuje węzły utworzone w poprzednich krokach. Upewnij się, że stan wszystkich węzłów jest *gotowy:*
+Następujące przykładowe dane wyjściowe pokazują węzły utworzone w poprzednich krokach. Upewnij się, że stan wszystkich węzłów jest *gotowy*:
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli użyto tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usuwania.
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używana jest tożsamość zarządzana, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 
@@ -291,7 +291,7 @@ W tym przewodniku Szybki start utworzono wdrożenie platformy Kubernetes za pomo
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim aplikację obsługującą wiele kontenerów. [Dostęp do pulpitu nawigacyjnego sieci Web kubernetes][kubernetes-dashboard] dla utworzonego klastra.
+W tym przewodniku Szybki start wdrożono klaster Kubernetes oraz wdrożono w nim aplikację obsługującą wiele kontenerów. [Dostęp do pulpitu nawigacyjnego sieci Web Kubernetes][kubernetes-dashboard] dla utworzonego klastra.
 
 Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompletnego kodu do wdrożenia, przejdź do samouczka dotyczącego klastra Kubernetes.
 

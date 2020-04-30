@@ -1,6 +1,6 @@
 ---
 title: Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
-description: Synchronizacja czasu dla maszyn wirtualnych Systemu Linux.
+description: Synchronizacja czasu dla maszyn wirtualnych z systemem Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,76 +13,76 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460906"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 
-Synchronizacja czasu jest ważne dla zabezpieczeń i korelacji zdarzeń. Czasami jest on używany do implementacji transakcji rozproszonych. Dokładność czasu między wieloma systemami komputerowymi uzyskuje się poprzez synchronizację. Synchronizacja może mieć wpływ na wiele rzeczy, w tym ponowne uruchomienie i ruch sieciowy między źródłem czasu a komputerem pobierającym czas. 
+Synchronizacja czasu jest ważna dla korelacji zabezpieczeń i zdarzeń. Czasami jest używany dla implementacji transakcji rozproszonych. Dokładność czasu między wieloma systemami komputerowymi uzyskuje się przez synchronizację. Na synchronizację może wpływać wiele rzeczy, w tym ponowny rozruch i ruch sieciowy między źródłem czasu a komputerem, który pobiera czas. 
 
-Platforma Azure jest wspierana przez infrastrukturę z systemem Windows Server 2016. System Windows Server 2016 udoskonalił algorytmy używane do korygowania czasu i kondycjonowania zegara lokalnego w celu synchronizacji z czasem UTC.  Funkcja Dokładnego czasu systemu Windows Server 2016 znacznie poprawiła sposób, w jaki usługa VMICTimeSync, która reguluje maszyny wirtualne z hostem, zapewnia dokładny czas. Ulepszenia obejmują dokładniejszy czas początkowy na początku maszyny Wirtualnej lub przywracanie maszyny Wirtualnej i korekcji opóźnienia przerwania. 
+Platforma Azure jest obsługiwana przez infrastrukturę z systemem Windows Server 2016. W systemie Windows Server 2016 udoskonalono algorytmy służące do korygowania czasu i warunku zegara lokalnego na synchronizację z czasem UTC.  Funkcja dokładnego czasu systemu Windows Server 2016 znacznie poprawiła sposób, w jaki usługa VMICTimeSync, która zarządza maszynami wirtualnymi na hoście w celu dokładnego czasu. Udoskonalenia obejmują dokładniejszy czas początkowy w przypadku uruchamiania maszyny wirtualnej lub przywracania maszyny wirtualnej i korekcji opóźnienia przerwań. 
 
 >[!NOTE]
->Aby uzyskać szybki przegląd usługi Czas systemu Windows, zapoznaj się z tym [klipem wideo przedstawiającym omówienie wysokiego poziomu](https://aka.ms/WS2016TimeVideo).
+>Aby zapoznać się z krótkim omówieniem usługi czas systemu Windows, zapoznaj się z tym [ogólnym omówieniem wideo](https://aka.ms/WS2016TimeVideo).
 >
-> Aby uzyskać więcej informacji, zobacz [Dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Omówienie
 
-Dokładność zegara komputerowego jest mierzona na podstawie tego, jak blisko zegara komputera jest standard czasu skoordynowanego czasu uniwersalnego (UTC). UTC jest definiowany przez wielonarodową próbkę precyzyjnych zegarów atomowych, które mogą być wyłączone tylko o jedną sekundę w ciągu 300 lat. Ale czytanie UTC bezpośrednio wymaga specjalistycznego sprzętu. Zamiast tego serwery czasu są synchronizowane z czasem UTC i są dostępne z innych komputerów, aby zapewnić skalowalność i niezawodność. Każdy komputer ma uruchomione usługi synchronizacji czasu, która wie, jakich serwerów czasu do użycia i okresowo sprawdza, czy zegar komputera musi zostać poprawiony i dostosowuje czas w razie potrzeby. 
+Dokładność zegara komputerowego jest określana na tym, jak zamyka się zegar komputera do standardowego czasu koordynowanego (UTC). Czas UTC jest definiowany przez wielonarodowy przykład precyzyjne zegara niepodzielne, które mogą być wyłączone tylko przez jedną sekundę w latach 300. Jednak odczytywanie czasu UTC bezpośrednio wymaga specjalnego sprzętu. Zamiast tego serwery czasu są synchronizowane z czasem UTC i są dostępne z innych komputerów w celu zapewnienia skalowalności i niezawodności. Każdy komputer ma uruchomioną usługę synchronizacji czasu, która wie, jakie serwery czasu użyć i okresowo sprawdzają, czy zegar komputera musi zostać skorygowany i w razie potrzeby dostosowuje czas. 
 
-Hosty platformy Azure są synchronizowane z wewnętrznymi serwerami czasu firmy Microsoft, które poświęcają swój czas z urządzeń Stratum 1 należących do firmy Microsoft z antenami GPS. Maszyny wirtualne na platformie Azure może zależeć od ich hosta, aby przekazać dokładny czas *(czas hosta)* na maszynie wirtualnej lub maszyny Wirtualnej można bezpośrednio uzyskać czas z serwera czasu lub kombinacji obu. 
+Hosty platformy Azure są synchronizowane z wewnętrznymi serwerami Microsoft Time, które pobierają czas od urządzeń z warstwy 1 należącej do firmy Microsoft przy użyciu anten GPS. Maszyny wirtualne na platformie Azure mogą być zależne od ich hosta w celu przekazania dokładnego czasu (*czasu hosta*) do maszyny wirtualnej lub maszyny wirtualnej mogą bezpośrednio uzyskać czas z serwera czasu lub kombinację obu tych metod. 
 
-Na sprzęcie autonomicznym system operacyjny Linux odczytuje tylko zegar sprzętowy hosta podczas rozruchu. Następnie zegar jest utrzymywany przy użyciu czasomierza przerwania w jądrze Linuksa. W tej konfiguracji zegar będzie dryfować w czasie. W nowszych dystrybucjach systemu Linux na platformie Azure maszyny wirtualne mogą częściej używać dostawcy VMICTimeSync, uwzględnionego w usługach integracji systemu Linux (LIS), do częstszego wykonywania zapytań o aktualizacje zegara z hosta.
+Na sprzęcie autonomicznym system operacyjny Linux odczytuje tylko zegar sprzętu hosta podczas rozruchu. Następnie zegar jest obsługiwany przy użyciu czasomierza przerwania w jądrze systemu Linux. W tej konfiguracji zegar będzie przekroczyć czas. W przypadku nowszych dystrybucji systemu Linux na platformie Azure maszyny wirtualne mogą używać dostawcy VMICTimeSync, zawartego w usługach Linux Integration Services (LIS), do wykonywania zapytań o aktualizacje zegarów z hosta częściej.
 
-Interakcje maszyny wirtualnej z hostem mogą również wpływać na zegar. Podczas [konserwacji pamięci](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)maszyny wirtualne są wstrzymane na maksymalnie 30 sekund. Na przykład przed rozpoczęciem konserwacji zegar maszyny Wirtualnej pokazuje 10:00:00 i trwa 28 sekund. Po wznowieniu maszyny Wirtualnej zegar na maszynie Wirtualnej będzie nadal wyświetlane 10:00:00 AM, który będzie 28 sekund wyłączony. Aby to poprawić, usługa VMICTimeSync monitoruje to, co dzieje się na hoście i monituje o wprowadzenie zmian na maszynach wirtualnych w celu zrekompensowania.
+Interakcje maszyny wirtualnej z hostem mogą również mieć wpływ na zegar. Podczas [zachowywania konserwacji pamięci](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)maszyny wirtualne są wstrzymywane przez maksymalnie 30 sekund. Na przykład przed rozpoczęciem obsługi zegar maszyny wirtualnej pokazuje 10:00:00 AM i trwa 28 sekund. Po wznowieniu działania maszyny wirtualnej zegar na maszynie wirtualnej nadal będzie wyświetlał 10:00:00 AM, co spowodowałoby 28 sekund. Aby rozwiązać ten problem, usługa VMICTimeSync monitoruje co dzieje się na hoście i pojawia się w celu wyrównania zmian w maszynach wirtualnych.
 
-Bez synchronizacji czasu pracy zegar na maszynie Wirtualnej będzie gromadzić błędy. Gdy istnieje tylko jedna maszyna wirtualna, efekt może nie być znaczący, chyba że obciążenie wymaga bardzo dokładnego pomiaru czasu. Ale w większości przypadków mamy wiele połączonych ze sobą maszyn wirtualnych, które używają czasu do śledzenia transakcji, a czas musi być spójny przez całe wdrożenie. Gdy czas między maszynami wirtualnymi jest inny, można zobaczyć następujące efekty:
+Bez pracy synchronizacji czasu zegar na maszynie wirtualnej będzie zbierać błędy. Jeśli istnieje tylko jedna maszyna wirtualna, efekt może nie być znaczący, chyba że obciążenie wymaga wysoce dokładnego dokładnych. Jednak w większości przypadków korzystamy z wielu połączonych z nimi maszyn wirtualnych, które używają czasu do śledzenia transakcji, a czas musi być spójny w całym wdrożeniu. Gdy czas między maszynami wirtualnymi jest inny, można zobaczyć następujące efekty:
 
-- Uwierzytelnianie zakończy się niepowodzeniem. Protokoły zabezpieczeń, takie jak Kerberos lub technologia zależna od certyfikatu, opierają się na spójnym czasie w różnych systemach.
-- Bardzo trudno jest dowiedzieć się, co się stało w systemie, jeśli dzienniki (lub inne dane) nie zgadzają się na czas. To samo zdarzenie wyglądałoby tak, jakby miało miejsce w różnym czasie, co utrudniało korelację.
-- Jeśli zegar jest wyłączony, rozliczenia mogą być obliczane niepoprawnie.
+- Uwierzytelnianie nie powiedzie się. Protokoły zabezpieczeń, takie jak Kerberos lub technologia zależna od certyfikatu, są zależne od systemu.
+- Bardzo trudno jest ustalić, co się stało w systemie, Jeśli dzienniki (lub inne dane) nie zgadzają się na czas. To samo zdarzenie będzie wyglądać tak, jakby miało miejsce w różnym czasie, co utrudnia korelację.
+- Jeśli zegar jest wyłączony, rozliczenie może zostać obliczone nieprawidłowo.
 
 
 
 ## <a name="configuration-options"></a>Opcje konfiguracji
 
-Zasadniczo istnieją trzy sposoby konfigurowania synchronizacji czasu dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure:
+Zwykle istnieją trzy sposoby konfigurowania synchronizacji czasu dla maszyn wirtualnych z systemem Linux hostowanych na platformie Azure:
 
-- Domyślna konfiguracja obrazów usługi Azure Marketplace używa zarówno czasu NTP, jak i czasu hosta VMICTimeSync. 
-- Tylko host przy użyciu programu VMICTimeSync.
-- Użyj innego zewnętrznego serwera czasu z lub bez użycia funkcji hosta VMICTimeSync.
+- Konfiguracja domyślna dla obrazów w portalu Azure Marketplace obejmuje zarówno czas NTP, jak i czas hosta VMICTimeSync. 
+- Host-tylko przy użyciu VMICTimeSync.
+- Użyj innego, zewnętrznego serwera czasu z lub bez użycia VMICTimeSync hosta.
 
 
-### <a name="use-the-default"></a>Użyj wartości domyślnej
+### <a name="use-the-default"></a>Użyj domyślnego
 
-Domyślnie większość obrazów usługi Azure Marketplace dla systemu Linux jest skonfigurowana do synchronizacji z dwóch źródeł: 
+Domyślnie większość obrazów w portalu Azure Marketplace dla systemu Linux jest skonfigurowanych do synchronizacji z dwóch źródeł: 
 
-- NTP jako podstawowy, który pobiera czas z serwera NTP. Na przykład obrazy Ubuntu 16.04 LTS Marketplace używają **ntp.ubuntu.com**.
-- Usługa VMICTimeSync jako pomocnicza, używana do komunikowania czasu hosta z maszynami wirtualnymi i wprowadzania poprawek po wstrzymaniu maszyny Wirtualnej w celu konserwacji. Hosty platformy Azure używają urządzeń Stratum 1 należących do firmy Microsoft, aby zachować dokładny czas.
+- NTP jako podstawowa, która pobiera czas z serwera NTP. Na przykład Ubuntu 16,04 LTS Marketplace używa **NTP.Ubuntu.com**.
+- Usługa VMICTimeSync jako pomocnicza, używana do przekazywania informacji o czasie hosta do maszyn wirtualnych i wprowadzania poprawek po wstrzymaniu maszyny wirtualnej do konserwacji. Hosty platformy Azure wykorzystują urządzenia warstwy 1 należące do firmy Microsoft w celu zapewnienia dokładnego czasu.
 
-W nowszych dystrybucjach systemu Linux usługa VMICTimeSync używa protokołu czasu precyzji (PTP), ale wcześniejsze dystrybucje mogą nie obsługiwać PTP i będą powracać do NTP w celu uzyskania czasu od hosta.
+W przypadku nowszych dystrybucji systemu Linux usługa VMICTimeSync używa protokołu czasu (NTP), ale wcześniejsze dystrybucje mogą nie obsługiwać programu PTP i przewracają do NTP w celu uzyskania czasu od hosta.
 
-Aby potwierdzić, że ntp `ntpq -p` synchronizuje się poprawnie, uruchom polecenie.
+Aby potwierdzić, że `ntpq -p` NTP jest prawidłowo synchronizowana, uruchom polecenie.
 
-### <a name="host-only"></a>Tylko host 
+### <a name="host-only"></a>Tylko Host 
 
-Ponieważ serwery NTP, takie jak time.windows.com i ntp.ubuntu.com są publiczne, synchronizacja czasu z nimi wymaga wysyłania ruchu przez Internet. Różne opóźnienia pakietów mogą negatywnie wpłynąć na jakość synchronizacji czasu. Usunięcie ntp przez przełączenie na synchronizację tylko dla hosta może czasami poprawić wyniki synchronizacji czasu.
+Ponieważ serwery NTP, takie jak time.windows.com i ntp.ubuntu.com, są publiczne, synchronizacja czasu wymaga wysyłania ruchu przez Internet. Różne opóźnienia pakietów mogą negatywnie wpłynąć na jakość synchronizacji czasu. Usunięcie NTP przez przełączenie na synchronizację tylko hosta może czasami poprawić wyniki synchronizacji czasu.
 
-Przełączanie do synchronizacji czasu tylko do hosta ma sens, jeśli występują problemy z synchronizacją czasu przy użyciu konfiguracji domyślnej. Wypróbuj synchronizację tylko z hostem, aby sprawdzić, czy poprawiłoby to synchronizację czasu na maszynie wirtualnej. 
+Przełączenie na synchronizację w czasie tylko dla hosta ma sens tylko w przypadku problemów z synchronizacją czasu przy użyciu konfiguracji domyślnej. Wypróbuj synchronizację tylko z hostem, aby sprawdzić, czy poprawisz synchronizację czasu na maszynie wirtualnej. 
 
 ### <a name="external-time-server"></a>Zewnętrzny serwer czasu
 
-Jeśli masz określone wymagania dotyczące synchronizacji czasu, istnieje również możliwość korzystania z zewnętrznych serwerów czasu. Zewnętrzne serwery czasu mogą zapewnić określony czas, który może być przydatny w scenariuszach testowych, zapewniając jednorodność czasu z maszynami hostowanymi w centrach danych innych firm lub obsługując sekundy przestępne w specjalny sposób.
+Jeśli masz określone wymagania dotyczące synchronizacji czasu, istnieje również opcja użycia zewnętrznych serwerów czasu. Zewnętrzne serwery czasu mogą zapewnić określony czas, który może być przydatny dla scenariuszy testowych, zapewniając jednolitość czasu dla maszyn hostowanych w centrach danych firmy Microsoft lub obsługujących sekundy w specjalny sposób.
 
-Można połączyć zewnętrzny serwer czasu z usługą VMICTimeSync, aby zapewnić wyniki podobne do konfiguracji domyślnej. Połączenie zewnętrznego serwera czasu z programem VMICTimeSync jest najlepszym rozwiązaniem w przypadku rozwiązywania problemów, które mogą być przyczyną wstrzymania maszyn wirtualnych w celu konserwacji. 
+Można połączyć zewnętrzny serwer czasu z usługą VMICTimeSync, aby zapewnić wyniki podobne do konfiguracji domyślnej. Połączenie zewnętrznego serwera czasu z programem VMICTimeSync jest najlepszą opcją do rozwiązywania problemów, które mogą wystąpić w przypadku wstrzymania maszyn wirtualnych do konserwacji. 
 
 ## <a name="tools-and-resources"></a>Narzędzia i zasoby
 
-Istnieje kilka podstawowych poleceń do sprawdzania konfiguracji synchronizacji czasu. Dokumentacja dla dystrybucji linuksa będzie miała więcej szczegółów na temat najlepszego sposobu konfigurowania synchronizacji czasu dla tej dystrybucji.
+Istnieją podstawowe polecenia służące do sprawdzania konfiguracji synchronizacji czasu. Dokumentacja dystrybucji systemu Linux będzie zawierać więcej szczegółowych informacji na temat najlepszego sposobu konfigurowania synchronizacji czasu dla tej dystrybucji.
 
 ### <a name="integration-services"></a>Usługi integracji
 
@@ -91,7 +91,7 @@ Sprawdź, czy usługa integracji (hv_utils) jest załadowana.
 ```bash
 lsmod | grep hv_utils
 ```
-Powinieneś zobaczyć coś podobnego do tego:
+Powinieneś wyglądać podobnie do tego:
 
 ```
 hv_utils               24418  0
@@ -104,7 +104,7 @@ Sprawdź, czy demon usług integracji funkcji Hyper-V jest uruchomiony.
 ps -ef | grep hv
 ```
 
-Powinieneś zobaczyć coś podobnego do tego:
+Powinieneś wyglądać podobnie do tego:
 
 ```
 root        229      2  0 17:52 ?        00:00:00 [hv_vmbus_con]
@@ -112,9 +112,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Sprawdź, czy nie ma PTP
+### <a name="check-for-ptp"></a>Sprawdź, czy jest to PTP
 
-W nowszych wersjach systemu Linux źródło zegara PTP (Precision Time Protocol) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach systemu Red Hat Enterprise Linux lub CentOS 7.x można pobrać i użyć [usług integracji linuksowej](https://github.com/LIS/lis-next) do zainstalowania zaktualizowanego sterownika. Podczas korzystania z PTP urządzenie Linux będzie w formie /dev/ptp*x*. 
+W przypadku nowszych wersji systemu Linux Źródło zegara protokołu czasu (PTP) jest dostępne jako część dostawcy VMICTimeSync. W starszych wersjach Red Hat Enterprise Linux lub CentOS 7. x [usługi integracji z systemem Linux](https://github.com/LIS/lis-next) można pobrać i użyć do zainstalowania zaktualizowanego sterownika. W przypadku korzystania z programu PTP urządzenie z systemem Linux będzie miało postać/dev/PTP*x*. 
 
 Zobacz, które źródła zegara PTP są dostępne.
 
@@ -122,48 +122,48 @@ Zobacz, które źródła zegara PTP są dostępne.
 ls /sys/class/ptp
 ```
 
-W tym przykładzie zwracana wartość to *ptp0*, więc używamy go do sprawdzenia nazwy zegara. Aby zweryfikować urządzenie, sprawdź nazwę zegara.
+W tym przykładzie zwracaną wartością jest *ptp0*, więc używamy jej do sprawdzania nazwy zegara. Aby sprawdzić urządzenie, Sprawdź nazwę zegara.
 
 ```bash
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-Powinno to zwrócić **hyperv**.
+Powinno to zwrócić **HyperV**.
 
 ### <a name="chrony"></a>chrony
 
-W wersjach Ubuntu 19.10 i nowszych, Red Hat Enterprise Linux i CentOS 7.x [chrony](https://chrony.tuxfamily.org/) jest skonfigurowany do używania zegara źródłowego PTP. Zamiast chrony starsze wersje Linuksa używają demona Network Time Protocol (ntpd), który nie obsługuje źródeł PTP. Aby włączyć PTP w tych wersjach, chrony musi być ręcznie zainstalowany i skonfigurowany (w chrony.conf) przy użyciu następującego kodu:
+W systemie Ubuntu 19,10 i nowszych wersjach, Red Hat Enterprise Linux i CentOS 7. x, [chrony](https://chrony.tuxfamily.org/) jest skonfigurowany do używania zegara źródłowego PTP. Zamiast chrony starsze wersje systemu Linux używają demona protokołu czasu sieciowego (ntpd), która nie obsługuje źródeł PTP. Aby włączyć PTP w tych wersjach, chrony musi być ręcznie zainstalowana i skonfigurowana (w chrony. conf) przy użyciu następującego kodu:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Aby uzyskać więcej informacji na temat Ubuntu i NTP, zobacz [Synchronizacja czasu](https://help.ubuntu.com/lts/serverguide/NTP.html).
+Aby uzyskać więcej informacji na temat Ubuntu i NTP, zobacz [synchronizacja czasu](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Aby uzyskać więcej informacji na temat red hat i NTP, zobacz [Konfigurowanie NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Aby uzyskać więcej informacji na temat Red Hat i NTP, zobacz [Konfigurowanie NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
 
-Aby uzyskać więcej informacji na temat chrony, zobacz [Korzystanie z chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Aby uzyskać więcej informacji na temat chrony, zobacz [using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
-Jeśli zarówno źródła chrony, jak i TimeSync są włączone jednocześnie, można oznaczyć jeden jako **preferowany**, który ustawia drugie źródło jako kopię zapasową. Ponieważ usługi NTP nie aktualizują zegara dla dużych pochylenia, z wyjątkiem po długim okresie, VMICTimeSync będzie odzyskać zegar z wstrzymanych zdarzeń maszyny Wirtualnej znacznie szybciej niż narzędzia oparte na NTP sam.
+Jeśli zarówno źródła chrony, jak i TimeSync są włączone jednocześnie, można oznaczyć jeden jako **preferowany**, który ustawia inne źródło jako kopię zapasową. Ponieważ usługi NTP nie aktualizują zegara w przypadku dużych pochylenia, chyba że jest to długi czas, VMICTimeSync odzyska zegar od wstrzymanych zdarzeń maszyny wirtualnej znacznie szybciej niż w przypadku narzędzi opartych na protokole NTP.
 
-Domyślnie chronyd przyspiesza lub spowalnia zegar systemowy, aby naprawić każdy dryf czasu. Jeśli dryf staje się zbyt duży, chrony nie naprawi dryfu. Aby to przezwyciężyć, `makestep` parametr w **/etc/chrony.conf** można zmienić, aby wymusić timesync, jeśli dryf przekracza określony próg.
+Domyślnie program chronyd przyspiesza lub spowalnia zegar systemowy w celu naprawienia dowolnego przekroczenia czasu. Jeśli dryf zostanie zbyt duży, chrony nie uda się naprawić dryfu. Aby je przezwyciężyć `makestep` , parametr w **/etc/chrony.conf** można zmienić, aby wymusić timesync, jeśli dryf przekroczy określony próg.
 
  ```bash
 makestep 1.0 -1
 ```
 
-W tym miejscu chrony wymusi aktualizację czasu, jeśli dryf jest większy niż 1 sekundę. Aby zastosować zmiany, uruchom ponownie usługę chronyd:
+W tym miejscu chrony wymusić aktualizację czasu, jeśli dryf jest większy niż 1 sekunda. Aby zastosować zmiany, uruchom ponownie usługę chronyd:
 
 ```bash
 systemctl restart chronyd
 ```
 
-### <a name="systemd"></a>Systemd 
+### <a name="systemd"></a>usługę systemd 
 
-Na SUSE i Ubuntu zwalnia przed 19.10, synchronizacja czasu jest skonfigurowany za pomocą [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Aby uzyskać więcej informacji na temat Ubuntu, zobacz [Synchronizacja czasu](https://help.ubuntu.com/lts/serverguide/NTP.html). Aby uzyskać więcej informacji na temat SUSE, zobacz Sekcja 4.5.8 w [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
+W wersjach SUSE i Ubuntu przed 19,10, synchronizacja czasu jest konfigurowana przy użyciu [systemu](https://www.freedesktop.org/wiki/Software/systemd/). Aby uzyskać więcej informacji na temat Ubuntu, zobacz [synchronizacja czasu](https://help.ubuntu.com/lts/serverguide/NTP.html). Aby uzyskać więcej informacji na temat SUSE, zobacz sekcję 4.5.8 (informacje o [wersji programu SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement)).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [Dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
 
 
