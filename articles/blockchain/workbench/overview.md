@@ -1,19 +1,19 @@
 ---
-title: Omówienie usługi Azure Blockchain Workbench Preview
-description: Omówienie usługi Azure Blockchain Workbench Preview i jego możliwości.
+title: Omówienie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
+description: Omówienie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej i jej możliwości.
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
 ms.openlocfilehash: 162626ba2303ab04bd2963a5add61c556615ebec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79203648"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Czym jest usługa Azure Blockchain Workbench?
 
-Azure Blockchain Workbench Preview to zbiór usług i funkcji platformy Azure zaprojektowanych w celu ułatwienia tworzenia i wdrażania aplikacji blockchain w celu udostępniania procesów biznesowych i danych innym organizacjom. Usługa Azure Blockchain Workbench udostępnia szkielet infrastruktury do tworzenia aplikacji łańcucha bloków, umożliwiając deweloperom skoncentrowanie się na tworzeniu logiki biznesowej i kontraktów inteligentnych. Ułatwia również tworzenie aplikacji łańcucha bloków dzięki integracji kilku usług i funkcji platformy Azure w celu zautomatyzowania typowych zadań projektowych.
+Usługa Azure łańcucha bloków Workbench w wersji zapoznawczej to zbiór usług i funkcji platformy Azure, które ułatwiają tworzenie i wdrażanie aplikacji łańcucha bloków w celu udostępniania procesów i danych firmowych innym organizacjom. Usługa Azure Blockchain Workbench udostępnia szkielet infrastruktury do tworzenia aplikacji łańcucha bloków, umożliwiając deweloperom skoncentrowanie się na tworzeniu logiki biznesowej i kontraktów inteligentnych. Ułatwia również tworzenie aplikacji łańcucha bloków dzięki integracji kilku usług i funkcji platformy Azure w celu zautomatyzowania typowych zadań projektowych.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -29,7 +29,7 @@ Usługa Azure Blockchain Workbench udostępnia aplikację internetową i interfe
 
 Interfejsy API REST usługi Blockchain Workbench i interfejsy API oparte na komunikatach umożliwiają integrację z istniejącymi systemami. Interfejsy API zapewniają interfejs umożliwiający zastępowanie lub korzystanie z wielu technologii rejestru rozproszonego, magazynu i ofert baz danych.
 
-Blockchain Workbench może przekształcać wiadomości wysyłane do interfejsu API opartego na wiadomościach, aby tworzyć transakcje w formacie oczekiwanym przez natywnego interfejsu API tego łańcucha bloków.  Usługa Workbench umożliwia rejestrowanie transakcji i kierowanie ich do odpowiedniego łańcucha bloków. 
+Łańcucha bloków Workbench może przekształcać komunikaty wysyłane do interfejsu API opartego na komunikatach w celu kompilowania transakcji w formacie oczekiwanym przez natywny interfejs API łańcucha bloków.  Usługa Workbench umożliwia rejestrowanie transakcji i kierowanie ich do odpowiedniego łańcucha bloków. 
 
 Usługa Workbench automatycznie dostarcza zdarzenia do usług Service Bus i Event Grid w celu wysyłania wiadomości do użytkowników podrzędnych. Deweloperzy mogą zintegrować usługę z jednym z tych systemów obsługi wiadomości, aby realizować transakcje i przyglądać się wynikom.
 
@@ -43,19 +43,19 @@ W przypadku istniejących protokołów łańcucha bloków tożsamości łańcuch
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synchronizowanie danych łańcucha z magazynem poza łańcuchem
 
-Usługa Azure Blockchain Workbench ułatwia analizowanie zdarzeń i danych łańcucha bloków dzięki automatycznemu synchronizowaniu danych łańcucha bloków z magazynem poza łańcuchem. Zamiast wyodrębniać dane bezpośrednio z łańcucha bloków, można wysyłać zapytania do systemów baz danych poza łańcuchem, takich jak SQL Server. Wiedza specjalistyczna w zakresie łańcucha bloków nie jest wymagana dla użytkowników końcowych, którzy wykonują zadania analizy danych.
+Usługa Azure Blockchain Workbench ułatwia analizowanie zdarzeń i danych łańcucha bloków dzięki automatycznemu synchronizowaniu danych łańcucha bloków z magazynem poza łańcuchem. Zamiast wyodrębniać dane bezpośrednio z łańcucha bloków, można wysyłać zapytania do systemów baz danych poza łańcuchem, takich jak SQL Server. Znajomość łańcucha bloków nie jest wymagana dla użytkowników końcowych, którzy wykonują zadania analizy danych.
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 
-Aby uzyskać informacje o technologii Azure Blockchain, odwiedź [blog platformy Azure Blockchain,](https://azure.microsoft.com/blog/topics/blockchain/) aby być na bieżąco z ofertami usług blockchain i informacjami od zespołu inżynierów platformy Azure Blockchain.
+W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
 
-Aby przekazać opinię o produkcie lub poprosić o nowe funkcje, po głosowaniu na pomysł za pośrednictwem [forum opinii platformy Azure dla łańcucha bloków.](https://aka.ms/blockchainuservoice)
+Aby przekazać opinie o produkcie lub zażądać nowych funkcji, Opublikuj głos na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Pomoc techniczna w społeczności
 
-Nawiąż kontakt z inżynierami firmy Microsoft i ekspertami społeczności Platformy Azure Blockchain.
+Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-* [Forum usługi Azure Blockchain MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Forum MSDN usługi Azure łańcucha bloków](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

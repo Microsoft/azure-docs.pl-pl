@@ -1,63 +1,63 @@
 ---
-title: Trwałe aranżacji — funkcje platformy Azure
-description: Wprowadzenie do funkcji aranżacji dla usług Azure funkcje trwałe.
+title: Niezawodne aranżacje — Azure Functions
+description: Wprowadzenie do funkcji aranżacji dla usługi Azure Durable Functions.
 author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241360"
 ---
-# <a name="durable-orchestrations"></a>Trwałe aranżacji
+# <a name="durable-orchestrations"></a>Nietrwałe aranżacje
 
-Funkcje trwałe jest rozszerzeniem [funkcji platformy Azure](../functions-overview.md). Można użyć *funkcji orchestrator* do organizowania wykonywania innych trwałych funkcji w aplikacji funkcji. Funkcje koordynatora mają następujące cechy:
+Durable Functions jest rozszerzeniem [Azure Functions](../functions-overview.md). Za pomocą funkcji programu *Orchestrator* można organizować wykonywanie innych trwałych funkcji w ramach aplikacji funkcji. Funkcje programu Orchestrator mają następującą charakterystykę:
 
-* Funkcje koordynatora definiują przepływy pracy funkcji przy użyciu kodu proceduralnego. Nie są potrzebne schematy deklaratywne ani projektanci.
-* Funkcje orchestrator można wywołać inne trwałe funkcje synchronicznie i asynchronicznie. Dane wyjściowe z wywoływanych funkcji można niezawodnie zapisywać w zmiennych lokalnych.
-* Funkcje orkiestratora są trwałe i niezawodne. Postęp wykonywania jest automatycznie punkt kontrolny, gdy funkcja "czeka" lub "daje". Możliwość odtwarzania procesu lub ponownego uruchamiania maszyny wirtualnej bez utraty stanu lokalnego.
-* Funkcje orkiestratora mogą być długotrwałe. Całkowita żywotność *wystąpienia aranżacji* może wynosić sekundy, dni, miesiące lub niekończące się.
+* Funkcje programu Orchestrator definiują przepływy pracy funkcji przy użyciu kodu proceduralnego. Brak schematów deklaratywnych ani projektantów.
+* Funkcje programu Orchestrator mogą wywoływać inne trwałe funkcje synchronicznie i asynchronicznie. Dane wyjściowe z wywołanych funkcji mogą być niezawodnie zapisywane w zmiennych lokalnych.
+* Funkcje programu Orchestrator są trwałe i niezawodne. Postęp wykonywania jest automatycznie przetwarzany, gdy funkcja "await" lub "implikuje". Możliwość odtwarzania procesu lub ponownego uruchamiania maszyny wirtualnej bez utraty stanu lokalnego.
+* Funkcje programu Orchestrator mogą być długotrwałe. Łącznym cykl życia *wystąpienia aranżacji* może być sekunda, dni, miesiące lub nie kończące się.
 
-W tym artykule przedstawiono omówienie funkcji koordynatora i ich pomoc w rozwiązywaniu różnych problemów związanych z tworzeniem aplikacji. Jeśli nie są jeszcze zaznajomieni z typami funkcji dostępnych w aplikacji funkcje trwałe, przeczytaj najpierw [typy funkcji trwałe](durable-functions-types-features-overview.md) artykułu.
+Ten artykuł zawiera omówienie funkcji programu Orchestrator oraz sposób, w jaki mogą one pomóc w rozwiązywaniu różnych wyzwań związanych z programowaniem aplikacji. Jeśli nie znasz już typów funkcji dostępnych w aplikacji Durable Functions, najpierw Przeczytaj artykuł o [typach trwałych funkcji](durable-functions-types-features-overview.md) .
 
 ## <a name="orchestration-identity"></a>Tożsamość aranżacji
 
-Każde *wystąpienie* aranżacji ma identyfikator wystąpienia (znany również jako *identyfikator wystąpienia).* Domyślnie każdy identyfikator wystąpienia jest automatyczniegenerowanym identyfikatorem GUID. Jednak identyfikatory wystąpień mogą być również dowolną wartością ciągu generowaną przez użytkownika. Każdy identyfikator wystąpienia aranżacji musi być unikatowy w [centrum zadań](durable-functions-task-hubs.md).
+Każde *wystąpienie* aranżacji ma identyfikator wystąpienia (znany również jako *Identyfikator wystąpienia*). Domyślnie każdy identyfikator wystąpienia jest automatycznie generowanym identyfikatorem GUID. Identyfikatory wystąpień mogą jednak być dowolną wartością ciągu wygenerowaną przez użytkownika. Każdy identyfikator wystąpienia aranżacji musi być unikatowy w ramach [centrum zadań](durable-functions-task-hubs.md).
 
 Poniżej przedstawiono niektóre reguły dotyczące identyfikatorów wystąpień:
 
 * Identyfikatory wystąpień muszą zawierać od 1 do 256 znaków.
-* Identyfikatory wystąpień nie `@`mogą zaczynać się od .
-* Identyfikatory wystąpień nie `/` `\`mogą `#`zawierać `?` znaków ani znaków.
-* Identyfikatory wystąpień nie mogą zawierać znaków sterujących.
+* Identyfikatory wystąpień nie mogą rozpoczynać `@`się od.
+* Identyfikatory wystąpień nie mogą zawierać `/`znaków `\`, `#`,, `?` ani.
+* Identyfikatory wystąpień nie mogą zawierać znaków kontrolnych.
 
 > [!NOTE]
-> Ogólnie zaleca się używanie automatyczniegenerowanych identyfikatorów wystąpień, gdy tylko jest to możliwe. Identyfikatory wystąpień generowane przez użytkownika są przeznaczone dla scenariuszy, w których istnieje mapowanie jeden do jednego między wystąpieniem aranżacji a jakąś jednostką specyficzną dla aplikacji zewnętrznej, taką jak zamówienie zakupu lub dokument.
+> Zwykle zaleca się używanie automatycznie generowanych identyfikatorów wystąpień, jeśli jest to możliwe. Identyfikatory wystąpień generowane przez użytkownika są przeznaczone dla scenariuszy, w których istnieje mapowanie jeden do jednego między wystąpieniem aranżacji a niezależną jednostką specyficzną dla aplikacji, taką jak zamówienie zakupu lub dokument.
 
-Identyfikator wystąpienia aranżacji jest wymaganym parametrem dla większości [operacji zarządzania wystąpieniami.](durable-functions-instance-management.md) Są one również ważne dla diagnostyki, takich jak [przeszukiwanie danych śledzenia aranżacji](durable-functions-diagnostics.md#application-insights) w usłudze Application Insights do rozwiązywania problemów lub do celów analitycznych. Z tego powodu zaleca się zapisanie wygenerowanych identyfikatorów wystąpień w jakiejś lokalizacji zewnętrznej (na przykład w bazie danych lub w dziennikach aplikacji), gdzie można je łatwo odwołać później.
+Identyfikator wystąpienia aranżacji jest wymaganym parametrem dla większości [operacji zarządzania wystąpieniami](durable-functions-instance-management.md). Są one również ważne dla celów diagnostycznych, takich jak [wyszukiwanie danych śledzenia aranżacji](durable-functions-diagnostics.md#application-insights) w Application Insights na potrzeby rozwiązywania problemów lub analiz. Z tego powodu zaleca się zapisanie wygenerowanych identyfikatorów wystąpień do niektórych lokalizacji zewnętrznych (na przykład bazy danych lub dzienników aplikacji), gdzie można z łatwością przywoływać się później.
 
 ## <a name="reliability"></a>Niezawodność
 
-Funkcje orchestrator niezawodnie utrzymać ich stan wykonywania przy użyciu wzorca projektowania [pozyskiwania zdarzeń.](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) Zamiast bezpośrednio przechowywania bieżącego stanu aranżacji, trwałe Task Framework używa magazynu tylko do dołączania do nagrywania pełnej serii akcji aranżacji funkcji. Magazyn tylko do dołączania ma wiele korzyści w porównaniu do "dumpingu" w pełnym czasie wykonywania. Korzyści obejmują zwiększoną wydajność, skalowalność i szybkość reakcji. Można również uzyskać spójność ostateczną dla danych transakcyjnych i pełne ścieżki inspekcji i historii. Ścieżki inspekcji wspierają niezawodne działania kompensacyjne.
+Program Orchestrator działa niezawodnie utrzymują swój stan wykonywania przy użyciu wzorca projektowego [pozyskiwania zdarzeń](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) . Zamiast bezpośredniego przechowywania bieżącego stanu aranżacji, trwała platforma zadań korzysta ze sklepu tylko do dołączania, aby zarejestrować pełną serię akcji podejmowanych przez aranżację funkcji. Magazyn tylko do dołączania ma wiele korzyści w porównaniu do "zatopienia" całego stanu środowiska uruchomieniowego. Korzyści obejmują zwiększoną wydajność, skalowalność i elastyczność. Istnieje również możliwość zapewnienia spójności ostatecznej danych transakcyjnych oraz pełnych i historycznych historii inspekcji. Dzienniki inspekcji obsługują niezawodne akcje kompensowania.
 
-Funkcje trwałe używa źródła zdarzeń w sposób przejrzysty. W tle `await` (C#) lub `yield` (JavaScript) operator w funkcji orchestrator daje kontrolę wątku orchestrator z powrotem do dyspozytora trwałe task framework. Dyspozytor następnie zatwierdza wszelkie nowe akcje, które zaplanowano funkcję koordynatora (takie jak wywołanie jednej lub więcej funkcji podrzędnych lub planowanie trwałego czasomierza) do magazynu. Akcja przezroczystego zatwierdzania dołącza do historii wykonywania wystąpienia aranżacji. Historia jest przechowywana w tabeli magazynu. Akcja zatwierdzania następnie dodaje wiadomości do kolejki, aby zaplanować pracę rzeczywistą. W tym momencie funkcja koordynatora może zostać zwolniona z pamięci.
+Durable Functions używa źródeł zdarzeń w sposób przezroczysty. W tle operator `await` (C#) lub `yield` (JavaScript) w funkcji programu Orchestrator zapewnia kontrolę nad wątkiem programu Orchestrator z powrotem do dyspozytora trwałych struktur zadań. Następnie Dyspozytor zatwierdza wszelkie nowe akcje zaplanowane przez funkcję programu Orchestrator (takie jak wywołanie co najmniej jednej funkcji podrzędnej lub planowanie trwałego czasomierza) do magazynu. Nieprzezroczysta akcja zatwierdzania dołącza do historii wykonywania wystąpienia aranżacji. Historia jest przechowywana w tabeli magazynu. Akcja Zatwierdź powoduje dodanie komunikatów do kolejki w celu zaplanowania rzeczywistej pracy. W tym momencie funkcja programu Orchestrator może zostać zwolniona z pamięci.
 
-Gdy funkcja aranżacji ma więcej pracy do wykonania (na przykład komunikat odpowiedzi jest odbierany lub czasomierz trwałe wygasa), program koordynator wznawia i ponownie wykonuje całą funkcję od początku, aby odbudować stan lokalny. Podczas powtarzania, jeśli kod próbuje wywołać funkcję (lub wykonać dowolną inną pracę asynchroniczną), struktura trwałego zadania konsultuje się z historią wykonywania bieżącej aranżacji. Jeśli stwierdzi, że [funkcja działania](durable-functions-types-features-overview.md#activity-functions) została już wykonana i przyniosły wynik, odtwarza wynik tej funkcji i kod koordynatora nadal działać. Powtarzanie jest kontynuowane, dopóki kod funkcji nie zostanie ukończony lub dopóki nie zaplanował nowej pracy asynchronizowej.
-
-> [!NOTE]
-> Aby wzorzec odtwarzania działał poprawnie i niezawodnie, kod funkcji koordynatora musi być *deterministyczny.* Aby uzyskać więcej informacji na temat ograniczeń kodu dla funkcji koordynatora, zobacz temat [ograniczeń kodu funkcji koordynatora.](durable-functions-code-constraints.md)
+Gdy funkcja aranżacji ma więcej pracy do wykonania (na przykład komunikat odpowiedzi jest odbierany lub trwały czasomierz wygasa), program Orchestrator wznawia działanie i ponownie wykonuje całą funkcję od początku, aby skompilować stan lokalny. W trakcie powtarzania, jeśli kod próbuje wywołać funkcję (lub wykonać inną zadani asynchroniczne), w środowisku trwałym można sprawdzić historię wykonywania bieżącej aranżacji. Jeśli okaże się, że [Funkcja działania](durable-functions-types-features-overview.md#activity-functions) została już wykonana i wygeneruje wynik, odtwarza wynik tej funkcji, a kod programu Orchestrator nadal działa. Odtwarzanie powtarza się do momentu zakończenia kodu funkcji lub do momentu zaplanowania nowej pracy asynchronicznej.
 
 > [!NOTE]
-> Jeśli funkcja koordynatora emituje komunikaty dziennika, zachowanie powtarzania może spowodować, że zostaną wyemitowane zduplikowane komunikaty dziennika. Zobacz [Logging temat,](durable-functions-diagnostics.md#logging) aby dowiedzieć się więcej o tym, dlaczego to zachowanie występuje i jak obejść.
+> Aby wzorzec powtarzania działał poprawnie i niezawodnie, kod funkcji programu Orchestrator musi być *deterministyczny*. Aby uzyskać więcej informacji na temat ograniczeń dotyczących kodu dla funkcji programu Orchestrator, zobacz temat [ograniczenia kodu funkcji programu Orchestrator](durable-functions-code-constraints.md) .
+
+> [!NOTE]
+> Jeśli funkcja programu Orchestrator emituje komunikaty dziennika, zachowanie odtwarzania może spowodować wyemitowanie zduplikowanych komunikatów dziennika. Zapoznaj się z tematem [Rejestrowanie](durable-functions-diagnostics.md#logging) , aby dowiedzieć się więcej o tym, dlaczego takie zachowanie występuje i jak obejść to działanie.
 
 ## <a name="orchestration-history"></a>Historia aranżacji
 
-Zachowanie pozyskiwania zdarzeń trwałej struktury zadań jest ściśle powiązane z kodem funkcji koordynatora, który piszesz. Załóżmy, że masz funkcję koordynatora łańcucha działania, taką jak następująca funkcja koordynatora:
+Zachowanie związane ze źródłem zdarzenia trwałej struktury zadań jest ściśle powiązane z kodem funkcji programu Orchestrator, który napiszesz. Załóżmy, że masz funkcję programu Orchestrator służącą do łańcucha aktywności, taką jak następująca funkcja programu Orchestrator:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -93,104 +93,104 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-W `await` każdej instrukcji (C#) lub `yield` (JavaScript) struktura trwałe task framework punktów kontrolnych stan wykonywania funkcji do niektórych trwałe zaplecze magazynu (zazwyczaj azure magazynu tabel). Ten stan jest to, co jest określane jako *historia aranżacji*.
+W każdej `await` instrukcji (C#) `yield` lub (JavaScript), trwała struktura zadań określa stan wykonywania funkcji w niektórych trwałych zapleczach magazynu (zazwyczaj jest to usługa Azure Table Storage). Ten stan jest określany mianem *historii aranżacji*.
 
 ### <a name="history-table"></a>Tabela historii
 
-Ogólnie rzecz biorąc, trwałe ramy zadań wykonuje następujące czynności w każdym punkcie kontrolnym:
+Ogólnie rzecz biorąc, usługa trwałej struktury zadań w każdym punkcie kontrolnym wykonuje następujące czynności:
 
 1. Zapisuje historię wykonywania w tabelach usługi Azure Storage.
-2. Wysyła w kolejce wiadomości dla funkcji, które program orchestrator chce wywołać.
-3. Wpisuje w kolejce wiadomości &mdash; dla samego koordynatora, na przykład komunikaty czasomierza trwałe.
+2. Komunikaty enqueues dla funkcji wywoływanych przez koordynatora.
+3. Komunikaty enqueues dla programu Orchestrator &mdash; na przykład trwałe komunikaty czasomierza.
 
-Po zakończeniu punktu kontrolnego funkcja koordynatora może być usuwana z pamięci, dopóki nie będzie więcej pracy do wykonania.
+Po zakończeniu punktu kontrolnego funkcja programu Orchestrator jest bezpłatna do usunięcia z pamięci, dopóki nie będzie więcej pracy.
 
 > [!NOTE]
-> Usługa Azure Storage nie zapewnia żadnych gwarancji transakcyjnych między zapisywaniem danych w magazynie tabel i kolejkach. Aby obsłużyć błędy, dostawca magazynu funkcji trwałych używa wzorców *spójności ostatecznej.* Te wzorce zapewniają, że żadne dane nie zostaną utracone, jeśli wystąpi awaria lub utrata łączności w środku punktu kontrolnego.
+> Usługa Azure Storage nie zapewnia żadnych transakcyjnych gwarancji między zapisywaniem danych w usłudze Table Storage i kolejkami. Aby obsłużyć błędy, dostawca magazynu Durable Functions będzie używać wzorców *spójności ostatecznej* . Te wzorce zapewniają, że żadne dane nie zostaną utracone w przypadku awarii lub utraty łączności w środku punktu kontrolnego.
 
-Po zakończeniu historia funkcji pokazanej wcześniej wygląda mniej więcej tak jak w poniższej tabeli w usłudze Azure Table Storage (w skrócie do celów ilustracyjnych):
+Po zakończeniu historia funkcji pokazanej wcześniej wygląda podobnie do poniższej tabeli na platformie Azure Table Storage (skrócony dla celów ilustracyjnych):
 
 | PartitionKey (identyfikator wystąpienia)                     | Typ zdarzenia             | Znacznik czasu               | Dane wejściowe | Nazwa             | Wynik                                                    | Stan |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | Rozpoczęcie wykonywania      | 2017-05-05T18:45:28.852Z | wartość null  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | Zadanieplanowane         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorKończone | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
-| eaee885b | ZadanieZakończone         | 2017-05-05T18:45:34.201Z |       |                  | """Cześć Tokio!"""                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | Zadanieplanowane         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorKończone | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
-| eaee885b | ZadanieZakończone         | 2017-05-05T18:45:34.763Z |       |                  | """Cześć Seattle!"""                                      |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | Zadanieplanowane         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorKończone | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | ZadanieZakończone         | 2017-05-05T18:45:34.919Z |       |                  | """Cześć Londyn!"""                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorKończone | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
-| eaee885b | WykonanieNiepełnione    | 2017-05-05T18:45:35.044Z |       |                  | "["Hello Tokyo!"","Hello Seattle!","Hello London!""]" | Zakończone           |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | wartość null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670 Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670 Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201 Z |       |                  | "" Hello Tokio! ""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232 Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435 Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435 Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763 Z |       |                  | "" Hello Seattle! ""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857 Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" Hello Londyn! ""                                       |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" Hello Tokio! "", "Hello Seattle!" "," Hello Londyn! ""] " | Zakończone           |
 
-Kilka uwag na temat wartości kolumn:
+Kilka informacji o wartościach kolumn:
 
-* **PartitionKey**: Zawiera identyfikator wystąpienia aranżacji.
-* **EventType**: Reprezentuje typ zdarzenia. Może to być jeden z następujących typów:
-  * **OrchestrationStarted:** Funkcja orkiestratora wznowione z await lub jest uruchomiony po raz pierwszy. Kolumna `Timestamp` służy do wypełniania wartości deterministycznej dla `CurrentUtcDateTime` interfejsów API (.NET) i `currentUtcDateTime` (JavaScript).
-  * **ExecutionStarted**: Funkcja koordynatora rozpoczęła wykonywanie po raz pierwszy. To zdarzenie zawiera również dane `Input` wejściowe funkcji w kolumnie.
-  * **TaskScheduled**: Zaplanowano funkcję działania. Nazwa funkcji działania jest przechwytywany w kolumnie. `Name`
-  * **ZadanieZakończone**: Funkcja działania ukończona. Wynik funkcji znajduje się `Result` w kolumnie.
-  * **TimerCreated:** Utworzono trwały zegar. Kolumna `FireAt` zawiera zaplanowany czas UTC, w którym czasomierz wygasa.
-  * **TimerFired**: Trwały zegar opalany.
-  * **EventRaised**: Zdarzenie zewnętrzne zostało wysłane do wystąpienia aranżacji. Kolumna `Name` przechwytuje nazwę zdarzenia i `Input` kolumna przechwytuje ładunek zdarzenia.
-  * **OrchestratorCompleted**: Oczekiwano funkcji orkiestra.
-  * **ContinueAsNew**: Funkcja koordynatora została ukończona i ponownie uruchomiona z nowym stanem. Kolumna `Result` zawiera wartość, która jest używana jako dane wejściowe w ponownym wystąpieniu.
-  * **ExecutionCompleted**: Funkcja koordynatora została ukończona (lub nie powiodła się). Dane wyjściowe funkcji lub szczegóły błędu są `Result` przechowywane w kolumnie.
-* **Sygnatura czasowa:** Sygnatura czasowa UTC zdarzenia historii.
-* **Nazwa**: Nazwa funkcji, która została wywołana.
-* **Wejście:** Wejście funkcji w formacie JSON.
-* **Wynik:** Wyjście funkcji; oznacza to, że jego wartość zwrotu.
+* **PartitionKey**: zawiera identyfikator wystąpienia aranżacji.
+* **EventType**: reprezentuje typ zdarzenia. Może być jednym z następujących typów:
+  * **OrchestrationStarted**: funkcja programu Orchestrator została wznowiona z oczekiwania lub jest uruchomiona po raz pierwszy. `Timestamp` Kolumna służy do wypełniania wartości deterministycznych dla interfejsów `CurrentUtcDateTime` API (.NET) `currentUtcDateTime` i (JavaScript).
+  * **ExecutionStarted**: funkcja programu Orchestrator rozpoczęła wykonywanie po raz pierwszy. To zdarzenie zawiera również dane wejściowe funkcji w `Input` kolumnie.
+  * **TaskScheduled**: zaplanowano funkcję działania. Nazwa funkcji działania jest przechwytywana w `Name` kolumnie.
+  * **TaskCompleted**: funkcja działania została ukończona. Wynik funkcji znajduje się w `Result` kolumnie.
+  * **TimerCreated**: utworzono trwały czasomierz. `FireAt` Kolumna zawiera ZAPLANOWANY czas UTC, po upływie którego czasomierz wygasa.
+  * **TimerFired**: wywołano trwały czasomierz.
+  * **EventRaised**: zewnętrzne zdarzenie zostało wysłane do wystąpienia aranżacji. `Name` Kolumna przechwytuje nazwę zdarzenia, a `Input` kolumna przechwytuje ładunek zdarzenia.
+  * **OrchestratorCompleted**: funkcja programu Orchestrator oczekuje.
+  * **ContinueAsNew**: funkcja programu Orchestrator została zakończona i uruchomiona ponownie z nowym stanem. `Result` Kolumna zawiera wartość, która jest używana jako dane wejściowe w ponownie uruchomionym wystąpieniu.
+  * **ExecutionCompleted**: funkcja programu Orchestrator działała do ukończenia (lub nie powiodła się). Dane wyjściowe funkcji lub szczegóły błędu są przechowywane w `Result` kolumnie.
+* **Timestamp**: sygnatura czasowa UTC zdarzenia historii.
+* **Name**: nazwa funkcji, która została wywołana.
+* **Wejście**: dane wejściowe w formacie JSON.
+* **Wynik**: dane wyjściowe funkcji; oznacza to, że wartość zwracana.
 
 > [!WARNING]
-> Chociaż jest to przydatne jako narzędzie do debugowania, nie należy przyjmować żadnych zależności od tej tabeli. Może się zmienić w miarę rozwoju rozszerzenia Funkcje trwałe.
+> Chociaż jest to narzędzie do debugowania, nie należy podejmować żadnych zależności od tej tabeli. Może ulec zmianie w miarę rozwoju rozszerzenia Durable Functions.
 
-Za każdym razem, gdy `await` funkcja jest `yield` wznawiana z (C#) lub (JavaScript), trwała struktura zadań ponawia funkcję koordynatora od podstaw. Przy każdym ponownym uruchomieniu sprawdza historię wykonywania, aby ustalić, czy bieżąca operacja asynchronii miała miejsce.  Jeśli operacja miała miejsce, struktura odtwarza dane wyjściowe tej operacji `await` natychmiast i przechodzi `yield` do następnego (C#) lub (JavaScript). Ten proces trwa do momentu odtwo nie odtwołych całej historii. Po odtwoniu bieżącej historii zmienne lokalne zostaną przywrócone do ich poprzednich wartości.
+Za każdym razem, gdy funkcja wznawia działanie `await` z (C#) `yield` lub (JavaScript), trwała struktura zadań ponownie uruchamia funkcję programu Orchestrator od podstaw. Na każdym ponownym uruchomieniu zapoznaj się z historią wykonywania w celu ustalenia, czy bieżąca operacja asynchroniczna została wykonana.  Jeśli operacja miała miejsce, struktura odtwarza dane wyjściowe tej operacji natychmiast i przechodzi do następnego `await` (C#) lub `yield` (JavaScript). Ten proces jest kontynuowany do momentu odtworzenia całej historii. Po odinstalowaniu bieżącej historii zmienne lokalne zostaną przywrócone do poprzednich wartości.
 
-## <a name="features-and-patterns"></a>Cechy i wzory
+## <a name="features-and-patterns"></a>Funkcje i wzorce
 
-W następnych sekcjach opisano funkcje i wzorce funkcji koordynatora.
+W następnych sekcjach opisano funkcje i wzorce funkcji programu Orchestrator.
 
 ### <a name="sub-orchestrations"></a>Orkiestracje podrzędne
 
-Funkcje orchestrator można wywołać funkcje działania, ale także inne funkcje orkiestratora. Na przykład można utworzyć większą aranżację z biblioteki funkcji koordynatora. Lub można uruchomić wiele wystąpień funkcji orkiestratora równolegle.
+Funkcje programu Orchestrator umożliwiają wywoływanie funkcji działania, ale również innych funkcji programu Orchestrator. Można na przykład utworzyć większą organizację poza biblioteką funkcji programu Orchestrator. Lub można uruchomić wiele wystąpień funkcji programu Orchestrator równolegle.
 
-Aby uzyskać więcej informacji i przykłady, zobacz [sub-aranżacji](durable-functions-sub-orchestrations.md) artykułu.
+Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł dotyczący [aranżacji podrzędnych](durable-functions-sub-orchestrations.md) .
 
-### <a name="durable-timers"></a>Trwałe zegary
+### <a name="durable-timers"></a>Trwałe czasomierze
 
-Aranżacji można zaplanować *trwałe czasomierze* do zaimplementowania opóźnień lub skonfigurować obsługę limitu czasu na akcje asynchronicznej. Użyj trwałe timery w funkcjach `Thread.Sleep` `Task.Delay` orkiestratora zamiast `setTimeout()` `setInterval()` i (C#) lub (JavaScript).
+Aranżacje mogą zaplanować *trwałe czasomierze* w celu zaimplementowania opóźnień lub skonfigurować obsługę limitu czasu dla akcji asynchronicznych. Używaj trwałych czasomierzy w funkcjach `Thread.Sleep` programu `Task.Delay` Orchestrator, a nie `setTimeout()` ( `setInterval()` C#) lub i (JavaScript).
 
-Aby uzyskać więcej informacji i przykłady, zobacz [trwałe czasomierze](durable-functions-timers.md) artykułu.
+Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł dotyczący [trwałych czasomierzy](durable-functions-timers.md) .
 
 ### <a name="external-events"></a>Zdarzenia zewnętrzne
 
-Funkcje koordynatora mogą czekać na zdarzenia zewnętrzne, aby zaktualizować wystąpienie aranżacji. Ta funkcja funkcji trwałe często jest przydatna do obsługi interakcji z człowiekiem lub innych wywołań zwrotnych zewnętrznych.
+Funkcje programu Orchestrator mogą czekać, aż zdarzenia zewnętrzne zaktualizują wystąpienie aranżacji. Ta funkcja Durable Functions często jest przydatna do obsługi interakcji człowieka lub innych zewnętrznych wywołań zwrotnych.
 
-Aby uzyskać więcej informacji i przykłady, zobacz zdarzenia [zewnętrzne](durable-functions-external-events.md) artykułu.
+Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł dotyczący [zdarzeń zewnętrznych](durable-functions-external-events.md) .
 
 ### <a name="error-handling"></a>Obsługa błędów
 
-Funkcje orchestrator można użyć funkcji obsługi błędów języka programowania. Istniejące wzorce, takie jak `try` / `catch` są obsługiwane w kodzie aranżacji.
+Funkcje programu Orchestrator mogą korzystać z funkcji obsługi błędów w języku programowania. Istniejące wzorce, `try` / `catch` takie jak są obsługiwane w kodzie aranżacji.
 
-Funkcje orchestrator można również dodać zasady ponawiania do działania lub funkcji podaranatora, które wywołują. Jeśli działanie lub funkcja podaranżatora nie powiedzie się z wyjątkiem, określone zasady ponawiania próby można automatycznie opóźnić i ponowić próbę wykonania do określonej liczby razy.
+Funkcje programu Orchestrator mogą także dodawać zasady ponawiania dla działania lub funkcji programu Orchestrator, które wywołuje. Jeśli działanie lub funkcja podrzędna nie powiedzie się z wyjątkiem, określone zasady ponawiania mogą być automatycznie opóźniane i ponawiać próbę wykonania przez maksymalnie określoną liczbę razy.
 
 > [!NOTE]
-> Jeśli istnieje nieobsługiowany wyjątek w funkcji aranżatora, wystąpienie aranżacji zostanie ukończone `Failed` w stanie. Nie można ponowić wystąpienia aranżacji po jego zakończeniu.
+> Jeśli w funkcji programu Orchestrator wystąpi nieobsługiwany wyjątek, wystąpienie aranżacji zakończy się w `Failed` stanie. Nie można ponowić próby wystąpienia aranżacji, gdy zakończyło się niepowodzeniem.
 
-Aby uzyskać więcej informacji i przykłady, zobacz [błąd obsługi](durable-functions-error-handling.md) artykułu.
+Aby uzyskać więcej informacji i zapoznać się z przykładami, zobacz artykuł [dotyczący obsługi błędów](durable-functions-error-handling.md) .
 
-### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Sekcje krytyczne (funkcje trwałe 2.x, obecnie tylko .NET)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Sekcje krytyczne (Durable Functions 2. x, obecnie tylko platforma .NET)
 
-Wystąpienia aranżacji są jednowątkowe, więc nie jest konieczne martwić się o warunki wyścigu *w ramach* aranżacji. Jednak warunki wyścigu są możliwe, gdy aranżacji interakcji z systemami zewnętrznymi. Aby ograniczyć warunki wyścigu podczas interakcji z systemami zewnętrznymi, `LockAsync` funkcje aranżatora można zdefiniować *sekcje krytyczne* przy użyciu metody w .NET.
+Wystąpienia aranżacji są jednowątkowe, dlatego nie trzeba martwić się o sytuacje wyścigu *w ramach* aranżacji. Jednakże sytuacje wyścigu są możliwe, gdy aranżacje współpracują z systemami zewnętrznymi. Aby wyeliminować sytuacje wyścigu podczas współpracy z systemami zewnętrznymi, funkcje programu Orchestrator mogą definiować *sekcje krytyczne* przy `LockAsync` użyciu metody w programie .NET.
 
-Poniższy przykładowy kod przedstawia funkcję koordynatora, która definiuje sekcję krytyczną. Wprowadza sekcję krytyczną `LockAsync` przy użyciu metody. Ta metoda wymaga przekazywania jednego lub więcej odwołań do [trwałego elementu](durable-functions-entities.md), który trwale zarządza stan blokady. Tylko jedno wystąpienie tej aranżacji można wykonać kod w sekcji krytycznej w czasie.
+Poniższy przykładowy kod pokazuje funkcję programu Orchestrator, która definiuje sekcję krytyczną. Przechodzi do sekcji krytycznej przy użyciu `LockAsync` metody. Ta metoda wymaga przekazania co najmniej jednego odwołania do [jednostki trwałej](durable-functions-entities.md), która trwale zarządza stanem blokady. Tylko jedno wystąpienie tej aranżacji może wykonać kod w sekcji krytycznej w danym momencie.
 
 ```csharp
 [FunctionName("Synchronize")]
@@ -205,20 +205,20 @@ public static async Task Synchronize(
 }
 ```
 
-Uzyskuje `LockAsync` trwałe blokady i `IDisposable` zwraca, który kończy sekcji krytycznej po usunięciu. Ten `IDisposable` wynik może służyć `using` razem z blokiem, aby uzyskać reprezentację składni sekcji krytycznej. Gdy funkcja koordynatora wchodzi do sekcji krytycznej, tylko jedno wystąpienie można wykonać tego bloku kodu. Wszystkie inne wystąpienia, które próbują wprowadzić sekcję krytyczną, zostaną zablokowane, dopóki poprzednie wystąpienie nie zakończy sekcji krytycznej.
+`LockAsync` Uzyskuje trwałe blokady i zwraca `IDisposable` sekcję krytyczną, gdy zostanie usunięta. Tego `IDisposable` wyniku można używać razem z `using` blokiem, aby uzyskać składniową reprezentację sekcji krytycznej. Gdy funkcja programu Orchestrator wprowadza sekcję krytyczną, tylko jedno wystąpienie może wykonać ten blok kodu. Wszystkie inne wystąpienia, które próbują wprowadzić sekcję krytyczną, zostaną zablokowane do momentu opuszczenia sekcji krytycznej w poprzednim wystąpieniu.
 
-Funkcja sekcji krytycznej jest również przydatna do koordynowania zmian trwałych elementów. Aby uzyskać więcej informacji na temat sekcji krytycznych, zobacz [trwałe jednostki "Koordynacja jednostki"](durable-functions-entities.md#entity-coordination) temat.
+Funkcja sekcji krytycznej jest również przydatna do koordynowania zmian w trwałych jednostkach. Aby uzyskać więcej informacji na temat sekcji krytycznych, zobacz temat ["koordynacja jednostek trwałych](durable-functions-entities.md#entity-coordination) ".
 
 > [!NOTE]
-> Sekcje krytyczne są dostępne w sekcji Funkcje trwałe 2.0 i powyżej. Obecnie tylko aranżacji platformy .NET implementuje tę funkcję.
+> Sekcje krytyczne są dostępne w Durable Functions 2,0 i nowszych. Obecnie tylko aranżacje platformy .NET implementują tę funkcję.
 
-### <a name="calling-http-endpoints-durable-functions-2x"></a>Wywoływanie punktów końcowych HTTP (funkcje trwałe 2.x)
+### <a name="calling-http-endpoints-durable-functions-2x"></a>Wywoływanie punktów końcowych HTTP (Durable Functions 2. x)
 
-Funkcje programu Orchestrator nie mogą wykonywać funkcji We/Wy, zgodnie z opisem w [ograniczeniach kodu funkcji koordynatora.](durable-functions-code-constraints.md) Typowym obejściem tego ograniczenia jest zawijanie dowolnego kodu, który musi wykonać we/wy w funkcji działania. Aranżacje, które współdziałają z systemami zewnętrznymi często używają funkcji działania do wykonywania wywołań HTTP i zwracania wyniku do aranżacji.
+Funkcje programu Orchestrator nie zezwalają na wykonywanie operacji we/wy, zgodnie z opisem w temacie [ograniczenia kodu funkcji](durable-functions-code-constraints.md)w programie Orchestrator. Typowym obejściem tego ograniczenia jest Zawijanie dowolnego kodu, który musi wykonać operacje we/wy w funkcji działania. Aranżacje, które współdziałają z systemami zewnętrznymi, często używają funkcji działania, aby nawiązywać wywołania HTTP i zwracać wynik do aranżacji.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-Aby uprościć ten wspólny wzorzec, funkcje programu orchestrator można użyć `CallHttpAsync` metody do wywołania interfejsów API HTTP bezpośrednio.
+Aby uprościć ten wspólny wzorzec, funkcje programu Orchestrator mogą `CallHttpAsync` używać metody do bezpośredniego wywoływania interfejsów API protokołu HTTP.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -254,20 +254,20 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Oprócz obsługi podstawowych wzorców żądań/odpowiedzi, metoda obsługuje automatyczną obsługę typowych wzorców sondowania ASYNW ASYnc HTTP 202, a także obsługuje uwierzytelnianie za pomocą usług zewnętrznych przy użyciu [tożsamości zarządzanych.](../../active-directory/managed-identities-azure-resources/overview.md)
+Oprócz obsługi podstawowych wzorców żądania/odpowiedzi Metoda obsługuje automatyczną obsługę typowych wzorców sondowania asynchronicznych HTTP 202, a także obsługuje uwierzytelnianie z usługami zewnętrznymi przy użyciu [tożsamości zarządzanych](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Aby uzyskać więcej informacji i szczegółowe przykłady, zobacz artykuł [o funkcjach HTTP.](durable-functions-http-features.md)
+Aby uzyskać więcej informacji i zapoznać się z szczegółowymi przykładami, zobacz artykuł dotyczący [funkcji http](durable-functions-http-features.md) .
 
 > [!NOTE]
-> Wywoływanie punktów końcowych HTTP bezpośrednio z funkcji programu orchestrator jest dostępne w funkcji trwałych 2.0 i powyżej.
+> Wywoływanie punktów końcowych HTTP bezpośrednio z funkcji programu Orchestrator jest dostępne w Durable Functions 2,0 i nowszych.
 
 ### <a name="passing-multiple-parameters"></a>Przekazywanie wielu parametrów
 
-Nie jest możliwe przekazywanie wielu parametrów do funkcji działania bezpośrednio. Zalecenie jest przekazać w tablicy obiektów lub obiektów złożonych.
+Nie jest możliwe bezpośrednie przekazywanie wielu parametrów do funkcji działania. Zalecenie jest przekazywane do tablicy obiektów lub obiektów złożonych.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
-W .NET można również użyć [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) obiektów. W poniższym przykładzie za pomocą nowych funkcji [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) dodane z [C# 7:](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)
+W programie .NET można także używać obiektów [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) . Poniższy przykład korzysta z nowych funkcji [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) dodanych w [języku C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>Orchestrator
 

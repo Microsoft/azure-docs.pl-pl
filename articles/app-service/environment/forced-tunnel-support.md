@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie wymuszonego tunelowania
-description: Dowiedz się, jak włączyć środowisko usługi App Service do pracy, gdy ruch wychodzący jest wymuszony tunelowania w sieci wirtualnej.
+description: Dowiedz się, jak umożliwić App Service Environment pracy w przypadku wymuszonego tunelowania ruchu wychodzącego w sieci wirtualnej.
 author: ccompy
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80983914"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurowanie wymuszonego tunelowania środowiska App Service Environment
@@ -60,7 +60,7 @@ Można skonfigurować podsieć środowiska ASE tak, aby były w niej ignorowane 
 Aby skonfigurować ignorowanie tras protokołu BGP w podsieci środowiska ASE:
 
 * Utwórz trasę zdefiniowaną przez użytkownika i przypisz ją do podsieci środowiska ASE (jeśli taka trasa jeszcze nie istnieje).
-* W witrynie Azure Portal otwórz interfejs użytkownika tabeli tras przypisanej do podsieci środowiska ASE.  Wybierz pozycję Konfiguracja.  Ustaw propagację trasy bramy sieci wirtualnej na Wyłączona.  Kliknij pozycję Zapisz. Informacje o wyłączaniu tej funkcji znajdziesz w dokumencie [Create a route table][routetable] (Tworzenie tabeli tras).
+* W witrynie Azure Portal otwórz interfejs użytkownika tabeli tras przypisanej do podsieci środowiska ASE.  Wybierz pozycję Konfiguracja.  Ustaw propagację tras bramy sieci wirtualnej na wyłączone.  Kliknij pozycję Zapisz. Informacje o wyłączaniu tej funkcji znajdziesz w dokumencie [Create a route table][routetable] (Tworzenie tabeli tras).
 
 Po skonfigurowaniu ignorowania wszystkich tras protokołu BGP w podsieci środowiska ASE aplikacje nie będą mogły nawiązywać połączenia ze środowiskiem lokalnym. Aby umożliwić aplikacjom uzyskiwanie dostępu do zasobów lokalnych, zmodyfikuj trasę zdefiniowaną przez użytkownika przypisaną do podsieci środowiska ASE, dodając trasy dla lokalnych zakresów adresów. Należy wybrać opcję Brama sieci wirtualnej jako Typ następnego przeskoku. 
 

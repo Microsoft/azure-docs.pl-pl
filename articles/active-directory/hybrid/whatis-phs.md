@@ -12,16 +12,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66253856"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Co to jest synchronizacja skrótów haseł w usłudze Azure AD?
 Synchronizacja skrótów haseł to jedna z metod logowania używana do zapewnienia tożsamości hybrydowej. Program Azure AD Connect synchronizuje skróty haseł użytkowników z lokalnego wystąpienia usługi Active Directory do wystąpienia usługi Azure AD w chmurze.
 
-Synchronizacja skrótów haseł jest rozszerzeniem funkcji synchronizacji katalogów zaimplementowanych przez synchronizację usługi Azure AD Connect. Za pomocą tej funkcji można zalogować się do usług Azure AD, takich jak Office 365. Aby zalogować w usłudze, użyj tego samego hasła, którego używasz do zalogowania się w lokalnym wystąpieniu usługi Active Directory.
+Synchronizacja skrótów haseł jest rozszerzeniem funkcji synchronizacji katalogów zaimplementowanej przez Azure AD Connect Sync. Ta funkcja służy do logowania się do usług Azure AD, takich jak Office 365. Aby zalogować w usłudze, użyj tego samego hasła, którego używasz do zalogowania się w lokalnym wystąpieniu usługi Active Directory.
 
 ![Co to jest program Azure AD Connect](./media/how-to-connect-password-hash-synchronization/arch1.png)
 
@@ -48,8 +48,8 @@ Aby uzyskać więcej informacji, zobacz [Co to jest tożsamość hybrydowa?](wha
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest tożsamość hybrydowa?](whatis-hybrid-identity.md)
-- [Co to jest usługa Azure AD Connect i connect health?](whatis-azure-ad-connect.md)
+- [Co to są Azure AD Connect Health i Connect Health?](whatis-azure-ad-connect.md)
 - [Co to jest uwierzytelnianie przekazywane?](how-to-connect-pta.md)
 - [Co to jest federacja?](whatis-fed.md)
 - [Co to jest logowanie jednokrotne?](how-to-connect-sso.md)
-- [How Password hash synchronization works (Jak działa synchronizacja skrótów haseł)](how-to-connect-password-hash-synchronization.md)
+- [Jak działa synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md)

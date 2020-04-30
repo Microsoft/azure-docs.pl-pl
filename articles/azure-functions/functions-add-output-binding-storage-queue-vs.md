@@ -5,49 +5,49 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74849211"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Łączenie funkcji z usługą Azure Storage przy użyciu programu Visual Studio
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-W tym artykule pokazano, jak używać programu Visual Studio do łączenia funkcji utworzonej w [poprzednim artykule szybki start] z usługą Azure Storage. Powiązanie danych wyjściowych, które można dodać do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce magazynu kolejki platformy Azure. 
+W tym artykule pokazano, jak za pomocą programu Visual Studio połączyć funkcję utworzoną w [poprzednim artykule szybki start] z usługą Azure Storage. Powiązanie danych wyjściowych dodawane do tej funkcji zapisuje dane z żądania HTTP do wiadomości w kolejce usługi Azure queue storage. 
 
-Większość powiązań wymaga przechowywanego ciągu połączenia, którego funkcja używa do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić, należy użyć konta magazynu utworzonego za pomocą aplikacji funkcji. Połączenie z tym kontem jest już `AzureWebJobsStorage`przechowywane w ustawieniach aplikacji o nazwie .  
+Większość powiązań wymaga przechowywanych parametrów połączenia używanych przez funkcje do uzyskiwania dostępu do usługi powiązanej. Aby ułatwić sobie korzystanie z konta magazynu utworzonego za pomocą aplikacji funkcji programu. Połączenie z tym kontem jest już przechowywane w ustawieniu aplikacji o nazwie `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem tego artykułu należy: 
 
- - Ukończ [część 1 przewodnika Szybki start programu Visual Studio](./functions-create-first-function-vs-code.md). 
+ - Ukończ [część 1 przewodnika Szybki Start dotyczącego programu Visual Studio](./functions-create-first-function-vs-code.md). 
 
-- Zaloguj się do subskrypcji platformy Azure w programie Visual Studio.
+- Zaloguj się do subskrypcji platformy Azure z poziomu programu Visual Studio.
 
 ## <a name="download-the-function-app-settings"></a>Pobierz ustawienia aplikacji funkcji
 
-W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule piszesz wiadomości do kolejki magazynu na tym samym koncie. Aby połączyć się z kontem magazynu podczas lokalnego uruchamiania funkcji, należy pobrać ustawienia aplikacji do pliku *local.settings.json.* 
+W [poprzednim artykule szybki start](functions-create-first-function-vs-code.md)utworzono aplikację funkcji na platformie Azure wraz z wymaganym kontem magazynu. Parametry połączenia dla tego konta są bezpiecznie przechowywane w ustawieniach aplikacji na platformie Azure. W tym artykule opisano pisanie komunikatów w kolejce magazynu w ramach tego samego konta. Aby nawiązać połączenie z kontem magazynu podczas lokalnego uruchamiania funkcji, musisz pobrać ustawienia aplikacji do pliku *Local. Settings. JSON* . 
 
 1. W **Eksploratorze rozwiązań** kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Opublikuj**. 
 
-1. W obszarze **Akcje**wybierz pozycję **Edytuj ustawienia usługi Azure App Service**. 
+1. W obszarze **Akcje**wybierz pozycję **Edytuj ustawienia Azure App Service**. 
 
-    ![Edytowanie ustawień aplikacji](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
+    ![Edytuj ustawienia aplikacji](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. W obszarze **AzureWebJobsStorage**skopiuj wartość ciągu **zdalnego** do **lokalnego,** a następnie wybierz przycisk **OK**. 
+1. W obszarze **AzureWebJobsStorage**skopiuj wartość ciągu **zdalnego** do **lokalnego**, a następnie wybierz przycisk **OK**. 
 
-Powiązanie magazynu, który `AzureWebJobsStorage` używa ustawienia dla połączenia, można teraz połączyć się z magazynu kolejki podczas uruchamiania lokalnie.
+Powiązanie magazynu, które używa `AzureWebJobsStorage` ustawienia dla połączenia, może teraz połączyć się z magazynem kolejki podczas lokalnego uruchamiania.
 
 ## <a name="register-binding-extensions"></a>Rejestrowanie rozszerzeń do wiązania
 
-Ponieważ używasz powiązania danych wyjściowych magazynu kolejki, przed uruchomieniem projektu należy zainstalować rozszerzenie powiązania magazynu. Z wyjątkiem wyzwalaczy HTTP i timer, powiązania są implementowane jako pakiety rozszerzenia. 
+Ze względu na to, że jest używane powiązanie danych wyjściowych magazynu kolejek, przed uruchomieniem projektu należy zainstalować rozszerzenie powiązania magazynu. Z wyjątkiem wyzwalaczy HTTP i Timer, powiązania są implementowane jako pakiety rozszerzeń. 
 
-1. Z menu **Narzędzia** wybierz polecenie > **Konsola Menedżera pakietów** **Programu NuGet Package**Manager . 
+1. W menu **Narzędzia** wybierz kolejno pozycje >  **Menedżer pakietów NuGet****konsola Menedżera pakietów**. 
 
-1. Aby zainstalować rozszerzenia magazynu, w konsoli uruchom następujące polecenie [Install-Package:](/nuget/tools/ps-ref-install-package)
+1. W konsoli programu uruchom następujące polecenie [instalacji pakietu](/nuget/tools/ps-ref-install-package) , aby zainstalować rozszerzenia magazynu:
 
     ```Command
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
@@ -61,7 +61,7 @@ Teraz można dodać powiązanie danych wyjściowych magazynu do projektu.
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Dodawanie kodu korzystającego z powiązania danych wyjściowych
 
-Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do niego dostęp jako atrybut w podpisie funkcji. Przy użyciu powiązania danych wyjściowych, nie trzeba używać kodu SDK usługi Azure Storage do uwierzytelniania, pobierania odwołania do kolejki lub zapisywania danych. Powiązania środowiska wykonawczego i danych wyjściowych kolejki funkcji wykonaj te zadania za Ciebie.
+Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do niego dostęp jako atrybut w sygnaturze funkcji. Za pomocą powiązania danych wyjściowych nie trzeba używać kodu zestawu SDK usługi Azure Storage do uwierzytelniania, uzyskiwania odwołania do kolejki lub zapisywania danych. Te zadania są wykonywane za pomocą środowiska uruchomieniowego usługi Functions i powiązania danych wyjściowych kolejki.
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
@@ -69,31 +69,31 @@ Po zdefiniowaniu powiązania można użyć `name` powiązania, aby uzyskać do n
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-Nowa kolejka `outqueue` o nazwie jest tworzona na koncie magazynu przez środowisko uruchomieniowe functions, gdy po raz pierwszy używane jest powiązanie danych wyjściowych. Użyjesz Cloud Explorer, aby sprawdzić, czy kolejka została utworzona wraz z nową wiadomością.
+Nowa kolejka o `outqueue` nazwie zostanie utworzona na koncie magazynu przez środowisko uruchomieniowe funkcji, gdy zostanie użyte powiązanie danych wyjściowych. Użyjesz Eksploratora chmury do sprawdzenia, czy kolejka została utworzona wraz z nową wiadomością.
 
 ## <a name="examine-the-output-queue"></a>Sprawdzanie kolejki wyjściowej
 
-1. W programie Visual Studio z menu **Widok** wybierz polecenie **Cloud Explorer**.
+1. W programie Visual Studio z menu **Widok** wybierz opcję **Eksplorator chmury**.
 
-1. W **Eksploratorze chmury**rozwiń swoją subskrypcję platformy Azure i **konta magazynu,** a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, `AzureWebJobsStorage` sprawdź ustawienie ciągu połączenia w pliku *local.settings.json.*  
+1. W **Eksploratorze chmury**rozwiń swoje konta subskrypcji i **magazynu**platformy Azure, a następnie rozwiń konto magazynu używane przez funkcję. Jeśli nie pamiętasz nazwy konta magazynu, sprawdź ustawienie parametrów `AzureWebJobsStorage` połączenia w pliku *Local. Settings. JSON* .  
 
-1. Rozwiń węzeł **Kolejki,** a następnie kliknij dwukrotnie kolejkę o nazwie **outue,** aby wyświetlić zawartość kolejki w programie Visual Studio. 
+1. Rozwiń węzeł **kolejki** , a następnie kliknij dwukrotnie kolejkę o nazwie **dequeueing** , aby wyświetlić zawartość kolejki w programie Visual Studio. 
 
    Kolejka zawiera komunikat utworzony za pomocą powiązania danych wyjściowych kolejki po uruchomieniu funkcji wyzwalanej przez protokół HTTP. Jeśli funkcja została wywołana przy użyciu domyślnego elementu `name` o wartości *Azure*, komunikat w kolejce to *Nazwa przekazana do funkcji: Azure*.
 
-    ![Komunikat kolejki wyświetlany w Eksploratorze usługi Azure Storage](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
+    ![Komunikat w kolejce wyświetlany w Eksplorator usługi Azure Storage](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
-1. Uruchom tę funkcję ponownie, wyślij kolejne żądanie, a w kolejce pojawi się nowa wiadomość.  
+1. Uruchom ponownie funkcję, Wyślij kolejne żądanie, a w kolejce zobaczysz nowy komunikat.  
 
-Teraz nadszedł czas, aby ponownie opublikować zaktualizowaną aplikację funkcji na platformie Azure.
+Teraz można ponownie opublikować zaktualizowaną aplikację funkcji na platformie Azure.
 
-## <a name="redeploy-and-verify-the-updated-app"></a>Ponowne wdrożenie i zweryfikowanie zaktualizowanej aplikacji
+## <a name="redeploy-and-verify-the-updated-app"></a>Wdróż ponownie i sprawdź zaktualizowaną aplikację
 
-1. W **Eksploratorze rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj**, a następnie wybierz pozycję **Publikuj,** aby ponownie opublikować projekt na platformie Azure.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**, a następnie wybierz polecenie **Publikuj** , aby ponownie opublikować projekt na platformie Azure.
 
-1. Po zakończeniu wdrażania można ponownie użyć przeglądarki do przetestowania ponownie wdrożeniu funkcji. Tak jak poprzednio, `&name=<yourname>` dołącz ciąg zapytania do adresu URL.
+1. Po zakończeniu wdrażania możesz użyć przeglądarki, aby przetestować ponownie wdrożoną funkcję. Tak jak wcześniej, dołącz ciąg `&name=<yourname>` zapytania do adresu URL.
 
-1. Ponownie [wyświetl komunikat w kolejce magazynu,](#examine-the-output-queue) aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nową wiadomość w kolejce.
+1. Ponownie [Wyświetl komunikat w kolejce magazynu](#examine-the-output-queue) , aby sprawdzić, czy powiązanie danych wyjściowych ponownie generuje nowy komunikat w kolejce.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -101,12 +101,12 @@ Teraz nadszedł czas, aby ponownie opublikować zaktualizowaną aplikację funkc
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zaktualizowano funkcję wyzwalaną http, aby zapisywać dane w kolejce magazynu. Aby dowiedzieć się więcej na temat tworzenia funkcji, zobacz [Tworzenie funkcji platformy Azure przy użyciu programu Visual Studio.](functions-develop-vs.md)
+Została zaktualizowana funkcja wyzwalana przez protokół HTTP w celu zapisania danych w kolejce magazynu. Aby dowiedzieć się więcej na temat opracowywania funkcji, zobacz [programowanie Azure Functions przy użyciu programu Visual Studio](functions-develop-vs.md).
 
-Następnie należy włączyć monitorowanie usługi Application Insights dla aplikacji funkcji:
+Następnie należy włączyć monitorowanie Application Insights dla aplikacji funkcji:
 
 > [!div class="nextstepaction"]
 > [Enable Application Insights integration (Włączanie integracji z usługą Application Insights)](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
-[Poprzedni artykuł szybki start]: functions-create-your-first-function-visual-studio.md
+[Poprzedni artykuł szybkiego startu]: functions-create-your-first-function-visual-studio.md

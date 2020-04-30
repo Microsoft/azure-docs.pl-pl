@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68989676"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Szybki start: pobieranie raportu z inspekcji przy użyciu witryny Azure Portal
 
-W tym przewodniku Szybki start dowiesz się, jak pobrać plik CSV dzienników inspekcji dla dzierżawy w ciągu ostatnich 24 godzin. Możesz pobrać maksymalnie 250 000 rekordów z witryny Azure portal. Rekordy są sortowane według najnowszych, więc domyślnie otrzymujesz najnowsze rekordy 250 000. 
+W tym przewodniku szybki start dowiesz się, jak pobrać plik CSV dzienników inspekcji dla dzierżawy w ciągu ostatnich 24 godzin. Możesz pobrać do 250 000 rekordów z Azure Portal. Rekordy są domyślnie sortowane według najnowszych, dlatego można pobrać najnowsze 250 000 rekordów. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,11 +37,11 @@ Potrzebne elementy:
 
 ## <a name="quickstart-download-an-audit-report"></a>Szybki start: pobieranie raportu z inspekcji
 
-1. Przejdź do [witryny Azure portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com).
 2. Wybierz usługę **Azure Active Directory** z okienka nawigacji po lewej stronie i za pomocą przycisku **Przełącz katalog** wybierz swój katalog Active Directory.
 3. Na pulpicie nawigacyjnym wybierz pozycję **Azure Active Directory**, a następnie **Dzienniki inspekcji**. 
 4. Wybierz pozycję **Ostatnie 24 godziny** z listy rozwijanej filtru **Zakres dat** i wybierz przycisk **Zastosuj**, aby wyświetlić dzienniki inspekcji z ostatnich 24 godzin. 
-5. Wybierz przycisk **Pobierz,** wybierz **csv** jako format pliku i określ nazwę pliku, aby pobrać plik CSV zawierający filtrowane rekordy. 
+5. Wybierz przycisk **Pobierz** , wybierz opcję **CSV** jako format pliku i określ nazwę pliku, aby pobrać plik CSV zawierający filtrowane rekordy. 
 
 ![Raportowanie](./media/quickstart-download-audit-report/download-audit-logs.png)
 

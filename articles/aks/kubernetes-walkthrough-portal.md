@@ -1,5 +1,5 @@
 ---
-title: Tworzenie klastra usługi AKS w portalu
+title: Tworzenie klastra AKS w portalu
 titleSuffix: Azure Kubernetes Service
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację i monitorować wydajność w usłudze Azure Kubernetes Service (AKS) przy użyciu witryny Azure Portal.
 services: container-service
@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81392802"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki start: wdrażanie klastra usługi Azure Kubernetes (AKS) przy użyciu witryny Azure portal
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
 Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, która umożliwia szybkie wdrażanie klastrów i zarządzanie nimi. W tym przewodniku Szybki start wdrażany jest klaster AKS przy użyciu witryny Azure Portal. W klastrze jest uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis. Następnie zobaczysz, jak monitorować kondycję klastra i zasobników, w których działa Twoja aplikacja.
 
@@ -21,7 +21,7 @@ Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, któ
 
 W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -33,31 +33,31 @@ Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
-2. Wybierz **usługę kontenerów** >  **Kubernetes**.
+2. Wybierz pozycję **kontenery** >  **Kubernetes usługi**.
 
-3. Na stronie **Podstawy** skonfiguruj następujące opcje:
-    - **Szczegóły projektu:** Wybierz **subskrypcję**platformy Azure, a następnie wybierz lub utwórz **grupę zasobów**platformy Azure, taką jak *myResourceGroup*.
-    - **Szczegóły klastra**: Wprowadź **nazwę klastra Kubernetes**, na przykład *myAKSCluster*. Wybierz **region**, **wersję Kubernetes**i **prefiks nazwy DNS** dla klastra AKS.
-    - **Główna pula węzłów:** Wybierz **rozmiar węzła** maszyny Wirtualnej dla węzłów AKS. Nie *można* zmienić rozmiaru maszyny Wirtualnej po wdrożeniu klastra AKS. 
-            - Wybierz liczbę węzłów do wdrożenia w klastrze. Na potrzeby tego przewodnika Szybki start ustaw pozycję **Liczba węzłów** na *1*. Liczbę węzłów *można* dostosować po wdrożeniu klastra.
+3. Na stronie **podstawowe** skonfiguruj następujące opcje:
+    - **Szczegóły projektu**: Wybierz **subskrypcję**platformy Azure, a następnie wybierz lub Utwórz **grupę zasobów**platformy Azure, taką jak grupa *zasobów*.
+    - **Szczegóły klastra**: wprowadź **nazwę klastra Kubernetes**, na przykład *myAKSCluster*. Wybierz **region**, **wersję Kubernetes**i **prefiks nazwy DNS** dla klastra AKS.
+    - **Pula węzłów podstawowych**: Wybierz **rozmiar węzła** maszyny wirtualnej dla węzłów AKS. *Nie* można zmienić rozmiaru maszyny wirtualnej po wdrożeniu klastra AKS. 
+            -Wybierz liczbę węzłów, które mają zostać wdrożone w klastrze. Na potrzeby tego przewodnika Szybki start ustaw pozycję **Liczba węzłów** na *1*. Liczbę węzłów *można* dostosować po wdrożeniu klastra.
     
     ![Tworzenie klastra AKS — podaj podstawowe informacje](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Wybierz **dalej: Skaluj** po zakończeniu.
+    Wybierz pozycję **Dalej: Skaluj** po zakończeniu.
 
-4. Na stronie **Skalowanie** zachowaj opcje domyślne. U dołu ekranu kliknij przycisk **Dalej: Uwierzytelnianie**.
+4. Na stronie **Skala** Zachowaj opcje domyślne. W dolnej części ekranu kliknij przycisk **Dalej: uwierzytelnianie**.
     > [!CAUTION]
-    > Tworzenie nowych podmiotów zabezpieczeń usługi AAD może potrwać wiele minut, aby propagować i stają się dostępne, powodując, że podmiot usługi nie znaleziono błędów i błędów sprawdzania poprawności w witrynie Azure portal. Jeśli trafisz to odwiedź [tutaj](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) dla środków zaradczych.
+    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Po osiągnięciu tego problemu należy odwiedzić [tutaj](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) , aby uzyskać środki zaradcze.
 
-5. Na stronie **Uwierzytelnianie** skonfiguruj następujące opcje:
-    - Utwórz nową jednostkę usługi, pozostawiając pole **Główny serwis** z **(nową) domyślną jednostką usługi.** Można też wybrać *opcję Konfiguruj jednostkę usługi,* aby użyć istniejącej jednostki. Jeśli używasz istniejącego, należy podać identyfikator klienta SPN i klucz tajny.
-    - Włącz opcję dla funkcji kontroli dostępu opartej na rolach (RBAC) w rozwiązaniu Kubernetes. Zapewni to bardziej szczegółową kontrolę nad dostępem do zasobów kubernetes wdrożonych w klastrze AKS.
+5. Na stronie **uwierzytelnianie** skonfiguruj następujące opcje:
+    - Utwórz nową nazwę główną usługi, pozostawiając pole **nazwy głównej usługi** z **(nową) domyślną**jednostką usługi. Możesz też wybrać pozycję *Konfiguruj nazwę główną usługi* , aby użyć istniejącej. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
+    - Włącz opcję dla funkcji kontroli dostępu opartej na rolach (RBAC) w rozwiązaniu Kubernetes. Zapewni to dokładniejszą kontrolę nad dostępem do zasobów Kubernetes wdrożonych w klastrze AKS.
 
-    Alternatywnie można użyć tożsamości zarządzanej zamiast jednostki usługi. Aby uzyskać więcej [informacji, zobacz używanie tożsamości zarządzanych.](use-managed-identity.md)
+    Alternatywnie można użyć tożsamości zarządzanej zamiast nazwy głównej usługi. Aby uzyskać więcej informacji, zobacz temat [Używanie tożsamości zarządzanych](use-managed-identity.md) .
 
-Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij **pozycję Recenzja + utwórz,** a następnie **utwórz** po zakończeniu sprawdzania poprawności.
+Domyślnie używana jest sieć *Podstawowa* i włączona jest usługa Azure Monitor dla kontenerów. Kliknij przycisk **Przegląd + Utwórz** , a następnie **Utwórz** po zakończeniu walidacji.
 
-Utworzenie klastra usługi AKS zajmuje kilka minut. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu**lub przejdź do grupy zasobów klastra AKS, takiej jak *myResourceGroup,* i wybierz zasób AKS, taki jak *myAKSCluster*. Pulpit nawigacyjny klastra AKS jest wyświetlany, jak w tym przykładzie:
+Utworzenie klastra AKS może potrwać kilka minut. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu**lub przejdź do grupy zasobów klastra AKS, *na przykład grupa zasobów, a*następnie wybierz zasób AKS, taki jak *myAKSCluster*. Zostanie wyświetlony pulpit nawigacyjny klastra AKS, jak w poniższym przykładzie:
 
 ![Przykładowy pulpit nawigacyjny usługi AKS w witrynie Azure Portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -65,7 +65,7 @@ Utworzenie klastra usługi AKS zajmuje kilka minut. Po zakończeniu wdrażania k
 
 Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes — narzędzia [kubectl][kubectl]. Klient `kubectl` jest instalowany wstępnie wraz z usługą Azure Cloud Shell.
 
-Otwórz powłokę `>_` chmury przy użyciu przycisku u góry witryny Azure portal.
+Otwórz Cloud Shell przy użyciu `>_` przycisku w górnej części Azure Portal.
 
 ![Otwieranie usługi Azure Cloud Shell w portalu](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
@@ -95,7 +95,7 @@ Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym infor
 > [!TIP]
 > W tym przewodniku Szybki start ręcznie utworzysz i wdrożysz manifesty aplikacji w klastrze AKS. W bardziej rzeczywistych scenariuszach można użyć obszarów [Azure Dev Spaces][azure-dev-spaces], aby szybko iterować i debugować kod bezpośrednio w klastrze AKS. Obszarów Dev Spaces można używać na różnych platformach systemów operacyjnych i w środowiskach deweloperskich, aby pracować razem z innymi członkami zespołu.
 
-W pochłonie powłoki `nano azure-vote.yaml` `vi azure-vote.yaml` użyj polecenia lub `azure-vote.yaml`polecenia, aby utworzyć plik o nazwie . Następnie skopiuj w następującej definicji YAML:
+W Cloud Shell Użyj polecenia `nano azure-vote.yaml` lub `vi azure-vote.yaml` , aby utworzyć plik o nazwie. `azure-vote.yaml` Następnie skopiuj w następującej definicji YAML:
 
 ```yaml
 apiVersion: apps/v1
@@ -239,20 +239,20 @@ Zostaną wyświetlone kontenery *azure-vote-back* i *azure-vote-front*, jak poka
 
 ![Wyświetlanie kondycji uruchomionych kontenerów w usłudze AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Aby wyświetlić dzienniki `azure-vote-front` zasobnika, wybierz Widok **dzienników kontenerów** z listy rozwijanej kontenerów. Dzienniki te obejmują *strumienie stdout* i *stderr* z kontenera.
+Aby wyświetlić dzienniki dla obszaru `azure-vote-front` pod, wybierz pozycję **Wyświetl dzienniki kontenerów** z listy rozwijanej na liście kontenerów. Te dzienniki obejmują strumienie *stdout* i *stderr* z kontenera.
 
 ![Wyświetlanie dzienników kontenerów w usłudze AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Usuwanie klastra
 
-Gdy klaster nie będzie już potrzebny, usuń zasób klastra, co spowoduje usunięcie wszystkich skojarzonych zasobów. Tę operację można wykonać w witrynie Azure portal, wybierając przycisk **Usuń** na pulpicie nawigacyjnym klastra AKS. Alternatywnie polecenie [az aks delete][az-aks-delete] może być używane w przyłowisku chmury:
+Gdy klaster nie będzie już potrzebny, usuń zasób klastra, co spowoduje usunięcie wszystkich skojarzonych zasobów. Tę operację można wykonać w Azure Portal, wybierając przycisk **Usuń** na pulpicie nawigacyjnym klastra AKS. Alternatywnie można użyć polecenia [AZ AKS Delete][az-aks-delete] w Cloud Shell:
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli użyto tożsamości zarządzanej, tożsamość jest zarządzana przez platformę i nie wymaga usuwania.
+> Po usunięciu klastra jednostka usługi Azure Active Directory używana przez klaster usługi AKS nie jest usuwana. Aby sprawdzić, jak usunąć jednostkę usługi, zobacz [AKS service principal considerations and deletion (Uwagi dotyczące jednostki usługi AKS i jej usuwanie)][sp-delete]. Jeśli używana jest tożsamość zarządzana, tożsamość jest zarządzana przez platformę i nie wymaga usunięcia.
 
 ## <a name="get-the-code"></a>Uzyskiwanie kodu
 

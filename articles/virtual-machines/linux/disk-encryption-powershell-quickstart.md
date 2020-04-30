@@ -1,6 +1,6 @@
 ---
-title: Tworzenie i szyfrowanie maszyny Wirtualnej systemu Linux za pomocą programu Azure Powershell
-description: W tym przewodniku Szybki start dowiesz się, jak używać programu Azure Powershell do tworzenia i szyfrowania maszyny wirtualnej systemu Linux
+title: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux przy użyciu programu Azure PowerShell
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć i zaszyfrować maszynę wirtualną z systemem Linux przy użyciu programu Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines-linux
@@ -8,17 +8,17 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78970547"
 ---
-# <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Szybki start: tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux na platformie Azure za pomocą programu Azure PowerShell
+# <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Szybki Start: Tworzenie i szyfrowanie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu Azure PowerShell
 
-Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. Ten przewodnik Szybki start pokazuje, jak używać modułu programu Azure PowerShell do tworzenia maszyny wirtualnej systemu Linux (VM), tworzenia magazynu kluczy do przechowywania kluczy szyfrowania i szyfrowania maszyny wirtualnej. Ten szybki start używa obrazu rynku Ubuntu 16.04 LTS firmy Canonical i Standard_D2S_V3 rozmiaru maszyny Wirtualnej. 
+Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą wiersza polecenia programu PowerShell lub skryptów. W tym przewodniku szybki start pokazano, jak za pomocą modułu Azure PowerShell utworzyć maszynę wirtualną z systemem Linux, utworzyć Key Vault do przechowywania kluczy szyfrowania i zaszyfrować maszynę wirtualną. Ten przewodnik Szybki Start używa obrazu Ubuntu 16,04 LTS Marketplace z kanonicznej i Standard_D2S_V3 rozmiaru maszyny wirtualnej. 
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -30,7 +30,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę wirtualną platformy Azure z [new-AzVM](/powershell/module/az.compute/new-azvm), przekazując do niej obiekt konfiguracji maszyny Wirtualnej utworzony powyżej.
+Utwórz maszynę wirtualną platformy Azure z poleceniem [New-AzVM](/powershell/module/az.compute/new-azvm), przekazując do niej utworzony wcześniej obiekt konfiguracji maszyny wirtualnej.
 
 ```powershell-interactive
 $cred = = Get-Credential
@@ -40,12 +40,12 @@ New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image 
 
 Wdrożenie maszyny wirtualnej potrwa kilka minut. 
 
-## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Tworzenie magazynu kluczy skonfigurowanych dla kluczy szyfrowania
+## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Utwórz Key Vault skonfigurowany pod kątem kluczy szyfrowania
 
-Szyfrowanie dysków platformy Azure przechowuje swój klucz szyfrowania w magazynie azure key vault. Utwórz magazyn kluczy za pomocą [programu New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Aby włączyć magazyn kluczy do przechowywania kluczy szyfrowania, należy użyć parametru -EnabledForDiskEncryption.
+Klucz szyfrowania w usłudze Azure Disk Encryption jest przechowywany w Azure Key Vault. Utwórz Key Vault za pomocą elementu [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). Aby włączyć Key Vault do przechowywania kluczy szyfrowania, użyj parametru-EnabledForDiskEncryption.
 
 > [!Important]
-> Każdy magazyn kluczy musi mieć nazwę, która jest unikatowa na platformie Azure. W poniższych przykładach zastąp <> nazwa unikatowa-keyvault na wybraną nazwę.
+> Każdy Magazyn kluczy musi mieć unikatową nazwę na platformie Azure. W poniższych przykładach Zastąp <unikatową nazwą magazynu kluczy> z wybraną nazwą.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption
@@ -53,9 +53,9 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 ## <a name="encrypt-the-virtual-machine"></a>Szyfruj maszynę wirtualną
 
-Zaszyfruj maszynę wirtualną za pomocą [funkcji Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
+Zaszyfruj maszynę wirtualną za pomocą [opcji Set-AzVmDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension). 
 
-Set-AzVmDiskEncryptionExtension wymaga pewnych wartości z obiektu Przechowalnia kluczy. Wartości te można uzyskać, przekazując unikatową nazwę magazynu kluczy do [programu Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
+Set-AzVmDiskEncryptionExtension wymaga pewnych wartości z obiektu Key Vault. Możesz uzyskać te wartości, przekazując unikatową nazwę magazynu kluczy do [Get-AzKeyvault](/powershell/module/az.keyvault/get-azkeyvault).
 
 ```azurepowershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup"
@@ -71,13 +71,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK
 ```
 
-Proces szyfrowania można zweryfikować, uruchamiając [get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
+Proces szyfrowania można sprawdzić, uruchamiając [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/Get-AzVMDiskEncryptionStatus).
 
 ```azurepowershell-interactive
 Get-AzVmDiskEncryptionStatus -VMName MyVM -ResourceGroupName MyResourceGroup
 ```
 
-Gdy szyfrowanie jest włączone, na zwróconym wyjściu zostaną wyświetlone następujące informacje:
+Po włączeniu szyfrowania w zwróconych danych wyjściowych zostaną wyświetlone następujące elementy:
 
 ```
 OsVolumeEncrypted          : EncryptionInProgress
@@ -96,7 +96,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono maszynę wirtualną, utworzono magazyn kluczy, który był włączony dla kluczy szyfrowania, i zaszyfrowano maszynę wirtualną.  Przejdź do następnego artykułu, aby dowiedzieć się więcej o szyfrowaniu dysków platformy Azure dla maszyn wirtualnych z systemem Linux.
+W tym przewodniku szybki start utworzono maszynę wirtualną, która utworzyła Key Vault, w której włączono obsługę kluczy szyfrowania, oraz zaszyfrowaną MASZYNę wirtualną.  Przejdź do następnego artykułu, aby dowiedzieć się więcej na temat Azure Disk Encryption dla maszyn wirtualnych z systemem Linux.
 
 > [!div class="nextstepaction"]
-> [Omówienie szyfrowania dysków platformy Azure](disk-encryption-overview.md)
+> [Przegląd Azure Disk Encryption](disk-encryption-overview.md)

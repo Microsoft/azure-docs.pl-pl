@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie zadania usługi Stream Analytics przy użyciu programu Azure PowerShell
+title: Szybki Start — Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
 description: W tym przewodniku Szybki start przedstawiono sposób korzystania z modułu Azure PowerShell w celu wdrożenia i uruchomienia zadania usługi Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79536806"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu programu Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Szybki Start: Tworzenie zadania Stream Analytics przy użyciu Azure PowerShell
 
 Moduł Azure PowerShell umożliwia tworzenie zasobów platformy Azure i zarządzanie nimi za pomocą poleceń cmdlet programu PowerShell lub skryptów. W tym przewodniku Szybki start zawarto szczegółowe instrukcje korzystania z modułu Azure PowerShell w celu wdrożenia i uruchomienia zadania usługi Azure Stream Analytics.
 
@@ -24,11 +24,11 @@ Przykładowe zadanie odczytuje dane przesyłane strumieniowo z urządzenia usłu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto.](https://azure.microsoft.com/free/)
 
 * Dla tego przewodnika Szybki start jest wymagany moduł Azure PowerShell. Uruchom polecenie `Get-Module -ListAvailable Az`, aby znaleźć wersję zainstalowaną na komputerze lokalnym. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Niektóre akcje usługi IoT Hub nie są obsługiwane przez usługę Azure PowerShell i muszą zostać ukończone przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
+* Niektóre IoT Hub akcje nie są obsługiwane przez Azure PowerShell i muszą zostać ukończone przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz rozszerzenia IoT dla interfejsu wiersza polecenia platformy Azure. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i użyj polecenia `az extension add --name azure-iot`, aby zainstalować rozszerzenie IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
@@ -304,7 +304,7 @@ New-AzStreamAnalyticsTransformation `
 
 2. Zastąp symbol zastępczy w wierszu 15 całymi parametrami połączenia urządzenia usługi Azure IoT Hub, które zostały zapisane w poprzedniej sekcji.
 
-3. Kliknij **przycisk Uruchom**. Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
+3. Kliknij przycisk **Uruchom**. Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
 
     ![Symulator Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

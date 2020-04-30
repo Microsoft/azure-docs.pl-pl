@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80631722"
 ---
 # <a name="what-is-azure-ad-connect"></a>Co to jest program Azure AD Connect?
@@ -26,7 +26,7 @@ Azure AD Connect to narzędzie firmy Microsoft, które umożliwia spełnienie wy
 - [Uwierzytelnianie przekazywane](how-to-connect-pta.md) — metoda logowania, która pozwala użytkownikom używać tego samego hasła w infrastrukturze lokalnej i w chmurze, ale nie wymaga dodatkowej infrastruktury w środowisku federacyjnym.
 - [Integracja federacyjna](how-to-connect-fed-whatis.md) — usługi federacyjne to opcjonalny składnik programu Azure AD Connect, za pomocą którego można skonfigurować środowisko hybrydowe przy użyciu lokalnej infrastruktury usług AD FS. Składnik ten udostępnia również funkcje zarządzania usługami AD FS, takie jak odnawianie certyfikatów i dodatkowe wdrożenia serwera usług AD FS.
 - [Synchronizacja](how-to-connect-sync-whatis.md) — odpowiada za tworzenie użytkowników, grup i innych obiektów.  Odpowiada też za zapewnienie zgodności informacji o tożsamości lokalnych użytkowników i grup z informacjami w chmurze.  Synchronizacja dotyczy również skrótów haseł.
-- [Monitorowanie kondycji](whatis-hybrid-identity-health.md) — usługa Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w witrynie Azure portal, aby wyświetlić to działanie. 
+- [Monitorowanie kondycji](whatis-hybrid-identity-health.md) — Azure AD Connect Health może zapewnić niezawodne monitorowanie i zapewnić centralną lokalizację w Azure Portal, aby wyświetlić to działanie. 
 
 
 ![Co to jest program Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -46,29 +46,29 @@ Zintegrowanie katalogów lokalnych z usługą Azure AD zwiększa produktywność
 
 * Użytkownicy mogą korzystać z jednej tożsamości w celu uzyskiwania dostępu do aplikacji lokalnych oraz usług w chmurze, takich jak Office 365.
 * Jedno narzędzie zapewniające łatwe w użyciu środowisko wdrażania na potrzeby synchronizacji i logowania.
-* Najnowsze możliwości we wszystkich scenariuszach. Usługa Azure AD Connect zastępuje starsze wersje narzędzi integracji tożsamości, takich jak DirSync i Usługa Azure AD Sync. Aby uzyskać więcej informacji, zobacz [porównanie narzędzi integracji katalogów tożsamości hybrydowej](plan-hybrid-identity-design-considerations-tools-comparison.md).
+* Najnowsze możliwości we wszystkich scenariuszach. Azure AD Connect zastępuje starsze wersje narzędzi integracji tożsamości, takie jak DirSync i Azure AD Sync. Aby uzyskać więcej informacji, zobacz [porównanie narzędzi integracji katalogu tożsamości hybrydowej](plan-hybrid-identity-design-considerations-tools-comparison.md).
 
 ## <a name="why-use-azure-ad-connect-health"></a>Dlaczego warto korzystać z programu Azure AD Connect Health?
 Usługa Azure AD zwiększa produktywność użytkowników, zapewniając wspólną tożsamość na potrzeby dostępu do zasobów — zarówno lokalnych, jak i w chmurze. Zagwarantowanie niezawodnego środowiska umożliwiającego użytkownikom uzyskanie dostępu do zasobów staje się wyzwaniem.  Program Azure AD Connect Health pomaga monitorować i uzyskiwać informacje o lokalnej infrastrukturze do obsługi tożsamości, dzięki czemu gwarantuje niezawodność środowiska. Wymaga to jedynie zainstalowania agenta na każdym z lokalnych serwerów tożsamości.
 
 Program Azure AD Connect Health dla usług AD FS obsługuje usługi AD FS 2.0 w systemach Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 i Windows Server 2016. Obsługuje także monitorowanie serwerów proxy usług AD FS lub serwerów proxy aplikacji internetowej, które zapewniają obsługę uwierzytelniania w przypadku dostępu do ekstranetu. Dzięki prostej i szybkiej instalacji agenta kondycji program Azure AD Connect Health dla usług AD FS oferuje zestaw kluczowych funkcji.
 
-Najważniejsze korzyści i najlepsze praktyki:
+Najważniejsze zalety i najlepsze rozwiązania:
 
 |Najważniejsze korzyści|Najlepsze rozwiązania|
 |-----|-----|
-|Większe bezpieczeństwo|[Trendy związane z blokadą ekstranetu](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Raport dotyczący nieudanych logowań](how-to-connect-health-adfs-risky-ip.md)</br>[W sposób zgodny z prywatnością](reference-connect-health-user-privacy.md)|
-|Otrzymuj alerty o [wszystkich krytycznych problemach z systemem ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Konfiguracja i dostępność serwera</br>[Wydajność i łączność](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regularna konserwacja|
+|Większe bezpieczeństwo|[Trendy związane z blokadą ekstranetu](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Raport dotyczący nieudanych logowań](how-to-connect-health-adfs-risky-ip.md)</br>[W obszarze zgodność z prywatnością](reference-connect-health-user-privacy.md)|
+|Otrzymuj alerty dotyczące [wszystkich krytycznych problemów z systemem ADFS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Konfiguracja i dostępność serwera</br>[Wydajność i łączność](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regularna konserwacja|
 |Łatwe wdrażanie i zarządzanie|[Szybka instalacja agenta](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatyczne uaktualnianie agenta do najnowszej wersji</br>Dane dostępne w portalu w ciągu kilku minut|
 Zaawansowane [metryki użycia](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Lista najczęściej używanych aplikacji</br>Lokalizacje sieciowe i połączenia TCP</br>Żądania tokenów dla pojedynczych serwerów|
 |Fantastyczne środowisko pracy użytkownika|Interfejs podobny do pulpitu nawigacyjnego z witryny Azure Portal</br>[Alerty w wiadomościach e-mail](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Wymagania dotyczące licencji dotyczące korzystania z usługi Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Wymagania licencyjne dotyczące korzystania z Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Wymagania dotyczące licencji dotyczące korzystania z usługi Azure AD Connect Health
+## <a name="license-requirements-for-using-azure-ad-connect-health"></a>Wymagania licencyjne dotyczące korzystania z Azure AD Connect Health
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Następne kroki

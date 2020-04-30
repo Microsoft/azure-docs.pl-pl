@@ -1,5 +1,5 @@
 ---
-title: 'Omówienie usługi Azure ExpressRoute: łączenie się za pomocą połączenia prywatnego'
+title: 'Azure ExpressRoute — omówienie: łączenie za pośrednictwem połączenia prywatnego'
 description: W opisie technicznym usługi ExpressRoute omówiono sposób działania połączenia usługi ExpressRoute podczas rozszerzania sieci lokalnej na platformę Azure przez połączenie prywatne.
 services: expressroute
 author: mialdrid
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
 ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75770955"
 ---
 # <a name="expressroute-overview"></a>Omówienie usługi ExpressRoute
 Usługa ExpressRoute umożliwia rozszerzanie sieci lokalnych na chmurę Microsoft za pośrednictwem połączenia prywatnego obsługiwanego przez dostawcę połączenia. Dzięki usłudze ExpressRoute możesz ustanowić połączenia z usługami firmy Microsoft w chmurze, na przykład Microsoft Azure i Office 365.
 
-Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu połączenia usługi ExpressRoute oferują większą niezawodność, szybsze prędkości, stałe opóźnienia i wyższe zabezpieczenia niż typowe połączenia przez Internet. Informacje dotyczące łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute można znaleźć w temacie [Modele połączeń usługi ExpressRoute](expressroute-connectivity-models.md).
+Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji. Połączenia ExpressRoute nie odbywają się za pośrednictwem publicznego Internetu. Dzięki temu połączenia ExpressRoute zapewniają większą niezawodność, większe szybkości, spójne opóźnienia oraz lepsze zabezpieczenia niż typowe połączenia przez Internet. Informacje dotyczące łączenia sieci z firmą Microsoft przy użyciu usługi ExpressRoute można znaleźć w temacie [Modele połączeń usługi ExpressRoute](expressroute-connectivity-models.md).
 
 ![Omówienie połączeń ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -39,7 +39,7 @@ Więcej informacji znajduje się w artykule [ExpressRoute FAQ](expressroute-faqs
 Firma Microsoft używa protokołu BGP, standardowego protokołu routingu dynamicznego, do wymiany tras między siecią lokalną, wystąpieniami na platformie Azure i publicznymi adresami Microsoft. Ustanawiamy wiele sesji BGP z siecią dla różnych profilów ruchu. Więcej szczegółowych informacji można znaleźć w artykule [ExpressRoute circuit and routing domains](expressroute-circuit-peerings.md) (Obwód i domeny routingu usługi ExpressRoute).
 
 ### <a name="redundancy"></a>Nadmiarowość
-Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma routerami brzegowymi firmy Microsoft Enterprise (MSEE) w [lokalizacji usługi ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) od dostawcy łączności/krawędzi sieci. Firma Microsoft wymaga podwójnego połączenia BGP od dostawcy połączenia/brzegu Twojej sieci — po jednym do każdego routera MSEE. Można zdecydować o niewdrażaniu nadmiarowych urządzeń/obwodów sieci Ethernet po swojej stronie. Dostawcy połączenia używają jednak urządzeń nadmiarowych, aby zagwarantować, że połączenia będą przekazywane do firmy Microsoft w sposób nadmiarowy. Konfiguracja łączności nadmiarowej w warstwie 3 jest wymaganiem, które musi być spełnione, aby umowa [SLA](https://azure.microsoft.com/support/legal/sla/) była ważna.
+Każdy obwód usługi ExpressRoute składa się z dwóch połączeń z dwoma routerami granicznymi Microsoft Enterprise (MSEE) w [lokalizacji ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) od dostawcy połączenia/z granicy sieci. Firma Microsoft wymaga podwójnego połączenia BGP od dostawcy połączenia/brzegu Twojej sieci — po jednym do każdego routera MSEE. Można zdecydować o niewdrażaniu nadmiarowych urządzeń/obwodów sieci Ethernet po swojej stronie. Dostawcy połączenia używają jednak urządzeń nadmiarowych, aby zagwarantować, że połączenia będą przekazywane do firmy Microsoft w sposób nadmiarowy. Konfiguracja łączności nadmiarowej w warstwie 3 jest wymaganiem, które musi być spełnione, aby umowa [SLA](https://azure.microsoft.com/support/legal/sla/) była ważna.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Łączność z usługami w chmurze firmy Microsoft
 Połączenia ExpressRoute umożliwiają dostęp do następujących usług:
@@ -50,18 +50,18 @@ Połączenia ExpressRoute umożliwiają dostęp do następujących usług:
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 > 
 
-Aby uzyskać szczegółową listę usług obsługiwanych za pomocą usługi ExpressRoute, odwiedź stronę [często zadawanych pytań usługi ExpressRoute.](expressroute-faqs.md)
+Aby uzyskać szczegółową listę usług obsługiwanych za pośrednictwem usługi ExpressRoute, odwiedź stronę [często zadawanych pytań](expressroute-faqs.md) i odpowiedzi na ExpressRoute.
 
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Łączność z wszystkimi regionami w regionie geopolitycznym
 Z firmą Microsoft możesz się połączyć w jednej z naszych [lokalizacji komunikacji równorzędnej](expressroute-locations.md) i mieć dostęp do regionów w ramach regionu geopolitycznego.
 
 Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednictwem usługi ExpressRoute uzyskasz dostęp do wszystkich usług w chmurze Microsoft hostowanych w Europie Północnej i Europie Zachodniej. Zobacz artykuł [ExpressRoute partners and peering locations](expressroute-locations.md) (Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute), który zawiera omówienie regionów geopolitycznych, powiązanych regionów chmury Microsoft i odpowiadających im lokalizacji komunikacji równorzędnej usługi ExpressRoute.
 
-### <a name="global-connectivity-with-expressroute-premium"></a>Globalna łączność z programem ExpressRoute Premium
-Można włączyć [usługę ExpressRoute Premium,](expressroute-faqs.md) aby rozszerzyć łączność ponad granicami geopolitycznymi. Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednictwem usługi ExpressRoute będziesz mieć dostęp do wszystkich usług w chmurze Microsoft hostowanych we wszystkich regionach na świecie (z wyjątkiem chmur krajowych). Możesz uzyskać dostęp do usług wdrożonych w Ameryce Południowej lub Australii w taki sam sposób, w jaki uzyskujesz dostęp do regionów Europa Północna i Europa Zachodnia.
+### <a name="global-connectivity-with-expressroute-premium"></a>Globalna łączność z usługą ExpressRoute Premium
+Możesz włączyć usługę [ExpressRoute Premium](expressroute-faqs.md) , aby zwiększyć łączność w granicach geopolitycznych. Na przykład po połączeniu się z firmą Microsoft w Amsterdamie za pośrednictwem usługi ExpressRoute będziesz mieć dostęp do wszystkich usług w chmurze Microsoft hostowanych we wszystkich regionach na świecie (z wyjątkiem chmur krajowych). Możesz uzyskać dostęp do usług wdrożonych w Ameryce Południowej lub Australii w taki sam sposób, w jaki uzyskujesz dostęp do regionów Europa Północna i Europa Zachodnia.
 
-### <a name="local-connectivity-with-expressroute-local"></a>Łączność lokalna z lokalnym programem ExpressRoute
-Możesz przenieść dane w sposób ekonomiczny, włączając lokalną jednostkę [SKU,](expressroute-faqs.md) jeśli można przenieść dane do lokalizacji usługi ExpressRoute w pobliżu żądanego regionu platformy Azure. W umiejscowiony jest usługa Local usługa Transfer danych jest objęta opłatą za port usługi ExpressRoute. 
+### <a name="local-connectivity-with-expressroute-local"></a>Lokalna łączność z usługą ExpressRoute Local
+Możesz efektywnie transferować dane, włączając [lokalną jednostkę SKU](expressroute-faqs.md) , jeśli możesz przenieść dane do lokalizacji ExpressRoute w najbliższym regionie świadczenia usługi Azure. W przypadku lokalnego transfer danych jest uwzględniany w opłacie za port ExpressRoute. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Łączność między sieciami lokalnymi za pomocą rozwiązania ExpressRoute Global Reach
 Za pomocą rozwiązania ExpressRoute Global Reach możesz umożliwić wymianę danych między lokacjami lokalnymi, łącząc obwody usługi ExpressRoute. Jeśli na przykład masz prywatne centrum danych w Kalifornii połączone z usługą ExpressRoute w Dolinie Krzemowej i kolejne prywatne centrum danych w Teksasie połączone z usługą ExpressRoute w Dallas, dzięki rozwiązaniu ExpressRoute Global Reach możesz połączyć te prywatne centra danych za pośrednictwem dwóch obwodów usługi ExpressRoute. Ruch sieciowy między centrami danych będzie odbywał się za pośrednictwem sieci firmy Microsoft.

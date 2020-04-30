@@ -1,80 +1,80 @@
 ---
-title: Co nowego w dokumentacji usługi Azure Monitor
-description: Znaczące aktualizacje dokumentacji usługi Azure Monitor aktualizowane co miesiąc.
+title: Co nowego w dokumentacji Azure Monitor
+description: Ważne aktualizacje dokumentacji Azure Monitor aktualizowane co miesiąc.
 ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
 ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80802608"
 ---
-# <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji usługi Azure Monitor?
-Ten artykuł zawiera listę artykułów usługi Azure Monitor, które są nowe lub zostały znacznie zaktualizowane. Zostanie odświeżony w pierwszym tygodniu każdego miesiąca, aby uwzględnić aktualizacje artykułów z poprzedniego miesiąca.
+# <a name="whats-new-in-azure-monitor-documentation"></a>Co nowego w dokumentacji Azure Monitor?
+Ten artykuł zawiera listę artykułów Azure Monitor, które są nowe lub zostały znacząco zaktualizowane. Zostanie odświeżony pierwszy tydzień każdego miesiąca, aby uwzględnić aktualizacje artykułów z poprzedniego miesiąca.
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
 ### <a name="general"></a>Ogólne
-- [Omówienie usługi Azure Monitor](overview.md) — dodano omówienie usługi Azure Monitor.
-- [Konfiguracja klucza zarządzanego przez klienta usługi Azure Monitor](platform/customer-managed-keys.md) — ogólne aktualizacje.
-- [Odwołanie do danych usługi Azure Monitor](/azure/azure-monitor/reference) — nowa lokacja.
+- [Przegląd Azure monitor](overview.md) — dodano Azure monitor wideo z omówieniem.
+- [Azure monitor konfiguracja klucza zarządzanego przez klienta](platform/customer-managed-keys.md) — aktualizacje ogólne.
+- [Azure monitor odwołanie do danych](/azure/azure-monitor/reference) — Nowa witryna.
 
 ### <a name="alerts"></a>Alerty
 
-- [Tworzenie, wyświetlanie i zarządzanie alertami dziennika aktywności w usłudze Azure Monitor](platform/alerts-activity-log.md) — dodatkowe wyjaśnienie szablonu Menedżera zasobów.
-- [Dowiedz się, jak działają alerty metryk w usłudze Azure Monitor.](platform/alerts-metric-overview.md) - Aktualizacja o wsparcie rządowe.
-- [Rozwiązywanie problemów z alertami i powiadomieniami usługi Azure Monitor](platform/alerts-troubleshoot.md) — nowy artykuł
+- [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi w Azure monitor](platform/alerts-activity-log.md) — dodatkowe wyjaśnienie Menedżer zasobów szablonu.
+- [Informacje o tym, jak alerty metryk działają w Azure Monitor.](platform/alerts-metric-overview.md) — Zaktualizowano w celu wsparcia dla instytucji rządowych.
+- [Rozwiązywanie problemów dotyczących alertów Azure monitor i powiadomień](platform/alerts-troubleshoot.md) — nowy artykuł
 
 ### <a name="application-insights"></a>Application Insights
-- [Automatyzacja usługi Azure Application Insights za pomocą programu PowerShell](app/powershell.md) — dodano przykłady ARMClient.
-- [Ciągły eksport danych telemetrycznych z usługi Application Insights](app/export-telemetry.md) — dodaj tabelę ze szczegółami struktury eksportu.
-- [Włącz debuger migawek dla aplikacji platformy .NET w usłudze Azure App Service](app/snapshot-debugger-appservice.md) — przykład szablonu Dodano Menedżera zasobów.
-- [Zarządzanie użyciem i kosztami usługi Azure Application Insights](app/pricing.md) — dodano informacje o alertach o korcie danych.
-- [Monitoruj aplikacje języka Python za pomocą usługi Azure Monitor (wersja zapoznawcza)](app/opencensus-python.md) — dodano standardowe metryki.
-- [Źródło mapy obsługi aplikacji JavaScript — Usługa Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) — nowy artykuł.
+- [Automatyzacja Application Insights platformy Azure przy użyciu programu PowerShell](app/powershell.md) — dodano przykłady ARMClient.
+- [Ciągły eksport danych telemetrycznych z Application Insights](app/export-telemetry.md) — Dodaj tabelę ze szczegółami struktury eksportu.
+- [Włącz Snapshot debugger dla aplikacji .NET w Azure App Service](app/snapshot-debugger-appservice.md) dodanym przykładzie szablonu Menedżer zasobów.
+- [Zarządzanie użyciem i kosztami dla Application Insights platformy Azure](app/pricing.md) — dodano informacje dotyczące alertu dotyczącego zakończenia danych.
+- [Monitoruj aplikacje języka Python za pomocą Azure monitor (wersja zapoznawcza)](app/opencensus-python.md) — dodano metryki standardowe.
+- [Obsługa mapy źródłowej dla aplikacji JavaScript — Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) — nowy artykuł.
 
 
 ### <a name="containers"></a>Containers
-- [Często zadawane pytania dotyczące usługi Azure Monitor](faq.md) — aktualizacja dla usługi Azure Monitor dla kontenerów.
-- [Konfigurowanie monitorowania procesora GPU za pomocą usługi Azure Monitor dla kontenerów](insights/container-insights-gpu-monitoring.md) — nowy artykuł
+- [Azure monitor często zadawane pytania](faq.md) — aktualizacja Azure monitor dla kontenerów.
+- [Konfigurowanie monitorowania procesora GPU przy użyciu Azure monitor dla kontenerów](insights/container-insights-gpu-monitoring.md) — nowy artykuł
 
 ### <a name="insights"></a>Insights
-- [Rozwiązanie do zarządzania usługą Office 365 na platformie Azure](insights/solution-office-365.md) — zaktualizowana data wycofania.
+- [Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure](insights/solution-office-365.md) — Data wycofania aktualizacji.
 
 ### <a name="logs"></a>Dzienniki
-- [Optymalizuj zapytania dziennika w usłudze Azure Monitor](log-query/query-optimization.md) — dodano warunek procesora CPU do analizowania formatu XML i JSON.
-- [Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics](platform/delete-workspace.md) — dodano rozwiązywanie problemów.
-- [Użyj dzienników usługi Azure Monitor z aplikacjami logiki azure i automatyzacji zasilania](platform/logicapp-flow-connector.md) — zaktualizowane dla nowego łącznika usługi Azure Monitor.
+- [Optymalizuj zapytania dzienników w Azure monitor](log-query/query-optimization.md) dodatkowym stanie procesora dla analizy XML i JSON.
+- [Usuń i Odzyskaj rozwiązanie do rozwiązywania problemów z obszarem roboczym usługi Azure log Analytics](platform/delete-workspace.md) .
+- [Korzystanie z dzienników Azure monitor z funkcją Azure Logic Apps i automatyzowania](platform/logicapp-flow-connector.md) — Zaktualizowano dla nowego łącznika Azure monitor.
 
 ### <a name="metrics"></a>Metryki
-- [Wycofanie metryk dysku w witrynie Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) — nowy artykuł.
-- [Samouczek — tworzenie wykresu metryk w usłudze Azure Monitor](learn/tutorial-metrics-explorer.md) — dodano wideo.
+- [Wycofanie metryk dyskowych w Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) artykule.
+- [Samouczek — Tworzenie wykresu metryk w](learn/tutorial-metrics-explorer.md) filmach wideo dodanych przez Azure monitor.
 
 ### <a name="platform-logs"></a>Dzienniki platformy
-- [Zbieranie i analizowanie dziennika aktywności platformy Azure w usłudze Azure Monitor](platform/activity-log-collect.md) — przepisaj, aby lepiej wyjaśnić zbieranie dziennika aktywności za pomocą ustawień diagnostycznych.
+- [Zbieraj i Analizuj dziennik aktywności platformy Azure w Azure monitor](platform/activity-log-collect.md) — Zapisz ponownie, aby lepiej wyjaśnić zbieranie dziennika aktywności z ustawieniami diagnostycznymi.
 
 ### <a name="virtual-machines"></a>Maszyny wirtualne
-- [Monitoruj maszyny wirtualne platformy Azure za pomocą usługi Azure Monitor](insights/monitor-vm-azure.md) — nowy artykuł.
-- [Szybki start: monitorowanie maszyn wirtualnych platformy Azure za pomocą usługi Azure Monitor](learn/quick-monitor-azure-vm.md) — zaktualizowano w celu dodania usługi Azure Monitor dla maszyn wirtualnych.
-- [Alerty z usługi Azure Monitor dla maszyn wirtualnych](insights/vminsights-alerts.md) — nowy artykuł
-- [Włącz omówienie usługi Azure Monitor dla maszyn wirtualnych](insights/vminsights-enable-overview.md) — zaktualizowane łącza pobierania agenta.
+- [Monitoruj usługę Azure Virtual Machines przy użyciu](insights/monitor-vm-azure.md) nowego artykułu Azure monitor.
+- [Szybki Start: monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure monitor](learn/quick-monitor-azure-vm.md) — zaktualizowano w celu dodania Azure monitor dla maszyn wirtualnych.
+- [Alerty z Azure monitor dla maszyn wirtualnych](insights/vminsights-alerts.md) — nowy artykuł
+- [Włączenie Azure monitor dla maszyn wirtualnych przegląd](insights/vminsights-enable-overview.md) — zaktualizowane linki do pobrania agenta.
 
 
-Ogólne aktualizacje dotyczące ogólnej dostępności usługi Azure Monitor dla maszyn wirtualnych
-- [Co to jest usługa Azure Monitor dla maszyn wirtualnych?](insights/vminsights-overview.md)
-- [Często zadawane pytania dotyczące usługi Azure Monitor for VM (GA)](insights/vminsights-ga-release-faq.md) 
-- [Włącz usługę Azure Monitor dla maszyn wirtualnych przy użyciu zasad platformy Azure](insights/vminsights-enable-at-scale-policy.md) 
-- [Jak wykres wydajności z usługi Azure Monitor dla maszyn wirtualnych](insights/vminsights-performance.md)
-- [Jak kwerendy dzienników z usługi Azure Monitor dla maszyn wirtualnych](insights/vminsights-log-search.md)
-- [Wyświetlanie zależności aplikacji za pomocą usługi Azure Monitor dla maszyn wirtualnych](insights/vminsights-maps.md) 
+Ogólne aktualizacje dotyczące ogólnej dostępności Azure Monitor dla maszyn wirtualnych
+- [Co to jest Azure Monitor dla maszyn wirtualnych?](insights/vminsights-overview.md)
+- [Azure Monitor dla maszyn wirtualnych (GA) często zadawane pytania](insights/vminsights-ga-release-faq.md) 
+- [Włączanie Azure Monitor dla maszyn wirtualnych przy użyciu Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Jak uzyskać Wykres wydajności przy użyciu Azure Monitor dla maszyn wirtualnych](insights/vminsights-performance.md)
+- [Jak wykonywać zapytania dotyczące dzienników z Azure Monitor dla maszyn wirtualnych](insights/vminsights-log-search.md)
+- [Wyświetlanie zależności aplikacji za pomocą Azure Monitor dla maszyn wirtualnych](insights/vminsights-maps.md) 
 
 
 ### <a name="visualizations"></a>Wizualizacje
-- [Wizualizacja danych z usługi Azure Monitor](visualizations.md) — zaktualizowano, aby zanotować planowane wycofanie projektanta widoku.
+- [Wizualizowanie danych z Azure monitor](visualizations.md) — zaktualizowano w celu zanotowania planowanego zaniechania projektanta widoków.
 
 
 
@@ -83,17 +83,17 @@ Ogólne aktualizacje dotyczące ogólnej dostępności usługi Azure Monitor dla
 ## <a name="february-2020"></a>Luty 2020 r.
 
 ### <a name="agents"></a>Agenci
-Wiele aktualizacji w ramach przepisywania zawartości rozszerzenia diagnostyki.
+Wiele aktualizacji w ramach ponownego zapisywania zawartości rozszerzenia diagnostyki.
 
-- [Omówienie agentów monitorowania platformy Azure](platform/agents-overview.md) — zrestrukturyzowane tabele, aby lepiej wyjaśnić unikatowe funkcje każdego agenta.
-- [Omówienie rozszerzenia diagnostyki platformy Azure](platform/diagnostics-extension-overview.md) — pełne przepisywanie.
-- [Użyj magazynu obiektów blob dla usług IIS i magazynu tabel dla zdarzeń w usłudze Azure Monitor](platform/diagnostics-extension-logs.md) — ogólne przepisywanie aktualizacji i przejrzystości.
-- [Zainstaluj i skonfiguruj rozszerzenie diagnostyki systemu Windows Azure (WAD)](platform/diagnostics-extension-windows-install.md) — nowy artykuł. 
-- [Schemat rozszerzenia diagnostyki systemu Windows](platform/diagnostics-extension-schema-windows.md) — reorganizowany.
-- [Wysyłaj dane z rozszerzenia diagnostyki systemu Windows Azure do usługi Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) — całkowicie przepisane i zaktualizowane.
-- [Przechowywanie i wyświetlanie danych diagnostycznych w usłudze Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) — całkowicie przepisane i zaktualizowane.
-- [Rozszerzenie maszyny wirtualnej usługi Log Analytics dla systemu Windows](../virtual-machines/extensions/oms-windows.md) — lepiej wyjaśnia relacje z agentem usługi Log Analytics.
-- [Rozszerzenie maszyny wirtualnej usługi Azure Monitor dla systemu Linux](../virtual-machines/extensions/oms-linux.md) — lepiej wyjaśnia relacje z agentem usługi Log Analytics.
+- Omówienie tabel z restrukturyzacją [agentów monitorowania platformy Azure](platform/agents-overview.md) w celu lepszego wyjaśnienia unikatowych funkcji poszczególnych agentów.
+- [Przegląd rozszerzenia Diagnostyka Azure](platform/diagnostics-extension-overview.md) — ukończono ponowne zapisywanie.
+- [Używaj usługi BLOB Storage dla usług IIS i magazynu tabel dla zdarzeń w Azure monitor](platform/diagnostics-extension-logs.md) — ogólne ponowne zapisywanie dla aktualizacji i przejrzystości.
+- [Zainstaluj i skonfiguruj rozszerzenie Microsoft Azure Diagnostics (funkcji wad)](platform/diagnostics-extension-windows-install.md) — nowy artykuł. 
+- [Schemat rozszerzenia diagnostyki systemu Windows](platform/diagnostics-extension-schema-windows.md) — Reorganizuje.
+- [Wyślij dane z rozszerzenia Diagnostyka systemu Windows Azure do platformy Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) — całkowicie ponownie napisano i Zaktualizowano.
+- [Przechowywanie i przeglądanie danych diagnostycznych w usłudze Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) — całkowicie ponownie zapisane i zaktualizowane.
+- [Log Analytics rozszerzenie maszyny wirtualnej dla systemu Windows](../virtual-machines/extensions/oms-windows.md) — lepszym rozwiązaniem jest powiększanie relacji z agentem log Analytics.
+- [Azure monitor rozszerzenie maszyny wirtualnej dla systemu Linux](../virtual-machines/extensions/oms-linux.md) — lepsza relacja z programem log Analytics Agent.
 
 
 
@@ -101,35 +101,35 @@ Wiele aktualizacji w ramach przepisywania zawartości rozszerzenia diagnostyki.
 ### <a name="application-insights"></a>Application Insights
 - [Parametry połączenia w usłudze Azure Application Insights](app/sdk-connection-string.md) — nowy artykuł.
 
-### <a name="insights-and-solutions"></a>Spostrzeżenia i rozwiązania
+### <a name="insights-and-solutions"></a>Szczegółowe informacje i rozwiązania
 
 #### <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
-- [Zintegruj usługę Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration.md) — dodano notatkę do tworzenia aplikacji klienckiej do obsługi klastra obsługującego usługę RBAC do obsługi usługi Azure Monitor dla kontenerów.
+- [Integruj Azure Active Directory z usługą Azure Kubernetes Service](../aks/azure-ad-integration.md) — dodano uwagę na potrzeby tworzenia aplikacji klienckiej do obsługi klastra z obsługą RBAC w celu obsługi Azure monitor kontenerów.
 
 #### <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-- [Usługa Azure Monitor dla maszyn wirtualnych (GA) często zadawane pytania](insights/vminsights-ga-release-faq.md) — zmień sposób przechowywania danych wydajności.
+- [Azure monitor dla maszyn wirtualnych (ga) — często zadawane pytania](insights/vminsights-ga-release-faq.md) — Zmień sposób przechowywania danych wydajności.
 
 #### <a name="office-365"></a>Office 365
-- [Rozwiązanie do zarządzania usługą Office 365 na platformie Azure](insights/solution-office-365.md) — zaktualizowana data wycofania.
+- [Rozwiązanie do zarządzania pakietem Office 365 na platformie Azure](insights/solution-office-365.md) — Data wycofania aktualizacji.
 
 
 ### <a name="logs"></a>Dzienniki
-- [Optymalizuj zapytania dziennika w usłudze Azure Monitor](log-query/query-optimization.md) — nowy artykuł.
-- [Zarządzanie użyciem i kosztami dzienników usługi Azure Monitor](platform/manage-cost-storage.md) — ulepszone przykładowe zapytania ułatwiające zrozumienie użycia.
+- [Optymalizowanie zapytań dzienników w Azure monitor](log-query/query-optimization.md) — nowy artykuł.
+- [Zarządzanie użyciem i kosztami dzienników Azure monitor](platform/manage-cost-storage.md) — ulepszone przykładowe zapytania ułatwiające zrozumienie użycia.
 
 ### <a name="metrics"></a>Metryki
-- [Metryki platformy Azure Monitor można eksportować za pomocą ustawień diagnostycznych](platform/metrics-supported-export-diagnostic-settings.md) — dodano sekcję dotyczącą zmiany zachowania wartości null i zero.
+- [Azure monitor metryki platformy eksportowane za pośrednictwem ustawień diagnostycznych](platform/metrics-supported-export-diagnostic-settings.md) — Dodano sekcję w temacie Zmiana na zachowanie dla wartości null i zero.
 
 
 ### <a name="visualizations"></a>Wizualizacje
-Wiele nowych artykułów dla przewodnika konwersji widoku projektanta do skoroszytów.
+Wiele nowych artykułów do przewodnika po konwersji projektanta widoków na skoroszyty.
 
-- [Przewodnik przejścia widoku usługi Azure Monitor do skoroszytów](platform/view-designer-conversion-overview.md) — nowy artykuł.
-- [Projektant widoku usługi Azure Monitor do opcji konwersji skoroszytów](platform/view-designer-conversion-options.md) — nowy artykuł.
-- [Projektant widoku usługi Azure Monitor do konwersji kafelków skoroszytów](platform/view-designer-conversion-tiles.md) — nowy artykuł.
-- [Projektant widoku usługi Azure Monitor do skoroszytów podsumowanie konwersji i dostęp](platform/view-designer-conversion-access.md) — nowy artykuł.
-- [Projektant widoku usługi Azure Monitor do skoroszytów — typowe zadania konwersji](platform/view-designer-conversion-tasks.md) — nowy artykuł.
-- [Projektant widoku usługi Azure Monitor do przykładów konwersji skoroszytów](platform/view-designer-conversion-examples.md) — nowy artykuł.
+- [Przewodnik po przejściu do programu Azure monitor View Designer do skoroszytów](platform/view-designer-conversion-overview.md) — nowy artykuł.
+- [Azure monitor widoku projektanta na skoroszyty opcje konwersji](platform/view-designer-conversion-options.md) — nowy artykuł.
+- [Azure monitor widoków Projektant do skoroszytów konwersje kafelków](platform/view-designer-conversion-tiles.md) — nowy artykuł.
+- [Azure monitor widoku projektanta na skoroszyty podsumowanie konwersji i dostęp do](platform/view-designer-conversion-access.md) nowego artykułu.
+- [Azure monitor widoków Projektant do skoroszytów typowych zadań konwersji](platform/view-designer-conversion-tasks.md) — nowy artykuł.
+- [Przykłady konwersji Azure monitor View na skoroszyty](platform/view-designer-conversion-examples.md) — nowy artykuł.
 
 
 
@@ -137,57 +137,57 @@ Wiele nowych artykułów dla przewodnika konwersji widoku projektanta do skorosz
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
 ### <a name="general"></a>Ogólne
-- [Co jest monitorowane przez usługę Azure Monitor?](monitor-reference.md) - Nowy artykuł.
+- [Co jest monitorowane przez Azure Monitor?](monitor-reference.md) — Nowy artykuł.
 
 ### <a name="agents"></a>Agenci
-- [Zbieranie danych dziennika za pomocą agenta usługi Azure Log Analytics](platform/log-analytics-agent.md) — zaktualizowana tabela wymagań zapory sieciowej.
+- [Zbierz dane dziennika za pomocą usługi Azure log Analytics Agent](platform/log-analytics-agent.md) — Zaktualizowano tabelę wymagań zapory sieciowej.
 
 
 ### <a name="alerts"></a>Alerty
-- [Tworzenie grup akcji i zarządzanie nimi w witrynie Azure portal](platform/action-groups.md) — ustawienie usunięte dla funkcji w wersji 2, które nie są już wymagane.
-- [Utwórz alert metryki z szablonem Menedżera zasobów](platform/alerts-metric-create-templates.md) — dodano przykład parametru *ignoreDataBefore.*  Dodano ograniczenia dotyczące reguł z wieloma kryteriami.
-- [Za pomocą interfejsu API REST alert usługi Log Analytics](platform/api-alerts.md) — przykład JSON poprawione.
+- [Tworzenie grup akcji i zarządzanie nimi w ustawieniach Azure Portal](platform/action-groups.md) , które zostały usunięte dla funkcji w wersji 2, które nie są już wymagane.
+- [Utwórz alert metryki z przykładem Menedżer zasobów szablonu](platform/alerts-metric-create-templates.md) dodanym jako parametr *ignoreDataBefore* .  Dodano ograniczenia dotyczące reguł wielokryteriów.
+- [Za pomocą log Analytics alert API REST](platform/api-alerts.md) — Poprawiono przykład JSON.
 
 
 ### <a name="application-insights"></a>Application Insights
-- [Adresy IP używane przez usługi Application Insights i log Analytics](app/ip-addresses.md) — zaktualizowano sekcję testu dostępności, aby dodać regułę portu przychodzącego, aby zezwolić na ruch przy użyciu grup zabezpieczeń sieci azure.
-- [Rozwiązywanie problemów z profilera usługi Azure Application Insights](app/profiler-troubleshooting.md) — zaktualizowane ogólne rozwiązywanie problemów.
-- [Próbkowanie telemetrii w usłudze Azure Application Insights](app/sampling.md) — zaktualizowane i zrestrukturyzowane w celu poprawy czytelności na podstawie opinii klientów.
+- [Adresy IP używane przez Application Insights i log Analytics](app/ip-addresses.md) — Zaktualizowano sekcję Test dostępności wraz z dodawaniem reguły portów przychodzących w celu zezwalania na ruch przy użyciu sieciowych grup zabezpieczeń platformy Azure.
+- [Rozwiązywanie problemów z usługą Azure Application Insights Profiler](app/profiler-troubleshooting.md) — zaktualizowane ogólne Rozwiązywanie problemów.
+- [Próbkowanie danych telemetrycznych na platformie Azure Application Insights](app/sampling.md) — zaktualizowane i rozbudowane w celu zwiększenia czytelności na podstawie opinii klientów.
 
 
 ### <a name="data-security"></a>Bezpieczeństwo danych
-- [Konfiguracja klucza zarządzanego przez klienta usługi Azure Monitor](platform/customer-managed-keys.md) — nowy artykuł.
+- [Azure monitor konfiguracja klucza zarządzanego przez klienta](platform/customer-managed-keys.md) — nowy artykuł.
 
-### <a name="insights-and-solutions"></a>Spostrzeżenia i rozwiązania
+### <a name="insights-and-solutions"></a>Szczegółowe informacje i rozwiązania
 
 #### <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
-- [Konfigurowanie usługi Azure Monitor dla zbierania danych agenta kontenerów](insights/container-insights-agent-config.md) — dodano szczegóły dotyczące uaktualniania agenta w usłudze Azure Red Hat OpenShift i dodano dodatkowe informacje, aby odróżnić metody uaktualniania agenta.
-- [Tworzenie alertów wydajności dla usługi Azure Monitor dla kontenerów](insights/container-insights-alerts.md) — poprawione informacje i zaktualizowane kroki tworzenia alertu o danych wydajności przechowywanych w obszarze roboczym przy użyciu alertów kontekstu obszaru roboczego.
-- [Monitorowanie usługi Kubernetes za pomocą usługi Azure Monitor dla kontenerów](insights/container-insights-analyze.md) — zaktualizowano zarówno artykuł omówienia, jak i artykuł analizy dotyczący obsługi klastrów kubernetes systemu Windows.
-- [Konfigurowanie klastrów Azure Red Hat OpenShift za pomocą usługi Azure Monitor dla kontenerów](insights/container-insights-azure-redhat-setup.md) — dodano szczegóły dotyczące uaktualniania agenta w usłudze Azure Red Hat OpenShift i dodano dodatkowe informacje, aby odróżnić metody uaktualniania agenta.
-- [Konfigurowanie klastrów kubernetes hybrydowych za pomocą usługi Azure Monitor dla kontenerów](insights/container-insights-hybrid-setup.md) — zaktualizowano w celu odzwierciedlenia dodatkowej obsługi bezpiecznego portu:10250 za pomocą usługi cAdvisor firmy Kubelet.
-- [Jak zarządzać agentem usługi Azure Monitor dla kontenerów](insights/container-insights-manage-agent.md) — zaktualizowano szczegóły związane z zachowaniem i konfigurem skrobania metryk za pomocą usługi Azure Red Hat OpenShift w porównaniu z innymi typami klastrów kubernetes.
-- [Konfigurowanie usługi Azure Monitor dla kontenerów Prometheus Integration](insights/container-insights-prometheus-integration.md) — zaktualizowane szczegóły związane z zachowaniem i konfiguracją skrobania metryk za pomocą usługi Azure Red Hat OpenShift w porównaniu z innymi typami klastrów kubernetes.
-- [Jak zaktualizować usługę Azure Monitor dla kontenerów dla metryk](insights/container-insights-update-metrics.md) — zaktualizowane szczegóły związane z zachowaniem i config metryk skrobanie z azure red hat OpenShift w porównaniu do innych typów klastrów Kubernetes.
+- [Konfigurowanie Azure monitor do zbierania danych przez agentów kontenerów](insights/container-insights-agent-config.md) — dodano szczegóły dotyczące uaktualniania agenta na platformie Azure Red Hat OpenShift oraz dodano dodatkowe informacje w celu odróżnienia metod uaktualnienia agenta.
+- [Utwórz alerty wydajności dla Azure monitor](insights/container-insights-alerts.md) informacje o zaktualizowanych kontenerach i zaktualizowanych krokach w celu utworzenia alertu dotyczącego danych wydajności przechowywanych w obszarze roboczym przy użyciu alertów kontekstu obszaru roboczego.
+- [Kubernetes monitorowanie za pomocą Azure monitor dla kontenerów](insights/container-insights-analyze.md) — Zaktualizowano artykuł z omówieniem i artykuł dotyczący analizy w celu obsługi klastrów Windows Kubernetes.
+- [Skonfiguruj klastry usługi Azure Red Hat OpenShift za pomocą Azure monitor dla kontenerów](insights/container-insights-azure-redhat-setup.md) — dodano szczegóły dotyczące uaktualniania agenta na platformie Azure Red Hat OpenShift i dodano dodatkowe informacje w celu odróżnienia metod uaktualnienia agenta.
+- [Skonfiguruj hybrydowe klastry Kubernetes z Azure monitor dla kontenerów](insights/container-insights-hybrid-setup.md) — zaktualizowano w celu odzwierciedlenia dodanej obsługi bezpiecznego portu: 10250 z cAdvisor Kubelet.
+- [Jak zarządzać Azure Monitorą dla agenta kontenerów](insights/container-insights-manage-agent.md) — Zaktualizowano szczegółowe informacje związane z zachowaniem i konfiguracją wycinków metryk z usługą Azure Red Hat OpenShift w porównaniu z innymi typami klastrów Kubernetes.
+- [Konfigurowanie Azure monitor na potrzeby integracji z integracją Prometheus](insights/container-insights-prometheus-integration.md) — Zaktualizowano szczegółowe informacje związane z zachowaniem i konfiguracją wycinków metryk z usługą Azure Red Hat OpenShift w porównaniu z innymi typami klastrów Kubernetes.
+- [Jak zaktualizować Azure monitor kontenerów dla metryk](insights/container-insights-update-metrics.md) — Zaktualizowano szczegóły dotyczące zachowania i konfiguracji odporności metryk z usługą Azure Red Hat OpenShift w porównaniu z innymi typami klastrów Kubernetes.
 
 
 #### <a name="azure-monitor-for-vms"></a>Usługa Azure Monitor dla maszyn wirtualnych
-- Często zadawane pytania dotyczące [usługi Azure Monitor for VMs (GA)](insights/vminsights-ga-release-faq.md) — dodano informacje dotyczące uaktualniania obszaru roboczego i agentów do nowej wersji.
+- [Azure monitor dla maszyn wirtualnych (ga) — często zadawane pytania](insights/vminsights-ga-release-faq.md) — dodano informacje dotyczące uaktualniania obszaru roboczego i agentów do nowej wersji.
 
 #### <a name="office-365"></a>Office 365
-- [Rozwiązanie do zarządzania usługą Office 365](insights/solution-office-365.md) na platformie Azure — dodano szczegóły i często zadawane pytania dotyczące migracji do rozwiązania usługi Office 365 w usłudze Azure Sentinel. Usunięto sekcję dołączania.
+- [Rozwiązanie do zarządzania pakietem office 365 na platformie Azure](insights/solution-office-365.md) — dodano szczegóły i często zadawane pytania dotyczące migracji do rozwiązania pakietu Office 365 na platformie Azure. Usunięto sekcję dołączania.
 
 
 
 ### <a name="logs"></a>Dzienniki
-- [Zarządzanie obszarami roboczymi usługi Log Analytics w usłudze Azure Monitor](platform/manage-access.md) — aktualizacje akcji Nie.
-- [Zarządzanie użyciem i kosztami dzienników usługi Azure Monitor](platform/manage-cost-storage.md) — dodano wyjaśnienie dotyczące obliczania ilości danych w sekcji Model cenowy.
-- [Użyj szablonów usługi Azure Resource Manager, aby utworzyć i skonfigurować obszar roboczy usługi Log Analytics](platform/template-workspace-configuration.md) — zaktualizowany szablon z nowymi warstwami cenowymi.
+- [Zarządzanie obszarami roboczymi log Analytics w programie Azure monitor](platform/manage-access.md) — aktualizacje nie są wykonywane.
+- [Zarządzanie użyciem i kosztami Azure monitor dzienników](platform/manage-cost-storage.md) — dodano wyjaśnienie dotyczące obliczania ilości danych w sekcji model cen.
+- [Użyj szablonów Azure Resource Manager, aby utworzyć i skonfigurować szablon log Analytics obszaru roboczego](platform/template-workspace-configuration.md) zaktualizowany przy użyciu nowych warstw cenowych.
 
 
 ### <a name="platform-logs"></a>Dzienniki platformy
-- [Zbieranie dziennika aktywności platformy Azure z ustawieniami diagnostycznymi — Usługa Azure Monitor](platform/diagnostic-settings-legacy.md) — dodatkowe informacje o zmienionych właściwościach.
-- [Eksportuj dziennik aktywności platformy Azure](platform/activity-log-export.md) — aktualizowane w celu zmiany interfejsu użytkownika. 
+- [Zbierz dziennik aktywności platformy Azure z ustawieniami diagnostycznymi — Azure monitor](platform/diagnostic-settings-legacy.md) — dodatkowe informacje na temat zmienionych właściwości.
+- [Eksportowanie dziennika aktywności platformy Azure](platform/activity-log-export.md) — zaktualizowano w celu wprowadzenia zmian w interfejsie użytkownika. 
 
 
 
@@ -196,75 +196,75 @@ Wiele nowych artykułów dla przewodnika konwersji widoku projektanta do skorosz
 ## <a name="december-2019"></a>Grudzień 2019 r.
 
 ### <a name="agents"></a>Agenci
-- [Łączenie komputerów z systemem Linux z usługą Azure Monitor](platform/agent-linux.md) — nowy artykuł.
+- [Połącz komputery z systemem Linux, aby Azure monitor](platform/agent-linux.md) — nowy artykuł.
 
 ### <a name="alerts"></a>Alerty
-- [Utwórz alert metryki z szablonem Menedżera zasobów](platform/alerts-metric-create-templates.md) — dodano przykład metryki niestandardowej.
-- [Tworzenie alertów z progami dynamicznymi w usłudze Azure Monitor](platform/alerts-dynamic-thresholds.md) — dodano sekcję dotyczącą interpretacji dynamicznych wykresów progowych.
-- [Omówienie alertów i monitorowania powiadomień na platformie Azure](platform/alerts-overview.md) — zaktualizowane zapytanie wykresu zasobów.
-- [Obsługiwane zasoby dla alertów metryk w usłudze Azure Monitor](platform/alerts-metric-near-real-time.md) — aktualizacja do obsługiwanych metryk i wymiarów.
-- [Przełącz się ze starszego interfejsu API alertów usługi Log Analytics do nowego interfejsu API alertów platformy Azure](platform/alerts-log-api-switch.md) — dodano notatkę o zmodyfikowanej nazwie alertu.
-- [Dowiedz się, jak działają alerty metryk w usłudze Azure Monitor.](platform/alerts-metric-overview.md) - Dodano obsługiwane typy zasobów do monitorowania na dużą skalę.
+- [Utwórz alert metryki za pomocą szablonu Menedżer zasobów](platform/alerts-metric-create-templates.md) dodanego przykładu dla metryki niestandardowej.
+- [Tworzenie alertów z progami dynamicznymi w sekcji Azure monitor](platform/alerts-dynamic-thresholds.md) dodano w celu interpretacji wykresów progów dynamicznych.
+- [Przegląd alertów i monitorowania powiadomień na platformie Azure](platform/alerts-overview.md) — zaktualizowane zapytanie dotyczące grafu zasobów.
+- [Obsługiwane zasoby dla alertów metryk w Azure monitor](platform/alerts-metric-near-real-time.md) -Update do obsługiwanych metryk i wymiarów.
+- [Przełączenie się ze starszej wersji interfejsu API alertów usługi log Analytics na nową funkcję API alertów platformy Azure](platform/alerts-log-api-switch.md) — dodano uwagę na zmodyfikowaną nazwę
+- [Informacje o tym, jak alerty metryk działają w Azure Monitor.](platform/alerts-metric-overview.md) -Dodano obsługiwane typy zasobów do monitorowania w odpowiedniej skali.
 
 ### <a name="application-insights"></a>Application Insights
-- [Usługa Application Insights for Worker Service apps (aplikacje inne niż HTTP)](app/worker-service.md) — dodano domyślny poziom rejestrowania do kodu języka C#. Zaktualizowana wersja referencyjna pakietu.
-- [Odwołanie do aplikacji ApplicationInsights.config — Azure](app/configuration-with-applicationinsights-config.md) — zaktualizowany przykładowy kod.
-- [Automatyzacja usługi Azure Application Insights za pomocą](app/powershell.md) szablonu programu PowerShell — aktualizacja do menedżera zasobów.
-- [Pakiety NuGet usługi Azure Monitor aplikacji —](app/nuget.md) zaktualizowane wersje pakietów.
-- [Utwórz nowy zasób usługi Azure Application Insights](app/create-new-resource.md) — uwaga dodana do unikatowej nazwy globalnie.
-- [Diagnozuj za pomocą strumienia metryk na żywo — usługa Azure Application Insights](app/live-stream.md) — zaktualizowane ASP.NET wymagania dotyczące wersji core SDK.
-- [Liczniki zdarzeń w usłudze Application Insights](app/eventcounters.md) — zaktualizowano kategorię i tabelę do metryk niestandardowych.
-- [Poznaj dzienniki śledzenia java w usłudze Azure Application Insights](app/java-trace-logs.md) — dodano konfigurację dla progu rejestrowania agenta Java.
-- [Adresy IP używane przez usługi Application Insights i Log Analytics](app/ip-addresses.md) — zaktualizowane adresy IP dla strumienia metryk na żywo.
-- [Monitorowanie wydajności usług aplikacji platformy Azure](app/azure-web-apps.md) — dodano obsługę ASP.NET Core 3.0. 
-- [Monitoruj aplikacje Języka Python za pomocą usługi Azure Monitor (wersja zapoznawcza)](app/opencensus-python.md) — dodano wyjaśnienie dotyczące mapowania schematu Języka Python w języku OpenCensus na platformie Azure . Schemat monitora
-- [Informacje o wersji usługi Azure Application Insights](app/release-notes.md) — dodano uwagi dotyczące starszych wersji.
-- [Kanały telemetrii w usłudze Azure Application Insights](app/telemetry-channels.md) — zaktualizowany czas trwania odrzuconych danych w dłuższym okresie utraconego połączenia.
-- [Próbkowanie danych telemetrycznych w usłudze Azure Application Insights](app/sampling.md) — poprawiony fragment kodu dla niestandardowego telemetryinitializer.
-- [Rozwiązywanie problemów z aplikacjami w projekcie sieci Web Java](app/java-troubleshoot.md) — usunięto instrukcję o nie obsługującej kolekcji zależności w zestawie JDK 9.
+- [Application Insights dla aplikacji usługi Worker (aplikacje inne niż http)](app/worker-service.md) — dodano domyślny poziom rejestrowania do kodu w języku C#. Zaktualizowana wersja odwołania do pakietu.
+- [ApplicationInsights. config — informacje o platformie Azure](app/configuration-with-applicationinsights-config.md) — zaktualizowany przykładowy kod.
+- [Automatyzacja Application Insights platformy Azure przy użyciu programu PowerShell](app/powershell.md) — aktualizacja do Menedżer zasobów szablonu.
+- [Azure Monitor Application Insights pakietów NuGet](app/nuget.md) — Zaktualizowano wersje pakietów.
+- [Utwórz nową usługę Azure Application Insights Resource](app/create-new-resource.md) — Uwaga dodana do globalnie unikatowej nazwy.
+- [Diagnozuj przy użyciu Live Metrics Stream platformy Azure Application Insights](app/live-stream.md) — Zaktualizowano wymagania dotyczące wersji zestawu SDK ASP.NET Core.
+- [Liczniki zdarzeń w Application Insights](app/eventcounters.md) — Zaktualizowano kategorię i tabelę do customMetrics.
+- [Poznaj dzienniki śledzenia języka Java na platformie Azure Application Insights](app/java-trace-logs.md) — dodano konfigurację dla progu rejestrowania agenta Java.
+- [Adresy IP używane przez Application Insights i log Analytics](app/ip-addresses.md) — zaktualizowane adresy ip dla Live Metrics Stream.
+- [Monitorowanie wydajności usług Azure App Services](app/azure-web-apps.md) — dodano obsługę ASP.NET Core 3,0. 
+- [Monitoruj aplikacje języka Python za pomocą Azure monitor (wersja zapoznawcza)](app/opencensus-python.md) — dodaliśmy wyjaśnienie dla mapowania schematu OpenCensus języka Python na platformę Azure. Monitoruj schemat
+- [Informacje o wersji dla platformy Azure Application Insights](app/release-notes.md) — notatki dodane dla starszych wersji.
+- [Kanały telemetrii na platformie Azure Application Insights](app/telemetry-channels.md) — zaktualizowany czas trwania odrzuconych danych podczas dłuższego okresu utraconych połączeń.
+- [Próbkowanie danych telemetrycznych w Application Insights platformy Azure](app/sampling.md) — poprawione fragmenty kodu dla niestandardowej TelemetryInitializer.
+- [Rozwiązywanie problemów Application Insights w projekcie sieci Web w języku Java](app/java-troubleshoot.md) — usunięto instrukcję dotyczącą braku obsługi kolekcji zależności w programie JDK 9.
 
-### <a name="insights-and-solutions"></a>Spostrzeżenia i rozwiązania
-- [Usługa Azure Monitor dla kontenerów Często zadawane pytania](insights/container-insights-faq.md) — dodano pytanie w polach Obraz i Nazwa.
-- [Rozwiązanie usługi Azure SQL Analytics w usłudze Azure Monitor](insights/azure-sql.md) — zaktualizowana baza danych czeka na obsługę wystąpienia zarządzanego.
-- [Konfigurowanie usługi Azure Monitor dla zbierania danych agenta kontenerów](insights/container-insights-agent-config.md) — dodano ustawienie dla enrich_container_logs.
-- [Konfigurowanie klastrów kubernetes hybrydowych za pomocą usługi Azure Monitor dla kontenerów](insights/container-insights-hybrid-setup.md) — dodano sekcję rozwiązywania problemów.
-- [Monitoruj stan replikacji usługi Active Directory za pomocą](insights/ad-replication-status.md) usługi Azure Monitor — zaktualizowano warunek wstępny programu .NET Framework.
-- [Rozwiązanie Monitor wydajności sieci na platformie Azure](insights/network-performance-monitor.md) — dodano obsługiwane regiony.
-- [Zoptymalizuj środowisko usługi Active Directory za pomocą](insights/ad-assessment.md) zaktualizowanego wymogu wstępnego usługi Azure Monitor — .NET Framework.
-- [Zoptymalizuj środowisko programu SQL Server za pomocą](insights/sql-assessment.md) usługi Azure Monitor — zaktualizowano warunek wstępny programu .NET Framework.
-- [Zoptymalizuj środowisko programu Operations Manager centrum systemu za pomocą](insights/scom-assessment.md) usługi Azure Log Analytics — warunek wstępny platformy .NET Framework zaktualizowany.
-- [Obsługiwane połączenia z łącznikiem zarządzania usługami IT w usłudze Azure Log Analytics](platform/itsmc-connections.md) — dodano nowy Jork, aby wstępnie wymagania identyfikator klienta i klucz tajny klienta.
+### <a name="insights-and-solutions"></a>Szczegółowe informacje i rozwiązania
+- [Azure monitor for Containers — często zadawane pytania](insights/container-insights-faq.md) — pytanie dotyczące pól obrazu i nazwy.
+- [Azure SQL Analytics rozwiązanie w Azure monitor](insights/azure-sql.md) — zaktualizowana baza danych czeka na obsługę wystąpienia zarządzanego.
+- [Skonfiguruj Azure monitor dla ustawienia Dodawanie kolekcji danych agenta kontenerów](insights/container-insights-agent-config.md) dla enrich_container_logs.
+- [Skonfiguruj hybrydowe klastry Kubernetes za pomocą Azure monitor dla kontenerów](insights/container-insights-hybrid-setup.md) — Dodano sekcję rozwiązywania problemów.
+- [Monitoruj Active Directory stan replikacji z](insights/ad-replication-status.md) aktualizacją wymagań wstępnych Azure monitor .NET Framework.
+- [Network Performance Monitor rozwiązanie na platformie Azure](insights/network-performance-monitor.md) — dodano Obsługiwane regiony.
+- [Zoptymalizuj środowisko Active Directory z](insights/ad-assessment.md) aktualizacją wymagań wstępnych Azure monitor .NET Framework.
+- [Zoptymalizuj środowisko SQL Server z](insights/sql-assessment.md) aktualizacją wymagań wstępnych Azure monitor .NET Framework.
+- [Zoptymalizuj środowisko System Center Operations Manager za pomocą usługi Azure log Analytics](insights/scom-assessment.md) -.NET Framework aktualizacji wymagań wstępnych.
+- [Obsługiwane połączenia z łącznik zarządzania usługami IT na platformie Azure log Analytics](platform/itsmc-connections.md) — dodano Nowy Jork do wstępnie wymaganego identyfikatora klienta i klucza tajnego klienta.
 
 ### <a name="logs"></a>Dzienniki
-- [Usuń i odzyskaj obszar roboczy usługi Azure Log Analytics](platform/delete-workspace.md) — dodano metodę programu PowerShell.
-- [Projektowanie wdrożenia dzienników usługi Azure Monitor](platform/design-logs-deployment.md) — zwiększono szybkość pozyskiwania dla obszaru roboczego.
+- [Usuń i Odzyskaj metodę programu PowerShell dla usługi Azure log Analytics Workspace](platform/delete-workspace.md) .
+- [Projektowanie Azure Monitorych dzienników](platform/design-logs-deployment.md) — szybkość pozyskiwania dla obszaru roboczego zwiększyła się.
 
 ### <a name="metrics"></a>Metryki
-- [Metryki platformy Azure Monitor można eksportować za pomocą ustawień diagnostycznych](platform/metrics-supported-export-diagnostic-settings.md) — nowy artykuł.
+- [Metryki platformy Azure monitor eksportowane za pośrednictwem ustawień diagnostycznych](platform/metrics-supported-export-diagnostic-settings.md) — nowy artykuł.
 
 ### <a name="platform-logs"></a>Dzienniki platformy
-Wiele artykułów zaktualizowanych w ramach restrukturyzacji zawartości dla dzienników platformy na podstawie nowej funkcji konfigurowania dziennika aktywności przy użyciu ustawień diagnostycznych.
+Zaktualizowano wiele artykułów w ramach restrukturyzacji zawartości dla dzienników platformy w oparciu o nową funkcję konfigurowania dziennika aktywności przy użyciu ustawień diagnostycznych.
 
 - [Archiwizuj dzienniki zasobów platformy Azure na koncie magazynu](platform/resource-logs-collect-storage.md)
-- [Schemat zdarzenia dziennika aktywności platformy Azure](platform/activity-log-schema.md)
-- [Limity usług usługi Azure Monitor](service-limits.md)
-- [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym usługi Log Analytics](platform/activity-log-collect.md)
-- [Zbieranie dziennika aktywności platformy Azure z ustawieniami diagnostycznymi (wersja zapoznawcza) — Azure Monitor](platform/diagnostic-settings-legacy.md)
-- [Zbieranie dzienników aktywności platformy Azure do obszaru roboczego usługi Log Analytics w dzierżawach platformy Azure](platform/activity-log-collect-tenants.md)
-- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym usługi Log Analytics](platform/resource-logs-collect-workspace.md)
-- [Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Usługi Resource Manager](platform/diagnostic-settings-template.md)
+- [Schemat zdarzeń dziennika aktywności platformy Azure](platform/activity-log-schema.md)
+- [Limity usługi Azure Monitor](service-limits.md)
+- [Zbieranie i analizowanie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics](platform/activity-log-collect.md)
+- [Zbierz dziennik aktywności platformy Azure przy użyciu ustawień diagnostycznych (wersja zapoznawcza) — Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Zbieranie dzienników aktywności platformy Azure w obszarze roboczym Log Analytics w ramach dzierżawców platformy Azure](platform/activity-log-collect-tenants.md)
+- [Zbieranie dzienników zasobów platformy Azure w obszarze roboczym Log Analytics](platform/resource-logs-collect-workspace.md)
+- [Tworzenie ustawień diagnostycznych na platformie Azure przy użyciu szablonu Menedżer zasobów](platform/diagnostic-settings-template.md)
 - [Tworzenie ustawień diagnostycznych w celu zbierania dzienników i metryk na platformie Azure](platform/diagnostic-settings.md)
 - [Eksportowanie dziennika aktywności platformy Azure](platform/activity-log-export.md)
 - [Omówienie dzienników platformy Azure](platform/platform-logs-overview.md)
-- [Przesyłanie strumieniowe danych monitorowania platformy Azure do Centrum zdarzeń](platform/stream-monitoring-data-event-hubs.md)
-- [Strumieniowanie dzienników platformy Azure do centrum zdarzeń](platform/resource-logs-stream-event-hubs.md)
+- [Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń](platform/stream-monitoring-data-event-hubs.md)
+- [Przesyłanie strumieniowe dzienników platformy Azure do centrum zdarzeń](platform/resource-logs-stream-event-hubs.md)
 
 ### <a name="quickstarts-and-tutorials"></a>Przewodniki Szybki start i samouczki
 
-- [Tworzenie wykresu metryk w usłudze Azure Monitor](learn/tutorial-metrics-explorer.md) — nowy artykuł.
-- [Zbieraj dzienniki zasobów z zasobu platformy Azure i analizuj za pomocą usługi Azure Monitor](learn/tutorial-resource-logs.md) — nowy artykuł.
-- [Monitorowanie zasobu platformy Azure za pomocą usługi Azure Monitor](learn/quick-monitor-azure-resource.md) — nowy artykuł.
+- [Utwórz wykres metryk w Azure monitor](learn/tutorial-metrics-explorer.md) — nowy artykuł.
+- [Zbierz dzienniki zasobów z zasobów platformy Azure i Analizuj je za pomocą Azure monitor](learn/tutorial-resource-logs.md) — nowy artykuł.
+- [Monitoruj zasób platformy Azure za pomocą Azure monitor](learn/quick-monitor-azure-resource.md) — nowy artykuł.
    
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli chcesz udostępnić dokumentację usługi Azure Monitor, zapoznaj się z [Przewodnikiem dla współautorów dokumentów](https://docs.microsoft.com/contribute/).
+- Jeśli chcesz współtworzyć dokumentację Azure Monitor, zobacz [Przewodnik współautora dokumentów](https://docs.microsoft.com/contribute/).

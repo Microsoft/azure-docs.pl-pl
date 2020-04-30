@@ -1,77 +1,77 @@
 ---
 title: Wdrażanie przykładu środowiska Unity na komputerze stacjonarnym
-description: Przewodnik Szybki start, który pokazuje, jak pobrać przykład Unity na komputer stacjonarny
+description: Przewodnik Szybki Start pokazujący, jak uzyskać przykład aparatu Unity na komputerze stacjonarnym
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
 ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81415718"
 ---
-# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki start: wdrażanie próbki Unity na pulpicie
+# <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki Start: wdrażanie przykładu aparatu Unity na pulpicie
 
-Ten przewodnik Szybki start obejmuje sposób wdrażania i uruchamiania przykładowej aplikacji szybki start dla unity na komputerze stacjonarnym.
+Ten przewodnik Szybki Start przedstawia sposób wdrażania i uruchamiania przykładowej aplikacji szybkiego startu dla aparatu Unity na komputerze stacjonarnym.
 
-W tym przewodniku Szybki start dowiesz się, jak:
+W tym przewodniku szybki start dowiesz się, jak:
 
 > [!div class="checklist"]
 >
->* Tworzenie przykładowej aplikacji szybki start dla komputerów stacjonarnych
->* Wdrażanie próbki na komputerze
->* Uruchamianie próbki na komputerze
+>* Tworzenie przykładowej aplikacji szybkiego startu dla komputerów stacjonarnych
+>* Wdróż przykład na komputerze
+>* Uruchamianie przykładu na komputerze
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku Szybki start wdrożymy przykładowy projekt z [programu Szybki start: Renderowanie modelu z unity](render-model.md).
+W tym przewodniku szybki start wykonamy wdrożenie przykładowego projektu z poziomu [przewodnika Szybki Start: renderowanie modelu z użyciem aparatu Unity](render-model.md).
 
-Upewnij się, że poświadczenia są poprawnie zapisane ze sceną i można połączyć się z sesją z poziomu edytora Unity.
+Upewnij się, że poświadczenia są poprawnie zapisane w scenie i możesz połączyć się z sesją z poziomu edytora aparatu Unity.
 
 ## <a name="disable-virtual-reality-support"></a>Wyłącz obsługę wirtualnej rzeczywistości
 
-Tylko płaskie aplikacje klasyczne są obecnie obsługiwane na pulpicie, więc obsługa VR musi być wyłączona.
+Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjonarnym, więc nie trzeba wyłączać obsługi.
 
-1. Otwórz *pozycję Edytuj > ustawienia projektu...*
-1. Wybierz **opcję Gracz** po lewej stronie.
-1. Wybierz kartę **Ustawienia uniwersalnej platformy systemu Windows.**
-1. Rozwiń **ustawienia XR**.
-1. Wyłącz **obsługiwana wirtualna rzeczywistość**.
+1. Otwórz *Edytowanie ustawień projektu >...*
+1. Wybierz **odtwarzacz** po lewej stronie.
+1. Wybierz kartę **ustawienia platforma uniwersalna systemu Windows** .
+1. Rozwiń **Ustawienia XR**.
+1. Wyłącz **obsługiwany stan wirtualnej**.
     ![ustawienia odtwarzacza](./media/unity-disable-xr.png)
-1. Powyżej *ustawień XR*rozwiń ustawienia **publikowania**.
-1. W **obsługiwanych rodzinach urządzeń**upewnij się, że **komputer stacjonarny** jest zaznaczony.
+1. W obszarze *Ustawienia XR*rozwiń pozycję **Ustawienia publikowania**.
+1. Upewnij się, że w obszarze **obsługiwane rodziny urządzeń**jest zaznaczone pole wyboru **pulpit** .
 
-## <a name="build-the-sample-project"></a>Tworzenie przykładowego projektu
+## <a name="build-the-sample-project"></a>Kompilowanie przykładowego projektu
 
-1. Otwórz *ustawienia kompilacji > pliku*.
-1. Zmień *platformę* na **uniwersalną platformę systemu Windows**.
-1. Ustaw *urządzenie docelowe* na **PC**.
+1. Otwórz *plik > ustawienia kompilacji*.
+1. Zmień *platformę* na **platforma uniwersalna systemu Windows**.
+1. Ustaw *urządzenie docelowe* na **komputer**.
 1. Ustaw *architekturę* na **x86**.
-1. Ustaw *typ kompilacji* na **D3D Project**.
+1. Ustaw *typ kompilacji* na **projekt D3D**.
   ![Ustawienia kompilacji](./media/unity-build-settings-pc.png)
-1. Wybierz **pozycję Przełącz na platformę**.
-1. Po **naciśnięciu przycisku Build** (lub "Build And Run") zostaniesz poproszony o wybranie folderu, w którym rozwiązanie powinno być przechowywane.
-1. Otwórz wygenerowany plik **Szybki start.sln** w programie Visual Studio.
-1. Zmień konfigurację na **Release** i **x86**.
-1. Przełącz tryb debugera na **komputer lokalny**.
+1. Wybierz pozycję **Przełącz na platformę**.
+1. Podczas naciskania **kompilacji** (lub kompilowania i uruchamiania) zostanie wyświetlony monit o wybranie folderu, w którym ma być przechowywane rozwiązanie.
+1. Otwórz wygenerowanego **przewodnika Szybki Start** dla programu Visual Studio.
+1. Zmień konfigurację na **wydanie** i **x86**.
+1. Przełącz tryb debugera na **maszynę lokalną**.
   ![Konfiguracja rozwiązania](./media/unity-deploy-config-pc.png)
-1. Zbuduj rozwiązanie (F7).
+1. Kompiluj rozwiązanie (F7).
 
 > [!WARNING]
-> Upewnij się, że wybierz **x86**. **x64** nie jest obecnie obsługiwany, patrz [ograniczenia platformy](../reference/limits.md#platform-limitations).
+> Upewnij się, że wybrano opcję **x86**. Architektura **x64** nie jest obecnie obsługiwana, zobacz [ograniczenia dotyczące platformy](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Uruchamianie przykładowego projektu
 
-Uruchom debugera w programie Visual Studio (F5). Zostanie ona automatycznie wdrożona aplikacji na komputerze.
+Uruchom Debuger w programie Visual Studio (F5). Aplikacja zostanie automatycznie wdrożona na komputerze.
 
-Przykładowa aplikacja powinna zostać uruchomiona, a następnie rozpocząć nową sesję. Po pewnym czasie sesja jest gotowa, a zdalnie renderowany model pojawi się przed tobą.
-Jeśli chcesz uruchomić próbkę po raz drugi później, możesz również znaleźć ją w menu Start teraz.
+Przykładowa aplikacja powinna zostać uruchomiona, a następnie uruchomiona nowa sesja. Po czasie sesja jest gotowa, a zdalnie renderowany model pojawi się przed ty.
+Jeśli chcesz uruchomić próbkę później, możesz ją również znaleźć z menu Start.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W następnym przewodniku Szybki start przyjrzymy się konwersji modelu niestandardowego.
+W następnym przewodniku szybki start Przyjrzyjmy się konwertowaniu modelu niestandardowego.
 
 > [!div class="nextstepaction"]
-> [Szybki start: konwertowanie modelu do renderowania](convert-model.md)
+> [Szybki Start: konwertowanie modelu do renderowania](convert-model.md)

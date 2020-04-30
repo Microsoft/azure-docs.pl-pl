@@ -1,6 +1,6 @@
 ---
-title: Interfejsy API programu Microsoft Graph dla usługi PIM (wersja zapoznawcza) — usługa Azure AD | Dokumenty firmy Microsoft
-description: Zawiera informacje dotyczące korzystania z interfejsów API programu Microsoft Graph dla zarządzania tożsamościami uprzywilejowanymi usługą Azure AD (W wersji zapoznawczej).
+title: Microsoft Graph interfejsów API dla usług PIM (wersja zapoznawcza) — Azure AD | Microsoft Docs
+description: Zawiera informacje o korzystaniu z Microsoft Graph interfejsów API dla Azure AD Privileged Identity Management (PIM) (wersja zapoznawcza).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,26 +15,26 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75638667"
 ---
-# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Interfejsy API programu Microsoft Graph dla zarządzania tożsamościami uprzywilejowanymi (wersja zapoznawcza)
+# <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph interfejsów API dla Privileged Identity Management (wersja zapoznawcza)
 
-Wszystkie zadania zarządzania tożsamościami uprzywilejowanymi można wykonywać przy użyciu [interfejsów API programu Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) dla usługi Azure Active Directory. W tym artykule opisano ważne pojęcia dotyczące korzystania z interfejsów API programu Microsoft Graph dla zarządzania tożsamościami uprzywilejowanymi.
+Wszystkie Privileged Identity Management zadania można wykonać przy użyciu [Microsoft Graph interfejsów API](https://developer.microsoft.com/graph/docs/concepts/overview) dla Azure Active Directory. W tym artykule opisano ważne koncepcje dotyczące używania Microsoft Graph interfejsów API dla Privileged Identity Management.
 
 Szczegółowe informacje na temat interfejsów API programu Microsoft Graph można znaleźć w [dokumentacji interfejsu API usługi Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > Interfejsy API w wersji beta w programie Microsoft Graph są w wersji zapoznawczej i mogą ulec zmianie. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych.
 >
-> Mimo że wszystkie operacje pim są obsługiwane za pośrednictwem naszych poleceń interfejsu API wykresu, używamy innego systemu do zatwierdzania żądań aktywacji. Interfejs API wykresu do zatwierdzenia jest obecnie opracowywany i zostanie wydany w ciągu najbliższych kilku miesięcy.
+> Mimo że wszystkie operacje PIM są obsługiwane za pomocą naszych poleceń interfejs API programu Graph, do zatwierdzania żądań aktywacji używany jest inny system. Interfejs API programu Graph do zatwierdzenia jest obecnie opracowywany i zostanie opublikowany w ciągu następnych kilku miesięcy.
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby wywołać interfejsy API programu Microsoft Graph dla zarządzania tożsamościami uprzywilejowanymi, musisz mieć **co najmniej jedno** z następujących uprawnień:
+Aby wywołać Microsoft Graph interfejsów API dla Privileged Identity Management, musisz mieć **co najmniej jedno** z następujących uprawnień:
 
 - `Directory.AccessAsUser.All`
 - `Directory.Read.All`
@@ -43,7 +43,7 @@ Aby wywołać interfejsy API programu Microsoft Graph dla zarządzania tożsamo�
 
 ### <a name="set-permissions"></a>Ustawianie uprawnień
 
-Aby aplikacje mogły wywoływać interfejsy API programu Microsoft Graph dla zarządzania tożsamościami uprzywilejowanymi, muszą mieć wymagane uprawnienia. Najprostszym sposobem określenia wymaganych uprawnień jest użycie [platformy wyrażania zgody w usłudze Azure AD](../develop/consent-framework.md).
+Aby aplikacje mogły wywołać Microsoft Graph interfejsów API dla Privileged Identity Management, muszą mieć wymagane uprawnienia. Najprostszym sposobem określenia wymaganych uprawnień jest użycie [platformy wyrażania zgody w usłudze Azure AD](../develop/consent-framework.md).
 
 ### <a name="set-permissions-in-graph-explorer"></a>Ustawianie uprawnień w Eksploratorze programu Graph
 

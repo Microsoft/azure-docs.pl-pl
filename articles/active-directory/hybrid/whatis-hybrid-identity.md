@@ -1,5 +1,5 @@
 ---
-title: Co to jest tożsamość hybrydowa w usłudze Azure Active Directory?
+title: Co to jest tożsamość hybrydowa z Azure Active Directory?
 description: Tożsamość hybrydowa ma wspólną tożsamość użytkownika do uwierzytelniania i autoryzacji zarówno lokalnie, jak i w chmurze.
 keywords: wprowadzenie do programu Azure AD Connect, omówienie programu Azure AD Connect, co to jest program Azure AD Connect, instalowanie usługi Active Directory
 services: active-directory
@@ -14,21 +14,21 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68779845"
 ---
-# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa w usłudze Azure Active Directory?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Co to jest tożsamość hybrydowa z Azure Active Directory?
 
-Obecnie małe i duże firmy w coraz większym stopniu korzystają zarówno z aplikacji lokalnych, jak i aplikacji w chmurze.  Użytkownicy wymagają dostępu do aplikacji zarówno lokalnie, jak i w chmurze. Zarządzanie użytkownikami zarówno lokalnie, jak i w chmurze stwarza trudne scenariusze. 
+Obecnie małe i duże firmy w coraz większym stopniu korzystają zarówno z aplikacji lokalnych, jak i aplikacji w chmurze.  Użytkownicy wymagają dostępu do aplikacji zarówno lokalnie, jak i w chmurze. Zarządzanie użytkownikami zarówno lokalnie, jak i w chmurze stanowi trudne scenariusze. 
 
-Rozwiązania firmy Microsoft do obsługi tożsamości obejmują zarówno funkcje lokalne, jak i chmurowe.  Te rozwiązania tworzą wspólną tożsamość użytkownika na potrzeby uwierzytelniania i autoryzacji w kontekście wszystkich zasobów, niezależnie od lokalizacji. Nazywamy to **tożsamością hybrydową**.
+Rozwiązania firmy Microsoft do obsługi tożsamości obejmują zarówno funkcje lokalne, jak i chmurowe.  Te rozwiązania tworzą wspólną tożsamość użytkownika na potrzeby uwierzytelniania i autoryzacji w kontekście wszystkich zasobów, niezależnie od lokalizacji. Nazywamy tę **tożsamość hybrydową**.
 
-Dzięki tożsamości hybrydowej do usługi Azure AD i zarządzania tożsamościami hybrydowymi te scenariusze stają się możliwe.
+Dzięki tożsamości hybrydowej z usługą Azure AD i hybrydowym zarządzaniem tożsamościami te scenariusze stają się możliwe.
 
-Aby osiągnąć tożsamość hybrydową za pomocą usługi Azure AD, można użyć jednej z trzech metod uwierzytelniania, w zależności od scenariuszy.   Te trzy metody to: 
+Aby uzyskać tożsamość hybrydową w usłudze Azure AD, można użyć jednej z trzech metod uwierzytelniania w zależności od scenariuszy.   Te trzy metody to: 
 
 - **[Synchronizacja skrótów haseł](whatis-phs.md)**  
 - **[Uwierzytelnianie przekazywane](how-to-connect-pta.md)**  
@@ -63,13 +63,13 @@ Poniżej przedstawiono kilka typowych scenariuszy związanych z tożsamościami 
 > <sup>4</sup> Usługi AD FS można zintegrować z infrastrukturą kluczy publicznych przedsiębiorstwa, aby umożliwić logowanie przy użyciu certyfikatów. Mogą to być certyfikaty programowe wdrażane za pośrednictwem zaufanych kanałów aprowizowania, takich jak zarządzanie danymi głównymi lub obiekt zasad grupy, lub certyfikaty na kartach inteligentnych (w tym na kartach PIV/CAC) albo w usłudze Hello dla firm (zaufanie certyfikatu). Aby uzyskać więcej informacji na temat obsługi uwierzytelniania za pomocą kart inteligentnych, zobacz [ten blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Wymagania dotyczące licencji dotyczące korzystania z usługi Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Wymagania licencyjne dotyczące korzystania z Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Następne kroki 
 
-- [Co to jest usługa Azure AD Connect i connect health?](whatis-azure-ad-connect.md) 
+- [Co to są Azure AD Connect Health i Connect Health?](whatis-azure-ad-connect.md) 
 - [Co to jest synchronizacja skrótów haseł?](whatis-phs.md) 
 - [Co to jest uwierzytelnianie przekazywane?](how-to-connect-pta.md) 
 - [Co to jest federacja?](whatis-fed.md) 

@@ -1,14 +1,14 @@
 ---
-title: Omówienie sieci szkieletowej usług na platformie Azure
+title: Omówienie Service Fabric na platformie Azure
 description: Omówienie usługi Service Fabric obsługującej aplikacje złożone z wielu mikrousług, co umożliwia zapewnienie skalowalności i odporności. Service Fabric to platforma systemów rozproszonych używana do tworzenia skalowalnych i niezawodnych aplikacji dla chmury, które są łatwe w zarządzaniu.
 ms.topic: overview
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 3c8eb7ead7851c311c79c2f9e9bdc7e703c3af71
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75747488"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Omówienie usługi Azure Service Fabric
@@ -20,17 +20,17 @@ Ten krótki klip wideo zawiera wprowadzenie do usługi Service Fabric i mikrous�
 
 ## <a name="compliance"></a>Zgodność
 
-Dostawca zasobów sieci szkieletowej usługi Azure jest dostępny we wszystkich regionach platformy Azure i jest zgodny ze wszystkimi certyfikatami zgodności, które ma platforma Azure; obejmuje to: SOC, ISO, PCI DSS, HIPAA i GDPR. Aby uzyskać pełną listę certyfikatów zgodności, zapoznaj się z [poniższymi opiniami:](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Dostawca zasobów usługi Azure Service Fabric jest dostępny we wszystkich regionach świadczenia usługi Azure i jest zgodny ze wszystkimi certyfikatami zgodności, które obejmuje platforma Azure; obejmuje to następujące elementy: SOC, ISO, PCI DSS, HIPAA i Rodo. Aby uzyskać pełną listę certyfikatów zgodności, zapoznaj się z poniższymi tematami: [oferty zgodności](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Aplikacje złożone z mikrousług
 
-Sieci szkieletowej usług umożliwia tworzenie i zarządzanie skalowalne i niezawodne aplikacje składające się z mikrousług. Te rozproszone mikrousługi są uruchamiane z dużą gęstością na udostępnionej puli komputerów, która jest nazywana klastrem. Usługa Sieci szkieletowej zapewnia zaawansowane, lekkie środowisko uruchomieniowe, które obsługuje bezstanowe i stanowe mikrousług. Zapewnia również kompleksowe możliwości zarządzania aplikacjami do inicjowania obsługi administracyjnej, wdrażania, monitorowania, uaktualniania/poprawiania i usuwania wdrożonych aplikacji.
+Service Fabric umożliwia tworzenie skalowalnych i niezawodnych aplikacji składających się z mikrousług oraz zarządzanie nimi. Te rozproszone mikrousługi są uruchamiane z dużą gęstością w udostępnionej puli maszyn, która jest określana jako klaster. Service Fabric zapewnia zaawansowane, lekkie środowisko uruchomieniowe, które obsługuje mikrousługi bezstanowe i stanowe. Zapewnia również kompleksowe funkcje zarządzania aplikacjami umożliwiające inicjowanie, wdrażanie, monitorowanie i uaktualnianie oraz usuwanie wdrożonych aplikacji.
 
 Usługa Service Fabric została zaprojektowana z myślą o tworzeniu natywnych aplikacji chmurowych, które można skalować stosownie do potrzeb, od małych początkowych rozmiarów do ogromnej skali z setkami, a nawet tysiącami maszyn. Współczesne usługi internetowe złożone są z mikrousług. Przykładami mikrousług są bramy protokołów, profile użytkowników, koszyki zakupów, usługi przetwarzania spisów, kolejki czy pamięci podręczne.
 
 Usługa Service Fabric jest obecnie podstawą działania wielu usług firmy Microsoft, takich jak Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype dla firm i wiele kluczowych usług platformy Azure.
 
-Sieci szkieletowej usług hostuje mikrousług wewnątrz kontenerów, które są wdrażane i aktywowane w klastrze sieci szkieletowej usług. Przejście od maszyn wirtualnych do kontenerów umożliwia zwiększenie gęstości o rząd wielkości. Gęstość można zwiększyć o kolejny rząd wielkości, przechodząc od kontenerów do mikrousług w kontenerach. Na przykład jeden klaster usługi Azure SQL Database obejmuje setki maszyn, na których działają dziesiątki tysięcy kontenerów, w których hostowane są łącznie setki tysięcy baz danych. Każda baza danych jest stanową mikrousługą usługi Service Fabric.
+Service Fabric hostuje mikrousługi wewnątrz kontenerów, które są wdrażane i aktywowane w ramach klastra Service Fabric. Przejście od maszyn wirtualnych do kontenerów umożliwia zwiększenie gęstości o rząd wielkości. Gęstość można zwiększyć o kolejny rząd wielkości, przechodząc od kontenerów do mikrousług w kontenerach. Na przykład jeden klaster usługi Azure SQL Database obejmuje setki maszyn, na których działają dziesiątki tysięcy kontenerów, w których hostowane są łącznie setki tysięcy baz danych. Każda baza danych jest stanową mikrousługą usługi Service Fabric.
 
 Aby dowiedzieć się więcej na temat podejścia opartego na mikrousługach, zapoznaj się z artykułem [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Dlaczego warto tworzyć aplikacje z użyciem mikrousług?).
 
@@ -60,7 +60,7 @@ Usługa Service Fabric zapewnia obsługę całego cyklu życia aplikacji i ciąg
 
 Funkcje zarządzania cyklem życia aplikacji w usłudze Service Fabric umożliwiają administratorom aplikacji i operatorom IT inicjowanie obsługi, wdrażanie, poprawianie i monitorowanie aplikacji z użyciem prostych przepływów pracy wymagających niewielkich nakładów pracy. Dzięki tym wbudowanym przepływom pracy zapewnienie ciągłej dostępności aplikacji wymaga od operatorów IT znacznie mniej wysiłku.
 
-Większość aplikacji łączy w sobie różne mikrousługi stanowe i bezstanowe, kontenery i inne elementy wykonywalne, wdrażane razem. Dzięki silnej typizacji aplikacji usługa Service Fabric umożliwia wdrażanie wielu wystąpień aplikacji. Każde wystąpienie jest zarządzane i uaktualniane niezależnie. Co istotne, usługa Service Fabric umożliwia wdrażanie kontenerów lub dowolnych elementów wykonywalnych i zapewnienie ich niezawodności. Na przykład sieć szkieletowa usług można wdrożyć .NET, ASP.NET Core, Python, Node.js, kontenery systemu Windows, kontenery systemu Linux, maszyny wirtualne Java, skrypty, angular lub dosłownie wszystko, co składa się na aplikację.
+Większość aplikacji łączy w sobie różne mikrousługi stanowe i bezstanowe, kontenery i inne elementy wykonywalne, wdrażane razem. Dzięki silnej typizacji aplikacji usługa Service Fabric umożliwia wdrażanie wielu wystąpień aplikacji. Każde wystąpienie jest zarządzane i uaktualniane niezależnie. Co istotne, usługa Service Fabric umożliwia wdrażanie kontenerów lub dowolnych elementów wykonywalnych i zapewnienie ich niezawodności. Na przykład Service Fabric może wdrożyć platformę .NET, ASP.NET Core, Python, Node. js, kontenery systemu Windows, kontenery Linux, maszyny wirtualne Java, skrypty, elementy kątowe lub dosłownie wszystko, co składa się na aplikację.
 
 Usługa Service Fabric jest zintegrowana z narzędziami do obsługi cyklu ciągłej integracja/ciągłego wdrażania, takimi jak [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) czy [Octopus Deploy](https://octopus.com/), i współdziała też z innymi popularnymi narzędziami CI/CD.
 

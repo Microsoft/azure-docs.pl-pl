@@ -1,6 +1,6 @@
 ---
-title: Omówienie obciążeń red hat na platformie Azure | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o ofertach produktów Red Hat dostępnych na platformie Azure.
+title: Obciążenia Red Hat na platformie Azure — omówienie | Microsoft Docs
+description: Dowiedz się więcej o ofercie produktów Red Hat dostępnych na platformie Azure.
 services: virtual-machines-linux
 author: asinn826
 manager: borisb2015
@@ -10,55 +10,55 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78970171"
 ---
-# <a name="red-hat-workloads-on-azure"></a>Obciążenia red hat na platformie Azure
+# <a name="red-hat-workloads-on-azure"></a>Obciążenia Red Hat na platformie Azure
 
-Obciążenia Red Hat są obsługiwane za pośrednictwem różnych ofert na platformie Azure. Obrazy Red Hat Enterprise Linux (RHEL) znajdują się w centrum obciążeń RHEL, podobnie jak red hat update infrastructure (RHUI).
+Obciążenia Red Hat są obsługiwane przez różne oferty na platformie Azure. Obrazy Red Hat Enterprise Linux (RHEL) są podstawą obciążeń RHEL, podobnie jak infrastruktura aktualizacji Red Hat (RHUI).
 
 ## <a name="red-hat-enterprise-linux-images"></a>Obrazy Red Hat Enterprise Linux
 
-Platforma Azure oferuje szeroką ofertę obrazów RHEL na platformie Azure. Te obrazy są udostępniane za pośrednictwem dwóch różnych modeli licencjonowania: pay-as-you-go i bring-your-own-subscription (BYOS). Nowe obrazy RHEL na platformie Azure są publikowane, gdy nowe wersje RHEL są wydawane i aktualizowane w całym cyklu życia, w razie potrzeby.
+Platforma Azure oferuje szeroką ofertę obrazów RHEL na platformie Azure. Te obrazy są udostępniane przez dwa różne modele licencjonowania: płatność zgodnie z rzeczywistym użyciem i przenoszenie własnych subskrypcji (BYOS). Nowe obrazy RHEL na platformie Azure są publikowane, gdy nowe wersje RHEL zostały wydane i zaktualizowane w całym cyklu życia, zgodnie z potrzebami.
 
-### <a name="pay-as-you-go-images"></a>Obrazy płatności zgodnie z rzeczywistymi płatnościami
+### <a name="pay-as-you-go-images"></a>Obrazy z opcją płatność zgodnie z rzeczywistym użyciem
 
-Platforma Azure oferuje wiele obrazów rhel pay-as-you-go. Te obrazy są prawidłowo uprawnione do RHEL i są dołączone do źródła aktualizacji (Red Hat Update Infrastructure). Te obrazy pobierają opłatę premium za uprawnienia i aktualizacje RHEL. Warianty obrazów rhel pay-as-you-go obejmują:
+Platforma Azure oferuje różne obrazy z opcją płatność zgodnie z rzeczywistym użyciem. Te obrazy są prawidłowo uprawnione do RHEL i są dołączone do źródła aktualizacji (infrastruktura aktualizacji Red Hat). Te obrazy pobierają opłaty za usługę Premium za RHEL i aktualizacje. RHEL z wynagrodzeniem z płatność zgodnie z rzeczywistym użyciem obejmują:
 
-* Standardowy RHEL.
+* Standardowa RHEL.
 * RHEL dla SAP.
-* RHEL dla SAP z usługami o wysokiej dostępności i aktualizacji.
+* RHEL for SAP z usługami wysokiej dostępności i aktualizacji.
 
-Możesz użyć obrazów płatności zgodnie z rzeczywistym użyciem, jeśli nie chcesz martwić się o płacenie oddzielnie za odpowiednią liczbę subskrypcji.
+Możesz chcieć użyć obrazów z płatnością zgodnie z rzeczywistym użyciem, jeśli nie chcesz martwić się o płatność za właściwą liczbę subskrypcji.
 
-### <a name="red-hat-gold-images"></a>Red Hat Gold Obrazy
+### <a name="red-hat-gold-images"></a>Obrazy Red Hat Gold
 
-Platforma Azure oferuje również`rhel-byos`obrazy Red Hat Gold ( ). Te obrazy mogą być przydatne dla klientów, którzy mają istniejące subskrypcje Red Hat i chcą ich używać na platformie Azure. Musisz włączyć istniejące subskrypcje Red Hat dla red hat cloud access, zanim będzie można ich używać na platformie Azure. Dostęp do tych obrazów jest przyznawany automatycznie, gdy subskrypcje Red Hat są włączone dla usługi Cloud Access i spełniają wymagania kwalifikacyjne. Korzystanie z tych obrazów pozwala klientowi uniknąć podwójnego fakturowania, które mogą być poniesione przy użyciu obrazów płatności zgodnie z rzeczywistym użyciem.
-* Dowiedz się, jak [włączyć subskrypcje Red Hat dla usługi Cloud Access za pomocą platformy Azure.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs)
-* Dowiedz się, jak [znaleźć obrazy Red Hat Gold w witrynie Azure portal, platformie Azure CLI lub powiększącym programie PowerShell.](./byos.md)
+Platforma Azure oferuje również obrazy Red Hat Gold`rhel-byos`(). Te obrazy mogą być przydatne dla klientów, którzy mają istniejące subskrypcje Red Hat i chcą korzystać z nich na platformie Azure. Musisz włączyć istniejące subskrypcje Red Hat dla usługi Red Hat Cloud Access, aby móc używać ich na platformie Azure. Dostęp do tych obrazów jest udzielany automatycznie po włączeniu subskrypcji Red Hat w celu uzyskania dostępu do chmury i spełnienia wymagań dotyczących uprawnień. Dzięki tym obrazom klient może uniknąć podwójnego rozliczania, które mogą być naliczane z używania obrazów z płatnością zgodnie z rzeczywistym użyciem.
+* Dowiedz się, jak [włączyć subskrypcję Red Hat dla dostępu do chmury przy użyciu platformy Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs).
+* Dowiedz się [, jak znaleźć obrazy Red Hat Gold w Azure Portal, interfejsie wiersza polecenia platformy Azure lub w poleceniu cmdlet programu PowerShell](./byos.md).
 
 > [!NOTE]
-> Podwójne rozliczenie jest naliczane, gdy użytkownik płaci dwa razy za subskrypcje RHEL. Ten scenariusz zwykle dzieje się, gdy klient używa Red Hat Subscription-Manager do dołączenia uprawnienia na maszynie wirtualnej RHEL pay-as-you-go. Na przykład klient, który używa Menedżera subskrypcji do dołączenia uprawnienia do pakietów SAP na obrazie płatności zgodnie z rzeczywistym użyciem RHEL, jest pośrednio dwukrotnie rozliczany, ponieważ płaci dwa razy za RHEL. Płacą raz za pośrednictwem opłaty premium zgodnie z rzeczywistyma posuwem, a raz za pośrednictwem subskrypcji SAP. Ten scenariusz nie zdarza się użytkownikom obrazów BYOS.
+> Podwójne rozliczenie jest naliczane, gdy użytkownik płaci dwa razy w przypadku subskrypcji RHEL. Ten scenariusz zwykle występuje, gdy klient korzysta z programu Red Hat Subscription-Manager w celu dołączenia uprawnień do maszyny wirtualnej z płatnością zgodnie z rzeczywistym użyciem. Na przykład klient używający usługi Subscription Manager do dołączania uprawnień do pakietów SAP na RHEL obraz z płatnością zgodnie z rzeczywistym użyciem jest pośrednio podwójnie rozliczany, ponieważ płacą dwa razy dla RHEL. Są one płatne jednokrotnie przy użyciu opłaty za usługę płatność zgodnie z rzeczywistym użyciem oraz za pomocą ich subskrypcji SAP. Ten scenariusz nie ma na celu BYOS użytkowników obrazu.
 
 ### <a name="generation-2-images"></a>Obrazy generacji 2
 
-Maszyny wirtualne generacji 2 zapewniają kilka nowszych funkcji w porównaniu do maszyn wirtualnych generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Kluczową różnicą w porównaniu z perspektywą obrazu RHEL jest to, że maszyny wirtualne generacji 2 używają UEFI zamiast interfejsu oprogramowania układowego BIOS. Używają również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala między innymi na rozmiary dysków systemu operacyjnego większe niż 2 TB. Ponadto maszyny [wirtualne z serii Mv2](../../mv2-series.md) działają tylko na obrazach generacji 2.
+Maszyny wirtualne generacji 2 zapewniają nowe funkcje w porównaniu z maszynami wirtualnymi generacji 1. Aby uzyskać więcej informacji, zobacz [dokumentację generacji 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). Różnica klucza z perspektywy obrazu RHEL polega na tym, że maszyny wirtualne 2. generacji używają interfejsu UEFI zamiast systemu BIOS. Używają one również tabeli partycji GUID (GPT) zamiast głównego rekordu rozruchowego (MBR) w czasie rozruchu. Użycie GPT pozwala na, między innymi, rozmiary dysków systemu operacyjnego o rozmiarze większym niż 2 TB. Ponadto [maszyny wirtualne z serii Mv2](../../mv2-series.md) są uruchamiane tylko na obrazach generacji 2.
 
-Obrazy RHEL generacji 2 są dostępne w portalu Azure Marketplace. Poszukaj "gen2" w jednostce SKU obrazu na liście wszystkich obrazów, która pojawia się podczas korzystania z interfejsu wiersza polecenia platformy Azure. Przejdź do karty **Zaawansowane** w procesie wdrażania maszyny Wirtualnej, aby wdrożyć maszynę wirtualną generacji 2.
+Obrazy generacji RHEL 2 są dostępne w portalu Azure Marketplace. Poszukaj "Gen2" w jednostce SKU obrazu na liście wszystkich obrazów, które są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure. Przejdź do karty **Zaawansowane** w procesie wdrażania maszyny wirtualnej, aby wdrożyć maszynę wirtualną generacji 2.
 
 ## <a name="red-hat-update-infrastructure"></a>Infrastruktura aktualizacji systemu Red Hat
 
-Platforma Azure udostępnia infrastrukturę red hat update tylko dla maszyn wirtualnych RHEL zgodnie z rzeczywistym po łączye. RHUI jest skutecznie dublowanie red hat cdn, ale jest dostępny tylko dla platformy Azure pay-as-you-go maszyn wirtualnych RHEL. Masz dostęp do odpowiednich pakietów w zależności od tego, który obraz RHEL został wdrożony. Na przykład obraz RHEL dla SAP ma dostęp do pakietów SAP oprócz podstawowych pakietów RHEL.
+Platforma Azure udostępnia infrastrukturę aktualizacji Red Hat tylko dla maszyn wirtualnych z opcją płatność zgodnie z rzeczywistym użyciem. RHUI jest skutecznym dublowaniem Red Hat sieci CDN, ale jest dostępny tylko dla maszyn wirtualnych z systemem Azure z opcją płatność zgodnie z rzeczywistym użyciem. Masz dostęp do odpowiednich pakietów w zależności od tego, który obraz RHEL został wdrożony. Na przykład obraz RHEL dla oprogramowania SAP ma dostęp do pakietów SAP oprócz podstawowych pakietów RHEL.
 
 ### <a name="rhui-update-behavior"></a>Zachowanie aktualizacji RHUI
 
-Obrazy RHEL podłączone domyślnie do aktualizacji RHUI do `yum update` najnowszej wersji pomocniczej RHEL po uruchomieniu. To zachowanie oznacza, że maszyna wirtualna RHEL 7.4 może zostać uaktualniona do RHEL 7.7, jeśli `yum update` operacja jest na nim uruchamiana. To zachowanie jest projektowane dla RHUI. Aby załagodzić to zachowanie uaktualnienia, przełącz się z zwykłych repozytoriów RHEL na [repozytoria rozszerzonej obsługi aktualizacji](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
+Obrazy RHEL połączone z aktualizacją RHUI domyślnie do najnowszej wersji pomocniczej RHEL w przypadku `yum update` uruchomienia. Takie zachowanie oznacza, że maszyna wirtualna z systemem RHEL 7,4 może zostać uaktualniona do `yum update` RHEL 7,7, jeśli operacja zostanie uruchomiona na tym komputerze. To zachowanie jest zaprojektowane dla RHUI. Aby wyeliminować to zachowanie uaktualnienia, przełączać się od zwykłych repozytoriów RHEL do [rozszerzonych repozytoriów pomocy technicznej aktualizacji](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się więcej o [obrazach RHEL na platformie Azure](./redhat-images.md).
 * Dowiedz się więcej o [infrastrukturze aktualizacji Red Hat](./redhat-rhui.md).
-* Dowiedz się więcej o [ofercie`rhel-byos`Red Hat Gold Image ( )](./byos.md).
+* Dowiedz się więcej na temat [oferty Red Hat`rhel-byos`Gold Image ()](./byos.md).

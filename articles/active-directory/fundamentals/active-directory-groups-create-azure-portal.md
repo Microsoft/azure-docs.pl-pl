@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c551a81788df8d68664abaa03f467a4521222d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73473467"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Tworzenie grupy podstawowej i dodawanie członków przy użyciu usługi Azure Active Directory
@@ -31,33 +31,33 @@ Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania czło
 
 1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
 
-    ![Strona usługi Azure AD z pokazami grup](media/active-directory-groups-create-azure-portal/search-active-directory.png)
+    ![Strona usługi Azure AD z pokazywaniem grup](media/active-directory-groups-create-azure-portal/search-active-directory.png)
 
-1. Na stronie **Active Directory** wybierz pozycję **Grupy,** a następnie wybierz pozycję **Nowa grupa**.
+1. Na stronie **Active Directory** wybierz pozycję **grupy** , a następnie wybierz pozycję **Nowa grupa**.
 
-    ![Strona usługi Azure AD z pokazami grup](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Strona usługi Azure AD z pokazywaniem grup](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-1. Na stronie **Nowa grupa** wypełnij wymagane informacje.
+1. Na stronie **Nowa grupa** wprowadź wymagane informacje.
 
     ![Strona nowej grupy wypełniona za pomocą informacji z przykładu](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-   - **Typ grupy (wymagany).** Wybierz wstępnie zdefiniowany typ grupy. Obejmuje to: - **Bezpieczeństwo**. Używany do zarządzania dostępem członków i komputerów do udostępnionych zasobów dla grupy użytkowników. Na przykład można utworzyć grupę zabezpieczeń dla konkretnych zasad zabezpieczeń. W ten sposób można jednocześnie udzielić zestawu uprawnień wszystkim członkom zamiast udzielania uprawnień każdemu członkowi osobno. Aby uzyskać więcej informacji na temat zarządzania dostępem do zasobów, zobacz [Zarządzanie dostępem do zasobów przy użyciu grup usługi Azure Active Directory](active-directory-manage-groups.md).
-               - **Usługa Office 365**. Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia także udzielenie dostępu do grupy osobom spoza organizacji. Aby uzyskać więcej informacji na temat grup usługi Office 365, zobacz [Więcej informacji na temat grup usługi Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+   - **Typ grupy (wymagany).** Wybierz wstępnie zdefiniowany typ grupy. Obejmuje to: — **zabezpieczenia**. Używany do zarządzania dostępem członków i komputerów do udostępnionych zasobów dla grupy użytkowników. Na przykład można utworzyć grupę zabezpieczeń dla konkretnych zasad zabezpieczeń. W ten sposób można jednocześnie udzielić zestawu uprawnień wszystkim członkom zamiast udzielania uprawnień każdemu członkowi osobno. Aby uzyskać więcej informacji na temat zarządzania dostępem do zasobów, zobacz [Zarządzanie dostępem do zasobów przy użyciu grup usługi Azure Active Directory](active-directory-manage-groups.md).
+               - **Pakiet Office 365**. Zapewnia możliwości współpracy przez udostępnienie członkom współużytkowanej skrzynki pocztowej, kalendarza, plików, witryny programu SharePoint i innych. Ta opcja umożliwia również przyznanie osobom spoza organizacji dostępu do grupy. Aby uzyskać więcej informacji na temat grup usługi Office 365, zobacz [Więcej informacji na temat grup usługi Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Nazwa grupy (wymagana).** Dodaj nazwę grupy, która ma znaczenie i którą łatwo zapamiętać. Zostanie przeprowadzona kontrola w celu ustalenia, czy nazwa jest już używana dla innej grupy. Jeśli nazwa jest już używana, aby uniknąć duplikatów nazewnictwa, zostaniesz poproszony o zmodyfikowanie nazwy grupy.
+   - **Nazwa grupy (wymagana).** Dodaj nazwę grupy, która ma znaczenie i którą łatwo zapamiętać. Sprawdzenie zostanie wykonane w celu ustalenia, czy nazwa jest już używana przez inną grupę. Jeśli nazwa jest już używana, aby uniknąć zduplikowanych nazw, zostanie wyświetlony monit o zmodyfikowanie nazwy grupy.
 
-   - **Grupowa wiadomość e-mail (wymagana).** Dodaj adres e-mail grupy lub zachowaj adres e-mail, który jest wypełniany automatycznie.
+   - **Adres e-mail grupy (wymagane).** Dodaj adres e-mail dla grupy lub Zachowaj adres e-mail, który jest wypełniany automatycznie.
 
    - **Opis grupy.** Do grupy możesz dodać opcjonalny opis.
 
-   - **Typ członkostwa (wymagany).** Wybierz wstępnie zdefiniowany typ członkostwa. Obejmuje to: - **Przypisane.** Umożliwia dodanie do grupy określonych użytkowników z unikatowymi uprawnieniami. Na potrzeby tego artykułu użyjemy tej opcji.
-          - **Dynamiczny użytkownik.** Umożliwia automatyczne dodawanie i usuwanie członków za pomocą dynamicznych reguł członkostwa. Jeśli atrybuty członka zmienią się, system sprawdzi reguły grupy dynamicznej w katalogu, aby określić, czy członek spełnia wymagania reguły (zostanie dodany), czy też nie spełnia już wymagań reguł (zostanie usunięty).
+   - **Typ członkostwa (wymagany).** Wybierz wstępnie zdefiniowany typ członkostwa. Obejmuje to: **przypisane.** Umożliwia dodanie do grupy określonych użytkowników z unikatowymi uprawnieniami. Na potrzeby tego artykułu użyjemy tej opcji.
+          - **Użytkownik dynamiczny.** Umożliwia używanie reguł członkostwa dynamicznego do automatycznego dodawania i usuwania członków. Jeśli atrybuty członka zmienią się, system sprawdzi reguły grupy dynamicznej w katalogu, aby określić, czy członek spełnia wymagania reguły (zostanie dodany), czy też nie spełnia już wymagań reguł (zostanie usunięty).
           - **Urządzenie dynamiczne.** Umożliwia korzystanie z reguł grupy dynamicznej do automatycznego dodawania i usuwania urządzeń. Jeśli atrybuty urządzenia zmienią się, system sprawdzi reguły grupy dynamicznej w katalogu, aby określić, czy urządzenie spełnia wymagania reguły (zostanie dodane), czy też nie spełnia już wymagań reguł (zostanie usunięte).
 
         >[!Important]
         >Grupę dynamiczną można utworzyć dla urządzeń lub użytkowników, ale nie dla obu tych elementów. Ponadto nie można utworzyć grupy urządzeń na podstawie atrybutów właścicieli urządzeń. Reguły członkostwa urządzenia mogą przywoływać tylko atrybuty urządzeń. Aby uzyskać więcej informacji na temat tworzenia grupy dynamicznej dla użytkowników i urządzeń, zobacz [Tworzenie grupy dynamicznej i sprawdzanie stanu](../users-groups-roles/groups-create-rule.md).
 
-1. Wybierz **pozycję Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
     Grupa zostanie utworzona i będzie gotowa na dodanie członków.
 
@@ -73,7 +73,7 @@ Istnieje możliwość jednoczesnego utworzenia grupy podstawowej i dodania czło
 
 ## <a name="turn-on-or-off-welcome-email"></a>Włączanie lub wyłączanie powitalnej poczty e-mail
 
-Po utworzeniu nowej grupy usługi Office 365, niezależnie od tego, czy istnieje członkostwo dynamiczne, czy statyczne, powiadomienie powitalne jest wysyłane do wszystkich użytkowników, którzy zostaną dodani do grupy. Po zmianie jakichkolwiek atrybutów użytkownika lub urządzenia wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem potencjalnych zmian członkostwa. Użytkownicy, którzy zostaną dodana, otrzymają również powiadomienie powitalne. To zachowanie można wyłączyć w [programie Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Po utworzeniu nowej grupy pakietu Office 365, niezależnie od tego, czy jest to dynamiczny czy statyczny, powiadomienie powitalne jest wysyłane do wszystkich użytkowników, którzy są dodawani do grupy. Po zmianie atrybutów użytkownika lub urządzenia wszystkie reguły grupy dynamicznej w organizacji są przetwarzane pod kątem potencjalnych zmian członkostwa. Dodani użytkownicy otrzymują również powiadomienie powitalne. To zachowanie można wyłączyć w programie [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz, po dodaniu grupy i co najmniej jednego użytkownika, możesz wykonywać następujące działania:

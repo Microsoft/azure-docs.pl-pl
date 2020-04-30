@@ -1,6 +1,6 @@
 ---
-title: Konfigurowanie informacji zabezpieczających z monitu logowania — Usługa Azure AD
-description: Jak skonfigurować informacje zabezpieczające dla konta służbowego po wyświetleniu monitu ze strony logowania w organizacji.
+title: Skonfiguruj informacje zabezpieczające na podstawie monitu logowania — Azure AD
+description: Jak skonfigurować informacje zabezpieczające dla konta służbowego, po wyświetleniu monitu ze strony logowania w organizacji.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,25 +12,25 @@ ms.topic: overview
 ms.date: 04/07/2020
 ms.author: curtand
 ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81454489"
 ---
-# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Konfigurowanie informacji zabezpieczających z monitu logowania
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Skonfiguruj informacje zabezpieczające na podstawie monitu logowania
 
 Następujące kroki można wykonać w przypadku wyświetlenia monitu o skonfigurowanie informacji zabezpieczających natychmiast po zalogowaniu się na konto służbowe.
 
-Ten monit będzie widoczny tylko wtedy, gdy nie skonfigurowałeś informacji zabezpieczających wymaganych przez organizację. Jeśli Twoje informacje zabezpieczające zostały już skonfigurowane wcześniej, ale chcesz wprowadzić zmiany, możesz wykonać kroki opisane w artykułach z instrukcjami dotyczącymi różnych metod. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji zabezpieczających — omówienie](security-info-add-update-methods-overview.md).
+Ten monit będzie wyświetlany tylko wtedy, gdy nie skonfigurowano informacji zabezpieczających wymaganych przez organizację. Jeśli Twoje informacje zabezpieczające zostały już skonfigurowane wcześniej, ale chcesz wprowadzić zmiany, możesz wykonać kroki opisane w artykułach z instrukcjami dotyczącymi różnych metod. Aby uzyskać więcej informacji, zobacz [Dodawanie lub aktualizowanie informacji zabezpieczających — omówienie](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Weryfikacja zabezpieczeń a uwierzytelnianie resetowania hasła
 
-Metody informacji zabezpieczających są używane zarówno do weryfikacji zabezpieczeń dwuskładnikowych, jak i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
+Metody informacji zabezpieczających są używane do weryfikacji zabezpieczeń dwuskładnikowych i resetowania hasła. Jednak nie wszystkie metody mogą służyć do obu celów.
 
-| Metoda | Używana do |
+| Metoda | Sposób użycia |
 | ------ | -------- |
 | Aplikacja Authenticator | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
 | Wiadomości SMS | Weryfikacja dwuskładnikowa i uwierzytelnianie za pomocą resetowania hasła. |
@@ -70,7 +70,7 @@ Wykonaj następujące kroki, aby skonfigurować informacje zabezpieczające dla 
 4. Otwórz aplikację Microsoft Authenticator, zezwól na powiadomienia (jeśli pojawi się monit), wybierz pozycję **Dodaj konto** z menu ikony **Dostosowywanie i kontrolowanie** w prawym górnym rogu, a następnie wybierz pozycję **Konto służbowe**.
 
     >[!Note]
-    >Jeśli po raz pierwszy konfigurujesz aplikację Microsoft Authenticator, może pojawić się monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na robienia zdjęć i nagrywania wideo (Android). Musisz wybrać **opcję Zezwalaj,** aby aplikacja uwierzytelniającego mogła uzyskać dostęp do aparatu, aby zrobić zdjęcie kodu QR w następnym kroku. Jeśli nie zezwolisz na aparat, nadal możesz skonfigurować aplikację uwierzytelniacza, ale musisz ręcznie dodać informacje o kodzie. Aby uzyskać informacje dotyczące ręcznego dodawania kodu, zobacz [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
+    >Jeśli konfigurujesz aplikację Microsoft Authenticator po raz pierwszy, może zostać wyświetlony monit z pytaniem, czy zezwolić aplikacji na dostęp do aparatu (iOS), czy zezwolić aplikacji na wykonywanie zdjęć i nagrywanie wideo (Android). Musisz wybrać opcję **Zezwól** , aby aplikacja Authenticator mogła uzyskać dostęp do Twojego aparatu, aby w następnym kroku uzyskać zdjęcie kodu QR. Jeśli nie zezwolisz na korzystanie z aparatu, nadal możesz skonfigurować aplikację uwierzytelniającej, ale musisz ręcznie dodać informacje o kodzie. Aby dowiedzieć się, jak ręcznie dodać kod, zobacz temat [Ręczne dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
 5. Wróć na stronę **Konfigurowanie konta** na komputerze, a następnie wybierz pozycję **Dalej**.
 
@@ -80,7 +80,7 @@ Wykonaj następujące kroki, aby skonfigurować informacje zabezpieczające dla 
 
 6. Zeskanuj podany kod przy użyciu czytnika kodów QR aplikacji Microsoft Authenticator, który pojawił się na urządzeniu mobilnym po utworzeniu konta służbowego w kroku 5.
 
-    Aplikacja Authenticator powinna pomyślnie dodać konto służbowe bez konieczności podawania żadnych dodatkowych informacji przez użytkownika. Jeśli jednak czytnik kodów QR nie może odczytać kodu, możesz wybrać **obraz Nie można zeskanować obrazu QR** i ręcznie wprowadzić kod i adres URL w aplikacji Microsoft Authenticator. Aby uzyskać więcej informacji na temat ręcznego dodawania kodu, zobacz [Ręcznie dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
+    Aplikacja Authenticator powinna pomyślnie dodać konto służbowe bez konieczności podawania żadnych dodatkowych informacji przez użytkownika. Jeśli jednak czytnik kodu QR nie może odczytać kodu, możesz wybrać opcję **nie można zeskanować obrazu QR** i ręcznie wprowadzić kod i adres URL do aplikacji Microsoft Authenticator. Aby uzyskać więcej informacji na temat ręcznego dodawania kodu, zobacz [Ręcznie dodawanie konta do aplikacji](user-help-auth-app-add-account-manual.md).
 
 7. Wybierz pozycję **Dalej** na stronie **Zeskanuj kod QR** na komputerze.
 
@@ -115,36 +115,36 @@ Wykonaj następujące kroki, aby skonfigurować informacje zabezpieczające dla 
     ![Strona pomyślnego zakończenia kreatora](media/security-info/securityinfo-prompt-setup-success.png)
 
     >[!Note]
-    >Jeśli organizacja wymaga używania haseł aplikacji, w tym kreatorze może zostać wyświetlona dodatkowa sekcja, w której można ją skonfigurować. Jeśli widzisz trzecią sekcję, zwaną **hasłami aplikacji,** musisz ją wypełnić, zanim będzie można ukończyć kreatora. Aby uzyskać instrukcje dotyczące dodawania hasła aplikacji, zobacz sekcję [Zarządzanie hasłami aplikacji](#manage-your-app-passwords) w tym artykule.
+    >Jeśli Twoja organizacja wymaga używania haseł aplikacji, w tym kreatorze może zostać wyświetlona dodatkowa sekcja, w której można ją skonfigurować. Jeśli zobaczysz trzecią sekcję o nazwie **hasła aplikacji**, musisz wypełnić ją, zanim będzie można zakończyć pracę kreatora. Instrukcje dotyczące sposobu dodawania hasła aplikacji znajdują się w sekcji [Zarządzanie hasłami aplikacji](#manage-your-app-passwords) w tym artykule.
 
 ### <a name="manage-your-app-passwords"></a>Zarządzanie hasłami aplikacji
 
-Niektóre aplikacje, takie jak Outlook 2010, nie obsługują weryfikacji dwuetapowej. Ten brak pomocy technicznej oznacza, że jeśli używasz weryfikacji dwuetapowej w organizacji, aplikacja nie będzie działać. Aby obejść ten problem, można utworzyć automatycznie generowane hasło do użycia z każdą aplikacją niebędącą przeglądarką, niezależnie od normalnego hasła.
+Niektóre aplikacje, takie jak Outlook 2010, nie obsługują weryfikacji dwuetapowej. Brak pomocy technicznej oznacza, że jeśli korzystasz z weryfikacji dwuetapowej w organizacji, aplikacja nie będzie działała. Aby obejść ten problem, możesz utworzyć automatycznie generowane hasło, które będzie używane z każdą aplikacją nie korzystającą z przeglądarki, niezależnie od normalnego hasła.
 
 >[!Note]
->Jeśli ta opcja nie jest widoczna w kreatorze, oznacza to, że administrator jej nie skonfigurował. Jeśli ta funkcja nie jest skonfigurowana, ale wiesz, że musisz używać haseł aplikacji, możesz wykonać czynności opisane na [stronie Konfigurowanie haseł aplikacji na stronie Informacje o zabezpieczeniach](security-info-app-passwords.md).
+>Jeśli ta opcja nie jest widoczna w kreatorze, oznacza to, że administrator nie skonfigurował tego ustawienia. Jeśli nie skonfigurowano tego ustawienia, ale wiesz, że musisz używać haseł aplikacji, możesz wykonać czynności opisane w sekcji [Konfigurowanie haseł aplikacji ze strony informacje zabezpieczające](security-info-app-passwords.md).
 
-Podczas korzystania z haseł aplikacji należy pamiętać:
+W przypadku korzystania z haseł aplikacji ważne jest, aby pamiętać:
 
-- Hasła aplikacji są automatycznie generowane i wprowadzane tylko raz na aplikację.
+- Hasła aplikacji są generowane automatycznie i wprowadzane tylko raz dla każdej aplikacji.
 
-- Istnieje limit 40 haseł na użytkownika. Jeśli spróbujesz utworzyć go po tym limicie, zostanie wyświetlony monit o usunięcie istniejącego hasła, zanim zostanie wyświetlony możliwość utworzenia nowego.
+- Dla każdego użytkownika istnieje limit 40 haseł. Jeśli spróbujesz utworzyć jeden po tym limicie, zostanie wyświetlony monit o usunięcie istniejącego hasła przed utworzeniem nowego.
 
-- Użyj jednego hasła aplikacji na urządzenie, a nie na aplikację. Na przykład utwórz jedno hasło dla wszystkich aplikacji na komputerze przenośnym, a następnie kolejne jedno hasło dla wszystkich aplikacji na pulpicie.
+- Użyj jednego hasła aplikacji na urządzenie, a nie na aplikację. Na przykład utwórz jedno hasło dla wszystkich aplikacji na laptopie, a następnie inne pojedyncze hasło dla wszystkich aplikacji na pulpicie.
 
-#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Aby dodać hasła aplikacji w kreatorze logowania
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Aby dodać hasła aplikacji w Kreatorze logowania
 
-1. Po zakończeniu poprzednich sekcji kreatora wybierz pozycję **Dalej** i wypełnij sekcję **Hasło aplikacji.**
+1. Po zakończeniu poprzednich sekcji kreatora wybierz pozycję **dalej** i wypełnij sekcję **hasło aplikacji** .
 
-2. Wpisz nazwę aplikacji, która potrzebuje hasła, `Outlook 2010`na przykład , a następnie wybierz przycisk **Dalej**.
+2. Wpisz nazwę aplikacji, która wymaga hasła, na przykład `Outlook 2010`, a następnie wybierz przycisk **dalej**.
 
-    ![Dodawanie nazwy hasła aplikacji do kreatora](media/security-info/app-password-app-password.png)
+    ![Dodaj nazwę hasła aplikacji w Kreatorze](media/security-info/app-password-app-password.png)
 
-3. Skopiuj kod hasła z ekranu **hasła aplikacji** i wklej go do obszaru **Hasło** aplikacji (w tym przykładzie programu Outlook 2010).
+3. Skopiuj kod hasła z ekranu **hasła aplikacji** i wklej go do obszaru **hasło** aplikacji (w tym przykładzie w programie Outlook 2010).
 
     ![Strona hasła aplikacji z hasłem do kopiowania](media/security-info/app-password-copy-password.png)
 
-4. Po skopiowaniu hasła i wklejeniu go do aplikacji wróć do tego kreatora, aby upewnić się, że wszystkie informacje o metodzie logowania są dokładne, a następnie wybierz opcję **Gotowe**.
+4. Po skopiowaniu hasła i wklejeniu go w aplikacji Wróć do tego kreatora, aby upewnić się, że wszystkie informacje o metodzie logowania są prawidłowe, a następnie wybierz pozycję **gotowe**.
 
     ![Strona hasła aplikacji z powiadomieniem o zakończeniu](media/security-info/app-password-complete.png)
 
@@ -156,11 +156,11 @@ Podczas korzystania z haseł aplikacji należy pamiętać:
 
     - [Skonfiguruj informacje zabezpieczające dla wiadomości tekstowych](security-info-setup-text-msg.md).
 
-    - [Skonfiguruj informacje zabezpieczające do korzystania z połączeń telefonicznych](security-info-setup-phone-number.md).
+    - [Skonfiguruj informacje zabezpieczające, aby korzystać z połączeń telefonicznych](security-info-setup-phone-number.md).
 
-    - [Skonfiguruj informacje zabezpieczające do używania poczty e-mail](security-info-setup-email.md).
+    - [Skonfiguruj informacje zabezpieczające do korzystania z poczty e-mail](security-info-setup-email.md).
 
-    - [Skonfiguruj informacje zabezpieczające tak, aby używały wstępnie zdefiniowanych pytań zabezpieczających](security-info-setup-questions.md).
+    - [Skonfiguruj informacje zabezpieczające, aby korzystać ze wstępnie zdefiniowanych pytań zabezpieczających](security-info-setup-questions.md).
 
 - Aby uzyskać informacje o logowaniu za pomocą określonej metody, zobacz [Jak się zalogować](user-help-sign-in.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie zadania usługi Stream Analytics przy użyciu portalu Azure
+title: Szybki Start — Tworzenie zadania Stream Analytics przy użyciu Azure Portal
 description: W tym przewodniku Szybki start pokazano, jak rozpocząć pracę przez utworzenie zadania usługi Stream Analytics, skonfigurowanie danych wejściowych i wyjściowych oraz zdefiniowanie zapytania.
 author: mamccrea
 ms.author: mamccrea
@@ -8,29 +8,29 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75431546"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Szybki start: tworzenie zadania usługi Stream Analytics przy użyciu witryny Azure Portal
 
-W tym przewodniku Szybki start pokazano, jak rozpocząć tworzenie zadania usługi Stream Analytics. W tym przewodniku Szybki start zdefiniujesz zadanie usługi Stream Analytics, które odczytuje dane przesyłane strumieniowo w czasie rzeczywistym i filtruje komunikaty z temperaturą większą niż 27. Zadanie usługi Stream Analytics odczytuje dane z usługi IoT Hub, przekształca dane i zapisuje dane z powrotem do kontenera w magazynie obiektów blob. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi. 
+W tym przewodniku Szybki start pokazano, jak rozpocząć tworzenie zadania usługi Stream Analytics. W tym przewodniku Szybki start zdefiniujesz zadanie usługi Stream Analytics, które odczytuje dane przesyłane strumieniowo w czasie rzeczywistym i filtruje komunikaty z temperaturą większą niż 27. Zadanie Stream Analytics będzie odczytywać dane z IoT Hub, przekształcać dane i zapisywać dane z powrotem do kontenera w usłudze BLOB Storage. Dane wejściowe używane w tym przewodniku Szybki start są generowany przez symulator online Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-* Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+* Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Przygotowywanie danych wejściowych
 
-Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane wejściowe. Dane czujnika w czasie rzeczywistym są pochłonięta przez centrum IoT Hub, które później skonfigurowano jako dane wejściowe zadania. Aby przygotować dane wejściowe wymagane przez zadanie, wykonaj następujące czynności:
+Przed zdefiniowaniem zadania Stream Analytics należy przygotować dane wejściowe. Dane czujnika w czasie rzeczywistym są wprowadzane do IoT Hub, które są później skonfigurowane jako dane wejściowe zadania. Aby przygotować dane wejściowe wymagane przez zadanie, wykonaj następujące czynności:
 
-1. Zaloguj się do [Portalu Azure](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Wybierz **pozycję Utwórz zasób** > Centrum**IoT Hub**internetu**rzeczy** > .
+2. Wybierz pozycję **Utwórz zasób** > **Internet rzeczy** > **IoT Hub**.
 
 3. W okienku **IoT Hub** wprowadź następujące informacje:
    
@@ -61,7 +61,7 @@ Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane 
 
 ## <a name="create-blob-storage"></a>Tworzenie magazynu obiektów blob
 
-1. W lewym górnym rogu witryny Azure portal wybierz pozycję **Utwórz** > **konto magazynu****magazynu** > zasobów .
+1. W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób** > **Storage** > magazyn**konto magazynu**.
 
 2. W okienku **Utwórz konto magazynu** wprowadź nazwę konta magazynu, lokalizację i grupę zasobów. Wybierz tę samą lokalizację i grupę zasobów, co w przypadku utworzonego centrum IoT Hub. Następnie kliknij pozycję **Przeglądanie + tworzenie**, aby utworzyć konto.
 
@@ -77,11 +77,11 @@ Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane 
 
 ## <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**.  
 
-3. Wybierz **Analytics** > **zadanie Analytics Stream Analytics** z listy wyników.  
+3. Wybierz pozycję **Analiza** > **Stream Analytics zadania** z listy wyników.  
 
 4. Wypełnij stronę zadania usługi Stream Analytics następującymi informacjami:
 
@@ -92,7 +92,7 @@ Przed zdefiniowaniem zadania usługi Stream Analytics należy przygotować dane 
    |Grupa zasobów   |   asaquickstart-resourcegroup  |   Wybierz tę samą grupę zasobów, w której znajduje się centrum IoT Hub. |
    |Lokalizacja  |  \<Wybierz region, który jest najbliżej Twoich użytkowników\> | Wybierz lokalizację geograficzną, w której możesz hostować swoje zadania usługi Stream Analytics. Użyj lokalizacji, która jest najbliżej Twoich użytkowników, aby zapewnić lepszą wydajność i zmniejszyć koszty transferu danych. |
    |Jednostki przesyłania strumieniowego  | 1  |   Jednostki przesyłania strumieniowego reprezentują zasoby obliczeniowe, które są wymagane do wykonania zadania. Domyślnie to ustawienie ma wartość 1. Aby dowiedzieć się więcej na temat skalowania jednostek przesyłania strumieniowego, zobacz artykuł [Understanding and adjusting streaming units (Opis i dostosowywanie jednostek przesyłania strumieniowego)](stream-analytics-streaming-unit-consumption.md).   |
-   |Środowisko hostingu  |  Chmura  |   Zadania usługi Stream Analytics można wdrożyć w chmurze lub na urządzeniu brzegowym. Chmura umożliwia wdrożenie w usłudze Azure Cloud, a usługa Edge umożliwia wdrożenie na urządzeniu usługi IoT Edge. |
+   |Środowisko hostingu  |  Chmurowa  |   Zadania usługi Stream Analytics można wdrożyć w chmurze lub na urządzeniu brzegowym. Chmura umożliwia wdrażanie w chmurze platformy Azure, a usługa Edge umożliwia wdrażanie na urządzeniu IoT Edge. |
 
    ![Tworzenie zadania](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -106,7 +106,7 @@ W tej sekcji skonfigurujesz dane wejściowe urządzenia usługi IoT Hub do zadan
 
 1. Przejdź do zadania usługi Stream Analytics.  
 
-2. Wybierz **pozycję Wejścia** > **Dodaj wejście strumienia** > **IoT Hub**.  
+2. Wybierz pozycję **dane** > **wejściowe Dodaj IoT Hub wejściowy** > **IoT Hub**strumienia.  
 
 3. Wypełnij stronę **usługi IoT Hub** następującymi wartościami:
 
@@ -124,7 +124,7 @@ W tej sekcji skonfigurujesz dane wejściowe urządzenia usługi IoT Hub do zadan
 
 1. Przejdź do utworzonego wcześniej zadania usługi Stream Analytics.  
 
-2. Wybierz **pozycję Wyjścia** > **Dodaj** > **magazyn obiektów Blob**.  
+2. Wybierz pozycję dane **wyjściowe** > **Dodaj** > **Magazyn obiektów BLOB**.  
 
 3. Wypełnij stronę **Blob Storage** następującymi wartościami:
 
@@ -152,7 +152,7 @@ W tej sekcji skonfigurujesz dane wejściowe urządzenia usługi IoT Hub do zadan
    HAVING Temperature > 27
    ```
 
-3. W tym przykładzie zapytanie odczytuje dane z centrum IoT Hub i kopiuje je do nowego pliku w obiekcie blob. Wybierz **pozycję Zapisz**.  
+3. W tym przykładzie zapytanie odczytuje dane z centrum IoT Hub i kopiuje je do nowego pliku w obiekcie blob. Wybierz pozycję **Zapisz**.  
 
    ![Konfigurowanie zadania przekształcenia](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
@@ -162,7 +162,7 @@ W tej sekcji skonfigurujesz dane wejściowe urządzenia usługi IoT Hub do zadan
 
 2. Zamień symbol zastępczy w wierszu 15 na parametry połączenia urządzenia usługi Azure IoT Hub, które zostały zapisane w poprzedniej sekcji.
 
-3. Kliknij **przycisk Uruchom**. Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
+3. Kliknij przycisk **Uruchom**. Dane wyjściowe powinny pokazywać dane z czujników i komunikaty, które są wysyłane do usługi IoT Hub.
 
    ![Symulator Raspberry Pi Azure IoT Online Simulator](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
@@ -178,7 +178,7 @@ W tej sekcji skonfigurujesz dane wejściowe urządzenia usługi IoT Hub do zadan
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie jest już potrzebna, usuń grupę zasobów, zadanie usługi Stream Analytics i wszystkie powiązane zasoby. Usunięcie zadania pozwala uniknąć opłat za jednostki przesyłania strumieniowego zużywane przez zadanie. Jeśli planujesz użyć zadania w przyszłości, możesz je zatrzymać i uruchomić ponownie później, gdy będzie potrzebne. Jeśli nie zamierzasz w przyszłości korzystać z tego zadania, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start:
+Gdy grupa zasobów, zadanie Stream Analytics i wszystkie powiązane zasoby nie będą już potrzebne, usuń je. Usunięcie zadania pozwala uniknąć opłat za jednostki przesyłania strumieniowego zużywane przez zadanie. Jeśli planujesz użyć zadania w przyszłości, możesz je zatrzymać i uruchomić ponownie później, gdy będzie potrzebne. Jeśli nie zamierzasz w przyszłości korzystać z tego zadania, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start:
 
 1. W menu znajdującym się po lewej stronie w witrynie Azure Portal wybierz pozycję **Grupy zasobów**, a następnie wybierz nazwę utworzonego zasobu.  
 
@@ -186,7 +186,7 @@ Gdy nie jest już potrzebna, usuń grupę zasobów, zadanie usługi Stream Analy
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start proste zadanie usługi Stream Analytics zostało wdrożone przy użyciu witryny Azure Portal. Można również wdrożyć zadania usługi Stream Analytics przy użyciu [programów PowerShell,](stream-analytics-quick-create-powershell.md) [Visual Studio](stream-analytics-quick-create-vs.md)i Visual [Studio Code](quick-create-vs-code.md).
+W tym przewodniku Szybki start proste zadanie usługi Stream Analytics zostało wdrożone przy użyciu witryny Azure Portal. Możesz również wdrożyć zadania Stream Analytics przy użyciu [programu PowerShell](stream-analytics-quick-create-powershell.md), [programu Visual Studio](stream-analytics-quick-create-vs.md)i [Visual Studio Code](quick-create-vs-code.md).
 
 Aby dowiedzieć się więcej o konfigurowaniu innych źródeł danych wejściowych i wykonywaniu wykrywania w czasie rzeczywistym, zapoznaj się z następującym artykułem:
 

@@ -1,38 +1,38 @@
 ---
 title: Opcje platformy integracji i automatyzacji na platformie Azure
-description: 'Porównaj usługi w chmurze firmy Microsoft zoptymalizowane pod kątem zadań integracji: Automatyzacja zasilania, Aplikacje logiczne, funkcje i WebJobs.'
+description: 'Porównanie usług w chmurze firmy Microsoft, które są zoptymalizowane pod kątem zadań związanych z integracją: Automatyzacja, Logic Apps, funkcje i Zadania WebJob.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878140"
 ---
-# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Wybierz odpowiednie usługi integracji i automatyzacji na platformie Azure
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Wybieranie odpowiednich usług integracji i automatyzacji na platformie Azure
 
 W tym artykule porównano następujące usługi w chmurze firmy Microsoft:
 
-* [Microsoft Power Automate](https://flow.microsoft.com/) (był Microsoft Flow)
+* [Microsoft — Automatyzacja](https://flow.microsoft.com/) (was Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 Wszystkie te usługi umożliwiają rozwiązywanie problemów z integracją i automatyzację procesów biznesowych. Mogą one definiować dane wejściowe, akcje, warunki i dane wyjściowe. Każdą z nich można uruchomić zgodnie z harmonogramem lub za pomocą wyzwalacza. Każda usługa ma unikatowe zalety, a w tym artykule opisano różnice między nimi. 
 
-Jeśli szukasz bardziej ogólnego porównania między usługami Azure Functions a innymi opcjami obliczeniowymi platformy Azure, zobacz [Kryteria wyboru usługi obliczeniowej platformy Azure](/azure/architecture/guide/technology-choices/compute-comparison) i [wybierania opcji obliczeniowej platformy Azure dla mikrousług.](/azure/architecture/microservices/design/compute-options)
+Jeśli szukasz bardziej ogólnego porównania między Azure Functions i innymi opcjami obliczeniowymi platformy Azure, zobacz [kryteria wybierania usługi obliczeniowej platformy Azure](/azure/architecture/guide/technology-choices/compute-comparison) i [wybierania opcji obliczeń Azure dla mikrousług](/azure/architecture/microservices/design/compute-options).
 
-## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Porównanie automatyzacji zasilania firmy Microsoft i aplikacji logiki azure
+## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Porównanie automatyzacji i Azure Logic Apps Microsoft
 
-Power Automate i aplikacje logiki są zarówno *projektanta po raz pierwszy* usługi integracji, które można tworzyć przepływy pracy. Obie te usługi służą do integracji z różnymi aplikacjami SaaS i aplikacjami dla przedsiębiorstw. 
+Automatyzacja i Logic Apps są usługami integracji w *pierwszej kolejności* , które mogą tworzyć przepływy pracy. Obie te usługi służą do integracji z różnymi aplikacjami SaaS i aplikacjami dla przedsiębiorstw. 
 
-Power Automate jest zbudowany na podstawie aplikacji logiki. Współdzielą one tego samego projektanta przepływów pracy i te same [łączniki](../connectors/apis-list.md). 
+Automatyzacja jest oparta na Logic Apps. Współdzielą one tego samego projektanta przepływów pracy i te same [łączniki](../connectors/apis-list.md). 
 
-Power Automate umożliwia każdemu pracownikowi biurowemu wykonywanie prostych integracji (na przykład procesu zatwierdzania w bibliotece dokumentów programu SharePoint) bez przechodzenia przez deweloperów lub dział IT. Usługa Logic Apps umożliwia także korzystanie z zaawansowanych integracji (na przykład procesów B2B) wymagających usługi Azure DevOps i rozwiązań dotyczących zabezpieczeń na poziomie przedsiębiorstwa. Typowe dla biznesowego przepływu pracy jest zwiększanie się stopnia skomplikowania wraz z upływem czasu. W związku z tym możesz zacząć od przepływu, a następnie przekonwertować go na aplikację logiki odpowiednio do potrzeb.
+Automatyzacja i wyłączanie zapewnia pracownikom pakietu Office możliwość wykonywania prostych integracji (na przykład procesu zatwierdzania w bibliotece dokumentów programu SharePoint) bez przechodzenia przez deweloperów lub. Usługa Logic Apps umożliwia także korzystanie z zaawansowanych integracji (na przykład procesów B2B) wymagających usługi Azure DevOps i rozwiązań dotyczących zabezpieczeń na poziomie przedsiębiorstwa. Typowe dla biznesowego przepływu pracy jest zwiększanie się stopnia skomplikowania wraz z upływem czasu. W związku z tym możesz zacząć od przepływu, a następnie przekonwertować go na aplikację logiki odpowiednio do potrzeb.
 
-Poniższa tabela pomaga określić, czy power automatyki lub aplikacje logiki jest najlepszy dla określonej integracji:
+Poniższa tabela zawiera informacje o tym, czy Automatyzacja lub Logic Apps jest Najlepsza dla danej integracji:
 
 |  | Power Automate | Logic Apps |
 | --- | --- | --- |
@@ -40,8 +40,8 @@ Poniższa tabela pomaga określić, czy power automatyki lub aplikacje logiki je
 | **Scenariusze** |Samoobsługa |Zaawansowane integracje |
 | **Narzędzie do projektowania** |Aplikacja w przeglądarce i aplikacja mobilna, tylko interfejs użytkownika |Aplikacja w przeglądarce i program [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), dostępny [widok kodu](../logic-apps/logic-apps-author-definitions.md) |
 | **Zarządzanie cyklem życia aplikacji** |Projektowanie i testowanie w środowiskach nieprodukcyjnych, przenoszenie do środowiska produkcyjnego, gdy aplikacja jest gotowa |Usługa Azure DevOps: kontrola kodu źródłowego, testowanie, pomoc techniczna, automatyzacja oraz możliwości zarządzania w usłudze [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| **Środowisko administratora** |Zarządzanie środowiskami automatyzacji zasilania i zasadami zapobiegania utracie danych (DLP), śledzenie licencjonowania: [Centrum administracyjne](https://admin.flow.microsoft.com) |Zarządzanie grupami zasobów, połączeniami, zarządzaniem dostępem i rejestrowaniem: [Witryna Azure portal](https://portal.azure.com) |
-| **Zabezpieczenia** |Dzienniki inspekcji dotyczące zabezpieczeń i zgodności usługi Office 365, ochrona przed utratą danych, [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) danych poufnych |Zapewnienie zabezpieczeń platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), Usługa Azure Security [Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Środowisko administratora** |Zarządzanie środowiskami automatyzacji i zasadami ochrony przed utratą danych (DLP), śledzenie licencjonowania: [Centrum administracyjnego](https://admin.flow.microsoft.com) |Zarządzanie grupami zasobów, połączeniami, zarządzanie dostępem i rejestrowaniem: [Azure Portal](https://portal.azure.com) |
+| **Bezpieczeństwo** |Dzienniki inspekcji dotyczące zabezpieczeń i zgodności usługi Office 365, ochrona przed utratą danych, [szyfrowanie magazynowanych](https://wikipedia.org/wiki/Data_at_rest#Encryption) danych poufnych |Gwarancja bezpieczeństwa platformy Azure: [zabezpieczenia platformy Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [dzienniki inspekcji](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Porównanie usług Azure Functions i Azure Logic Apps
 
@@ -49,7 +49,7 @@ Usługi Functions i Logic Apps to usługi platformy Azure umożliwiające użyci
 
 W przypadku usługi Azure Functions tworzenie aranżacji odbywa się przez pisanie kodu i używanie [rozszerzenia funkcji trwałych](durable/durable-functions-overview.md). Na potrzeby usługi Logic Apps aranżacje są tworzone za pomocą graficznego interfejsu użytkownika lub przez edycję plików konfiguracyjnych.
 
-Można mieszać i dopasowywać usługi podczas tworzenia aranżacji, wywołując usługę Functions z usługi Logic Apps i na odwrót. Wybierz sposób tworzenia poszczególnych aranżacji na podstawie możliwości usług lub własnych preferencji. W poniższej tabeli wymieniono niektóre z kluczowych różnic między nimi:
+Można mieszać i dopasowywać usługi podczas tworzenia aranżacji, wywołując usługę Functions z usługi Logic Apps i na odwrót. Wybierz sposób tworzenia poszczególnych aranżacji na podstawie możliwości usług lub własnych preferencji. W poniższej tabeli wymieniono niektóre kluczowe różnice między tymi elementami:
 
 |  | Trwałe funkcje | Logic Apps |
 | --- | --- | --- |
@@ -86,7 +86,7 @@ Usługa Azure Functions bazuje na zestawie SDK usługi WebJobs, dlatego współu
 | Obsługiwane języki  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Menedżer pakietów|NPM i NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> WebJobs (bez zestawu WebJobs SDK) obsługuje języki C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python i inne. To nie jest pełna lista. Zadanie WebJob może uruchomić dowolny program lub skrypt, który można uruchomić w piaskownicy usługi App Service.
+<sup>1</sup> Zadania WebJob (bez zestawu SDK WebJob) obsługują Języki C#, Java, JavaScript, bash, cmd, bat, POWERSHELL, php, TypeScript, Python i innych. To nie jest pełna lista. Zadanie WebJob może uruchomić dowolny program lub skrypt, który można uruchomić w piaskownicy usługi App Service.
 
 <sup>2</sup> Usługa WebJobs (bez zestawu WebJobs SDK) obsługuje narzędzia NPM i NuGet.
 
@@ -103,20 +103,20 @@ W innych scenariuszach, w których chcesz uruchamiać fragmenty kodu na potrzeby
 
 <a name="together"></a>
 
-## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Automatyzacja zasilania, aplikacje logiczne, funkcje i funkcje WebJobs razem
+## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Zaawansowane Automatyzacja, Logic Apps, funkcje i Zadania WebJob
 
 Nie trzeba wybierać tylko jednej z tych usług. Integrują się one ze sobą tak dobrze, jak z usługami zewnętrznymi.
 
 Przepływ może wywołać aplikację logiki. Aplikacja logiki może wywołać funkcję, a funkcja może wywołać aplikację logiki. Zobacz na przykład [Tworzenie funkcji integrującej się z usługą Azure Logic Apps](functions-twitter-email.md).
 
-Integracja między automatyzacją zasilania, aplikacjami logiki i funkcjami nadal się poprawia. Możesz utworzyć jakiś element w jednej usłudze i używać go w innych usługach.
+Integracja między automatyzacją, Logic Apps i funkcjami w dalszym ciągu zwiększa się w miarę upływu czasu. Możesz utworzyć jakiś element w jednej usłudze i używać go w innych usługach.
 
 Więcej informacji na temat tych usług integracji możesz uzyskać, korzystając z następujących linków:
 
 * [Korzystanie z usług Azure Functions i Azure App Service w scenariuszach integracji (autor: Christopher Anderson)](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Uproszczone integracje (autor: Charles Lamanna)](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps — emisja internetowa na żywo](https://aka.ms/logicappslive)
-* [Automatyzacja zasilania często zadawane pytania](/power-automate/frequently-asked-questions)
+* [Automatyzacja często zadawanych pytań](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Następne kroki
 

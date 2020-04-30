@@ -1,16 +1,16 @@
 ---
-title: 'Szybki start: Twoja pierwsza kwerenda interfejsu wiersza polecenia platformy Azure'
-description: W tym przewodniku Szybki start wykonaj kroki, aby włączyć rozszerzenie wykres zasobów dla interfejsu wiersza polecenia platformy Azure i uruchomić pierwsze zapytanie.
+title: 'Szybki Start: pierwsze zapytanie interfejsu wiersza polecenia platformy Azure'
+description: W tym przewodniku szybki start wykonaj kroki umożliwiające włączenie rozszerzenia Graf zasobów dla interfejsu wiersza polecenia platformy Azure i uruchomienie pierwszego zapytania.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240667"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Szybki start: uruchamianie pierwszej kwerendy wykresu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu interfejsu wiersza polecenia platformy Azure
 
 Pierwszym krokiem do korzystania z usługi Azure Resource Graph jest zainstalowanie rozszerzenia dla [wiersza polecenia platformy Azure](/cli/azure/). Ten przewodnik Szybki start przeprowadzi Cię przez proces dodawania rozszerzenia do instalacji interfejsu wiersza polecenia platformy Azure. Rozszerzenia można używać z interfejsem wiersza polecenia platformy Azure zainstalowanym lokalnie lub za pośrednictwem [usługi Azure Cloud Shell](https://shell.azure.com).
 
@@ -18,7 +18,7 @@ Po zakończeniu tego procesu będziesz mieć rozszerzenie dodane do instalacji i
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.
 
 Aby włączyć wykonywanie zapytań usługi Azure Resource Graph przy użyciu interfejsu wiersza polecenia platformy Azure, konieczne jest dodanie rozszerzenia. To rozszerzenie działa wszędzie tam, gdzie interfejs wiersza polecenia platformy Azure może być używany, w tym w [funkcji bash w systemie Windows 10](/windows/wsl/install-win10), usłudze [Cloud Shell](https://shell.azure.com) (autonomicznej i wewnątrz portalu), [obrazie platformy Docker interfejsu wiersza polecenia platformy Azure](https://hub.docker.com/r/microsoft/azure-cli/), lub zainstalowany lokalnie.
 
-1. Sprawdź, czy zainstalowano najnowszą platformę Interfejsu wiersza polecenia platformy Azure (co najmniej **2.0.76).** Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Sprawdź, czy jest zainstalowany najnowszy interfejs wiersza polecenia platformy Azure (co najmniej **2.0.76**). Jeśli jeszcze go nie zainstalowano, postępuj zgodnie z [tymi instrukcjami](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. W wybranym środowisku interfejsu wiersza polecenia platformy Azure zaimportuj rozszerzenie za pomocą następującego polecenia:
 
@@ -35,7 +35,7 @@ Aby włączyć wykonywanie zapytań usługi Azure Resource Graph przy użyciu in
    az extension add --name resource-graph
    ```
 
-1. Sprawdź, czy rozszerzenie zostało zainstalowane i jest oczekiwaną wersją (co najmniej **1.0.0):**
+1. Sprawdź, czy rozszerzenie zostało zainstalowane i czy jest to oczekiwana wersja (co najmniej **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -91,7 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dodano rozszerzenie wykres zasobów do środowiska interfejsu wiersza polecenia platformy Azure i uruchom pierwsze zapytanie. Aby dowiedzieć się więcej o języku wykresu zasobów, przejdź do strony szczegółów języka kwerendy.
+W tym przewodniku szybki start dodano rozszerzenie grafu zasobów do środowiska interfejsu wiersza polecenia platformy Azure i uruchomiono pierwsze zapytanie. Aby dowiedzieć się więcej na temat języka grafu zasobów, przejdź do strony szczegółów języka zapytań.
 
 > [!div class="nextstepaction"]
-> [Uzyskaj więcej informacji o języku kwerendy](./concepts/query-language.md)
+> [Uzyskaj więcej informacji na temat języka zapytań](./concepts/query-language.md)

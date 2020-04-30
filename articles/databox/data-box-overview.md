@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240716"
 ---
 # <a name="what-is-azure-data-box"></a>Co to jest usługa Azure Data Box?
@@ -109,9 +109,9 @@ W trakcie tego procesu będziesz otrzymywać powiadomienia e-mail o wszystkich z
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Data Box można przesyłać dane na podstawie regionu, w którym usługa jest wdrażana, kraju/regionu, do którego urządzenie jest wysyłane, a docelowe konto magazynu platformy Azure, w którym są przesyłane dane. 
+Urządzenie Data Box może transferować dane na podstawie regionu, w którym wdrożono usługę, kraju/regionu, do którego urządzenie jest dostarczane, oraz docelowego konta usługi Azure Storage, na którym są przesyłane dane. 
 
-- **Dostępność usługi** — aby uzyskać informacje na temat dostępności regionu, przejdź do [produktów platformy Azure dostępnych według regionu](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box można również wdrożyć w chmurze azure dla instytucji rządowych. Aby uzyskać więcej informacji, zobacz [Co to jest platforma Azure government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Dostępność usługi** — Aby uzyskać informacje na temat dostępności regionów, przejdź do pozycji [produkty platformy Azure dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Urządzenie Data Box można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Docelowe konta magazynu** — konta magazynu do przechowywania danych są dostępne we wszystkich regionach świadczenia usługi Azure, w których ta usługa jest dostępna.  
 

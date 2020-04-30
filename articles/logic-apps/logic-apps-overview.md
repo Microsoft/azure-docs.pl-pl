@@ -1,6 +1,6 @@
 ---
-title: Automatyzacja zadań w celu integracji z przedsiębiorstwem
-description: Dowiedz się więcej o automatyzacji przepływów pracy, które integrują aplikacje, dane, usługi i systemy przy użyciu minimalnego kodu do integracji w przedsiębiorstwie przy użyciu usługi Azure Logic Apps.
+title: Automatyzowanie zadań związanych z integracją w przedsiębiorstwie
+description: Poznaj automatyzację przepływów pracy, które integrują aplikacje, dane, usługi i systemy z minimalnym kodem integracji przedsiębiorstwa przy użyciu Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
 ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241668"
 ---
-# <a name="overview---what-is-azure-logic-apps"></a>Omówienie — co to jest usługa Azure Logic Apps?
+# <a name="overview---what-is-azure-logic-apps"></a>Przegląd — co to jest Azure Logic Apps?
 
-[Usługa Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) to usługa w chmurze, która pomaga planować, automatyzować i aranżować zadania, procesy biznesowe i [przepływy pracy,](#logic-app-concepts) gdy trzeba zintegrować aplikacje, dane, systemy i usługi w przedsiębiorstwach lub organizacjach. Usługa Logic Apps upraszcza sposób projektowania i tworzenia skalowalnych rozwiązań do [integracji](https://azure.microsoft.com/product-categories/integration/)aplikacji, integracji danych, integracji systemów, integracji aplikacji przedsiębiorstwa (EAI) i komunikacji między przedsiębiorstwami (B2B), zarówno w chmurze, lokalnie, jak i obu.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) to usługa w chmurze, która pomaga zaplanować, zautomatyzować i organizować zadania, procesy biznesowe i [przepływy pracy](#logic-app-concepts) , gdy trzeba zintegrować aplikacje, dane, systemy i usługi między przedsiębiorstwami lub organizacjami. Logic Apps upraszcza projektowanie i kompilowanie skalowalnych rozwiązań do [integracji](https://azure.microsoft.com/product-categories/integration/)aplikacji, integracji danych, integracji systemów, integracji aplikacji przedsiębiorstwa (EAI) i komunikacji między firmami (B2B), zarówno w chmurze, lokalnie, jak i w obu przypadkach.
 
 Poniżej przedstawiono kilka przykładowych obciążeń, które można zautomatyzować za pomocą aplikacji logiki:
 
@@ -28,15 +28,15 @@ Poniżej przedstawiono kilka przykładowych obciążeń, które można zautomaty
 
 * Monitorowanie tweetów dotyczących określonego tematu, analizowanie tonacji i tworzenie alertów lub zadań dla elementów, które wymagają przeglądu.
 
-Aby tworzyć rozwiązania integracji przedsiębiorstwa za pomocą usługi Azure Logic Apps, możesz wybierać spośród rosnącej galerii z [setkami gotowych do użycia łączników,](../connectors/apis-list.md)które obejmują usługi, takie jak usługa Azure Service Bus, usługi Azure Functions, Usługa Azure Storage, SQL Server, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, udziały plików i inne. [Łączniki](#logic-app-concepts) udostępniają [wyzwalacze](#logic-app-concepts) i [akcje](#logic-app-concepts), które pozwalają tworzyć aplikacje logiki umożliwiające uzyskiwanie bezpiecznego dostępu do danych i ich przetwarzanie w czasie rzeczywistym.
+Aby móc tworzyć rozwiązania integracji dla przedsiębiorstw za pomocą Azure Logic Apps, możesz wybrać z galerii rosnącej z [setkami gotowych do użycia łączników](../connectors/apis-list.md), takich jak Azure Service Bus, Azure Functions, Azure Storage, SQL Server, Office 365, Dynamics, Salesforce, BIZTALK, SAP, Oracle DB, udziały plików i inne. [Łączniki](#logic-app-concepts) udostępniają [wyzwalacze](#logic-app-concepts) i [akcje](#logic-app-concepts), które pozwalają tworzyć aplikacje logiki umożliwiające uzyskiwanie bezpiecznego dostępu do danych i ich przetwarzanie w czasie rzeczywistym.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
 ## <a name="how-does-logic-apps-work"></a>Jak działa usługa Logic Apps? 
 
-Każdy przepływ pracy aplikacji logiki rozpoczyna się od wyzwalacza, który jest aktywowany, gdy zajdzie określone zdarzenie lub gdy nowe dostępne dane spełniają określone kryteria. Wiele wyzwalaczy dostarczonych przez łączniki w aplikacji logiki obejmują podstawowe możliwości planowania, dzięki czemu można skonfigurować, jak regularnie uruchamiać obciążenia. W przypadku bardziej złożonego planowania lub zaawansowanych cykli można użyć wyzwalacza cyklu jako pierwszego kroku w dowolnym przepływie pracy. Dowiedz się więcej o [przepływach pracy opartych na harmonogramie](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Każdy przepływ pracy aplikacji logiki rozpoczyna się od wyzwalacza, który jest aktywowany, gdy zajdzie określone zdarzenie lub gdy nowe dostępne dane spełniają określone kryteria. Wiele wyzwalaczy dostarczonych przez łączniki w Logic Apps obejmuje podstawowe funkcje planowania, dzięki czemu można skonfigurować sposób regularnego uruchamiania obciążeń. Aby uzyskać bardziej skomplikowane planowanie i zaawansowane cykle, można użyć wyzwalacza cyklicznego jako pierwszego kroku w każdym przepływie pracy. Dowiedz się więcej o [przepływach pracy opartych na harmonogramie](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki, które uruchamia akcje przepływu pracy. Te akcje mogą również obejmować konwersje danych i formanty przepływu pracy, takie jak instrukcje warunkowe, instrukcje przełączania, pętle i rozgałęzienia. Ta aplikacja logiki rozpoczyna się na przykład od wyzwalacza usług Dynamics 365 z wbudowanymi kryteriami „Gdy rekord zostanie zaktualizowany”. Jeśli wyzwalacz wykryje zdarzenie zgodne z tymi kryteriami, aktywuje się i uruchamia akcje przepływu pracy. W tym przypadku akcje obejmują transformacje XML, aktualizacje danych, rozgałęzienia decyzji i powiadomienia e-mail.
+Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy wystąpienie aplikacji logiki, które uruchamia akcje przepływu pracy. Te akcje mogą również obejmować konwersje danych i kontrolki przepływu pracy, takie jak instrukcje warunkowe, instrukcje Switch, pętle i rozgałęzienia. Ta aplikacja logiki rozpoczyna się na przykład od wyzwalacza usług Dynamics 365 z wbudowanymi kryteriami „Gdy rekord zostanie zaktualizowany”. Jeśli wyzwalacz wykryje zdarzenie zgodne z tymi kryteriami, aktywuje się i uruchamia akcje przepływu pracy. W tym przypadku akcje obejmują transformacje XML, aktualizacje danych, rozgałęzienia decyzji i powiadomienia e-mail.
 
 ![Projektant aplikacji usługi Logic Apps — przykładowa aplikacja logiki](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
@@ -81,7 +81,7 @@ Rozpocznij, korzystając ze swoich bieżących systemów oraz usług, i stopniow
 
 * Przetwarzanie [wiadomości XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
 
-* Przetwarzanie [plików płaskich](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+* Przetwarzaj [pliki płaskie](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
 
 * Wymienianie komunikatów za pomocą protokołów [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md) i [X12](../logic-apps/logic-apps-enterprise-integration-x12.md)
 
@@ -98,23 +98,23 @@ Idąc w tym kierunku, program BizTalk Server może nawiązać połączenie i kom
 
 ### <a name="write-once-reuse-often"></a>Jednokrotny zapis, częste ponowne używanie
 
-Utwórz aplikacje logiki jako szablony usługi Azure Resource Manager, dzięki czemu można [zautomatyzować wdrażanie aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) w wielu środowiskach i regionach.
+Twórz aplikacje logiki jako szablony Azure Resource Manager, dzięki czemu można [zautomatyzować wdrażanie aplikacji logiki](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) w wielu środowiskach i regionach.
 
-### <a name="access-resources-inside-azure-virtual-networks"></a>Dostęp do zasobów w sieciach wirtualnych platformy Azure
+### <a name="access-resources-inside-azure-virtual-networks"></a>Dostęp do zasobów wewnątrz sieci wirtualnych platformy Azure
 
-Aplikacje logiki mogą uzyskiwać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne (maszyny wirtualne) i inne systemy lub usługi, które znajdują się wewnątrz [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) podczas tworzenia środowiska usługi [ *integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE jest izolowanym wystąpieniem usługi Logic Apps, która używa dedykowanych zasobów i działa oddzielnie od "globalnej" usługi aplikacji logiki z wieloma dzierżawami.
+Usługa Logic Apps może uzyskiwać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy i usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) podczas tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE jest izolowanym wystąpieniem usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiana niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawami.
 
-Uruchamianie aplikacji logiki we własnym oddzielnym izolowanym wystąpieniu pomaga zmniejszyć wpływ innych dzierżaw platformy Azure na wydajność aplikacji, znany również jako [efekt "hałaśliwych sąsiadów".](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors) Ise zapewnia również następujące korzyści:
+Uruchamianie aplikacji logiki we własnym osobnym wystąpieniu izolowanym pozwala zmniejszyć wpływ innych dzierżawców platformy Azure na wydajność aplikacji, nazywanych również [efektem "sąsiedzi](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)". ISE zapewnia również następujące korzyści:
 
-* Własne statyczne adresy IP, które są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w usłudze wielu dzierżawców. Można również skonfigurować jeden publiczny, statyczny i przewidywalny wychodzący adres IP do komunikowania się z systemami docelowymi. W ten sposób nie trzeba konfigurowania dodatkowych otworów zapory w tych systemach docelowych dla każdej ise.
+* Własne statyczne adresy IP, które są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w usłudze wielu dzierżawców. W celu komunikowania się z systemami docelowymi można także skonfigurować jeden publiczny, statyczny i przewidywalny wychodzący adres IP. Dzięki temu nie trzeba konfigurować dodatkowych otwartych zapór w tych systemach docelowych dla każdego ISEu.
 
-* Zwiększone limity czasu trwania uruchomienia, przechowywania magazynu, przepływności, limitów czasu żądania i odpowiedzi HTTP, rozmiarów wiadomości i niestandardowych żądań łączników. Aby uzyskać więcej informacji, zobacz [Limity i konfiguracja usługi Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
+* Zwiększono limity czasu trwania przebiegu, przechowywanie magazynu, przepływność, żądania HTTP i limity czasu odpowiedzi, rozmiary komunikatów i żądania łączników niestandardowych. Aby uzyskać więcej informacji, zobacz [limity i konfiguracja dla Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
 
-Podczas tworzenia środowiska ISE platforma Azure *wstrzykuje* lub wdraża tę platformę ISE w sieci wirtualnej platformy Azure. Następnie można użyć tego ise jako lokalizacji dla aplikacji logiki i kont integracji, które wymagają dostępu. Aby uzyskać więcej informacji na temat tworzenia środowiska ISE, zobacz [Łączenie się z sieciami wirtualnymi platformy Azure z usługi Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+Po utworzeniu ISE platforma Azure wprowadza lub wdraża te ISE w sieci wirtualnej *platformy Azure.* Następnie można użyć tego ISE jako lokalizacji dla aplikacji logiki i kont integracji, które wymagają dostępu. Aby uzyskać więcej informacji na temat tworzenia ISE, zobacz [nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ### <a name="built-in-extensibility"></a>Wbudowana rozszerzalność
 
-Jeśli nie znajdziesz łącznika, który ma być uruchamiany kod niestandardowy, możesz rozszerzyć aplikacje logiki, tworząc i wywołując własne fragmenty kodu na żądanie za pośrednictwem [usługi Azure Functions.](../azure-functions/functions-overview.md) Utwórz swoje własne [interfejsy API](../logic-apps/logic-apps-create-api-app.md) i [łączniki niestandardowe](../logic-apps/custom-connector-overview.md), które można wywoływać z aplikacji logiki.
+Jeśli nie znajdziesz łącznika, który ma być uruchamiany w kodzie niestandardowym, możesz rozłożyć Aplikacje logiki przez tworzenie i wywoływanie własnych fragmentów kodu na żądanie za pomocą [Azure Functions](../azure-functions/functions-overview.md). Utwórz swoje własne [interfejsy API](../logic-apps/logic-apps-create-api-app.md) i [łączniki niestandardowe](../logic-apps/custom-connector-overview.md), które można wywoływać z aplikacji logiki.
 
 ### <a name="pay-only-for-what-you-use"></a>Płatność wyłącznie za rzeczywiste użycie
   
@@ -126,9 +126,9 @@ Dowiedz się więcej o usłudze Logic Apps z tych klipów wideo z wprowadzeniem:
 * [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188) (Integracja dla przedsiębiorstw w usłudze Microsoft Azure Logic Apps)
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179) (Budowanie zaawansowanych procesów biznesowych dzięki usłudze Logic Apps)
 
-## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>Czym różnią się aplikacje logiki od funkcji, funkcji WebJobs i Power Automate?
+## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>Jak Logic Apps różni się od funkcji, zadań WebJob i automatyzacji.
 
-Wszystkie te usługi pomagają „skleić” i połączyć ze sobą różne systemy. Każda z tych usług ma swoje zalety i korzyści, dlatego połączenie ich możliwości jest najlepszym sposobem na szybkie tworzenie skalowalnego, w pełni funkcjonalnego systemu integracji. Aby uzyskać więcej informacji, zobacz [Wybieranie między aplikacjami logiki, funkcjami, funkcjami WebJobs i Automatyzacją zasilania](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
+Wszystkie te usługi pomagają „skleić” i połączyć ze sobą różne systemy. Każda z tych usług ma swoje zalety i korzyści, dlatego połączenie ich możliwości jest najlepszym sposobem na szybkie tworzenie skalowalnego, w pełni funkcjonalnego systemu integracji. Aby uzyskać więcej informacji, zobacz [wybór między Logic Apps, funkcjami, zadaniami WebJob i automatyzacją](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 <a name="logic-app-concepts"></a>
 
@@ -136,7 +136,7 @@ Wszystkie te usługi pomagają „skleić” i połączyć ze sobą różne syst
 
 * **Przepływ pracy**: wizualizowanie, projektowanie, tworzenie, automatyzowanie i wdrażanie procesów biznesowych w postaci serii kroków.
 
-* **Zarządzane łączniki**: aplikacje logiki muszą mieć dostęp do danych, usług i systemów. Możesz użyć wbudowanych łączników zarządzanych przez firmę Microsoft, zaprojektowanych w celu nawiązywania połączeń z danymi, uzyskiwania do nich dostępu i pracowania z nimi. Zobacz [łączniki dla usługi Azure Logic Apps](../connectors/apis-list.md).
+* **Zarządzane łączniki**: aplikacje logiki muszą mieć dostęp do danych, usług i systemów. Możesz użyć wbudowanych łączników zarządzanych przez firmę Microsoft, zaprojektowanych w celu nawiązywania połączeń z danymi, uzyskiwania do nich dostępu i pracowania z nimi. Zobacz [Łączniki dla Azure Logic Apps](../connectors/apis-list.md).
 
 * **Wyzwalacze**: wiele łączników zarządzanych przez firmę Microsoft udostępnia wyzwalacze, które są aktywowane, kiedy zdarzenia lub nowe dane spełniają określone warunki. Na przykład zdarzenie może odbierać wiadomość e-mail lub wykrywać zmiany na koncie usługi Azure Storage. Po każdym aktywowaniu wyzwalacza aparat usługi Logic Apps tworzy nowe wystąpienie aplikacji logiki, które uruchamia przepływ pracy.
 

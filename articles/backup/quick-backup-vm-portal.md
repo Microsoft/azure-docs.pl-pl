@@ -1,16 +1,16 @@
 ---
-title: Szybki start — dz.
-description: W tym przewodniku Szybki start dowiedz się, jak utworzyć magazyn usług odzyskiwania, włączyć ochronę na maszynie Wirtualnej platformy Azure i wykonać kopię zapasową maszyny Wirtualnej za pomocą witryny Azure portal.
+title: Szybki Start — tworzenie kopii zapasowej maszyny wirtualnej za pomocą Azure Portal
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn Recovery Services, włączyć ochronę na maszynie wirtualnej platformy Azure, i utworzyć kopię zapasową maszyny wirtualnej przy użyciu Azure Portal.
 ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 02/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240450"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure
@@ -21,7 +21,7 @@ W tym przewodniku Szybki start opisano wykonywanie kopii zapasowej istniejącej 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Wybór maszyny wirtualnej, której kopia zapasowa ma być tworzona
 
@@ -76,7 +76,7 @@ Jeśli zamierzasz kontynuować pracę z samouczkiem dotyczącym tworzenia kopii 
 
 3. Wybierz polecenie **Usuń dane kopii zapasowej** z menu rozwijanego.
 
-4. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wprowadź nazwę maszyny wirtualnej, np. *myVM*. Wybierz **pozycję Zatrzymaj tworzenie kopii zapasowej**.
+4. W oknie dialogowym **Wpisywanie nazwy elementu kopii zapasowej** wprowadź nazwę maszyny wirtualnej, np. *myVM*. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
 
     Po zatrzymaniu tworzenia kopii zapasowej maszyny wirtualnej i usunięciu punktów odzyskiwania, możesz usunąć grupę zasobów. Jeśli użyto istniejącej maszyny wirtualnej, możesz pozostawić grupę zasobów i maszynę wirtualną.
 

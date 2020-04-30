@@ -1,15 +1,15 @@
 ---
-title: Szybki start — dzmówiętanie maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
-description: W tym przewodniku Szybki start dowiedz się, jak utworzyć magazyn usług odzyskiwania, włączyć ochronę na maszynie wirtualnej i utworzyć początkowy punkt odzyskiwania za pomocą interfejsu wiersza polecenia platformy Azure.
+title: Szybki Start — tworzenie kopii zapasowej maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn Recovery Services, włączyć ochronę na maszynie wirtualnej i utworzyć początkowy punkt odzyskiwania przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74171985"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, należy użyć polecenia cmdlet [właściwości magazynu kopii zapasowej az.](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set)
+Domyślnie magazyn usługi Recovery Services jest ustawiony na magazyn geograficznie nadmiarowy. Magazyn geograficznie nadmiarowy gwarantuje, że dane kopii zapasowej są replikowane do dodatkowego regionu świadczenia usługi Azure, który znajduje się setki kilometrów od regionu podstawowego. Jeśli należy zmodyfikować ustawienie nadmiarowości magazynu, użyj polecenia [AZ Backup Storage Backup-Properties Set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
 
 ```azurecli
 az backup vault backup-properties set \
@@ -49,7 +49,7 @@ az backup vault backup-properties set \
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Włączanie tworzenia kopii zapasowej maszyny wirtualnej platformy Azure
 
-Zasady ochrony należy utworzyć, aby określić, kiedy zadanie tworzenia kopii zapasowej ma być uruchamiane oraz jak długo mają być przechowywane punkty odzyskiwania. Domyślne zasady ochrony uruchamiają zadanie tworzenia kopii zapasowej codziennie i przechowują punkty odzyskiwania przez 30 dni. Możesz użyć domyślnych wartości zasad, aby zapewnić szybką ochronę maszyny wirtualnej. Aby włączyć ochronę kopii zapasowej maszyny Wirtualnej, należy użyć [funkcji az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Określ grupę zasobów i maszynę wirtualną, które chcesz chronić, a następnie zasady, które mają zostać użyte:
+Zasady ochrony należy utworzyć, aby określić, kiedy zadanie tworzenia kopii zapasowej ma być uruchamiane oraz jak długo mają być przechowywane punkty odzyskiwania. Domyślne zasady ochrony uruchamiają zadanie tworzenia kopii zapasowej codziennie i przechowują punkty odzyskiwania przez 30 dni. Możesz użyć domyślnych wartości zasad, aby zapewnić szybką ochronę maszyny wirtualnej. Aby włączyć ochronę kopii zapasowej dla maszyny wirtualnej, użyj polecenie [AZ Backup Protection Enable-for-VM](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Określ grupę zasobów i maszynę wirtualną, które chcesz chronić, a następnie zasady, które mają zostać użyte:
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> Podczas korzystania z interfejsu wiersza polecenia, aby włączyć tworzenie kopii zapasowych dla wielu maszyn wirtualnych naraz, upewnij się, że jedna zasada nie ma więcej niż 100 maszyn wirtualnych skojarzonych z nim. Jest to [zalecana najlepsza praktyka.](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy) Obecnie klient PS nie jawnie zablokować, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale czek jest planowane do dodania w przyszłości.
+> Podczas korzystania z interfejsu wiersza polecenia w celu jednoczesnego włączenia tworzenia kopii zapasowych wielu maszyn wirtualnych upewnij się, że z jednymi zasadami nie są skojarzone więcej niż 100 maszyn wirtualnych. Jest to [zalecane najlepsze rozwiązanie](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Obecnie klient PS nie jest jawnie blokowany, jeśli istnieje więcej niż 100 maszyn wirtualnych, ale zaplanowano dodanie go do przyszłości.
 
 ## <a name="start-a-backup-job"></a>Uruchamianie zadania tworzenia kopii zapasowej
 
