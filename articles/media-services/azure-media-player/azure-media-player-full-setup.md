@@ -1,42 +1,42 @@
 ---
-title: Pełna konfiguracja programu Azure Media Player
-description: Dowiedz się, jak skonfigurować program Azure Media Player.
+title: Azure Media Player pełna konfiguracja
+description: Dowiedz się, jak skonfigurować Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727244"
 ---
-# <a name="azure-media-player-full-setup"></a>Pełna konfiguracja programu Azure Media Player #
+# <a name="azure-media-player-full-setup"></a>Pełna konfiguracja usługi Azure Media Player #
 
-Program Azure Media Player jest łatwy w konfiguracji. Wystarczy kilka chwil, aby uzyskać podstawowe odtwarzanie zawartości multimedialnej bezpośrednio z konta usługi Azure Media Services. [Przykłady](https://github.com/Azure-Samples/azure-media-player-samples) są również dostarczane w katalogu przykładów wydania.
+Azure Media Player można łatwo skonfigurować. Uzyskanie podstawowego odtwarzania zawartości multimedialnej bezpośrednio z konta Azure Media Services trwa zaledwie kilka minut. [Przykłady](https://github.com/Azure-Samples/azure-media-player-samples) są również dostępne w katalogu przykładów wydania.
 
 
-## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Krok 1: Uwzględnij pliki JavaScript i CSS w głowicy strony ##
+## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Krok 1. Uwzględnij pliki JavaScript i CSS w nagłówku strony ##
 
-Za pomocą programu Azure Media Player można uzyskać dostęp do skryptów z wersji hosta cdn. Często zaleca się teraz umieścić JavaScript przed `<body>` tagiem treści `<head>`końcowej zamiast , ale Azure Media Player zawiera "HTML5 Shiv", który musi być w głowie dla starszych wersji IE, aby szanować tag wideo jako prawidłowy element.
+Za pomocą Azure Media Player można uzyskać dostęp do skryptów z hostowanej wersji usługi CDN. Często zaleca się umieszczenie kodu JavaScript przed tagiem `<body>` treści końcowej zamiast `<head>`, ale Azure Media Player zawiera "HTML5 Shiv", który musi znajdować się w nagłówku w przypadku starszych wersji programu IE w celu uwzględnienia znacznika wideo jako prawidłowego elementu.
 
 > [!NOTE]
-> Jeśli używasz już html5 shiv jak [Modernizr](http://modernizr.com/) można dołączyć Azure Media Player JavaScript w dowolnym miejscu. Upewnij się jednak, że twoja wersja Modernizr zawiera shiv do wideo.
+> Jeśli korzystasz już z Shiv HTML5, takiego jak [modernizacja](http://modernizr.com/) , możesz w dowolnym miejscu umieścić Azure Media Player JavaScript. Upewnij się jednak, że Twoja wersja programu unowocześnienie obejmuje Shiv do wideo.
 
-### <a name="cdn-version"></a>Wersja CDN ###
+### <a name="cdn-version"></a>Wersja usługi CDN ###
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
 
 > [!IMPORTANT]
-> **NIE** należy używać `latest` wersji w wersji produkcyjnej, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję programu Azure Media Player. Na przykład `latest` zastąp . `2.1.1` Wersje programu Azure Media Player można wyszukiwać [w tym miejscu](azure-media-player-changelog.md).
+> **Nie** należy używać `latest` wersji w środowisku produkcyjnym, ponieważ może to ulec zmianie na żądanie. Zamień `latest` na wersję Azure Media Player. Na przykład Zastąp `latest` ciąg `2.1.1`opcją. W [tym miejscu](azure-media-player-changelog.md)można wykonywać zapytania dotyczące wersji Azure Media Player.
 
 > [!NOTE]
-> Od `1.2.0` czasu wydania nie jest już wymagane dołączanie lokalizacji do techników rezerwowych (automatycznie odbierze lokalizację ze ścieżki względnej pliku azuremediaplayer.min.js). Można zmodyfikować lokalizację techników rezerwowych, dodając następujący `<head>` skrypt w po po po powyższych skryptów.
+> Ponieważ `1.2.0` wersja nie jest już wymagana do uwzględnienia lokalizacji powrotu do rezerwy, zostanie automatycznie wybrana lokalizacja ze ścieżki względnej pliku azuremediaplayer. min. js. Lokalizację powrotu można zmienić, dodając następujący skrypt w `<head>` powyższym skrypcie.
 
 > [!NOTE]
-> Ze względu na charakter wtyczek Flash i Silverlight pliki swf i xap powinny być hostowane w domenie bez żadnych poufnych informacji lub danych — jest to automatycznie załatwiane za Ciebie w wersji hosta azure CDN.
+> Ze względu na charakter wtyczek Flash i Silverlight, pliki SWF i XAP powinny być hostowane w domenie bez poufnych informacji lub danych — jest to automatycznie brane pod uwagę w przypadku Azure CDN hostowanej wersji.
 
 ```javascript
     <script>
@@ -45,21 +45,21 @@ Za pomocą programu Azure Media Player można uzyskać dostęp do skryptów z we
     </script>
 ```
 
-## <a name="step-2-add-an-html5-video-tag-to-your-page"></a>Krok 2: Dodawanie tagu wideo HTML5 do strony ##
+## <a name="step-2-add-an-html5-video-tag-to-your-page"></a>Krok 2. Dodawanie tagu wideo HTML5 do strony ##
 
-Za pomocą programu Azure Media Player można użyć tagu wideo HTML5, aby osadzić film wideo. Następnie program Azure Media Player odczyta tag i sprawi, że będzie działał we wszystkich przeglądarkach, a nie tylko w tych, które obsługują wideo HTML5. Poza podstawową marżą program Azure Media Player potrzebuje kilku dodatkowych elementów.
+Za pomocą Azure Media Player można osadzić wideo za pomocą tagu wideo HTML5. Azure Media Player odczytuje tag i sprawia, że będzie działać we wszystkich przeglądarkach, a nie tylko w przypadku obsługi wideo HTML5. Poza znacznikiem Basic Azure Media Player potrzebuje kilku dodatkowych fragmentów.
 
-1. Atrybut `<data-setup>` w `<video>` programie Azure Media Player, aby automatycznie skonfigurować wideo, gdy strona jest gotowa i odczytać dowolny (w formacie JSON) z atrybutu.
-1. Atrybut: `id` powinien być używany i unikatowy dla każdego filmu na tej samej stronie.
-1. Atrybut `class` zawiera dwie klasy:
-    - `azuremediaplayer`stosuje style wymagane dla funkcji interfejsu użytkownika programu Azure Media Player
-    - `amp-default-skin`stosuje domyślną karnacji do formantów HTML5
-1. Zawiera `<source>` dwa wymagane atrybuty
-    - `src`atrybut może zawierać **.ism/manifest* plik z usługi Azure Media Services jest dodawany, Program Azure Media Player automatycznie dodaje adresy URL dash, SMOOTH i HLS do odtwarzacza
-    - `type`jest wymaganym typem MIME strumienia. Typ MIME skojarzony z *".ism/manifest"* to *"application/vnd.ms-sstr+xml"*
-1. *Atrybut opcjonalny* `<data-setup>` w `<source>` programie Azure Media Player informuje program Azure Media Player, jeśli istnieją unikatowe zasady dostarczania dla strumienia z usługi Azure Media Services, w tym między innymi typ szyfrowania (AES lub PlayReady, Widevine lub FairPlay) i token.
+1. `<data-setup>` Atrybut na stronie `<video>` instruuje Azure Media Player, aby automatycznie skonfigurować wideo, gdy strona jest gotowa, i odczytać dowolne (w formacie JSON) z atrybutu.
+1. `id` Atrybut: powinien być używany i unikatowy dla każdego filmu wideo na tej samej stronie.
+1. Ten `class` atrybut zawiera dwie klasy:
+    - `azuremediaplayer`stosuje style, które są wymagane do Azure Media Player funkcji interfejsu użytkownika
+    - `amp-default-skin`stosuje domyślną skórkę do formantów HTML5
+1. `<source>` Zawiera dwa wymagane atrybuty
+    - `src`atrybut może zawierać plik **. ISM/manifest* z Azure Media Services zostanie dodany, Azure Media Player automatycznie dodaje adresy URL dla łącznika, gładkie i HLS do odtwarzacza
+    - `type`atrybut jest wymaganym typem MIME strumienia. Typ MIME skojarzony z elementem *". ISM/manifest"* to *"application/vnd. MS-SStR + XML"*
+1. *Opcjonalny* `<data-setup>` atrybut na stronie `<source>` informuje Azure Media Player, jeśli istnieją jakieś unikatowe zasady dostarczania dla strumienia z Azure Media Services, w tym, ale nie jest ograniczony do, typ szyfrowania (AES, PlayReady, Widevine lub FairPlay) i token.
 
-Uwzględnij/wyklucz atrybuty, ustawienia, źródła i ścieżki dokładnie tak, jak w przypadku wideo HTML5.
+Uwzględnij/Wyklucz atrybuty, ustawienia, źródła i ścieżki dokładnie tak samo, jak w przypadku wideo HTML5.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"], "nativeControlsForTouch": false}'>
@@ -70,11 +70,11 @@ Uwzględnij/wyklucz atrybuty, ustawienia, źródła i ścieżki dokładnie tak, 
     </video>
 ```
 
-Domyślnie duży przycisk odtwarzania znajduje się w lewym górnym rogu, dzięki czemu nie zakrywa interesujących części plakatu. Jeśli wolisz wyśrodkować duży przycisk odtwarzania, `amp-big-play-centered` `class` możesz `<video>` dodać dodatkowy element.
+Domyślnie przycisk dużego odtwarzania znajduje się w lewym górnym rogu, aby nie odnosił się do interesujących części plakatu. Jeśli wolisz wyśrodkować duży przycisk odtwarzania, możesz dodać dodatkowy `amp-big-play-centered` `class` `<video>` element do elementu.
 
-### <a name="alternative-setup-for-dynamically-loaded-html"></a>Alternatywna konfiguracja dynamicznie ładowanego kodu HTML ###
+### <a name="alternative-setup-for-dynamically-loaded-html"></a>Alternatywna konfiguracja dynamicznego ładowania kodu HTML ###
 
-Jeśli strona sieci Web lub aplikacja ładuje tag wideo dynamicznie (ajax, appendChild itp.), tak aby nie istniała podczas ładowania strony, należy ręcznie skonfigurować odtwarzacz zamiast polegać na atrybucie konfiguracji danych. Aby to zrobić, najpierw usuń atrybut konfiguracji danych z tagu, aby nie było żadnych nieporozumień podczas inicjowania odtwarzacza. Następnie uruchom następujący kod JavaScript jakiś czas po załadowaniu języka JavaScript programu Azure Media Player i po załadowaniu tagu wideo do modelu DOM.
+Jeśli strona sieci Web lub aplikacja ładuje tag wideo dynamicznie (AJAX, appendChild itp.), dzięki czemu może nie istnieć podczas ładowania strony, warto ręcznie skonfigurować odtwarzacz zamiast korzystać z atrybutu konfiguracja danych. W tym celu należy najpierw usunąć atrybut konfiguracji danych ze znacznika, aby nie było żadnych pomyłek wokół momentu zainicjowania odtwarzacza. Następnie uruchom następujący kod JavaScript po załadowaniu Azure Media Player JavaScript i po załadowaniu znacznika wideo do modelu DOM.
 
 ```javascript
     var myPlayer = amp('vid1', { /* Options */
@@ -99,11 +99,11 @@ Jeśli strona sieci Web lub aplikacja ładuje tag wideo dynamicznie (ajax, appen
     }]);
 ```
 
-Pierwszym argumentem `amp` w funkcji jest identyfikator tagu wideo. Wymień go na swój własny.
+Pierwszy argument `amp` funkcji jest identyfikatorem tagu wideo. Zastąp ją własnym.
 
-Drugi argument jest obiektem opcji. To pozwala ustawić dodatkowe opcje, takie jak można z atrybutem konfiguracji danych.
+Drugi argument jest obiektem opcji. Pozwala to na ustawienie dodatkowych opcji, takich jak można z atrybutem konfiguracja danych.
 
-Trzeci argument to wywołanie zwrotne "ready". Po zainicjowaniu programu Azure Media Player wywoła tę funkcję. W gotowym wywołaniu zwrotnym obiekt "this" odnosi się do wystąpienia odtwarzacza.
+Trzeci argument to wywołanie zwrotne "gotowe". Po zainicjowaniu Azure Media Player wywoła tę funkcję. W gotowym wywołaniu zwrotnym obiekt "This" odwołuje się do wystąpienia odtwarzacza.
 
 Zamiast używać identyfikatora elementu, można również przekazać odwołanie do samego elementu.
 
@@ -117,4 +117,4 @@ Zamiast używać identyfikatora elementu, można również przekazać odwołanie
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

@@ -1,620 +1,620 @@
 ---
-title: Dziennik zmian w programie Azure Media Player
-description: Dziennik zmian programu Azure Media Player.
+title: Azure Media Player dziennika zmian
+description: Azure Media Player dziennika zmian.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726550"
 ---
-# <a name="changelog"></a>Changelog #
+# <a name="changelog"></a>Dziennik zmian #
 
-## <a name="224-official-update-february-22-2019"></a>2.2.4 (Oficjalna aktualizacja 22 lutego 2019 r.) ##
+## <a name="224-official-update-february-22-2019"></a>2.2.4 (oficjalna aktualizacja lutego 22 2019) ##
 
-### <a name="bug-fixes-224"></a>Poprawki błędów 2.2.4 ###
+### <a name="bug-fixes-224"></a>Poprawki w usterce 2.2.4 ###
 
-- [Poprawka błędu] [AMP] [Dostępność] Usunięto osiągnącą kartę fantomu, gdy pojawi się ekran błędu
-- [Poprawka błędu] [AMP] Naprawiono skrót klawiszowy "M" dla IE11 i Edge
-- [Poprawka błędu] [AMP] Poprawiono wyjątek dla podpisów CEA708
-- [Poprawka błędu] [AMP] Naprawiono problem z zawieszaniem wideo w przeglądarce Edge
+- [Poprawka błędu] OGRANICZONY U Usunięto kartę dostępną Fantom po wyświetleniu ekranu błędu
+- [Poprawka błędu] OGRANICZONY Naprawiono klawisz skrótu "for IE11 i Edge
+- [Poprawka błędu] OGRANICZONY Rozwiązano wyjątek dla podpisów CEA708
+- [Poprawka błędu] OGRANICZONY Rozwiązano problem dotyczący wstrzymania wideo dla przeglądarki Edge
 
 ### <a name="changes-224"></a>Zmiany 2.2.4 ###
 
-- [Zmień] [AMP] Gdy występuje błąd odszyfrowywania fragmentu, gracz ponawia próby bieżące i różne fragmenty, aby odzyskać odtwarzanie
-- [Zmień] [AMP] Zwiększenie tolerancji AMP wobec nakładających się fragmentów wideo lub audio
+- Stąp OGRANICZONY Gdy wystąpi błąd odszyfrowywania fragmentu, odtwarzacz ponawia bieżące i różne fragmenty w celu odzyskania odtwarzania
+- Stąp OGRANICZONY Jeszcze więcej odporne na nakładające się fragmenty wideo lub audio
 
-## <a name="223-official-update-january-9-2019"></a>2.2.3 (Oficjalna aktualizacja 9 stycznia 2019) ##
+## <a name="223-official-update-january-9-2019"></a>2.2.3 (oficjalna aktualizacja stycznia 9 2019) ##
 
 ### <a name="features"></a>Funkcje ###
 
-- [Funkcja] [HLS] Dodano menu ścieżki dźwiękowej do odtwarzania Safari HLS
+- Ona HLS Dodano menu ścieżki audio dla odtwarzania Safari HLS
 
 ### <a name="bug-fixes-223"></a>Poprawki błędów 2.2.3 ###
 
-- [Poprawka błędu] [AMP] [Dostępność] Podczas odtwarzania transmisji na żywo nie można wybrać przycisku "na żywo" za pomocą klawiatury
-- [Poprawka błędu] [AMP] Naprawiono błędy fałszywie alarmowe 0x0400003 z powodu nieudanego testu MSE
-- [Poprawka błędu] [AMP] Naprawiono błąd, który powodował, że film mógł się zawieszać podczas rozpoczynania transmisji na żywo.
+- [Poprawka błędu] OGRANICZONY U Podczas odtwarzania emisji na żywo przycisk "Live" nie może być wybierany przy użyciu klawiatury
+- [Poprawka błędu] OGRANICZONY Rozwiązano fałszywe pozytywne błędy 0x0400003 z powodu niepowodzenia testu MSE
+- [Poprawka błędu] OGRANICZONY Rozwiązano problem polegający na tym, że wideo może zostać zamrożone podczas uruchamiania strumienia na żywo
 
 ### <a name="changes-223"></a>Zmiany 2.2.3 ###
 
-- [Zmień] [AMP] Dodano więcej informacji w dzienniku, aby umożliwić lepszą diagnostykę
-- [Zmień] [AMP] Gdy więcej niż jedna szybkość transmisji bitów jest dostępna w tej samej rozdzielczości ekranu, wszystkie szybkości transmisji bitów są dostępne do wyboru
+- Stąp OGRANICZONY Dodano więcej informacji w dzienniku, aby umożliwić lepszą diagnostykę
+- Stąp OGRANICZONY Gdy na tej samej rozdzielczości ekranu jest dostępna więcej niż jedna szybkość transmisji bitów, wszystkie szybkości transmisji bitów są dostępne do wyboru
 
-## <a name="222-official-update"></a>2.2.2 (Oficjalna aktualizacja) ##
+## <a name="222-official-update"></a>2.2.2 (oficjalna aktualizacja) ##
 
 ### <a name="bug-fixes-222"></a>Poprawki błędów 2.2.2 ###
 
-- [Poprawka błędu] [AMP] Gdy gracz napotka przejściową awarię sieci, natychmiast przestaje odtwarzać
-- [Poprawka błędu] [AMP] [Dostępność] Okno dialogowe błędu nie jest dostępne za pomocą klawiatury
-- [Poprawka błędu] [AMP] Nieskończony pokrętło wyświetlane podczas odtwarzania dźwięku tylko zasób zamiast nieobsługiwał błąd
+- [Poprawka błędu] OGRANICZONY Gdy gracz napotyka przejściową awarię sieci, natychmiast przestanie być odtwarzany
+- [Poprawka błędu] OGRANICZONY U Okno dialogowe błędu nie jest dostępne przez klawiaturę
+- [Poprawka błędu] OGRANICZONY Nieobsługiwany pokrętło wyświetlane podczas odtwarzania zawartości audio, a nie nieobsługiwanego błędu
 
 ### <a name="changes-222"></a>Zmiany 2.2.2 ###
 
-- [Zmień] [AMP] dodał zlokalizowane ciągi interfejsu użytkownika reklamy
+- Stąp [AMP] dodano zlokalizowane ciągi dla interfejsu użytkownika anonsu
 
-## <a name="221-official-update"></a>2.2.1 (Oficjalna aktualizacja) ##
+## <a name="221-official-update"></a>2.2.1 (aktualizacja oficjalna) ##
 
-### <a name="features-221"></a>Cechy 2.2.1 ###
+### <a name="features-221"></a>Funkcje 2.2.1 ###
 
-- [Funkcja] [CMAF] Dodano obsługę HLS CMAF
+- Ona [CMAF] Dodano obsługę HLS CMAF
 
 ### <a name="bug-fixes"></a>Poprawki błędów ###
 
-- [Poprawka błędu] [AMP] nierozliczone czasomierze w ponawianiu logiki dającej błędy odtwarzania
-- [Poprawka błędu] [AMP] [Firefox] zakończył zdarzenie nie jest uruchamiany w Firefoksie i Chrome po zatrzymaniu programu na żywo
-- [Poprawka błędu] [AMP] Formanty wyświetlane po setsource, nawet wtedy, gdy formanty są ustawione na false w opcjach odtwarzacza
+- [Poprawka błędu] [AMP] nieoczyszczone czasomierze w logice ponowień, które reagują na błędy odtwarzania
+- [Poprawka błędu] OGRANICZONY [Firefox] zakończone zdarzenie nie zostało uruchomione w przeglądarce Firefox i Chrome po zatrzymaniu programu na żywo
+- [Poprawka błędu] OGRANICZONY Kontrolki wyświetlane po SetSource, nawet w przypadku, gdy w opcjach odtwarzacza ustawiono wartość false
 
 ### <a name="changes"></a>Zmiany ###
 
-- [Zmień] [Podpisy na żywo] Zmieniono nazwę interfejsu API dla podpisów CEA z 608 na 708. Aby uzyskać więcej informacji, zobacz [Ustawienia podpisów CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- Stąp [Podpisy dynamiczne] Zmieniono nazwę interfejsu API dla podpisów CEA od 608 do 708. Aby uzyskać więcej informacji, zobacz [Ustawienia napisów CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
-## <a name="220-official-release"></a>2.2.0 (Oficjalne wydanie) ##
+## <a name="220-official-release"></a>2.2.0 (wydanie oficjalne) ##
 
-### <a name="features-220"></a>Cechy 2.2.0 ###
+### <a name="features-220"></a>2.2.0 funkcji ###
 
-- [Funkcja] [Azurehtml5JS] [Flash] [LiveCaptions] Obsługa podpisów CEA 708 w technologii Azurehtml5JS i FlashSS dla zawartości jasnych i AES.
+- Ona [Azurehtml5JS] Flash [LiveCaptions] Obsługa podpisów w programie CEA 708 w Azurehtml5JS i błysku Tech. w przypadku zawartości czystego i AES.
 
 ### <a name="bug-fixes-220"></a>Poprawki błędów 2.2.0 ###
 
-- [Poprawka błędu] Wykrywanie wersji flash nie działa w Chrome / Edge
+- [Poprawka błędu] Wykrywanie wersji programu Flash nie działa w przeglądarce Chrome/Edge
 
 ### <a name="changes-220"></a>Zmiany 2.2.0 ###
 
-- [Zmień] [AMP] [Heurystyka] Zmieniono nazwę profilu heurystycznego z Szybki start na LowLatency
-- [Zmień] [Flash] Zmiana w programie Flash player w celu wykrycia wersji, aby umożliwić odtwarzanie zawartości AES za pomocą nowej aktualizacji Adobe Flash.
+- Stąp OGRANICZONY Heurystyki Zmieniono nazwę profilu heurystycznego z szybkiego startu na LowLatency
+- Stąp Flash Zmień w programie Flash Player na potrzeby wykrywania wersji, aby umożliwić odtwarzanie zawartości AES przy użyciu nowej aktualizacji programu Adobe Flash.
 
-## <a name="219-official-hotfix"></a>2.1.9 (Oficjalna poprawka) ##
+## <a name="219-official-hotfix"></a>2.1.9 (oficjalna poprawka) ##
 
 ### <a name="bug-fixes-219"></a>Poprawki błędów 2.1.9 ###
 
-- [Poprawka błędu] [Na żywo] Wyjątek występujący podczas przejścia strumieni na żywo do wideo na żądanie/archiwa na żywo
+- [Poprawka błędu] Żywa Wyjątek występujący, gdy strumienie na żywo przejścia do wideo na żądanie/archiwa na żywo
 
 ### <a name="changes-219"></a>Zmiany 2.1.9 ###
 
-- [Zmień] [Flash] [AES] Zmodyfikowano logikę techniczną flash, aby nie używać sharedbytearrays do deszyfrowania AES, ponieważ firma Adobe zablokowała użycie od programu Flash 30. Należy pamiętać, że odtwarzanie będzie działać tylko wtedy, gdy Adobe wdroży nową wersję programu Flash z powodu błędu w wersji 30. Zobacz [znane problemy,](azure-media-player-known-issues.md) aby uzyskać więcej informacji
+- Stąp Flash AES Zmodyfikowano logikę Tech. Flash, aby nie używać sharedbytearrays do odszyfrowywania AES, ponieważ w przypadku programu Flash nie zostało zablokowane użycie przez Adobe. Należy pamiętać, że odtwarzanie będzie możliwe tylko wtedy, gdy firma Adobe wdroży nową wersję programu Flash ze względu na błąd w V30. Aby uzyskać więcej informacji, zobacz [znane problemy](azure-media-player-known-issues.md)
 
-## <a name="218-official-update"></a>2.1.8 (Oficjalna aktualizacja) ##
+## <a name="218-official-update"></a>2.1.8 (oficjalna aktualizacja) ##
 
 ### <a name="bug-fixes-218"></a>Poprawki błędów 2.1.8 ###
 
-- [Poprawka błędu] Spinner od czasu do czasu nie pokazuje post szukać i pre-play
-- [Poprawka błędu] Gracz nie uruchamia się wyciszony po włączeniu opcji wyciszenia
-- [Poprawka błędu] Suwak głośności jest wyświetlany, gdy formanty są ustawione na wartość false
-- [Poprawka błędu] Odtwarzanie od czasu do czasu powtarzane, gdy użytkownik przeskakuje do krawędzi na żywo
-- [Poprawka błędu] [Firefox] Gracz od czasu do czasu zgłasza wyjątek JavaScript przy obciążeniu
-- [Poprawka błędu] [Dostępność] Przycisk Odtwarzania/ Wstrzymaj/Głośność traci kontur ostrości po wybraniu za pomocą kontrolek klawiatury
-- [Poprawka błędu] Naprawiono wyciek pamięci na odtwarzaczu jest usuwany
-- [Poprawka błędu] Wywołanie src() po błędzie gracza nie resetuje źródła
-- [Poprawka błędu] [Na żywo] AMP jest w stanie ciągłego ładowania, gdy użytkownik kliknie przycisk Na żywo po zakończeniu emisji
-- [Poprawka błędu] [Chrome] Odtwarzacz zawiesza się, a odtwarzanie kończy się niepowodzeniem, gdy przeglądarka jest zminimalizowana do tła.
+- [Poprawka błędu] Pokrętło czasami nie pokazuje publikowania i przed odtwarzaniem
+- [Poprawka błędu] Gracz nie uruchamia się wyciszony, gdy opcja wyciszona jest włączona
+- [Poprawka błędu] Suwak głośności jest wyświetlany, gdy kontrolki są ustawione na wartość FAŁSZ.
+- [Poprawka błędu] Odtwarzanie czasami powtarza się, gdy użytkownik pominie do aktywnej krawędzi
+- [Poprawka błędu] Firefox Gracz sporadycznie zgłasza wyjątek JavaScript podczas ładowania
+- [Poprawka błędu] U Przycisk odtwarzania/wstrzymywania/woluminu utraci konspekt fokusu, gdy jest wybierany przy użyciu kontrolek klawiatury
+- [Poprawka błędu] Trwały wyciek pamięci w odtwarzaczu został usunięty
+- [Poprawka błędu] Wywołanie src () po błędzie odtwarzacza nie powoduje zresetowania źródła
+- [Poprawka błędu] Żywa AMP jest w stanie ładowania stałego, gdy użytkownik kliknie przycisk na żywo po zakończeniu emisji
+- [Poprawka błędu] Własnego Zawieszenie i odtwarzanie odtwarzacza kończy się niepowodzeniem, gdy przeglądarka zostanie zminimalizowana do tła.
 
 ### <a name="changes-218"></a>Zmiany 2.1.8 ###
 
-- [Zmień] Zaktualizowano errror 0x0600001, aby wyświetlać zawartość AES w programie Flash 30, ponieważ obecnie nie jest ona obsługiwana. Zobacz [znane problemy,](azure-media-player-known-issues.md) aby uzyskać więcej informacji
-- [Zmień] Dodano dodatkowe ponownych prób dla scenariuszy na żywo, gdy żądania manifestu 404 lub zwraca puste manifesty.
+- Stąp Zaktualizowano błędu 0x0600001, aby był wyświetlany, gdy zawartość AES jest odtwarzana z programem Flash 30, ponieważ nie jest w tej chwili obsługiwana. Aby uzyskać więcej informacji, zobacz [znane problemy](azure-media-player-known-issues.md)
+- Stąp Dodano dodatkowe próby dla scenariuszy na żywo, gdy manifestuje żądania 404 lub zwraca puste manifesty.
 
-## <a name="217-official-update"></a>2.1.7 (Oficjalna aktualizacja) ##
+## <a name="217-official-update"></a>2.1.7 (oficjalna aktualizacja) ##
 
-### <a name="features-217"></a>Cechy 2.1.7 ###
+### <a name="features-217"></a>2.1.7 funkcji ###
 
-- [Funkcja] [AzureHtml5JS] Dodano opcję konfiguracji do opróżniania starych danych w buforze źródła multimediów
+- Ona [AzureHtml5JS] Dodano opcję konfiguracji w celu opróżnienia starych danych w buforze źródła nośnika
 
 ### <a name="bug-fixes-217"></a>Poprawki błędów 2.1.7 ###
 
-- [Poprawka błędu] [Dostępność] [Czytnik ekranu] Usunięto pusty nagłówek, który gracz uwzględnił, gdy tytuł nie jest ustawiony
-- [Poprawka błędu] [UWA] AMP zgłasza wyjątek podczas odtwarzania w uniwersalnej aplikacji systemu Windows
-- [Poprawka błędu] [OSX] setActiveTextTrack() nie działa w przeglądarce Safari na OSx
-- [Poprawka błędu] [Na żywo] Kliknięcie krawędzi na żywo po usunięciu i ponownym zainicjowaniu gracza daje wyjątek
-- [Poprawka błędu] [Skórka] Czas bieżący skrócony dla niektórych zasobów
-- [Poprawka błędu] Poprawka [DRM] dołączona do obsługi odtwarzania w przeglądarkach obsługujących wiele drm CENC
+- [Poprawka błędu] U [Czytnik ekranu] Usunięto pusty nagłówek odtwarzacza dołączonego, gdy nie ustawiono tytułu
+- [Poprawka błędu] [UWA] AMP zgłasza wyjątek podczas odtwarzania w aplikacji uniwersalnej systemu Windows
+- [Poprawka błędu] [OSX] setActiveTextTrack () nie działa w przeglądarce Safari na OSx
+- [Poprawka błędu] Żywa Kliknięcie na żywo Edge po usunięciu i ponownym zainicjowaniu odtwarzacza
+- [Poprawka błędu] Łuskę Bieżący czas został obcięty dla określonych zasobów
+- [Poprawka błędu] [DRM] poprawka dołączona do obsługi odtwarzania w przeglądarkach, które obsługują wiele CENC DRM
 
 ### <a name="changes-217"></a>Zmiany 2.1.7 ###
 
-- [Zmień] [Przykłady] [Dostępność] Dodano znacznik języka do wszystkich próbek
+- Stąp Badan U Dodano tag języka do wszystkich przykładów
 
-## <a name="216-official-update"></a>2.1.6 (Oficjalna aktualizacja) ##
+## <a name="216-official-update"></a>2.1.6 (oficjalna aktualizacja) ##
 
 ### <a name="bug-fixes-216"></a>Poprawki błędów 2.1.6 ###
 
-- [Poprawka błędu] AMP wyświetla nieprawidłowy czas trwania określonego zasobu
-- [Poprawka błędu] [FairPlay-HLS] Błędy fairplay nie propagujące do interfejsu użytkownika
-- [Poprawka błędu] Niestandardowe właściwości heurystyczne ignorowane w AMP 2.1.5.
+- [Poprawka błędu] AMP wyświetlanie nieprawidłowego czasu trwania dla określonego elementu zawartości
+- [Poprawka błędu] [FairPlay-HLS] FairPlay błędy niepropagowania do interfejsu użytkownika
+- [Poprawka błędu] Niestandardowe właściwości heurystyki są ignorowane w AMP 2.1.5.
 
 ### <a name="changes-216"></a>Zmiany 2.1.6 ###
 
-- [Zmień] [FairPlayDRM] Usunięto limit czasu zarówno dla żądania certyfikatu, jak i żądania licencji dla FairPlay, aby zachować parytet z implementacjami PlayReady i Widevine
-- [Zmień] Różne ulepszenia heurystyczne w walce z rozmazanymi treściami
+- Stąp [FairPlayDRM] Usunięto limit czasu dla żądania certyfikatu i żądania licencji dla FairPlay, aby zachować zgodność z implementacjami PlayReady i Widevine
+- Stąp Różne rozwiązania heurystyczne umożliwiające zwalczanie zamazanej zawartości
 
-### <a name="features-216"></a>Cechy 2.1.6 ###
+### <a name="features-216"></a>2.1.6 funkcji ###
 
-- [Funkcja] Dodano obsługę formatu mpd-time-cmaf
+- Ona Dodano obsługę formatu MPD-Time-CMAF
 
-## <a name="215-official-hotfix"></a>2.1.5 (Oficjalna poprawka) ##
+## <a name="215-official-hotfix"></a>2.1.5 (oficjalna poprawka) ##
 
 ### <a name="bug-fixes-215"></a>Poprawki błędów 2.1.5 ###
 
-- [Poprawka błędu] [Podpisy] Styl VTT nie jest poprawnie renderowany przez gracza
-- [Poprawka błędu] [Dostępność] Przycisk Na żywo nie ma etykiety aria
+- [Poprawka błędu] Transkrypcji Style VTT nie są poprawnie renderowane przez odtwarzacz
+- [Poprawka błędu] U Przycisk na żywo nie ma etykiety ARIA
 
-## <a name="214-official-update"></a>2.1.4 (Oficjalna aktualizacja) ##
+## <a name="214-official-update"></a>2.1.4 (aktualizacja oficjalna) ##
 
 ### <a name="bug-fixes-214"></a>Poprawki błędów 2.1.4 ###
 
-- [Poprawka błędu] [Dostępność] [Ostrość] Użytkownicy nie mogą skupić się na niestandardowych przyciskach dodanych po prawej stronie przycisku pełnoekranowego na pasku sterowania
-- [Poprawka błędu] [IE11] [Pasek głośności] Tabbing do głośności pop-up sprawia, że cały ekran wideo flash w IE11, podczas gdy w trybie pełnoekranowym
-- [Poprawka błędu] [Skóra| Flush] Przestrzeń wyświetlana między pasem sterującym a wyskakującym pasem głośności
-- [Poprawka błędu] [AMP] [Podpisy] Stare osadzone ścieżki nie są czyszczone po zmianie źródła na istniejącym odtwarzaczu
-- [Poprawka błędu] [Dostępność] [Narrator] Czytnik ekranu niepoprawnie odczytuje regulację głośności
-- [Poprawka błędu] [Flashss] Od czasu do czasu nie uruchamia się w wydarzeniu play
-- [Poprawka błędu] [AMP] [Ostrość] Odtwarzanie/pauza wymaga dwóch kliknięć, gdy gracz ma ostrość i jest w trybie pełnoekranowym
-- [Poprawka błędu] [AMP] [Skórka] Nieprawidłowy czas trwania wyświetlany na pasku postępu dla określonego zasobu
-- [Poprawka błędu] [Ogłoszenia] [Ad Butler] Analizator VAST nie obsługuje pliku VAST, który nie ma zdarzenia postępu
-- [Poprawka błędu] [SDN] [AMP 2.1.1] Naprawiono błąd, który powodował obsługę wtyczek Hive SDN
-- [Poprawka błędu] [Dostępność] Narrator odczytuje "Przycisk wyciszania północy", gdy użytkownik ma nacisk na przycisk głośności
+- [Poprawka błędu] U Fokus Użytkownicy nie mogą naciskać na karty niestandardowe dodane po prawej stronie przycisku Pełny ekran na pasku sterowania
+- [Poprawka błędu] IE11 [Pasek głośności] Wyskakujące okienko do woluminu sprawia, że cały ekran wideo jest Flash w IE11 w trybie pełnoekranowym
+- [Poprawka błędu] [Skórka | Opróżnianie] miejsce wyświetlane między paskiem sterowania a paskiem wyskakującym
+- [Poprawka błędu] OGRANICZONY Transkrypcji Stare osadzone ścieżki nie są czyszczone, gdy źródło zostanie zmienione w istniejącym odtwarzaczu
+- [Poprawka błędu] U Narrator Czytnik ekranu nie odczytuje prawidłowo kontrolki głośności
+- [Poprawka błędu] [Błysk] Zdarzenia odtwarzania sporadycznie nie uruchamiają się z programu Flash Tech
+- [Poprawka błędu] OGRANICZONY Fokus Funkcja Play/Pause wymaga dwóch kliknięć, gdy gracz ma fokus i jest w trybie pełnoekranowym
+- [Poprawka błędu] OGRANICZONY Łuskę Nieprawidłowy czas wyświetlania na pasku postępu dla określonego zasobu
+- [Poprawka błędu] Reklam [AD Butler] OGROMNY parser nie obsługuje OGROMNYch plików, które nie mają zdarzenia dotyczącego postępu
+- [Poprawka błędu] SDN [AMP 2.1.1] Rozwiązano problem z obsługą wtyczki SDN Hive
+- [Poprawka błędu] U Narrator odczytuje "przycisk Wycisz w północy", gdy użytkownik ma fokus przycisku woluminu
 
 ### <a name="changes-214"></a>Zmiany 2.1.4 ###
 
-- [Zmień] [Dostępność] [Technologia wspomagana] Przyciski mają teraz aria-live nieruchomości w celu poprawy doświadczenia z technologią wspomagających
-- [Zmień] [Dostępność] [Przycisk Głośności| Narrator]Poprawiono dostępność przycisku głośności, modyfikując funkcje tabulacji i zachowanie suwaka. Te zmiany ułatwiają użytkownikom klawiatury modyfikowanie głośności odtwarzacza
-- [Zmień] Wydłużenie limitu czasu menu kontekstowego braku aktywności z 3 do 5 sekund
-- [Zmień] [Dostępność] [Jasność] Poprawiono współczynnik kontrastu jasności w menu rozwijanych w ustawieniach podpisów
+- Stąp U [Technologia pomocnicza] Przyciski mają teraz Właściwość Aria-Live do ulepszania środowiska z technologią pomocniczą
+- Stąp U [Przycisk woluminu | Narrator] ulepszony dostęp do przycisku Volume, modyfikując funkcję tabulacji i zachowanie suwaka. Te zmiany ułatwiają użytkownikom klawiatury modyfikowanie woluminu odtwarzacza
+- Stąp Zwiększono limit czasu menu kontekstowego nieaktywności z 3 na 5 sekund
+- Stąp U Jasności Ulepszony współczynnik kontrastu jasności na menu rozwijanych w ustawieniach napisów
 
-## <a name="213-official-update"></a>2.1.3 (Oficjalna aktualizacja) ##
+## <a name="213-official-update"></a>2.1.3 (aktualizacja oficjalna) ##
 
 ### <a name="bug-fixes-213"></a>Poprawki błędów 2.1.3 ###
 
-- [Poprawka błędu] [Wtyczki| Nakładka tytułowa] Wtyczka Nakładki tytułowej zgłasza wyjątki JS z AMP v2. X+
-- [Poprawka błędu] Zdarzenie Zestaw źródła jest wysyłane do konsoli JavaScript nawet wtedy, gdy rejestrowanie jest wyłączone
-- [Poprawka błędu] [Skórka] Wskazówki dotyczące czasu odtwarzacza są renderowane poza kontekstem gracza po najechaniu kursorem na pasek czasu zakończenia
-- [Poprawka błędu] [Dostępność] [Czytnik ekranu] Narrator odczytuje "Punkt orientacyjny regionu" lub "Punkt orientacyjny regionu odtwarzacza wideo", gdy widz koncentruje się na odtwarzaczu
-- [Poprawka błędu] [AMP] Nie można wyłączyć konspektu odtwarzacza za pośrednictwem CSS
-- [Poprawka błędu] [Dostępność] Nie można skupić się na całym odtwarzaczu, gdy użytkownik jest w trybie pełnoekranowym
-- [Poprawka błędu] [Skórka] [Na żywo] Skóra nie reaguje na zlokalizowany tekst LIVE w języku japońskim
-- [Poprawka błędu] [Skórka] Czas trwania i bieżący czas są odcinane, gdy strumień > 60 min -[Bug Fix][iPhone| Live]player pokazuje tekst dla bieżącego czasu / czasu trwania na pasku sterowania
-- [Poprawka błędu] [AMP] Wywoływanie heurystyki odtwarzacza interfejsów API daje wyjątki JavaScript
-- [Poprawka błędu] [Natywny html5|iOS] Videotag właściwość "playsinline" nie propaguje do odtwarzacza
-- [Poprawka błędu] [iOS|iframe] Odtwarzacz nie może wejść na pełny ekran na iPhonie, jeśli odtwarzacz jest załadowany w ramce iframe
-- [Poprawka błędu] [AMP] [Heurystyka] AMP zawsze działa z profilem hybrydowym, niezależnie od opcji odtwarzacza
-- [Poprawka błędu] [AMP| Win8.1]rzuca, gdy jest hostowany w aplikacji Win8.1 z webview
+- [Poprawka błędu] [Wtyczki | Nakładka tytułowa] wtyczka nakładania tytułów zgłasza wyjątki JS z AMP v2. X +
+- [Poprawka błędu] Zdarzenie zestawu źródłowego jest wysyłane do konsoli JavaScript nawet wtedy, gdy rejestrowanie jest wyłączone
+- [Poprawka błędu] Łuskę Wskazówki dotyczące czasu gracza są renderowane poza kontekstem odtwarzacza, gdy przesuwa się nad dowolnym paskiem czasu zakończenia
+- [Poprawka błędu] U [Czytnik ekranu] Narrator odczytuje "dzielnica regionu" lub "dzielnica regionu odtwarzacza wideo", gdy Podgląd ma fokus w odtwarzaczu
+- [Poprawka błędu] OGRANICZONY Nie można wyłączyć konspektu odtwarzacza za pośrednictwem CSS
+- [Poprawka błędu] U Nie można ustawić fokusu na całym odtwarzaczu, gdy użytkownik jest w trybie pełnoekranowym
+- [Poprawka błędu] Łuskę Żywa Skórka nie odpowiada na zlokalizowany tekst na żywo w języku japońskim
+- [Poprawka błędu] Łuskę Czas trwania i bieżący czas są obcinane podczas przesyłania strumieniowego > 60 min-[Poprawka błędu] [iPhone | Live] odtwarzacz wyświetla tekst dla bieżącego czasu/czasu trwania na pasku sterowania
+- [Poprawka błędu] OGRANICZONY Wywołanie interfejsów API heurystycznych algorytmów wywołujących wyjątków JavaScript
+- [Poprawka błędu] [Natywne HTML5 | iOS] Właściwość Videotag "playsinline" nie jest propagowana do odtwarzacza
+- [Poprawka błędu] [iOS | iframe] Odtwarzacz nie może wprowadzić pełnych elementów na telefonie iPhone, jeśli program Player jest załadowany w elemencie iframe
+- [Poprawka błędu] OGRANICZONY Heurystyki AMP zawsze działa z profilem hybrydowym, niezależnie od opcji odtwarzacza
+- [Poprawka błędu] [AMP | Win 8.1] zgłasza, gdy jest hostowany w aplikacji Win 8.1 z widokiem WebView
 
 ### <a name="changes-213"></a>Zmiany 2.1.3 ###
 
-- [Zmień] [AMP] Dodano informacje o punkcie końcowym sieci CDN w zdarzeniu FragmentDownloadComplete
-- [Zmień] [AMP] [Na żywo] Ulepszone i zoptymalizowane opóźnienie transmisji strumieniowej na żywo
+- Stąp OGRANICZONY Dodano informacje o punkcie końcowym usługi CDN w zdarzeniu FragmentDownloadComplete
+- Stąp OGRANICZONY Żywa Ulepszone i zoptymalizowane opóźnienie przesyłania strumieniowego na żywo
 
-## <a name="212-official-hotfix"></a>2.1.2 (Oficjalna poprawka) ##
+## <a name="212-official-hotfix"></a>2.1.2 (oficjalna poprawka) ##
 
 ### <a name="bug-fixes-212"></a>Poprawki błędów 2.1.2 ####
 
-- [Poprawka błędu] [Dostępność] [Narrator systemu Windows] Narrator odczytuje "Progress midnight", gdy użytkownik ma kontekst paska postępu, a bieżący czas to 0:00
-- [Poprawka błędu] Rozmiar logo [Skin] jest zakodowany na czas w kodzie JavaScript
-- [Dostępność] [Skróty klawiszowe] Skróty klawiszowe nie są włączone po kliknięciu odtwarzacza.
+- [Poprawka błędu] U [Narrator systemu Windows] Narrator odczytuje "postęp północy", gdy użytkownik ma kontekst paska postępu i bieżący czas to 0:00
+- [Poprawka błędu] Rozmiar logo [skórka] jest zakodowany w kodzie JavaScript
+- U Klawisze dostępu Klawisze skrótu nie są włączone, gdy gracz zostanie kliknięty.
 
-### <a name="changes-212"></a>Zmiany 2.1.2 ####
+### <a name="changes-212"></a>Zmiany w 2.1.2 ####
 
-- [Zmień] [Rejestrowanie] Zaloguj adres URL manifestu, gdy odtwarzacz nie może załadować manifestu
+- Stąp Rejestrować Adres URL manifestu dziennika, gdy odtwarzacz nie może załadować manifestu
 
-### <a name="features-212"></a>Cechy 2.1.2 ###
+### <a name="features-212"></a>Funkcje 2.1.2 ###
 
-- [Zmień] [Wydajność] [Optymalizacja] Poprawiono czas ładowania i uruchamiania graczy
+- Stąp Skuteczności Optymalizacja Ulepszone czasy ładowania i uruchamiania odtwarzacza
 
-## <a name="211-official-update"></a>2.1.1 (Oficjalna aktualizacja) ##
+## <a name="211-official-update"></a>2.1.1 (aktualizacja oficjalna) ##
 
 ### <a name="bug-fixes-211"></a>Poprawki błędów 2.1.1 ####
 
-- [Poprawka błędu] [iOS] Ustawienie autoodtwarzania na false daje nieskończony pokrętło w Safari dla systemu iOS
-- [Poprawka błędu] Poszukiwanie czasu większego niż czas trwania zawartości daje nieskończoną pokrętło
-- [Poprawka błędu] Skróty klawiszowe wymagają wielu kart klawiatury, aby uzyskać kontekst odtwarzacza do pracy
-- [Poprawka błędu] Wideo zawiesza się na kilka sekund po zmianach rozmiaru odtwarzacza w niektórych zasobach
-- [Poprawka błędu] Nieskończony spinner (po zakończeniu wyszukiwania), gdy użytkownik szybko wykonuje wiele poszukiwań
-- [Poprawka błędu] Pasek sterowania nie jest ukryty podczas braku aktywności
-- [Poprawka błędu] Otwarcie aplikacji internetowej hostowej AMP może spowodować dwukrotne załadowanie strony sieci Web
-- [Poprawka błędu] Nieskończone podczas odtwarzania zawartości niektórych zasobów za pośrednictwem Flash Tech
-- [Poprawka błędu] Więcej opcji menu nie jest wyświetlany z wtyczki 3rd party
-- [Poprawka błędu] [Skóra| Tube][Na żywo] Dwie ikony na żywo są wyświetlane, gdy gracz znajduje się na krawędzi programu na żywo
-- [Poprawka błędu] [Skórka] Nie można wyłączyć logo
-- [Poprawka błędu] [Zawartość DD+] Ciągły pokrętło pojawia się dla zasobów zawierających ścieżkę audio Dolby Digital
-- [Poprawka błędu] Najnowsze AMP zawiesza się podczas przełączania ścieżek języka audio podczas transmisji na żywo
-- [Poprawka błędu] naprawiono zniknięcie tła dla pokrętła
-- [Poprawka błędu] Nieskończony pokrętło w statycznych próbkach tokenów flash AES
+- [Poprawka błędu] Wykonane Ustawienie autoodtwarzania na false powoduje nieskończoną pokrętło w przeglądarce Safari dla systemu iOS
+- [Poprawka błędu] Wyszukiwanie w czasie dłuższym niż czas trwania zawartości daje nieskończone pokrętło
+- [Poprawka błędu] Klawisze skrótu wymagają wielu kart klawiatury, aby uzyskać kontekst pracy odtwarzacza
+- [Poprawka błędu] Wideo jest zamrożone przez kilka sekund po zmianie rozmiarów odtwarzacza w określonych zasobach
+- [Poprawka błędu] Nieskończone pokrętło (po zakończeniu poszukiwania), gdy użytkownik robi wiele szybko przeszukiwania
+- [Poprawka błędu] Pasek sterowania nie jest ukryty podczas nieaktywności
+- [Poprawka błędu] Otwarcie webapp, który hostuje AMP może spowodować, że strona sieci Web zostanie załadowana dwukrotnie
+- [Poprawka błędu] Nieskończoność podczas odtwarzania zawartości niektórych zasobów za pośrednictwem programu Flash Tech
+- [Poprawka błędu] Menu Więcej opcji nie jest wyświetlane z wtyczkami innych firm
+- [Poprawka błędu] [Skórka | Rura] [Live] dwie ikony na żywo są wyświetlane, gdy gracz znajduje się na aktywnej krawędzi programu
+- [Poprawka błędu] Łuskę Nie można wyłączyć logo
+- [Poprawka błędu] [DD + Content] Wskaźnik ciągły jest wyświetlany dla zasobów zawierających ścieżkę audio Dolby Digital
+- [Poprawka błędu] Najnowsza AMP zawieszania podczas przełączania ścieżek języka audio podczas transmisję strumieniową
+- [Naprawa błędów] stałe tło Znikające dla pokrętła
+- [Poprawka błędu] Nieskończone pokrętło w przypadku statycznych próbek tokenów AES Flash poprawki błędów
 
 ### <a name="changes-211"></a>Zmiany 2.1.1 ####
 
-- [Zmień] Dodano kod błędu dla Widevine Https wymagania: od Chrome v58, widevine `https://` treści muszą być ładowane / odtwarzane za pośrednictwem protokołu w przeciwnym razie odtwarzanie zakończy się niepowodzeniem.
-- [Zmień] Dodano etykietę aria do ładowania przędzarki, dzięki czemu technologia wspomagające może opowiadać "ładowanie wideo" podczas ładowania zawartości  
+- Stąp Dodano kod błędu dla wymagania https Widevine: w przypadku programu Chrome v58 zawartość Widevine musi zostać załadowana/odtworzona przy `https://` użyciu protokołu, w przeciwnym razie odtwarzanie nie powiedzie się.
+- Stąp Dodano etykietę Aria do ładowania pokrętła, dzięki czemu technologia wspomagająca może głosować "Ładowanie wideo" podczas ładowania zawartości  
 
-## <a name="210-official-release"></a>2.1.0 (Oficjalne wydanie) ##
+## <a name="210-official-release"></a>2.1.0 (wydanie oficjalne) ##
 
-### <a name="features-210"></a>Cechy 2.1.0 ###
+### <a name="features-210"></a>2.1.0 funkcji ###
 
-- [Funkcja] [AzureHtml5JS] Vod Ad Support dla przed- mid-post-rolki
-- [Funkcja] [Beta] [AzureHtml5JS] Obsługa reklam na żywo dla przed- mid-post-rolki
-- [Funkcja] Dodano nową opcję skórki - AMP-flush
-- [Funkcja] Dodano ulepszone etykiety aria dla lepszej integracji z czytnikami ekranu / technologią wspomaganą
-- [Funkcja] [Skórka] Skin pokazuje teraz wszystkie ikony i przyciski wyraźnie w trybie wysokiego kontrastu
+- Ona [AzureHtml5JS] Obsługa usługi AD w VOD
+- Ona Wersji [AzureHtml5JS] Obsługa usługi AD na żywo na potrzeby przedśredniej
+- Ona Dodano nową opcję karnacji — Metoda AMP-Flush
+- Ona Dodano ulepszone etykiety ARIA dla lepszej integracji z czytnikami ekranu/technologią pomocniczą
+- Ona Łuskę Karnacje teraz wyświetla wszystkie ikony i przyciski w trybie dużego kontrastu
 
 ### <a name="bug-fixes-210"></a>Poprawki błędów 2.1.0 ###
 
 - [Poprawka błędu] Liczba poprawek ułatwień dostępu i interfejsu użytkownika
-- [Poprawka błędu] AMP nie ładuje się poprawnie w IE9
+- [Poprawka błędu] Niewłaściwie załadowanie AMP w IE9
 
 ### <a name="changes-210"></a>Zmiany 2.1.0 ###
 
-- [Zmień] Zrestrukturyzowane elementy DOM w odtwarzaczu, aby dostosować reklamy pracy
-- [Zmień] Przełączony z CSS na SCSS dla rozwoju skóry
-- [Zmień] [Przykłady] Dodano przykład dla reklam VOD
-- [Zmień] [Przykłady] Dodano próbkę dla szybkości odtwarzania
-- [Zmień] [Przykłady] Dodano próbkę do flush skin
+- Stąp Elementy modelu DOM z restrukturyzacją w odtwarzaczu w celu uwzględnienia pracy z reklamami
+- Stąp Przełączono z CSS do języka SCSS na potrzeby tworzenia karnacji
+- Stąp Badan Dodano przykład dla VOD ads
+- Stąp Badan Dodano przykład dla szybkości odtwarzania
+- Stąp Badan Dodano przykład dla skóry opróżniania
 
-## <a name="200-beta-release"></a>2.0.0 (wersja beta) ##
+## <a name="200-beta-release"></a>2.0.0 (wydanie beta) ##
 
-- [Zmień]zaktualizowany do VJS5
-- [funkcja] Dodano nowy płynny interfejs API do płynu responsywności odtwarzacza
-- [Funkcja] Prędkość odtwarzania
-- [Zmień] Przełączony z CSS na SCSS dla skóry
+- [Zmiana] została zaktualizowana do VJS5
+- ona Dodano nowy płyn API dla płynu czas odpowiedzi odtwarzacza
+- Ona Szybkość odtwarzania
+- Stąp Przełączono z arkusza CSS do języka SCSS dla karnacji
 
-## <a name="183-official-hotfix-update"></a>1.8.3 (Oficjalna aktualizacja poprawki) ##
+## <a name="183-official-hotfix-update"></a>1.8.3 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-183"></a>Poprawki błędów 1.8.3 ###
 
-- [Poprawka błędu] [AzureHtml5JS] Niektóre zasoby z ujemnym DTS nie będą odtwarzane w Chrome
+- [Poprawka błędu] [AzureHtml5JS] Niektóre zasoby z ujemną wartością DTS nie będą odtwarzane w przeglądarce Chrome
 
-## <a name="182-official-hotfix-update"></a>1.8.2 (Oficjalna aktualizacja poprawki) ##
+## <a name="182-official-hotfix-update"></a>1.8.2 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-182"></a>Poprawki błędów 1.8.2 ###
 
-- [Poprawka błędu] [AzureHtml5JS] Wyższa szybkość transmisji bitów audio nie będzie odtwarzana za pośrednictwem usługi AzureHtml5JS
+- [Poprawka błędu] [AzureHtml5JS] Wyższe szybkości transmisji bitów audio nie będą odtwarzane za pośrednictwem AzureHtml5JS
 
-## <a name="181-official-update"></a>1.8.1 (Oficjalna aktualizacja) ##
+## <a name="181-official-update"></a>1.8.1 (oficjalna aktualizacja) ##
 
 ### <a name="bug-fixes-181"></a>Poprawki błędów 1.8.1 ###
 
-- [Poprawka błędu] [iOS] Napisy/napisy, które nie są wyświetlane w rodzimym odtwarzaczu
-- [Poprawka błędu] [AMP] Nie odtwarzane adresy URL przesyłania strumieniowego z pomocą sieci CDN dołączone do tokenów uwierzytelniania
-- [Poprawka błędu] [FairPlay] Kod błędu FairPlay brakujący Identyfikator techniczny (Bits [31-28] z ErrorCode) zobacz Kody błędów, aby uzyskać więcej informacji
-- [Poprawka błędu] [Safari] [PlayReady] Zawartość PlayReady w Safari daje nieskończoną przędzarkę
+- [Poprawka błędu] Wykonane Napisy/napisy nie są wyświetlane w macierzystym odtwarzaczu
+- [Poprawka błędu] OGRANICZONY Sieci CDN — adresy URL przesyłania strumieniowego, które są dołączane przy użyciu tokenów uwierzytelniania
+- [Poprawka błędu] FairPlay W kodzie błędu FairPlay brak Tech ID (BITS [31-28] kodu ErrorCode) zobacz Kody błędów, aby uzyskać więcej szczegółów
+- [Poprawka błędu] Safari PlayReady Zawartość oprogramowania PlayReady w przeglądarce Safari z nieograniczoną pokrętłem
 
 ### <a name="changes-181"></a>Zmiany 1.8.1 ###
 
-- [Zmień] [Html5] Zmienianie natywnych dzienników technicznych html5 w celu zawierające zdarzenia z VideoTag
+- Stąp HTML5 Zmień natywne dzienniki obsługi języka HTML5 (verbose), aby zawierały zdarzenia z VideoTag
 
-## <a name="180-official-update"></a>1.8.0 (Oficjalna aktualizacja) ##
+## <a name="180-official-update"></a>1.8.0 (oficjalna aktualizacja) ##
 
-### <a name="features-180"></a>Cechy 1.8.0 ###
+### <a name="features-180"></a>1.8.0 funkcji ###
 
-- [Cechy] [DRM] Dodano obsługę FairPlay (więcej informacji znajdziesz w [witrynie Chronionej zawartości)](azure-media-player-protected-content.md)
+- Oferowanych ZASTOSOWANIE Dodano obsługę FairPlay (Aby uzyskać więcej informacji, zobacz [chroniona zawartość](azure-media-player-protected-content.md) )
 
 ### <a name="bug-fixes-180"></a>Poprawki błędów 1.8.0 ###
 
-- [Poprawka błędu] [AMP] Poszukiwanie użytkownika nie wyzwala zdarzenia oczekiwania, gdy sieć jest ograniczona
-- [Poprawka błędu] [Flashss] Wybór jakości w technologii flash zgłasza wyjątek
-- [Poprawka błędu] [AMP] Dynamiczne wybieranie jakości jest wyświetlane w menu kontekstowym
-- [Poprawka błędu] [Skórka] Trudno jest wybrać ostatnią pozycję menu menu kontekstowego
+- [Poprawka błędu] OGRANICZONY Wyszukiwanie użytkownika nie wyzwala zdarzenia oczekiwania w przypadku ograniczenia sieci
+- [Poprawka błędu] [Błysk] Wybieranie jakości w programie Flash — zgłaszanie wyjątku
+- [Poprawka błędu] OGRANICZONY Dynamiczne Wybieranie jakości wyświetla w menu kontekstowym
+- [Poprawka błędu] Łuskę Trudno jest wybrać ostatni element menu kontekstowego
 
 ### <a name="changes-180"></a>Zmiany 1.8.0 ###
 
-- [Zmień] Zaktualizowano odtwarzacz do aktualnych wymagań Chrome EME
-- [Zmień] Domyślna techOrder zmieniona, aby pomieścić nowe tech-html5FairPlayHLS (zobacz [Zawartość chroniona, aby](azure-media-player-protected-content.md) uzyskać więcej informacji)
-- [Zmień] [AzureHtml5JS] Włączone odtwarzanie MPEG-Dash w przeglądarce Safari
-- [Zmień] [Przykłady] Zmieniono próbki multi-DRM, aby pomieścić FairPlay
+- Stąp Zaktualizowano odtwarzacz do bieżących wymagań programu Chrome EME
+- Stąp Domyślne techOrder zmienione w celu uwzględnienia nowych technologii Tech-html5FairPlayHLS (zobacz [chroniona zawartość](azure-media-player-protected-content.md) , aby uzyskać więcej informacji)
+- Stąp [AzureHtml5JS] Włączono odtwarzanie w formacie MPEG-kreska w przeglądarce Safari
+- Stąp Badan Zmieniono przykłady dla wieloskładnikowej technologii DRM w celu uwzględnienia FairPlay
 
-## <a name="174-official-hotfix-update"></a>1.7.4 (Oficjalna aktualizacja poprawki) ##
+## <a name="174-official-hotfix-update"></a>1.7.4 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-174"></a>Poprawki błędów 1.7.4 ###
 
-- [Poprawka błędu] [Chrome] Niebieski kontur pojawia się wokół uchwytu wyszukiwania, gdy użytkownik ma kontekst odtwarzacza
-- [Poprawka błędu] [IE9] Wyjątek JavaScript zgłoszony po załadowaniu odtwarzacza w IE9
+- [Poprawka błędu] Własnego Niebieski kontur pojawia się wokół uchwytu wyszukiwania, gdy użytkownik ma kontekst odtwarzacza
+- [Poprawka błędu] IE9 Zgłoszono wyjątek języka JavaScript podczas ładowania odtwarzacza w IE9
 
-## <a name="173-official-hotfix-update"></a>1.7.3 (Oficjalna aktualizacja poprawki) ##
+## <a name="173-official-hotfix-update"></a>1.7.3 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-173"></a>Poprawki błędów 1.7.3 ###
 
-- [Poprawka błędu] [AzureHtml5JS] Limit czasu gracza w ograniczonych sieciach
+- [Poprawka błędu] [AzureHtml5JS] Limit czasu odtwarzacza w sieciach z ograniczeniami
 
-### <a name="changes-173"></a>Zmiany 1.7.3 ###
+### <a name="changes-173"></a>Zmiany w sekcji 1.7.3 ###
 
-- [Zmień] Włączanie webcrypto na krawędzi do odszyfrowywania zawartości AES
-- [Zmień] Optymalizacja heurystyki AMP w celu uwzględnienia fragmentów w pamięci podręcznej
-- [Zmień] [AzureHtml5JS] Optymalizacja heurystyki dzięki zmniejszeniu opóźnienia szacowania przepustowości
+- Stąp Włączanie usługi WebCrypto na krawędzi na potrzeby odszyfrowywania zawartości AES
+- Stąp Optymalizacja heurystyki AMP do konta w przypadku buforowanych fragmentów
+- Stąp [AzureHtml5JS] Optymalizuj heurystykę przez zmniejszenie opóźnienia szacowania przepustowości
 
-## <a name="172-official-hotfix-update"></a>1.7.2 (Oficjalna aktualizacja poprawki) ##
+## <a name="172-official-hotfix-update"></a>1.7.2 (oficjalna aktualizacja poprawek) ##
 
-### <a name="features-172"></a>Cechy 1.7.2 ###
+### <a name="features-172"></a>1.7.2 funkcji ###
 <!---API needs onboarding. Removed link to API until remedied.--->
-- [Funkcja] [AzureHtml5JS| Firefox] Włącz odtwarzanie Widevine z EME dla Firefoksa 47+
-- [Funkcja] Dodaj zdarzenie dla gracza pozbywającego się
+- Ona [AzureHtml5JS | Firefox] Włączanie odtwarzania Widevine za pomocą EME dla programu Firefox 47 +
+- Ona Dodawanie zdarzenia do usuwania odtwarzacza
 <!-- ([disposing](index.html#static-amp.eventname.disposing)) -->
 
 ### <a name="bug-fixes-172"></a>Poprawki błędów 1.7.2 ###
 
-- [Poprawka błędu] Zakodowane parametry zapytania adresu URL Akamai CDN nie zostały poprawnie zdekodowane
-- [Poprawka błędu] Wyjątek jest zgłaszany na manifestPlayableWindowLength()
-- [Poprawka błędu] Widz nie zawsze może kliknąć przycisk odtwarzania filmu po zakończeniu odtwarzania filmu, aby ponownie obejrzeć
-- [Poprawka błędu] Responsywne zmiany rozmiaru nie są zgodne z szybkimi zmianami rozmiaru okna
-- [Poprawka błędu] [Krawędź| IE] Responsywne zmiany rozmiaru niewcierający na obciążenie strony dla width=x, height=auto
-- [Poprawka błędu] [Android| Chrome] Chrome z prośbą o uprawnienia do odtwarzania zawartości DRM, gdy zawartość nie jest szyfrowana
-- [Poprawka błędu] [Dostępność] [Krawędź] Kontrolki klawiatury nie dobierają poprawnie elementów menu kontekstowego
-- [Poprawka błędu] [Dostępność] Brak wyświetlanego obramowania w trybie wysokiego kontrastu
-- [Poprawka błędu] [Flashss] Detektor zdarzeń myszy nie został usunięty po usunięciu przez gracza powoduje wyjątek
-- [Poprawka błędu] [Flashss] Problem analizowania adresu URL manifestu z zakodowanymi spawami
-- [Poprawka błędu] [iOS] Błąd typu podczas oceny tech.featuresVolumeControl
+- [Poprawka błędu] Zakodowane niepoprawnie Akamai parametry zapytania adresu URL usługi CDN
+- [Poprawka błędu] Wyjątek zgłaszany w manifestPlayableWindowLength ()
+- [Poprawka błędu] Po zakończeniu odtwarzania filmu wideo w przeglądarce nie zawsze można kliknąć pozycję Odtwórz wideo.
+- [Poprawka błędu] Dopasowywanie rozmiaru nie jest zgodne z szybkimi zmianami rozmiaru okna
+- [Poprawka błędu] [Krawędź | IE] odpowiada rozmiarowi strony, która nie ma wpływu na ładowanie stron o szerokości = x, Height = automatyczne
+- [Poprawka błędu] [Android | Chrome] Chrome prosi o uprawnienia do odtwarzania zawartości DRM, gdy zawartość nie jest zaszyfrowana
+- [Poprawka błędu] U Brzegu Kontrolki klawiatury nie wybierają poprawnie elementów menu kontekstowego
+- [Poprawka błędu] U Brak wyświetlanego obramowania w trybie dużego kontrastu
+- [Poprawka błędu] [Błysk] Po usunięciu z odtwarzacza nie został usunięty odbiornik zdarzeń z myszą. powoduje to wyjątek
+- [Poprawka błędu] [Błysk] Problem z analizowaniem adresu URL manifestu z zakodowanymi spacjami
+- [Poprawka błędu] Wykonane Błąd typu podczas oceny Tech. featuresVolumeControl
 
 ### <a name="changes-172"></a>Zmiany 1.7.2 ###
 
-- [Zmień] [DRM] Przeniesiono kontrole DRM po ustawieniu źródła, aby sprawdzać tylko, kiedy zawartość jest szyfrowana
-- [Zmień] [AES] Usunięto niezdefiniowany obiekt typu/zwykły z żądania dostarczenia klucza
-- [Zmień] [Dostępność] Narrator systemu Windows odczytuje teraz "Media Player", gdy kontekst jest w odtwarzaczu, a nie właściwości
+- Stąp ZASTOSOWANIE Przeniesiono testy funkcji DRM po ustawieniu źródła tylko do sprawdzenia, czy zawartość jest zaszyfrowana
+- Stąp AES Usunięto niezdefiniowany treść typu/zwykły z żądania dostarczenia klucza
+- Stąp U Program Windows Narrator odczytuje teraz "Media Player", gdy kontekst jest w odtwarzaczu zamiast właściwości
 
-## <a name="171-official-hotfix-update"></a>1.7.1 (Oficjalna aktualizacja poprawki) ##
+## <a name="171-official-hotfix-update"></a>1.7.1 (oficjalna aktualizacja poprawek) ##
 
-### <a name="features-171"></a>Cechy 1.7.1 ###
+### <a name="features-171"></a>1.7.1 funkcji ###
 
-- [Funkcja] Dodano opcję dla profilu hybrydowego heurystycznego (ten profil jest ustawiony domyślnie)
+- Ona Dodano opcję dla hybrydowego profilu heurystycznego (ten profil jest ustawiany domyślnie)
 
 ### <a name="bug-fixes-171"></a>Poprawki błędów 1.7.1 ###
 
-- [Poprawka błędu] Responsywny projekt nie działa zgodnie ze standardem HTML5 (szerokość= 100%, wysokość = auto)
-- [Poprawka błędu] Wartości procentowe szerokości i wysokości nie zachowujących się zgodnie z oczekiwaniami w wersji 1.7.0
+- [Poprawka błędu] Projekt odpowiadający nie działa zgodnie ze standardem HTML5 (szerokość = 100%, Wysokość = Auto)
+- [Poprawka błędu] Wartości procentowe szerokości i wysokości nie zachowuje się w oczekiwany sposób w v 1.7.0
 
-## <a name="170-official-update"></a>1.7.0 (Oficjalna aktualizacja) ##
+## <a name="170-official-update"></a>1.7.0 (oficjalna aktualizacja) ##
 
-### <a name="features-170"></a>Cechy 1.7.0 ###
+### <a name="features-170"></a>1.7.0 funkcji ###
 <!---API needs onboarding. Removed link until remedied.--->
-- [Funkcja] [AzureHtml5JS] [Flashss] Dodano currentMediaTime(), aby uzyskać czas nośnika kodera bieżącego czasu w sekundach
-- [Funkcja] [Flashss] Zaimplementowano interfejsy API danych telemetrycznych pobierania z plikami videoBufferData() i audioBufferData()<!-- (see [BufferData](index.html#amp.bufferdata) for more details) -->
-- [Funkcja] [Flashss] Dodano zdarzenie "downloadbitratechanged"
-- [Funkcja] Czas ładowania poprawiony w porównaniu ze starszymi wersjami odtwarzacza
-- [Funkcja] Błędy są rejestrowane w konsoli JavaScript
+- Ona [AzureHtml5JS] [Błysk] Dodano currentMediaTime () w celu uzyskania czasu nośnika kodera bieżącego czasu (w sekundach)
+- Ona [Błysk] Zaimplementowano pobieranie interfejsów API telemetrii z videoBufferData () i audioBufferData ()<!-- (see [BufferData](index.html#amp.bufferdata) for more details) -->
+- Ona [Błysk] Dodano zdarzenie "downloadbitratechanged"
+- Ona Ulepszony czas ładowania w porównaniu ze starszymi wersjami odtwarzacza
+- Ona Błędy są rejestrowane w konsoli JavaScript
 
 ### <a name="bug-fixes-170"></a>Poprawki błędów 1.7.0 ###
 
-- [Poprawka błędu] Zakodowany adres URL plakatu z parametrami ciągu zapytania nie wyświetlanymi w odtwarzaczu
-- [Poprawka błędu] Wyjątek, gdy nie ładowane technologii i wzmacniacza interfejsu API. Player.poster() jest nazywany
-- [Poprawka błędu] Wyjątek, gdy funkcje próbują uzyskać dostęp do odtwarzacza po usunięciu
-- [Poprawka błędu] [Dostępność] Brak konspektu na temat skupienia się na pasku postępu szukaj głowy
-- [Poprawka błędu] [Dostępność] Menu kontekstowe mają cień w trybie wysokiego kontrastu
-- [Poprawka błędu] [iOS] rodzimy odtwarzacz WebVTT napisy nie działa
-- [Poprawka błędu] [AzureHtml5JS] Błąd 0x0100002 powinien być wyświetlany podczas odtwarzania strumienia HTTP w witrynie HTTPS, który zamiast tego daje nieskończony pokrętło w wyniku mieszanej zawartości
-- [Poprawka błędu] [AzureHtml5JS] Brak segmentu końcowego powodującego błąd sprawdzania kondycji pętli wyświetlający postrzegany nieskończony stan buforowania
-- [Poprawka błędu] [AzureHtml5JS] Nieprawidłowa nazwa ścieżki audio w menu podczas używaniaManifestForLabel=false i trzyliterowe kody języka są używane
-- [Poprawka błędu] [AzureHtml5JS| Chrome] Postrzegany nieskończony stan bufora na końcu zawartości spowodowany niedokładnością zmiennoprzecinkową w czasie trwania z JavaScript w Chrome
-- [Poprawka błędu] [Flashss] Nieśmiertelny błąd przerywany chwilowo wyświetlany podczas tworzenia odtwarzacza flash
-- [Poprawka błędu] [Flashss] Odtwarzanie nie kończy się, gdy strumienie wideo i audio używają różnych skal czasu z powodu zaokrąglania nieprecyzyjnie z "Fragment url (...) nie może wygenerować znaczników FLVTags"
-- [Poprawka błędu] [Flashss] Problemy z analizowaniem adresów URL manifestu z zakodowanymi spacjami
-- [Poprawka błędu] [Flashss] Brak wyboru, aby ustalić, czy wersja flash player >= 11.4, który powoduje błąd w odtwarzaniu zamiast spadać z powrotem do następnej technologii w techOrder
-- [Poprawka błędu] [Flashss] [AES] Problemy z akceptowaniem tokenów AES z podkreśleniami w nim
-- [Poprawka błędu] [Silverlightss| OSX] prefiks "//" prefiks manifestu zamiast protokołu (HTTP lub HTTPS) jest rozpoznawany jako lokalny plik dający nieskończony pokrętło
+- [Poprawka błędu] Zakodowany adres URL plakatu z parametrami ciągu zapytania, które nie są wyświetlane w odtwarzaczu
+- [Poprawka błędu] Wyjątek zgłoszony, gdy nie załadowano Tech i interfejsu API amp. Player. plakat () jest wywoływany
+- [Poprawka błędu] Zgłoszono wyjątek, gdy funkcje próbują uzyskać dostęp do odtwarzacza po usunięciu
+- [Poprawka błędu] U Brak konspektu na fokusie na pasku wyszukiwania paska postępu
+- [Poprawka błędu] U Menu kontekstowe mają cień w trybie dużego kontrastu
+- [Poprawka błędu] [iOS] macierzysty podpisy WebVTT nie działają
+- [Poprawka błędu] [AzureHtml5JS] 0x0100002 błędu powinien być pokazywany podczas odtwarzania strumienia HTTP w witrynie HTTPS, która zamiast tego daje nieskończony pokrętło w wyniku użycia zawartości mieszanej
+- [Poprawka błędu] [AzureHtml5JS] Brak segmentu końcowego powodującego błąd sprawdzania kondycji pętli podczas wyświetlania nieograniczonego stanu buforowania
+- [Poprawka błędu] [AzureHtml5JS] Niepoprawna nazwa ścieżki audio w menu, gdy useManifestForLabel = false i trzy kody języka są używane
+- [Poprawka błędu] [AzureHtml5JS | Program Chrome] odczuwał nieskończony stan buforu na końcu zawartości spowodowanej niedokładnością zmiennoprzecinkową w czasie trwania z JavaScript w przeglądarce Chrome
+- [Poprawka błędu] [Błysk] Niekrytyczny tymczasowy błąd chwilowo wyświetlany podczas tworzenia programu Flash Player
+- [Poprawka błędu] [Błysk] Odtwarzanie kończy się niepowodzeniem, gdy strumienie wideo i audio używają różnych osi czasu z powodu niepowodzenia zaokrąglania z "fragmentem adresu URL (...) nie można wygenerować FLVTags "
+- [Poprawka błędu] [Błysk] Problemy podczas analizowania adresów URL manifestu z zakodowanymi spacjami
+- [Poprawka błędu] [Błysk] Brak sprawdzenia, aby określić, czy program Flash Player w wersji >= 11,4, który powoduje błąd odtwarzania zamiast powracać do następnej technicznej w techOrder
+- [Poprawka błędu] [Błysk] AES Problemy akceptujące tokeny AES ze znakami podkreślenia
+- [Poprawka błędu] [Silverlight | OSX] "//" prefiks manifestu zamiast protokołu (HTTP lub HTTPS) jest rozpoznawany jako plik lokalny z nieograniczoną pokrętłem
 
 ### <a name="changes-170"></a>Zmiany 1.7.0 ###
 
-- [Zmień] [Flashss] Scalone skrypty SWF ("MSAdaptiveStreamingPlugin-osmf2.0.swf" i "StrobeMediaPlayback.2.0.swf") w jedną pliki SWF o nazwie "StrobeMediaPlayback.2.0.swf"
-- [Zmień] [Flashss] Zaktualizowano propagację kodu błędu, aby uzyskać bardziej precyzyjne kody błędów (np. 404s teraz wynik 0x30200194 zamiast błędu ogólnego 0x30200000)
+- Stąp [Błysk] Scalone skrypty SWF ("MSAdaptiveStreamingPlugin-osmf 2.0. swf" i "StrobeMediaPlayback. 2.0. swf") w jednym pliku SWF o nazwie "StrobeMediaPlayback. 2.0. swf"
+- Stąp [Błysk] Zaktualizowano propagację kodu błędu, aby uzyskać dokładniejsze kody błędów (np. 404s teraz spowoduje to 0x30200194 zamiast ogólnego błędu 0x30200000)
 
-## <a name="163-official-hotfix-update"></a>1.6.3 (Oficjalna aktualizacja poprawki) ##
+## <a name="163-official-hotfix-update"></a>1.6.3 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-163"></a>Poprawki błędów 1.6.3 ###
 
-- [Poprawka błędu] Wyjątek środowiska uruchomieniowego JavaScript, gdy program obsługi zdarzeń skrótów klawiszowych jest wykonywany po usunięciu odtwarzacza
-- [Poprawka błędu] [Android] [AzureHtml5JS] Brak odtwarzania na urządzeniu przenośnym za pomocą sieci komórkowej
-- [Poprawka błędu] Zaktualizowano Forge, aby działał jako pracownik sieci Web, aby zwolnić interfejs użytkownika
+- [Poprawka błędu] Wyjątek środowiska uruchomieniowego JavaScript, gdy program obsługi zdarzeń klawisze skrótów jest wykonywany po usunięciu odtwarzacza
+- [Poprawka błędu] Systemów [AzureHtml5JS] Nie Odtwarzaj na urządzeniu przenośnym przy użyciu sieci komórkowej
+- [Poprawka błędu] Zaktualizowano fałszerstwo w celu uruchomienia jako proces roboczy sieci Web w celu zwolnienia interfejsu użytkownika
 
-## <a name="162-official-hotfix-update"></a>1.6.2 (Oficjalna aktualizacja poprawki) ##
+## <a name="162-official-hotfix-update"></a>1.6.2 (oficjalna aktualizacja poprawek) ##
 
-### <a name="features-162"></a>Cechy 1.6.2 ###
+### <a name="features-162"></a>Funkcje 1.6.2 ###
 
-- [Funkcja] Dodano dodatkowe języki do lokalizacji (więcej informacji w dokumentacji)
+- Ona Dodano dodatkowe języki dla lokalizacji (zobacz dokumentację, aby uzyskać więcej szczegółów)
 
 ### <a name="bug-fixes-162"></a>Poprawki błędów 1.6.2 ###
 
-- [Poprawka błędu] [IE9-10] Klikanie obszarów wokół odtwarzacza zminimalizowane okno przeglądarki ze względu na błąd IE9/IE10, który minimalizuje na window.blur()
-- [Poprawka błędu] [Flashss] Nie akceptujące tokenów AES z podkreśleniami
+- [Poprawka błędu] [IE9-10] Klikanie obszarów wokół zminimalizowanego okna przeglądarki odtwarzacza z powodu błędu IE9/programu IE10, który minimalizuje wartość Window. Blur ()
+- [Poprawka błędu] [Błysk] Nie akceptuje tokenów AES z podkreśleniami
 
-## <a name="161-official-hotfix-update"></a>1.6.1 (Oficjalna aktualizacja poprawki) ##
+## <a name="161-official-hotfix-update"></a>1.6.1 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-161"></a>Poprawki błędów 1.6.1 ###
 
-- [Poprawka błędu] [Flashss| Edge,ie][Silverlightss| IE] Nie można skupić się na innych elementów interfejsu użytkownika dla wejść lub innych w IE / Edge
-- [Poprawka błędu] Odtwarzanie AES kończy się niepowodzeniem, gdy kuźnia niezdefiniowana
-- [Poprawka błędu] [Android] [AzureHtml5JS| Chrome] Ciągły pokrętło nie odtwarza treści podczas pętli kontroli kondycji
-- [Poprawka błędu] [IE9] console.log() nie obsługiwane przez IE 9 powodując wyjątek
+- [Poprawka błędu] [Błysk | Edge, IE] [Silverlight | IE] nie można ustawić fokusu dla innych elementów interfejsu użytkownika dla danych wejściowych lub innych w programie IE/Edge
+- [Poprawka błędu] Odtwarzanie AES kończy się niepowodzeniem w przypadku niezdefiniowanego fałszowania
+- [Poprawka błędu] Systemów [AzureHtml5JS | Chrome] ciągła pokrętło nie odtwarza zawartości z tyłu w pętli sprawdzania kondycji
+- [Poprawka błędu] [IE9] Console. log () nie jest obsługiwany przez program IE 9 powodujący wyjątek
 
-## <a name="160-official-update"></a>1.6.0 (Oficjalna aktualizacja) ##
+## <a name="160-official-update"></a>1.6.0 (oficjalna aktualizacja) ##
 
-### <a name="features-160"></a>Cechy 1.6.0 ###
+### <a name="features-160"></a>1.6.0 funkcji ###
 
-- [Funkcja] 33% redukcja rozmiaru azuremediaplayer.min.js
-- [Funkcja] [AzureHtml5JS| Edge][Nieprzetestowane] Wsparcie dla strumieni audio DD+ w edge (bez przełączania kodeka po wstępnym wyborze). Aplikacja musi wybrać prawidłowy strumień audio w tej chwili.
-- [Funkcja] Kontrolki skrótów klawiszowych (więcej informacji znajdziesz w dokumentów)
-- [Funkcja] Wskazówka czasu postępu najechać kursem, aby uzyskać dokładny czas
-- [Funkcja] Zezwalaj na asynchroniczne wykrywanie wtyczek, jeśli metoda setupDone istnieje w wtyczce
+- [Funkcja] 33% zmniejszanie rozmiaru azuremediaplayer. min. js
+- Ona [AzureHtml5JS | Edge] [Nietestowana] obsługa strumieni DD + audio w programie Edge (bez przełączania do kodera-dekoder po początkowym wyborze). W tej chwili aplikacja musi wybrać poprawny strumień audio.
+- Ona Kontrolki klawisza dostępu (zobacz dokumentację, aby uzyskać więcej szczegółów)
+- Ona Wskaźnik postępu w czasie oczekiwania na dokładne wyszukiwanie
+- Ona Zezwalaj na asynchroniczne wykrywanie wtyczek, jeśli metoda setupDone istnieje w dodatku plug-in
 
 ### <a name="bug-fixes-160"></a>Poprawki błędów 1.6.0 ###
 
-- [Poprawka błędu] Dziennik pamięci nie opróżniania na getMemoryLog (true)
-- [Poprawka błędu] Pole wyboru szybkość transmisji bitów resetuje się po ruchu myszy, powodując problem z wybieraniem niższych szybkości transmisji bitów za pomocą kontroli myszy
-- [Poprawka błędu] Mac Office w awarii aplikacji podczas wykonywania sprawdzania DRM
-- [Poprawka błędu] Klasy CSS są łatwo przypadkowo zastąpione
-- [Poprawka błędu] [Chrome] Aktualizacja identyfikacji z przeglądarki ciągów agenta użytkownika jest Edge
-- [Poprawka błędu] [AzureHtml5JS] Przycisk Podpisy nie jest wyświetlany na pasku narzędzi w edge(Win10) lub Chrome(Mac)
-- [Poprawka błędu] [Android] [AzureHtml5JS| Chrome] InvalidStateError wyjątek na endOfStream() połączenia na krótkie filmy
-- [Poprawka błędu] [Firefox] Usuwanie ostrzeżenia DRM spowodowanego przez Firefoksa podczas sprawdzania możliwości przeglądarki
-- [Poprawka błędu] [Html5] Napisy/Napisy nie są wyświetlane z progresywną zawartością mp4
-- [Poprawka błędu] [Flashss] Wiadomości z pasującymi sygnaturami czasowymi były rejestrowane w odwrotnej kolejności
-- [Poprawka błędu] [Dostępność] [Chrome| Firefox] Karta i wybierz kontrolki automatycznie wybrać pierwszy element menu
-- [Poprawka błędu] [Dostępność] Tabulator do sterowania głośnością przycisku
+- [Poprawka błędu] Nie opróżniaj dziennika pamięci w getMemoryLog (true)
+- [Poprawka błędu] Pole wyboru szybkości transmisji bitów jest resetowane podczas przesuwania wskaźnika myszy powodującego problem z wybraniem mniejszej szybkości transmisji bitów za poorednictwem myszy
+- [Poprawka błędu] W przypadku awarii pakietu Mac w aplikacji podczas przeprowadzania kontroli DRM
+- [Poprawka błędu] Klasy CSS można łatwo przypadkowo zastąpić
+- [Poprawka błędu] Własnego Identyfikacja aktualizacji z przeglądarki ciągu agenta użytkownika jest krawędzią
+- [Poprawka błędu] [AzureHtml5JS] Przycisk napisów nie jest wyświetlany na pasku narzędzi w programie Edge (Win10) lub Chrome (Mac)
+- [Poprawka błędu] Systemów [AzureHtml5JS | Chrome] InvalidStateError wyjątek w wywołaniu endOfStream () na krótkie wideo
+- [Poprawka błędu] Firefox Usuwanie ostrzeżenia DRM powodowanego przez przeglądarkę Firefox podczas sprawdzania możliwości przeglądarki
+- [Poprawka błędu] HTML5 Napisy/napisy nie są wyświetlane z progresywną zawartością MP4
+- [Poprawka błędu] [Błysk] Komunikaty z pasującymi znacznikami czasu zostały zarejestrowane w odwrotnej kolejności
+- [Poprawka błędu] U [Chrome | Firefox] Tab i Select Controls automatycznie wybiera pierwszy element menu
+- [Poprawka błędu] U Klawisz kontrolny do sterowania woluminem
 
 ### <a name="changes-160"></a>Zmiany 1.6.0 ###
 
-- [Zmień] Użyj czasu odszyfrowywania AES przy wyborze poziomu jakości
-- [Zmień] Aktualizowanie nagrywarki adresów URL w celu użycia HLS v4 przed HLS v3 dla strumieni multi-audio
-- [Zmień] Ustaw nativeControlsForTouch na false jako domyślny (musi być false, aby działał poprawnie)
+- Stąp Użyj czasu odszyfrowywania AES w wyborze poziomu jakości
+- Stąp Zaktualizuj program do zapisywania adresów URL, aby używał HLS v4 przed HLS v3 dla strumieni wielodźwiękowych
+- Stąp Ustaw wartość domyślną nativeControlsForTouch na false (musi mieć wartość false, aby poprawnie działać)
 
-## <a name="150-official-update"></a>1.5.0 (Oficjalna aktualizacja) ##
+## <a name="150-official-update"></a>1.5.0 (oficjalna aktualizacja) ##
 
-### <a name="features-150"></a>Cechy 1.5.0 ###
+### <a name="features-150"></a>1.5.0 funkcji ###
 
-- [Funkcja] Ulepszenia ogólnego bezpieczeństwa w sieci (zapobieganie iniekcji, XSS itp.)
-- [Funkcja] Haki integracji wtyczki SDN dla sourceset zdarzenia i options.sdn
-- [Funkcja] Solidność obsługi błędów 5XX i 4XX podczas odtwarzania
+- Ona Ulepszenia ogólnych zabezpieczeń sieci Web (zapobieganie iniekcjom, XSS itp.)
+- Ona Punkty zaczepienia integracji wtyczki SDN dla zdarzeń sourceset i opcji. SDN
+- Ona Niezawodna obsługa błędów 5XX i 4XX podczas odtwarzania
 
 ### <a name="bug-fixes-150"></a>Poprawki błędów 1.5.0 ###
 
-- [Poprawka błędu] Aktualizacja minyfikacji CSS, aby używać kodów czcionek jednostki HTML dla przycisków zamiast Unicode
-- [Poprawka błędu] [AzureHtml5JS] Zawartość multi-DRM zawsze wybierając token pierwszego elementu z protectionInfo powodując drugi DRM nie powiedzie się
-- [Poprawka błędu] [AzureHtml5JS] Poszukiwanie nigdy nie kończy się podczas poszukiwania w obszarze z brakującymi segmentami.
-- [Poprawka błędu] [AzureHtml5JS| Krawędź] Włącz poprzedzony eme w edge aktualizacji do odtwarzania PlayReady
-- [Poprawka błędu] [AzureHtml5JS| Firefox] Update EME check to allow Firefox v42+ (with MSE) to fallback to Silverlight for protected content Firefox
-- [Poprawka błędu] [Flashss] Aktualizuj plik error.message od numeru do szczegółowego ciągu
+- [Poprawka błędu] Zaktualizuj minifikacja CSS, aby używać kodów czcionek jednostki HTML dla przycisków zamiast Unicode
+- [Poprawka błędu] [AzureHtml5JS] Zawartość z obsługą technologii DRM zawsze wybieraj token pierwszego elementu z protectionInfo, powodując niepowodzenie drugiego obiektu DRM
+- [Poprawka błędu] [AzureHtml5JS] Wyszukiwanie w obszarze z brakującymi segmentami nigdy nie kończy się.
+- [Poprawka błędu] [AzureHtml5JS | Edge] Włączanie prefiksu EME w aktualizacji usługi Edge dla odtwarzania oprogramowania PlayReady
+- [Poprawka błędu] [AzureHtml5JS | Firefox] zaktualizuj EME Check, aby zezwolić przeglądarce Firefox v42 + (with MSE) na powrót do programu Silverlight na potrzeby zawartości chronionej
+- [Poprawka błędu] [Błysk] Aktualizacja błędu. komunikat z liczby do szczegółowego ciągu
 
 ### <a name="changes-150"></a>Zmiany 1.5.0 ###
 
-- [Zmień] Plakaty działają obecnie tylko jako bezwzględne adresy URL.
+- Stąp Plakaty obecnie działają tylko jako bezwzględne adresy URL.
 
-## <a name="140-official-update"></a>1.4.0 (Oficjalna aktualizacja) ##
+## <a name="140-official-update"></a>1.4.0 (oficjalna aktualizacja) ##
 
-### <a name="features-140"></a>Cechy 1.4.0 ###
+### <a name="features-140"></a>1.4.0 funkcji ###
 
-- [Funkcja] [AzureHtml5JS| Chrome] Simple Widevine DRM wsparcie
-- [Funkcja] [AzureHtml5JS] Solidność obsługi błędów 404/412 podczas odtwarzania
+- Ona [AzureHtml5JS | Chrome] prosta Widevine obsługa technologii DRM
+- Ona [AzureHtml5JS] Niezawodna obsługa błędów 404/412 podczas odtwarzania
 
 ### <a name="bug-fixes-140"></a>Poprawki błędów 1.4.0 ###
 
-- [Poprawka błędu] [Flashss] Ulepszenie sprawdzania poprawności parametrów
+- [Poprawka błędu] [Błysk] Ulepszenie weryfikacji parametrów
 
-## <a name="130-official-update"></a>1.3.0 (Oficjalna aktualizacja) ##
+## <a name="130-official-update"></a>1.3.0 (oficjalna aktualizacja) ##
 
-### <a name="features-130"></a>Cechy 1.3.0 ###
+### <a name="features-130"></a>1.3.0 funkcji ###
 
-- [Funkcja] [AzureHtml5JS] [Flashss] Przełączanie dźwięku tej samej zawartości kodeka Multi-Audio
+- Ona [AzureHtml5JS] [Błysk] Przełączanie audio tego samego kodera-dźwiękowego
 
 ### <a name="bug-fixes-130"></a>Poprawki błędów 1.3.0 ###
 
-- [Poprawka błędu] [AzureHtml5JS| Chrome] Przerywany nieskończony pokrętło
-- [Poprawka błędu] [AzureHtml5JS| IE][Windows Phone] Wyjątek powodujący problemy z odtwarzaniem w systemie Windows Phone
-- [Poprawka błędu] [Flashss] Autoodtwarzanie ustawione na false kończy się niepowodzeniem dla dodatkowych wystąpień
-- [Poprawka błędu] Problemy z rozmiarami menu interfejsu użytkownika
+- [Poprawka błędu] [AzureHtml5JS | Chrome] sporadycznie nieskończone pokrętło
+- [Poprawka błędu] [AzureHtml5JS | IE] [Windows Phone] wyjątek powodujący problemy z odtwarzaniem Windows Phone
+- [Poprawka błędu] [Błysk] Funkcja autoodtwarzania ustawiona na wartość false kończy się niepowodzeniem w przypadku dodatkowych wystąpień
+- [Poprawka błędu] Problemy z ustalaniem wielkości menu interfejsu użytkownika
 
-## <a name="120-official-update"></a>1.2.0 (Oficjalna aktualizacja) ##
+## <a name="120-official-update"></a>1.2.0 (oficjalna aktualizacja) ##
 
-### <a name="features-120"></a>Cechy 1.2.0 ###
+### <a name="features-120"></a>1.2.0 funkcji ###
 
-- [Funkcja] [AzureHtml5JS| Firefox] Wsparcie po włączeniu mse
-- [Funkcja] Nie wymaga już aplikacji do zapewnienia ścieżek dla rezerwowych plików binarnych technologii (swf, xap). Ścieżka jest względem skryptu programu Azure Media Player.
+- Ona [AzureHtml5JS | Firefox) obsługa, gdy jest włączona funkcja MSE
+- Ona Nie wymagają już aplikacji, aby zapewnić ścieżki do rezerwowych plików binarnych (SWF, XAP). Ścieżka jest względna dla skryptu Azure Media Player.
 
 ### <a name="bug-fixes-120"></a>Poprawki błędów 1.2.0 ###
 
-- [Poprawka błędu] [AzureHtml5JS| Chrome] Gracz dryfuje za krawędzią na żywo, gdy gracz w tle
-- [Poprawka błędu] [AzureHtml5JS| Krawędź] Pełny ekran nie działa
-- [Poprawka błędu] [AzureHtml5JS] Rejestrowanie nie zostało włączone poprawnie po ustawieniu opcji
-- [Poprawka błędu] [Flash] Zarówno "buforowanie", jak i buforowanie ikony wyświetlane podczas oczekiwania na zdarzenie
-- [Poprawka błędu] Zezwalaj na kontynuowanie odtwarzania w przypadku niepowodzenia początkowego żądania przepustowości
-- [Poprawka błędu] Odtwarzacz nie może załadować po zainicjowaniu z niezdefiniowanymi opcjami
-- [Poprawka błędu] Podczas próby utylizacji odtwarzacza po jego usunięciu występuje wyjątek vdata
+- [Poprawka błędu] [AzureHtml5JS | Chrome] dryfy odtwarzacza za aktywną krawędzią, gdy gracz w tle
+- [Poprawka błędu] [AzureHtml5JS | Krawędź] pełny ekran nie działa
+- [Poprawka błędu] [AzureHtml5JS] Rejestrowanie nie zostało prawidłowo włączone po ustawieniu w opcjach
+- [Poprawka błędu] Flash Obie ikony "buforowanie" i "buforowanie" są wyświetlane podczas oczekiwania na zdarzenie
+- [Poprawka błędu] Zezwalaj na kontynuowanie odtwarzania w przypadku niepowodzenia żądania przepustowości początkowej
+- [Poprawka błędu] Nie można załadować odtwarzacza, gdy zostanie zainicjowany z niezdefiniowanymi opcjami
+- [Poprawka błędu] Gdy podjęto próbę usunięcia odtwarzacza po jego usunięciu, wystąpi wyjątek VDATA
 - [Poprawka błędu] Nieprawidłowo mapowane ikony paska jakości
 
-## <a name="111-official-hotfix-update"></a>1.1.1 (Oficjalna aktualizacja poprawki) ##
+## <a name="111-official-hotfix-update"></a>1.1.1 (oficjalna aktualizacja poprawek) ##
 
 ### <a name="bug-fixes-111"></a>Poprawki błędów 1.1.1 ###
 
-- [Poprawka błędu] Starszy problem pełnoekranowy IE
-- [Poprawka błędu] Wtyczki nie są już zastępowane
+- [Poprawka błędu] Starszy problem z pełnym ekranem programu IE
+- [Poprawka błędu] Dodatki nie są już zastępowane
 
-## <a name="110-official-update"></a>1.1.0 (Oficjalna aktualizacja) ##
+## <a name="110-official-update"></a>1.1.0 (oficjalna aktualizacja) ##
 
-### <a name="features-110"></a>Cechy 1.1.0 ###
+### <a name="features-110"></a>1.1.0 funkcji ###
 
-- [Funkcja] Aktualizowanie ciągów lokalizacji interfejsu użytkownika
+- Ona Aktualizowanie ciągów lokalizacji interfejsu użytkownika
 
 ### <a name="bug-fixes-110"></a>Poprawki błędów 1.1.0 ###
 
-- [Poprawka błędu] Przycisk Big Play nie ma wystarczającego kontrastu
-- [Poprawka błędu] Wskaźnik ostrości karty wizualnej
-- [Poprawka błędu] Wybierz menu Bitrate teraz przy użyciu informacji o poprawnej rozdzielczości
-- [Poprawka błędu] Więcej opcji menu teraz dynamicznie wielkości
+- [Poprawka błędu] Przycisk dużego odtwarzania nie ma wystarczającego kontrastu
+- [Poprawka błędu] Wskaźnik fokusu karty wizualnej
+- [Poprawka błędu] Wybierz menu szybkość transmisji, używając poprawnych informacji o rozwiązaniu
+- [Poprawka błędu] Menu Więcej opcji jest teraz dynamicznie skalowane
 - [Poprawka błędu] Różne problemy z interfejsem użytkownika
 
-## <a name="100-official-release"></a>1.0.0 (Oficjalne wydanie) ##
+## <a name="100-official-release"></a>1.0.0 (wydanie oficjalne) ##
 
-### <a name="features-100"></a>Cechy 1.0.0 ###
+### <a name="features-100"></a>1.0.0 funkcji ###
 
-- [Funkcja] Podstawowe testowanie ułatwień dostępu do sterowania tabulatorami, sterowania ostrością, czytnika ekranu, interfejsu użytkownika o wysokim kontraście
-- [Funkcja] Zaktualizowany interfejs użytkownika
-- [Funkcja] Rejestrowanie deweloperów
-- [Funkcja] INTERFEJS API do dynamicznego ustawiania ścieżek podpisów/napisów
-- [Funkcja] Podstawowe funkcje lokalizacji
-- [Funkcja] Konsolidacja kodu błędu w technikach
-- [Funkcja] Nowy kod błędu, gdy wtyczki (takie jak Flash lub Silverlight) nie są zainstalowane
-- [Funkcja] [AzureHtml5JS] Wdrożone podstawowe zdarzenia diagnostyczne
+- Ona Podstawowe testowanie dostępności dla kontrolki karta, kontrola fokusu, czytnik ekranu, interfejs użytkownika o dużym kontraście
+- Ona Zaktualizowany interfejs użytkownika
+- Ona Rejestrowanie dev
+- Ona Interfejs API umożliwiający dynamiczne Ustawianie napisów/śladów
+- Ona Podstawowe funkcje lokalizacji
+- Ona Błąd konsolidacji kodu w ramach konferencji Tech.
+- Ona Nowy kod błędu dla sytuacji, gdy nie zainstalowano wtyczek (na przykład Flash lub Silverlight)
+- Ona [AzureHtml5JS] Zaimplementowane podstawowe zdarzenia diagnostyczne
 
 ### <a name="bug-fixes-100"></a>Poprawki błędów 1.0.0 ###
 <!---What is that actually supposed to say?--->
-- [Poprawka błędu] [AzureHtml5JS] Zamrożenie odtwarzania na żywo na aktualizacjach MPD, gdy w sygnaturze czasowej występują małe nieprecyzyjne
-- [Poprawka błędu] [AzureHtml5JS] Złagodził kilka problemów z odtwarzaniem na żywo
-- [Poprawka błędu] [AzureHtml5JS] Opróżnianie buforów, gdy heurystyka rozmiaru okna jest wł., i przechodzi na ekran o wyższej rozdzielczości
-- [Poprawka błędu] [AzureHtml5JS] Chrome teraz poprawnie pokazuje zakończone zdarzenie. Połączony z poprzedniwyznany problem *Chrome nie&euro;będzie poprawnie&euro;wysyłać â œendedâ zdarzenia podczas korzystania z AzureHtml5JS. Wystąpił problem w podstawowej przeglądarce.*
-- [Poprawka błędu] [AzureHtml5JS] Wyłączone Safari dla tej technologii w celu rozwiązania *problemu z odtwarzaniem z OSX Yosemite z azurehtml5JS tech. Istnieją problemy z implementacją MSE. Tymczasowe łagodzenie: życie&euro;â&euro;œflashSÂ&euro;, â œsilverlightSSâ&euro;jako tech celu dla tych agentów użytkownika*
-- [Poprawka błędu] [FlashSS] loadstart zwolniony po wystąpieniu błędu
+- [Poprawka błędu] [AzureHtml5JS] Odtwarzanie na żywo w przypadku aktualizacji w dniu MPD w przypadku niewielkich niedokładności w znaczniku czasu
+- [Poprawka błędu] [AzureHtml5JS] Wyeliminowano kilka problemów z odtwarzaniem na żywo
+- [Poprawka błędu] [AzureHtml5JS] Bufory opróżniania, gdy są włączone heurystyke rozmiaru okna i przejdź do ekranu o wyższej rozdzielczości
+- [Poprawka błędu] [AzureHtml5JS] W programie Chrome jest teraz poprawnie wyświetlana zakończona zdarzenie. Połączono z poprzednim znanym problemem *przeglądarki Chrome nie wyśle&euro;prawidłowo&euro;zdarzenia â œendedâ podczas korzystania z AzureHtml5JS. W podstawowej przeglądarce występuje problem.*
+- [Poprawka błędu] [AzureHtml5JS] Wyłączono przeglądarkę Safari, aby rozwiązać *problem z odtwarzaniem za pomocą programu OSX Yosemite z AzureHtml5JS Tech. Istnieją problemy z implementacją skryptów. Tymczasowe środki zaradcze: Wymuś&euro;rozwiązanie&euro;â œflashSSâ&euro;,&euro;â œsilverlightSSâ jako zamówienie techniczne dla tych agentów użytkownika*
+- [Poprawka błędu] [Błysk] loadstart jest uruchamiany po wystąpieniu błędu
 
-## <a name="020-beta"></a>0.2.0 (beta) ##
+## <a name="020-beta"></a>0.2.0 (wersja beta) ##
 
-### <a name="features-020"></a>Cechy 0.2.0 ###
+### <a name="features-020"></a>0.2.0 funkcji ###
 
-- [Funkcja] Zakończone testy playready i AES na żądanie i na żywo - zobacz macierz zgodności
-- [Funkcja] Obsługa nieciągłości
-- [Funkcja] Obsługa sygnatur czasowych większych niż 2^53
-- [Funkcja] Parametr kwerendy adresów URL jest nadal wysyłany do żądania manifestu
-- [Funkcja] [Nieprzetestowane] Obsługa `QuickStart` profili i `HighQuality` heurystyki
-- [Funkcja] [Nieprzetestowane] Udostępnianie informacji o strumieniu wideo dla szybkości transmisji bitów, szerokości i wysokości w serwisach AzureHtml5JS i FlashSS
-- [Funkcja] [Nieprzetestowane] Wybierz szybkość transmisji bitów na platformie AzureHtml5JS i FlashSS (zobacz dokumentację interfejsu API)
+- Ona Zakończono testowanie dla oprogramowania PlayReady i AES dla na żądanie i na żywo — Zobacz macierz zgodności
+- Ona Obsługa przerwań
+- Ona Obsługa sygnatur czasowych większych niż 2 ^ 53
+- Ona Parametr zapytania URL utrzymuje żądanie manifestu
+- Ona Nieprzetestowanego Obsługa profilów `QuickStart` i `HighQuality` algorytmów heurystycznych
+- Ona Nieprzetestowanego Udostępnianie informacji o strumieniu wideo dla szybkości transmisji bitów, szerokości i wysokości na AzureHtml5JS i błysku
+- Ona Nieprzetestowanego Wybierz szybkość transmisji bitów w AzureHtml5JS i błysku (zobacz dokumentację interfejsu API)
 
 ### <a name="bug-fixes-020"></a>Poprawki błędów 0.2.0 ###
 
-- [Bug Fix] duży przycisk odtwarzania teraz widoczny na WP8.1
-- [Poprawka błędu] naprawiła wiele problemów z odtwarzaniem na żywo
-- Przycisk [Poprawka błędu] działa teraz w interfejsie użytkownika
-- [Poprawka błędu] zaktualizowana funkcja ładowania interfejsu użytkownika w trybie autoodtwarzania
-- [Poprawka błędu] Problem z programem ładującego AMD i definiowanie konfliktów metod
-- [Poprawka błędu] WP 8.1 Problem z ładowaniem aplikacji Cordova
-- [Poprawka błędu] Chroniona zawartość zapytań platformy/tech obsługiwane ProtectionType, aby wybrać odpowiednią technologię do odtwarzania.  Naprawiono poprzedni znany problem_z zawartością PlayReady w Chrome (na pulpicie) / Safari 8 (na OSX Yosemite) obecnie nie należy do odtwarzacza Silverlight_'
-- [Bug Fix] nieprzychylić wyjątek na WinServer 2012 R2 ze względu na Media Foundation nie jest zainstalowany na tym komputerze domyślnie.  Spróbuj użyć interfejsów API tagu wideo HTML, które nie są implementowane, w ten sposób wyrzucając błąd. Bieżące ograniczenie jest złapać ten błąd i zwrócić false zamiast wyrzucania błędu.
-- [Bug Fix] zawsze uzyskać init segmentu po seek lub http awarii, aby zapobiec usterkom podczas odtwarzania
-- [Poprawka błędu] wyłącz śledzenie symulowanego postępu i licze czasu, gdy wystąpił błąd.
-- [Poprawka błędu] usuń menu prawym przyciskiem myszy
-- [Poprawka błędu] Komunikat o błędzie [AzureHtml5JS] nie jest wyświetlany, gdy nieprawidłowy token ustawiony dla zawartości PlayReady
-- [Poprawka błędu] [AzureHtml5JS] przejście na pełny ekran podczas odtwarzania na żywo nie uwzględniało heurystyki rozmiaru okna
-- [Poprawka błędu] [Flashss] Usunięto komunikaty wyświetlane w programie Strobe Media Player, dzięki czemu wyświetlane są tylko komunikaty programu Azure Media Player
-- [Poprawka błędu] [SilverlightSS] nie otrzymuje "poszukiwani" zdarzenia, gdy szukamy poza czasem trwania lub mniej niż 0
+- [Poprawka błędu] duże przyciski odtwarzania widoczne teraz w programie WP 8.1
+- [Poprawka błędu] Naprawiono wiele problemów z odtwarzaniem na żywo
+- [Poprawka błędu] przycisk odciszenia działa teraz na interfejsie użytkownika
+- [Poprawka błędu] zaktualizowane środowisko ładowania interfejsu użytkownika dla trybu autoodtwarzania
+- [Poprawka błędu] Błąd modułu ładującego AMD oraz konflikty metod definiowania
+- [Poprawka błędu] Problem z ładowaniem aplikacji oprogramowania Cordova w programie WP 8,1
+- [Poprawka błędu] Chroniona kwerenda zawartości platforma/Tech. PROTECTIONTYPE do wybrania odpowiedniej Tech for playback.  Naprawia poprzedni znany problem dotyczący "_zawartości oprogramowania PlayReady w programie Chrome (Desktop)/Safari 8 (w systemie OSX Yosemite), który obecnie nie jest powrót do odtwarzacza Silverlight_"
+- [Poprawka błędu] nieprzechwycony wyjątek w WinServer 2012 R2 z powodu niezainstalowanej domyślnie platforma Media Foundation na tym komputerze.  Próba użycia interfejsów API tagów wideo HTML, które nie zostały zaimplementowane, w rezultacie Zgłaszanie błędu. Bieżące środki zaradcze to przechwycenie tego błędu i zwrócenie wartości false zamiast zgłaszania błędu.
+- [Poprawka błędu] zawsze pobieraj segment init po niepowodzeniu wyszukiwania lub http, aby zapobiec wystąpieniu błędów podczas odtwarzania
+- [Poprawka błędu] Wyłącz śledzenie symulowanego postępu i timeupdates, gdy wystąpił błąd.
+- [Poprawka błędu] Usuń menu prawego kliknięcia
+- [Poprawka błędu] [AzureHtml5JS] komunikat o błędzie nie jest wyświetlany, gdy jest ustawiony nieprawidłowy token dla zawartości PlayReady
+- [Poprawka błędu] [AzureHtml5JS] przechodzenie do trybu pełnoekranowego podczas odtwarzania na żywo nie pozostało na koncie heurystycznego rozmiaru okna
+- [Poprawka błędu] [Błysk] Usunięto podMedia Player wyświetlane komunikaty, aby były wyświetlane tylko komunikaty Azure Media Player
+- [Poprawka błędu] [Silverlight] nie pojawia się zdarzenie "odszukane" podczas wyszukiwania po upływie czasu trwania lub mniejszej niż 0
 
-## <a name="010-beta-release"></a>0.1.0 (wersja beta) ##
+## <a name="010-beta-release"></a>0.1.0 (wydanie beta) ##
 
-Wstępna wersja wstępna
+Początkowe wydanie wstępne
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

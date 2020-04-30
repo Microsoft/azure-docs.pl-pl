@@ -1,25 +1,25 @@
 ---
-title: Pisanie wtyczek do programu Azure Media Player
-description: Dowiedz się, jak napisać wtyczkę za pomocą programu Azure Media Player w języku JavaScript
+title: Pisanie wtyczek dla Azure Media Player
+description: Dowiedz się, jak napisać wtyczkę z Azure Media Player przy użyciu języka JavaScript
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727114"
 ---
-# <a name="writing-plugins-for-azure-media-player"></a>Pisanie wtyczek do programu Azure Media Player #
+# <a name="writing-plugins-for-azure-media-player"></a>Pisanie wtyczek dla Azure Media Player #
 
-Wtyczka jest JavaScript napisany, aby rozszerzyć lub poprawić odtwarzacz. Można pisać wtyczki, które zmieniają wygląd programu Azure Media Player, jego funkcjonalność, a nawet mieć go interfejs z innymi usługami. Można to zrobić w dwóch prostych krokach:
+Wtyczka jest zapisywana w języku JavaScript w celu rozszerzenia lub udoskonalenia odtwarzacza. Można napisać wtyczki, które zmieniają wygląd Azure Media Player, jego funkcje lub nawet mają interfejs IT z innymi usługami. Można to zrobić w dwóch prostych krokach:
 
 ## <a name="step-1"></a>Krok 1 ##
 
-Napisz swój JavaScript w funkcji takiej jak tak:
+Napisz JavaScript w taki sposób, aby:
 
 ```javascript
 
@@ -33,7 +33,7 @@ Napisz swój JavaScript w funkcji takiej jak tak:
     }).call(this);
 ```
 
-Kod można zapisać bezpośrednio na stronie `<script>` HTML w tagach lub w zewnętrznym pliku JavaScript. Jeśli to zrobisz, pamiętaj, aby dołączyć plik `<head>` JavaScript do strony HTML *po* skrypcie AMP.
+Kod można napisać bezpośrednio na stronie HTML w `<script>` tagach lub w zewnętrznym pliku JavaScript. Jeśli to zrobisz, pamiętaj o uwzględnieniu pliku JavaScript na `<head>` stronie HTML *po* skrypcie amp.
 
 Przykład:
 
@@ -47,7 +47,7 @@ Przykład:
 ```
 
 ## <a name="step-2"></a>Krok 2 ##
-Zasuń wtyczkę za pomocą języka JavaScript na jeden z dwóch sposobów:
+Zainicjuj wtyczkę przy użyciu języka JavaScript na jeden z dwóch sposobów:
 
 Metoda 1.
 
@@ -74,21 +74,21 @@ Metoda 2.
     video.yourPluginName({[your plugins option]: [example option]});
 ```
 
-Opcje wtyczki nie są wymagane, w tym po prostu pozwala programistom za pomocą wtyczki, aby skonfigurować swoje zachowanie bez konieczności zmiany kodu źródłowego.
+Opcje wtyczki nie są wymagane, w tym ich po prostu umożliwiają deweloperom korzystającym z wtyczki skonfigurowanie jego zachowania bez konieczności zmiany kodu źródłowego.
 
-Inspiracje i więcej przykładów na temat tworzenia wtyczki zapoznaj się z naszą [galerią](azure-media-player-plugin-gallery.md)
+Aby uzyskać inspiracje i więcej przykładów na temat tworzenia wtyczki, zapoznaj się z naszą [galerią](azure-media-player-plugin-gallery.md)
 
 >[!NOTE]
-> Kod wtyczki dynamicznie zmienia elementy w DOM w okresie istnienia gracza widza, nigdy nie wprowadza trwałych zmian w kodzie źródłowym gracza. W tym miejscu przydaje się zrozumienie narzędzi programistycznych przeglądarki. Na przykład, jeśli chcesz zmienić wygląd elementu w odtwarzaczu można znaleźć jego element HTML według jego nazwy klasy, a następnie dodać lub zmienić atrybuty stamtąd. Oto świetny zasób na [temat zmiany atrybutów HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
+> Kod wtyczki dynamicznie zmienia elementy w modelu DOM w czasie trwania środowiska odtwarzacza przeglądarki, nigdy nie wprowadza trwałych zmian w kodzie źródłowym odtwarzacza. Jest to miejsce, w którym zrozumienie narzędzi programistycznych przeglądarki jest przydatne. Na przykład jeśli chcesz zmienić wygląd elementu w odtwarzaczu, możesz znaleźć jego element HTML według nazwy klasy, a następnie dodać lub zmienić atrybuty. Oto doskonałe zasoby dotyczące [zmieniania atrybutów HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
 
 ### <a name="integrated-plugins"></a>Zintegrowane wtyczki ###
 
- Obecnie istnieją dwie wtyczki pieczone w AMP: [wskazówka czasu](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) i [skróty klawiszowe](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Wtyczki te zostały pierwotnie opracowane jako modułowe wtyczki dla gracza, ale są teraz zawarte w kodzie źródłowym odtwarzacza.
+ Obecnie istnieją dwa wtyczki rozszerzania do AMP: [etykietka czasowa](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) i [klawisze](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)dostępu. Te wtyczki zostały pierwotnie opracowane jako wtyczki modularne odtwarzacza, ale są teraz dołączone do kodu źródłowego odtwarzacza.
 
 ### <a name="plugin-gallery"></a>Galeria wtyczek ###
 
-[Galeria wtyczek](http//:aka.ms/ampplugins) zawiera kilka wtyczek, które społeczność już przyczyniła się do takich funkcji, jak znaczniki linii czasowej, zoom, analityka i wiele innych. Strona zapewnia dostęp do wtyczek i instrukcji, jak go skonfigurować, a także demo, które pokazuje wtyczkę w akcji. Jeśli stworzysz fajną wtyczkę, która naszym zdaniem powinna zostać uwzględniona w naszej galerii, prosimy o przesłanie jej, abyśmy mogli to sprawdzić.
+[Galeria wtyczek](http//:aka.ms/ampplugins) zawiera kilka wtyczek, które zostały już utworzone przez społeczność dla funkcji, takich jak znaczniki wiersza czasu, powiększanie, analiza i nie tylko. Strona zapewnia dostęp do wtyczek i instrukcje dotyczące sposobu ich konfigurowania oraz pokazu, który pokazuje wtyczkę w działaniu. Jeśli utworzysz chłodną wtyczkę, którą uważasz, że powinna zostać uwzględniona w naszej galerii, możesz ją przesłać, aby ją wyewidencjonować.
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

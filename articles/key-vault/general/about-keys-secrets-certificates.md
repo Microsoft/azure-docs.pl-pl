@@ -1,6 +1,6 @@
 ---
-title: Informacje o kluczach, wpisach tajnych i certyfikatach usługi Azure Key Vault — usługa Azure Key Vault
-description: Omówienie interfejsu REST usługi Azure Key Vault i szczegółów dewelopera dla kluczy, wpisów tajnych i certyfikatów.
+title: Informacje o kluczach Azure Key Vault, wpisach tajnych i certyfikatach — Azure Key Vault
+description: Omówienie Azure Key Vault interfejsu REST i szczegółów dla deweloperów kluczy, wpisów tajnych i certyfikatów.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,49 +10,49 @@ ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 241efab246dc903981da570a4191f93cc744bca7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726445"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>Klucze, wpisy tajne i certyfikaty — informacje
+# <a name="about-keys-secrets-and-certificates"></a>Informacje o kluczach, wpisach tajnych i certyfikatach
 
-Usługa Azure Key Vault umożliwia aplikacjom i użytkownikom platformy Microsoft Azure przechowywanie i używanie kilku typów danych tajnych/kluczowych:
+Azure Key Vault umożliwia aplikacjom Microsoft Azure i użytkownikom przechowywanie i używanie kilku typów danych tajnych/kluczy:
 
-- Klucze kryptograficzne: Obsługuje wiele typów kluczy i algorytmów i umożliwia korzystanie z sprzętowych modułów zabezpieczeń (HSM) dla kluczy o wysokiej wartości. Aby uzyskać więcej informacji, zobacz [Informacje o klawiszach](../keys/about-keys.md).
-- Wpisy tajne: zapewnia bezpieczne przechowywanie wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o tajemnicach](../secrets/about-secrets.md).
-- Certyfikaty: Obsługuje certyfikaty, które są zbudowane na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
-- Usługa Azure Storage: może zarządzać kluczami konta usługi Azure Storage. Wewnętrznie Usługa Key Vault może wymieniać (synchronizować) klucze za pomocą konta usługi Azure Storage i okresowo ponownie wygenerować (obrócić) klucze. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami kont magazynu za pomocą usługi Key Vault](../secrets/overview-storage-keys.md).
+- Klucze kryptograficzne: obsługuje wiele typów kluczy i algorytmów oraz umożliwia korzystanie z sprzętowych modułów zabezpieczeń (HSM) dla kluczy o wysokiej wartości. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach](../keys/about-keys.md).
+- Wpisy tajne: zapewnia bezpieczny magazyn wpisów tajnych, takich jak hasła i parametry połączenia bazy danych. Aby uzyskać więcej informacji, zobacz [Informacje o wpisach tajnych](../secrets/about-secrets.md).
+- Certyfikaty: obsługuje certyfikaty, które są oparte na kluczach i wpisach tajnych i dodają funkcję automatycznego odnawiania. Aby uzyskać więcej informacji, zobacz [Informacje o certyfikatach](../certificates/about-certificates.md).
+- Azure Storage: umożliwia zarządzanie kluczami konta usługi Azure Storage. Wewnętrznie Key Vault mogą wyświetlać (synchronizować) klucze przy użyciu konta usługi Azure Storage i ponownie generować (obrócić) klucze okresowo. Aby uzyskać więcej informacji, zobacz [Zarządzanie kluczami konta magazynu przy użyciu Key Vault](../secrets/overview-storage-keys.md).
 
-Aby uzyskać bardziej ogólne informacje na temat usługi Key Vault, zobacz [Informacje o usłudze Azure Key Vault](overview.md).
+Aby uzyskać więcej ogólnych informacji na temat Key Vault, zobacz [Informacje o Azure Key Vault](overview.md).
 
 ## <a name="data-types"></a>Typy danych
 
-Informacje na temat odpowiednich typów danych dotyczących kluczy, szyfrowania i podpisywania można znaleźć w specyfikacjach jose.  
+Zapoznaj się ze specyfikacją JOSE dla odpowiednich typów danych dla kluczy, szyfrowania i podpisywania.  
 
--   **algorytm** - obsługiwany algorytm dla operacji klucza, na przykład RSA1_5  
--   **wartość tekstu szyfrowania** - oktety tekstu szyfrowanego, zakodowane przy użyciu base64URL  
--   **digest-value** - dane wyjściowe algorytmu mieszania, zakodowane przy użyciu Base64URL  
--   **typ klucza** - jeden z obsługiwanych typów kluczy, na przykład RSA (Rivest-Shamir-Adleman).  
--   **wartość zwykłego tekstu** - oktety w postaci zwykłego tekstu, zakodowane przy użyciu base64URL  
--   **signature-value** - dane wyjściowe algorytmu podpisu zakodowanego przy użyciu base64URL  
--   **base64URL** - wartość binarna zakodowana w base64URL [RFC4648]  
--   **wartość logiczna** — prawda lub fałsz  
--   **Tożsamość** — tożsamość z usługi Azure Active Directory (AAD).  
--   **IntDate** - wartość dziesiętna JSON reprezentująca liczbę sekund od 1970-01-01T0:0:0Z UTC do określonej daty/godziny UTC. Szczegółowe informacje na temat daty/godziny można znaleźć w 19339 r., a w szczególności w przypadku czasu utc.  
+-   **algorytm** — obsługiwany algorytm dla operacji Key, na przykład RSA1_5  
+-   tekst **szyfrowany-wartość** — umożliwia szyfrowanie oktetów tekstu zakodowanych przy użyciu Base64URL  
+-   **Digest-Value** — dane wyjściowe algorytmu wyznaczania wartości skrótu zakodowane przy użyciu Base64URL  
+-   **Typ klucza** — jeden z obsługiwanych typów kluczy, na przykład RSA (Rivest-Shamir-Adleman).  
+-   **zwykły tekst —** oktety w postaci zwykłego tekstu, kodowane przy użyciu Base64URL  
+-   **sygnatura-wartość** — dane wyjściowe algorytmu podpisu zakodowane przy użyciu Base64URL  
+-   **base64URL** -a BASE64URL [RFC4648] zakodowana wartość binarną  
+-   wartość **logiczna** — true lub false  
+-   **Tożsamość** — tożsamość z Azure Active Directory (AAD).  
+-   **IntDate** — wartość dziesiętna JSON reprezentująca liczbę sekund od 1970-01-01T0:0: 0Z UTC do określonej daty/godziny UTC. Zobacz RFC3339, aby uzyskać szczegółowe informacje dotyczące daty/godziny, ogólnie i czasu UTC.  
 
 ## <a name="objects-identifiers-and-versioning"></a>Obiekty, identyfikatory i przechowywanie wersji
 
-Obiekty przechowywane w przechowalni kluczy są wersjonatowane przy każdym utworzeniu nowego wystąpienia obiektu. Każdej wersji jest przypisywany unikatowy identyfikator i adres URL. Po utworzeniu obiektu nadana jest unikatowy identyfikator wersji i oznaczona jako bieżąca wersja obiektu. Utworzenie nowego wystąpienia o tej samej nazwie obiektu nadaje nowemu obiektowi unikatowy identyfikator wersji, co powoduje, że staje się on bieżącą wersją.  
+Obiekty przechowywane w Key Vault są używane w wersji za każdym razem, gdy zostanie utworzone nowe wystąpienie obiektu. Każda wersja ma przypisany unikatowy identyfikator i adres URL. Gdy obiekt jest tworzony, otrzymuje unikatowy identyfikator wersji i jest oznaczony jako bieżąca wersja obiektu. Utworzenie nowego wystąpienia o tej samej nazwie obiektu daje nowemu obiektowi unikatowy identyfikator wersji, powodując, że staje się on bieżącą wersją.  
 
-Obiekty w magazynie kluczy można rozwiązać przy użyciu bieżącego identyfikatora lub identyfikatora specyficznego dla wersji. Na przykład, biorąc pod `MasterKey`uwagę Klucz o nazwie , wykonywanie operacji z bieżącym identyfikatorem powoduje, że system do korzystania z najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej określonej wersji obiektu.  
+Obiekty w Key Vault mogą być rozkierowane przy użyciu bieżącego identyfikatora lub identyfikatora specyficznego dla wersji. Na przykład, jeśli klucz o nazwie `MasterKey`, wykonywanie operacji z bieżącym identyfikatorem powoduje, że system używa najnowszej dostępnej wersji. Wykonywanie operacji z identyfikatorem specyficznym dla wersji powoduje, że system używa tej konkretnej wersji obiektu.  
 
-Obiekty są jednoznacznie identyfikowane w magazynie kluczy przy użyciu adresu URL. Żadne dwa obiekty w systemie nie mają tego samego adresu URL, niezależnie od lokalizacji geograficznej. Pełny adres URL obiektu nosi nazwę identyfikatora obiektu. Adres URL składa się z prefiksu identyfikującego magazyn kluczy, typ obiektu, nazwę obiektu pod warunkiem użytkownika i wersję obiektu. Nazwa obiektu jest niewrażliwa na argumenty i niezmienna. Identyfikatory, które nie zawierają wersji obiektu są określane jako identyfikatory podstawowe.  
+Obiekty są jednoznacznie identyfikowane w Key Vault przy użyciu adresu URL. Żadne dwa obiekty w systemie nie mają tego samego adresu URL, niezależnie od lokalizacji geograficznej. Pełny adres URL do obiektu jest nazywany identyfikatorem obiektu. Adres URL składa się z prefiksu, który identyfikuje Key Vault, typ obiektu, nazwę obiektu dostarczoną przez użytkownika i wersję obiektu. Nazwa obiektu nie uwzględnia wielkości liter i jest niezmienna. Identyfikatory, które nie zawierają wersji obiektu, są określane jako identyfikatory podstawowe.  
 
-Aby uzyskać więcej informacji, zobacz [Uwierzytelnianie, żądania i odpowiedzi](authentication-requests-and-responses.md)
+Aby uzyskać więcej informacji, zobacz [uwierzytelnianie, żądania i odpowiedzi](authentication-requests-and-responses.md)
 
-Identyfikator obiektu ma następujący ogólny format:  
+Identyfikator obiektu ma następujący format ogólny:  
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
@@ -60,10 +60,10 @@ Gdzie:
 
 |||  
 |-|-|  
-|`keyvault-name`|Nazwa magazynu kluczy w usłudze Microsoft Azure Key Vault.<br /><br /> Nazwy magazynu kluczy są wybierane przez użytkownika i są unikatowe globalnie.<br /><br /> Nazwa magazynu kluczy musi być ciągiem znaków 3-24, zawierającym tylko 0-9, a-z, A-Z i -.|  
-|`object-type`|Typ obiektu, "keys", "secrets" lub 'certificates'.|  
-|`object-name`|Nazwa `object-name` użytkownika jest nazwą podana przez użytkownika i musi być unikatowa w magazynie kluczy. Nazwa musi być ciągiem znaków 1-127, zawierającym tylko 0-9, a-z, A-Z i -.|  
-|`object-version`|An `object-version` jest generowany przez system, 32-znakowy identyfikator ciągu, który jest opcjonalnie używany do adresu unikatową wersję obiektu.|  
+|`keyvault-name`|Nazwa magazynu kluczy w usłudze Microsoft Azure Key Vault.<br /><br /> Nazwy Key Vault są wybrane przez użytkownika i są unikatowe globalnie.<br /><br /> Nazwa Key Vault musi być ciągiem znaków 3-24, zawierającym tylko 0-9, a-z, A-Z i-.|  
+|`object-type`|Typ obiektu, "Keys", "Secret" lub "Certificates".|  
+|`object-name`|A `object-name` to nazwa podana przez użytkownika dla i musi być unikatowa w obrębie Key Vault. Nazwa musi być ciągiem znaków 1-127, zawierającym tylko 0-9, a-z, A-Z i-.|  
+|`object-version`|`object-version` Jest wygenerowanym przez system 32 identyfikatorem ciągu znaków, który jest opcjonalnie używany do adresowania unikatowej wersji obiektu.|  
 
 ## <a name="next-steps"></a>Następne kroki
 

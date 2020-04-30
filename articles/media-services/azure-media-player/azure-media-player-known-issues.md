@@ -1,114 +1,114 @@
 ---
-title: Problemy znane w programie Azure Media Player
-description: Bieżąca wersja ma następujące znane problemy.
+title: Azure Media Player znane problemy
+description: W bieżącej wersji znajdują się następujące znane problemy.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727218"
 ---
 # <a name="known-issues"></a>Znane problemy #
 
-Bieżąca wersja ma następujące znane problemy:
+W bieżącej wersji znajdują się następujące znane problemy:
 
 ## <a name="azure-media-player"></a>Azure Media Player ##
 
 - Nieprawidłowo skonfigurowane kodery mogą powodować problemy z odtwarzaniem
-- Strumienie o sygnaturach czasowych większe niż 2^53 mogą mieć problemy z odtwarzaniem.
-  - Łagodzenie: użyj 90-kHz wideo i 44,1 kHz skali czasu audio
-- Brak automatycznego odtwarzania na urządzeniach mobilnych bez interakcji z użytkownikiem. Jest zablokowany przez platformę.
-- Poszukiwanie w pobliżu nieciągłości może spowodować niepowodzenie odtwarzania.
-- Pobieranie dużych prezentacji może spowodować zablokowanie interfejsu użytkownika.
-- Nie można automatycznie odtworzyć tego samego źródła ponownie po zakończeniu prezentacji.
-  - Aby odtworzyć źródło po jego zakończeniu, należy ponownie ustawić źródło.
+- Strumienie z sygnaturami czasowymi większymi niż 2 ^ 53 mogą mieć problemy z odtwarzaniem.
+  - Środki zaradcze: korzystanie z filmów wideo 90-kHz i 44,1-kHz
+- Brak autoodtwarzania na urządzeniach przenośnych bez interakcji z użytkownikiem. Jest ona blokowana przez platformę.
+- Wyszukiwanie w bliskich przerwań może spowodować niepowodzenie odtwarzania.
+- Pobieranie dużych prezentacji może spowodować blokowanie interfejsu użytkownika.
+- Nie można automatycznie odtworzyć tego samego źródła po zakończeniu prezentacji.
+  - Aby odtworzyć Źródło po jego zakończeniu, należy ponownie ustawić źródło.
 - Puste manifesty mogą powodować problemy z odtwarzaczem.
-  - Ten problem może wystąpić podczas uruchamiania strumienia na żywo i nie wystarczającej ilości fragmentów znajdują się w manifeście.
-- Pozycja odtwarzania może poza paskiem wyszukiwania interfejsu użytkownika.
-- Kolejność zdarzeń nie jest spójna we wszystkich technikach.
-- Właściwości buforowane nie jest spójne w całej technologii.
-- nativeControlsForTouch musi być false (domyślnie), aby uniknąć "Obiekt nie obsługuje właściwości lub metody 'setControls'"
-- Plakaty muszą być teraz bezwzględnymi adresami URL
-- W interfejsie użytkownika mogą wystąpić drobne problemy estetyczne podczas korzystania z trybu wysokiego kontrastu urządzenia
+  - Ten problem może wystąpić podczas uruchamiania strumienia na żywo, a w manifeście nie znaleziono wystarczającej liczby fragmentów.
+- Pozycja odtwarzania może poza interfejsem użytkownika SeekBar.
+- Kolejność zdarzeń nie jest spójna ze wszystkimi technicznymi.
+- Właściwość buforowana nie jest spójna w ramach Tech.
+- nativeControlsForTouch musi mieć wartość false (domyślnie), aby uniknąć "obiekt nie obsługuje właściwości ani metody" setcontrols ""
+- Afisze muszą teraz być bezwzględnymi adresami URL
+- Podczas korzystania z trybu dużego kontrastu urządzenia mogą wystąpić drobne problemy estetyczne w interfejsie użytkownika
 - Adresy URL zawierające "%" lub "+" w w pełni zdekodowanym ciągu mogą mieć problemy z ustawieniem źródła
 
-## <a name="ad-insertion"></a>Wstawianie reklamy ##
+## <a name="ad-insertion"></a>Wstawianie AD ##
 
-- Reklamy mogą mieć problemy z wstawianiem (na żądanie lub na żywo), gdy w przeglądarce jest zainstalowany bloker reklam
-- Na urządzeniach mobilnych mogą występnąć problemy z odtwarzaniem reklam.
+- W przypadku usługi AD-Block w przeglądarce mogą być wstawiane problemy (na żądanie lub na żywo).
+- Urządzenia przenośne mogą mieć problemy z odtwarzaniem reklam.
 
-## <a name="azurehtml5js"></a>Platforma AzureHtml5JS ##
+## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
-- W oknie DVR zawartości live, po zakończeniu zawartości oś czasu będzie nadal rosnąć aż do poszukiwania do obszaru lub osiągnięcia końca prezentacji.
-- Prezentacje na żywo w Firefoksie z włączoną funkcją MSE mają pewne problemy
-- Zasoby, które są tylko audio lub wideo, nie będą odtwarzane za pośrednictwem technologii AzureHtml5JS.
-  - Jeśli chcesz odtwarzać zasoby bez dźwięku lub wideo, możesz to zrobić, wstawiając pusty dźwięk lub wideo za pomocą [narzędzia Azure Media Services Explorer](https://aka.ms/amse)
-    - Instrukcje dotyczące wstawiania cichego dźwięku można znaleźć [tutaj](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+- W oknie DVR zawartości na żywo, gdy zawartość zostanie zakończona, nadal rośnie, dopóki nie przejdziesz do obszaru lub osiągniesz koniec prezentacji.
+- Prezentacje na żywo w programie Firefox z włączoną funkcją MSE zawierają pewne problemy
+- Zasoby, które są tylko audio lub wideo, nie będą odtwarzane z powrotem za pośrednictwem AzureHtml5JS Tech.
+  - Jeśli chcesz odtwarzać zasoby bez audio lub wideo, możesz to zrobić, wstawiając puste audio lub wideo za pomocą [narzędzia Azure Media Services Explorer](https://aka.ms/amse)
+    - Instrukcje dotyczące sposobu wstawiania dyskretnego dźwięku można znaleźć [tutaj](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Flash ##
 
-- Zawartość AES nie jest odtwarzana w wersji Flash 30.0.0.134 z powodu błędu w logice buforowania firmy Adobe. Firma Adobe rozwiązała problem i wydała go w 30.0.0.154
-- Awarie technologii i http (takie jak 404 limity czasu sieci), odtwarzacz będzie trwać dłużej niż inne technologie.
-- Kliknij obszar wideo z technologią flashSS nie będzie odtwarzać / pauzować odtwarzacz.
-- Jeśli użytkownik ma zainstalowaną lampę Flash, ale nie udziela uprawnień do załadowania go na lokację, może wystąpić nieskończone wirowanie. To dlatego, że gracz uważa, że wtyczka jest zainstalowana i dostępna i myśli, że wtyczka jest uruchomiona zawartość. Kod JavaScript został wysłany, ale ustawienia przeglądarki zablokowały wykonanie wtyczki, dopóki użytkownik nie zaakceptuje monitu o zezwolenie na wtyczkę. Może to nastąpić we wszystkich przeglądarkach.  
+- Zawartość AES nie jest odtwarzana w programie Flash w wersji 30.0.0.134 ze względu na usterkę w logice buforowania Adobe. Firma Adobe rozwiązała problem i wydała ją w 30.0.0.154
+- Błędy techniczne i http (takie jak 404 limitów czasu sieci), gracz zajmie dłużej odzyskiwanie niż inne techniczne.
+- Kliknięcie obszaru wideo z funkcją Flash Tech nie spowoduje odtworzenia/wstrzymania odtwarzacza.
+- Jeśli użytkownik ma zainstalowany program Flash, ale nie udzieli uprawnienia do załadowania go w lokacji, może wystąpić nieskończona wirowanie. Wynika to z faktu, że gracz uzna, że wtyczka jest zainstalowana i dostępna, a wtyczka jest uruchomiona. Kod JavaScript został wysłany, ale ustawienia przeglądarki blokują wykonywanie wtyczki, dopóki użytkownik nie zaakceptuje monitu o zezwolenie na wtyczkę. Taka sytuacja może wystąpić we wszystkich przeglądarkach.  
 
 ## <a name="silverlight"></a>Silverlight ##
 
 - Brakujące funkcje
-- Awarie technologii i http (takie jak 404 limity czasu sieci), odtwarzacz będzie trwać dłużej niż inne technologie.
-- Odtwarzanie przeglądarki Safari i Firefox na komputerze `"http://` Mac `https://` za pomocą programu Silverlight wymaga jawnego zdefiniowania lub źródła.
-- Jeśli brakuje interfejsu API dla tej technologii, zazwyczaj zwraca wartość null.
-- Jeśli użytkownik ma zainstalowaną lampę Flash, ale nie udziela uprawnień do załadowania go na lokację, może wystąpić nieskończone wirowanie. To dlatego, że gracz uważa, że wtyczka jest zainstalowana i dostępna i myśli, że wtyczka jest uruchomiona zawartość. Kod JavaScript został wysłany, ale ustawienia przeglądarki zablokowały wykonanie wtyczki, dopóki użytkownik nie zaakceptuje monitu o zezwolenie na wtyczkę. Może to nastąpić we wszystkich przeglądarkach.  
+- Błędy techniczne i http (takie jak 404 limitów czasu sieci), gracz zajmie dłużej odzyskiwanie niż inne techniczne.
+- Przeglądarki Safari i Firefox na potrzeby odtwarzania komputerów Mac z technologią Silverlight wymagają jawnie zdefiniowania `"http://` lub `https://` źródła.
+- Jeśli brakuje interfejsu API dla tej technologii technicznej, zazwyczaj zwróci wartość null.
+- Jeśli użytkownik ma zainstalowany program Flash, ale nie udzieli uprawnienia do załadowania go w lokacji, może wystąpić nieskończona wirowanie. Wynika to z faktu, że gracz uzna, że wtyczka jest zainstalowana i dostępna, a wtyczka jest uruchomiona. Kod JavaScript został wysłany, ale ustawienia przeglądarki blokują wykonywanie wtyczki, dopóki użytkownik nie zaakceptuje monitu o zezwolenie na wtyczkę. Taka sytuacja może wystąpić we wszystkich przeglądarkach.  
 
-## <a name="native-html5"></a>Natywny html5 ##
+## <a name="native-html5"></a>Natywny HTML5 ##
 
-- Html5 tech wysyła tylko zdarzenie canplaythrough dla pierwszego źródła zestawu.
-- Ta technologia obsługuje tylko to, co zaimplementowała przeglądarka.  Niektóre funkcje mogą brakować w tej technologii.  
-- Jeśli brakuje interfejsu API dla tej technologii, zazwyczaj zwraca wartość null.
-- Istnieją problemy z podpisami i napisami na tej technologii. Mogą one lub nie mogą być dostępne lub widoczne na tej technologii.
-- Mając ograniczoną przepustowość w scenariuszu technologicznym HLS/Html5 powoduje odtwarzanie dźwięku bez wideo.
+- W języku HTML5 Tech jest wysyłana tylko zdarzenie canplaythrough dla pierwszego źródła zestawu.
+- Ta technika Tech obsługuje tylko te elementy, które zostały zaimplementowane przez przeglądarkę.  Niektóre funkcje mogą być w tym przypadku niedostępne.  
+- Jeśli brakuje interfejsu API dla tej technologii technicznej, zazwyczaj zwróci wartość null.
+- W tej konferencji są problemy z napisami i napisami. Mogą one być niedostępne lub dostępne w tym trybie technicznym.
+- Posiadanie ograniczonej przepustowości w scenariuszu technicznym HLS/HTML5 powoduje odtwarzanie dźwięku bez wideo.
 
 ### <a name="microsoft"></a>Microsoft ###
 
-- Odtwarzanie IE8 obecnie nie działa z powodu niezgodności z ecmascript 5
-- W IE i niektórych wersjach edge'a pełnego ekranu nie można wprowadzić przez tabulator do przycisku i wybranie go lub użycie klawisza skrótu F/f.
+- Odtwarzanie programu IE8 nie działa obecnie z powodu niezgodności z językiem ECMAScript 5
+- W programie IE i niektórych wersjach programu Edge pełny ekran nie może zostać wprowadzony przez tabulację na przycisk i zaznaczenie lub użycie klawisza skrótu F/f.
 
 ## <a name="google"></a>Google ##
 
-- Wiele profilów kodowania w tym samym manifeście ma pewne problemy z odtwarzaniem w Chrome i nie jest zalecane.
-- Chrome nie może odtwarzać he-aac za pomocą usługi AzureHtml5JS. Postępuj zgodnie ze szczegółami na [tracker błędów](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
-- Od Chrome v58, widevine zawartość musi być załadowany / odtworzone za pośrednictwem protokołu https:// w przeciwnym razie odtwarzanie zakończy się niepowodzeniem.
+- W przypadku wielu profilów kodowania w tym samym manifeście występują problemy z odtwarzaniem w przeglądarce Chrome i nie jest to zalecane.
+- Program Chrome nie może odtworzyć elementu AAC z AzureHtml5JS. Postępuj zgodnie ze szczegółowymi informacjami na temat [śledzenia usterek](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
+- W przypadku programu Chrome v58 zawartość Widevine musi zostać załadowana/odtworzona przy użyciu protokołu https://, w przeciwnym razie odtwarzanie nie powiedzie się.
 
 ## <a name="mozilla"></a>Mozilla ##
 
-- Przełącznik strumienia audio wymaga strumieni audio mieć te same dane prywatne kodeka podczas korzystania z usługi AzureHtml5JS. Platforma Firefox tego wymaga.
+- Przełącznik strumienia audio wymaga, aby strumienie audio miały te same dane prywatne dekodera podczas korzystania z AzureHtml5JS. Platforma Firefox wymaga tego.
 
 ## <a name="apple"></a>Apple ##
 
-- Safari na Macu często domyślnie włącza tryb Oszczędzania Energii z ustawieniem "Zatrzymaj wtyczki, aby oszczędzać energię", które blokuje wtyczki takie jak Flash i Silverlight, gdy uważają, że nie jest to korzystne dla użytkownika. Ten blok nie blokuje istnienia wtyczki, tylko możliwości. Biorąc pod uwagę domyślną techOrder, może to spowodować problemy podczas próby
-  - Łagodzenie 1: Jeśli odtwarzacz wideo jest "z przodu i na środku" (w granicach 3000 x 3000 pikseli, począwszy od lewego górnego rogu dokumentu), powinien nadal grać.
-  - Łagodzenie 2: Zmień techOrder dla Safari być ["azureHtml5JS", "html5"]. To ograniczenie ma wpływ na nie uzyskanie wszystkich funkcji, które są dostępne w technologii FlashSS.
-- Zawartość PlayReady za pośrednictwem programu Silverlight może mieć problemy z odtwarzaniem w przeglądarce Safari.
-- AES i zawartość tokenu z ograniczeniami nie jest odtwarzana przy użyciu systemu iOS i starszych urządzeń z systemem Android.
-  - Aby osiągnąć ten scenariusz, serwer proxy musi zostać dodany do usługi.
-- Domyślna karnacja telefonu z systemem iOS jest wyświetlana.
-- Odtwarzanie iPhone'a zawsze odbywa się na ekranie odtwarzacza macierzystego.
-  - Funkcje, w tym podpisy, mogą nie utrwalić się w tym odtwarzaniu niewłaskowym.
-- Po zakończeniu prezentacji na żywo urządzenia z systemem iOS nie zakończą poprawnie prezentacji.
-- iOS nie pozwala na funkcje DVR.
-- Przełącznik strumienia audio w iOS można wykonać tylko za jednym interfejsem użytkownika odtwarzacza iOS i wymaga strumieni audio, aby mieć te same prywatne dane kodeka
-- Starsze wersje przeglądarki Safari mogą mieć problemy z odtwarzaniem transmisji na żywo.
+- Przeglądarka Safari na komputerze Mac często domyślnie włącza tryb oszczędzania zasilania z ustawieniem "Zatrzymaj wtyczki, aby zaoszczędzić moc", która blokuje wtyczki, takie jak Flash i Silverlight, gdy sądzi, że nie jest to użytkownik. Ten blok nie blokuje istniejącej wtyczki, tylko możliwości. Z uwzględnieniem domyślnej techOrder, może to spowodować problemy podczas próby odtworzenia
+  - Środki zaradcze 1: Jeśli odtwarzacz wideo jest "wierzchem" i "(w granicy 3000 x 3000 pikseli, zaczynając od górnego lewego rogu dokumentu), powinien być nadal odtwarzany.
+  - Środki zaradcze 2: zmiana techOrder w przeglądarce Safari na wartość ["azureHtml5JS", "HTML5"]. To ograniczenie jest skutkiem nieuzyskania wszystkich funkcji, które są dostępne w błysku technicznym.
+- Zawartość oprogramowania PlayReady za pośrednictwem programu Silverlight może mieć problemy z odtwarzaniem w przeglądarce Safari.
+- Zawartość AES i token z ograniczeniami nie są odtwarzane przy użyciu systemu iOS i starszych urządzeń z systemem Android.
+  - Aby można było zrealizować ten scenariusz, należy dodać serwer proxy do usługi.
+- Domyślna skórka dla telefonu z systemem iOS jest wyświetlana przez.
+- Odtwarzanie telefonu iPhone zawsze odbywa się na pełnym ekranie.
+  - Funkcje, w tym podpisy, mogą nie być zachowywane w tym rozłączeniu innym niż inline.
+- Po zakończeniu prezentacji na żywo urządzenia z systemem iOS nie będą prawidłowo kończyć prezentacji.
+- System iOS nie zezwala na korzystanie z funkcji DVR.
+- Przełącznik strumienia audio systemu iOS można wykonać tylko wtedy, gdy interfejs użytkownika natywnego odtwarzacza systemu iOS i wymaga, aby strumienie audio miały te same dane prywatne dekodera
+- Starsze wersje programu Safari mogą potencjalnie mieć problemy z odtwarzaniem strumieni na żywo.
 
-## <a name="older-android"></a>Starszy Android ##
+## <a name="older-android"></a>Starsza wersja systemu Android ##
 
-- AES i zawartość tokenu z ograniczeniami nie jest odtwarzana przy użyciu systemu iOS i starszych urządzeń z systemem Android.
-  - Aby osiągnąć ten scenariusz, serwer proxy musi zostać dodany do usługi.
+- Zawartość AES i token z ograniczeniami nie są odtwarzane przy użyciu systemu iOS i starszych urządzeń z systemem Android.
+  - Aby można było zrealizować ten scenariusz, należy dodać serwer proxy do usługi.
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

@@ -1,21 +1,21 @@
 ---
-title: Nagrywarka adresu URL programu Azure Media Player
-description: Program Azure Media Player przepisze podany adres URL z usługi Azure Media Services, aby zapewnić strumienie dla smooth, DASH, HLS v3 i HLS v4.
+title: Azure Media Player ponownej edycji adresu URL
+description: Azure Media Player zapisze dany adres URL z Azure Media Services, aby dostarczyć strumienie dla GŁADKIch, ŁĄCZNIKów, HLS v3 i HLS v4.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: f238a2a3c499cf1e36f5e7c40e087375b7db0a70
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81726459"
 ---
-# <a name="url-rewriter"></a>Nagrywarka adresów URL #
+# <a name="url-rewriter"></a>Ponowny zapis adresu URL #
 
-Domyślnie program Azure Media Player przepisze podany adres URL z usługi Azure Media Services w celu zapewnienia strumieni dla smooth, DASH, HLS v3 i HLS v4. Na przykład jeśli źródło jest podane w następujący sposób, Program Azure Media Player zapewni, że próbuje odtworzyć wszystkie powyższe protokoły:
+Domyślnie program Azure Media Player ponownie zapisuje dany adres URL z Azure Media Services, aby dostarczyć strumienie dla GŁADKIch, PAUZ, HLS v3 i HLS v4. Na przykład, jeśli źródło jest określone w następujący sposób, Azure Media Player sprawdzi, czy podejmie próbę odtworzenia wszystkich powyższych protokołów:
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">
@@ -23,7 +23,7 @@ Domyślnie program Azure Media Player przepisze podany adres URL z usługi Azure
     </video>
 ```
 
-Jednak jeśli nie chcesz używać nagrywarki adresu URL, możesz `disableUrlRewriter` to zrobić, dodając właściwość do parametru. Oznacza to, że wszystkie informacje przekazywane do źródeł są bezpośrednio przekazywane graczowi bez modyfikacji.  Oto przykład dodawania dwóch źródeł do odtwarzacza, na DASH i jeden SMOOTH Streaming.
+Jeśli jednak chcesz nie używać funkcji ponownego zapisywania adresów URL, możesz to zrobić, dodając `disableUrlRewriter` właściwość do parametru. Oznacza to, że wszystkie informacje przesyłane do źródeł są przesyłane bezpośrednio do odtwarzacza bez modyfikacji.  Oto przykład dodawania dwóch źródeł do odtwarzacza przy użyciu ŁĄCZNIKa i jednego przesyłania strumieniowego.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">
@@ -41,7 +41,7 @@ lub
     ]);
 ```
 
-Ponadto jeśli chcesz, można określić określone formaty przesyłania strumieniowego, które chcesz `streamingFormats` azure media player do ponownego przeredagowania przy użyciu parametru. Dostępne `DASH`opcje `SMOOTH` `HLSv3`obejmują `HLSv4` `HLS`, , , . Różnica między HLS i HLSv3 & v4 polega na tym, że format HLS obsługuje odtwarzanie zawartości FairPlay. v3 i v4 nie obsługują FairPlay. Jest to przydatne, jeśli nie masz dostępnych zasad dostarczania dla określonego protokołu.  Oto przykład, gdy protokół DASH nie jest włączony z zasobem.
+Ponadto, jeśli chcesz, możesz określić określone formaty przesyłania strumieniowego, które mają być Azure Media Player do ponownego zapisu przy użyciu `streamingFormats` parametru. Opcje obejmują `DASH`, `SMOOTH`, `HLSv3`, `HLSv4`, `HLS`. Różnica między HLS i HLSv3 & v4 polega na tym, że format HLS obsługuje odtwarzanie zawartości FairPlay. V3 i v4 nie obsługują FairPlay. Jest to przydatne, jeśli nie masz zasad dostarczania dla określonego dostępnego protokołu.  Oto przykład sytuacji, w której nie włączono protokołu ŁĄCZNIKa z elementem zawartości.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin">
@@ -57,11 +57,11 @@ lub
     ]);
 ```
 
-Powyższe dwa mogą być używane w połączeniu ze sobą w wielu okolicznościach na podstawie danego zasobu.
+Powyższe dwa mogą być używane w połączeniu ze sobą w wielu przypadkach w zależności od danego elementu zawartości.
 
 > [!NOTE]
-> Informacje o ochronie widevine są zachowywane tylko w protokole DASH.
+> Informacje o ochronie Widevine są utrwalane tylko w protokole PAUZy.
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)

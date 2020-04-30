@@ -1,53 +1,53 @@
 ---
-title: Konfigurowanie urządzenia migracji platformy Azure w usłudze Azure dla instytucji rządowych
-description: Dowiedz się, jak skonfigurować urządzenie migracji platformy Azure w usłudze Azure dla instytucji rządowych
+title: Skonfiguruj urządzenie Azure Migrate w Azure Government
+description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate w Azure Government
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81726737"
 ---
-# <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w usłudze Azure Government 
+# <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
 
-W tym [artykule](deploy-appliance.md) należy wdrożyć urządzenie migracji platformy Azure dla maszyn wirtualnych, maszyn wirtualnych funkcji Hyper-V i serwerów fizycznych w chmurze platformy Azure dla instytucji rządowych. Uruchom skrypt, aby utworzyć urządzenie i sprawdź, czy można połączyć się z platformą Azure. Jeśli chcesz skonfigurować urządzenie w chmurze publicznej, postępuj zgodnie z [tym artykułem](deploy-appliance-script.md).
+Postępuj zgodnie z tym artykułem, aby wdrożyć [urządzenie Azure Migrate](deploy-appliance.md) dla maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V i serwerów fizycznych w chmurze Azure Government. Uruchom skrypt, aby utworzyć urządzenie, i sprawdź, czy może nawiązać połączenie z platformą Azure. Jeśli chcesz skonfigurować urządzenie w chmurze publicznej, postępuj zgodnie z [tym artykułem](deploy-appliance-script.md).
 
 
 > [!NOTE]
-> Opcja wdrażania urządzenia przy użyciu szablonu (dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V) nie jest obsługiwana w usłudze Azure Government.
+> Opcja wdrożenia urządzenia przy użyciu szablonu (dla maszyn wirtualnych VMware i maszyn wirtualnych funkcji Hyper-V) nie jest obsługiwana w Azure Government.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Skrypt konfiguruje urządzenie migracji platformy Azure na istniejącym komputerze fizycznym lub maszynie wirtualnej.
+Skrypt konfiguruje urządzenie Azure Migrate na istniejącym komputerze fizycznym lub maszynie wirtualnej.
 
-- Komputer, który będzie działać jako urządzenie, musi być uruchomiony w systemie Windows Server 2016, z 32 GB pamięci, ośmioma procesorami wirtualnymi, około 80 GB pamięci masowej na dysku i zewnętrznym przełącznikiem wirtualnym. Wymaga statycznego lub dynamicznego adresu IP i dostępu do Internetu.
-- Przed wdrożeniem urządzenia należy zapoznać się ze szczegółowymi wymaganiami dotyczącymi urządzeń [VMware vmware,](migrate-appliance.md#appliance---vmware) [maszyn wirtualnych hyper-V](migrate-appliance.md#appliance---hyper-v)i [serwerów fizycznych.](migrate-appliance.md#appliance---physical)
-- Nie uruchamiaj skryptu na istniejącym urządzeniu migracji platformy Azure.
+- Na maszynie, która będzie działać jako urządzenie musi działać system Windows Server 2016 z 32 GB pamięci, osiem procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym. Wymaga statycznego lub dynamicznego adresu IP oraz dostępu do Internetu.
+- Przed wdrożeniem urządzenia zapoznaj się ze szczegółowymi wymaganiami dotyczącymi urządzeń dla [maszyn wirtualnych VMware](migrate-appliance.md#appliance---vmware), [maszyn wirtualnych funkcji Hyper-V](migrate-appliance.md#appliance---hyper-v)i [serwerów fizycznych](migrate-appliance.md#appliance---physical).
+- Nie uruchamiaj skryptu na istniejącym urządzeniu Azure Migrate.
 
-## <a name="set-up-the-appliance-for-vmware"></a>Konfigurowanie urządzenia dla VMware
+## <a name="set-up-the-appliance-for-vmware"></a>Konfigurowanie urządzenia dla oprogramowania VMware
 
-Aby skonfigurować urządzenie dla VMware, pobierz spakowany plik z witryny Azure portal i wyodrębnisz zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację internetową urządzenia. Skonfiguruj urządzenie i konfiguruj go po raz pierwszy. Następnie zarejestruj urządzenie w projekcie migracji platformy Azure.
+Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik z Azure Portal i Wyodrębnij jego zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację sieci Web urządzenia. Należy skonfigurować urządzenie i skonfigurować je po raz pierwszy. Następnie należy zarejestrować urządzenie w projekcie Azure Migrate.
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W **obszarze** > Cele migracji**Serwery** > **usługi Azure Migrate: Ocena serwera**kliknij przycisk **Odkryj**.
-2.  W **discover maszyny** > **Czy twoje maszyny są zwirtualizowane?**, wybierz **Tak, z VMWare vSphere hypervisor**.
-3.  Kliknij **przycisk Pobierz**, aby pobrać spakowany plik. 
+1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
-### <a name="verify-file-security"></a>Weryfikowanie zabezpieczeń plików
+### <a name="verify-file-security"></a>Weryfikuj zabezpieczenia plików
 
-Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
+Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
+2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. Najnowsza wersja urządzenia:
+3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
 
     **Algorytm** | **Wartość skrótu**
     --- | ---
@@ -56,50 +56,50 @@ Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-Oto, co robi skrypt:
+Oto co robi skrypt:
 
-- Instaluje agentów i aplikację sieci web.
-- Instaluje role systemu Windows, w tym usługę aktywacji systemu Windows, usługi IIS i program PowerShell ISE.
-- Pobiera i instaluje moduł wielokrotnego zapisu usługi IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
-- Aktualizuje klucz rejestru (HKLM), z trwałymi ustawieniami dla migracji platformy Azure.
-- Tworzy pliki dziennika i konfiguracji w następujący sposób:
-    - **Pliki konfiguracyjne:**%ProgramData%\Microsoft Azure\Config
-    - **Pliki dziennika:**%ProgramData%\Microsoft Azure\Logs
+- Instaluje agentów i aplikację sieci Web.
+- Instaluje role systemu Windows, w tym usługi aktywacji systemu Windows, usług IIS i programu PowerShell ISE.
+- Pobiera i instaluje moduł ponownie zapisywalny usług IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
+- Aktualizuje klucz rejestru (HKLM) przy użyciu ustawień trwałych dla Azure Migrate.
+- Tworzy pliki dzienników i konfiguracji w następujący sposób:
+    - **Pliki konfiguracji**:%ProgramData%\Microsoft Azure\Config
+    - **Pliki dziennika**:%ProgramData%\Microsoft Azure\Logs
 
 Aby uruchomić skrypt:
 
-1. Wyodrębnij spakowany plik do folderu na komputerze, w który będzie obsługiwał urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
-2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (podwyższone).
-3. Zmień katalog programu PowerShell na folder zawierający zawartość wyodrębnione z pobranego pliku spakowane.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
-5. Po pomyślnym uruchomieniu skryptu uruchamia aplikację internetową urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli wystąpią jakiekolwiek problemy, przejrzyj dzienniki skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
+1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
+2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
+3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
+4. Uruchom skrypt **AzureMigrateInstaller. ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Weryfikowanie dostępu
+### <a name="verify-access"></a>Weryfikuj dostęp
 
-Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla [chmur rządowych](migrate-appliance.md#government-cloud-urls).
+Upewnij się, że urządzenie może połączyć się z adresami URL platformy Azure dla [chmur dla instytucji rządowych](migrate-appliance.md#government-cloud-urls).
 
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Konfigurowanie urządzenia dla funkcji Hyper-V
 
-Aby skonfigurować urządzenie dla funkcji Hyper-V, pobierz spakowany plik z witryny Azure portal i wyodrębnisz zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację internetową urządzenia. Skonfiguruj urządzenie i konfiguruj go po raz pierwszy. Następnie zarejestruj urządzenie w projekcie migracji platformy Azure.
+Aby skonfigurować urządzenie dla funkcji Hyper-V, pobierz spakowany plik z Azure Portal i Wyodrębnij jego zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację sieci Web urządzenia. Należy skonfigurować urządzenie i skonfigurować je po raz pierwszy. Następnie należy zarejestrować urządzenie w projekcie Azure Migrate.
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W **obszarze** > Cele migracji**Serwery** > **usługi Azure Migrate: Ocena serwera**kliknij przycisk **Odkryj**.
-2.  W **discover maszyny** > **Czy twoje maszyny są zwirtualizowane?**, wybierz **Tak, z Hyper-V**.
-3.  Kliknij **przycisk Pobierz**, aby pobrać spakowany plik. 
+1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
+3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
-### <a name="verify-file-security"></a>Weryfikowanie zabezpieczeń plików
+### <a name="verify-file-security"></a>Weryfikuj zabezpieczenia plików
 
-Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
+Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
+2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. Najnowsza wersja urządzenia:
+3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
 
     **Algorytm** | **Wartość skrótu**
     --- | ---
@@ -108,50 +108,50 @@ Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-Oto, co robi skrypt:
+Oto co robi skrypt:
 
-- Instaluje agentów i aplikację sieci web.
-- Instaluje role systemu Windows, w tym usługę aktywacji systemu Windows, usługi IIS i program PowerShell ISE.
-- Pobiera i instaluje moduł wielokrotnego zapisu usługi IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
-- Aktualizuje klucz rejestru (HKLM), z trwałymi ustawieniami dla migracji platformy Azure.
-- Tworzy pliki dziennika i konfiguracji w następujący sposób:
-    - **Pliki konfiguracyjne:**%ProgramData%\Microsoft Azure\Config
-    - **Pliki dziennika:**%ProgramData%\Microsoft Azure\Logs
+- Instaluje agentów i aplikację sieci Web.
+- Instaluje role systemu Windows, w tym usługi aktywacji systemu Windows, usług IIS i programu PowerShell ISE.
+- Pobiera i instaluje moduł ponownie zapisywalny usług IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
+- Aktualizuje klucz rejestru (HKLM) przy użyciu ustawień trwałych dla Azure Migrate.
+- Tworzy pliki dzienników i konfiguracji w następujący sposób:
+    - **Pliki konfiguracji**:%ProgramData%\Microsoft Azure\Config
+    - **Pliki dziennika**:%ProgramData%\Microsoft Azure\Logs
 
 Aby uruchomić skrypt:
 
-1. Wyodrębnij spakowany plik do folderu na komputerze, w który będzie obsługiwał urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
-2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (podwyższone).
-3. Zmień katalog programu PowerShell na folder zawierający zawartość wyodrębnione z pobranego pliku spakowane.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
-5. Po pomyślnym uruchomieniu skryptu uruchamia aplikację internetową urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli wystąpią jakiekolwiek problemy, przejrzyj dzienniki skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
+1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
+2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
+3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
+4. Uruchom skrypt **AzureMigrateInstaller. ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Weryfikowanie dostępu
+### <a name="verify-access"></a>Weryfikuj dostęp
 
-Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla [chmur rządowych](migrate-appliance.md#government-cloud-urls).
+Upewnij się, że urządzenie może połączyć się z adresami URL platformy Azure dla [chmur dla instytucji rządowych](migrate-appliance.md#government-cloud-urls).
 
 
 ## <a name="set-up-the-appliance-for-physical-servers"></a>Konfigurowanie urządzenia dla serwerów fizycznych
 
-Aby skonfigurować urządzenie dla VMware, pobierz spakowany plik z witryny Azure portal i wyodrębnisz zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację internetową urządzenia. Skonfiguruj urządzenie i konfiguruj go po raz pierwszy. Następnie zarejestruj urządzenie w projekcie migracji platformy Azure.
+Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik z Azure Portal i Wyodrębnij jego zawartość. Uruchom skrypt programu PowerShell, aby uruchomić aplikację sieci Web urządzenia. Należy skonfigurować urządzenie i skonfigurować je po raz pierwszy. Następnie należy zarejestrować urządzenie w projekcie Azure Migrate.
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W **obszarze** > Cele migracji**Serwery** > **usługi Azure Migrate: Ocena serwera**kliknij przycisk **Odkryj**.
-2.  W **Discover maszyny** > **Czy twoje maszyny są zwirtualizowane?**, wybierz nie **zwirtualizowany/Inne**.
-3.  Kliknij **przycisk Pobierz**, aby pobrać spakowany plik. 
+1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz opcję **niezwirtualizowane/inne**.
+3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
-### <a name="verify-file-security"></a>Weryfikowanie zabezpieczeń plików
+### <a name="verify-file-security"></a>Weryfikuj zabezpieczenia plików
 
-Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
+Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-2. Uruchom następujące polecenie, aby wygenerować skrót dla spakowany plik
+2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. Najnowsza wersja urządzenia:
+3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
 
     **Algorytm** | **Wartość skrótu**
     --- | ---
@@ -160,32 +160,32 @@ Przed wdrożeniem pliku jest bezpieczny, zanim go wdrożysz.
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
-Oto, co robi skrypt:
+Oto co robi skrypt:
 
-- Instaluje agentów i aplikację sieci web.
-- Instaluje role systemu Windows, w tym usługę aktywacji systemu Windows, usługi IIS i program PowerShell ISE.
-- Pobiera i instaluje moduł wielokrotnego zapisu usługi IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
-- Aktualizuje klucz rejestru (HKLM), z trwałymi ustawieniami dla migracji platformy Azure.
-- Tworzy pliki dziennika i konfiguracji w następujący sposób:
-    - **Pliki konfiguracyjne:**%ProgramData%\Microsoft Azure\Config
-    - **Pliki dziennika:**%ProgramData%\Microsoft Azure\Logs
+- Instaluje agentów i aplikację sieci Web.
+- Instaluje role systemu Windows, w tym usługi aktywacji systemu Windows, usług IIS i programu PowerShell ISE.
+- Pobiera i instaluje moduł ponownie zapisywalny usług IIS. [Dowiedz się więcej](https://www.microsoft.com/download/details.aspx?id=7435).
+- Aktualizuje klucz rejestru (HKLM) przy użyciu ustawień trwałych dla Azure Migrate.
+- Tworzy pliki dzienników i konfiguracji w następujący sposób:
+    - **Pliki konfiguracji**:%ProgramData%\Microsoft Azure\Config
+    - **Pliki dziennika**:%ProgramData%\Microsoft Azure\Logs
 
 Aby uruchomić skrypt:
 
-1. Wyodrębnij spakowany plik do folderu na komputerze, w który będzie obsługiwał urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu migracji platformy Azure.
-2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (podwyższone).
-3. Zmień katalog programu PowerShell na folder zawierający zawartość wyodrębnione z pobranego pliku spakowane.
-4. Uruchom skrypt **AzureMigrateInstaller.ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
-5. Po pomyślnym uruchomieniu skryptu uruchamia aplikację internetową urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli wystąpią jakiekolwiek problemy, przejrzyj dzienniki skryptów w witrynie C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
+1. Wyodrębnij spakowany plik do folderu na komputerze, który będzie hostować urządzenie. Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
+2. Uruchom program PowerShell na komputerze z uprawnieniami administratora (z podwyższonym poziomem uprawnień).
+3. Zmień katalog programu PowerShell w folder zawierający zawartość wyodrębnioną z pobranego pliku spakowanego.
+4. Uruchom skrypt **AzureMigrateInstaller. ps1**w następujący sposób:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+5. Po pomyślnym uruchomieniu skryptu zostanie uruchomiona aplikacja sieci Web urządzenia, dzięki czemu można skonfigurować urządzenie. Jeśli napotkasz jakiekolwiek problemy, Przejrzyj dzienniki skryptów w C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
-### <a name="verify-access"></a>Weryfikowanie dostępu
+### <a name="verify-access"></a>Weryfikuj dostęp
 
-Upewnij się, że urządzenie może łączyć się z adresami URL platformy Azure dla [chmur rządowych](migrate-appliance.md#government-cloud-urls).
+Upewnij się, że urządzenie może połączyć się z adresami URL platformy Azure dla [chmur dla instytucji rządowych](migrate-appliance.md#government-cloud-urls).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wdrożeniu urządzenia należy skonfigurować go po raz pierwszy i zarejestrować go w projekcie migracji platformy Azure.
+Po wdrożeniu urządzenia należy skonfigurować je po raz pierwszy i zarejestrować w projekcie Azure Migrate.
 
-- Skonfiguruj urządzenie dla [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Skonfiguruj urządzenie dla programu [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Skonfiguruj urządzenie dla [funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Skonfiguruj urządzenie dla [serwerów fizycznych](how-to-set-up-appliance-physical.md).

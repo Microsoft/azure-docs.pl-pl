@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: e26a2c214a03243d6507296c1e981706be8c56db
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81734483"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Pobierz i zainstaluj binarny klienta Istio istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Pobierz i zainstaluj dane binarne klienta Istio istioctl
 
-W powłoce opartej na programie `Invoke-WebRequest` PowerShell w systemie Windows `Expand-Archive` użyj do pobrania wersji Istio, a następnie wyodrębnij z następującymi czynnościami:
+W przypadku powłoki opartej na programie PowerShell w systemie `Invoke-WebRequest` Windows użyj polecenia, aby pobrać wersję Istio, `Expand-Archive` a następnie wyodrębnij ją w następujący sposób:
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -24,7 +24,7 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-Plik `istioctl` binarny klienta działa na komputerze klienckim i umożliwia interakcję z siatką usługi Istio. Użyj następujących poleceń, aby zainstalować `istioctl` plik binarny klienta Istio w powłoce opartej na programie PowerShell w systemie Windows. Polecenia te kopiują `istioctl` plik binarny klienta do folderu Istio, a następnie udostępniają go zarówno `PATH`natychmiast (w bieżącej powłoce), jak i na stałe (w całej powłoce restartuje) za pośrednictwem pliku . Do uruchamiania tych poleceń nie trzeba mieć uprawnień z podwyższonym poziomem uprawnień (Administrator) i nie trzeba ponownie uruchamiać powłoki.
+Dane `istioctl` binarne klienta są uruchamiane na komputerze klienckim i umożliwiają współdziałanie z siatką usługi Istio. Użyj następujących poleceń, aby zainstalować dane binarne `istioctl` klienta Istio w powłoce opartej na programie PowerShell w systemie Windows. Te polecenia kopiują `istioctl` dane binarne klienta do folderu Istio, a następnie udostępniają je natychmiast (w bieżącej powłoce) i trwale (w ramach ponownych uruchomień powłoki) za pośrednictwem `PATH`. Nie musisz mieć podniesionych uprawnień (Administrator) do uruchamiania tych poleceń i nie musisz ponownie uruchamiać powłoki.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio

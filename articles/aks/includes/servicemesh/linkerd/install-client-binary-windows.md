@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 1a023475de1ce2891916807632d9ee15e382326c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81737015"
 ---
-## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Pobierz i zainstaluj plik binarny klienta linkerd
+## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Pobieranie i Instalowanie konsolidatora dwuskładnikowego klienta konsolidatora
 
-W powłoce opartej na programie `Invoke-WebRequest` PowerShell w systemie Windows użyj do pobrania wersji Linkerd w następujący sposób:
+W przypadku powłoki opartej na programie PowerShell w systemie `Invoke-WebRequest` Windows należy użyć polecenia, aby pobrać konsolidator w następujący sposób:
 
 ```powershell
 # Specify the Linkerd version that will be leveraged throughout these instructions
@@ -23,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-Plik `linkerd` binarny klienta działa na komputerze klienckim i umożliwia interakcję z siatką usługi Linkerd. Użyj następujących poleceń, aby zainstalować `linkerd` plik binarny klienta Linkerd w powłoce opartej na programie PowerShell w systemie Windows. Polecenia te kopiują `linkerd` plik binarny klienta do folderu Linkerd, a następnie udostępniają go zarówno `PATH`natychmiast (w bieżącej powłoce), jak i na stałe (w całej powłoce restartuje) za pośrednictwem pliku . Do uruchamiania tych poleceń nie trzeba mieć uprawnień z podwyższonym poziomem uprawnień (Administrator) i nie trzeba ponownie uruchamiać powłoki.
+Dane `linkerd` binarne klienta są uruchamiane na komputerze klienckim i umożliwiają współdziałanie z przyutworzoną siatką usług. Użyj następujących poleceń, aby zainstalować konsolidator binarny `linkerd` klienta w powłoce opartej na programie PowerShell w systemie Windows. Te polecenia kopiują `linkerd` dane binarne klienta do folderu konsolidatora, a następnie udostępniają je natychmiast (w bieżącej powłoce) i trwale (w ramach ponownych uruchomień powłoki) za pośrednictwem `PATH`. Nie musisz mieć podniesionych uprawnień (Administrator) do uruchamiania tych poleceń i nie musisz ponownie uruchamiać powłoki.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

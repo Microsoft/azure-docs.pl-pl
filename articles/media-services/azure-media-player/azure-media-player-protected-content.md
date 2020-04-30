@@ -1,33 +1,33 @@
 ---
-title: Zawartość chroniona za pomocą programu Azure Media Player
-description: Usługa Azure Media Player obsługuje obecnie zaszyfrowaną zawartość z kopertą bitową AES-128 i wspólną zaszyfrowaną zawartość.
+title: Azure Media Player zawartość chroniona
+description: Azure Media Player obecnie obsługuje zaszyfrowaną zawartość obwiedni AES-128 i często zaszyfrowaną zawartość.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 64414d3ec31e8763b7c576af93374bf514141fd4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726494"
 ---
-# <a name="protected-content"></a>Zawartość chroniona #
+# <a name="protected-content"></a>Chroniona zawartość #
 
-Usługa Azure Media Player obsługuje obecnie zaszyfrowaną zawartość z kopertą bitową AES-128 i wspólną zaszyfrowaną zawartość (za pośrednictwem playready i widevine) lub zaszyfrowaną zawartość za pośrednictwem usługi FairPlay. Aby poprawnie odtworzyć zawartość chroniona, należy poinformować `protectionInfo`program Azure Media Player o programie . Te informacje istnieją na źródło i mogą `<source>` być dodawane bezpośrednio do tagu za pośrednictwem pliku `data-setup`.  Można również dodać `protectionInfo` bezpośrednio jako parametr, jeśli dynamicznie ustawia źródło.
+Azure Media Player obecnie obsługuje zaszyfrowaną zawartość obwiedni AES-128 i często zaszyfrowaną zawartość (za pośrednictwem oprogramowania PlayReady i Widevine) lub zaszyfrowaną zawartość za pośrednictwem FairPlay. W celu poprawnego odtwarzania chronionej zawartości należy powiedzieć, Azure Media Player `protectionInfo`. Te informacje istnieją dla źródła i można je dodać bezpośrednio do `<source>` tagu za pośrednictwem `data-setup`.  Możesz również dodać `protectionInfo` bezpośrednio jako parametr, jeśli źródło zostanie ustawione dynamicznie.
 
-`protectionInfo`akceptuje obiekt JSON i obejmuje:
+`protectionInfo`akceptuje obiekt JSON i zawiera:
 
-- `type`: `AES` `PlayReady` lub `Widevine` lub`FairPlay`
+- `type`: `AES` lub `PlayReady` `Widevine` lub`FairPlay`
 - `certificateUrl`: powinien to być bezpośredni link do hostowanego certyfikatu FairPlay
 
-- `authenticationToken`: jest to pole opcji, aby dodać niekodowany token uwierzytelniania
+- `authenticationToken`: to pole opcji umożliwia dodanie niezakodowanego tokenu uwierzytelniania
 
 > [!IMPORTANT]
-> Obiekt **certificateUrl** jest potrzebny tylko dla funkcji DrM fairplay.***
+> Obiekt **certificateUrl** jest wymagany tylko w przypadku funkcji DRM FairPlay. * * *
 >[!NOTE]
-> Domyślny techOrder został zmieniony, aby `html5FairPlayHLS` pomieścić nową technologię, w szczególności do odtwarzania zawartości FairPlay natywnie w przeglądarkach, które go obsługują (Safari na OSX 8 +). Jeśli masz zawartość FairPlay do odtwarzania **i** zmieniłeś domyślny techOrder na niestandardowy w aplikacji, musisz dodać tę nową technologię do obiektu techOrder. Zalecamy dołączenie go przed programem SilverlightSS, aby zawartość nie była odtwarzana za pośrednictwem programu PlayReady.
+> Domyślny techOrder został zmieniony tak, aby pomieścić nowe techniczne, `html5FairPlayHLS` przeznaczone do samoobsługowego odtwarzania zawartości FairPlay w przeglądarkach, które go obsługują (Safari on OSX 8 +). Jeśli masz FairPlay zawartość do odtwarzania **i** zmienisz domyślną techOrder na niestandardową w aplikacji, musisz dodać nową pozycję techniczną do obiektu techOrder. Zalecamy uwzględnienie jej przed technologią Silverlight, aby zawartość nie była odtwarzana za pośrednictwem programu PlayReady.
 
 ## <a name="code-sample"></a>Przykład kodu ##
 
@@ -55,7 +55,7 @@ or
     );
 ```
 
-lub, z wieloma DRM
+lub z wieloma usługami DRM
 
 ```javascript
     var myPlayer = amp("vid1", /* Options */);
@@ -79,10 +79,10 @@ lub, z wieloma DRM
 ```
 
 > [!NOTE]
-> Nie wszystkie przeglądarki/platformy są w stanie odtwarzać zawartość chronioną. Zobacz sekcję [Technologia odtwarzania, aby](azure-media-player-playback-technology.md) uzyskać więcej informacji na temat obsługiwanych informacji.
+> Nie wszystkie przeglądarki/platformy mogą odtwarzać zawartość chronioną. Zapoznaj się z sekcją [technologia odtwarzania](azure-media-player-playback-technology.md) , aby uzyskać więcej informacji na temat tego, co jest obsługiwane.
 > [!IMPORTANT]
-> Token przekazany do odtwarzacza jest przeznaczony dla zabezpieczonej zawartości i używany tylko dla uwierzytelnionych użytkowników. Zakłada się, że aplikacja używa SSL lub innej formy środka bezpieczeństwa. Ponadto użytkownik końcowy jest assummed do zaufania, aby nie nadużywać tokenu; jeśli tak nie jest, proszę zaangażować swoich ekspertów w dziedzinie bezpieczeństwa.
+> Token przekazywany do odtwarzacza jest przeznaczony dla zabezpieczonej zawartości i używany tylko dla uwierzytelnionych użytkowników. Przyjęto założenie, że aplikacja korzysta z protokołu SSL lub innej formy miary zabezpieczeń. Ponadto użytkownik końcowy jest assummed jako zaufany, aby nie nadużyć tokenu; Jeśli tak się nie dzieje, zapoznaj się z ekspertami ds. zabezpieczeń.
 
 ## <a name="next-steps"></a>Następne kroki ##
 
-- [Szybki start programu Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player — Szybki Start](azure-media-player-quickstart.md)
