@@ -14,60 +14,59 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509791"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
 Możesz wyświetlić dwa typy dzienników dla Event Hubs platformy Azure:
 
-* **[Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md)**: te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone.
+* **[Dzienniki aktywności](../azure-monitor/platform/platform-logs-overview.md)**: te dzienniki zawierają informacje o operacjach wykonywanych w ramach zadania. Dzienniki są zawsze włączone. Wpisy dziennika aktywności można wyświetlić, wybierając pozycję **Dziennik aktywności** w lewym okienku dla przestrzeni nazw centrum zdarzeń w Azure Portal. Na przykład: "Utwórz lub zaktualizuj przestrzeń nazw", "Utwórz lub zaktualizuj centrum zdarzeń".
+
+    ![Dziennik aktywności dla Event Hubs przestrzeni nazw](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[Dzienniki diagnostyczne](../azure-monitor/platform/platform-logs-overview.md)**: można skonfigurować dzienniki diagnostyczne, aby uzyskać bogatszy widok wszystkiego, co się dzieje z zadaniami. Dzienniki diagnostyczne obejmują działania od momentu utworzenia zadania do momentu usunięcia zadania, w tym aktualizacje i działania, które wystąpiły, gdy zadanie jest uruchomione.
 
-## <a name="enable-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
+    W poniższej sekcji przedstawiono sposób włączania dzienników diagnostycznych dla przestrzeni nazw Event Hubs.
 
+## <a name="enable-diagnostic-logs"></a>Włączanie dzienników diagnostycznych
 Dzienniki diagnostyczne są domyślnie wyłączone. Aby włączyć dzienniki diagnostyczne, wykonaj następujące kroki:
 
-1.  W [Azure Portal](https://portal.azure.com)w obszarze **monitorowanie + zarządzanie**kliknij pozycję **dzienniki diagnostyczne**.
+1.  W [Azure Portal](https://portal.azure.com)przejdź do przestrzeni nazw Event Hubs. 
+2. Wybierz pozycję **Ustawienia diagnostyki** w obszarze **monitorowanie** w lewym okienku, a następnie wybierz pozycję **+ Dodaj ustawienie diagnostyczne**. 
 
-    ![Nawigacja w okienku do dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Strona ustawień diagnostycznych — Dodawanie ustawień diagnostycznych](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
+4. W sekcji **szczegóły kategorii** wybierz **typy dzienników diagnostycznych** , które chcesz włączyć. Szczegółowe informacje o tych kategoriach znajdziesz w dalszej części tego artykułu. 
+5. W sekcji **szczegóły miejsca docelowego** ustaw wartość docelowy archiwum (miejsce docelowe). na przykład konto magazynu, centrum zdarzeń lub obszar roboczy Log Analytics.
 
-2.  Kliknij zasób, który chcesz monitorować.
+    ![Dodawanie strony ustawień diagnostycznych](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
+6.  Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia diagnostyki.
 
-3.  Kliknij pozycję **Włącz diagnostykę**.
+    Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
 
-    ![Włączanie dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image2.png)
-
-4.  W obszarze **stan**kliknij pozycję **włączone**.
-
-    ![Zmiana stanu dzienników diagnostycznych](./media/event-hubs-diagnostic-logs/image3.png)
-
-5.  Ustaw żądany cel Archiwum; na przykład konto magazynu, centrum zdarzeń lub dzienniki Azure Monitor.
-
-6.  Zapisz nowe ustawienia diagnostyki.
-
-Nowe ustawienia zaczną obowiązywać od około 10 minut. Następnie dzienniki są wyświetlane w skonfigurowanym miejscu docelowym archiwizowania w okienku **dzienniki diagnostyczne** .
-
-Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Więcej informacji o konfigurowaniu diagnostyki znajduje się w temacie [Omówienie dzienników diagnostycznych platformy Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Kategorie dzienników diagnostycznych
 
-Event Hubs przechwytuje dzienniki diagnostyczne dla dwóch kategorii:
+Event Hubs przechwytuje dzienniki diagnostyczne dla następujących kategorii:
 
-* **Dzienniki archiwum**: dzienniki związane z archiwami Event Hubs, w tym dzienniki związane z błędami archiwum.
-* **Dzienniki operacyjne**: informacje o tym, co się dzieje w trakcie operacji Event Hubs, w szczególności o typie operacji, w tym o tworzeniu centrum zdarzeń, używanych zasobach i stanie operacji.
+- **Dzienniki archiwum**: dzienniki związane z archiwami Event Hubs, w tym dzienniki związane z błędami archiwum.
+- **Dzienniki operacyjne**: informacje o tym, co się dzieje w trakcie operacji Event Hubs, w szczególności o typie operacji, w tym o tworzeniu centrum zdarzeń, używanych zasobach i stanie operacji.
+- **Automatyczne skalowanie dzienników**: informacje o operacjach skalowania automatycznego wykonywane na Event Hubs przestrzeni nazw. 
+- **Dzienniki koordynatora Kafka** -informacje na temat operacji koordynatora Kafka związanych z Event Hubs. 
+- **Kafka dzienniki użytkownika**: informacje o operacjach użytkownika Kafka związanych z Event Hubs. 
+- **Event Hubs zdarzenie połączenia sieci wirtualnej (VNET)**: informacje dotyczące Event Hubs zdarzeń połączenia z siecią wirtualną. 
+- **Dzienniki użytkownika z kluczami zarządzanymi przez klienta**: informacje o operacjach związanych z kluczem zarządzanym przez klienta. 
 
-## <a name="diagnostic-logs-schema"></a>Schemat dzienników diagnostycznych
 
-Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis zawiera pola ciągów, które używają formatu opisanego w poniższych sekcjach.
+    Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSON). Każdy wpis zawiera pola ciągów, które używają formatu opisanego w poniższych sekcjach.
 
-### <a name="archive-logs-schema"></a>Schemat dzienników archiwalnych
+## <a name="archive-logs-schema"></a>Schemat dzienników archiwalnych
 
 Dzienniki archiwum JSON zawierają elementy wymienione w poniższej tabeli:
 
@@ -105,7 +104,7 @@ Poniższy kod jest przykładem ciągu JSON dziennika archiwum:
 }
 ```
 
-### <a name="operational-logs-schema"></a>Schemat dzienników operacyjnych
+## <a name="operational-logs-schema"></a>Schemat dzienników operacyjnych
 
 Ciągi JSON dziennika operacyjnego zawierają elementy wymienione w poniższej tabeli:
 
@@ -137,6 +136,72 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+## <a name="autoscale-logs-schema"></a>Schemat dzienników automatycznego skalowania
+Plik JSON dziennika skalowania automatycznego zawiera elementy wymienione w poniższej tabeli:
+
+| Nazwa | Opis |
+| ---- | ----------- | 
+| trackingId | Identyfikator wewnętrzny, który jest używany na potrzeby śledzenia |
+| resourceId | Identyfikator wewnętrzny, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
+| message | Komunikat informacyjny, który zawiera szczegółowe informacje na temat akcji autodostrajania. Komunikat zawiera poprzednią i bieżącą wartość jednostki przepływności dla danego obszaru nazw oraz sposób wyzwalający poznanie jednostek PRZEPŁYWNOŚCI. |
+
+## <a name="kafka-coordinator-logs-schema"></a>Schemat dzienników koordynatora Kafka
+Plik JSON dziennika koordynatora Kafka zawiera elementy wymienione w poniższej tabeli:
+
+| Nazwa | Opis |
+| ---- | ----------- | 
+| IdentyfikatorŻądania | Identyfikator żądania, który jest używany na potrzeby śledzenia |
+| resourceId | Identyfikator wewnętrzny, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
+| operationName | Nazwa operacji wykonywanej w ramach koordynacji grupy |
+| clientId | Identyfikator klienta |
+| namespaceName | Nazwa przestrzeni nazw | 
+| subscriptionId | Identyfikator subskrypcji platformy Azure |
+| message | Komunikat informacyjny, który zawiera szczegółowe informacje o akcjach wykonywanych podczas koordynacji grupy konsumentów. |
+
+## <a name="kafka-user-error-logs-schema"></a>Schemat dzienników błędów użytkownika Kafka
+Plik JSON dziennika błędów użytkownika Kafka zawiera elementy wymienione w poniższej tabeli:
+
+| Nazwa | Opis |
+| ---- | ----------- |
+| trackingId | Identyfikator śledzenia, który jest używany na potrzeby śledzenia. |
+| namespaceName | Nazwa przestrzeni nazw |
+| eventhub | Nazwa centrum zdarzeń |
+| partitionId | Identyfikator partycji |
+| groupId | Identyfikator grupy |
+| ClientId | Identyfikator klienta |
+| resourceId | Identyfikator wewnętrzny, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
+| message | Komunikat informacyjny, który zawiera szczegółowe informacje o błędzie |
+
+## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schemat zdarzenia połączenia z siecią wirtualną Event Hubs
+
+Plik JSON zdarzenia połączenia sieci wirtualnej (VNet) Event Hubs zawiera elementy wymienione w poniższej tabeli:
+
+| Nazwa | Opis |
+| ---  | ----------- | 
+| subscriptionId | Identyfikator subskrypcji platformy Azure |
+| namespaceName | Nazwa przestrzeni nazw |
+| Adresu | Adres IP klienta łączącego się z usługą Event Hubs |
+| action | Akcja wykonywana przez usługę Event Hubs podczas oceniania żądań połączeń. Obsługiwane akcje to **AcceptConnection** i **RejectConnection**. |
+| reason | Zawiera powód, dla którego akcja została wykonana |
+| count | Liczba wystąpień danej akcji |
+| resourceId | Wewnętrzny identyfikator zasobu, który zawiera identyfikator subskrypcji i nazwę przestrzeni nazw. |
+
+## <a name="customer-managed-key-user-logs"></a>Dzienniki użytkownika klucza zarządzanego przez klienta
+Plik JSON dziennika użytkownika klucza zarządzanego przez klienta zawiera elementy wymienione w poniższej tabeli:
+
+| Nazwa | Opis |
+| ---- | ----------- | 
+| category | Typ kategorii wiadomości. Jest to jedna z następujących wartości: **błąd** i **informacje** |
+| resourceId | Wewnętrzny identyfikator zasobu, który zawiera identyfikator subskrypcji platformy Azure i nazwę przestrzeni nazw |
+| keyVault | Nazwa zasobu Key Vault |
+| key | Nazwa klucza Key Vault. |
+| Wersja | Wersja klucza Key Vault |
+| operacje | Nazwa operacji wykonanej do obsługi żądań |
+| kod | Kod stanu |
+| message | Komunikat, który zawiera szczegółowe informacje o błędzie lub komunikat informacyjny |
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 - [Wprowadzenie do Event Hubs](event-hubs-what-is-event-hubs.md)

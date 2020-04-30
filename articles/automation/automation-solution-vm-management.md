@@ -3,14 +3,14 @@ title: Uruchamianie/zatrzymywanie maszyn wirtualnych w rozwiązaniu off-godzinny
 description: To rozwiązanie do zarządzania MASZYNą wirtualną uruchamia i wstrzymuje maszyny wirtualne platformy Azure zgodnie z harmonogramem i aktywnie monitoruje z dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187334"
+ms.locfileid: "82207602"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Uruchamianie/zatrzymywanie maszyn wirtualnych w rozwiązaniu off-godzinnym w Azure Automation
 
@@ -19,7 +19,7 @@ W rozwiązaniu do **uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami
 To rozwiązanie używa polecenia cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) .
 
 > [!NOTE]
-> **Maszyny wirtualne uruchamiania/zatrzymywania w trakcie rozwiązania offline** zostały zaktualizowane, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne.
+> **Maszyny wirtualne uruchamiania/zatrzymywania w trakcie rozwiązania offline** zostały zaktualizowane, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne. Zaktualizowana wersja tego rozwiązania dostępna w portalu Marketplace nie obsługuje modułów AzureRM, ponieważ przeprowadzono migrację z AzureRM do AZ modules.
 
 Rozwiązanie zapewnia zdecentralizowaną opcję automatyzacji o niskich kosztach dla użytkowników, którzy chcą zoptymalizować koszty maszyn wirtualnych. Dzięki temu rozwiązaniu można:
 

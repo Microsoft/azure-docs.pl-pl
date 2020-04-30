@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80057310"
+ms.locfileid: "82229939"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informacje o profilach technicznych w Azure Active Directory B2C zasadach niestandardowych
 
@@ -39,7 +39,7 @@ Profil techniczny umożliwia realizację następujących typów scenariuszy:
 - [OpenID Connect Connect](openid-connect-technical-profile.md) -Federation z dowolnym dostawcą tożsamości protokołu OpenID Connect Connect.
 - [Współczynnik telefonu](phone-factor-technical-profile.md) — Obsługa rejestrowania i weryfikowania numerów telefonów.
 - [Dostawca RESTful](restful-technical-profile.md) — wywoływanie usług interfejsu API REST, takich jak sprawdzanie danych wejściowych użytkownika, Wzbogacanie danych użytkownika lub Integrowanie z aplikacjami biznesowymi.
-- [SAML2](saml-technical-profile.md) -Federacja z dowolnym dostawcą tożsamości protokołu SAML.
+- [Dostawca tożsamości SAML](saml-identity-provider-technical-profile.md) — Federacja z dowolnym dostawcą tożsamości protokołu SAML.
 - [Wystawca tokenów SAML](saml-issuer-technical-profile.md) — emituje token SAML zwracanego z powrotem do aplikacji jednostki uzależnionej.
 - [Samodzielne](self-asserted-technical-profile.md) współpracujące z użytkownikiem. Na przykład Zbierz poświadczenia użytkownika w celu zalogowania się, renderowania strony rejestracji lub resetowania hasła.
 - [Zarządzanie sesjami](custom-policy-reference-sso.md) — obsługa różnych typów sesji.

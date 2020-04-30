@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1398169c44dadcd11ad037e4e3a1cc0132e21f13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024697"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509520"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Połącz z usługą Azure IoT Central
 
@@ -42,7 +42,7 @@ W tym artykule opisano następujące przypadki użycia:
 - [Łączenie urządzeń na dużą skalę za pomocą certyfikatów X. 509](#connect-devices-using-x509-certificates) — zalecane podejście dla środowisk produkcyjnych.
 - [Łączenie urządzeń bez wcześniejszego rejestrowania](#connect-without-registering-devices)
 - [Łączenie urządzeń korzystających z poszczególnych rejestracji w usłudze DPS](#individual-enrollment-based-device-connectivity)
-- [Łączenie urządzeń za pomocą funkcji usługi IoT Plug and Play (wersja zapoznawcza)](#connect-devices-with-iot-plug-and-play-preview)
+- [Automatyczne kojarzenie urządzenia z szablonem urządzenia](#automatically-associate-with-a-device-template)
 
 ## <a name="connect-a-single-device"></a>Podłącz pojedyncze urządzenie
 
@@ -139,7 +139,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
     Na stronie **połączenie z urządzeniem >m administracyjnym** opcja **autozatwierdzania** kontroluje, czy należy ręcznie zatwierdzić urządzenie przed rozpoczęciem wysyłania danych.
 
     > [!NOTE]
-    > Aby dowiedzieć się, jak automatycznie skojarzyć urządzenie z szablonem urządzenia, zobacz [Connecting Devices with IoT Plug and Play (wersja zapoznawcza)](#connect-devices-with-iot-plug-and-play-preview).
+    > Aby dowiedzieć się, jak automatycznie skojarzyć urządzenie z szablonem urządzenia, zobacz sekcję [Automatyczne kojarzenie urządzenia z szablonem urządzenia](#automatically-associate-with-a-device-template).
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Łączenie urządzeń korzystających z certyfikatów X. 509 bez rejestrowania
 
@@ -156,7 +156,7 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
     Na stronie **połączenie z urządzeniem >m administracyjnym** opcja **autozatwierdzania** kontroluje, czy należy ręcznie zatwierdzić urządzenie przed rozpoczęciem wysyłania danych.
 
     > [!NOTE]
-    > Aby dowiedzieć się, jak automatycznie skojarzyć urządzenie z szablonem urządzenia, zobacz [Connecting Devices with IoT Plug and Play (wersja zapoznawcza)](#connect-devices-with-iot-plug-and-play-preview).
+    > Aby dowiedzieć się, jak automatycznie skojarzyć urządzenie z szablonem urządzenia, zobacz sekcję [Automatyczne kojarzenie urządzenia z szablonem urządzenia](#automatically-associate-with-a-device-template).
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Indywidualne połączenie z urządzeniem opartym na rejestracji
 
@@ -165,7 +165,7 @@ W przypadku klientów łączących urządzenia z własnymi poświadczeniami uwie
 > [!NOTE]
 > Podczas tworzenia rejestracji indywidualnej dla urządzenia mają pierwszeństwo przed domyślnymi opcjami rejestracji grupy w aplikacji IoT Central.
 
-### <a name="creating-individual-enrollments"></a>Tworzenie indywidualnych rejestracji
+### <a name="create-individual-enrollments"></a>Tworzenie rejestracji pojedynczych
 
 IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszczególnych rejestracji:
 
@@ -181,14 +181,22 @@ IoT Central obsługuje następujące mechanizmy zaświadczania dotyczące poszcz
 
 - **Zaświadczanie moduł TPM (TPM):** [Moduł TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) jest typem sprzętowego modułu zabezpieczeń. Korzystanie z modułu TPM jest jednym z najbardziej bezpiecznych sposobów łączenia urządzeń. W tym artykule przyjęto założenie, że używasz dyskretnego, oprogramowania układowego lub zintegrowanego modułu TPM. Emulowane moduły TPM oprogramowania są dobrze dopasowane do prototypowania lub testowania, ale nie zapewniają tego samego poziomu zabezpieczeń, takiego jak dyskretny, oprogramowanie układowe lub zintegrowane moduły TPM. Nie używaj moduły TPM oprogramowania w środowisku produkcyjnym. Aby utworzyć rejestrację indywidualną korzystającą z modułu TPM, Otwórz stronę **połączenie urządzenia** , wybierz pozycję **Rejestracja indywidualna** jako metoda połączenia i **moduł TPM** jako mechanizm. Wprowadź klucz poręczenia modułu TPM i Zapisz informacje o połączeniu z urządzeniem.
 
-## <a name="connect-devices-with-iot-plug-and-play-preview"></a>Łączenie urządzeń z usługą IoT Plug and Play (wersja zapoznawcza)
+## <a name="automatically-associate-with-a-device-template"></a>Automatycznie Skojarz z szablonem urządzenia
 
-Jedną z najważniejszych funkcji usługi IoT Plug and Play (wersja zapoznawcza) z IoT Central jest możliwość automatycznego kojarzenia szablonów urządzeń z urządzeniem. Wraz z poświadczeniami urządzeń urządzenia mogą teraz wysyłać **CapabilityModelId** w ramach wywołania rejestracji urządzenia. Ta funkcja umożliwia IoT Central odnajdywania i kojarzenia szablonu urządzenia z urządzeniem. Proces odnajdywania działa w następujący sposób:
+Jedną z najważniejszych funkcji IoT Central jest możliwość automatycznego kojarzenia szablonów urządzeń z urządzeniem. Wraz z poświadczeniami urządzeń urządzenia mogą wysyłać **CapabilityModelId** w ramach wywołania rejestracji urządzenia. **CapabilityModelID** to nazwa urn identyfikująca model możliwości implementowany przez urządzenie. Aplikacja IoT Central może użyć **CapabilityModelID** do zidentyfikowania szablonu urządzenia do użycia, a następnie automatycznie skojarzyć urządzenie z szablonem urządzenia. Proces odnajdywania działa w następujący sposób:
 
-1. Kojarzy z szablonem urządzenia, jeśli został już opublikowany w aplikacji IoT Central.
-1. Pobiera z publicznego repozytorium opublikowanych i certyfikowanych modeli możliwości.
+1. Jeśli szablon urządzenia został już opublikowany w aplikacji IoT Central, urządzenie zostanie skojarzone z szablonem urządzenia.
+1. W przypadku wstępnie certyfikowanych urządzeń Plug and Play IoT, jeśli szablon urządzenia nie został jeszcze opublikowany w aplikacji IoT Central, szablon urządzenia zostanie pobrany z repozytorium publicznego.
 
-Poniżej znajduje się format dodatkowego ładunku wysyłanego przez urządzenie podczas wywołania rejestracji w usłudze DPS
+Poniższe fragmenty kodu pokazują format dodatkowego ładunku, który urządzenie musi wysłać podczas wywołania rejestracji usługi DPS, aby można było automatycznie skojarzyć skojarzenie.
+
+Jest to format urządzeń korzystających z ogólnie dostępnego zestawu SDK urządzeń, który nie obsługuje Plug and Play IoT:
+
+```javascript
+    iotcModelId: '< this is the URN for the capability model>';
+```
+
+Jest to format urządzeń korzystających z zestawu SDK urządzeń w wersji zapoznawczej, który obsługuje Plug and Play IoT:
 
 ```javascript
 '__iot:interfaces': {
@@ -197,7 +205,7 @@ Poniżej znajduje się format dodatkowego ładunku wysyłanego przez urządzenie
 ```
 
 > [!NOTE]
-> Należy pamiętać, że opcja **automatycznego zatwierdzania** w obszarze **Administracja > połączenie urządzenia** musi być włączone, aby urządzenia mogły automatycznie nawiązywać połączenia, odnajdywać szablon urządzenia i rozpoczynać wysyłanie danych.
+> Opcja **automatycznego zatwierdzania** w przypadku **administrowania > połączenie z urządzeniem** musi być włączone, aby urządzenia mogły automatycznie nawiązywać połączenia, wykrywać szablon urządzenia i rozpoczynać wysyłanie danych.
 
 ## <a name="device-status-values"></a>Wartości stanu urządzenia
 

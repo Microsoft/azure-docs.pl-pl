@@ -1,45 +1,45 @@
 ---
-title: Uzyskaj wsparcie & szkolenia
+title: Uzyskaj pomoc techniczną & szkolenia
 titleSuffix: ML Studio (classic) - Azure
-description: Uzyskaj pomoc techniczną i szkolenia oraz przekaż opinię dla usługi Azure Machine Learning Studio (klasyczna)
+description: Uzyskaj pomoc techniczną i szkolenia i Prześlij opinię na temat Azure Machine Learning Studio (klasyczny)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: d330235815b746a5bbdc7682622c0e238a3ab0ea
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd48e97f642402d1c7ff2ff71e7cee67be17f91d
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411896"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209438"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Uzyskaj pomoc techniczną i szkolenia dla usługi Azure Machine Learning Studio (klasyczna)
+# <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Uzyskaj pomoc techniczną i szkolenia dla Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Ten artykuł zawiera informacje na temat dowiedzenia się więcej o usłudze Azure Machine Learning Studio (klasyczny) i uzyskać pomoc techniczną dotyczącą problemów i pytań.
+Ten artykuł zawiera informacje o tym, jak dowiedzieć się więcej na temat Azure Machine Learning Studio (klasyczny) i uzyskać pomoc techniczną dotyczącą Twoich problemów i pytań.
 
-## <a name="learn-more-about-studio-classic"></a>Dowiedz się więcej o Studio (classic)
+## <a name="learn-more-about-studio-classic"></a>Dowiedz się więcej o programie Studio (klasyczny)
 
-Zobacz nasze zasoby edukacyjne:
-+ [Samouczki i artykuły instruktażowe](../studio/index.yml) 
-+ [Filmy do nauki o danych dla początkujących](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
+Zobacz nasze zasoby szkoleniowe:
++ [Samouczki i artykuły z artykułami](../studio/index.yml) 
++ [Początkujące filmy wideo z nauką o danych](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
 
-## <a name="submit-doc-feedback"></a>Prześlij opinię doc
+## <a name="submit-doc-feedback"></a>Prześlij opinię o dokumencie
 
-Możesz **przesyłać prośby o** dodatkowe materiały szkoleniowe za pomocą przycisku **Opinie o treści** na końcu każdego artykułu.
+Możesz **przesłać żądania** dotyczące dodatkowych materiałów szkoleniowych, korzystając z przycisku **opinii o treści** na końcu każdego artykułu.
 
-## <a name="get-service-support"></a>Uzyskaj pomoc techniczną
+## <a name="get-service-support"></a>Uzyskaj pomoc techniczną dotyczącą usługi
 
 Zapoznaj się z tymi zasobami pomocy technicznej:
 
-+ **Pomoc techniczna dla klientów platformy Azure:** [przesyłanie żądań pomocy technicznej i zarządzanie nimi](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) za pośrednictwem witryny Azure portal.
++ **Pomoc techniczna dla klientów platformy Azure**: [przesyłanie żądań pomocy technicznej i zarządzanie nimi](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) za pomocą Azure Portal.
 
-+ **Forum użytkownika**: Zadawaj pytania, odpowiadaj na pytania i łącz się z innymi użytkownikami [na forum pomocy technicznej usługi Azure Machine Learning Studio (classic) w witrynie MSDN.](https://aka.ms/aml-forum-studio)
++ **Forum użytkowników**: zadawanie pytań, odpowiadanie na pytania i nawiązywanie połączenia z innymi użytkownikami na [forum pomocy technicznej Azure Machine Learning Studio (klasycznej) w witrynie MSDN](https://aka.ms/aml-forum-studio).
 
-+ **Przepełnienie stosu:** odwiedź społeczność usługi Azure Machine Learning w [stackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) z tagiem "Azure-Machine-Learning".
++ **Stack Overflow**: odwiedź społeczność Azure Machine Learning na [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) oznaczonym "Azure-Machine-Learning".
 
-+ **Udostępniaj sugestie dotyczące produktów** i żądania funkcji w naszym [kanale opinii usługi Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Aby podzielić się swoją opinią, wybierz przycisk **Opinie o produkcie** na końcu każdego artykułu.
++ **Udostępniaj sugestie i żądania dotyczące produktów** w naszym [kanale opinii o Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Aby podzielić się swoją opinią, wybierz przycisk **opinie o produkcie** na końcu każdego artykułu.

@@ -6,21 +6,22 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/02/2020
-ms.openlocfilehash: f386530ffb3a074a5c1db1d9f28535d28c8b1284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 77623a89e52a5e15fbb4159ff49d9377e53e7d4c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78252407"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509537"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrowanie Apache Spark i Apache Hive z łącznikiem magazynu Hive
 
-Łącznik magazynu Apache Hive (obsługiwane) to biblioteka, która umożliwia łatwiejsze działanie z Apache Spark i Apache Hive przez obsługę zadań, takich jak przeniesienie danych między ramkami dataframes i tabela Hive, a także kierowanie danych strumienia Spark do tabel programu Hive. Łącznik magazynu Hive działa jak Most między platformami Spark i Hive. Obsługuje ona programowanie Scala, Java i Python.
+Łącznik magazynu Apache Hive (obsługiwane) to biblioteka, która umożliwia łatwiejsze działanie dzięki Apache Spark i Apache Hive. Łatwiejsza obsługa zadań, takich jak przeniesienie danych między ramkami dataframes i Hive. I kierowanie danych strumienia Spark do tabel programu Hive. Łącznik magazynu Hive działa jak Most między platformami Spark i Hive. Obsługuje ona programowanie Scala, Java i Python.
 
-Łącznik magazynu Hive umożliwia korzystanie z unikatowych funkcji programu Hive i platformy Spark w celu tworzenia zaawansowanych aplikacji do obsługi dużych ilości danych. Apache Hive oferuje obsługę transakcji bazy danych, które są niepodzielne, spójne, izolowane i trwałe (kwas). Aby uzyskać więcej informacji o KWASie i transakcjach w programie Hive, zobacz [transakcje Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive oferuje także szczegółowe mechanizmy kontroli zabezpieczeń za poorednictwem oprogramowania Apache Ranger i przetwarzania analitycznego o małym opóźnieniu, które nie jest dostępne w Apache Spark.
+Łącznik magazynu Hive umożliwia korzystanie z unikatowych funkcji programu Hive i platformy Spark. Funkcje służące do tworzenia zaawansowanych aplikacji dla dużych ilości danych. Apache Hive oferuje obsługę transakcji bazy danych, które są niepodzielne, spójne, izolowane i trwałe (kwas). Aby uzyskać więcej informacji o KWASie i transakcjach w programie Hive, zobacz [transakcje Hive](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive oferuje także szczegółowe mechanizmy kontroli zabezpieczeń za poorednictwem oprogramowania Apache Ranger i przetwarzania analitycznego o małym opóźnieniu, które nie jest dostępne w Apache Spark.
 
-Apache Spark ma interfejs API przesyłania strumieniowego ze strukturą, który zapewnia funkcje przesyłania strumieniowego, które nie są dostępne w Apache Hive. Począwszy od usługi HDInsight 4,0, Apache Spark 2.3.1 i Apache Hive 3.1.0 mają oddzielne magazyny metadanych, co może utrudnić współdziałanie. Łącznik magazynu Hive ułatwia korzystanie z platformy Spark i Hive. Biblioteka obsługiwane ładuje dane z demonów LLAP do równoległych modułów wykonujących testy, co zwiększa efektywność i skalowalność niż przy użyciu standardowego połączenia JDBC z platformy Spark do Hive.
+Apache Spark ma interfejs API przesyłania strumieniowego ze strukturą, który zapewnia funkcje przesyłania strumieniowego, które nie są dostępne w Apache Hive. Począwszy od usługi HDInsight 4,0, Apache Spark 2.3.1 i Apache Hive 3.1.0 mają oddzielne magazyny. Te oddzielne magazyny mogą utrudniać współdziałanie. Łącznik magazynu Hive ułatwia korzystanie z platformy Spark i Hive. Biblioteka obsługiwane ładuje dane z demonów z LLAP (przetwarzania analitycznego o małym opóźnieniu) do równoległych modułów wykonujących testy. Ta akcja sprawia, że jest bardziej wydajny i dostosowywalny niż użycie standardowego połączenia JDBC z platformy Spark do Hive.
 
 ![Architektura łącznika magazynu Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -72,9 +73,9 @@ W interfejsie użytkownika sieci Web platformy Spark Ambari przejdź do opcji **
 
 ![Konfiguracja oprogramowania Apache Ambari Spark2](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-Wybierz pozycję **Dodaj właściwość...** w razie potrzeby Dodaj/zaktualizuj następujące elementy:
+Wybierz pozycję **Dodaj właściwość...** w razie potrzeby Dodaj/zaktualizuj następującą wartość:
 
-| Key | Wartość |
+| Klucz | Wartość |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|Wartość uzyskana wcześniej od programu **Hive. llap. Demon. Service. hosts**.|
 |`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Ustaw wartość parametrów połączenia JDBC, która łączy się z serwera hiveserver2 w klastrze zapytań interaktywnych. Zamień `LLAPCLUSTERNAME` na nazwę klastra zapytań interaktywnych. Zamień `PWD` na rzeczywiste hasło.|
@@ -122,9 +123,9 @@ Aby rozpocząć sesję platformy Spark-Shell, wykonaj następujące czynności:
 
 ### <a name="connecting-and-running-queries-on-enterprise-security-package-esp-clusters"></a>Łączenie i uruchamianie zapytań w przypadku klastrów pakiet Enterprise Security (ESP)
 
-Pakiet Enterprise Security (ESP) oferuje funkcje klasy korporacyjnej, takie jak uwierzytelnianie oparte na Active Directoryach, obsługa przez wiele użytkowników i kontrola dostępu oparta na rolach dla klastrów Apache Hadoop w usłudze Azure HDInsight. Aby uzyskać więcej informacji na temat ESP, zobacz [używanie pakiet Enterprise Security w usłudze HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+Pakiet Enterprise Security (ESP) oferuje funkcje klasy korporacyjnej, takie jak uwierzytelnianie oparte na Active Directory. Obsługa wieloużytkownikom i kontrola dostępu oparta na rolach dla klastrów Apache Hadoop w usłudze Azure HDInsight. Aby uzyskać więcej informacji na temat ESP, zobacz [używanie pakiet Enterprise Security w usłudze HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. Użyj protokołu SSH w węzła głównego dla klastra Apache Spark. Aby uzyskać więcej informacji na temat nawiązywania połączenia z klastrem przy użyciu protokołu SSH, zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Użyj protokołu SSH w węzła głównego dla klastra Apache Spark.
 
 1. Wpisz `kinit` i zaloguj się przy użyciu użytkownika domeny.
 
@@ -181,7 +182,7 @@ Platforma Spark nie obsługuje natywnego zapisywania w tabelach z zarządzanym K
 
 Korzystając z łącznika magazynu Hive, można zapisywać dane w tabelach programu Hive przy użyciu funkcji przesyłania strumieniowego platformy Spark.
 
-Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć przykład łącznika magazynu Hive, który pozyskuje dane ze strumienia Spark w porcie localhost 9999 w tabeli programu Hive.
+Wykonaj poniższe kroki, aby utworzyć łącznik magazynu Hive. Przykład pozyskuje dane ze strumienia Spark na hoście lokalnym 9999 w tabeli programu Hive.
 
 1. Wykonaj kroki opisane w sekcji [łączenie i uruchamianie zapytań](#connecting-and-running-queries).
 
@@ -193,7 +194,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć przykład łącznika
 
 1. Wygeneruj dane dla utworzonego strumienia Spark, wykonując następujące czynności:
     1. Otwórz drugą sesję SSH w tym samym klastrze Spark.
-    1. W wierszu polecenia wpisz `nc -lk 9999`polecenie. To polecenie używa narzędzia netcat do wysyłania danych z wiersza polecenia do określonego portu.
+    1. W wierszu polecenia wpisz `nc -lk 9999`polecenie. To polecenie używa `netcat` narzędzia do wysyłania danych z wiersza polecenia do określonego portu.
 
 1. Wróć do pierwszej sesji SSH i Utwórz nową tabelę programu Hive do przechowywania danych przesyłanych strumieniowo. W powłoce Spark wprowadź następujące polecenie:
 
@@ -224,7 +225,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć przykład łącznika
     hive.table("stream_table").show()
     ```
 
-Użyj **klawiszy CTRL + C** , aby zatrzymać netcat na drugiej sesji SSH. Użyj `:q` polecenia, aby wyjść z powłoki Spark w pierwszej sesji SSH.
+Użyj **klawiszy CTRL + C** , `netcat` aby zatrzymać drugą sesję SSH. Użyj `:q` polecenia, aby wyjść z powłoki Spark w pierwszej sesji SSH.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Zabezpieczanie danych w klastrach Spark ESP
 
@@ -253,7 +254,7 @@ Użyj **klawiszy CTRL + C** , aby zatrzymać netcat na drugiej sesji SSH. Użyj 
 
         ![Lista zasad Hive Ranger łącznika magazynu Hive](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Podaj żądaną nazwę zasad. Wybierz bazę danych **: default**, tabela programu Hive: **Demonstracja**, kolumna Hive: **name**, User: **rsadmin2**, typy dostępu: **SELECT**i **maska częściowa: Pokaż ostatnie 4** z menu **opcji wybierz maskowanie** . Kliknij pozycję **Dodaj**.
+    a. Podaj nazwę zasad. Wybierz bazę danych **: default**, tabela programu Hive: **Demonstracja**, kolumna Hive: **name**, User: **rsadmin2**, typy dostępu: **SELECT**i **maska częściowa: Pokaż ostatnie 4** z menu **opcji wybierz maskowanie** . Kliknij pozycję **Dodaj**.
                 ![Utwórz zasady](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. Ponownie Wyświetl zawartość tabeli. Po zastosowaniu zasad Ranger można zobaczyć tylko cztery ostatnie znaki w kolumnie.
 

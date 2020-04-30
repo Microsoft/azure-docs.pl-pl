@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137958"
+ms.locfileid: "82208741"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 W tym artykule opisano typowe problemy, obejścia, kroki diagnostyczne i narzędzia używane w przypadku korzystania z [zestawu .NET SDK](sql-api-sdk-dotnet.md) z kontami interfejsu API SQL Azure Cosmos DB.
 Zestaw .NET SDK zapewnia logiczną reprezentację po stronie klienta, aby uzyskać dostęp do Azure Cosmos DB interfejsu API SQL. W tym artykule opisano narzędzia i podejścia pomocne w przypadku napotkania jakichkolwiek problemów.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Lista kontrolna dotycząca rozwiązywania problemów:
+## <a name="checklist-for-troubleshooting-issues"></a>Lista kontrolna dotycząca rozwiązywania problemów
 Przed przeniesieniem aplikacji do środowiska produkcyjnego należy wziąć pod uwagę poniższą listę kontrolną. Korzystanie z listy kontrolnej uniemożliwi kilka typowych problemów, które mogą zostać wyświetlone. Można również szybko zdiagnozować w przypadku wystąpienia problemu:
 
 *    Użyj najnowszego [zestawu SDK](sql-api-sdk-dotnet-standard.md). Zestawów SDK wersji zapoznawczych nie należy używać w środowisku produkcyjnym. Uniemożliwi to wyróżnianie znanych problemów, które zostały już naprawione.
@@ -101,6 +101,30 @@ W przeciwnym razie nastąpiły problemy z połączeniem.
 * Jeśli zapytanie zaplecza wraca szybko i spędza na tym dużą godzinę, sprawdź obciążenie maszyny. Prawdopodobnie nie ma wystarczającej ilości zasobów i zestaw SDK oczekuje na dostępność zasobów do obsługi odpowiedzi.
 * Jeśli zapytanie zaplecza próbuje [zoptymalizować zapytanie](optimize-cost-queries.md) i przeszukać bieżące [zasady indeksowania](index-overview.md) 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: podpis MAC znaleziony w żądaniu HTTP nie jest taki sam jak obliczony podpis
+Jeśli otrzymasz następujący komunikat o błędzie 401: "podpis MAC znaleziony w żądaniu HTTP nie jest taki sam jak obliczony podpis". może to być spowodowane następującymi scenariuszami.
+
+1. Klucz został obrócony i nie przestrzega [najlepszych](secure-access-to-data.md#key-rotation)rozwiązań. Zwykle jest to przypadek. Rotacja kluczy konta Cosmos DB może potrwać od kilku sekund do prawdopodobnie dni, w zależności od rozmiaru konta Cosmos DB.
+   1. Sygnatura 401 MAC jest widoczna wkrótce po rotacji kluczy i ostatecznie zatrzyma się bez wprowadzania jakichkolwiek zmian. 
+2. Klucz jest nieprawidłowo skonfigurowany w aplikacji, więc klucz nie jest zgodny z kontem.
+   1. problem z sygnaturą 401 dla komputerów MAC będzie spójny i występuje dla wszystkich wywołań
+3. Istnieje sytuacja wyścigu z tworzeniem kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowym scenariuszem, jeśli aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie o tej samej nazwie, gdy aplikacja jest uruchomiona. Zestaw SDK podejmie próbę użycia nowego kontenera, ale Tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
+   1. problem z podpisem MAC 401 jest widoczny wkrótce po utworzeniu kontenera i występuje tylko do momentu zakończenia tworzenia kontenera.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Błąd HTTP 400. Rozmiar nagłówków żądania jest zbyt długi.
+ Rozmiar nagłówka zwiększył się do dużego i przekracza maksymalny dozwolony rozmiar. Zawsze zaleca się użycie najnowszego zestawu SDK. Upewnij się, że używasz co najmniej wersji [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) lub [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), która dodaje śledzenie rozmiaru nagłówka do komunikatu o wyjątku.
+
+Dodatek
+ 1. Token sesji został zbyt duży. Token sesji rośnie wraz ze wzrostem liczby partycji w kontenerze.
+ 2. Token kontynuacji wzrosnął do dużych. Różne zapytania będą miały różne rozmiary tokenu kontynuacji.
+ 3. Jest on spowodowany przez kombinację tokenu sesji i tokenu kontynuacji.
+
+Rozwiązanie:
+   1. Postępuj zgodnie ze [wskazówkami dotyczącymi wydajności](performance-tips.md) i Konwertuj aplikację na tryb połączenia z usługą Direct + TCP. Polecenie Direct + TCP nie ma ograniczenia rozmiaru nagłówka, takiego jak HTTP, które pozwala uniknąć tego problemu.
+   2. Jeśli jest to przyczyną problemu, tymczasowym środkiem zaradczym jest ponowne uruchomienie aplikacji. Ponowne uruchomienie wystąpienia aplikacji spowoduje zresetowanie tokenu sesji. Jeśli wyjątki zatrzymują się po ponownym uruchomieniu, potwierdza, że token sesji jest przyczyną. Ostatecznie zostanie powiększony o rozmiar, który spowoduje wystąpienie wyjątku.
+   3. Jeśli aplikacja nie może zostać przekonwertowana na wartość Direct + TCP, a token sesji jest przyczyną, można to zrobić, zmieniając [poziom spójności](consistency-levels.md)klienta. Token sesji jest używany tylko w przypadku spójności sesji, która jest wartością domyślną dla Cosmos DB. Każdy inny poziom spójności nie będzie używać tokenu sesji. 
+   4. Jeśli aplikacja nie może zostać przekonwertowana na Direct + TCP, a token kontynuacji jest przyczyną, spróbuj ustawić opcję ResponseContinuationTokenLimitInKb. Tę opcję można znaleźć w FeedOptions dla wersji 2 lub QueryRequestOptions na 3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ W przeciwnym razie nastąpiły problemy z połączeniem.
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

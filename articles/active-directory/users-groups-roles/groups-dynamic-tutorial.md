@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "74027104"
+ms.locfileid: "82582878"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Samouczek: automatyczne dodawanie lub usuwanie członków grupy
 
-W usłudze Azure Active Directory (Azure AD) możesz automatycznie dodawać użytkowników do grup zabezpieczeń lub grup usługi Office 365 oraz ich usuwać, dzięki czemu nie musisz zawsze robić tego ręcznie. Po zmianie dowolnych właściwości użytkownika lub urządzenia usługa Azure AD ocenia wszystkie reguły dynamicznego członkostwa w grupach w Twojej dzierżawie, aby sprawdzić, czy zmiana powinna spowodować dodanie lub usunięcie użytkowników.
+W usłudze Azure Active Directory (Azure AD) możesz automatycznie dodawać użytkowników do grup zabezpieczeń lub grup usługi Office 365 oraz ich usuwać, dzięki czemu nie musisz zawsze robić tego ręcznie. Zawsze, gdy wszystkie właściwości użytkownika lub urządzenia są zmieniane, usługa Azure AD szacuje wszystkie dynamiczne reguły grupy w organizacji usługi Azure AD, aby sprawdzić, czy zmiana powinna dodawać lub usuwać członków.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -35,15 +35,15 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ta funkcja wymaga jednej licencji Azure AD — wersja Premium jako Administrator globalny dzierżawy. Jeśli go nie masz, w usłudze Azure AD wybierz pozycję **licencje** > **produkty** > **Wypróbuj/Kup**.
+Ta funkcja wymaga jednej licencji Azure AD — wersja Premiumej jako Administrator globalny organizacji. Jeśli go nie masz, w usłudze Azure AD wybierz pozycję **licencje** > **produkty** > **Wypróbuj/Kup**.
 
-Nie musisz przypisywać licencji użytkownikom, aby mogli być członkami grup dynamicznych. W dzierżawie potrzebna jest tylko taka minimalna liczba dostępnych licencji usługi Azure AD — wersja Premium P1, aby objęci byli nimi wszyscy tacy użytkownicy. 
+Nie musisz przypisywać licencji użytkownikom, aby mogli być członkami grup dynamicznych. Potrzebujesz tylko minimalnej liczby dostępnych Azure AD — wersja Premium licencji P1 w organizacji, aby uwzględnić wszystkich takich użytkowników. 
 
 ## <a name="create-a-group-of-guest-users"></a>Tworzenie grupy użytkowników-gości
 
 Najpierw należy utworzyć grupę dla użytkowników-gości z jednej firmy partnerskiej. Potrzebują oni specjalnej licencji, a więc często najlepszym rozwiązaniem jest utworzenie grupy do tego celu.
 
-1. Zaloguj się do Azure Portal (https://portal.azure.com) za pomocą konta, które jest administratorem globalnym dla dzierżawy.
+1. Zaloguj się do Azure Portal (https://portal.azure.com) za pomocą konta, które jest administratorem globalnym w Twojej organizacji.
 2. Wybierz kolejno pozycje **Azure Active Directory** > **grupy** > **Nowa grupa**.
    ![Wybierz polecenie, aby rozpocząć nową grupę](./media/groups-dynamic-tutorial/new-group.png)
 3. W bloku **Grupa**:
@@ -80,7 +80,7 @@ Po utworzeniu nowej grupy możesz przypisać licencje wymagane dla tych użytkow
 
 ## <a name="remove-guests-from-all-users-group"></a>Usuwanie gości z grupy Wszyscy użytkownicy
 
-Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszystkich użytkowników-gości do odpowiednich grup według firmy. Teraz możesz również zmienić grupę **Wszyscy użytkownicy** tak, aby była zarezerwowana tylko dla użytkowników będących członkami Twojej dzierżawy. Dzięki temu możesz używać jej do przypisywania aplikacji i licencji, które są specyficzne dla Twojej organizacji macierzystej.
+Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszystkich użytkowników-gości do odpowiednich grup według firmy. Możesz również zmienić grupę **Wszyscy użytkownicy** , tak aby była zarezerwowana tylko dla użytkowników należących do organizacji. Dzięki temu możesz używać jej do przypisywania aplikacji i licencji, które są specyficzne dla Twojej organizacji macierzystej.
 
    ![Zmienianie grupy Wszyscy użytkownicy na grupę wyłącznie dla członków](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ Możliwe, że Twoim ostatecznym celem jako administratora jest przypisanie wszys
 
 **Aby usunąć grupę użytkowników-gości**
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego dzierżawy.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji.
 2. Wybierz **Azure Active Directory** > **grupy**Azure Active Directory. Wybierz grupę **Guest users Contoso**, wybierz symbol wielokropka (...), a następnie wybierz polecenie **Usuń**. Podczas usuwania grupy zostaną usunięte wszystkie przypisane licencje.
 
 **Aby przywrócić grupę Wszyscy użytkownicy**

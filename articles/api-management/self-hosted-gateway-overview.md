@@ -1,30 +1,25 @@
 ---
-title: Usługa Azure API Management Gateway — Omówienie Microsoft Docs
-description: Dowiedz się, jak samodzielna usługa Azure API Management Gateway ułatwia organizacjom Zarządzanie interfejsami API w środowiskach hybrydowych i wielochmurowych.
+title: Omówienie bramy samoobsługowej | Microsoft Docs
+description: Dowiedz się, w jaki sposób samodzielna funkcja bramy platformy Azure API Management ułatwia organizacjom Zarządzanie interfejsami API w środowiskach hybrydowych i wielochmurowych.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
 manager: gwallace
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73513720"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232976"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Samodzielna Brama API Management — Omówienie
+# <a name="self-hosted-gateway-overview"></a>Omówienie własnej bramy
 
-W tym artykule wyjaśniono, jak funkcja bramy samoobsługowego umożliwia tworzenie hybrydowych i wielochmurowych interfejsów API, przedstawia jej architekturę wysokiego poziomu i wyróżnia podstawowe możliwości.
-
-> [!NOTE]
-> Funkcja samoobsługowego bramy jest dostępna w wersji zapoznawczej. W wersji zapoznawczej Brama samoobsługowa jest dostępna tylko w warstwach deweloper i Premium bez dodatkowych opłat. Warstwa dewelopera jest ograniczona do jednego wdrożenia bramy samoobsługowego.
+W tym artykule wyjaśniono, jak funkcja samoobsługowego korzystania z platformy Azure API Management zapewnia obsługę hybrydowej i wielochmurowej usługi API Management, stanowi architekturę wysokiego poziomu i wyróżnia jej możliwości.
 
 ## <a name="hybrid-and-multi-cloud-api-management"></a>Hybrydowe i wielochmurowe usługi API Management
 
@@ -42,20 +37,27 @@ Domyślnie wszystkie te składniki są wdrażane na platformie Azure, co powoduj
 
 ![Przepływ ruchu interfejsu API bez bram samoobsługowych](media/self-hosted-gateway-overview/without-gateways.png)
 
-Wdrażanie bram samoobsługowych w tych samych środowiskach co implementacje interfejsu API zaplecza i dodanie ich do usługi API Management pozwala ruch interfejsów API bezpośrednio do interfejsów API zaplecza, co zwiększa czas oczekiwania, optymalizuje koszty transferu danych i zapewnia zgodność, zachowując korzyści z korzystania z jednego punktu zarządzania i odnajdywania wszystkich interfejsów API w organizacji niezależnie od tego, gdzie są hostowane ich wdrożenia.
+Wdrażanie bram samoobsługowych w tych samych środowiskach, w których obsługiwane są implementacje interfejsu API zaplecza, umożliwia ruch związany z INTERFEJSem API bezpośrednio do interfejsów API zaplecza, co zwiększa czas oczekiwania, optymalizuje koszty transferu danych i zapewnia zgodność, zachowując korzyści z używania jednego punktu zarządzania, przestrzegania i odnajdywania wszystkich interfejsów API w organizacji niezależnie od tego, gdzie są hostowane ich wdrożenia.
 
 ![Przepływ ruchu interfejsu API za pomocą bram samoobsługowych](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## <a name="packaging-and-features"></a>Pakowanie i funkcje
 
-Brama samoobsługowa jest kontenerem, a funkcjonalnie równoważną wersją zarządzanej bramy wdrożoną na platformie Azure jako część każdej usługi API Management. Brama samoobsługowa jest dostępna jako kontener platformy Docker oparty na systemie Linux z Container Registry firmy Microsoft. Można ją wdrożyć na platformie Docker, Kubernetes lub innym rozwiązaniu aranżacji kontenerów działającej na komputerze stacjonarnym, klastrze serwerów lub infrastrukturze chmurowej.
+Brama samoobsługowa jest kontenerem, a funkcjonalnie równoważną wersją zarządzanej bramy wdrożoną na platformie Azure jako część każdej usługi API Management. Brama samoobsługowa jest dostępna jako [kontener](https://aka.ms/apim/sputnik/dhub) platformy Docker oparty na systemie Linux z Container Registry firmy Microsoft. Można ją wdrożyć na platformie Docker, Kubernetes lub innych rozwiązań aranżacji kontenerów uruchomionych w klastrze serwerów w środowisku lokalnym, infrastrukturze chmurowej lub na potrzeby oceny i programowania na komputerze osobistym.
 
-> [!IMPORTANT]
-> Niektóre funkcje dostępne w ramach bramy zarządzanej nie są jeszcze dostępne w wersji zapoznawczej. W szczególności: Logowanie do zasad centrum zdarzeń, integracja Service Fabric, podrzędny protokół HTTP/2. Nie ma planu udostępnienia wbudowanej pamięci podręcznej w ramach bramy samoobsługowej.
+Następujące funkcje dostępne w bramach zarządzanych są **niedostępne** w bramach samoobsługowych:
+
+- Dzienniki usługi Azure Monitor
+- Nadrzędna (wewnętrzna strona zaplecza) wersja protokołu TLS i zarządzanie szyfrowaniem
+- Sprawdzanie poprawności certyfikatów serwera i klienta przy użyciu [certyfikatów głównych urzędu certyfikacji](api-management-howto-ca-certificates.md) przekazanych do usługi API Management. Aby dodać obsługę niestandardowego urzędu certyfikacji, należy dodać warstwę do obrazu kontenera samoobsługowego bramy, który instaluje certyfikat główny urzędu certyfikacji.
+- Integracja z [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
+- Wznawianie sesji protokołu TLS
+- Ponowne negocjowanie certyfikatu klienta. Oznacza to, że w przypadku uwierzytelniania za pomocą [certyfikatu klienta](api-management-howto-mutual-certificates-for-clients.md) dla użytkowników interfejsu API należy przedstawić swoje certyfikaty jako część początkowego UZGADNIANIA protokołu TLS. Aby upewnić się, że należy włączyć ustawienie Negocjuj certyfikat klienta podczas konfigurowania niestandardowej nazwy hosta bramy samohostowanej.
+- Wbudowana pamięć podręczna. Zapoznaj się z tym [dokumentem](api-management-howto-cache-external.md) , aby dowiedzieć się więcej o korzystaniu z zewnętrznej pamięci podręcznej w ramach bram
 
 ## <a name="connectivity-to-azure"></a>Łączność z platformą Azure
 
-Brama samoobsługowa wymaga łączności TCP/IP z platformą Azure na porcie 443. Każda Brama samoobsługowa musi być skojarzona z jedną usługą API Management i jest konfigurowana za pośrednictwem jej płaszczyzny zarządzania. Brama samoobsługowa używa łączności z platformą Azure dla:
+Bramy samoobsługowe wymagają połączenia wychodzącego TCP/IP z platformą Azure na porcie 443. Każda Brama samoobsługowa musi być skojarzona z jedną usługą API Management i jest konfigurowana za pośrednictwem jej płaszczyzny zarządzania. Brama samoobsługowa używa łączności z platformą Azure dla:
 
 -   Raportowanie stanu przez wysyłanie komunikatów pulsu co minutę
 -   Regularne sprawdzanie (co 10 sekund) i stosowanie aktualizacji konfiguracji za każdym razem, gdy są dostępne
@@ -64,22 +66,22 @@ Brama samoobsługowa wymaga łączności TCP/IP z platformą Azure na porcie 443
 
 Gdy łączność z platformą Azure zostanie utracona, Brama samoobsługowa nie będzie mogła odbierać aktualizacji konfiguracji, zgłaszać stanu ani przesyłać danych telemetrycznych.
 
-Brama samoobsługowa jest zaprojektowana pod kątem "Niepowodzenie static" i może przetrwać tymczasową utratę łączności z platformą Azure. Można ją wdrożyć z włączoną lokalną kopią zapasową lub bez niej. W poprzednim przypadku bramy samoobsługowe będą regularnie zapisywać kopię zapasową konfiguracji na woluminie trwałym dołączonym do kontenera lub pod.
+Brama samoobsługowa jest zaprojektowana pod kątem "Niepowodzenie static" i może przetrwać tymczasową utratę łączności z platformą Azure. Można ją wdrożyć z lokalną kopią zapasową lub bez niej. W poprzednim przypadku bramy samoobsługowe będą regularnie zapisywać kopię zapasową najnowszej pobranej konfiguracji na woluminie trwałym dołączonym do jego kontenera lub pod.
 
 Gdy kopia zapasowa konfiguracji jest wyłączona, a łączność z platformą Azure zostanie przerwana:
 
--   Uruchomione przez siebie bramy będą nadal działać przy użyciu kopii konfiguracji w pamięci
+-   Uruchamianie bram samoobsługowych będzie nadal działać przy użyciu kopii w pamięci konfiguracji
 -   Zatrzymane bramy samoobsługowe nie będą mogły być uruchamiane
 
 Po włączeniu tworzenia kopii zapasowej i nawiązaniu połączenia z platformą Azure:
 
--   Uruchomione przez siebie bramy będą nadal działać przy użyciu kopii konfiguracji w pamięci
--   Zatrzymane bramy samoobsługowe rozpoczną korzystanie z kopii zapasowej konfiguracji
+-   Uruchamianie bram samoobsługowych będzie nadal działać przy użyciu kopii w pamięci konfiguracji
+-   Zatrzymane bramy samoobsługowe będą mogły rozpocząć korzystanie z kopii zapasowej konfiguracji
 
 Po przywróceniu łączności każda Brama samoobsługowa, której dotyczy awaria, będzie automatycznie ponownie łączyć się ze skojarzoną z nią usługą API Management i pobrać wszystkie aktualizacje konfiguracji, które wystąpiły, gdy Brama była "offline".
 
 ## <a name="next-steps"></a>Następne kroki
 
 -   [Przeczytaj oficjalny dokument dotyczący dodatkowego tła tego tematu](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Wdrażanie bramy samohostowanej na platformie Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Wdróż bramę samoobsługową do Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Wdrażanie bramy samohostowanej na platformie Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Wdróż bramę samoobsługową do Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)

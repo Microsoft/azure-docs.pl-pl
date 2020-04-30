@@ -1,5 +1,5 @@
 ---
-title: Samouczek`:` korzystanie z tożsamości zarządzanej w celu uzyskania dostępu do Azure Cosmos DB-Windows-Azure AD
+title: 'Samouczek: używanie tożsamości zarządzanej do uzyskiwania dostępu do Azure Cosmos DB-Windows-Azure AD'
 description: Samouczek przedstawiający proces użycia przypisanej przez system tożsamości zarządzanej na maszynie wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "78248237"
+ms.locfileid: "82583066"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Samouczek: używanie przypisanej przez system tożsamości zarządzanej maszyny wirtualnej z systemem Windows do uzyskiwania dostępu do usługi Azure Cosmos DB
 

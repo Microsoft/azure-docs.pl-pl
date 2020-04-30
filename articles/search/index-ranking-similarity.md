@@ -1,34 +1,36 @@
 ---
-title: Algorytm podobieństwa rankingu
+title: Algorytm podobieństwa do klasyfikacji
 titleSuffix: Azure Cognitive Search
-description: Jak ustawić algorytm podobieństwa, aby wypróbować nowy algorytm podobieństwa do rankingu
+description: Jak ustawić algorytm podobieństwa, aby wypróbować nowy algorytm podobieństwa na potrzeby klasyfikowania
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: c327440649300533c94c2a1956e3c45f433c9780
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1975c13162316b4132bae34659b1c5af8e416573
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409975"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231615"
 ---
-# <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algorytm rankingowy w usłudze Azure Cognitive Search
+# <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algorytm klasyfikacji w usłudze Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT]
-> Od 15 lipca 2020 r. nowo utworzone usługi wyszukiwania będą korzystać z funkcji rankingu BM25, która w większości przypadków udowodniła, że zapewnia rankingi wyszukiwania, które lepiej dostosowują się do oczekiwań użytkowników niż obecny domyślny ranking.  Poza doskonałą klasyfikacją, BM25 umożliwia również opcje konfiguracji dla dostrajania wyników na podstawie czynników, takich jak rozmiar dokumentu.  
+> Od 15 lipca 2020, nowo utworzone usługi wyszukiwania będą korzystać z funkcji klasyfikacji BM25 automatycznie, która została sprawdzona w większości przypadków, aby zapewnić klasyfikacje wyszukiwania, które są lepiej dopasowane do oczekiwań użytkowników niż bieżąca Klasyfikacja domyślna. Poza wyższą klasyfikacją BM25 włącza również opcje konfiguracji dla wyników dostrajania na podstawie takich czynników, jak rozmiar dokumentu.  
 >
-> Dzięki tej zmianie najprawdopodobniej zobaczysz niewielkie zmiany w kolejności wyników wyszukiwania.   Dla tych, którzy chcą przetestować wpływ tej zmiany, udostępniliśmy w interfejsie API 2019-05-06-Preview możliwość umożliwienia oceniania BM25 na nowe indeksy.  
+> W przypadku tej zmiany najprawdopodobniej zobaczysz nieznaczne zmiany w kolejności wyników wyszukiwania. Dla osób, które chcą przetestować wpływ tej zmiany, algorytm BM25 jest dostępny w interfejsie API-Version 2019-05-06-Preview.  
 
-W tym artykule opisano, jak można zaktualizować usługę utworzoną przed 15 lipca 2020 r., aby użyć nowego algorytmu klasyfikacji BM25.
+W tym artykule opisano, jak można użyć nowego BM25ego algorytmu klasyfikacji w istniejących usługach wyszukiwania dla nowych indeksów utworzonych i zapytań przy użyciu interfejsu API podglądu.
 
-Usługa Azure Cognitive Search będzie używać oficjalnej implementacji Lucene algorytmu Okapi BM25, *BM25Similarity*, który zastąpi wcześniej używaną implementację *ClassicSimilarity.* Podobnie jak starszy algorytm ClassicSimilarity, BM25Podobność jest TF-IDF-jak funkcja pobierania, która używa terminu częstotliwość (TF) i odwrotnej częstotliwości dokumentu (IDF) jako zmienne do obliczania wyników trafności dla każdej pary dokumentu zapytania, który jest następnie używane do rankingu. Podczas koncepcyjnie podobny do starszego algorytmu podobieństwa klasycznego, BM25 ma swój korzeń w probabilistycznych informacji pobierania, aby poprawić na nim. BM25 oferuje również zaawansowane opcje dostosowywania, takie jak umożliwienie użytkownikowi decydowania o tym, jak trafność ocenia skaluje się z terminem częstotliwość dopasowanych terminów.
+Usługa Azure Wyszukiwanie poznawcze jest w trakcie wdrażania oficjalnej implementacji programu z Okapi BM25, *BM25Similarity*, która zastąpi poprzednio używaną implementację *ClassicSimilarity* . Podobnie jak w przypadku starszego algorytmu ClassicSimilarity, BM25Similarity to funkcja pobierania "TF-IDF", która używa częstotliwości okresów (TF) i odwrotnej częstotliwości dokumentu (IDF) jako zmiennych do obliczania ocen przydatności dla każdej pary dokumentów-zapytań, która jest następnie używana do klasyfikowania. 
 
-## <a name="how-to-test-bm25-today"></a>Jak przetestować BM25 już dziś
+Chociaż koncepcyjnie przypomina starszy klasyczny algorytm podobieństwa, BM25 pobiera jego rdzeń w probabilistyczne pobierania informacji w celu ich usprawnienia. BM25 oferuje także zaawansowane opcje dostosowywania, takie jak umożliwienie użytkownikowi decydowania, jak Ocena istotności skaluje się z terminem częstotliwości pasujących warunków.
 
-Podczas tworzenia nowego indeksu można ustawić właściwość "podobieństwo". Musisz użyć wersji *2019-05-06-Preview,* jak pokazano poniżej.
+## <a name="how-to-test-bm25-today"></a>Jak przetestować BM25 dzisiaj
+
+Podczas tworzenia nowego indeksu można ustawić właściwość **podobieństwo** , aby określić algorytm. Musisz użyć `api-version=2019-05-06-Preview`, jak pokazano poniżej.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
@@ -57,32 +59,35 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-W przypadku usług utworzonych przed 15 lipca 2020 r.: Jeśli podobieństwo zostanie pominięte lub ustawione na wartość null, indeks użyje starego klasycznego algorytmu podobieństwa.
+Właściwość **podobieństwa** jest przydatna w tym okresie przejściowym, gdy oba algorytmy są dostępne tylko w istniejących usługach. 
 
-Dla usług utworzonych po 15 lipca 2020 r.: Jeśli podobieństwo zostanie pominięte lub ustawione na wartość null, indeks użyje nowego algorytmu podobieństwa BM25.
+| Właściwość | Opis |
+|----------|-------------|
+| podobieństwa | Opcjonalny. Prawidłowe wartości to *"#Microsoft. Azure. Search. ClassicSimilarity"* lub *"#Microsoft. Azure. Search. BM25Similarity"*. <br/> Wymaga `api-version=2019-05-06-Preview` lub nie dotyczy usługi wyszukiwania utworzonej przed 15 lipca 2020. |
 
-Można również jawnie ustawić wartość podobieństwa jako jedną z następujących dwóch wartości: *"#Microsoft.Azure.Search.ClassicSimilarity"* lub *"#Microsoft.Azure.Search.BM25Podobność"*.
+W przypadku nowych usług utworzonych po 15 lipca 2020 BM25 jest używany automatycznie i jest to jedyny algorytm podobieństwa. Jeśli użytkownik spróbuje określić **podobieństwo** do `ClassicSimilarity` nowej usługi, zostanie zwrócony błąd 400, ponieważ ten algorytm nie jest obsługiwany w nowej usłudze.
 
+W przypadku istniejących usług utworzonych przed 15 lipca 2020, klasyczny podobieństwo pozostaje algorytmem domyślnym. Jeśli właściwość **podobieństwa** zostanie pominięta lub ma wartość null, indeks używa algorytmu klasycznego. Jeśli chcesz użyć nowego algorytmu, musisz ustawić **podobieństwo** zgodnie z powyższym opisem.
 
 ## <a name="bm25-similarity-parameters"></a>Parametry podobieństwa BM25
 
-Podobieństwo BM25 dodaje dwa parametry konfigurowalne przez użytkownika, aby kontrolować obliczony wynik trafności:
+BM25 podobieństwa dodaje dwa dostosowywalne parametry, aby kontrolować obliczony wynik istotności.
 
-### <a name="k1"></a>k1
+### <a name="k1"></a>K1
 
-Parametr *k1* steruje funkcją skalowania między częstotliwością określania terminu każdego pasującego terminu a końcowym wynikiem trafności pary zapytań dokumentu.
+Parametr *K1* kontroluje funkcję skalowania między okresem obowiązywania poszczególnych warunków dopasowywania do ostatecznego wyniku dopasowania w parze Document-Query.
 
-Wartość zero reprezentuje "model binarny", w którym udział pojedynczego pasującego terminu jest taki sam dla wszystkich pasujących dokumentów, niezależnie od tego, ile razy ten termin pojawia się w tekście, podczas gdy większa wartość k1 pozwala na dalszy wzrost wyniku w miarę większej liczby wystąpienia tego samego terminu znajduje się w dokumencie. Domyślnie usługa Azure Cognitive Search używa wartości 1,2 dla parametru k1. Przy użyciu wyższej wartości k1 może być ważne w przypadkach, gdy oczekujemy, że wiele terminów będzie częścią zapytania wyszukiwania. W takich przypadkach możemy chcieć faworyzować dokumenty, które pasują do wielu różnych terminów zapytań przeszukiwanych przez dokumenty, które pasują tylko do jednego, wiele razy. Na przykład, podczaspytowania indeksu dla dokumentów zawierających terminy "Apollo Spaceflight", możemy chcieć obniżyć wynik artykułu o mitologii greckiej, który zawiera termin "Apollo" kilkadziesiąt razy, bez wzmianki o "Spaceflight", w porównaniu do inny artykuł, który wyraźnie wspomina zarówno "Apollo" i "Spaceflight" tylko kilka razy. 
+Wartość zero reprezentuje "model binarny", gdzie udział jednego pasującego terminu jest taki sam dla wszystkich zgodnych dokumentów, bez względu na to, ile razy ten termin pojawia się w tekście, podczas gdy większa wartość K1 umożliwia dalszą podwyżkę, gdy w dokumencie zostanie znalezionych więcej wystąpień tego samego terminu. Domyślnie usługa Azure Wyszukiwanie poznawcze używa wartości 1,2 dla parametru K1. Użycie wyższej wartości K1 może być ważne w przypadkach, gdy oczekujemy, że wiele warunków będzie częścią zapytania wyszukiwania. W takich przypadkach możemy chcieć preferować dokumenty, które pasują do wielu różnych warunków zapytania, które są przeszukiwane w dokumentach, które pasują tylko do jednego, wielu razy. Na przykład podczas wykonywania zapytania dotyczącego indeksu dla dokumentów zawierających warunki "Apollo Spaceflight" możemy chcieć obniżyć wynik artykułu dotyczący języka greckiego Mythology, który zawiera termin "Apollo" kilka razy, bez wzmianki o wyrazie "Spaceflight", w porównaniu do innego artykułu, w którym jawnie wspomina zarówno "Apollo", jak i "Spaceflight". 
  
 ### <a name="b"></a>b
 
-Parametr *b* określa, jak długość dokumentu wpływa na wynik trafności.
+Parametr *b* kontroluje, jak długość dokumentu ma wpływ na ocenę istotności.
 
-Wartość 0,0 oznacza, że długość dokumentu nie wpłynie na wynik, podczas gdy wartość 1,0 oznacza, że wpływ częstotliwości terminów na wynik trafności zostanie znormalizowany przez długość dokumentu. Wartość domyślna używana w usłudze Azure Cognitive Search dla parametru b to 0.75. Normalizacja terminu częstotliwość przez długość dokumentu jest przydatna w przypadkach, gdy chcemy karać dłuższe dokumenty. W niektórych przypadkach dłuższe dokumenty (takie jak pełna powieść) częściej zawierają wiele nieistotnych terminów w porównaniu z znacznie krótszymi dokumentami.
+Wartość 0,0 oznacza, że długość dokumentu nie będzie miała wpływu na ocenę, natomiast wartość 1,0 oznacza, że wpływ częstotliwości okresów dla oceny istotności będzie znormalizowany przez długość dokumentu. Wartością domyślną użytą w Wyszukiwanie poznawcze platformy Azure dla parametru b jest 0,75. Ujednolicenie częstotliwości według długości dokumentu jest przydatne w przypadkach, w których chcemy karać dłuższe dokumenty. W niektórych przypadkach dłuższe dokumenty (takie jak Pełna Nowa) mogą zawierać wiele nieistotnych warunków w porównaniu do znacznie krótszych dokumentów.
 
-### <a name="setting-k1-and-b-parameters"></a>Ustawianie parametrów k1 i b
+### <a name="setting-k1-and-b-parameters"></a>Ustawianie parametrów K1 i b
 
-Aby dostosować wartości b lub k1, wystarczy dodać je jako właściwości do obiektu podobieństwa podczas korzystania z BM25:
+Aby dostosować wartości b lub K1, po prostu dodaj je jako właściwości do obiektu podobieństwa przy użyciu BM25:
 
 ```json
     "similarity": {
@@ -92,16 +97,15 @@ Aby dostosować wartości b lub k1, wystarczy dodać je jako właściwości do o
     }
 ```
 
-Algorytm podobieństwa można ustawić tylko w czasie tworzenia indeksu. Oznacza to, że algorytm podobieństwa używane nie można zmienić dla istniejących indeksów. Parametry *"b"* i *"k1"* mogą być modyfikowane podczas aktualizowania istniejącej definicji indeksu, która używa BM25. Zmiana tych wartości w istniejącym indeksie spowoduje przełączenie indeksu w tryb offline przez co najmniej kilka sekund, powodując niepowodzenie żądań indeksowania i kwerend. Z tego powodu należy ustawić parametr "allowIndexDowntime=true" w ciągu zapytania żądania aktualizacji:
+Algorytm podobieństwa można ustawić tylko w czasie tworzenia indeksu. Oznacza to, że używany algorytm podobieństwa nie może zostać zmieniony dla istniejących indeksów. Parametry *"b"* i *"K1"* można modyfikować podczas aktualizowania istniejącej definicji indeksu korzystającej z BM25. Zmiana tych wartości w istniejącym indeksie spowoduje, że indeks zostanie przełączony w tryb offline przez co najmniej kilka sekund, co spowoduje niepowodzenie żądania indeksowania i zapytania. Z tego powodu należy ustawić parametr "allowIndexDowntime = true" w ciągu zapytania żądania aktualizacji:
 
 ```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
+## <a name="see-also"></a>Zobacz także  
 
-## <a name="see-also"></a>Zobacz też  
-
- [Azure Cognitive Search REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Dodawanie profili oceniania do indeksu](index-add-scoring-profiles.md)    
- [Tworzenie &#40;interfejsu API usługi Azure Cognitive Search REST&#41;&#40;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-  [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/)   
++ [Dodawanie profilów oceniania do indeksu](index-add-scoring-profiles.md)    
++ [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)   
++ [Azure Wyszukiwanie poznawcze .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

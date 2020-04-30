@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010549"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509673"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika
 
@@ -64,6 +64,9 @@ Transakcje są natywnie zintegrowane z Azure Cosmos DB modelem programowania Jav
 ### <a name="data-consistency"></a>Spójność danych
 
 Procedury składowane i wyzwalacze są zawsze wykonywane dla repliki podstawowej kontenera usługi Azure Cosmos. Ta funkcja zapewnia, że odczyty z procedur składowanych zapewniają [silną spójność](consistency-levels-tradeoffs.md). Zapytania używające funkcji zdefiniowanych przez użytkownika mogą być wykonywane na podstawowej lub dowolnej replice pomocniczej. Procedury składowane i wyzwalacze są przeznaczone do obsługi zapisów transakcyjnych, ponieważ logika tylko do odczytu jest najlepszym zaimplementowana jako logika po stronie aplikacji i zapytania przy użyciu [zestawów SDK interfejsu API programu SQL Azure Cosmos DB](sql-api-dotnet-samples.md). 
+
+> [!TIP]
+> Zapytania wykonywane w ramach procedury składowanej lub wyzwalacza mogą nie zobaczyć zmian elementów wykonanych przez tę samą transakcję skryptu. Ta instrukcja dotyczy zarówno zapytań SQL, jak `getContent().getCollection.queryDocuments()`i zintegrowanych zapytań dotyczących języka, takich jak. `getContext().getCollection().filter()`
 
 ## <a name="bounded-execution"></a>Powiązane wykonywanie
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297675"
+ms.locfileid: "82229922"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu Azure Active Directory (Azure AD)
 
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 | Azure Active Directory użytkownika | "urn: IETF: params: Standard scim: schematy: Extension: Enterprise: 2.0: User" |
 | --- | --- |
 | IsSoftDeleted |aktywne |
-|department|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|
+|działu,|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|
 | displayName |displayName |
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
@@ -229,7 +229,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-user"></a>Utwórz użytkownika
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 
 *Opublikuj/users*
 ```json
@@ -287,7 +287,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user"></a>Pobieranie użytkownika
 
-###### <a name="request"></a><a name="request-1"></a>Request
+###### <a name="request"></a><a name="request-1"></a>Żądanie
 *Pobierz/users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-user-found"></a><a name="response-1"></a>Odpowiedź (znaleziono użytkownika)
@@ -317,7 +317,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 }
 ```
 
-###### <a name="request"></a>Request
+###### <a name="request"></a>Żądanie
 *Pobierz/users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Odpowiedź (nie znaleziono użytkownika. Należy zauważyć, że szczegóły nie są wymagane, tylko stan.)
@@ -334,7 +334,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query"></a>Pobierz użytkownika według zapytania
 
-##### <a name="request"></a><a name="request-2"></a>Request
+##### <a name="request"></a><a name="request-2"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
@@ -375,7 +375,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-user-by-query---zero-results"></a>Pobierz użytkownika według zapytania — wyniki zerowe
 
-##### <a name="request"></a><a name="request-3"></a>Request
+##### <a name="request"></a><a name="request-3"></a>Żądanie
 
 *POBRAĆ wartość/users? Filter = userName EQ "nieistniejącego użytkownika"*
 
@@ -395,7 +395,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-multi-valued-properties"></a>Aktualizowanie użytkownika [właściwości wielowartościowe]
 
-##### <a name="request"></a><a name="request-4"></a>Request
+##### <a name="request"></a><a name="request-4"></a>Żądanie
 
 *Poprawka/users/6764549bef60420686bc HTTP/1.1*
 ```json
@@ -446,7 +446,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-user-single-valued-properties"></a>Aktualizowanie użytkownika [właściwości pojedynczej wartości]
 
-##### <a name="request"></a><a name="request-5"></a>Request
+##### <a name="request"></a><a name="request-5"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -491,7 +491,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="disable-user"></a>Wyłączanie użytkownika
 
-##### <a name="request"></a><a name="request-14"></a>Request
+##### <a name="request"></a><a name="request-14"></a>Żądanie
 
 *Poprawka/users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
@@ -545,7 +545,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ```
 #### <a name="delete-user"></a>Usuń użytkownika
 
-##### <a name="request"></a><a name="request-6"></a>Request
+##### <a name="request"></a><a name="request-6"></a>Żądanie
 
 *Usuń/users/5171a35d82074e068ce2 HTTP/1.1*
 
@@ -562,7 +562,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="create-group"></a>Tworzenie grupy
 
-##### <a name="request"></a><a name="request-7"></a>Request
+##### <a name="request"></a><a name="request-7"></a>Żądanie
 
 */Groups HTTP/1.1*
 ```json
@@ -597,7 +597,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group"></a>Pobieranie grupy
 
-##### <a name="request"></a><a name="request-8"></a>Request
+##### <a name="request"></a><a name="request-8"></a>Żądanie
 
 *GET/Groups/40734ae655284ad3abcc? excludedAttributes = Members HTTP/1.1*
 
@@ -619,7 +619,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="get-group-by-displayname"></a>Pobierz grupowanie według displayName
 
-##### <a name="request"></a><a name="request-9"></a>Request
+##### <a name="request"></a><a name="request-9"></a>Żądanie
 *GET/Groups? excludedAttributes = memberss&Filter = displayName EQ "displayName" HTTP/1.1*
 
 ##### <a name="response"></a><a name="response-9"></a>Reakcji
@@ -648,7 +648,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-non-member-attributes"></a>Aktualizacja grupy [atrybuty niebędące elementami członkowskimi]
 
-##### <a name="request"></a><a name="request-10"></a>Request
+##### <a name="request"></a><a name="request-10"></a>Żądanie
 
 *Poprawka/Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
@@ -668,7 +668,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 ### <a name="update-group-add-members"></a>Grupa aktualizacji [Dodaj członków]
 
-##### <a name="request"></a><a name="request-11"></a>Request
+##### <a name="request"></a><a name="request-11"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -691,7 +691,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="update-group-remove-members"></a>Grupa aktualizacji [usuwanie członków]
 
-##### <a name="request"></a><a name="request-12"></a>Request
+##### <a name="request"></a><a name="request-12"></a>Żądanie
 
 *Poprawka/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
@@ -714,7 +714,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 
 #### <a name="delete-group"></a>Usuń grupę
 
-##### <a name="request"></a><a name="request-13"></a>Request
+##### <a name="request"></a><a name="request-13"></a>Żądanie
 
 *Usuń/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
@@ -810,7 +810,7 @@ Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj n
 
 W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`.. W tym przykładzie adres podstawowy wartości `https://sts.windows.net`żądania, określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
 
-Odbiorcy tokenu będą IDENTYFIKATORem szablonu aplikacji dla aplikacji w galerii, a każda z aplikacji zarejestrowanych w jednej dzierżawie może otrzymać to samo `iss` żądanie z żądaniami Standard scim. Identyfikator szablonu aplikacji dla każdej aplikacji w galerii jest różny, należy skontaktować się [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) z pytaniami dotyczącymi identyfikatora szablonu aplikacji dla aplikacji galerii. Identyfikator szablonu aplikacji dla wszystkich aplikacji niestandardowych to _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_.
+Odbiorcy tokenu będą IDENTYFIKATORem szablonu aplikacji dla aplikacji w galerii, a każda z aplikacji zarejestrowanych w jednej dzierżawie może otrzymać to samo `iss` żądanie z żądaniami Standard scim. Identyfikator szablonu aplikacji dla wszystkich aplikacji niestandardowych to _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_. Tokenu wygenerowanego przez usługę Azure AD Provisioning należy używać tylko do celów testowych. Nie powinna być używana w środowiskach produkcyjnych.
 
 W przykładowym kodzie żądania są uwierzytelniane za pomocą pakietu Microsoft. AspNetCore. Authentication. JwtBearer. Poniższy kod wymusza, aby żądania kierowane do dowolnego z punktów końcowych usługi były uwierzytelniane przy użyciu tokenu okaziciela wydanego przez Azure Active Directory dla określonej dzierżawy:
 

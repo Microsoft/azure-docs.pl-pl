@@ -4,12 +4,12 @@ description: Dowiedz się, jak wykonywać aplikacje MPI (Message Passing Interfa
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aad2b649c92716a807d577bb4f112d47d447545e
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115979"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231700"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Używanie zadań o wiele wystąpień do uruchamiania aplikacji interfejsu przekazywania komunikatów (MPI) w usłudze Batch
 
@@ -181,9 +181,7 @@ Następujące zmienne środowiskowe są tworzone przez usługę Batch do użycia
 Aby uzyskać szczegółowe informacje na temat tych i innych zmiennych środowiskowych węzłów obliczeniowych usługi Batch, w tym ich zawartości i widoczności, zobacz [zmienne środowiskowe węzła obliczeniowego][msdn_env_var].
 
 > [!TIP]
-> Przykładowy kod MPI systemu Linux w usłudze Batch zawiera przykład sposobu użycia kilku z tych zmiennych środowiskowych. Skrypt [koordynacyjny-cmd][coord_cmd_example] bash pobiera typowe aplikacje i pliki wejściowe z usługi Azure Storage, włącza udział sieciowy systemu plików (NFS) w węźle głównym i konfiguruje inne węzły przydzieloną do zadania z wieloma wystąpieniami jako klienci NFS.
->
->
+> Przykładowy kod MPI systemu Linux w usłudze Batch zawiera przykład sposobu użycia kilku z tych zmiennych środowiskowych.
 
 ## <a name="resource-files"></a>Pliki zasobów
 Istnieją dwa zestawy plików zasobów, które należy wziąć pod uwagę w przypadku zadań obejmujących wiele wystąpień: **wspólne pliki zasobów** pobierane przez *wszystkie* zadania (podstawowe i podrzędne) oraz **pliki zasobów** określone dla zadania wielowystąpienia, które *są pobierane tylko przez podstawowe* zadanie.
