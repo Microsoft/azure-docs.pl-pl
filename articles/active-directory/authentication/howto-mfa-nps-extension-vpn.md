@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82113157"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
@@ -178,7 +178,7 @@ Aby skonfigurować serwer RADIUS, można użyć standardowej (opartej na kreator
 
     ![Określ okno grup użytkowników, aby zezwalać na dostęp lub go odmawiać](./media/howto-mfa-nps-extension-vpn/image7.png)
 
-9. Wybierz opcję **Dalej**.
+9. Wybierz pozycję **Dalej**.
 
 10. W oknie **Określanie filtrów IP** wybierz pozycję **dalej**.
 
@@ -244,12 +244,12 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
     b. W polu wspólny **klucz tajny**wybierz pozycję **Zmień**, a następnie wprowadź wcześniej utworzone i zarejestrowane hasło wspólnego klucza tajnego.
 
-    d. W polu **limit czasu (w sekundach)** wprowadź wartość **30**.  
+    c. W polu **limit czasu (w sekundach)** wprowadź wartość **30**.  
     Wartość limitu czasu jest wymagana, aby zapewnić wystarczającą ilość czasu na wykonanie drugiego czynnika uwierzytelniania.
 
     ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png)
 
-8. Kliknij przycisk **OK**.
+8. Wybierz przycisk **OK**.
 
 ### <a name="test-vpn-connectivity"></a>Testowanie łączności z siecią VPN
 

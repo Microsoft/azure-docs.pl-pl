@@ -4,10 +4,10 @@ description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i 
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106386"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
@@ -18,7 +18,7 @@ W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagania dotycz
 
 Urządzenie Azure Migrate jest używane w następujących scenariuszach.
 
-**Scenariusz** | **Narzędzie** | **Używana do** 
+**Scenariusz** | **Narzędzie** | **Sposób użycia** 
 --- | --- | ---
 **Ocena maszyny wirtualnej VMware** | Azure Migrate: Ocena serwera | Odnajdywanie maszyn wirtualnych VMware<br/><br/> Odnajdywanie aplikacji i zależności maszyn<br/><br/> Zbieraj metadane maszyn i metadane wydajności dla ocen.
 **Migracja bez agenta maszyny wirtualnej VMware** | Azure Migrate: Migracja serwera | Odnajdywanie maszyn wirtualnych VMware <br/><br/> Replikowanie maszyn wirtualnych VMware z migracją bez agenta.
@@ -94,7 +94,7 @@ Urządzenie Azure Migrate wymaga połączenia z Internetem.
 
 ### <a name="public-cloud-urls"></a>Adresy URL chmury publicznej
 
-**Adres URL** | **Uzyskać**  
+**Adres URL** | **Szczegóły**  
 --- | --- |
 *.portal.azure.com  | Przejdź do witryny Azure Portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Zaloguj się do subskrypcji platformy Azure.
@@ -111,7 +111,7 @@ download.microsoft.com/download | Zezwalaj na pobieranie z usługi Microsoft Dow
 
 ### <a name="government-cloud-urls"></a>Adresy URL w chmurze dla instytucji rządowych
 
-**Adres URL** | **Uzyskać**  
+**Adres URL** | **Szczegóły**  
 --- | --- |
 *. portal.azure.us  | Przejdź do witryny Azure Portal.
 graph.windows.net | Zaloguj się do subskrypcji platformy Azure.

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100536"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Maszyny wirtualne w szablonie Azure Resource Manager
@@ -274,7 +274,7 @@ Aby ustawić tę właściwość, musi istnieć interfejs sieciowy. W związku z 
 
 Podczas definiowania zasobu maszyny wirtualnej są używane różne elementy profilu. Niektóre są wymagane, a niektóre są opcjonalne. Na przykład elementy — obiekt hardwareprofile, osProfile, obszarze storageprofile i networkProfile są wymagane, ale diagnosticsProfile jest opcjonalne. Te profile definiują ustawienia, takie jak:
    
-- [zmienia](sizes.md)
+- [size](sizes.md)
 - [Nazwa](/azure/architecture/best-practices/resource-naming) i poświadczenia
 - Ustawienia dysku i [systemu operacyjnego](cli-ps-findimage.md)
 - [Interfejs sieciowy](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

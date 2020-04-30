@@ -5,10 +5,10 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100298"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami
@@ -75,7 +75,7 @@ Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|
-|Intencja|Ciąg|topScoringIntent. intencja|"GetStoreInfo"|
+|Intencja|String|topScoringIntent. intencja|"GetStoreInfo"|
 
 Jeśli aplikacja chatbot lub LUIS-wywołująca podejmuje decyzję na podstawie więcej niż jednego wyniku zamiaru, zwracają wszystkie wyniki założeń.
 
@@ -137,8 +137,8 @@ Intencje są uporządkowane od najwyższego do najniższego wyniku.
 
 |Obiekt danych|Typ danych|Lokalizacja danych|Wartość|Wynik|
 |--|--|--|--|:--|
-|Intencja|Ciąg|intencje [0]. cel|"GetStoreInfo"|0,984749258|
-|Intencja|Ciąg|intencje [1]. cel|Dawaj|0,0168218873|
+|Intencja|String|intencje [0]. cel|"GetStoreInfo"|0,984749258|
+|Intencja|String|intencje [1]. cel|Dawaj|0,0168218873|
 
 W przypadku dodania wstępnie skompilowanych domen nazwa zamierzenia wskazuje domenę, taką jak `Utilties` lub `Communication` , a także zamiar:
 
@@ -198,9 +198,9 @@ Dowiedz się więcej o [punkcie końcowym przewidywania v3](luis-migration-api-v
 
 |Domain|Obiekt danych|Typ danych|Lokalizacja danych|Wartość|
 |--|--|--|--|--|
-|Narzędzia|Intencja|Ciąg|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
-|Komunikacja|Intencja|Ciąg|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
-||Intencja|Ciąg|intencje [2]. cel|Dawaj|
+|Narzędzia|Intencja|String|intencje [0]. cel|"<b>Narzędzia</b>. ShowNext"|
+|Komunikacja|Intencja|String|intencje [1]. cel|<b>Komunikacja</b>. StartOver"|
+||Intencja|String|intencje [2]. cel|Dawaj|
 
 
 ## <a name="data-from-entities"></a>Dane z jednostek

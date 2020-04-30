@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
 ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111729"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
@@ -21,20 +21,20 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 **Wdrożenie** |  **Pomoc techniczna**
 --- | ---
 **Azure Portal** | Obsługiwane.
-**Narzędzia** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
-**INTERFEJS API REST** | Obsługiwane.
+**PowerShell** | Obsługiwane. [Dowiedz się więcej](azure-to-azure-powershell.md)
+**Interfejs API REST** | Obsługiwane.
 **Interfejs wiersza polecenia** | Nie jest obecnie obsługiwana.
 
 
 ## <a name="resource-support"></a>Pomoc techniczna dla zasobów
 
-**Akcja zasobu** | **Uzyskać**
+**Akcja zasobu** | **Szczegóły**
 --- | ---
 **Przenoszenie magazynów między grupami zasobów** | Nieobsługiwane
-**Przenoszenie zasobów obliczeniowych/magazynowych/sieciowych między grupami zasobów** | Bez pomocy technicznej.<br/><br/> W przypadku przenoszenia maszyny wirtualnej lub skojarzonych składników, takich jak magazyn/sieć po zakończeniu replikacji maszyny wirtualnej, należy wyłączyć i ponownie włączyć replikację maszyny wirtualnej.
+**Przenoszenie zasobów obliczeniowych/magazynowych/sieciowych między grupami zasobów** | Nieobsługiwane.<br/><br/> W przypadku przenoszenia maszyny wirtualnej lub skojarzonych składników, takich jak magazyn/sieć po zakończeniu replikacji maszyny wirtualnej, należy wyłączyć i ponownie włączyć replikację maszyny wirtualnej.
 **Replikowanie maszyn wirtualnych platformy Azure z jednej subskrypcji do innej na potrzeby odzyskiwania po awarii** | Obsługiwane w ramach tej samej dzierżawy Azure Active Directory.
 **Migrowanie maszyn wirtualnych między regionami w ramach obsługiwanych klastrów geograficznych (w ramach i między subskrypcjami)** | Obsługiwane w ramach tej samej dzierżawy Azure Active Directory.
-**Migrowanie maszyn wirtualnych w tym samym regionie** | Bez pomocy technicznej.
+**Migrowanie maszyn wirtualnych w tym samym regionie** | Nieobsługiwane.
 
 ## <a name="region-support"></a>Obsługa regionów
 
@@ -66,7 +66,7 @@ Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Ni
 
 Ta tabela zawiera podsumowanie obsługi konta magazynu pamięci podręcznej używanego przez Site Recovery podczas replikacji.
 
-**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
+**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwa gorąca i chłodna) | Obsługiwane | Użycie GPv2 jest niezalecane, ponieważ koszty transakcji dla wersji 2 są znacznie wyższe niż konta magazynu w wersji 1.
 Premium Storage | Nieobsługiwane | Konta magazynu w warstwie Standardowa są używane na potrzeby magazynu pamięci podręcznej w celu optymalizacji kosztów.
@@ -80,7 +80,7 @@ Site Recovery obsługuje replikację maszyn wirtualnych platformy Azure z system
 ### <a name="windows"></a>Windows
 
 
-**System operacyjny** | **Uzyskać**
+**System operacyjny** | **Szczegóły**
 --- | ---
 Windows Server 2019 | Obsługiwane dla serwera Server Core, serwera z funkcją środowisko pulpitu.
 Windows Server 2016  | Obsługiwane serwery z funkcją środowisko pulpitu.
@@ -96,7 +96,7 @@ Windows 7 (x64) z dodatkiem SP1 lub nowszym | W wersji [9,30](https://support.mi
 
 #### <a name="linux"></a>Linux
 
-**System operacyjny** | **Uzyskać**
+**System operacyjny** | **Szczegóły**
 --- | ---
 Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0, 8,1
@@ -165,7 +165,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Obsługiwane są wszystkie ją
 
 ## <a name="replicated-machines---compute-settings"></a>Zreplikowane maszyny — ustawienia obliczeń
 
-**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
+**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej 2 rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/windows/sizes.md).
 Zestawy dostępności | Obsługiwane | Jeśli włączysz replikację dla maszyny wirtualnej platformy Azure z opcjami domyślnymi, zestaw dostępności zostanie utworzony automatycznie na podstawie ustawień regionu źródłowego. Te ustawienia można modyfikować.
@@ -181,7 +181,7 @@ Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są replikowane do maszyny wir
 
 ## <a name="replicated-machines---disk-actions"></a>Zreplikowane maszyny — akcje dysku
 
-**Akcja** | **Uzyskać**
+**Akcja** | **Szczegóły**
 -- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover nie powoduje przechwycenia zmian.<br/><br/> Jeśli zmienisz rozmiar dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover, zmiany nie zostaną przechwycone przez Site Recovery, a powrót po awarii zostanie zmieniony na oryginalny rozmiar maszyny wirtualnej.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Obsługiwane
@@ -194,7 +194,7 @@ Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dys
 - W przypadku wdrożenia z ustawieniami domyślnymi program Site Recovery automatycznie tworzy dyski i konta magazynu na podstawie ustawień źródłowych.
 - W przypadku dostosowania programu upewnij się, że przestrzegasz wytycznych.
 
-**Składnik** | **Pomoc techniczna** | **Uzyskać**
+**Składnik** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md) o dyskach maszyn wirtualnych.
 Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z replikacji.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md).
@@ -250,7 +250,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 8 KB    | 5 MB/s | 421 GB na dys
 Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 1684 GB na dysk
 
 ## <a name="replicated-machines---networking"></a>Zreplikowane maszyny — sieć
-**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
+**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
 --- | --- | ---
 Karta sieciowa | Maksymalna liczba obsługiwana dla określonego rozmiaru maszyny wirtualnej platformy Azure | Karty sieciowe są tworzone podczas pracy w trybie failover.<br/><br/> Liczba kart sieciowych na maszynie wirtualnej trybu failover zależy od liczby kart sieciowych na źródłowej maszynie wirtualnej, gdy replikacja została włączona. Po dodaniu lub usunięciu karty sieciowej po włączeniu replikacji nie ma to wpływu na liczbę kart sieciowych replikowanych maszyn wirtualnych po przejściu w tryb failover. Należy również pamiętać, że kolejność kart sieciowych po przejściu w tryb failover nie gwarantuje, że jest to taka sama jak oryginalna kolejność.
 Internetowy moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.

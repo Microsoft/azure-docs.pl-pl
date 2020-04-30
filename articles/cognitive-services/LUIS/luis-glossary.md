@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82099363"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
@@ -38,7 +38,7 @@ Testowanie wsadowe to możliwość weryfikacji bieżącego modelu aplikacji LUIS
 
 Zobacz też:
 * [Pojęcia](luis-concept-batch-test.md)
-* [Porady](luis-how-to-batch-test.md)
+* [Instrukcje](luis-how-to-batch-test.md)
 * [Samouczek](luis-tutorial-batch-testing.md)
 
 ## <a name="collaborator"></a><a name="collaborator"></a>Współpracownik
@@ -166,7 +166,7 @@ Punkt końcowy zawiera timezoneOffset. Jest to liczba minut, którą chcesz doda
 
 Zobacz [Zmiana strefy czasowej prekompilowanej jednostki datetimeV2](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a><a name="token"></a>Klucza
+## <a name="token"></a><a name="token"></a>Token
 Token jest najmniejszą jednostką, która może być oznaczona w jednostce. Tokenizacji jest oparta na [kulturze](luis-language-support.md#tokenization)aplikacji.
 
 ## <a name="train"></a><a name="train"></a>Szkolenie

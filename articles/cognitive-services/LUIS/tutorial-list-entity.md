@@ -4,10 +4,10 @@ description: Pobieraj dane, które są zgodne ze wstępnie zdefiniowaną listą 
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101131"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Samouczek: uzyskiwanie dokładnych danych dopasowanych do tekstu z wypowiedź za pomocą jednostki listy
@@ -72,7 +72,7 @@ Przykłady podstawowej nazwy i synonimów to:
 
 1. Wybierz pozycję **+ Utwórz**.
 
-1. W oknie podręcznym jednostki wprowadź ciąg `CrustList` jako nazwę jednostki i wartość **List** (Lista) jako typ jednostki. Wybierz opcję **Dalej**.
+1. W oknie podręcznym jednostki wprowadź ciąg `CrustList` jako nazwę jednostki i wartość **List** (Lista) jako typ jednostki. Wybierz pozycję **Dalej**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający podręczne okno dialogowe tworzenia nowej jednostki](media/luis-quickstart-intent-and-list-entity/create-pizza-crust-list-entity.png)

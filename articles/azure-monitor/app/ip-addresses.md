@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/23/2020
 ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82105849"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresy IP używane przez Application Insights i Log Analytics
@@ -43,13 +43,13 @@ Konfiguracja monitor stanu — wymagana tylko w przypadku wprowadzania zmian.
 
 | Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Konfigurowanie |`management.core.windows.net` | |`443` |
-| Konfigurowanie |`management.azure.com` | |`443` |
-| Konfigurowanie |`login.windows.net` | |`443` |
-| Konfigurowanie |`login.microsoftonline.com` | |`443` |
-| Konfigurowanie |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Konfigurowanie |`auth.gfx.ms` | |`443` |
-| Konfigurowanie |`login.live.com` | |`443` |
+| Konfiguracja |`management.core.windows.net` | |`443` |
+| Konfiguracja |`management.azure.com` | |`443` |
+| Konfiguracja |`login.windows.net` | |`443` |
+| Konfiguracja |`login.microsoftonline.com` | |`443` |
+| Konfiguracja |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| Konfiguracja |`auth.gfx.ms` | |`443` |
+| Konfiguracja |`login.live.com` | |`443` |
 | Instalacja | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Testy dostępności

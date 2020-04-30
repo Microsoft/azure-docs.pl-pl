@@ -4,10 +4,10 @@ description: Dowiedz się, jak kopiować aplikacje i dane do węzłów puli.
 ms.topic: article
 ms.date: 02/17/2020
 ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115588"
 ---
 # <a name="copying-applications-and-data-to-pool-nodes"></a>Kopiowanie aplikacji i danych do węzłów puli
@@ -41,7 +41,7 @@ Istnieją inne sposoby pobierania danych do węzłów obliczeniowych usługi Bat
 - Pobieranie danych z innych usług sieci Web/lokalizacji niestandardowych
 - Mapowanie udziału sieciowego
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Usługa Azure Storage
 
 Magazyn obiektów BLOB ma elementy docelowe skalowalności. Elementy docelowe skalowalności udziału plików w usłudze Azure Storage są takie same jak w przypadku pojedynczego obiektu BLOB. Rozmiar będzie mieć wpływ na wymaganą liczbę węzłów i pul.
 

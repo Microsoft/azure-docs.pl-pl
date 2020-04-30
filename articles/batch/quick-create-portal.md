@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.custom: mvc
 ms.openlocfilehash: 4857b9ffb38cf48678f793284afaaf3bbefb7e42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82114160"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Szybki start: uruchamianie pierwszego zadania usługi Batch w witrynie Azure Portal
@@ -54,7 +54,7 @@ Teraz, gdy masz już konto usługi Batch, utwórz przykładową pulę węzłów 
    |Ustawienie  |Wartość  |
    |---------|---------|
    |**Typ obrazu**|Witryna Marketplace (Linux/Windows)|
-   |**Dawc**     |MicrosoftWindowsServer|
+   |**Wydawca**     |MicrosoftWindowsServer|
    |**Oferta**     |WindowsServer|
    |**Magazyn**     |2012-R2-Datacenter-smalldisk|
 

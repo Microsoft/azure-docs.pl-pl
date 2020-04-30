@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: rogarana
 ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106558"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Włącz lokalne uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
@@ -176,7 +176,7 @@ Jeśli jednostka organizacyjna wymusza wygaśnięcie hasła, należy zaktualizow
 
 Zachowaj identyfikator SID nowo utworzonego konta, który będzie potrzebny do następnego kroku. Utworzona tożsamość, która reprezentuje konto magazynu, nie musi być synchronizowana z usługą Azure AD.
 
-##### <a name="c-enable-the-feature-on-your-storage-account"></a>d. Włącz funkcję na koncie magazynu
+##### <a name="c-enable-the-feature-on-your-storage-account"></a>c. Włącz funkcję na koncie magazynu
 
 Następnie skrypt włączy tę funkcję na koncie magazynu. Aby ręcznie wykonać tę konfigurację, podaj szczegóły konfiguracji właściwości domeny w poniższym poleceniu, a następnie uruchom je. Identyfikator SID konta magazynu wymagany w poniższym poleceniu jest identyfikatorem SID tożsamości utworzonej w AD DS w [poprzedniej sekcji](#b-creating-an-identity-representing-the-storage-account-in-your-ad-manually).
 

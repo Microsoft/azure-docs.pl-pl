@@ -4,10 +4,10 @@ description: Odpowiedź domyślna jest zwracana, gdy nie ma dopasowania do pytan
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82097102"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Zmień domyślną odpowiedź dla zasobu QnA Maker
@@ -22,7 +22,7 @@ Odpowiedź domyślna jest zwracana, gdy nie ma dopasowania do pytania. Możesz c
 
     ![W Azure Portal uzyskaj dostęp do usługi App Service dla QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. Kliknij pozycję **Ustawienia aplikacji** i Zmień pole **DefaultAnswer** na żądaną domyślną odpowiedź. Kliknij pozycję **Zapisz**.
+3. Kliknij pozycję **Ustawienia aplikacji** i Zmień pole **DefaultAnswer** na żądaną domyślną odpowiedź. Kliknij przycisk **Zapisz**.
 
     ![Wybierz pozycję Ustawienia aplikacji, a następnie Edytuj DefaultAnswer QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 

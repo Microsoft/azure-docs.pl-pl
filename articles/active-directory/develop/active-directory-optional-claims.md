@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099096"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
@@ -38,7 +38,7 @@ Chociaż opcjonalne oświadczenia są obsługiwane zarówno w tokenach w formaci
 | Typ konta               | tokeny v 1.0 | tokeny v 2.0 |
 |----------------------------|-------------|-------------|
 | konto Microsoft osobiste | Nie dotyczy         | Obsługiwane   |
-| Konto Azure AD           | Obsługiwane   | Obsługiwane   |
+| Konto usługi Azure AD           | Obsługiwane   | Obsługiwane   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>zestaw oświadczeń opcjonalnych 1.0 i v 2.0
 
@@ -367,7 +367,7 @@ Dostępnych jest wiele opcji aktualizowania właściwości konfiguracji tożsamo
 - Możesz użyć **manifestu** (Zobacz przykład poniżej). Przeczytaj [dokument manifestu aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) najpierw, aby zapoznać się z wprowadzeniem do manifestu.
 - Istnieje również możliwość napisania aplikacji, która używa [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) do aktualizowania aplikacji. Typ [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) w podręczniku Skorowidz interfejsu API Microsoft Graph może pomóc w konfigurowaniu opcjonalnych oświadczeń.
 
-**Przyklad**
+**Przykład:**
 
 W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfiguracji tokenu** w celu **Manifest** dodania opcjonalnych oświadczeń do tokenów dostępu, identyfikatora i SAML przeznaczonych dla aplikacji. Różne opcjonalne oświadczenia zostaną dodane do każdego typu tokenu, który aplikacja może odbierać:
 

@@ -1,100 +1,100 @@
 ---
-title: Tworzenie, tworzenie, & wdrażanie inteligentnych umów — azure blockchain service
-description: Samouczek dotyczący używania zestawu Azure Blockchain Development Kit for Ethereum w programie Visual Studio Code do tworzenia, tworzenia i wdrażania inteligentnego kontraktu w usłudze Azure Blockchain Service.
+title: Samouczek tworzenia, kompilowania, & wdrażania inteligentnych kontraktów — usługa Azure łańcucha bloków
+description: Samouczek dotyczący sposobu korzystania z rozszerzenia Azure łańcucha bloków Development Kit for Ethereum w programie Visual Studio Code do tworzenia, kompilowania i wdrażania inteligentnego kontraktu w usłudze Azure łańcucha bloków Service.
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.reviewer: caleteet
 ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82086661"
 ---
-# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, tworzenie, tworzenie i wdrażanie inteligentnych kontraktów w usłudze Azure Blockchain
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Samouczek: Tworzenie, kompilowanie i wdrażanie inteligentnych kontraktów w usłudze Azure łańcucha bloków Service
 
-W tym samouczku użyj rozszerzenia Azure Blockchain Development Kit for Ethereum w programie Visual Studio Code, aby utworzyć, skompilować i wdrożyć inteligentny kontrakt w usłudze Azure Blockchain. Zestaw deweloperski służy również do wykonywania funkcji inteligentnego kontraktu za pośrednictwem transakcji.
+W tym samouczku Użyj rozszerzenia Azure łańcucha bloków Development Kit for Ethereum w Visual Studio Code, aby utworzyć, skompilować i wdrożyć inteligentny kontrakt w usłudze Azure łańcucha bloków Service. Możesz również użyć zestawu deweloperskiego do wykonywania funkcji kontraktu inteligentnego za pośrednictwem transakcji.
 
-Program Azure Blockchain Development Kit for Ethereum umożliwia:
+Używasz zestawu Azure łańcucha bloków Development Kit dla Ethereum:
 
 > [!div class="checklist"]
-> * Tworzenie inteligentnego kontraktu
-> * Wdrażanie inteligentnego kontraktu
-> * Wykonywanie funkcji inteligentnego kontraktu za pośrednictwem transakcji
+> * Tworzenie kontraktu inteligentnego
+> * Wdrażanie kontraktu inteligentnego
+> * Wykonywanie funkcji kontraktu inteligentnego za pośrednictwem transakcji
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Ukończ [szybki start: łączenie się z siecią konsorcjum usługi Azure Blockchain Service za pomocą kodu programu Visual Studio](connect-vscode.md)
+* Kończenie [szybkiego startu: użyj Visual Studio Code, aby nawiązać połączenie z siecią Azure łańcucha bloków Service Consortium](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Rozszerzenie Programu Azure Blockchain Development Kit dla Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x lub nowsza](https://nodejs.org/download)
-* [Git 2.10.x lub wyższy](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Dodaj python.exe do swojej ścieżki. Python w wersji 2.7.15 w ścieżce jest wymagany dla zestawu Azure Blockchain Development Kit.
-* [Trufla 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+* [Rozszerzenie Azure łańcucha bloków Development Kit dla rozszerzenia Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node. js 10.15. x lub nowszy](https://nodejs.org/download)
+* [Git 2.10. x lub nowszy](https://git-scm.com)
+* [2.7.15 Python](https://www.python.org/downloads/release/python-2715/) Dodaj język Python. exe do ścieżki. Wersja 2.7.15 języka Python w ścieżce jest wymagana w przypadku zestawu Azure łańcucha bloków Development Kit.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Interfejs wiersza polecenia ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
-W systemie Windows dla modułu node-gyp wymagany jest zainstalowany kompilator języka C++. Można użyć narzędzi MSBuild:
+W systemie Windows zainstalowany kompilator języka C++ jest wymagany dla modułu Node-GYP. Możesz użyć narzędzi MSBuild:
 
-* Jeśli jest zainstalowany program Visual Studio 2017, skonfiguruj npm do używania narzędzi MSBuild z poleceniem`npm config set msvs_version 2017 -g`
-* Jeśli program Visual Studio 2019 jest zainstalowany, ustaw ścieżkę narzędzi kompilacji MS dla npm. Na przykład: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
-* W przeciwnym razie zainstaluj autonomiczne `npm install --global windows-build-tools` narzędzia kompilacji vs przy użyciu w podwyższonej *osądy uruchom jako administratora* powłoki polecenia.
+* Jeśli zainstalowano program Visual Studio 2017, należy skonfigurować npm do korzystania z narzędzi MSBuild przy użyciu polecenia`npm config set msvs_version 2017 -g`
+* Jeśli zainstalowano program Visual Studio 2019, Ustaw ścieżkę Microsoft Build Tools for npm. Na przykład: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* W przeciwnym razie zainstaluj autonomiczne narzędzia programu VS Build przy `npm install --global windows-build-tools` użyciu programu w powłoce poleceń *Uruchom jako administrator* z podwyższonym poziomem uprawnień.
 
-Aby uzyskać więcej informacji na temat node-gyp, zobacz [repozytorium node-gyp w usłudze GitHub](https://github.com/nodejs/node-gyp).
+Aby uzyskać więcej informacji na temat węzła Node-GYP, zobacz [repozytorium Node-GYP w witrynie GitHub](https://github.com/nodejs/node-gyp).
 
-## <a name="create-a-smart-contract"></a>Tworzenie inteligentnego kontraktu
+## <a name="create-a-smart-contract"></a>Tworzenie kontraktu inteligentnego
 
-Zestaw Azure Blockchain Development Kit for Ethereum używa szablonów projektów i narzędzi trufli, aby ułatwić tworzenie, tworzenie i wdrażanie kontraktów. Przed rozpoczęciem należy ukończyć wstępny [przewodnik Szybki start: łączenie się z siecią konsorcjum usługi Azure Blockchain Service za pomocą programu Visual Studio Code.](connect-vscode.md) Przewodnik szybki start prowadzi użytkownika przez instalację i konfigurację zestawu Azure Blockchain Development Kit for Ethereum.
+Zestaw Azure łańcucha bloków Development Kit dla Ethereum używa szablonów projektów i narzędzi Truffle, aby pomóc w tworzeniu i wdrażaniu umów. Przed rozpoczęciem Wypełnij wymagania wstępne [przewodnika Szybki Start: użyj Visual Studio Code, aby nawiązać połączenie z siecią konsorcjum usługi Azure łańcucha bloków](connect-vscode.md). Przewodnik Szybki Start przeprowadzi Cię przez proces instalowania i konfigurowania zestawu Azure łańcucha bloków Development Kit dla Ethereum.
 
-1. Z palety poleceń vs code wybierz pozycję **Azure Blockchain: New Solidity Project**.
-1. Wybierz **pozycję Utwórz projekt podstawowy**.
-1. Utwórz nowy `HelloBlockchain` folder o nazwie i **Wybierz nową ścieżkę projektu**.
+1. Z palety poleceń VS Code wybierz pozycję **Azure łańcucha bloków: nowy projekt o stałej**wypełniania.
+1. Wybierz pozycję **Utwórz projekt podstawowy**.
+1. Utwórz nowy folder o nazwie `HelloBlockchain` i **Wybierz pozycję Nowy projekt ścieżka**.
 
-Zestaw Azure Blockchain Development Kit tworzy i inicjuje nowy projekt Solidity dla Ciebie. Podstawowy projekt zawiera przykładowy inteligentny kontrakt **HelloBlockchain** i wszystkie pliki niezbędne do utworzenia i wdrożenia dla członka konsorcjum w usłudze Azure Blockchain Service. Utworzenie projektu może potrwać kilka minut. Postęp w panelu terminali programu VS Code można monitorować, wybierając dane wyjściowe dla narzędzia Azure Blockchain.
+Zestaw Azure łańcucha bloków Development Kit tworzy i inicjuje nowy projekt o stałej wypełniania. Projekt podstawowy zawiera przykładową **HelloBlockchainą** umowę i wszystkie pliki niezbędne do kompilowania i wdrażania w składowej konsorcjum usługi Azure łańcucha bloków. Utworzenie projektu może potrwać kilka minut. Postęp można monitorować w panelu terminalu VS Code, wybierając dane wyjściowe dla usługi Azure łańcucha bloków.
 
-Struktura projektu wygląda następująco:
+Struktura projektu wygląda podobnie do poniższego przykładu:
 
-   ![Projekt solidności](./media/send-transaction/solidity-project.png)
+   ![Projekt o stałej mocy](./media/send-transaction/solidity-project.png)
 
-## <a name="build-a-smart-contract"></a>Zbuduj inteligentny kontrakt
+## <a name="build-a-smart-contract"></a>Tworzenie kontraktu inteligentnego
 
-Inteligentne kontrakty znajdują się w katalogu **kontraktów** projektu. Kompilujesz inteligentne kontrakty przed wdrożeniem ich w łańcuchu bloków. Użyj **build contracts** polecenia do kompilacji wszystkich inteligentnych umów w projekcie.
+Inteligentne kontrakty znajdują się w katalogu **kontraktów** projektu. Możesz kompilować inteligentne kontrakty przed wdrożeniem ich w usłudze łańcucha bloków. Użyj polecenia **Kompiluj kontrakty** , aby skompilować wszystkie inteligentne kontrakty w projekcie.
 
-1. Na pasku bocznym eksploratora kodu VS rozwiń folder **kontraktów** w projekcie.
-1. Kliknij prawym przyciskiem myszy **HelloBlockchain.sol** i wybierz polecenie **Buduj kontrakty** z menu.
+1. Na pasku bocznym Eksploratora VS Code rozwiń folder **kontrakty** w projekcie.
+1. Kliknij prawym przyciskiem myszy **HelloBlockchain. peruwiański** i wybierz polecenie **Kompiluj kontrakty** z menu.
 
-    ![Menu Wybierz polecenie Buduj kontrakty ](./media/send-transaction/build-contracts.png)
+    ![Menu wybierz kontrakty kompilacji ](./media/send-transaction/build-contracts.png)
 
-Zestaw Azure Blockchain Development Kit używa trufli do kompilowania inteligentnych kontraktów.
+Usługa Azure łańcucha bloków Development Kit używa Truffle do kompilowania inteligentnych kontraktów.
 
-![Dane wyjściowe kompilatora trufli](./media/send-transaction/compile-output.png)
+![Dane wyjściowe kompilatora Truffle](./media/send-transaction/compile-output.png)
 
-## <a name="deploy-a-smart-contract"></a>Wdrażanie inteligentnego kontraktu
+## <a name="deploy-a-smart-contract"></a>Wdrażanie kontraktu inteligentnego
 
-Trufla używa skryptów migracji do wdrażania kontraktów w sieci Ethereum. Migracje to pliki JavaScript **znajdujące** się w katalogu migracji projektu.
+Truffle używa skryptów migracji do wdrażania kontraktów w sieci Ethereum. Migracje to pliki JavaScript znajdujące się w katalogu **migracji** projektu.
 
-1. Aby wdrożyć umowę inteligentną, kliknij prawym przyciskiem myszy **HelloBlockchain.sol** i wybierz polecenie **Wdrażanie kontraktów** z menu.
-1. Wybierz sieć konsorcjum platformy Azure Blockchain w palecie poleceń. Sieć blockchain konsorcjum została dodana do pliku konfiguracyjnego trufli projektu podczas tworzenia projektu.
-1. Wybierz **pozycję Generuj mnemoniczną**. Wybierz nazwę pliku i zapisz plik mnemoniczny w folderze projektu. Na przykład `myblockchainmember.env`. Plik mnemonic służy do generowania klucza prywatnego Ethereum dla członka łańcucha bloków.
+1. Aby wdrożyć kontrakt inteligentny, kliknij prawym przyciskiem myszy **HelloBlockchain. peruwiański** i wybierz polecenie **Wdróż kontrakty** z menu.
+1. Wybierz sieć Azure łańcucha bloków Consortium w palecie poleceń. Sieć konsorcjum łańcucha bloków została dodana do pliku konfiguracji Truffle projektu podczas tworzenia projektu.
+1. Wybierz **Generuj**polecenie. Wybierz nazwę pliku i Zapisz plik w folderze projektu. Na przykład `myblockchainmember.env`. Ten plik jest używany do generowania klucza prywatnego Ethereum dla członka łańcucha bloków.
 
-Zestaw Azure Blockchain Development Kit używa trufli do wykonania skryptu migracji w celu wdrożenia kontraktów w łańcuchu bloków.
+Usługa Azure łańcucha bloków Development Kit używa Truffle do wykonania skryptu migracji w celu wdrożenia umów w usłudze łańcucha bloków.
 
-![Pomyślnie wdrożony kontrakt](./media/send-transaction/deploy-contract.png)
+![Pomyślnie wdrożono kontrakt](./media/send-transaction/deploy-contract.png)
 
 ## <a name="call-a-contract-function"></a>Wywoływanie funkcji kontraktu
 
-**HelloBlockchain** umowy **SendRequest** funkcja zmienia **requestmessage** zmiennej stanu. Zmiana stanu sieci blockchain odbywa się za pośrednictwem transakcji. Można użyć usługi Azure Blockchain Development Kit inteligentnej strony interakcji umowy do wywołania **SendRequest** funkcji za pośrednictwem transakcji.
+Funkcja **SendRequest** kontraktu **HelloBlockchain** zmienia zmienną stanu **RequestMessage** . Zmiana stanu sieci łańcucha bloków odbywa się za pośrednictwem transakcji. Aby wywołać funkcję **SendRequest** za pośrednictwem transakcji, można użyć strony interakcji z pakietem Microsoft Azure łańcucha bloków Development Kit.
 
-1. Aby wchodzić w interakcje z inteligentnym kontraktem, kliknij prawym przyciskiem myszy **HelloBlockchain.sol** i wybierz polecenie **Pokaż stronę inteligentnej interakcji kontraktowej** z menu.
+1. Aby móc korzystać z kontraktu inteligentnego, kliknij prawym przyciskiem myszy **HelloBlockchain. peruwiański** i wybierz opcję **Pokaż stronę interakcji z kontraktem inteligentnym** z menu.
 
-    ![Z menu wybierz polecenie Pokaż stronę inteligentnej interakcji z kontraktem](./media/send-transaction/contract-interaction.png)
+    ![Wybierz pozycję Pokaż stronę interakcji z kontraktem inteligentnym z menu](./media/send-transaction/contract-interaction.png)
 
-1. Strona interakcji umożliwia wybranie wdrożonej wersji kontraktu, wywoływanie funkcji, wyświetlanie bieżącego stanu i wyświetlanie metadanych.
+1. Strona interakcja umożliwia wybranie wdrożonej wersji kontraktu, wywołanie funkcji, wyświetlenie bieżącego stanu i wyświetlenie metadanych.
 
-    ![Przykładowa strona interakcji z inteligentnym kontraktem](./media/send-transaction/interaction-page.png)
+    ![Przykładowa strona interakcji z kontraktem inteligentnym](./media/send-transaction/interaction-page.png)
 
-1. Aby wywołać funkcję inteligentnego kontraktu, wybierz akcję kontraktu i przekaż argumenty. Wybierz akcję umowy **SendRequest** i wprowadź **Hello, Blockchain!** dla parametru **requestMessage.** Wybierz **opcję Wykonaj,** aby wywołać funkcję **SendRequest** za pośrednictwem transakcji.
+1. Aby wywołać funkcję kontraktu inteligentnego, wybierz akcję kontraktu i przekaż argumenty. Wybierz akcję kontraktu **SendRequest** i wprowadź **Hello, łańcucha bloków!** dla parametru **RequestMessage** . Wybierz polecenie **Wykonaj** , aby wywołać funkcję **SendRequest** za pośrednictwem transakcji.
 
     ![Wykonaj akcję SendRequest](./media/send-transaction/sendrequest-action.png)
 
@@ -102,20 +102,20 @@ Po przetworzeniu transakcji sekcja interakcji odzwierciedla zmiany stanu.
 
 ![Zmiany stanu kontraktu](./media/send-transaction/contract-state.png)
 
-Funkcja SendRequest ustawia pola **RequestMessage** i **State.** Bieżący stan **requestmessage** jest argument, który przeszedł **Hello, Blockchain**. Wartość pola **Stan** pozostaje **Żądanie**.
+Funkcja SendRequest ustawia pola **RequestMessage** i **State** . Bieżący stan dla **RequestMessage** jest argumentem, który przeszedł do **Hello, łańcucha bloków**. Wartość pola **stan** jest **niepożądana**.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Gdy nie są już potrzebne, można usunąć `myResourceGroup` zasoby, usuwając grupę zasobów utworzoną w trybie szybkiego startu elementu *wstępnego Tworzenie łańcucha bloków.*
+Gdy zasoby nie będą już potrzebne, można je usunąć przez usunięcie grupy `myResourceGroup` zasobów utworzonej w ramach przewodnika Szybki Start dotyczącego *tworzenia elementu członkowskiego łańcucha bloków* .
 
 Aby usunąć grupę zasobów:
 
-1. W witrynie Azure Portal przejdź do **grupy zasobów** w lewym okienku nawigacji i wybierz grupę zasobów, którą chcesz usunąć.
-1. Wybierz pozycję **Usuń grupę zasobów**. Zweryfikuj usunięcie, wprowadzając nazwę grupy zasobów i wybierając pozycję **Usuń**.
+1. W Azure Portal przejdź do **grupy zasobów** w okienku nawigacji po lewej stronie i wybierz grupę zasobów, którą chcesz usunąć.
+1. Wybierz pozycję **Usuń grupę zasobów**. Sprawdź usuwanie, wprowadzając nazwę grupy zasobów i wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzono przykładowy projekt Solidity przy użyciu zestawu Azure Blockchain Development Kit. Został utworzony i wdrożony inteligentny kontrakt, a następnie wywołany funkcją za pośrednictwem transakcji w sieci konsorcjum blockchain hostowane w usłudze Azure Blockchain Service.
+W tym samouczku przedstawiono Tworzenie przykładowego projektu z jednolitością przy użyciu zestawu Azure łańcucha bloków Development Kit. Skompilowano i wdrożono inteligentny kontrakt o nazwie funkcja za pośrednictwem transakcji w sieci łańcucha bloków Consortium hostowanej w usłudze Azure łańcucha bloków Service.
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji blockchain przy użyciu usługi Azure Blockchain Service](develop.md)
+> [Opracowywanie aplikacji łańcucha bloków przy użyciu usługi Azure łańcucha bloków Service](develop.md)

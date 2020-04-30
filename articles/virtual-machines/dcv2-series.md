@@ -1,6 +1,6 @@
 ---
-title: Seria DC — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii DC.
+title: Seria DC-Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii DC.
 services: virtual-machines
 author: susaxen
 ms.service: virtual-machines
@@ -8,42 +8,42 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
 ms.openlocfilehash: d35e37e53b84d317446a93a2301fc3b703b426b7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085726"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
 
-Seria DCsv2 może pomóc chronić poufność i integralność danych i kodu podczas przetwarzania w chmurze publicznej. Maszyny te są wspierane przez najnowszą generację procesora Intel XEON E-2288G z technologią SGX. Dzięki technologii Intel Turbo Boost maszyny te mogą zwiększyć 5,0 GHz. Wystąpienia serii DCsv2 umożliwiają klientom tworzenie bezpiecznych aplikacji opartych na enklawie w celu ochrony ich kodu i danych, gdy są używane.
+Seria DCsv2 może pomóc w ochronie poufności i integralności danych oraz kodu podczas przetwarzania w chmurze publicznej. Te maszyny są obsługiwane przez najnowszą generację procesora Intel XEON E-2288G z technologią SGX. Dzięki technologii zwiększania procesora Intel Turbo te maszyny mogą mieć wartość do 5,0 GHz. Wystąpienia serii DCsv2 umożliwiają klientom tworzenie bezpiecznych aplikacji opartych na enklawy w celu ochrony kodu i danych, gdy jest używany.
 
-Przykładowe przypadki użycia obejmują: poufne wielopartyjne udostępnianie danych, wykrywanie oszustw, przeciwdziałanie praniu pieniędzy, blockchain, analizę poufnych zastosowań, analizę danych wywiadowczych i poufne uczenie maszynowe.
+Przykładowe przypadki użycia obejmują: poufne udostępnianie danych wieloczęściowych, wykrywanie oszustw, pranie antypieniężne, łańcucha bloków, poufne analizy użycia, analizę analizy oraz poufne Uczenie maszynowe.
 
-Pamięć masowa w wersji Premium: obsługiwana*
+Premium Storage: obsługiwane *
 
-Buforowanie pamięci masowej w wersji premium: obsługiwane*
+Buforowanie Premium Storage: obsługiwane *
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-*Z wyjątkiem Standard_DC8_v2
+* Z wyjątkiem Standard_DC8_v2
 
 
 
-| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna karta sieciowa / oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2                                            |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32 (43)                                                            | 3200/48                                   | 2                                            |
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2                                            |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
-- Maszyny wirtualne z serii DCsv2 są [generacjami maszyn wirtualnych 2](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują `Gen2` tylko obrazy.
-- Obecnie dostępne tylko w Wielkiej Brytanii Na południu, w Kanadzie Środkowej i Wschodniej stanów Zjednoczonych.
-- Poprzednia generacja poufnych maszyn wirtualnych obliczeniowych: [seria DC](sizes-previous-gen.md#preview-dc-series)
-- Tworzenie maszyn wirtualnych DCsv2 przy użyciu [witryny Azure portal](./linux/quick-create-portal.md) lub [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
+- Maszyny wirtualne z serii DCsv2 to [maszyny wirtualne 2](./linux/generation-2.md#creating-a-generation-2-vm) . generacji `Gen2` i obsługują tylko obrazy.
+- Obecnie dostępne tylko w Południowe Zjednoczone Królestwo, Kanada Środkowa i Wschodnie stany USA.
+- Poprzednia generacja poufnych maszyn wirtualnych obliczeń: [Seria DC](sizes-previous-gen.md#preview-dc-series)
+- Tworzenie maszyn wirtualnych DCsv2 za pomocą [Azure Portal](./linux/quick-create-portal.md) lub [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 
 
@@ -58,4 +58,4 @@ Aktualizacje zachowywania pamięci: nie są obsługiwane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

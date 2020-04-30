@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115605"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Używanie rozszerzenia niestandardowego skryptu platformy Azure w wersji 2 z maszynami wirtualnymi z systemem Linux
@@ -113,13 +113,13 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 | Nazwa | Wartość/przykład | Typ danych | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| wydawca | Microsoft. COMPUTE. Extensions | ciąg |
+| publisher | Microsoft. COMPUTE. Extensions | ciąg |
 | type | CustomScript | ciąg |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (np.) | https://github.com/MyProject/Archive/MyPythonScript.py | tablica |
 | Sekcji commandtoexecute (np.) | środowisko Python \<MyPythonScript.py my-param1> | ciąg |
 | skrypt | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | ciąg |
-| skipDos2Unix (np.) | false | wartość logiczna |
+| skipDos2Unix (np.) | fałsz | wartość logiczna |
 | Sygnatura czasowa (np.) | 123456789 | 32-bitowa liczba całkowita |
 | storageAccountName (np.) | examplestorageacct | ciąg |
 | storageAccountKey (np.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | ciąg |

@@ -1,23 +1,23 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji z wieloma kontenerami'
-description: Dowiedz się, jak używać tworzenia aplikacji z wieloma kontenerami w usłudze Azure App Service, która zawiera aplikację WordPress i kontener MySQL, oraz konfigurowanie aplikacji WordPress.
-keywords: azure app service, aplikacja internetowa, Linux, docker, compose, multicontainer, multi-container, aplikacja internetowa dla kontenerów, wiele kontenerów, kontener, wordpress, azure db dla mysql, produkcyjna baza danych z kontenerami
+title: 'Samouczek: Tworzenie aplikacji z obsługą kontenera'
+description: Dowiedz się, jak używać aplikacji z możliwością tworzenia wielokontenera na Azure App Service, która zawiera aplikację WordPress i kontener MySQL, a następnie skonfiguruj aplikację WordPress.
+keywords: Azure App Service, Web App, Linux, Docker, redagowanie, wielokontenerowe, aplikacje sieci Web dla kontenerów, wiele kontenerów, kontener, WordPress, Azure DB for MySQL, produkcyjna baza danych z kontenerami
 author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
 ms.custom: cli-validate
 ms.openlocfilehash: 2cafcab4e7f8e9d98fa993a13def1bfca061135f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085811"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Samouczek: tworzenie aplikacji wielokontenerowej (w wersji zapoznawczej) przy użyciu funkcji Web App for Containers
 
 > [!NOTE]
-> Multi-container jest w wersji zapoznawczej.
+> Wiele kontenerów jest w wersji zapoznawczej.
 
 Funkcja [Web App for Containers](app-service-linux-intro.md) oferuje elastyczny sposób korzystania z obrazów platformy Docker. Z tego samouczka dowiesz się, jak utworzyć aplikację wielokontenerową przy użyciu rozwiązań WordPress i MySQL. Użyjesz tego samouczka w usłudze Cloud Shell, ale możesz również uruchomić te polecenia lokalnie za pomocą narzędzia wiersza polecenia [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) (w wersji 2.0.32 lub nowszej).
 
@@ -35,11 +35,11 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć ten samouczek, potrzebujesz doświadczenia z [Docker Compose](https://docs.docker.com/compose/).
+Aby ukończyć ten samouczek, musisz mieć [Docker Compose](https://docs.docker.com/compose/).
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
-W tym samouczku użyjesz pliku redagowania z [platformy Docker,](https://docs.docker.com/compose/wordpress/#define-the-project)ale zmodyfikujesz go tak, aby zawierał usługę Azure Database for MySQL, magazyn trwały i redis. Plik konfiguracji można znaleźć na stronie z [przykładami dla platformy Azure](https://github.com/Azure-Samples/multicontainerwordpress). Aby uzyskać obsługiwane opcje konfiguracji, zobacz [Opcje redagowania doładowania](configure-custom-container.md#docker-compose-options).
+W tym samouczku użyjesz pliku redagowania z [platformy Docker](https://docs.docker.com/compose/wordpress/#define-the-project), ale zmodyfikujesz go tak, aby obejmował Azure Database for MySQL, magazyn trwały i Redis. Plik konfiguracji można znaleźć na stronie z [przykładami dla platformy Azure](https://github.com/Azure-Samples/multicontainerwordpress). Aby poznać obsługiwane opcje konfiguracji, zobacz [opcje Docker Compose](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-W usłudze Cloud Shell utwórz grupę zasobów za [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) pomocą polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA*. Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa**, uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+W Cloud Shell Utwórz grupę zasobów za pomocą [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) polecenia. Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *Południowo-środkowe stany USA*. Aby wyświetlić wszystkie obsługiwane lokalizacje dla usługi App Service w systemie Linux w warstwie **Standardowa**, uruchom polecenie [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -75,7 +75,7 @@ Po zakończeniu działania polecenia zostaną wyświetlone dane wyjściowe JSON 
 
 ## <a name="create-an-azure-app-service-plan"></a>Tworzenie planu usługi Azure App Service
 
-W aplikacji Cloud Shell utwórz plan usługi [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) app service w grupie zasobów za pomocą polecenia.
+W Cloud Shell Utwórz plan App Service w grupie zasobów za pomocą [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) polecenia.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -109,7 +109,7 @@ Po utworzeniu planu usługi App Service usługa Cloud Shell wyświetli informacj
 
 ## <a name="create-a-docker-compose-app"></a>Tworzenie aplikacji narzędzia Docker Compose
 
-W usłudze Cloud Shell utwórz wielokontenerową [aplikację internetową](app-service-linux-intro.md) w ramach planu usługi App Service `myAppServicePlan`, używając polecenia [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Nie zapomnij zastąpić _ \<nazwy aplikacji>_ unikatową nazwą aplikacji.
+W usłudze Cloud Shell utwórz wielokontenerową [aplikację internetową](app-service-linux-intro.md) w ramach planu usługi App Service `myAppServicePlan`, używając polecenia [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Nie zapomnij zamienić _ \<nazwy aplikacji>_ na unikatową nazwę aplikacji.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -138,7 +138,7 @@ Przejdź do wdrożonej aplikacji pod adresem `http://<app-name>.azurewebsites.ne
 
 ![Przykładowa aplikacja wielokontenerowa funkcji Web App for Containers][1]
 
-**Gratulacje**, utworzono aplikację wielu kontenerów w aplikacji sieci Web dla kontenerów. Następnie skonfigurujesz aplikację do użycia usługi Azure Database for MySQL. Na razie nie instaluj rozwiązania WordPress.
+**Gratulacje**, utworzono aplikację z obsługą kontenera w Web App for Containers. Następnie skonfigurujesz aplikację do użycia usługi Azure Database for MySQL. Na razie nie instaluj rozwiązania WordPress.
 
 ## <a name="connect-to-production-database"></a>Nawiązywanie połączenia z produkcyjną bazą danych
 
@@ -146,9 +146,9 @@ Używanie kontenerów baz danych w środowisku produkcyjnym jest niezalecane. Ko
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>Tworzenie serwera usługi Azure Database for MySQL
 
-Utwórz usługę Azure Database dla serwera [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) MySQL za pomocą polecenia.
+Utwórz serwer Azure Database for MySQL za pomocą [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) polecenia.
 
-W poniższym poleceniu zastąp nazwę serwera MySQL, w której zobaczysz _ &lt;symbol zastępczy mysql-server-name>_ (prawidłowe znaki to `a-z`, `0-9`i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql-server-name>.database.windows.net`) i musi być unikatowa w skali globalnej.
+W poniższym poleceniu Zastąp nazwę serwera MySQL, gdzie zobaczysz symbol zastępczy _ &lt;MySQL-Server-Name>_ (prawidłowe znaki `a-z`to `0-9`, i `-`). Ta nazwa jest częścią nazwy hosta serwera MySQL (`<mysql-server-name>.database.windows.net`) i musi być unikatowa w skali globalnej.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
@@ -171,7 +171,7 @@ Tworzenie serwera może potrwać kilka minut. Po utworzeniu serwera MySQL w usł
 
 ### <a name="configure-server-firewall"></a>Konfigurowanie zapory serwera
 
-Utwórz regułę zapory dla serwera MySQL, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) aby zezwolić na połączenia klientów za pomocą polecenia. Po ustawieniu początkowego i końcowego adresu IP na 0.0.0.0 zapora będzie otwierana tylko dla innych zasobów platformy Azure.
+Utwórz regułę zapory dla serwera MySQL, aby zezwolić na połączenia klienckie za pomocą [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) polecenia. Po ustawieniu początkowego i końcowego adresu IP na 0.0.0.0 zapora będzie otwierana tylko dla innych zasobów platformy Azure.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -247,7 +247,7 @@ Aby uzyskać więcej informacji na temat zmiennych środowiskowych, zobacz [Konf
 
 ### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>Używanie obrazu niestandardowego na potrzeby korzystania z protokołu SSL w usłudze MySQL i innych konfiguracji
 
-Domyślnie w usłudze Azure Database for MySQL jest używany protokół SSL. Rozwiązanie WordPress wymaga dodatkowej konfiguracji na potrzeby korzystania z protokołu SSL z usługą MySQL. WordPress "oficjalny obraz" nie zapewnia dodatkowej konfiguracji, ale [niestandardowy obraz](https://github.com/Azure-Samples/multicontainerwordpress) został przygotowany dla Twojej wygody. W praktyce możesz dodać wymagane zmiany do własnego obrazu.
+Domyślnie w usłudze Azure Database for MySQL jest używany protokół SSL. Rozwiązanie WordPress wymaga dodatkowej konfiguracji na potrzeby korzystania z protokołu SSL z usługą MySQL. "Oficjalny obraz" platformy WordPress "nie zapewnia dodatkowej konfiguracji, ale [obraz niestandardowy](https://github.com/Azure-Samples/multicontainerwordpress) został przygotowany dla wygody użytkownika. W praktyce możesz dodać wymagane zmiany do własnego obrazu.
 
 Ten obraz niestandardowy został utworzony na podstawie „oficjalnego obrazu” rozwiązania [WordPress, dostępnego w witrynie Docker Hub](https://hub.docker.com/_/wordpress/). W obrazie niestandardowym na potrzeby usługi Azure Database for MySQL wprowadzono następujące zmiany:
 
@@ -279,7 +279,7 @@ Zapisz zmiany i zamknij program nano. Użyj polecenia `^O` w celu zapisania i po
 
 ### <a name="update-app-with-new-configuration"></a>Aktualizowanie aplikacji przy użyciu nowej konfiguracji
 
-W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zastąpić _ \<nazwy aplikacji>_ nazwą utworzonej wcześniej aplikacji internetowej.
+W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zastąpić _ \<nazwy aplikacji>_ nazwą utworzonej wcześniej aplikacji sieci Web.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -304,11 +304,11 @@ Przejdź do wdrożonej aplikacji pod adresem `http://<app-name>.azurewebsites.ne
 
 ## <a name="add-persistent-storage"></a>Dodawanie magazynu trwałego
 
-Twoja aplikacja wielokontenerowa działa teraz w funkcji Web App for Containers. Jeśli jednak teraz zainstalujesz rozwiązanie WordPress, a później ponownie uruchomisz aplikację, nie znajdziesz instalacji rozwiązania WordPress. Dzieje się tak, ponieważ konfiguracja narzędzia Docker Compose aktualnie wskazuje lokalizację magazynu wewnątrz kontenera. Pliki zainstalowane w kontenerze są zachowywane tylko do momentu ponownego uruchomienia aplikacji. W tej sekcji [dodasz trwałe miejsce do](configure-custom-container.md#use-persistent-shared-storage) kontenera WordPress.
+Twoja aplikacja wielokontenerowa działa teraz w funkcji Web App for Containers. Jeśli jednak teraz zainstalujesz rozwiązanie WordPress, a później ponownie uruchomisz aplikację, nie znajdziesz instalacji rozwiązania WordPress. Dzieje się tak, ponieważ konfiguracja narzędzia Docker Compose aktualnie wskazuje lokalizację magazynu wewnątrz kontenera. Pliki zainstalowane w kontenerze są zachowywane tylko do momentu ponownego uruchomienia aplikacji. W tej sekcji dodasz [Magazyn trwały](configure-custom-container.md#use-persistent-shared-storage) do kontenera WordPress.
 
 ### <a name="configure-environment-variables"></a>Konfigurowanie zmiennych środowiskowych
 
-Aby użyć magazynu trwałego, włącz to ustawienie w usłudze app service. Aby wprowadzić tę zmianę, uruchom polecenie [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) w usłudze Cloud Shell. Ustawienia aplikacji są rozdzielane spacjami i rozróżniana jest w nich wielkość liter.
+Aby można było korzystać z magazynu trwałego, Włącz to ustawienie w obszarze App Service. Aby wprowadzić tę zmianę, uruchom polecenie [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) w usłudze Cloud Shell. Ustawienia aplikacji są rozdzielane spacjami i rozróżniana jest w nich wielkość liter.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -355,7 +355,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Aktualizowanie aplikacji przy użyciu nowej konfiguracji
 
-W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zastąpić _ \<nazwy aplikacji>_ unikatową nazwą aplikacji.
+W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zamienić _ \<nazwy aplikacji>_ na unikatową nazwę aplikacji.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -439,7 +439,7 @@ Po utworzeniu ustawień aplikacji w usłudze Cloud Shell zostaną wyświetlone i
 
 ### <a name="update-app-with-new-configuration"></a>Aktualizowanie aplikacji przy użyciu nowej konfiguracji
 
-W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zastąpić _ \<nazwy aplikacji>_ unikatową nazwą aplikacji.
+W usłudze Cloud Shell zmień konfigurację wielokontenerowej [aplikacji internetowej](app-service-linux-intro.md), używając polecenia [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Nie zapomnij zamienić _ \<nazwy aplikacji>_ na unikatową nazwę aplikacji.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -464,7 +464,7 @@ Wykonaj odpowiednie czynności i zainstaluj rozwiązanie WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Łączenie rozwiązania WordPress z usługą Redis
 
-Zaloguj się do administratora WordPress. W lewej nawigacji wybierz **wtyczki**, a następnie wybierz pozycję **Zainstalowane wtyczki**.
+Zaloguj się do administratora WordPress. W lewym okienku nawigacji wybierz pozycję **wtyczki**, a następnie wybierz pozycję **zainstalowane wtyczki**.
 
 ![Wybieranie wtyczek rozwiązania WordPress][2]
 
@@ -478,7 +478,7 @@ Kliknij pozycję **Settings** (Ustawienia).
 
 ![Klikanie pozycji Settings (Ustawienia)][4]
 
-Kliknij przycisk **Włącz pamięć podręczną obiektów.**
+Kliknij przycisk **Włącz pamięć podręczną obiektów** .
 
 ![Klikanie przycisku „Enable Object Cache” (Włącz usługę Object Cache)][5]
 
@@ -524,9 +524,9 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do następnego samouczka, aby dowiedzieć się, jak zamapować niestandardową nazwę DNS na aplikację.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Mapowanie niestandardowej nazwy DNS do aplikacji](../app-service-web-tutorial-custom-domain.md)
+> [Samouczek: mapowanie niestandardowej nazwy DNS na aplikację](../app-service-web-tutorial-custom-domain.md)
 
-Możesz też zapoznać się z innymi zasobami:
+Lub zapoznaj się z innymi zasobami:
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie kontenera niestandardowego](configure-custom-container.md)

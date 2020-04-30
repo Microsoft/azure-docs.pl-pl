@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
 ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099890"
 ---
 # <a name="resize-a-windows-vm"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Windows
@@ -25,7 +25,7 @@ Jeśli maszyna wirtualna używa Premium Storage, upewnij się, że wybrano wersj
 
 ## <a name="use-the-portal"></a>Używanie portalu
 
-1. Otwórz witrynę [Azure Portal](https://portal.azure.com).
+1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
 1. Otwórz stronę dla maszyny wirtualnej.
 1. W menu po lewej stronie wybierz pozycję **rozmiar**.
 1. Wybierz nowy rozmiar z listy dostępnych rozmiarów, a następnie wybierz pozycję **Zmień rozmiar**.

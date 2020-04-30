@@ -1,7 +1,7 @@
 ---
-title: Niestandardowa umiejętność wyszukiwania funkcji wyszukiwania funkcji wyszukiwania funkcji
+title: Umiejętność wyszukiwania w wyszukiwaniu jednostek niestandardowych
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij różne encje niestandardowe z tekstu w potoku wyszukiwania kognitywnego usługi Azure Cognitive Search. Ta umiejętność jest obecnie w publicznej wersji zapoznawczej.
+description: Wyodrębnij różne jednostki niestandardowe z tekstu w potoku wyszukiwania poznawczego platformy Azure Wyszukiwanie poznawcze. Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,28 +9,28 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085743"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność poznawcza wyszukiwania encji niestandardowej (wersja zapoznawcza)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Umiejętność wyszukiwania jednostek niestandardowych (wersja zapoznawcza)
 
 > [!IMPORTANT] 
-> Ta umiejętność jest obecnie w publicznej wersji zapoznawczej. Funkcja w wersji zapoznawczej jest dostarczana bez umowy dotyczącej poziomu usług i nie jest zalecana dla obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi portalu ani SDK .NET.
+> Ta umiejętność jest obecnie dostępna w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Obecnie nie ma obsługi portalu lub zestawu SDK platformy .NET.
 
-Umiejętność **Wyszukiwanie encji niestandardowej** wyszukuje tekst z niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykietuje wszystkie dokumenty z dowolnymi pasującymi encjami. Umiejętność obsługuje również stopień rozmytego dopasowania, które można zastosować, aby znaleźć dopasowania, które są podobne, ale nie do końca dokładne.  
+Umiejętność **wyszukiwania jednostek niestandardowych** szuka tekstu na podstawie niestandardowej, zdefiniowanej przez użytkownika listy słów i fraz. Korzystając z tej listy, etykieta wszystkie dokumenty z dowolnymi zgodnymi jednostkami. Umiejętność obsługuje również stopień dopasowywania rozmytego, który można zastosować, aby znaleźć dopasowania, które są podobne, ale nie są bardzo dokładne.  
 
-Ta umiejętność nie jest powiązana z interfejsem API usług Cognitive Services i może być używana bezpłatnie w okresie podglądu. Należy jednak [dołączyć zasób usług Cognitive Services,](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)aby zastąpić dzienny limit wzbogacenia. Dzienny limit ma zastosowanie do bezpłatnego dostępu do usług Cognitive Services, gdy jest dostępny za pośrednictwem usługi Azure Cognitive Search.
+Ta umiejętność nie jest powiązana z interfejsem API Cognitive Services i może być używana bezpłatnie w okresie zapoznawczym. Mimo to należy [dołączyć zasób Cognitive Services](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services), aby zastąpić dzienny limit wzbogacania. Dzienny limit ma zastosowanie do bezpłatnego dostępu do Cognitive Services, gdy dostęp odbywa się za pomocą usługi Azure Wyszukiwanie poznawcze.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.CustomEntityLookupSkill 
+Microsoft. umiejętności. Text. CustomEntityLookupSkill 
 
 ## <a name="data-limits"></a>Limity danych
-+ Maksymalny obsługiwany rozmiar rekordu wejściowego wynosi 256 MB. Jeśli musisz podzielić dane przed wysłaniem ich do umiejętności wyszukiwania encji niestandardowej, rozważ użycie [umiejętności Dzielenie tekstu](cognitive-search-skill-textsplit.md).
-+ Tabela definicji maksymalnej liczby jednostek jest obsługiwana jako 10 MB, jeśli jest dostarczana przy użyciu parametru *entitiesDefinitionUri.* 
-+ Jeśli jednostki są zdefiniowane w linii, przy użyciu *inlineEntitiesDefinition* parametr, maksymalny obsługiwany rozmiar wynosi 10 KB.
++ Maksymalny obsługiwany rozmiar rekordu wejściowego to 256 MB. Jeśli konieczne jest rozbicie danych przed wysłaniem ich do umiejętności wyszukiwania jednostki niestandardowej, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
++ Maksymalna obsługiwana tabela definicji jednostek to 10 MB, jeśli jest ona podawana przy użyciu parametru *entitiesDefinitionUri* . 
++ Jeśli jednostki są zdefiniowane w tekście, przy użyciu parametru *inlineEntitiesDefinition* maksymalny obsługiwany rozmiar wynosi 10 KB.
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -38,17 +38,17 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| jednostkiDedefitionUri    | Ścieżka do pliku JSON lub CSV zawierającego cały tekst docelowy, z który ma być dopasowywać. Ta definicja jednostki jest odczytywana na początku uruchomienia indeksatora; wszelkie aktualizacje tego pliku w połowie biegu nie zostaną zrealizowane do kolejnych przebiegów. Ten config musi być dostępny za pośrednictwem protokołu HTTPS. Zobacz [format definicji jednostki niestandardowej"](#custom-entity-definition-format) poniżej dla oczekiwanego schematu CSV lub JSON.|
-|wbudowanadefinicja wyszczeżeń | Wbudowane definicje encji JSON. Ten parametr zastępuje jednostkiDefinitionUri parametr, jeśli jest obecny. Nie więcej niż 10 KB konfiguracji mogą być dostarczone w ramach. Zobacz [definicję encji niestandardowej](#custom-entity-definition-format) poniżej dla oczekiwanego schematu JSON. |
-|domyślny Kod Języka |    (Opcjonalnie) Kod języka tekstu wejściowego używanego do tokenizacji i nakreślenia tekstu wejściowego. Obsługiwane są następujące języki: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna`en`to angielski ( ). Jeśli przejdziesz format languagecode-countrycode, używana jest tylko część kodu języka formatu.  |
+| entitiesDefinitionUri    | Ścieżka do pliku JSON lub CSV zawierającego cały tekst docelowy do dopasowania. Ta definicja jednostki jest odczytywana na początku przebiegu indeksatora; wszystkie aktualizacje tego pliku nie zostaną zrealizowane do momentu kolejnego uruchomienia. Ta konfiguracja musi być dostępna za pośrednictwem protokołu HTTPS. Zobacz Format [definicji jednostki niestandardowej](#custom-entity-definition-format) "poniżej dla oczekiwanego schematu CSV lub JSON.|
+|inlineEntitiesDefinition | Definicje jednostek śródwierszowego elementu JSON. Ten parametr zastępuje parametr entitiesDefinitionUri, jeśli jest obecny. Nie więcej niż 10 KB konfiguracji może być dostarczonych wewnętrznie. Poniżej przedstawiono [definicję jednostki niestandardowej](#custom-entity-definition-format) dla oczekiwanego schematu JSON. |
+|defaultLanguageCode |    Obowiązkowe Kod języka tekstu wejściowego służącego do tokenize i odróżnić tekstu wejściowego. Obsługiwane są następujące języki: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna to angielski (`en`). Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.  |
 
 
-## <a name="skill-inputs"></a>Wprowadzanie umiejętności
+## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                   |
 |---------------|-------------------------------|
 | tekst          | Tekst do analizy.          |
-| languageCode    | Element opcjonalny. Wartość domyślna to `"en"`.  |
+| languageCode    | Opcjonalny. Wartość domyślna to `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
@@ -56,22 +56,22 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa wyjściowa      | Opis                   |
 |---------------|-------------------------------|
-| Podmioty | Tablica obiektów, które zawierają informacje o znalezionych dopasowaniach i powiązanych metadanych. Każda ze zidentyfikowanych jednostek może zawierać następujące pola:  <ul> <li> *nazwa*: Zidentyfikowano jednostkę najwyższego poziomu. Jednostka reprezentuje formularz "znormalizowany". </li> <li> *id*: Unikatowy identyfikator jednostki zdefiniowanej przez użytkownika w "Niestandardowym formacie definicji encji".</li> <li> *description*: Opis jednostki zdefiniowany przez użytkownika w "Formacie niestandardowej definicji encji". </li> <li> *typ:* Typ jednostki zdefiniowany przez użytkownika w "Niestandardowym formacie definicji encji".</li> <li> *podtyp:* Podtyp jednostki zdefiniowany przez użytkownika w "Niestandardowym formacie definicji encji".</li>  <li> *dopas :* Kolekcja, która opisuje każdy z dopasowań dla tej encji w tekście źródłowym. Każdy mecz będzie miał następujących członków: </li> <ul> <li> *tekst*: Nieprzetworzony tekst jest zgodny z dokumentem źródłowym. </li> <li> *przesunięcie*: Miejsce, w którym znaleziono dopasowanie w tekście. </li> <li> *długość*: Długość dopasowanego tekstu. </li> <li> *matchDistance*: Liczba znaków różnych tego dopasowania pochodziła od oryginalnej nazwy jednostki lub aliasu.  </li> </ul> </ul>
+| obiekty | Tablica obiektów, która zawiera informacje o znalezionych dopasowaniach i powiązanych metadanych. Każda identyfikowana jednostka może zawierać następujące pola:  <ul> <li> *Nazwa*: zidentyfikowana jednostka najwyższego poziomu. Jednostka reprezentuje formę "znormalizowana". </li> <li> *Identyfikator*: unikatowy identyfikator jednostki zdefiniowanej przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Opis*: Opis jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki". </li> <li> *Typ:* Typ jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li> <li> *Podtyp:* Podtyp jednostki zdefiniowany przez użytkownika w "niestandardowym formacie definicji jednostki".</li>  <li> *dopasowuje*: Kolekcja opisująca wszystkie dopasowania dla tej jednostki na źródłowym tekście. Każde dopasowanie będzie miało następujące elementy członkowskie: </li> <ul> <li> *tekst*: pierwotny tekst jest zgodny z dokumentem źródłowym. </li> <li> *przesunięcie*: lokalizacja, w której znaleziono dopasowanie w tekście. </li> <li> *Długość*: długość dopasowanego tekstu. </li> <li> *matchDistance*: liczba znaków, które różnią się od nazwy lub aliasu oryginalnej jednostki.  </li> </ul> </ul>
   |
 
-## <a name="custom-entity-definition-format"></a>Niestandardowy format definicji encji
+## <a name="custom-entity-definition-format"></a>Niestandardowy format definicji jednostki
 
-Istnieją 3 różne sposoby dostarczania listy encji niestandardowych do umiejętności Wyszukiwanie encji niestandardowych. Listę można podać w pliku . CSV, a . JSON lub jako wbudowana definicja jako część definicji umiejętności.  
+Istnieją trzy różne sposoby udostępniania listy jednostek niestandardowych dla umiejętności wyszukiwania jednostek niestandardowych. Możesz podać listę w. Plik CSV, a. Plik JSON lub jako wbudowana Definicja w ramach definicji umiejętności.  
 
-Jeśli plik definicji jest . CSV lub . JSON, ścieżka pliku musi być podana jako część *jednostekDedefitionItionUri* parametru. W takim przypadku plik jest pobierany raz na początku każdego uruchomienia indeksatora. Plik musi być dostępny tak długo, jak indeksator jest przeznaczony do uruchomienia. Ponadto plik musi być zakodowany UTF-8.
+Jeśli plik definicji jest. Wolumin CSV lub. Plik JSON, ścieżka pliku musi być podana jako część parametru *entitiesDefinitionUri* . W takim przypadku plik jest pobierany raz na początku każdego uruchomienia indeksatora. Plik musi być dostępny, o ile indeksator ma być uruchomiony. Ponadto plik musi być zakodowany w formacie UTF-8.
 
-Jeśli definicja jest dostarczana w linii, powinna być podana jako wbudowana, jak zawartość parametru umiejętności *inlineEntitiesDefinition.* 
+Jeśli definicja została podana w tekście, powinna być określona jako wbudowana jako zawartość parametru umiejętności *inlineEntitiesDefinition* . 
 
 ### <a name="csv-format"></a>Format CSV
 
-Można podać definicję encji niestandardowych, których należy szukać w pliku CSV (Comma-Separated Value), udostępniając ścieżkę do pliku i ustawiając ją w parametrze umiejętności *entitiesDefinitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
+Można podać definicję jednostek niestandardowych do wyszukania w pliku wartości rozdzielanych przecinkami (CSV), podając ścieżkę do pliku i ustawiając go w parametrze umiejętności *entitiesDefinitionUri* . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
 
-Format CSV jest prosty. Każdy wiersz reprezentuje unikatowy element, jak pokazano poniżej:
+Format CSV jest prosty. Każdy wiersz reprezentuje unikatową jednostkę, jak pokazano poniżej:
 
 ```
 Bill Gates, BillG, William H. Gates
@@ -79,15 +79,15 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-W takim przypadku istnieją trzy jednostki, które mogą być zwracane jako znalezione jednostki (Bill Gates, Satya Nadella, Microsoft), ale zostaną one zidentyfikowane, jeśli którykolwiek z warunków w wierszu (aliasy) są dopasowane do tekstu. Na przykład, jeśli ciąg "William H. Gates" zostanie znaleziony w dokumencie, zostanie zwrócone dopasowanie do jednostki "Bill Gates".
+W takim przypadku istnieją trzy jednostki, które można zwrócić jako jednostki znalezione (bramy rozliczeniowe, Satya Nadella, Microsoft), ale zostaną zidentyfikowane, jeśli którykolwiek z warunków w wierszu (aliasów) zostanie dopasowany do tekstu. Na przykład jeśli w dokumencie zostanie znaleziony ciąg "William H. Brama", zostanie zwrócona zgodność z jednostką "bramy rozliczeniowe".
 
 ### <a name="json-format"></a>Format JSON
 
-Można podać definicję encji niestandardowych, których należy szukać również w pliku JSON. Format JSON zapewnia nieco większą elastyczność, ponieważ umożliwia definiowanie reguł dopasowania według terminu. Na przykład można określić rozmytą odległość dopasowania (odległość Damerau-Levenshtein) dla każdego terminu lub czy dopasowanie powinno być rozróżniane, czy nie. 
+Można również podać definicję jednostek niestandardowych, które mają być wyszukiwane w pliku JSON. Format JSON zapewnia nieco większą elastyczność, ponieważ umożliwia definiowanie zgodnych reguł na okres. Na przykład można określić odległość dopasowywania rozmytego (Damerau-Levenshtein) dla każdego okresu lub czy w dopasowaniu powinna być rozróżniana wielkość liter. 
 
- Podobnie jak w przypadku plików CSV, należy podać ścieżkę do pliku JSON i ustawić go w parametrze umiejętności *entitiesDefinitionUri.* Ścieżka powinna znajdować się w lokalizacji https. Rozmiar pliku definicji może mieć rozmiar do 10 MB.
+ Podobnie jak w przypadku plików CSV, należy podać ścieżkę do pliku JSON i ustawić go w parametrze umiejętności *entitiesDefinitionUri* . Ścieżka powinna znajdować się w lokalizacji HTTPS. Plik definicji może mieć rozmiar do 10 MB.
 
-Najbardziej podstawową definicją listy encji niestandardowych JSON może być lista encji do dopasowania:
+Najbardziej podstawową definicją niestandardowej listy jednostek JSON może być lista jednostek do dopasowania:
 
 ```json
 [ 
@@ -103,7 +103,7 @@ Najbardziej podstawową definicją listy encji niestandardowych JSON może być 
 ]
 ```
 
-Bardziej złożonym przykładem definicji JSON można opcjonalnie podać identyfikator, opis, typ i podtyp każdej encji — a także inne *aliasy.* Jeśli termin aliasu jest dopasowywał, jednostka zostanie również zwrócona:
+Bardziej skomplikowany przykład definicji JSON może opcjonalnie podać identyfikator, opis, typ i podtyp każdej jednostki, a także inne *aliasy*. W przypadku dopasowania terminu aliasu jednostka zostanie zwrócona także:
 
 ```json
 [ 
@@ -141,36 +141,36 @@ Bardziej złożonym przykładem definicji JSON można opcjonalnie podać identyf
 ] 
 ```
 
-W poniższych tabelach opisano bardziej szczegółowo różne parametry konfiguracji, które można ustawić podczas definiowania elementów, które mają być zgodne:
+Poniższe tabele zawierają więcej szczegółów na temat różnych parametrów konfiguracyjnych, które można ustawić podczas definiowania jednostek do dopasowania:
 
 |  Nazwa pola  |        Opis  |
 |--------------|----------------------|
-| name | Deskryptator encji najwyższego poziomu. Dopasowania w danych wyjściowych umiejętności będą pogrupowane według tej nazwy i powinny reprezentować "znormalizowane" formy znalezionego tekstu.  |
-| description  | (Opcjonalnie) To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanych tekstu. Wartość tego pola będzie wyświetlana przy każdym dopasowaniu jego encji w danych wyjściowych umiejętności. |
-| type | (Opcjonalnie) To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanych tekstu. Wartość tego pola będzie wyświetlana przy każdym dopasowaniu jego encji w danych wyjściowych umiejętności. |
-| Podtypu | (Opcjonalnie) To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanych tekstu. Wartość tego pola będzie wyświetlana przy każdym dopasowaniu jego encji w danych wyjściowych umiejętności. |
-| id | (Opcjonalnie) To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanych tekstu. Wartość tego pola będzie wyświetlana przy każdym dopasowaniu jego encji w danych wyjściowych umiejętności. |
-| Casesensitive | (Opcjonalnie) Domyślnie wartość false. Wartość logiczna oznaczająca, czy porównania z nazwą jednostki powinny być wrażliwe na wielkość liter. Przykładowe dopasowania "Microsoft" mogą być niewrażliwe na przykład: Microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | (Opcjonalnie) Wartość domyślna to 0. Maksymalna wartość 5. Oznacza dopuszczalną liczbę rozbieżnych znaków, które nadal stanowiłyby dopasowanie do nazwy jednostki. Zwraca się najmniejszą możliwą rozmytość dla danego meczu.  Na przykład, jeśli odległość edycji jest ustawiona na 3, "Windows 10" nadal będzie pasować do "Windows", "Windows10" i "Windows 7". <br/> Gdy czułość wielkości liter jest ustawiona na wartość false, różnice przypadków NIE są wliczane do tolerancji rozmyć, ale w przeciwnym razie. |
-| defaultCaseSensitive | (Opcjonalnie) Zmienia domyślną wartośćróżna wielkości liter dla tej encji. Służy do zmiany domyślnej wartości wszystkich aliasów caseSensitive wartości. |
-| defaultFuzzyEditDistance | (Opcjonalnie) Zmienia domyślną wartość odległości edycji rozmytej dla tej encji. Może służyć do zmiany wartości domyślnej wszystkich aliasów rozmyteedytowanie wartości. |
-| Aliasy | (Opcjonalnie) Tablica złożonych obiektów, które mogą służyć do określania alternatywnych pisowni lub synonimów do nazwy jednostki głównej. |
+| name | Deskryptor jednostki najwyższego poziomu. Dopasowania w danych wyjściowych o umiejętnościach zostaną pogrupowane według tej nazwy i powinny reprezentować "znormalizowaną" formę znalezionego tekstu.  |
+| description  | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| type | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| Podtyp | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| id | Obowiązkowe To pole może służyć jako przekazywanie niestandardowych metadanych dotyczących dopasowanego tekstu. Wartość tego pola będzie wyświetlana wraz z każdym dopasowaniem jednostki w danych wyjściowych umiejętności. |
+| caseSensitive | Obowiązkowe Wartością domyślną jest false. Wartość logiczna określająca, czy porównania z nazwą jednostki powinny być poufne dla wielkości liter. Przykładowe dopasowania bez uwzględniania wielkości liter "Microsoft" mogą być następujące: Microsoft, microSoft, MICROSOFT |
+| fuzzyEditDistance | Obowiązkowe Wartość domyślna to 0. Maksymalna wartość 5. Oznacza akceptowalną liczbę rozbieżnych znaków, które w dalszym ciągu stanowią dopasowanie do nazwy jednostki. Zostanie zwrócona najmniejsza możliwa rozmycia dla danego dopasowania.  Na przykład jeśli dla opcji Edytuj odległość wybrano wartość 3, w systemie Windows 10 nadal będzie pasować "Windows", "Windows10" i "Windows 7". <br/> Gdy ustawienie czułości przypadku ma wartość FAŁSZ, różnice wielkości liter nie są wliczane do tolerancji rozmycia, ale w przeciwnym razie. |
+| defaultCaseSensitive | Obowiązkowe Zmienia domyślną wartość wielkości liter dla tej jednostki. Służy do zmiany wartości domyślnej wszystkich aliasów caseSensitive wartości. |
+| defaultFuzzyEditDistance | Obowiązkowe Zmienia domyślną wartość w postaci rozmytej edycji dla tej jednostki. Może służyć do zmiany wartości domyślnej wszystkich aliasów fuzzyEditDistance wartości. |
+| aliasy | Obowiązkowe Tablica obiektów złożonych, która może służyć do określania alternatywnych pisowni lub synonimów nazwy jednostki głównej. |
 
 | Właściwości aliasu | Opis |
 |------------------|-------------|
-| tekst  | Alternatywna pisownia lub reprezentacja nazwy niektórych encji docelowej.  |
-| Casesensitive | (Opcjonalnie) Działa tak samo jak jednostka główna "caseSensitive" parametr powyżej, ale ma zastosowanie tylko do tego aliasu. |
-| fuzzyEditDistance | (Opcjonalnie) Działa tak samo jak jednostka główna "fuzzyEditDistance" parametr powyżej, ale ma zastosowanie tylko do tego aliasu. |
+| tekst  | Alternatywna pisownia lub reprezentacja nazwy jednostki docelowej.  |
+| caseSensitive | Obowiązkowe Działa tak samo jak parametr "caseSensitive" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
+| fuzzyEditDistance | Obowiązkowe Działa tak samo jak parametr "fuzzyEditDistance" jednostki głównej powyżej, ale ma zastosowanie tylko do tego jednego aliasu. |
 
 
 ### <a name="inline-format"></a>Format wbudowany
 
-W niektórych przypadkach może być bardziej wygodne, aby zapewnić listę niestandardowych jednostek, aby dopasować wbudowane bezpośrednio do definicji umiejętności. W takim przypadku można użyć podobnego formatu JSON do opisanego powyżej, ale jest on inlined w definicji umiejętności.
-Tylko konfiguracje o rozmiarze mniejszym niż 10 KB (rozmiar serializowany) można zdefiniować w linii. 
+W niektórych przypadkach może być wygodniejsze udostępnienie listy jednostek niestandardowych do dopasowania bezpośrednio do definicji umiejętności. W takim przypadku można użyć podobnego formatu JSON do opisanego powyżej, ale jest on zawarty w definicji umiejętności.
+W tekście można zdefiniować tylko konfiguracje o rozmiarze mniejszym niż 10 KB (rozmiar serializowany). 
 
-##    <a name="sample-definition"></a>Przykładowa definicja
+##    <a name="sample-definition"></a>Definicja Przykładowa
 
-Poniżej przedstawiono przykładową definicję umiejętności przy użyciu formatu wbudowanego:
+Poniżej przedstawiono przykładową definicję umiejętności korzystającą z formatu śródwierszowego:
 
 ```json
   {
@@ -208,7 +208,7 @@ Poniżej przedstawiono przykładową definicję umiejętności przy użyciu form
     ]
   }
 ```
-Alternatywnie, jeśli zdecydujesz się podać wskaźnik do pliku definicji jednostek, przykładowa definicja umiejętności przy użyciu formatu entitiesDefinitionUri jest pokazana poniżej:
+Alternatywnie, jeśli zdecydujesz się dostarczyć wskaźnik do pliku definicji jednostek, poniżej przedstawiono przykładową definicję umiejętności przy użyciu formatu entitiesDefinitionUri:
 
 ```json
   {
@@ -298,12 +298,12 @@ Alternatywnie, jeśli zdecydujesz się podać wskaźnik do pliku definicji jedno
 
 ## <a name="errors-and-warnings"></a>Błędy i ostrzeżenia
 
-### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Ostrzeżenie: Osiągnięto maksymalną pojemność meczów, pomijając wszystkie dalsze zduplikowane dopasowania.
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Ostrzeżenie: osiągnięto maksymalną pojemność dla dopasowań, pomija wszystkie dalsze zduplikowane dopasowania.
 
-To ostrzeżenie zostanie wyemitowane, jeśli liczba wykrytych dopasowań jest większa niż maksymalna dozwolona. W takim przypadku przestaniemy uwzględniać zduplikowane dopasowania. Jeśli jest to dla Ciebie nie do przyjęcia, zgłać [bilet pomocy technicznej,](https://ms.portal.azure.com/#create/Microsoft.Support) abyśmy mogli ci pomóc w indywidualnym przypadku użycia.
+To ostrzeżenie będzie emitowane, jeśli liczba wykrytych dopasowań jest większa niż maksymalna dozwolona wartość. W takim przypadku będziemy przestać uwzględniać zduplikowane dopasowania. Jeśli nie możesz tego zrobić, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby mogliśmy pomóc Ci w poszczególnym przypadku użycia.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
-+ [Jak zdefiniować zestaw umiejętności](cognitive-search-defining-skillset.md)
-+ [Umiejętność rozpoznawania encji (wyszukiwanie dobrze znanych jednostek)](cognitive-search-skill-entity-recognition.md)
++ [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
++ [Umiejętność rozpoznawania jednostek (do wyszukiwania dobrze znanych jednostek)](cognitive-search-skill-entity-recognition.md)

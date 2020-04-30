@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
 ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82114568"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
@@ -73,7 +73,7 @@ Aby skonfigurować nowy projekt Azure Migrate:
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz opcję **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena** > serwera**dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
@@ -103,13 +103,13 @@ Zbierz dane serwera i Dodaj je do pliku CSV.
 
 Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
-**Nazwa pola** | **Obowiązkowy** | **Uzyskać**
+**Nazwa pola** | **Obowiązkowy** | **Szczegóły**
 --- | --- | ---
-**Nazwa serwera** | Yes | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
+**Nazwa serwera** | Tak | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
-**Rdzenie** | Yes | Liczba rdzeni procesora przypisanych do serwera.
-**Rozmiar** | Yes | Całkowita ilość pamięci RAM w MB przypisana do serwera.
-**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
+**Rdzenie** | Tak | Liczba rdzeni procesora przypisanych do serwera.
+**Rozmiar** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
+**Nazwa systemu operacyjnego** | Tak | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
 **Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegółowe szczegóły dysku.
 **Rozmiar dysku 1**  | Nie | Maksymalny rozmiar dysku (w GB).<br/>Możesz dodać szczegóły do większej liczby dysków, [dodając kolumny](#add-multiple-disks) w szablonie. Można dodać maksymalnie osiem dysków.
@@ -178,7 +178,7 @@ Aby sprawdzić, czy serwery są wyświetlane w Azure Portal po przeprowadzeniu o
 
 Za pomocą oceny serwera można utworzyć dwa typy ocen.
 
-**Typ oceny** | **Uzyskać** | **Dane**
+**Typ oceny** | **Szczegóły** | **Dane**
 --- | --- | ---
 **Oparta na wydajności** | Oceny na podstawie określonych wartości danych wydajności. | **Zalecany rozmiar maszyny wirtualnej**: na podstawie danych użycia procesora CPU i pamięci.<br/><br/> **Zalecany typ dysku (dysk zarządzany w warstwie Standardowa lub Premium)**: na podstawie danych wejściowych/wyjściowych na sekundę (IOPS) i przepływności dysków lokalnych.
 **Jako lokalne** | Oceny oparte na wymiarach lokalnych. | **Zalecany rozmiar maszyny wirtualnej**: na podstawie określonego rozmiaru serwera.<br/><br> **Zalecany typ dysku**: na podstawie ustawienia typu magazynu, które można wybrać do oceny.
@@ -233,7 +233,7 @@ Ocena zawiera opis:
 
 ### <a name="review-cost-details"></a>Przejrzyj szczegóły kosztów
 
-Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Możesz:
+Ten widok przedstawia szacowany koszt obliczeń i magazynu dla uruchomionych maszyn wirtualnych na platformie Azure. Można:
 
 - Zapoznaj się z miesięcznymi kosztami obliczeniowymi i magazynem. Koszty są agregowane dla wszystkich serwerów w ocenianej grupie.
 
