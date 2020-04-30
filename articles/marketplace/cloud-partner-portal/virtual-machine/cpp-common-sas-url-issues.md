@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/27/2018
 ms.author: dsindona
 ms.openlocfilehash: 723762695d34380b7f237fa9082dc470dafcc8df
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147041"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Typowe problemy i poprawki dotyczące adresów URL sygnatury dostępu współdzielonego
@@ -21,7 +21,7 @@ ms.locfileid: "82147041"
 
 W poniższej tabeli przedstawiono niektóre typowe problemy występujące podczas pracy z sygnaturami dostępu współdzielonego (które są używane do identyfikowania i udostępniania przekazanych dysków VHD dla danego rozwiązania) wraz z sugerowanymi rozwiązaniami.
 
-| **Wykonaj** | **Komunikat o niepowodzeniu** | **Poprawka** | 
+| **Problem** | **Komunikat o niepowodzeniu** | **Poprawka** | 
 | --------- | ------------------- | ------- | 
 | &emsp;  *Błąd podczas kopiowania obrazów* |  |  |
 | nie znaleziono "?" w adresie URL sygnatury dostępu współdzielonego | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Zaktualizuj adres URL sygnatury dostępu współdzielonego za pomocą zalecanych narzędzi. |

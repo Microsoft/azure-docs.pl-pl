@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: 1dd20d94737df3e799876323d2aeb555dcb9a381
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146812"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: korzystanie z interfejsu wiersza polecenia platformy Azure, AZ Postgres up (wersja zapoznawcza) w celu utworzenia Azure Database for PostgreSQL-pojedynczego serwera
@@ -65,7 +65,7 @@ geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera p
 location | westus2 | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Disabled (Wyłączony) | Czy na tym serwerze powinien być włączony protokół TLS/SSL.
 storage-size | 5120 | Pojemność magazynu serwera (w megabajtach).
-version | 10 | Wersja główna PostgreSQL.
+Wersja | 10 | Wersja główna PostgreSQL.
 admin-user | Wygenerowano system | Nazwa użytkownika administratora.
 admin-password | Wygenerowano system | Hasło użytkownika administratora.
 

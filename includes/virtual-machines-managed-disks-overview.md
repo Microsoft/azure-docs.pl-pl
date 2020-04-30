@@ -9,10 +9,10 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82147767"
 ---
 ## <a name="benefits-of-managed-disks"></a>Zalety dysków zarządzanych

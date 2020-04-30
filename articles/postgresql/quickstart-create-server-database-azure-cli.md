@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
 ms.openlocfilehash: de46eeb20f3c99eb7a459965d17e2dd55728a9db
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146659"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for PostgreSQL-pojedynczego przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -60,7 +60,7 @@ geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera p
 location | westus | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Enabled (Włączony) | Czy na tym serwerze powinien być włączony protokół TLS/SSL. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).
 storage-size | 51200 | Pojemność magazynu serwera (w megabajtach). Rozmiar magazynu powinien wynosić co najmniej 5120 MB i można go zwiększać o wielokrotność 1024 MB. Zobacz dokument dotyczący [warstw cenowych](./concepts-pricing-tiers.md), aby uzyskać więcej informacji na temat limitu rozmiaru magazynu. 
-version | 9.6 | Wersja główna PostgreSQL.
+Wersja | 9.6 | Wersja główna PostgreSQL.
 admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
 admin-password | *bezpieczne hasło* | Hasło użytkownika administratora. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 

@@ -13,10 +13,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82159339"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Przechwytywanie danych Event Hubs w usłudze Azure Storage i odczytywanie ich przy użyciu języka Python (Azure-eventhub w wersji 5)

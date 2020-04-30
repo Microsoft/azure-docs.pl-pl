@@ -1,16 +1,16 @@
 ---
-title: Usuwanie dostępu do delegowania
+title: Usuwanie dostępu do delegacji
 description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały delegowane do dostawcy usług w celu zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: d0db809eb057f8b4bb48bdf9dd127f4d488f0406
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82149452"
 ---
-# <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegowania
+# <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegacji
 
 Po oddelegowaniu subskrypcji lub grupy zasobów klienta do dostawcy usług w celu [zarządzania zasobami delegowanymi przez platformę Azure](../concepts/azure-delegated-resource-management.md)delegowanie można usunąć w razie potrzeby. Po usunięciu delegowania dostęp uzyskany wcześniej do użytkowników w dzierżawie dostawcy usług nie będzie już stosowany.
 

@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146793"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
@@ -70,12 +70,12 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
 
    | Właściwość | Wymagany | Wartość | Opis |
    | -------- | -------- | ----- | ----------- |
-   | **Nazwa połączenia** | Yes | <*Nazwa połączenia*> | Nazwa, która ma być używany dla połączenia |
-   | **Folder główny** | Yes | <*Nazwa folderu głównego*> | Folder główny systemu plików, na przykład jeśli zainstalowano lokalną bramę danych, taką jak folder lokalny na komputerze, na którym jest zainstalowana lokalna Brama danych lub folder udziału sieciowego, do którego komputer ma dostęp. <p>Na przykład: `\\PublicShare\\DropboxFiles` <p>Folder główny jest głównym folderem nadrzędnym, który jest używany dla ścieżek względnych dla wszystkich akcji związanych z plikami. |
+   | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa, która ma być używany dla połączenia |
+   | **Folder główny** | Tak | <*Nazwa folderu głównego*> | Folder główny systemu plików, na przykład jeśli zainstalowano lokalną bramę danych, taką jak folder lokalny na komputerze, na którym jest zainstalowana lokalna Brama danych lub folder udziału sieciowego, do którego komputer ma dostęp. <p>Na przykład: `\\PublicShare\\DropboxFiles` <p>Folder główny jest głównym folderem nadrzędnym, który jest używany dla ścieżek względnych dla wszystkich akcji związanych z plikami. |
    | **Typ uwierzytelniania** | Nie | <*Typ uwierzytelniania*> | Typ uwierzytelniania używany przez system plików: **Windows** |
-   | **Uż** | Yes | <*domain*>\\<*Nazwa użytkownika* domeny> | Nazwa użytkownika komputera, na którym znajduje się system plików |
-   | **Hasło** | Yes | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
-   | **punkt** | Yes | <*Instalacja bramy — nazwa*> | Nazwa zainstalowanej wcześniej bramy |
+   | **Uż** | Tak | <*domain*>\\<*Nazwa użytkownika* domeny> | Nazwa użytkownika komputera, na którym znajduje się system plików |
+   | **Hasło** | Tak | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
+   | **punkt** | Tak | <*Instalacja bramy — nazwa*> | Nazwa zainstalowanej wcześniej bramy |
    |||||
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: d6d2306dfd44bad6e1f903c3cef3eeb4993f4cd9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148040"
 ---
 # <a name="iot-edge-module-offer-settings-tab"></a>Karta Ustawienia oferty modułu IoT Edge
@@ -31,7 +31,7 @@ W obszarze **tożsamość oferty**musisz podać informacje dotyczące pól opisa
 |  **Pole**       |     **Opis**                                                          |
 |  ---------       |     ---------------                                                          |
 | **Identyfikator oferty\***       | Unikatowy identyfikator (w ramach profilu wydawcy) oferty. Ten identyfikator będzie widoczny w raportach dotyczących adresów URL produktów i szczegółowych informacji. Ma maksymalną długość 50 znaków i może zawierać małe litery alfanumeryczne i kreski (-). (Identyfikator nie może kończyć się znakiem kreski). **Uwaga:** Nie można zmienić tego pola po zakończeniu oferty. <br> Na przykład jeśli firma Contoso publikuje ofertę z IDENTYFIKATORem oferty **przykładem — IoT-Edge-module**, przypiszesz adres URL `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-iot-edge-module?tab=Overview`witryny Azure Marketplace. |
-| **Dawc\***     | Unikatowy identyfikator organizacji w witrynie Azure Marketplace. Wszystkie oferty powinny być skojarzone z IDENTYFIKATORem wydawcy. Tej wartości nie można zmienić po zapisaniu oferty. |
+| **Wydawca\***     | Unikatowy identyfikator organizacji w witrynie Azure Marketplace. Wszystkie oferty powinny być skojarzone z IDENTYFIKATORem wydawcy. Tej wartości nie można zmienić po zapisaniu oferty. |
 | **Nazwa\***          | Nazwa wyświetlana oferty. Ta nazwa jest wyświetlana w portalu Azure Marketplace i w portal Cloud Partner. Może zawierać maksymalnie 50 znaków. Zalecamy użycie rozpoznawalnej nazwy marki dla produktu. Nie dołączaj nazwy organizacji, chyba że jest to produkt sprzedawany na rynku. W przypadku wprowadzania tej oferty w innych witrynach sieci Web i publikacjach upewnij się, że nazwa jest dokładnie taka sama dla wszystkich publikacji. |
 |  |  |
 

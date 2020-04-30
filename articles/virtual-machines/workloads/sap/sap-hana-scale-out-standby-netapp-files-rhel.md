@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4c86d7c84ba5d7692e010ad95f258b67aa7dcfac
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147643"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Wdróż system SAP HANA skalowalny w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure przy użyciu Azure NetApp Files na Red Hat Enterprise Linux 
@@ -233,7 +233,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
 
    b. Wybierz zestaw dostępności utworzony wcześniej dla SAP HANA.  
 
-   d. Wybierz podsieć sieci wirtualnej platformy Azure. Wybierz opcję [przyspieszone sieci](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Wybierz podsieć sieci wirtualnej platformy Azure. Wybierz opcję [przyspieszone sieci](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
 
    Podczas wdrażania maszyn wirtualnych nazwa interfejsu sieciowego jest generowana automatycznie. W tych instrukcjach dla uproszczenia będziemy odnosić się do automatycznie generowanych interfejsów sieciowych dołączonych do podsieci sieci wirtualnej klienta platformy Azure, jako **hanadb1-Client**, **hanadb2-Client**i **hanadb3-Client**. 
 
@@ -247,7 +247,7 @@ W następnych instrukcjach przyjęto założenie, że utworzono już grupę zaso
 
     b. W lewym okienku wybierz pozycję **Virtual Machines**. Odfiltruj nazwę maszyny wirtualnej (na przykład **hanadb1**), a następnie wybierz maszynę wirtualną.  
 
-    d. W okienku **Przegląd** wybierz pozycję **Zatrzymaj** , aby cofnąć przydział maszyny wirtualnej.  
+    c. W okienku **Przegląd** wybierz pozycję **Zatrzymaj** , aby cofnąć przydział maszyny wirtualnej.  
 
     d. Wybierz pozycję **Sieć**, a następnie Dołącz interfejs sieciowy. Z listy rozwijanej **Dołącz interfejs sieciowy** wybierz już utworzone interfejsy sieciowe dla podsieci `storage` i. `hana`  
     
@@ -757,7 +757,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
     echo b > /proc/sysrq-trigger
    </code></pre>
 
-   d. Monitoruj system do ukończenia pracy w trybie failover. Po zakończeniu pracy w trybie failover Przechwyć stan, który powinien wyglądać następująco:  
+   c. Monitoruj system do ukończenia pracy w trybie failover. Po zakończeniu pracy w trybie failover Przechwyć stan, który powinien wyglądać następująco:  
 
     <pre><code>
     # Check the instance status
@@ -834,7 +834,7 @@ W tym przykładzie w celu wdrożenia SAP HANA w konfiguracji skalowania w poziom
      | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
     </code></pre>
 
-   d. Uruchom ponownie wystąpienie platformy HANA w systemie **hanadb1** (czyli na tej samej maszynie wirtualnej, na której serwer nazw został zamknięty). Węzeł **hanadb1** ponownie przywróci środowisko i zachowa jego rolę w stanie wstrzymania.  
+   c. Uruchom ponownie wystąpienie platformy HANA w systemie **hanadb1** (czyli na tej samej maszynie wirtualnej, na której serwer nazw został zamknięty). Węzeł **hanadb1** ponownie przywróci środowisko i zachowa jego rolę w stanie wstrzymania.  
 
    <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start

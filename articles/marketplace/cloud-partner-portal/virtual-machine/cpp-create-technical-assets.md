@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
 ms.openlocfilehash: c6ca017e18a83f0745140cba15d9c894e5a21c32
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148134"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Utwórz zasoby techniczne dla oferty maszyny wirtualnej

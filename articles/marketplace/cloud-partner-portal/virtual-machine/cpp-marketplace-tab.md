@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146854"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Karta Marketplace maszyny wirtualnej
@@ -31,7 +31,7 @@ W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola
 
 |  **Pole**                |     **Opis**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Tytuł\***                 | Tytuł oferty, często długi, formalna nazwa. Ten tytuł zostanie wyświetlony w widocznym miejscu w portalu Marketplace.  Maksymalna długość 50 znaków. |
+| **Tytuły\***                 | Tytuł oferty, często długi, formalna nazwa. Ten tytuł zostanie wyświetlony w widocznym miejscu w portalu Marketplace.  Maksymalna długość 50 znaków. |
 | **Podsumowanie\***               | Krótki cel lub funkcja rozwiązania.  Maksymalna długość 100 znaków. |
 | **Długie podsumowanie\***          | Cel lub funkcja rozwiązania.  Maksymalna długość 256 znaków. |
 | **Opis\***           | Opis rozwiązania.  Maksymalna długość 3000 znaków, obsługuje proste formatowanie HTML. |
@@ -61,10 +61,10 @@ W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola
 | **Hero**                  | Mapa bitowa 815x290.  Opcjonalne, ale nie można usunąć ikony Hero. |
 | *Zrzuty ekranu*  | Opcjonalne, ale maksymalnie pięć zrzutów ekranu na jednostkę SKU. |
 | **Nazwa**                  | Nazwa lub tytuł <!-- TODO - max char length? none specified in UI -->                               |
-| **Image (Obraz)**                 | Obraz przechwytywania ekranu, 533x324 piksel                                         |
+| **Obraz**                 | Obraz przechwytywania ekranu, 533x324 piksel                                         |
 | *Filmy wideo*  |  |
 | **Nazwa**                  | Nazwa lub tytuł  <!-- TODO - max char length? -->                              |
-| **Powiązań**                  | Adres URL wideo, hostowany w serwisie YouTube lub Vimeo                                        |
+| **Łącze**                  | Adres URL wideo, hostowany w serwisie YouTube lub Vimeo                                        |
 | **Miniaturk**             | Mapa bitowa 533x324                                                               |
 |   |   |
 

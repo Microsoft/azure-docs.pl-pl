@@ -4,10 +4,10 @@ description: Dowiedz się, jak opublikować ofertę usługi zarządzanej, która
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146738"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace
@@ -65,7 +65,7 @@ Wykonaj następujące sekcje w sekcji **szczegóły planu** :
 
 |Pole  |Opis  |
 |---------|---------|
-|**Tytuł**     | Przyjazna nazwa planu do wyświetlenia. Maksymalna długość 50 znaków.        |
+|**Tytuły**     | Przyjazna nazwa planu do wyświetlenia. Maksymalna długość 50 znaków.        |
 |**Podsumowanie**     | Zwięzły opis planu, który ma być wyświetlany pod tytułem. Maksymalna długość 100 znaków.        |
 |**Opis**     | Tekst opisu, który zawiera bardziej szczegółowy opis planu.         |
 |**Model rozliczania**     | W tym miejscu są wyświetlane 2 modele rozliczeń, ale należy wybrać **Bring Your Own License** dla ofert usług zarządzanych. Oznacza to, że klienci będą rozliczani bezpośrednio za koszty związane z tą ofertą, a firma Microsoft nie nalicza opłat za Ciebie.   |
@@ -112,7 +112,7 @@ Wykonaj następujące pola w sekcji **Przegląd** :
 
 |Pole  |Opis  |
 |---------|---------|
-|**Tytuł**     |  Tytuł oferty, często długi, formalna nazwa. Ten tytuł zostanie wyświetlony w widocznym miejscu w portalu Marketplace. Maksymalna długość 50 znaków. W większości przypadków powinna być taka sama jak **Nazwa** wprowadzona w sekcji **Ustawienia oferty** .       |
+|**Tytuły**     |  Tytuł oferty, często długi, formalna nazwa. Ten tytuł zostanie wyświetlony w widocznym miejscu w portalu Marketplace. Maksymalna długość 50 znaków. W większości przypadków powinna być taka sama jak **Nazwa** wprowadzona w sekcji **Ustawienia oferty** .       |
 |**Podsumowanie**     | Krótki cel lub funkcja oferty. Jest to zwykle wyświetlane pod tytułem. Maksymalna długość 100 znaków.        |
 |**Długie podsumowanie**     | Dłuższe podsumowanie przeznaczenia lub funkcji oferty. Maksymalna długość 256 znaków.        |
 |**Opis**     | Więcej informacji o ofercie. To pole ma maksymalną długość 3000 znaków i obsługuje proste formatowanie HTML. W opisie należy uwzględnić słowa "usługa zarządzana" lub "zarządzane usługi".       |

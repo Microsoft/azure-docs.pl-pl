@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
 ms.openlocfilehash: 724c2ffebd34b838c19f3296363c38c83e142b96
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148234"
 ---
 # <a name="container-marketplace-tab"></a>Karta witryna Marketplace kontenera
@@ -31,7 +31,7 @@ W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola
 
 |    Pole                  |       Opis                                                            |
 |  ---------                |     ---------------                                                          |
-| **Tytuł\***                 | Tytuł oferty. Zostanie ona wyświetlona w widocznym miejscu w portalu Marketplace.  Maksymalna długość to 50 znaków. |
+| **Tytuły\***                 | Tytuł oferty. Zostanie ona wyświetlona w widocznym miejscu w portalu Marketplace.  Maksymalna długość to 50 znaków. |
 | **Podsumowanie\***               | Krótkie podsumowanie oferty. Maksymalna długość to 100 znaków. |
 | **Długie podsumowanie\***          | Dłuższe podsumowanie oferty (chociaż może być takie samo, jak w przypadku **podsumowania**).  Maksymalna długość to 256 znaków. |
 | **Opis\***           | Opis oferty.  Maksymalna długość to 3000 znaków, obsługuje proste formatowanie HTML.

@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 3311d1143c0eca0c2b57e89e98dc22ab14fd9308
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82147723"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Szybki Start: Tworzenie zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps — Visual Studio
@@ -83,11 +83,11 @@ Aby rozpocząć, utwórz [projekt grupy zasobów platformy Azure](../azure-resou
 
    Jeśli używasz programu Visual Studio 2019, wykonaj następujące kroki:
 
-   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz opcję **Dalej**.
+   1. W polu **Utwórz nowy projekt** wybierz projekt **Grupa zasobów platformy Azure** dla programu Visual C# lub Visual Basic. Wybierz pozycję **Dalej**.
 
-   1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz pozycję **Utwórz**.
+   1. Podaj nazwę grupy zasobów platformy Azure, której chcesz użyć, i inne informacje o projekcie. Wybierz przycisk **Utwórz**.
 
-1. Z listy szablon wybierz szablon **aplikacji logiki** . Kliknij przycisk **OK**.
+1. Z listy szablon wybierz szablon **aplikacji logiki** . Wybierz przycisk **OK**.
 
    ![Wybieranie szablonu aplikacji logiki](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 

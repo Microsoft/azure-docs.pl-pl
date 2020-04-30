@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
 ms.openlocfilehash: 51607f44f75cbd93c7ecf1c77bb52c73b27b5f3c
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82159749"
 ---
 # <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Wdrażanie niestandardowego kontenera systemu Linux w celu Azure App Service
@@ -31,7 +31,7 @@ Aby ukończyć ten przewodnik Szybki Start, potrzebny będzie odpowiedni obraz a
 > [!IMPORTANT]
 > Należy pamiętać o ustawieniu opcji **użytkownik administrator** , aby **włączyć** ją podczas tworzenia rejestru kontenerów. Można również ustawić ją z sekcji **klucze dostępu** na stronie rejestru w Azure Portal. To ustawienie jest wymagane do App Service dostępu.
 
-## <a name="sign-in"></a>Logowanie
+## <a name="sign-in"></a>Zaloguj się
 
 Następnie uruchom VS Code i zaloguj się do konta platformy Azure przy użyciu rozszerzenia App Service. W tym celu wybierz logo platformy Azure na pasku działania, przejdź do Eksploratora **usługi App Service** , a następnie wybierz pozycję **Zaloguj się do platformy Azure** i postępuj zgodnie z instrukcjami.
 

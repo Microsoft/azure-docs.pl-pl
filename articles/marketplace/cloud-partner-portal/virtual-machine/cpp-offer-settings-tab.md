@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: abeadf5f3c0a19212a12256e06602e840c9d1fa9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146829"
 ---
 # <a name="virtual-machine-offer-settings-tab"></a>Karta Ustawienia oferty maszyny wirtualnej
@@ -31,7 +31,7 @@ Na karcie **Ustawienia oferty** musisz podać następujące pola.  Dołączona g
 |  **Pole**       |     **Opis**                                                          |
 |  ---------       |     ---------------                                                          |
 | **Identyfikator oferty\***   | Unikatowy identyfikator (w ramach profilu wydawcy) oferty. Ten identyfikator będzie widoczny w adresach URL produktów, szablonach Azure Resource Manager i raportach dotyczących rozliczeń. Ma maksymalną długość 50 znaków, może składać się tylko z małych znaków alfanumerycznych i kresek (-), ale nie może kończyć się znakiem kreski. Nie można zmienić tego pola po zakończeniu oferty. <br> Na przykład jeśli firma Contoso publikuje ofertę z IDENTYFIKATORem oferty **przykładem-VM**, przypiszesz adres URL `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview` witryny Azure Marketplace. |
-| **Dawc\***  | Unikatowy identyfikator organizacji w witrynie Azure Marketplace. Wszystkie oferty powinny być skojarzone z IDENTYFIKATORem wydawcy. Nie można zmodyfikować tej wartości po zapisaniu oferty. |
+| **Wydawca\***  | Unikatowy identyfikator organizacji w witrynie Azure Marketplace. Wszystkie oferty powinny być skojarzone z IDENTYFIKATORem wydawcy. Nie można zmodyfikować tej wartości po zapisaniu oferty. |
 | **Nazwa\***       | Nazwa wyświetlana oferty. Ta nazwa będzie wyświetlana w witrynie Azure Marketplace i w portal Cloud Partner. Może zawierać maksymalnie 50 znaków. Wskazówki tutaj zawierają rozpoznawalną nazwę marki dla danego produktu. Nie dodawaj tutaj nazwy organizacji, chyba że jest to marketingowe. W przypadku wprowadzania tej oferty w innych witrynach sieci Web i publikacjach upewnij się, że nazwa jest dokładnie taka sama dla wszystkich publikacji. |
 |   |   |
  

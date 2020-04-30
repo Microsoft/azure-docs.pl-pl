@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
 ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146722"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Samouczek: Automatyzowanie zadań do przetwarzania wiadomości e-mail przy użyciu Azure Logic Apps, Azure Functions i usługi Azure Storage
@@ -146,7 +146,7 @@ Teraz użyj fragmentu kodu zapewnionego przez te kroki, aby utworzyć funkcję p
    | **Nazwa aplikacji** | <*Function-App-Name*> | Nazwa aplikacji funkcji, która musi być globalnie unikatowa na platformie Azure. Ten przykład używa już "CleanTextFunctionApp", więc podaj inną nazwę, na przykład "MyCleanTextFunctionApp-<*nazwę*>" |
    | **Subskrypcja** | <*Twoja nazwa — subskrypcja — Azure*> | Ta sama subskrypcja platformy Azure, której użyto wcześniej |
    | **Grupa zasobów** | LA-Tutorial-RG | Ta sama grupa zasobów platformy Azure, której użyto wcześniej |
-   | **System operacyjny** | <*system operacyjny*> | Wybierz system operacyjny, który obsługuje ulubiony język programowania funkcji. Na potrzeby tego przykładu wybierz pozycję **Windows**. |
+   | **Macintosh** | <*system operacyjny*> | Wybierz system operacyjny, który obsługuje ulubiony język programowania funkcji. Na potrzeby tego przykładu wybierz pozycję **Windows**. |
    | **Plan hostingu** | Plan zużycia | To ustawienie określa sposób przydzielania i skalowania zasobów, takich jak moc obliczeniowa, na potrzeby uruchamiania aplikacji funkcji. Zobacz [Hosting plan comparison (Porównanie planów hostingu)](../azure-functions/functions-scale.md). |
    | **Lokalizacja** | Zachodnie stany USA | Ten sam region, którego użyto wcześniej |
    | **Stos środowiska uruchomieniowego** | Preferowany język | Wybierz środowisko uruchomieniowe, które obsługuje ulubiony język programowania funkcji. Wybierz pozycję **.NET** dla funkcji języka C# i języka F #. |
@@ -280,8 +280,8 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
       | Ustawienie | Wartość | Opis |
       | ------- | ----- | ----------- |
       | **Folder** | Skrzynka odbiorcza | Folder poczty e-mail do sprawdzania |
-      | **Zawiera załącznik** | Yes | Pobieraj tylko wiadomości e-mail z załącznikami. <p>**Uwaga:** wyzwalacz nie usuwa żadnych wiadomości e-mail z konta; sprawdza tylko nowe wiadomości i przetwarza tylko te wiadomości, które pasują do filtru tematu. |
-      | **Uwzględnij załączniki** | Yes | Pobieraj załączniki jako dane wejściowe dla przepływu pracy, zamiast tylko sprawdzać wiadomości pod kątem istnienia załączników. |
+      | **Zawiera załącznik** | Tak | Pobieraj tylko wiadomości e-mail z załącznikami. <p>**Uwaga:** wyzwalacz nie usuwa żadnych wiadomości e-mail z konta; sprawdza tylko nowe wiadomości i przetwarza tylko te wiadomości, które pasują do filtru tematu. |
+      | **Uwzględnij załączniki** | Tak | Pobieraj załączniki jako dane wejściowe dla przepływu pracy, zamiast tylko sprawdzać wiadomości pod kątem istnienia załączników. |
       | **Dat** | 1 | Liczba interwałów do odczekania między sprawdzaniami |
       | **Częstotliwość** | Minuta | Jednostka czasu dla każdego interwału między sprawdzaniami |
       ||||

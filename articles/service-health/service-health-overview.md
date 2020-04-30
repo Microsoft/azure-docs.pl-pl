@@ -4,10 +4,10 @@ description: Spersonalizowane informacje o tym, w jaki sposób aplikacje platfor
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146919"
 ---
 # <a name="service-health-overview"></a>Przegląd Service Health

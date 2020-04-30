@@ -9,10 +9,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82160021"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
@@ -182,14 +182,14 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|Aktualizacje agenta pulpitu wirtualnego systemu Windows|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Wiele sesji systemu Windows 10, wersja 1903|Yes|Yes|Yes|Yes|Automatyczny|
-|Wiele sesji systemu Windows 10, wersja 1809|Yes|Yes|Nie|Nie|Automatyczny|
-|Windows 10 Enterprise, wersja 1903|Yes|Yes|Yes|Yes|Automatyczny|
-|Windows 10 Enterprise, wersja 1809|Yes|Yes|Nie|Nie|Automatyczny|
-|Windows 7 Enterprise|Yes|Yes|Nie|Nie|Ręcznie|
-|Windows Server 2019|Yes|Yes|Nie|Nie|Automatyczny|
-|Windows Server 2016|Yes|Yes|Yes|Yes|Automatyczny|
-|Windows Server 2012 R2|Yes|Yes|Nie|Nie|Automatyczny|
+|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
+|Wiele sesji systemu Windows 10, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
+|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
+|Windows 10 Enterprise, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
+|Windows 7 Enterprise|Tak|Tak|Nie|Nie|Ręcznie|
+|Windows Server 2019|Tak|Tak|Nie|Nie|Automatyczny|
+|Windows Server 2016|Tak|Tak|Tak|Tak|Automatyczny|
+|Windows Server 2012 R2|Tak|Tak|Nie|Nie|Automatyczny|
 
 ## <a name="next-steps"></a>Następne kroki
 
