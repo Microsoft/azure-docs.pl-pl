@@ -1,5 +1,5 @@
 ---
-title: Szybki start — tworzenie obiektu blob za pomocą witryny Azure portal
+title: Szybki Start — Tworzenie obiektu BLOB przy użyciu Azure Portal
 titleSuffix: Azure Storage
 description: W tym przewodniku Szybki start witryna Azure Portal jest używana w ramach magazynu obiektów (blob). Następnie przy użyciu witryny Azure Portal przekażesz obiekt blob do usługi Azure Storage, pobierzesz obiekt blob i wyświetlisz obiekty blob w kontenerze.
 services: storage
@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
 ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535177"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Szybki start: przekazywanie, pobieranie i wyświetlanie listy obiektów blob za pomocą witryny Azure Portal
@@ -29,7 +29,7 @@ Dzięki temu przewodnikowi Szybki start dowiesz się, w jaki sposób za pomocą 
 Aby utworzyć kontener w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do swojego nowego konta magazynu.
-2. W menu po lewej stronie konta magazynu przewiń do sekcji **usługi obiektów Blob,** a następnie wybierz pozycję **Kontenery**.
+2. W menu po lewej stronie konta magazynu przewiń do sekcji **BLOB Service** , a następnie wybierz pozycję **Containers (kontenery**).
 3. Wybierz przycisk **+ Kontener**.
 4. Wpisz nazwę nowego kontenera. Nazwa kontenera musi być zapisana małymi literami, zaczynać się literą lub cyfrą i może zawierać tylko litery, cyfry i znak kreski (-). Aby uzyskać dodatkowe informacje o regułach nazewnictwa kontenerów i obiektów blob, zobacz [Nazewnictwo i odwołania do kontenerów, obiektów blob i metadanych](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 5. Ustaw poziom dostępu publicznego do kontenera. Domyślny poziom to **Prywatny (bez dostępu anonimowego)**.
@@ -44,12 +44,12 @@ Blokowe obiekty blob składają się z bloków danych złożonych w celu utworze
 Aby przekazać blokowy obiekt blob do nowego kontenera w witrynie Azure Portal, wykonaj następujące kroki:
 
 1. W witrynie Azure Portal przejdź do kontenera utworzonego w poprzedniej sekcji.
-1. Wybierz kontener, aby wyświetlić listę obiektów blob, które zawiera. Ten kontener jest nowy, więc nie będzie jeszcze zawierać żadnych obiektów blob.
-1. Wybierz przycisk **Przekaż,** aby otworzyć blok przekazywania i przejrzyj lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt blob. Opcjonalnie można rozwinąć sekcję zaawansowaną, aby skonfigurować inne ustawienia dla operacji przekazywania.
+1. Wybierz kontener, aby wyświetlić listę obiektów blob, które zawiera. Ten kontener jest nowy, więc nie zawiera jeszcze żadnych obiektów BLOB.
+1. Wybierz przycisk **Przekaż** , aby otworzyć blok przekazywanie i przeglądać lokalny system plików, aby znaleźć plik do przekazania jako blokowy obiekt BLOB. Opcjonalnie można rozwinąć sekcję Zaawansowane, aby skonfigurować inne ustawienia dla operacji przekazywania.
 
     ![Zrzut ekranu pokazujący sposób przekazywania obiektu blob z dysku lokalnego](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-1. Wybierz przycisk **Przekaż,** aby przekazać obiekt blob.
+1. Wybierz przycisk **Przekaż** , aby przekazać obiekt BLOB.
 1. Przekaż w ten sposób dowolną liczbę obiektów blob. Nowe obiekty blob zostaną wyświetlone w kontenerze.
 
 ## <a name="download-a-block-blob"></a>Pobieranie blokowego obiektu blob
