@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
 ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115962"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
@@ -34,7 +34,7 @@ Możliwości RDMA lub GPU o rozmiarach intensywnie korzystających z obliczeń w
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pule systemu Linux — konfiguracja maszyny wirtualnej
 
-| Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
+| Rozmiar | Możliwość | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | Dostęp RDMA | Ubuntu 16,04 LTS, lub<br/>CentOS HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Sterowniki RDMA systemu Linux | Włącz komunikację między węzłami, wyłącz współbieżne wykonywanie zadań |
 | [NC, NCv2, Seria NCV3, Seria NDv2](../virtual-machines/linux/n-series-driver-setup.md) | Procesor GPU NVIDIA Tesla (w zależności od serii) | Ubuntu 16,04 LTS, lub<br/>CentOS 7,3 lub 7,4<br/>(Azure Marketplace) | Sterowniki NVIDIA CUDA lub CUDA toolkit | Nie dotyczy | 
@@ -44,7 +44,7 @@ Możliwości RDMA lub GPU o rozmiarach intensywnie korzystających z obliczeń w
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pule systemu Windows — konfiguracja maszyny wirtualnej
 
-| Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
+| Rozmiar | Możliwość | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | Dostęp RDMA | Windows Server 2016, 2012 R2 lub<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 lub nowszy lub<br/> Intel MPI 5<br/><br/>Sterowniki RDMA systemu Windows | Włącz komunikację między węzłami, wyłącz współbieżne wykonywanie zadań |
 | [NC, NCv2, Seria NCV3, ND, Seria NDv2](../virtual-machines/windows/n-series-driver-setup.md) | Procesor GPU NVIDIA Tesla (w zależności od serii) | Windows Server 2016 lub <br/>2012 R2 (Azure Marketplace) | Sterowniki NVIDIA CUDA lub CUDA toolkit| Nie dotyczy | 
@@ -58,7 +58,7 @@ Możliwości RDMA lub GPU o rozmiarach intensywnie korzystających z obliczeń w
 > Rozmiary serii N nie są obsługiwane w pulach usługi Batch z konfiguracją usług w chmurze.
 >
 
-| Rozmiar | Możliwości | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
+| Rozmiar | Możliwość | Systemy operacyjne | Wymagane oprogramowanie | Ustawienia puli |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | Dostęp RDMA | Windows Server 2016, 2012 R2, 2012 lub<br/>2008 R2 (Rodzina systemów operacyjnych gościa) | Microsoft MPI 2012 R2 lub nowszy lub<br/>Intel MPI 5<br/><br/>Sterowniki RDMA systemu Windows | Włącz komunikację między węzłami,<br/> Wyłącz współbieżne wykonywanie zadań |
 
@@ -101,12 +101,12 @@ Aby uruchamiać aplikacje CUDA w puli węzłów systemu Windows NC, należy zain
 | Ustawienie | Wartość |
 | ---- | ----- | 
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Dawc** | MicrosoftWindowsServer |
+| **Wydawca** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
 | **Magazyn** | 2016 — centrum danych |
 | **Rozmiar węzła** | Standard NC6 |
 | **Odwołania do pakietu aplikacji** | GPUDriver, wersja 411,82 |
-| **Uruchamianie zadania włączone** | True<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
+| **Uruchamianie zadania włączone** | Prawda<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Przykład: Sterowniki procesora GPU NVIDIA w puli maszyn wirtualnych z systemem Linux NC
 
@@ -143,7 +143,7 @@ Aby uruchamiać aplikacje MPI systemu Windows w puli węzłów maszyny wirtualne
 | **Obraz niestandardowy** | *Nazwa obrazu* |
 | **Jednostka SKU agenta węzła** | Batch. Node. Windows amd64 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | True |
+| **Komunikacja między węzłami włączona** | Prawda |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Przykład: Intel MPI w puli maszyn wirtualnych z systemem Linux H16r
@@ -155,11 +155,11 @@ Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę pr
 | Ustawienie | Wartość |
 | ---- | ---- |
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Dawc** | OpenLogic |
+| **Wydawca** | OpenLogic |
 | **Oferta** | CentOS — HPC |
 | **Magazyn** | 7.4 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | True |
+| **Komunikacja między węzłami włączona** | Prawda |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="next-steps"></a>Następne kroki

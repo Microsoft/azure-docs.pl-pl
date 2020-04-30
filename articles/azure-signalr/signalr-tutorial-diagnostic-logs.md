@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131009"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Dzienniki zasobów usługi Azure Signal Service
@@ -136,7 +136,7 @@ OperationName | Nazwa operacji dla zdarzenia
 Lokalizacja | Lokalizacja usługi Azure Signal
 Poziom | Poziom zdarzeń dziennika
 CallerIpAddress | Adres IP serwera/klienta
-Komunikat | Szczegółowy komunikat zdarzenia dziennika
+Wiadomość | Szczegółowy komunikat zdarzenia dziennika
 UserId | Tożsamość użytkownika
 ConnectionId | Tożsamość połączenia
 Element ConnectionType | Typ połączenia. Dozwolone wartości to: `Server` \| `Client`. `Server`: połączenie po stronie serwera; `Client`: połączenie po stronie klienta

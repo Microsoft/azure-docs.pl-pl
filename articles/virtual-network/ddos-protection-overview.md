@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: fc47e1f4fbdb48e6e0abc1f2a7e32127b0325f47
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130971"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection — Omówienie
@@ -29,8 +29,8 @@ Usługa Azure DDoS Protection, w połączeniu z najlepszymi rozwiązaniami dotyc
 
 |Funkcja                                         |DDoS Protection podstawowa                 |DDoS Protection Standard                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Monitorowanie aktywnego ruchu & zawsze włączone wykrywanie |Yes                                   |Yes                                           |
-|Automatyczne łagodzenie ataków                    |Yes                                   |Yes                                           |
+|Monitorowanie aktywnego ruchu & zawsze włączone wykrywanie |Tak                                   |Tak                                           |
+|Automatyczne łagodzenie ataków                    |Tak                                   |Tak                                           |
 |Gwarancja dostępności                          |Region świadczenia usługi Azure                          |Aplikacja                                   |
 |Zasady ograniczania                             |Dostrojony dla woluminu obszaru ruchu platformy Azure |Dostrojony dla woluminu ruchu aplikacji          |
 |Metryki & alerty                                |Nie                                    |Metryki ataku w czasie rzeczywistym & dzienników zasobów za pośrednictwem Azure Monitor                                 |

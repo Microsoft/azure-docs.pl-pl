@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: aschhab
 ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116693"
 ---
 # <a name="message-sessions"></a>Sesje komunikatów
@@ -88,7 +88,7 @@ Definicja liczby dostaw na komunikat w kontekście sesji różni się nieco od d
 
 | Scenariusz | Czy liczba dostaw komunikatów jest zwiększana |
 |----------|---------------------------------------------|
-| Sesja została zaakceptowana, ale blokada sesji wygasa (z powodu przekroczenia limitu czasu) | Yes |
+| Sesja została zaakceptowana, ale blokada sesji wygasa (z powodu przekroczenia limitu czasu) | Tak |
 | Sesja zostanie zaakceptowana, komunikaty w sesji nie są wykonywane (nawet jeśli są zablokowane), a sesja jest ZAMKNIĘTA | Nie |
 | Sesja została zaakceptowana, komunikaty są uzupełniane, a sesja jest jawnie ZAMKNIĘTA | Nie dotyczy (jest to standardowy przepływ. Komunikaty w tym miejscu są usuwane z sesji) |
 

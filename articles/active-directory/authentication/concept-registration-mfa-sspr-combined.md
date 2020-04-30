@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143920"
 ---
 # <a name="combined-security-information-registration-overview"></a>Przegląd rejestracji informacji o zabezpieczeniach
@@ -46,18 +46,18 @@ Moje strony profilów są zlokalizowane na podstawie ustawień języka komputera
 
 Rejestracja łączona obsługuje następujące metody uwierzytelniania i akcje:
 
-|   | Zarejestruj | Change | Usuń |
+|   | Zarejestruj | Change | Usuwanie |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Yes |
-| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Yes |
-| Token sprzętu | Nie | Nie | Yes |
-| Telefon | Yes | Yes | Yes |
-| Alternatywny numer telefonu | Yes | Yes | Yes |
+| Microsoft Authenticator | Tak (maksymalnie 5) | Nie | Tak |
+| Inna aplikacja uwierzytelniania | Tak (maksymalnie 5) | Nie | Tak |
+| Token sprzętu | Nie | Nie | Tak |
+| Telefon | Tak | Tak | Tak |
+| Alternatywny numer telefonu | Tak | Tak | Tak |
 | Telefon służbowy | Nie | Nie | Nie |
-| Poczta e-mail | Yes | Yes | Yes |
-| Pytania zabezpieczające | Yes | Nie | Yes |
-| Hasła aplikacji | Yes | Nie | Yes |
-| FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Yes | Yes | Yes |
+| Poczta e-mail | Tak | Tak | Tak |
+| Pytania zabezpieczające | Tak | Nie | Tak |
+| Hasła aplikacji | Tak | Nie | Tak |
+| FIDO2 klucze zabezpieczeń<br />*Tryb zarządzany tylko ze strony z [informacjami o zabezpieczeniach](https://mysignins.microsoft.com/security-info)*| Tak | Tak | Tak |
 
 > [!NOTE]
 > Hasła aplikacji są dostępne tylko dla użytkowników, którzy zostali wyegzekwowani dla Multi-Factor Authentication. Hasła aplikacji nie są dostępne dla użytkowników, którzy są włączeni do Multi-Factor Authentication za pomocą zasad dostępu warunkowego.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
 ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143210"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Tworzenie klienta samotestowego w celu wstępnego zweryfikowania obrazu maszyny wirtualnej platformy Azure
@@ -252,7 +252,7 @@ Wykonaj poniższe kroki, aby zarejestrować aplikację kliencką.
    - **Typ aplikacji** — wybierz pozycję **aplikacja sieci Web/interfejs API**
    - **Adres URL logowania** — typ "https:\//isvapp.azurewebsites.NET/SelfTest-VM"
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. W obszarze **rejestracje aplikacji** lub **zarejestrowanej aplikacji**Skopiuj **Identyfikator aplikacji**.
 
    ![Pobieranie identyfikatora aplikacji](./media/stclient-app-id.png)
@@ -271,8 +271,8 @@ Wykonaj poniższe kroki, aby zarejestrować aplikację kliencką.
 
     ![Włącz dostęp do interfejsu API dla aplikacji](./media/stclient-enable-api-access.png)
 
-14. Kliknij przycisk **Wybierz**.
-15. Wybierz pozycję **Done** (Gotowe).
+14. Kliknij pozycję **Wybierz**.
+15. Wybierz pozycję **Gotowe**.
 16. W obszarze **Ustawienia** wybierz pozycję **Właściwości**.
 17. W obszarze **Właściwości**przewiń w dół do pozycji **wiele dzierżawców**. Wybierz pozycję **tak**.
 

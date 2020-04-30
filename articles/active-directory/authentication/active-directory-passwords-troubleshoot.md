@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1224aef044c558147f4c7234f6514d0de2f09e0c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143993"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Troubleshoot self-service password reset (Rozwiązywanie problemów z samoobsługowym resetowaniem hasła)
@@ -25,7 +25,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Rozwiązywanie problemów z samoobsługowym resetowaniem haseł, które użytkownik może zobaczyć
 
-| Błąd | Szczegóły | Szczegóły techniczne |
+| Error | Szczegóły | Szczegóły techniczne |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Niestety, nie można teraz zresetować hasła, ponieważ administrator wyłączył Resetowanie hasła dla organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o włączenie tej funkcji. Aby dowiedzieć się więcej, zobacz [Pomoc I nie pamiętam hasła usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: wykryliśmy, że Resetowanie hasła nie zostało włączone przez administratora. Skontaktuj się z administratorem i poproś o włączenie resetowania hasła dla organizacji. |
 | WritebackNotEnabled = 10 |Niestety, nie można teraz zresetować hasła, ponieważ administrator nie włączył niezbędnej usługi dla Twojej organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o sprawdzenie konfiguracji swojej organizacji. Aby dowiedzieć się więcej na temat tej niezbędnej usługi, zobacz [Konfigurowanie zapisywania zwrotnego haseł](howto-sspr-writeback.md). | SSPR_0010: wykryto, że funkcja zapisywania zwrotnego haseł nie została włączona. Skontaktuj się z administratorem i poproś o włączenie funkcji zapisywania zwrotnego haseł. |
@@ -38,7 +38,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Rozwiązywanie problemów z konfiguracją resetowania hasła w Azure Portal
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | Nie widzę sekcji **resetowania hasła** w usłudze Azure AD w Azure Portal. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Przypisz licencję do danego konta administratora. Można wykonać kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) .|
 | Nie widzę określonej opcji konfiguracji. | Wiele elementów interfejsu użytkownika jest ukrytych do momentu, gdy są one zbędne. Spróbuj włączyć wszystkie opcje, które chcesz zobaczyć. |
@@ -46,14 +46,14 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Rozwiązywanie problemów z raportowaniem resetowania hasła
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | Nie widzę żadnych typów działań związanych z zarządzaniem hasłami w kategorii zdarzenia inspekcji samoobsługowego **zarządzania hasłami** . | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, przypisując licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) . |
 | Rejestracje użytkowników są wyświetlane wiele razy. | Obecnie podczas rejestrowania użytkownika rejestrujemy każdy indywidualny element danych, który jest zarejestrowany jako oddzielne zdarzenie. <br> <br> Jeśli chcesz agregować te dane i mieć większą elastyczność w sposobie ich wyświetlania, możesz pobrać raport i otworzyć dane jako tabelę przestawną w programie Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Rozwiązywanie problemów z portalem rejestracji resetowania haseł
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. **Administrator nie włączył korzystania z tej funkcji.** | Przełącz flagę włączenia funkcji samoobsługowego **resetowania hasła** na **wybraną** lub **wszystkie** , a następnie wybierz pozycję **Zapisz**. |
 | Użytkownik nie ma przypisanej licencji usługi Azure AD. **Administrator nie włączył korzystania z tej funkcji.** | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, przypisując licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) .|
@@ -61,7 +61,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Rozwiązywanie problemów z portalem resetowania haseł
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. | Przełącz flagę włączenia funkcji samoobsługowego **resetowania hasła** na **wybraną** lub **wszystkie** , a następnie wybierz pozycję **Zapisz**. |
 | Użytkownik nie ma przypisanej licencji usługi Azure AD. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, Jeśli przypiszesz licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) . |
@@ -79,7 +79,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-password-writeback"></a>Rozwiązywanie problemów z zapisywaniem zwrotnym haseł
 
-| Błąd | Rozwiązanie |
+| Error | Rozwiązanie |
 | --- | --- |
 | Usługa resetowania haseł nie jest uruchamiana lokalnie. Błąd 6800 jest wyświetlany w dzienniku zdarzeń aplikacji maszyny Azure AD Connect. <br> <br> Po dołączeniu, federacyjnym, uwierzytelnianiu lub uwierzytelnianiem w skrócie hasła użytkownicy nie mogą resetować haseł. | Po włączeniu funkcji zapisywania zwrotnego haseł aparat synchronizacji wywołuje bibliotekę zapisywania zwrotnego w celu przeprowadzenia konfiguracji (dołączania), komunikując się z usługą w chmurze. Wszelkie błędy napotkane podczas dołączania lub podczas uruchamiania punktu końcowego Windows Communication Foundation (WCF) na potrzeby zapisywania zwrotnego haseł w dzienniku zdarzeń na komputerze Azure AD Connect. <br> <br> Podczas ponownego uruchamiania usługi Azure AD Sync (ADSync), jeśli został skonfigurowany zapis, zostanie uruchomiony punkt końcowy WCF. Jeśli jednak uruchomienie punktu końcowego nie powiedzie się, będziemy rejestrować zdarzenie 6800 i umożliwić uruchomienie usługi synchronizacji. Obecność tego zdarzenia oznacza, że punkt końcowy zapisywania zwrotnego haseł nie został uruchomiony. Szczegóły dziennika zdarzeń dla tego zdarzenia 6800, a także wpisy dziennika zdarzeń generowane przez składnik PasswordResetService, wskazują dlaczego nie można uruchomić punktu końcowego. Przejrzyj te błędy w dzienniku zdarzeń i spróbuj ponownie uruchomić Azure AD Connect, jeśli zapisywanie zwrotne haseł nadal nie działa. Jeśli problem będzie się powtarzał, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.
 | Gdy użytkownik podejmie próbę zresetowania hasła lub odblokowania konta z włączoną funkcją zapisywania zwrotnego haseł, operacja kończy się niepowodzeniem. <br> <br> Ponadto zostanie wyświetlone zdarzenie w dzienniku zdarzeń Azure AD Connect zawierający: "aparat synchronizacji zwrócił błąd HR = 800700CE, Message = nazwa pliku lub rozszerzenie jest zbyt długie" po wystąpieniu operacji odblokowywania. | Znajdź konto Active Directory dla Azure AD Connect i zresetuj hasło, tak aby nie zawierało więcej niż 256 znaków. Następnie otwórz **usługę synchronizacji** z menu **Start** . Przejdź do **łączników** i Znajdź **Active Directory łącznik**. Zaznacz go, a następnie wybierz pozycję **Właściwości**. Przejdź do strony **poświadczenia** i wprowadź nowe hasło. Wybierz **przycisk OK** , aby zamknąć stronę. |

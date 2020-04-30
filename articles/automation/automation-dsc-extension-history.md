@@ -2,7 +2,7 @@
 description: Dowiedz się więcej o historii wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
 ms.date: 06/21/2018
 keywords: dsc, powershell, azure, extension
-title: Historia wersji rozszerzenia usługi Azure DSC
+title: Historia wersji rozszerzenia Azure DSC
 author: mgoedtel
 ms.author: magoedte
 services: automation
@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82120706"
 ---
 # <a name="azure-desired-state-configuration-extension-version-history"></a>Historia wersji rozszerzenia konfiguracji żądanego stanu platformy Azure

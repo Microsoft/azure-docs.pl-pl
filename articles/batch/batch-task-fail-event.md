@@ -4,10 +4,10 @@ description: Odwołanie do zdarzenia niepowodzenia zadania usługi Batch. To zda
 ms.topic: article
 ms.date: 08/15/2019
 ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116455"
 ---
 # <a name="task-fail-event"></a>Zdarzenie niepowodzenia zadania
@@ -45,9 +45,9 @@ ms.locfileid: "82116455"
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
-|`jobId`|Ciąg|Identyfikator zadania zawierającego zadanie.|
-|`id`|Ciąg|Identyfikator zadania.|
-|`taskType`|Ciąg|Typ zadania. Może to być "JobManager" wskazujący, że jest to zadanie Menedżera zadań lub "użytkownika" wskazujące, że nie jest to zadanie Menedżera zadań. To zdarzenie nie jest emitowane w przypadku zadań związanych z przygotowaniem zadania, zadań wydania zadania lub uruchamiania zadań.|
+|`jobId`|String|Identyfikator zadania zawierającego zadanie.|
+|`id`|String|Identyfikator zadania.|
+|`taskType`|String|Typ zadania. Może to być "JobManager" wskazujący, że jest to zadanie Menedżera zadań lub "użytkownika" wskazujące, że nie jest to zadanie Menedżera zadań. To zdarzenie nie jest emitowane w przypadku zadań związanych z przygotowaniem zadania, zadań wydania zadania lub uruchamiania zadań.|
 |`systemTaskVersion`|Int32|Jest to wewnętrzny licznik ponownych prób dla zadania. Wewnętrznie usługa Batch może ponowić zadanie, aby uwzględnić przejściowe problemy. Te problemy mogą obejmować wewnętrzne błędy planowania lub próby odzyskania z węzłów obliczeniowych w nieprawidłowym stanie.|
 |[`nodeInfo`](#nodeInfo)|Typ złożony|Zawiera informacje o węźle obliczeniowym, na którym uruchomiono zadanie.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Typ złożony|Określa, że zadanie jest zadaniem z wieloma wystąpieniami wymagającymi wielu węzłów obliczeniowych.  Aby [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) uzyskać szczegółowe informacje, zobacz.|
@@ -58,8 +58,8 @@ ms.locfileid: "82116455"
 
 |Nazwa elementu|Typ|Uwagi|
 |------------------|----------|-----------|
-|`poolId`|Ciąg|Identyfikator puli, w której uruchomiono zadanie.|
-|`nodeId`|Ciąg|IDENTYFIKATOR węzła, w którym uruchomiono zadanie.|
+|`poolId`|String|Identyfikator puli, w której uruchomiono zadanie.|
+|`nodeId`|String|IDENTYFIKATOR węzła, w którym uruchomiono zadanie.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 

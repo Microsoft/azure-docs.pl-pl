@@ -8,15 +8,15 @@ ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
 ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82117067"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Uwierzytelnianie przy użyciu kont usług Batch i Storage
@@ -57,7 +57,7 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli usługi Batch, która b�
     1. W obszarze **nauka danych**wybierz pozycję **Dsvm systemu Windows** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
     1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install pandas"`. Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB
 

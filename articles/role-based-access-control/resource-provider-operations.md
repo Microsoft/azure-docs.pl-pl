@@ -14,10 +14,10 @@ ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133154"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów Azure Resource Manager
@@ -687,7 +687,7 @@ Usługa platformy Azure: [Azure Resource Manager](../azure-resource-manager/inde
 > | Akcja | Microsoft. Authorization/Operations/Read | Pobiera listę operacji |
 > |  | **uprawnienia** |  |
 > | Akcja | Microsoft. Autoryzacja/uprawnienia/Odczyt | Wyświetla wszystkie uprawnienia, które obiekt wywołujący ma w danym zakresie. |
-> |  | **jazd** |  |
+> |  | **policies** |  |
 > | Akcja | Microsoft. Autoryzacja/zasady/Inspekcja/akcja | Działanie podejmowane w wyniku oceny Azure Policy z efektem "inspekcja" |
 > | Akcja | Microsoft. authorization/policies/auditIfNotExists/Action | Działanie podejmowane w wyniku oceny Azure Policy z efektem "auditIfNotExists" |
 > | Akcja | Microsoft. Autoryzacja/zasady/odmowa/akcja | Działanie podejmowane w wyniku oceny Azure Policy z efektem "odmowa" |
@@ -1776,7 +1776,7 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Akcja | Microsoft. CognitiveServices/Register/Action | Rejestruje subskrypcję dla Cognitive Services |
 > | Akcja | Microsoft. CognitiveServices/checkDomainAvailability/Action | Odczytuje dostępne jednostki SKU dla subskrypcji. |
 > | Akcja | Microsoft. CognitiveServices/Register/Action | Rejestruje subskrypcję dla Cognitive Services |
-> |  | **Rachunkowość** |  |
+> |  | **Konta** |  |
 > | Akcja | Microsoft. CognitiveServices/accounts/Read | Odczytuje konta interfejsu API. |
 > | Akcja | Microsoft. CognitiveServices/accounts/Write | Zapisuje konta interfejsu API. |
 > | Akcja | Microsoft. CognitiveServices/accounts/Delete | Usuwa konta interfejsu API |
@@ -3076,7 +3076,7 @@ Usługa platformy Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. DataLakeAnalytics/Register/Action | Zarejestruj subskrypcję usługi DataLakeAnalytics. |
-> |  | **Rachunkowość** |  |
+> |  | **Konta** |  |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Read | Pobierz informacje o istniejącym koncie DataLakeAnalytics. |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Write | Utwórz lub zaktualizuj konto DataLakeAnalytics. |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Delete | Usuń konto DataLakeAnalytics. |
@@ -3126,7 +3126,7 @@ Usługa platformy Azure: [Azure Data Lake Store](../storage/blobs/data-lake-stor
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. kontach datalakestore/Register/Action | Zarejestruj subskrypcję usługi kontach datalakestore. |
-> |  | **Rachunkowość** |  |
+> |  | **Konta** |  |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Read | Pobierz informacje o istniejącym koncie kontach datalakestore. |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Write | Utwórz lub zaktualizuj konto kontach datalakestore. |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Delete | Usuń konto kontach datalakestore. |
@@ -5402,7 +5402,7 @@ Usługa platformy Azure: [Azure Lab Services](../lab-services/index.yml)
 > | Akcja | Microsoft. LabServices/labAccounts/sharedImages/Write | Dodaj lub zmodyfikuj Sharedimages. |
 > |  | **Lokalizacje/operacje** |  |
 > | Akcja | Microsoft. LabServices/Locations/Operations/Read | Operacje odczytu. |
-> |  | **użytkownikowi** |  |
+> |  | **users** |  |
 > | Akcja | Microsoft. LabServices/users/rejestr/akcja | Rejestrowanie użytkownika w zarządzanym laboratorium |
 > | Akcja | Microsoft. LabServices/users/ListAllEnvironments/akcja | Wyświetl listę wszystkich środowisk dla użytkownika |
 > | Akcja | Microsoft. LabServices/users/StartEnvironment/akcja | Uruchamia środowisko przez uruchomienie wszystkich zasobów w środowisku. |
@@ -5816,7 +5816,7 @@ Usługa platformy Azure: [Azure Maps](../azure-maps/index.yml)
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. Maps/Zarejestruj/akcja | Rejestrowanie dostawcy |
-> |  | **Rachunkowość** |  |
+> |  | **Konta** |  |
 > | Akcja | Microsoft. Maps/accounts/Write | Utwórz lub zaktualizuj konto Maps. |
 > | Akcja | Microsoft. Maps/konta/odczyt | Pobierz konto Maps. |
 > | Akcja | Microsoft. Maps/accounts/Delete | Usuń konto Maps. |
@@ -8554,7 +8554,7 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Akcja | Microsoft. zabezpieczenia/lokalizacje/zadania/Rozwiązywanie/akcja | Rozwiązywanie zalecenia dotyczącego zabezpieczeń |
 > | Akcja | Microsoft. Security/Locations/Tasks/Activate/Action | Aktywuj zalecenie dotyczące zabezpieczeń |
 > | Akcja | Microsoft. zabezpieczenia/lokalizacje/zadania/Odrzuć/akcja | Odrzuć zalecenie dotyczące zabezpieczeń |
-> |  | **jazd** |  |
+> |  | **policies** |  |
 > | Akcja | Microsoft. Security/Policies/Read | Pobiera zasady zabezpieczeń |
 > | Akcja | Microsoft. Security/Policies/Write | Aktualizuje zasady zabezpieczeń |
 > |  | **cen** |  |

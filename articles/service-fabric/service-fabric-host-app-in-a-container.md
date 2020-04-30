@@ -4,10 +4,10 @@ description: Dowiedz się, jak konteneryzować istniejącą aplikację platformy
 ms.topic: tutorial
 ms.date: 07/08/2019
 ms.openlocfilehash: 08bbab2d92e9631f75c46be2e3f822532b62718a
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82136644"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Samouczek: wdrażanie aplikacji .NET w kontenerze systemu Windows w usłudze Azure Service Fabric
@@ -158,7 +158,7 @@ Podczas tworzenia klastra:
 
     b. Opcjonalnie możesz zmodyfikować liczbę węzłów. Domyślne ustawienie to trzy węzły, czyli minimalna liczba wymagana do testowania scenariuszy usługi Service Fabric.
 
-    d. Wybierz kartę **certyfikat** . Na tej karcie wpisz hasło, które zostanie użyte do zabezpieczenia certyfikatu klastra. Ten certyfikat pomaga zabezpieczyć klaster. Możesz również zmodyfikować ścieżkę, w której ma zostać zapisany certyfikat. Program Visual Studio może również automatycznie zaimportować certyfikat, ponieważ jest to krok wymagany do opublikowania aplikacji w klastrze.
+    c. Wybierz kartę **certyfikat** . Na tej karcie wpisz hasło, które zostanie użyte do zabezpieczenia certyfikatu klastra. Ten certyfikat pomaga zabezpieczyć klaster. Możesz również zmodyfikować ścieżkę, w której ma zostać zapisany certyfikat. Program Visual Studio może również automatycznie zaimportować certyfikat, ponieważ jest to krok wymagany do opublikowania aplikacji w klastrze.
 
     d. Wybierz kartę **Szczegóły maszyny wirtualnej** . Określ hasło, którego chcesz użyć dla Virtual Machines (VM), które tworzą klaster. Za pomocą nazwy użytkownika i hasła można zdalnie łączyć się z maszynami wirtualnymi. Należy również wybrać rozmiar maszyny wirtualnej oraz zmienić obraz maszyny wirtualnej, jeśli jest to konieczne. 
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144791"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Karta Marketplace modułu IoT Edge Portal
@@ -32,7 +32,7 @@ W poniższej tabeli opisano przeznaczenie i zawartość tych pól. Wymagane pola
 
 |  **Pole**                |     **Opis**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Tytuł\***                 | Tytuł oferty. Zostanie ona wyświetlona w widocznym miejscu w portalu Marketplace.  Maksymalna długość 50 znaków. <!--ADD PICTURE IN ACTION-->|
+| **Tytuły\***                 | Tytuł oferty. Zostanie ona wyświetlona w widocznym miejscu w portalu Marketplace.  Maksymalna długość 50 znaków. <!--ADD PICTURE IN ACTION-->|
 | **Podsumowanie\***               | Krótkie podsumowanie oferty. Maksymalna długość 100 znaków. <!--ADD PICTURE IN ACTION-->|
 | **Długie podsumowanie\***          | Dłuższe podsumowanie oferty (chociaż może być takie samo, jak w przypadku **podsumowania**).  Maksymalna długość 256 znaków. <!--ADD PICTURE IN ACTION-->|
 | **Opis\***           | Opis oferty.  Maksymalna długość 3000 znaków, obsługuje proste formatowanie HTML.<br/> W dolnej części musi znajdować się akapit o *minimalnych wymaganiach dotyczących sprzętu* . na przykład: <br/> <p><u>Minimalne wymagania sprzętowe:</u> Linux x64 i arm32 OS, 1 GB pamięci RAM, 500 MB magazynu</p>
@@ -95,10 +95,10 @@ Ta sekcja zawiera następujące podsekcje: **logo**, **zrzut ekranu**i **wideo**
 | **Hero**                  | Format PNG 815x290 pikseli.  Opcjonalne, ale nie można usunąć ikony Hero. |
 | *Zrzuty ekranu*  | Zrzuty ekranu są wyświetlane na stronie ze szczegółowymi informacjami o produkcie. Są one dobrym sposobem na wizualne komunikowanie się modułu IoT Edge i sposobu jego działania. Na przykład można wyświetlić diagramy architektury lub ilustracje przypadków użycia. Opcjonalne, ale maksymalnie pięć zrzutów ekranu na jednostkę SKU. |
 | **Nazwa**                  | Nazwa lub tytuł. Maksymalna długość 100 znaków.                             |
-| **Image (Obraz)**                 | Obraz przechwytywania ekranu, format 533x324 pikseli                               |
+| **Obraz**                 | Obraz przechwytywania ekranu, format 533x324 pikseli                               |
 | *Filmy wideo*  | Filmy wideo są wyświetlane na stronie szczegółów produktu. Są one dobrym sposobem na wizualne komunikowanie się modułu IoT Edge i sposobu jego działania. |
 | **Nazwa**                  | Nazwa lub tytuł. Maksymalna długość 100 znaków.                             |
-| **Powiązań**                  | Adres URL wideo, hostowany w serwisie YouTube lub Vimeo                                        |
+| **Łącze**                  | Adres URL wideo, hostowany w serwisie YouTube lub Vimeo                                        |
 | **Miniaturk**             | Format PNG 533x324 pikseli                                                     |
 |  |  |
 

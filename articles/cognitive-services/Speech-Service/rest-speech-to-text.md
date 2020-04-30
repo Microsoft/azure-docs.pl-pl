@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
 ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82131299"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
@@ -52,10 +52,10 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 | Parametr | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `language` | Identyfikuje język mówiony, który jest rozpoznawany. Zobacz [obsługiwane języki](language-support.md#speech-to-text). | Wymagany |
-| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed`. Proste wyniki obejmują `RecognitionStatus`, `DisplayText`, `Offset`, i `Duration`. Szczegółowe odpowiedzi obejmują wiele wyników z wartościami ufności i czterema różnymi reprezentacjami. Ustawienie domyślne to `simple`. | Optional (Opcjonalność) |
-| `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked`, które zastępują braki z gwiazdkami `removed`, które usuwają z wyniku wszystkie niezbyt wulgarne `raw`dane lub, które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Optional (Opcjonalność) |
-| `pronunciationScoreParams` | Określa parametry przedstawiające wyniki wymowy w wynikach rozpoznawania, które oceniają jakość wymowy danych wejściowych mowy, ze wskaźnikami dokładności, Fluency, kompletności itp. Ten parametr jest zakodowanym w formacie base64 JSON zawierającym wiele parametrów szczegółowych. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten parametr. | Optional (Opcjonalność) |
-| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu parametru ciągu `cid` zapytania. | Optional (Opcjonalność) |
+| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed`. Proste wyniki obejmują `RecognitionStatus`, `DisplayText`, `Offset`, i `Duration`. Szczegółowe odpowiedzi obejmują wiele wyników z wartościami ufności i czterema różnymi reprezentacjami. Ustawienie domyślne to `simple`. | Optional |
+| `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked`, które zastępują braki z gwiazdkami `removed`, które usuwają z wyniku wszystkie niezbyt wulgarne `raw`dane lub, które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Optional |
+| `pronunciationScoreParams` | Określa parametry przedstawiające wyniki wymowy w wynikach rozpoznawania, które oceniają jakość wymowy danych wejściowych mowy, ze wskaźnikami dokładności, Fluency, kompletności itp. Ten parametr jest zakodowanym w formacie base64 JSON zawierającym wiele parametrów szczegółowych. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten parametr. | Optional |
+| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu parametru ciągu `cid` zapytania. | Optional |
 
 ## <a name="request-headers"></a>Nagłówki żądań
 
@@ -66,7 +66,7 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 | `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
 | `Authorization` | Token autoryzacji poprzedzony słowem `Bearer`. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
 | `Content-type` | Opisuje format i koder-dekoder dostarczonych danych audio. Akceptowane wartości to `audio/wav; codecs=audio/pcm; samplerate=16000` i `audio/ogg; codecs=opus`. | Wymagany |
-| `Transfer-Encoding` | Określa, że są wysyłane fragmenty danych audio, a nie jeden plik. Tego nagłówka należy używać tylko w przypadku fragmentowania danych audio. | Optional (Opcjonalność) |
+| `Transfer-Encoding` | Określa, że są wysyłane fragmenty danych audio, a nie jeden plik. Tego nagłówka należy używać tylko w przypadku fragmentowania danych audio. | Optional |
 | `Expect` | W przypadku używania transferu fragmentarycznego Wyślij `Expect: 100-continue`. Usługa mowy potwierdza wstępne żądanie i czeka na dodatkowe dane.| Wymagane w przypadku wysyłania fragmentarycznych danych audio. |
 | `Accept` | Jeśli jest podana, musi być `application/json`. Usługa mowy zapewnia wyniki w formacie JSON. Niektóre platformy żądań zapewniają niezgodną wartość domyślną. Dobrym sposobem jest zawsze uwzględnienie `Accept`. | Opcjonalne, ale zalecane. |
 
@@ -89,11 +89,11 @@ Ta tabela zawiera listę wymaganych i opcjonalnych parametrów oceny wymowy.
 | Parametr | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | ReferenceText | Tekst, dla którego będzie oceniana wymowa. | Wymagany |
-| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark`. Ustawienie domyślne to `FivePoint`. | Optional (Opcjonalność) |
-| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme`, które pokazują wynik na poziomie `Word`pełnego tekstu, wyrazów i fonem, który pokazuje wynik na poziomie `FullText`pełnego tekstu i słowa, który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Optional (Opcjonalność) |
-| Wymiar | Definiuje kryteria danych wyjściowych. Akceptowane wartości to `Basic`, które wyświetlają tylko wynik dokładności, `Comprehensive` pokazują wyniki o większej liczbie wymiarów (np. wyniki Fluency oraz wynik kompletności na poziomie pełnego tekstu, typ błędu na poziomie wyrazu). Sprawdź [Parametry odpowiedzi](#response-parameters) , aby zobaczyć definicje różnych wymiarów oceny i typów błędów wyrazów. Ustawienie domyślne to `Basic`. | Optional (Opcjonalność) |
-| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True`. Ustawienie domyślne to `False`. | Optional (Opcjonalność) |
-| ScenarioId | Identyfikator GUID wskazujący dostosowany system punktów. | Optional (Opcjonalność) |
+| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark`. Ustawienie domyślne to `FivePoint`. | Optional |
+| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme`, które pokazują wynik na poziomie `Word`pełnego tekstu, wyrazów i fonem, który pokazuje wynik na poziomie `FullText`pełnego tekstu i słowa, który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Optional |
+| Wymiar | Definiuje kryteria danych wyjściowych. Akceptowane wartości to `Basic`, które wyświetlają tylko wynik dokładności, `Comprehensive` pokazują wyniki o większej liczbie wymiarów (np. wyniki Fluency oraz wynik kompletności na poziomie pełnego tekstu, typ błędu na poziomie wyrazu). Sprawdź [Parametry odpowiedzi](#response-parameters) , aby zobaczyć definicje różnych wymiarów oceny i typów błędów wyrazów. Ustawienie domyślne to `Basic`. | Optional |
+| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True`. Ustawienie domyślne to `False`. | Optional |
+| ScenarioId | Identyfikator GUID wskazujący dostosowany system punktów. | Optional |
 
 Poniżej znajduje się przykładowy kod JSON zawierający parametry oceny wymowy:
 
