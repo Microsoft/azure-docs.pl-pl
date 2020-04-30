@@ -1,27 +1,27 @@
 ---
-title: Obsługa błędów w funkcjach trwałych — Azure
-description: Dowiedz się, jak obsługiwać błędy w rozszerzeniu Funkcje trwałe dla usługi Azure Functions.
+title: Obsługa błędów w Durable Functions — Azure
+description: Dowiedz się, jak obsłużyć błędy w rozszerzeniu Durable Functions Azure Functions.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277858"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Obsługa błędów w funkcjach trwałych (usługi Azure)
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Obsługa błędów w Durable Functions (Azure Functions)
 
-Aranżacji funkcji trwałe są implementowane w kodzie i można użyć wbudowanych funkcji obsługi błędów języka programowania. Naprawdę nie ma żadnych nowych pojęć, które musisz nauczyć się dodawać obsługę błędów i kompensacji do aranżacji. Istnieje jednak kilka zachowań, o których należy pamiętać.
+Trwałe aranżacje funkcji są implementowane w kodzie i mogą korzystać z wbudowanych funkcji obsługi błędów w języku programowania. Nie ma żadnych nowych koncepcji, które należy poznać, aby dowiedzieć się, jak dodać obsługę błędów i kompensację do swoich aranżacji. Istnieje jednak kilka zachowań, z którymi należy się zapoznać.
 
-## <a name="errors-in-activity-functions"></a>Błędy w funkcjach aktywności
+## <a name="errors-in-activity-functions"></a>Błędy w funkcjach działania
 
-Każdy wyjątek, który jest zgłaszany w funkcji działania jest organizowany z powrotem do funkcji koordynatora `FunctionFailedException`i generowane jako . Można napisać kod obsługi błędów i kompensacji, który odpowiada Twoim potrzebom w funkcji koordynatora.
+Każdy wyjątek, który jest generowany w funkcji działania, zostaje zorganizowany z powrotem do funkcji programu Orchestrator i zgłaszany `FunctionFailedException`jako. Można napisać obsługę błędów i kod kompensaty, który odpowiada Twoim potrzebom w funkcji programu Orchestrator.
 
-Rozważmy na przykład następującą funkcję koordynatora, która przenosi środki z jednego konta na drugie:
+Rozważmy na przykład następujące funkcje programu Orchestrator, które przesyłają fundusze z jednego konta do innego:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,9 +60,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Poprzednie przykłady języka C# są dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -100,13 +100,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Jeśli pierwsze wywołanie funkcji **CreditAccount** nie powiedzie się, funkcja koordynatora kompensuje, przypisując środki z powrotem do konta źródłowego.
+Jeśli pierwsze wywołanie funkcji **CreditAccount** zakończy się niepowodzeniem, funkcja programu Orchestrator będzie kompensować środki z powrotem do konta źródłowego.
 
-## <a name="automatic-retry-on-failure"></a>Automatyczne ponawianie próby w przypadku awarii
+## <a name="automatic-retry-on-failure"></a>Automatyczne ponawianie próby w przypadku niepowodzenia
 
-Podczas wywoływania funkcji działania lub funkcji podaranżacji można określić zasadę automatycznego ponawiania prób. Poniższy przykład próbuje wywołać funkcję do trzech razy i czeka 5 sekund między każdym ponowić próbę:
+Podczas wywoływania funkcji działania lub funkcji organizowania podrzędnego można określić zasady automatycznego ponawiania. Poniższy przykład próbuje wywołać funkcję maksymalnie trzy razy i czeka 5 sekund między kolejnymi próbami:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,9 +123,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Poprzednie przykłady języka C# są dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,20 +145,20 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Wywołanie funkcji działania w poprzednim przykładzie przyjmuje parametr do konfigurowania zasad automatycznego ponawiania próby. Istnieje kilka opcji dostosowywania zasad automatycznego ponawiania próby:
+Wywołanie funkcji działania w poprzednim przykładzie przyjmuje parametr służący do konfigurowania zasad automatycznego ponawiania. Istnieje kilka opcji dostosowywania zasad automatycznego ponawiania:
 
-* **Maksymalna liczba prób**: Maksymalna liczba prób ponawiania.
-* **Pierwszy interwał ponawiania:** czas oczekiwania przed pierwszą próbą ponawiania.
-* **Współczynnik wycofywania**: Współczynnik używany do określenia szybkości zwiększenia wycofywania. Wartość domyślna to 1.
-* **Maksymalny interwał ponawiania próby:** maksymalny czas oczekiwania między próbami prób.
-* **Ponów limit czasu:** maksymalna ilość czasu do spędzenia na wykonywaniu ponownych prób. Domyślnym zachowaniem jest ponowić próbę przez czas nieokreślony.
-* **Dojście**: Wywołanie zwrotne zdefiniowane przez użytkownika można określić, aby określić, czy funkcja powinna zostać ponowiona.
+* **Maksymalna liczba prób**: Maksymalna liczba ponownych prób.
+* **Interwał pierwszego ponowienia próby**: ilość czasu oczekiwania przed pierwszym ponowieniem próby.
+* **Współczynnik wycofywania**: współczynnik używany do określenia współczynnika wzrostu wycofywania. Wartość domyślna to 1.
+* **Maksymalna długość interwału ponawiania**: Maksymalna ilość czasu oczekiwania między ponownymi próbami.
+* **Limit czasu ponawiania**: maksymalny czas poświęcany na wykonanie ponownych prób. Domyślne zachowanie polega na ponownym ponowieniu próby.
+* **Dojście**: zdefiniowane przez użytkownika wywołanie zwrotne można określić, aby określić, czy należy ponowić próbę wykonania funkcji.
 
 ## <a name="function-timeouts"></a>Limity czasu funkcji
 
-Można porzucić wywołanie funkcji w ramach funkcji koordynatora, jeśli trwa zbyt długo, aby zakończyć. Właściwym sposobem, aby to zrobić dzisiaj jest utworzenie `context.CreateTimer` [trwałego timera](durable-functions-timers.md) przy użyciu (.NET) lub `context.df.Task.any` `context.df.createTimer` (JavaScript) w połączeniu z `Task.WhenAny` (.NET) lub (JavaScript), jak w poniższym przykładzie:
+Może zajść potrzeba porzucenia wywołania funkcji w ramach funkcji programu Orchestrator, jeśli trwa zbyt długo. Aby to zrobić, należy utworzyć [trwały czasomierz](durable-functions-timers.md) przy użyciu `context.CreateTimer` (.NET) lub `context.df.createTimer` (JavaScript) w połączeniu z programem `Task.WhenAny` (.NET) lub `context.df.Task.any` (JavaScript), jak w poniższym przykładzie:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,9 +189,9 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Poprzednie przykłady języka C# są dla funkcji trwałych 2.x. W przypadku funkcji trwałych 1.x należy używać `DurableOrchestrationContext` zamiast `IDurableOrchestrationContext`. Aby uzyskać więcej informacji na temat różnic między wersjami, zobacz [wersje funkcji trwałych](durable-functions-versions.md) artykułu.
+> Poprzednie przykłady w języku C# są przeznaczone dla Durable Functions 2. x. W przypadku Durable Functions 1. x należy użyć `DurableOrchestrationContext` zamiast. `IDurableOrchestrationContext` Aby uzyskać więcej informacji o różnicach między wersjami, zobacz artykuł dotyczący [wersji Durable Functions](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -218,16 +218,16 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Ten mechanizm faktycznie nie kończy wykonywania funkcji działania w toku. Przeciwnie, po prostu pozwala funkcji orkiestratora zignorować wynik i przejść dalej. Aby uzyskać więcej informacji, zobacz dokumentację [czasomierzy.](durable-functions-timers.md#usage-for-timeout)
+> Ten mechanizm nie kończy w rzeczywistości wykonywania funkcji działania w toku. Zamiast tego po prostu umożliwia funkcji programu Orchestrator ignorowanie wyniku i przejście. Aby uzyskać więcej informacji, zobacz dokumentację [czasomierzy](durable-functions-timers.md#usage-for-timeout) .
 
 ## <a name="unhandled-exceptions"></a>Nieobsługiwane wyjątki
 
-Jeśli funkcja koordynatora nie powiedzie się z nieobsługiwał wyjątek, szczegóły `Failed` wyjątku są rejestrowane i wystąpienie kończy się stan.
+Jeśli funkcja programu Orchestrator zakończy się niepowodzeniem z powodu nieobsługiwanego wyjątku, szczegóły wyjątku są rejestrowane, a wystąpienie zostanie zakończone `Failed` ze stanem.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o wiecznych aranżacjach](durable-functions-eternal-orchestrations.md)
+> [Dowiedz się więcej o aranżacjach Eternal](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Dowiedz się, jak diagnozować problemy](durable-functions-diagnostics.md)
+> [Dowiedz się, jak zdiagnozować problemy](durable-functions-diagnostics.md)

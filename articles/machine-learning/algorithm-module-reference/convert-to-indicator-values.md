@@ -1,7 +1,7 @@
 ---
 title: Konwertowanie na wartości wskaźnika
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak użyć modułu Konwertuj na wartości wskaźnikowe w usłudze Azure Machine Learning, aby przekonwertować kolumny zawierające wartości kategorii na serię kolumn wskaźników binarnych.
+description: Dowiedz się, jak używać modułu Konwertuj do wartości wskaźnika w Azure Machine Learning, aby skonwertować kolumny zawierające wartości kategorii do serii kolumn wskaźnika binarnego.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,50 +10,50 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477667"
 ---
 # <a name="convert-to-indicator-values"></a>Konwertowanie na wartości wskaźnika
-W tym artykule opisano moduł projektanta usługi Azure Machine Learning.
+W tym artykule opisano moduł programu Azure Machine Learning Designer.
 
-Użyj **konwersji do wartości wskaźnika** modułu w projektancie usługi Azure Machine Learning do konwersji kolumn, które zawierają wartości kategorii do serii kolumn wskaźników binarnych.  
+Za pomocą modułu **Konwertuj do wartości wskaźnika** w programie Azure Machine Learning Designer można konwertować kolumny zawierające wartości kategorii w serię kolumn wskaźników binarnych.  
 
-Moduł ten wyprowadza również definicję transformacji używanej do konwersji na wartości wskaźnika. Transformację można ponownie użyć w innych zestawach danych, które mają ten sam schemat, za pomocą modułu [Zastosuj transformację.](apply-transformation.md)
+Ten moduł również wyprowadza definicję przekształcenia użytego do konwersji na wartości wskaźnika. Można ponownie użyć tej transformacji na innych zestawach danych, które mają ten sam schemat, przy użyciu modułu [zastosowania przekształcenia](apply-transformation.md) .
 
-## <a name="how-to-configure-convert-to-indicator-values"></a>Jak skonfigurować konwersję na wartości wskaźnikowe
+## <a name="how-to-configure-convert-to-indicator-values"></a>Jak skonfigurować konwersję do wartości wskaźnika
 
-1.  Znajdź **wartość Konwertuj na wskaźniki** i przeciągnij ją do wersji roboczej potoku. Ten moduł można znaleźć w kategorii **Transformacja danych.**
+1.  Znajdź **wartości wskaźnika Konwertuj na** i przeciągnij je do wersji roboczej potoku. Ten moduł można znaleźć w kategorii **Przekształcanie danych** .
     > [!NOTE]
-    > Moduł Edytuj [metadane](edit-metadata.md) można użyć przed modułem **Konwertuj na wartości indiciator, aby oznaczyć** kolumny docelowe jako kategoryczne.
+    > Aby oznaczyć kolumny docelowe jako kategorii, można użyć modułu [Edytuj metadane](edit-metadata.md) przed modułem **Konwertuj do wartości Indiciator** .
 
-1. Podłącz moduł **Konwertuj na wartości wskaźnika** do zestawu danych zawierającego kolumny, które chcesz przekonwertować. 
+1. Połącz moduł **Konwertuj na wartości wskaźnika** z zestawem danych zawierającym kolumny, które chcesz przekonwertować. 
 
-1. Wybierz **pozycję Edytuj kolumnę,** aby wybrać jedną lub więcej kolumn kategorii.
+1. Wybierz pozycję **Edytuj kolumnę** , aby wybrać co najmniej jedną kolumnę kategorii.
 
-1. Wybierz opcję **Zastąpienie kolumn kategorii,** jeśli chcesz wyprowadzić **tylko** nowe kolumny logiczne. Domyślnie ta opcja jest wyłączona.
+1. Wybierz opcję **Zastąp kategorii kolumny** , jeśli chcesz wyprowadzać **tylko** nowe kolumny logiczne. Domyślnie ta opcja jest wyłączona.
     
 
     > [!TIP]
-    >  Jeśli wybierzesz opcję zastępowanie, kolumna źródłowcza nie zostanie faktycznie usunięta ani zmodyfikowana. Zamiast tego nowe kolumny są generowane i prezentowane w zestawie danych wyjściowych, a kolumna źródłowa pozostaje dostępna w obszarze roboczym. Jeśli chcesz wyświetlić oryginalne dane, możesz użyć modułu Dodaj kolumny w dowolnym [momencie,](add-columns.md) aby dodać kolumnę źródłą z powrotem.
+    >  W przypadku wybrania opcji zastępowania kolumna źródłowa nie jest faktycznie usuwana ani modyfikowana. Zamiast tego nowe kolumny są generowane i prezentowane w wyjściowym zestawie danych, a kolumna źródłowa pozostaje dostępna w obszarze roboczym. Jeśli chcesz zobaczyć oryginalne dane, możesz użyć modułu [Dodaj kolumny](add-columns.md) w dowolnym momencie, aby ponownie dodać kolumnę źródłową.
 
 1. Prześlij potok.
 
 ## <a name="results"></a>Wyniki
 
-Załóżmy, że masz kolumnę z wynikami, które wskazują, czy serwer ma wysokie, średnie lub niskie prawdopodobieństwo awarii.  
+Załóżmy, że masz kolumnę z wynikami wskazującą, czy serwer ma wysokie, średnie lub niskie prawdopodobieństwo wystąpienia błędu.  
 
-| Identyfikator serwera | Wynik błędu |
+| Identyfikator serwera | Ocena niepowodzenia |
 | --------- | ------------- |
 | 10301     | Małe           |
 | 10302     | Medium        |
 | 10303     | Wysoka          |
 
-Po **zastosowaniu konwersji do wartości wskaźnika**projektant konwertuje pojedynczą kolumnę etykiet na wiele kolumn zawierających wartości logiczne:  
+Po zastosowaniu **konwersji do wartości wskaźnika**Projektant konwertuje pojedynczą kolumnę etykiet w wiele kolumn zawierających wartości logiczne:  
 
-| Identyfikator serwera | Wynik błędu - Niski | Wynik błędu - Średni | Wynik błędu - Wysoki |
+| Identyfikator serwera | Wynik niepowodzenia — niski | Wynik niepowodzenia — średni | Wynik niepowodzenia — wysoki |
 | --------- | ------------------- | ---------------------- | -------------------- |
 | 10301     | 1                   | 0                      | 0                    |
 | 10302     | 0                   | 1                      | 0                    |
@@ -61,32 +61,32 @@ Po **zastosowaniu konwersji do wartości wskaźnika**projektant konwertuje pojed
 
 Oto jak działa konwersja:  
 
--   W **kolumnie Wynik niepowodzenie,** która opisuje ryzyko, istnieją tylko trzy możliwe wartości (Wysoki, Średni i Niski) i nie brakuje wartości. Tak więc, dokładnie trzy nowe kolumny są tworzone.  
+-   W kolumnie **oceny niepowodzenia** opisującej ryzyko występuje tylko trzy możliwe wartości (wysoki, średni i niski) i brak wartości. W związku z tym tworzone są dokładnie trzy nowe kolumny.  
 
--   Nowe kolumny wskaźników są nazwane na podstawie nagłówków kolumn i wartości kolumny źródłowej, przy użyciu tego wzorca: * \<kolumna źródłona> - \<wartość danych>*.  
+-   Nowe kolumny wskaźnika są nazwane na podstawie nagłówków kolumn i wartości kolumny źródłowej, przy użyciu tego wzorca: * \<kolumna źródłowa> — \<wartość danych>*.  
 
--   Powinno być 1 w dokładnie jednej kolumnie wskaźnika i 0 we wszystkich innych kolumnach wskaźników, ponieważ każdy serwer może mieć tylko jedną ocenę ryzyka.  
+-   Powinna istnieć 1 w dokładnie jednej kolumnie wskaźnika i 0 we wszystkich innych kolumnach wskaźnika, ponieważ każdy serwer może mieć tylko jedną ocenę ryzyka.  
 
 Teraz można użyć trzech kolumn wskaźnika jako funkcji w modelu uczenia maszynowego.
 
-Moduł zwraca dwa wyjścia:
+Moduł zwraca dwa dane wyjściowe:
 
-- **Zestaw danych wyników**: Zestaw danych z przekonwertowanymi kolumnami wartości wskaźników. Kolumny niewybrane do czyszczenia są również "przekazywane".
-- **Transformacja wartości wskaźnika:** transformacja danych używana do konwersji na wartości wskaźnikowe, które można zapisać w obszarze roboczym i zastosować do nowych danych później.
+- **Zestaw danych wyników**: zestaw danych z przekonwertowane kolumny wartości wskaźnika. Kolumny niewybrane do czyszczenia są również "przenoszone przez".
+- **Przekształcanie wartości wskaźnika**: transformacja danych służąca do konwertowania na wartości wskaźnika, którą można zapisać w obszarze roboczym i zastosowana do nowych danych później.
 
-## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Stosowanie operacji zapisanych wartości wskaźnika do nowych danych
+## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Zastosuj operację zapisania wartości wskaźnika do nowych danych
 
-Jeśli trzeba często powtarzać operacje wartości wskaźnika, można zapisać kroki manipulowania danymi jako *przekształcenie,* aby ponownie użyć go z tym samym zestawem danych. Jest to przydatne, jeśli często należy ponownieimportować, a następnie wyczyścić dane, które mają ten sam schemat.
+Jeśli trzeba często powtarzać wartości wskaźników, możesz zapisać kroki manipulowania danymi jako *przekształcenie* , aby ponownie użyć tego samego zestawu danych. Jest to przydatne, jeśli trzeba często ponownie importować i czyścić dane, które mają ten sam schemat.
 
-1. Dodaj [zastosuj transformację](apply-transformation.md) modułu do potoku.
+1. Dodaj moduł [przekształcenia Zastosuj](apply-transformation.md) do potoku.
 
-1. Dodaj zestaw danych, który chcesz wyczyścić, i połącz zestaw danych z portem wejściowym po prawej stronie.
+1. Dodaj zestaw danych, który chcesz wyczyścić, i Połącz zestaw danych z portem wejściowym z prawej strony.
 
-1. Rozwiń grupę **Transformacja danych** w lewym okienku projektanta. Znajdź zapisaną transformację i przeciągnij ją do potoku.
+1. Rozwiń grupę **Przekształcanie danych** w okienku po lewej stronie projektanta. Znajdź zapisaną transformację i przeciągnij ją do potoku.
 
-1. Połącz zapisaną transformację z lewym portem wejściowym [Zastosuj transformację](apply-transformation.md).
+1. Połącz zapisaną transformację z lewym portem wejściowym [zastosowania transformacji](apply-transformation.md).
 
-   Po zastosowaniu zapisanej transformacji nie można wybrać kolumn, które mają być przekształcone. Jest tak, ponieważ transformacja została zdefiniowana i stosuje się automatycznie do typów danych określonych w oryginalnej operacji.
+   W przypadku zastosowania zapisanej transformacji nie można wybrać kolumn do przekształcenia. Wynika to z faktu, że transformacja została zdefiniowana i jest automatycznie stosowana do typów danych określonych w pierwotnej operacji.
 
 1. Prześlij potok.
  
@@ -94,27 +94,27 @@ Jeśli trzeba często powtarzać operacje wartości wskaźnika, można zapisać 
 
 Ta sekcja zawiera szczegóły implementacji, porady i odpowiedzi na często zadawane pytania.
 
-### <a name="usage-tips"></a>Wskazówki dotyczące użytkowania
+### <a name="usage-tips"></a>Porady dotyczące użycia
 
--   Tylko kolumny oznaczone jako kategoryczne można przekonwertować na kolumny wskaźnikowe. Jeśli zostanie wyświetlony następujący błąd, prawdopodobnie jedna z wybranych kolumn nie jest kategoryczna:  
+-   Tylko kolumny oznaczone jako kategorii mogą być konwertowane na kolumny wskaźników. Jeśli zobaczysz następujący błąd, prawdopodobnie jedna z wybranych kolumn nie jest kategorii:  
 
-     Błąd 0056: Kolumna z nazwą kolumny> \<nie należy do dozwolonej kategorii.  
+     Błąd 0056: kolumna z nazwą \<kolumny o nazwie> nie należy do dozwolonej kategorii.  
 
-     Domyślnie większość kolumn ciągów jest traktowana jako operacje ciągu, więc należy je wyraźnie oznaczyć jako kategoryczne przy użyciu [funkcji Edytuj metadane](edit-metadata.md).  
+     Domyślnie większość kolumn ciągów jest obsługiwana jako funkcje ciągów, dlatego należy jawnie oznaczyć je jako kategorii przy użyciu polecenia [Edytuj metadane](edit-metadata.md).  
 
--   Nie ma limitu liczby kolumn, które można przekonwertować na kolumny wskaźnikowe. Jednak ponieważ każda kolumna wartości może przynieść wiele kolumn wskaźnika, można przekonwertować i przejrzeć tylko kilka kolumn naraz.  
+-   Nie ma żadnego limitu liczby kolumn, które można przekonwertować na kolumny wskaźników. Jednak ponieważ każda kolumna wartości może zwracać wiele kolumn wskaźników, można skonwertować i przejrzeć tylko kilka kolumn naraz.  
 
--   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona osobna kolumna wskaźnika o tej nazwie: * \<kolumna źródłona>- Brak*  
+-   Jeśli kolumna zawiera brakujące wartości, dla brakującej kategorii zostanie utworzona oddzielna kolumna wskaźnika o tej nazwie: * \<kolumna źródłowa> — brak*  
 
--   Jeśli kolumna konwertowana na wartości wskaźnikowe zawiera liczby, muszą one być oznaczone jako kategoryczne, jak każda inna kolumna obiektowa. Po wykonaniu tej sprawy liczby są traktowane jako wartości dyskretne. Na przykład, jeśli masz kolumnę numeryczną z wartościami MPG od 25 do 30, dla każdej dyskretnej wartości zostanie utworzona nowa kolumna wskaźnika:  
+-   Jeśli kolumna konwertowana na wartości wskaźników zawiera liczby, muszą one być oznaczone jako kategorii, jak każda inna kolumna funkcji. Po wykonaniu tej czynności liczby są traktowane jako odrębne wartości. Na przykład jeśli masz kolumnę liczbową z wartościami MPG z zakresu od 25 do 30, zostanie utworzona nowa kolumna wskaźnika dla każdej wartości dyskretnej:  
 
-    | Marka       | Autostrada mpg -25 | Autostrada mpg -26 | Autostrada mpg -27 | Autostrada mpg -28 | Autostrada mpg -29 | Autostrada mpg -30 |
+    | Marka       | Autostrada MPG-25 | Autostrada MPG-26 | Autostrada MPG-27 | Autostrada MPG-28 | Autostrada MPG-29 | Autostrada MPG-30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-    | Samochody Contoso | 0               | 0               | 0               | 0               | 0               | 1               |
+    | Samochody firmy Contoso | 0               | 0               | 0               | 0               | 0               | 1               |
 
-- Aby uniknąć dodawania zbyt wielu wymiarów do zestawu danych. Zaleca się, aby najpierw sprawdzić liczbę wartości w kolumnie i bin lub ilościowo danych odpowiednio.  
+- Aby uniknąć dodawania zbyt wielu wymiarów do zestawu danych. Zalecamy, aby najpierw sprawdzić liczbę wartości w kolumnie oraz odpowiednio bin lub Quantize dane.  
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz [zestaw modułów dostępnych dla](module-reference.md) usługi Azure Machine Learning. 
+Zapoznaj się z [zestawem modułów dostępnych](module-reference.md) do Azure Machine Learning. 

@@ -1,67 +1,67 @@
 ---
-title: Typy funkcji w usługach Azure Funkcje trwałe
-description: Dowiedz się więcej o typach funkcji i ról, które obsługują komunikację funkcji do funkcji w aranżacji funkcji trwałych w usłudze Azure Functions.
+title: Typy funkcji w usłudze Azure Durable Functions
+description: Dowiedz się więcej o typach funkcji i ról, które obsługują komunikację typu "funkcja-funkcja" w Durable Functions aranżacji w Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277884"
 ---
-# <a name="durable-functions-types-and-features"></a>Typy i funkcje funkcji trwałych
+# <a name="durable-functions-types-and-features"></a>Durable Functions — typy i funkcje
 
-Funkcje trwałe jest rozszerzeniem [funkcji platformy Azure](../functions-overview.md). Można użyć funkcji trwałych dla stanowej aranżacji wykonywania funkcji. Trwała aplikacja funkcji to rozwiązanie, które składa się z różnych funkcji platformy Azure. Funkcje mogą odgrywać różne role w aranżacji funkcji trwałe. 
+Durable Functions jest rozszerzeniem [Azure Functions](../functions-overview.md). Durable Functions służy do organizowania stanowej aranżacji wykonywania funkcji. Trwała aplikacja funkcji to rozwiązanie, które składa się z różnych funkcji platformy Azure. Funkcje mogą odtwarzać różne role w trwałej aranżacji funkcji. 
 
-Obecnie istnieją cztery typy funkcji trwałe w usłudze Azure Functions: działania, orchestrator, jednostki i klienta. W dalszej części tej sekcji przechodzi do bardziej szczegółowych informacji na temat typów funkcji zaangażowanych w aranżacji.
+Istnieją obecnie cztery trwałe typy funkcji w Azure Functions: aktywność, Orchestrator, Entity i Client. Pozostała część tej sekcji zawiera więcej szczegółowych informacji o typach funkcji związanych z aranżacją.
 
-## <a name="orchestrator-functions"></a>Funkcje orkiestratora
+## <a name="orchestrator-functions"></a>Funkcje programu Orchestrator
 
-Funkcje koordynatora opisują sposób wykonywania akcji i kolejność wykonywania akcji. Funkcje aranżatora opisują aranżację w kodzie (C# lub JavaScript), jak pokazano w [wzorcach aplikacji Trwałe funkcje](durable-functions-overview.md#application-patterns). Aranżacja może mieć wiele różnych typów akcji, w tym [funkcje działania,](#activity-functions) [podarancje,](durable-functions-orchestrations.md#sub-orchestrations) [oczekiwanie na zdarzenia zewnętrzne,](durable-functions-orchestrations.md#external-events) [HTTP](durable-functions-http-features.md)i [czasomierze.](durable-functions-orchestrations.md#durable-timers) Funkcje koordynatora mogą również wchodzić w interakcje z [funkcjami encji](#entity-functions).
-
-> [!NOTE]
-> Funkcje orchestrator są zapisywane przy użyciu zwykłego kodu, ale istnieją ścisłe wymagania dotyczące sposobu pisania kodu. W szczególności kod funkcji koordynatora musi być *deterministyczny*. Nieprzestrzeganie tych wymagań determinizm może spowodować, że funkcje programu orchestrator nie działać poprawnie. Szczegółowe informacje na temat tych wymagań i jak obejść je można znaleźć w temacie [ograniczenia kodu.](durable-functions-code-constraints.md)
-
-Aby uzyskać bardziej szczegółowe informacje na temat funkcji koordynatora i ich funkcji, zobacz [artykuł trwałe aranżacje.](durable-functions-orchestrations.md)
-
-## <a name="activity-functions"></a>Funkcje aktywności
-
-Funkcje działania są podstawową jednostką pracy w trwałej aranżacji funkcji. Funkcje działania są funkcje i zadania, które są aranżowane w procesie. Na przykład można utworzyć funkcję koordynatora do przetwarzania zamówienia. Zadania obejmują sprawdzanie zapasów, obciążanie odbiorcy i tworzenie przesyłki. Każde zadanie będzie oddzielną funkcją działania. Te funkcje działania mogą być wykonywane szeregowo, równolegle lub niektóre kombinacje obu.
-
-W przeciwieństwie do funkcji orkiestratora funkcje działania nie są ograniczone w typie pracy, którą można wykonać w nich. Funkcje działania są często używane do wykonywania wywołań sieciowych lub uruchamiania operacji intensywnie korzystających z procesora CPU. Funkcja działania może również zwracać dane z powrotem do funkcji koordynatora. Struktura zadań trwałe gwarantuje, że każda wywoływana funkcja działania zostanie wykonana *co najmniej raz* podczas wykonywania aranżacji.
+Funkcje programu Orchestrator opisują sposób wykonywania akcji i kolejność wykonywania akcji. Funkcje programu Orchestrator opisują aranżację w kodzie (C# lub JavaScript), jak pokazano w [Durable Functions wzorców aplikacji](durable-functions-overview.md#application-patterns). Aranżacja może mieć wiele różnych typów akcji, w tym [funkcje działania](#activity-functions), [podwykonawcy](durable-functions-orchestrations.md#sub-orchestrations), [oczekujące na zewnętrzne zdarzenia](durable-functions-orchestrations.md#external-events), [http](durable-functions-http-features.md)i [czasomierze](durable-functions-orchestrations.md#durable-timers). Funkcje programu Orchestrator mogą również współdziałać z [funkcjami jednostek](#entity-functions).
 
 > [!NOTE]
-> Ponieważ funkcje działania gwarantują *tylko jedno tylko raz* wykonanie, zaleca się, aby identyfikator logiki funkcji *działania,* gdy tylko jest to możliwe.
+> Funkcje programu Orchestrator są zapisywane przy użyciu zwykłego kodu, ale istnieją ścisłe wymagania dotyczące pisania kodu. W każdym przypadku kod funkcji programu Orchestrator musi być *deterministyczny*. Niespełnienie wymagań dotyczących tego ustalenia może spowodować, że funkcje programu Orchestrator nie działają poprawnie. Szczegółowe informacje o tych wymaganiach i sposobach ich obejścia można znaleźć w temacie [ograniczenia kodu](durable-functions-code-constraints.md) .
 
-Użyj [wyzwalacza działania,](durable-functions-bindings.md#activity-trigger) aby zdefiniować funkcję działania. .NET funkcje `DurableActivityContext` odbierają jako parametr. Wyzwalacz można również powiązać z dowolnym innym obiektem serializowania JSON, który ma być przekazywany w danych wejściowych do funkcji. W języku JavaScript można uzyskać `<activity trigger binding name>` dostęp do danych wejściowych za pośrednictwem właściwości [ `context.bindings` obiektu](../functions-reference-node.md#bindings). Funkcje działania mogą mieć tylko jedną wartość przekazywana do nich. Aby przekazać wiele wartości, należy użyć krotek, tablic lub typów złożonych.
+Aby uzyskać bardziej szczegółowe informacje na temat funkcji programu Orchestrator i ich funkcji, zobacz artykuł dotyczący [nietrwałych aranżacji](durable-functions-orchestrations.md) .
+
+## <a name="activity-functions"></a>Funkcje działania
+
+Funkcje działania to podstawowa jednostka pracy w ramach aranżacji funkcji trwałych. Funkcje działania to funkcje i zadania, które są zorganizowane w procesie. Można na przykład utworzyć funkcję programu Orchestrator, która będzie przetwarzać zamówienie. Zadania obejmują sprawdzanie spisu, ładowanie klienta i tworzenie wysyłki. Każde zadanie będzie oddzielną funkcją działania. Te funkcje działania mogą być wykonywane szeregowo, równolegle lub z obu kombinacji.
+
+W przeciwieństwie do funkcji programu Orchestrator, funkcje działania nie są ograniczone do typu pracy, którą można w nich wykonywać. Funkcje działania są często używane do wykonywania wywołań sieciowych lub wykonywania operacji intensywnie korzystających z procesora CPU. Funkcja działania może również zwracać dane z powrotem do funkcji programu Orchestrator. Trwała struktura zadań gwarantuje, że każda wywołana funkcja Activity zostanie wykonana *co najmniej raz* podczas wykonywania aranżacji.
 
 > [!NOTE]
-> Funkcję działania można wyzwolić tylko z funkcji koordynatora.
+> Ponieważ funkcje działania gwarantują tylko *jednokrotne* wykonanie, zalecamy, aby logika funkcji działania *idempotentne* się zawsze wtedy, gdy jest to możliwe.
 
-## <a name="entity-functions"></a>Funkcje encji
-
-Funkcje encji definiują operacje do odczytu i aktualizowania małych fragmentów stanu. Często odnosimy się do tych jednostek stanowych jako *trwałych podmiotów.* Podobnie jak funkcje orkiestratora, funkcje encji są funkcjami o specjalnym typie wyzwalacza, *wyzwalaczu jednostki*. Mogą być również wywoływane z funkcji klienta lub z funkcji aranżatora. W przeciwieństwie do funkcji aranżatora funkcje jednostki nie mają żadnych ograniczeń określonego kodu. Funkcje jednostki również zarządzać stan jawnie, a nie niejawnie reprezentujących stan za pośrednictwem przepływu sterowania.
+Użyj [wyzwalacza działania](durable-functions-bindings.md#activity-trigger) , aby zdefiniować funkcję działania. Funkcja .NET otrzymuje `DurableActivityContext` jako parametr. Można również powiązać wyzwalacz z dowolnym innym obiektem serializacji JSON, aby przekazać dane wejściowe do funkcji. W języku JavaScript można uzyskać dostęp do danych wejściowych za `<activity trigger binding name>` pośrednictwem właściwości [ `context.bindings` obiektu](../functions-reference-node.md#bindings). Do funkcji działania można przekazywać tylko jedną wartość. Aby przekazać wiele wartości, należy użyć krotek, tablic lub typów złożonych.
 
 > [!NOTE]
-> Funkcje jednostki i związane z nimi funkcje są dostępne tylko w funkcji trwałe 2.0 i powyżej.
+> Funkcję działania można wyzwolić tylko przy użyciu funkcji programu Orchestrator.
 
-Aby uzyskać więcej informacji na temat funkcji jednostki, zobacz [trwałe jednostki](durable-functions-entities.md) artykułu.
+## <a name="entity-functions"></a>Funkcje jednostki
+
+Funkcje jednostki definiują operacje odczytu i aktualizowania małych fragmentów stanu. Często odwołują się do tych jednostek stanowych jako *jednostek trwałych*. Podobnie jak funkcje programu Orchestrator, funkcje jednostki są funkcjami o specjalnym typie wyzwalacza, *wyzwalaczem jednostki*. Mogą być również wywoływane z funkcji klienta lub funkcji programu Orchestrator. W przeciwieństwie do funkcji programu Orchestrator, funkcje jednostek nie mają żadnych ograniczeń związanych z kodem. Funkcje jednostek również zarządzają stanem jawnie, a nie niejawnie reprezentującą stan za pośrednictwem przepływu sterowania.
+
+> [!NOTE]
+> Funkcje jednostki i powiązane funkcje są dostępne tylko w Durable Functions 2,0 i nowszych.
+
+Aby uzyskać więcej informacji na temat funkcji jednostki, zobacz artykuł dotyczący [jednostek trwałych](durable-functions-entities.md) .
 
 ## <a name="client-functions"></a>Funkcje klienta
 
-Funkcje aranżatora są wyzwalane przez [powiązanie wyzwalacza aranżacji,](durable-functions-bindings.md#orchestration-trigger) a funkcje encji są wyzwalane przez [powiązanie wyzwalacza jednostki.](durable-functions-bindings.md#entity-trigger) Oba te wyzwalacze działają, reagując na wiadomości, które są w kolejce do [centrum zadań](durable-functions-task-hubs.md). Podstawowym sposobem dostarczania tych komunikatów jest użycie [powiązania klienta programu orchestrator](durable-functions-bindings.md#orchestration-client) lub [powiązania klienta jednostki](durable-functions-bindings.md#entity-client) z *funkcji klienta.* Każda funkcja nieadastora może być *funkcją klienta*. Na przykład można wyzwolić koordynatora z funkcji wyzwalanej przez HTTP, funkcji wyzwalanej usługi Azure Event Hub itp. Co sprawia, że funkcja *klienta funkcji* jest jego użycie powiązania wyjściowego klienta trwałe.
+Funkcje programu Orchestrator są wywoływane przez [powiązanie wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger) , a funkcje jednostek są wyzwalane przez [powiązanie wyzwalacza jednostki](durable-functions-bindings.md#entity-trigger). Oba te wyzwalacze działają przez oddziałanie do komunikatów, które są w kolejce do [centrum zadań](durable-functions-task-hubs.md). Podstawowym sposobem na dostarczenie tych komunikatów jest użycie [powiązania klienta programu Orchestrator](durable-functions-bindings.md#orchestration-client) lub [powiązania klienta jednostki](durable-functions-bindings.md#entity-client) z poziomu *funkcji klienta*. Każda funkcja, która nie jest koordynatorem, może być *funkcją kliencką*. Na przykład można wyzwolić koordynatora z funkcji wyzwalanej przez protokół HTTP, funkcji wyzwalanej przez centrum zdarzeń platformy Azure itp. Co sprawia, że funkcja *klienta* korzysta z trwałego powiązania danych wyjściowych klienta.
 
 > [!NOTE]
-> W przeciwieństwie do innych typów funkcji, funkcji koordynatora i jednostki nie można wyzwolić bezpośrednio za pomocą przycisków w witrynie Azure Portal. Jeśli chcesz przetestować funkcję koordynatora lub jednostki w witrynie Azure Portal, należy zamiast tego uruchomić *funkcję klienta,* która uruchamia funkcję koordynatora lub jednostki w ramach jego implementacji. Aby uzyskać najprostsze doświadczenie w testowaniu, zalecana jest funkcja *ręcznego wyzwalania.*
+> W przeciwieństwie do innych typów funkcji, funkcje programu Orchestrator i Entity nie mogą być wyzwalane bezpośrednio przy użyciu przycisków w witrynie Azure Portal. Jeśli chcesz przetestować funkcję programu Orchestrator lub Entity w witrynie Azure Portal, należy zamiast tego uruchomić *funkcję klienta* , która uruchamia program Orchestrator lub funkcję Entity w ramach swojej implementacji. W najprostszym środowisku testowym zaleca się wykonanie funkcji *ręcznego wyzwalacza* .
 
-Oprócz wyzwalania funkcji koordynatora lub jednostki, trwałe powiązanie *klienta* może służyć do interakcji z uruchomionymi aranżacjami i jednostkami. Na przykład aranżacji można zbadać, zakończone i może mieć zdarzenia podniesione do nich. Aby uzyskać więcej informacji na temat zarządzania aranżacjami i jednostkami, zobacz artykuł [o zarządzaniu wystąpieniami.](durable-functions-instance-management.md)
+Oprócz wyzwalania funkcji programu Orchestrator lub jednostek, trwałe powiązanie *klienta* może służyć do współdziałania z uruchomionymi aranżacjami i jednostkami. Na przykład można wykonywać zapytania o aranżacje, zakończyć pracę i mogą być do nich wywoływane zdarzenia. Aby uzyskać więcej informacji na temat zarządzania aranżacjami i jednostkami, zobacz artykuł dotyczący [zarządzania wystąpieniami](durable-functions-instance-management.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, utwórz pierwszą trwałą funkcję w [języku C#](durable-functions-create-first-csharp.md) lub [JavaScript](quickstart-js-vscode.md).
+Aby rozpocząć, Utwórz pierwszą trwałą funkcję w [języku C#](durable-functions-create-first-csharp.md) lub [JavaScript](quickstart-js-vscode.md).
 
 > [!div class="nextstepaction"]
-> [Dowiedz się więcej o aranżacjach funkcji trwałych](durable-functions-orchestrations.md)
+> [Przeczytaj więcej na temat Durable Functions aranżacji](durable-functions-orchestrations.md)

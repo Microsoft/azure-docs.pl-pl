@@ -1,6 +1,6 @@
 ---
-title: Tworzenie aplikacji mapy z ułatwieniami dostępu za pomocą usługi Azure Maps | Mapy platformy Microsoft Azure
-description: W tym artykule dowiesz się, jak utworzyć aplikację z funkcjami ułatwień dostępu przy użyciu usług Microsoft Azure Maps.
+title: Utwórz dostępną aplikację mapy z Azure Maps | Mapy Microsoft Azure
+description: W tym artykule dowiesz się, jak utworzyć aplikację z funkcjami ułatwień dostępu przy użyciu map Microsoft Azure.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -9,80 +9,80 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473323"
 ---
-# <a name="building-an-accessible-application"></a>Tworzenie aplikacji z ułatwieniami dostępu
+# <a name="building-an-accessible-application"></a>Tworzenie dostępnej aplikacji
 
-Ponad 20% użytkowników Internetu potrzebuje dostępnych aplikacji internetowych. W związku z tym należy upewnić się, że aplikacja jest zaprojektowana w taki sposób, aby każdy użytkownik mógł z niej łatwo korzystać. Zamiast myśleć o dostępności jako zestaw zadań do wykonania, należy myśleć o tym jako część ogólnego środowiska użytkownika. Im bardziej dostępna aplikacja, tym więcej osób może z niej korzystać. 
+Maksymalnie 20% użytkowników Internetu jest potrzebnych dla dostępnych aplikacji sieci Web. W związku z tym ważne jest, aby upewnić się, że aplikacja została zaprojektowana tak, aby każdy użytkownik mógł ją łatwo wykorzystać. Nie trzeba traktować ich jako zestawu zadań do ukończenia, ponieważ jest to część ogólnego środowiska użytkownika. Im bardziej dostępna aplikacja, tym więcej osób, które mogą z niej korzystać. 
 
-Jeśli chodzi o bogatą zawartość interaktywną, taką jak mapa, niektóre typowe zagadnienia dotyczące dostępności to:
-- Obsługa czytnika ekranu dla użytkowników, którzy mają trudności z wyświetlaniem aplikacji sieci web.
-- Mieć wiele metod interakcji z aplikacją internetową i nawigacji, takich jak mysz, dotyk i klawiatura.
-- Upewnij się, że kontrast kolorów jest taki, aby kolory nie mieszają się ze sobą i stały się trudne do odróżnienia od siebie. 
+Gdy zestaw zawiera rozbudowaną zawartość interaktywną, taką jak mapa, niektóre typowe zagadnienia dotyczące ułatwień dostępu są następujące:
+- Obsługa czytnika ekranu dla użytkowników, którzy mają trudności z oglądaniem aplikacji sieci Web.
+- Mają wiele metod współpracy z aplikacją sieci Web i nawigowaniem w niej, takich jak mysz, dotyk i klawiatura.
+- Upewnij się, że kolory nie mieszają się ze sobą i trudno się odróżnić od siebie. 
 
-Zestaw Azure Maps Web SDK jest fabrycznie wyposażony w wiele funkcji ułatwień dostępu, takich jak:
-- Opisy czytnika ekranu, gdy mapa jest przesuwana i gdy użytkownik koncentruje się na formancie lub wyskakującym okienku.
+Zestaw SDK sieci Web Azure Maps zawiera prekompilowaną z wieloma funkcjami ułatwień dostępu, takimi jak:
+- Opisy czytnika ekranu, gdy mapa jest przenoszona i gdy użytkownik koncentruje się na kontrolce lub wyskakującym okienku.
 - Obsługa myszy, dotyku i klawiatury.
-- Dostępne wsparcie kontrastu kolorów w stylu mapy drogowej.
+- Obsługa kontrastu kolorów dostępna w stylu mapy drogowej.
 
-Szczegółowe informacje dotyczące pełnej zgodności ułatwień dostępu dla wszystkich produktów firmy Microsoft można znaleźć [tutaj](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Wyszukaj "Usługa Azure Maps web", aby znaleźć dokument specjalnie dla zestawu SDK usługi Azure Maps Web. 
+Szczegółowe informacje o zgodności z pełnymi ułatwieniami dostępu dla wszystkich produktów firmy Microsoft można znaleźć [tutaj](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Wyszukaj ciąg "Azure Maps Web", aby znaleźć dokument przeznaczony dla Azure Maps Web SDK. 
 
-## <a name="navigating-the-map"></a>Poruszanie się po mapie
+## <a name="navigating-the-map"></a>Nawigowanie po mapie
 
-Istnieje kilka różnych sposobów powiększania, przesuwania, obracania i rozbijania mapy. Poniżej przedstawiono wszystkie sposoby poruszania się po mapie.
+Istnieje kilka różnych sposobów, w których mapowanie może być powiększane, przesuwane, obracane i mierzone. Poniżej przedstawiono szczegółowe informacje na temat różnych sposobów nawigowania po mapie.
 
-**Powiększanie mapy**
+**Powiększ mapę**
 
-- Za pomocą myszy kliknij dwukrotnie mapę, aby powiększyć jeden poziom.
+- Za pomocą myszy kliknij dwukrotnie mapę, aby powiększyć na jednym poziomie.
 - Za pomocą myszy przewiń kółko, aby powiększyć mapę.
-- Korzystając z ekranu dotykowego, dotknij mapy dwoma palcami i zsuń się, aby pomniejszyć lub rozłożyć palce, aby powiększyć.
-- Za pomocą ekranu dotykowego naciśnij dwukrotnie mapę, aby powiększyć jeden poziom.
-- Gdy mapa jest skupiona, użyj`+`znaku Plus (`=`) lub znaku Równości ( ), aby powiększyć jeden poziom.
-- Gdy mapa jest skupiona, użyj znaku`-`Minus, łącznika ( ) lub Podkreślenia (`_`), aby pomniejszyć jeden poziom.
-- Korzystanie z kontrolki zoomu za pomocą klawiatury, klawiszy dotykowych lub klawiszy / klawiszy enter.
-- Naciśnij i `Shift` przytrzymaj przycisk, a następnie naciśnij lewy przycisk myszy na mapie i przeciągnij, aby narysować obszar, aby powiększyć mapę.
+- Korzystając z ekranu dotykowego, dotknij mapy dwoma palcami i szczypania ze sobą, aby pomniejszyć lub rozłożyć palcami od siebie do powiększania.
+- Korzystając z ekranu dotykowego, dwukrotnie naciśnij mapę, aby powiększyć na jednym poziomie.
+- Używając mapy, użyj znaku plus (`+`) lub znaku równości (`=`), aby powiększyć jeden poziom.
+- Używając mapy, użyj znaku minus, łącznika (`-`) lub znaku podkreślenia (`_`), aby pomniejszyć jeden poziom.
+- Za pomocą kontrolki powiększenie za pomocą myszy, dotyku lub klawisza Tab/klawisz ENTER.
+- Naciśnij i przytrzymaj `Shift` przycisk i naciśnij lewy przycisk myszy w dół mapy i przeciągnij, aby narysować obszar, w którym chcesz powiększyć mapę.
 
-**Przesuwanie mapy**
+**Panoramowanie mapy**
 
-- Za pomocą myszy naciśnij lewy przycisk myszy na mapie i przeciągnij w dowolnym kierunku.
-- Za pomocą ekranu dotykowego dotknij mapy i przeciągnij w dowolnym kierunku.
-- Po skoncentrowaniu mapy użyj klawiszy strzałek, aby przenieść mapę.
+- Korzystając z myszy, naciśnij przycisk myszy w dół na mapie i przeciągnij w dowolnym kierunku.
+- Korzystając z ekranu dotykowego, dotknij mapy i przeciągnij w dowolnym kierunku.
+- Korzystając z mapy, użyj klawiszy strzałek, aby przenieść mapę.
 
-**Obracanie mapy**
+**Obróć mapę**
 
 - Za pomocą myszy naciśnij prawy przycisk myszy na mapie i przeciągnij w lewo lub w prawo. 
-- Za pomocą ekranu dotykowego dotknij mapy dwoma palcami i obróć.
-- Po skoncentrowaniu mapy użyj klawisza shift oraz klawiszy strzałek w lewo lub w prawo.
-- Korzystanie z kontroli obrotu za pomocą myszy, klawiszy lub klawiszy/ klawiszy enter.
+- Korzystając z ekranu dotykowego, dotknij mapy dwoma palcami i Obróć.
+- Korzystając z mapy, użyj klawisza Shift i klawiszy strzałek w lewo lub w prawo.
+- Za pomocą kontrolki rotacji z klawiszami myszy, dotyku lub klawiatury/ENTER.
 
-**Rozbij mapę**
+**Wysokość mapy**
 
 - Za pomocą myszy naciśnij prawy przycisk myszy na mapie i przeciągnij w górę lub w dół. 
-- Za pomocą ekranu dotykowego dotknij mapy dwoma palcami i przeciągnij ją razem w górę lub w dół.
-- Po skoncentrowaniu mapy użyj klawisza shift oraz klawiszy strzałek w górę lub w dół. 
-- Korzystanie z kontroli skoku za pomocą myszy, klawiszy lub klawiszy / klawiszy enter.
+- Korzystając z ekranu dotykowego, dotknij mapy dwoma palcami i przeciągnij je w górę lub w dół.
+- Korzystając z mapy, użyj klawisza Shift oraz klawiszy strzałek w górę lub w dół. 
+- Za pomocą kontrolki gęstość z klawiszem myszy, dotykiem lub klawiszem Tab/ENTER.
 
-## <a name="change-the-map-style"></a>Zmienianie stylu mapy
+## <a name="change-the-map-style"></a>Zmiana stylu mapy
 
-Nie wszyscy deweloperzy chcą, aby wszystkie możliwe style map były dostępne w ich aplikacji. Jeśli deweloper wyświetli kontrolkę selektora stylu mapy, użytkownik może zmienić styl mapy za pomocą myszy, dotyku lub klawiatury za pomocą klawisza tab lub enter. Deweloper może określić, które style mapy mają być dostępne w formancie selektora stylu mapy. Ponadto deweloper może programowo ustawić i zmienić styl mapy.
+Nie wszyscy deweloperzy chcą, aby wszystkie możliwe style mapy były dostępne w swojej aplikacji. Jeśli deweloper wyświetli kontrolkę selektora stylów mapy, użytkownik może zmienić styl mapy za pomocą myszy, dotyku lub klawiatury z klawiszem Tab lub ENTER. Deweloper może określić, które style mapy mają być dostępne w kontrolce selektor stylów mapy. Ponadto deweloper może programowo ustawiać i zmieniać styl mapy.
 
 **Korzystanie z dużego kontrastu**
 
-- Po załadowaniu formantu mapy sprawdza, czy wysoki kontrast jest włączony, a przeglądarka go obsługuje.
-- Kontrolka mapy nie monitoruje trybu wysokiego kontrastu urządzenia. Jeśli tryb urządzenia ulegnie zmianie, mapa nie zostanie 2019 r. W związku z tym użytkownik będzie musiał ponownie załadować mapę, odświeżając stronę.
-- Po wykryciu wysokiego kontrastu styl mapy automatycznie przełączy się na wysoki kontrast, a wszystkie wbudowane kontrolki będą używać stylu wysokiego kontrastu. Na przykład ZoomControl, PitchControl, CompassControl, StyleControl i inne wbudowane formanty użyją stylu wysokiego kontrastu.
-- Istnieją dwa rodzaje wysokiego kontrastu, jasne i ciemne. Jeśli typ wysokiego kontrastu może zostać wykryty przez formanty mapy, zachowanie mapy zostanie odpowiednio dostosowane. Jeśli świeci, zostanie załadowany grayscale_light styl mapy. Jeśli nie można wykryć typu lub jest ciemny, zostanie załadowany styl high_contrast_dark.
-- W przypadku tworzenia formantów niestandardowych, warto wiedzieć, czy wbudowane formanty używają stylu wysokiego kontrastu. Deweloperzy mogą dodać klasę css na div kontenera mapy, aby sprawdzić. Klasy css, które zostaną `high-contrast-dark` `high-contrast-light`dodane są i . Aby sprawdzić użycie języka JavaScript, użyj:
+- Po załadowaniu kontrolki mapy sprawdza ona, czy duży kontrast jest włączony i czy przeglądarka ją obsługuje.
+- Kontrolka mapy nie monitoruje trybu dużego kontrastu urządzenia. W przypadku zmiany trybu urządzenia mapa nie zostanie zmieniona. W takim przypadku użytkownik będzie musiał ponownie załadować mapę przez odświeżenie strony.
+- Po wykryciu dużego kontrastu styl mapy zostanie automatycznie przełączony do dużego kontrastu, a wszystkie wbudowane kontrolki będą korzystać z stylu dużego kontrastu. Na przykład ZoomControl, PitchControl, CompassControl, StyleControl i inne wbudowane kontrolki będą korzystać z stylu dużego kontrastu.
+- Istnieją dwa typy dużego kontrastu, jasne i ciemne. Jeśli typ dużego kontrastu może zostać wykryty przez kontrolki mapy, zachowanie mapy zostanie odpowiednio dopasowane. Jeśli jest jasne, zostanie załadowany styl mapy grayscale_light. Jeśli typ nie może zostać wykryty lub jest ciemny, zostanie załadowany styl high_contrast_dark.
+- Jeśli tworzysz niestandardowe kontrolki, warto wiedzieć, czy wbudowane kontrolki używają stylu o wysokim kontraście. Deweloperzy mogą dodać klasę CSS do znacznika DIV kontenera mapy, aby sprawdzić. Dodawane klasy CSS to `high-contrast-dark` i. `high-contrast-light` Aby sprawdzić użycie języka JavaScript, użyj polecenia:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
 ```
 
-lub, użyj:
+lub użyj:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-light")
@@ -90,91 +90,91 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 ## <a name="keyboard-shortcuts"></a>Skróty klawiaturowe
 
-Mapa ma wbudowaną liczbę skrótów klawiaturowych, które ułatwiają korzystanie z mapy. Te skróty klawiaturowe działają, gdy mapa ma fokus.
+Mapa zawiera wbudowane skróty klawiaturowe, które ułatwiają korzystanie z mapy. Te skróty klawiaturowe działają, gdy mapa ma fokus.
 
-| Klucz      | Akcja                            |
+| Key      | Akcja                            |
 |----------|-----------------------------------|
-| `Tab` | Nawiguj po formantych i wyskakujących okienkach na mapie. |
+| `Tab` | Nawigowanie między kontrolkami i okienkami podręcznymi na mapie. |
 | `ESC` | Przenieś fokus z dowolnego elementu na mapie do elementu mapy najwyższego poziomu. |
 | `Ctrl` + `Shift` + `D` | Przełącz poziom szczegółów czytnika ekranu.  |
-| Klawisz ze strzałką w lewo | Przesuwanie mapy w lewo o 100 pikseli |
-| Klawisz ze strzałką w prawo | Przesuwanie mapy w prawo o 100 pikseli |
-| Klawisz strzałki w dół | Przesuwanie mapy w dół o 100 pikseli |
-| Strzałka w górę | Przesuwanie mapy o 100 pikseli |
-| `Shift`+ strzałka w górę | Zwiększenie skoku mapy o 10 stopni |
-| `Shift`+ strzałka w dół | Zmniejsz wysokość mapy o 10 stopni |
-| `Shift`+ strzałka w prawo | Obróć mapę o 15 stopni w kierunku zgodnym z ruchem wskazówek zegara |
-| `Shift`+ strzałka w lewo | Obróć mapę o 15 stopni w kierunku przeciwnym do ruchu wskazówek zegara |
-| Znak Plus`+`( <sup>*</sup>) lub`=`znak Równości ( ) | Powiększanie |
-| Znak minus, łącznik`-`( <sup>*</sup>)`_`lub Podkreślenie ( ) | Pomniejszanie | 
-| `Shift`+ przeciągnij myszą na mapie, aby narysować obszar | Powiększanie obszaru |
+| Klawisz ze strzałką w lewo | Przesuń mapę w lewo o 100 pikseli |
+| Klawisz ze strzałką w prawo | Przesuń mapę w prawo 100 pikseli |
+| Klawisz Strzałka w dół | Przesuń mapę w dół o 100 pikseli |
+| Klawisz Strzałka w górę | Przesuń mapę w górę o 100 pikseli |
+| `Shift`+ Strzałka w górę | Zwiększ wysokość mapy o 10 stopni |
+| `Shift`+ Strzałka w dół | Zmniejsz wysokość mapy o 10 stopni |
+| `Shift`+ Strzałka w prawo | Obróć mapę o 15 stopni w prawo |
+| `Shift`+ Strzałka w lewo | Obróć mapę o 15 stopni w lewo |
+| Znak plus (`+`) lub <sup>*</sup>znak równości (`=`) | Powiększanie |
+| Znak minus, łącznik (`-`) lub <sup>*</sup>podkreślenie (`_`) | Pomniejszanie | 
+| `Shift`+ Przeciągnij myszą na mapie, aby rysować obszar | Powiększ do obszaru |
 
-<sup>*</sup>Te skróty klawiszowe zwykle współużytkują ten sam klawisz na klawiaturze. Te skróty zostały dodane w celu poprawy środowiska użytkownika. Nie ma również znaczenia, czy użytkownik używa klawisza shift, czy nie dla tych skrótów.
+<sup>*</sup>Te kluczowe skróty zazwyczaj współdzielą ten sam klucz na klawiaturze. Te skróty zostały dodane w celu usprawnienia środowiska użytkownika. Nie ma znaczenia, czy użytkownik używa klawisza Shift lub nie do tych skrótów.
 
-## <a name="screen-reader-support"></a>Obsługa czytnika zawartości ekranu
+## <a name="screen-reader-support"></a>Obsługa czytnika ekranu
 
-Użytkownicy mogą poruszać się po mapie za pomocą klawiatury. Jeśli czytnik ekranu jest uruchomiony, mapa powiadomi użytkownika o zmianach w jego stanie. Na przykład użytkownicy są powiadamiani o zmianach mapy, gdy mapa jest przesuwana lub powiększana. Domyślnie mapa zawiera uproszczone opisy, które wykluczają poziom powiększenia i współrzędne środka mapy. Użytkownik może przełączać poziom szczegółowości tych opisów za `Ctrl`  +  `Shift`  +  `D`pomocą skrótu klawiatury .
+Użytkownicy mogą nawigować po mapie przy użyciu klawiatury. Jeśli czytnik ekranu jest uruchomiony, mapa będzie powiadamiać użytkownika o zmianach stanu. Na przykład użytkownicy są powiadamiani o zmianach mapy, gdy mapa jest przesuwana lub powiększa. Domyślnie mapa zawiera uproszczone opisy, które wykluczają poziom powiększenia i współrzędne centrum mapy. Użytkownik może przełączać poziom szczegółowości tych opisów przy użyciu klawiatury krótkiej wycinania `Ctrl`  +  `Shift`  +  `D`.
 
-Wszelkie dodatkowe informacje umieszczone na mapie bazowej powinny mieć odpowiednie informacje tekstowe dla użytkowników czytnika ekranu. W razie potrzeby należy dodać atrybuty ARIA , alt i [tytuł(2).](https://www.w3.org/WAI/standards-guidelines/aria/) 
+Wszelkie dodatkowe informacje umieszczane na mapie podstawowej powinny mieć odpowiednie informacje tekstowe dla użytkowników czytnika ekranu. Należy pamiętać o dodaniu [dostępnych bogatych aplikacji internetowych (Aria)](https://www.w3.org/WAI/standards-guidelines/aria/), klawiszy Alt i atrybutów tytułu, tam gdzie to konieczne. 
 
-## <a name="make-popups-keyboard-accessible"></a>Udostępnij klawiaturę wyskakujących okienka
+## <a name="make-popups-keyboard-accessible"></a>Zapewnianie dostępu do klawiatury podręcznej
 
-Znacznik lub symbol jest często używany do reprezentowania lokalizacji na mapie. Dodatkowe informacje o lokalizacji są zazwyczaj wyświetlane w wyskakującym okienku, gdy użytkownik wchodzi w interakcję ze znacznikiem. W większości aplikacji wyskakujące okienka są wyświetlane, gdy użytkownik kliknie lub dotknie znacznika. Jednak kliknięcie i stuknięcie wymaga od użytkownika użycia myszy i ekranu dotykowego. Dobrą praktyką jest udostępnienie wyskakujących okienków podczas korzystania z klawiatury. Tę funkcję można osiągnąć, tworząc okno podręczne dla każdego punktu danych i dodając je do mapy. 
+Znacznik lub symbol jest często używany do reprezentowania lokalizacji na mapie. Dodatkowe informacje o lokalizacji są zwykle wyświetlane w oknie podręcznym, gdy użytkownik współdziała ze znacznikiem. W większości aplikacji wyskakujące okienka są wyświetlane, gdy użytkownik kliknie lub naciśnie znacznik. Jednak kliknięcie i naciśnięcie przycisku wymaga, aby użytkownik korzystał z myszy i ekranu dotykowego. Dobrym sposobem jest udostępnienie okien podręcznych w przypadku korzystania z klawiatury. Tę funkcję można osiągnąć przez utworzenie okna podręcznego dla każdego punktu danych i dodanie go do mapy. 
 
-Poniższy przykład ładuje punkty zainteresowania na mapie za pomocą warstwy symboli i dodaje wyskakujące okienko do mapy dla każdego punktu zainteresowania. Odwołanie do każdego okna podręcznego jest przechowywane we właściwościach każdego punktu danych. Można go również pobrać dla znacznika, na przykład po kliknięciu znacznika. Po skupieniu się na mapie naciśnięcie klawisza tab pozwoli użytkownikowi przejść przez każde wyskakujące okienko na mapie.
+Poniższy przykład ładuje punkty zainteresowań na mapie przy użyciu warstwy symboli i dodaje podręczne do mapy dla każdego punktu zainteresowania. Odwołanie do każdego okna podręcznego jest przechowywane we właściwościach każdego punktu danych. Można go również pobrać dla znacznika, na przykład po kliknięciu znacznika. Po skoncentrowaniu się na mapie naciśnięcie klawisza Tab umożliwi użytkownikowi przechodzenie przez poszczególne okienka podręczne na mapie.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Tworzenie aplikacji z ułatwieniami dostępu' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz Pióro <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Tworzenie aplikacji</a> dostępnych<a href='https://codepen.io/azuremaps'>@azuremaps</a>przez usługi Azure Maps ( ) na <a href='https://codepen.io'>funkcji CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Utwórz dostępną aplikację' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro, aby <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>udostępnić aplikację</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 
 ## <a name="additional-accessibility-tips"></a>Dodatkowe wskazówki dotyczące ułatwień dostępu
 
-Oto kilka dodatkowych wskazówek, aby aplikacja mapowania sieci web była bardziej dostępna.
+Poniżej znajdują się dodatkowe porady ułatwiające dostęp do aplikacji do mapowania sieci Web.
 
-- Jeśli wyświetlasz wiele interaktywnych danych punktowych na mapie, należy rozważyć zmniejszenie bałaganu i użyć klastrowania. 
-- Upewnij się, że współczynnik kontrastu kolorów między tekstem/symbolami a kolorami tła wynosi 4,5:1 lub więcej.
-- Utrzymuj krótkie, opisowe i znaczące komunikaty czytnika ekranu (atrybuty ARIA, alt i tytuł). Unikaj niepotrzebnego żargonu i akronimów.
-- Spróbuj zoptymalizować wiadomości wysyłane do czytnika ekranu, aby zapewnić krótkie istotne informacje, które są łatwe do strawienia przez użytkownika. Na przykład, jeśli chcesz zaktualizować czytnik ekranu z dużą częstotliwością, na przykład gdy mapa jest w ruchu, należy rozważyć wykonanie następujących punktów:
-    - Poczekaj, aż mapa zakończy przenoszenie, aby zaktualizować czytnik ekranu.
-    - Przepustnicy aktualizacji do raz na kilka sekund. 
-    - Łączenie wiadomości w logiczny sposób. 
-- Unikaj przekazywania informacji tylko za pomocą koloru. Użyj tekstu, ikon lub wzorów, aby uzupełnić lub zastąpić kolor. Niektóre zagadnienia:
-    - Jeśli używa się warstwy bąbelkowej do pokazywania względnej wartości między punktami danych, należy rozważyć skalowanie promienia każdego bąbelka, kolorowanie bąbelka lub obu. 
-    - Rozważ użycie warstwy symboli z różnymi ikonami dla różnych kategorii metrycznych, takich jak trójkąty, gwiazdki i kwadraty. Warstwa symboli obsługuje również skalowanie rozmiaru ikony. Można również wyświetlić etykietę tekstową.
-    - W przypadku wyświetlania danych linii szerokość może służyć do reprezentowania wagi lub rozmiaru. Desenie tablicy kreskowej może służyć do reprezentowania różnych kategorii linii. Warstwa symbolu może być używana w połączeniu z linią, aby nałożyć ikony wzdłuż linii. Użycie ikony strzałki jest przydatne do wyświetlania przepływu lub kierunku linii.
+- Jeśli na mapie jest wyświetlanych wiele danych punktów interaktywnych, rozważ zmniejszenie bałaganu i użycie klastrowania. 
+- Upewnij się, że współczynnik kontrastu kolorów między tekstem i symbolami i kolorami tła to 4.5:1 lub więcej.
+- Należy zachować krótką, opisową i zrozumiałą komunikaty o atrybutach ARIA, Alt i title. Unikaj zbędnych żargon i akronimów.
+- Spróbuj zoptymalizować komunikaty wysyłane do czytnika ekranu, aby zapewnić zwięzłe informacje, które są łatwe do zamieszania przez użytkownika. Na przykład jeśli chcesz zaktualizować czytnik ekranu z dużą częstotliwością, np. podczas przesuwania mapy, rozważ wykonanie następujących czynności:
+    - Zaczekaj na zakończenie przesuwania mapy w celu zaktualizowania czytnika ekranu.
+    - Ogranicz aktualizacje do co kilka sekund. 
+    - Łączenie komunikatów w sposób logiczny. 
+- Unikaj przekazywania informacji tylko za pomocą koloru. Użyj tekstu, ikon lub wzorców, aby uzupełnić lub zastąpić kolor. Niektóre zagadnienia:
+    - Jeśli używasz warstwy bąbelkowej do wyświetlania wartości względnej między punktami danych, rozważ skalowanie promienia każdego bąbelka, kolorowanie bąbelków lub obu. 
+    - Rozważ użycie warstwy symbol z różnymi ikonami dla różnych kategorii metryk, takich jak trójkąty, gwiazdki i kwadraty. Warstwa symboli obsługuje również skalowanie rozmiaru ikony. Etykieta tekstowa może również być wyświetlana.
+    - W przypadku wyświetlania danych liniowych szerokość może być używana do reprezentowania wagi lub rozmiaru. Wzorzec tablic kreskowych może służyć do reprezentowania różnych kategorii linii. Warstwa symboli może być używana w połączeniu z linią do nakładania ikon wzdłuż linii. Użycie ikony strzałki jest przydatne do wyświetlania przepływu lub kierunku linii.
     - W przypadku wyświetlania danych wielokątów wzorzec, taki jak paski, może być używany jako alternatywa dla koloru. 
-- Niektóre wizualizacje, takie jak mapy cieplne, warstwy kafli i warstwy obrazów, nie są dostępne dla użytkowników z wadami wzroku. Niektóre zagadnienia:
-    - Niech czytnik ekranu opisze, co warstwa jest wyświetlana po dodaniu do mapy. Jeśli na przykład zostanie wyświetlona warstwa kafli radaru pogodowego, czytnik ekranu powiedz "Dane radaru pogodowego są nakładane na mapę".
-- Ogranicz ilość funkcji, które wymagają aktywowania wskaźnika myszy. Te funkcje będą niedostępne dla użytkowników, którzy korzystają z klawiatury lub urządzenia dotykowego do interakcji z aplikacją. Pamiętaj, że nadal dobrą praktyką jest styl aktywowania zawartości interaktywnej, takiej jak klikalne ikony, łącza i przyciski.
-- Spróbuj nawigować po aplikacji za pomocą klawiatury. Upewnij się, że kolejność kart jest logiczna.
-- Jeśli tworzysz skróty klawiaturowe, spróbuj ograniczyć go do dwóch klawiszy lub mniej. 
+- Niektóre wizualizacje, takie jak map cieplnych, warstwy kafelków i warstwy obrazów, nie są dostępne dla użytkowników z upośledzeniem programu Vision. Niektóre zagadnienia:
+    - Zapoznaj się z czytnikiem ekranu opisującym, co warstwa jest wyświetlana po dodaniu do mapy. Na przykład, jeśli zostanie wyświetlona warstwa kafelków radarowych, wówczas czytniki ekranu mówią, że dane radaru Pogoda są nakładane na mapie.
+- Ogranicz liczbę funkcji, które wymagają przesuwania wskaźnika myszy. Te funkcje będą niedostępne dla użytkowników korzystających z klawiatury lub urządzenia dotykowego do korzystania z aplikacji. Pamiętaj, że nadal dobrym sposobem jest posiadanie stylu aktywowany dla zawartości interaktywnej, takiej jak ikony, linki i przyciski.
+- Spróbuj przejść do aplikacji przy użyciu klawiatury. Upewnij się, że kolejność tabulacji jest logiczna.
+- Jeśli tworzysz skróty klawiaturowe, spróbuj ograniczyć je do dwóch kluczy lub mniej. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o ułatwieniach dostępu w modułach SDK sieci Web.
+Dowiedz się więcej o ułatwieniach dostępu w modułach zestawu SDK sieci Web.
 
 > [!div class="nextstepaction"]
-> [Ułatwienia dostępu do narzędzi do rysowania](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Ułatwienia dostępu narzędzi do rysowania](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Dowiedz się więcej o tworzeniu aplikacji z ułatwieniami dostępu w programie Microsoft Learn:
+Dowiedz się więcej o projektowaniu dostępnych aplikacji przy użyciu Microsoft Learn:
 
 > [!div class="nextstepaction"]
-> [Ścieżka szkoleniowa digital badge w działaniu w działaniu](https://ready.azurewebsites.net/learning/track/2940)
+> [Dostępność w obszarze działania ścieżka uczenia cyfrowego](https://ready.azurewebsites.net/learning/track/2940)
 
 Zapoznaj się z tymi przydatnymi narzędziami ułatwień dostępu:
 > [!div class="nextstepaction"]
 > [Tworzenie aplikacji z ułatwieniami dostępu](https://developer.microsoft.com/windows/accessible-apps)
 
 > [!div class="nextstepaction"]
-> [Przegląd WAI-ARIA](https://www.w3.org/WAI/standards-guidelines/aria/)
+> [POCZEKA — Omówienie ARIA](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 > [!div class="nextstepaction"]
-> [Narzędzie do oceny ułatwień dostępu do sieci (WAVE)](https://wave.webaim.org/)
+> [Narzędzie do oceny ułatwień dostępu w sieci Web (WAVE)](https://wave.webaim.org/)
 
 > [!div class="nextstepaction"]
-> [Sprawdzanie kontrastu kolorów WebAim](https://webaim.org/resources/contrastchecker/)
+> [WebAim — Narzędzie sprawdzania kontrastu kolorów](https://webaim.org/resources/contrastchecker/)
 
 > [!div class="nextstepaction"]
-> [Brak symulatora wizyjnego kawy](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
+> [Brak symulatora z obsługą kawy](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
