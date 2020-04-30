@@ -1,168 +1,168 @@
 ---
-title: Planowanie cyklicznych zadań i przepływów pracy w usłudze Azure Logic Apps
-description: Omówienie planowania cyklicznych zautomatyzowanych zadań, procesów i przepływów pracy za pomocą usługi Azure Logic Apps
+title: Planowanie cyklicznych zadań i przepływów pracy w Azure Logic Apps
+description: Omówienie planowania cyklicznych zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0f6ec158cf6ab855191e6796be3abec7d37439a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270565"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234098"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Planowanie i uruchamianie cyklicznych automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps
 
-Aplikacja Logika ułatwia tworzenie i uruchamianie zautomatyzowanych zadań cyklicznych i procesów zgodnie z harmonogramem. Tworząc przepływ pracy aplikacji logiki, który rozpoczyna się od wbudowanego wyzwalacza cyklu lub wyzwalacza okna przesuwnego, które są wyzwalaczami typu Harmonogram, można uruchamiać zadania natychmiast, w późniejszym czasie lub w interwale cyklicznym. Można wywołać usługi wewnątrz i na zewnątrz platformy Azure, takie jak punkty końcowe HTTP lub HTTPS, publikować wiadomości w usługach platformy Azure, takich jak Usługa Azure Storage i usługa Azure Service Bus, lub uzyskać pliki przekazywane do udziału plików. Za pomocą wyzwalacza cyklu można również skonfigurować złożone harmonogramy i zaawansowane cykle do uruchamiania zadań. Aby dowiedzieć się więcej o wbudowanych wyzwalaczach i akcjach harmonogramu, zobacz [Planowanie wyzwalaczy](#schedule-triggers) i [Planowanie akcji](#schedule-actions). 
+Logic Apps pomaga tworzyć i uruchamiać zautomatyzowane powtarzające się zadania i procesy zgodnie z harmonogramem. Tworząc przepływ pracy aplikacji logiki, który rozpoczyna się od wbudowanego wyzwalacza lub ruchomego wyzwalacza okna, które są wyzwalaczami typu harmonogram, można uruchamiać zadania natychmiast, w późniejszym czasie lub cyklicznie. Możesz wywoływać usługi wewnątrz i na zewnątrz platformy Azure, takie jak punkty końcowe HTTP lub HTTPS, wysyłanie komunikatów do usług platformy Azure, takich jak Azure Storage i Azure Service Bus, lub pobieranie plików przekazanych do udziału plików. Wyzwalacz cyklu umożliwia również Konfigurowanie złożonych harmonogramów i zaawansowanych cykli na potrzeby uruchamiania zadań. Aby dowiedzieć się więcej o wbudowanych wyzwalaczach i akcjach harmonogramu, zobacz temat [planowanie wyzwalaczy](#schedule-triggers) i [Planowanie akcji](#schedule-actions). 
 
 > [!TIP]
-> Można zaplanować i uruchomić cykliczne obciążenia bez tworzenia oddzielnej aplikacji logiki dla każdego zaplanowanego zadania i uruchamiania [w limit przepływów pracy na region i subskrypcję](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Zamiast tego można użyć wzorca aplikacji logiki, który jest tworzony przez [szablon Szybki start platformy Azure: Harmonogram zadań aplikacji logiki](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+> Można zaplanować i uruchamiać obciążenia cykliczne bez tworzenia oddzielnej aplikacji logiki dla każdego zaplanowanego zadania i uruchamiania w [limicie przepływów pracy na region i subskrypcję](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Zamiast tego można użyć wzorca aplikacji logiki, który jest tworzony przez [szablon szybkiego startu platformy Azure: Logic Apps harmonogram zadań](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
 >
-> Szablon harmonogramu zadań aplikacji logiki tworzy aplikację logiki CreateTimerJob, która wywołuje aplikację logiki TimerJob. Następnie można wywołać CreateTimerJob aplikacji logiki jako interfejsu API, wykonując żądanie HTTP i przekazywanie harmonogramu jako dane wejściowe dla żądania. Każde wywołanie createTimerJob aplikacji logiki wywołuje również timerJob logiki aplikacji, która tworzy nowe timerJob wystąpienie, które stale działa na podstawie określonego harmonogramu lub do spełnienia określonego limitu. W ten sposób można uruchomić dowolną liczbę wystąpień TimerJob, nie martwiąc się o limity przepływu pracy, ponieważ wystąpienia nie są indywidualnymi definicjami przepływu pracy aplikacji logiki ani zasobami.
+> Szablon harmonogramu zadań Logic Apps tworzy aplikację logiki CreateTimerJob, która wywołuje aplikację logiki TimerJob. Następnie można wywołać aplikację logiki CreateTimerJob jako interfejs API, wykonując żądanie HTTP i przekazując harmonogram jako dane wejściowe dla żądania. Każde wywołanie aplikacji logiki CreateTimerJob również wywołuje aplikację logiki TimerJob, która tworzy nowe wystąpienie TimerJob, które jest stale uruchamiane na podstawie określonego harmonogramu lub do czasu spełnienia określonego limitu. Dzięki temu można uruchamiać dowolną liczbę wystąpień TimerJob bez obaw o limity przepływu pracy, ponieważ wystąpienia nie są zależne od definicji przepływu pracy aplikacji logiki ani zasobów.
 
-Na tej liście przedstawiono przykładowe zadania, które można uruchamiać za pomocą wbudowanych wyzwalaczy harmonogramu:
+Ta lista zawiera przykładowe zadania, które można uruchomić za pomocą harmonogramu wbudowane wyzwalacze:
 
-* Pobierz dane wewnętrzne, takie jak uruchamianie procedury składowanej SQL każdego dnia.
+* Pobierz dane wewnętrzne, takie jak uruchamianie procedury składowanej SQL codziennie.
 
-* Otrzymuj dane zewnętrzne, takie jak ściąganie raportów pogodowych z NOAA co 15 minut.
+* Pobierz dane zewnętrzne, takie jak ściąganie raportów pogody z NOAA co 15 minut.
 
-* Wyślij dane raportu, takie jak wysyłanie pocztą e-mail podsumowania dla wszystkich zamówień większych niż określona kwota w ostatnim tygodniu.
+* Wyślij dane raportu, takie jak wysyłanie wiadomości e-mail do podsumowania dla wszystkich zamówień o wartości większej niż określona w ubiegłym tygodniu.
 
-* Przetwarzaj dane, takie jak kompresowanie przesłanych obrazów każdego dnia tygodnia poza godzinami szczytu.
+* Przetwarzaj dane, takie jak Kompresuj współczesne obrazy, co dzień tygodnia w godzinach poza godzinami szczytu.
 
-* Wyczyść dane, takie jak usuwanie wszystkich tweetów starszych niż trzy miesiące.
+* Wyczyść dane, na przykład Usuń wszystkie tweety starsze niż trzy miesiące.
 
-* Archiwizuj dane, takie jak wypychanie faktur do usługi tworzenia kopii zapasowych o godzinie 1:00 każdego dnia przez następne dziewięć miesięcy.
+* Archiwizuj dane, np. faktury wypychane do usługi kopii zapasowych w dniu 1:00, codziennie przez następne dziewięć miesięcy.
 
-Można również użyć akcji wbudowanych Harmonogram, aby wstrzymać przepływ pracy przed rozpoczęciem następnej akcji, na przykład:
+Możesz również użyć wbudowanych akcji harmonogramu, aby wstrzymać przepływ pracy przed rozpoczęciem następnej akcji, na przykład:
 
-* Poczekaj do dnia tygodnia, aby wysłać aktualizację stanu za pośrednictwem poczty e-mail.
+* Poczekaj, aż dzień tygodnia wyśle aktualizację stanu za pośrednictwem poczty e-mail.
 
-* Opóźnij przepływ pracy, dopóki wywołanie HTTP nie będzie miało czasu na zakończenie przed wznowieniem i pobraniem wyniku.
+* Opóźnij przepływ pracy do momentu zakończenia wywołania HTTP przed wznowieniem i pobraniem wyniku.
 
-W tym artykule opisano możliwości wbudowanych wyzwalaczy i akcji harmonogramu.
+W tym artykule opisano możliwości harmonogramu wbudowane wyzwalacze i akcje.
 
 <a name="schedule-triggers"></a>
 
-## <a name="schedule-triggers"></a>Zaplanuj wyzwalacze
+## <a name="schedule-triggers"></a>Wyzwalacze harmonogramu
 
-Przepływ pracy aplikacji logiki można uruchomić przy użyciu wyzwalacza cyklu lub wyzwalacza okna przesuwnego, który nie jest skojarzony z żadną konkretną usługą lub systemem, na przykład z usługą Office 365 Outlook lub SQL Server. Te wyzwalacze uruchamiają i uruchamiają przepływ pracy na podstawie określonego cyklu, w którym można wybrać interwał i częstotliwość, takie jak liczba sekund, minut i godzin dla obu wyzwalaczy lub liczba dni, tygodni lub miesięcy dla wyzwalacza cyklu. Można również ustawić datę i godzinę rozpoczęcia, a także strefę czasową. Za każdym razem, gdy wyzwalacz jest uruchamiany, aplikacje logiki tworzy i uruchamia nowe wystąpienie przepływu pracy dla aplikacji logiki.
+Przepływ pracy aplikacji logiki można uruchomić przy użyciu wyzwalacza cykl lub okna przesuwania, które nie jest skojarzone z żadną określoną usługą lub systemem, na przykład Office 365 Outlook lub SQL Server. Te wyzwalacze uruchamiają i uruchamiają przepływy pracy na podstawie określonego cyklu, w którym można wybrać interwał i częstotliwość, takie jak liczba sekund, minut i godzin dla obu wyzwalaczy lub liczba dni, tygodni lub miesięcy dla wyzwalacza cyklu. Możesz również ustawić datę i godzinę rozpoczęcia, a także strefę czasową. Za każdym razem, gdy uruchamiany jest wyzwalacz, Logic Apps tworzy i uruchamia nowe wystąpienie przepływu pracy dla aplikacji logiki.
 
-Oto różnice między tymi wyzwalaczami:
+Poniżej przedstawiono różnice między tymi wyzwalaczami:
 
-* **Cykl:** Uruchamia przepływ pracy w regularnych odstępach czasu na podstawie określonego harmonogramu. Jeśli cykle zostaną pominięte, wyzwalacz cyklu nie przetwarza nieodebranych cykli, ale ponownie uruchamia cykle z następnym zaplanowanym interwałem. Można określić datę i godzinę rozpoczęcia, a także strefę czasową. Jeśli wybierzesz "Dzień", możesz określić godziny dnia i minuty godziny, na przykład codziennie o 2:30. Jeśli wybierzesz "Tydzień", możesz również wybrać dni tygodnia, takie jak środa i sobota. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie zadań cyklicznych i przepływów pracy za pomocą wyzwalacza cyklu](../connectors/connectors-native-recurrence.md).
+* **Cykl**: uruchamia przepływ pracy w regularnych odstępach czasu zgodnie z określonym harmonogramem. Jeśli pominięto cykle, wyzwalacz cyklu nie przetwarza pominiętych cykli, ale uruchamia ponownie cykle przy następnym zaplanowanym interwale. Możesz określić datę i godzinę rozpoczęcia, a także strefę czasową. W przypadku wybrania opcji "dzień" można określić godziny dnia i minuty godziny, na przykład codziennie o godzinie 2:30. W przypadku wybrania opcji "tydzień" można również wybrać dni tygodnia, takie jak środa i sobota. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy z wyzwalaczem cyklu](../connectors/connectors-native-recurrence.md).
 
-* **Okno przesuwne:** Uruchamia przepływ pracy w regularnych odstępach czasu, które obsługują dane w ciągłych fragmentach. Jeśli powtórzeń nie zostaną pominięte, wyzwalacz okna przesuwnego powraca i przetwarza nieodebrane powtórzenia. Można określić datę i godzinę rozpoczęcia, strefę czasową i czas trwania, aby opóźnić każdy cykl w przepływie pracy. Ten wyzwalacz nie ma opcji określania dni, tygodni i miesięcy, godzin dnia, minut godziny i dni tygodnia. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie zadań cyklicznych i przepływów pracy za pomocą wyzwalacza Okna przesuwnego](../connectors/connectors-native-sliding-window.md).
+* **Okno przewijania**: uruchamia przepływ pracy w regularnych odstępach czasu, które obsługują dane w ciągłych fragmentach. Jeśli pominięto cykle, wyzwalacz okna przesuwania wraca i przetwarza pominięte cykle. Możesz określić datę i godzinę rozpoczęcia, strefę czasową oraz czas trwania, aby opóźnić każdy cykl w przepływie pracy. Ten wyzwalacz nie zawiera opcji określających dni, tygodnie i miesiące, godziny dnia, minuty godziny i dni tygodnia. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy przy użyciu wyzwalacza okna przesuwanego](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
 ## <a name="schedule-actions"></a>Planowanie akcji
 
-Po dowolnej akcji w przepływie pracy aplikacji logiki, można użyć delay i delay until akcje, aby przepływ pracy czekać przed następną akcję jest uruchamiany.
+Po dodaniu dowolnego działania w przepływie pracy aplikacji logiki można użyć opóźnień i opóźnień do momentu wykonania przepływu pracy przed rozpoczęciem następnej akcji.
 
-* **Opóźnienie:** Zaczekaj na uruchomienie następnej akcji dla określonej liczby jednostek czasu, takich jak sekundy, minuty, godziny, dni, tygodnie lub miesiące. Aby uzyskać więcej informacji, zobacz [Opóźnianie następnej akcji w przepływach pracy](../connectors/connectors-native-delay.md).
+* **Opóźnienie**: Zaczekaj na uruchomienie kolejnej akcji dla określonej liczby jednostek czasu, takich jak sekundy, minuty, godziny, dni, tygodnie lub miesiące. Aby uzyskać więcej informacji, zobacz [opóźnianie następnej akcji w przepływach pracy](../connectors/connectors-native-delay.md).
 
-* **Opóźnienie do**: Poczekaj, aby uruchomić następną akcję do określonej daty i godziny. Aby uzyskać więcej informacji, zobacz [Opóźnianie następnej akcji w przepływach pracy](../connectors/connectors-native-delay.md).
+* **Opóźnij do**: Poczekaj na uruchomienie następnej akcji do określonej daty i godziny. Aby uzyskać więcej informacji, zobacz [opóźnianie następnej akcji w przepływach pracy](../connectors/connectors-native-delay.md).
 
-## <a name="patterns-for-start-date-and-time"></a>Wzory daty i godziny rozpoczęcia
+## <a name="patterns-for-start-date-and-time"></a>Wzorce dla daty i godziny rozpoczęcia
 
 <a name="start-time"></a>
 
-Oto kilka wzorców, które pokazują, jak można kontrolować cykl z datą i godziną rozpoczęcia oraz jak usługa Aplikacje logiki uruchamia te cykle:
+Poniżej przedstawiono niektóre wzorce pokazujące, jak można kontrolować cykl z datą i godziną rozpoczęcia oraz jak usługa Logic Apps uruchamia następujące cykle:
 
-| Godzina rozpoczęcia | Cykl bez harmonogramu | Cykl z harmonogramem (tylko wyzwalacz cyklu) |
+| Godzina rozpoczęcia | Cykl bez harmonogramu | Cykl z harmonogramem (tylko wyzwalacz cykliczny) |
 |------------|-----------------------------|----------------------------------------------------|
-| {brak} | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia na podstawie ostatniego czasu wykonywania. | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia na podstawie określonego harmonogramu. |
-| Czas rozpoczęcia w przeszłości | Wyzwalacz **cyklu:** oblicza czasy wykonywania na podstawie określonego czasu rozpoczęcia i odrzuca poprzednie czasy wykonywania. Uruchamia pierwsze obciążenie w następnym przyszłym czasie wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń z ostatniego czasu wykonywania. <p><p>**Wyzwalacz okna przesuwnego:** oblicza czasy wykonywania na podstawie określonego czasu rozpoczęcia i honoruje poprzednie czasy wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń z określonego czasu rozpoczęcia. <p><p>Aby uzyskać więcej wyjaśnień, zobacz przykład po tej tabeli. | Uruchamia pierwsze obciążenie *nie wcześniej* niż czas rozpoczęcia, na podstawie harmonogramu obliczonego od czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia na podstawie określonego harmonogramu. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin ani minut dla harmonogramu, przyszłe czasy wykonywania są obliczane przy użyciu odpowiednio godzin lub minut od pierwszego czasu wykonywania. |
-| Czas rozpoczęcia w chwili obecnej lub w przyszłości | Uruchamia pierwsze obciążenie o określonej godzinie rozpoczęcia. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń z ostatniego czasu wykonywania. | Uruchamia pierwsze obciążenie *nie wcześniej* niż czas rozpoczęcia, na podstawie harmonogramu obliczonego od czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia na podstawie określonego harmonogramu. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin ani minut dla harmonogramu, przyszłe czasy wykonywania są obliczane przy użyciu odpowiednio godzin lub minut od pierwszego czasu wykonywania. |
+| dawaj | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia na podstawie czasu ostatniego uruchomienia. | Natychmiast uruchamia pierwsze obciążenie. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. |
+| Godzina rozpoczęcia w przeszłości | Wyzwalacz **cyklu** : oblicza czasy wykonywania na podstawie określonego czasu rozpoczęcia i odrzuca czas wykonywania. Uruchamia pierwsze obciążenie w następnym przyszłym czasie wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń od czasu ostatniego uruchomienia. <p><p>Wyzwalacz **okna przewijania** : oblicza czasy uruchamiania na podstawie określonego czasu rozpoczęcia i trwają czas wykonywania. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń z określonego czasu rozpoczęcia. <p><p>Aby uzyskać więcej wyjaśnień, zobacz przykład poniżej tej tabeli. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, przyszłe czasy uruchomienia są obliczane odpowiednio przy użyciu godzin lub minut, od pierwszego uruchomienia. |
+| Godzina rozpoczęcia lub w przyszłości | Uruchamia pierwsze obciążenie o określonej godzinie rozpoczęcia. <p>Uruchamia przyszłe obciążenia na podstawie obliczeń od czasu ostatniego uruchomienia. | Uruchamia pierwsze obciążenie, *nie wcześniej* niż godzina rozpoczęcia, na podstawie harmonogramu obliczonego na podstawie czasu rozpoczęcia. <p>Uruchamia przyszłe obciążenia zgodnie z określonym harmonogramem. <p>**Uwaga:** Jeśli określisz cykl z harmonogramem, ale nie określisz godzin lub minut dla harmonogramu, przyszłe czasy uruchomienia są obliczane odpowiednio przy użyciu godzin lub minut, od pierwszego uruchomienia. |
 ||||
 
 > [!IMPORTANT]
-> Gdy cykle nie określają zaawansowanych opcji planowania, przyszłe cykle są oparte na ostatnim czasie wykonywania.
-> Godziny rozpoczęcia dla tych cykli może dryfować z powodu czynników, takich jak opóźnienie podczas wywołania magazynu. Aby upewnić się, że aplikacja logiki nie przegapi cyklu, zwłaszcza gdy częstotliwość jest w dniach lub dłużej, użyj jednej z następujących opcji:
+> Gdy cykle nie określają zaawansowanych opcji planowania, przyszłe cykle bazują na ostatnim czasie wykonywania.
+> Czasy rozpoczęcia tych cyklów mogą być dryfem ze względu na takie czynniki jak opóźnienie podczas wywołań magazynu. Aby upewnić się, że aplikacja logiki nie trafił cyklu, zwłaszcza gdy częstotliwość jest w dniach lub dłużej, użyj jednej z następujących opcji:
 > 
-> * Podaj godzinę rozpoczęcia dla cyklu.
+> * Podaj godzinę rozpoczęcia cyklu.
 > 
-> * Określ godziny i minuty, kiedy należy uruchomić cykl przy użyciu **w tych godzinach** i w tych **minutach** właściwości.
+> * Określ godziny i minuty, w których ma być uruchamiany cykl, przy użyciu **w tych godzinach** i **w tych minutach** właściwości.
 > 
-> * Użyj [wyzwalacza okna przesuwnego](../connectors/connectors-native-sliding-window.md)zamiast wyzwalacza cyklu.
+> * Użyj [wyzwalacza okna przesuwanego](../connectors/connectors-native-sliding-window.md), a nie wyzwalacza cyklicznego.
 
-*Przykład dla przeszłego czasu rozpoczęcia i cyklu, ale bez harmonogramu*
+*Przykład minionego czasu rozpoczęcia i cyklu, ale bez harmonogramu*
 
-Załóżmy, że bieżąca data i godzina to 8 września 2017 o 13:00. Określ datę i godzinę rozpoczęcia jako 7 września 2017 r. o godzinie 14:00, która jest w przeszłości, i cykl, który jest uruchamiany co dwa dni.
+Załóżmy, że bieżąca data i godzina to 8 września 2017 o 1:00 PM. Należy określić datę i godzinę rozpoczęcia jako 7 września 2017 o 2:00 PM, która przypada w przeszłości, a cykl, który jest uruchamiany co dwa dni.
 
 | Godzina rozpoczęcia | Bieżący czas | Cykl | Harmonogram |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(2017-09-**07** godz. 14:00) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** godz. 13:00) | Co dwa dni | {brak} |
+| 2017-09 –**07**T14:00:00Z <br>(2017-09 –**07** o 2:00 PM) | 2017-09 –**08**T13:00:00Z <br>(2017-09 –**08** o 1:00 PM) | Co dwa dni | dawaj |
 |||||
 
-W przypadku wyzwalacza cyklu aparat aplikacji logiki oblicza czasy wykonywania na podstawie czasu rozpoczęcia, odrzuca czasy wykonywania w przeszłości, używa następnego przyszłego czasu rozpoczęcia pierwszego uruchomienia i oblicza przyszłe uruchomienia na podstawie ostatniego czasu wykonywania.
+W przypadku wyzwalacza cyklicznego aparat Logic Apps oblicza czasy wykonywania na podstawie czasu rozpoczęcia, odrzuca przeszłe czasy wykonywania, używa następnego przyszłego czasu rozpoczęcia pierwszego uruchomienia i oblicza przyszłe uruchomienia w oparciu o czas ostatniego uruchomienia.
 
 Oto jak wygląda ten cykl:
 
-| Godzina rozpoczęcia | Pierwszy czas pracy | Przyszłe czasy uruchamiania |
+| Godzina rozpoczęcia | Czas pierwszego uruchomienia | Przyszłe czasy wykonywania |
 |------------|----------------|------------------|
-| 2017-09-**07** o 14:00 | 2017-09-**09** o 14:00 | 2017-09-**11** o 14:00 </br>2017-09-**13** o 14:00 </br>2017-09-**15** o 14:00 </br>i tak dalej... |
+| 2017-09 –**07** o 2:00 PM | 2017-09 –**09** o 2:00 PM | 2017-09 –**11** o 2:00 PM </br>2017-09 –**13** o 2:00 PM </br>2017-09 –**15** o 2:00 PM </br>i tak dalej... |
 ||||
 
-Tak więc, bez względu na to, jak daleko w przeszłości określisz czas rozpoczęcia, na przykład 2017-09-**05** o 14:00 lub 2017-09-**01** o 14:00, twój pierwszy bieg zawsze wykorzystuje następny przyszły czas rozpoczęcia.
+W związku z tym niezależnie od tego, jak daleko w przeszłości określisz czas rozpoczęcia, na przykład 2017-09-**05** o 2:00 PM lub 2017-09-**01** o 2:00 PM, pierwsze uruchomienie zawsze będzie używane w następnym przyszłym czasie.
 
-W przypadku wyzwalacza okna przesuwnego aparat aplikacji logiki oblicza czasy wykonywania na podstawie godziny rozpoczęcia, honoruje czasy wykonywania w przeszłości, używa czasu rozpoczęcia pierwszego uruchomienia i oblicza przyszłe uruchomienia na podstawie czasu rozpoczęcia.
+Dla wyzwalacza okna przesuwania, aparat Logic Apps oblicza czasy wykonywania na podstawie czasu rozpoczęcia, trwa czas rozpoczęcia pierwszego uruchomienia i oblicza przyszłe uruchomienia na podstawie czasu rozpoczęcia.
 
 Oto jak wygląda ten cykl:
 
-| Godzina rozpoczęcia | Pierwszy czas pracy | Przyszłe czasy uruchamiania |
+| Godzina rozpoczęcia | Czas pierwszego uruchomienia | Przyszłe czasy wykonywania |
 |------------|----------------|------------------|
-| 2017-09-**07** o 14:00 | 2017-09-**07** o 14:00 | 2017-09-**09** o 14:00 </br>2017-09-**11** o 14:00 </br>2017-09-**13** o 14:00 </br>2017-09-**15** o 14:00 </br>i tak dalej... |
+| 2017-09 –**07** o 2:00 PM | 2017-09 –**07** o 2:00 PM | 2017-09 –**09** o 2:00 PM </br>2017-09 –**11** o 2:00 PM </br>2017-09 –**13** o 2:00 PM </br>2017-09 –**15** o 2:00 PM </br>i tak dalej... |
 ||||
 
-Tak więc, bez względu na to, jak daleko w przeszłości określisz godzinę rozpoczęcia, na przykład 2017-09-**05** o 14:00 lub 2017-09-**01** o 14:00, twój pierwszy bieg zawsze używa określonego czasu rozpoczęcia.
+W związku z tym niezależnie od tego, jak daleko w przeszłości określisz czas rozpoczęcia, na przykład 2017-09-**05** o 2:00 PM lub 2017-09-**01** o 2:00 PM, pierwsze uruchomienie zawsze używa określonego czasu rozpoczęcia.
 
 <a name="example-recurrences"></a>
 
-## <a name="example-recurrences"></a>Przykładowe powtórzenia
+## <a name="example-recurrences"></a>Przykładowe cykle
 
-Oto różne przykładowe cykle, które można skonfigurować dla wyzwalaczy obsługujących opcje:
+Poniżej przedstawiono różne przykładowe cykle, które można skonfigurować dla wyzwalaczy, które obsługują opcje:
 
 | Wyzwalacz | Cykl | Interval | Częstotliwość | Godzina rozpoczęcia | W tych dniach | W tych godzinach | W tych minutach | Uwaga |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
-| Cyklu <br>Okno przewijania | Uruchamianie co 15 minut (bez daty i godziny rozpoczęcia) | 15 | Minuta | {brak} | {niedostępne} | {brak} | {brak} | Ten harmonogram rozpoczyna się natychmiast, a następnie oblicza przyszłe cykle na podstawie ostatniego czasu wykonywania. |
-| Cyklu <br>Okno przewijania | Uruchamianie co 15 minut (z datą rozpoczęcia i godziną) | 15 | Minuta | *startDate* T*startTime*Z | {niedostępne} | {brak} | {brak} | Ten harmonogram nie rozpoczyna się wcześniej niż *określona* data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie ostatniego czasu wykonywania. |
-| Cyklu <br>Okno przewijania | Uruchom co godzinę, na godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *startDate* Thh:00:00Z | {niedostępne} | {brak} | {brak} | Ten harmonogram nie uruchamia się *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane co godzinę przy znaczniku "00" minuty, który jest obliczany od godziny rozpoczęcia. <p>Jeśli częstotliwość to "Tydzień" lub "Miesiąc", ten harmonogram działa odpowiednio tylko jeden dzień w tygodniu lub jeden dzień w miesiącu. |
-| Cyklu <br>Okno przewijania | Biegaj co godzinę, codziennie (bez daty i godziny rozpoczęcia) | 1 | Godzina | {brak} | {niedostępne} | {brak} | {brak} | Ten harmonogram rozpoczyna się natychmiast i oblicza przyszłe cykle na podstawie ostatniego czasu wykonywania. <p>Jeśli częstotliwość to "Tydzień" lub "Miesiąc", ten harmonogram działa odpowiednio tylko jeden dzień w tygodniu lub jeden dzień w miesiącu. |
-| Cyklu <br>Okno przewijania | Biegaj co godzinę, codziennie (z datą i godziną rozpoczęcia) | 1 | Godzina | *startDate* T*startTime*Z | {niedostępne} | {brak} | {brak} | Ten harmonogram nie rozpoczyna się wcześniej niż *określona* data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie ostatniego czasu wykonywania. <p>Jeśli częstotliwość to "Tydzień" lub "Miesiąc", ten harmonogram działa odpowiednio tylko jeden dzień w tygodniu lub jeden dzień w miesiącu. |
-| Cyklu <br>Okno przewijania | Biegaj co 15 minut po godzinie, co godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *startDate* T00:15:00Z | {niedostępne} | {brak} | {brak} | Ten harmonogram nie uruchamia się *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane w znaczniku "15" minut, który jest obliczany od czasu rozpoczęcia, więc o 00:15, 1:15, 2:15 i tak dalej. |
-| Cykl | Biegaj co 15 minut po godzinie, co godzinę (bez daty i godziny rozpoczęcia) | 1 | Day | {brak} | {niedostępne} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Ten harmonogram jest uruchamiany o 00:15, 1:15, 2:15 i tak dalej. Ponadto ten harmonogram jest odpowiednikiem częstotliwości "Godziny" i czasu rozpoczęcia z "15" minut. |
-| Cykl | Uruchom co 15 minut w określonych znakach minut (bez daty i godziny rozpoczęcia). | 1 | Day | {brak} | {niedostępne} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram nie rozpoczyna się do następnego określonego znaku 15 minut. |
-| Cykl | Uruchamianie codziennie o 8:00 *plus* znak minut od momentu zapisania aplikacji logicznej | 1 | Day | {brak} | {niedostępne} | 8 | {brak} | Bez daty i godziny rozpoczęcia ten harmonogram jest uruchamiany na podstawie czasu zapisywania aplikacji logiki (operacja PUT). |
-| Cykl | Bieg codziennie o 8:00 (z datą rozpoczęcia i godziną) | 1 | Day | *startDate* T08:00:00Z | {niedostępne} | {brak} | {brak} | Ten harmonogram nie uruchamia się *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe wydarzenia są uruchamiane codziennie o 8:00. | 
-| Cykl | Bieg codziennie o 8:30 (brak daty i godziny rozpoczęcia) | 1 | Day | {brak} | {niedostępne} | 8 | 30 | Ten harmonogram jest uruchamiany codziennie o 8:30. |
-| Cykl | Biegaj codziennie o 8:30 i 16:30 | 1 | Day | {brak} | {niedostępne} | 8, 16 | 30 | |
-| Cykl | Bieg codziennie o 8:30, 8:45, 16:30 i 16:45 | 1 | Day | {brak} | {niedostępne} | 8, 16 | 30, 45 | |
-| Cykl | Bieg w każdą sobotę o godzinie 17:00 (brak daty i godziny rozpoczęcia) | 1 | Tydzień | {brak} | "Bardzo" | 17 | 00 | Harmonogram ten jest uruchamiany w każdą sobotę o godzinie 17:00. |
-| Cykl | Bieg w każdą sobotę o godzinie 17:00 (z datą i godziną rozpoczęcia) | 1 | Tydzień | *startDate* T17:00:00Z | "Bardzo" | {brak} | {brak} | Ten harmonogram nie rozpoczyna się wcześniej niż *określona* data i godzina rozpoczęcia, w tym przypadku 9 września 2017 o godzinie 17:00. Przyszłe cykle odbywają się w każdą sobotę o 17:00. |
-| Cykl | Uruchom w każdy wtorek, czwartek o 17:00 *plus* minutowy znak od momentu zapisania aplikacji logicznej| 1 | Tydzień | {brak} | "Wtorek", "Czwartek" | 17 | {brak} | |
-| Cykl | Uruchamianie co godzinę w godzinach pracy | 1 | Tydzień | {brak} | Wybierz wszystkie dni z wyjątkiem soboty i niedzieli. | Wybierz żądane godziny dnia. | Wybierz dowolną liczbę minut godziny. | Jeśli na przykład godziny pracy to od 8:00 do 17:00, wybierz "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" jako godziny dnia. <p>Jeśli godziny pracy są od 8:30 do 17:30, wybierz poprzednie godziny dnia plus "30" jako minuty godziny. |
-| Cykl | Biegaj raz dziennie w weekendy | 1 | Tydzień | {brak} | "Sobota", "Niedziela" | Wybierz żądane godziny dnia. | Wybierz odpowiednie minuty godziny. | Ten harmonogram jest uruchamiany w każdą sobotę i niedzielę zgodnie z określonym harmonogramem. |
-| Cykl | Biegaj co 15 minut co dwa lata tylko w poniedziałki | 2 | Tydzień | {brak} | "Bardzo się wys. | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram jest uruchamiany co drugi poniedziałek co 15 minut. |
-| Cykl | Biegaj co miesiąc | 1 | Month | *startDate* T*startTime*Z | {niedostępne} | {niedostępne} | {niedostępne} | Ten harmonogram nie rozpoczyna się wcześniej niż *określona* data i godzina rozpoczęcia i oblicza przyszłe cykle w dniu i godzinie rozpoczęcia. Jeśli nie określisz daty i godziny rozpoczęcia, ten harmonogram używa daty i godziny utworzenia. |
-| Cykl | Biegaj co godzinę przez jeden dzień w miesiącu | 1 | Month | {patrz uwaga} | {niedostępne} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {patrz uwaga} | Jeśli nie określisz daty i godziny rozpoczęcia, ten harmonogram używa daty i godziny utworzenia. Aby kontrolować minuty dla harmonogramu cyklu, należy określić minuty godziny, godzinę rozpoczęcia lub użyć czasu tworzenia. Na przykład jeśli godzina rozpoczęcia lub tworzenia wynosi 8:25, ten harmonogram jest uruchamiany o 8:25, 9:25, 10:25 i tak dalej. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiaj co 15 minut (bez daty i godziny rozpoczęcia) | 15 | Minuta | dawaj | niedostępna | dawaj | dawaj | Ten harmonogram zaczyna się od razu, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiany co 15 minut (z datą i godziną rozpoczęcia) | 15 | Minuta | *StartDate* T*StartTime*Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, na godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* THH: 00:00Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane co godzinę w znaku "00" minuty, który jest obliczany na podstawie czasu rozpoczęcia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, codziennie (bez daty i godziny rozpoczęcia) | 1 | Godzina | dawaj | niedostępna | dawaj | dawaj | Ten harmonogram zaczyna się od razu i oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiaj co godzinę, codziennie (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* T*StartTime*Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle na podstawie czasu ostatniego uruchomienia. <p>Jeśli częstotliwość wynosi "tydzień" lub "miesiąc", ten harmonogram odpowiednio uruchamia tylko jeden dzień na tydzień lub jeden dzień miesięcznie. |
+| Wystąpieniu <br>Okno przewijania | Uruchamiany co 15 minut po godzinie, co godzinę (z datą i godziną rozpoczęcia) | 1 | Godzina | *StartDate* T00:15:00Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe cykle są uruchamiane z oznaczeniem "15" minut, który jest obliczany na podstawie czasu rozpoczęcia, więc o 00:15 AM, 1:15 AM, 2:15 AM i tak dalej. |
+| Cykl | Uruchamiaj co 15 minut za godzinę, co godzinę (bez daty i godziny rozpoczęcia) | 1 | Day | dawaj | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Ten harmonogram jest uruchamiany o godzinie 00:15, 1:15, 2:15 AM i tak dalej. Ponadto ten harmonogram jest równoważny z częstotliwością "godzina" i godziną rozpoczęcia z "15" min. |
+| Cykl | Uruchamiany co 15 minut w określonych minutach (bez daty i godziny rozpoczęcia). | 1 | Day | dawaj | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram nie zostanie uruchomiony do następnego określonego 15-minutowego znacznika. |
+| Cykl | Uruchamiaj codziennie o godzinie *8 am i od* momentu zapisania aplikacji logiki | 1 | Day | dawaj | niedostępna | 8 | dawaj | Bez daty i godziny rozpoczęcia ten harmonogram jest uruchamiany w oparciu o godzinę zapisywania aplikacji logiki (PUT operację). |
+| Cykl | Uruchom codziennie o godzinie 8:00 (z datą i godziną rozpoczęcia) | 1 | Day | *StartDate* T08:00:00Z | niedostępna | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia. Przyszłe wystąpienia są uruchamiane codziennie o godzinie 8:00. | 
+| Cykl | Uruchom codziennie o godzinie 8:00 (bez daty i godziny rozpoczęcia) | 1 | Day | dawaj | niedostępna | 8 | 00 | Ten harmonogram jest uruchamiany codziennie o godzinie 8:00. |
+| Cykl | Uruchom codziennie o godzinie 8:00 AM i 4:00 PM | 1 | Day | dawaj | niedostępna | 8, 16 | 0 | |
+| Cykl | Uruchom codziennie o godzinie 8:30, 8:45, 4:30 PM i 4:45 PM | 1 | Day | dawaj | niedostępna | 8, 16 | 30, 45 | |
+| Cykl | Uruchamiaj w każdą sobotę o godzinie 5:00 PM (bez daty i godziny rozpoczęcia) | 1 | Tydzień | dawaj | Sobotę | 17 | 0 | Ten harmonogram jest uruchamiany w każdą sobotę o godzinie 5:00 PM. |
+| Cykl | Uruchamiaj w każdą sobotę o godzinie 5:00 PM (z datą i godziną rozpoczęcia) | 1 | Tydzień | *StartDate* T17:00:00Z | Sobotę | dawaj | dawaj | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, w tym przypadku 9 września 2017 o 5:00 PM. Przyszłe cykle są uruchamiane w każdą sobotę o godzinie 5:00 PM. |
+| Cykl | Uruchamiaj każdy wtorek, czwartek o godzinie 5 PM *oraz* oznaczenie minuty od momentu zapisania aplikacji logiki| 1 | Tydzień | dawaj | "Wtorek", "czwartek" | 17 | dawaj | |
+| Cykl | Uruchamiany co godzinę w godzinach pracy. | 1 | Tydzień | dawaj | Wybierz wszystkie dni z wyjątkiem soboty i niedziela. | Wybierz godziny, których chcesz użyć. | Wybierz dowolną liczbę minut, które chcesz wykonać. | Jeśli na przykład godziny pracy mają 8:00 AM do 5:00 PM, wybierz wartość "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" jako godziny dnia *i* "0" jako minuty godziny. |
+| Cykl | Uruchamiaj raz dziennie w weekendy | 1 | Tydzień | dawaj | "Sobota", "Niedziela" | Wybierz godziny, których chcesz użyć. | Wybierz dowolną liczbę minut w odpowiedniej godzinie. | Ten harmonogram jest uruchamiany co soboty i niedziela zgodnie z określonym harmonogramem. |
+| Cykl | Uruchamiany co 15 minut, co dwa tygodnie w poniedziałek | 2 | Tydzień | dawaj | Poniedziałek | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Ten harmonogram jest uruchamiany co drugi poniedziałek przy co 15 minut. |
+| Cykl | Uruchamiaj co miesiąc | 1 | Month | *StartDate* T*StartTime*Z | niedostępna | niedostępna | niedostępna | Ten harmonogram nie jest uruchamiany *wcześniej* niż określona data i godzina rozpoczęcia, a następnie oblicza przyszłe cykle dla daty i godziny rozpoczęcia. Jeśli nie określisz daty i godziny rozpoczęcia, w tym harmonogramie zostanie użyta Data i godzina utworzenia. |
+| Cykl | Uruchamiaj co godzinę przez jeden dzień miesięcznie | 1 | Month | {patrz Uwaga} | niedostępna | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,, 16, 17, 18, 19, 20, 21, 22, 23 | {patrz Uwaga} | Jeśli nie określisz daty i godziny rozpoczęcia, w tym harmonogramie zostanie użyta Data i godzina utworzenia. Aby kontrolować minuty dla harmonogramu cyklu, określ minuty godziny, godzinę rozpoczęcia lub Użyj czasu tworzenia. Na przykład, jeśli czas rozpoczęcia lub czas utworzenia to 8:25 AM, ten harmonogram jest uruchamiany o 8:25 AM, 9:25 AM, 10:25 AM i tak dalej. |
 |||||||||
 
 <a name="run-once"></a>
 
-## <a name="run-one-time-only"></a>Uruchamianie tylko raz
+## <a name="run-one-time-only"></a>Uruchom tylko raz
 
-Jeśli chcesz uruchomić aplikację logiki tylko w tym samym czasie w przyszłości, można użyć **harmonogram: Uruchom raz zadania** szablonu. Po utworzeniu nowej aplikacji logiki, ale przed otwarciem Projektanta aplikacji logiki, w sekcji **Szablony,** z listy **Kategoria** wybierz pozycję **Harmonogram**, a następnie wybierz ten szablon:
+Jeśli chcesz uruchomić aplikację logiki tylko raz w przyszłości, możesz użyć szablonu **harmonogram: Uruchom raz** . Po utworzeniu nowej aplikacji logiki, ale przed otwarciem programu Logic Apps Designer, w sekcji **Szablony** z listy **Kategoria** wybierz pozycję **harmonogram**, a następnie wybierz pozycję Ten szablon:
 
-![Wybierz szablon "Harmonogram: Uruchom raz zadania"](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
+![Wybierz szablon "Scheduler: Uruchom raz na zadania"](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
-Lub, jeśli można uruchomić aplikację logiki z **When żądanie HTTP jest odbierane — wyzwalacz żądania** i przekazać czas rozpoczęcia jako parametr dla wyzwalacza. W przypadku pierwszej akcji należy użyć akcji **Opóźnienie do — Zaplanuj** i podaj czas rozpoczęcia następnej akcji.
+Lub, jeśli możesz uruchomić aplikację logiki przy użyciu **żądania HTTP i odebrać wyzwalacz żądania** , a następnie Przekaż czas rozpoczęcia jako parametr dla wyzwalacza. W przypadku pierwszej akcji Użyj **Opóźnij do-Schedule** akcji, a następnie podaj godzinę uruchomienia następnej akcji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie, planowanie i uruchamianie zadań cyklicznych i przepływów pracy za pomocą wyzwalacza cyklu](../connectors/connectors-native-recurrence.md)
-* [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy za pomocą wyzwalacza okna przesuwnego](../connectors/connectors-native-sliding-window.md)
-* [Wstrzymywanie przepływów pracy z akcjami opóźnienia](../connectors/connectors-native-delay.md)
+* [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy przy użyciu wyzwalacza cykl](../connectors/connectors-native-recurrence.md)
+* [Twórz, Zaplanuj i uruchamiaj zadania cykliczne i przepływy pracy z wyzwalaczem okna przesuwanego](../connectors/connectors-native-sliding-window.md)
+* [Wstrzymywanie przepływów pracy z opóźnionymi akcjami](../connectors/connectors-native-delay.md)

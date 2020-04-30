@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować i zmienić domyślne zasady indeks
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: 930f156ebec76be860e7af02d41540ce67982f92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80292058"
+ms.locfileid: "82232074"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Zasady indeksowania w usłudze Azure Cosmos DB
 
@@ -97,6 +97,26 @@ Gdy nie zostanie określony, te właściwości będą miały następujące warto
 
 Zapoznaj się z [tą sekcją](how-to-manage-indexing-policy.md#indexing-policy-examples) , aby zapoznać się z przykładami zasad indeksowania obejmującymi i wykluczającymi ścieżki.
 
+## <a name="includeexclude-precedence"></a>Pierwszeństwo uwzględniania/wykluczania
+
+Jeśli zawarte ścieżki i wykluczone ścieżki mają konflikt, pierwszeństwo ma dokładniejszą ścieżkę.
+
+Przykład:
+
+**Ścieżka uwzględniona**:`/food/ingredients/nutrition/*`
+
+**Wykluczona ścieżka**:`/food/ingredients/*`
+
+W takim przypadku dołączona ścieżka ma pierwszeństwo przed wykluczoną ścieżką, ponieważ jest bardziej precyzyjna. W oparciu o te ścieżki wszelkie dane ze `food/ingredients` ścieżki lub zagnieżdżone w ramach zostałyby wykluczone z indeksu. Wyjątek mógłby zawierać dane w dołączonej ścieżce: `/food/ingredients/nutrition/*`, które byłyby indeksowane.
+
+Poniżej przedstawiono niektóre reguły pierwszeństwa zawartych i wykluczonych ścieżek w Azure Cosmos DB:
+
+- Dokładniejsze ścieżki są bardziej precyzyjne niż wąskie ścieżki. na przykład: `/a/b/?` jest bardziej precyzyjna `/a/?`niż.
+
+- `/?` Jest bardziej precyzyjna niż `/*`. Na przykład `/a/?` ma dokładniejszy `/a/*` `/a/?` priorytet.
+
+- Ścieżka `/*` musi być ścieżką dołączoną lub wykluczoną.
+
 ## <a name="spatial-indexes"></a>Indeksy przestrzenne
 
 Podczas definiowania ścieżki przestrzennej w zasadach indeksowania należy określić, który indeks ```type``` ma zostać zastosowany do tej ścieżki. Możliwe typy indeksów przestrzennych obejmują:
@@ -114,6 +134,8 @@ Domyślnie Azure Cosmos DB nie utworzy żadnych indeksów przestrzennych. Jeśli
 ## <a name="composite-indexes"></a>Indeksy złożone
 
 Zapytania, które mają `ORDER BY` klauzulę mającą co najmniej dwie właściwości, wymagają złożonego indeksu. Można również zdefiniować indeks złożony, aby zwiększyć wydajność wielu zapytań równości i zakresu. Domyślnie nie są zdefiniowane żadne indeksy złożone, dlatego należy [dodać indeksy złożone](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) zgodnie z wymaganiami.
+
+W przeciwieństwie do ścieżek uwzględnionych lub wykluczonych nie można utworzyć ścieżki z `/*` symbolem wieloznacznym. Każda ścieżka złożona ma niejawną `/?` na końcu ścieżki, której nie trzeba określać. Ścieżki złożone prowadzą do wartości skalarnej i jest to jedyna wartość, która jest uwzględniona w indeksie złożonym.
 
 Podczas definiowania indeksu złożonego należy określić:
 

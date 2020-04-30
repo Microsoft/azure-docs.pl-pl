@@ -4,12 +4,12 @@ description: Dowiedz się, jak wywoływać procesy biznesowe z poziomu aplikacji
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604848"
+ms.locfileid: "82562308"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Samouczek: wysyłanie wiadomości e-mail i wywoływanie innych procesów biznesowych z App Service
 
@@ -26,27 +26,27 @@ W tym samouczku będziesz wysyłać wiadomości e-mail z użyciem usługi Gmail 
 
 Wdróż aplikację z wybranym przez Ciebie platformą języka, aby App Service. Aby zapoznać się z samouczkiem dotyczącym wdrażania przykładowej aplikacji, zobacz poniżej:
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 [Samouczek: tworzenie aplikacji ASP.NET na platformie Azure przy użyciu usługi SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 [Samouczek: Tworzenie aplikacji ASP.NET Core i SQL Database w Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
 
-# <a name="nodejs"></a>[Node.js](#tab/node)
+### <a name="nodejs"></a>[Node.js](#tab/node)
 
 [Samouczek: Tworzenie aplikacji node. js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 [Samouczek: Tworzenie aplikacji PHP i MySQL na platformie Azure](app-service-web-tutorial-php-mysql.md)
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 [Samouczek: uruchamianie aplikacji sieci Web języka Python (Django) za pomocą PostgreSQL w Azure App Service](containers/tutorial-python-postgresql-app.md)
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 [Tworzenie aplikacji w języku Ruby i korzystającej z bazy danych Postgres w usłudze Azure App Service w systemie Linux](containers/tutorial-ruby-postgres-app.md)
 
@@ -150,7 +150,7 @@ W kodzie wprowadź standardowe HTTP post na adres URL przy użyciu dowolnego ję
 
 Kliknij kartę preferowany język/struktura poniżej, aby zobaczyć przykład.
 
-# <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
+### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
 W ASP.NET można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Przykład:
 
@@ -175,7 +175,7 @@ var statusCode = result.StatusCode.ToString();
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworzenie aplikacji ASP.NET na platformie Azure przy użyciu SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w ramach [akcji tworzenia](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63)po `Todo` dodaniu elementu. Aby użyć kodu asynchronicznego powyżej, przekonwertuj akcję tworzenia na asynchronicznie.
 
-# <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
+### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
 W ASP.NET Core można wysłać wpis HTTP przy użyciu klasy [System .NET. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Przykład:
 
@@ -203,7 +203,7 @@ var statusCode = result.StatusCode.ToString();
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: tworzenie ASP.NET Core i SQL Database aplikacji w Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w ramach [akcji tworzenia](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)po dodaniu `Todo` elementu.
 
-# <a name="nodejs"></a>[Node.js](#tab/node)
+### <a name="nodejs"></a>[Node.js](#tab/node)
 
 W programie Node. js można łatwo wysyłać pocztę HTTP przy użyciu pakietu npm, takiego jak [Axios](https://www.npmjs.com/package/axios). Przykład:
 
@@ -230,7 +230,7 @@ var jsonData = {
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworzenie aplikacji node. js i MongoDB na platformie Azure](app-service-web-tutorial-nodejs-mongodb-app.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w [funkcji tworzenia](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)po [pomyślnym zapisaniu artykułu](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
-# <a name="php"></a>[PHP](#tab/php)
+### <a name="php"></a>[PHP](#tab/php)
 
 W języku PHP można łatwo wysyłać pocztę HTTP przy użyciu [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). Przykład:
 
@@ -262,7 +262,7 @@ Log::info(print_r($response, TRUE));
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Tworzenie aplikacji PHP i MySQL na platformie Azure](app-service-web-tutorial-php-mysql.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w [funkcji Route::p Ost](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), tuż przed instrukcją Return.
 
-# <a name="python"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 W języku Python można łatwo wysyłać pocztę HTTP przy użyciu [żądań](https://pypi.org/project/requests/). Przykład:
 
@@ -293,7 +293,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [samouczka: Uruchom aplikację sieci Web języka Python (Django) z PostgreSQL w Azure App Service](containers/tutorial-python-postgresql-app.md), możesz użyć jej do wysłania potwierdzenia wiadomości e-mail w [funkcji Route::p Ost](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), tuż przed instrukcją Return.
 
-# <a name="ruby"></a>[Ruby](#tab/ruby)
+### <a name="ruby"></a>[Ruby](#tab/ruby)
 
 W języku Ruby można łatwo wysyłać pocztę HTTP przy użyciu [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Przykład:
 
@@ -312,7 +312,7 @@ Jeśli testujesz ten kod w przykładowej aplikacji na potrzeby [tworzenia aplika
 
 ---
 
-# <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Więcej zasobów
 
 [Samouczek: hostowanie interfejsu API RESTful z mechanizmem CORS w usłudze Azure App Service](app-service-web-tutorial-rest-api.md)  
 [Odwołanie żądania HTTP/odpowiedzi dla Logic Apps](../connectors/connectors-native-reqres.md)  

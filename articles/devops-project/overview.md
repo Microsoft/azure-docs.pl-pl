@@ -1,6 +1,6 @@
 ---
-title: Omówienie usługi Azure DevOps Projects | Microsoft Docs
-description: Informacje o wartości usługi Azure DevOps Projects
+title: Omówienie usługi Azure DevOps Starter | Microsoft Docs
+description: Informacje o wartości dla platformy Azure DevOps Starter
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 05/03/2018
+ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: d39702f8e30046dd3cf634fc67ed7095471cd629
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71971472"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233690"
 ---
-# <a name="overview-of-azure-devops-projects"></a>Omówienie usługi Azure DevOps Projects
+# <a name="overview-of-azure-devops-starter"></a>Omówienie usługi Azure DevOps Starter
 
- Usługa Azure DevOps Projects ułatwia rozpoczęcie pracy na platformie Azure. Pomaga ona uruchomić ulubioną aplikację w usłudze platformy Azure wybranej w kilku szybkich krokach w witrynie Azure Portal. 
+ Usługa Azure DevOps Starter ułatwia rozpoczęcie pracy z platformą Azure. Pomaga ona uruchomić ulubioną aplikację w usłudze platformy Azure wybranej w kilku szybkich krokach w witrynie Azure Portal. 
 
- Usługa DevOps Projects konfiguruje wszystko, czego potrzebujesz do tworzenia, wdrażania i monitorowania aplikacji. Pulpit nawigacyjny usługi DevOps Projects umożliwia monitorowanie zatwierdzeń kodu, kompilacji i wdrożeń, a to wszystko z pojedynczego widoku w witrynie Azure Portal.
+ DevOps Starter konfiguruje wszystko, czego potrzebujesz do tworzenia, wdrażania i monitorowania aplikacji. Możesz użyć pulpitu nawigacyjnego DevOps Starter do monitorowania zatwierdzeń kodu, kompilacji i wdrożeń, a wszystko to w jednym widoku w Azure Portal.
 
-## <a name="why-should-i-use-devops-projects"></a>Dlaczego warto używać usługi DevOps Projects?
+## <a name="advantages-of-using-devops-starter"></a>Zalety korzystania z DevOps Starter
 
-  Usługa DevOps Projects automatyzuje konfigurację całego potoku ciągłej integracji i ciągłego dostarczania na platformie Azure.  Możesz rozpocząć z istniejącym kodem lub użyć jednej z dostarczonych aplikacji przykładowych. Następnie możesz szybko wdrożyć tę aplikację w różnych usługach platformy Azure, takich jak Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database i Azure Service Fabric.  
+  DevOps Starter automatyzuje instalację całego potoku ciągłej integracji i ciągłego dostarczania na platformę Azure.  Możesz rozpocząć z istniejącym kodem lub użyć jednej z dostarczonych aplikacji przykładowych. Następnie możesz szybko wdrożyć tę aplikację w różnych usługach platformy Azure, takich jak Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database i Azure Service Fabric.  
 
-  Usługa DevOps Projects wykonuje całą pracę w ramach początkowej konfiguracji potoku DevOps, w tym wszystkie akcje związane z konfigurowaniem początkowego repozytorium Git, konfigurowaniem potoku ciągłej integracji/ciągłego wdrażania, tworzeniem zasobu usługi Application Insights na potrzeby monitorowania oraz udostępnianiem pojedynczego widoku całego rozwiązania wraz z tworzeniem pulpitu nawigacyjnego usługi DevOps Projects w witrynie Azure Portal.
+  DevOps Starter wykonuje wszystkie czynności związane z początkową konfiguracją potoku DevOps, w tym wszystko, od skonfigurowania początkowego repozytorium git, skonfigurowania potoku ciągłej integracji/ciągłego wdrażania, tworzenia zasobu Application Insights na potrzeby monitorowania i zapewnienia pojedynczego widoku całego rozwiązania przy tworzeniu DevOps Projects pulpitu nawigacyjnego w Azure Portal.
 
-Usługi DevOps Projects można użyć do wykonywania następujących czynności:
+Możesz użyć DevOps Starter do:
 
 * Szybkie wdrażanie aplikacji na platformie Azure
 * Automatyzacja instalacji potoku ciągłej integracji/ciągłego wdrażania
 * Wyświetlanie potoku ciągłej integracji/ciągłego wdrażania oraz poznanie sposobu jego prawidłowego konfigurowania
 * Dalsze dostosowywanie potoków wydania w oparciu o określone scenariusze
 
-## <a name="how-do-i-use-devops-projects"></a>Jak mogę używać usługi DevOps Projects?
+## <a name="how-to-use-devops-starter"></a>Jak używać DevOps Starter?
 
-  Usługa DevOps Projects jest dostępna w witrynie Azure Portal. Zasób usługi DevOps Projects można utworzyć tak samo jak dowolny inny zasób platformy Azure w portalu. Usługa DevOps Projects zapewnia podobne do kreatora środowisko z instrukcjami krok po kroku dotyczącymi różnych opcji konfiguracji.  
+  DevOps Starter jest dostępny w Azure Portal. Tworzysz zasób DevOps Start, tak jak w przypadku tworzenia dowolnego innego zasobu platformy Azure z poziomu portalu. Usługa DevOps Projects zapewnia podobne do kreatora środowisko z instrukcjami krok po kroku dotyczącymi różnych opcji konfiguracji.  
 
 W ramach początkowej konfiguracji należy wybrać kilka opcji konfiguracji. Dostępne są następujące opcje:
 
@@ -55,27 +55,27 @@ W ramach początkowej konfiguracji należy wybrać kilka opcji konfiguracji. Dos
 * Wybieranie lokalizacji usług platformy Azure
 * Wybieranie spośród różnych warstw cenowych usług platformy Azure
 
-Po skorzystaniu z usługi DevOps Projects możesz także usunąć wszystkie zasoby z jednego miejsca, na pulpicie nawigacyjnym usługi DevOps Projects w witrynie Azure Portal.
+Po użyciu DevOps Starter można także usunąć wszystkie zasoby z jednego miejsca z pulpitu nawigacyjnego DevOps Starter na Azure Portal.
 
-## <a name="devops-projects-and-azure-devops-integration"></a>Integracja usługi DevOps Projects i usługi Azure DevOps
+## <a name="devops-starter-and-azure-devops-integration"></a>Integracja DevOps Starter i Azure DevOps
 
-Usługa DevOps Projects jest obsługiwana przez usługę Azure DevOps. Usługa DevOps Projects automatyzuje całą pracę wymaganą do skonfigurowania potoku ciągłej integracji/ciągłego wdrażania w usłudze Azure Pipelines. Usługa DevOps Projects tworzy repozytorium Git w nowej lub istniejącej organizacji usługi Azure DevOps, a następnie zatwierdza aplikację przykładową lub istniejący kod w nowym repozytorium Git.  
+DevOps Starter jest obsługiwany przez usługę Azure DevOps. DevOps Starter automatyzuje wszystkie zadania, które są konieczne w Azure Pipelines do skonfigurowania potoku ciągłej integracji/ciągłego wdrażania. Usługa DevOps Projects tworzy repozytorium Git w nowej lub istniejącej organizacji usługi Azure DevOps, a następnie zatwierdza aplikację przykładową lub istniejący kod w nowym repozytorium Git.  
 
-Automatyzacja ustala również wyzwalacz ciągłej integracji na potrzeby kompilacji, aby każde nowe zatwierdzenie kodu inicjowało kompilację. Usługa DevOps Projects tworzy wyzwalacz ciągłego wdrażania i wdraża każdą nową udaną kompilację w wybranej usłudze platformy Azure.  
+Automatyzacja ustala również wyzwalacz ciągłej integracji na potrzeby kompilacji, aby każde nowe zatwierdzenie kodu inicjowało kompilację. DevOps Starter tworzy wyzwalacz CD i wdraża każdą nową pomyślnie kompilację do wybranej usługi platformy Azure.  
 
 Potoki kompilacji i wydania można dostosować do dodatkowych scenariuszy. Potoki kompilacji i wydania można także sklonować w celu użycia w innych projektach.
 
-Po utworzeniu projektu DevOps możesz wykonywać następujące czynności:
+Po utworzeniu DevOps Starter możesz:
 
 * Dostosowywanie potoku kompilacji i wydania
 * Zarządzanie przepływem kodu i zapewnianie wysokiej jakości za pomocą żądań ściągnięcia
 * Testowanie i kompilowanie każdego zatwierdzenia przed scaleniem kodu, aby podnieść poziom jakości
 * Śledzenie listy prac i problemów wraz z aplikacją
 
-## <a name="how-do-i-start-using-devops-projects"></a>Jak mogę rozpocząć korzystanie z usługi DevOps Projects?
+## <a name="getting-started-with-devops-starter"></a>Wprowadzenie do korzystania z DevOps Starter
 
-* [Rozpoczynanie pracy z usługą DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Wprowadzenie do DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
-##  <a name="devops-projects-videos"></a>Filmy wideo dotyczące usługi DevOps Projects
+##  <a name="devops-starter-videos"></a>Filmy wideo DevOps Starter
 
-* [Tworzenie potoku ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Projects](https://www.youtube.com/watch?v=NuYDAs3kNV8)
+* [Tworzenie ciągłej integracji/ciągłego wdrażania za pomocą usługi Azure DevOps Starter](https://www.youtube.com/watch?v=NuYDAs3kNV8)
