@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154631"
+ms.locfileid: "82229905"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Inicjowanie obsługi aplikacji w stanie kwarantanny
 
@@ -33,7 +33,7 @@ Podczas kwarantanny Częstotliwość cykli przyrostowych jest stopniowo zmniejsz
 
 Istnieją trzy sposoby, aby sprawdzić, czy aplikacja znajduje się w kwarantannie:
   
-- W Azure Portal przejdź do **Azure Active Directory** > **aplikacje** > &lt;korporacyjne*Nazwa*&gt; > aplikacji**Inicjowanie obsługi** i przewiń na pasek postępu u dołu.  
+- W Azure Portal przejdź do **Azure Active Directory** > **aplikacje** > &lt;korporacyjne*Nazwa*&gt; > aplikacji**Inicjowanie obsługi administracyjnej** i przejrzyj pasek postępu dla komunikatu kwarantanny.   
 
   ![Pasek stanu aprowizacji przedstawiający stan kwarantanny](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +51,13 @@ Istnieją trzy sposoby, aby sprawdzić, czy aplikacja znajduje się w kwarantann
 
 ## <a name="why-is-my-application-in-quarantine"></a>Dlaczego moja aplikacja jest poddana kwarantannie?
 
-Microsoft Graph żądanie pobrania stanu zadania aprowizacji wskazuje następujące przyczyny kwarantanny:
+|Opis|Zalecana akcja|
+|---|---|
+|**Standard scim zgodności:** Zwrócona odpowiedź HTTP/404 nie została znaleziona, a nie oczekiwana odpowiedź HTTP/200 OK. W takim przypadku usługa Azure AD Provisioning zgłosiła żądanie do aplikacji docelowej i odebrała nieoczekiwaną odpowiedź.|Sprawdź sekcję poświadczenia administratora, aby sprawdzić, czy aplikacja wymaga określenia adresu URL dzierżawy i upewnij się, że adres URL jest poprawny. Jeśli nie widzisz problemu, skontaktuj się z deweloperem aplikacji, aby upewnić się, że ich usługi są zgodne z standard scim. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Nieprawidłowe poświadczenia:** Podczas próby autoryzacji dostępu do aplikacji docelowej otrzymaliśmy odpowiedź od aplikacji docelowej, która wskazuje, że podane poświadczenia są nieprawidłowe.|Przejdź do sekcji poświadczenia administratora w interfejsie użytkownika konfiguracji aprowizacji i ponownie Autoryzuj dostęp z prawidłowymi poświadczeniami. Jeśli aplikacja znajduje się w galerii, zapoznaj się z samouczkiem dotyczącym konfiguracji aplikacji, aby uzyskać dodatkowe wymagane kroki.|
+|**Zduplikowane role:** Role zaimportowane z niektórych aplikacji, takich jak Salesforce i systemu Zendesk, muszą być unikatowe. |Przejdź do [manifestu](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) aplikacji w Azure Portal i Usuń zduplikowaną rolę.|
+
+ Microsoft Graph żądanie pobrania stanu zadania aprowizacji wskazuje następujące przyczyny kwarantanny:
 
 - `EncounteredQuarantineException`wskazuje, że podano nieprawidłowe poświadczenia. Usługa aprowizacji nie może nawiązać połączenia między systemem źródłowym i systemem docelowym.
 

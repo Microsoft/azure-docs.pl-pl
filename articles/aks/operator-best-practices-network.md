@@ -5,12 +5,12 @@ description: Informacje o najlepszych rozwiązaniach dotyczących operatorów kl
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145465"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208061"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące łączności sieciowej i zabezpieczeń w usłudze Azure Kubernetes Service
 
@@ -45,7 +45,7 @@ W przypadku korzystania z sieci Azure CNI, zasób sieci wirtualnej znajduje się
 
 Aby uzyskać więcej informacji na temat delegowania nazwy głównej usługi AKS, zobacz [delegowanie dostępu do innych zasobów platformy Azure][sp-delegation]. Zamiast nazwy głównej usługi można także użyć przypisanej tożsamości zarządzanej przez system do uprawnień. Aby uzyskać więcej informacji, zobacz [Korzystanie z tożsamości zarządzanych](use-managed-identity.md).
 
-Ponieważ każdy węzeł i pod otrzymają własny adres IP, Zaplanuj zakresy adresów dla podsieci AKS. Podsieć musi być wystarczająco duża, aby zapewnić adresy IP dla wszystkich wdrażanych zasobów w węźle, w poszczególnych zasobach i w sieci. Każdy klaster AKS musi być umieszczony w własnej podsieci. Aby umożliwić łączność z lokalnymi lub sieciami równorzędnymi na platformie Azure, nie używaj zakresów adresów IP, które pokrywają się z istniejącymi zasobami sieciowymi. Istnieją domyślne limity liczby kart sieciowych, które są uruchamiane w każdym węźle, zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI. Aby obsłużyć zdarzenia skalowania w poziomie lub uaktualnienia klastra, potrzebne są również dodatkowe adresy IP do użycia w przypisanej podsieci. Ta dodatkowa przestrzeń adresowa jest szczególnie ważna w przypadku używania kontenerów systemu Windows Server (obecnie w wersji zapoznawczej w AKS), ponieważ te pule węzłów wymagają uaktualnienia w celu zastosowania najnowszych poprawek zabezpieczeń. Aby uzyskać więcej informacji na temat węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
+Ponieważ każdy węzeł i pod otrzymają własny adres IP, Zaplanuj zakresy adresów dla podsieci AKS. Podsieć musi być wystarczająco duża, aby zapewnić adresy IP dla wszystkich wdrażanych zasobów w węźle, w poszczególnych zasobach i w sieci. Każdy klaster AKS musi być umieszczony w własnej podsieci. Aby umożliwić łączność z lokalnymi lub sieciami równorzędnymi na platformie Azure, nie używaj zakresów adresów IP, które pokrywają się z istniejącymi zasobami sieciowymi. Istnieją domyślne limity liczby kart sieciowych, które są uruchamiane w każdym węźle, zarówno w korzystającą wtyczki kubenet, jak i na platformie Azure CNI. Aby obsłużyć zdarzenia skalowania w poziomie lub uaktualnienia klastra, potrzebne są również dodatkowe adresy IP do użycia w przypisanej podsieci. Ta dodatkowa przestrzeń adresowa jest szczególnie ważna w przypadku korzystania z kontenerów systemu Windows Server, ponieważ te pule węzłów wymagają uaktualnienia w celu zastosowania najnowszych poprawek zabezpieczeń. Aby uzyskać więcej informacji na temat węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 
 Aby obliczyć wymagany adres IP, zobacz [Konfigurowanie usługi Azure CNI Networking w AKS][advanced-networking].
 
@@ -99,7 +99,7 @@ spec:
 
 Kontroler transferu danych przychodzących to demon, który działa w węźle AKS i Obserwujący żądania przychodzące. Ruch jest dystrybuowany na podstawie reguł zdefiniowanych w zasobie transferu danych przychodzących. Najbardziej typowym kontrolerem transferu danych przychodzących jest oparty na [Nginx]. AKS nie ogranicza do określonego kontrolera, dlatego można użyć innych kontrolerów, takich jak [rozkład][contour], [HAProxy][haproxy]lub [Traefik][traefik].
 
-Kontrolery transferu danych przychodzących muszą być zaplanowane w węźle systemu Linux. W węzłach systemu Windows Server (obecnie w wersji zapoznawczej w AKS) nie należy uruchamiać kontrolera transferu danych przychodzących. Użyj selektora węzłów w manifeście YAML lub we wdrożeniu wykresu Helm, aby wskazać, że zasób ma być uruchamiany w węźle opartym na systemie Linux. Aby uzyskać więcej informacji, zobacz [Używanie selektorów węzłów w celu kontrolowania, gdzie są planowane w AKS][concepts-node-selectors].
+Kontrolery transferu danych przychodzących muszą być zaplanowane w węźle systemu Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Użyj selektora węzłów w manifeście YAML lub we wdrożeniu wykresu Helm, aby wskazać, że zasób ma być uruchamiany w węźle opartym na systemie Linux. Aby uzyskać więcej informacji, zobacz [Używanie selektorów węzłów w celu kontrolowania, gdzie są planowane w AKS][concepts-node-selectors].
 
 Istnieje wiele scenariuszy związanych z ruchem przychodzącym, w tym następujące przewodniki:
 

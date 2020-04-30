@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181294"
+ms.locfileid: "82207534"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -1823,12 +1823,12 @@ Administrator usługi CRM | Administrator systemu Dynamics 365 | 44367163-eba1-4
 Osoba zatwierdzająca dostęp do skrytki klienta | Osoba zatwierdzająca Skrytka klienta dostępu | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administrator usługi Desktop Analytics | Administrator usługi Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administratorzy urządzeń | Administratorzy urządzeń | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Przyłączanie urządzenia | Przyłączanie urządzenia | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Menedżerowie urządzeń | Menedżerowie urządzeń | 2b499bcd-da44-4968-8aec-78e1674fa64d
-Użytkownicy urządzeń | Użytkownicy urządzeń | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Przyłączanie urządzenia | Przestarzałe | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Menedżerowie urządzeń | Przestarzałe | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Użytkownicy urządzeń | Przestarzałe | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Czytelnicy katalogów | Czytelnicy katalogów | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Konta synchronizacji katalogów | Konta synchronizacji katalogów | d29b2b05-8046-44ba-8758-1e26182fcf32
-Autorzy katalogów | Autorzy katalogów | 9360feb5-f418-4baa-8175-e2a00bac4301
+Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | d29b2b05-8046-44ba-8758-1e26182fcf32
+Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrator usługi Exchange | Administrator programu Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrator zewnętrznego dostawcy tożsamości | Administrator zewnętrznego dostawcy tożsamości | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Czytelnik globalny | Czytnik globalny | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1844,8 +1844,8 @@ Czytnik prywatności centrum wiadomości | Czytnik prywatności centrum wiadomo�
 Czytelnik centrum wiadomości | Czytelnik centrum wiadomości | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Administrator sieci | Administrator sieci | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrator aplikacji pakietu Office | Administrator aplikacji pakietu Office | 2b745bdf-0803-4d80-aa65-822c4493daac
-Obsługa pomoc partnera | Obsługa pomoc partnera | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Obsługa SVR partnera | Obsługa SVR partnera | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Obsługa pomoc partnera | Niewyświetlane, ponieważ nie powinno być używane | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Obsługa SVR partnera | Niewyświetlane, ponieważ nie powinno być używane | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrator haseł | Administrator haseł | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrator usługi Power BI | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrator platformy w elektrowni | platforma Power administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1865,9 +1865,9 @@ Administratorzy zespołu ds. komunikacji | Administratorzy zespołu ds. komunika
 Inżynierowie pomocy technicznej dla zespołów | Inżynierowie pomocy technicznej dla zespołów | f70938a0-fc10-4177-9e90-2178f8765737
 Zespoły ds. pomocy technicznej | Zespoły ds. pomocy technicznej | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrator usługi Teams | Administrator usługi Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
-Użytkownik | Użytkownik | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Użytkownik | Niepokazywany, ponieważ nie można go użyć | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrator konta użytkownika | Administrator użytkowników | fe930be7-5e62-47db-91af-98c3a49a38b1
-Dołączanie urządzenia w miejscu pracy | Dołączanie urządzenia w miejscu pracy | c34f683f-4d5a-4403-AFFD-6615e00e3a7f
+Dołączanie urządzenia w miejscu pracy | Przestarzałe | c34f683f-4d5a-4403-AFFD-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Przestarzałe role
 

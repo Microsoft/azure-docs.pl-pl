@@ -1,28 +1,54 @@
 ---
-title: Co to są Strefy dostępności platformy Azure?
-description: Aby utworzyć aplikacje o wysokiej dostępności i odporności na platformie Azure, Strefy dostępności zapewnić fizycznie oddzielne lokalizacje, za pomocą których można uruchamiać zasoby.
+title: Regiony i Strefy dostępności na platformie Azure
+description: Dowiedz się więcej na temat regionów i Strefy dostępności na platformie Azure, aby spełnić wymagania techniczne i prawne.
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: e7ba62a96a6fc76ad63960cfe57f5b1f85589c32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085046"
+ms.locfileid: "82231343"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>Co to są strefy dostępności na platformie Azure?
-Strefy dostępności to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych. Usługi strefowo nadmiarowe replikujeją aplikacje i dane między Strefy dostępności, aby chronić je przed awariami jednego punktu. Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
+# <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
+
+Usługi Microsoft Azure są dostępne globalnie w celu zapewnienia optymalnego poziomu operacji w chmurze. Możesz wybrać najlepszy region dla potrzeb na podstawie zagadnień technicznych i prawnych: możliwości usług, miejsca zamieszkania danych, wymagania dotyczące zgodności i opóźnienia.
+
+## <a name="terminology"></a>Terminologia
+
+Aby lepiej zrozumieć regiony i Strefy dostępności na platformie Azure, zapoznaj się z najważniejszymi pojęciami lub koncepcjami.
+
+| Termin lub pojęcie | Opis |
+| --- | --- |
+| region | Zestaw centrów danych wdrożonych w ramach określonego czasu oczekiwania i połączony za pomocą dedykowanej regionalnej sieci o małym opóźnieniu. |
+| geograficzne | Obszar świata zawierający co najmniej jeden region świadczenia usługi Azure. Lokalizacje geograficzne definiują dyskretny rynek, który zachowuje granice miejsca zamieszkania i zgodności. Obszary geograficzne umożliwiają klientom, którzy mają określone potrzeby związane z rezydencją danych i zgodnością, przechowywanie ich danych i aplikacji w bliskim sąsiedztwie. Lokalizacje geograficzne są odporne na uszkodzenia, aby przetrzymywać pełną awarię regionu poprzez połączenie z naszą dedykowaną infrastrukturą sieciową o dużej pojemności. |
+| Strefa dostępności | Unikatowe lokalizacje fizyczne w regionie. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. |
+| Zalecany region | Region, który zapewnia szeroką gamę możliwości usługi i jest przeznaczony do obsługi Strefy dostępności teraz lub w przyszłości. Są one określone w Azure Portal zgodnie z **zaleceniami**. |
+| alternatywny region (inny) | Region, który rozszerza zasięg platformy Azure w granicach miejsca zamieszkania danych, w której istnieje również zalecany region. Alternatywne regiony pomagają zoptymalizować opóźnienie i zapewnić drugi region dla potrzeb związanych z odzyskiwaniem po awarii. Nie są one przeznaczone do obsługi Strefy dostępności (chociaż platforma Azure przeprowadza regularne oceny tych regionów, aby określić, czy powinny one stać się zalecanymi regionami). Są one określone w Azure Portal jako **inne**. |
+| Usługa fundamentowa | Podstawowa usługa platformy Azure, która jest dostępna we wszystkich regionach, gdy region jest ogólnie dostępny. |
+| Usługa podstawowe | Usługa platformy Azure, która jest dostępna we wszystkich zalecanych regionach w ciągu 12 miesięcy od ogólnej dostępności regionu/usługi lub dostępności na żądanie w alternatywnych regionach. |
+| wyspecjalizowana usługa | Usługa platformy Azure, która jest zależna od popytu dostępność w regionach, obsługiwana przez dostosowany/wyspecjalizowany sprzęt. |
+| Usługa regionalna | Usługa platformy Azure, która jest wdrożona w regionie i umożliwia klientowi określenie regionu, w którym zostanie wdrożona usługa. Aby uzyskać pełną listę, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
+| Usługa nieregionalna | Usługa platformy Azure, dla której nie ma zależności w określonym regionie świadczenia usługi Azure. Usługi nieregionalne są wdrażane w dwóch lub więcej regionach i w przypadku awarii regionalnej wystąpienie usługi w innym regionie kontynuuje obsługę klientów. Aby uzyskać pełną listę, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
+
+## <a name="regions"></a>Regiony
+
+Region to zestaw centrów danych wdrożonych w ramach określonego czasu oczekiwania i połączony za pomocą dedykowanej regionalnej sieci o małym opóźnieniu. Platforma Azure zapewnia elastyczność wdrażania aplikacji, które są potrzebne, w tym między wieloma regionami w celu zapewnienia odporności między regionami. Aby uzyskać więcej informacji, zobacz [Omówienie filaru odporności](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+
+## <a name="availability-zones"></a>Strefy dostępności
+
+Strefa dostępności to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych. Usługi strefowo nadmiarowe replikujeją aplikacje i dane między Strefy dostępności, aby chronić je przed awariami jednego punktu. Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
 
 Strefa dostępności w regionie świadczenia usługi Azure jest kombinacją domeny błędów i domeny aktualizacji. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
 
 Twórz wysoką dostępność w architekturze aplikacji dzięki umieszczeniu na niej zasobów obliczeniowych, magazynu, sieci i danych w ramach strefy i replikacji w innych strefach. Usługi platformy Azure, które obsługują strefy dostępności, dzielą się na dwie kategorie:
 
-- **Usługi strefowe** — przypinasz zasób do określonej strefy (na przykład maszyny wirtualne, dyski zarządzane, standardowe adresy IP) lub
-- **Usługi strefowo-nadmiarowe** — platforma automatycznie replikuje zasoby w strefach (na przykład magazyn strefowo-nadmiarowy, baza danych SQL).
+- **Usługi strefowe** — miejsce, w którym zasób jest przypięty do określonej strefy (na przykład maszyny wirtualne, dyski zarządzane, standardowe adresy IP) lub
+- **Usługi strefowo nadmiarowe** — gdy platforma Azure jest replikowana automatycznie między strefami (na przykład magazyn strefowo nadmiarowy, SQL Database).
 
 Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompiluj architekturę aplikacji przy użyciu kombinacji Strefy dostępności z parami regionów platformy Azure. Można synchronicznie replikować aplikacje i dane za pomocą Strefy dostępności w regionie świadczenia usługi Azure, aby zapewnić wysoką dostępność i asynchroniczną replikację w regionach platformy Azure w celu ochrony przed odzyskiwaniem po awarii.
  
@@ -31,51 +57,109 @@ Aby zapewnić kompleksową ciągłość biznesową na platformie Azure, skompilu
 > [!IMPORTANT]
 > Identyfikatory stref dostępności (numery 1, 2 i 3 na zdjęciu powyżej) są logicznie mapowane na rzeczywiste strefy fizyczne dla każdej subskrypcji. Oznacza to, że dostępność Strefa 1 w danej subskrypcji może odwoływać się do innej strefy fizycznej niż Strefa 1 dostępności w innej subskrypcji. W związku z tym zaleca się, aby nie polegać na identyfikatorach strefy dostępności w różnych subskrypcjach na potrzeby umieszczania maszyn wirtualnych.
 
-## <a name="services-support-by-region"></a>Obsługa usług według regionów
+## <a name="region-and-service-categories"></a>Kategorie regionów i usług
 
-Kombinacje usług i regionów platformy Azure, które obsługują Strefy dostępności są następujące:
+Podejście platformy Azure do dostępności usług platformy Azure w różnych regionach jest najlepiej opisane przez ekspresowe usługi, które są dostępne w zalecanych regionach i regionach alternatywnych.
 
+- **Zalecany region** — region, który zapewnia szeroką gamę możliwości usługi i jest przeznaczony do obsługi strefy dostępności teraz lub w przyszłości. Są one określone w Azure Portal zgodnie z **zaleceniami**.
+- **Region alternatywny (inny)** — region rozszerzający zasięg platformy Azure w obrębie miejsca zamieszkania danych, w którym znajduje się również zalecany region. Alternatywne regiony pomagają zoptymalizować opóźnienie i zapewnić drugi region dla potrzeb związanych z odzyskiwaniem po awarii. Nie są one przeznaczone do obsługi Strefy dostępności (chociaż platforma Azure przeprowadza regularne oceny tych regionów, aby określić, czy powinny one stać się zalecanymi regionami). Są one określone w Azure Portal jako **inne**.
 
-|                                 |Ameryki |              |           |           | Europa |              |          |              | Azja i Pacyfik |                 |                |
-|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Środkowe stany USA|Wschodnie stany USA|Wschodnie stany USA 2|Zachodnie stany USA 2|Francja Środkowa|Europa Północna|Południowe Zjednoczone Królestwo|Europa Zachodnia|Japonia Wschodnia|Azja Południowo-Wschodnia|Australia Wschodnia|
-| **Wystąpienia obliczeniowe**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Maszyny wirtualne z systemem Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Maszyny wirtualne z systemem Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Zestawy skali maszyn wirtualnych      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| ILB środowiska Azure App Service | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
-| Dyski zarządzane                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Magazyn strefowo nadmiarowy          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Networking**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Standardowy adres IP        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| usługa Load Balancer w warstwie Standardowa     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| VPN Gateway            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Brama ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Application Gateway (wersja 2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| **Bazy danych**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
-| Baza danych SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (wersja zapoznawcza) | &#10003;       | &#10003; (wersja zapoznawcza)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
-| Azure Cache for Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |                |
-| **Analiza**                       |            |              |           |           |                |              |          |             |            |                |                |
-| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
-| **Integracja**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Service Bus (tylko warstwa Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
-| Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
-| **Tożsamość**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+### <a name="comparing-region-types"></a>Porównywanie typów regionów
 
-## <a name="services-resiliency"></a>Odporność usług
+Usługi platformy Azure są pogrupowane w trzy kategorie: podstawowe, podstawowe i wyspecjalizowane usługi. Ogólne zasady wdrażania usług w dowolnym regionie przez platformę Azure są określane głównie przez typ regionu, kategorie usług i zapotrzebowanie klienta:
+
+- Podstawowe **— dostępne** we wszystkich zalecanych i alternatywnych regionach, gdy region jest ogólnie dostępny, lub w ciągu 12 miesięcy od momentu, gdy nowa podstawowa usługa staje się ogólnie dostępna.
+- Podstawowe **— dostępne** we wszystkich zalecanych regionach w ciągu 12 miesięcy od ogólnego udostępnienia regionu/usługi; zależne od popytu w alternatywnych regionach (wiele jest już wdrożone w dużym podzbiorze regionów alternatywnych).
+- **Wyspecjalizowane** oferty usług ukierunkowanych, które są często ukierunkowane na branżowe lub objęte przez dostosowany sprzęt. Dostępność oparta na zapotrzebowaniu w różnych regionach (wiele jest już wdrożonych w dużym podzbiorze zalecanych regionów).
+
+Aby zobaczyć, które usługi są wdrażane w danym regionie, a także przyszły plan wersji zapoznawczej lub ogólnej dostępności usług w regionie, zobacz artykuły [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=all).
+
+Jeśli oferta usługi nie jest dostępna w określonym regionie, możesz podzielić się zainteresowaniami, kontaktując się z przedstawicielem handlowym firmy Microsoft.
+
+| Typ regionu | Inne niż regionalne | Podstawowe | Podstawowa pomoc techniczna | Wyspecjalizowany | Strefy dostępności | Rezydencja danych |
+| --- | --- | --- | --- | --- | --- | --- |
+| Zalecane | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Sterowane popytem | :heavy_check_mark: | :heavy_check_mark: |
+| Formę | :heavy_check_mark: | :heavy_check_mark: | Sterowane popytem | Sterowane popytem | Nie dotyczy | :heavy_check_mark: |
+
+### <a name="services-by-category"></a>Usługi według kategorii
+
+Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie: podstawowe, podstawowe i wyspecjalizowane. Kategorie usług są przypisywane w ogólnej dostępności. Często usługi uruchamiają swój cykl życia jako wyspecjalizowaną usługę, a wzrost popytu i użycia może być podniesiony do podstawy lub do podstaw. W poniższej tabeli wymieniono kategorie usług jako podstawowe, podstawowe lub wyspecjalizowane. Należy zwrócić uwagę na następujące kwestie dotyczące tabeli:
+
+- Niektóre usługi nie są regionalne. Aby uzyskać informacje i listę usług nieregionalnych, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/).
+- Starsze maszyny wirtualne generacji nie są wymienione na liście. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [wcześniejszych generacji rozmiarów maszyn wirtualnych](../virtual-machines/sizes-previous-gen.md).
+
+> [!div class="mx-tableFixed"]
+> | Podstawowe | Podstawowa pomoc techniczna | Wyspecjalizowany |
+> | --- | --- | --- |
+> | Magazyn kont | API Management | Interfejs API platformy Azure dla standardu FHIR |
+> | Application Gateway | Konfiguracja aplikacji | Usługa Azure Blockchain |
+> | Azure Backup | App Service | Azure Blueprints |
+> | Azure Cosmos DB | Automatyzacja | Azure Database for MariaDB |
+> | Usługa Azure Data Lake Storage 2. generacji | Azure Active Directory Domain Services | Dedykowany moduł HSM platformy Azure |
+> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
+> | Azure SQL Database | Azure Bastion | Azure Digital Twins |
+> | Cloud Services | Azure Cache for Redis | Azure Lab Services |
+> | Cloud Services: Seria Av2 | Azure Cognitive Search | Azure NetApp Files |
+> | Cloud Services: Seria Dv2 | Azure Data Explorer | Quantum platformy Azure |
+> | Cloud Services: Seria Dv3 | Azure Data Share | Azure Time Series Insights |
+> | Cloud Services: Seria EV3 | Azure Database for MySQL | Azure VMware Solution by CloudSimple |
+> | Cloud Services: adresy IP na poziomie wystąpienia | Azure Database for PostgreSQL | Cloud Services: A8-A11 (intensywnie korzystające z obliczeń) |
+> | Cloud Services: Zastrzeżony adres IP | Azure Database Migration Service | Cloud Services: Seria G |
+> | Disk Storage | Azure Databricks | Cloud Services: Seria H |
+> | Event Hubs | Azure DDoS Protection | Cognitive Services: detektor anomalii |
+> | Usługa Key Vault | Azure DevTest Labs | Cognitive Services: Custom Vision |
+> | Moduł równoważenia obciążenia | Azure Firewall Manager | Cognitive Services: rozpoznawanie osoby mówiącej |
+> | Service Bus | Azure Firewall | Data Box Heavy |
+> | Service Fabric | Azure Functions | Data Catalog |
+> | Zestawy skali maszyn wirtualnych | Azure HPC Cache | Data Factory: Data Factory v1 |
+> | Maszyny wirtualne | Azure IoT Hub | Data Lake Analytics |
+> | Virtual Machines: Seria Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
+> | Virtual Machines: BS — seria | Azure Machine Learning | Microsoft Genomics |
+> | Virtual Machines: Seria DSv2 | Link prywatny platformy Azure | Remote Rendering |
+> | Virtual Machines: Seria DSv3 | Azure Red Hat OpenShift | Spatial Anchors |
+> | Virtual Machines: Seria Dv2 | Azure Site Recovery | Magazyn StorSimple |
+> | Virtual Machines: Seria Dv3 | Usługa w chmurze Azure wiosny | Indeksator wideo |
+> | Virtual Machines: Seria ESv3 | Azure Stack Hub | Virtual Machines: A8-A11 (intensywnie korzystające z obliczeń) |
+> | Virtual Machines: Seria EV3 | Usługa Azure Stream Analytics | Virtual Machines: Seria DASv4 |
+> | Virtual Machines: Seria F | Azure Synapse Analytics | Virtual Machines: Seria DAv4 |
+> | Virtual Machines: Seria FS | Usługa Azure SignalR Service | Virtual Machines: Seria DCsv2 |
+> | Virtual Machines: adresy IP na poziomie wystąpienia | Batch | Virtual Machines: Seria EASv4 |
+> | Virtual Machines: Zastrzeżony adres IP | Cloud Services: Seria M | Virtual Machines: Seria EAv4 |
+> | Virtual Network | Cognitive Services | Virtual Machines: Seria G |
+> | VPN Gateway | Cognitive Services: przetwarzanie obrazów | Virtual Machines: Seria GS |
+> |  | Cognitive Services: Content Moderator | Virtual Machines: Seria HBv1 |
+> |  | Cognitive Services: kroju | Virtual Machines: Seria HBv2 |
+> |  | Cognitive Services: Language Understanding | Virtual Machines: Seria HCv1 |
+> |  | Cognitive Services: usługi mowy | Virtual Machines: Seria H |
+> |  | Cognitive Services: QnA Maker | Virtual Machines: Seria LS |
+> |  | Container Instances | Virtual Machines: Seria LSv2 |
+> |  | Container Registry | Virtual Machines: Seria Mv2 |
+> |  | Fabryka danych | Virtual Machines: Seria NC |
+> |  | Event Grid | Virtual Machines: Seria NCv2 |
+> |  | HDInsight | Virtual Machines: Seria Seria NCV3 |
+> |  | Logic Apps | Virtual Machines: usługa NDs — seria |
+> |  | Media Services | Virtual Machines: Seria NDv2 |
+> |  | Network Watcher | Virtual Machines: Seria NV |
+> |  | Notification Hubs | Virtual Machines: Seria NVv3 |
+> |  | Power BI Embedded | Virtual Machines: Seria NVv4 |
+> |  | Blob Storage Premium | Virtual Machines: Oprogramowanie SAP HANA na platformie Azure — duże wystąpienia |
+> |  | Magazyn plików w warstwie Premium | Visual Studio App Center |
+> |  | Magazyn: Archive Storage |  |
+> |  | Ultra Disk Storage |  |
+> |  | Virtual Machines: Seria Fsv2 |  |
+> |  | Virtual Machines: Seria M |  |
+> |  | Wirtualna sieć WAN |  |
+
+###  <a name="services-resiliency"></a>Odporność usług
+
 Wszystkie usługi zarządzania systemu Azure są zaprojektowane tak, aby były odporne na awarie na poziomie regionu. W spektrum błędów co najmniej jedna awaria strefy dostępności w obrębie regionu ma mniejszą wartość promienia błędu w porównaniu z awarią całego regionu. Platforma Azure może wykonać odzyskiwanie z niepowodzeń usług zarządzania w obrębie regionu lub z innego regionu platformy Azure. Platforma Azure wykonuje krytyczną konserwację jedną strefę w danym momencie w regionie, aby zapobiec wszelkim awariom wpływającym na zasoby klienta wdrożone w ramach Strefy dostępności w regionie.
 
-## <a name="pricing"></a>Cennik
+### <a name="pricing-for-vms-in-availability-zones"></a>Cennik dla maszyn wirtualnych w Strefy dostępności
+
 Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności. Umowa SLA na 99,99% czasu maszyny wirtualnej jest oferowana w przypadku wdrożenia co najmniej dwóch maszyn wirtualnych w ramach dwóch lub więcej Strefy dostępności w regionie świadczenia usługi Azure. Będzie dostępnych dodatkowych opłat za transfer danych między MASZYNami wirtualnymi między strefami dostępności. Aby uzyskać więcej informacji, zapoznaj się ze stroną [cennika przepustowości](https://azure.microsoft.com/pricing/details/bandwidth/) .
 
+### <a name="get-started-with-availability-zones"></a>Wprowadzenie do Strefy dostępności
 
-## <a name="get-started-with-availability-zones"></a>Wprowadzenie do Strefy dostępności
 - [Tworzenie maszyny wirtualnej](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Dodawanie dysku zarządzanego przy użyciu programu PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Utwórz strefowo nadmiarowy zestaw skalowania maszyn wirtualnych](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
@@ -92,4 +176,6 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Utwórz klaster usługi Azure Kubernetes Service (AKS), który używa Strefy dostępności](../aks/availability-zones.md)
 
 ## <a name="next-steps"></a>Następne kroki
+
+- [Regiony obsługujące Strefy dostępności na platformie Azure](az-region.md)
 - [Szablony szybkiego startu](https://aka.ms/azqs)

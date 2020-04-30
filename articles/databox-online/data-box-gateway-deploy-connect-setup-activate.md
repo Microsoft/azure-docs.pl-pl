@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81686875"
+ms.locfileid: "82561684"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Samouczek: łączenie, konfigurowanie, aktywowanie Azure Data Box Gateway
 
@@ -65,7 +65,7 @@ Pulpit nawigacyjny wyświetla różne ustawienia, które są wymagane do skonfig
    
 ![Strona "pulpit nawigacyjny" lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. W okienku po lewej stronie wybierz pozycję **Nazwa urządzenia**, a następnie wprowadź przyjazną nazwę urządzenia. Przyjazna nazwa musi zawierać od 1 do 15 znaków i zawierać litery, cyfry i łączniki.
+1. W okienku po lewej stronie wybierz pozycję **Nazwa urządzenia**, a następnie wprowadź przyjazną nazwę urządzenia. Przyjazna nazwa musi zawierać od 1 do 15 znaków i zawierać litery, cyfry i łączniki. 
 
     ![Strona "nazwa urządzenia" lokalnego interfejsu użytkownika sieci Web](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 

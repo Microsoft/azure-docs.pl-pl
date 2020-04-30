@@ -1,77 +1,77 @@
 ---
-title: Planowanie wdrożenia usługi Azure Files | Dokumenty firmy Microsoft
-description: Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia usługi Azure Files.
+title: Planowanie wdrożenia Azure Files | Microsoft Docs
+description: Dowiedz się, co należy wziąć pod uwagę podczas planowania wdrożenia Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536499"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209489"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
-[Usługi Azure Files](storage-files-introduction.md) można wdrożyć na dwa główne sposoby: bezpośrednio montując bezserwerowe udziały plików platformy Azure lub buforując udziały plików platformy Azure lokalnie przy użyciu usługi Azure File Sync. Wybrana opcja wdrażania zmienia rzeczy, które należy wziąć pod uwagę podczas planowania wdrożenia. 
+[Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
 
-- **Bezpośrednie instalowanie udziału plików platformy Azure:** Ponieważ usługa Azure Files zapewnia dostęp do SMB, można zainstalować udziały plików platformy Azure lokalnie lub w chmurze przy użyciu standardowego klienta SMB dostępnego w systemach Windows, macOS i Linux. Ponieważ udziały plików platformy Azure są bezserwerowe, wdrażanie w scenariuszach produkcyjnych nie wymaga zarządzania serwerem plików ani urządzeniem NAS. Oznacza to, że nie trzeba stosować poprawek oprogramowania ani wymieniać dysków fizycznych. 
+- **Bezpośrednia instalacja udziału plików platformy Azure**: ponieważ Azure Files zapewnia dostęp do protokołu SMB, można instalować udziały plików platformy Azure lokalnie lub w chmurze przy użyciu standardowego klienta protokołu SMB dostępnego w systemach Windows, MacOS i Linux. Ponieważ udziały plików platformy Azure są bezserwerowe, wdrażanie w scenariuszach produkcyjnych nie wymaga zarządzania serwerem plików ani urządzeniem NAS. Oznacza to, że nie trzeba stosować poprawek oprogramowania ani wymieniać dysków fizycznych. 
 
-- **Buforuj udział plików platformy Azure lokalnie za pomocą usługi Azure File Sync:** Usługa Azure File Sync umożliwia scentralizowanie udziałów plików organizacji w plikach azure, przy jednoczesnym zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Usługa Azure File Sync przekształca lokalny (lub chmurowy) system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. 
+- **Buforowanie udziałów plików platformy Azure w środowisku lokalnym za pomocą Azure File Sync**: Azure File Sync pozwala na scentralizowanie udziały plików w organizacji w Azure Files, przy zachowaniu elastyczności, wydajności i zgodności lokalnego serwera plików. Azure File Sync przekształca lokalnego (lub w chmurze) systemu Windows Server w szybką pamięć podręczną udziału plików platformy Azure. 
 
-Ten artykuł dotyczy przede wszystkim zagadnień dotyczących wdrażania udziału plików platformy Azure, które mają być bezpośrednio montowane przez klienta lokalnego lub w chmurze. Aby zaplanować wdrożenie usługi Azure File Sync, zobacz [Planowanie wdrożenia usługi Azure File Sync](storage-sync-files-planning.md).
+Ten artykuł dotyczy głównie zagadnień związanych z wdrażaniem udziału plików platformy Azure, który ma być bezpośrednio instalowany przez klienta lokalnego lub w chmurze. Aby zaplanować wdrożenie Azure File Sync, zapoznaj się z tematem [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md).
 
-## <a name="management-concepts"></a>Koncepcje zarządzania
+## <a name="management-concepts"></a>Pojęcia związane z zarządzaniem
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-Podczas wdrażania udziałów plików platformy Azure na kontach magazynu zaleca się:
+W przypadku wdrażania udziałów plików platformy Azure na kontach magazynu zalecamy:
 
-- Wdrażanie udziałów plików platformy Azure tylko na kontach magazynu z innymi udziałami plików platformy Azure. Chociaż konta magazynu GPv2 umożliwiają korzystanie z kont magazynu o mieszanym celu, ponieważ zasoby magazynu, takie jak udziały plików platformy Azure i kontenery obiektów blob, współużytkują limity konta magazynu, mieszanie zasobów może utrudnić późniejsze rozwiązywanie problemów z wydajnością. 
+- Wdrażaj udziały plików platformy Azure na kontach magazynu z innymi udziałami plików platformy Azure. Mimo że konta magazynu GPv2 umożliwiają korzystanie z kont magazynu w trybie mieszanym, ponieważ zasoby magazynu, takie jak udziały plików platformy Azure i kontenery obiektów blob, współużytkują limity konta magazynu, mieszanie zasobów może utrudnić rozwiązanie problemów z wydajnością później. 
 
-- Zwracanie uwagi na ograniczenia kont IOPS konta magazynu podczas wdrażania udziałów plików platformy Azure. W idealnym przypadku należy mapować udziały plików 1:1 z kontami magazynu, jednak nie zawsze może to być możliwe ze względu na różne ograniczenia i ograniczenia, zarówno w organizacji, jak i z platformy Azure. Jeśli nie jest możliwe wdrożenie tylko jednego udziału plików na jednym koncie magazynu, należy wziąć pod uwagę, które udziały będą bardzo aktywne, a które udziały będą mniej aktywne, aby upewnić się, że najgorętsze udziały plików nie zostaną umieszczone na tym samym koncie magazynu razem.
+- Podczas wdrażania udziałów plików platformy Azure należy zwrócić uwagę na ograniczenia IOPS konta magazynu. W idealnym przypadku należy zamapować udziały plików 1:1 z kontami magazynu, ale może to nie zawsze być możliwe z powodu różnych limitów i ograniczeń zarówno z organizacji, jak i z platformy Azure. Gdy nie można mieć tylko jednego udziału plików wdrożonego na jednym koncie magazynu, należy wziąć pod uwagę, które udziały będą wysoce aktywne i które udziały będą mniej aktywne, aby upewnić się, że udziały plików okienko nie zostaną umieszczone w tym samym koncie magazynu jednocześnie.
 
-- Należy wdrażać konta GPv2 i FileStorage i uaktualniać konta GPv1 i klasycznego magazynu tylko wtedy, gdy znajdziesz je w swoim środowisku. 
+- Należy wdrażać tylko konta GPv2 i FileStorage oraz uaktualnić GPv1 i klasyczne konta magazynu, gdy znajdziesz je w Twoim środowisku. 
 
 ## <a name="identity"></a>Tożsamość
-Aby uzyskać dostęp do udziału plików platformy Azure, użytkownik udziału plików musi być uwierzytelniony i mieć autoryzację dostępu do udziału. Odbywa się to na podstawie tożsamości użytkownika uzyskującego dostęp do udziału plików. Usługa Azure Files integruje się z trzema głównymi dostawcami tożsamości:
-- **Lokalne Usługi domenowe Active Directory (AD DS) lub lokalne usługi AD DS** (wersja zapoznawcza): konta magazynu platformy Azure mogą być przyłączane do należących do klienta Usług domenowych Active Directory, podobnie jak serwer plików systemu Windows Server lub urządzenie NAS. Kontrolera domeny można wdrożyć lokalnie, na maszynie Wirtualnej platformy Azure lub nawet jako maszyna wirtualna w innym dostawcy chmury; Usługa Azure Files jest niezależna od miejsca, w którym znajduje się kontroler domeny. Gdy konto magazynu zostanie przyłączone do domeny, użytkownik końcowy może zainstalować udział plików przy tym konto użytkownika, za pomocą których zalogowano się do komputera. Uwierzytelnianie oparte na utok, korzystając z protokołu uwierzytelniania Kerberos, używa protokołu uwierzytelniania Kerberos.
-- **Usługi domenowe Usługi domenowe Active Directory platformy Azure (Usługi Azure AD DS):** Usługi Azure AD DS udostępnia kontroler domeny zarządzane przez firmę Microsoft, który może być używany dla zasobów platformy Azure. Przyłączanie konta magazynu do usługi Azure AD DS zapewnia podobne korzyści dla domeny łączącej ją z należącą do klienta usługą Active Directory. Ta opcja wdrażania jest najbardziej przydatna w scenariuszach podnoszenia i zmiany aplikacji, które wymagają uprawnień opartych na urzeczyw. Ponieważ usługa Azure AD DS zapewnia uwierzytelnianie oparte na usłudze AD, ta opcja używa również protokołu uwierzytelniania Kerberos.
-- **Klucz konta usługi Azure storage:** udziały plików platformy Azure mogą być również instalowane przy kluczu konta magazynu platformy Azure. Aby zainstalować udział plików w ten sposób, nazwa konta magazynu jest używana jako nazwa użytkownika, a klucz konta magazynu jest używany jako hasło. Za pomocą klucza konta magazynu do zainstalowania udziału plików platformy Azure jest skutecznie operacji administratora, ponieważ zainstalowany udział plików będzie miał pełne uprawnienia do wszystkich plików i folderów w udziale, nawet jeśli mają listy ACL. Podczas korzystania z klucza konta magazynu do zainstalowania za pośrednictwem protokołu SMB używany jest protokół uwierzytelniania NTLMv2.
+Aby uzyskać dostęp do udziału plików platformy Azure, użytkownik musi zostać uwierzytelniony i ma autoryzację dostępu do udziału. Jest to wykonywane na podstawie tożsamości użytkownika uzyskującego dostęp do udziału plików. Azure Files integruje się z trzema głównymi dostawcami tożsamości:
+- **Lokalne Active Directory Domain Services (AD DS lub lokalne AD DS)** (wersja zapoznawcza): konta usługi Azure Storage można przyłączyć do domeny, Active Directory Domain Services, podobnie jak serwera plików lub urządzenia nas systemu Windows Server. Kontroler domeny można wdrożyć lokalnie, na maszynie wirtualnej platformy Azure, a nawet jako maszynę wirtualną w innym dostawcy chmury. Azure Files jest niezależny od do lokalizacji, w której znajduje się kontroler domeny. Gdy konto magazynu zostanie przyłączone do domeny, użytkownik końcowy może zainstalować udział plików przy użyciu konta użytkownika, które zarejestrowano na komputerze przy użyciu programu. Uwierzytelnianie oparte na usłudze AD korzysta z protokołu uwierzytelniania Kerberos.
+- **Azure Active Directory Domain Services (AD DS platformy Azure)**: usługa Azure AD DS udostępnia kontroler domeny zarządzany przez firmę Microsoft, który może być używany przez zasoby platformy Azure. Dołączenie domeny do konta magazynu do usługi Azure AD DS zapewnia podobne korzyści do dołączania do domeny Active Directory należącej do klienta. Ta opcja wdrażania jest najbardziej przydatna dla scenariuszy podnoszenia i przesunięcia aplikacji, które wymagają uprawnień opartych na usłudze AD. Ponieważ usługa Azure AD DS zapewnia uwierzytelnianie oparte na usłudze AD, ta opcja używa również protokołu uwierzytelniania Kerberos.
+- **Klucz konta usługi Azure Storage**: udziały plików platformy Azure mogą być również instalowane przy użyciu klucza konta usługi Azure Storage. Aby można było zainstalować udział plików w ten sposób, nazwa konta magazynu jest używana jako nazwa użytkownika, a klucz konta magazynu jest używany jako hasło. Użycie klucza konta magazynu do zainstalowania udziału plików platformy Azure jest skuteczną operacją administratora, ponieważ zainstalowany udział plików będzie miał pełne uprawnienia do wszystkich plików i folderów w udziale, nawet jeśli mają listy ACL. W przypadku korzystania z klucza konta magazynu w celu zainstalowania za pośrednictwem protokołu SMB jest używany protokół uwierzytelniania NTLMv2.
 
-W przypadku klientów migrujących z lokalnych serwerów plików lub tworzących nowe udziały plików w usłudze Azure Files, które mają zachowywać się jak serwery plików systemu Windows lub urządzenia NAS, zalecana jest domena łącząca konto magazynu z należącą do **klienta usługą Active Directory.** Aby dowiedzieć się więcej o dołączaniu konta magazynu do należącej do klienta usługi Active Directory, zobacz [Omówienie usługi Azure Files Active Directory](storage-files-active-directory-overview.md).
+W przypadku klientów migrowania z lokalnych serwerów plików lub tworzenia nowych udziałów plików w Azure Files przeznaczonych do zachowania, takich jak serwery plików systemu Windows lub urządzenia NAS, domena przyłączania do konta magazynu do **Active Directory należącego do klienta** jest zalecaną opcją. Aby dowiedzieć się więcej na temat dołączania do konta magazynu do Active Directory należącego do klienta, zobacz [Azure Files Active Directory przegląd](storage-files-active-directory-overview.md).
 
-Jeśli zamierzasz użyć klucza konta magazynu, aby uzyskać dostęp do udziałów plików platformy Azure, zaleca się używanie punktów końcowych usługi, jak opisano w sekcji [Sieci.](#networking)
+Jeśli zamierzasz korzystać z klucza konta magazynu w celu uzyskania dostępu do udziałów plików platformy Azure, zalecamy używanie punktów końcowych usługi zgodnie z opisem w sekcji dotyczącej [sieci](#networking) .
 
 ## <a name="networking"></a>Networking
-Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą pochodzić bezpiecznie z platformy Azure lub poza nią. W wielu środowiskach klientów początkowe instalowanie udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Powodem tego jest to, że wiele organizacji i dostawców usług internetowych (ISP) blokuje port używany przez SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Udziały plików platformy Azure są dostępne z dowolnego miejsca za pośrednictwem publicznego punktu końcowego konta magazynu. Oznacza to, że uwierzytelnione żądania, takie jak żądania autoryzowane przez tożsamość logowania użytkownika, mogą bezpiecznie pochodziły z platformy Azure lub spoza niej. W wielu środowiskach klienta początkowa instalacja udziału plików platformy Azure na lokalnej stacji roboczej zakończy się niepowodzeniem, nawet jeśli instalacje z maszyn wirtualnych platformy Azure powiodą się. Przyczyną tego jest to, że wiele organizacji i usługodawców internetowych (ISP) blokują port wykorzystywany przez protokół SMB do komunikacji, port 445. Aby zobaczyć podsumowanie usługodawców internetowych, którzy nie zezwalają na dostęp z portu 445, przejdź do witryny [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Aby odblokować dostęp do udziału plików platformy Azure, dostępne są dwie główne opcje:
+Aby odblokować dostęp do udziału plików platformy Azure, masz dwie opcje główne:
 
-- Odblokuj port 445 dla sieci lokalnej organizacji. Udziały plików platformy Azure mogą być dostępne tylko zewnętrznie za pośrednictwem publicznego punktu końcowego przy użyciu protokołów bezpiecznych w Internecie, takich jak SMB 3.0 i FileREST API. Jest to najprostszy sposób dostępu do udziału plików platformy Azure z lokalnego, ponieważ nie wymaga zaawansowanej konfiguracji sieciowej poza zmianą reguł portów wychodzących organizacji, jednak zaleca się usunięcie starszych i przestarzałych wersji protokołu SMB, a mianowicie SMB 1.0. Aby dowiedzieć się, jak to zrobić, zobacz [Zabezpieczanie systemu Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) i [zabezpieczanie systemu Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Odblokuj port 445 dla sieci lokalnej w organizacji. Do udziałów plików platformy Azure można uzyskać dostęp tylko zewnętrznie za pośrednictwem publicznego punktu końcowego za pomocą bezpiecznych protokołów internetowych, takich jak SMB 3,0 i interfejs API FileREST. Jest to najprostszy sposób na dostęp do udziału plików platformy Azure z lokalnego, ponieważ nie wymaga zaawansowanej konfiguracji sieci poza zmianą reguł portów wychodzących w organizacji, ale zalecamy usunięcie starszych i przestarzałych wersji protokołu SMB, czyli SMB 1,0. Aby dowiedzieć się, jak to zrobić, zobacz [Zabezpieczanie systemu Windows/systemu Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) i [Zabezpieczanie Linux](storage-how-to-use-files-linux.md#securing-linux).
 
-- Uzyskaj dostęp do udziałów plików platformy Azure za pośrednictwem połączenia Usługi ExpressRoute lub VPN. Podczas uzyskiwania dostępu do udziału plików platformy Azure za pośrednictwem tunelu sieciowego można zainstalować udział plików platformy Azure, taki jak lokalny udział plików, ponieważ ruch SMB nie przekracza granic organizacji.   
+- Dostęp do udziałów plików platformy Azure za pośrednictwem połączenia ExpressRoute lub sieci VPN. Gdy uzyskujesz dostęp do udziału plików platformy Azure za pośrednictwem tunelu sieciowego, możesz zainstalować udział plików platformy Azure, taki jak lokalny udział plików, ponieważ ruch SMB nie przechodzi przez granicę organizacyjną.   
 
-Chociaż z technicznego punktu widzenia jest znacznie łatwiejsze do zainstalowania udziałów plików platformy Azure za pośrednictwem publicznego punktu końcowego, oczekujemy, że większość klientów zdecyduje się zainstalować swoje udziały plików platformy Azure za pośrednictwem połączenia Usługi ExpressRoute lub SIECI VPN. Aby to zrobić, należy skonfigurować następujące dla środowiska:  
+Chociaż z perspektywy technicznej znacznie łatwiej jest instalować udziały plików platformy Azure za pośrednictwem publicznego punktu końcowego, oczekuje się, że większość klientów będzie instalować udziały plików platformy Azure za pośrednictwem połączenia ExpressRoute lub sieci VPN. W tym celu należy skonfigurować następujące elementy dla danego środowiska:  
 
-- **Tunelowanie sieciowe przy użyciu usługi ExpressRoute, Site-to-Site lub Point-to-Site VPN:** Tunelowanie w sieci wirtualnej umożliwia dostęp do udziałów plików platformy Azure z lokalnego, nawet jeśli port 445 jest zablokowany.
-- **Prywatne punkty końcowe:** Prywatne punkty końcowe nadają kontu magazynu dedykowany adres IP z przestrzeni adresowej sieci wirtualnej. Umożliwia to tunelowanie sieci bez konieczności otwierania sieci lokalnych do wszystkich zakresów adresów IP należących do klastrów magazynu platformy Azure. 
-- **Przekierowanie DNS:** Skonfiguruj lokalny system DNS, aby rozpoznać nazwę `storageaccount.file.core.windows.net` konta magazynu (tj. dla regionów chmury publicznej), aby rozwiązać problem z adresem IP prywatnych punktów końcowych.
+- **Tunelowanie sieciowe przy użyciu ExpressRoute, lokacja-lokacja lub sieci VPN typu punkt-lokacja**: tunelowanie do sieci wirtualnej umożliwia dostęp do udziałów plików platformy Azure z lokalnego, nawet jeśli port 445 jest zablokowany.
+- **Prywatne punkty końcowe**: prywatne punkty końcowe zapewniają konto magazynu dedykowany adres IP z przestrzeni adresowej sieci wirtualnej. Umożliwia to tunelowanie sieciowe bez konieczności otwierania sieci lokalnych do wszystkich zakresów adresów IP należących do klastrów usługi Azure Storage. 
+- **Przekazywanie DNS**: Skonfiguruj lokalny serwer DNS, aby rozpoznać nazwę konta magazynu (tj. `storageaccount.file.core.windows.net` dla regionów chmury publicznej) w celu rozpoznania adresu IP prywatnych punktów końcowych.
 
-Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure, zobacz [Zagadnienia dotyczące sieci usług Azure Files](storage-files-networking-overview.md).
+Aby zaplanować sieć skojarzoną z wdrażaniem udziału plików platformy Azure, zapoznaj się z tematem [Azure Files zagadnienia dotyczące sieci](storage-files-networking-overview.md).
 
 ## <a name="encryption"></a>Szyfrowanie
-Usługa Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure, oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych podczas przechowywania ich na dysku. 
+Azure Files obsługuje dwa różne typy szyfrowania: szyfrowanie podczas przesyłania, które odnosi się do szyfrowania używanego podczas instalowania/uzyskiwania dostępu do udziału plików platformy Azure oraz szyfrowania w spoczynku, które odnosi się do sposobu szyfrowania danych przechowywanych na dysku. 
 
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
-Domyślnie wszystkie konta magazynu platformy Azure mają włączone szyfrowanie podczas przesyłania. Oznacza to, że podczas instalowania udziału plików za pośrednictwem protokołu SMB lub uzyskiwania do niego dostępu za pośrednictwem protokołu FileREST (na przykład za pośrednictwem witryny Azure portal, powershell/cli lub azure SDKs), usługa Azure Files zezwala na połączenie tylko wtedy, gdy zostanie nawiązycona za pomocą protokołu SMB 3.0+ z szyfrowaniem lub protokołem HTTPS. Klienci, którzy nie obsługują SMB 3.0 lub klientów obsługujących szyfrowanie SMB 3.0, ale nie SMB, nie będą mogli zainstalować udziału plików platformy Azure, jeśli szyfrowanie podczas przesyłania jest włączone. Aby uzyskać więcej informacji o tym, które systemy operacyjne obsługują SMB 3.0 z szyfrowaniem, zapoznaj się ze szczegółową dokumentacją [systemu Windows,](storage-how-to-use-files-windows.md) [macOS](storage-how-to-use-files-mac.md)i [Linux.](storage-how-to-use-files-linux.md) Wszystkie bieżące wersje programów PowerShell, CLI i SDK obsługują protokół HTTPS.  
+Domyślnie wszystkie konta usługi Azure Storage mają włączone szyfrowanie podczas przesyłania. Oznacza to, że podczas instalowania udziału plików przez protokół SMB lub uzyskiwania dostępu do niego za pośrednictwem protokołu FileREST (na przykład za pośrednictwem Azure Portal, PowerShell/interfejsu wiersza polecenia lub zestawów SDK platformy Azure), Azure Files będzie zezwalać tylko na połączenie, jeśli zostało wykonane przy użyciu protokołu SMB 3.0 + z szyfrowaniem lub HTTPS. Klienci, którzy nie obsługują protokołu SMB 3,0 ani klientów obsługujących protokół SMB 3,0, ale nie szyfrowania SMB, nie będą mogli zainstalować udziału plików platformy Azure, jeśli szyfrowanie jest włączone. Więcej informacji o tym, które systemy operacyjne obsługują protokół SMB 3,0 z szyfrowaniem, można znaleźć w naszej szczegółowej dokumentacji dotyczącej [systemów Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md)i [Linux](storage-how-to-use-files-linux.md). Wszystkie bieżące wersje programu PowerShell, interfejsu wiersza polecenia i zestawów SDK obsługują protokół HTTPS.  
 
-Można wyłączyć szyfrowanie podczas przesyłania dla konta magazynu platformy Azure. Gdy szyfrowanie jest wyłączone, usługi Azure Files umożliwi również SMB 2.1, SMB 3.0 bez szyfrowania i niezaszyfrowane wywołania interfejsu API FileREST za pośrednictwem protokołu HTTP. Głównym powodem wyłączenia szyfrowania podczas przesyłania jest obsługa starszej aplikacji, która musi być uruchamiana w starszym systemie operacyjnym, takim jak Dystrybucja systemu Windows Server 2008 R2 lub starsza. Usługa Azure Files zezwala tylko na połączenia SMB 2.1 w tym samym regionie platformy Azure co udział plików platformy Azure; klient SMB 2.1 poza regionem platformy Azure udziału plików platformy Azure, na przykład lokalnie lub w innym regionie platformy Azure, nie będzie mógł uzyskać dostępu do udziału plików.
+Można wyłączyć szyfrowanie podczas przesyłania dla konta usługi Azure Storage. Gdy szyfrowanie jest wyłączone, Azure Files również zezwala na SMB 2,1, SMB 3,0 bez szyfrowania i niezaszyfrowane wywołania interfejsu API FileREST za pośrednictwem protokołu HTTP. Podstawowym powodem wyłączenia szyfrowania podczas przesyłania jest obsługa starszej aplikacji, która musi być uruchomiona w starszym systemie operacyjnym, takim jak Windows Server 2008 R2 lub starsza dystrybucja systemu Linux. Azure Files zezwala tylko na połączenia SMB 2,1 w tym samym regionie świadczenia usługi Azure co udział plików platformy Azure; klient SMB 2,1 spoza regionu platformy Azure udziału plików platformy Azure, na przykład lokalnie lub w innym regionie świadczenia usługi Azure, nie będzie mógł uzyskać dostępu do udziału plików.
 
-Zdecydowanie zalecamy zapewnienie szyfrowania przesyłanych danych.
+Zdecydowanie zalecamy zagwarantowanie, że szyfrowanie danych jest włączone.
 
-Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobacz [wymaganie bezpiecznego transferu w magazynie platformy Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobacz [wymaganie bezpiecznego transferu w usłudze Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
@@ -79,76 +79,76 @@ Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobac
 ## <a name="storage-tiers"></a>Warstwy magazynowania
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-Ogólnie rzecz biorąc, funkcje usługi Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w wersji premium a standardowymi udziałami plików, jednak istnieje kilka istotnych różnic:
+Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługami są takie same między udziałami plików w warstwie Premium a standardowymi udziałami plików, jednak istnieje kilka istotnych różnic:
 - **Model rozliczania**
-    - Udziały plików w uliczce są rozliczane przy użyciu aprowizowanego modelu rozliczeniowego, co oznacza, że płacisz za ilość miejsca, które udostępniasz, a nie za ilość miejsca, o które faktycznie prosisz. 
-    - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu dla ilości magazynu, który faktycznie zużywa, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek wzrośnie, jeśli użyjesz (odczyt/zapis/montaż) więcej udziału plików platformy Azure.
+    - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że płacisz za ilość miejsca w magazynie, które ma zostać zainicjowane. 
+    - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu, w którym faktycznie zużywa się magazyn, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek zostanie zwiększony w przypadku użycia (odczytu/zapisu/instalacji) udziału plików platformy Azure.
 - **Opcje nadmiarowości**
-    - Udziały plików premium są dostępne tylko dla magazynu nadmiarowego lokalnie (LRS) i strefy nadmiarowej (ZRS). 
-    - Standardowe udziały plików są dostępne dla magazynu lokalnie nadmiarowego, nadmiarowego strefy, geograficznie nadmiarowego (GRS) i nadmiarowego strefy geograficznej (GZRS).
+    - Udziały plików w warstwie Premium są dostępne tylko dla magazynu lokalnie nadmiarowego (LRS) i strefy nadmiarowego (ZRS). 
+    - Standardowe udziały plików są dostępne lokalnie nadmiarowe, nadmiarowe strefy, Geograficznie nadmiarowy (GRS) i strefę geograficzną nadmiarowy (GZRS).
 - **Maksymalny rozmiar udziału plików**
-    - Udziały plików premium mogą być aprowiowane dla maksymalnie 100 TiB bez żadnych dodatkowych prac.
-    - Domyślnie standardowe udziały plików mogą obejmować tylko do 5 TiB, chociaż limit udziału można zwiększyć do 100 TiB, decydując się na flagę funkcji magazynu *dużego udziału plików.* Standardowe udziały plików mogą obejmować maksymalnie 100 TiB dla lokalnie nadmiarowych lub strefowych kont magazynu nadmiarowego. Aby uzyskać więcej informacji na temat zwiększania rozmiarów udziałów plików, zobacz [Włączanie i tworzenie dużych udziałów plików](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
+    - Udziały plików w warstwie Premium można obsługiwać nawet do 100 TiB bez żadnej dodatkowej pracy.
+    - Domyślnie standardowe udziały plików mogą obejmować maksymalnie 5 TiB, chociaż limit udostępniania można zwiększyć do 100 TiB przez wypróbowanie flagi funkcji konta magazynu *dużych udziałów plików* . Standardowe udziały plików mogą obejmować maksymalnie 100 TiB w przypadku kont magazynu lokalnie nadmiarowe lub strefy nadmiarowe. Aby uzyskać więcej informacji na temat zwiększania rozmiarów udziałów plików, zobacz [Włączanie i tworzenie dużych udziałów plików](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Dostępność regionalna**
-    - Udziały plików w uyliki nie są dostępne w każdym regionie, a nadmiarowa obsługa stref jest dostępna w mniejszym podzbiorze regionów. Aby dowiedzieć się, czy udziały plików w usłudze Premium są obecnie dostępne w Twoim regionie, zobacz produkty dostępne na stronie [regionu](https://azure.microsoft.com/global-infrastructure/services/?products=storage) na platformie Azure. Aby dowiedzieć się, jakie regiony obsługują usługę ZRS, zobacz [Obsługa strefy dostępności platformy Azure według regionów](../../availability-zones/az-overview.md#services-support-by-region). Aby pomóc nam ustalić priorytety nowych regionów i funkcji warstwy premium, wypełnij tę [ankietę.](https://aka.ms/pfsfeedback)
-    - Standardowe udziały plików są dostępne w każdym regionie platformy Azure.
-- Usługa Azure Kubernetes Service (AKS) obsługuje udziały plików w wersji premium w wersji 1.13 i nowszych.
+    - Udziały plików w warstwie Premium nie są dostępne w każdym regionie, a obsługa strefy nadmiarowa jest dostępna w mniejszych podzestawach regionów. Aby dowiedzieć się, czy w Twoim regionie są obecnie dostępne udziały plików w warstwie Premium, zobacz stronę [dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=storage) na platformie Azure. Aby dowiedzieć się, które regiony obsługują ZRS, zobacz temat [Obsługa stref dostępności platformy Azure według regionów](../../availability-zones/az-region.md). Aby ułatwić nam określanie priorytetów nowych regionów i funkcji warstwy Premium, Wypełnij tę [ankietę](https://aka.ms/pfsfeedback).
+    - Standardowe udziały plików są dostępne w każdym regionie świadczenia usługi Azure.
+- Usługa Azure Kubernetes Service (AKS) obsługuje udziały plików w warstwie Premium w wersji 1,13 i nowszych.
 
-Po utworzeniu udziału plików jako udziału premium lub standardowego udziału plików nie można go automatycznie przekonwertować na inną warstwę. Jeśli chcesz przełączyć się do innej warstwy, należy utworzyć nowy udział plików w tej warstwie i ręcznie skopiować dane z oryginalnego udziału do nowego utworzonego udziału. Zalecamy `robocopy` wykonanie tej `rsync` kopii w systemach Windows lub dla systemów macOS i Linux.
+Gdy udział plików zostanie utworzony jako udział plików w warstwie Premium lub standardowa, nie można go automatycznie przekonwertować na drugą warstwę. Jeśli chcesz przełączyć się do innej warstwy, musisz utworzyć nowy udział plików w tej warstwie i ręcznie skopiować dane z oryginalnego udziału do utworzonego nowego udziału. Aby wykonać tę `robocopy` kopię, `rsync` zalecamy użycie dla systemu Windows lub dla systemów macOS i Linux.
 
-### <a name="understanding-provisioning-for-premium-file-shares"></a>Opis inicjowania obsługi administracyjnej udziałów plików premium
-Udziały plików premium są aprowiowane na podstawie stałego współczynnika GiB/IOPS/przepływności. Dla każdego aprowizowanego GiB, akcja zostanie wyemitowana jeden IOPS i 0,1 MiB / s przepustowość do maksymalnych limitów na akcję. Minimalna dozwolona inicjowanie obsługi administracyjnej wynosi 100 GiB z minimalną wydajnością IOPS/.
+### <a name="understanding-provisioning-for-premium-file-shares"></a>Informacje o aprowizacji dla udziałów plików w warstwie Premium
+Udziały plików w warstwie Premium są udostępniane na podstawie stałego współczynnika GiB/IOPS/przepływności. Dla każdego zainicjowanej GiB udział zostanie wystawiony przez wiele operacji we/wy i 0,1 MiB/s do maksymalnej liczby limitów na udział. Minimalną dozwoloną alokacją jest 100 GiB z minimalnymi operacjami IOPS/przepływności.
 
-Na podstawie najlepszych starań, wszystkie udziały mogą pęknąć do trzech IOPS na GiB aprowizowanego magazynu przez 60 minut lub dłużej w zależności od wielkości udziału. Nowe akcje zaczynają się od pełnego kredytu seryjnego w oparciu o aprowizowanego potencjału.
+Na podstawie najlepszego wysiłku wszystkie udziały mogą wykonać maksymalnie trzy liczby operacji we/wy na sekundę GiB magazynu, 60 w zależności od rozmiaru udziału. Nowe udziały zaczynają pełne środki na korzystanie z systemu na podstawie zainicjowanej pojemności.
 
-Udziały muszą być aprowizowane w przyrostach 1 GiB. Minimalny rozmiar to 100 GiB, następny rozmiar to 101 GiB i tak dalej.
+Udziały muszą być udostępniane w 1 przyrostach GiB. Minimalny rozmiar to 100 GiB, następny rozmiar to 101 GiB i tak dalej.
 
 > [!TIP]
-> Podstawowe usługi We/Wy = 1 * aprowizowana gib. (Maksymalnie 100 000 IOPS).
+> Liczba operacji we/wy dla linii bazowej = 1 * zainicjowana GiB. (Maksymalnie 100 000 operacji we/wy).
 >
-> Limit serii = 3 * podstawowe we/wy. (Maksymalnie 100 000 IOPS).
+> Limit serii = 3 * Liczba operacji wejścia/wyjścia dla linii bazowej. (Maksymalnie 100 000 operacji we/wy).
 >
-> szybkość wypływu = 60 MiB/s + 0,06 * aprowizowana GiB
+> szybkość ruchu wychodzącego = 60 MiB/s + 0,06 * zainicjowana GiB
 >
-> szybkość transferu danych przychodzących = 40 MiB/s + 0,04 * aprowizowana GiB
+> transfer danych przychodzących = 40 MiB/s + 0,04 * aprowizacji GiB
 
-Aprowizowana wielkość udziału jest określona przez przydział udziału. Przydział udziałów można zwiększyć w dowolnym momencie, ale można go zmniejszyć dopiero po 24 godzinach od ostatniego wzrostu. Po odczekaniu 24 godzin bez zwiększenia przydziału możesz zmniejszyć przydział udziału tyle razy, ile chcesz, aż do ponownego zwiększenia. Zmiany skali we/wy/przepływności będą obowiązywać w ciągu kilku minut po zmianie rozmiaru.
+Udostępniony rozmiar udziału jest określany przez przydział udziału. Przydział udziału można zwiększyć w dowolnym momencie, ale może zostać zmniejszony dopiero po 24 godzinach od momentu ostatniego wzrostu. Po odczekaniu przez 24 godziny bez zwiększenia limitu przydziału można zmniejszyć przydział udziału dowolną liczbę razy, aż do momentu jego zwiększenia. Zmiany skali operacji we/wy na sekundę będą obowiązywać w ciągu kilku minut od zmiany rozmiaru.
 
-Możliwe jest zmniejszenie rozmiaru aprowizowanego udziału poniżej używanego GiB. Jeśli to zrobisz, nie utracisz danych, ale nadal będą naliczane naliczane za rozmiar używany i otrzymasz wydajność (bazowy we/wy, przepływność i seria We/Wy) aprowizowanego udziału, a nie za używany rozmiar.
+Istnieje możliwość zmniejszenia rozmiaru udziału przystosowanego poniżej użytych GiB. Jeśli to zrobisz, nie utracisz danych, ale nadal będą naliczane opłaty za używany rozmiar i zostanie uzyskana wydajność (liczba operacji wejścia/wyjścia na sekundę, przepływność i liczba IOPS dla operacji wejścia/wyjścia na sekundę) udziału, który nie jest używany.
 
-W poniższej tabeli przedstawiono kilka przykładów tych wzorów dla aprowizacji rozmiarów udziałów:
+W poniższej tabeli przedstawiono kilka przykładów tych wzorów dla rozmiarów udostępnianych udziałów:
 
-|Pojemność (GiB) | Bazowe we/wy | Rozerwanie we/wy | Wyjście (MiB/s) | Ruch przychodzący (MiB/s) |
+|Pojemność (GiB) | Liczba IOPS linii bazowej | Operacje we/wy na sekundę | Ruch wychodzący (MiB/s) | Ruch przychodzący (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Do 300     | 66   | 44   |
-|500         | 500     | Do 1500   | 90   | 60   |
-|1,024       | 1,024   | Do 3 072   | 122   | 81   |
-|5,120       | 5,120   | Do 15 360  | 368   | 245   |
-|10,240      | 10,240  | Do 30 720  | 675 | 450   |
-|33,792      | 33,792  | Do 100 000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Do 100 000 | 3,132 | 2,088   |
-|102,400     | 100 000 | Do 100 000 | 6,204 | 4,136   |
+|500         | 500     | Do 1 500   | 90   | 60   |
+|1 024       | 1 024   | Do 3 072   | 122   | 81   |
+|5 120       | 5 120   | Do 15 360  | 368   | 245   |
+|10 240      | 10 240  | Do 30 720  | 675 | 450   |
+|33 792      | 33 792  | Do 100 000 | 2 088 | 1 392   |
+|51 200      | 51 200  | Do 100 000 | 3 132 | 2 088   |
+|102 400     | 100 000 | Do 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
-> Wydajność udziałów plików podlega limitom sieci maszyn, dostępnej przepustowości sieci, rozmiarom we/wy, równoległości, wśród wielu innych czynników. Na przykład, na podstawie wewnętrznych testów z 8 kib odczytu / zapisu we/wy rozmiary, pojedyncza maszyna wirtualna systemu Windows, *Standard F16s_v2*, podłączony do udziału plików premium przez SMB może osiągnąć 20K odczytU IOPS i 15K zapisU IOPS. Przy rozmiarach we/wy odczytu/zapisu 512 MiB ten sam maszynka wirtualna może osiągnąć przepływność 1,1 GiB/s i przepływność 370 MiB/s przychodzących. Aby osiągnąć maksymalną skalę wydajności, rozłóż obciążenie na wielu maszynach wirtualnych. Zapoznaj się z [przewodnikiem rozwiązywania problemów,](storage-troubleshooting-files-performance.md) aby uzyskać typowe problemy z wydajnością i obejścia.
+> Wydajność udziałów plików zależy od ograniczeń sieci maszynowych, dostępnej przepustowości sieci, rozmiarów we/wy, równoległości, między wieloma innymi czynnikami. Na przykład w oparciu o testowanie wewnętrzne z 8 KiB rozmiaru we/wy odczytu/zapisu, Pojedyncza maszyna wirtualna z systemem Windows, *standardowa F16s_v2*, połączona z udziałem plików w warstwie Premium za pośrednictwem protokołu SMB, może osiągnąć 20 000 odczyt operacji wejścia/wyjścia (IOPS) i 15 000 W przypadku rozmiaru operacji we/wy odczytu i zapisu na 512 MiB ta sama maszyna wirtualna może osiągnąć 1,1 GiB/s ruch wychodzący i 370 przepływność transferu danych (MiB/s). Aby osiągnąć maksymalną skalę wydajności, należy rozłożyć obciążenie na wiele maszyn wirtualnych. Zapoznaj się [z przewodnikiem rozwiązywania problemów](storage-troubleshooting-files-performance.md) w przypadku niektórych typowych problemów z wydajnością i obejść.
 
-#### <a name="bursting"></a>Pęknięcie
-Udziały plików premium mogą pęknąć ich we/wy do trzech. Bursting jest zautomatyzowany i działa w oparciu o system kredytowy. Bursting działa na podstawie najlepszego wysiłku, a limit serii nie jest gwarancją, udziały plików mogą *pęknąć do* limitu.
+#### <a name="bursting"></a>Rozszerzanie możliwości
+Udziały plików w warstwie Premium mogą zwiększać liczbę operacji we/wy na sekundę. Rozliczanie jest zautomatyzowane i działa na podstawie systemu kredytowego. Przeszukiwanie odbywa się na podstawie najlepszego nakładu pracy, a limit graniczny nie jest gwarancją, udziały *up to* plików mogą przekroczyć limit.
 
-Kredyty gromadzą się w zasobniku serii, gdy ruch dla udziału plików jest poniżej linii bazowej We/Wy. Na przykład udział 100 GiB ma 100 bazowych operacji We/Wy. Jeśli rzeczywisty ruch na udziale był 40 We/Wy dla określonego interwału 1-sekundowego, a następnie 60 nieużywanych we/wy we/wy są zapisywane na zasobniku serii. Kredyty te zostaną wykorzystane później, gdy operacje przekroczą bazowe operacje We/Wy.
+Kredyty są gromadzone w zasobniku, gdy ruch dla udziału plików jest poniżej liczby operacji wejścia/wyjścia na sekundę. Na przykład udział GiB 100 ma 100 liczby operacji wejścia/wyjścia na sekundę. Jeśli rzeczywisty ruch w udziale był 40 operacji we/wy dla określonego interwału 1 sekund, wówczas liczba nieużywanych operacji 60 we/wy na sekundę jest księgowana w zasobniku serii. Te kredyty zostaną następnie użyte później, gdy operacje przekroczą liczbę IOPs linii bazowej.
 
 > [!TIP]
-> Rozmiar wiadra rozerwanego = Podstawowe IOPS * 2 * 3600.
+> Rozmiar zasobnika szeregowego = liczba IOPS linii bazowej * 2 * 3600.
 
-Za każdym razem, gdy udział przekracza podstawowe we/wy i ma kredyty w wiadrze serii, pęknie. Akcje mogą nadal pękać tak długo, jak długo kredyty pozostają, choć akcje mniejsze niż 50 TiB pozostaną na granicy wybuchu tylko przez godzinę. Akcje większe niż 50 TiB mogą technicznie przekroczyć ten limit jednej godziny, do dwóch godzin, ale jest to oparte na liczbie naliczonych kredytów seryjnych. Każdy we/wy poza bazowymi we/wy zużywa jeden kredyt, a po zużyciu wszystkich kredytów udział powróci do bazowego we/wy.
+Za każdym razem, gdy udział przekracza liczbę operacji we/wy na sekundę i ma kredyty w zasobniku szeregowym, spowoduje to utworzenie serii. Udziały mogą w dalszym ciągu przekroczyć czas trwania obciążeń, chociaż udziały mniejsze niż 50 TiB będą przechowywane tylko przy maksymalnej szybkości przez maksymalnie godzinę. Udziały większe niż 50 TiB mogą technicznie przekroczyć ten limit godzin, do dwóch godzin, ale jest to oparte na liczbie naliczanych kredytów na korzystanie z serii. Poszczególne operacje we/wy poza linią bazową zużywają jedno środki, a po wykorzystaniu wszystkich środków udział zwróci wartość do operacji wejścia/wyjścia na sekundę.
 
-Kredyty akcji mają trzy stany:
+Kredyty na udostępnianie mają trzy stany:
 
-- Naliczanie, gdy udział plików jest używany mniej niż bazowy we/wy.
-- Maleje, gdy udział plików jest pęknięcie.
-- Stała pozostająca, gdy nie ma żadnych kredytów lub bazowych we/wy są używane.
+- Naliczanie, gdy udział plików używa mniejszej niż liczba operacji we/wy na sekundę.
+- Odrzucanie, gdy udział plików jest rozruchowy.
+- Pozostała stała, gdy nie ma żadnych kredytów lub operacji wejścia/wyjścia linii bazowej.
 
-Nowe udziały plików zaczynają się od pełnej liczby kredytów w wiadrze burst. Kredyty serii nie będą naliczane, jeśli współudział We/Wy spadnie poniżej linii bazowej We/Wy z powodu ograniczania przepustowości przez serwer.
+Nowe udziały plików zaczynają się od pełnej liczby kredytów w swoim zasobniku. Środki na korzystanie z serii nie zostaną naliczone, jeśli liczba operacji we/wy udziałów spadnie poniżej liczby operacji wejścia/wyjścia na sekundę z powodu ograniczenia przez serwer.
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Włącz standardowe udziały plików do 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
@@ -160,17 +160,17 @@ Nowe udziały plików zaczynają się od pełnej liczby kredytów w wiadrze burs
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## <a name="migration"></a>Migracja
-W wielu przypadkach nie będzie ustanawiać nowego udziału plików netto dla organizacji, ale zamiast tego migrujesz istniejący udział plików z lokalnego serwera plików lub urządzenia NAS do usługi Azure Files. Istnieje wiele narzędzi, dostarczonych zarówno przez firmę Microsoft, jak i 3-te strony, aby wykonać migrację do udziału plików, ale można je z grubsza podzielić na dwie kategorie:
+W wielu przypadkach nie zostanie nadany nowy udział plików w sieci dla organizacji, ale zamiast tego zostanie przemigrowany istniejący udział plików z lokalnego serwera plików lub urządzenia NAS do Azure Files. Istnieje wiele narzędzi, które zostały udostępnione przez firmę Microsoft i inne firmy, aby przeprowadzić migrację do udziału plików, ale można je podzielić na dwie kategorie:
 
-- **Narzędzia, które utrzymują atrybuty systemu plików, takie jak listy ACL i sygnatury czasowe:**
-    - **[Usługa Azure File Sync:](storage-sync-files-planning.md)** Usługa Azure File Sync może służyć jako metoda pozyskiwania danych do udziału plików platformy Azure, nawet jeśli żądane wdrożenie końcowe nie jest do utrzymania obecności lokalnej. Synchronizacja plików platformy Azure może być zainstalowana w istniejących wdrożeniach systemów Windows Server 2012 R2, Windows Server 2016 i Windows Server 2019. Zaletą korzystania z usługi Azure File Sync jako mechanizm pozyskiwania jest, że użytkownicy końcowi mogą nadal korzystać z istniejącego udziału plików w miejscu; cut-over do udziału plików platformy Azure może wystąpić po zakończeniu przekazywania wszystkich danych w tle.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z systemami Windows i Windows Server. Robocopy może służyć do przesyłania danych do usługi Azure Files przez zamontowanie udziału plików lokalnie, a następnie przy użyciu zainstalowanej lokalizacji jako miejsca docelowego w robocopy polecenia.
+- **Narzędzia, które utrzymują atrybuty systemu plików, takie jak listy ACL i sygnatury czasowe**:
+    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync można użyć jako metody do pozyskiwania danych w udziale plików platformy Azure, nawet jeśli nie ma potrzeby obsługi obecności w środowisku lokalnym. Azure File Sync można zainstalować w miejscu istniejących wdrożeń systemu Windows Server 2012 R2, Windows Server 2016 i Windows Server 2019. Korzystanie z Azure File Sync jako mechanizmu pozyskiwania polega na tym, że użytkownicy końcowi mogą nadal korzystać z istniejącego udziału plików. Przecinanie do udziału plików platformy Azure może wystąpić po zakończeniu przekazywania wszystkich danych w tle.
+    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy to dobrze znane narzędzie do kopiowania, które jest dostarczane z systemami Windows i Windows Server. Robocopy może służyć do transferowania danych do Azure Files przez zainstalowanie udziału plików lokalnie, a następnie użycie zainstalowanej lokalizacji jako miejsca docelowego w poleceniu Robocopy.
 
-- **Narzędzia, które nie zachowują atrybutów systemu plików:**
-    - **Pole danych:** Pole danych udostępnia mechanizm transferu danych w trybie offline do fizycznego przesyłania danych na platformę Azure. Ta metoda ma na celu zwiększenie przepływności i zaoszczędzenie przepustowości, ale obecnie nie obsługuje atrybutów systemu plików, takich jak znaczniki czasu i listy ACL.
-    - **[AzCopy:](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z usługi Azure Files, a także usługi Azure Blob storage, przy użyciu prostych poleceń o optymalnej wydajności.
+- **Narzędzia, które nie zachowują atrybutów systemu plików**:
+    - **Urządzenie Data Box**: urządzenie Data Box udostępnia mechanizm transferu danych w trybie offline na potrzeby fizycznego dostarczania danych do platformy Azure. Ta metoda została zaprojektowana w celu zwiększenia przepływności i oszczędzania przepustowości, ale obecnie nie obsługuje atrybutów systemu plików, takich jak sygnatury czasowe i listy ACL.
+    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy to narzędzie wiersza polecenia przeznaczone do kopiowania danych do i z Azure Files, a także do usługi Azure Blob Storage przy użyciu prostych poleceń z optymalną wydajnością.
 
 ## <a name="next-steps"></a>Następne kroki
-* [Planowanie wdrożenia synchronizacji plików platformy Azure](storage-sync-files-planning.md)
-* [Wdrażanie plików platformy Azure](storage-files-deployment-guide.md)
-* [Wdrażanie synchronizacji plików platformy Azure](storage-sync-files-deployment-guide.md)
+* [Planowanie wdrożenia Azure File Sync](storage-sync-files-planning.md)
+* [Wdrażanie Azure Files](storage-files-deployment-guide.md)
+* [Wdrażanie Azure File Sync](storage-sync-files-deployment-guide.md)

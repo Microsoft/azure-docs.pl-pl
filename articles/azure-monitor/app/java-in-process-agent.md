@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Applica
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687718"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508075"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
 
@@ -24,11 +24,11 @@ Nadal możesz wysyłać niestandardowe dane telemetryczne z aplikacji. Agent 3,0
 
 **1. Pobierz agenta**
 
-Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 **2. wskaż JVM do agenta**
 
-Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` do argumentów JVM aplikacji
+Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` do argumentów JVM aplikacji
 
 Typowe argumenty JVM obejmują `-Xmx512m` i `-XX:+UseG1GC`. Jeśli wiesz, gdzie je dodać, już wiesz, gdzie je dodać.
 
@@ -44,7 +44,7 @@ Wskaż agenta Application Insights zasobem, ustawiając zmienną środowiskową:
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json`i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.3.jar`, z następującą zawartością:
+Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json`i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, z następującą zawartością:
 
 ```json
 {
@@ -117,7 +117,7 @@ Zobacz szczegółowe informacje o [3,0 publicznej wersji zapoznawczej: opcje kon
 
 ### <a name="metrics"></a>Metryki
 
-* Mikrometr
+* Micrometer (w tym metryki uruchamiającego uruchamianie sprężynowe)
 * Metryki JMX
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Wysyłanie niestandardowych danych telemetrycznych z aplikacji

@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler transfer
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 27b80b1f0b6728b5ad69edae51f0d42bfac351d0
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: f0a8f1f1e1b724745e69aef30e2e6404ff6a5484
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145499"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207364"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Utwórz kontroler transferu danych przychodzących ze statycznym publicznym adresem IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -56,7 +56,7 @@ Do wydania Helm należy przekazać dwa dodatkowe parametry, aby kontroler transf
 1. Dodaj `--set controller.service.loadBalancerIP` parametr. Określ własny publiczny adres IP, który został utworzony w poprzednim kroku.
 1. Dodaj `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parametr. Określ etykietę nazwy DNS, która ma zostać zastosowana do publicznego adresu IP, który został utworzony w poprzednim kroku.
 
-Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. W węzłach systemu Windows Server (obecnie w wersji zapoznawczej w AKS) nie należy uruchamiać kontrolera transferu danych przychodzących. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
+Kontroler wejściowy należy również zaplanować w węźle z systemem Linux. Nie należy go uruchamiać w węzłach z systemem Windows Server. Za pomocą parametru `--set nodeSelector` podaje się selektor węzła, który nakazuje harmonogramowi usługi Kubernetes uruchomienie kontrolera wejściowego NGINX w węźle opartym na systemie Linux.
 
 > [!TIP]
 > Poniższy przykład tworzy przestrzeń nazw Kubernetes dla zasobów przychodzących o nazwie transfery *-Basic*. W razie potrzeby określ przestrzeń nazw dla własnego środowiska. Jeśli klaster AKS nie jest włączony RBAC, Dodaj `--set rbac.create=false` do poleceń Helm.
@@ -285,7 +285,7 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testowanie konfiguracji transferu danych przychodzących
 
-Otwórz przeglądarkę internetową, aby wyświetlić nazwę FQDN kontrolera Kubernetes Ingres, na przykład *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Otwórz przeglądarkę internetową, aby wyświetlić nazwę FQDN kontrolera Kubernetes Ingres, na przykład *`https://demo-aks-ingress.eastus.cloudapp.azure.com`*.
 
 Jak te przykłady używają `letsencrypt-staging`, wystawiony certyfikat TLS/SSL nie jest zaufany przez przeglądarkę. Zaakceptuj monit ostrzegawczy, aby przejść do aplikacji. Informacje o certyfikacie przedstawiają ten sztuczny *pośredni certyfikat x1* wystawiony przezmy szyfrowanie. Ten fałszywy certyfikat `cert-manager` wskazuje na prawidłowe przetworzenie żądania i odebranie certyfikatu od dostawcy:
 
@@ -299,7 +299,7 @@ Aplikacja demonstracyjna zostanie wyświetlona w przeglądarce sieci Web:
 
 ![Przykład aplikacji jeden](media/ingress/app-one.png)
 
-Teraz dodaj ścieżkę */Hello-World-Two* do nazwy FQDN, takiej jak *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Zostanie wyświetlona druga aplikacja demonstracyjna z tytułem niestandardowym:
+Teraz dodaj ścieżkę */Hello-World-Two* do nazwy FQDN, takiej jak *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. Zostanie wyświetlona druga aplikacja demonstracyjna z tytułem niestandardowym:
 
 ![Przykład aplikacji dwa](media/ingress/app-two.png)
 

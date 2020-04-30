@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8911c1099db36b7e4e6d568ea64ae4afa3cc826e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "69900587"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561063"
 ---
-# <a name="what-is-azure-data-box-gateway"></a>Co to jest brama usługi Azure Data Box?
+# <a name="what-is-azure-data-box-gateway"></a>Co to jest Azure Data Box Gateway?
 
 Azure Data Box Gateway to rozwiązanie do przechowywania, które umożliwia bezproblemowe przesyłanie danych na platformę Azure. Ten artykuł zawiera omówienie usługi Azure Data Box Gateway, korzyści wynikających z jego stosowania, kluczowych funkcji oraz scenariuszy, w których można wdrożyć to urządzenie.
 
@@ -27,11 +27,11 @@ Usługa Data Box Gateway może być używana do transferu danych do chmury, na p
 
 - **Archiwizowanie w chmurze** — usługa Data Box Gateway umożliwia bezpieczne i wydajne kopiowanie setek terabajtów danych do usługi Azure Storage. Dane mogą być pozyskiwane jednorazowo lub w trybie ciągłym w scenariuszach dotyczących archiwizacji.
 
-- **Ciągłe pozyskiwania danych** — ciągłe pojmowanie danych do urządzenia, aby skopiować do chmury, niezależnie od rozmiaru danych. Jak dane są zapisywane na urządzeniu bramy, urządzenie przekazuje dane do usługi Azure Storage.  
+- **Ciągłe** pozyskiwanie danych — nieustanne pozyskiwanie danych do urządzenia w celu kopiowania do chmury, niezależnie od rozmiaru danych. Gdy dane są zapisywane na urządzeniu bramy, urządzenie przekazuje dane do usługi Azure Storage.  
 
-- **Początkowy transfer zbiorczy, po którym następuje transfer przyrostowy** — użyj pola danych do przesyłania zbiorczego w trybie offline (początkowy materiał siewny) i bramy pola danych dla przyrostowych transferów (bieżące przesyłanie danych) przez sieć.
+- **Początkowy transfer zbiorczy, po którym następuje przyrostowy** transfer urządzenie Data Box do transferu zbiorczego w trybie offline (początkowy inicjator) i Data Box Gateway dla transferów przyrostowych (ciągłe źródło danych) za pośrednictwem sieci.
 
-Aby uzyskać więcej informacji, przejdź do [przypadków użycia usługi Azure Data Box Gateway](data-box-gateway-use-cases.md).
+Aby uzyskać więcej informacji, przejdź do [Azure Data Box Gateway przypadków użycia](data-box-gateway-use-cases.md).
 
 ## <a name="benefits"></a>Korzyści
 
@@ -41,7 +41,7 @@ Usługa Data Box Gateway daje następujące korzyści:
 - **Wysoka wydajność** — bezproblemowe przesyłanie danych między sieciami dzięki wydajnym transferom na platformę Azure i z platformy Azure.
 - **Szybki dostęp i wysokie tempo pozyskiwania danych w godzinach pracy** — usługa Data Box Gateway ma lokalną pamięć podręczną definiowaną jako rozmiar pojemności lokalnej podczas aprowizacji urządzenia wirtualnego. Rozmiar dysku danych należy określić zgodnie z [minimalnymi wymaganiami dla urządzenia wirtualnego](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). Lokalna pamięć podręczna zapewnia następujące korzyści:
     - Lokalna pamięć podręczna umożliwia pozyskiwanie danych z dużą szybkością. Jeśli duże ilości danych są pozyskiwane w godzinach szczytu, pamięć podręczna może przechować te dane i przekazać je do chmury.
-    - Lokalna pamięć podręczna umożliwia szybki dostęp do odczytu do chwili osiągnięcia określonego progu. Dopóki urządzenie nie zostanie zapełnione w 50-60%, dostęp do wszystkich odczytów z urządzenia jest uzyskiwany z pamięci podręcznej, dzięki czemu są one szybsze. Gdy używane miejsce na urządzeniu przekroczy ten próg, urządzenie zacznie usuwać pliki lokalne.
+    - Lokalna pamięć podręczna umożliwia szybki dostęp do odczytu do chwili osiągnięcia określonego progu. Dopóki urządzenie nie zostanie zapełnione w 50-60%, dostęp do wszystkich odczytów z urządzenia jest uzyskiwany z pamięci podręcznej, dzięki czemu są one szybsze. Gdy zajęte miejsce na urządzeniu spadnie powyżej tego progu, urządzenie rozpocznie usuwanie plików lokalnych.
  
 - **Ograniczone użycie przepustowości** — dane mogą zostać zapisane na platformie Azure nawet przy ograniczonych możliwościach użycia sieci w czasie godzin szczytu.  
 
@@ -49,11 +49,11 @@ Usługa Data Box Gateway daje następujące korzyści:
 
 Usługa Data Box Gateway daje następujące możliwości:
 
-|Możliwości |Opis  |
+|Możliwość |Opis  |
 |---------|---------|
 |Szybkość     | W pełni zautomatyzowany i w wysokim stopniu zoptymalizowany transfer danych oraz wysoka przepustowość.|
 |Obsługiwane protokoły     | Obsługa standardowych protokołów SMB i NFS do pozyskiwania danych. <br> Aby uzyskać więcej informacji na temat obsługiwanych wersji, zapoznaj się z [wymaganiami systemowymi rozwiązania Data Box Gateway](data-box-gateway-system-requirements.md).|
-|Dostęp do danych     | Gdy dane wysyłane przez urządzenie znajduje się w chmurze, można je dodatkowo modyfikować, uzyskując bezpośredni dostęp do interfejsów API chmury.|
+|Dostęp do danych     | Gdy dane wysyłane przez urządzenie są w chmurze, można je zmodyfikować bezpośrednio przez uzyskanie dostępu do interfejsów API chmury.|
 |Szybki dostęp     | Lokalna pamięć podręczna na urządzeniu zapewniająca szybki dostęp do ostatnio używanych plików.|
 |Przekazywanie w trybie offline     | Tryb bez połączenia obsługuje scenariusze przekazywania w trybie offline.|
 |Odświeżanie danych     | Możliwość odświeżania plików lokalnych za pomocą najnowszych wersji z chmury.|
@@ -81,15 +81,15 @@ Rozwiązanie Data Box Gateway składa się z zasobu rozwiązania Data Box Gatewa
 
 - **Urządzenie wirtualne Data Box Gateway** — urządzenie działające na maszynie wirtualnej zainicjowanej w środowisku zwirtualizowanym lub za pomocą funkcji hypervisor, umożliwiające wysyłanie danych na platformę Azure.
     
-- **Zasób rozwiązania Data Box Gateway** — zasób w witrynie Azure Portal, który pozwala na zarządzanie urządzeniem Data Box Gateway za pomocą internetowego interfejsu umożliwiającego uzyskiwanie dostępu z różnych lokalizacji geograficznych. Zasób Data Box Gateway służy do wyświetlania urządzeń, udziałów, użytkowników i alertów oraz zarządzania nimi. Aby uzyskać więcej informacji, zobacz jak [zarządzać przy użyciu witryny Azure portal](data-box-gateway-manage-shares.md).
+- **Zasób rozwiązania Data Box Gateway** — zasób w witrynie Azure Portal, który pozwala na zarządzanie urządzeniem Data Box Gateway za pomocą internetowego interfejsu umożliwiającego uzyskiwanie dostępu z różnych lokalizacji geograficznych. Użyj zasobu Data Box Gateway, aby wyświetlić urządzenia, udziały, użytkowników i alerty i zarządzać nimi. Aby uzyskać więcej informacji, zobacz [Zarządzanie przy użyciu Azure Portal](data-box-gateway-manage-shares.md).
 
-- **Interfejs użytkownika sieci Web data box** — użyj lokalnego interfejsu użytkownika sieci Web, aby uruchomić diagnostykę, zamknąć i ponownie uruchomić urządzenie, wygenerować pakiet pomocy technicznej lub skontaktować się z pomocą techniczną firmy Microsoft, aby złożyć żądanie usługi. Aby uzyskać więcej informacji, zobacz jak [zarządzać przy użyciu lokalnego interfejsu użytkownika sieci Web](data-box-gateway-manage-access-power-connectivity-mode.md).
+- **Urządzenie Data Box lokalnego interfejsu użytkownika sieci Web** — Użyj lokalnego interfejsu użytkownika sieci Web, aby uruchomić diagnostykę, Zamknij i ponownie uruchom urządzenie, wygeneruj pakiet pomocy technicznej lub skontaktuj się z pomoc techniczna firmy Microsoft, aby utworzyć żądanie obsługi. Aby uzyskać więcej informacji, zobacz jak [zarządzać przy użyciu lokalnego interfejsu użytkownika sieci Web](data-box-gateway-manage-access-power-connectivity-mode.md).
 
 ## <a name="region-availability"></a>Dostępność w danym regionie
 
-Urządzenie fizyczne usługi Data Box Gateway, zasób platformy Azure i docelowe konto magazynu, na które przesyłane są dane, nie muszą znajdować się w tym samym regionie.
+Data Box Gateway urządzenie fizyczne, zasób platformy Azure i docelowe konto magazynu, do którego dane są transferowane, nie muszą znajdować się w tym samym regionie.
 
-- **Dostępność zasobów** — aby uzyskać listę wszystkich regionów, w których dostępny jest zasób Data Box Edge, przejdź do [produktów platformy Azure dostępnych według regionu](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Brama pola danych można również wdrożyć w chmurze azure dla instytucji rządowych. Aby uzyskać więcej informacji, zobacz [Co to jest platforma Azure government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Dostępność zasobów** — Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, przejdź do pozycji [dostępne produkty platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway można również wdrożyć w chmurze Azure Government. Aby uzyskać więcej informacji, zobacz [co to jest Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Docelowe konta magazynu** — konta magazynu, w których są przechowywane dane, są dostępne we wszystkich regionach platformy Azure.
 

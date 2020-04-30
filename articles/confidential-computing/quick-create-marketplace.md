@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62ee8ddb03c00ba7d6ae495ee360c708b00c615c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192284"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208639"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Szybki Start: Wdrażanie maszyny wirtualnej do obliczania poufnej platformy Azure w portalu Marketplace
 
@@ -107,7 +107,6 @@ ssh azureadmin@40.55.55.555
 
 Publiczny adres IP maszyny wirtualnej można znaleźć w Azure Portal w sekcji Przegląd maszyny wirtualnej.
 
-[!div class="mx-imgBorder"]
 ![Adres IP w witrynie Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
 
 Jeśli używasz systemu Windows i nie masz powłoki BASH, zainstaluj klienta SSH, takiego jak PuTTY.

@@ -1,31 +1,31 @@
 ---
-title: Tworzenie strefyowej maszyny Wirtualnej systemu Linux za pomocą interfejsu wiersza polecenia platformy Azure
-description: Tworzenie maszyny Wirtualnej systemu Linux w strefie dostępności za pomocą interfejsu wiersza polecenia platformy Azure
+title: Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: e229bb7af02255c0714c559b841afac9a66a7c7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 568bac3c6c80173e38d7b15de17e90cb4fbdab80
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535616"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208962"
 ---
-# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej systemu Linux w strefie dostępności za pomocą interfejsu wiersza polecenia platformy Azure
+# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym artykule kroków przy użyciu interfejsu wiersza polecenia platformy Azure do tworzenia maszyny Wirtualnej systemu Linux w strefie dostępności platformy Azure. [Strefa dostępności](../../availability-zones/az-overview.md) to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Strefy dostępności chronią aplikacje i dane, zmniejszając prawdopodobieństwo wystąpienia awarii lub utraty całego centrum danych.
+W tym artykule opisano, jak utworzyć maszynę wirtualną z systemem Linux w strefie dostępności platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure. [Strefa dostępności](../../availability-zones/az-overview.md) to fizycznie oddzielona strefa w regionie świadczenia usługi Azure. Strefy dostępności chronią aplikacje i dane, zmniejszając prawdopodobieństwo wystąpienia awarii lub utraty całego centrum danych.
 
-Aby użyć strefy dostępność, utwórz maszynę wirtualną w [obsługiwanym regionie platformy Azure](../../availability-zones/az-overview.md#services-support-by-region).
+Aby użyć strefy dostępność, utwórz maszynę wirtualną w [obsługiwanym regionie platformy Azure](../../availability-zones/az-region.md).
 
-Upewnij się, że zainstalowano najnowszą [platformę Interfejsu wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogowano się do konta platformy Azure przy [logowaniu az.](/cli/azure/reference-index)
+Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogowano się na koncie platformy Azure przy użyciu [AZ login](/cli/azure/reference-index).
 
 
 ## <a name="check-vm-sku-availability"></a>Sprawdzanie dostępności jednostki SKU maszyny wirtualnej
 Dostępność rozmiarów maszyn wirtualnych lub jednostek SKU może różnić się w zależności od regionu i strefy. Aby uzyskać pomoc w planowaniu użycia stref dostępności, możesz wyświetlić listę dostępnych jednostek SKU maszyn wirtualnych według regionu i strefy świadczenia usługi Azure. Ta możliwość gwarantuje wybranie odpowiedniego rozmiaru maszyny wirtualnej oraz uzyskanie żądanej odporności w różnych strefach. Aby uzyskać więcej informacji o różnych typach i rozmiarach maszyn wirtualnych, zobacz [Omówienie rozmiarów maszyn wirtualnych](sizes.md).
 
-Dostępne jednostki SKU maszyny Wirtualnej można wyświetlić za pomocą polecenia [az vm list-skus.](/cli/azure/vm) Następujący przykład zawiera listę dostępnych jednostek SKU maszyn wirtualnych w regionie *eastus2*:
+Dostępne jednostki SKU maszyny wirtualnej można wyświetlić za pomocą polecenia [AZ VM list-SKU](/cli/azure/vm) . Następujący przykład zawiera listę dostępnych jednostek SKU maszyn wirtualnych w regionie *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -54,25 +54,25 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group).  
 
-Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W tym przykładzie grupa zasobów o nazwie *myResourceGroupVM* jest tworzony w regionie *eastus2.* Wschodnie stany USA 2 jest jednym z regionów platformy Azure, który obsługuje strefy dostępności.
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Grupę zasobów należy utworzyć przed maszyną wirtualną. W tym przykładzie zostanie utworzona grupa zasobów o nazwie *myResourceGroupVM* w regionie *eastus2* . Wschodnie stany USA 2 to jeden z regionów świadczenia usługi Azure, które obsługują strefy dostępności.
 
 ```azurecli 
 az group create --name myResourceGroupVM --location eastus2
 ```
 
-Grupa zasobów jest określona podczas tworzenia lub modyfikowania maszyny Wirtualnej, które można zobaczyć w tym artykule.
+Grupa zasobów jest określana podczas tworzenia lub modyfikowania maszyny wirtualnej, która może być widoczna w tym artykule.
 
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
 Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm). 
 
-Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, ustalanie rozmiaru dysku i poświadczenia administracyjne. W tym przykładzie tworzona jest maszyna wirtualna o nazwie *myVM* z systemem Ubuntu Server. Maszyna wirtualna jest tworzona w strefie dostępności *1*. Domyślnie maszyna wirtualna jest tworzona w *Standard_DS1_v2* rozmiarze.
+Podczas tworzenia maszyny wirtualnej masz dostęp do kilku opcji, takich jak obraz systemu operacyjnego, ustalanie rozmiaru dysku i poświadczenia administracyjne. W tym przykładzie tworzona jest maszyna wirtualna o nazwie *myVM* z systemem Ubuntu Server. Maszyna wirtualna jest tworzona w obszarze strefa dostępności *1*. Domyślnie maszyna wirtualna jest tworzona w rozmiarze *Standard_DS1_v2* .
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-Tworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetla informacje o maszynie wirtualnej. Należy wziąć `zones` pod uwagę wartość, która wskazuje strefę dostępności, w której maszyna wirtualna jest uruchomiona. 
+Tworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetla informacje o maszynie wirtualnej. Zwróć uwagę na `zones` wartość wskazującą strefę dostępności, w której działa maszyna wirtualna. 
 
 ```output
 {
@@ -90,14 +90,14 @@ Tworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny w
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Potwierdź strefę dla dysku zarządzanego i adresu IP
 
-Gdy maszyna wirtualna jest wdrażana w strefie dostępności, dysk zarządzany dla maszyny Wirtualnej jest tworzony w tej samej strefie dostępności. Domyślnie publiczny adres IP jest również tworzony w tej strefie. Poniższe przykłady uzyskać informacje na temat tych zasobów.
+Po wdrożeniu maszyny wirtualnej w strefie dostępności dysk zarządzany dla maszyny wirtualnej jest tworzony w tej samej strefie dostępności. Domyślnie publiczny adres IP jest również tworzony w tej strefie. Poniższe przykłady pobierają informacje o tych zasobach.
 
-Aby sprawdzić, czy dysk zarządzany maszyny Wirtualnej znajduje się w strefie dostępności, użyj polecenia [az vm show,](/cli/azure/vm) aby zwrócić identyfikator dysku. W tym przykładzie identyfikator dysku jest przechowywany w zmiennej, która jest używana w późniejszym kroku. 
+Aby sprawdzić, czy dysk zarządzany maszyny wirtualnej znajduje się w strefie dostępności, użyj polecenia [AZ VM show](/cli/azure/vm) do zwrócenia identyfikatora dysku. W tym przykładzie identyfikator dysku jest przechowywany w zmiennej, która jest używana w późniejszym kroku. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
 ```
-Teraz możesz uzyskać informacje o dysku zarządzanym:
+Teraz możesz uzyskać informacje na temat dysku zarządzanego:
 
 ```azurecli-interactive
 az disk show --resource-group myResourceGroupVM --name $osdiskname
@@ -139,7 +139,7 @@ Dane wyjściowe pokazują, że dysk zarządzany znajduje się w tej samej strefi
 }
 ```
 
-Użyj polecenia [az vm list-ip-addresses,](/cli/azure/vm) aby zwrócić nazwę zasobu publicznego adresu IP w *myVM*. W tym przykładzie nazwa jest przechowywana w zmiennej, która jest używana w późniejszym kroku.
+Użyj polecenia [AZ VM list-IP-addresss](/cli/azure/vm) , aby zwrócić nazwę zasobu publicznego adresu IP w *myVM*. W tym przykładzie nazwa jest przechowywana w zmiennej, która jest używana w późniejszym kroku.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
@@ -151,7 +151,7 @@ Teraz możesz uzyskać informacje o adresie IP:
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
 ```
 
-Dane wyjściowe pokazują, że adres IP znajduje się w tej samej strefie dostępności co maszyna wirtualna:
+Dane wyjściowe wskazują, że adres IP znajduje się w tej samej strefie dostępności co maszyna wirtualna:
 
 ```output
 {
@@ -188,7 +188,7 @@ Dane wyjściowe pokazują, że adres IP znajduje się w tej samej strefie dostę
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono sposób tworzenia maszyny wirtualnej w strefie dostępności. Dowiedz się więcej o [dostępności](availability.md) maszyn wirtualnych platformy Azure.
+W tym artykule przedstawiono sposób tworzenia maszyny wirtualnej w strefie dostępności. Dowiedz się więcej o [dostępności](availability.md) dla maszyn wirtualnych platformy Azure.
 
 
 

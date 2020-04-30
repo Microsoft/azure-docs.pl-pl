@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371603"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509826"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -47,6 +47,25 @@ Kliknij przycisk **Dodaj wykres** i Utwórz inny wykres z inną metryką.
 ### <a name="order-or-delete-multiple-charts"></a>Kolejność lub usuwanie wielu wykresów
 
 Aby zamówić lub usunąć wiele wykresów, kliknij symbol wielokropka ( **...** ), aby otworzyć menu Wykres i wybrać odpowiedni element menu **Przenieś w górę**lub **Przenieś w dół**lub **Usuń**.
+
+## <a name="changing-aggregation"></a>Zmiana agregacji
+
+Po dodaniu metryki do wykresu Eksplorator metryk automatycznie wybiera swoją domyślną agregację. Wartość domyślna ma sens w podstawowych scenariuszach, ale można użyć innej agregacji, aby uzyskać dodatkowe informacje o metryki. Wyświetlanie różnych agregacji na wykresie wymaga zrozumienia sposobu, w jaki Eksplorator metryk je obsługuje. 
+
+Metryki to serie pomiarów (lub "wartości metryk") przechwytywane w danym okresie czasu. Podczas kreolenia wykresu wartości wybranej metryki są agregowane w postaci *ziarna czasu*. Rozmiar ziarna można wybrać [za pomocą panelu selektora czasu Eksplorator metryk](metrics-getting-started.md#select-a-time-range). Jeśli nie wprowadzisz jawnego wyboru ziarna czasu, stopień szczegółowości czasu zostanie automatycznie wybrany na podstawie aktualnie wybranego zakresu czasu. Po ustaleniu ziarna czasu wartości metryk, które zostały przechwycone podczas każdego interwału ziarna, są agregowane i umieszczane na wykresie — jeden punkt danych na ziarno.
+
+Załóżmy na przykład, że wykres pokazuje metrykę **czasu odpowiedzi serwera** przy użyciu **średniej** agregacji w ciągu **ostatnich 24 godzin** :
+
+- Jeśli stopień szczegółowości czasu jest ustawiony na 30 minut, wykres jest rysowany z 48 zagregowanych punktów kontrolnych (np. wykres liniowy łączy 48 kropek w obszarze wykresów wykresu). Oznacza to, że 24-godzinny x 2 punkty kontrolne na godzinę. Każdy punkt danych reprezentuje *średnią* wszystkich przechwyconych czasów odpowiedzi dla żądań serwera, które wystąpiły w ciągu każdego z odpowiednich 30 okresów czasu.
+- Po przełączeniu stopnia szczegółowości czasu na 15 minut otrzymujesz 96 zagregowanych punktów.  Oznacza to, że 24-godzinny x 4 punkty kontrolne na godzinę.
+
+W Eksploratorze metryk dostępne są pięć podstawowych typów agregacji statystyk: **sum**, **Count**, **min**, **Max**i **Average**. Agregacja **sum** jest czasami określana jako **Suma** agregacji. W przypadku wielu metryk Eksplorator metryk będzie ukrywać agregacje, które są całkowicie nieistotne i nie mogą być używane.
+
+- **Sum** — suma wszystkich wartości przechwyconych w interwale agregacji
+- **Count** — liczba pomiarów przechwyconych w interwale agregacji. Należy zauważyć, że **Liczba** będzie równa **sumie** w przypadku, gdy Metryka jest zawsze przechwytywana z wartością 1. Jest to typowe, gdy Metryka śledzi liczbę różnych zdarzeń, a każda pomiar reprezentuje jedno zdarzenie (tzn. kod wygeneruje rekord metryk za każdym razem, gdy występuje nowe żądanie)
+- **Average** — średnia wartości metryk przechwyconych w interwale agregacji
+- **Min** — najmniejsza wartość przechwycona przez interwał agregacji
+- **Max** — największa wartość przechwycona przez interwał agregacji
 
 ## <a name="apply-filters-to-charts"></a>Zastosuj filtry do wykresów
 

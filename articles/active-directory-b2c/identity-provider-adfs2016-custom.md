@@ -1,7 +1,7 @@
 ---
-title: Dodawanie usługi ADFS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych
+title: Dodawanie usług AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych
 titleSuffix: Azure AD B2C
-description: Konfigurowanie usługi ADFS 2016 przy użyciu protokołu SAML i zasad niestandardowych w usłudze Azure Active Directory B2C
+description: Konfigurowanie usług AD FS 2016 przy użyciu protokołu SAML i zasad niestandardowych w Azure Active Directory B2C
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,48 +11,48 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 12845f09ac2eb2342cdb1ab82b703ebd3a67c706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451571"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229735"
 ---
-# <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie usługi ADFS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w usłudze Azure Active Directory B2C
+# <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie usług AD FS jako dostawcy tożsamości SAML przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-W tym artykule pokazano, jak włączyć logowanie się do konta użytkownika usługi ADFS przy użyciu [zasad niestandardowych](custom-policy-overview.md) w usłudze Azure Active Directory B2C (Azure AD B2C). Zaloguj się, dodając [profil techniczny SAML](saml-technical-profile.md) do zasad niestandardowych.
+W tym artykule opisano sposób włączania logowania do konta użytkownika usług AD FS przy użyciu [zasad niestandardowych](custom-policy-overview.md) w programie Azure Active Directory B2C (Azure AD B2C). Aby włączyć logowanie, Dodaj [profil techniczny dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md) do zasad niestandardowych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wykonaj kroki opisane w [wprowadzenie do niestandardowych zasad w usłudze Azure Active Directory B2C](custom-policy-get-started.md).
-- Upewnij się, że masz dostęp do pliku .pfx certyfikatu z kluczem prywatnym. Możesz wygenerować własny podpisany certyfikat i przekazać go do usługi Azure AD B2C. Usługa Azure AD B2C używa tego certyfikatu do podpisania żądania SAML wysłanego do dostawcy tożsamości SAML.
-- Aby platforma Azure zaakceptowała hasło pliku .pfx, hasło musi być zaszyfrowane za pomocą opcji TripleDES-SHA1 w narzędziu Eksportu magazynu certyfikatów systemu Windows, w przeciwieństwie do narzędzia AES256-SHA256.
+- Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure Active Directory B2C](custom-policy-get-started.md).
+- Upewnij się, że masz dostęp do pliku PFX certyfikatu z kluczem prywatnym. Możesz wygenerować własny podpisany certyfikat i przekazać go do Azure AD B2C. Azure AD B2C używa tego certyfikatu do podpisywania żądania SAML wysyłanego do dostawcy tożsamości SAML.
+- Aby system Azure zaakceptował hasło pliku PFX, hasło musi być zaszyfrowane za pomocą opcji TripleDES-SHA1 w narzędziu eksportu magazynu certyfikatów systemu Windows, a nie AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
 
-Należy przechowywać certyfikat w dzierżawie usługi Azure AD B2C.
+Musisz przechowywać certyfikat w dzierżawie Azure AD B2C.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD B2C. Wybierz filtr **Katalog + subskrypcja** w górnym menu i wybierz katalog zawierający dzierżawę.
+2. Upewnij się, że używasz katalogu zawierającego dzierżawcę Azure AD B2C. W górnym menu wybierz pozycję **katalog i subskrypcja** , a następnie wybierz katalog, w którym znajduje się Twoja dzierżawa.
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-4. Na stronie Przegląd wybierz pozycję **Identity Experience Framework**.
-5. Wybierz pozycję **Klawisze zasad,** a następnie wybierz pozycję **Dodaj**.
-6. W **Options**przypadku `Upload`opcji wybierz opcję .
-7. Wprowadź **nazwę** klucza zasad. Na przykład `SamlCert`. Prefiks `B2C_1A_` zostanie automatycznie dodany do nazwy klucza.
-8. Przejdź do pliku .pfx certyfikatu i wybierz go za pomocą klucza prywatnego.
+4. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
+5. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
+6. W obszarze **Opcje**wybierz `Upload`opcję.
+7. Wprowadź **nazwę** klucza zasad. Na przykład `SamlCert`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
+8. Przejdź do pliku certyfikatu PFX z kluczem prywatnym i wybierz go.
 9. Kliknij przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
-Jeśli chcesz, aby użytkownicy logowali się przy użyciu konta usługi ADFS, musisz zdefiniować konto jako dostawcę oświadczeń, z którego usługa Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez usługę Azure AD B2C, aby sprawdzić, czy określony użytkownik uwierzytelnił.
+Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu konta usług AD FS, musisz zdefiniować konto jako dostawcę oświadczeń, z którym Azure AD B2C może komunikować się za pośrednictwem punktu końcowego. Punkt końcowy zawiera zestaw oświadczeń, które są używane przez Azure AD B2C do sprawdzenia, czy określony użytkownik został uwierzytelniony.
 
-Konto usługi ADFS można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [definiowanie profilu technicznego SAML](saml-technical-profile.md).
+Konto usług AD FS można zdefiniować jako dostawcę oświadczeń, dodając je do elementu **ClaimsProviders** w pliku rozszerzenia zasad. Aby uzyskać więcej informacji, zobacz [Definiowanie profilu technicznego dostawcy tożsamości SAML](saml-identity-provider-technical-profile.md).
 
-1. Otwórz *plik TrustFrameworkExtensions.xml*.
-1. Znajdź **ClaimsProviders** element. Jeśli nie istnieje, dodaj go w elemencie głównym.
-1. Dodaj nowy **ClaimsProvider** w następujący sposób:
+1. Otwórz *plik TrustFrameworkExtensions. XML*.
+1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
+1. Dodaj nową **ClaimsProvider** w następujący sposób:
 
     ```xml
     <ClaimsProvider>
@@ -93,9 +93,9 @@ Konto usługi ADFS można zdefiniować jako dostawcę oświadczeń, dodając je 
     </ClaimsProvider>
     ```
 
-1. Zastąp `your-ADFS-domain` nazwą domeny usługi ADFS i zastąp wartość oświadczenia wyjściowego **tożsamościza pomocą** dns (dowolna wartość wskazująca domenę).
+1. Zastąp `your-ADFS-domain` ciąg nazwą domeny usług ADFS i Zastąp wartość **identityProviderego** elementu docelowego usługi DNS (arbitralnej wartości wskazującej domenę).
 
-1. Znajdź `<ClaimsProviders>` sekcję i dodaj następujący fragment kodu XML. Jeśli zasady zawierają `SM-Saml-idp` już profil techniczny, przejdź do następnego kroku. Aby uzyskać więcej informacji, zobacz [zarządzanie sesjami logowania jednokrotnego](custom-policy-reference-sso.md).
+1. Znajdź `<ClaimsProviders>` sekcję i Dodaj następujący fragment kodu XML. Jeśli zasady zawierają już profil `SM-Saml-idp` techniczny, przejdź do następnego kroku. Aby uzyskać więcej informacji, zobacz temat [Zarządzanie sesjami logowania](custom-policy-reference-sso.md)jednokrotnego.
 
     ```XML
     <ClaimsProvider>
@@ -115,58 +115,58 @@ Konto usługi ADFS można zdefiniować jako dostawcę oświadczeń, dodając je 
 
 1. Zapisz plik.
 
-### <a name="upload-the-extension-file-for-verification"></a>Prześlij plik rozszerzenia w celu weryfikacji
+### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
 
-Do tej pory skonfigurowano zasady, dzięki czemu usługa Azure AD B2C wie, jak komunikować się z kontem usługi ADFS. Spróbuj przesłać plik rozszerzenia zasad, aby potwierdzić, że do tej pory nie ma żadnych problemów.
+Teraz skonfigurowano zasady, aby Azure AD B2C wie, jak komunikować się z kontem usług AD FS. Spróbuj przekazać plik rozszerzenia zasad tylko, aby upewnić się, że nie ma żadnych problemów do tej pory.
 
-1. Na stronie **Zasady niestandardowe** w dzierżawie usługi Azure AD B2C wybierz pozycję **Przekaż zasady**.
-2. Włącz **zastępowanie zasad, jeśli istnieje**, a następnie przejdź do pliku *TrustFrameworkExtensions.xml.*
+1. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
+2. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
 3. Kliknij pozycję **Przekaż**.
 
 > [!NOTE]
-> Rozszerzenie kodu programu Visual Studio B2C używa "socialIdpUserId". Polityka społeczna jest również wymagana dla ADFS.
+> Rozszerzenie Visual Studio Code B2C używa "socialIdpUserId". Zasady społecznościowe są również wymagane dla usług AD FS.
 >
 
-## <a name="register-the-claims-provider"></a>Zarejestruj dostawcę oświadczeń
+## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
 
-W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji lub logowania. Aby go udostępnić, należy utworzyć duplikat istniejącej podróży użytkownika szablonu, a następnie zmodyfikować go tak, aby miał również dostawcę tożsamości usługi ADFS.
+W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji lub logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej przejazdu użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości usług ADFS.
 
-1. Otwórz plik *TrustFrameworkBase.xml* z pakietu startowego.
-2. Znajdź i skopiuj całą zawartość elementu `Id="SignUpOrSignIn"` **UserJourney,** który zawiera .
-3. Otwórz *trustFrameworkExtensions.xml* i znajdź **UserJourneys** element. Jeśli element nie istnieje, dodaj jeden.
-4. Wklej całą zawartość **elementu UserJourney,** który został skopiowany jako element podrzędny elementu **UserJourneys.**
+1. Otwórz plik *TrustFrameworkBase. XML* z pakietu początkowego.
+2. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"`.
+3. Otwórz *plik TrustFrameworkExtensions. XML* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
+4. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
 5. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>Wyświetl przycisk
 
-**Element ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta usługi ADFS, nowy przycisk pojawi się, gdy użytkownik wyląduje na stronie.
+Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konta usług AD FS, nowy przycisk będzie wyświetlany, gdy użytkownik zostanie wystawiony na stronie.
 
-1. Znajdź **OrchestrationStep** element, `Order="1"` który zawiera w podróży użytkownika, który został utworzony.
-2. W obszarze **ClaimsProviderSelections**dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, `ContosoExchange`na przykład:
+1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` w podróży użytkownika.
+2. W obszarze **ClaimsProviderSelections**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
-### <a name="link-the-button-to-an-action"></a>Łączenie przycisku z akcją
+### <a name="link-the-button-to-an-action"></a>Połącz przycisk z akcją
 
-Teraz, gdy masz przycisk w miejscu, musisz połączyć go z działaniem. Akcja, w tym przypadku, jest dla usługi Azure AD B2C do komunikowania się z kontem usługi ADFS, aby otrzymać token.
+Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku akcja w tym przypadku Azure AD B2C do komunikowania się z kontem usług AD FS w celu uzyskania tokenu.
 
-1. Znajdź **OrchestrationStep,** `Order="2"` który zawiera w podróży użytkownika.
-2. Dodaj następujący element **ClaimsExchange** upewniając się, że używasz tej samej wartości dla identyfikatora, który był używany dla **obiektu TargetClaimsExchangeId:**
+1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
+2. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla identyfikatora, który został użyty dla **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
 
-    Zaktualizuj wartość **TechnicalProfileReferenceId** do identyfikatora profilu technicznego utworzonego wcześniej. Na przykład `Contoso-SAML2`.
+    Zaktualizuj wartość **TechnicalProfileReferenceId** na identyfikator utworzonego wcześniej profilu technicznego. Na przykład `Contoso-SAML2`.
 
-3. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
+3. Zapisz plik *TrustFrameworkExtensions. XML* i przekaż go ponownie w celu weryfikacji.
 
 
-## <a name="configure-an-adfs-relying-party-trust"></a>Konfigurowanie zaufania jednostki uzależniającej usługi ADFS
+## <a name="configure-an-adfs-relying-party-trust"></a>Konfigurowanie zaufania jednostki uzależnionej usług ADFS
 
-Aby używać usługi ADFS jako dostawcy tożsamości w usłudze Azure AD B2C, należy utworzyć zaufanie jednostki uzależniającej usługi ADFS z metadanymi SAML usługi Azure AD B2C. W poniższym przykładzie pokazano adres URL do metadanych SAML profilu technicznego usługi Azure AD B2C:
+Aby użyć usług AD FS jako dostawcy tożsamości w Azure AD B2C, należy utworzyć relację zaufania jednostki uzależnionej ADFS z Azure AD B2C metadanych SAML. Poniższy przykład przedstawia adres URL metadanych SAML Azure AD B2C profilu technicznego:
 
 ```
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
@@ -174,52 +174,52 @@ https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-poli
 
 Zastąp następujące wartości:
 
-- **dzierżawy** z nazwą dzierżawy, takich jak your-tenant.onmicrosoft.com.
-- **z** nazwą zasad. Na przykład B2C_1A_signup_signin_adfs.
-- **twój profil techniczny** z nazwą profilu technicznego dostawcy tożsamości SAML. Na przykład Contoso-SAML2.
+- **dzierżawy** z nazwą dzierżawy, taką jak Your-tenant.onmicrosoft.com.
+- **Twoje zasady** z nazwą zasad. Na przykład B2C_1A_signup_signin_adfs.
+- **Twój profil techniczny** o nazwie profilu technicznego dostawcy tożsamości SAML. Na przykład contoso-SAML2.
 
-Otwórz przeglądarkę i przejdź do adresu URL. Upewnij się, że wpisujesz poprawny adres URL i że masz dostęp do pliku metadanych XML. Aby dodać nową jednostkę uzależniającą zaufania przy użyciu przystawki Zarządzanie usługą ADFS i ręcznie skonfigurować ustawienia, wykonaj następującą procedurę na serwerze federacyjnym. Członkostwo w **administratorach** lub równoważne na komputerze lokalnym jest minimum wymagane do wykonania tej procedury.
+Otwórz przeglądarkę i przejdź do adresu URL. Upewnij się, że wpisany adres URL jest poprawny i że masz dostęp do pliku metadanych XML. Aby dodać nowe zaufanie jednostki uzależnionej za pomocą przystawki Zarządzanie usługami AD FS i ręcznie skonfigurować ustawienia, należy wykonać poniższą procedurę na serwerze federacyjnym. Minimalnym wymaganiem do wykonania tej procedury jest członkostwo w **grupie Administratorzy** lub równoważnej na komputerze lokalnym.
 
-1. W Menedżerze serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Zarządzanie usługą ADFS**.
-2. Wybierz **pozycję Dodaj zaufanie jednostki uzależniającej**.
-3. Na stronie **Powitanie** wybierz pozycję **Świadomość oświadczeń,** a następnie kliknij przycisk **Start**.
-4. Na stronie **Wybierz źródło danych** wybierz pozycję **Importuj dane dotyczące strony uzależniającej publikowania w trybie online lub w sieci lokalnej**, podaj adres URL metadanych usługi Azure AD B2C, a następnie kliknij przycisk **Dalej**.
-5. Na stronie **Określanie nazwy wyświetlanej** wprowadź **nazwę wyświetlaną**w obszarze **Notatki**wprowadź opis tego zaufania jednostki uzależniającej, a następnie kliknij przycisk **Dalej**.
-6. Na stronie **Wybieranie zasad kontroli dostępu** wybierz zasadę, a następnie kliknij przycisk **Dalej**.
+1. W Menedżer serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Zarządzanie usługami AD FS**.
+2. Wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**.
+3. Na stronie **powitalnej** wybierz pozycję **oświadczenia**, a następnie kliknij przycisk **Uruchom**.
+4. Na stronie **Wybierz źródło danych** wybierz pozycję **Importuj dane dotyczące jednostki uzależnionej Publikuj online lub w sieci lokalnej**, podaj adres URL metadanych Azure AD B2C, a następnie kliknij przycisk **dalej**.
+5. Na stronie **Określanie nazwy wyświetlanej** wprowadź **nazwę wyświetlaną**, w obszarze **uwagi**wprowadź opis tego zaufania jednostki uzależnionej, a następnie kliknij przycisk **dalej**.
+6. Na stronie **Wybierz zasady Access Control** wybierz zasady, a następnie kliknij przycisk **dalej**.
 7. Na **gotowy do dodawania zaufania** Przejrzyj ustawienia, a następnie kliknij pozycję **Dalej** zapisać swoje jednostki uzależnionej informacje zaufania.
-8. Na stronie **Zakończenie** kliknij pozycję **Zamknij**, w tej akcji automatycznie jest wyświetlane okno dialogowe **Edytowanie reguł oświadczeń.**
-9. Wybierz **pozycję Dodaj regułę**.
-10. W **szablonie reguły oświadczeń**wybierz pozycję **Wyślij atrybuty LDAP jako oświadczenia**.
-11. Podaj **nazwę reguły oświadczenia**. W **przypadku magazynu atrybutów**wybierz **pozycję Wybierz usługa Active Directory**, dodaj następujące oświadczenia, a następnie kliknij przycisk **Zakończ** i **OK**.
+8. Na stronie **zakończenie** kliknij przycisk **Zamknij**, ta akcja spowoduje automatyczne wyświetlenie okna dialogowego **Edytowanie reguł dotyczących roszczeń** .
+9. Wybierz pozycję **Dodaj regułę**.
+10. W **Szablon reguł oświadczeń**, wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**.
+11. Podaj **nazwę reguły dla roszczeń**. W polu **magazyn atrybutów**wybierz pozycję **Wybierz Active Directory**, Dodaj następujące oświadczenia, a następnie kliknij przycisk **Zakończ** i **OK**.
 
-    | Atrybut LDAP | Typ oświadczenia wychodzącego |
+    | Atrybut LDAP | Typ zgłoszenia wychodzącego |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Nazwisko | family_name |
     | Imię i nazwisko | given_name |
-    | Adres e-mail | email |
+    | Adres E-mail | email |
     | Nazwa wyświetlana | name |
 
-    Należy zauważyć, że te nazwy nie będą wyświetlane w menu rozwijanym typu oświadczenia wychodzącego. Należy je ręcznie wpisać. (Rozwijana jest faktycznie edytowalna).
+    Należy zauważyć, że te nazwy nie będą wyświetlane na liście rozwijanej Typ zgłoszenia wychodzącego. Należy ręcznie wpisać je w. (Lista rozwijana jest w rzeczywistości edytowalna).
 
-12.  Na podstawie typu certyfikatu może być konieczne ustawienie algorytmu HASH. W oknie właściwości zaufania jednostki uzależniającej (B2C Demo) wybierz kartę **Zaawansowane** i zmień **algorytm bezpiecznego mieszania** na `SHA-256`, a następnie kliknij przycisk **Ok**.
-13. W Menedżerze serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Zarządzanie usługą ADFS**.
-14. Wybierz utworzone zaufanie jednostki uzależniającej, wybierz **pozycję Aktualizuj z metadanych federacji,** a następnie kliknij przycisk **Aktualizuj**.
+12.  Na podstawie typu certyfikatu może być konieczne ustawienie algorytmu wyznaczania wartości skrótu. W oknie Właściwości zaufania jednostki uzależnionej (Demonstracja B2C) wybierz kartę **Zaawansowane** i Zmień **algorytm Secure Hash** na `SHA-256`, a następnie kliknij przycisk **OK**.
+13. W Menedżer serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Zarządzanie usługami AD FS**.
+14. Wybierz utworzoną relację zaufania jednostki uzależnionej, wybierz pozycję **Aktualizuj z metadanych Federacji**, a następnie kliknij przycisk **Aktualizuj**.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Tworzenie aplikacji usługi Azure AD B2C
+## <a name="create-an-azure-ad-b2c-application"></a>Tworzenie aplikacji Azure AD B2C
 
-Komunikacja z usługą Azure AD B2C odbywa się za pośrednictwem aplikacji, która rejestrujesz się w dzierżawie B2C. W tej sekcji wymieniono opcjonalne kroki, które można wykonać, aby utworzyć aplikację testową, jeśli jeszcze tego nie zrobiono.
+Komunikacja z Azure AD B2C odbywa się za pomocą aplikacji zarejestrowanej w dzierżawie B2C. W tej sekcji przedstawiono kroki opcjonalne, które można wykonać, aby utworzyć aplikację testową, jeśli nie została jeszcze wykonana.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
-### <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnianej
+### <a name="update-and-test-the-relying-party-file"></a>Aktualizowanie i testowanie pliku jednostki uzależnionej
 
-Zaktualizuj plik jednostki uzależniającej (RP), który inicjuje proces użytkownika, który został utworzony.
+Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
 
-1. Zrób kopię *pliku SignUpOrSignIn.xml* w katalogu roboczym i zmień jego nazwę. Na przykład zmień jego nazwę na *SignUpSignInADFS.xml*.
-2. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** z unikatową wartością. Na przykład `SignUpSignInADFS`.
-3. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład,`http://contoso.com/B2C_1A_signup_signin_adfs`
-4. Zaktualizuj wartość atrybutu **ReferenceId** w **defaultuserJourney,** aby dopasować identyfikator nowego środowiska podróży użytkownika, który został utworzony (SignUpSignInADFS).
-5. Zapisz zmiany, przekaż plik, a następnie wybierz nowe zasady na liście.
-6. Upewnij się, że utworzona aplikacja usługi Azure AD B2C jest zaznaczona w polu **Wybierz aplikację,** a następnie przetestuj ją, klikając przycisk **Uruchom teraz**.
+1. Utwórz kopię *pliku SignUpOrSignIn. XML* w katalogu roboczym i zmień jego nazwę. Na przykład zmień nazwę na *SignUpSignInADFS. XML*.
+2. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInADFS`.
+3. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_adfs`
+4. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi nowej podróży użytkownika, która została utworzona (SignUpSignInADFS).
+5. Zapisz zmiany, Przekaż plik, a następnie wybierz nowe zasady z listy.
+6. Upewnij się, że utworzona aplikacja Azure AD B2C została wybrana w polu **Wybierz aplikację** , a następnie przetestuj ją, klikając polecenie **Uruchom teraz**.
 
