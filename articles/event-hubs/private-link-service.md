@@ -8,10 +8,10 @@ ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
 ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148205"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integracja usługi Azure Event Hubs z usługą Azure Private link (wersja zapoznawcza)
@@ -67,7 +67,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 5. Wybierz kartę **prywatne połączenia punktu końcowego (wersja zapoznawcza)** w górnej części strony. Jeśli nie korzystasz z dedykowanej warstwy Event Hubs, zobaczysz komunikat: **połączenia prywatnego punktu końcowego na Event Hubs są obsługiwane tylko przez obszary nazw utworzone w ramach dedykowanego klastra**.
 6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
-    ![Image (Obraz)](./media/private-link-service/private-link-service-3.png)
+    ![Obraz](./media/private-link-service/private-link-service-3.png)
 7. Na stronie **podstawowe** wykonaj następujące kroki: 
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
@@ -202,14 +202,14 @@ Istnieją cztery Stany aprowizacji:
 
 | Akcja usługi | Stan prywatnego punktu końcowego klienta usługi | Opis |
 |--|--|--|
-| Brak | Oczekujące | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
+| Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
 | Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
 | Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .
@@ -220,7 +220,7 @@ Istnieją cztery Stany aprowizacji:
 2. Wybierz **prywatny punkt końcowy** , który chcesz zatwierdzić
 3. Wybierz przycisk **Zatwierdź** .
 
-    ![Image (Obraz)](./media/private-link-service/approve-private-endpoint.png)
+    ![Obraz](./media/private-link-service/approve-private-endpoint.png)
 4. Na stronie **zatwierdzanie połączenia** Dodaj komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 5. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **zatwierdzone**. 
 
@@ -228,7 +228,7 @@ Istnieją cztery Stany aprowizacji:
 
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk **Odrzuć** .
 
-    ![Image (Obraz)](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Obraz](./media/private-link-service/private-endpoint-reject-button.png)
 2. Na stronie **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 3. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **odrzucony**. 
 

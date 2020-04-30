@@ -1,6 +1,6 @@
 ---
-title: Pobieranie globalnych lub centralnych profili sieci VPN platformy Azure Virtual WAN | Dokumenty firmy Microsoft
-description: Dowiedz się więcej o wirtualnej sieci WAN zautomatyzowanej skalowalnej łączności między gałęziami, dostępnych regionach i partnerach.
+title: Pobierz globalne lub oparte na centrach profilów sieci VPN Azure Virtual WAN | Microsoft Docs
+description: Dowiedz się więcej o wirtualnej skalowalnej gałęzi sieci WAN, dostępnych regionach i partnerach.
 services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
@@ -8,46 +8,46 @@ ms.topic: conceptual
 ms.date: 4/20/2020
 ms.author: alzam
 ms.openlocfilehash: b63bb861f4df087f852bb1bf599d32100d063f7e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733186"
 ---
-# <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Pobieranie globalnego lub opartego na centrum profilu dla klientów sieci VPN użytkowników
+# <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Pobieranie profilu globalnego lub opartego na centrum dla klientów sieci VPN użytkowników
 
-Wirtualna sieć WAN platformy Azure oferuje dwa typy łączności dla użytkowników zdalnych: globalne i oparte na centrum. Skorzystaj z poniższych sekcji, aby dowiedzieć się więcej o profilu i pobrać go. 
+Wirtualna sieć WAN platformy Azure oferuje dwa typy łączności dla użytkowników zdalnych: globalna i oparta na centrum. Skorzystaj z poniższych sekcji, aby dowiedzieć się więcej o tym, jak pobrać profil. 
 
 > [!IMPORTANT]
 > Uwierzytelnianie usługi RADIUS obsługuje tylko profil oparty na centrum.
 
 ## <a name="global-profile"></a>Profil globalny
 
-Profil wskazuje moduł równoważenia obciążenia, który zawiera wszystkie aktywne centra sieci VPN użytkowników. Użytkownik jest kierowany do centrum, który znajduje się najbliżej lokalizacji geograficznej użytkownika. Ten typ łączności jest przydatny, gdy użytkownicy często podróżują do różnych lokalizacji. Aby pobrać profil **globalny:**
+Profil wskazuje moduł równoważenia obciążenia obejmujący wszystkie aktywne centra sieci VPN użytkowników. Użytkownik jest kierowany do centrum znajdującego się najbliżej lokalizacji geograficznej użytkownika. Ten typ łączności jest przydatny, gdy użytkownicy często podróżują z różnymi lokalizacjami. Aby pobrać profil **globalny** :
 
 1. Przejdź do wirtualnej sieci WAN.
-2. Kliknij **pozycję Konfiguracja sieci VPN użytkownika**.
-3. Wyróżnij konfigurację, dla której chcesz pobrać profil.
-4. Kliknij **pozycję Pobierz wirtualny profil sieci VPN użytkownika sieci WAN**.
+2. Kliknij pozycję **Konfiguracja sieci VPN użytkownika**.
+3. Zaznacz konfigurację, dla której chcesz pobrać profil.
+4. Kliknij pozycję **Pobierz profil sieci VPN wirtualnego użytkownika sieci WAN**.
 
    ![Profil globalny](./media/global-hub-profile/global1.png)
 
-## <a name="hub-based-profile"></a>Profil oparty na koncentratorze
+## <a name="hub-based-profile"></a>Profil oparty na centrum
 
-Profil wskazuje na pojedynczy koncentrator. Użytkownik może łączyć się tylko z określonym koncentratorem przy użyciu tego profilu. Aby pobrać profil oparty na **koncentratorze:**
+Profil wskazuje na jedno centrum. Użytkownik może łączyć się tylko z konkretnym centrum przy użyciu tego profilu. Aby pobrać profil **oparty na centrum** :
 
 1. Przejdź do wirtualnej sieci WAN.
-2. Kliknij **pozycję Centrum** na stronie Przegląd.
+2. Kliknij pozycję **centrum** na stronie Przegląd.
 
-    ![Profil piasty 1](./media/global-hub-profile/hub1.png)
-3. Kliknij **pozycję User VPN (Point to site)**.
-4. Kliknij **pozycję Pobierz profil sieci VPN użytkownika wirtualnego centrum**.
+    ![Profil centrum 1](./media/global-hub-profile/hub1.png)
+3. Kliknij pozycję **Sieć VPN użytkownika (wskaż pozycję lokacja)**.
+4. Kliknij pozycję **Pobierz profil sieci VPN użytkownika wirtualnego centrum**.
 
-   ![Profil piasty 2](./media/global-hub-profile/hub2.png)
-5. Sprawdź, **czy w pliku EAPTLS**jest
-6. Kliknij **pozycję Generuj i pobierz profil**.
+   ![Profil centrum 2](./media/global-hub-profile/hub2.png)
+5. Sprawdź **EAPTLS**.
+6. Kliknij pozycję **Generuj i Pobierz profil**.
 
-   ![Profil piasty 3](./media/global-hub-profile/download.png)
+   ![Profil centrum 3](./media/global-hub-profile/download.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
 ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82160089"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Samouczek: konfigurowanie protokołu HTTPS w niestandardowej domenie usługi Front Door
@@ -105,13 +105,13 @@ Przyznaj uprawnienie platformy Azure przed dostępem do certyfikatów na koncie 
 
 1. Na koncie magazynu kluczy w obszarze USTAWIENIA wybierz pozycję **Zasady dostępu**, a następnie wybierz pozycję **Dodaj nową**, aby utworzyć nową zasadę.
 
-2. W obszarze **Wybierz podmiot zabezpieczeń** wyszukaj wartość **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** i wybierz pozycję **Microsoft.Azure.Frontdoor**. Kliknij przycisk **Wybierz**.
+2. W obszarze **Wybierz podmiot zabezpieczeń** wyszukaj wartość **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** i wybierz pozycję **Microsoft.Azure.Frontdoor**. Kliknij pozycję **Wybierz**.
 
 3. W obszarze **uprawnienia do klucza tajnego**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
 4. W obszarze **uprawnienia certyfikatu**wybierz pozycję **Pobierz** , aby umożliwić przednim drzwiom pobranie certyfikatu.
 
-5. Kliknij przycisk **OK**. 
+5. Wybierz przycisk **OK**. 
 
     Dostępne są następujące Key Vault i certyfikaty, które są przechowywane w tym Key Vault.
  

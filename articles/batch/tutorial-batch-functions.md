@@ -7,10 +7,10 @@ ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
 ms.openlocfilehash: 01c3ab167239affa4d7ae94f5649d60072c3c270
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82117169"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Samouczek: wyzwalanie zadania usługi Batch przy użyciu Azure Functions
@@ -41,13 +41,13 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli partii i zadania wsadowe
     1. Wybierz pozycję **Ubuntu 18,04-LTS** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
     1. Włącz zadanie uruchamiania i Dodaj polecenie `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Pamiętaj, aby ustawić tożsamość użytkownika jako **domyślnego użytkownika zadania (administratora)**, co umożliwia uruchamianie zadań w celu uwzględnienia poleceń `sudo`z.
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 ### <a name="create-a-job"></a>Tworzenie zadania
 
 1. Utwórz zadanie w puli, wybierając pozycję **zadania** na pasku po lewej stronie, a następnie przycisk **Dodaj** nad formularzem wyszukiwania. 
     1. Wybierz identyfikator i nazwę wyświetlaną. Będziemy używać `ocr-job` tego przykładu.
     1. Ustaw pulę na `ocr-pool`lub inną nazwę wybraną dla puli.
-    1. Kliknij przycisk **OK**.
+    1. Wybierz przycisk **OK**.
 
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB

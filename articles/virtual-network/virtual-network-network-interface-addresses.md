@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142505"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Dodawanie, zmienianie i usuwanie adresów IP dla interfejsów sieciowych platformy Azure
@@ -52,11 +52,11 @@ Możesz dodać dowolną liczbę [prywatnych](#private) i [publicznych](#public) 
 4. W obszarze **konfiguracje adresów IP**wybierz pozycję **+ Dodaj**.
 5. Określ następujące opcje, a następnie wybierz przycisk **OK**:
 
-   |Ustawienie|Wymagana?|Szczegóły|
+   |Ustawienie|Wymagane?|Szczegóły|
    |---|---|---|
-   |Nazwa|Yes|Musi być unikatowa dla interfejsu sieciowego|
-   |Typ|Yes|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
-   |Metoda przypisania prywatnego adresu IP|Yes|[**Dynamiczny**](#dynamic): platforma Azure przypisuje następny dostępny adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy. [**Statyczny**](#static): przypiszesz nieużywany adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy.|
+   |Nazwa|Tak|Musi być unikatowa dla interfejsu sieciowego|
+   |Typ|Tak|Ponieważ dodawana jest konfiguracja protokołu IP do istniejącego interfejsu sieciowego, a każdy interfejs sieciowy musi mieć [podstawową](#primary) konfigurację adresu IP, jedyną opcją jest **pomocnicza**.|
+   |Metoda przypisania prywatnego adresu IP|Tak|[**Dynamiczny**](#dynamic): platforma Azure przypisuje następny dostępny adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy. [**Statyczny**](#static): przypiszesz nieużywany adres dla zakresu adresów podsieci, w którym jest wdrożony interfejs sieciowy.|
    |Publiczny adres IP|Nie|**Wyłączone:** Z konfiguracją IP nie jest obecnie skojarzony żaden zasób publicznego adresu IP. **Włączone:** Wybierz istniejący publiczny adres IP IPv4 lub Utwórz nowy. Aby dowiedzieć się, jak utworzyć publiczny adres IP, zapoznaj się z artykułem [publiczne adresy IP](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Ręcznie Dodaj pomocnicze prywatne adresy IP do systemu operacyjnego maszyny wirtualnej, wykonując instrukcje podane w artykule [przypisywanie wielu adresów IP do systemów operacyjnych maszyn wirtualnych](virtual-network-multiple-ip-addresses-portal.md#os-config) . Zapoznaj się z [prywatnymi](#private) adresami IP, aby uzyskać specjalne uwagi przed ręcznym dodaniem adresów IP do systemu operacyjnego maszyny wirtualnej. Nie należy dodawać żadnych publicznych adresów IP do systemu operacyjnego maszyny wirtualnej.
 
@@ -171,7 +171,7 @@ Dynamiczne prywatne adresy IPv4 i IPv6 (opcjonalnie) są przypisywane domyślnie
 - **Tylko publiczne**: platforma Azure przypisuje adres z zakresu unikatowego dla każdego regionu platformy Azure. Aby dowiedzieć się, które zakresy są przypisane do każdego regionu, zobacz [Microsoft Azure zakresów adresów IP centrum](https://www.microsoft.com/download/details.aspx?id=41653)danych. Adres może ulec zmianie, gdy maszyna wirtualna jest zatrzymana (cofnięcie przydziału), a następnie ponownie uruchomiona. Nie można przypisać publicznego adresu IPv6 do konfiguracji protokołu IP przy użyciu metody przypisywania.
 - **Tylko prywatne**: platforma Azure rezerwuje pierwsze cztery adresy w każdym zakresie adresów podsieci i nie przypisuje adresów. Platforma Azure przypisuje następny dostępny adres do zasobu z zakresu adresów podsieci. Jeśli na przykład zakres adresów podsieci to 10.0.0.0/16, a adresy 10.0.0.0.4–10.0.0.14 zostały już przypisane (.0–.3 są zarezerwowane), platforma Azure przypisuje do zasobu adres 10.0.0.15. Metoda dynamiczna to domyślna metoda alokacji. Po przypisaniu dynamiczne adresy IP są zwalniane, tylko jeśli interfejs sieciowy zostanie usunięty, przypisany do innej podsieci w tej samej sieci wirtualnej, lub metoda alokacji zostanie zmieniona na Statyczna i zostanie podany inny adres IP. Domyślnie platforma Azure przypisuje poprzedni adres dynamicznie przypisany jako adres statyczny po zmianie metody alokacji z dynamicznej na statyczną. 
 
-### <a name="static"></a>Statyczny
+### <a name="static"></a>Static
 
 Możesz (opcjonalnie) przypisywać publiczny lub prywatny statyczny adres IPv4 lub IPv6 do konfiguracji adresu IP. Aby dowiedzieć się więcej o tym, jak platforma Azure przypisuje statyczne publiczne adresy IPv4, zobacz [publiczne adresy IP](virtual-network-public-ip-address.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z błędem usługi Azure IoT Hub 409002 LinkCreationConflict
+title: Rozwiązywanie problemów z usługą Azure IoT Hub błąd 409002 LinkCreationConflict
 description: Dowiedz się, jak naprawić błąd 409002 LinkCreationConflict
 author: jlian
 manager: briz
@@ -10,34 +10,34 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758743"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
-W tym artykule opisano przyczyny i rozwiązania dla **błędów 409002 LinkCreationConflict.**
+W tym artykule opisano przyczyny i rozwiązania **409002 błędów LinkCreationConflict** .
 
 ## <a name="symptoms"></a>Objawy
 
-Zostanie wyświetlony błąd **409002 LinkCreationConflict** zalogowany w dziennikach diagnostycznych wraz z odłączenie urządzenia lub błąd komunikatu chmury do urządzenia. 
+Zobaczysz błąd **409002 LinkCreationConflict** zarejestrowanych w dziennikach diagnostycznych wraz z rozłączeniem urządzenia lub błędem komunikatu z chmury do urządzenia. 
 
 <!-- When using AMQP? -->
 
 ## <a name="cause"></a>Przyczyna
 
-Ogólnie rzecz biorąc ten błąd występuje, gdy Usługa IoT Hub wykryje, że klient ma więcej niż jedno połączenie. W rzeczywistości po odebraniu nowego żądania połączenia dla urządzenia z istniejącym połączeniem, Centrum IoT zamyka istniejące połączenie z tym błędem.
+Ogólnie rzecz biorąc, ten błąd występuje, gdy IoT Hub wykryje, że klient ma więcej niż jedno połączenie. W rzeczywistości gdy nowe żądanie połączenia zostanie odebrane dla urządzenia z istniejącym połączeniem, IoT Hub zamyka istniejące połączenie z tym błędem.
 
 ### <a name="cause-1"></a>Przyczyna 1
 
-W najczęstszym przypadku osobny problem (na przykład [404104 DeviceConnectionClosedOneRemotely)](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)powoduje odłączenie urządzenia. Urządzenie próbuje natychmiast przywrócić połączenie, ale centrum IoT hub nadal uważa, że urządzenie jest podłączone. Usługa IoT Hub zamyka poprzednie połączenie i rejestruje ten błąd.
+W najbardziej typowym przypadku, oddzielnym problemem (takim jak [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)) powoduje rozłączenie urządzenia. Urządzenie próbuje ponownie nawiązać połączenie, ale IoT Hub nadal uznaje, że urządzenie jest połączone. IoT Hub zamyka poprzednie połączenie i rejestruje ten błąd.
 
 ### <a name="cause-2"></a>Przyczyna 2
 
-Błędna logika po stronie urządzenia powoduje, że urządzenie ustanawia połączenie, gdy jest już otwarte.
+Uszkodzona logika po stronie urządzenia powoduje, że urządzenie nawiązuje połączenie, gdy jeden z nich jest już otwarty.
 
 ## <a name="solution"></a>Rozwiązanie
 
-Ten błąd zwykle pojawia się jako efekt uboczny innego, przejściowego problemu, więc poszukaj innych błędów w dziennikach, aby rozwiązać dalsze problemy. W przeciwnym razie należy wydać nowe żądanie połączenia tylko wtedy, gdy połączenie spadnie.
+Ten błąd zazwyczaj występuje jako efekt uboczny innego, przejściowego problemu, dlatego wyszukasz inne błędy w dziennikach, aby rozwiązać problem. W przeciwnym razie należy wydać nowe żądanie połączenia tylko wtedy, gdy połączenie zostanie porzucane.
