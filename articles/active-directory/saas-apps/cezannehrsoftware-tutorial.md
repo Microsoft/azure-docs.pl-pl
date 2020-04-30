@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z oprogramowaniem Cezanne HR | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z oprogramowaniem Cezanne kadr | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i aplikacją Cezanne HR Software.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73158702"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Samouczek: Integracja usługi Azure Active Directory z oprogramowaniem Cezanne HR
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem Cezanne kadr
 
 Z tego samouczka dowiesz się, jak zintegrować aplikację Cezanne HR Software z usługą Azure Active Directory (Azure AD).
 Zintegrowanie aplikacji Cezanne HR Software z usługą Azure AD zapewnia następujące korzyści:
@@ -33,7 +33,7 @@ Zintegrowanie aplikacji Cezanne HR Software z usługą Azure AD zapewnia następ
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -110,7 +110,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Cezanne HR Software
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    d. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
     
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL odpowiedzi i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Cezanne HR Software](https://cezannehr.com/services/support/) w celu uzyskania tych wartości.
@@ -127,7 +127,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Cezanne HR Software
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-cezanne-hr-software-single-sign-on"></a>Konfigurowanie logowania jednokrotnego w aplikacji Cezanne HR Software
 
@@ -153,7 +153,7 @@ Aby skonfigurować integrację usługi Azure AD z aplikacją Cezanne HR Software
 
     b. W polu tekstowym **Entity Identifier** (Identyfikator jednostki) wklej wartość pola **Identyfikator usługi Azure AD** skopiowaną z witryny Azure Portal.
 
-    d. Zmień wartość pola **SAML Binding** (Powiązanie SAML) na „POST”.
+    c. Zmień wartość pola **SAML Binding** (Powiązanie SAML) na „POST”.
 
     d. W polu tekstowym **Security Token Service Endpoint** (Punkt końcowy usługi tokenu zabezpieczającego) wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
 
@@ -175,7 +175,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -185,10 +185,10 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa użytkownika** wpisz **\@brittasimon yourcompanydomain.extension**  
+    b. W polu **Nazwa użytkownika** wpisz **brittasimon\@yourcompanydomain. Extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -214,7 +214,7 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
@@ -226,7 +226,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
 1. Zaloguj się do firmowej witryny aplikacji Cezanne HR Software jako administrator.
 
-2. W okienku nawigacji po lewej stronie kliknij pozycję **System Setup** (Konfiguracja systemu). Przejdź do **zarządzania użytkownikami**. Następnie przejdź do pozycji **Add New User** (Dodaj nowego użytkownika).
+2. W okienku nawigacji po lewej stronie kliknij pozycję **System Setup** (Konfiguracja systemu). Przejdź do pozycji **Zarządzaj użytkownikami**. Następnie przejdź do pozycji **Add New User** (Dodaj nowego użytkownika).
 
     ![Nowy użytkownik](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nowy użytkownik")
 
@@ -236,11 +236,11 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
     a. Ustaw pozycję **Internal User** (Użytkownik wewnętrzny) na OFF (WYŁ.).
 
-    b. W polu tekstowym **Imię** wpisz imię użytkownika, takiego jak **Britta**.  
+    b. W polu tekstowym **imię i nazwisko** wpisz imię użytkownika, np. **Britta**.  
 
-    d. W polu **tekstowym Nazwisko** wpisz nazwisko użytkownika, takiego jak **Simon**.
+    c. W polu **tekstowym nazwisko wpisz nazwisko użytkownika** , np. **Simon**.
 
-    d. W polu **tekstowym E-mail** wpisz adres Brittasimon@contoso.come-mail użytkownika, taki jak .
+    d. W polu tekstowym **E-mail** wpisz adres e-mail użytkownika, np Brittasimon@contoso.com.
 
 4. W sekcji **Account Information** (Informacje o koncie) wykonaj następujące kroki:
 
@@ -250,7 +250,7 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
     b. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika.
 
-    d. Wybierz pozycję **HR Professional** (Specjalista ds. kadr) w polu **Security Role** (Rola zabezpieczeń).
+    c. Wybierz pozycję **HR Professional** (Specjalista ds. kadr) w polu **Security Role** (Rola zabezpieczeń).
 
     d. Kliknij przycisk **OK**.
 
@@ -270,12 +270,12 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie do aplikacji Cezanne HR
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Cezanne HR Software w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Cezanne HR Software, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Cezanne HR Software w panelu dostępu powinno nastąpić automatyczne zalogowanie do aplikacji Cezanne HR Software, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

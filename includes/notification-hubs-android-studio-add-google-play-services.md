@@ -9,33 +9,33 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: cd202c98ed605209f5600965ecdb6c0b4c03c17e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67509094"
 ---
-1. W programie Android Studio wybierz pozycję **Narzędzia** w menu, a następnie wybierz pozycję **Menedżer zestawu SDK**. 
-2. Wybierz docelową wersję sdk systemu Android, który jest używany w projekcie. Następnie wybierz pozycję **Pokaż szczegóły pakietu**. 
+1. W Android Studio wybierz pozycję **Narzędzia** z menu, a następnie wybierz pozycję **Menedżer zestawów SDK**. 
+2. Wybierz docelową wersję Android SDK, która jest używana w projekcie. Następnie wybierz pozycję **Pokaż szczegóły pakietu**. 
 
     ![Menedżer zestawów Android SDK — wybieranie wersji docelowej](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
-3. Wybierz **interfejsy API Google**, jeśli nie są jeszcze zainstalowane.
+3. Wybierz pozycję **Google API**, jeśli nie została jeszcze zainstalowana.
 
     ![Menedżer zestawów Android SDK — wybrane interfejsy API firmy Google](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
-4. Przełącz się na kartę **Narzędzia zestawu SDK.** Jeśli usługi Google Play nie zostały jeszcze zainstalowane, wybierz pozycję **Usługi Google Play,** jak pokazano na poniższej ilustracji. Następnie wybierz pozycję **Zastosuj** do zainstalowania. Zanotuj ścieżkę zestawu SDK, która będzie potrzebna w kolejnym kroku.
+4. Przejdź do karty **SDK Tools** . Jeśli nie zainstalowano jeszcze Usługi Google Play, wybierz pozycję **usługi Google Play** , jak pokazano na poniższej ilustracji. Następnie wybierz pozycję **Zastosuj** do instalacji. Zanotuj ścieżkę zestawu SDK, która będzie potrzebna w kolejnym kroku.
 
     ![Menedżer zestawów Android SDK — wybrane usługi Google Play](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Jeśli zobaczysz okno dialogowe **Potwierdzanie zmiany**, wybierz przycisk **OK**. Instalator składników zainstaluje żądane składniki. Wybierz przycisk **Finish** (Zakończ) po zainstalowaniu składników.
 4. Wybierz przycisk **OK**, aby zamknąć okno dialogowe **Settings for New Projects** (Ustawienia nowego projektu).  
-5. Otwórz plik build.gradle w katalogu **aplikacji,** a następnie `dependencies`dodaj następujący wiersz w obszarze . 
+5. Otwórz plik Build. Gradle w katalogu **aplikacji** , a następnie Dodaj następujący wiersz poniżej `dependencies`. 
 
     ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
-5. Wybierz ikonę **Synchronizuj teraz** na pasku narzędzi.
+5. Na pasku narzędzi wybierz ikonę **Synchronizuj teraz** .
 
     ![Synchronizacja za pomocą narzędzia Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
-1. Otwórz plik AndroidManifest.xml, a następnie dodaj następujący tag do tagu *aplikacji.*
+1. Otwórz plik pliku AndroidManifest. XML, a następnie Dodaj następujący tag do znacznika *aplikacji* .
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

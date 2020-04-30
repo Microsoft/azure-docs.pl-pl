@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70067939"
 ---
 # <a name="mock-api-responses"></a>Pozorowanie odpowiedzi interfejsu API
@@ -27,7 +27,7 @@ Interfejsy API mogą zostać zaimportowane do interfejsu API usługi APIM lub ut
 + Kiedy najpierw projektowana jest fasada interfejsu API, a implementacja zaplecza powstaje później. Lub kiedy zaplecze jest opracowywane równolegle.
 + Gdy zaplecze tymczasowo nie działa lub nie można go przeskalować.
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie testowego interfejsu API 
@@ -41,7 +41,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
 + Zapoznaj się z [koncepcją zasad w usłudze Azure API Management](api-management-howto-policies.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Tworzenie testowego interfejsu API 
 
@@ -54,7 +54,7 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
 3. Z listy wybierz pozycję **Pusty interfejs API**.
 4. W polu **Nazwa wyświetlana** wprowadź tekst „*Testowy interfejs API*”.
 5. W polu **Produkty** wprowadź wartość „*Bez ograniczeń*”.
-6. Wybierz **pozycję Utwórz**.
+6. Wybierz przycisk **Utwórz**.
 
 ## <a name="add-an-operation-to-the-test-api"></a>Dodawanie operacji do testowego interfejsu API
 
@@ -67,7 +67,7 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nazwa wyświetlana**    | *Wywołanie testowe*                       | Nazwa, która jest wyświetlana w **portalu deweloperów**.                                                                                                                                       |
     | **Adres URL** (czasownik HTTP) | GET                               | Możesz wybrać jeden z wstępnie zdefiniowanych czasowników HTTP.                                                                                                                                         |
-    | **Adres URL**             | */test*                           | Ścieżka adresu URL dla interfejsu API.                                                                                                                                                                       |
+    | **Adres URL**             | */Test*                           | Ścieżka adresu URL dla interfejsu API.                                                                                                                                                                       |
     | **Opis**     |                                   | Podaj opis operacji, który będzie służyć do zapewnienia dokumentacji dla deweloperów używających tego interfejsu API w **portalu deweloperów**.                                                    |
     | Karta **Zapytanie**       |                                   | Pozwala dodać parametry zapytania. Oprócz podawania nazwy i opisu możesz podać wartości, które mogą być przypisane do tego parametru. Jedna z wartości może być oznaczona jako domyślna (opcjonalnie). |
     | Karta **Żądanie**     |                                   | Pozwala zdefiniować typy zawartości żądania, przykłady i schematy.                                                                                                                                  |
@@ -79,7 +79,7 @@ Kroki opisane w tej sekcji pokazują, jak utworzyć pusty interfejs API bez zapl
 6. Pod nagłówkiem **Reprezentacje** po prawej stronie wybierz pozycję **+ Dodaj reprezentację**.
 7. Wprowadź tekst „*application/json*” w polu wyszukiwania i wybierz typ zawartości **application/json**.
 8. W polu tekstowym **Przykład** wprowadź tekst `{ "sampleField" : "test" }`.
-9. Wybierz **pozycję Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 
 ## <a name="enable-response-mocking"></a>Włączanie pozorowania odpowiedzi
 

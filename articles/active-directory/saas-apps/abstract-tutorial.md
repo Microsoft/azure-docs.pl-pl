@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z abstrakcyjnym | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a abstrakcyjną.
+title: 'Samouczek: integracja Azure Active Directory z abstrakcyjną | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i abstrakcyjne.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,157 +17,157 @@ ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81886fa9165269d89bde8306c5829be41952c190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68302586"
 ---
-# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Samouczek: Integruj abstrakcję z usługą Azure Active Directory
+# <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Samouczek: Integrowanie abstrakcyjne z Azure Active Directory
 
-W tym samouczku dowiesz się, jak zintegrować abstrakcyjne z usługi Azure Active Directory (Azure AD). Po zintegrowaniu abstract z usługą Azure AD można:
+W tym samouczku dowiesz się, jak zintegrować streszczenie z Azure Active Directory (Azure AD). Po zintegrowaniu integracji z usługą Azure AD można:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do abstrakcyjne.
-* Włącz użytkownikom automatyczne logowanie do abstrakcyjnego za pomocą ich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do abstrakcyjnej.
+* Zezwól użytkownikom na automatyczne logowanie do programu abstract przy użyciu kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto.](https://azure.microsoft.com/free/)
-* Subskrypcja z włączoną funkcją rejestracji jednokrotnej.Abstract single sign-on (SSO) enabled subscription.
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
+* Subskrypcja z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Abstract obsługuje jednostkę SSO inicjowane przez PROTOKÓŁ SP **i IDP**
+* Abstrakcyjne obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
 
-## <a name="adding-abstract-from-the-gallery"></a>Dodawanie streszczenia z galerii
+## <a name="adding-abstract-from-the-gallery"></a>Dodawanie abstrakcyjnej z galerii
 
-Aby skonfigurować integrację abstrakcyjne do usługi Azure AD, należy dodać abstrakcyjne z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację abstrakcyjną z usługą Azure AD, należy dodać abstrakcyjną z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Abstract** w polu wyszukiwania.
-1. Wybierz **pozycję Abstrakcyjny** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **abstract** w polu wyszukiwania.
+1. Wybierz opcję **abstrakcyjny** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Konfigurowanie i testowanie usługi Azure AD SSO z użyciem abstrakcyjnego przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w abstract.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą narzędzia abstract przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w postaci abstrakcyjnej.
 
-Aby skonfigurować i przetestować przychylić się do usługi Azure AD z pomocą abstrakcyjną, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą abstrakcyjnej, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj abstrakcyjne logowanie jednokrotne](#configure-abstract-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+2. **[Skonfiguruj abstrakcyjne logowanie JEDNOkrotne](#configure-abstract-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz abstrakcyjnego użytkownika testowego](#create-abstract-test-user)** — aby mieć odpowiednik Britta Simon w abstrakcji, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-6. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+5. **[Utwórz użytkownika test abstrakcyjny](#create-abstract-test-user)** , aby uzyskać odpowiednik Britta Simon w postaci abstrakcyjnej, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **abstrakcyjnej** znajdź sekcję **Zarządzaj** i wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja z aplikacją **abstrakcyjną** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja SAML** aplikacja jest wstępnie skonfigurowana w trybie inicjowanym **przez usługę IDP,** a niezbędne adresy URL są już wstępnie wypełnione platformą Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz.**
+1. W sekcji **Podstawowa konfiguracja SAML** aplikacja została wstępnie skonfigurowana w trybie inicjalizacji **dostawcy tożsamości** , a wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz** .
 
-1. Kliknij **pozycję Ustaw dodatkowe adresy URL** i wykonaj następujący krok, jeśli chcesz skonfigurować aplikację w trybie inicjowanym w sp: **SP**
+1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
-    W polu **tekstowym "Podpisywanie adresu URL"** wpisz adres URL:`https://app.abstract.com/signin`
+    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://app.abstract.com/signin`
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij przycisk kopiowania, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="configure-abstract-sso"></a>Konfigurowanie abstrakcyjnego przysłowiu — jako
+### <a name="configure-abstract-sso"></a>Skonfiguruj abstrakcyjne Logowanie jednokrotne
 
-Upewnij się, aby `App Federation Metadata Url` pobrać `Azure AD Identifier` i z witryny Azure portal, jak trzeba będzie te do skonfigurowania sytuować na abstrakcyjne.
+Upewnij się, że pobierasz `App Federation Metadata Url` i `Azure AD Identifier` z Azure Portal, ponieważ będą potrzebne do SKONFIGUROWANia logowania jednokrotnego na abstrakcyjnym.
 
-Informacje te znajdują się na stronie **Konfigurowanie logowania jednokrotnego z SAML:**
+Te informacje znajdują się na stronie **Konfigurowanie logowania jednokrotnego za pomocą języka SAML** :
 
-* Znajduje `App Federation Metadata Url` się w sekcji **Certyfikat podpisywania SAML.**
-* Znajduje `Azure AD Identifier` się w sekcji **Konfigurowanie abstrakcyjne.**
+* `App Federation Metadata Url` Znajduje się w sekcji **certyfikat podpisywania SAML** .
+* `Azure AD Identifier` Znajduje się w sekcji **Konfigurowanie abstrakcyjne** .
 
 
-Teraz można skonfigurować sytą łatę w programie Abstract:
+Teraz można przystąpić do konfigurowania logowania jednokrotnego w postaci abstrakcyjnej:
 
 >[!Note]
->Aby uzyskać dostęp do ustawień logowania dodatkowego w programie Abstract, należy uwierzytelnić się przy użyciu konta administratora organizacji.
+>Musisz uwierzytelnić się przy użyciu konta administratora organizacji, aby uzyskać dostęp do ustawień logowania jednokrotnego na serwerze abstrakcyjnym.
 
-1. Otwórz [abstrakcyjną aplikację internetową](https://app.abstract.com/).
-2. Przejdź do strony **Uprawnienia** na pasku po lewej stronie.
-3. W sekcji **Konfigurowanie jednostki SSO** wprowadź **adres URL metadanych** i **identyfikator jednostki**.
-4. Wprowadź ręczne wyjątki, które mogą mieć. Wiadomości e-mail wymienione w sekcji ręczne wyjątki omijają logowanie logowania i będą mogły logować się za pomocą poczty e-mail i hasła. 
-5. Kliknij **pozycję Zapisz zmiany**.
+1. Otwórz [abstrakcyjną aplikację sieci Web](https://app.abstract.com/).
+2. Przejdź do strony **uprawnienia** na pasku po lewej stronie.
+3. W sekcji **Konfigurowanie logowania jednokrotnego** wprowadź **adres URL metadanych** i **Identyfikator jednostki**.
+4. Wprowadź wszelkie ręczne wyjątki, które mogą być dostępne. Wiadomości e-mail wymienione w sekcji wyjątki ręczne pomijają Logowanie jednokrotne i mogą logować się przy użyciu poczty e-mail i hasła. 
+5. Kliknij przycisk **Zapisz zmiany**.
 
 >[!Note] 
->Musisz użyć podstawowych adresów e-mail na liście ręcznych wyjątków. Aktywacja SSO zakończy się niepowodzeniem, jeśli lista wiadomości e-mail jest pomocniczą wiadomością e-mail użytkownika. Jeśli tak się stanie, zostanie wyświetlony komunikat o błędzie z podstawową wiadomością e-mail dla konta, które nie po awarii. Dodaj tę podstawową wiadomość e-mail do listy ręcznych wyjątków po zweryfikowaniu, że znasz użytkownika.
+>Musisz użyć podstawowych adresów e-mail na liście wyjątków ręcznych. Aktywacja SSO zakończy się niepowodzeniem, jeśli lista wiadomości e-mail jest pomocniczą wiadomością e-mail użytkownika. Jeśli tak się stanie, zobaczysz komunikat o błędzie z podstawowym adresem e-mail dla nieprawidłowego konta. Dodaj tę podstawową wiadomość e-mail do listy wyjątków ręcznych po zweryfikowaniu, że znasz użytkownika.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do abstrakcyjne.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do abstrakcyjnej.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz pozycję **Streszczenie**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz pozycję **abstrakcyjne**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-### <a name="create-abstract-test-user"></a>Utwórz abstrakcyjnego użytkownika testowego
+### <a name="create-abstract-test-user"></a>Utwórz użytkownika test abstrakcyjny
 
-Aby przetestować sytą próbę sytua na abstrakcyjnym:
+Aby przetestować Logowanie jednokrotne na streszczeniu:
 
-1. Otwórz [abstrakcyjną aplikację internetową](https://app.abstract.com/).
-2. Przejdź do strony **Uprawnienia** na pasku po lewej stronie.
-3. Kliknij **przycisk Testuj z moim kontem**. Jeśli test nie powiedzie się, [skontaktuj się z naszym zespołem pomocy technicznej.](https://www.abstract.com/help/contact/)
+1. Otwórz [abstrakcyjną aplikację sieci Web](https://app.abstract.com/).
+2. Przejdź do strony **uprawnienia** na pasku po lewej stronie.
+3. Kliknij przycisk **Testuj przy użyciu mojego konta**. Jeśli test zakończy się niepowodzeniem, [skontaktuj się z naszym zespołem pomocy technicznej](https://www.abstract.com/help/contact/).
 
 >[!Note]
->Aby uzyskać dostęp do ustawień logowania dodatkowego w programie Abstract, należy uwierzytelnić się przy użyciu konta administratora organizacji.
-To konto administratora organizacji będzie musiało zostać przypisane do abstrakcyjnego w witrynie Azure portal.
+>Musisz uwierzytelnić się przy użyciu konta administratora organizacji, aby uzyskać dostęp do ustawień logowania jednokrotnego na serwerze abstrakcyjnym.
+Konto administratora organizacji musi być przypisane do programu abstract na Azure Portal.
 
-### <a name="test-sso"></a>Test SSO 
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Abstrakcyjne w Panelu dostępu należy automatycznie zalogować się do streszczenia, dla którego skonfigurowano logującą się jednoślik. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka abstract w panelu dostępu należy automatycznie zalogować się do streszczenia, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

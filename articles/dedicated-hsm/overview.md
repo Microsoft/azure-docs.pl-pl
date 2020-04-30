@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70881076"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Co to jest dedykowany moduł HSM platformy Azure?
@@ -68,7 +68,7 @@ Usługa Azure Dedicated HSM jest najbardziej odpowiednia dla scenariuszy migracj
 
 ### <a name="not-a-fit"></a>Brak dopasowania
 
-Dedykowany moduł HSM platformy Azure nie pasuje do następującego typu scenariusza: usługi w chmurze firmy Microsoft obsługujące szyfrowanie za pomocą kluczy zarządzanych przez klienta (takich jak usługa Azure Information Protection, szyfrowanie dysków azure, usługa Azure Data Lake Store, usługa Azure Storage, azure sql baza danych i klucz klienta dla usługi Office 365), które nie są zintegrowane z dedykowanym modułem HSM platformy Azure.
+Dedykowany moduł HSM platformy Azure nie jest dobry dla następującego typu scenariusza: usługi firmy Microsoft w chmurze obsługujące szyfrowanie z kluczami zarządzanymi przez klienta (takimi jak Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database i klucz klienta pakietu Office 365), które nie są zintegrowane z dedykowanym modułem HSM platformy Azure.
 
 ### <a name="it-depends"></a>To zależy
 
@@ -88,7 +88,7 @@ Ta usługa jest wysoce wyspecjalizowana. Z tego względu zalecamy, aby szczegó�
 [Przewodniki na temat integracji firmy Gemalto](https://safenet.gemalto.com/partners/microsoft/) ułatwią aprowizację modułów HSM w istniejącym środowisku sieci wirtualnej. Dostępne są również przewodniki z instrukcjami pomocne w określeniu sposobu konfiguracji architektury wdrożenia.
 
 * [Wysoka dostępność](high-availability.md)
-* [Bezpieczeństwo fizyczne](physical-security.md)
-* [Obsługa sieci](networking.md)
+* [Zabezpieczenia fizyczne](physical-security.md)
+* [Networking](networking.md)
 * [Możliwości obsługi](supportability.md)
-* [Monitorowania](monitoring.md)
+* [Monitorowanie](monitoring.md)

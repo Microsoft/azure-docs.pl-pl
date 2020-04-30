@@ -1,5 +1,5 @@
 ---
-title: Wysyłanie powiadomień wypychanych do systemu Android za pomocą centrów powiadomień platformy Azure i wiadomości Google Cloud | Dokumenty firmy Microsoft
+title: Wysyłanie powiadomień wypychanych do systemu Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging | Microsoft Docs
 description: Korzystając z tego samouczka, dowiesz się, jak za pomocą usług Azure Notification Hubs i Google Firebase Cloud Messaging wysyłać powiadomienia push do urządzeń z systemem Android.
 services: notification-hubs
 documentationcenter: android
@@ -19,18 +19,18 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72386321"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: Powiadomienia wypychania do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 > [!WARNING]
-> Od 10 kwietnia 2018 r. Google przestarzałe usługi Google Cloud Messaging (GCM). Interfejsy API serwera i klienta usługi GCM są przestarzałe i zostaną usunięte natychmiast 29 maja 2019 r. Aby uzyskać więcej informacji, zobacz [GCM i FCM Często zadawane pytania](https://developers.google.com/cloud-messaging/faq).
+> Od 10 kwietnia 2018 firma Google ma przestarzałe Google Cloud Messaging (GCM). Serwer GCM i interfejsy API klienta są przestarzałe i zostaną usunięte od razu do 29 maja 2019. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące GCM i FCM](https://developers.google.com/cloud-messaging/faq).
 
 ## <a name="overview"></a>Omówienie
 
@@ -38,7 +38,7 @@ Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia wypycha
 Utworzysz pustą aplikację dla systemu Android służącą do odbierania powiadomień push przy użyciu usługi Google Cloud Messaging (GCM).
 
 > [!IMPORTANT]
-> Google Cloud Messaging (GCM) jest przestarzały i zostanie [wkrótce](https://developers.google.com/cloud-messaging/faq)usunięty .
+> Google Cloud Messaging (GCM) jest przestarzała i zostanie [wkrótce](https://developers.google.com/cloud-messaging/faq)usunięta.
 
 > [!IMPORTANT]
 > W tym temacie przedstawiono powiadomienia wypychane za pomocą usługi Google Cloud Messaging (GCM). Jeśli używasz usługi Google Firebase Cloud Messaging (FCM), zobacz [Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
@@ -160,15 +160,15 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
 
 ### <a name="adding-code"></a>Dodawanie kodu
 
-1. W widoku projektu rozwiń **aplikację** > **src** > **main** > **java**. Kliknij prawym przyciskiem folder pakietu w węźle **java**, kliknij pozycję **New** (Nowy), a następnie kliknij pozycję **Java Class** (Klasa Java). Dodaj nową klasę o nazwie `NotificationSettings`.
+1. W widoku projektu rozwiń węzeł **App** > **src** > **Main** > **Java**. Kliknij prawym przyciskiem folder pakietu w węźle **java**, kliknij pozycję **New** (Nowy), a następnie kliknij pozycję **Java Class** (Klasa Java). Dodaj nową klasę o nazwie `NotificationSettings`.
 
     ![Android Studio – nowa klasa Java][6]
 
     Zaktualizuj trzy symbole zastępcze w poniższym kodzie dla klasy `NotificationSettings`:
 
-   * `SenderId`: Numer projektu uzyskany wcześniej w [Konsoli Google Cloud](https://cloud.google.com/console).
-   * `HubListenConnectionString`: `DefaultListenAccessSignature` Ciąg połączenia dla koncentratora. Możesz skopiować te parametry połączenia, klikając pozycję **Zasady dostępu** na stronie **Ustawienia** centrum w witrynie [Azure Portal].
-   * `HubName`: Użyj nazwy centrum powiadomień, która pojawia się na stronie centrum w [witrynie Azure portal].
+   * `SenderId`: Numer projektu uzyskany wcześniej w [konsoli Google Cloud Console](https://cloud.google.com/console).
+   * `HubListenConnectionString`: Parametry `DefaultListenAccessSignature` połączenia dla centrum. Możesz skopiować te parametry połączenia, klikając pozycję **Zasady dostępu** na stronie **Ustawienia** centrum w witrynie [Azure Portal].
+   * `HubName`: Użyj nazwy centrum powiadomień, która jest wyświetlana na stronie Centrum w [Azure Portal].
 
      `NotificationSettings` — kod:
 
@@ -449,7 +449,7 @@ Twoje centrum powiadomień jest teraz skonfigurowane do pracy z usługą GCM i u
         }
     }
     ```
-14. W programie Android Studio na pasku menu kliknij przycisk >  **Buduj****projekt przebudowy,** aby upewnić się, że w kodzie nie występują żadne błędy.
+14. W Android Studio na pasku menu kliknij kolejno pozycje **Kompiluj** > Kompiluj**ponownie projekt** , aby upewnić się, że w kodzie nie występują żadne błędy.
 
 ## <a name="testing-your-app"></a>Testowanie aplikacji
 
@@ -483,13 +483,13 @@ Możesz przetestować odbieranie powiadomień push w aplikacji, wysyłając je w
 
 Aby przetestować powiadomienia wypychane w emulatorze, upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, wystąpi wyjątek **SERVICE\_NOT\_AVAILABLE** (usługa niedostępna).
 
-Ponadto upewnij się, że konto Google zostało dodane do uruchomionego emulatora w obszarze**Konta** **ustawień** > . W przeciwnym razie próby rejestracji w usłudze GCM mogą spowodować wystąpienie wyjątku **AUTHENTICATION\_FAILED** (uwierzytelnianie nie powiodło się).
+Ponadto upewnij się, że dodano konto Google do działającego emulatora w obszarze **Ustawienia** > **konta**. W przeciwnym razie próby rejestracji w usłudze GCM mogą spowodować wystąpienie wyjątku **AUTHENTICATION\_FAILED** (uwierzytelnianie nie powiodło się).
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcjonalnie) Wysyłanie powiadomień wypychanych bezpośrednio z poziomu aplikacji
 
 Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych przypadkach warto wysyłać powiadomienia bezpośrednio z aplikacji klienta. W tej sekcji wyjaśniono sposób wysyłania powiadomień z klienta przy użyciu [interfejsu API REST usługi Azure Notification Hubs](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. W Android Studio Project View rozwiń**układ****res** > **główny** >  **aplikacji** > **App src** > . Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
+1. W widoku projektu Android Studio rozwiń węzeł **App** > **src** > **Main** > **res** > **layout**. Otwórz plik układu `activity_main.xml` i kliknij kartę **Text** (Tekst), aby zaktualizować zawartość tekstową pliku. Zaktualizuj go przy użyciu poniższego kodu, który dodaje nowe kontrolki `Button` i `EditText` służące do wysyłania komunikatów powiadomień wypychanych do centrum powiadomień. Dodaj ten kod w dolnej części bezpośrednio przed elementem `</RelativeLayout>`.
 
     ```xml
     <Button
@@ -510,7 +510,7 @@ Zwykle powiadomienia są wysyłane przy użyciu serwera zaplecza. W niektórych 
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
-2. W Android Studio Project View rozwiń**główne wartości****main** > **res** >  **aplikacji** > app**src** > . Otwórz plik `strings.xml` i dodaj wartości ciągu, do których odwołują się nowe kontrolki `Button` i `EditText`. Dodaj poniższe wiersze w dolnej części pliku, bezpośrednio przed elementem `</resources>`.
+2. W widoku projektu Android Studio rozwiń węzeł **App** > **src** > **Main** > **res** > **Values**. Otwórz plik `strings.xml` i dodaj wartości ciągu, do których odwołują się nowe kontrolki `Button` i `EditText`. Dodaj poniższe wiersze w dolnej części pliku, bezpośrednio przed elementem `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
@@ -746,4 +746,4 @@ W tym samouczku wysłano wyemitowane powiadomienia do wszystkich urządzeń z sy
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

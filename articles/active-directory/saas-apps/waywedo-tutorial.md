@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory ze sposobem, w jaki robimy | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a sposobem, w jaki to robimy.
+title: 'Samouczek: integracja Azure Active Directory ze sposobem | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i sposobami wykonywania tych czynności.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,177 +17,177 @@ ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faa23f61e5a213c492a7fb51bfc5b108e5c77946
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67310405"
 ---
-# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Samouczek: Integruj sposób, w jaki robimy z usługą Azure Active Directory
+# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Samouczek: Integrujmy się z Azure Active Directory
 
-W tym samouczku dowiesz się, jak zintegrować sposób, w jaki robimy z usługą Azure Active Directory (Azure AD). Po zintegrowaniu way we do z usługą Azure AD, można:
+W tym samouczku dowiesz się, jak zintegrować się z Azure Active Directory (Azure AD). Po zintegrowaniu metody z usługą Azure AD możesz:
 
-* Kontrola w usłudze Azure AD, który ma dostęp do way we do.
-* Włącz użytkownikom automatyczne logowanie się do sposobu, w jaki robimy z ich kontami usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+* Kontrolka w usłudze Azure AD, która ma dostęp do metody.
+* Umożliwiaj użytkownikom automatyczne logowanie się w sposób umożliwiający korzystanie z kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby rozpocząć, potrzebujesz następujących elementów:
+Aby rozpocząć, potrzebne są następujące elementy:
 
-* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać miesięczny bezpłatny okres próbny [tutaj](https://azure.microsoft.com/pricing/free-trial/).
-* Way We Do subskrypcji logowania jednokrotnego (SSO).
+* Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz skorzystać z miesięcznej [bezpłatnej wersji](https://azure.microsoft.com/pricing/free-trial/)próbnej.
+* Sposób obsługi rejestracji jednokrotnej (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można skonfigurować i przetestować samouszeńców usługi Azure AD w środowisku testowym.
+W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Way We Do **obsługuje** sp zainicjowane SSO
-* Way We Do obsługuje **just in time** użytkownika inicjowania obsługi administracyjnej
+* W ten sposób obsługujemy Logowanie jednokrotne zainicjowane przez usługę **SP**
+* Sposób, w jaki obsługujemy Inicjowanie obsługi użytkowników **just in Time**
 
-## <a name="adding-way-we-do-from-the-gallery"></a>Dodawanie sposobu, w jaki robimy z galerii
+## <a name="adding-way-we-do-from-the-gallery"></a>Dodawanie sposobu z galerii
 
-Aby skonfigurować integrację sposobu, w jaki robimy w usłudze Azure AD, należy dodać sposób, w jaki robimy z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację sposobu wykonywania w usłudze Azure AD, musisz dodać sposób z galerii do listy zarządzanych aplikacji SaaS.
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy użyciu konta służbowego lub konta firmy Microsoft.
-1. W lewym okienku nawigacji wybierz usługę **Azure Active Directory.**
-1. Przejdź do **aplikacji korporacyjnych,** a następnie wybierz pozycję **Wszystkie aplikacje**.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
+1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **way We Do** w polu wyszukiwania.
-1. Wybierz **sposób, w jaki robimy** z panelu wyników, a następnie dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wpisz **sposób** w polu wyszukiwania.
+1. Wybierz **metodę** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-Konfigurowanie i testowanie samouszeńców usługi Azure AD za pomocą funkcji Way We Do przy użyciu użytkownika testowego o nazwie **B.Simon**. Aby użytkownik łączony sytuować działał, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w sposób, w jaki to robimy.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w taki sposób.
 
-Aby skonfigurować i przetestować samouszeńców usługi Azure AD za pomocą way we do, wykonaj następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj samouszeńcę usługi Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj sposób, w jaki robimy logowanie jednokrotne](#configure-way-we-do-sso)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
+2. **[Skonfiguruj sposób rejestracji jednokrotnej](#configure-way-we-do-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Way We Do](#create-way-we-do-test-user)** — aby mieć odpowiednik Britta Simon w sposób robimy, który jest połączony z reprezentacją użytkownika usługi Azure AD.
-6. **[Test SSO](#test-sso)** - aby sprawdzić, czy konfiguracja działa.
+5. **[Utwórz sposób testowania użytkownika](#create-way-we-do-test-user)** — Aby uzyskać odpowiednik usługi Britta Simon w taki sposób, że jest on połączony z reprezentacją użytkownika w usłudze Azure AD.
+6. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć usługę Azure AD SSO w witrynie Azure portal.
+Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **Sposób, w jaki wykonujemy,** znajdź sekcję **Zarządzaj** i wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie **sposób** integracji aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą saml** kliknij ikonę edycji/pióra dla **podstawowej konfiguracji SAML,** aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. Na stronie **Podstawowa konfiguracja SAML** wprowadź wartości dla następujących pól:
+1. Na stronie **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://<SUBDOMAIN>.waywedo.com`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej Way We Do Client,](mailto:support@waywedo.com) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta](mailto:support@waywedo.com) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego z saml** w sekcji **Saml Podpisywanie certyfikatów** znajdź **certyfikat (raw)** i wybierz **pozycję Pobierz,** aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (RAW)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
    ![Link do pobierania certyfikatu](common/certificateraw.png)
 
-1. W sekcji **Konfigurowanie sposobu, w jaki robimy,** skopiuj odpowiednie adresy URL na podstawie wymagań.
+1. Na stronie **Konfigurowanie** należy skopiować odpowiednie adresy URL zgodnie z wymaganiami.
 
    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
-### <a name="configure-way-we-do-sso"></a>Skonfiguruj sposób, w jaki robimy sytą dla pracowników sytego
+### <a name="configure-way-we-do-sso"></a>Skonfiguruj sposób logowania jednokrotnego
 
-1. Aby zautomatyzować konfigurację w ramach Way We Do, musisz zainstalować **rozszerzenie przeglądarki My Apps Secure Sign-in,** klikając pozycję Zainstaluj **rozszerzenie**.
+1. Aby zautomatyzować konfigurację w taki sposób, musisz zainstalować **Moje aplikacje bezpieczne logowanie do przeglądarki** , klikając pozycję **Zainstaluj rozszerzenie**.
 
-    ![Rozszerzenie Moje aplikacje](common/install-myappssecure-extension.png)
+    ![Rozszerzenie moje aplikacje](common/install-myappssecure-extension.png)
 
-1. Po dodaniu rozszerzenia do przeglądarki, kliknij **Setup Way We Do** skieruje Cię do aplikacji Way We Do. Stamtąd podaj poświadczenia administratora, aby zalogować się do Way We Do. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację dla Ciebie i zautomatyzuje kroki 3-6.
+1. Po dodaniu rozszerzenia do przeglądarki kliknij pozycję **Konfiguracja** , aby przekierować Cię do aplikacji. Z tego miejsca podaj poświadczenia administratora, aby zalogować się w sposób. Rozszerzenie przeglądarki automatycznie skonfiguruje aplikację i automatyzuje kroki 3-6.
 
-    ![Konfiguracja instalacji](common/setup-sso.png)
+    ![Konfiguracja konfiguracji](common/setup-sso.png)
 
-1. Jeśli chcesz ręcznie skonfigurować way we do, otwórz nowe okno przeglądarki internetowej i zaloguj się do witryny firmy Way We Do jako administrator i wykonaj następujące czynności:
+1. Jeśli chcesz skonfigurować sposób ręcznej instalacji, Otwórz nowe okno przeglądarki sieci Web i zaloguj się do swojej firmy jako administrator i wykonaj następujące czynności:
 
-1. Kliknij **ikonę osoby** w prawym górnym rogu dowolnej strony w polu Way We Do, a następnie kliknij **pozycję Konto** w menu rozwijanym.
+1. Kliknij **ikonę osoby** w prawym górnym rogu dowolnej strony w sposób, a następnie kliknij pozycję **konto** w menu rozwijanym.
 
-    ![Konto Way We Do](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+    ![Sposób konta](./media/waywedo-tutorial/tutorial_waywedo_account.png)
 
-1. Kliknij **ikonę menu,** aby otworzyć menu nawigacji push, a następnie kliknij **pozycję Zaloguj się jednokrotnie**.
+1. Kliknij **ikonę menu** , aby otworzyć menu nawigacji wypychanej, a następnie kliknij pozycję **Logowanie jednokrotne**.
 
-    ![Sposób, w jaki robimy singiel](./media/waywedo-tutorial/tutorial_waywedo_single.png)
+    ![Jak to zrobisz](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
-1. Na stronie **Ustawienia logowania jednokrotnego** wykonaj następujące czynności:
+1. Na stronie **Konfiguracja logowania** jednokrotnego wykonaj następujące czynności:
 
-    ![Sposób, w jaki oszczędzamy](./media/waywedo-tutorial/tutorial_waywedo_save.png)
+    ![Sposób zapisywania](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Kliknij przełącznik **Włącz logowanie jednokrotne na** **Tak,** aby włączyć logowanie jednokrotne.
+    a. Kliknij przełącznik **Logowanie** jednokrotne **, aby włączyć** Logowanie jednokrotne.
 
-    b. W polach **tekstowych Nazwa logowania jednokrotnego** wprowadź swoje imię i nazwisko.
+    b. W polu tekstowym **Nazwa logowania** jednokrotnego wprowadź swoją nazwę.
 
-    d. W polu tekstowym **identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD,** który został skopiowany z witryny Azure portal.
+    c. W polu tekstowym **Identyfikator jednostki** wklej wartość **identyfikatora usługi Azure AD**, który został skopiowany z Azure Portal.
 
     d. W polu tekstowym **Adres URL logowania jednokrotnego protokołu SAML** wklej wartość **adresu URL logowania** skopiowaną z witryny Azure Portal.
 
-    e. Prześlij certyfikat, klikając przycisk **wybierz** obok **pozycji Certyfikat**.
+    e. Przekaż certyfikat, klikając przycisk **Wybierz** obok pozycji **certyfikat**.
 
     f. **Ustawienia opcjonalne** -
     
-    * Włącz hasła — gdy ta opcja jest wyłączona, regularne funkcje hasła dla Way We Do, aby użytkownicy mogli używać tylko logowania jednokrotnego.
+    * Włącz hasła — Jeśli ta opcja jest wyłączona, funkcja regularnego hasła w taki sposób, aby użytkownicy mogli korzystać tylko z rejestracji jednokrotnej.
 
-    * Włącz automatyczne inicjowanie obsługi administracyjnej — po włączeniu, adres e-mail używany do logowania zostanie automatycznie porównany z listą użytkowników w sposób robimy. Jeśli adres e-mail nie jest zgodny z aktywnym użytkownikiem w way we do, automatycznie dodaje nowe konto użytkownika dla osoby logującej się, żądając brakujących informacji.
+    * Włącz automatyczną obsługę administracyjną — Jeśli ta funkcja jest włączona, adres e-mail używany do logowania zostanie automatycznie porównany z listą użytkowników w taki sposób. Jeśli adres e-mail nie jest zgodny z aktywnym użytkownikiem w ten sposób, automatycznie dodaje nowe konto użytkownika dla osoby podpisującej, żądając wszelkich brakujących informacji.
 
       > [!NOTE]
-      > Użytkownicy dodani za pośrednictwem logowania jednokrotnego są dodawane jako użytkownicy ogólne i nie są przypisane rolę w systemie. Administrator może wejść i zmodyfikować swoją rolę zabezpieczeń jako edytor lub administrator, a także przypisać jedną lub kilka ról schematu organizacyjnego.
+      > Użytkownicy dodani za pomocą logowania jednokrotnego są dodawani jako użytkownicy ogólna i nie mają przypisanej roli w systemie. Administrator może przejść i zmodyfikować ich rolę zabezpieczeń jako edytora lub administratora, a także przypisać jedną lub kilka ról schematu organizacyjnego.
 
-    g. Kliknij **przycisk Zapisz,** aby utrwalić ustawienia.
+    g. Kliknij przycisk **Zapisz** , aby zachować ustawienia.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w witrynie Azure portal o nazwie B.Simon.
+W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. Z lewego okienka w witrynie Azure portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
-1. We właściwościach **Użytkownika** wykonaj następujące kroki:
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** username@companydomain.extensionwprowadź pole . Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz B.Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do way we do.
+W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do swoich potrzeb.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **Wszystkie aplikacje**.
-1. Na liście aplikacji wybierz opcję **Sposób, w jaki robimy**.
-1. Na stronie przegląd aplikacji znajdź sekcję **Zarządzaj** i wybierz pozycję **Użytkownicy i grupy**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Na liście Aplikacje wybierz metodę, którą **zrobimy**.
+1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
 
-1. Wybierz **pozycję Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** w oknie dialogowym Dodawanie **przydziału.**
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
 
-    ![Łącze Dodaj użytkownika](common/add-assign-user.png)
+    ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B.Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
-1. W oknie dialogowym **Dodawanie przydziału** kliknij przycisk **Przypisz.**
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-### <a name="create-way-we-do-test-user"></a>Utwórz sposób, w jaki testujemy użytkownika
+### <a name="create-way-we-do-test-user"></a>Utwórz sposób testowania użytkownika
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Sposób Robimy. Way We Do obsługuje just-in-time inicjowania obsługi administracyjnej użytkowników, który jest domyślnie włączony. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w sposób robimy, nowy jest tworzony po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon został utworzony w sposób. W ten sposób obsługujemy funkcję aprowizacji użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje, zostanie utworzony nowy po uwierzytelnieniu.
 
 > [!Note]
-> Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej Way We Do Client](mailto:support@waywedo.com).
+> Jeśli musisz ręcznie utworzyć użytkownika, skontaktuj się z nami, aby skontaktować się z [zespołem obsługi klienta](mailto:support@waywedo.com).
 
-### <a name="test-sso"></a>Test SSO
+### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-Po wybraniu kafelka Way We Do w Panelu dostępu należy automatycznie zalogować się do sposobu, w jaki robimy, dla którego skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu sposobu, w jaki przejdziemy do kafelka w panelu dostępu, należy zalogować się automatycznie w sposób, w jaki skonfigurujesz Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
