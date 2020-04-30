@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072698"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203271"
 ---
 # <a name="add-an-api-manually"></a>Ręczne dodawanie interfejsu API
 
@@ -35,24 +35,14 @@ Wykonaj procedury przedstawione w następującym przewodniku Szybki start: [Twor
 
 ## <a name="create-an-api"></a>Tworzenie interfejsu API
 
-1. Wybierz pozycję **Interfejsy API** w obszarze **API MANAGEMENT**.
+1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
 2. Z menu po lewej stronie wybierz pozycję **+ Dodaj interfejs API**.
-3. Z listy wybierz pozycję **Pusty interfejs API**.
+3. Z listy wybierz pozycję **Pusty interfejs API**.  
+    ![Pusty interfejs API](media/add-api-manually/blank-api.png)  
+4. Wprowadź ustawienia interfejsu API. Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+5. Wybierz przycisk **Utwórz**.
 
-    ![Pusty interfejs API](media/add-api-manually/blank-api.png)
-4. Wprowadź ustawienia interfejsu API.
-
-    |**Nazwa**|**Wartość**|**Opis**|
-    |---|---|---|
-    |**Nazwa wyświetlana**|*Pusty interfejs API*|Ta nazwa jest wyświetlana w portalu dla deweloperów.|
-    |**Nazwa**|*pusty api*|Zapewnia unikatową nazwę interfejsu API.|
-    |**Adres URL usługi internetowej** (opcjonalnie)|*https://httpbin.org*| Jeśli chcesz pozorować interfejs API, możesz nie wprowadzać żadnych informacji. <br/>W takim przypadku [https://httpbin.org](https://httpbin.org)wprowadzamy . Jest to publiczna usługa testowania. <br/>Jeśli chcesz zaimportować interfejs API, który jest automatycznie mapowany na zaplecze, zapoznaj się z jednym z tematów w sekcji [tematów pokrewnych](#related-topics).|
-    |**Schemat adresu URL**|*HTTP*|W takim przypadku nawet jeśli zaplecze ma niezabezpieczony dostęp przez protokół HTTP, określamy bezpieczny dostęp usługi APIM przez protokół HTTPS do zaplecza. <br/>Taki scenariusz (HTTPS do HTTP) jest nazywany zakończeniem połączenia HTTPS. Tę czynność można wykonać, jeśli w sieci wirtualnej istnieje interfejs API (jeśli wiadomo, że dostęp jest zabezpieczony, nawet jeśli protokół HTTPS nie jest używany). <br/>Procesu „zakończenia połączenia HTTPS” można użyć, aby zaoszczędzić czas w przypadku niektórych cykli procesora.|
-    |**Sufiks adresu URL**|*hbin (hbin)*| Sufiks to nazwa, która identyfikuje dany interfejs API w tym wystąpieniu usługi APIM. Musi ona być unikatowa w tym wystąpieniu usługi APIM.|
-    |**Produkty**|*Unlimited (nieograniczony)*|Opublikuj interfejs API przez skojarzenie go z produktem. Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.<br/><br/>Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. <br/>Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie usługi APIM, oznacza to, że użytkownik jest już administratorem, więc domyślnie posiada subskrypcję każdego produktu.<br/><br/> Domyślnie każde wystąpienie usługi API Management zawiera dwa produkty przykładowe: **Starter** i **Unlimited**.| 
-5. Wybierz **pozycję Utwórz**.
-
-W tym momencie w usłudze APIM nie ma żadnych operacji mapowanych na operacje w interfejsie API zaplecza. Jeśli wywołasz operację, która jest uwidaczniana za pośrednictwem zaplecza, a nie usługi APIM, może wystąpić błąd **404**.
+W tym momencie nie masz żadnych operacji w API Management, które mapują operacje w interfejsie API zaplecza. Jeśli wywołasz operację, która jest dostępna za pomocą zaplecza, ale nie za pomocą API Management, uzyskasz **404**.
 
 >[!NOTE] 
 > Domyślnie po dodaniu interfejsu API, nawet jeśli został on połączony z usługą zaplecza, usługa APIM nie uwidoczni żadnych operacji do momentu umieszczenia ich na liście dozwolonych. Aby umieścić operację usługi zaplecza na liście dozwolonych, utwórz operację APIM mapowaną na operację zaplecza.
@@ -67,7 +57,7 @@ W tej sekcji przedstawiono sposób dodawania operacji „/ get” w celu mapowan
 2. Kliknij przycisk **+ Dodaj operację**.
 3. W polu **adresu URL** wybierz pozycję **GET**, a następnie wprowadź ciąg „*/get*” w zasobie.
 4. Wprowadź ciąg „*FetchData*” w polu **Nazwa wyświetlana**.
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 ### <a name="test-an-operation"></a>Testowanie operacji
 
@@ -89,7 +79,7 @@ W tej sekcji przedstawiono sposób dodawania operacji przyjmującej parametr. W 
 2. Kliknij przycisk **+ Dodaj operację**.
 3. W polu **adresu URL** wybierz pozycję **GET**, a następnie wprowadź ciąg „*/status/{code}*” w zasobie. Opcjonalnie możesz podać niektóre informacje skojarzone z tym parametrem. Na przykład wprowadź wartość „*Numer*” w obszarze **TYP** i „*200*” (wartość domyślna) w obszarze **WARTOŚCI**.
 4. Wprowadź ciąg „GetStatus” w polu **Nazwa wyświetlana**.
-5. Wybierz **pozycję Zapisz**.
+5. Wybierz pozycję **Zapisz**.
 
 ### <a name="test-the-operation"></a>Testowanie operacji 
 

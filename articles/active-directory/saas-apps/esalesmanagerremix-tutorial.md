@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "65406948"
+ms.locfileid: "82202400"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integracja Azure Active Directory z programem E Sales Manager Remix
 
@@ -158,7 +158,7 @@ Włącz logowanie jednokrotne usługi Azure AD w Azure Portal i skonfiguruj Logo
     
     b. Z listy rozwijanej w sekcji **element współpracy** wybierz pozycję **poczta e-mail**.
 
-    c. W polu **element współpracy** wklej wartość pola, która została skopiowana wcześniej z Azure Portal (czyli **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. W polu **element współpracy** wklej wartość pola, która została skopiowana wcześniej z Azure Portal (czyli **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
     d. W polu **wystawca (identyfikator jednostki)** wklej wartość identyfikatora, która została skopiowana wcześniej z sekcji **Remix i adresy URL programu E Sales Manager** w Azure Portal.
 
@@ -270,7 +270,7 @@ Po wybraniu kafelka Remix E Sales Manager w panelu dostępu użytkownik powinien
 
 Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](../user-help/active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

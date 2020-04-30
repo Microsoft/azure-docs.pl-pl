@@ -8,41 +8,41 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758325"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203974"
 ---
-Ten szybki start oparty na cURL przeprowadzi Cię przez uzyskanie odpowiedzi z bazy wiedzy.
+Ten przewodnik Szybki Start przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Najnowsze [**cURL**](https://curl.haxx.se/).
+* Najnowsze [**zwinięcie**](https://curl.haxx.se/).
 * Musisz mieć
-    * [Usługa QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
-    * Wyszkolona i opublikowana baza wiedzy z pytaniami i odpowiedziami z poprzedniego [przewodnika Szybki start,](../Quickstarts/add-question-metadata-portal.md)skonfigurowana z metadanymi i czatem Chit.
+    * [Usługa QNA Maker](../How-To/set-up-qnamaker-service-azure.md)
+    * Przeszkolony i opublikowany baza wiedzy z pytaniami i odpowiedziami, z poprzedniego [przewodnika Szybki Start](../Quickstarts/add-question-metadata-portal.md), skonfigurowanych za pomocą metadanych i Chit Chat.
 
 > [!NOTE]
-> Gdy jesteś gotowy do wygenerowania odpowiedzi na pytanie z bazy wiedzy, musisz [wyszkolić](../Quickstarts/create-publish-knowledge-base.md#save-and-train) i [opublikować](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) swoją bazę wiedzy. Po opublikowaniu bazy wiedzy na stronie **Publikowanie** zostaną wyświetlone ustawienia żądania HTTP do generowania odpowiedzi. Karta **cURL** pokazuje ustawienia wymagane do wygenerowania odpowiedzi z narzędzia wiersza polecenia.
+> Gdy wszystko jest gotowe do wygenerowania odpowiedzi na pytanie z bazy wiedzy, należy przeprowadzić [uczenie](../Quickstarts/create-publish-knowledge-base.md#save-and-train) i [opublikować](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) bazę wiedzy. Po opublikowaniu bazy wiedzy na stronie **Publikowanie** zostaną wyświetlone ustawienia żądania HTTP do generowania odpowiedzi. Na karcie **zwinięcie** są wyświetlane ustawienia wymagane do wygenerowania odpowiedzi z narzędzia wiersza polecenia.
 
-## <a name="use-metadata-to-filter-answer"></a>Filtrowanie odpowiedzi za pomocą metadanych
+## <a name="use-metadata-to-filter-answer"></a>Filtrowanie odpowiedzi przy użyciu metadanych
 
-Użyj bazy wiedzy z poprzedniego szybkiego zapytania o odpowiedź na podstawie metadanych.
+Skorzystaj z bazy wiedzy z poprzedniej szybkiej kwerendy, aby uzyskać odpowiedzi na podstawie metadanych.
 
-1. Na stronie **Ustawienia** bazy wiedzy wybierz kartę **CURL,** aby wyświetlić przykładowe polecenie cURL używane do generowania odpowiedzi z bazy wiedzy.
-1. Skopiuj polecenie do edytowalnego środowiska (takiego jak plik tekstowy), aby można było edytować polecenie. Edytuj wartość pytania w następujący sposób, `service:qna_maker` tak aby metadane są używane jako filtr dla par QnA.
+1. Na stronie **Ustawienia** bazy wiedzy wybierz kartę **zwinięcie** , aby zobaczyć przykładowe polecenie zwinięcie użyte do wygenerowania odpowiedzi z bazy wiedzy.
+1. Skopiuj polecenie do środowiska do edycji (takiego jak plik tekstowy), aby można było edytować polecenie. Edytuj wartość pytania w następujący sposób, aby metadane `service:qna_maker` są używane jako filtr par QNA.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Pytanie jest tylko jedno `size`słowo, które może zwrócić jedną z dwóch par QnA. Tablica `strictFilters` informuje odpowiedzi, aby `qna_maker` zmniejszyć tylko odpowiedzi.
+    Pytanie jest tylko pojedynczym słowem, `size`które może zwracać jedną z dwóch par QNA. `strictFilters` Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
 
-1. Odpowiedź zawiera tylko odpowiedź, która spełnia kryteria filtru. Następująca odpowiedź cURL została sformatowana pod kątem czytelności:
+1. Odpowiedź zawiera tylko odpowiedź, która spełnia kryteria filtru. Następująca odpowiedź programu zwinięcie została sformatowana w celu zapewnienia czytelności:
 
     ```JSON
     {
@@ -77,23 +77,23 @@ Użyj bazy wiedzy z poprzedniego szybkiego zapytania o odpowiedź na podstawie m
     }
     ```
 
-    Jeśli istnieje zestaw pytań i odpowiedzi, który nie spełnia wyszukiwanego hasła, ale spełnia filtr, nie zostanie zwrócony. Zamiast tego zwracana `No good match found in KB.` jest ogólna odpowiedź.
+    Jeśli istnieje pytanie i odpowiedź, które nie spełniły wyszukiwanego terminu, ale spełniały filtr, nie zostanie on zwrócony. Zamiast tego jest zwracana ogólna `No good match found in KB.` odpowiedź.
 
-## <a name="use-debug-query-property"></a>Użyj właściwości kwerendy debugowania
+## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
 
-Informacje debugowania pomaga zrozumieć, jak zwrócona odpowiedź została określona. Chociaż jest to pomocne, nie jest to konieczne. Aby wygenerować odpowiedź z `debug` informacjami debugowania, dodaj właściwość:
+Informacje debugowania pomagają zrozumieć, w jaki sposób została określona zwrócona odpowiedź. Chociaż jest to przydatne, nie jest to konieczne. Aby wygenerować odpowiedź z informacjami o debugowaniu, Dodaj `debug` Właściwość:
 
 ```json
 Debug: {Enable:true}
 ```
 
-1. Edytuj polecenie cURL, aby dołączyć właściwość debugowania, aby wyświetlić więcej informacji.
+1. Edytuj zwinięcie polecenia, aby dołączyć Właściwość Debug, aby wyświetlić więcej informacji.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
 
-1. Odpowiedź zawiera istotne informacje na temat odpowiedzi. W następujących danych wyjściowych JSON niektóre szczegóły debugowania zostały zastąpione wielokropkiem dla zwięzłości.
+1. Odpowiedź zawiera odpowiednie informacje dotyczące odpowiedzi. W poniższych danych wyjściowych JSON niektóre szczegóły debugowania zostały zastąpione wielokropkiem dla zwięzłości.
 
     ```console
     {
@@ -185,7 +185,7 @@ Debug: {Enable:true}
 
 ## <a name="use-test-knowledge-base"></a>Korzystanie z bazy wiedzy testowej
 
-Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj właściwości `isTest` body.
+Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj właściwości `isTest` Body.
 
 Właściwość jest wartością logiczną.
 
@@ -193,26 +193,26 @@ Właściwość jest wartością logiczną.
 isTest:true
 ```
 
-Polecenie cURL wygląda następująco:
+Zwinięcie polecenia wygląda następująco:
 
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
 
-Odpowiedź JSON używa tego samego schematu, co opublikowane zapytanie bazy wiedzy.
+Odpowiedź JSON używa tego samego schematu co opublikowana kwerenda bazy wiedzy.
 
 > [!NOTE]
-> Jeśli test i opublikowane bazy wiedzy są dokładnie takie same, nadal mogą występować pewne niewielkie różnice, ponieważ indeks testu jest współużytkowany przez wszystkie bazy wiedzy w zasobie.
+> Jeśli testy i opublikowane bazy wiedzy są dokładnie takie same, nadal może być niewielka odmiana, ponieważ indeks testu jest współużytkowany przez wszystkie bazy wiedzy w zasobie.
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Użyj cURL do kwerendy dla odpowiedzi Chit-chat
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Użyj Zwinięciea, aby wykonać zapytanie o odpowiedź Chit-Chat
 
-1. W terminalu z obsługą cURL użyj instrukcji zakończenia konwersacji `Thank you` bota od użytkownika, takiej jak pytanie. Nie ma żadnych innych właściwości do skonfigurowania.
+1. W terminalu z włączoną funkcją wypełniania należy użyć instrukcji bot-kończącej konwersację od użytkownika, `Thank you` na przykład w przypadku pytania. Nie ma żadnych innych właściwości do ustawienia.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
 
-1. Uruchom polecenie cURL i odbierz odpowiedź JSON, w tym wynik i odpowiedź.
+1. Uruchom polecenie zwinięcie i odbierz odpowiedź JSON, łącznie z oceną i odpowiedzią.
 
     ```json
     {
@@ -294,19 +294,19 @@ Odpowiedź JSON używa tego samego schematu, co opublikowane zapytanie bazy wied
     }
     ```
 
-    Ponieważ pytanie `Thank you` było dokładnie zgodne z pytaniem w konwersacji, usługa QnA Maker jest całkowicie pewna odpowiedzi (ocena 100%). Program QnA Maker zwrócił również wszystkie powiązane pytania, a także właściwość metadanych zawierającą informacje o tagu metadanych chit-chat.
+    Ponieważ pytanie `Thank you` było dokładnie zgodne z pytaniem w konwersacji, usługa QnA Maker jest całkowicie pewna odpowiedzi (ocena 100%). QnA Maker zwrócić także wszystkie powiązane pytania, a także Właściwość metadanych zawierająca informacje znacznika metadanych Chit-Chat.
 
-## <a name="use-curl-with-threshold-and-default-answer"></a>Używanie cURL z odpowiedzią progową i domyślną
+## <a name="use-threshold-and-default-answer"></a>Użyj wartości progowej i domyślnej odpowiedzi
 
-Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie zostanie osiągnięty, zwracana jest odpowiedź domyślna.
+Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony, zostanie zwrócona odpowiedź domyślna.
 
-1. Użyj następującego polecenia cURL, zastępując własną nazwą zasobu, identyfikatorem bazy wiedzy i `size` kluczem punktu końcowego, aby poprosić o odpowiedź z progiem 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ wynik pytania wynosi 71%, a zamiast tego zwraca domyślną odpowiedź podana podczas tworzenia bazy wiedzy.
+1. Dodaj `threshold` właściwość w celu uzyskania odpowiedzi na odpowiedź `size` z progiem równym 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ Ocena pytania wynosi 71%. Wynik zwraca domyślną odpowiedź podaną podczas tworzenia bazy wiedzy.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
 
-1. Uruchom polecenie cURL i odbierz odpowiedź JSON, w tym wynik i odpowiedź.
+1. Uruchom polecenie zwinięcie i odbierz odpowiedź JSON.
 
     ```json
     {
@@ -325,128 +325,15 @@ Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie zostanie osiąg
     }
     ```
 
-    QnA Maker zwrócił `0`wynik , co oznacza brak zaufania. Zwrócono również odpowiedź domyślną.
+    QnA Maker zwrócił wynik `0`, co oznacza brak pewności. Zwraca również odpowiedź domyślną.
 
-    ```json
-    {
-      "answers": [
-          {
-              "questions": [
-                  "I thank you",
-                  "Oh, thank you",
-                  "My sincere thanks",
-                  "My humblest thanks to you",
-                  "Marvelous, thanks",
-                  "Marvelous, thank you kindly",
-                  "Marvelous, thank you",
-                  "Many thanks to you",
-                  "Many thanks",
-                  "Kthx",
-                  "I'm grateful, thanks",
-                  "Ahh, thanks",
-                  "I'm grateful for that, thank you",
-                  "Perfecto, thanks",
-                  "I appreciate you",
-                  "I appreciate that",
-                  "I appreciate it",
-                  "I am very thankful for that",
-                  "How kind, thank you",
-                  "Great, thanks",
-                  "Great, thank you",
-                  "Gracias",
-                  "Gotcha, thanks",
-                  "Gotcha, thank you",
-                  "Awesome thanks!",
-                  "I'm grateful for that, thank you kindly",
-                  "thank you pal",
-                  "Wonderful, thank you!",
-                  "Wonderful, thank you very much",
-                  "Why thank you",
-                  "Thx",
-                  "Thnx",
-                  "That's very kind",
-                  "That's great, thanks",
-                  "That is lovely, thanks",
-                  "That is awesome, thanks!",
-                  "Thanks bot",
-                  "Thanks a lot",
-                  "Okay, thanks!",
-                  "Thank you so much",
-                  "Perfect, thanks",
-                  "Thank you my friend",
-                  "Thank you kindly",
-                  "Thank you for that",
-                  "Thank you bot",
-                  "Thank you",
-                  "Right on, thanks very much",
-                  "Right on, thanks a lot",
-                  "Radical, thanks",
-                  "Rad, thanks",
-                  "Rad thank you",
-                  "Wonderful, thanks!",
-                  "Thanks"
-              ],
-              "answer": "You're welcome.",
-              "score": 100.0,
-              "id": 75,
-              "source": "qna_chitchat_Professional.tsv",
-              "metadata": [
-                  {
-                      "name": "editorial",
-                      "value": "chitchat"
-                  }
-              ],
-              "context": {
-                  "isContextOnly": false,
-                  "prompts": []
-              }
-          }
-      ],
-      "debugInfo": null,
-      "activeLearningEnabled": true
-    }
-    ```
-
-    Ponieważ pytanie `Thank you` było dokładnie zgodne z pytaniem w konwersacji, usługa QnA Maker jest całkowicie pewna odpowiedzi (ocena 100%). Program QnA Maker zwrócił również wszystkie powiązane pytania, a także właściwość metadanych zawierającą informacje o tagu metadanych chit-chat.
-
-## <a name="use-curl-with-threshold-and-default-answer"></a>Używanie cURL z odpowiedzią progową i domyślną
-
-Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie zostanie osiągnięty, zwracana jest odpowiedź domyślna.
-
-1. Dodaj `threshold` właściwość, aby poprosić o odpowiedź `size` z progiem 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ wynik pytania wynosi 71%. Wynik zwraca domyślną odpowiedź podana podczas tworzenia bazy wiedzy.
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
-    ```
-
-1. Uruchom polecenie cURL i odbierz odpowiedź JSON.
-
-    ```json
-    {
-        "answers": [
-            {
-                "questions": [],
-                "answer": "No good match found in KB.",
-                "score": 0.0,
-                "id": -1,
-                "source": null,
-                "metadata": []
-            }
-        ],
-        "debugInfo": null,
-        "activeLearningEnabled": true
-    }
-    ```
-
-    QnA Maker zwrócił `0`wynik , co oznacza brak zaufania. Zwrócono również odpowiedź domyślną.
-
-1. Zmień wartość progową na 60% i ponownie zażądaj kwerendy:
+1. Zmień wartość progową na 60% i ponownie Zażądaj zapytania:
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
 
-    Zwrócony JSON znalazł odpowiedź.
+    Zwrócony kod JSON znalazł odpowiedź.
 
     ```json
     {

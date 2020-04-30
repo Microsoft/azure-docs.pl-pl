@@ -1,18 +1,18 @@
 ---
-title: 'Szybki start: uruchamianie aplikacji Linux ASP.NET Core'
-description: Rozpocznij pracę z aplikacjami systemu Linux w usłudze Azure App Service, wdrażając pierwszą aplikację ASP.NET Core w kontenerze systemu Linux w usłudze App Service.
+title: 'Szybki Start: uruchamianie aplikacji ASP.NET Core systemu Linux'
+description: Zacznij korzystać z aplikacji systemu Linux na Azure App Service, wdrażając pierwszą aplikację ASP.NET Core do kontenera systemu Linux w App Service.
 keywords: azure app service, aplikacja internetowa, dotnet, core, linux, oss
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 349aa4652ae9f52641b5865e48dcd4c113ca7f9d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 1eeb5bbd4b10ef660a50f40d6c1300b0ca214561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086298"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206678"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Tworzenie aplikacji platformy ASP.NET Core w usłudze App Service dla systemu Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "82086298"
 > W tym artykule opisano wdrażanie aplikacji w usłudze App Service w systemie Linux. Aby wdrożyć aplikację w usłudze App Service w systemie _Windows_, zobacz [Tworzenie aplikacji ASP.NET Core na platformie Azure](../app-service-web-get-started-dotnet.md).
 >
 
-[Usługa App Service w systemie Linux](app-service-linux-intro.md) zapewnia wysoce skalowalną, samoładującą się usługę hostingową przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](https://docs.microsoft.com/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji.
+[App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ten przewodnik szybkiego startu pokazuje, jak utworzyć aplikację platformy [.NET Core](https://docs.microsoft.com/aspnet/core/) w usłudze App Service w systemie Linux. Aplikację możesz utworzyć przy użyciu [interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), a usługa Git umożliwia wdrażanie kodu platformy .NET Core w aplikacji.
 
 ![Przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -33,7 +33,7 @@ Kroki podane w tym artykule możesz wykonać przy użyciu komputera z systemem M
 Aby ukończyć ten przewodnik Szybki start:
 
 * <a href="https://git-scm.com/" target="_blank">Zainstaluj oprogramowanie Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Zainstaluj najnowszy pakiet .NET Core SDK 3.1</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Zainstaluj najnowszą wersję zestawu SDK platformy .NET Core 3,1</a>
 
 ## <a name="create-the-app-locally"></a>Lokalne tworzenie aplikacji
 
@@ -86,7 +86,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Przejdź do nowo utworzonej aplikacji. Zamień _ &lt;nazwę aplikacji>_ nazwą aplikacji.
+Przejdź do nowo utworzonej aplikacji. Zastąp _ &lt;ciąg App-Name>_ nazwą aplikacji.
 
 ```bash
 https://<app-name>.azurewebsites.net
@@ -154,7 +154,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Po zakończeniu wdrażania przełącz się z powrotem do okna przeglądarki, które zostało otwarte w kroku **Przeglądaj do aplikacji,** i naciśnij przycisk odświeżania.
+Po zakończeniu wdrożenia przejdź z powrotem do okna przeglądarki otwartego w kroku **Przejdź do aplikacji** , a następnie kliknij przycisk Odśwież.
 
 ![Zaktualizowana przykładowa aplikacja działająca na platformie Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
@@ -177,7 +177,7 @@ Menu po lewej stronie zawiera różne strony służące do konfigurowania aplika
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: ASP.NET podstawowa aplikacja z bazą danych SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Samouczek: ASP.NET Core aplikacji z SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie aplikacji ASP.NET Core](configure-language-dotnetcore.md)

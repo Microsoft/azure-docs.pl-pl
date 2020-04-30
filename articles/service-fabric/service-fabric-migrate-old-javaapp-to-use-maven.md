@@ -5,36 +5,40 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e8154039dde3de571e7960b244ab1d43cc764c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75609812"
+ms.locfileid: "82204291"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aktualizowanie starszych aplikacji Java usługi Service Fabric w celu pobierania bibliotek z narzędzia Maven
-Ostatnio przenieśliśmy biblioteki Java usługi Service Fabric z zestawu SDK Java usługi Service Fabric do hostingu Maven. Teraz możesz używać repozytorium **mavencentral** do pobierania najnowszych zależności Java usługi Service Fabric. Ten artykuł Szybki start pomaga zaktualizować istniejące aplikacje Java, wcześniej utworzone do użycia z zestawem SDK Java usługi Service Fabric (przy użyciu szablonu Yeoman lub środowiska Eclipse), aby były zgodne z kompilacją bazującą na narzędziu Maven.
+Service Fabric pliki binarne języka Java zostały przeniesione z zestawu SDK Service Fabric Java do Maven hosting. Możesz użyć **repozytorium mavencentral** , aby pobrać najnowsze zależności Java Service Fabric. Ten przewodnik pomoże Ci zaktualizować istniejące aplikacje języka Java utworzone dla Service Fabric Java SDK przy użyciu szablonu narzędzia Yeoman lub przezaćmienie w celu zapewnienia zgodności z kompilacją opartą na Maven.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-1. Najpierw musisz odinstalować istniejący zestaw SDK Java.
+
+1. Najpierw Odinstaluj istniejący zestaw SDK języka Java.
 
    ```bash
    sudo dpkg -r servicefabricsdkjava
    ```
+
 2. Zainstaluj najnowszy interfejs wiersza polecenia usługi Service Fabric, wykonując kroki wymienione [tutaj](service-fabric-cli.md).
 
-3. Aby kompilować aplikacje Java usługi Service Fabric i pracować nad nimi, upewnij się, że zainstalowano zestaw JDK 1.8 i narzędzie Gradle. Jeśli ich jeszcze nie zainstalowano, możesz uruchomić następujące polecenia, aby zainstalować zestaw JDK 1.8 (openjdk-8-jdk) i narzędzie Gradle:
+3. Aby kompilować Service Fabric aplikacje Java i korzystać z nich, upewnij się, że zainstalowano JDK 1,8 i Gradle. Jeśli ich jeszcze nie zainstalowano, możesz uruchomić następujące polecenia, aby zainstalować zestaw JDK 1.8 (openjdk-8-jdk) i narzędzie Gradle:
 
    ```bash
    sudo apt-get install openjdk-8-jdk-headless
    sudo apt-get install gradle
    ```
+
 4. Zaktualizuj skrypty instalacji/dezinstalacji aplikacji w celu używania nowego interfejsu wiersza polecenia usługi Service Fabric, wykonując kroki wymienione [tutaj](service-fabric-application-lifecycle-sfctl.md). Możesz skorzystać z naszych [przykładów](https://github.com/Azure-Samples/service-fabric-java-getting-started) ułatwiających rozpoczęcie pracy.
 
 >[!TIP]
 > Po odinstalowaniu zestawu SDK Java usługi Service Fabric narzędzie Yeoman nie będzie działać. Spełnij wymagania wstępne opisane [tutaj](service-fabric-create-your-first-linux-application-with-java.md), aby mieć działający generator szablonów Yeoman usługi Service Fabric dla języka Java.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Biblioteki Java usługi Service Fabric w narzędziu Maven
+
 Biblioteki Java usługi Service Fabric są teraz hostowane w narzędziu Maven. Zależności możesz dodać w pliku ``pom.xml`` lub ``build.gradle`` projektów, aby używać bibliotek Java usługi Service Fabric z repozytorium **mavenCentral**.
 
 ### <a name="actors"></a>Aktorzy
@@ -80,6 +84,7 @@ Obsługa usługi bezstanowej usługi Service Fabric dla Twojej aplikacji.
   ```
 
 ### <a name="others"></a>Inne
+
 #### <a name="transport"></a>Transport
 
 Obsługa warstwy transportowej dla aplikacji Java usługi Service Fabric. Nie trzeba jawnie dodawać tej zależności do aplikacji Reliable Actors lub aplikacji usługi, chyba że programujesz w warstwie transportowej.
@@ -122,11 +127,11 @@ Obsługa na poziomie systemu dla usługi Service Fabric, która komunikuje się 
   }
   ```
 
-
 ## <a name="migrating-service-fabric-stateless-service"></a>Migrowanie usługi bezstanowej usługi Service Fabric
 
 Aby móc kompilować istniejącą usługę bezstanową Java usługi Service Fabric przy użyciu zależności pobieranych z narzędzia Maven, musisz zaktualizować plik ``build.gradle`` wewnątrz usługi. Wcześniej wyglądał on następująco:
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':Interface')
@@ -158,8 +163,10 @@ task copyDeps <<{
     }
 }
 ```
+
 Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
-```
+
+```gradle
 repositories {
         mavenCentral()
 }
@@ -211,11 +218,13 @@ task copyDeps <<{
     }
 }
 ```
+
 Aby zyskać ogólne pojęcie o tym, jak będzie wyglądać skrypt kompilacji dla usługi bezstanowej Java usługi Service Fabric, możesz odwołać się do dowolnego przykładu w naszych przykładach ułatwiających rozpoczęcie pracy. Tutaj znajdziesz plik [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) dla przykładu serwera EchoServer.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Migrowanie usługi aktora usługi Service Fabric
 
 Aby móc kompilować istniejącą aplikację Java aktora usługi Service Fabric przy użyciu zależności pobieranych z narzędzia Maven, musisz zaktualizować plik ``build.gradle`` wewnątrz pakietu interfejsu i w pakiecie usługi. Jeśli masz pakiet TestClient, również musisz go zaktualizować. A więc dla Twojej aktora ``Myactor`` należałoby zaktualizować go w następujących miejscach:
+
 ```
 ./Myactor/build.gradle
 ./MyactorInterface/build.gradle
@@ -225,15 +234,18 @@ Aby móc kompilować istniejącą aplikację Java aktora usługi Service Fabric 
 #### <a name="updating-build-script-for-the-interface-project"></a>Aktualizowanie skryptu kompilacji dla projektu interfejsu
 
 Wcześniej wyglądał on następująco:
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
 }
 .
 .
 ```
+
 Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -266,7 +278,8 @@ compileJava.dependsOn(explodeDeps)
 #### <a name="updating-build-script-for-the-actor-project"></a>Aktualizowanie skryptu kompilacji dla projektu aktora
 
 Wcześniej wyglądał on następująco:
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
     compile project(':MyactorInterface')
@@ -304,8 +317,10 @@ task copyDeps<< {
     }
 }
 ```
+
 Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
-```
+
+```gradle
 repositories {
     mavenCentral()
 }
@@ -365,7 +380,8 @@ task copyDeps<< {
 #### <a name="updating-build-script-for-the-test-client-project"></a>Aktualizowanie skryptu kompilacji dla projektu klienta testowego
 
 Zmiany tutaj są podobne do zmian opisanych w poprzedniej sekcji, dotyczącej projektu aktora. Wcześniej skrypt Gradle wyglądał następująco:
-```
+
+```gradle
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
       compile project(':MyactorInterface')
@@ -404,8 +420,10 @@ task copyDeps<< {
         }
 }
 ```
+
 Teraz, aby pobierać zależności z Maven, odpowiednie części **zaktualizowanego pliku ** ``build.gradle`` powinny wyglądać następująco:
-```
+
+```gradle
 repositories {
     mavenCentral()
 }

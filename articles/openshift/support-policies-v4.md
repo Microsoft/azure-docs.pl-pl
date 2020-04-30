@@ -1,0 +1,68 @@
+---
+title: Zasady obsługi klastrów w systemie Red Hat OpenShift 4
+description: Poznaj wymagania dotyczące zasad pomocy technicznej dla Red Hat OpenShift 4.
+author: sakthi-vetrivel
+ms.author: suvetriv
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 04/24/2020
+ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82205211"
+---
+# <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
+
+Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć wpływ na obsługę klastrów. Azure Red Hat OpenShift 4 umożliwia administratorom klastrów wprowadzanie zmian w wewnętrznych składnikach klastra, ale nie wszystkie zmiany są obsługiwane. Poniższe zasady pomocy technicznej udostępniają modyfikacje, które naruszają zasady, i unieważnią pomoc techniczną firmy Microsoft i Red Hat.
+
+> [!NOTE]
+> Funkcje oznaczone jako wersja zapoznawcza technologii OpenShift nie są obsługiwane na platformie Azure Red Hat OpenShift.
+
+## <a name="cluster-configuration-requirements"></a>Wymagania dotyczące konfiguracji klastra
+
+* Wszystkie operatory klastrów OpenShift muszą pozostać w stanie zarządzanym. Listę operatorów klastra można zwrócić przez uruchomienie `oc get clusteroperators`.
+* Nie usuwaj ani nie Modyfikuj usług Cluster Prometheus i Alertmanager.
+* Nie usuwaj reguł usługi alertów usług.
+* Nie należy modyfikować wersji klastra OpenShift.
+* Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).
+* Nie usuwaj ani nie Modyfikuj klucza tajnego ściągania klastra "arosvc.azurecr.io".
+* Wszystkie maszyny wirtualne klastra muszą mieć dostęp do ruchu wychodzącego z Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).
+* Usługa Azure Red Hat OpenShift uzyskuje dostęp do klastra za pośrednictwem usługi linku prywatnego.  Nie usuwaj ani nie Modyfikuj dostępu do usługi.
+* Węzły obliczeniowe inne niż RHCOS nie są obsługiwane. Na przykład nie można użyć węzła obliczeniowego RHEL.
+
+## <a name="supported-virtual-machine-sizes"></a>Obsługiwane rozmiary maszyn wirtualnych
+
+Azure Red Hat OpenShift 4 obsługuje wystąpienia węzłów procesu roboczego na następujących rozmiarach maszyn wirtualnych:
+
+### <a name="general-purpose"></a>Zastosowania ogólne
+
+|Seria|Rozmiar|Procesor wirtualny|Pamięć: GiB|
+|-|-|-|-|
+|Dasv4|Standard_D4as_v4|4|16|
+|Dasv4|Standard_D8as_v4|8|32|
+|Dasv4|Standard_D16as_v4|16|64|
+|Dasv4|Standard_D32as_v4|32|128|
+|Dsv3|Standardowa_D4s_v3|4|16|
+|Dsv3|Standardowa_D8s_v3|8|32|
+|Dsv3|Standardowa_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|
+
+### <a name="memory-optimized"></a>Optymalizacja pod kątem pamięci
+
+|Seria|Rozmiar|Procesor wirtualny|Pamięć: GiB|
+|-|-|-|-|
+|Esv3|Standardowa_E4s_v3|4|32|
+|Esv3|Standardowa_E8s_v3|8|64|
+|Esv3|Standardowa_E16s_v3|16|128|
+|Esv3|Standardowa_E32s_v3|32|256|
+
+### <a name="compute-optimized"></a>Optymalizacja pod kątem obliczeń
+
+|Seria|Rozmiar|Procesor wirtualny|Pamięć: GiB|
+|-|-|-|-|
+|Fsv2|Standard_F4s_v2|4|8|
+|Fsv2|Standard_F8s_v2|8|16|
+|Fsv2|Standard_F16s_v2|16|32|
+|Fsv2|Standard_F32s_v2|32|64|

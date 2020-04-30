@@ -1,48 +1,48 @@
 ---
-title: Seria Mv2 — maszyny wirtualne platformy Azure
-description: Dane techniczne maszyn wirtualnych serii Mv2.
+title: Mv2 — seria Virtual Machines platformy Azure
+description: Specyfikacje dotyczące maszyn wirtualnych z serii Mv2.
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: lahugh
-ms.openlocfilehash: 764dc93608ae3b8882b7048a722c6d3415cbc644
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7df8dd439008258ea1b4986054660fb0fb9070ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885790"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204189"
 ---
 # <a name="mv2-series"></a>Seria Mv2
 
-Seria Mv2 jest wyposażona w platformę o wysokiej przepustowości i niskim opóźnieniu działającą na hiperwątkowym procesorze Intel® Xeon® Platinum 8180M 2,5 GHz (Skylake) o podstawowej częstotliwości 2,5 GHz i maksymalnej częstotliwości turbo 3,8 GHz. Wszystkie rozmiary maszyn wirtualnych serii Mv2 mogą używać dysków trwałych standardowych i premium. Wystąpienia serii Mv2 to zoptymalizowane pod kątem pamięci rozmiary maszyn wirtualnych, zapewniające niezrównaną wydajność obliczeniową do obsługi dużych baz danych i obciążeń w pamięci, z wysokim współczynnikiem pamięci do procesora, który jest idealny dla relacyjnych serwerów baz danych, dużych pamięci podręcznych i analizy w pamięci.
+Seria Mv2 oferuje wysoką przepływność, platformę o małym opóźnieniu działającą na procesorze Intel® Xeon® Platinum 8180M 2,5 GHz (Skylake) z podstawową częstotliwością 2,5 GHz i maksymalną częstotliwością Turbo 3,8 GHz. Wszystkie rozmiary maszyn wirtualnych z serii Mv2 mogą korzystać z dysków trwałych w warstwach Standardowa i Premium. Wystąpienia serii Mv2 to rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci, które zapewniają niezrównaną wydajność obliczeniową w celu obsługi dużych baz danych i obciążeń w pamięci, dzięki czemu można uzyskać wysoką ilość pamięci, która jest idealnym rozwiązaniem w przypadku serwerów relacyjnych baz danych, dużych pamięci podręcznych i analizy w pamięci.
 
-Funkcja maszyn wirtualnych serii Mv2 Intel® Technologia Hyper-Threading
+Funkcja maszyny wirtualnej z serii Mv2 Intel® technologia wielowątkowości funkcji Hyper-Threading
 
-Pamięć masowa w wersji premium: obsługiwane
+Premium Storage: obsługiwane
 
-Buforowanie magazynu w wersji Premium: obsługiwane
+Buforowanie Premium Storage: obsługiwane
 
-Migracja na żywo: nie jest obsługiwana
+Migracja na żywo: nieobsługiwane
 
-Aktualizacje zachowywania pamięci: nie są obsługiwane
+Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
-Akcelerator zapisu: [Obsługiwane](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Akcelerator zapisu: [obsługiwane](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-|Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna karta sieciowa / oczekiwana przepustowość sieci (Mb/s) |
+|Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16 000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16 000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
 
-Maszyny wirtualne serii Mv2 <sup>1</sup> są tylko generacją 2. Jeśli używasz systemu Linux, zobacz [obsługa maszyn wirtualnych generacji 2 na platformie Azure,](./linux/generation-2.md) aby uzyskać instrukcje dotyczące znajdowania i wybierania obrazu. Jeśli używasz systemu Windows, zobacz [obsługa maszyn wirtualnych generacji 2 na platformie Azure,](./windows/generation-2.md) aby uzyskać instrukcje dotyczące znajdowania i wybierania obrazu. Minimalne wersje systemu operacyjnego wymagane dla wszystkich czterech różnych typów maszyn wirtualnych serii Mv2, takich jak:
+<sup>1</sup> maszyny wirtualne z serii Mv2 są tylko 2 generacji i obsługują podzbiór obrazów obsługiwanych przez generację 2. Zapoznaj się z pełną listą obsługiwanych obrazów dla serii Mv2. Jeśli używasz systemu Linux, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](./linux/generation-2.md) , aby uzyskać instrukcje dotyczące znajdowania i wybierania obrazu. Jeśli używasz systemu Windows, zapoznaj się z tematem [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](./windows/generation-2.md) , aby uzyskać instrukcje dotyczące znajdowania i wybierania obrazu. 
 
-- Windows Server 2019 lub nowsza
-- SUSE Linux Enterprise Server 12 SP4 i nowsze lub SUSE Linux Enterprise Server 15 SP1 i nowsze
-- Red Hat Enterprise Linux 7.6, 7.7, 8.1 lub nowsze 
-- Oracle Enterprise Linux 7.7 lub nowsza
+- System Windows Server 2019 lub nowszy
+- SUSE Linux Enterprise Server 12 z dodatkiem SP4 lub nowszym lub SUSE Linux Enterprise Server 15 SP1 i nowsze
+- Red Hat Enterprise Linux 7,6, 7,7, 8,1 lub nowszy 
+- Oracle Enterprise Linux 7,7 lub nowszy
 
 
 
@@ -59,4 +59,4 @@ Maszyny wirtualne serii Mv2 <sup>1</sup> są tylko generacją 2. Jeśli używasz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym, jak [jednostki obliczeniowe platformy Azure (ACU)](acu.md) mogą pomóc w porównywaniu wydajności obliczeniowej w jednostkach SKU platformy Azure.
+Dowiedz się więcej o tym, jak [usługa Azure COMPUTE units (ACU)](acu.md) może pomóc w porównaniu wydajności obliczeniowej w ramach jednostek SKU platformy Azure.

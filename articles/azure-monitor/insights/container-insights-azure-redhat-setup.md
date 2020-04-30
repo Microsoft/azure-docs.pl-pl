@@ -3,12 +3,12 @@ title: Konfigurowanie usługi Azure Red Hat OpenShift v3. x z Azure Monitor dla 
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 3 lub nowszej.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166297"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204138"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v3 przy użyciu Azure Monitor dla kontenerów
 
@@ -38,7 +38,7 @@ Azure Monitor for Containers obsługuje monitorowanie usługi Azure Red Hat Open
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Włącz dla nowego klastra przy użyciu szablonu Azure Resource Manager
 
-Wykonaj następujące kroki, aby wdrożyć klaster Red Hat OpenShift platformy Azure z włączonym monitorowaniem. Przed kontynuowaniem zapoznaj się z samouczkiem [Tworzenie klastra usługi Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) , aby poznać zależności, które należy skonfigurować, aby środowisko zostało prawidłowo skonfigurowane.
+Wykonaj następujące kroki, aby wdrożyć klaster Red Hat OpenShift platformy Azure z włączonym monitorowaniem. Przed kontynuowaniem zapoznaj się z samouczkiem [Tworzenie klastra usługi Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md) , aby poznać zależności, które należy skonfigurować, aby środowisko zostało prawidłowo skonfigurowane.
 
 Ta metoda obejmuje dwa szablony JSON. Jeden szablon określa konfigurację wdrożenia klastra z włączonym monitorowaniem, a druga zawiera wartości parametrów, które można skonfigurować, aby określić następujące elementy:
 

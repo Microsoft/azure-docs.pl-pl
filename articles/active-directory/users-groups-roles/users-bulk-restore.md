@@ -1,11 +1,11 @@
 ---
-title: Zbiorcze przywracanie usuniętych użytkowników w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Zbiorcze przywracanie usuniętych użytkowników w centrum administracyjnym usługi Azure AD w usłudze Azure Active Directory
+title: Przywracanie zbiorcze usuniętych użytkowników w portalu Azure Active Directory | Microsoft Docs
+description: Przywróć zbiorczo usuniętych użytkowników w centrum administracyjnym usługi Azure AD w Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,52 +13,73 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532723"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203310"
 ---
-# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Zbiorcze przywracanie usuniętych użytkowników w usłudze Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Przywracanie zbiorcze usuniętych użytkowników w Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) obsługuje operacje tworzenia i usuwania użytkowników zbiorczych, zbiorcze zapraszanie gości oraz obsługuje pobieranie list użytkowników, grup i członków grupy.
+Azure Active Directory (Azure AD) obsługuje operacje przywracania użytkowników zbiorczych i obsługuje pobieranie list użytkowników, grup i członków grupy.
 
-## <a name="to-bulk-restore-users"></a>Aby zbiorczo przywracać użytkowników
+## <a name="understand-the-csv-template"></a>Zrozumienie szablonu CSV
 
-1. [Zaloguj się do organizacji usługi Azure AD](https://aad.portal.azure.com) przy za pomocą konta, które jest administratorem użytkownika w organizacji usługi Azure AD.
+Pobierz i wypełnij szablon CSV, aby ułatwić pomyślne przywrócenie użytkowników usługi Azure AD. Pobrany szablon CSV może wyglądać podobnie do tego przykładu:
+
+![Arkusz kalkulacyjny do przekazywania i wywoływać wywołajeń objaśniających przeznaczenie i wartości dla każdego wiersza i kolumny](./media/users-bulk-restore/understand-template.png)
+
+### <a name="csv-template-structure"></a>Struktura szablonu CSV
+
+Wiersze pobranego szablonu CSV są następujące:
+
+- **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
+- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Object ID [objectId] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
+
+### <a name="additional-guidance"></a>Dodatkowe wskazówki
+
+- Pierwsze dwa wiersze szablonu przekazywania nie mogą być usuwane ani modyfikowane lub nie można przetworzyć przekazywania.
+- Wymagane kolumny są wyświetlane jako pierwsze.
+- Nie zalecamy dodawania nowych kolumn do szablonu. Wszelkie dodatkowe dodawane kolumny są ignorowane i nie są przetwarzane.
+- Zalecamy pobranie najnowszej wersji szablonu CSV tak często, jak to możliwe.
+
+## <a name="to-bulk-restore-users"></a>Do przywracania zbiorczego użytkowników
+
+1. [Zaloguj się do swojej organizacji usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji usługi Azure AD.
 1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **usunięci**.
-1. Na stronie **Usunięci użytkownicy** wybierz **opcję Przywracanie zbiorcze,** aby przekazać prawidłowy plik CSV właściwości użytkowników do przywrócenia.
+1. Na stronie **usunięci użytkownicy** wybierz pozycję **przywracanie zbiorcze** , aby przekazać prawidłowy plik CSV właściwości użytkowników do przywrócenia.
 
-   ![Wybieranie polecenia przywracania zbiorczego na stronie Użytkownicy usunięci](./media/users-bulk-restore/bulk-restore.png)
+   ![Wybierz polecenie Zbiorcza przywracanie na stronie usunięci użytkownicy](./media/users-bulk-restore/bulk-restore.png)
 
-1. Otwórz plik CSV i dodaj wiersz dla każdego użytkownika, którego chcesz przywrócić. Jedyną wymaganą wartością jest **ObjectID**. Następnie zapisz plik.
+1. Otwórz szablon CSV i Dodaj wiersz dla każdego użytkownika, który ma zostać przywrócony. Jedyną wymaganą wartością jest **objectid**. Następnie zapisz plik.
 
-   ![Wybierz lokalny plik CSV, w którym wyświetlisz listę użytkowników, których chcesz dodać](./media/users-bulk-restore/upload-button.png)
+   ![Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać](./media/users-bulk-restore/upload-button.png)
 
-1. Na stronie **Przywracanie zbiorcze** w obszarze **Przekazywanie pliku csv**przejdź do pliku. Po wybraniu pliku i kliknięciu **przycisku Prześlij**rozpocznie się sprawdzanie poprawności pliku CSV.
-1. Po sprawdzeniu poprawności zawartości pliku zostanie **wyświetlony folder Plik przekazany pomyślnie**. Jeśli występują błędy, należy je naprawić, zanim będzie można przesłać zadanie.
-1. Gdy plik przechodzi weryfikacji, wybierz **prześlij,** aby rozpocząć operację zbiorczą platformy Azure, która przywraca użytkowników.
-1. Po zakończeniu operacji przywracania zostanie wyświetlone powiadomienie, że operacja zbiorcza powiodła się.
+1. Na stronie **przywracanie zbiorcze** w obszarze **Przekaż plik CSV**przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
+1. Gdy zawartość pliku zostanie sprawdzona, zostanie wyświetlony **plik przekazany pomyślnie**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
+1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która przywraca użytkowników.
+1. Po zakończeniu operacji przywracania zobaczysz powiadomienie, że operacja zbiorcza zakończyła się pomyślnie.
 
-Jeśli występują błędy, można pobrać i wyświetlić plik wyników na stronie **Wyniki operacji zbiorczej.** Plik zawiera przyczynę każdego błędu.
+W przypadku wystąpienia błędów można pobrać i wyświetlić plik wyników na stronie **wyników operacji zbiorczej** . Plik zawiera przyczynę każdego błędu.
 
 ## <a name="check-status"></a>Sprawdzanie stanu
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
+Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczekujących żądań zbiorczych.
 
 [![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
-Następnie można sprawdzić, czy użytkownicy, których przywrócono istnieją w organizacji usługi Azure AD albo w witrynie Azure portal lub przy użyciu programu PowerShell.
+Następnie możesz sprawdzić, czy przywróconi użytkownicy znajdują się w organizacji usługi Azure AD w Azure Portal lub przy użyciu programu PowerShell.
 
-## <a name="view-restored-users-in-the-azure-portal"></a>Wyświetlanie przywróconych użytkowników w witrynie Azure portal
+## <a name="view-restored-users-in-the-azure-portal"></a>Wyświetl przywróconych użytkowników w Azure Portal
 
-1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy za pomocą konta, które jest administratorem użytkownika w organizacji.
+1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
-1. W obszarze **Pokaż**wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy przywróceni użytkownicy są wymienieni.
+1. W obszarze **Pokaż**wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy na liście znajdują się użytkownicy, których przywrócono.
 
-### <a name="view-users-with-powershell"></a>Wyświetlanie użytkowników za pomocą programu PowerShell
+### <a name="view-users-with-powershell"></a>Wyświetlanie użytkowników przy użyciu programu PowerShell
 
 Uruchom następujące polecenie:
 
@@ -66,10 +87,10 @@ Uruchom następujące polecenie:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Powinieneś zobaczyć, że użytkownicy, których przywrócono, są na liście.
+Powinna zostać wyświetlona lista użytkowników, których przywrócono.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Użytkownicy importu zbiorczego](users-bulk-add.md)
+- [Importowanie zbiorczych użytkowników](users-bulk-add.md)
 - [Zbiorcze usuwanie użytkowników](users-bulk-delete.md)
-- [Lista użytkowników do pobrania](users-bulk-download.md)
+- [Pobierz listę użytkowników](users-bulk-download.md)

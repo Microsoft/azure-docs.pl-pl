@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161514"
+ms.locfileid: "82203866"
 ---
 # <a name="security-frame-session-management"></a>Ramka zabezpieczeń: zarządzanie sesjami
 | Produkt/usługa | Artykuł |
@@ -221,7 +221,7 @@ Wszystkie aplikacje oparte na protokole HTTP, które używają plików cookie, p
 | **Odpowiednie technologie** | Formularze sieci Web |
 | **Atrybuty**              | Nie dotyczy  |
 | **Dokumentacja**              | [FormsAuthentication. RequireSSL — Właściwość](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Czynnooci** | Wartość właściwości RequireSSL jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu requireSSL elementu Configuration. W pliku Web. config aplikacji ASP.NET można określić, czy protokół SSL (SSL) musi zwrócić plik cookie uwierzytelniania formularzy na serwer, ustawiając atrybut requireSSL.|
+| **Czynnooci** | Wartość właściwości RequireSSL jest ustawiana w pliku konfiguracji dla aplikacji ASP.NET przy użyciu atrybutu requireSSL elementu Configuration. W pliku Web. config aplikacji ASP.NET można określić, czy Transport Layer Security (TLS), wcześniej znany jako SSL (SSL), musi zwrócić plik cookie uwierzytelniania formularzy na serwer przez ustawienie atrybutu requireSSL.|
 
 ### <a name="example"></a>Przykład 
 Poniższy przykład kodu ustawia atrybut requireSSL w pliku Web. config.

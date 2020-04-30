@@ -1,60 +1,60 @@
 ---
 title: Konfigurowanie uwierzytelniania firmy Microsoft
-description: Dowiedz się, jak skonfigurować uwierzytelnianie konta Microsoft jako dostawcę tożsamości dla usługi aplikacji lub aplikacji Usługi Azure Functions.
+description: Dowiedz się, jak skonfigurować uwierzytelnianie konta Microsoft jako dostawcę tożsamości dla aplikacji App Service lub Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519897"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203492"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurowanie usługi app service lub aplikacji Usługi Azure do korzystania z logowania konta Microsoft
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do używania logowania do konta Microsoft
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-W tym temacie pokazano, jak skonfigurować usługę Azure App Service lub usługi Azure Functions do używania usługi AAD do obsługi osobistych identyfikatorów logowania do konta Microsoft.
+W tym temacie opisano sposób konfigurowania Azure App Service lub Azure Functions do korzystania z usługi AAD do obsługi osobistych logowań konto Microsoft.
 
 > [!NOTE]
-> Zarówno osobiste konta Microsoft, jak i konta organizacyjne korzystają z dostawcy tożsamości usługi AAD. W tej chwili nie jest możliwe skonfigurowanie tego dostawcy tożsamości do obsługi obu typów logowań.
+> Zarówno osobiste konta Microsoft, jak i konta organizacji korzystają z dostawcy tożsamości usługi AAD. W tej chwili nie jest możliwe skonfigurowanie tego dostawcy tożsamości w taki sposób, aby obsługiwał oba typy logowań.
 
-## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Rejestrowanie aplikacji za pomocą konta Microsoft
+## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Zarejestruj aplikację na koncie Microsoft
 
-1. Przejdź do [**rejestracji aplikacji**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w witrynie Azure portal. W razie potrzeby zaloguj się za pomocą swojego konta Microsoft.
-1. Wybierz **pozycję Nowa rejestracja**, a następnie wprowadź nazwę aplikacji.
-1. W obszarze **Obsługiwane typy kont**wybierz **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępne) i osobiste konta Microsoft (np.**
-1. W **obszarze Przekierowanie identyfikatorów URI**wybierz pozycję **Sieć Web**, a następnie wprowadź polecenie `https://<app-domain-name>/.auth/login/aad/callback`. * \<Zastąp>nazwę domeny aplikacji* nazwą domeny aplikacji.  Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Pamiętaj, aby użyć schematu HTTPS w adresie URL.
+1. Przejdź do [**rejestracje aplikacji**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) w Azure Portal. W razie konieczności Zaloguj się przy użyciu konto Microsoft.
+1. Wybierz pozycję **Nowa rejestracja**, a następnie wprowadź nazwę aplikacji.
+1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**
+1. W obszarze **identyfikatory URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://<app-domain-name>/.auth/login/aad/callback`. Zastąp * \<ciąg App-Domain-Name>* nazwą domeny aplikacji.  Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Upewnij się, że w adresie URL jest używany schemat HTTPS.
 
 1. Wybierz pozycję **Zarejestruj**.
-1. Skopiuj **identyfikator aplikacji (klienta).** Będzie on potrzebny później.
-1. W lewym okienku wybierz pozycję **Certyfikaty & wpisy tajne** > **Nowy klucz tajny klienta**. Wprowadź opis, wybierz czas ważności i wybierz pozycję **Dodaj**.
-1. Skopiuj wartość wyświetlaną na stronie **Certyfikaty & wpisy tajne.** Po opuszczeniu strony nie będzie ona wyświetlana ponownie.
+1. Skopiuj **Identyfikator aplikacji (klienta)**. Będzie on potrzebny później.
+1. W lewym okienku wybierz pozycję **Certificates &** > **Secret New Client tajny**. Wprowadź opis, wybierz okres ważności, a następnie wybierz pozycję **Dodaj**.
+1. Skopiuj wartość, która pojawia się na stronie **certyfikaty & wpisy tajne** . Po opuszczeniu strony nie będzie ona ponownie wyświetlana.
 
     > [!IMPORTANT]
-    > Wartość tajnego klienta (hasło) jest ważnym poświadczeniem zabezpieczeń. Nie udostępniaj nikomu hasła ani nie rozpowszechniaj go w aplikacji klienckiej.
+    > Wartość klucza tajnego klienta (hasło) jest ważnym poświadczeniem zabezpieczeń. Nie udostępniaj nikomu hasła ani nie rozpowszechniaj go w aplikacji klienckiej.
 
-## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Dodawanie informacji o koncie Microsoft do aplikacji usługi App Service
+## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Dodawanie informacji o koncie Microsoft do aplikacji App Service
 
-1. Przejdź do aplikacji w [witrynie Azure portal].
-1. Wybierz **pozycję Uwierzytelnianie ustawienia** > **/ autoryzacja**i upewnij się, że **uwierzytelnianie usługi aplikacji** jest **włączone**.
-1. W obszarze **Dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. Wybierz **opcję Zaawansowane** w **trybie zarządzania**. Wklej w identyfikatorze aplikacji (klienta) i klucz tajny klienta, który został uzyskany wcześniej. Użyj **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** pola **Adres url wystawcy.**
-1. Kliknij przycisk **OK**.
+1. Przejdź do aplikacji w [Azure Portal].
+1. Wybierz pozycję **Ustawienia** > **uwierzytelnianie/autoryzacja**i upewnij się, że **uwierzytelnianie App Service** jest **włączone**.
+1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**. Wybierz pozycję **Zaawansowane** w obszarze **tryb zarządzania**. Wklej do wcześniej uzyskanego identyfikatora aplikacji (klienta) i wpisu tajnego klienta. Użyj **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** w polu **adres URL wystawcy** .
+1. Wybierz przycisk **OK**.
 
-   Usługa App Service zapewnia uwierzytelnianie, ale nie ogranicza autoryzowanego dostępu do zawartości witryny i interfejsów API. Musisz autoryzować użytkowników w kodzie aplikacji.
+   App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Musisz autoryzować użytkowników w kodzie aplikacji.
 
-1. (Opcjonalnie) Aby ograniczyć dostęp do użytkowników kont Microsoft, ustaw **akcję do podjęcia, gdy żądanie nie jest uwierzytelnione,** aby **zalogować się za pomocą usługi Azure Active Directory**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje również wszystkie nieuwierzyte nieuwierzyte żądania do używania aad do uwierzytelniania. Należy zauważyć, że ponieważ adres **URL wystawcy** został skonfigurowany do używania dzierżawy konta Microsoft, tylko osobiste konta acccounts zostaną pomyślnie uwierzytelnione.
+1. Obowiązkowe Aby ograniczyć dostęp do konto Microsoft użytkowników, należy ustawić **akcję podejmowaną, gdy żądanie nie zostanie uwierzytelnione** w celu **zalogowania się przy użyciu Azure Active Directory**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje także wszystkie nieuwierzytelnione żądania do uwierzytelniania za pomocą usługi AAD. Zwróć uwagę, że ponieważ **adres URL wystawcy** został skonfigurowany tak, aby korzystał z dzierżawy konta Microsoft, tylko usługa Personal acccounts zostanie pomyślnie uwierzytelniona.
 
    > [!CAUTION]
-   > Ograniczenie dostępu w ten sposób ma zastosowanie do wszystkich wywołań aplikacji, co może nie być pożądane w przypadku aplikacji, które mają publicznie dostępną stronę główną, jak w wielu aplikacjach jednostronicowych. W przypadku takich aplikacji **można zezwolić na żądania anonimowe (brak akcji),** aby aplikacja ręcznie uruchamiała uwierzytelnianie. Aby uzyskać więcej informacji, zobacz [Przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
+   > Ograniczenie dostępu w ten sposób dotyczy wszystkich wywołań aplikacji, które mogą nie być pożądane dla aplikacji, które mają publicznie dostępną stronę główną, tak jak w przypadku aplikacji jednostronicowych. W przypadku takich aplikacji **Zezwalanie na żądania anonimowe (żadna akcja)** może być preferowana, aby aplikacja ręcznie uruchamiała sam uwierzytelnienie. Aby uzyskać więcej informacji, zobacz temat [przepływ uwierzytelniania](overview-authentication-authorization.md#authentication-flow).
 
-1. Wybierz **pozycję Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
-Teraz możesz używać konta Microsoft do uwierzytelniania w aplikacji.
+Teraz możesz przystąpić do uwierzytelniania w aplikacji za pomocą konta Microsoft.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 

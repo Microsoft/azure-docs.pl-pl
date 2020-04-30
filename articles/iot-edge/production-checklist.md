@@ -4,19 +4,19 @@ description: Dowiedz się, jak wdrożyć rozwiązanie Azure IoT Edge od projekto
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191842"
+ms.locfileid: "82204206"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -174,12 +174,22 @@ Aby zapoznać się z przykładem Konwencji znacznika, zobacz [aktualizacja środ
 
 Wiesz już, jak przechowywać obrazy kontenerów dla niestandardowych modułów kodu w prywatnym rejestrze platformy Azure, ale można go również używać do przechowywania publicznych obrazów kontenerów, takich jak dla modułów środowiska uruchomieniowego edgeAgent i edgHub. Może to być konieczne, jeśli istnieją bardzo ścisłe ograniczenia zapory, ponieważ te kontenery środowiska uruchomieniowego są przechowywane w Container Registry firmy Microsoft (MCR).
 
-Uzyskaj obrazy z poleceniem "Docker pull", które ma zostać umieszczone w rejestrze. Należy pamiętać, że konieczne będzie zaktualizowanie obrazów przy użyciu każdej nowej wersji środowiska uruchomieniowego IoT Edge.
+Uzyskaj obrazy z poleceniem "Docker pull", które ma zostać umieszczone w rejestrze prywatnym. Należy pamiętać, że konieczne będzie zaktualizowanie obrazów przy użyciu każdej nowej wersji środowiska uruchomieniowego IoT Edge.
 
 | Kontener środowiska uruchomieniowego IoT Edge | Polecenie Docker pull |
 | --- | --- |
 | [Agent Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Następnie należy zaktualizować odwołania do obrazu w pliku Deployment. Template. JSON dla modułów systemowych edgeAgent i edgeHub. Zastąp `mcr.microsoft.com` ciąg nazwą rejestru i serwerem dla obu modułów.
+
+* edgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Networking
 

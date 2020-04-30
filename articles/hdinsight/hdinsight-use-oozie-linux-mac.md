@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 93eddcd8ed0dae6ac6f010dce2e138fc018a06fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/27/2020
+ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190660"
+ms.locfileid: "82204121"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -644,67 +644,6 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
 
     ![Karta informacje o zadaniach konsoli sieci Web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-Za pomocą interfejsu użytkownika Oozie można wyświetlać dzienniki Oozie. Interfejs użytkownika Oozie zawiera również linki do dzienników JobTracker dla zadań MapReduce, które zostały uruchomione w ramach przepływu pracy. Wzorzec do rozwiązywania problemów powinien być:
-
-   1. Wyświetl zadanie w interfejsie użytkownika sieci Web Oozie.
-
-   2. Jeśli wystąpi błąd lub błąd konkretnej akcji, wybierz akcję, aby zobaczyć, czy pole **komunikatu o błędzie** zawiera więcej informacji na temat błędu.
-
-   3. Jeśli jest dostępna, użyj adresu URL z akcji, aby wyświetlić więcej szczegółów, takich jak dzienniki JobTracker, dla akcji.
-
-Poniżej znajdują się konkretne błędy, które można napotkać i sposoby ich rozwiązywania.
-
-### <a name="ja009-cant-initialize-cluster"></a>JA009: nie można zainicjować klastra
-
-**Objawy**: stan zadania zmieni się na **zawieszone**. Szczegóły zadania zawierają `RunHiveScript` stan **START_MANUAL**. Po wybraniu akcji zostanie wyświetlony następujący komunikat o błędzie:
-
-    JA009: Cannot initialize Cluster. Please check your configuration for map
-
-**Przyczyna**: adresy magazynu obiektów blob platformy Azure używane w pliku **Job. XML** nie zawierają kontenera magazynu ani nazwy konta magazynu. Wymagany format adresu magazynu obiektów BLOB `wasbs://containername@storageaccountname.blob.core.windows.net`.
-
-**Rozwiązanie**: Zmień adresy magazynu obiektów BLOB używane przez zadanie.
-
-### <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie nie może personifikować &lt;użytkownika&gt;
-
-**Objawy**: stan zadania zmieni się na **zawieszone**. Szczegóły zadania zawierają `RunHiveScript` stan **START_MANUAL**. W przypadku wybrania akcji zostanie wyświetlony następujący komunikat o błędzie:
-
-    JA002: User: oozie is not allowed to impersonate <USER>
-
-**Przyczyna**: bieżące ustawienia uprawnień nie zezwalają Oozie na personifikowanie określonego konta użytkownika.
-
-**Rozwiązanie**: Oozie może personifikować użytkowników w **`users`** grupie. Użyj, `groups USERNAME` aby wyświetlić grupy, do których należy konto użytkownika. Jeśli użytkownik nie jest członkiem **`users`** grupy, użyj następującego polecenia, aby dodać użytkownika do grupy:
-
-    sudo adduser USERNAME users
-
-> [!NOTE]  
-> Usługa HDInsight może potrwać kilka minut, ponieważ użytkownik dodaliśmy do grupy.
-
-### <a name="launcher-error-sqoop"></a>BŁĄD uruchamiania (Sqoop)
-
-**Objawy**: stan zadania zmienia się na **zabity**. Szczegóły zadania przedstawiają `RunSqoopExport` stan jako **błąd**. W przypadku wybrania akcji zostanie wyświetlony następujący komunikat o błędzie:
-
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
-
-**Przyczyna**: Sqoop nie może załadować sterownika bazy danych wymaganego do uzyskania dostępu do bazy danych.
-
-**Rozwiązanie**: w przypadku korzystania z Sqoop z zadania Oozie należy dołączyć sterownik bazy danych z innymi zasobami, takimi jak Workflow. XML, zadanie używa. Ponadto należy odwołać się do archiwum zawierającego sterownik bazy danych z `<sqoop>...</sqoop>` sekcji pliku Workflow. XML.
-
-Na przykład w przypadku zadania w tym dokumencie należy wykonać następujące czynności:
-
-1. Skopiuj `mssql-jdbc-7.0.0.jre8.jar` plik do katalogu **/Tutorials/useoozie** :
-
-    ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
-    ```
-
-2. Zmodyfikuj, `workflow.xml` aby dodać następujący kod XML w nowym wierszu powyżej `</sqoop>`:
-
-    ```xml
-    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
-    ```
-
 ## <a name="next-steps"></a>Następne kroki
 
 W tym artykule przedstawiono sposób definiowania przepływu pracy Oozie oraz uruchamiania zadania Oozie. Aby dowiedzieć się więcej na temat pracy z usługą HDInsight, zobacz następujące artykuły:
@@ -712,3 +651,4 @@ W tym artykule przedstawiono sposób definiowania przepływu pracy Oozie oraz ur
 * [Przekazywanie danych dla zadań Apache Hadoop w usłudze HDInsight](hdinsight-upload-data.md)
 * [Korzystanie z usługi Apache Sqoop z usługą Apache Hadoop w usłudze HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
 * [Używanie Apache Hive z Apache Hadoop w usłudze HDInsight](hadoop/hdinsight-use-hive.md)
+* [Rozwiązywanie problemów z programem Apache Oozie](./troubleshoot-oozie.md)

@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8e4c1c05b133f85b7473c3ce97c9f509ac8f7d37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39a013f5f4b587137366147ade77f0be1b353c4c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299190"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204429"
 ---
-- Migawek przyrostowych obecnie nie można przenosić między subskrypcjami.
-- Obecnie można wygenerować tylko identyfikatory URI sygnatury dostępu Współdzielonego z maksymalnie pięciu migawek określonej rodziny migawek w danym momencie.
+- Obecnie nie można przenosić migawek przyrostowych między subskrypcjami.
+- Obecnie można generować identyfikatory URI SAS maksymalnie pięć migawek określonej rodziny migawek w danym momencie.
 - Nie można utworzyć migawki przyrostowej dla określonego dysku poza subskrypcją tego dysku.
-- Co pięć minut można utworzyć maksymalnie siedem przyrostowych migawek na dysk.
-- Dla jednego dysku można utworzyć łącznie 200 migawek przyrostowych.
+- Do siedmiu migawek przyrostowych na dysk można utworzyć co pięć minut.
+- Można utworzyć łączną liczbę migawek przyrostowych 200 dla jednego dysku.
+- Nie można uzyskać zmian między migawkami podjętymi przed zmianą i po zmianie rozmiaru dysku nadrzędnego na granicy 4 TB. Konieczne będzie ponowne pobranie pełnej kopii migawki utworzonej po zmianie rozmiaru. Następnie można uzyskać zmiany między migawkami utworzonymi po zmianie rozmiaru na granicach 4 TB. 

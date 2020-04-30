@@ -1,0 +1,7 @@
+- name: Dokumentacja inżynierii niezawodności lokacji
+  href: ../index.yml
+- name: Często zadawane pytania
+  expanded: true
+  items:
+    - name: Inżynieria niezawodności lokacji i metodyka DevOps
+      href: devops.md

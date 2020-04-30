@@ -1,31 +1,26 @@
 ---
-title: Korzystając z standard scim, Microsoft Graph i usługi Azure AD Provisioning, aby udostępnić użytkownikom i wzbogacić swoją aplikację przy użyciu potrzebnych danych | Microsoft Docs
+title: Korzystanie z standard scim, Microsoft Graph i usługi Azure AD w celu aprowizacji użytkowników i wzbogacania aplikacji przy użyciu danych
 description: Korzystając z standard scim i Microsoft Graph, aby udostępnić użytkownikom i wzbogacić swoją aplikację przy użyciu potrzebnych danych.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181838"
+ms.locfileid: "82201690"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Korzystanie z standard scim i Microsoft Graph ze sobą w celu aprowizacji użytkowników i wzbogacania aplikacji o potrzebne dane
 
-**Odbiorcy docelowi:** Ten dokument jest przeznaczony dla deweloperów tworzących aplikacje, które mają zostać zintegrowane z usługą Azure AD. Aby inni chcąli korzystać z aplikacji już zintegrowanych z usługą Azure AD, takich jak Powiększ, usługi ServiceNow i DropBox, możesz pominąć ten proces i zapoznać się z [samouczkami](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) dotyczącymi konkretnych aplikacji lub sprawdzić, [jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Odbiorcy docelowi:** Ten artykuł jest przeznaczony dla deweloperów tworzących aplikacje, które mają być zintegrowane z usługą Azure Active Directory (Azure AD). Jeśli zamierzasz korzystać z aplikacji już zintegrowanych z usługą Azure AD, takich jak zoom, usługi ServiceNow i DropBox, możesz pominąć ten artykuł i zapoznać się z [samouczkami](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) dotyczącymi konkretnych aplikacji lub sprawdzić, [jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Typowe scenariusze**
 
@@ -46,7 +41,6 @@ Obecnie Administratorzy IT udostępniają użytkownikom ręcznie Tworzenie kont 
 **Zalecenie**: 
 * Jeśli klienci korzystają z różnych dostawców tożsamości i nie chcesz zachować aparatu synchronizacji do integracji z każdym z nich, obsługuj [punkt końcowy zgodny z standard scim](https://aka.ms/scimreferencecode) . Klienci będą mogli łatwo korzystać z tego punktu końcowego w celu integracji z usługą Azure AD Provisioning i automatycznego tworzenia kont użytkowników, gdy potrzebują dostępu. Punkt końcowy można skompilować raz i będzie zgodny ze wszystkimi dostawców tożsamości. Zapoznaj się z przykładowym żądaniem poniżej, aby dowiedzieć się, jak utworzyć użytkownika przy użyciu Standard scim.
 * Jeśli wymagane jest znalezienie danych użytkownika w obiekcie użytkownika w usłudze Azure AD i innych danych firmy Microsoft, należy rozważyć utworzenie punktu końcowego Standard scim na potrzeby aprowizacji użytkowników i wywołanie w Microsoft Graph, aby uzyskać resztę danych. 
-
 
 ```json
 POST /Users

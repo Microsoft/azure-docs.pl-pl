@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b6cb0fa3611da44726dabd879c37fec357fc3031
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108397"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202778"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importowanie aplikacji logiki jako interfejsu API
 
-W tym artykule pokazano, jak zaimportować aplikację logiki jako interfejs API i przetestować zaimportowany interfejs API.
+W tym artykule przedstawiono sposób importowania aplikacji logiki jako interfejsu API i testowania zaimportowanego interfejsu API.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -40,24 +40,25 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importowanie i publikowanie interfejsu API zaplecza
 
-1. Wybierz pozycję **Interfejsy API** w obszarze **API MANAGEMENT**.
+1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
 2. Wybierz pozycję **Aplikacja logiki** z listy **Dodaj nowy interfejs API**.
 
     ![Aplikacja logiki](./media/import-logic-app-as-api/logic-app-api.png)
 
-3. Naciśnij **przycisk Przeglądaj,** aby wyświetlić listę aplikacji logiki z wyzwalaczem HTTP w ramach subskrypcji. (Należy zauważyć, że aplikacje logiki bez wyzwalacza HTTP nie pojawią się na liście).
-4. Wybierz aplikację. Usługa API Management wyszukuje swagger skojarzony z wybraną aplikacją, pobiera ją i importuje.
-5. Dodaj sufiks adresu URL interfejsu API. Sufiks to nazwa, która identyfikuje dany interfejs API w tym wystąpieniu usługi API Management. Musi być unikatowa w tym wystąpieniu zarządzania interfejsem API.
+3. Naciśnij przycisk **Przeglądaj** , aby wyświetlić listę Logic Apps z wyzwalaczem http w ramach subskrypcji. (Należy zauważyć, że Logic Apps bez wyzwalacza HTTP nie będą wyświetlane na liście).
+4. Wybierz aplikację. API Management znajduje strukturę Swagger skojarzoną z wybraną aplikacją, pobiera ją i importuje.
+5. Dodaj sufiks adresu URL interfejsu API. Sufiks to nazwa, która identyfikuje dany interfejs API w tym wystąpieniu usługi API Management. Musi być unikatowa w tym wystąpieniu API Management.
 6. Opublikuj interfejs API przez skojarzenie go z produktem. W takim przypadku jest używany produkt typu „_Nieograniczony_”. Jeśli chcesz, aby interfejs API został opublikowany i był dostępny dla deweloperów, dodaj go do produktu. Możesz to zrobić podczas tworzenia interfejsu API lub ustawić tę opcję później.
 
-    Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie zarządzania interfejsami API, jesteś już administratorem, więc domyślnie subskrybujesz każdy produkt.
+    Produkty to skojarzenia co najmniej jednego interfejsu API. Możesz uwzględnić wiele interfejsów API i zaoferować je deweloperom za pośrednictwem portalu deweloperów. Przed uzyskaniem dostępu do interfejsu API deweloperzy muszą najpierw zasubskrybować produkt. Podczas subskrybowania otrzymują oni klucz subskrypcji działający dla każdego interfejsu API w tym produkcie. Jeśli utworzono wystąpienie API Management, jesteś administratorem, więc domyślnie subskrybujesz każdy produkt.
 
     Domyślnie każde wystąpienie usługi API Management zawiera dwa produkty przykładowe:
 
     - **Starter (początkowy)**
-    - **Unlimited (nieograniczony)**
+    - **Nieograniczona liczba**
 
-7. Wybierz **pozycję Utwórz**.
+7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+8. Wybierz przycisk **Utwórz**.
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testowanie interfejsu API w witrynie Azure Portal
 

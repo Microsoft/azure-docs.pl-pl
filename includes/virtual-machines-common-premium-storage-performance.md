@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75942691"
+ms.locfileid: "82204662"
 ---
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -232,7 +232,7 @@ Należy pamiętać, że dyski Premium Storage mają wyższe możliwości wydajno
 
 ## <a name="disk-caching"></a>Buforowanie dysku
 
-Maszyny wirtualne o wysokiej skali wykorzystujące platformę Azure Premium Storage mają wielowarstwową technologię buforowania o nazwie BlobCache. BlobCache używa kombinacji pamięci RAM maszyny wirtualnej i lokalnego dysku SSD do buforowania. Ta pamięć podręczna jest dostępna dla dysków trwałych Premium Storage i lokalnych dysków maszyny wirtualnej. Domyślnie to ustawienie pamięci podręcznej jest ustawione na odczyt/zapis dla dysków systemu operacyjnego i tylko do odczytu dla dysków danych hostowanych na Premium Storage. Gdy buforowanie dysków jest włączone na dyskach Premium Storage, maszyny wirtualne o wysokiej skali mogą uzyskać bardzo wysokie poziomy wydajności, które przekraczają wydajność dysku podstawowego.
+Maszyny wirtualne o wysokiej skali wykorzystujące platformę Azure Premium Storage mają wielowarstwową technologię buforowania o nazwie BlobCache. BlobCache używa kombinacji pamięci RAM hosta i lokalnego dysku SSD na potrzeby buforowania. Ta pamięć podręczna jest dostępna dla dysków trwałych Premium Storage i lokalnych dysków maszyny wirtualnej. Domyślnie to ustawienie pamięci podręcznej jest ustawione na odczyt/zapis dla dysków systemu operacyjnego i tylko do odczytu dla dysków danych hostowanych na Premium Storage. Gdy buforowanie dysków jest włączone na dyskach Premium Storage, maszyny wirtualne o wysokiej skali mogą uzyskać bardzo wysokie poziomy wydajności, które przekraczają wydajność dysku podstawowego.
 
 > [!WARNING]
 > Buforowanie dysków nie jest obsługiwane w przypadku dysków 4 TiB i większych. Jeśli do maszyny wirtualnej są dołączone wiele dysków, każdy dysk o rozmiarze mniejszym niż 4 TiB będzie obsługiwał buforowanie.

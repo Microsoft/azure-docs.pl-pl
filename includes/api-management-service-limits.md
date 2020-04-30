@@ -6,39 +6,42 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5608683578a796ae0fffff7544a749043e8698fd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 072f13f5a0884cf95fe760e17ff0d770111f4da0
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656215"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204639"
 ---
 | Zasób | Limit |
 | ---------------------------------------------------------------------- | -------------------------- |
-| Maksymalna liczba jednostek skali | 10 na region<sup>1</sup> |
+| Maksymalna liczba jednostek skalowania | 10 na region<sup>1</sup> |
 | Rozmiar pamięci podręcznej | 5 GiB na jednostkę<sup>2</sup> |
-| Równoczesne połączenia zaplecza<sup>3</sup> na urząd HTTP | 2 048 na jednostkę<sup>4</sup> |
+| Współbieżne połączenia zaplecza<sup>3</sup> na urząd http | 2 048 na jednostkę<sup>4</sup> |
 | Maksymalny rozmiar buforowanej odpowiedzi | 2 MiB |
-| Maksymalny rozmiar dokumentu zasad | 256 Kib<sup>5</sup> |
-| Maksymalna liczba domen bramy niestandardowej na wystąpienie usługi<sup>6</sup> | 20 |
-| Maksymalna liczba certyfikatów urzędu certyfikacji na wystąpienie usługi | 10 |
-| Maksymalna liczba wystąpień usługi na subskrypcję<sup>7</sup> | 20 |
-| Maksymalna liczba subskrypcji na wystąpienie usługi<sup>7</sup> | 500 |
-| Maksymalna liczba certyfikatów klienta na wystąpienie usługi<sup>7</sup> | 50 |
-| Maksymalna liczba interfejsów API na wystąpienie usługi<sup>7</sup> | 50 |
-| Maksymalna liczba operacji interfejsu API na wystąpienie usługi<sup>7</sup> | 1000 |
-| Maksymalny całkowity czas trwania żądania<sup>7</sup> | 30 sekund |
-| Maksymalny buforowany rozmiar ładunku<sup>7</sup> | 2 MiB |
-| Maksymalny rozmiar adresu URL żądania<sup>8</sup> | 4096 bajtów |
+| Maksymalny rozmiar dokumentu zasad | 256 KiB<sup>5</sup> |
+| Maksymalna liczba niestandardowych domen bramy na wystąpienie usługi<sup>6</sup> | 20 |
+| Maksymalna liczba certyfikatów urzędu certyfikacji na wystąpienie usługi<sup>7</sup> | 10 |
+| Maksymalna liczba wystąpień usługi na subskrypcję<sup>8</sup> | 20 |
+| Maksymalna liczba subskrypcji na wystąpienie usługi<sup>8</sup> | 500 |
+| Maksymalna liczba certyfikatów klienta na wystąpienie usługi<sup>8</sup> | 50 |
+| Maksymalna liczba interfejsów API na wystąpienie usługi<sup>8</sup> | 50 |
+| Maksymalna liczba operacji interfejsu API na wystąpienie usługi<sup>8</sup> | 1000 |
+| Maksymalny łączny czas trwania żądania<sup>8</sup> | 30 sekund |
+| Maksymalny rozmiar zbuforowanego ładunku<sup>8</sup> | 2 MiB |
+| Maksymalny rozmiar adresu URL żądania<sup>9</sup> | 4096 bajtów |
+| Maksymalna liczba bram, które są obsługiwane przez siebie<sup>10</sup> | 25 |
 
-<sup>1.</sup> Limity skalowania zależą od warstwy cenowej. Aby wyświetlić warstwy cenowe i ich limity skalowania, zobacz [Cennik zarządzania interfejsami API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
-<sup>2.</sup> Rozmiar pamięci podręcznej jednostki zależy od warstwy cenowej. Aby wyświetlić warstwy cenowe i ich limity skalowania, zobacz [Cennik zarządzania interfejsami API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
-<sup>3</sup> Połączenia są łączone i ponownie, chyba że jawnie zamknięte przez zapleczu.<br/>
-<sup>4</sup> Ten limit jest na jednostkę warstw Basic, Standard i Premium. Warstwa Deweloper jest ograniczona do 1024. Ten limit nie ma zastosowania do warstwy Zużycie.<br/>
-<sup>5</sup> Ten limit dotyczy warstw Basic, Standard i Premium. W warstwie Zużycie rozmiar dokumentu zasad jest ograniczony do 16 KiB.<br/>
-<sup>6</sup> Ten zasób jest dostępny tylko w warstwie Premium.<br/>
-<sup>7</sup> Ten zasób ma zastosowanie tylko do warstwy Zużycie.<br/>
-<sup>8</sup> Dotyczy tylko warstwy Zużycie. Zawiera ciąg zapytania o długości do 2048 bajtów.<br/>
+<sup>1</sup> Limity skalowania zależą od warstwy cenowej. Aby uzyskać szczegółowe informacje dotyczące warstw cenowych i ich limitów skalowania, zobacz [Cennik usługi API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>2</sup> Rozmiar pamięci podręcznej na jednostkę zależy od warstwy cenowej. Aby sprawdzić warstwy cenowe i ich limity skalowania, zobacz [cennik API Management](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>3</sup> Połączenia są w puli i ponownie używane, chyba że zostały jawnie zamknięte przez zaplecze.<br/>
+<sup>4</sup> Ten limit jest na jednostkę warstw Podstawowa, standardowa i Premium. Warstwa dewelopera jest ograniczona do 1 024. Ten limit nie dotyczy warstwy zużycia.<br/>
+<sup>5</sup> Ten limit dotyczy warstw Podstawowa, standardowa i Premium. W warstwie zużycia rozmiar dokumentu zasad jest ograniczony do 4 KiB.<br/>
+<sup>6</sup> Wiele domen niestandardowych jest obsługiwanych tylko w warstwach deweloper i Premium.<br/>
+<sup>7</sup> Certyfikaty urzędu certyfikacji nie są obsługiwane w warstwie zużycia.<br/>
+<sup>8</sup> Ten zasób ma zastosowanie tylko do warstwy zużycia.<br/>
+<sup>9</sup> Dotyczy tylko warstwy zużycia. Zawiera ciąg zapytania o długości do 2048 bajtów.<br/>
+<sup>10</sup> Bramy samoobsługowe są obsługiwane tylko w warstwach deweloper i Premium. Limit ma zastosowanie do liczby [zasobów bramy samoobsługowej](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Aby zgłosić ten limit, skontaktuj się z [pomocą techniczną](https://azure.microsoft.com/support/options/). Należy zauważyć, że liczba węzłów (lub replik) skojarzonych z nieobsługiwanym zasobem bramy jest nieograniczona w warstwie Premium i ograniczona do jednego węzła w warstwie dewelopera.

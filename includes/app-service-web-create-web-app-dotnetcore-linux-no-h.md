@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/22/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ca5ef9cebfddb002cd62a9fb0fbbfdf444e0e754
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: f397a3df7280b9277b2b7205368ef5788ed321aa
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085931"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206679"
 ---
-Utwórz [aplikację](../articles/app-service/containers/app-service-linux-intro.md) internetową `myAppServicePlan` w planie usługi app service. 
+Utwórz [aplikację internetową](../articles/app-service/containers/app-service-linux-intro.md) w planie `myAppServicePlan` App Service. 
 
-W powłoki chmury można [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) użyć polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko wykonawcze jest `DOTNETCORE|LTS`ustawione na , który jest .NET Core 3.1. Aby wyświetlić wszystkie obsługiwane środowiska [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)wykonawcze, uruchom plik . 
+W Cloud Shell można użyć [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) polecenia. W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe jest ustawione `DOTNETCORE|LTS`na wartość, czyli .net Core 3,1. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)Uruchom polecenie. 
 
 ```azurecli-interactive
 # Bash
@@ -50,11 +50,11 @@ Utworzona została pusta aplikacja internetowa w kontenerze systemu Linux z wł�
 > Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
 
-Obecnie należy uruchomić następujące polecenie dodatkowe, aby poprawnie skonfigurować wersję .NET Core (zastąp `<app-name>` ją z poprzedniego kroku):
+Obecnie należy uruchomić następujące dodatkowe polecenie w celu poprawnego skonfigurowania wersji platformy .NET Core (Zastąp `<app-name>` ją z poprzednią czynnością):
 
 ```azurecli-interactive
 # Bash
-az webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1.0"
+az webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
 # PowerShell
-az --% webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1.0"
+az --% webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
 ```

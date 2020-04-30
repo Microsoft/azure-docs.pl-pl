@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: c647564d685470d86b2aa54be5a86bb995d914bc
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159732"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202563"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Tworzenie aplikacji w języku Node. js na platformie Azure
 
@@ -25,7 +25,7 @@ Wymagane [Visual Studio Code](https://code.visualstudio.com/) zainstalowane wraz
 
 Konieczne będzie również zainstalowanie [rozszerzenia Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), za pomocą którego można tworzyć i wdrażać Web Apps systemu Linux na platformie Azure jako usługa (PaaS) oraz zarządzać nimi.
 
-### <a name="sign-in"></a>Logowanie
+### <a name="sign-in"></a>Zaloguj się
 
 Po zainstalowaniu rozszerzenia Zaloguj się do konta platformy Azure. Na pasku działania wybierz logo platformy Azure, aby wyświetlić Eksplorator **usługi Azure App Service** . Wybierz pozycję **Zaloguj się do platformy Azure...** i postępuj zgodnie z instrukcjami.
 
@@ -83,7 +83,7 @@ Następnie upewnij się, że aplikacja działa. W terminalu uruchom aplikację z
 npm start
 ```
 
-Teraz otwórz przeglądarkę i przejdź do lokalizacji, [http://localhost:3000](http://localhost:3000)w której powinny zostać wyświetlone następujące elementy:
+Teraz otwórz przeglądarkę i przejdź do lokalizacji, `http://localhost:3000`w której powinny zostać wyświetlone następujące elementy:
 
 ![Uruchamianie aplikacji Express](./media/quickstart-nodejs/express.png)
 

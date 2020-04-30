@@ -1,11 +1,11 @@
 ---
-title: Zbiorcze przekazywanie importu w celu dodania członków do grupy — usługa Azure Active Directory | Dokumenty firmy Microsoft
-description: Zbiorcze dodawanie członków grupy w centrum administracyjnym usługi Azure Active Directory.
+title: Przekazywanie zbiorcze w celu dodania lub utworzenia elementów członkowskich grupy — Azure Active Directory | Microsoft Docs
+description: Dodaj zbiorczo członków grupy w centrum administracyjnym Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,50 +13,71 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533488"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203532"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Zbiorcze importowanie członków grupy w usłudze Azure Active Directory
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Importuj zbiorczo członków grupy w Azure Active Directory
 
-Korzystając z portalu usługi Azure Active Directory (Azure AD), można dodać dużą liczbę członków do grupy za pomocą pliku csv (usytuowanych przecinkami) do zbiorczego importowania członków grupy.
+Za pomocą portalu usługi Azure Active Directory (Azure AD) można dodać dużą liczbę elementów członkowskich do grupy przy użyciu pliku wartości rozdzielanych przecinkami (CSV) w celu zbiorczego importowania elementów członkowskich grupy.
 
-## <a name="to-bulk-import-group-members"></a>Aby zbiorczo importować członków grupy
+## <a name="understand-the-csv-template"></a>Zrozumienie szablonu CSV
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com) przy za pomocą konta administratora użytkownika w organizacji. Właściciele grup mogą również zbiorczo importować członków grup, których są właścicielami.
-1. W usłudze Azure AD wybierz pozycję **Grupy** > **Wszystkie grupy**.
-1. Otwórz grupę, do której dodajesz członków, a następnie wybierz pozycję **Członkowie**.
+Pobierz i wypełnij szablon CSV przekazywania zbiorczego, aby pomyślnie dodać członków grupy usługi Azure AD. Szablon CSV może wyglądać podobnie do tego przykładu:
+
+![Arkusz kalkulacyjny do przekazywania i wywoływać wywołajeń objaśniających przeznaczenie i wartości dla każdego wiersza i kolumny](./media/groups-bulk-import-members/template-with-callouts.png)
+
+### <a name="csv-template-structure"></a>Struktura szablonu CSV
+
+Wiersze pobranego szablonu CSV są następujące:
+
+- **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
+- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
+- **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
+
+### <a name="additional-guidance"></a>Dodatkowe wskazówki
+
+- Pierwsze dwa wiersze szablonu przekazywania nie mogą być usuwane ani modyfikowane lub nie można przetworzyć przekazywania.
+- Wymagane kolumny są wyświetlane jako pierwsze.
+- Nie zalecamy dodawania nowych kolumn do szablonu. Wszelkie dodatkowe dodawane kolumny są ignorowane i nie są przetwarzane.
+- Zalecamy pobranie najnowszej wersji szablonu CSV tak często, jak to możliwe.
+
+## <a name="to-bulk-import-group-members"></a>Aby zaimportować zbiorczo członków grupy
+
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora użytkowników w organizacji. Właściciele grupy mogą również zbiorczo importować członków należących do nich grup.
+1. W usłudze Azure AD wybierz kolejno pozycje **grupy** > **wszystkie grupy**.
+1. Otwórz grupę, do której dodawane są elementy członkowskie, a następnie wybierz pozycję **Członkowie**.
 1. Na stronie **Członkowie** wybierz pozycję **Importuj członków**.
-1. Na stronie **Członkowie grupy importu zbiorczego** wybierz pozycję **Pobierz,** aby uzyskać szablon pliku CSV z wymaganymi właściwościami członka grupy.
+1. Na stronie **grupy importu zbiorczego** kliknij pozycję **Pobierz** , aby pobrać szablon pliku CSV z wymaganymi właściwościami elementów członkowskich grupy.
 
-    ![Polecenie Importuj członków znajduje się na stronie profilu grupy](./media/groups-bulk-import-members/import-panel.png)
+    ![Polecenie Importuj elementy członkowskie znajduje się na stronie profilu grupy](./media/groups-bulk-import-members/import-panel.png)
 
-1. Otwórz plik CSV i dodaj wiersz dla każdego członka grupy, który chcesz zaimportować do grupy (wymagane wartości to **identyfikator obiektu członkowskiego** lub nazwa główna **użytkownika).** Następnie zapisz plik.
+1. Otwórz plik CSV i Dodaj wiersz dla każdego członka grupy, który ma zostać zaimportowany do grupy (wymagane wartości to **Identyfikator obiektu elementu członkowskiego** lub **główna nazwa użytkownika**). Następnie zapisz plik.
 
-   ![Plik CSV zawiera nazwy i identyfikatory członków do zaimportowania](./media/groups-bulk-import-members/csv-file.png)
+   ![Plik CSV zawiera nazwy i identyfikatory dla elementów członkowskich do zaimportowania](./media/groups-bulk-import-members/csv-file.png)
 
-1. Na stronie **Członkowie grupy importu zbiorczego** w obszarze **Przekazywanie pliku csv**przejdź do pliku. Po wybraniu pliku rozpocznie się sprawdzanie poprawności pliku CSV.
-1. Po sprawdzeniu poprawności zawartości pliku na stronie importu zbiorczego **zostanie wyświetlony plik przekazany pomyślnie**. Jeśli występują błędy, należy je naprawić, zanim będzie można przesłać zadanie.
-1. Gdy plik przechodzi weryfikacji, wybierz **prześlij,** aby rozpocząć operację zbiorczą platformy Azure, która importuje członków grupy do grupy.
-1. Po zakończeniu operacji importowania zostanie wyświetlone powiadomienie, że operacja zbiorcza powiodła się.
+1. Na stronie **grupy importu zbiorczego** , w obszarze **Przekaż plik CSV**, przejdź do pliku. Po wybraniu pliku zostanie uruchomiony Walidacja pliku CSV.
+1. Po sprawdzeniu poprawności zawartości pliku, Strona importowania zbiorczego wyświetla **pomyślnie przekazany plik**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
+1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która importuje członków grupy do grupy.
+1. Po zakończeniu operacji importowania zobaczysz powiadomienie, że operacja zbiorcza zakończyła się pomyślnie.
 
-## <a name="check-import-status"></a>Sprawdź stan importu
+## <a name="check-import-status"></a>Sprawdź stan importowania
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
+Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczekujących żądań zbiorczych.
 
 [![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
-Aby uzyskać szczegółowe informacje o każdym elemencie zamówienia w ramach operacji zbiorczej, wybierz wartości w kolumnach **# Sukces**, **# Niepowodzenie**lub Całkowita **liczba żądań.** Jeśli wystąpiły błędy, zostaną wyświetlone przyczyny awarii.
+Aby uzyskać szczegółowe informacje na temat każdego elementu wiersza w ramach operacji zbiorczej, wybierz wartości z kolumny **# Success**, **# Failure**lub **Total Requests** . Jeśli wystąpią błędy, zostaną wyświetlone przyczyny niepowodzenia.
 
-## <a name="bulk-import-service-limits"></a>Limity usług importu zbiorczego
+## <a name="bulk-import-service-limits"></a>Limity usług importowania zbiorczego
 
-Każde działanie zbiorcze w celu zaimportowania listy członków grupy może trwać maksymalnie jedną godzinę. Umożliwia to importowanie listy co najmniej 40 000 członków.
+Każde działanie zbiorcze służące do importowania listy członków grupy może być uruchamiane przez maksymalnie jedną godzinę. Umożliwia to zaimportowanie listy co najmniej 40 000 elementów członkowskich.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zbiorcze usuwanie członków grupy](groups-bulk-remove-members.md)
-- [Pobieranie członków grupy](groups-bulk-download-members.md)
+- [Pobierz członków grupy](groups-bulk-download-members.md)
 - [Pobierz listę wszystkich grup](groups-bulk-download.md)

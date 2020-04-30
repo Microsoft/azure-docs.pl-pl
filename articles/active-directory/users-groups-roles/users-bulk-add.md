@@ -1,11 +1,11 @@
 ---
-title: Zbiorcze tworzenie użytkowników w portalu usługi Azure Active Directory | Dokumenty firmy Microsoft
-description: Zbiorcze dodawanie użytkowników w centrum administracyjnym usługi Azure AD w usłudze Azure Active Directory
+title: Zbiorcze tworzenie użytkowników w portalu Azure Active Directory | Microsoft Docs
+description: Dodaj użytkowników zbiorczo w centrum administracyjnym usługi Azure AD w Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,56 +13,77 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532945"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203412"
 ---
-# <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w usłudze Azure Active Directory
+# <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) obsługuje operacje tworzenia i usuwania użytkowników zbiorczych, zbiorcze zapraszanie gości oraz obsługuje pobieranie list użytkowników, grup i członków grupy.
+Azure Active Directory (Azure AD) obsługuje operacje tworzenia i usuwania użytkowników zbiorczych oraz obsługują pobieranie list użytkowników. Po prostu wypełnij szablon wartości rozdzielanych przecinkami (CSV), które można pobrać z portalu usługi Azure AD.
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby zbiorczo tworzyć użytkowników w portalu administracyjnym, użytkownik musi być zalogowany jako administrator globalny lub administrator użytkownika.
+Aby można było tworzyć zbiorczo użytkowników w portalu administracyjnym, użytkownik musi być zalogowany jako Administrator globalny lub administrator użytkowników.
 
-## <a name="to-create-users-in-bulk"></a>Aby zbiorczo tworzyć użytkowników
+## <a name="understand-the-csv-template"></a>Zrozumienie szablonu CSV
 
-1. [Zaloguj się do organizacji usługi Azure AD](https://aad.portal.azure.com) przy za pomocą konta, które jest administratorem użytkownika w organizacji.
-1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **zbiorczo utwórz**.
-1. Na stronie **Zbiorcze tworzenie użytkownika** wybierz pozycję **Pobierz,** aby otrzymać prawidłowy plik właściwości użytkownika (CSV) z osobnymi przecinkami, a następnie dodaj użytkowników, których chcesz utworzyć.
+Pobierz i wypełnij szablon CSV przekazywanie zbiorcze, aby ułatwić pomyślne utworzenie użytkowników usługi Azure AD. Pobrany szablon CSV może wyglądać podobnie do tego przykładu:
 
-   ![Wybierz lokalny plik CSV, w którym wyświetlisz listę użytkowników, których chcesz dodać](./media/users-bulk-add/upload-button.png)
+![Arkusz kalkulacyjny do przekazywania i wywoływać wywołajeń objaśniających przeznaczenie i wartości dla każdego wiersza i kolumny](./media/users-bulk-add/create-template-example.png)
 
-1. Otwórz plik CSV i dodaj wiersz dla każdego użytkownika, którego chcesz utworzyć. Jedynymi wymaganymi wartościami są **Nazwa,** **Nazwa główna użytkownika,** **Hasło początkowe** i **Zaloguj się bloku (Tak/Nie)**. Następnie zapisz plik.
+### <a name="csv-template-structure"></a>Struktura szablonu CSV
 
-   ![Plik CSV zawiera nazwy i identyfikatory użytkowników do utworzenia](./media/users-bulk-add/add-csv-file.png)
+Wiersze pobranego szablonu CSV są następujące:
 
-1. Na stronie **Zbiorcze tworzenie użytkownika** w obszarze Przekazywanie pliku CSV przejdź do pliku. Po wybraniu pliku i kliknięciu **przycisku Prześlij**rozpocznie się sprawdzanie poprawności pliku CSV.
-1. Po sprawdzeniu poprawności zawartości pliku zostanie **wyświetlony folder Plik przekazany pomyślnie**. Jeśli występują błędy, należy je naprawić, zanim będzie można przesłać zadanie.
-1. Gdy plik przejdzie sprawdzanie poprawności, wybierz **przycisk Prześlij,** aby rozpocząć operację zbiorczą platformy Azure, która importuje nowych użytkowników.
-1. Po zakończeniu operacji importowania zostanie wyświetlone powiadomienie o stanie zadania operacji zbiorczej.
+- **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
+- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Name [displayName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
-Jeśli występują błędy, można pobrać i wyświetlić plik wyników na stronie **Wyniki operacji zbiorczej.** Plik zawiera przyczynę każdego błędu.
+### <a name="additional-guidance"></a>Dodatkowe wskazówki
+
+- Pierwsze dwa wiersze szablonu przekazywania nie mogą być usuwane ani modyfikowane lub nie można przetworzyć przekazywania.
+- Wymagane kolumny są wyświetlane jako pierwsze.
+- Nie zalecamy dodawania nowych kolumn do szablonu. Wszelkie dodatkowe dodawane kolumny są ignorowane i nie są przetwarzane.
+- Zalecamy pobranie najnowszej wersji szablonu CSV tak często, jak to możliwe.
+
+## <a name="to-create-users-in-bulk"></a>Aby tworzyć użytkowników zbiorczo
+
+1. [Zaloguj się do swojej organizacji usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
+1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **Tworzenie zbiorcze**.
+1. Na stronie **Tworzenie zbiorczego użytkownika** wybierz pozycję **Pobierz** , aby otrzymać prawidłowy plik wartości rozdzielanych przecinkami (CSV) właściwości użytkownika, a następnie Dodaj Dodaj użytkowników, których chcesz utworzyć.
+
+   ![Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać](./media/users-bulk-add/upload-button.png)
+
+1. Otwórz plik CSV i Dodaj wiersz dla każdego użytkownika, który chcesz utworzyć. Jedyne wymagane wartości to **Nazwa**, **główna nazwa użytkownika**, **początkowe hasło** i **blokowanie logowania (tak/nie)**. Następnie zapisz plik.
+
+   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+
+1. Na stronie **Tworzenie zbiorcze użytkownika** w obszarze Przekaż plik CSV przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
+1. Po zweryfikowaniu zawartości pliku zostanie wyświetlony **plik pomyślnie przekazane**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.
+1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która importuje nowych użytkowników.
+1. Po zakończeniu operacji importowania zobaczysz powiadomienie o stanie zadania operacji zbiorczej.
+
+W przypadku wystąpienia błędów można pobrać i wyświetlić plik wyników na stronie **wyników operacji zbiorczej** . Plik zawiera przyczynę każdego błędu.
 
 ## <a name="check-status"></a>Sprawdzanie stanu
 
-Stan wszystkich oczekujących żądań zbiorczych można zobaczyć na stronie **Wyniki operacji zbiorczej.**
+Na stronie **wyniki operacji zbiorczej** można zobaczyć stan wszystkich oczekujących żądań zbiorczych.
 
    [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
-Następnie można sprawdzić, czy użytkownicy, których utworzono istnieją w organizacji usługi Azure AD albo w witrynie Azure portal lub przy użyciu programu PowerShell.
+Następnie możesz sprawdzić, czy utworzone przez Ciebie użytkownicy znajdują się w organizacji usługi Azure AD w Azure Portal lub przy użyciu programu PowerShell.
 
-## <a name="verify-users-in-the-azure-portal"></a>Weryfikowanie użytkowników w witrynie Azure portal
+## <a name="verify-users-in-the-azure-portal"></a>Weryfikowanie użytkowników w Azure Portal
 
-1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy za pomocą konta, które jest administratorem użytkownika w organizacji.
+1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
-1. W obszarze **Pokaż**wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy utworzyli użytkownicy są na liście.
+1. W obszarze **Pokaż**wybierz opcję **Wszyscy użytkownicy** i sprawdź, czy utworzone przez Ciebie użytkownicy znajdują się na liście.
 
-### <a name="verify-users-with-powershell"></a>Weryfikowanie użytkowników za pomocą programu PowerShell
+### <a name="verify-users-with-powershell"></a>Weryfikowanie użytkowników przy użyciu programu PowerShell
 
 Uruchom następujące polecenie:
 
@@ -70,14 +91,14 @@ Uruchom następujące polecenie:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Powinieneś zobaczyć, że utworzyli użytkownicy są na liście.
+Powinny zostać wyświetlone wszystkie utworzone przez Ciebie użytkownicy.
 
-## <a name="bulk-import-service-limits"></a>Limity usług importu zbiorczego
+## <a name="bulk-import-service-limits"></a>Limity usług importowania zbiorczego
 
-Każde działanie zbiorcze do tworzenia użytkowników może działać przez maksymalnie jedną godzinę. Umożliwia to masowe tworzenie co najmniej 50 000 użytkowników.
+Każde działanie zbiorcze służące do tworzenia użytkowników może być uruchamiane przez maksymalnie jedną godzinę. Dzięki temu można utworzyć zbiorczo co najmniej 50 000 użytkowników.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Zbiorcze usuwanie użytkowników](users-bulk-delete.md)
-- [Lista użytkowników do pobrania](users-bulk-download.md)
-- [Użytkownicy przywracania zbiorczego](users-bulk-restore.md)
+- [Pobierz listę użytkowników](users-bulk-download.md)
+- [Zbiorcze przywracanie użytkowników](users-bulk-restore.md)

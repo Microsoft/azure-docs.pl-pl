@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: diberry
 ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82192990"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wersji, klipy wideo, wpisy w blogu i inne typy informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 

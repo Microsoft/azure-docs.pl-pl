@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108489"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202829"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importowanie aplikacji interfejsu API jako interfejsu API
 
@@ -39,7 +39,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importowanie i publikowanie interfejsu API zaplecza
 
-1. Wybierz pozycję **Interfejsy API** w obszarze **API MANAGEMENT**.
+1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
 2. Wybierz pozycję **Aplikacja interfejsu API** z listy **Dodaj nowy interfejs API**.
 
     ![Aplikacja interfejsu API](./media/import-api-app-as-api/api-app.png)
@@ -55,10 +55,11 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
     Domyślnie każde wystąpienie usługi API Management zawiera dwa produkty przykładowe:
 
     * **Starter (początkowy)**
-    * **Unlimited (nieograniczony)**   
-7. Wybierz **pozycję Utwórz**.
+    * **Nieograniczona liczba**   
+7. Wprowadź inne ustawienia interfejsu API. Możesz ustawić wartości podczas tworzenia lub skonfigurować je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
+8. Wybierz przycisk **Utwórz**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testowanie nowego interfejsu API w witrynie Azure portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
 
 Operacje mogą być wywoływane bezpośrednio z witryny Azure Portal, która zapewnia wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 

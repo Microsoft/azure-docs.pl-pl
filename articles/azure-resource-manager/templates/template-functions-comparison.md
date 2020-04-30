@@ -3,22 +3,98 @@ title: Funkcje szablonu — porównanie
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do porównywania wartości.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a9b7b32475695e5222b87c8fe75e8982f34ebb21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192335"
+ms.locfileid: "82203781"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funkcje porównania dla szablonów ARM
 
 Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
 
+* [łączonych](#coalesce)
 * [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
 * [lessOrEquals](#lessorequals)
+
+## <a name="coalesce"></a>łączonych
+
+`coalesce(arg1, arg2, arg3, ...)`
+
+Zwraca pierwszą wartość różną od zera z parametrów. Puste ciągi, puste tablice i puste obiekty nie mają wartości null.
+
+### <a name="parameters"></a>Parametry
+
+| Parametr | Wymagany | Typ | Opis |
+|:--- |:--- |:--- |:--- |
+| arg1 |Tak |int, String, array lub Object |Pierwsza wartość do przetestowania dla wartości null. |
+| dodatkowe argumenty |Nie |int, String, array lub Object |Dodatkowe wartości do przetestowania na wartość null. |
+
+### <a name="return-value"></a>Wartość zwracana
+
+Wartość pierwszych parametrów innych niż null, które mogą być ciągami, int, tablicami lub obiektami. Wartość null, jeśli wszystkie parametry mają wartość null.
+
+### <a name="example"></a>Przykład
+
+Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) przedstawia dane wyjściowe z różnych sposobów łączenia.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "null1": null,
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+        }
+    }
+}
+```
+
+Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następujące:
+
+| Nazwa | Typ | Wartość |
+| ---- | ---- | ----- |
+| stringOutput | String | default |
+| intOutput | int | 1 |
+| objectOutput | Obiekt | {"First": "default"} |
+| arrayOutput | Tablica | jedno |
+| emptyOutput | Wartość logiczna | Prawda |
 
 ## <a name="equals"></a>equals
 
@@ -125,10 +201,10 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| checkInts | Wartość logiczna | True |
-| checkStrings | Wartość logiczna | True |
-| checkArrays | Wartość logiczna | True |
-| checkObjects | Wartość logiczna | True |
+| checkInts | Wartość logiczna | Prawda |
+| checkStrings | Wartość logiczna | Prawda |
+| checkArrays | Wartość logiczna | Prawda |
+| checkObjects | Wartość logiczna | Prawda |
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) używa [nie](template-functions-logical.md#not) z **równą**.
 
@@ -151,7 +227,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| checkNotEquals | Wartość logiczna | True |
+| checkNotEquals | Wartość logiczna | Prawda |
 
 ## <a name="greater"></a>greater
 
@@ -216,7 +292,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | checkInts | Wartość logiczna | Fałsz |
-| checkStrings | Wartość logiczna | True |
+| checkStrings | Wartość logiczna | Prawda |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 
@@ -281,7 +357,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | checkInts | Wartość logiczna | Fałsz |
-| checkStrings | Wartość logiczna | True |
+| checkStrings | Wartość logiczna | Prawda |
 
 ## <a name="less"></a>less
 
@@ -345,7 +421,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| checkInts | Wartość logiczna | True |
+| checkInts | Wartość logiczna | Prawda |
 | checkStrings | Wartość logiczna | Fałsz |
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -410,7 +486,7 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| checkInts | Wartość logiczna | True |
+| checkInts | Wartość logiczna | Prawda |
 | checkStrings | Wartość logiczna | Fałsz |
 
 ## <a name="next-steps"></a>Następne kroki

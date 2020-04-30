@@ -1,24 +1,24 @@
 ---
 title: Składnia i wyrażenia szablonu
-description: Zawiera opis deklaratywnej składni JSON dla szablonów usługi Azure Resource Manager.
+description: Zawiera opis deklaratywnej składni JSON dla szablonów Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460113"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203832"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach usługi Azure Resource Manager
+# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Składnia i wyrażenia w szablonach Azure Resource Manager
 
-Podstawową składnią szablonu jest JSON. Można jednak użyć wyrażeń, aby rozszerzyć wartości JSON dostępne w szablonie.  Wyrażenia zaczynają się i kończą nawiasami kwadratowymi: odpowiednio `[` i `]`. Wartość wyrażenia jest obliczana podczas wdrażania szablonu. Wyrażenie może zwrócić ciąg, liczbę całkowitą, wartość logiczną, tablicę lub obiekt.
+Podstawowa składnia szablonu to JSON. Można jednak użyć wyrażeń do rozszerania wartości JSON dostępnych w ramach szablonu.  Wyrażenia zaczynają się i kończą nawiasami kwadratowymi: odpowiednio `[` i `]`. Wartość wyrażenia jest obliczana podczas wdrażania szablonu. Wyrażenie może zwrócić ciąg, liczbę całkowitą, wartość logiczną, tablicę lub obiekt.
 
-Wyrażenie szablonu nie może przekraczać 24 576 znaków.
+Wyrażenie szablonu nie może zawierać więcej niż 24 576 znaków.
 
 ## <a name="use-functions"></a>Korzystanie z funkcji
 
-Usługa Azure Resource Manager udostępnia [funkcje,](template-functions.md) których można używać w szablonie. Poniższy przykład przedstawia wyrażenie, które używa funkcji w wartości domyślnej parametru:
+Azure Resource Manager udostępnia [funkcje](template-functions.md) , których można użyć w szablonie. Poniższy przykład przedstawia wyrażenie, które używa funkcji w wartości domyślnej parametru:
 
 ```json
 "parameters": {
@@ -29,41 +29,41 @@ Usługa Azure Resource Manager udostępnia [funkcje,](template-functions.md) kt�
 },
 ```
 
-W ramach wyrażenia składnia `resourceGroup()` wywołuje jedną z funkcji, które Menedżer zasobów zapewnia do użycia w szablonie. W takim przypadku jest to [resourceGroup](template-functions-resource.md#resourcegroup) funkcja. Podobnie jak w języku JavaScript, `functionName(arg1,arg2,arg3)`wywołania funkcji są sformatowane jako . Składnia `.location` pobiera jedną właściwość z obiektu zwróconego przez tę funkcję.
+W wyrażeniu składnia `resourceGroup()` wywołuje jedną z funkcji, które Menedżer zasobów zapewnia do użycia w ramach szablonu. W tym przypadku jest to funkcja obiektu [resources](template-functions-resource.md#resourcegroup) . Podobnie jak w języku JavaScript, wywołania funkcji są sformatowane `functionName(arg1,arg2,arg3)`jako. Składnia `.location` pobiera jedną właściwość z obiektu zwróconego przez tę funkcję.
 
-Funkcje szablonu i ich parametry są niewrażliwe na wielkości liter. Na przykład Menedżer zasobów rozpoznaje **zmienne("var1")** i **ZMIENNE("VAR1")** jako takie same. Po ocenie, chyba że funkcja wyraźnie modyfikuje przypadek (na przykład toUpper lub toLower), funkcja zachowuje przypadek. Niektóre typy zasobów mogą mieć wymagania dotyczące spraw, które są niezależne od sposobu oceny funkcji.
+W funkcjach szablonów i ich parametrach nie jest rozróżniana wielkość liter. Na przykład Menedżer zasobów rozpoznaje **zmienne ("var1")** i **zmienne ("var1")** jako takie same. W przypadku oceny, chyba że funkcja wyraźnie modyfikuje wielkość liter (na przykład toUpper lub toLower), funkcja zachowuje wielkość liter. Niektóre typy zasobów mogą mieć wymagania dotyczące wielkości liter, które są niezależne od sposobu oceniania funkcji.
 
-Aby przekazać wartość ciągu jako parametr do funkcji, należy użyć pojedynczych cudzysłowów.
+Aby przekazać wartość ciągu jako parametr do funkcji, należy użyć apostrofów.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-Większość funkcji działa tak samo, niezależnie od tego, czy są wdrażane w grupie zasobów, subskrypcji, grupie zarządzania lub dzierżawie. Następujące funkcje mają ograniczenia oparte na zakresie:
+Większość funkcji działa tak samo, niezależnie od tego, czy zostały wdrożone w grupie zasobów, subskrypcji, grupie zarządzania czy dzierżawie. Następujące funkcje mają ograniczenia oparte na zakresie:
 
-* [resourceGroup](template-functions-resource.md#resourcegroup) - może być używany tylko we wdrożeniach do grupy zasobów.
-* [resourceId](template-functions-resource.md#resourceid) - może być używany w dowolnym zakresie, ale prawidłowe parametry zmieniają się w zależności od zakresu.
-* [subskrypcja](template-functions-resource.md#subscription) — może być używana tylko we wdrożeniach do grupy zasobów lub subskrypcji.
+* Grupa [zasobów — może](template-functions-resource.md#resourcegroup) być używana tylko we wdrożeniach w ramach grupy.
+* [ResourceID](template-functions-resource.md#resourceid) — można użyć w dowolnym zakresie, ale prawidłowe parametry zmieniają się w zależności od zakresu.
+* [subskrypcja](template-functions-resource.md#subscription) — może być używana tylko we wdrożeniach w grupie zasobów lub subskrypcji.
 
 ## <a name="escape-characters"></a>Znaki ucieczki
 
-Aby ciąg dosłowny rozpoczynał `[` się od lewego nawiasu i kończył prawym nawiasem , `]`ale nie `[[`interpretowano go jako wyrażenie, dodaj dodatkowy nawias, aby rozpocząć ciąg od . Na przykład zmienna:
+Aby ciąg literału rozpoczynał się od lewego nawiasu `[` i kończyć się nawiasem `]`klamrowym, ale nie powinien być interpretowany jako wyrażenie, Dodaj dodatkowy nawias klamrowy, aby `[[`uruchomić ciąg. Na przykład zmienna:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Rozpoznaje `[test value]`.
+Jest rozpoznawany jako `[test value]`.
 
-Jeśli jednak ciąg literał nie kończy się nawiasem, nie uniknij pierwszego nawiasu. Na przykład zmienna:
+Jeśli jednak ciąg literału nie kończy się nawiasem, nie należy określać pierwszego nawiasu. Na przykład zmienna:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Rozpoznaje `[test] value`.
+Jest rozpoznawany jako `[test] value`.
 
-Aby uniknąć podwójnych cudzysłowów w wyrażeniu, takich jak dodawanie obiektu JSON w szablonie, należy użyć ukośnika odwrotnego.
+Aby wypróbować podwójne cudzysłowy w wyrażeniu, takie jak dodanie obiektu JSON w szablonie, użyj ukośnika odwrotnego.
 
 ```json
 "tags": {
@@ -71,7 +71,7 @@ Aby uniknąć podwójnych cudzysłowów w wyrażeniu, takich jak dodawanie obiek
 },
 ```
 
-Podczas przekazywania wartości parametrów użycie znaków ucieczki zależy od tego, gdzie określono wartość parametru. Jeśli ustawisz wartość domyślną w szablonie, potrzebujesz dodatkowego lewego nawiasu.
+Podczas przekazywania wartości parametrów użycie znaków ucieczki zależy od tego, gdzie określono wartość parametru. Jeśli ustawisz wartość domyślną w szablonie, potrzebujesz dodatkowego nawiasu.
 
 ```json
 {
@@ -93,9 +93,9 @@ Podczas przekazywania wartości parametrów użycie znaków ucieczki zależy od 
 }
 ```
 
-Jeśli używasz wartości domyślnej, `[test value]`szablon zwraca .
+Jeśli zostanie użyta wartość domyślna, szablon zwraca `[test value]`.
 
-Jednak jeśli przekażesz wartość parametru za pośrednictwem wiersza polecenia, znaki są interpretowane dosłownie. Wdrażanie poprzedniego szablonu za pomocą:
+Jednak w przypadku przekazania wartości parametru za pomocą wiersza polecenia znaki są interpretowane dosłownie. Wdrażanie poprzedniego szablonu przy użyciu:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
@@ -107,7 +107,7 @@ Zwraca wartość `[[test value]`. Zamiast tego należy użyć:
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-To samo formatowanie ma zastosowanie podczas przekazywania wartości z pliku parametrów. Znaki są interpretowane dosłownie. W przypadku użycia z poprzednim szablonem `[test value]`zwraca się następujący plik parametrów:
+To samo formatowanie jest stosowane podczas przekazywania wartości z pliku parametrów. Znaki są interpretowane dosłownie. Gdy jest używany z poprzednim szablonem, następujący plik parametrów zwraca `[test value]`:
 
 ```json
 {
@@ -123,7 +123,7 @@ To samo formatowanie ma zastosowanie podczas przekazywania wartości z pliku par
 
 ## <a name="null-values"></a>Wartości null
 
-Aby ustawić właściwość na wartość null, można użyć **null** lub **[json('null')]**. [Funkcja json](template-functions-array.md#json) zwraca pusty obiekt `null` po podaniu jako parametr. W obu przypadkach szablony Menedżera zasobów traktują go tak, jakby właściwość nie była obecna.
+Aby ustawić właściwość na null, można użyć **wartości null** lub **[JSON ("null")]**. [Funkcja JSON](template-functions-object.md#json) zwraca pusty obiekt, gdy podajesz `null` jako parametr. W obu przypadkach Menedżer zasobów szablony traktują go tak, jakby właściwość nie jest obecna.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Aby ustawić właściwość na wartość null, można użyć **null** lub **[jso
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać pełną listę funkcji szablonu, zobacz [Funkcje szablonów usługi Azure Resource Manager](template-functions.md).
-* Aby uzyskać więcej informacji o plikach [szablonów, zobacz Opis struktury i składni szablonów usługi Azure Resource Manager](template-syntax.md).
+* Aby zapoznać się z pełną listą funkcji szablonu, zobacz [Azure Resource Manager Template Functions](template-functions.md).
+* Aby uzyskać więcej informacji na temat plików szablonów, zobacz [Omówienie struktury i składni szablonów Azure Resource Manager](template-syntax.md).

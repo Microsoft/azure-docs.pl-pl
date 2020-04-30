@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244834"
+ms.locfileid: "82200891"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Odnawianie certyfikatów Federacji dla pakietu Office 365 i Azure Active Directory
 ## <a name="overview"></a>Omówienie
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.XML
 
 gdzie `(your_FS_name)` jest zastępowana nazwą hosta usługi federacyjnej używanej przez organizację, taką jak FS.contoso.com.  Jeśli można pomyślnie zweryfikować oba te ustawienia, nie trzeba wykonywać żadnych innych czynności.  
 
-Przykład: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Przykład: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>Ręcznie odnów certyfikat podpisywania tokenu<a name="manualrenew"></a>
 Możesz zdecydować się na ręczne odnowienie certyfikatów podpisywania tokenu. Na przykład następujące scenariusze mogą usprawnić się przed ręcznym odnowieniem:
 

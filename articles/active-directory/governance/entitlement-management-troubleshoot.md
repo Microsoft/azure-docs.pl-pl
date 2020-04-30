@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128474"
+ms.locfileid: "82207248"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Rozwiązywanie problemów z zarządzaniem prawami usługi Azure AD
 
@@ -87,13 +87,19 @@ W tym artykule opisano niektóre elementy, które należy zaznaczyć, aby pomóc
 
     Jeśli żądanie zawiera błędy dostarczania, stan żądania zostanie **wystawiony** lub **częściowo dostarczony**.
 
-    Jeśli występują błędy dostarczania, w okienku szczegółów żądania zostanie wyliczona liczba błędów dostarczania.
+    Jeśli występują błędy dostarczania, w okienku szczegółów żądania zostanie wyświetlona liczba błędów dostarczania.
 
 1. Kliknij liczbę, aby wyświetlić wszystkie błędy dostarczania żądania.
 
 ### <a name="reprocess-a-request"></a>Przetwórz ponownie żądanie
 
-Jeśli w żądaniu wystąpi błąd, można ponownie przetworzyć żądanie, aby ponowić próbę. Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony niepowodzeniem** lub **częściowo dostarczone** i datę ukończenia mniejszą niż tydzień.
+Jeśli po wyzwoleniu żądania przetworzenia pakietu dostępu zostanie spełniony błąd, należy poczekać, aż system ponownie przetworzy żądanie. System próbuje wiele razy przetworzyć kilka godzin, więc nie można wymusić ponownego przetwarzania w tym czasie. 
+
+Można ponownie przetwarzać żądanie, które ma stan **dostawy zakończony niepowodzeniem** lub **częściowo dostarczone** i datę ukończenia mniejszą niż tydzień.
+
+- Jeśli błąd zostanie rozwiązany w oknie prób, stan żądania zmieni się na **dostarczenie**. Żądanie zostanie przetworzone ponownie bez dodatkowych akcji od użytkownika.
+
+- Jeśli błąd nie został usunięty podczas przedziału prób, stan żądania może być **Niepowodzenie dostawy** lub **częściowo dostarczone**. Następnie możesz użyć przycisku **Reprocess** . Przetworzenie żądania będzie miało siedem dni.
 
 **Rola wymagana wstępnie:** Administrator globalny, administrator użytkownika, właściciel katalogu lub Menedżer pakietów dostępu
 

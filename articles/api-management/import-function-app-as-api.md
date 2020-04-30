@@ -1,5 +1,5 @@
 ---
-title: Importowanie aplikacji funkcji platformy Azure jako interfejsu API w usłudze API Management
+title: Importowanie aplikacja funkcji platformy Azure jako interfejsu API w programie API Management
 titleSuffix: Azure API Management
 description: Ten samouczek przedstawia sposób importowania aplikacji funkcji platformy Azure do usługi Azure API Management jako interfejsu API.
 services: api-management
@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260959"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202926"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importowanie aplikacji funkcji platformy Azure jako interfejsu API w usłudze Azure API Management
 
@@ -46,7 +46,7 @@ Poznasz następujące czynności:
 
 Aby utworzyć nowy interfejs API z poziomu aplikacji funkcji platformy Azure, wykonaj poniższe kroki.
 
-1. W Twoim wystąpieniu usługi **Azure API Management** wybierz pozycję **Interfejsy API** z menu po lewej stronie.
+1. Przejdź do usługi API Management w Azure Portal i wybierz opcję **interfejsy API** z menu.
 
 2. Z listy **Dodaj nowy interfejs API** wybierz pozycję **Aplikacja funkcji**.
 
@@ -71,10 +71,7 @@ Aby utworzyć nowy interfejs API z poziomu aplikacji funkcji platformy Azure, wy
     > [!NOTE]
     > Możesz zaimportować tylko te funkcje, które są oparte na wyzwalaczu HTTP i mają ustawienie poziomu autoryzacji *Anonimowe* lub *Funkcja*.
 
-7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. W razie potrzeby edytuj inne wstępnie wypełnione pola.
-
-    ![Dodawanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/add-06.png)
-
+7. Przełącz się do widoku **Pełny** i przypisz **Produkt** do nowego interfejsu API. Jeśli to konieczne, określ inne pola podczas tworzenia lub skonfiguruj je później, przechodząc do karty **Ustawienia** . Ustawienia są wyjaśnione w samouczku [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md#-import-and-publish-a-backend-api) .
 8. Kliknij przycisk **Utwórz**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Dołączanie aplikacji funkcji platformy Azure do istniejącego interfejsu API
@@ -111,14 +108,14 @@ Aby dołączyć aplikację funkcji platformy Azure do istniejącego interfejsu A
 
     ![Dołączanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a><a name="authorization"></a>Autoryzacji
+## <a name="authorization"></a><a name="authorization"></a>Zgody
 
 Zaimportowanie aplikacji funkcji platformy Azure powoduje automatyczne wygenerowanie:
 
-* Klucz hosta wewnątrz aplikacji funkcji o nazwie apim-{*nazwa wystąpienia usługi usługi Azure API Management*},
-* Nazwana wartość wewnątrz wystąpienia usługi Azure API Management o nazwie {*nazwa wystąpienia aplikacji funkcji Azure*}-key, która zawiera utworzony klucz hosta.
+* Klucz hosta w aplikacja funkcji o nazwie APIM-{*Nazwa wystąpienia usługi API Management platformy Azure*},
+* Nazwana wartość w wystąpieniu API Management platformy Azure o nazwie {*Nazwa wystąpienia aplikacja funkcji platformy Azure*} — klucz, który zawiera utworzony klucz hosta.
 
-W przypadku interfejsów API utworzonych po 4 kwietnia 2019 r. klucz hosta jest przekazywany w żądaniach HTTP z zarządzania interfejsami API do aplikacji funkcji w nagłówku. Starsze interfejsy API przekazują klucz hosta jako [parametr kwerendy](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). To zachowanie może ulec `PATCH Backend` zmianie za pomocą [wywołania interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na encję *wewnętrznej bazy danych* skojarzonej z aplikacją funkcji.
+W przypadku interfejsów API utworzonych po 4 kwietnia 2019 klucz hosta jest przesyłany w żądaniach HTTP od API Management do aplikacja funkcji w nagłówku. Starsze interfejsy API przekazują klucz hosta jako [parametr zapytania](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). To zachowanie można zmienić za pomocą `PATCH Backend` [wywołania interfejsu API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) w jednostce *zaplecza* skojarzonej z aplikacja funkcji.
 
 > [!WARNING]
 > Usunięcie lub zmiana wartości klucza hosta aplikacji funkcji platformy Azure lub nazwanej wartości usługi Azure API Management spowoduje przerwanie komunikacji między usługami. Wartości nie są synchronizowane automatycznie.
@@ -143,7 +140,7 @@ Przejdź do Twojego wystąpienia usługi Azure API Management i wybierz pozycję
 
 ![Dodawanie z poziomu aplikacji funkcji](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Testowanie nowego interfejsu API w witrynie Azure portal
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Przetestuj nowy interfejs API w Azure Portal
 
 Operacje można wywoływać bezpośrednio w witrynie Azure Portal. Witryna Azure Portal to wygodny sposób wyświetlania i testowania operacji interfejsu API.  
 
@@ -153,7 +150,7 @@ Operacje można wywoływać bezpośrednio w witrynie Azure Portal. Witryna Azure
 
 3. Wybierz operację.
 
-    Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jednym z nagłówków jest **Ocp-Apim-Subscription-Key**, dla klucza subskrypcji produktu skojarzonego z tym interfejsem API. Jeśli utworzono wystąpienie API Management, oznacza to, że już jesteś administratorem, więc klucz zostanie uzupełniony automatycznie. 
+    Na stronie zostaną wyświetlone pola parametrów zapytania i pola nagłówków. Jeden z nagłówków to **OCP-APIM-Subscription-Key**dla klucza subskrypcji produktu skojarzonego z tym interfejsem API. Jeśli utworzono wystąpienie API Management, oznacza to, że już jesteś administratorem, więc klucz zostanie uzupełniony automatycznie. 
 
 4. Wybierz pozycję **Wyślij**.
 
