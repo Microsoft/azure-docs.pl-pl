@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82160770"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Szybki Start: Tworzenie strefy Azure DNS i rekordu przy użyciu Azure Portal
@@ -45,7 +45,7 @@ Strefa DNS zawiera wpisy DNS dla domeny. Aby rozpocząć hostowanie domeny w us�
    - **Nazwa**: wpisz *contoso.xyz* dla przykładu w tym przewodniku Szybki start. Nazwa strefy DNS może być dowolną wartością, która nie jest już skonfigurowana na serwerach usługi Azure DNS. W rzeczywistym scenariuszu tą wartością byłaby domena kupiona u rejestratora nazw domen.
    - **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź nazwę *zasobu*i wybierz **przycisk OK**. Nazwa grupy zasobów musi być unikatowa w ramach subskrypcji platformy Azure. 
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
    ![Strefa DNS](./media/dns-getstarted-portal/openzone650.png)
 

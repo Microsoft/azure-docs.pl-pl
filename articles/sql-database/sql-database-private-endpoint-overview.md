@@ -9,10 +9,10 @@ ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 4338c179fb8c0eebbb64ac5b33dc5dd8878d0794
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82176723"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Prywatny link do Azure SQL Database i magazynu danych
@@ -49,7 +49,7 @@ Za pomocą linku prywatnego klienci mogą włączyć dostęp między lokalizacja
 ### <a name="creation-process"></a>Proces tworzenia
 Prywatne punkty końcowe można tworzyć przy użyciu portalu, programu PowerShell lub interfejsu wiersza polecenia platformy Azure:
 - [Portal](../private-link/create-private-endpoint-portal.md)
-- [Narzędzia](../private-link/create-private-endpoint-powershell.md)
+- [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [Interfejs wiersza polecenia](../private-link/create-private-endpoint-cli.md)
 
 ### <a name="approval-process"></a>Proces zatwierdzania

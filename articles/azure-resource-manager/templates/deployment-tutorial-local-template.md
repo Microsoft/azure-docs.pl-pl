@@ -5,10 +5,10 @@ ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82188828"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Samouczek: Wdrażanie szablonu Azure Resource Manager lokalnego
@@ -50,7 +50,7 @@ Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure w celu wdrożenia szablonu, zaloguj się przy użyciu poświadczeń platformy Azure.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -66,7 +66,7 @@ az login
 
 Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć:
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Select-AzSubscription [SubscriptionID/SubscriptionName]
@@ -84,7 +84,7 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia Utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Wybierz karty w poniższej sekcji kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
@@ -113,7 +113,7 @@ az group create \
 
 Użyj jednej lub obu opcji wdrażania, aby wdrożyć szablon.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name"

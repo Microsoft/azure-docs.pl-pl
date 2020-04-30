@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i programu Visual Studio do opracowywania zespołu w aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82166040"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Programowanie zespołowe za pomocą platformy .NET Core i programu Visual Studio z Azure Dev Spaces

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82185051"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Samouczek: korzystanie z odwołania do szablonu Menedżer zasobów
@@ -124,7 +124,7 @@ W obszarze Visual Studio Code Dodaj dodatkowe typy kont magazynu, jak pokazano n
     az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
     ```
 
-    # <a name="powershell"></a>[Narzędzia](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"

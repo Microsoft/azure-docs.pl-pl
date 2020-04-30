@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
 ms.openlocfilehash: 6bb53539c105cda99c842b6b0fa236f0e18a85ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82182484"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projektowanie sieci wirtualnych z użyciem zasobów bramy translatora adresów sieciowych
@@ -336,17 +336,17 @@ Chcemy wiedzieć, jak możemy ulepszyć usługę. Brak możliwości? Zapoznaj si
 * Informacje o [rozwiązywaniu problemów z zasobami bramy translatora adresów sieciowych](troubleshoot-nat.md).
 * Samouczek dotyczący weryfikowania bramy translatora adresów sieciowych
   - [Interfejs wiersza polecenia platformy Azure](tutorial-create-validate-nat-gateway-cli.md)
-  - [Narzędzia](tutorial-create-validate-nat-gateway-powershell.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
   - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Przewodnik Szybki Start dotyczący wdrażania zasobu bramy translatora adresów sieciowych
   - [Interfejs wiersza polecenia platformy Azure](./quickstart-create-nat-gateway-cli.md)
-  - [Narzędzia](./quickstart-create-nat-gateway-powershell.md)
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Szablon](./quickstart-create-nat-gateway-template.md)
 * Informacje o interfejsie API zasobów bramy translatora adresów sieciowych
-  - [INTERFEJS API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [Narzędzia](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Dowiedz się więcej o [strefach dostępności](../availability-zones/az-overview.md).
 * Dowiedz się więcej na temat usługi [równoważenia obciążenia w warstwie Standardowa](../load-balancer/load-balancer-standard-overview.md).
 * Dowiedz się więcej na temat [stref dostępności i standardowego modułu równoważenia obciążenia](../load-balancer/load-balancer-standard-availability-zones.md).

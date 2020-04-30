@@ -10,14 +10,8 @@
   items:
     - name: Wypróbowywanie pakietu Content Moderator w Internecie
       href: quick-start.md
-    - name: Korzystanie z zestawu SDK klienta
-      items:
-        - name: Korzystanie z zestawu .NET SDK
-          href: dotnet-sdk-quickstart.md
-        - name: Używanie zestawu Python SDK
-          href: python-sdk-quickstart.md
-        - name: Używanie zestawu Java SDK
-          href: java-sdk-quickstart.md
+    - name: Używanie biblioteki klienta
+      href: client-libraries.md
 - name: Samouczki
   items:
     - name: Moderowanie obrazów na potrzeby handlu elektronicznego
@@ -104,7 +98,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Zasoby
   items:
-    - name: Przykłady
+    - name: Samples
       items:
         - name: Przykłady zestawów SDK dla platformy .NET
           href: samples-dotnet.md

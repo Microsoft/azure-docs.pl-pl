@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/27/2020
 ms.openlocfilehash: c6cfec1d00fbd5b18e01afb0b51598e615cb0946
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82189202"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Szybki Start: Eksplorowanie środowiska demonstracyjnego w wersji zapoznawczej Azure Time Series Insights

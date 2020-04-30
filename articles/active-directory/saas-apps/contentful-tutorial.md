@@ -17,10 +17,10 @@ ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b58abede48c0e096f3f54989d783b1e455f8e4d4
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82169646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu zawartości
@@ -167,7 +167,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka zawartość w panelu dostępu należy automatycznie zalogować się do zawartości, dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

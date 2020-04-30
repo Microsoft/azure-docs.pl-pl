@@ -4,10 +4,10 @@ description: W tym samouczku utworzysz niestandardową definicję zasad Azure Po
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82190711"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych

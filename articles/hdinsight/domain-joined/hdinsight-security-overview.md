@@ -9,7 +9,7 @@ ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 492c248b9a68b39b37984b978944b4f7ef34d756
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
@@ -33,7 +33,7 @@ Zabezpieczenia obwodowe w usłudze HDInsight są realizowane za poorednictwem [s
 
 Wszystkie klastry wdrożone w sieci wirtualnej również mają prywatny punkt końcowy. Punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby prywatnego dostępu HTTP do bram klastra.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 [Pakiet Enterprise Security](apache-domain-joined-architecture.md) z usługi HDInsight zapewnia uwierzytelnianie oparte na Active Directoryach, obsługa przez wiele użytkowników oraz kontrolę dostępu opartą na rolach. Integracja Active Directory jest realizowana przy użyciu [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Dzięki tym funkcjom można utworzyć klaster usługi HDInsight przyłączony do domeny Active Directory. Następnie skonfiguruj listę pracowników w przedsiębiorstwie, którzy mogą uwierzytelniać się w klastrze.
 

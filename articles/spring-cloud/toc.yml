@@ -20,7 +20,7 @@
   items:
     - name: Konfigurowanie serwera konfiguracji
       href: spring-cloud-tutorial-config-server.md
-    - name: Manualne skalowanie aplikacji
+    - name: Ręczne skalowanie aplikacji
       href: spring-cloud-tutorial-scale-manual.md
     - name: Monitorowanie aplikacji przy użyciu funkcji śledzenia rozproszonego i usługi App Insights
       href: spring-cloud-tutorial-distributed-tracing.md
@@ -32,6 +32,10 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Wiązanie aplikacji z usługą Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Mapowanie niestandardowej nazwy DNS na usługę Azure Spring Cloud
+      href: spring-cloud-tutorial-custom-domain.md
+    - name: Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
 - name: Pojęcia
   items:
     - name: Informacje o przydziałach i limitach usługi Azure Spring Cloud
@@ -56,6 +60,9 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Używanie magazynu trwałego w usłudze Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
+    - name: Wdrażanie usługi DevOps w usłudze Azure Spring Cloud
+    - name: Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
+      href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: Wdrażanie usługi DevOps w usłudze Azure Spring Cloud
   items:
     - name: Ciągła integracja/ciągłe wdrażanie za pomocą usługi Azure DevOps

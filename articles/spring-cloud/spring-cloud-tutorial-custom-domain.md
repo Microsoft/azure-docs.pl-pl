@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.openlocfilehash: 5b57a2463815d5db1c83d3bc4e8cd56314fb204d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82176994"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
@@ -75,7 +75,7 @@ Przejdź do strony aplikacji.
 
 3. Wpisz w pełni kwalifikowaną nazwę domeny, do której dodano rekord CNAME, taki jak www.contoso.com. Upewnij się, że typ rekordu nazwy hosta jest ustawiony na wartość CNAME (<service_name>. azuremicroservices.io)
 4. Kliknij przycisk **Sprawdź poprawność** , aby włączyć przycisk **Dodaj** .
-5. Kliknij pozycję **Add** (Dodaj).
+5. Kliknij pozycję **Dodaj**.
 
 ![Dodaj domenę niestandardową](./media/custom-dns-tutorial/add-custom-domain.png)
 
@@ -106,7 +106,7 @@ Na stronie aplikacji w lewym okienku nawigacji wybierz pozycję **domena niestan
 
 Po zakończeniu operacji przejdź do dowolnego adresu URL HTTPS, który wskazuje aplikację. Należy zauważyć, że adresy URL protokołu HTTP nie działają.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Co to jest usługa Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importowanie certyfikatu](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Uruchamianie aplikacji w chmurze wiosny przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
