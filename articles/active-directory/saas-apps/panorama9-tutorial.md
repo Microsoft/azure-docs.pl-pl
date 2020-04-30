@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z programem Panorama9 | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a panorama9.
+title: 'Samouczek: integracja Azure Active Directory z usługą Panorama9 | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Panorama9.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094923"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Samouczek: Integracja usługi Azure Active Directory z panorama9
+# <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Samouczek: integracja Azure Active Directory z usługą Panorama9
 
-W tym samouczku dowiesz się, jak zintegrować panorama9 z usługą Azure Active Directory (Azure AD).
-Integracja panorama9 z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Panorama9 z usługą Azure Active Directory (Azure AD).
+Integracja Panorama9 z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do Panorama9.
-* Można włączyć użytkowników, aby automatycznie zalogować się do Panorama9 (logowanie jednokrotne) za pomocą swoich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do usługi Panorama9.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Panorama9 (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z programem Panorama9, potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z usługą Panorama9, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego Panorama9
+* Subskrypcja z włączonym logowaniem jednokrotnym w Panorama9
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Panorama9 obsługuje inicjowane przez **SP** SSO
+* Panorama9 obsługuje logowanie jednokrotne w usłudze **SP**
 
-## <a name="adding-panorama9-from-the-gallery"></a>Dodawanie panoramy9 z galerii
+## <a name="adding-panorama9-from-the-gallery"></a>Dodawanie Panorama9 z galerii
 
-Aby skonfigurować integrację panorama9 z usługą Azure AD, należy dodać panorama9 z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację programu Panorama9 z usługą Azure AD, musisz dodać Panorama9 z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać panoramę9 z galerii, wykonaj następujące czynności:**
+**Aby dodać Panorama9 z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację panorama9 z usługą Azure AD, należy dodać pan
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Panorama9**, wybierz **panoramę9** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Panorama9**, wybierz pozycję **Panorama9** from panel wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
      ![Panorama9 na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Panorama9 na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w panorama9.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą Panorama9 na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Panorama9.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą panorama9, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi Panorama9, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne Panorama9](#configure-panorama9-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj logowanie](#configure-panorama9-single-sign-on)** jednokrotne w usłudze Panorama9, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Panorama9](#create-panorama9-test-user)** — aby mieć odpowiednik Britta Simon w Panorama9, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego Panorama9](#create-panorama9-test-user)** , aby uzyskać odpowiednik Britta Simon w Panorama9, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą aplikacji Panorama9, wykonaj następujące czynności:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Panorama9, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie Integracja aplikacji **Panorama9** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Panorama9** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą aplikacji P
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie panorama9 i adresach URL — logowanie jednokrotne](common/sp-identifier.png)
+    ![Panorama9 domenę i adresy URL Logowanie jednokrotne](common/sp-identifier.png)
 
     a. W polu tekstowym **Adres URL logowania** wpisz adres URL: `https://dashboard.panorama9.com/saml/access/3262`
 
     b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Panorama9,](https://support.panorama9.com/) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. Skontaktuj się z [zespołem obsługi klienta Panorama9](https://support.panorama9.com/) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. W sekcji **Certyfikat podpisywania SAML** kliknij przycisk **Edytuj**, aby otworzyć okno dialogowe **Certyfikat podpisywania SAML**.
 
     ![Edytowanie certyfikatu podpisywania SAML](common/edit-certificate.png)
 
-6. W sekcji **Certyfikat podpisywania SAML** skopiuj **odcisk palca** i zapisz go na komputerze.
+6. W sekcji **certyfikat podpisywania SAML** Skopiuj **odcisk palca** i Zapisz go na komputerze.
 
     ![Kopiowanie wartości Odcisk palca](common/copy-thumbprint.png)
 
-7. W sekcji **Konfigurowanie panoramy9** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. W sekcji **Konfigurowanie Panorama9** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -128,17 +128,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą aplikacji P
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
 ### <a name="configure-panorama9-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Panorama9
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Panorama9 jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny Panorama9 jako administrator.
 
-2. Na pasku narzędzi u góry kliknij pozycję **Zarządzaj**, a następnie kliknij pozycję **Rozszerzenia**.
+2. Na pasku narzędzi u góry kliknij pozycję **Zarządzaj**, a następnie kliknij pozycję **rozszerzenia**.
    
     ![Rozszerzenia](./media/panorama9-tutorial/ic790023.png "Rozszerzenia")
 
-3. W oknie dialogowym **Rozszerzenia** kliknij pozycję **Logowanie jednokrotne**.
+3. W oknie dialogowym **rozszerzenia** kliknij pozycję **Logowanie jednokrotne**.
    
     ![Logowanie jednokrotne](./media/panorama9-tutorial/ic790024.png "Logowanie jednokrotne")
 
@@ -146,9 +146,9 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą aplikacji P
    
     ![Ustawienia](./media/panorama9-tutorial/ic790025.png "Ustawienia")
    
-    a. W polu tekstowym **adresu URL dostawcy tożsamości** wklej wartość adresu URL **logowania,** który został skopiowany z witryny Azure portal.
+    a. W polu tekstowym **adres URL dostawcy tożsamości** wklej wartość **adresu URL logowania**, która została skopiowana z Azure Portal.
    
-    b. W polu **tekstowym odcisk palca certyfikatu** wklej wartość **odcisk** palca certyfikatu, która została skopiowana z witryny Azure portal.    
+    b. W polu tekstowym **odcisk palca certyfikatu** wklej wartość **odcisku palca** certyfikatu, który został skopiowany z Azure Portal.    
          
 5. Kliknij przycisk **Zapisz**.
 
@@ -160,7 +160,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -170,23 +170,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do Panorama9.
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Panorama9.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz pozycję **Panorama9**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Panorama9**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **panoramę9**.
+2. Na liście Aplikacje wybierz pozycję **Panorama9**.
 
-    ![Łącze Panorama9 na liście Aplikacje](common/all-applications.png)
+    ![Link Panorama9 na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -198,31 +198,31 @@ W tej sekcji można włączyć Britta Simon do korzystania z logowania jednokrot
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-panorama9-test-user"></a>Utwórz użytkownika testowego Panorama9
 
-Aby umożliwić użytkownikom usługi Azure AD zalogować się do Panorama9, muszą one być aprowidywne w Panorama9.  
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w usłudze Panorama9, muszą one być obsługiwane w Panorama9.  
 
-W przypadku Panorama9 inicjowania obsługi administracyjnej jest zadanie ręczne.
+W przypadku Panorama9, Inicjowanie obsługi administracyjnej jest zadaniem ręcznym.
 
 **Aby skonfigurować aprowizację użytkowników, wykonaj następujące kroki:**
 
-1. Zaloguj się do witryny firmy **Panorama9** jako administrator.
+1. Zaloguj się do firmowej witryny **Panorama9** jako administrator.
 
 2. W menu u góry kliknij pozycję **Zarządzaj**, a następnie kliknij pozycję **Użytkownicy**.
    
     ![Użytkownicy](./media/panorama9-tutorial/ic790027.png "Użytkownicy")
 
-3. W sekcji Użytkownicy **+** kliknij, aby dodać nowego użytkownika.
+3. W sekcji Użytkownicy kliknij przycisk **+** , aby dodać nowego użytkownika.
 
     ![Użytkownicy](./media/panorama9-tutorial/ic790028.png "Użytkownicy")
 
-4. Przejdź do sekcji Dane użytkownika, wpisz adres e-mail prawidłowego użytkownika usługi Azure Active Directory, który chcesz aprowizować w skrzynce tekstowej **wiadomości e-mail.**
+4. Przejdź do sekcji dane użytkownika, wpisz adres e-mail prawidłowego użytkownika Azure Active Directory, który chcesz udostępnić do pola tekstowego **wiadomości e-mail** .
 
-5. Przyjdź do sekcji Użytkownicy, kliknij przycisk **Zapisz**.
+5. Wróć do sekcji Użytkownicy, a następnie kliknij przycisk **Zapisz**.
    
     > [!NOTE]
     > Właściciel konta usługi Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim stanie się ono aktywne.
@@ -231,13 +231,13 @@ W przypadku Panorama9 inicjowania obsługi administracyjnej jest zadanie ręczne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Panorama9 w Panelu dostępu należy automatycznie zalogować się do panoramy9, dla której skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Panorama9 w panelu dostępu należy automatycznie zalogować się do Panorama9, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

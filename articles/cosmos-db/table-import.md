@@ -1,6 +1,6 @@
 ---
 title: Migrowanie istniejących danych do konta interfejsu API tabel w usłudze Azure Cosmos DB
-description: Dowiedz się, jak migrować lub importować dane lokalne lub dane w chmurze do konta interfejsu API tabeli platformy Azure w usłudze Azure Cosmos DB.
+description: Dowiedz się, jak migrować lub importować dane lokalne lub w chmurze do konta usługi Azure interfejs API tabel w programie Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,15 +9,15 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66242570"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrowanie danych na konto interfejsu API tabel w usłudze Azure Cosmos DB
 
-Ten samouczek zawiera instrukcje dotyczące importowania danych do użytku z [interfejsem API tabeli usługi](table-introduction.md)Azure Cosmos DB . Jeśli masz dane przechowywane w usłudze Azure Table Storage, możesz zaimportować je do interfejsu API tabel w usłudze Azure Cosmos DB za pomocą narzędzia do migracji danych lub narzędzia AzCopy. Jeśli masz dane przechowywane na koncie interfejsu API tabel usługi Azure Cosmos DB w wersji zapoznawczej, musisz użyć narzędzia do migracji danych, aby przenieść dane. 
+Ten samouczek zawiera instrukcje dotyczące importowania danych do użycia z [interfejs API tabel](table-introduction.md)Azure Cosmos DB. Jeśli masz dane przechowywane w usłudze Azure Table Storage, możesz zaimportować je do interfejsu API tabel w usłudze Azure Cosmos DB za pomocą narzędzia do migracji danych lub narzędzia AzCopy. Jeśli masz dane przechowywane na koncie interfejsu API tabel usługi Azure Cosmos DB w wersji zapoznawczej, musisz użyć narzędzia do migracji danych, aby przenieść dane. 
 
 Ten samouczek obejmuje następujące zadania:
 
@@ -28,7 +28,7 @@ Ten samouczek obejmuje następujące zadania:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Zwiększ przepustowość:** Czas trwania migracji danych zależy od ilości przepływności skonfigurowanej dla pojedynczego kontenera lub zestawu kontenerów. Pamiętaj o zwiększeniu przepływności w przypadku większych migracji danych. Po ukończeniu migracji zmniejsz przepływność, aby ograniczyć koszty. Aby uzyskać więcej informacji na temat zwiększania przepływności w witrynie Azure Portal, zobacz Performance levels and pricing tiers in Azure Cosmos DB (Poziomy wydajności i warstwy cenowe w usłudze Azure Cosmos DB).
+* **Zwiększ przepływność:** Czas trwania migracji danych zależy od ilości skonfigurowanej przepływności dla danego kontenera lub zestawu kontenerów. Pamiętaj o zwiększeniu przepływności w przypadku większych migracji danych. Po ukończeniu migracji zmniejsz przepływność, aby ograniczyć koszty. Aby uzyskać więcej informacji na temat zwiększania przepływności w witrynie Azure Portal, zobacz Performance levels and pricing tiers in Azure Cosmos DB (Poziomy wydajności i warstwy cenowe w usłudze Azure Cosmos DB).
 
 * **Utworzenie zasobów usługi Azure Cosmos DB:** przed rozpoczęciem migracji danych utwórz wstępnie wszystkie tabele z poziomu witryny Azure Portal. W przypadku migracji do konta usługi Azure Cosmos DB, która ma przepływność poziomu bazy danych, pamiętaj o podaniu klucza partycji podczas tworzenia tabel usługi Azure Cosmos DB.
 
@@ -66,11 +66,11 @@ Podczas definiowania usługi Azure Table Storage lub interfejsu API tabel w wers
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Aby pobrać źródłowy ciąg połączenia podczas importowania z usługi Azure Table Storage, otwórz witrynę Azure Portal i kliknij pozycję**Klucze dostępu do****kont** >  **magazynu,** > a następnie użyj przycisku kopiowania, aby skopiować **ciąg połączenia**.
+Aby pobrać parametry połączenia źródłowego podczas importowania z usługi Azure Table Storage, Otwórz Azure Portal a następnie kliknij pozycję**klucze dostępu****konta** > konta **magazynu** > , a następnie użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
 
 ![Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase](./media/table-import/storage-table-access-key.png)
 
-Aby pobrać źródłowy ciąg połączenia podczas importowania z konta interfejsu API (w wersji zapoznawczej) tabeli usługi Azure Cosmos DB, otwórz witrynę Azure Portal, kliknij pozycję**Ciąg połączenia** **konta usługi** >  **Azure Cosmos DB** > i użyj przycisku **kopiowania,** aby skopiować ciąg połączenia .
+Aby pobrać parametry połączenia źródłowego podczas importowania z konta Azure Cosmos DB interfejs API tabel (wersja zapoznawcza), Otwórz Azure Portal, kliknij pozycję **Azure Cosmos DB** > **Account** > **Parametry połączenia** z kontem i użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
 
 ![Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase](./media/table-import/cosmos-connection-string.png)
 

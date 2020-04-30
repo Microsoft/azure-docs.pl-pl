@@ -10,10 +10,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c850d2b01e098a10aacf383f0ed4340cb9e64e10
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "62129790"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Wprowadzenie do Magazynu tabel na platformie Azure
@@ -34,6 +34,6 @@ Usługa Table Storage umożliwia przechowywanie elastycznych zestawów danych, t
 
 * Przejrzyj dokumentację referencyjną usługi Table service, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
 
-    * [Biblioteka klienta magazynu dla odwołania .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Dokumentacja biblioteki klienta usługi Storage dla platformy .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [Odwołanie do interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179355)
+    * [Dokumentacja interfejsu API REST](https://msdn.microsoft.com/library/azure/dd179355)

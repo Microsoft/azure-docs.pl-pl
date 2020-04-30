@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z kartą Five9 Plus (CTI, agenci Centrum kontaktów) | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a kartą Five9 Plus (CTI, agenci Centrum kontaktów).
+title: 'Samouczek: Azure Active Directory integrację z kartą Five9 plus (CTI, agenci centrum kontaktów) | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i Five9 Plus adapter (CTI, agenci centrum kontaktów).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: dd4eab2d8e877cac468097c0a6ed6aa3cfb750b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67102452"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Samouczek: Integracja usługi Azure Active Directory z kartą Five9 Plus (CTI, agenci Centrum kontaktów)
+# <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Samouczek: integracja Azure Active Directory z kartą Five9 plus (CTI, agenci centrum kontaktów)
 
-W tym samouczku dowiesz się, jak zintegrować kartę Five9 Plus (CTI, Contact Center Agents) z usługą Azure Active Directory (Azure AD).
-Integracja karty Five9 Plus (CTI, Contact Center Agents) z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować usługę Five9 Plus adapter (CTI, agenci centrum kontaktu) z Azure Active Directory (Azure AD).
+Integrowanie karty Five9 plus (CTI, agenci centrum kontaktów) z usługą Azure AD zapewnia następujące korzyści:
 
-* W usłudze Azure AD można sterować, kto ma dostęp do karty Five9 Plus (CTI, agenci Centrum kontaktów).
-* Można włączyć użytkowników, aby automatycznie zalogować się do karty Five9 Plus (CTI, Contact Center Agents) (logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do karty Five9 plus (CTI, agenci centrum styku).
+* Możesz umożliwić użytkownikom automatyczne logowanie do Five9 Plus karty (CTI, agenci centrum kontaktu) (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z kartą Five9 Plus (CTI, Contact Center Agents), potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z kartą Five9 plus (CTI, agenci centrum kontaktów), potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z obsługą logowania jednokrotnego Five9 Plus (CTI, Contact Center Agents)
+* Five9 Plus — karta (CTI, agenci centrum kontaktów) subskrypcja obsługująca Logowanie jednokrotne
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Adapter Five9 Plus (CTI, Contact Center Agents) obsługuje zainicjowane przez **IDP jednostkę** SSO
+* Five9 Plus adapter (CTI, agenci centrum kontaktów) obsługuje **dostawcy tożsamości** zainicjowane Logowanie jednokrotne
 
-## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Dodawanie adaptera Five9 Plus (CTI, Contact Center Agents) z galerii
+## <a name="adding-five9-plus-adapter-cti-contact-center-agents-from-the-gallery"></a>Dodawanie karty Five9 plus (CTI, agenci centrum kontaktów) z galerii
 
-Aby skonfigurować integrację karty Five9 Plus (CTI, Contact Center Agents) z usługą Azure AD, należy dodać kartę Five9 Plus (CTI, Contact Center Agents) z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację karty Five9 plus (CTI, agenci centrum kontaktów) z usługą Azure AD, musisz dodać kartę Five9 plus (CTI, agenci centrum kontaktu) z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać kartę Five9 Plus (CTI, Contact Center Agents) z galerii, wykonaj następujące czynności:**
+**Aby dodać kartę Five9 plus (CTI, agenci centrum kontaktów) z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację karty Five9 Plus (CTI, Contact Center Agents) z u
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Adapter Five9 Plus (CTI, Contact Center Agents)**, wybierz **kartę Five9 Plus (CTI, Contact Center Agents)** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Five9 Plus adapter (CTI, agenci centrum kontaktów)**, wybierz pozycję **Five9 Plus adapter (CTI, agenci centrum kontaktów)** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Adapter Five9 Plus (CTI, Contact Center Agents) na liście wyników](common/search-new-app.png)
+     ![Five9 Plus adapter (CTI, agenci centrum kontaktów) na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Five9 Plus Adapter (CTI, Contact Center Agents) na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w karcie Five9 Plus (CTI, Contact Center Agents).
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą karty Five9 plus (CTI, agenci centrum kontaktów) na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Five9 Plus adapter (CTI, agenci centrum kontaktu).
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą karty Five9 Plus (CTI, contact center agents), należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą karty Five9 plus (CTI, agenci centrum kontaktów), należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj kartę Five9 Plus (CTI, Contact Center Agents) Logowanie jednokrotne](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Konfigurowanie logowania jednokrotnego na **[karcie Five9 plus (CTI)](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego Adapter Five9 Plus (CTI, Contact Center Agents)](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** — aby mieć odpowiednik karty Britta Simon w adapterze Five9 Plus (CTI, Contact Center Agents), który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Tworzenie karty Five9 plus (CTI, agenci centrum kontaktów) test użytkownika](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** — Aby uzyskać odpowiednik Britta Simon w Five9 Plus adapter (CTI, agenci centrum kontaktu), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą karty Five9 Plus (CTI, agenci Centrum kontaktów), wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą karty Five9 plus (CTI, agenci centrum kontaktów), wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Five9 Plus Adapter (CTI, Contact Center Agents)** wybierz opcję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **FIVE9 plus (CTI, agenci centrum kontaktów)** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,29 +103,29 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą karty Five9
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** wykonaj następujące kroki:
 
-    ![Informacje o domenie i logowaniach jednokrotnych kart Five9 Plus (CTI, contact center agents) i adresach URL](common/idp-intiated.png)
+    ![Five9 Plus adapter (CTI, agenci centrum kontaktów) informacje o rejestracji jednokrotnej w domenie i adresach URL](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL, korzystając z następującego wzorca: 
     
     |    Środowisko      |       Adres URL      |
     | :-- | :-- |
-    | Dla "Adapter Five9 Plus dla programu Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
-    | Dla "Five9 Plus Adapter dla Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
-    | For "Five9 Plus Adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
+    | Dla "Five9 Plus adapter dla programu Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/metadata/alias/msdc` |
+    | Dla "Five9 Plus adapter for systemu Zendesk" | `https://app.five9.com/appsvcs/saml/metadata/alias/zd` |
+    | "Five9 Plus adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/metadata/alias/adt` |
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: 
 
     |      Środowisko     |      Adres URL      |
     | :--                  | :--           |
-    | Dla "Adapter Five9 Plus dla programu Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/SSO/alias/msdc` |
-    | Dla "Five9 Plus Adapter dla Zendesk" | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
-    | For "Five9 Plus Adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/SSO/alias/adt` |
+    | Dla "Five9 Plus adapter dla programu Microsoft Dynamics CRM" | `https://app.five9.com/appsvcs/saml/SSO/alias/msdc` |
+    | Dla "Five9 Plus adapter for systemu Zendesk" | `https://app.five9.com/appsvcs/saml/SSO/alias/zd` |
+    | "Five9 Plus adapter for Agent Desktop Toolkit" | `https://app.five9.com/appsvcs/saml/SSO/alias/adt` |
 
 6. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-7. W sekcji **Konfigurowanie karty Five9 Plus (CTI, Contact Center Agents)** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+7. Na stronie **Konfiguracja Five9 plus (CTI, agenci centrum kontaktów)** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -133,17 +133,17 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą karty Five9
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurowanie karty Five9 Plus (CTI, contact center agents) — logowanie jednokrotne
+### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurowanie logowania jednokrotnego za pomocą karty Five9 plus (CTI)
 
-1. Aby skonfigurować logowanie jednokrotne po stronie **karty Five9 Plus (CTI, Contact Center Agents),** należy wysłać pobrany **certyfikat (Base64)** i odpowiednie skopiowane adresy URL do [zespołu pomocy technicznej Five9 Plus Adapter (CTI, Contact Center Agents).](https://www.five9.com/about/contact) Ponadto, aby skonfigurować sytą instrukcję, wykonaj poniższe czynności zgodnie z adapterem:
+1. Aby skonfigurować Logowanie jednokrotne na **karcie Five9 plus (CTI, agenci centrum kontaktów)** , należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL do [karty Five9 plus (CTI, agenci centrum styku)](https://www.five9.com/about/contact). Ponadto, aby dodatkowo skonfigurować Logowanie jednokrotne, wykonaj poniższe czynności zgodnie z kartą:
 
-    a. Przewodnik administratora "Five9 Plus Adapter for Agent Desktop Toolkit":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
+    a. Przewodnik administratora "Five9 Plus adapter for Agent Desktop Toolkit":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
-    b. Przewodnik administracyjny "Five9 Plus Adapter for Microsoft Dynamics CRM":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+    b. Przewodnik administratora "Five9 Plus adapter for Microsoft Dynamics CRM":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
     
-    d. Przewodnik administratora "Five9 Plus Dla Zendesk":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
+    c. Przewodnik administratora "Five9 Plus adapter for systemu Zendesk":[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
 
@@ -153,7 +153,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -163,23 +163,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon@yourcompanydomain.extension`użytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon@yourcompanydomain.extension`. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logowania jednokrotnego, udzielając dostępu do karty Five9 Plus (CTI, Contact Center agentów).
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do karty Five9 plus (CTI, agenci centrum kontaktów).
 
-1. W portalu Azure wybierz pozycję **Aplikacje przedsiębiorstwa**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz **kartę Five9 Plus (CTI, Contact Center Agents).**
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Five9 Plus adapter (CTI, agenci centrum styku)**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz kartę **Five9 Plus (CTI, Contact Center Agents).**
+2. Na liście Aplikacje wybierz pozycję **Five9 Plus adapter (CTI, agenci centrum styku)**.
 
-    ![Łącze Adapter Five9 Plus (CTI, Contact Center Agents) na liście Aplikacje](common/all-applications.png)
+    ![Link Five9 Plus karty (CTI, Contact Center) na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -191,25 +191,25 @@ W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logow
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Utwórz użytkownika testowego adaptera Five9 Plus (CTI, Contact Center Agents)
+### <a name="create-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Tworzenie karty Five9 plus (CTI, agenci centrum kontaktów) — Użytkownik testowy
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Five9 Plus Adapter (CTI, Contact Center Agents). Współpracuj z [zespołem pomocy technicznej Five9 Plus Adapter (CTI, Contact Center Agents),](https://www.five9.com/about/contact) aby dodać użytkowników na platformie Adapter Five9 Plus (CTI, Contact Center Agents). Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon in Five9 Plus adapter (CTI, agenci centrum kontaktów). Skontaktuj się z [zespołem pomocy technicznej Five9 Plus adapter (CTI, agenci centrum styku)](https://www.five9.com/about/contact) , aby dodać użytkowników do platformy Five9 plus (CTI, agenci centrum styku). Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego. 
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu karty Five9 Plus (CTI, Contact Center Agents w panelu dostępu należy automatycznie zalogować się do karty Five9 Plus (CTI, Contact Center Agents), dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Five9 plus (CTI, Contact Center Agents w panelu dostępu należy automatycznie zalogować się do karty Five9 plus (CTI, agenci centrum kontaktu), dla której skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

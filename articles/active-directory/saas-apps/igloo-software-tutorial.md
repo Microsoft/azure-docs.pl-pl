@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z oprogramowaniem Igloo | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a oprogramowaniem Igloo.
+title: 'Samouczek: integracja Azure Active Directory z oprogramowaniem Igloo | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory a oprogramowaniem Igloo.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,41 +16,41 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67100580"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Samouczek: Integracja usługi Azure Active Directory z oprogramowaniem Igloo
+# <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Samouczek: integracja Azure Active Directory z oprogramowaniem Igloo
 
 W tym samouczku dowiesz się, jak zintegrować oprogramowanie Igloo z usługą Azure Active Directory (Azure AD).
 Integracja oprogramowania Igloo z usługą Azure AD zapewnia następujące korzyści:
 
-* W usłudze Azure AD można kontrolować, kto ma dostęp do oprogramowania Igloo.
-* Można włączyć użytkowników do automatycznego logowania się do oprogramowania Igloo (logowanie jednokrotne) za pomocą swoich kont usługi Azure AD.
+* Możesz kontrolować usługę Azure AD, która ma dostęp do oprogramowania Igloo.
+* Możesz pozwolić użytkownikom na automatyczne logowanie do Igloo oprogramowania (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z oprogramowaniem Igloo, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego Igloo Software
+* Subskrypcja z włączonym logowaniem jednokrotnym w Igloo
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Igloo Software obsługuje zainicjowane przez **SP** SSO
-* Oprogramowanie Igloo obsługuje **inicjowanie** obsługi administracyjnej użytkowników just in time
+* Oprogramowanie Igloo obsługuje logowanie jednokrotne zainicjowane przez usługę **SP**
+* Oprogramowanie Igloo obsługuje Inicjowanie obsługi użytkowników **just in Time**
 
 ## <a name="adding-igloo-software-from-the-gallery"></a>Dodawanie oprogramowania Igloo z galerii
 
-Aby skonfigurować integrację oprogramowania Igloo z usługą Azure AD, należy dodać oprogramowanie Igloo z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację oprogramowania Igloo w usłudze Azure AD, musisz dodać oprogramowanie Igloo z galerii do listy zarządzanych aplikacji SaaS.
 
 **Aby dodać oprogramowanie Igloo z galerii, wykonaj następujące czynności:**
 
@@ -66,31 +66,31 @@ Aby skonfigurować integrację oprogramowania Igloo z usługą Azure AD, należy
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Igloo Software**, wybierz **Igloo Software** z panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **Igloo oprogramowanie**, wybierz pozycję **Igloo oprogramowanie** z panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Igloo Software na liście wyników](common/search-new-app.png)
+     ![Igloo oprogramowanie na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego za pomocą oprogramowania Igloo na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w oprogramowaniu Igloo.
+Ta sekcja umożliwia skonfigurowanie i przetestowanie logowania jednokrotnego usługi Azure AD za pomocą oprogramowania Igloo na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w oprogramowaniu Igloo.
 
-Aby skonfigurować i przetestować logowanie jednokrotne usługi Azure AD za pomocą oprogramowania Igloo, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania Igloo, należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj logowanie jednokrotne oprogramowania Igloo](#configure-igloo-software-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. Skonfiguruj Logowanie jednokrotne w **[oprogramowaniu Igloo](#configure-igloo-software-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego oprogramowania Igloo](#create-igloo-software-test-user)** — aby mieć odpowiednik Britta Simon w oprogramowaniu Igloo, który jest połączony z reprezentacją użytkownika usługi Azure AD.
+5. **[Utwórz użytkownika testowego oprogramowania Igloo](#create-igloo-software-test-user)** , aby dysponować odpowiednikiem Britta Simon w oprogramowaniu Igloo, które jest połączone z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą oprogramowania Igloo, wykonaj następujące czynności:
+Aby skonfigurować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania Igloo, wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Igloo** wybierz pozycję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Igloo oprogramowania** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -104,16 +104,16 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą oprogramowa
 
 4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
 
-    ![Informacje o domenie oprogramowania Igloo i adresach URL](common/sp-identifier-reply.png)
+    ![Igloo oprogramowania i adresów URL Logowanie jednokrotne](common/sp-identifier-reply.png)
 
-    a. W polu **tekstowym Podpisywania adresu URL** wpisz adres URL, używając następującego wzorca:`https://<company name>.igloocommmunities.com`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<company name>.igloocommmunities.com`
 
-    b. W polu **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<company name>.igloocommmunities.com/saml.digest`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<company name>.igloocommmunities.com/saml.digest`
 
-    d. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<company name>.igloocommmunities.com/saml.digest`
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<company name>.igloocommmunities.com/saml.digest`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem pomocy technicznej Igloo Software Client,](https://www.igloosoftware.com/services/support) aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami adresu URL logowania, identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [zespołem obsługi klienta oprogramowania Igloo](https://www.igloosoftware.com/services/support) , aby uzyskać te wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **certyfikat (Base64)** z podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -127,21 +127,21 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą oprogramowa
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania
+    c. Adres URL wylogowywania
 
-### <a name="configure-igloo-software-single-sign-on"></a>Konfigurowanie logowania jednokrotnego oprogramowania Igloo
+### <a name="configure-igloo-software-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej w oprogramowaniu Igloo
 
-1. W innym oknie przeglądarki internetowej zaloguj się do witryny firmy Igloo Software jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do swojej witryny firmowej Igloo jako administrator.
 
 2. Przejdź do **Panelu sterowania**.
 
      ![Panel sterowania](./media/igloo-software-tutorial/ic799949.png "Panel sterowania")
 
-3. Na karcie **Członkostwo** kliknij pozycję **Ustawienia logowania**.
+3. Na karcie **członkostwo** kliknij pozycję **Ustawienia logowania**.
 
     ![Ustawienia logowania](./media/igloo-software-tutorial/ic783968.png "Ustawienia logowania")
 
-4. W sekcji Konfiguracja SAML kliknij pozycję **Konfiguruj uwierzytelnianie SAML**.
+4. W sekcji Konfiguracja protokołu SAML kliknij pozycję **Konfiguruj uwierzytelnianie SAML**.
 
     ![Konfiguracja SAML](./media/igloo-software-tutorial/ic783969.png "Konfiguracja SAML")
 
@@ -149,39 +149,39 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą oprogramowa
 
     ![Konfiguracja ogólna](./media/igloo-software-tutorial/ic783970.png "Konfiguracja ogólna")
 
-    a. W **polach tekstowych Nazwa połączenia** wpisz niestandardową nazwę konfiguracji.
+    a. W polu tekstowym **Nazwa połączenia** wpisz niestandardową nazwę konfiguracji.
 
-    b. W polu tekstowym **adresu URL logowania IdP** wklej wartość **adresu URL logowania,** który został skopiowany z witryny Azure portal.
+    b. W polu tekstowym **adres URL logowania dostawcy tożsamości** wklej wartość **adresu URL logowania** skopiowanego z Azure Portal.
 
-    d. W polu tekstowym **adresu URL wylogowania IdP** wklej wartość **adresu URL wylogowania** skopiowanego z witryny Azure portal.
+    c. W polu tekstowym **adres URL wylogowywania dostawcy tożsamości** wklej wartość **adresu URL wylogowywania** skopiowanego z Azure Portal.
 
-    d. Wybierz pozycję **Odpowiedź wyloguj i poproś o typ HTTP** jako **POST**.
+    d. Wybierz pozycję **odpowiedź na wylogowanie i zażądaj typu http** jako **post**.
 
-    e. Otwórz certyfikat zakodowany w **bazie podstawowej 64** w notatniku pobranym z witryny Azure portal, skopiuj jego zawartość do schowka, a następnie wklej ją do pola tekstowego **certyfikatu publicznego.**
+    e. Otwórz certyfikat zakodowany w formacie **Base-64** w programie Notepad pobranym z Azure Portal Skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola tekstowego **certyfikatu publicznego** .
 
-6. W konfiguracji **odpowiedzi i uwierzytelniania**wykonaj następujące czynności:
+6. W **konfiguracji odpowiedzi i uwierzytelniania**wykonaj następujące czynności:
 
     ![Konfiguracja odpowiedzi i uwierzytelniania](./media/igloo-software-tutorial/IC783971.png "Konfiguracja odpowiedzi i uwierzytelniania")
   
-    a. Jako **dostawca tożsamości**wybierz pozycję Microsoft **ADFS**.
+    a. Jako **dostawcę tożsamości**wybierz pozycję **Microsoft AD FS**.
 
-    b. Jako **typ identyfikatora**wybierz adres **e-mail**. 
+    b. Jako **Typ identyfikatora**wybierz opcję **adres e-mail**. 
 
-    d. W **polach tekstowych Atrybutu wiadomości e-mail** wpisz adres **e-mail**.
+    c. W polu tekstowym **atrybut wiadomości e-mail** wpisz **EmailAddress**.
 
-    d. W polach tekstowych **Atrybut imienia** wpisz **nazwę givenname**.
+    d. W polu tekstowym **nazwa atrybutu imięname** . **givenname**
 
-    e. W polach tekstowych **Atrybut nazwisko** wpisz **nazwisko**.
+    e. W polu tekstowym nazwisko **atrybutu** wpisz **nazwisko**.
 
-7. Wykonaj następujące czynności, aby ukończyć konfigurację:
+7. Wykonaj następujące kroki, aby ukończyć konfigurację:
 
-    ![Tworzenie użytkownika w logowanie](./media/igloo-software-tutorial/IC783972.png "Tworzenie użytkownika w logowanie") 
+    ![Tworzenie użytkownika podczas logowania](./media/igloo-software-tutorial/IC783972.png "Tworzenie użytkownika podczas logowania") 
 
-    a. Podczas **tworzenia użytkownika podczas logowania**wybierz pozycję **Utwórz nowego użytkownika w witrynie po zalogowaniu się.**
+    a. Podczas **tworzenia użytkownika podczas logowania**wybierz pozycję **Utwórz nowego użytkownika w Twojej witrynie podczas logowania**.
 
-    b. Jako **Ustawienia logowania**wybierz przycisk Użyj **SAML na ekranie "Zaloguj się".**
+    b. W **obszarze Ustawienia logowania**wybierz pozycję **Użyj przycisku SAML na ekranie "Logowanie"**.
 
-    d. Kliknij przycisk **Zapisz**.
+    c. Kliknij przycisk **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -191,7 +191,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -204,21 +204,21 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
     b. W polu **Nazwa użytkownika** wpisz **brittasimon@yourcompanydomain.extension**  
     Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logowania jednokrotnego, udzielając dostępu do oprogramowania Igloo.
+Ta sekcja umożliwia włączenie usługi Britta Simon w celu korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do oprogramowania Igloo.
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje**, a następnie wybierz pozycję **Igloo Software**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Igloo oprogramowanie**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz pozycję **Igloo Software**.
+2. Na liście Aplikacje wybierz pozycję **Igloo oprogramowanie**.
 
-    ![Łącze Igloo Software na liście Aplikacje](common/all-applications.png)
+    ![Link Igloo Software na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -230,26 +230,26 @@ W tej sekcji można włączyć Britta Simon do korzystania z usługi Azure logow
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-igloo-software-test-user"></a>Tworzenie użytkownika testowego oprogramowania Igloo
+### <a name="create-igloo-software-test-user"></a>Utwórz użytkownika testowego Igloo oprogramowania
 
-Nie ma żadnego elementu akcji, aby skonfigurować inicjowanie obsługi administracyjnej użytkownika do oprogramowania Igloo.  
+Nie ma elementu akcji, aby skonfigurować Inicjowanie obsługi administracyjnej użytkowników w oprogramowaniu Igloo.  
 
-Gdy przypisany użytkownik próbuje zalogować się do Igloo Software za pomocą panelu dostępu, oprogramowanie Igloo sprawdza, czy użytkownik istnieje.  Jeśli nie ma jeszcze dostępnego konta użytkownika, jest ono automatycznie tworzone przez Igloo Software.
+Gdy przypisany użytkownik próbuje zalogować się do Igloo oprogramowania przy użyciu panelu dostępu, Igloo oprogramowanie sprawdza, czy użytkownik istnieje.  Jeśli nie ma jeszcze dostępnego konta użytkownika, jest ono automatycznie tworzone przez oprogramowanie Igloo.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Igloo Software w Panelu dostępu należy automatycznie zalogować się do oprogramowania Igloo, dla którego skonfigurowano logującą się do rejestru jednośmiękowego. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka oprogramowanie Igloo w panelu dostępu należy automatycznie zalogować się do oprogramowania Igloo, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

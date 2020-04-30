@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z Perception United States (Non-UltiPro) | Dokumenty firmy Microsoft'
-description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i Perception United States (Non-UltiPro).
+title: 'Samouczek: integracja Azure Active Directory z percepcją Stany Zjednoczone (UltiPro) | Microsoft Docs'
+description: Dowiedz się, jak skonfigurować Logowanie jednokrotne między Azure Active Directory i percepcją Stany Zjednoczone (UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67094840"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Samouczek: Integracja usługi Azure Active Directory z Perception United States (Non-UltiPro)
+# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Samouczek: integracja Azure Active Directory z percepcją Stany Zjednoczone (UltiPro)
 
-W tym samouczku dowiesz się, jak zintegrować perception Stany Zjednoczone (non-UltiPro) z usługą Azure Active Directory (Azure AD).
-Integracja percepcji w Stanach Zjednoczonych (non-UltiPro) z usługą Azure AD zapewnia następujące korzyści:
+W tym samouczku dowiesz się, jak zintegrować Stany Zjednoczone percepcję (UltiPro) z Azure Active Directory (Azure AD).
+Integrowanie Stany Zjednoczone percepcji (UltiPro) z usługą Azure AD zapewnia następujące korzyści:
 
-* Można kontrolować w usłudze Azure AD, który ma dostęp do percepcji Stany Zjednoczone (Non-UltiPro).
-* Można włączyć użytkowników do automatycznego logowania się do Percepcji Stany Zjednoczone (Non-UltiPro) (Logowanie jednokrotne) z ich kont usługi Azure AD.
+* Możesz kontrolować w usłudze Azure AD, kto ma dostęp do percepcji Stany Zjednoczone (UltiPro).
+* Możesz pozwolić użytkownikom na automatyczne logowanie się do percepcji Stany Zjednoczone (UltiPro) (Logowanie jednokrotne) przy użyciu kont usługi Azure AD.
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby skonfigurować integrację usługi Azure AD z perception united states (non-UltiPro), potrzebne są następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z percepcją Stany Zjednoczone (UltiPro), potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz środowiska usługi Azure AD, możesz skorzystać z miesięcznej wersji próbnej [tutaj](https://azure.microsoft.com/pricing/free-trial/)
-* Subskrypcja z obsługą logowania jednokrotnego Perception United States (Non-UltiPro)
+* Stany Zjednoczone percepcji — subskrypcja z włączonym logowaniem jednokrotnym (UltiPro)
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Perception United States (Non-UltiPro) obsługuje zainicjowane **przez IDP** SSO
+* Stany Zjednoczone percepcji (inne niż UltiPro) obsługuje **dostawcy tożsamości** zainicjowane przez logowanie jednokrotne
 
-## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Dodawanie Percepcji Stany Zjednoczone (Non-UltiPro) z galerii
+## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Dodawanie percepcji Stany Zjednoczone (UltiPro) z galerii
 
-Aby skonfigurować integrację percepcji Stany Zjednoczone (Non-UltiPro) do usługi Azure AD, należy dodać Percepcji Stany Zjednoczone (Non-UltiPro) z galerii do listy zarządzanych aplikacji SaaS.
+Aby skonfigurować integrację percepcji Stany Zjednoczone (UltiPro) z usługą Azure AD, musisz dodać percepcję Stany Zjednoczone (UltiPro) z galerii do listy zarządzanych aplikacji SaaS.
 
-**Aby dodać Perception United States (Non-UltiPro) z galerii, wykonaj następujące czynności:**
+**Aby dodać percepcję Stany Zjednoczone (UltiPro) z galerii, wykonaj następujące czynności:**
 
 1. W witrynie **[Azure Portal](https://portal.azure.com)** w panelu nawigacyjnym po lewej stronie kliknij ikonę usługi **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Aby skonfigurować integrację percepcji Stany Zjednoczone (Non-UltiPro) do usł
 
     ![Przycisk Nowa aplikacja](common/add-new-app.png)
 
-4. W polu wyszukiwania wpisz **Perception United States (Non-UltiPro)**, wybierz **opcję Postrzeganie Stanów Zjednoczonych (Non-UltiPro)** w panelu wyników, a następnie kliknij przycisk **Dodaj,** aby dodać aplikację.
+4. W polu wyszukiwania wpisz **percepcję Stany Zjednoczone (UltiPro)**, wybierz pozycję **percepcja Stany Zjednoczone (UltiPro)** w panelu wyników, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
 
-     ![Perception United States (Non-UltiPro) na liście wyników](common/search-new-app.png)
+     ![Stany Zjednoczone percepcji (inne niż UltiPro) na liście wyników](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji można skonfigurować i przetestować azure ad logowania jednokrotnego z Percepcja Stany Zjednoczone (Non-UltiPro) na podstawie użytkownika testowego o nazwie **Britta Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację łącza między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w perception united states (non-UltiPro).
+W tej sekcji konfigurujesz i testujesz Logowanie jednokrotne w usłudze Azure AD z percepcją Stany Zjednoczone (UltiPro) na podstawie użytkownika testowego o nazwie **Britta Simon**.
+Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Stany Zjednoczone percepcji (UltiPro).
 
-Aby skonfigurować i przetestować usługę Azure AD jednokrotnego logowania z Perception United States (Non-UltiPro), należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany Zjednoczone (UltiPro), należy wykonać następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
-2. **[Skonfiguruj samopodstawowe logowanie Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** — aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+2. **[Skonfiguruj Stany Zjednoczone percepcji (UltiPro) logowanie](#configure-perception-united-states-non-ultipro-single-sign-on)** jednokrotne — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
 3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
 4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz percepcję Stany Zjednoczone (Non-UltiPro) użytkownika testowego](#create-perception-united-states-non-ultipro-test-user)** — mieć odpowiednik Britta Simon w percepcji Stany Zjednoczone (Non-UltiPro), który jest połączony z reprezentacji usługi Azure AD użytkownika.
+5. **[Twórz percepcję Stany Zjednoczone użytkownika testowego (UltiPro)](#create-perception-united-states-non-ultipro-test-user)** , aby uzyskać odpowiednik Britta Simon w postrzeganiu Stany Zjednoczone (nie UltiPro), który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
 6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
 W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
 
-Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą perception united states (non-UltiPro), wykonaj następujące kroki:
+Aby skonfigurować Logowanie jednokrotne w usłudze Azure AD z percepcją Stany Zjednoczone (UltiPro), wykonaj następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com/)na stronie integracji aplikacji **Perception United States (Non-UltiPro)** wybierz opcję **Logowanie jednokrotne**.
+1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Stany Zjednoczone (UltiPro)** wybierz pozycję **Logowanie jednokrotne**.
 
     ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
 
@@ -103,25 +103,25 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą perception 
 
 4. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** wykonaj następujące kroki:
 
-    ![Perception United States (Non-UltiPro) Informacje o domenie i adresach URL logowania jednokrotnego](common/idp-intiated.png)
+    ![Postrzeganie Stany Zjednoczone (nie UltiPro) domeny i adresów URL Logowanie jednokrotne](common/idp-intiated.png)
 
     a. W polu tekstowym **Identyfikator** wpisz adres URL:`https://perception.kanjoya.com/sp`
 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    d. Aplikacja **Perception United States (Non-UltiPro)** wymaga, aby wartość **identyfikatora usługi Azure AD** jako <entity_id>, którą można uzyskać z sekcji **Konfigurowanie postrzegania Stanów Zjednoczonych (Non-UltiPro),** która ma być zakodowana jako uri. Aby uzyskać wartość zakodowaną w identyfikatorze **http://www.url-encode-decode.com/** uri, użyj następującego łącza: .
+    c. **Postrzeganie Stany Zjednoczone (UltiPro)** wymaga, aby wartość **identyfikatora usługi Azure AD** była <entity_id>, którą otrzymasz od sekcji **Ustawianie percepcji Stany Zjednoczone (innej niż UltiPro)** , aby była zakodowana przy użyciu identyfikatora URI. Aby uzyskać wartość zakodowaną URI, użyj następującego linku: **http://www.url-encode-decode.com/**.
 
-    d. Po uzyskaniu wartości kodowanej uri połącz ją z **adresem URL odpowiedzi,** o którym mowa poniżej-
+    d. Po uzyskaniu wartości zakodowanej URI połącz ją z **adresem URL odpowiedzi** , jak wspomniano poniżej —
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
-    e. Wklej powyższą wartość w polu tekstowym **Odpowiedz adres URL.**
+    e. Wklej powyższą wartość w polu tekstowym **adres URL odpowiedzi** .
 
 5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/metadataxml.png)
 
-6. W sekcji **Konfigurowanie percepcji w Stanach Zjednoczonych (non-UltiPro)** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+6. W sekcji **Ustawianie percepcji Stany Zjednoczone (UltiPro)** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -129,41 +129,41 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD za pomocą perception 
 
     b. Identyfikator usługi Azure AD
 
-    d. Adres URL wylogowywania   
+    c. Adres URL wylogowywania   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Konfigurowanie percepcji Stany Zjednoczone (Non-UltiPro) Logowanie jednokrotne
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Skonfiguruj Stany Zjednoczone percepcji (UltiPro) Logowanie jednokrotne
 
-1. W innym oknie przeglądarki zaloguj się do witryny firmy Perception United States (Non-UltiPro) jako administrator.
+1. W innym oknie przeglądarki Zaloguj się w witrynie firmowej Stany Zjednoczone (UltiPro) jako administrator.
 
 2. Na głównym pasku narzędzi kliknij pozycję **Ustawienia konta**.
 
-    ![Perception Stany Zjednoczone (Non-UltiPro) użytkownik](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Stany Zjednoczone użytkownik (inny niż UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. Na stronie **Ustawienia konta** wykonaj następujące czynności:
 
-    ![Perception Stany Zjednoczone (Non-UltiPro) użytkownik](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
+    ![Stany Zjednoczone użytkownik (inny niż UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-    a. W polach tekstowych **Nazwa firmy** wpisz nazwę **Firmy**.
+    a. W polu tekstowym **Nazwa firmy** wpisz nazwę **firmy**.
     
-    b. W polach **tekstowych Nazwa konta** wpisz nazwę **konta**.
+    b. W polu tekstowym **nazwa konta** wpisz nazwę **konta**.
 
-    d. W polu **tekstowym Domyślna wiadomość e-mail** wpisz prawidłowy **adres e-mail**.
+    c. W polu tekstowym **adres E-mail odpowiedzi domyślnej** wpisz prawidłowy **adres e-mail**.
 
-    d. Wybierz **dostawcę tożsamości jako SAML** **2.0**.
+    d. Wybierz pozycję **dostawca tożsamości logowania jednokrotnego** jako element **SAML 2,0**.
 
-4. Na stronie **Konfiguracja samego systemu SYC** wykonaj następujące czynności:
+4. Na stronie **Konfiguracja logowania jednokrotnego** wykonaj następujące czynności:
 
-    ![Perception Stany Zjednoczone (Non-UltiPro) SSOConfig](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
+    ![Stany Zjednoczone percepcji (UltiPro) SSOConfig](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-    a. Wybierz **opcję SAML NameID Type** as **EMAIL**.
+    a. Wybierz pozycję **SAML NameID Type** jako **wiadomość e-mail**.
 
-    b. W pole **tekstowym Nazwa konfiguracji wpisać** nazwę **konfiguracji**.
+    b. W polu tekstowym **nazwa konfiguracji logowania jednokrotnego** wpisz nazwę **konfiguracji**.
     
-    d. W polu tekstowym **Nazwa dostawcy tożsamości** wklej wartość **identyfikatora usługi Azure AD,** który został skopiowany z witryny Azure portal. 
+    c. W polu tekstowym **Nazwa dostawcy tożsamości** wklej wartość identyfikatora usługi **Azure AD**, która została skopiowana z Azure Portal. 
 
-    d. W **polu tekstowym Domena SAML**wprowadź domenę w stylu @contoso.com.
+    d. W polu **tekstowym domena SAML**wprowadź domenę, taką @contoso.comjak.
 
-    e. Kliknij **przycisk Przekaż ponownie,** aby przekazać plik **XML metadanych.**
+    e. Kliknij **ponownie przycisk Przekaż** , aby przekazać plik **XML metadanych** .
 
     f. Kliknij przycisk **Update** (Aktualizuj).
 
@@ -175,7 +175,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -185,23 +185,23 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** brittasimon@yourcompanydomain.extensionużytkownika wpisz . Na przykład: BrittaSimon@contoso.com
+    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jednokrotnego, udzielając dostępu do percepcji Stany Zjednoczone (Non-UltiPro).
+W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu Stany Zjednoczone percepcji (UltiPro).
 
-1. W portalu Azure wybierz pozycję **Aplikacje dla przedsiębiorstw**, wybierz **pozycję Wszystkie aplikacje,** a następnie wybierz **opcję Postrzeganie Stanów Zjednoczonych (Non-UltiPro).**
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **percepcja Stany Zjednoczone (nie UltiPro)**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-2. Na liście aplikacji wybierz **opcję Postrzeganie Stanów Zjednoczonych (Non-UltiPro).**
+2. Na liście Aplikacje wybierz pozycję **percepcja Stany Zjednoczone (nie UltiPro)**.
 
-    ![Łącze Perception United States (Non-UltiPro) na liście Aplikacji](common/all-applications.png)
+    ![Stany Zjednoczone percepcji (inne niż UltiPro) na liście aplikacji](common/all-applications.png)
 
 3. W menu po lewej stronie wybierz pozycję **Użytkownicy i grupy**.
 
@@ -213,25 +213,25 @@ W tej sekcji można włączyć Britta Simon do korzystania z azure logowania jed
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
-### <a name="create-perception-united-states-non-ultipro-test-user"></a>Tworzenie percepcji Stany Zjednoczone (Non-UltiPro) użytkownik testowy
+### <a name="create-perception-united-states-non-ultipro-test-user"></a>Utwórz użytkownika testowego Stany Zjednoczone (nie UltiPro)
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w Percepcja Stany Zjednoczone (Non-UltiPro). Współpracuj z [zespołem wsparcia Perception United States (Non-UltiPro),](https://www.ultimatesoftware.com/Contact/ContactUs) aby dodać użytkowników na platformie Perception United States (Non-UltiPro).
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w polu percepcja Stany Zjednoczone (bez UltiPro). Pracuj z [zespołem pomocy technicznej Stany Zjednoczone (UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) , aby dodać użytkowników na platformie percepcji Stany Zjednoczone (nie UltiPro).
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego 
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Perception United States (Non-UltiPro) w Panelu dostępu należy automatycznie zalogować się do witryny Perception United States (Non-UltiPro), dla której skonfigurowano logującą się logującą logującą. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka Stany Zjednoczone (bez UltiPro) w panelu dostępu należy automatycznie zalogować się do Stany Zjednoczone percepcji (UltiPro), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

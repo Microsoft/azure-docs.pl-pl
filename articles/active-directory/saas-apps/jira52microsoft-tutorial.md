@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Integracja usługi Azure Active Directory z sytuałem SSO JIRA SAML firmy Microsoft (V5.2) | Dokumenty firmy Microsoft'
+title: 'Samouczek: integracja Azure Active Directory z usługą JIRA SAML SSO przez firmę Microsoft (V 5.2) | Microsoft Docs'
 description: Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory a programem JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67099513"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Samouczek: Integracja usługi Azure Active Directory z sytuałem SSO JIRA SAML firmy Microsoft (V5.2)
+# <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Samouczek: integracja Azure Active Directory z usługą JIRA SAML SSO przez firmę Microsoft (V 5.2)
 
 Z tego samouczka dowiesz się, jak zintegrować program JIRA SAML SSO by Microsoft (V5.2) z usługą Azure Active Directory (Azure AD).
 Zintegrowanie programu JIRA SAML SSO by Microsoft (V5.2) z usługą Azure AD daje następujące korzyści:
@@ -33,11 +33,11 @@ Zintegrowanie programu JIRA SAML SSO by Microsoft (V5.2) z usługą Azure AD daj
 * Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
 
 Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Jeśli nie masz subskrypcji platformy Azure, [utwórz bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="description"></a>Opis
 
-Użyj konta usługi Microsoft Azure Active Directory w połączeniu z serwerem Atlassian JIRA, aby umożliwić logowanie jednokrotne. W ten sposób wszyscy użytkownicy organizacji mogą używać poświadczeń usługi Azure AD do logowania się do aplikacji JIRA. Ta wtyczka używa protokołu SAML 2.0 na potrzeby federacji.
+Użyj konta usługi Microsoft Azure Active Directory w połączeniu z serwerem Atlassian JIRA, aby umożliwić logowanie jednokrotne. Dzięki temu wszyscy użytkownicy w organizacji mogą korzystać z poświadczeń usługi Azure AD w celu zalogowania się do aplikacji JIRA. Ta wtyczka używa protokołu SAML 2.0 na potrzeby federacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -58,15 +58,15 @@ Do skonfigurowania integracji usługi Azure AD z programem JIRA SAML SSO by Micr
 Aby przetestować czynności opisane w tym samouczku, należy postępować zgodnie z następującymi zaleceniami:
 
 - Nie używaj środowiska produkcyjnego, chyba że jest to konieczne.
-- Jeśli nie masz środowiska testowego usługi Azure AD, możesz uzyskać miesięczną wersję próbną tutaj: [Oferta próbna.](https://azure.microsoft.com/pricing/free-trial/)
+- Jeśli nie masz środowiska w wersji próbnej usługi Azure AD, możesz uzyskać miesięczną wersję próbną tutaj: [ofertę wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="supported-versions-of-jira"></a>Obsługiwane wersje usługi JIRA
 
-* Rdzeń i oprogramowanie JIRA: 5.2
+* JIRA rdzeń i oprogramowanie: 5,2
 * Usługa JIRA obsługuje także wersje od 6.0 do 7.12. Aby uzyskać więcej informacji, kliknij pozycję [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
 
 > [!NOTE]
-> Należy pamiętać, że nasza wtyczka JIRA działa również na Ubuntu w wersji 16.04
+> Należy pamiętać, że nasza wtyczka JIRA działa również na Ubuntu w wersji 16,04
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -132,11 +132,11 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w programie JIRA SAML 
 
     ![Informacje na temat domeny i adresów URL logowania jednokrotnego programu JIRA SAML SSO by Microsoft (V5.2)](common/sp-identifier-reply.png)
 
-    a. W polu **tekstowym Podpisywania adresu URL** wpisz adres URL, używając następującego wzorca:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. W polu tekstowym **adres URL logowania** wpisz adres URL, używając następującego wzorca:`https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. W polu **Identyfikator** wpisz adres URL przy użyciu następującego wzorca:`https://<domain:port>/`
+    b. W polu **Identyfikator** wpisz adres URL, używając następującego wzorca:`https://<domain:port>/`
 
-    d. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zastąp je rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Port jest opcjonalny, jeśli adres URL zawiera nazwę. Te wartości można uzyskać podczas konfigurowania wtyczki usługi Jira, co jest objaśnione w dalszej części tego samouczka.
@@ -147,7 +147,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w programie JIRA SAML 
 
 ### <a name="configure-jira-saml-sso-by-microsoft-v52-single-sign-on"></a>Konfigurowanie logowania jednokrotnego programu JIRA SAML SSO by Microsoft (V5.2)
 
-1. W innym oknie przeglądarki internetowej zaloguj się do wystąpienia JIRA jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do swojego wystąpienia JIRA jako administrator.
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **Dodatki**.
 
@@ -176,20 +176,20 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD w programie JIRA SAML 
 
     b. Skopiuj wartości **identyfikatora, adresu URL odpowiedzi i adresu URL logowania**, a następnie wklej je odpowiednio w polach tekstowych **Identyfikator, Adres URL odpowiedzi i Adres URL logowania** w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-    d. W polu **Nazwa przycisku logowania** wpisz nazwę przycisku, która według Twojej organizacji ma być wyświetlana użytkownikom na ekranie logowania.
+    c. W polu **Nazwa przycisku logowania** wpisz nazwę przycisku, która według Twojej organizacji ma być wyświetlana użytkownikom na ekranie logowania.
 
-    d. W **saml lokalizacje identyfikatora użytkownika** wybierz nazwę **użytkownika jest w NameIdentifier element instrukcji Podmiot** lub identyfikator użytkownika znajduje się w **attribute elementu**.  Ten identyfikator musi być identyfikatorem użytkownika JIRA. Jeśli identyfikator użytkownika nie jest dopasowany, system nie zezwoli użytkownikom na logowanie.
+    d. W obszarze **Identyfikator użytkownika SAML lokalizacje** wybierz opcję **Identyfikator użytkownika znajduje się w elemencie NameIdentifier instrukcji subject** lub **Identyfikator użytkownika znajduje się w elemencie atrybutu**.  Ten identyfikator musi być IDENTYFIKATORem użytkownika JIRA. Jeśli identyfikator użytkownika nie jest zgodny, system nie zezwoli użytkownikom na logowanie się.
 
     > [!Note]
     > Domyślna lokalizacja identyfikatora użytkownika SAML to element NameIdentifier. Można ją zmienić za pomocą opcji elementu Attribute, podając nazwę odpowiedniego atrybutu.
 
-    e. Jeśli wybierzesz nazwę użytkownika w opcji **elementu Atrybut,** w a następnie w **obszarze tekstowym Nazwa atrybutu** wpisz nazwę atrybutu, w którym oczekiwana jest nazwa użytkownika. 
+    e. Jeśli wybierzesz pozycję **Identyfikator użytkownika w opcji elementu atrybutu** , w polu tekstowym **nazwa atrybutu** wpisz nazwę atrybutu, w którym jest oczekiwany identyfikator użytkownika. 
 
     f. Jeśli używasz domeny federacyjnej (na przykład usług ADFS itp.) w połączeniu z usługą Azure AD, kliknij opcję **Włącz odnajdywanie obszaru głównego** i skonfiguruj pole **Nazwa domeny**.
 
     g. W polu **Nazwa domeny** wpisz nazwę domeny w przypadku logowania za pomocą usług ADFS.
 
-    h. Zaznacz **opcję Włącz wylogowanie jednokrotne,** jeśli chcesz wylogować się z usługi Azure AD, gdy użytkownik wyloguje się z JIRA. 
+    h. Zaznacz pole wyboru **Włącz logowanie** jednokrotne, jeśli chcesz się wylogować z usługi Azure AD, gdy użytkownik wyloguje się z JIRA. 
 
     i. Kliknij przycisk **Zapisz**, aby zapisać ustawienia.
 
@@ -204,7 +204,7 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
 
-2. Wybierz **pozycję Nowy użytkownik** u góry ekranu.
+2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 
     ![Przycisk Nowy użytkownik](common/new-user.png)
 
@@ -214,9 +214,9 @@ W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie B
 
     a. W polu **Nazwa** wprowadź **BrittaSimon**.
   
-    b. W polu **Nazwa** `brittasimon\@yourcompanydomain.extension`użytkownika wpisz . Na przykład BrittaSimon@contoso.com.
+    b. W polu **Nazwa użytkownika** wpisz `brittasimon\@yourcompanydomain.extension`. Na przykład BrittaSimon@contoso.com.
 
-    d. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
+    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
 
     d. Kliknij przycisk **Utwórz**.
 
@@ -242,17 +242,17 @@ W tej sekcji włączysz użytkownikowi Britta Simon możliwość korzystania z l
 
 5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
 
-6. Jeśli oczekujesz dowolnej wartości roli w asercji SAML, a następnie w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 7. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz**.
 
 ### <a name="create-jira-saml-sso-by-microsoft-v52-test-user"></a>Tworzenie użytkownika testowego programu JIRA SAML SSO by Microsoft (V5.2)
 
-Aby umożliwić użytkownikom usługi Azure AD logowanie się do serwera lokalnego JIRA, muszą one być aprowidywne na serwerze lokalnym JIRA.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się na serwerze lokalnym JIRA, muszą one być obsługiwane na serwerze lokalnym JIRA.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się do lokalnego serwera JIRA jako administrator.
+1. Zaloguj się do serwera lokalnego JIRA jako administrator.
 
 2. Zatrzymaj wskaźnik myszy nad ikoną koła zębatego i kliknij pozycję **User management** (Zarządzanie użytkownikami).
 
@@ -274,22 +274,22 @@ Aby umożliwić użytkownikom usługi Azure AD logowanie się do serwera lokalne
 
     b. W polu tekstowym **Full Name** (Imię i nazwisko) wpisz imię i nazwisko użytkownika, np. Britta Simon.
 
-    d. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
+    c. W polu tekstowym **Username** (Nazwa użytkownika) wpisz adres e-mail użytkownika, na przykład Brittasimon@contoso.com.
 
     d. W polu tekstowym **Password** (Hasło) wpisz hasło użytkownika.
 
-    e. Kliknij **pozycję Utwórz użytkownika**.
+    e. Kliknij pozycję **Utwórz użytkownika**.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka JIRA SAML SSO by Microsoft (V5.2) na panelu dostępu powinno nastąpić automatyczne zalogowanie do programu JIRA SAML SSO by Microsoft (V5.2), dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat Panelu dostępu, zobacz [Wprowadzenie do Panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po kliknięciu kafelka JIRA SAML SSO by Microsoft (V5.2) na panelu dostępu powinno nastąpić automatyczne zalogowanie do programu JIRA SAML SSO by Microsoft (V5.2), dla którego skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą usługi Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
