@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: wysyłanie zdarzeń niestandardowych do punktu końcowego sieci Web — siatka zdarzeń, program PowerShell'
-description: 'Szybki start: użyj usługi Azure Event Grid i PowerShell, aby opublikować temat niestandardowy i subskrybować zdarzenia dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.'
+title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do punktu końcowego sieci Web — Event Grid, PowerShell'
+description: 'Szybki Start: używanie Azure Event Grid i programu PowerShell do publikowania tematu niestandardowego oraz subskrybowanie zdarzeń dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73721435"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Szybki start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web za pomocą programu PowerShell i siatki zdarzeń
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web za pomocą programu PowerShell i Event Grid
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą programu Azure PowerShell. Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następuje przetwarzanie danych zdarzenia i są wykonywane akcje. Jednak aby uprościć ten artykuł, zdarzenia zostaną wysłane do aplikacji internetowej, która zbiera i wyświetla komunikaty.
 

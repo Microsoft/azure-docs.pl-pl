@@ -1,6 +1,6 @@
 ---
-title: Połącz się przy użyciu usługi Java — usługa Azure Database for MySQL
-description: Ten przewodnik Szybki start zawiera przykładowy kod Java, którego można użyć do łączenia się i wykonywania zapytań o dane z bazy danych usługi Azure Database for MySQL.
+title: Nawiązywanie połączenia przy użyciu języka Java — Azure Database for MySQL
+description: Ten przewodnik Szybki Start zawiera przykładowy kod Java, którego można używać do nawiązywania połączeń i wykonywania zapytań dotyczących danych z bazy danych Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -9,36 +9,36 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 3/18/2020
 ms.openlocfilehash: b5f1cbf2f822f350b1eeba032199676651364d84
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80983827"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Szybki start: łączenie się z danymi usługi Azure Database dla mysql za pomocą języka Java i ich wykonywanie
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Szybki Start: używanie języka Java do nawiązywania połączenia i wykonywania zapytań dotyczących danych w Azure Database for MySQL
 
-W tym przewodniku Szybki start można połączyć się z usługą Azure Database for MySQL przy użyciu aplikacji Java i sterownika JDBC MariaDB Connector/J. Następnie używasz instrukcji SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych z platform Mac, Ubuntu Linux i Windows. 
+W tym przewodniku szybki start nawiążesz połączenie z Azure Database for MySQL przy użyciu aplikacji Java oraz łącznika MariaDB/J sterownika JDBC. Następnie można używać instrukcji SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych z platform Mac, Ubuntu Linux i Windows. 
 
-W tym temacie przyjęto założenie, że jesteś zaznajomiony z tworzenia przy użyciu języka Java, ale jesteś nowy do pracy z usługą Azure Database dla MySQL.
+W tym temacie założono, że znasz już Programowanie przy użyciu języka Java, ale dopiero zaczynasz pracę z Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Usługa Azure Database dla serwera MySQL. [Utwórz usługę Azure Database dla serwera MySQL przy użyciu witryny Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) lub [utwórz usługę Azure Database dla serwera MySQL przy użyciu interfejsu wiersza polecenia platformy Azure.](quickstart-create-mysql-server-database-using-azure-cli.md)
-- Zabezpieczenia połączeń usługi Azure Database for MySQL są skonfigurowane przy zastosowaniu otwartej zapory i ustawień połączenia SSL skonfigurowanych dla aplikacji.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Serwer Azure Database for MySQL. [Utwórz serwer Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) lub [Utwórz serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+- Zabezpieczenia połączeń Azure Database for MySQL są konfigurowane przy użyciu skonfigurowanych dla aplikacji ustawień zapory i połączeń SSL.
 
 ## <a name="obtain-the-mariadb-connector"></a>Uzyskaj łącznik MariaDB
 
-Uzyskaj łącznik [MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) przy użyciu jednego z następujących metod:
-   - Użyj pakietu Maven [mariadb-java-client,](https://search.maven.org/search?q=a:mariadb-java-client) aby uwzględnić [zależność mariadb-java-client](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) w pliku POM dla projektu.
-   - Pobierz sterownik JDBC [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) i dołącz plik jar JDBC (na przykład mariadb-java-client-2.4.3.jar) do ścieżki klasy aplikacji. Szczegółowe informacje na temat ścieżki klasy można znaleźć w dokumentacji środowiska, takich jak [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) lub [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+Uzyskaj łącznik [MariaDB/J](https://mariadb.com/kb/en/library/mariadb-connector-j/) Connector przy użyciu jednej z następujących metod:
+   - Użyj Maven pakietu [MariaDB-Java-Client](https://search.maven.org/search?q=a:mariadb-java-client) , aby dołączyć [zależność klienta MariaDB-Java](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) do pliku pliku pom dla projektu.
+   - Pobierz sterownik JDBC [MariaDB łącznik/J](https://downloads.mariadb.org/connector-java/) i Uwzględnij plik JAR JDBC (na przykład MariaDB-Java-Client-2.4.3. jar) w ścieżce klasy aplikacji. Zapoznaj się z dokumentacją środowiska, aby uzyskać informacje dotyczące ścieżki klas, takie jak [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) lub [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
 Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z usługą Azure Database for MySQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
-2. Z menu po lewej stronie w witrynie Azure portal wybierz pozycję **Wszystkie zasoby**, a następnie wyszukaj utworzony serwer (np. **mydemoserver**).
+2. Z menu po lewej stronie w obszarze Azure Portal wybierz pozycję **wszystkie zasoby**, a następnie wyszukaj utworzony serwer (na przykład **mydemoserver**).
 3. Wybierz nazwę serwera.
 4. Po przejściu do panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę logowania administratora serwera**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
  ![Nazwa serwera usługi Azure Database for MySQL](./media/connect-java/azure-database-mysql-server-name.png)
@@ -136,7 +136,7 @@ public class CreateTableInsertRows {
 
 ## <a name="read-data"></a>Odczyt danych
 
-Użyj poniższego kodu, aby odczytać dane za pomocą instrukcji **SELECT** języka SQL. Metoda [GetConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) jest używana do nawiązania połączenia z usługą MySQL. Metody [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) i executeQuery() są używane do łączenia i uruchamiania instrukcji select. Wyniki są przetwarzane przy użyciu obiektu ResultSet. 
+Użyj poniższego kodu, aby odczytać dane za pomocą instrukcji **SELECT** języka SQL. Metoda [GetConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) jest używana do nawiązania połączenia z usługą MySQL. Metody Create [stateion ()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) i executeQuery () są używane do nawiązywania połączenia i uruchamiania instrukcji SELECT. Wyniki są przetwarzane przy użyciu obiektu ResultSet. 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
 
@@ -283,7 +283,7 @@ public class UpdateTable {
 
 ## <a name="delete-data"></a>Usuwanie danych
 
-Użyj poniższego kodu, aby usunąć dane za pomocą instrukcji **DELETE** języka SQL. Metoda [GetConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) jest używana do nawiązania połączenia z usługą MySQL.  Metody [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) i executeUpdate() są używane do przygotowania i uruchomienia instrukcji usuwania. 
+Użyj poniższego kodu, aby usunąć dane za pomocą instrukcji **DELETE** języka SQL. Metoda [GetConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) jest używana do nawiązania połączenia z usługą MySQL.  Metody [prepareStatement ()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) i ExecuteUpdate () służą do przygotowania i uruchomienia instrukcji DELETE. 
 
 Zastąp parametry hosta, bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia własnego serwera i bazy danych.
 

@@ -1,6 +1,6 @@
 ---
-title: Połącz się z Java — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: Ten przewodnik Szybki start zawiera przykładowy kod Java, którego można użyć do łączenia się i wykonywania zapytań o dane z usługi Azure Database for PostgreSQL — Single Server.
+title: Nawiązywanie połączenia z programem Java — Azure Database for PostgreSQL — pojedynczy serwer
+description: Ten przewodnik Szybki Start zawiera przykładowy kod Java, którego można używać do nawiązywania połączeń i wykonywania zapytań dotyczących danych z Azure Database for PostgreSQL-jednego serwera.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -11,33 +11,33 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: cf03cebcd69bd85a4cc94ceb7e99fd0edef99b58
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80063123"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki start: łączenie się z danymi usługi Azure Database dla postgreSQL — pojedynczy serwer — używanie języka Java za pomocą języka Java i wykonywania zapytań o dane w bazie danych usługi Azure Database —
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie języka Java do łączenia się z danymi i wykonywania na nich zapytań na Azure Database for PostgreSQL-pojedynczym serwerze
 
-W tym przewodniku Szybki start można połączyć się z usługą Azure Database for PostgreSQL przy użyciu aplikacji Java. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Java, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
+W tym przewodniku szybki start nawiążesz połączenie z Azure Database for PostgreSQL przy użyciu aplikacji Java. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka Java, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Ukończenie [przewodnika Szybki start: tworzenie bazy danych platformy Azure dla serwera PostgreSQL w witrynie Azure portal](quickstart-create-server-database-portal.md) lub szybki [start: tworzenie bazy danych platformy Azure dla postgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-create-server-database-azure-cli.md).
+- Kończenie [przewodnika Szybki Start: Tworzenie serwera Azure Database for PostgreSQL w Azure Portal](quickstart-create-server-database-portal.md) lub [szybki start: Tworzenie Azure Database for PostgreSQL przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-create-server-database-azure-cli.md).
 
-- [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) - dopasuj swoją wersję Java i Java Development Kit.
-- [Szczegóły ścieżki klasy](https://jdbc.postgresql.org/documentation/head/classpath.html) — dołącz plik jar PostgreSQL JDBC (na przykład postgresql-42.1.1.jar) w ścieżce klasy aplikacji.
+- [Sterownik POSTGRESQL JDBC](https://jdbc.postgresql.org/download.html) — pasuje do używanej wersji języka Java i zestawu Java Development Kit.
+- [Szczegóły ścieżki klasy](https://jdbc.postgresql.org/documentation/head/classpath.html) — Dołącz plik JAR JDBC PostgreSQL (na przykład PostgreSQL-42.1.1. jar) w ścieżce klas aplikacji.
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą Azure Database for PostgreSQL. Potrzebna jest w pełni kwalifikowana nazwa serwera i poświadczenia logowania.
 
-1. W [witrynie Azure portal](https://portal.azure.com/)wyszukaj i wybierz utworzony serwer (np. **serwer mydemoserver**).
+1. W [Azure Portal](https://portal.azure.com/)Wyszukaj i wybierz utworzony przez siebie serwer (na przykład **mydemoserver**).
 
-1. W panelu **Przegląd** serwera zanotuj **nazwę serwera** i **nazwę użytkownika administratora**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
+1. W panelu **Przegląd** serwera Zanotuj **nazwę serwera i nazwa** **użytkownika administratora**. Jeśli zapomnisz hasła, możesz również je zresetować z poziomu tego panelu.
 
-    ![Ciąg połączenia Usługi Azure Database dla postgreSQL](./media/connect-java/server-details-azure-database-postgresql.png)
+    ![Azure Database for PostgreSQL parametry połączenia](./media/connect-java/server-details-azure-database-postgresql.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
 Użyj poniższego kodu, aby nawiązać połączenie i załadować dane do bazy danych przy użyciu funkcji z instrukcją **INSERT** języka SQL. Metody [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) i [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) są używane do nawiązywania połączenia z bazą danych, usuwania i tworzenia tabeli. Obiekt [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) jest używany do tworzenia poleceń insert, z metodami setString() i setInt() do powiązania wartości parametrów. Metoda [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) uruchamia polecenie dla każdego zestawu parametrów. 

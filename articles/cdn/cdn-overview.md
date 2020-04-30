@@ -16,10 +16,10 @@ ms.date: 05/09/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81260453"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Co to jest sieć dostarczania zawartości na platformie Azure?
@@ -38,7 +38,7 @@ Aby wyświetlić listę bieżących lokalizacji węzłów usługi CDN, zobacz [L
 ## <a name="how-it-works"></a>Jak to działa
 ![Omówienie usługi CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Użytkownik (Alicja) żąda pliku (nazywanego również zasobem) przy użyciu adresu URL ze specjalną nazwą domeny, taką jak _ &lt;nazwa&gt;punktu końcowego_.azureedge.net. Ta nazwa może być nazwą hosta punktu końcowego lub domeną niestandardową. System DNS kieruje żądanie do lokalizacji POP o najwyższej wydajności — zwykle jest to punkt POP znajdujący się geograficznie najbliżej użytkownika.
+1. Użytkownik (Alicja) żąda pliku (nazywanego również zasobem) przy użyciu adresu URL ze specjalną nazwą domeny, taką jak _ &lt;&gt;nazwa punktu końcowego_. azureedge.NET. Ta nazwa może być nazwą hosta punktu końcowego lub domeną niestandardową. System DNS kieruje żądanie do lokalizacji POP o najwyższej wydajności — zwykle jest to punkt POP znajdujący się geograficznie najbliżej użytkownika.
     
 2. Jeśli żaden serwer brzegowy w punkcie POP nie ma pliku w swojej pamięci podręcznej, punkt POP żąda pliku z serwera pochodzenia. Serwerem pochodzenia może być aplikacja internetowa platformy Azure, usługa Azure Cloud Service, konto usługi Azure Storage lub dowolny publicznie dostępny serwer internetowy.
    
@@ -64,7 +64,7 @@ Aby dowiedzieć się więcej o limitach subskrypcji usługi CDN, zobacz [Limity 
 ## <a name="azure-cdn-features"></a>Funkcje usługi Azure CDN
 Usługa Azure CDN oferuje następujące kluczowe funkcje:
 
-- [Dynamiczne przyspieszanie witryny](cdn-dynamic-site-acceleration.md)
+- [Przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md)
 - [Reguły buforowania sieci CDN](cdn-caching-rules.md)
 - [Obsługa domen niestandardowych HTTPS](cdn-custom-ssl.md)
 - [Dzienniki diagnostyczne platformy Azure](cdn-azure-diagnostic-logs.md)

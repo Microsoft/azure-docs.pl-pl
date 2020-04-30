@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory | Microsoft Docs
-description: W tym artykule opisano korzyści wynikające z integracji usługi Azure Active Directory z aplikacjami lokalnymi, chmurowymi i SaaS.
+description: W tym artykule opisano zalety integracji Azure Active Directory z aplikacjami lokalnymi, w chmurze i SaaS.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,43 +13,43 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77063326"
 ---
-# <a name="application-management-with-azure-active-directory"></a>Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory
+# <a name="application-management-with-azure-active-directory"></a>Zarządzanie aplikacjami za pomocą usługi Azure Active Directory
 
-Usługa Azure Active Directory (Azure AD) upraszcza sposób zarządzania aplikacjami, udostępniając system tożsamości dla aplikacji w chmurze i lokalnych. Do usługi Azure AD można dodać oprogramowanie jako aplikacje usługi (SaaS), aplikacje lokalne i aplikacje biznesowe (LOB). Następnie użytkownicy logują się raz, aby bezpiecznie i bezproblemowo uzyskać dostęp do tych aplikacji, wraz z usługą Office 365 i innymi aplikacjami biznesowymi firmy Microsoft. Można zmniejszyć koszty [administracyjne, automatyzując inicjowanie obsługi administracyjnej przez użytkowników](../app-provisioning/user-provisioning.md). Można również użyć uwierzytelniania wieloskładnikowego i zasad dostępu warunkowego, aby zapewnić bezpieczny dostęp do aplikacji.
+Azure Active Directory (Azure AD) upraszcza sposób zarządzania aplikacjami, zapewniając pojedynczy system tożsamości dla aplikacji w chmurze i lokalnych. Aplikacje lokalne i aplikacje biznesowe (LOB) można dodawać do usługi Azure AD za pomocą aplikacji lokalnych (SaaS). Następnie Użytkownicy logują się raz, aby bezpiecznie i bezproblemowo uzyskiwać dostęp do tych aplikacji wraz z pakietem Office 365 i innymi aplikacjami biznesowymi firmy Microsoft. Możesz zmniejszyć koszty administracyjne, [automatyzując Inicjowanie obsługi użytkowników](../app-provisioning/user-provisioning.md). Aby zapewnić bezpieczny dostęp do aplikacji, można także użyć usługi uwierzytelniania wieloskładnikowego i zasad dostępu warunkowego.
 
-![Diagram przedstawiający aplikacje sfederowane za pośrednictwem usługi Azure AD](media/what-is-application-management/app-management-overview.png)
+![Diagram przedstawiający aplikacje federacyjne za pośrednictwem usługi Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Dlaczego warto zarządzać aplikacjami przy użyciu rozwiązania w chmurze?
 
-Organizacje mają często setki aplikacji, których użytkownicy potrzebują do wykonania swojej pracy. Użytkownicy uzyskują dostęp do tych aplikacji z wielu urządzeń i lokalizacji. Nowe aplikacje są dodawane, tworzone i wycofywane każdego dnia. Przy tak wielu aplikacjach i punktach dostępu bardziej niż kiedykolwiek ma zastosowanie rozwiązania chmurowego do zarządzania dostępem użytkowników do wszystkich aplikacji.
+Organizacje mają często setki aplikacji, których użytkownicy potrzebują do wykonania swojej pracy. Użytkownicy uzyskują dostęp do tych aplikacji z wielu urządzeń i lokalizacji. Nowe aplikacje są dodawane, tworzone i wycofywane każdego dnia. W przypadku wielu aplikacji i punktów dostępu bardziej krytyczne jest użycie rozwiązania opartego na chmurze do zarządzania dostępem użytkowników do wszystkich aplikacji.
 
 ## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>Jakie typy aplikacji można zintegrować z usługą Azure AD?
 
-Istnieją cztery główne typy aplikacji, które można dodać do **aplikacji enterprise** i zarządzać za pomocą usługi Azure AD:
+Istnieją cztery główne typy aplikacji, które można dodać do **aplikacji dla przedsiębiorstw** i zarządzać nimi za pomocą usługi Azure AD:
 
-- **Aplikacje usługi Azure AD Gallery** — usługa Azure AD ma galerię zawierającą tysiące aplikacji, które zostały wstępnie zintegrowane dla logowania jednokrotnego za pomocą usługi Azure AD. Niektóre z aplikacji używanych w Twojej organizacji prawdopodobnie znajdują się w galerii. [Dowiedz się więcej o planowaniu integracji z aplikacjami](plan-an-application-integration.md)lub uzyskaj szczegółowe kroki integracji poszczególnych aplikacji w [samouczkach aplikacji SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Aplikacje z galerii usługi Azure AD** — usługa Azure AD ma galerię zawierającą tysiące aplikacji, które zostały wstępnie zintegrowane na potrzeby logowania jednokrotnego w usłudze Azure AD. Niektóre z aplikacji używanych w Twojej organizacji prawdopodobnie znajdują się w galerii. [Dowiedz się więcej o planowaniu integracji aplikacji](plan-an-application-integration.md)lub zapoznaj się ze szczegółowymi krokami integracji dla poszczególnych aplikacji w [samouczkach aplikacji SaaS](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **Aplikacje lokalne z serwerem proxy aplikacji** — za pomocą serwera proxy aplikacji usługi Azure AD można zintegrować lokalne aplikacje sieci web z usługą Azure AD w celu obsługi logowania jednokrotnego. Następnie użytkownicy końcowi mogą uzyskiwać dostęp do lokalnych aplikacji sieci Web w taki sam sposób, w jaki uzyskują dostęp do usługi Office 365 i innych aplikacji SaaS. [Dowiedz się, dlaczego warto korzystać z serwera proxy aplikacji i jak to działa.](what-is-application-proxy.md)
+- **Aplikacje lokalne z serwerem proxy aplikacji** — za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD można zintegrować lokalne aplikacje sieci Web z usługą Azure AD w celu obsługi logowania jednokrotnego. Następnie użytkownicy końcowi mogą uzyskiwać dostęp do lokalnych aplikacji sieci Web w taki sam sposób, w jaki uzyskują dostęp do pakietu Office 365 i innych aplikacji SaaS. [Dowiedz się, dlaczego należy używać serwera proxy aplikacji i sposobu jego działania](what-is-application-proxy.md).
 
-- **Aplikacje opracowane na zamówienie** — podczas tworzenia własnych aplikacji biznesowych można zintegrować je z usługą Azure AD do obsługi logowania jednokrotnego. Rejestrując aplikację w usłudze Azure AD, masz kontrolę nad zasadami uwierzytelniania dla aplikacji. Aby uzyskać więcej informacji, zobacz [wskazówki dla deweloperów](developer-guidance-for-integrating-applications.md).
+- **Aplikacje niestandardowe** — podczas tworzenia własnych aplikacji biznesowych możesz zintegrować je z usługą Azure AD, aby obsługiwać Logowanie jednokrotne. Rejestrując aplikację w usłudze Azure AD, masz kontrolę nad zasadami uwierzytelniania aplikacji. Aby uzyskać więcej informacji, zobacz [wskazówki dla deweloperów](developer-guidance-for-integrating-applications.md).
 
-- **Aplikacje spoza galerii** — przynieś własne aplikacje! Obsługa logowania jednokrotnego dla innych aplikacji przez dodanie ich do usługi Azure AD. Można zintegrować dowolne łącze internetowe lub dowolną aplikację, która renderuje pole nazwy użytkownika i hasła, obsługuje protokoły SAML lub OpenID Connect lub obsługuje scim. Aby uzyskać więcej informacji, zobacz [Konfigurowanie logowania jednokrotnego dla aplikacji innych niż galeria](configure-single-sign-on-non-gallery-applications.md).
+- **Aplikacje spoza galerii** — przenoszenie własnych aplikacji Obsługa logowania jednokrotnego dla innych aplikacji przez dodanie ich do usługi Azure AD. Możesz zintegrować dowolny link internetowy lub dowolną aplikację, która renderuje pole nazwy użytkownika i hasła, obsługuje protokoły protokołu SAML lub OpenID Connect Connect lub obsługuje standard scim. Aby uzyskać więcej informacji, zobacz [Konfigurowanie logowania jednokrotnego dla aplikacji spoza galerii](configure-single-sign-on-non-gallery-applications.md).
 
-## <a name="manage-risk-with-conditional-access-policies"></a>Zarządzanie ryzykiem za pomocą zasad dostępu warunkowego
+## <a name="manage-risk-with-conditional-access-policies"></a>Zarządzanie ryzykiem przy użyciu zasad dostępu warunkowego
 
-Łączenie usługi Azure AD logowania jednokrotnego (SSO) z [dostępem warunkowym](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) zapewnia wysoki poziom zabezpieczeń dostępu do aplikacji. Funkcje zabezpieczeń obejmują ochronę tożsamości w skali chmury, kontrolę dostępu opartą na ryzyku, natywne uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Te funkcje pozwalają na stosowanie zasad szczegółowej kontroli w oparciu o aplikacje lub grupy, które potrzebują wyższego poziomu zabezpieczeń.
+Sprzęganie logowania jednokrotnego usługi Azure AD przy użyciu [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) zapewnia wysoki poziom zabezpieczeń na potrzeby uzyskiwania dostępu do aplikacji. Funkcje zabezpieczeń obejmują ochronę tożsamości w skali chmury, kontrolę dostępu opartą na ryzyku, natywne uwierzytelnianie wieloskładnikowe i zasady dostępu warunkowego. Te funkcje pozwalają na stosowanie zasad szczegółowej kontroli w oparciu o aplikacje lub grupy, które potrzebują wyższego poziomu zabezpieczeń.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Zwiększanie produktywności dzięki logowaniu jednokrotnemu
 
 Włączenie logowania jednokrotnego w aplikacjach i usłudze Office 365 zapewnia doskonałe środowisko logowania dla istniejących użytkowników dzięki ograniczeniu lub wyeliminowaniu monitów dotyczących logowania. Środowisko użytkownika wydaje się bardziej spójne i mniej rozpraszające bez wielu monitów i potrzeby zarządzania wieloma hasłami. Grupa biznesowa może zarządzać dostępem i zatwierdzać go za pośrednictwem samoobsługi i członkostwa dynamicznego. Zezwolenie odpowiednim osobom osób w firmie na zarządzanie dostępem do aplikacji zwiększa bezpieczeństwo systemu tożsamości.
 
-Logowanie jednokrotne zwiększa bezpieczeństwo. *Bez logowania jednokrotnego* administratorzy muszą tworzyć i aktualizować konta użytkowników dla poszczególnych aplikacji, co zajmuje czas. Ponadto użytkownicy muszą śledzić wiele poświadczeń, aby uzyskiwać dostęp do swoich aplikacji. W rezultacie użytkownicy zwykle notują hasła lub używają innych rozwiązań do zarządzania hasłami, które wprowadzają zagrożenia bezpieczeństwa danych. [Dowiedz się więcej o logowanie jednokrotne](what-is-single-sign-on.md).
+Logowanie jednokrotne zwiększa bezpieczeństwo. *Bez logowania jednokrotnego* administratorzy muszą tworzyć i aktualizować konta użytkowników dla poszczególnych aplikacji, co zajmuje czas. Ponadto użytkownicy muszą śledzić wiele poświadczeń, aby uzyskiwać dostęp do swoich aplikacji. W rezultacie użytkownicy zwykle notują hasła lub używają innych rozwiązań do zarządzania hasłami, które wprowadzają zagrożenia bezpieczeństwa danych. [Przeczytaj więcej na temat rejestracji jednokrotnej](what-is-single-sign-on.md).
 
 ## <a name="address-governance-and-compliance"></a>Obsługa zarządzania i zgodności
 
@@ -62,4 +62,4 @@ Dzięki migracji do usługi Azure AD można obniżyć koszty i rozwiązać probl
 ## <a name="next-steps"></a>Następne kroki
 
 - [Co to jest serwer proxy aplikacji?](what-is-application-proxy.md)
-- [Szybki start: dodawanie aplikacji galerii do dzierżawy usługi Azure AD](add-application-portal.md)
+- [Szybki Start: Dodawanie aplikacji galerii do dzierżawy usługi Azure AD](add-application-portal.md)

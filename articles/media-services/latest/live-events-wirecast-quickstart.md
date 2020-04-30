@@ -1,6 +1,6 @@
 ---
-title: Tworzenie strumienia na żywo usługi Azure Media Services
-description: Dowiedz się, jak utworzyć transmisję na żywo usługi Azure Media Services przy użyciu portalu i wirecastu
+title: Tworzenie Azure Media Services strumienia na żywo
+description: Dowiedz się, jak utworzyć Azure Media Services strumień na żywo przy użyciu portalu i Wirecast
 services: media-services
 ms.service: media-services
 ms.topic: quickstart
@@ -8,187 +8,187 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/25/2020
 ms.openlocfilehash: 459f11844f873a911b3e5702e8c768b1cd22e504
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985001"
 ---
-# <a name="create-an-azure-media-services-live-stream"></a>Tworzenie strumienia na żywo usługi Azure Media Services
+# <a name="create-an-azure-media-services-live-stream"></a>Tworzenie Azure Media Services strumienia na żywo
 
-Ten przewodnik Szybki start pomoże Ci utworzyć transmisję na żywo usługi Azure Media Services przy użyciu portalu Azure i usługi Telestream Wirecast. Przyjęto założenie, że masz subskrypcję platformy Azure i utworzono konto usługi Media Services.
+Ten przewodnik Szybki Start pomoże Ci utworzyć Azure Media Services strumień na żywo przy użyciu Azure Portal i usługi Wirecast. Przyjęto założenie, że masz subskrypcję platformy Azure i utworzono konto Media Services.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Otwórz przeglądarkę internetową i przejdź do [portalu Microsoft Azure](https://portal.azure.com/). Wprowadź swoje poświadczenia, aby zalogować się do portalu. Widok domyślny to pulpit nawigacyjny usług.
+Otwórz przeglądarkę internetową i przejdź do [Microsoft Azure Portal](https://portal.azure.com/). Wprowadź swoje poświadczenia, aby zalogować się do portalu. Widok domyślny to pulpit nawigacyjny usług.
 
-W tym przewodniku Szybki start omówimy:
+W tym przewodniku szybki start omówiono następujące zagadnienia:
 
-- Konfigurowanie kodera lokalnego z bezpłatną próbą telestream Wirecast.
-- Konfigurowanie transmisji na żywo.
-- Konfigurowanie wyjść strumienia na żywo.
+- Skonfigurowanie kodera lokalnego przy użyciu bezpłatnej wersji próbnej usługi Telestream Wirecast.
+- Konfigurowanie strumienia na żywo.
+- Konfigurowanie danych wyjściowych strumienia na żywo.
 - Uruchamianie domyślnego punktu końcowego przesyłania strumieniowego.
-- Za pomocą programu Azure Media Player, aby wyświetlić strumień na żywo i dane wyjściowe na żądanie.
+- Używanie Azure Media Player do wyświetlania strumienia na żywo i danych wyjściowych na żądanie.
 
-Aby zachować prostotę, użyjemy predefiniowanych kodowania dla usługi Azure Media Services w wirecast, kodowanie chmury przekazywanej i RTMP.
+Aby zachować prostotę, użyjemy ustawienia wstępnego kodowania dla Azure Media Services w Wirecast, kodowaniu w chmurze i RTMP.
 
-## <a name="set-up-an-on-premises-encoder-by-using-wirecast"></a>Konfigurowanie kodera lokalnego przy użyciu funkcji Wirecast
+## <a name="set-up-an-on-premises-encoder-by-using-wirecast"></a>Konfigurowanie kodera lokalnego przy użyciu Wirecast
 
-1. Pobierz i zainstaluj Wirecast dla swojego systemu operacyjnego na [stronie internetowej Telestream](https://www.telestream.net).
-1. Uruchom aplikację i użyj ulubionego adresu e-mail, aby zarejestrować produkt. Zachowaj otwartą aplikację.
-1. W otrzymanej wiadomości e-mail zweryfikuj swój adres e-mail. Następnie aplikacja rozpocznie bezpłatną wersję próbną.
-1. Zalecane: Obejrzyj film instruktażowy na ekranie aplikacji otwierającej.
+1. Pobierz i zainstaluj program Wirecast dla systemu operacyjnego w [witrynie sieci Web usługi Telestream](https://www.telestream.net).
+1. Uruchom aplikację i Użyj swojego ulubionego adresu e-mail do zarejestrowania produktu. Pozostaw otwartą aplikację.
+1. W otrzymanej wiadomości e-mail zweryfikuj swój adres e-mail. Następnie aplikacja zacznie korzystać z bezpłatnej wersji próbnej.
+1. Zalecane: Obejrzyj samouczek wideo na ekranie Otwieranie aplikacji.
 
-## <a name="set-up-an-azure-media-services-live-stream"></a>Konfigurowanie strumienia na żywo usługi Azure Media Services
+## <a name="set-up-an-azure-media-services-live-stream"></a>Konfigurowanie Azure Media Services strumienia na żywo
 
-1. Przejdź do konta usługi Azure Media Services w portalu, a następnie wybierz pozycję **Przesyłanie strumieniowe na żywo** z listy **usługi Media Services.**
+1. Przejdź do konta Azure Media Services w portalu, a następnie wybierz pozycję **przesyłanie strumieniowe na żywo** z listy **Media Services** .
 
-   ![Link do transmisji na żywo](media/live-events-wirecast-quickstart/select-live-streaming.png)
-1. Wybierz **pozycję Dodaj wydarzenie na żywo,** aby utworzyć nowe wydarzenie transmisji strumieniowej na żywo.
+   ![Link do przesyłania strumieniowego na żywo](media/live-events-wirecast-quickstart/select-live-streaming.png)
+1. Wybierz pozycję **Dodaj wydarzenie na żywo** , aby utworzyć nowe zdarzenie przesyłania strumieniowego na żywo.
 
-   ![Ikona Dodaj wydarzenie na żywo](media/live-events-wirecast-quickstart/add-live-event.png)
-1. Wprowadź nazwę nowego wydarzenia, taką jak *TestLiveEvent,* w polu **Nazwa wydarzenia na żywo.**
+   ![Ikona dodawania zdarzenia na żywo](media/live-events-wirecast-quickstart/add-live-event.png)
+1. Wprowadź nazwę nowego zdarzenia, na przykład *TestLiveEvent*, w polu **Nazwa zdarzenia na żywo** .
 
-   ![Pole nazwa wydarzenia na żywo](media/live-events-wirecast-quickstart/live-event-name.png)
-1. Wprowadź opcjonalny opis zdarzenia w polu **Opis.**
-1. Wybierz opcję Przekazywanie — brak opcji **kodowania w chmurze.**
+   ![Pole nazwy zdarzenia na żywo](media/live-events-wirecast-quickstart/live-event-name.png)
+1. Wprowadź opcjonalny opis zdarzenia w polu **Opis** .
+1. Wybierz opcję **przekazywanie bez kodowania w chmurze** .
 
    ![Opcja kodowania w chmurze](media/live-events-wirecast-quickstart/cloud-encoding.png)
-1. Wybierz opcję **RTMP.**
-1. Upewnij się, że opcja **Brak** jest zaznaczona dla **startu na żywo zdarzenia**, aby uniknąć naliczania opłat za wydarzenie na żywo, zanim będzie gotowe. (Rozliczenia rozpoczną się po rozpoczęciu wydarzenia na żywo).
+1. Wybierz opcję **RTMP** .
+1. Upewnij się, że **nie** wybrano opcji **Uruchom wydarzenie na żywo**, aby uniknąć naliczania opłat za wydarzenie na żywo przed jego gotowością. (Rozliczenie rozpocznie się po rozpoczęciu zdarzenia na żywo).
 
-   ![Rozpocznij opcję wydarzenia na żywo](media/live-events-wirecast-quickstart/start-live-event-no.png)
-1. Wybierz przycisk **Przejrzyj + utwórz,** aby przejrzeć ustawienia.
-1. Wybierz przycisk **Utwórz,** aby utworzyć wydarzenie na żywo. Następnie wrócisz do aukcji wydarzeń na żywo.
-1. Wybierz łącze do właśnie utworzonego wydarzenia na żywo. Należy zauważyć, że zdarzenie zostało zatrzymane.
-1. Zachowaj tę stronę otwartą w przeglądarce. Wrócimy do niego później.
+   ![Opcja uruchamiania zdarzenia na żywo](media/live-events-wirecast-quickstart/start-live-event-no.png)
+1. Wybierz przycisk **Recenzja + Utwórz** , aby przejrzeć ustawienia.
+1. Wybierz przycisk **Utwórz** , aby utworzyć wydarzenie na żywo. Następnie nastąpi powrót do listy wydarzeń na żywo.
+1. Wybierz łącze do utworzonego zdarzenia na żywo. Zwróć uwagę, że zdarzenie zostało zatrzymane.
+1. Pozostaw Tę stronę otwartą w przeglądarce. Powrócimy do niego później.
 
-## <a name="set-up-a-live-stream-by-using-wirecast-studio"></a>Konfigurowanie transmisji na żywo przy użyciu programu Wirecast Studio
+## <a name="set-up-a-live-stream-by-using-wirecast-studio"></a>Konfigurowanie strumienia na żywo za pomocą programu Wirecast Studio
 
-1. W aplikacji Wirecast wybierz polecenie **Utwórz pusty dokument** z menu głównego, a następnie wybierz pozycję **Kontynuuj**.
+1. W aplikacji Wirecast wybierz pozycję **Utwórz pusty dokument** z menu głównego, a następnie wybierz pozycję **Kontynuuj**.
 
-   ![Ekran startowy wirecast](media/live-events-wirecast-quickstart/open-empty-document.png)
-1. Umieść wskaźnik myszy na pierwszej warstwie w obszarze **Warstwy Wirecast.**  Wybierz wyświetloną ikonę **Dodaj** i wybierz dane wejściowe wideo, które chcesz przesyłać strumieniowo.
+   ![Wirecast ekranu startowego](media/live-events-wirecast-quickstart/open-empty-document.png)
+1. Umieść kursor nad pierwszą warstwą w obszarze **warstwy Wirecast** .  Wybierz ikonę **Dodaj** , która zostanie wyświetlona, a następnie wybierz dane wejściowe wideo, które chcesz przesłać strumieniowo.
 
-   ![Wirecast dodaj ikonę](media/live-events-wirecast-quickstart/add-icon.png)
+   ![Ikona dodawania Wirecast](media/live-events-wirecast-quickstart/add-icon.png)
 
-   Zostanie otwarte okno dialogowe **Warstwa wzorcowa 1.**
-1. Z menu **wybierz polecenie Przechwytywanie wideo,** a następnie wybierz aparat, którego chcesz użyć.
+   Zostanie otwarte okno dialogowe **warstwa główna 1** .
+1. Wybierz opcję **Przechwytywanie wideo** z menu, a następnie wybierz kamerę, której chcesz użyć.
 
-   ![Obszar podglądu do przechwytywania wideo](media/live-events-wirecast-quickstart/video-shot-selection.png)
+   ![Obszar podglądu przechwytywania wideo](media/live-events-wirecast-quickstart/video-shot-selection.png)
 
-   Widok z kamery pojawi się w obszarze podglądu.
-1. Umieść wskaźnik myszy na drugiej warstwie w obszarze **Warstwy Wirecast.** Wybierz wyświetloną ikonę **Dodaj** i wybierz dane wejściowe audio, które chcesz przesyłać strumieniowo. Zostanie otwarte okno dialogowe **Warstwa wzorcowa 2.**
-1. Z menu **wybierz polecenie Przechwytywanie dźwięku,** a następnie wybierz wejście audio, którego chcesz użyć.
+   Widok z aparatu zostanie wyświetlony w obszarze podglądu.
+1. Umieść kursor nad drugą warstwą w obszarze **warstwy Wirecast** . Wybierz ikonę **Dodaj** , która zostanie wyświetlona, a następnie wybierz wejście audio, które chcesz przesłać strumieniowo. Zostanie otwarte okno dialogowe **warstwa główna 2** .
+1. Wybierz z menu pozycję **przechwytywanie audio** , a następnie wybierz dane wejściowe audio, których chcesz użyć.
 
-   ![Wejścia do przechwytywania dźwięku](media/live-events-wirecast-quickstart/audio-shot-select.png)
-1. Z menu głównego wybierz pozycję **Ustawienia wyjściowe**. Zostanie wyświetlone okno dialogowe **Wybieranie miejsca docelowego wyjścia.**
-1. Wybierz **usługę Azure Media Services** z listy rozwijanej Miejsce **docelowe.** Ustawienie danych wyjściowych dla usługi Azure Media Services automatycznie wypełnia *większość* ustawień danych wyjściowych.
+   ![Dane wejściowe przechwytywania audio](media/live-events-wirecast-quickstart/audio-shot-select.png)
+1. Z menu głównego wybierz pozycję **Ustawienia wyjściowe**. Zostanie wyświetlone okno dialogowe **Wybierz miejsce docelowe danych wyjściowych** .
+1. Wybierz pozycję **Azure Media Services** z listy rozwijanej **Lokalizacja docelowa** . Ustawienie danych wyjściowych Azure Media Services automatycznie wypełnia *większość* ustawień danych wyjściowych.
 
-   ![Ekran ustawień wyjścia wirecast](media/live-events-wirecast-quickstart/azure-media-services.png)
+   ![Ekran ustawień danych wyjściowych Wirecast](media/live-events-wirecast-quickstart/azure-media-services.png)
 
 
-W następnej procedurze powrócisz do usługi Azure Media Services w przeglądarce, aby skopiować wejściowy adres URL, aby wprowadzić go w ustawieniach danych wyjściowych:
+W następnej procedurze powrócisz do Azure Media Services w przeglądarce, aby skopiować wejściowy adres URL w celu wprowadzenia do ustawień wyjściowych:
 
-1. Na stronie usługi Azure Media Services w portalu wybierz pozycję **Start,** aby rozpocząć zdarzenie transmisji na żywo. (Rozliczenia rozpoczynają się teraz).
+1. Na stronie Azure Media Services portalu wybierz pozycję **Rozpocznij** , aby rozpocząć wydarzenie na żywo strumienia. (Rozliczenia zaczynają się teraz).
 
    ![Ikona Start](media/live-events-wirecast-quickstart/start.png)
-2. Ustaw przełącznik **Bezpieczne/Niezabezpieczenie** na **Niezabezpieczony**. Ten krok ustawia protokół na RTMP zamiast RTMPS.
-3. W polu **Wejściowy adres URL** skopiuj adres URL do schowka.
+2. Ustaw przełącznik **bezpieczny/niebezpieczny** na **niezabezpieczony**. Ten krok ustawia protokół na RTMP zamiast RTMP.
+3. W polu **wejściowy adres URL** Skopiuj adres URL do Schowka.
 
    ![Wejściowy adres URL](media/live-events-wirecast-quickstart/input-url.png)
-4. Przełącz się do aplikacji Wirecast i wklej **wejściowy adres URL** w polu **Adres** w ustawieniach danych wyjściowych.
+4. Przejdź do aplikacji Wirecast i wklej **wejściowy adres URL** do pola **adres** w ustawieniach danych wyjściowych.
 
-   ![Adres URL danych wejściowych wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
-5. Kliknij przycisk **OK**.
+   ![Wejściowy adres URL Wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
+5. Wybierz przycisk **OK**.
 
-## <a name="set-up-outputs"></a>Konfigurowanie wyjść
+## <a name="set-up-outputs"></a>Konfigurowanie danych wyjściowych
 
-Ta część skonfiguruje swoje wyjścia i pozwoli Ci zapisać nagranie transmisji na żywo.  
+Ta część skonfiguruje dane wyjściowe i umożliwi zapisanie nagrania strumienia na żywo.  
 
 > [!NOTE]
-> Aby można było przesyłać strumieniowo to dane wyjściowe, punkt końcowy przesyłania strumieniowego musi być uruchomiony. Zobacz później [Uruchom domyślną sekcję punktu końcowego przesyłania strumieniowego.](#run-the-default-streaming-endpoint)
+> Aby przesłać strumieniowo te dane wyjściowe, musi być uruchomiony punkt końcowy przesyłania strumieniowego. Zobacz sekcję [Uruchom ponownie domyślny punkt końcowy przesyłania strumieniowego](#run-the-default-streaming-endpoint) .
 
-1. Wybierz **łącze Utwórz wyjścia** poniżej przeglądarki **wideo Wyjścia.**
-1. Jeśli chcesz, edytuj nazwę danych wyjściowych w polu **Nazwa** na coś bardziej przyjaznego dla użytkownika, aby można było je łatwo znaleźć później.
+1. Wybierz link **Utwórz dane wyjściowe** poniżej widocznej **przeglądarki wideo.**
+1. Jeśli chcesz, możesz zmienić nazwę danych wyjściowych w polu **Nazwa** na bardziej przyjazny dla użytkownika, aby ułatwić znalezienie go w przyszłości.
    
-   ![Pole Nazwa wyjściowa](media/live-events-wirecast-quickstart/output-name.png)
-1. Zostaw na razie całą resztę pudełek w spokoju.
-1. Wybierz **przycisk Dalej,** aby dodać lokalizator przesyłania strumieniowego.
-1. Zmień nazwę lokalizatora na coś bardziej przyjaznego dla użytkownika, jeśli chcesz.
+   ![Pole nazwy wyjściowej](media/live-events-wirecast-quickstart/output-name.png)
+1. Pozostaw wszystkie pozostałe pola teraz.
+1. Wybierz pozycję **dalej** , aby dodać lokalizator przesyłania strumieniowego.
+1. Zmień nazwę lokalizatora na bardziej przyjazny dla użytkownika, jeśli chcesz.
    
-   ![Pole nazwa lokalizatora](media/live-events-wirecast-quickstart/live-event-locator.png)
-1. Zostaw wszystko inne na tym ekranie w spokoju na razie.
-1. Wybierz **pozycję Utwórz**.
+   ![Pole nazwy lokalizatora](media/live-events-wirecast-quickstart/live-event-locator.png)
+1. Pozostaw teraz wszystkie inne elementy na tym ekranie.
+1. Wybierz przycisk **Utwórz**.
 
-## <a name="start-the-broadcast"></a>Rozpoczynanie transmisji
+## <a name="start-the-broadcast"></a>Rozpocznij emitowanie
 
-1. W programie Wirecast wybierz z menu głównego pozycję **Start** > **/Stop Broadcasting** > **Start Azure Media Services: Azure Media Services.**
+1. W Wirecast wybierz pozycję **wyjściowe** > **Rozpocznij/Zatrzymaj rozgłaszanie** > **Azure Media Services Start: Azure Media Services** z menu głównego.
 
-   ![Elementy menu programu Start](media/live-events-wirecast-quickstart/start-broadcast.png)
+   ![Elementy menu uruchamiania emisji](media/live-events-wirecast-quickstart/start-broadcast.png)
 
-   Gdy strumień został wysłany do zdarzenia na żywo, okno **na żywo** w wirecast pojawia się w odtwarzaczu wideo na stronie zdarzenia na żywo w usłudze Azure Media Services.
+   Gdy strumień został wysłany do zdarzenia na żywo, **aktywne** okno w Wirecast pojawia się w odtwarzaczu wideo na stronie zdarzenia na żywo w Azure Media Services.
 
-1. Wybierz przycisk **Przejdź** pod oknem podglądu, aby rozpocząć nadawanie wideo i dźwięku wybranych dla warstw Wirecast.
+1. Wybierz przycisk **Przejdź** w oknie Podgląd, aby rozpocząć emitowanie wideo i dźwięku wybranego dla warstw Wirecast.
 
-   ![Przycisk Wirecast Go](media/live-events-wirecast-quickstart/go-button.png)
+   ![Przycisk Wirecast](media/live-events-wirecast-quickstart/go-button.png)
 
    > [!TIP]
-   > Jeśli wystąpi błąd, spróbuj przeładować gracza, wybierając link **Przeładuj odtwarzacz** nad odtwarzaczem.
+   > Jeśli wystąpi błąd, spróbuj ponownie załadować odtwarzacz, wybierając link **Załaduj ponownie odtwarzacz** powyżej odtwarzacza.
 
-## <a name="run-the-default-streaming-endpoint"></a>Uruchamianie domyślnego punktu końcowego przesyłania strumieniowego
+## <a name="run-the-default-streaming-endpoint"></a>Uruchom domyślny punkt końcowy przesyłania strumieniowego
 
-1. Wybierz **punkty końcowe przesyłania strumieniowego** na liście usługi Media Services.
+1. Wybierz **punkty końcowe przesyłania strumieniowego** na liście Media Services.
 
    ![Element menu punktów końcowych przesyłania strumieniowego](media/live-events-wirecast-quickstart/streaming-endpoints.png)
-1. Jeśli domyślny stan punktu końcowego przesyłania strumieniowego zostanie zatrzymany, wybierz go. Ten krok prowadzi do strony dla tego punktu końcowego.
+1. Jeśli domyślny stan punktu końcowego przesyłania strumieniowego jest zatrzymany, wybierz go. Ten krok spowoduje przejście do strony dla tego punktu końcowego.
 1. Wybierz pozycję **Uruchom**.
    
    ![Przycisk Start dla punktu końcowego przesyłania strumieniowego](media/live-events-wirecast-quickstart/start.png)
 
-## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Odtwarzanie emisji wyjściowej przy użyciu programu Azure Media Player
+## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Odtwórz emisję wyjściową przy użyciu Azure Media Player
 
-1. Skopiuj adres URL przesyłania strumieniowego w **odtwarzaczu wideo Wyjściowe.**
-1. W przeglądarce sieci Web otwórz [demo programu Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html).
-1. Wklej adres URL przesyłania strumieniowego do pola **adresu URL** programu Azure Media Player.
-1. Wybierz przycisk **Aktualizuj odtwarzacz.**
-1. Wybierz ikonę **Odtwórz** w filmie, aby zobaczyć transmisję na żywo.
+1. Skopiuj adres URL przesyłania strumieniowego z **wyjściowego** odtwarzacza wideo.
+1. W przeglądarce sieci Web Otwórz [demonstrację Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html).
+1. Wklej adres URL przesyłania strumieniowego do pola **adres url** Azure Media Player.
+1. Wybierz przycisk **Aktualizuj odtwarzacz** .
+1. Wybierz ikonę **odtwarzania** na filmie wideo, aby zobaczyć swój strumień na żywo.
 
-## <a name="stop-the-broadcast"></a>Zatrzymywanie transmisji
+## <a name="stop-the-broadcast"></a>Zatrzymaj emisję
 
-Jeśli uważasz, że przesyłałeś wystarczającą ilość zawartości, zatrzymaj emisję.
+Jeśli uważasz, że masz zbyt dużą zawartość, Zatrzymaj emisję.
 
-1. W obszarze Wirecast wybierz przycisk **Emisja.** Ten krok zatrzymuje emisję z Wirecast.
-1. W portalu wybierz pozycję **Zatrzymaj**. Następnie pojawi się komunikat ostrzegawczy, że transmisja na żywo zostanie zatrzymana, ale dane wyjściowe staną się teraz zasobem na żądanie.
-1. Wybierz **zatrzymaj** w komunikacie ostrzegawczym. Usługa Azure Media Player wyświetla teraz błąd, ponieważ strumień na żywo nie jest już dostępny.
+1. W Wirecast wybierz przycisk **Broadcast (emisja** ). Ten krok powoduje zatrzymanie emisji z Wirecast.
+1. W portalu wybierz pozycję **Zatrzymaj**. Następnie zostanie wyświetlony komunikat ostrzegawczy, że strumień na żywo zostanie zatrzymany, ale dane wyjściowe staną się teraz zasobem na żądanie.
+1. Wybierz pozycję **Zatrzymaj** w komunikacie ostrzegawczym. Azure Media Player teraz zawiera błąd, ponieważ strumień na żywo nie jest już dostępny.
 
-## <a name="play-the-on-demand-output-by-using-azure-media-player"></a>Odtwarzanie danych wyjściowych na żądanie przy użyciu programu Azure Media Player
+## <a name="play-the-on-demand-output-by-using-azure-media-player"></a>Odtwórz dane wyjściowe na żądanie przy użyciu Azure Media Player
 
-Dane wyjściowe, które zostały utworzone jest teraz dostępna do przesyłania strumieniowego na żądanie, tak długo, jak punkt końcowy przesyłania strumieniowego jest uruchomiony.
+Utworzone dane wyjściowe są teraz dostępne do przesyłania strumieniowego na żądanie, o ile jest uruchomiony punkt końcowy przesyłania strumieniowego.
 
-1. Przejdź do listy usługi Media Services i wybierz pozycję **Zasoby**.
-1. Znajdź dane wyjściowe zdarzenia utworzone wcześniej i wybierz łącze do zasobu. Zostanie otwarta strona wyjściowa zasobu.
-1. Skopiuj adres URL przesyłania strumieniowego pod odtwarzaczem wideo dla zasobu.
-1. Wróć do programu Azure Media Player w przeglądarce i wklej adres URL przesyłania strumieniowego do pola adresu URL.
-1. Wybierz **pozycję Aktualizuj odtwarzacz**.
-1. Wybierz ikonę **Odtwórz** w filmie, aby wyświetlić zasób na żądanie.
+1. Przejdź do listy Media Services i wybierz pozycję **zasoby**.
+1. Znajdź utworzone wcześniej dane wyjściowe zdarzenia i wybierz łącze do elementu zawartości. Zostanie otwarta strona dane wyjściowe zasobu.
+1. Skopiuj adres URL przesyłania strumieniowego w odtwarzaczu wideo dla elementu zawartości.
+1. Wróć do Azure Media Player w przeglądarce i wklej adres URL przesyłania strumieniowego do pola adresu URL.
+1. Wybierz pozycję **Aktualizuj odtwarzacz**.
+1. Wybierz ikonę **odtwarzania** na filmie wideo, aby wyświetlić zasób na żądanie.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 > [!IMPORTANT]
-> Zatrzymaj usługi! Po wykonaniu kroków w tym przewodniku Szybki start należy zatrzymać zdarzenie na żywo i punkt końcowy przesyłania strumieniowego lub naliczane będą naliczane za czas, w którym pozostają uruchomione. Aby zatrzymać wydarzenie na żywo, zobacz Procedurę [Zatrzymania emisji,](#stop-the-broadcast) kroki 2 i 3.
+> Zatrzymaj usługi! Po wykonaniu kroków opisanych w tym przewodniku szybki start Pamiętaj, aby zatrzymać wydarzenie na żywo i punkt końcowy przesyłania strumieniowego, lub naliczanie opłat za czas, w którym pozostaną one uruchomione. Aby zatrzymać wydarzenie na żywo, zobacz procedurę [zatrzymania emisji](#stop-the-broadcast) , kroki 2 i 3.
 
 Aby zatrzymać punkt końcowy przesyłania strumieniowego:
 
-1. Na liście usługi Media Services wybierz pozycję **Punkty końcowe przesyłania strumieniowego**.
-2. Wybierz domyślny punkt końcowy przesyłania strumieniowego, który został uruchomiony wcześniej. Ten krok otwiera stronę punktu końcowego.
-3. Wybierz **pozycję Zatrzymaj**.
+1. Z listy Media Services wybierz pozycję **punkty końcowe przesyłania strumieniowego**.
+2. Wybierz domyślny punkt końcowy przesyłania strumieniowego, który został wcześniej uruchomiony. Ten krok powoduje otwarcie strony punktu końcowego.
+3. Wybierz pozycję **Zatrzymaj**.
 
 > [!TIP]
-> Jeśli nie chcesz, aby zasoby były przechowywane z tego zdarzenia, usuń je, aby nie były naliczane naliczane płatności za przechowywanie.
+> Jeśli nie chcesz zachować zasobów z tego zdarzenia, pamiętaj o ich usunięciu, aby nie naliczać opłat za magazyn.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Wydarzenia na żywo i wyniki na żywo w umiań Media Services](./live-events-outputs-concept.md)
+> [Zdarzenia na żywo i wyjście na żywo w Media Services](./live-events-outputs-concept.md)

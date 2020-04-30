@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: wysyłanie zdarzeń niestandardowych za pomocą siatki zdarzeń i interfejsu wiersza polecenia platformy Azure'
-description: Szybki start Użyj usługi Azure Event Grid i narzędzia Azure CLI, aby opublikować temat niestandardowy i subskrybować zdarzenia dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.
+title: 'Szybki Start: wysyłanie zdarzeń niestandardowych za pomocą Event Grid i interfejsu wiersza polecenia platformy Azure'
+description: Przewodnik Szybki Start służy Azure Event Grid i interfejsu wiersza polecenia platformy Azure do publikowania tematu niestandardowego oraz subskrybowania zdarzeń dla tego tematu. Zdarzenia są obsługiwane przez aplikację internetową.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -13,13 +13,13 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78674530"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Szybki start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web za pomocą interfejsu wiersza polecenia platformy Azure i siatki zdarzeń
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do punktu końcowego sieci Web przy użyciu interfejsu wiersza polecenia platformy Azure i Event Grid
 
 Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule omówiono tworzenie tematu niestandardowego, subskrybowanie go i wyzwalanie zdarzenia w celu wyświetlenia wyniku za pomocą interfejsu wiersza polecenia platformy Azure.
 
@@ -27,13 +27,13 @@ Zazwyczaj użytkownik wysyła zdarzenia do punktu końcowego, w którym następu
 
 Po zakończeniu przekonasz się, że dane zdarzenia zostały wysłane do aplikacji internetowej.
 
-![Wyświetlanie wyników w przeglądarce zdarzeń platformy Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
+![Wyświetl wyniki w podglądzie Azure Event Grid](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować i używać interfejsu wiersza polecenia lokalnie, ten artykuł wymaga, aby uruchomić najnowszą wersję interfejsu wiersza polecenia platformy Azure (2.0.70 lub nowsze). Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał najnowszej wersji interfejsu wiersza polecenia platformy Azure (2.0.70 lub nowszej). Aby dowiedzieć się, jaka wersja jest używana, uruchom polecenie `az --version`. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 Jeśli nie korzystasz z usługi Cloud Shell, musisz się najpierw zalogować za pomocą polecenia `az login`.
 
@@ -98,7 +98,7 @@ az eventgrid event-subscription create \
 
 Wyświetl aplikację sieci Web ponownie i zwróć uwagę, że zdarzenie sprawdzania poprawności subskrypcji zostało do niej wysłane. Wybierz ikonę oka, aby rozwinąć dane zdarzenia. Usługa Event Grid wysyła zdarzenie weryfikacji, aby w punkcie końcowym mogło nastąpić sprawdzenie, czy dane zdarzenia mają być odbierane. Aplikacja internetowa zawiera kod do sprawdzania poprawności subskrypcji.
 
-![Wyświetlanie zdarzenia subskrypcji w przeglądarce azure event grid](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![Wyświetl zdarzenie subskrypcji w podglądzie Azure Event Grid](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Wysyłanie zdarzenia do tematu niestandardowego

@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie telefonu biurowego jako metody weryfikacji dwuskładnikowej — Usługa Azure Active Directory | Dokumenty firmy Microsoft
+title: Konfigurowanie telefonu biurowego jako metody weryfikacji dwuskładnikowej — Azure Active Directory | Microsoft Docs
 description: Dowiedz się, jak skonfigurować telefon biurowy jako metodę weryfikacji dwuskładnikowej.
 services: active-directory
 author: curtand
@@ -11,41 +11,41 @@ ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: b94c739abffa8792afbfab4285c54a67f3eb4b65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062527"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Konfigurowanie telefonu biurowego jako metody weryfikacji dwuskładnikowej
 
-Możesz skonfigurować telefon biurowy tak, aby działał jako metoda weryfikacji dwuskładnikowej.
+Możesz skonfigurować telefon biurowy do działania jako metoda weryfikacji dwuetapowej.
 
 >[!Note]
-> Jeśli opcja telefon pakietu Office jest wyszarzona, istnieje możliwość, że organizacja nie zezwala na używanie numeru telefonu biurowego do weryfikacji. W takim przypadku musisz wybrać inną metodę lub skontaktować się z administratorem, aby uzyskać więcej pomocy.
+> Jeśli opcja telefon biurowy jest wyszarzona, istnieje możliwość, że Twoja organizacja nie zezwala na używanie numeru telefonu biurowego do weryfikacji. W takim przypadku należy wybrać inną metodę lub skontaktować się z administratorem w celu uzyskania dodatkowej pomocy.
 
-## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Konfigurowanie numeru telefonu biura jako metody weryfikacji
+## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Konfigurowanie numeru telefonu biurowego jako metody weryfikacji
 
-1. Na stronie **Dodatkowa weryfikacja zabezpieczeń** wybierz **pozycję Telefon pakietu Office** z **kroku 1: Jak skontaktować się z Tobą,** wybrać kraj lub region z listy rozwijanej, wpisać numer telefonu biura, a następnie wpisać rozszerzenie, jeśli je posiadasz.
+1. Na stronie **dodatkowa Weryfikacja zabezpieczeń** wybierz pozycję **telefon biurowy** z **kroku 1: jak należy się skontaktować** z obszarem, wybierz swój kraj lub region z listy rozwijanej, wpisz numer telefonu służbowego, a następnie wpisz swoje rozszerzenie, jeśli je posiadasz.
 
-    ![Dodatkowa strona weryfikacji zabezpieczeń z telefonem uwierzytelnianiem i rozmową telefoniczną](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
+    ![Strona dodatkowej weryfikacji zabezpieczeń z numerem telefonu i połączenia telefonicznego uwierzytelniania](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 
-2. Otrzymasz telefon od firmy Microsoft z prośbą o naciśnięcie znaku funt (#) na telefonie biurowym, aby zweryfikować swoją tożsamość.
+2. Otrzymasz od firmy Microsoft połączenie telefoniczne, z prośbą o naciśnięcie znaku funta (#) na telefonie biurowym w celu zweryfikowania Twojej tożsamości.
 
     ![Testowanie określonego numeru telefonu](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. W **kroku 3: Kontynuuj korzystanie z istniejącego** obszaru aplikacji, skopiuj podane hasło aplikacji i wklej go w bezpiecznym miejscu.
+3. W obszarze **krok 3. nadal korzystać z istniejących aplikacji** Skopiuj podane hasło aplikacji i wklej je w bezpiecznym miejscu.
 
-    ![Obszar Hasła aplikacji na stronie Dodatkowa weryfikacja zabezpieczeń](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
+    ![Obszar haseł aplikacji na stronie dodatkowej weryfikacji zabezpieczeń](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >Aby uzyskać informacje dotyczące używania hasła aplikacji ze starszymi [aplikacjami,](multi-factor-authentication-end-user-app-passwords.md)zobacz Zarządzanie hasłami aplikacji . Hasła aplikacji muszą być używane tylko wtedy, gdy nadal korzystasz ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
+    >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-4. Wybierz pozycję **Done** (Gotowe).
+4. Wybierz pozycję **Gotowe**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu metody weryfikacji dwuskładnikowej możesz dodać dodatkowe metody, zarządzać ustawieniami i hasłami aplikacji, zalogować się lub uzyskać pomoc dotyczącą typowych problemów związanych z weryfikacją dwuskładnikową.
+Po skonfigurowaniu metody weryfikacji dwuskładnikowej możesz dodać kolejne metody, zarządzać ustawieniami i hasłami aplikacji, zalogować się lub uzyskać pomoc dotyczącą niektórych typowych problemów związanych z weryfikacją dwuskładnikowym.
 
 - [Zarządzanie ustawieniami metody weryfikacji dwuskładnikowej](multi-factor-authentication-end-user-manage-settings.md)
 

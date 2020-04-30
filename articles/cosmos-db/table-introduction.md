@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
 ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240156"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
 
 Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel dla aplikacji korzystających z usługi Azure Table Storage, które wymagają funkcji warstwy Premium, takich jak:
 
-* [Globalna dystrybucja "pod klucz"](distribute-data-globally.md).
+* [Gotowe globalna](distribute-data-globally.md).
 * [Dedykowana przepływność](partition-data.md) na całym świecie.
 * Opóźnienie rzędu kilku milisekund na poziomie 99. percentyla.
 * Gwarantowana wysoka dostępność.
@@ -27,21 +27,21 @@ Usługa [Azure Cosmos DB](introduction.md) zapewnia interfejs API tabel dla apli
 Aplikacje korzystające z usługi Azure Table Storage mogą być migrowane do usługi Azure Cosmos DB przy użyciu interfejsu API tabel bez zmian kodu i mogą korzystać z funkcji warstwy Premium. Interfejs API tabel ma zestawy SDK klienta dostępne dla platform .NET, Java, Python i Node.js.
 
 > [!IMPORTANT]
-> .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) jest w trybie konserwacji i wkrótce zostanie przestarzały. Uaktualnij do nowej biblioteki .NET Standard [Microsoft.Azure.Cosmos.Table,](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) aby kontynuować dostęp do najnowszych funkcji obsługiwanych przez interfejs API tabeli.
+> Zestaw .NET Framework SDK [Microsoft. Azure. CosmosDB. Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) jest w trybie konserwacji i zostanie wkrótce wycofany. Wykonaj uaktualnienie do nowej biblioteki .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) , aby kontynuować pobieranie najnowszych funkcji obsługiwanych przez interfejs API tabel.
 
 ## <a name="table-offerings"></a>Oferty dotyczące tabel
 Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania z interfejsu API tabel usługi Azure Cosmos DB uzyskasz następujące korzyści:
 
 | | Azure Table Storage | Interfejs API tabel usługi Azure Cosmos DB |
 | --- | --- | --- |
-| Opóźnienie | Niewielkie, ale brak górnych granic opóźnienia. | Jednocyfrowe opóźnienie milisekundy dla odczytów i zapisów, poparte opóźnieniem <10 ms dla odczytów i zapisów w 99 percentylu, w dowolnej skali, w dowolnym miejscu na świecie. |
+| Opóźnienie | Niewielkie, ale brak górnych granic opóźnienia. | Opóźnienie jednocyfrowej milisekundy dla operacji odczytu i zapisu, których kopia zapasowa ma <10 ms (opóźnienie) do odczytu i zapisu w 99 percentylu, w dowolnej skali, w dowolnym miejscu na świecie. |
 | Przepływność | Zmienny model przepływności. Tabele mają limit skalowalności 20 000 operacji/s. | Wysoka skalowalność dzięki [dedykowanej zarezerwowanej przepływności na tabelę](request-units.md), gwarantowanej umowami SLA. Konta nie mają górnego limitu przepływności i obsługują >10 milionów operacji/s na tabelę. |
-| Dystrybucja globalna | Jeden region z jednym opcjonalnym dodatkowym regionem odczytu, co zapewnia wysoką dostępność. Nie można zainicjować trybu failover. | [Globalna dystrybucja "pod klucz"](distribute-data-globally.md) z jednego do dowolnej liczby regionów. Obsługa [automatycznego i ręcznego trybu failover](high-availability.md) w dowolnym momencie i każdym miejscu na świecie. Funkcja multi-master, aby umożliwić każdemu regionowi akceptowanie operacji zapisu. |
-| Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów. | Automatyczne i pełne indeksowanie wszystkich właściwości domyślnie bez zarządzania indeksem. |
+| Dystrybucja globalna | Jeden region z jednym opcjonalnym dodatkowym regionem odczytu, co zapewnia wysoką dostępność. Nie można zainicjować trybu failover. | [Gotowe globalną dystrybucję](distribute-data-globally.md) od jednej do kilku regionów. Obsługa [automatycznego i ręcznego trybu failover](high-availability.md) w dowolnym momencie i każdym miejscu na świecie. Możliwość zezwalania na operacje zapisu w dowolnym regionie. |
+| Indeksowanie | Tylko podstawowy indeks PartitionKey i RowKey. Brak dodatkowych indeksów. | Automatyczne i kompletne indeksowanie wszystkich właściwości, bez zarządzania indeksem. |
 | Zapytanie | Wykonanie zapytania wykorzystuje indeks klucza podstawowego, a w przeciwnym przypadku skanuje. | Zapytania mogą korzystać z automatycznego indeksowania właściwości, co skraca czas odpowiedzi. |
-| Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności,](consistency-levels.md) aby zamieść dostępność, opóźnienie, przepływność i spójność w zależności od potrzeb aplikacji. |
+| Spójność | Na poziomie „strong” w regionie podstawowym, na poziomie „eventual” w regionie pomocniczym. | [Pięć dobrze zdefiniowanych poziomów spójności](consistency-levels.md) , aby zapewnić dostępność, opóźnienia, przepływność i spójność w zależności od potrzeb aplikacji. |
 | Cennik | Optymalizacja pod kątem magazynu. | Optymalizacja pod kątem przepływności. |
-| Umowy SLA | Dostępność od 99,9% do 99,99% w zależności od strategii replikacji. | Dostępność odczytu na 99,999%, dostępność zapisu na koncie jednoregionańskim wyniosła 99,999%, a dostępność zapisów na kontach w wielu regionach – 99,999%. [Kompleksowe łasce obejmujące](https://azure.microsoft.com/support/legal/sla/cosmos-db/) dostępność, opóźnienie, przepływność i spójność. |
+| Umowy SLA | 99,9% do 99,99% dostępności, w zależności od strategii replikacji. | 99,999% dostępności odczytu, 99,99% dostępności zapisu na koncie w jednym regionie i 99,999% o dostępności na kontach wieloregionowych. [Kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) obejmujące dostępność, opóźnienia, przepływność i spójność. |
 
 ## <a name="get-started"></a>Wprowadzenie
 
@@ -58,8 +58,8 @@ Oto kilka wskazówek ułatwiających rozpoczęcie pracy:
 * [Opracowywanie zawartości przy użyciu interfejsu API tabel na platformie .NET](tutorial-develop-table-dotnet.md)
 * [Wykonywanie zapytań dotyczących danych tabel przy użyciu interfejsu API tabel](tutorial-query-table.md)
 * [Dowiedz się, jak skonfigurować dystrybucję globalną usługi Azure Cosmos DB przy użyciu interfejsu API tabel](tutorial-global-distribution-table.md)
-* [Standardowy zestaw SDK usługi Azure Cosmos DB table .NET](table-sdk-dotnet-standard.md)
-* [Zestaw SDK usługi Azure Cosmos DB](table-sdk-dotnet.md)
-* [Zestaw Java Tabeli usługi Azure Cosmos DB](table-sdk-java.md)
-* [Zestaw SDK węzła tabeli usługi Azure Cosmos DB.js](table-sdk-nodejs.md)
+* [Zestaw SDK tabeli Azure Cosmos DB .NET Standard](table-sdk-dotnet-standard.md)
+* [Zestaw SDK tabeli Azure Cosmos DB dla platformy .NET](table-sdk-dotnet.md)
+* [Zestaw SDK języka Java dla tabeli Azure Cosmos DB](table-sdk-java.md)
+* [Azure Cosmos DB tabeli SDK Node. js](table-sdk-nodejs.md)
 * [Azure Cosmos DB — zestaw SDK tabel dla języka Python](table-sdk-python.md)

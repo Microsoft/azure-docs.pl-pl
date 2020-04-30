@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: Apache Kafka przy użyciu usługi Azure Resource Manager — HDInsight'
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Kafka apache w usłudze Azure HDInsight przy użyciu szablonu usługi Azure Resource Manager. Zdobędziesz także informacje o tematach, subskrybentach i odbiorcach platformy Kafka.
+title: 'Szybki Start: Apache Kafka przy użyciu Azure Resource Manager-HDInsight'
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć klaster Apache Kafka w usłudze Azure HDInsight przy użyciu szablonu Azure Resource Manager. Zdobędziesz także informacje o tematach, subskrybentach i odbiorcach platformy Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,38 +9,38 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
 ms.openlocfilehash: f5f92044a0274b809388eeb164be9f1587013e0b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80064603"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Szybki start: tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu szablonu Menedżera zasobów
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Szybki Start: Tworzenie klastra Apache Kafka w usłudze Azure HDInsight przy użyciu szablonu Menedżer zasobów
 
-W tym przewodniku Szybki start można użyć szablonu usługi Azure Resource Manager do utworzenia klastra [Platformy Apache Kafka](./apache-kafka-introduction.md) w usłudze Azure HDInsight. Kafka to rozproszona platforma przesyłania strumieniowego typu „open source”. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania.
+W tym przewodniku szybki start utworzysz klaster [Apache Kafka](./apache-kafka-introduction.md) w usłudze Azure HDInsight przy użyciu szablonu Azure Resource Manager. Kafka to rozproszona platforma przesyłania strumieniowego typu „open source”. Jest ona często używana jako broker komunikatów, ponieważ oferuje funkcje podobne do kolejki komunikatów dotyczących publikowania i subskrybowania.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 Dostęp do interfejsu API platformy Kafka mogą uzyskać tylko zasoby będące w tej samej sieci wirtualnej. W tym przewodniku Szybki start uzyskasz dostęp do klastra bezpośrednio przy użyciu protokołu SSH. Aby do platformy Kafka podłączyć inne usługi, sieci lub maszyny wirtualne, należy najpierw utworzyć sieć wirtualną, a następnie utworzyć zasoby w obrębie tej sieci. Aby uzyskać więcej informacji, zobacz dokument [Connect to Apache Kafka using a virtual network (Nawiązywanie połączenia z platformą Apache Kafka za pomocą sieci wirtualnej)](apache-kafka-connect-vpn-gateway.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-an-apache-kafka-cluster"></a>Tworzenie klastra platformy Apache Kafka
 
-### <a name="review-the-template"></a>Przejrzyj szablon
+### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku Szybki start pochodzi z [szablonów szybki start platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
 
 :::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-150":::
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
-* [Microsoft.Storage/storageKonta:](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)tworzenie konta usługi Azure Storage.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): tworzenie klastra HDInsight.
+* [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): Tworzenie konta usługi Azure Storage.
+* [Microsoft. HDInsight/klaster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): Tworzenie klastra usługi HDInsight.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
-1. Wybierz przycisk **Wdrażanie na platformie Azure** poniżej, aby zalogować się na platformę Azure i otworzyć szablon Menedżera zasobów.
+1. Wybierz przycisk **Wdróż na platformie Azure** poniżej, aby zalogować się do platformy Azure i otworzyć szablon Menedżer zasobów.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -48,22 +48,22 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
     |Właściwość |Opis |
     |---|---|
-    |Subskrypcja|Z listy rozwijanej wybierz subskrypcję platformy Azure, która jest używana dla klastra.|
-    |Grupa zasobów|Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nowy**.|
-    |Lokalizacja|Wartość zostanie automatycznie wypełniona lokalizacją używaną dla grupy zasobów.|
-    |Nazwa klastra|Podaj globalnie unikatową nazwę. W tym szablonie należy używać tylko małych liter i cyfr.|
-    |Nazwa użytkownika logowania klastra|Podaj nazwę użytkownika, domyślnie jest **admin**.|
-    |Hasło logowania klastra|Podaj hasło. Hasło musi mieć co najmniej 10 znaków i musi zawierać co najmniej jedną cyfrę, jedną wielką literę i jedną wielką literę, jedną znak niealtalumeryczny (z wyjątkiem znaków " " ). |
-    |Nazwa użytkownika Ssh|Podaj nazwę użytkownika, domyślnie jest **sshuser**|
-    |Hasło Ssh|Podaj hasło.|
+    |Subskrypcja|Z listy rozwijanej wybierz subskrypcję platformy Azure używaną na potrzeby klastra.|
+    |Grupa zasobów|Z listy rozwijanej wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**.|
+    |Lokalizacja|Wartość zostanie automatycznie wypełniona przy użyciu lokalizacji używanej przez grupę zasobów.|
+    |Nazwa klastra|Podaj globalnie unikatową nazwę. Dla tego szablonu należy używać tylko małych liter i cyfr.|
+    |Nazwa użytkownika logowania klastra|Podaj nazwę użytkownika — wartość domyślna to **admin**.|
+    |Hasło logowania klastra|Podaj hasło. Hasło musi składać się z co najmniej 10 znaków i musi zawierać co najmniej jedną cyfrę, jedną wielką i jedną małą literę oraz jeden znak inny niż alfanumeryczny (z wyjątkiem znaków "" "). |
+    |Nazwa użytkownika SSH|Podaj nazwę użytkownika, wartość domyślna to **sshuser**|
+    |Hasło ssh|Podaj hasło.|
 
     ![Zrzut ekranu przedstawiający właściwości szablonu](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. Zapoznaj się z **regulaminem**. Następnie wybierz **zgadzam się z warunkami określonymi powyżej,** a następnie **zakup.** Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
+1. Przejrzyj **warunki i postanowienia**. Następnie wybierz opcję **Zgadzam się na powyższe warunki i**postanowienia, a następnie **Kup**. Otrzymasz powiadomienie, że wdrożenie jest w toku. Utworzenie klastra trwa około 20 minut.
 
-## <a name="review-deployed-resources"></a>Przeglądanie wdrożonych zasobów
+## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
-Po utworzeniu klastra otrzymasz powiadomienie **o pomyślnym wdrożeniu** z łączem **Przejdź do zasobu.** Strona Grupa zasobów będzie zawierać listę nowego klastra usługi HDInsight oraz domyślny magazyn skojarzony z klastrem. Każdy klaster ma konto [usługi Azure Storage](../hdinsight-hadoop-use-blob-storage.md) lub zależność konta usługi Azure Data Lake [Storage.](../hdinsight-hadoop-use-data-lake-store.md) Jest on określany jako domyślne konto magazynu. Klaster USŁUGI HDInsight i jego domyślne konto magazynu muszą być współlokowane w tym samym regionie platformy Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu.
+Po utworzeniu klastra otrzymasz powiadomienie o **pomyślnym wdrożeniu** za pomocą linku **Przejdź do zasobu** . Strona Grupa zasobów będzie zawierać listę nowego klastra usługi HDInsight oraz domyślny magazyn skojarzony z klastrem. Każdy klaster ma konto [usługi Azure Storage](../hdinsight-hadoop-use-blob-storage.md) lub [Azure Data Lake Storage zależności konta](../hdinsight-hadoop-use-data-lake-store.md) . Jest ono określane jako domyślne konto magazynu. Klaster usługi HDInsight i jego domyślne konto magazynu muszą znajdować się w tym samym regionie platformy Azure. Usunięcie klastrów nie powoduje usunięcia konta magazynu.
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Pobierz informacje dotyczących hostów Apache Zookeeper i Broker
 
@@ -71,13 +71,13 @@ Podczas pracy z platformą Kafka musisz znać hosty *Apache Zookeeper* i *Broker
 
 W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Ambari w klastrze.
 
-1. Użyj [polecenia ssh,](../hdinsight-hadoop-linux-use-ssh-unix.md) aby połączyć się z klastrem. Edytuj poniższe polecenie, zastępując clustername nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) do nawiązania połączenia z klastrem. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby zainstalować narzędzie, z połączenia SSH `jq` użyj następującego polecenia. To narzędzie służy do analizowania dokumentów JSON i jest przydatne podczas pobierania informacji o hoście:
+1. W przypadku połączenia SSH Użyj poniższego polecenia, aby zainstalować `jq` narzędzie. To narzędzie służy do analizowania dokumentów JSON i jest przydatne podczas pobierania informacji o hoście:
 
     ```bash
     sudo apt -y install jq
@@ -91,7 +91,7 @@ W tej sekcji uzyskasz informacje o hoście z interfejsu API REST Ambari w klastr
 
     Po wyświetleniu monitu wprowadź nazwę klastra platformy Kafka.
 
-1. Aby ustawić zmienną środowiskową z informacjami o hoście Zookeeper, użyj poniższego polecenia. Polecenie pobiera wszystkie hosty Zookeeper, a następnie zwraca tylko dwa pierwsze wpisy. Taka nadmiarowość jest wymagana, jeśli jeden z hostów będzie nieosiągalny.
+1. Aby ustawić zmienną środowiskową z informacjami o hoście dozorcy, użyj poniższego polecenia. Polecenie pobiera wszystkie hosty dozorcy, a następnie zwraca tylko pierwsze dwa wpisy. Taka nadmiarowość jest wymagana, jeśli jeden z hostów będzie nieosiągalny.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -149,7 +149,7 @@ Platforma Kafka przechowuje strumienie danych w *tematach*. Tematami można zarz
         
         Aby uzyskać informacje dotyczące liczby domen błędów w regionie, zobacz dokument [Availability of Linux virtual machines (Dostępność maszyn wirtualnych z systemem Linux)](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        Platforma Kafka nie zna domen błędów platformy Azure. Utworzone repliki partycji tematów mogą nie zostać prawidłowo rozpowszechnione w celu zapewnienia wysokiej dostępności.
+        Kafka nie ma informacji o domenach błędów platformy Azure. Utworzone repliki partycji tematów mogą nie zostać prawidłowo rozpowszechnione w celu zapewnienia wysokiej dostępności.
 
         Aby zapewnić wysoką dostępność, użyj [narzędzia do ponownego równoważenia partycji platformy Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). To narzędzie należy uruchomić, korzystając z połączenia SSH z węzłem głównym klastra platformy Kafka.
 
@@ -208,7 +208,7 @@ Poniżej przedstawiono procedurę zapisywania rekordów w utworzonym wcześniej 
 
     To polecenie umożliwia pobranie rekordów z tematu i ich wyświetlenie. Polecenie `--from-beginning` informuje odbiorcę, aby rozpocząć od początku strumienia w celu pobrania wszystkich rekordów.
 
-    Jeśli używasz starszej wersji platformy Kafka, zamień `--bootstrap-server $KAFKABROKERS` na `--zookeeper $KAFKAZKHOSTS`.
+    Jeśli używasz starszej wersji programu Kafka, Zastąp `--bootstrap-server $KAFKABROKERS` ciąg opcją `--zookeeper $KAFKAZKHOSTS`.
 
 1. Użyj klawiszy __Ctrl+C__, aby zatrzymać odbiorcę.
 
@@ -216,17 +216,17 @@ Producentów i odbiorców można również utworzyć programowo. Przykład korzy
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu szybkiego startu można usunąć klaster. Dzięki funkcji HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Naliczana jest również opłata za klaster HDInsight, nawet jeśli nie jest używana. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ma ekonomiczny sens usuwanie klastrów, gdy nie są używane.
+Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 
-W witrynie Azure Portal przejdź do klastra i wybierz pozycję **Usuń**.
+W Azure Portal przejdź do klastra, a następnie wybierz pozycję **Usuń**.
 
-![Szablon Menedżera zasobów HBase](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
+![HBase szablonu Menedżer zasobów](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usuwając grupę zasobów, można usunąć zarówno klaster HDInsight, jak i domyślne konto magazynu.
+Dodatkowo możesz wybrać nazwę grupy zasobów, aby otworzyć stronę grupy zasobów, a następnie wybrać pozycję **Usuń grupę zasobów**. Usuwając grupę zasobów, należy usunąć zarówno klaster usługi HDInsight, jak i domyślne konto magazynu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Kafek apache w usłudze HDInsight przy użyciu szablonu Menedżera zasobów. W następnym artykule dowiesz się, jak utworzyć aplikację, która używa interfejsu API Apache Kafka strumieni i uruchomić go z platformą Kafka w programie HDInsight.
+W tym przewodniku szybki start przedstawiono sposób tworzenia klastra Apache Kafka w usłudze HDInsight przy użyciu szablonu Menedżer zasobów. W następnym artykule dowiesz się, jak utworzyć aplikację korzystającą z interfejsu API strumieni Apache Kafka i uruchamiać ją z Kafka w usłudze HDInsight.
 
 > [!div class="nextstepaction"]
-> [Korzystanie z interfejsu API strumieni apache platformy Kafka w usłudze Azure HDInsight](./apache-kafka-streams-api.md)
+> [Korzystanie z interfejsu API strumieni Apache Kafka w usłudze Azure HDInsight](./apache-kafka-streams-api.md)

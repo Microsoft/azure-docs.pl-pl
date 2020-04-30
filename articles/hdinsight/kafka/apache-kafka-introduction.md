@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77672178"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Co to jest Apache Kafka w usłudze Azure HDInsight
@@ -62,12 +62,12 @@ Poniżej przedstawiono typowe zadania i wzorce, które mogą być wykonywane prz
 |Użycie |Opis |
 |---|---|
 |Replikacja danych Apache Kafka|platforma Kafka udostępnia narzędzie MirrorMaker, które replikuje dane między klastrami Kafka. Aby uzyskać informacje na temat używania narzędzia MirrorMaker, zobacz [Replicate Apache Kafka topics with Apache Kafka on HDInsight](apache-kafka-mirroring.md) (Replikowanie tematów platformy Apache Kafka na platformie Apache Kafka w usłudze HDInsight).|
-|Wzorzec wiadomości publikowania i subskrybowania|platforma Kafka udostępnia interfejs API producenta do publikowania rekordów w temacie platformy Kafka. Interfejs API klienta jest używany podczas subskrybowania tematu. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
+|Wzorzec komunikatów publikowania/subskrybowania|platforma Kafka udostępnia interfejs API producenta do publikowania rekordów w temacie platformy Kafka. Interfejs API klienta jest używany podczas subskrybowania tematu. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
 |Przetwarzanie strumienia|platforma Kafka jest często używana z systemem Apache Storm lub platformą Spark na potrzeby przetwarzania strumienia w czasie rzeczywistym. Na platformie Kafka 0.10.0.0 (usługa HDInsight w wersji 3.5 i 3.6) wprowadzono interfejs API przesyłania strumieniowego, który umożliwia tworzenie rozwiązań do transmisji strumieniowej bez konieczności stosowania rozwiązań Storm i Spark. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
 |Skalowanie w poziomie|platforma Kafka dzieli strumienie na partycje w różnych węzłach klastra usługi HDInsight. Procesy klientów mogą być kojarzone z poszczególnymi partycjami, aby umożliwić równoważenie obciążenia podczas korzystania z rekordów. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
-|Dostawa na zamówienie|rekordy na każdej partycji są przechowywane w strumieniu w tej samej kolejności, w której zostały odebrane. Skojarzenie jednego procesu klienta z jedną partycją pozwala zagwarantować, że rekordy są przetwarzane we właściwej kolejności. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
+|Dostarczanie w określonej kolejności|rekordy na każdej partycji są przechowywane w strumieniu w tej samej kolejności, w której zostały odebrane. Skojarzenie jednego procesu klienta z jedną partycją pozwala zagwarantować, że rekordy są przetwarzane we właściwej kolejności. Aby uzyskać więcej informacji, zobacz [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) (Rozpoczynanie pracy z platformą Apache Kafka w usłudze HDInsight).|
 |Obsługa komunikatów|platforma Kafka obsługuje wzorzec przesyłania komunikatów dotyczących publikowania i subskrybowania, dlatego jest często używana jako broker komunikatów.|
-|Śledzenie aktywności|platforma Kafka rejestruje rekordy w określonej kolejności, dlatego może służyć do śledzenia i ponownego tworzenia działań. Mogą to być na przykład działania użytkownika w witrynie sieci Web lub aplikacji.|
+|Śledzenie działań|platforma Kafka rejestruje rekordy w określonej kolejności, dlatego może służyć do śledzenia i ponownego tworzenia działań. Mogą to być na przykład działania użytkownika w witrynie sieci Web lub aplikacji.|
 |Agregacja|przetwarzanie strumienia pozwala agregować informacje z różnych strumieni w celu łączenia i centralizowania informacji w formie danych operacyjnych.|
 |Przekształcenia|przetwarzanie strumienia umożliwia łączenie i urozmaicanie danych z wielu tematów wejściowych w formie tematów wyjściowych.|
 
@@ -77,7 +77,7 @@ Aby dowiedzieć się, jak korzystać z platformy Apache Kafka w usłudze HDInsig
 
 * [Szybki Start: tworzenie platformy Apache Kafka w usłudze HDInsight](apache-kafka-get-started.md)
 
-* [Używanie platformy Kafka z serwerem proxy REST](rest-proxy.md)
+* [Korzystanie z Kafka z serwerem proxy REST](rest-proxy.md)
 
 * [Samouczek: korzystanie z systemu Apache Spark z platformą Apache Kafka w usłudze HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

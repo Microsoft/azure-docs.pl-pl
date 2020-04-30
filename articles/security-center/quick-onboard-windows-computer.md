@@ -1,6 +1,6 @@
 ---
 title: Dołączanie komputerów z systemem Windows do usługi Azure Security Center
-description: Ten przewodnik Szybki start pokazuje sposób aprowizowania agenta usługi Log Analytics na komputerze z systemem Windows.
+description: W tym przewodniku szybki start pokazano, jak udostępnić Agent Log Analytics na komputerze z systemem Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80435921"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Szybki start: dołączanie komputerów z systemem Windows do usługi Azure Security Center
-Po poczegu subskrypcji platformy Azure można włączyć usługę Security Center dla zasobów uruchomionych poza platformą Azure, na przykład lokalnie lub w innych chmurach, przez inicjowanie obsługi administracyjnej agenta usługi Log Analytics.
+Po dodaniu subskrypcji platformy Azure można włączyć Security Center dla zasobów działających poza platformą Azure, na przykład lokalnie lub w innych chmurach, udostępniając agenta Log Analytics.
 
-Ten przewodnik Szybki start pokazuje, jak zainstalować agenta usługi Log Analytics na komputerze z systemem Windows.
+W tym przewodniku szybki start przedstawiono sposób instalowania agenta Log Analytics na komputerze z systemem Windows.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do rozpoczęcia korzystania z usługi Security Center wymagana jest subskrypcja usługi Microsoft Azure. Jeśli nie masz subskrypcji, możesz zarejestrować się, aby uzyskać dostęp do [bezpłatnego konta](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,15 +33,15 @@ Musisz korzystać z warstwy cenowej Standardowa usługi Security Center przed ro
 
 ## <a name="add-new-windows-computer"></a>Dodawanie nowego komputera z systemem Windows
 
-1. Zaloguj się do [witryny Azure portal](https://azure.microsoft.com/features/azure-portal/).
-2. W menu **Microsoft Azure** wybierz pozycję **Centrum zabezpieczeń**. Zostanie otwarte okno **Security Center — Przegląd**.
+1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**.
 
    ![Security Center — Przegląd][2]
 
 3. W menu głównym usługi Security Center wybierz pozycję **Wprowadzenie**.
 4. Wybierz kartę **Rozpoczęcie pracy**.
 
-   ![Rozpoczęcie pracy][3]
+   ![Wprowadzenie][3]
 
 5. Kliknij przycisk **Konfiguruj** w obszarze **Dodaj nowe komputery spoza platformy Azure**. Zostanie wyświetlona lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, którego chcesz użyć.
 
@@ -72,7 +72,7 @@ Teraz musisz zainstalować pobrany plik na komputerze docelowym.
 9. Na stronie **Gotowe do zainstalowania** przejrzyj wybrane opcje, a następnie wybierz pozycję **Zainstaluj**.
 10. Na stronie **Konfiguracja została zakończona pomyślnie** wybierz pozycję **Zakończ**.
 
-Po zakończeniu **agent usługi Log Analytics** pojawi się w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
+Po zakończeniu **log Analytics Agent** zostanie wyświetlony w **Panelu sterowania**. Możesz tam przejrzeć konfigurację i sprawdzić, czy agent został połączony.
 
 Aby uzyskać więcej informacji na temat instalowania i konfigurowania agenta, zobacz [Connect Windows computers (Łączenie komputerów z systemem Windows)](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,10 +93,10 @@ Aby usunąć agenta:
 
 1. Otwórz **Panel sterowania**.
 2. Otwórz aplet **Programy i funkcje**.
-3. W **obszarze Programy i funkcje**wybierz pozycję Agent usługi Log **Analytics** i kliknij przycisk **Odinstaluj**.
+3. W obszarze **programy i funkcje**wybierz opcję **Agent log Analytics** i kliknij przycisk **Odinstaluj**.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start zainicjowano aprowizacji agenta usługi Log Analytics na komputerze z systemem Windows. Aby dowiedzieć się więcej na temat sposobu korzystania z usługi Security Center, przejdź do samouczka konfigurowania zasad zabezpieczeń i oceniania zabezpieczeń Twoich zasobów.
+W tym przewodniku szybki start został zainicjowany Agent Log Analytics na komputerze z systemem Windows. Aby dowiedzieć się więcej na temat sposobu korzystania z usługi Security Center, przejdź do samouczka konfigurowania zasad zabezpieczeń i oceniania zabezpieczeń Twoich zasobów.
 
 > [!div class="nextstepaction"]
 > [Samouczek: Definiowanie i ocenianie zasad zabezpieczeń](tutorial-security-policy.md)

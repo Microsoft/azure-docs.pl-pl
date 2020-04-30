@@ -1,6 +1,6 @@
 ---
-title: Szybki start:Tworzenie profilu aplikacji — narzędzie platformy Azure CLI — Usługa Azure Traffic Manager
-description: W tym artykule przewodnika Szybki start opisano sposób tworzenia profilu usługi Traffic Manager w celu utworzenia aplikacji sieci web o wysokiej dostępności.
+title: 'Szybki Start: Tworzenie profilu dla HA aplikacji — interfejs wiersza polecenia platformy Azure — Azure Traffic Manager'
+description: W tym artykule szybki start opisano sposób tworzenia profilu Traffic Manager w celu utworzenia aplikacji sieci Web o wysokiej dostępności.
 services: traffic-manager
 author: rohinkoul
 mnager: twooley
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: rohink
 ms.openlocfilehash: e19850243498fc24c9a726f4603590df15f3a046
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79531519"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Szybki start: tworzenie profilu usługi Traffic Manager dla aplikacji sieci Web o wysokiej dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Szybki Start: Tworzenie profilu Traffic Manager dla aplikacji sieci Web o wysokiej dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 
 W tym przewodniku Szybki start opisano tworzenie profilu usługi Traffic Manager, który zapewni wysoką dostępność aplikacji internetowej.
 
-W tym przewodniku Szybki start utworzysz dwa wystąpienia aplikacji sieci web. Każde z nich jest uruchamiane w innym regionie świadczenia usługi Azure. Utworzysz profil usługi Traffic Manager na podstawie [priorytetu punktu końcowego](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profil kieruje ruch użytkowników do lokacji głównej, w której działa aplikacja internetowa. Usługa Traffic Manager stale monitoruje aplikację internetową. Jeśli lokacja główna jest niedostępna, usługa zapewnia automatyczne przejście w tryb failover w lokacji zapasowej.
+W tym przewodniku szybki start utworzysz dwa wystąpienia aplikacji sieci Web. Każde z nich jest uruchamiane w innym regionie świadczenia usługi Azure. Utworzysz profil usługi Traffic Manager na podstawie [priorytetu punktu końcowego](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profil kieruje ruch użytkowników do lokacji głównej, w której działa aplikacja internetowa. Usługa Traffic Manager stale monitoruje aplikację internetową. Jeśli lokacja główna jest niedostępna, usługa zapewnia automatyczne przejście w tryb failover w lokacji zapasowej.
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz teraz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,7 +34,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 Utwórz grupę zasobów za pomocą polecenia [az group create](https://docs.microsoft.com/cli/azure/group). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokalizacji *eastus:*
+Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
 
@@ -46,9 +46,9 @@ Poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w lokaliza
 
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 
-Utwórz profil usługi Traffic Manager przy użyciu [profilu menedżera ruchu sieciowego az,](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) który kieruje ruch użytkowników na podstawie priorytetu punktu końcowego.
+Utwórz profil Traffic Manager za pomocą polecenia [AZ Network Traffic-Manager profile Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) , które kieruje ruch użytkowników na podstawie priorytetu punktu końcowego.
 
-W poniższym przykładzie zastąp **<profile_name>** unikatową nazwą profilu usługi Traffic Manager.
+W poniższym przykładzie Zastąp **<profile_name>** z unikatową nazwą profilu Traffic Manager.
 
 ```azurecli-interactive
 
@@ -68,10 +68,10 @@ az network traffic-manager profile create \
 
 W tym przewodniku Szybki start będą potrzebne dwa wystąpienia aplikacji internetowej wdrożone w dwóch różnych regionach świadczenia usługi Azure (*Wschodnie stany USA* i *Europa Zachodnia*). Każda będzie służyć jako podstawowy punkt końcowy i punkt końcowy trybu failover dla usługi Traffic Manager.
 
-### <a name="create-web-app-service-plans"></a>Tworzenie planów usług aplikacji sieci Web
-Tworzenie planów usługi aplikacji sieci web przy użyciu [planu usługi az appservice utworzyć](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) dla dwóch wystąpień aplikacji sieci web, które można wdrożyć w dwóch różnych regionach platformy Azure.
+### <a name="create-web-app-service-plans"></a>Tworzenie planów usługi aplikacji sieci Web
+Utwórz plany usługi aplikacji sieci Web za pomocą polecenia [AZ appService plan Create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) dla dwóch wystąpień aplikacji sieci Web, które zostaną wdrożone w dwóch różnych regionach świadczenia usługi Azure.
 
-W poniższym przykładzie zastąp **<>appspname_eastus** i<>**appspname_westeurope** unikatową nazwą planu usługi app service
+W poniższym przykładzie Zastąp **<appspname_eastus>** i **<appspname_westeurope>** z unikatową nazwą planu App Service
 
 ```azurecli-interactive
 
@@ -89,10 +89,10 @@ az appservice plan create \
 
 ```
 
-### <a name="create-a-web-app-in-the-app-service-plan"></a>Tworzenie aplikacji sieci Web w planie usługi aplikacji
-Utwórz dwa wystąpienia aplikacji sieci web przy użyciu [aplikacji sieci web az utworzyć](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) w planach usługi app service we *wschodnich stanach USA* i Europie *Zachodniej* regionów platformy Azure.
+### <a name="create-a-web-app-in-the-app-service-plan"></a>Tworzenie aplikacji sieci Web w planie usługi App Service
+Utwórz dwa wystąpienia aplikacji sieci Web używającej polecenia [AZ webapp Create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) w planach App Service w regionach *Wschodnie stany USA* i *Europa Zachodnia* .
 
-W poniższym przykładzie zastąp **<>app1name_eastus** i<app2name_westeurope **>** unikatową nazwą aplikacji i zastąp<**appspname_eastus>** i<**appspname_westeurope>** nazwą używaną do tworzenia planów usługi aplikacji w poprzedniej sekcji.
+W poniższym przykładzie Zastąp **<app1name_eastus>** i **<app2name_westeurope>** z unikatową nazwą aplikacji, a następnie zastąp ciąg **<appspname_eastus**>i **<** appspname_westeurope>przy użyciu nazwy użytej do utworzenia planów App Service w poprzedniej sekcji.
 
 ```azurecli-interactive
 
@@ -109,16 +109,16 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Dodawanie punktów końcowych usługi Traffic Manager
-Dodaj dwie aplikacje sieci Web jako punkty końcowe usługi Traffic Manager przy użyciu [punktu końcowego menedżera ruchu sieciowego az](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) do profilu Usługi Traffic Manager w następujący sposób:
+Dodaj dwa Web Apps jako punkty końcowe Traffic Manager za pomocą polecenia [AZ Network Traffic-Manager Endpoint Create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) do profilu Traffic Manager w następujący sposób:
 
-- Określ identyfikator aplikacji sieci Web i dodaj aplikację sieci Web znajdującą się w regionie East *US* Azure jako podstawowy punkt końcowy do kierowania całego ruchu użytkownika. 
-- Określ identyfikator aplikacji sieci Web i dodaj aplikację sieci Web znajdującą się w regionie Platformy Azure *w Europie Zachodniej* jako punkt końcowy trybu failover. 
+- Określ identyfikator aplikacji sieci Web i Dodaj aplikację sieci Web znajdującą się w regionie *Wschodnie stany USA* platformy Azure jako podstawowy punkt końcowy, aby skierować cały ruch użytkownika. 
+- Określ identyfikator aplikacji sieci Web i Dodaj aplikację sieci Web znajdującą się w regionie platformy Azure *Europa Zachodnia* jako punkt końcowy trybu failover. 
 
 Gdy podstawowy punkt końcowy będzie niedostępny, ruch będzie automatycznie kierowany do punktu końcowego trybu failover.
 
-W poniższym przykładzie zastąp **<app1name_eastus>** i<>**app2name_westeurope** nazwami aplikacji utworzonymi dla każdego regionu w poprzedniej sekcji, zastąp<**appspname_eastus>** i<appspname_westeurope **>** nazwą używaną do tworzenia planów usługi aplikacji w poprzedniej sekcji i zastąp<**profile_name>** nazwą profilu użytą w poprzedniej sekcji. 
+W poniższym przykładzie Zastąp **<app1name_eastus>** i **<app2name_westeurope>** z nazwami aplikacji utworzonymi dla każdego regionu w poprzedniej sekcji, zastąp ciąg **<appspname_eastus**>i **<** appspname_westeurope>przy użyciu nazwy użytej do utworzenia planów App Service w poprzedniej sekcji, a następnie zastąp **<** profile_name>z nazwą profilu używaną w poprzedniej sekcji. 
 
-**Punkt końcowy wschodnich stanów USA**
+**Wschodnie stany USA**
 
 ```azurecli-interactive
 
@@ -129,7 +129,7 @@ az webapp show \
 
 ```
 
-Zanotuj identyfikator wyświetlany w danych wyjściowych i użyj w następującym poleceniu, aby dodać punkt końcowy:
+Zanotuj identyfikator wyświetlany w danych wyjściowych i użyj następującego polecenia, aby dodać punkt końcowy:
 
 ```azurecli-interactive
 
@@ -143,7 +143,7 @@ az network traffic-manager endpoint create \
     --endpoint-status Enabled
 ```
 
-**Punkt końcowy w Europie Zachodniej**
+**Punkt końcowy Europa Zachodnia**
 
 ```azurecli-interactive
 
@@ -154,7 +154,7 @@ az webapp show \
 
 ```
 
-Zanotuj identyfikator wyświetlany w danych wyjściowych i użyj w następującym poleceniu, aby dodać punkt końcowy:
+Zanotuj identyfikator wyświetlany w danych wyjściowych i użyj następującego polecenia, aby dodać punkt końcowy:
 
 ```azurecli-interactive
 
@@ -169,15 +169,15 @@ az network traffic-manager endpoint create \
 
 ```
 
-## <a name="test-your-traffic-manager-profile"></a>Testowanie profilu Menedżera ruchu
+## <a name="test-your-traffic-manager-profile"></a>Testowanie profilu Traffic Manager
 
 W tej sekcji sprawdzisz nazwę domeny profilu usługi Traffic Manager. Skonfigurujesz również podstawowy punkt końcowy tak, aby był niedostępny. Na końcu zobaczysz, że aplikacja internetowa jest nadal dostępna. Dzieje się tak, ponieważ usługa Traffic Manager wysyła ruch do punktu końcowego trybu failover.
 
-W poniższym przykładzie zastąp **<app1name_eastus>** i<>**app2name_westeurope** nazwami aplikacji utworzonymi dla każdego regionu w poprzedniej sekcji, zastąp<**appspname_eastus>** i<appspname_westeurope **>** nazwą używaną do tworzenia planów usługi aplikacji w poprzedniej sekcji i zastąp<**profile_name>** nazwą profilu użytą w poprzedniej sekcji.
+W poniższym przykładzie Zastąp **<app1name_eastus>** i **<app2name_westeurope>** z nazwami aplikacji utworzonymi dla każdego regionu w poprzedniej sekcji, zastąp ciąg **<appspname_eastus**>i **<** appspname_westeurope>przy użyciu nazwy użytej do utworzenia planów App Service w poprzedniej sekcji, a następnie zastąp **<** profile_name>z nazwą profilu używaną w poprzedniej sekcji.
 
 ### <a name="determine-the-dns-name"></a>Ustalanie nazwy DNS
 
-Określ nazwę DNS profilu Usługi Traffic Manager za pomocą [programu AZ Network Traffic Manager .](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show)
+Określ nazwę DNS profilu Traffic Manager za pomocą polecenia [AZ Network Traffic-Manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
 
 ```azurecli-interactive
 
@@ -188,14 +188,14 @@ az network traffic-manager profile show \
 
 ```
 
-Skopiuj wartość **RelativeDnsName.** Nazwa DNS profilu usługi Traffic Manager to *http://<* relativednsname *>.trafficmanager.net*. 
+Skopiuj wartość **RelativeDnsName** . Nazwa DNS profilu Traffic Manager to *http://<* relativednsname *>. trafficmanager.NET*. 
 
 ### <a name="view-traffic-manager-in-action"></a>Wyświetlanie informacji o działaniu usługi Traffic Manager
-1. W przeglądarce internetowej wprowadź nazwę DNS profilu usługi Traffic Manager (*http://<* relativednsname *>.trafficmanager.net*), aby wyświetlić domyślną witrynę sieci Web aplikacji.
+1. W przeglądarce sieci Web wprowadź nazwę DNS profilu Traffic Manager (*http://<* relativednsname *>. trafficmanager.NET*), aby wyświetlić domyślną witrynę sieci Web Twojej aplikacji internetowej.
 
     > [!NOTE]
     > W tym scenariuszu Szybki start wszystkie żądania są kierowane do podstawowego punktu końcowego. Jest on ustawiony na wartość **Priorytet 1**.
-2. Aby wyświetlić tryb failover usługi Traffic Manager w akcji, wyłącz witrynę główną przy użyciu [aktualizacji punktu końcowego menedżera ruchu sieciowego az](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+2. Aby wyświetlić Traffic Manager tryb failover w działaniu, wyłącz lokację główną przy użyciu polecenia [AZ Network Traffic-Manager Endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
    ```azurecli-interactive
 
@@ -208,12 +208,12 @@ Skopiuj wartość **RelativeDnsName.** Nazwa DNS profilu usługi Traffic Manager
     
    ```
 
-3. Skopiuj nazwę DNS profilu usługi Traffic Manager (*http://<* relativednsname *>.trafficmanager.net*), aby wyświetlić witrynę sieci Web w nowej sesji przeglądarki internetowej.
+3. Skopiuj nazwę DNS profilu Traffic Manager (*http://<* relativednsname *>. trafficmanager.NET*), aby wyświetlić witrynę internetową w nowej sesji przeglądarki sieci Web.
 4. Sprawdź, czy aplikacja internetowa jest nadal dostępna.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu usuń grupy zasobów, aplikacje sieci Web i wszystkie powiązane zasoby za pomocą [programu AZ Group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Gdy wszystko będzie gotowe, Usuń grupy zasobów, aplikacje sieci Web i wszystkie pokrewne zasoby za pomocą polecenia [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 
@@ -224,7 +224,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono profil usługi Traffic Manager, który zapewnia wysoką dostępność dla aplikacji sieci web. Aby dowiedzieć się więcej o kierowaniu ruchu, przejdź do samouczków usługi Traffic Manager.
+W tym przewodniku szybki start utworzono profil Traffic Manager, który zapewnia wysoką dostępność aplikacji sieci Web. Aby dowiedzieć się więcej o kierowaniu ruchu, przejdź do samouczków usługi Traffic Manager.
 
 > [!div class="nextstepaction"]
 > [Samouczki usługi Traffic Manager](tutorial-traffic-manager-improve-website-response.md)

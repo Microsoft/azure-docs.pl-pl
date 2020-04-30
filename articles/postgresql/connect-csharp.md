@@ -1,6 +1,6 @@
 ---
-title: Połącz się z C# — usługa Azure Database for PostgreSQL — pojedynczy serwer
-description: Ten przewodnik Szybki start zawiera przykładowy kod języka C# (.NET), którego można użyć do łączenia się i wykonywania zapytań o dane z usługi Azure Database for PostgreSQL — Single Server.
+title: Nawiązywanie połączenia przy użyciu języka C#-Azure Database for PostgreSQL-pojedynczego serwera
+description: Ten przewodnik Szybki Start zawiera przykładowy kod języka C# (.NET), którego można używać do nawiązywania połączeń i zapytań dotyczących danych z Azure Database for PostgreSQL-jednego serwera.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 4ac462873d34faa5ffa9d1e1bd873734be88e442
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74767980"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Usługa Azure Database for PostgreSQL — pojedynczy serwer: łączenie danych i wykonywanie zapytań za pomocą platformy .NET (C#)
+# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL — pojedynczy serwer: Użyj platformy .NET (C#) do nawiązywania połączeń i wysyłania zapytań dotyczących danych
 Ten przewodnik Szybki start przedstawia sposób nawiązywania połączeń z usługą Azure Database for PostgreSQL przy użyciu aplikacji języka C#. Pokazano w nim, jak używać instrukcji języka SQL w celu wysyłania zapytań o dane oraz wstawiania, aktualizowania i usuwania danych w bazie danych. W krokach w tym artykule założono, że wiesz już, jak programować za pomocą języka C#, i dopiero zaczynasz pracę z usługą Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -38,7 +38,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z usługą 
  ![Nazwa serwera usługi Azure Database for PostgreSQL](./media/connect-csharp/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Nawiązywanie połączenia, tworzenie tabeli i wstawianie danych
-Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL. Kod używa klasy NpgsqlCommand z metodą [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z bazą danych PostgreSQL. Następnie kod używa metody [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), ustawia commandtext właściwości i wywołuje [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) metoda do uruchomienia poleceń bazy danych. 
+Użyj poniższego kodu, aby nawiązać połączenie i załadować dane przy użyciu instrukcji **CREATE TABLE** i **INSERT INTO** języka SQL. Kod używa klasy NpgsqlCommand z metodą [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) w celu ustanowienia połączenia z bazą danych PostgreSQL. Następnie kod używa metody [GetCommand ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), ustawia Właściwość CommandText i wywołuje metodę [ExecuteNonQuery ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) , aby uruchomić polecenia bazy danych. 
 
 Zastąp parametry hosta, nazwy bazy danych, użytkownika i hasła wartościami, które zostały określone podczas tworzenia serwera i bazy danych. 
 

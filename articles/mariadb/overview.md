@@ -1,6 +1,6 @@
 ---
-title: Omówienie — usługa Azure Database for MariaDB
-description: Dowiedz się więcej o usłudze Azure Database for MariaDB, relacyjnej usłudze bazy danych w chmurze firmy Microsoft opartej na wersji społeczności MySQL.
+title: Przegląd — Azure Database for MariaDB
+description: Dowiedz się więcej na temat usługi Azure Database for MariaDB, usługi relacyjnej bazy danych w chmurze firmy Microsoft w oparciu o wersję MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
 ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79535565"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Czym jest usługa Azure Database for MariaDB?
 
-Azure Database for MariaDB to usługa relacyjnej bazy danych w chmurze firmy Microsoft. Usługa Azure Database for MariaDB jest oparta na [wersji społeczności MariaDB](https://mariadb.org/download/) (dostępnej w ramach aparatu bazy danych licencji GPLv2), w wersji 10.2 i 10.3.
+Azure Database for MariaDB to usługa relacyjnej bazy danych w chmurze firmy Microsoft. Azure Database for MariaDB jest oparta na [MariaDB Community Edition](https://mariadb.org/download/) (dostępnej w ramach licencji GPLv2), wersja 10,2 i 10,3.
 
 Usługa Azure Database for MariaDB udostępnia następujące funkcje:
 
@@ -53,7 +53,7 @@ Umowa SLA o czołowej w branży dostępności 99,99% dla platformy Azure jest ob
 
 ## <a name="secure-your-data"></a>Zabezpieczanie danych
 
-Usługi baz danych platformy Azure mają tradycje zabezpieczeń danych, które usługa Azure Database for MariaDB podtrzymuje. Usługa Azure Database for MariaDB udostępnia funkcje ograniczania dostępu, ochrony przesyłanych i magazynowanych danych oraz monitorowania aktywności. Odwiedź [Centrum zaufania Azure](https://www.microsoft.com/trustcenter/security), aby uzyskać informacje o zabezpieczeniach platformy Azure. Aby uzyskać więcej informacji na temat usługi Azure Database dla funkcji zabezpieczeń MariaDB, zobacz [omówienie zabezpieczeń](concepts-security.md).
+Usługi baz danych platformy Azure mają tradycje zabezpieczeń danych, które usługa Azure Database for MariaDB podtrzymuje. Usługa Azure Database for MariaDB udostępnia funkcje ograniczania dostępu, ochrony przesyłanych i magazynowanych danych oraz monitorowania aktywności. Odwiedź [Centrum zaufania Azure](https://www.microsoft.com/trustcenter/security), aby uzyskać informacje o zabezpieczeniach platformy Azure. Aby uzyskać więcej informacji na temat funkcji zabezpieczeń Azure Database for MariaDB, zobacz [Omówienie zabezpieczeń](concepts-security.md).
 
 ## <a name="contacts"></a>Kontakty
 
@@ -67,7 +67,7 @@ Możesz też użyć następujących punktów kontaktowych:
 ## <a name="next-steps"></a>Następne kroki
 
 Po przeczytaniu wprowadzenia do usługi Azure Database for MariaDB możesz wykonać następujące czynności:
-- Zobacz stronę [cennik dla](https://azure.microsoft.com/pricing/details/mariadb/) porównania kosztów i kalkulatorów. 
-- Rozpocznij od [utworzenia pierwszego serwera](quickstart-create-mariadb-server-database-using-azure-portal.md).
+- Zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/mariadb/) , aby obporównania kosztów i kalkulatory. 
+- Zacznij od [utworzenia pierwszego serwera](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 <!--- - Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md) --->

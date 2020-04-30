@@ -1,6 +1,6 @@
 ---
-title: Tworzenie tabel rozproszonych — hiperskala (Citus) — usługa Azure Database for PostgreSQL
-description: Szybki start do tworzenia i przeszukiwania tabel rozproszonych w usłudze Azure Database dla postgreSQL Hyperscale (Citus).
+title: Tworzenie rozproszonych tabel-Citus) — Azure Database for PostgreSQL
+description: Przewodnik Szybki Start dotyczący tworzenia i wykonywania zapytań dotyczących tabel rozproszonych w Azure Database for PostgreSQL funkcji Citus.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,33 +9,33 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241514"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki start: tworzenie bazy danych usługi Azure dla postgreSQL — hiperskali (Citus) w witrynie Azure portal
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Szybki Start: Tworzenie Azure Database for PostgreSQL-Citus w Azure Portal
 
-Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchamiania i skalowania w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzania nimi. Ten przewodnik Szybki start pokazuje, jak utworzyć grupę serwerów usługi Azure Database for PostgreSQL — Hyperscale (Citus) przy użyciu witryny Azure portal. Będziesz eksplorować rozproszone dane: tabele dzielenia na fragmenty między węzłami, pozyskiwania przykładowych danych i uruchamianie kwerend, które są wykonywane w wielu węzłach.
+Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchamiania i skalowania w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzania nimi. W tym przewodniku szybki start przedstawiono sposób tworzenia grupy serwerów Azure Database for PostgreSQL-Citus) przy użyciu Azure Portal. Poznasz dane rozproszone: tabele fragmentowania w węzłach, pozyskiwanie przykładowych danych i wykonywanie zapytań wykonywanych na wielu węzłach.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
-## <a name="create-and-distribute-tables"></a>Tworzenie i rozpowszechnianie tabel
+## <a name="create-and-distribute-tables"></a>Tworzenie i dystrybuowanie tabel
 
-Po podłączeniu do węzła koordynatora hiperskali za pomocą psql można wykonać kilka podstawowych zadań.
+Po nawiązaniu połączenia z węzłem koordynatora ze skalowaniem za pomocą PSQL można wykonać niektóre podstawowe zadania.
 
-W serwerach hyperscale istnieją trzy typy tabel:
+Na serwerach z skalowaniem istnieją trzy typy tabel:
 
-- Tabele rozproszone lub podzielone na fragmenty (rozłożone, aby ułatwić skalowanie pod kątem wydajności i równoległości)
-- Tabele odwołań (wiele kopii zachowanych)
-- Tabele lokalne (często używane w wewnętrznych tabelach administracyjnych)
+- Rozproszone lub podzielonej na fragmenty tabele (rozproszenie w celu ułatwienia skalowania pod kątem wydajności i przetwarzanie równoległe)
+- Tabele odwołań (obsługiwane są wiele kopii)
+- Tabele lokalne (często używane dla wewnętrznych tabel administracyjnych)
 
-W tym przewodniku Szybki start skupimy się przede wszystkim na tabelach rozproszonych i zapoznaniu się z nimi.
+W tym przewodniku szybki start będziemy głównie skupić się na tabelach rozproszonych i zapoznać się z nimi.
 
-Model danych, z którym będziemy pracować, jest prosty: dane użytkownika i zdarzenia z usługi GitHub. Zdarzenia obejmują tworzenie rozwidlików, git commits związane z organizacją i więcej.
+Model danych, z którym będziemy współpracować, jest prosty: dane dotyczące użytkowników i zdarzeń z usługi GitHub. Zdarzenia obejmują tworzenie rozwidlenia, zatwierdzenia git powiązane z organizacją i nie tylko.
 
-Po połączeniu za pośrednictwem psql, stwórzmy nasze tabele. W konsoli psql uruchom:
+Po nawiązaniu połączenia za pośrednictwem PSQL Utwórzmy nasze tabele. W konsoli PSQL Uruchom następujące:
 
 ```sql
 CREATE TABLE github_events
@@ -62,30 +62,30 @@ CREATE TABLE github_users
 );
 ```
 
-Pole `payload` `github_events` ma typ danych JSONB. JSONB jest rodzajem danych JSON w formie binarnej w postgres. Typ danych ułatwia przechowywanie elastycznego schematu w jednej kolumnie.
+`payload` Pole elementu `github_events` zawiera JSONB typu danych. JSONB jest typem danych JSON w postaci binarnej w Postgres. Typ danych ułatwia przechowywanie elastycznego schematu w jednej kolumnie.
 
-Postgres można `GIN` utworzyć indeks dla tego typu, który będzie indeksować każdy klucz i wartość w nim. Z indeksu, staje się szybkie i łatwe do zapytania ładunku w różnych warunkach. Przejdźmy do przodu i utwórz kilka indeksów, zanim załadujemy nasze dane. W psql:
+Postgres może utworzyć `GIN` indeks tego typu, który będzie indeksować każdy klucz i jego wartość. Indeks umożliwia szybkie i łatwe wykonywanie zapytań dotyczących ładunku z różnych warunków. Przed załadowaniem danych przejdźmy do siebie i utworzysz kilka indeksów. W PSQL:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Następnie weźmiemy te tabele Postgres w węźle koordynatora i powiedz hyperscale do niezależnego fragmentu ich przez pracowników. Aby to zrobić, uruchomimy kwerendę dla każdej tabeli określając klucz do niezależnego fragmentu. W bieżącym przykładzie będziemy odłamki zarówno zdarzeń `user_id`i użytkowników tabeli na:
+Następnie zajmiemy się tymi tabelami Postgres na węźle koordynatora i przekażemy je do fragmentui przez pracowników. W tym celu uruchomimy zapytanie dla każdej tabeli, określając klucz, na który fragmentu. W bieżącym przykładzie będziemy fragmentu zarówno tabelę zdarzeń, jak i użytkowników `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Jesteśmy gotowi do załadowania danych. W psql nadal, shell się pobrać pliki:
+Jesteśmy gotowi do ładowania danych. W programie PSQL nadal poprowadzisz pobieranie plików z powłoki:
 
 ```sql
 \! curl -O https://examples.citusdata.com/users.csv
 \! curl -O https://examples.citusdata.com/events.csv
 ```
 
-Następnie należy załadować dane z plików do tabel rozproszonych:
+Następnie Załaduj dane z plików do tabel rozproszonych:
 
 ```sql
 SET CLIENT_ENCODING TO 'utf8';
@@ -96,13 +96,13 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## <a name="run-queries"></a>Uruchamianie zapytań
 
-Teraz nadszedł czas na część zabawy, faktycznie uruchamiając kilka zapytań. Zacznijmy od prostego, `count (*)` aby zobaczyć, ile danych załadowaliśmy:
+Teraz czas dla części zabawnej, w rzeczywistości uruchamia kilka zapytań. Zacznijmy od prostego `count (*)` , aby zobaczyć, ile danych załadowałeś:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-To działało ładnie. Wrócimy do tego rodzaju agregacji w nieco, ale na razie spójrzmy na kilka innych zapytań. W kolumnie `payload` JSONB jest sporo danych, ale różni się w zależności od typu zdarzenia. `PushEvent`zdarzenia zawierają rozmiar, który zawiera liczbę odrębnych zatwierdzeń dla wypychania. Możemy go użyć, aby znaleźć całkowitą liczbę zatwierdzeń na godzinę:
+To działały dobrze. Powrócimy do tego sortowania agregacji w bitach, ale dla teraz przyjrzyjmy się kilku innym zapytaniom. W kolumnie JSONB `payload` istnieje dobry bit danych, ale jest ona różna w zależności od typu zdarzenia. `PushEvent`zdarzenia zawierają rozmiar, który obejmuje liczbę odrębnych zatwierdzeń dla wypychania. Możemy użyć jej do znalezienia łącznej liczby zatwierdzeń na godzinę:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +113,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Do tej pory zapytania dotyczyły\_wyłącznie zdarzeń github, ale możemy połączyć te informacje z użytkownikami github.\_ Ponieważ mamy podzielona zarówno użytkowników i zdarzeń`user_id`na ten sam identyfikator ( ), wiersze obu tabel z pasujących identyfikatorów użytkowników zostaną [współlokowane](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) w tych samych węzłach bazy danych i można łatwo dołączyć.
+Dotychczas zapytania dotyczyły wyłącznie wydarzeń usługi GitHub\_, ale możemy połączyć te informacje z użytkownikami usługi GitHub\_. Ze względu na to, że podzielonej na fragmenty zarówno użytkowników, jak`user_id`i zdarzenia w tym samym identyfikatorze (), wiersze obu tabel ze zgodnymi identyfikatorami użytkowników będą [współzlokalizowane](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) w tych samych węzłach bazy danych i można je łatwo dołączyć.
 
-Jeśli dołączymy `user_id`na , Hiperskala może wypchnąć wykonanie sprzężenia w dół do fragmentów do wykonania równolegle w węzłach procesu roboczego. Na przykład znajdźmy użytkowników, którzy utworzyli największą liczbę repozytoriów:
+Jeśli dołączymy `user_id`się, funkcja skalowania może wypchnąć wykonywanie sprzężenia do fragmentów w celu wykonania równolegle w węzłach procesu roboczego. Załóżmy na przykład, że użytkownicy, którzy utworzyli największą liczbę repozytoriów:
 
 ```sql
 SELECT gu.login, count(*)
@@ -130,12 +130,12 @@ SELECT gu.login, count(*)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-W poprzednich krokach utworzono zasoby platformy Azure w grupie serwerów. Jeśli nie oczekujesz, że te zasoby będą potrzebne w przyszłości, usuń grupę serwerów. Naciśnij przycisk **Usuń** na stronie **Przegląd** grupy serwerów. Po wyświetleniu monitu na stronie podręcznej potwierdź nazwę grupy serwerów i kliknij przycisk **Usuń.**
+W poprzednich krokach zostały utworzone zasoby platformy Azure w grupie serwerów. Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupę serwerów. Naciśnij przycisk **Usuń** na stronie **Przegląd** dla swojej grupy serwerów. Po wyświetleniu monitu na stronie podręcznej Potwierdź nazwę grupy serwerów, a następnie kliknij przycisk **Usuń** końcowego.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start opisano sposób aprowizowania grupy serwerów w skali hiperskali (Citus). Połączyłeś się z nim z psql, utworzono schemat i rozproszone dane.
+W tym przewodniku szybki start zawarto informacje na temat aprowizacji grupy serwerów z Citus. Nawiązano połączenie z usługą PSQL, utworzono schemat i dane rozproszone.
 
-Następnie wykonaj samouczek, aby utworzyć skalowalne aplikacje wielodostępne.
+Następnie postępuj zgodnie z samouczkiem, aby utworzyć skalowalne aplikacje z wieloma dzierżawcami.
 > [!div class="nextstepaction"]
-> [Projektowanie wielodostępnych baz danych](https://aka.ms/hyperscale-tutorial-multi-tenant)
+> [Projektowanie bazy danych z wieloma dzierżawcami](https://aka.ms/hyperscale-tutorial-multi-tenant)

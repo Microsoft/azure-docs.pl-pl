@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: wysyłanie zdarzeń niestandardowych do funkcji platformy Azure — siatka zdarzeń'
-description: 'Szybki start: publikuj temat i subskrybuj to zdarzenie za pomocą usługi Azure Event Grid i interfejsu wiersza polecenia lub portalu platformy Azure. Funkcja platformy Azure jest używana dla punktu końcowego.'
+title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do funkcji platformy Azure — Event Grid'
+description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza polecenia platformy Azure w celu opublikowania tematu i zasubskrybowania tego zdarzenia. Funkcja platformy Azure jest używana w punkcie końcowym.'
 services: event-grid
 keywords: ''
 author: banisadr
@@ -9,25 +9,25 @@ ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292150"
 ---
-# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure z siatką zdarzeń
+# <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
 
-Azure Event Grid to usługa obsługi zdarzeń dla chmury. Usługa Azure Functions jest jednym z obsługiwanych programów obsługi zdarzeń. W tym artykule omówiono użycie witryny Azure Portal w celu utworzenia tematu niestandardowego, zasubskrybowania go i wyzwolenia zdarzenia pozwalającego na wyświetlenie wyniku. Wysyłasz zdarzenia do funkcji platformy Azure.
+Azure Event Grid to usługa obsługi zdarzeń dla chmury. Azure Functions jest jednym z obsługiwanych obsługi zdarzeń. W tym artykule omówiono użycie witryny Azure Portal w celu utworzenia tematu niestandardowego, zasubskrybowania go i wyzwolenia zdarzenia pozwalającego na wyświetlenie wyniku. Zdarzenia są wysyłane do funkcji platformy Azure.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Tworzenie funkcji platformy Azure
 
-Przed zasubskrybowanie tematu niestandardowego utwórzmy funkcję do obsługi zdarzeń. W witrynie Azure portal kliknij przycisk "Utwórz zasób" i wpisz "function", a następnie wybierz "Aplikacja funkcji" i kliknij przycisk Utwórz. Wybierz opcję "Utwórz nowe" w grupie zasobów i nadaj jej nazwę. Użyjesz tego do końca samouczka. Nadaj aplikacji funkcji nazwę, pozostaw przełącznik "Publikuj" na "Kod", wybierz dowolny czas wykonywania i region, a następnie naciśnij przycisk create.
+Przed zasubskrybowaniem tematu niestandardowego Utwórzmy funkcję do obsługi zdarzeń. W Azure Portal kliknij pozycję "Utwórz zasób" i wpisz "funkcja", a następnie wybierz opcję "aplikacja funkcji" i kliknij przycisk Utwórz. Wybierz pozycję "Utwórz nowy" w obszarze Grupa zasobów i nadaj jej nazwę. Ta funkcja zostanie użyta w pozostałej części samouczka. Nadaj aplikacja funkcji nazwę, pozostaw przełącznik "Publikuj" w "kodzie", Wybierz dowolne środowisko uruchomieniowe i region, a następnie kliknij przycisk Utwórz.
 
-Gdy aplikacja function jest gotowa, przejdź do niej i kliknij przycisk "+ Nowa funkcja". Wybierz "W portalu" dla środowiska programistycznego i naciśnij przycisk kontynuuj. W obszarze Utwórz funkcję wybierz opcję "Więcej szablonów", aby wyświetlić więcej szablonów, a następnie wyszukaj "Wyzwalacz siatki zdarzeń platformy Azure" i wybierz go. Jeśli po raz pierwszy używasz tego wyzwalacza, może być trzeba kliknąć przycisk "Zainstaluj", aby zainstalować rozszerzenie.
+Gdy aplikacja funkcji będzie gotowa, przejdź do niego i kliknij pozycję "+ Nowa funkcja". Wybierz pozycję "w portalu" dla środowiska deweloperskiego i naciśnij przycisk Kontynuuj. W obszarze Utwórz funkcję wybierz pozycję "Więcej szablonów", aby wyświetlić więcej szablonów, a następnie wyszukaj ciąg "Azure Event Grid Trigger" i wybierz go. Jeśli ten wyzwalacz jest używany po raz pierwszy, może być konieczne kliknięcie przycisku "Zainstaluj", aby zainstalować rozszerzenie.
 
-![Wyzwalacz siatki zdarzeń funkcji](./media/custom-event-to-function/grid-trigger.png)
+![Wyzwalacz Event Grid funkcji](./media/custom-event-to-function/grid-trigger.png)
 
 Po zainstalowaniu rozszerzenia kliknij przycisk Kontynuuj, nadaj funkcji nazwę, a następnie naciśnij przycisk Utwórz.
 
@@ -37,57 +37,57 @@ Po zainstalowaniu rozszerzenia kliknij przycisk Kontynuuj, nadaj funkcji nazwę,
 
 Temat usługi Event Grid udostępnia zdefiniowany przez użytkownika punkt końcowy, w którym publikowane są zdarzenia. 
 
-1. Zaloguj się do [witryny Azure portal](https://portal.azure.com/).
-2. Wybierz **pozycję Wszystkie usługi** w menu nawigacyjnym po lewej stronie, wyszukaj pozycję **Siatka zdarzeń**i wybierz pozycję Tematy siatki **zdarzeń**. 
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+2. Wybierz pozycję **wszystkie usługi** w menu nawigacji po lewej stronie, wyszukaj pozycję **Event Grid**i wybierz pozycję **Event Grid tematy**. 
 
-    ![Wybieranie tematów siatki zdarzeń](./media/custom-event-to-function/select-event-grid-topics.png)
-3. Na stronie **Tematy siatki zdarzeń** wybierz pozycję + **Dodaj** na pasku narzędzi. 
+    ![Wybierz tematy Event Grid](./media/custom-event-to-function/select-event-grid-topics.png)
+3. Na stronie **tematy Event Grid** wybierz pozycję **+ Dodaj** na pasku narzędzi. 
 
-    ![Przycisk Dodaj temat siatki zdarzeń](./media/custom-event-to-function/add-event-grid-topic-button.png)
+    ![Dodaj przycisk tematu Event Grid](./media/custom-event-to-function/add-event-grid-topic-button.png)
 
-4. Na stronie **Tworzenie tematu** wykonaj następujące czynności:
+4. Na stronie **Tworzenie tematu** wykonaj następujące kroki:
 
     1. Podaj unikatową **nazwę** tematu niestandardowego. Nazwa tematu musi być unikatowa, ponieważ jest reprezentowana przez wpis DNS. Nie należy używać nazwy widocznej na obrazie. Zamiast tego utwórz własną nazwę — musi mieć od 3 do 50 znaków i może zawierać wyłącznie wartości a–z, A–Z, 0–9 i „-”.
     2. Wybierz swoją **subskrypcję** platformy Azure.
     3. Wybierz tę samą grupę zasobów z poprzednich kroków.
-    4. Wybierz **lokalizację** dla tematu siatki zdarzeń.
-    5. Zachowaj domyślny **schemat siatki zdarzeń** dla pola Schemat **zdarzeń.** 
+    4. Wybierz **lokalizację** tematu usługi Event Grid.
+    5. Zachowaj wartość domyślną **Event Grid schemacie** dla pola **schemat zdarzenia** . 
 
-       ![Strona Utwórz temat](./media/custom-event-to-function/create-custom-topic.png)
-    6. Wybierz **pozycję Utwórz**. 
+       ![Utwórz stronę tematu](./media/custom-event-to-function/create-custom-topic.png)
+    6. Wybierz przycisk **Utwórz**. 
 
-5. Po utworzeniu tematu niestandardowego zostanie wyświetlone powiadomienie z informacją o powodzeniu. Wybierz **pozycję Przejdź do grupy zasobów**. 
+5. Po utworzeniu tematu niestandardowego zostanie wyświetlone powiadomienie z informacją o powodzeniu. Wybierz pozycję **Przejdź do grupy zasobów**. 
 
    ![Wyświetlanie powiadomienia z informacją o powodzeniu](./media/custom-event-to-function/success-notification.png)
 
-6. Na stronie **Grupa zasobów** wybierz temat siatki zdarzeń. 
+6. Na stronie **Grupa zasobów** wybierz temat siatka zdarzeń. 
 
-   ![Wybieranie zasobu tematu siatki zdarzeń](./media/custom-event-to-function/select-event-grid-topic.png)
+   ![Wybierz zasób tematu z siatką zdarzeń](./media/custom-event-to-function/select-event-grid-topic.png)
 
-7. Zostanie wyświetlona strona **Temat siatki zdarzeń** dla siatki zdarzeń. Zachowaj otwartą stronę. Można go użyć w dalszej części przewodnika Szybki start. 
+7. Zostanie wyświetlona strona **tematu Event Grid** dla usługi Event Grid. Pozostaw Tę stronę otwartą. Używasz go później w przewodniku Szybki Start. 
 
-    ![Strona główna tematu siatki wydarzenia](./media/custom-event-to-function/event-grid-topic-home-page.png)
+    ![Strona główna tematu Event Grid](./media/custom-event-to-function/event-grid-topic-home-page.png)
 
 ## <a name="subscribe-to-custom-topic"></a>Subskrybowanie do tematu niestandardowego
 
 Zasubskrybowanie tematu pozwala poinformować usługę Event Grid o tym, które zdarzenia chcesz śledzić i gdzie mają być one wysyłane.
 
-1. Teraz na stronie **Temat siatki zdarzeń** dla tematu niestandardowego wybierz + **Subskrypcja zdarzeń** na pasku narzędzi.
+1. Teraz na stronie **tematu Event Grid** tematu niestandardowego wybierz pozycję **+ subskrypcja zdarzeń** na pasku narzędzi.
 
    ![Dodawanie subskrypcji zdarzeń](./media/custom-event-to-function/new-event-subscription.png)
 
-2. Na stronie **Tworzenie subskrypcji zdarzeń** wykonaj następujące czynności:
-    1. Wprowadź **nazwę** subskrypcji zdarzenia.
-    3. Wybierz **funkcję platformy Azure** dla typu punktu **końcowego**. 
+2. Na stronie **Tworzenie subskrypcji zdarzeń** wykonaj następujące kroki:
+    1. Wprowadź **nazwę** subskrypcji zdarzeń.
+    3. Wybierz **funkcję platformy Azure** dla **typu punktu końcowego**. 
     4. Wybierz **pozycję Wybierz punkt końcowy**. 
 
        ![Podawanie wartości związanych z subskrypcją zdarzeń](./media/custom-event-to-function/provide-subscription-values.png)
 
-    5. Dla punktu końcowego funkcji wybierz subskrypcję platformy Azure i grupę zasobów, w której znajduje się aplikacja funkcji, a następnie wybierz aplikację funkcji i funkcję utworzoną wcześniej. Wybierz pozycję **Potwierdź wybór**.
+    5. Dla punktu końcowego funkcji wybierz subskrypcję platformy Azure i grupę zasobów, w której znajduje się aplikacja funkcji, a następnie wybierz utworzone wcześniej aplikacja funkcji i funkcję. Wybierz pozycję **Potwierdź wybór**.
 
        ![Podawanie adresu URL punktu końcowego](./media/custom-event-to-function/provide-endpoint.png)
 
-    6. Na stronie **Utwórz subskrypcję zdarzeń** wybierz pozycję **Utwórz**.
+    6. Wróć na stronę **Tworzenie subskrypcji zdarzeń** , a następnie wybierz pozycję **Utwórz**.
 
 ## <a name="send-an-event-to-your-topic"></a>Wysyłanie zdarzenia do tematu
 
@@ -97,25 +97,25 @@ W pierwszym przykładzie użyto interfejsu wiersza polecenia platformy Azure. Po
 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-1. W witrynie Azure portal wybierz pozycję **Cloud Shell**. Wybierz **bash** w lewym górnym rogu okna Powłoki chmury. 
+1. W Azure Portal wybierz pozycję **Cloud Shell**. W lewym górnym rogu okna Cloud Shell wybierz pozycję **bash** . 
 
-    ![Powłoka chmury - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
-1. Uruchom następujące polecenie, aby uzyskać **punkt końcowy** dla tematu: Po skopiowaniu i wklejeniu polecenia należy zaktualizować **nazwę tematu** i **nazwę grupy zasobów** przed uruchomieniem polecenia. 
+    ![Cloud Shell — bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+1. Uruchom następujące polecenie, aby uzyskać **punkt końcowy** dla tematu: po skopiowaniu i wklejeniu polecenia zaktualizuj **nazwę tematu** i **nazwę grupy zasobów** przed uruchomieniem polecenia. 
 
     ```azurecli
     endpoint=$(az eventgrid topic show --name <topic name> -g <resource group name> --query "endpoint" --output tsv)
     ```
-2. Uruchom następujące polecenie, aby uzyskać **klucz** dla tematu niestandardowego: Po skopiowaniu i wklejeniu polecenia należy zaktualizować **nazwę tematu** i nazwę **grupy zasobów** przed uruchomieniem polecenia. 
+2. Uruchom następujące polecenie, aby uzyskać **klucz** tematu niestandardowego: po skopiowaniu i wklejeniu polecenia zaktualizuj **nazwę tematu** i nazwę **grupy zasobów** przed uruchomieniem polecenia. 
 
     ```azurecli
     key=$(az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv)
     ```
-3. Skopiuj następującą instrukcję z definicją zdarzenia i naciśnij klawisz **ENTER**. 
+3. Skopiuj poniższą instrukcję z definicją zdarzenia i naciśnij klawisz **Enter**. 
 
     ```json
     event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
     ```
-4. Uruchom następujące polecenie **Curl,** aby zaksięgować zdarzenie:
+4. Uruchom następujące polecenie **zwinięcie** , aby ogłosić zdarzenie:
 
     ```
     curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
@@ -124,8 +124,8 @@ W pierwszym przykładzie użyto interfejsu wiersza polecenia platformy Azure. Po
 ### <a name="azure-powershell"></a>Azure PowerShell
 Drugi przykład obejmuje wykonanie podobnych kroków przy użyciu programu PowerShell.
 
-1. W witrynie Azure **Cloud Shell** portal wybierz cloud `https://shell.azure.com/`shell (alternatywnie przejdź do ). Wybierz program **PowerShell** w lewym górnym rogu okna Powłoki chmury. Zobacz przykładowy obraz okna **powłoki chmury** w sekcji interfejsu wiersza polecenia platformy Azure.
-2. Ustaw następujące zmienne. Po skopiowaniu i wklejeniu każdego polecenia należy zaktualizować **nazwę tematu** i **nazwę grupy zasobów** przed uruchomieniem polecenia:
+1. W Azure Portal wybierz pozycję **Cloud Shell** (Alternatywnie przejdź do `https://shell.azure.com/`). W lewym górnym rogu okna Cloud Shell wybierz pozycję **PowerShell** . Zapoznaj się z przykładowym obrazem okna **Cloud Shell** w sekcji interfejsu wiersza polecenia platformy Azure.
+2. Ustaw następujące zmienne. Po skopiowaniu i wklejeniu każdego polecenia zaktualizuj **nazwę tematu** i **nazwę grupy zasobów** przed uruchomieniem polecenia:
 
     ```powershell
     $resourceGroupName = <resource group name>
@@ -137,7 +137,7 @@ Drugi przykład obejmuje wykonanie podobnych kroków przy użyciu programu Power
     $endpoint = (Get-AzEventGridTopic -ResourceGroupName $resourceGroupName -Name $topicName).Endpoint
     $keys = Get-AzEventGridTopicKey -ResourceGroupName $resourceGroupName -Name $topicName
     ```
-4. Przygotuj wydarzenie. Skopiuj i uruchom instrukcje w oknie Powłoka chmury. 
+4. Przygotuj zdarzenie. Skopiuj i uruchom instrukcje w oknie Cloud Shell. 
 
     ```powershell
     $eventID = Get-Random 99999
@@ -162,28 +162,28 @@ Drugi przykład obejmuje wykonanie podobnych kroków przy użyciu programu Power
     #Append square brackets to the converted JSON payload since they are expected in the event's JSON payload syntax
     $body = "["+(ConvertTo-Json $htbody)+"]"
     ```
-5. Użyj polecenia cmdlet **Invoke-WebRequest,** aby wysłać zdarzenie. 
+5. Użyj polecenia cmdlet **Invoke-WebRequest** , aby wysłać zdarzenie. 
 
     ```powershell
     Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
     ```
 
-### <a name="verify-in-the-event-grid-viewer"></a>Sprawdź w Podglądzie siatki zdarzeń
-Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do funkcji wyzwalania siatki zdarzeń i otwórz dzienniki. Powinna zostać wyświetlone kopia ładunku danych zdarzenia w dziennikach. Jeśli nie upewnij się, że najpierw otworzysz okno dzienników lub natkniesz się ponownie, a następnie spróbuj ponownie wysłać zdarzenie testowe.
+### <a name="verify-in-the-event-grid-viewer"></a>Sprawdź w podglądzie Event Grid
+Zdarzenie zostało wyzwolone, a usługa Event Grid wysłała komunikat do punktu końcowego skonfigurowanego podczas subskrybowania. Przejdź do funkcji wyzwalanej przez Event Grid i Otwórz dzienniki. W dziennikach powinna zostać wyświetlona kopia ładunku danych zdarzenia. Jeśli nie chcesz, aby najpierw otworzyć okno dzienniki, lub naciśnij przycisk ponownie nawiąż połączenie, a następnie ponów próbę wysłania zdarzenia testowego.
 
-![Dziennik wyzwalacza funkcji pomyślnej](./media/custom-event-to-function/successful-function.png)
+![Dziennik wyzwalacza funkcji zakończonych powodzeniem](./media/custom-event-to-function/successful-function.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Jeśli zamierzasz kontynuować pracę z tym zdarzeniem, nie usuwaj zasobów utworzonych w tym artykule. W przeciwnym razie usuń zasoby utworzone w ramach tego artykułu.
 
-1. Wybierz **pozycję Grupy zasobów** w menu po lewej stronie. Jeśli nie widzisz go w menu po lewej stronie, wybierz **polecenie Wszystkie usługi** w menu po lewej stronie i wybierz pozycję Grupy **zasobów**. 
-2. Wybierz grupę zasobów, aby uruchomić stronę **Grupa zasobów.** 
-3. Wybierz **pozycję Usuń grupę zasobów** na pasku narzędzi. 
+1. W menu po lewej stronie wybierz pozycję **grupy zasobów** . Jeśli nie widzisz go w menu po lewej stronie, wybierz pozycję **wszystkie usługi** w menu po lewej stronie, a następnie wybierz pozycję **grupy zasobów**. 
+2. Wybierz grupę zasobów, aby uruchomić stronę **Grupa zasobów** . 
+3. Na pasku narzędzi wybierz pozycję **Usuń grupę zasobów** . 
 4. Potwierdź usunięcie, wprowadzając nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**. 
 
     ![Grupy zasobów](./media/custom-event-to-function/delete-resource-groups.png)
 
-    Inna grupa zasobów widoczna na obrazie została utworzona i użyta przez okno Powłoka chmury. Usuń go, jeśli nie planujesz później korzystać z okna Powłoki chmury. 
+    Inna grupa zasobów widoczna w obrazie została utworzona i użyta przez okno Cloud Shell. Usuń ten element, jeśli nie planujesz użyć okna Cloud Shell w późniejszym czasie. 
 
 ## <a name="next-steps"></a>Następne kroki
 

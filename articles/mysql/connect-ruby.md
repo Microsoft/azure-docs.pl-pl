@@ -1,5 +1,5 @@
 ---
-title: Połącz się przy użyciu ruby — usługa Azure Database for MySQL
+title: Nawiązywanie połączenia za pomocą języka Ruby-Azure Database for MySQL
 description: Ten przewodnik Szybki start zawiera kilka przykładów kodu języka Ruby, których można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74770649"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań za pomocą języka Ruby
@@ -35,13 +35,13 @@ Zainstaluj język Ruby, rozwiązanie Gem i bibliotekę MySQL2 na własnym komput
 6. Skompiluj moduł Mysql2 dla języka Ruby przy użyciu rozwiązania Gem, uruchamiając polecenie `gem install mysql2`.
 
 ### <a name="macos"></a>MacOS
-1. Zainstaluj język Ruby przy użyciu programu Homebrew, uruchamiając polecenie `brew install ruby`. Aby uzyskać więcej opcji instalacji, zobacz [dokumentację instalacji](https://www.ruby-lang.org/en/documentation/installation/#homebrew)Ruby .
+1. Zainstaluj język Ruby przy użyciu programu Homebrew, uruchamiając polecenie `brew install ruby`. Więcej opcji instalacji można znaleźć w [dokumentacji instalacji](https://www.ruby-lang.org/en/documentation/installation/#homebrew)języka Ruby.
 2. Przetestuj instalację języka Ruby, uruchamiając polecenie `ruby -v`, aby sprawdzić zainstalowaną wersję.
 3. Przetestuj instalację rozwiązania Gem, uruchamiając polecenie `gem -v`, aby sprawdzić zainstalowaną wersję.
 4. Skompiluj moduł Mysql2 dla języka Ruby przy użyciu rozwiązania Gem, uruchamiając polecenie `gem install mysql2`.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-1. Zainstaluj język Ruby, uruchamiając polecenie `sudo apt-get install ruby-full`. Aby uzyskać więcej opcji instalacji, zobacz [dokumentację instalacji](https://www.ruby-lang.org/en/documentation/installation/)Ruby .
+1. Zainstaluj język Ruby, uruchamiając polecenie `sudo apt-get install ruby-full`. Więcej opcji instalacji można znaleźć w [dokumentacji instalacji](https://www.ruby-lang.org/en/documentation/installation/)języka Ruby.
 2. Przetestuj instalację języka Ruby, uruchamiając polecenie `ruby -v`, aby sprawdzić zainstalowaną wersję.
 3. Zainstaluj najnowsze aktualizacje rozwiązania Gem, uruchamiając polecenie `sudo gem update --system`.
 4. Przetestuj instalację rozwiązania Gem, uruchamiając polecenie `gem -v`, aby sprawdzić zainstalowaną wersję.

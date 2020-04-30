@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240226"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji Cassandra za pomocą usługi .NET SDK i usługi Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu .NET SDK i Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "79240226"
 > * [Python](create-cassandra-python.md)
 >  
 
-Ten przewodnik Szybki start pokazuje, jak używać interfejsu API .NET i usługi Azure Cosmos DB [Cassandra](cassandra-introduction.md) do tworzenia aplikacji profilu przez klonowanie przykładu z usługi GitHub. W tym przewodniku Szybki start pokazano również sposób tworzenia konta usługi Azure Cosmos DB przy użyciu witryny internetowej Azure Portal.
+W tym przewodniku szybki start pokazano, jak używać platformy .NET i [interfejs API Cassandra](cassandra-introduction.md) Azure Cosmos DB, aby utworzyć aplikację profilu, klonowanie przykładu z usługi GitHub. W tym przewodniku Szybki start pokazano również sposób tworzenia konta usługi Azure Cosmos DB przy użyciu witryny internetowej Azure Portal.
 
 Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu globalnego rozproszenia i możliwości skalowania w poziomie w usłudze Azure Cosmos DB można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, tabel, par klucz/wartość i grafowe. 
 
@@ -33,7 +33,7 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Można też [bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure — nie wymaga to opłat ani zobowiązań.
 
 Potrzebne są też następujące elementy: 
-* Jeśli nie masz jeszcze zainstalowanej programu Visual Studio 2019, możesz pobrać **bezpłatną** [wersję programu Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niej. Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
+* Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać i korzystać **bezpłatnie** z programu [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Podczas instalacji programu Visual Studio upewnij się, że jest włączona opcja **Programowanie na platformie Azure**.
 * Zainstaluj usługę [Git](https://www.git-scm.com/), aby sklonować przykład.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia](./media/create-cassandra-dotnet/keys.png)
 
-2. W programie Visual Studio otwórz plik Program.cs. 
+2. W programie Visual Studio Otwórz plik Program.cs. 
 
 3. Wklej wartość NAZWA UŻYTKOWNIKA z portalu do lokalizacji `<FILLME>` w wierszu 13.
 
@@ -146,7 +146,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     
 ## <a name="run-the-net-app"></a>Uruchamianie aplikacji .NET
 
-1. W programie Visual Studio wybierz pozycję **Narzędzia** > **NuGet Package Manager** > **Package Manager Console**.
+1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
 
 2. W wierszu polecenia użyj poniższego polecenia, aby zainstalować pakiet NuGet sterownika platformy .NET. 
 

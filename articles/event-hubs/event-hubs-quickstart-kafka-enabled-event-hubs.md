@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: przesyłanie strumieniowe danych za pomocą usługi Azure Event Hubs przy użyciu protokołu Platformy Kafka'
-description: 'Szybki start: Ten artykuł zawiera informacje dotyczące sposobu przesyłania strumieniowego do usługi Azure Event Hubs przy użyciu protokołu Platformy Kafka i interfejsów API.'
+title: 'Szybki Start: przesyłanie strumieniowe danych za pomocą usługi Azure Event Hubs przy użyciu protokołu Kafka'
+description: 'Szybki Start: Ten artykuł zawiera informacje dotyczące przesyłania strumieniowego do usługi Azure Event Hubs przy użyciu protokołu i interfejsów API Kafka.'
 services: event-hubs
 author: ShubhaVijayasarathy
 ms.author: shvija
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261826"
 ---
-# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Szybki start: przesyłanie strumieniowe danych za pomocą centrów zdarzeń przy użyciu protokołu Platformy Kafka
-Ten przewodnik Szybki start pokazuje, jak przesyłać strumieniowo do centrów zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Dowiesz się, jak używać producentów i konsumentów do rozmów z centrum zdarzeń tylko ze zmianą konfiguracji w aplikacjach. Usługa Azure Event Hubs obsługuje [platformę Apache Kafka w wersji 1.0.](https://kafka.apache.org/10/documentation.html)
+# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Szybki Start: przesyłanie strumieniowe danych z Event Hubs przy użyciu protokołu Kafka
+Ten przewodnik Szybki Start przedstawia sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Dowiesz się, jak używać swoich producentów i konsumentów, aby komunikować się z Event Hubs tylko zmianą konfiguracji w aplikacjach. Usługa Azure Event Hubs obsługuje [platformę Apache Kafka w wersji 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
 > Ten przykład jest dostępny w witrynie [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
@@ -33,10 +33,10 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Tworzenie przestrzeni nazw usługi Event Hubs
-Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt końcowy platformy Kafka dla obszaru nazw jest automatycznie włączony. Można przesyłać strumieniowo zdarzenia z aplikacji korzystających z protokołu Kafka do centrum zdarzeń warstwy standardowej. Postępuj zgodnie z instrukcjami krok po kroku w [Centrum tworzenia zdarzeń przy użyciu witryny Azure Portal,](event-hubs-create.md) aby utworzyć obszar nazw centrum zdarzeń warstwy **standardowej.** 
+Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt końcowy Kafka dla przestrzeni nazw jest automatycznie włączany. Zdarzenia z aplikacji korzystających z protokołu Kafka można przesyłać strumieniowo do warstwy Standardowa Event Hubs. Postępuj zgodnie z instrukcjami krok po kroku w temacie [Tworzenie centrum zdarzeń przy użyciu Azure Portal](event-hubs-create.md) , aby utworzyć Event Hubs przestrzeni nazw w warstwie **standardowa** . 
 
 > [!NOTE]
-> Centra zdarzeń dla platformy Kafka są dostępne tylko w **warstwach standardowych** i **dedykowanych.** Warstwa **podstawowa** nie obsługuje platformy Kafka w centrach zdarzeń.
+> Event Hubs dla Kafka jest dostępny tylko w warstwach **standardowa** i **dedykowana** . Warstwa **podstawowa** nie obsługuje Kafka na Event Hubs.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Wysyłanie i odbieranie komunikatów przy użyciu platformy Kafka w usłudze Event Hubs
 
@@ -54,7 +54,7 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-    **Oauth:**
+    **OAuth**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -64,8 +64,8 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ```    
 
-    Kod źródłowy dla klasy obsługi przykładowej CustomAuthenticateCallbackHandler można znaleźć w serwisie GitHub [tutaj.](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java)
-4. Uruchom kod producenta i strumieniuj zdarzenia do Centrów zdarzeń:
+    Kod źródłowy dla przykładowej klasy obsługi CustomAuthenticateCallbackHandler w witrynie GitHub można znaleźć [tutaj](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+4. Uruchom kod producenta i zdarzenia strumienia w Event Hubs:
    
     ```shell
     mvn clean package
@@ -85,7 +85,7 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
-    **Oauth:**
+    **OAuth**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -95,10 +95,10 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
 
-    Kod źródłowy dla klasy obsługi przykładowej CustomAuthenticateCallbackHandler można znaleźć w serwisie GitHub [tutaj.](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java)
+    Kod źródłowy dla przykładowej klasy obsługi CustomAuthenticateCallbackHandler w witrynie GitHub można znaleźć [tutaj](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 
-    Tutaj można znaleźć wszystkie przykłady OAuth dla centrów zdarzeń dla platformy [Kafka.](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth)
-7. Uruchom kod konsumenta i przetwarzaj zdarzenia z Centrum zdarzeń przy użyciu klientów platformy Kafka:
+    Wszystkie przykłady OAuth dla Event Hubs Kafka można znaleźć [tutaj](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+7. Uruchamianie kodu klienta i przetwarzanie zdarzeń z centrum zdarzeń przy użyciu klientów Kafka:
 
     ```java
     mvn clean package
@@ -108,4 +108,4 @@ Podczas tworzenia obszaru nazw centrum zdarzeń warstwy **standardowej** punkt k
 Jeśli klaster platformy Kafka w usłudze Event Hub ma zdarzenia, teraz powinno się rozpocząć ich odbieranie od konsumenta.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule dowiesz się, jak przesyłać strumieniowo do centrów zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej, zobacz [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
+W tym artykule przedstawiono sposób przesyłania strumieniowego do Event Hubs bez zmiany klientów protokołu lub uruchamiania własnych klastrów. Aby dowiedzieć się więcej, zobacz [Apache Kafka Przewodnik dla deweloperów dla Event Hubs platformy Azure](apache-kafka-developer-guide.md). 

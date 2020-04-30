@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: Tworzenie serwera — narzędzie interfejsu wiersza polecenia platformy Azure — usługa Azure Database for MySQL'
+title: 'Szybki Start: Tworzenie serwera — interfejs wiersza polecenia platformy Azure — Azure Database for MySQL'
 description: W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MySQL w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure.
 author: ajlam
 ms.author: andrela
@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74773521"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Szybki start: tworzenie bazy danych platformy Azure dla serwera MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!TIP]
-> Należy rozważyć użycie prostszego [az mysql się](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) polecenia interfejsu wiersza polecenia platformy Azure (obecnie w wersji zapoznawczej). Wypróbuj [szybki start](./quickstart-create-server-up-azure-cli.md).
+> Rozważ użycie prostszego polecenia [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI (obecnie w wersji zapoznawczej). Wypróbuj [Przewodnik Szybki Start](./quickstart-create-server-up-azure-cli.md).
 
 W tym przewodniku Szybki start opisano, jak utworzyć serwer usługi Azure Database for MySQL w grupie zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure w czasie około pięciu minut. Interfejs wiersza polecenia platformy Azure umożliwia tworzenie zasobów Azure i zarządzanie nimi z poziomu wiersza polecenia lub skryptów.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne](https://azure.microsoft.com/free/) konto przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -55,7 +55,7 @@ geo-redundant-backup | Disabled (Wyłączony) | Określa, czy dla tego serwera p
 location | westus | Lokalizacja platformy Azure dla serwera.
 ssl-enforcement | Enabled (Włączony) | Określa, czy dla serwera powinien być włączony protokół SSL. Dozwolone wartości: Enabled (włączone) i Disabled (wyłączone).
 storage-size | 51200 | Pojemność magazynu serwera (w megabajtach). Rozmiar magazynu powinien wynosić co najmniej 5120 MB i można go zwiększać o wielokrotność 1024 MB. Zobacz dokument dotyczący [warstw cenowych](./concepts-pricing-tiers.md), aby uzyskać więcej informacji na temat limitu rozmiaru magazynu. 
-version | 5.7 | Wersja główna MySQL.
+Wersja | 5.7 | Wersja główna MySQL.
 admin-user | myadmin | Nazwa użytkownika w przypadku logowania administratora. Nie może być to **azure_superuser**, **admin**, **administrator**, **root**, **guest** ani **public**.
 admin-password | *bezpieczne hasło* | Hasło użytkownika administratora. Musi zawierać od 8 do 128 znaków. Hasło musi zawierać znaki z trzech z następujących kategorii: wielkie litery angielskie, małe litery angielskie, cyfry i znaki inne niż alfanumeryczne.
 

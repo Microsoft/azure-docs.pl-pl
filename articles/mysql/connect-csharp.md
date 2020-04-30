@@ -1,5 +1,5 @@
 ---
-title: Połącz się przy użyciu języka C# — usługa Azure Database for MySQL
+title: Nawiązywanie połączenia przy użyciu języka C# — Azure Database for MySQL
 description: Ten przewodnik Szybki start zawiera przykład kodu w języku C# (.NET), którego można używać do nawiązywania połączeń z danymi usługi Azure Database for MySQL i wykonywania zapytań względem nich.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067988"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Usługa Azure Database for MySQL: nawiązywanie połączeń z danymi i wykonywanie na nich zapytań przy użyciu platformy .NET (języka C#)
@@ -24,7 +24,7 @@ Ten przewodnik Szybki start jako punktu wyjścia używa zasobów utworzonych w j
 - [Tworzenie serwera usługi Azure Database for MySQL za pomocą interfejsu wiersza polecenia platformy Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Należy również:
-- Zainstaluj [plik .NET](https://www.microsoft.com/net/download). Postępuj zgodnie z instrukcjami z połączonego artykułu, aby zainstalować program .NET dla danej platformy (Windows, Ubuntu Linux lub macOS). 
+- Zainstaluj [platformę .NET](https://www.microsoft.com/net/download). Postępuj zgodnie z instrukcjami z połączonego artykułu, aby zainstalować program .NET dla danej platformy (Windows, Ubuntu Linux lub macOS). 
 - Zainstaluj [program Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-c-project"></a>Tworzenie projektu języka C#

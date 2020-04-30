@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: e11e6e4cc0194991b322d591049d7156b9979c45
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254057"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Szybki start: tworzenie profilu i punktu końcowego usługi Azure CDN
@@ -53,12 +53,12 @@ Utworzony profil usługi CDN może służyć do tworzenia punktu końcowego.
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | **Nazwa** | Wprowadź ciąg *my-endpoint-123* jako nazwę hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa; jeśli jest już używana, można wprowadzić inną nazwę. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w _ &lt;nazwie&gt;punktu końcowego_domeny .azureedge.net.|
-    | **Typ źródła** | Wybierz **opcję Magazyn**. | 
+    | **Nazwa** | Wprowadź ciąg *my-endpoint-123* jako nazwę hosta punktu końcowego. Ta nazwa musi być globalnie unikatowa; jeśli jest już używana, można wprowadzić inną nazwę. Ta nazwa służy do uzyskiwania dostępu do buforowanych zasobów w domenie _ &lt;nazwa&gt;punktu końcowego_. azureedge.NET.|
+    | **Typ źródła** | Wybierz pozycję **Magazyn**. | 
     | **Nazwa hosta źródła** | Wprowadź ciąg *mystorageacct123.blob.core.windows.net* jako nazwę hosta. Ta nazwa musi być globalnie unikatowa; jeśli jest już używana, można wprowadzić inną nazwę. |
     | **Ścieżka do źródła** | Pozostaw to pole puste. |
     | **Nagłówek hosta źródła** | Pozostaw wygenerowaną wartość domyślną. |  
-    | **Protokół** | Pozostaw domyślnie wybrane opcje **HTTP** i **HTTPS**. |
+    | **Protokol** | Pozostaw domyślnie wybrane opcje **HTTP** i **HTTPS**. |
     | **Port źródła** | Pozostaw domyślne wartości portów. | 
     | **Zoptymalizowano pod kątem** | Pozostaw domyślnie wybraną pozycję **Ogólne dostarczanie w Internecie**. |
 

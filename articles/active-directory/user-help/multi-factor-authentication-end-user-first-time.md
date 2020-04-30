@@ -1,6 +1,6 @@
 ---
-title: Co to jest strona Dodatkowa weryfikacja? - Usługa Azure AD
-description: Jak uzyskać informacje na temat dodatkowej weryfikacji zabezpieczeń w celu weryfikacji dwuskładnikowej.
+title: Co to jest strona Dodatkowa weryfikacja? — Azure AD
+description: Jak przejść do strony dodatkowej weryfikacji zabezpieczeń na potrzeby weryfikacji dwuskładnikowej.
 services: active-directory
 author: curtand
 manager: daveba
@@ -11,57 +11,57 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062561"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Co to jest strona Dodatkowa weryfikacja?
 
-Dotarła do Ciebie wiadomość e-mail z działu IT lub przełożonego z informacją, że organizacja dodała dodatkową weryfikację zabezpieczeń do Twojego konta. Co to oznacza? Oznacza to, że Twoja organizacja podejmuje dodatkowe kroki, aby upewnić się, że jesteś osobą, za którą podajesz się podczas logowania. Ta dodatkowa weryfikacja, znana również jako weryfikacja dwuskładniowa, odbywa się za pomocą kombinacji nazwy użytkownika, hasła oraz urządzenia mobilnego lub telefonu.
+Dotarła do Ciebie wiadomość e-mail z działu IT lub przełożonego z informacją, że organizacja dodała dodatkową weryfikację zabezpieczeń do Twojego konta. Co to oznacza? Oznacza to, że Twoja organizacja podejmuje dodatkowe kroki, aby upewnić się, że jesteś osobą, za którą podajesz się podczas logowania. Ta dodatkowa weryfikacja, znana także jako weryfikacja dwuskładnikowa, odbywa się za pomocą kombinacji nazwy użytkownika, hasła oraz urządzenia przenośnego lub telefonu.
 
-Weryfikacja dwuskładniowa jest bezpieczniejsza niż tylko hasło, ponieważ opiera się na dwóch formach uwierzytelniania: czymś, co wiesz i czymś, co masz przy sobie. Coś, co znasz, to hasło. Coś, co masz, to telefon lub urządzenie, które często masz przy sobie. Weryfikacja dwuskładniowa może pomóc powstrzymać złośliwych hakerów przed podszywaniem się pod Ciebie, ponieważ nawet jeśli mają twoje hasło, szanse są takie, że nie mają też Twojego urządzenia.
+Weryfikacja dwuetapowa jest bezpieczniejsza niż tylko hasło, ponieważ opiera się on na dwóch formach uwierzytelniania: coś znanego i dla Ciebie. Coś, co znasz, to hasło. Coś, co masz, to telefon lub urządzenie, które często masz przy sobie. Weryfikacja dwuetapowa może pomóc w zablokowaniu przez użytkownika złośliwych hakerów, ponieważ nawet jeśli mają swoje hasło, szanse się, że nie mają one również Twojego urządzenia.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących użyć weryfikacji dwuskładnikowej z kontem służbowym alain@contoso.com(np. ). Jeśli jesteś administratorem szukającym informacji o tym, jak włączyć weryfikację dwuskładnikową dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją uwierzytelniania usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z weryfikacji dwuskładnikowej przy użyciu konta służbowego (np. alain@contoso.com). Jeśli jesteś administratorem, aby uzyskać informacje na temat sposobu włączania weryfikacji dwuskładnikowej dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją dotyczącą uwierzytelniania Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Kto decyduje o możliwości użycia tej funkcji?
 
 W zależności od typu konta o konieczności korzystania z weryfikacji dwuskładnikowej może zdecydować Twoja organizacja lub ta decyzja może zostać przeniesiona na użytkownika.
 
-- **Konto służbowe.** Jeśli używasz konta służbowego (na przykład alain@contoso.com), to Twoja organizacja decyduje, czy musisz korzystać z weryfikacji dwuskładnikowej i konkretnych metod weryfikacji. Ponieważ organizacja zdecydowała, że należy użyć tej funkcji, nie ma możliwości jej indywidualnego wyłączenia.
+- **Konto służbowe.** Jeśli używasz konta służbowego (na przykład alain@contoso.com), to Twoja organizacja decyduje, czy musisz korzystać z weryfikacji dwuskładnikowej i konkretnych metod weryfikacji. Ponieważ organizacja zdecydowała się na korzystanie z tej funkcji, nie ma możliwości jej samoistnienia.
 
-- **Osobiste konto Microsoft.** Weryfikację dwuskładnikowa można skonfigurować dla osobistych kont Microsoft (na przykład alain@outlook.com). Jeśli masz problemy z weryfikacją dwuskładnikową i osobistym kontem Microsoft, zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konta Microsoft.](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off) Ponieważ wybierzesz, czy chcesz korzystać z tej funkcji, możesz ją włączać i wyłączać w dowolnym momencie.
+- **Osobiste konto Microsoft.** Weryfikację dwuskładnikowa można skonfigurować dla osobistych kont Microsoft (na przykład alain@outlook.com). Jeśli masz problemy z weryfikacją dwuetapową i osobistą konto Microsoft, zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Ze względu na to, czy należy używać tej funkcji, możesz ją włączać i wyłączać w dowolnym momencie.
 
     >[!Note]
-    >Jeśli masz problemy z weryfikacją dwuskładnikową i jednym danielle@outlook.comz osobistych kont Microsoft (na przykład), możesz wypróbować sugestie dotyczące [sposobu korzystania z weryfikacji dwuetapowej z kontem Microsoft.](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification)
+    >Jeśli masz problemy z weryfikacją dwuetapową i jednym z osobistych kont Microsoft (na przykład danielle@outlook.com), możesz wypróbować sugestie dotyczące [sposobu korzystania z weryfikacji dwuetapowej z konto Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
-## <a name="access-the-additional-security-verification-page"></a>Dostęp do strony Dodatkowa weryfikacja zabezpieczeń
+## <a name="access-the-additional-security-verification-page"></a>Dostęp do strony dodatkowej weryfikacji zabezpieczeń
 
-Po włączeniu organizacji i skonfigurowaniu weryfikacji dwuskładnikowej pojawi się monit z informacją o dostarczeniu większej ilości informacji, które pomogą ci zabezpieczyć konto.
+Po włączeniu i skonfigurowaniu weryfikacji dwuskładnikowej zostanie wyświetlony monit z prośbą o podanie dodatkowych informacji w celu zabezpieczenia konta.
 
-![Więcej informacji wymaganych monit](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
+![Monit o podanie większej ilości informacji](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
 
-### <a name="to-access-the-additional-security-verification-page"></a>Aby uzyskać dostęp do strony Dodatkowa weryfikacja zabezpieczeń
+### <a name="to-access-the-additional-security-verification-page"></a>Aby uzyskać dostęp do strony dodatkowej weryfikacji zabezpieczeń
 
-1. Wybierz **przycisk Dalej** z monitu Więcej **wymaganych informacji.**
+1. Wybierz pozycję **dalej** z monitu **więcej informacji** .
 
-    Zostanie wyświetlona strona **Dodatkowa weryfikacja zabezpieczeń.**
+    Zostanie wyświetlona strona **dodatkowa Weryfikacja zabezpieczeń** .
 
-2. Na stronie **Dodatkowa weryfikacja zabezpieczeń** musisz zdecydować, której dwuskładnikowej metody weryfikacji użyć, aby zweryfikować, że jesteś tym, kim się mówisz po zalogowaniu się na konto służbowe. Dostępne są następujące opcje:
+2. Na stronie **dodatkowej weryfikacji zabezpieczeń** należy zdecydować, która metoda weryfikacji dwuskładnikowej ma zostać użyta w celu zweryfikowania, czy po zalogowaniu się do konta służbowego lub szkolnego. Dostępne są następujące opcje:
 
     | Metoda kontaktu | Opis |
     | --- | --- |
-    | Aplikacja mobilna | <ul><li>**Otrzymuj powiadomienia do weryfikacji.** Ta opcja powoduje wypuszczenie powiadomienia do aplikacji uwierzytelniającego na smartfonie lub tablecie. Wyświetl powiadomienie i, jeśli jest zgodne z prawem, wybierz pozycję **Uwierzytelnij** w aplikacji. Praca lub szkoła może wymagać wprowadzenia kodu PIN przed uwierzytelnieniem.</li><li>**Użyj kodu weryfikacyjnego.** W tym trybie aplikacja uwierzytelniającego generuje kod weryfikacyjny, który jest aktualizowany co 30 sekund. Wprowadź najbardziej aktualny kod weryfikacyjny na ekranie logowania.<br>Aplikacja Microsoft Authenticator jest dostępna dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
-    | Telefon uwierzytelniający | <ul><li>**Połączenie telefoniczne** umieszcza automatyczne połączenie głosowe na podajone przez Ciebie numer telefonu. Odbierz połączenie i naciśnij klawisz funta (#) na klawiaturze telefonu, aby uwierzytelnić się.</li><li>**Wiadomość tekstowa** kończy wiadomość tekstową zawierającą kod weryfikacyjny. Po wierszu w tekście odpowiedz na wiadomość tekstową lub wprowadź kod weryfikacyjny podany w interfejsie logowania.</li></ul> |
-    | Telefon służbowy | Umieszcza automatyczne połączenie głosowe na podanym numerem telefonu. Odbierz połączenie i naciśnij klawisz funta (#) na klawiaturze telefonu, aby uwierzytelnić się. |
+    | Aplikacja mobilna | <ul><li>**Otrzymuj powiadomienia o weryfikacji.** Ta opcja powoduje wypchnięcie powiadomienia do aplikacji Authenticator na telefonie Smartphone lub tablecie. Wyświetl powiadomienie i, jeśli jest ono wiarygodne, wybierz pozycję **Uwierzytelnij** w aplikacji. Przed uwierzytelnieniem może być wymagane wprowadzenie numeru PIN przez użytkownika lub szkołę.</li><li>**Użyj kodu weryfikacyjnego.** W tym trybie aplikacja Authenticator generuje kod weryfikacyjny, który aktualizuje co 30 sekund. Wprowadź najbardziej aktualny kod weryfikacyjny na ekranie logowania.<br>Aplikacja Microsoft Authenticator jest dostępna dla systemów [Android](https://go.microsoft.com/fwlink/?linkid=866594) i [iOS](https://go.microsoft.com/fwlink/?linkid=866594).</li></ul> |
+    | Numer telefonu uwierzytelniania | <ul><li>**Połączenie telefoniczne** umieszcza automatyczne połączenie głosowe z podanym numerem telefonu. Odpowiedz na wywołanie i naciśnij klawisz krzyżyka (#) na klawiaturze telefonu w celu uwierzytelnienia.</li><li>**Wiadomość SMS** zawiera wiadomość tekstową zawierającą kod weryfikacyjny. Po wyświetleniu monitu w tekście należy odpowiedzieć na wiadomość tekstową lub wprowadzić kod weryfikacyjny podany w interfejsie logowania.</li></ul> |
+    | Telefon służbowy | Umieszcza automatyczne połączenie głosowe z podanym numerem telefonu. Odpowiedz na wywołanie i naciśnij klawisz krzyżyka (#) na klawiaturze telefonu w celu uwierzytelnienia. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po przejściu dostępu do strony **Dodatkowa weryfikacja zabezpieczeń** musisz wybrać i skonfigurować metodę weryfikacji dwuskładnikowej:
+Po uzyskaniu dostępu do strony **dodatkowej weryfikacji zabezpieczeń** należy wybrać i skonfigurować metodę weryfikacji dwuskładnikowej:
 
-- [Konfigurowanie urządzenia mobilnego jako metody weryfikacji](multi-factor-authentication-setup-phone-number.md)
+- [Konfigurowanie urządzenia przenośnego jako metody weryfikacji](multi-factor-authentication-setup-phone-number.md)
 
 - [Konfigurowanie telefonu biurowego jako metody weryfikacji](multi-factor-authentication-setup-office-phone.md)
 

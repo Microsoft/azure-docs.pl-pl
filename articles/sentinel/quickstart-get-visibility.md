@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: wprowadzenie do usługi Azure Sentinel'
-description: Szybki start usługi Azure Sentinel — wprowadzenie do usługi Azure Sentinel
+title: 'Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem'
+description: Przewodnik Szybki Start platformy Azure — wprowadzenie do platformy Azure
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -11,85 +11,85 @@ ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067680"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki start: wprowadzenie do usługi Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
 
 
 
 
-W tym przewodniku Szybki start dowiesz się, jak szybko wyświetlać i monitorować, co dzieje się w twoim środowisku za pomocą usługi Azure Sentinel. Po połączeniu źródeł danych z usługą Azure Sentinel otrzymujesz natychmiastową wizualizację i analizę danych, dzięki czemu możesz wiedzieć, co dzieje się we wszystkich połączonych źródłach danych. Usługa Azure Sentinel udostępnia skoroszyty, które zapewniają pełną moc narzędzi już dostępnych na platformie Azure, a także tabele i wykresy, które są wbudowane, aby zapewnić ci analizę dzienników i zapytań. Możesz użyć wbudowanych skoroszytów lub łatwo utworzyć nowy skoroszyt od podstaw lub na podstawie istniejącego skoroszytu. 
+W tym przewodniku szybki start dowiesz się, jak szybko wyświetlać i monitorować działania wykonywane w danym środowisku za pomocą platformy Azure. Po nawiązaniu połączenia ze źródłami danych na platformie Azure wskażesz błyskawiczną wizualizację i analizę danych, aby dowiedzieć się, co się dzieje między wszystkimi połączonymi źródłami danych. Wskaźnik na platformie Azure przedstawia skoroszyty zapewniające pełną moc narzędzi już dostępnych na platformie Azure, a także tabele i wykresy, które są wbudowane w celu zapewnienia analiz dla dzienników i zapytań. Można używać wbudowanych skoroszytów lub łatwo tworzyć nowe skoroszyty od podstaw lub w oparciu o istniejący skoroszyt. 
 
-## <a name="get-visualization"></a>Uzyskaj wizualizację
+## <a name="get-visualization"></a>Pobierz wizualizację
 
-Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpierw zapoznaj się z pulpitem nawigacyjnym przeglądu, aby zorientować się w postawie bezpieczeństwa w organizacji. Możesz kliknąć na każdy element tych kafelków, aby przejść do szczegółów do nieprzetworzonych danych, z których są tworzone. Aby zmniejszyć hałas i zminimalizować liczbę alertów, które należy przejrzeć i zbadać, usługa Azure Sentinel używa techniki fuzji w celu skorelowania alertów z zdarzeniami. **zdarzenia** to grupy powiązanych alertów, które razem tworzą zdarzenie, które można zbadać i rozwiązać.
+Aby wizualizować i uzyskać analizę tego, co dzieje się w środowisku, najpierw zapoznaj się z omówieniem pulpitu nawigacyjnego, aby uzyskać pomysł dotyczący zabezpieczeń stan organizacji. Możesz kliknąć każdy element tych kafelków, aby przejść do danych pierwotnych, z których zostały utworzone. Aby ułatwić zredukowanie szumu i zminimalizować liczbę alertów, które należy przejrzeć i zbadać, wskaźnik platformy Azure używa techniki Fusion do skorelowania alertów w zdarzenia. **zdarzenia** to grupy powiązanych alertów, które razem tworzą incydent do działania, który można zbadać i rozwiązać.
 
-- W witrynie Azure portal wybierz pozycję Azure Sentinel, a następnie wybierz obszar roboczy, który chcesz monitorować.
+- W Azure Portal wybierz pozycję wskaźnik kontroli platformy Azure, a następnie wybierz obszar roboczy, który chcesz monitorować.
 
   ![Omówienie usługi Azure Sentinel](./media/qs-get-visibility/overview.png)
 
-- Pasek narzędzi u góry informuje, ile zdarzeń masz w wybranym okresie czasu i porównuje je z poprzednimi 24 godzinami. Pasek narzędzi informuje o tych zdarzeniach, alerty, które zostały wyzwolone (mała liczba reprezentuje zmiany w ciągu ostatnich 24 godzin), a następnie informuje o tych zdarzeniach, ile są otwarte, w toku i zamknięte. Sprawdź, czy nie ma dramatycznego wzrostu lub spadku liczby zdarzeń. Jeśli występuje spadek, może to być, że połączenie przestał raportowania do usługi Azure Sentinel. Jeśli nastąpi wzrost, mogło dojść do czegoś podejrzanego. Sprawdź, czy masz nowe alerty.
+- Pasek narzędzi na górze informuje o liczbie zdarzeń w wybranym okresie i porównuje go z poprzednimi 24 godzinami. Pasek narzędzi informuje o tych zdarzeniach, które zostały wyzwolone (niewielka liczba reprezentuje zmianę w ciągu ostatnich 24 godzin), a następnie informuje o tych zdarzeniach, o liczbie otwartych, w toku i zamknięciu. Sprawdź, czy liczba zdarzeń nie ma znaczącego wzrostu ani porzucenia. Jeśli jest to możliwe, może to oznaczać, że połączenie zostało zatrzymane na potrzeby raportowania na platformie Azure. Jeśli wystąpi wzrost, wystąpił problem podejrzany. Sprawdź, czy masz nowe alerty.
 
-   ![Lejek Wartownik azure](./media/qs-get-visibility/funnel.png)
+   ![Lejki wskaźnikowe platformy Azure](./media/qs-get-visibility/funnel.png)
 
-Główna treść strony przeglądu daje wgląd w stan zabezpieczeń obszaru roboczego:
+Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpieczeń obszaru roboczego:
 
-- **Zdarzenia i alerty w czasie:** Wyświetla liczbę zdarzeń i liczbę alertów utworzonych z tych zdarzeń. Jeśli widzisz skok, który jest nietypowy, powinieneś zobaczyć alerty dla niego - jeśli jest coś niezwykłego, gdzie jest skok zdarzeń, ale nie widzisz alertów, może to być powodem do niepokoju.
+- **Zdarzenia i alerty w czasie**: zawiera listę liczby zdarzeń i liczby alertów, które zostały utworzone na podstawie tych zdarzeń. Jeśli widzisz, że najprawdopodobniej wystąpił nietypowy sposób, zobaczysz dla niego alerty — Jeśli coś się nie dzieje w przypadku wystąpienia w zdarzeniach, ale nie widzisz alertów, może to być przyczyną problemu.
 
-- **Potencjalne szkodliwe zdarzenia:** Po wykryciu ruchu ze źródeł, o których wiadomo, że są złośliwe, usługa Azure Sentinel ostrzega cię na mapie. Jeśli widzisz pomarańczowy, jest to ruch przychodzący: ktoś próbuje uzyskać dostęp do twojej organizacji ze znanego złośliwego adresu IP. Jeśli widzisz działanie wychodzące (czerwone), oznacza to, że dane z sieci są przesyłane strumieniowo z organizacji do znanego złośliwego adresu IP.
+- **Potencjalnie złośliwe zdarzenia**: w przypadku wykrycia ruchu ze źródeł, które są znane jako złośliwe, wskaźnik na platformie Azure będzie ostrzegał o mapie. Jeśli widzisz kolor pomarańczowy, jest to ruch przychodzący: ktoś próbuje uzyskać dostęp do organizacji przy użyciu znanego złośliwego adresu IP. Jeśli zostanie wyświetlone działanie wychodzące (czerwone), oznacza to, że dane z sieci są przesyłane strumieniowo z organizacji do znanego złośliwego adresu IP.
 
-   ![Mapa azure sentinel](./media/qs-get-visibility/map.png)
+   ![Mapa wskaźnikowa platformy Azure](./media/qs-get-visibility/map.png)
 
 
-- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie zdarzenia, ich dotkliwość i liczbę alertów związanych z incydentem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest obecnie uruchomiony aktywny atak. Na przykład jeśli masz nagły szczyt 20 pass-the-hash zdarzeń z usługi Azure ATP, jest możliwe, że ktoś jest obecnie próbuje zaatakować.
+- **Ostatnie zdarzenia**: Aby wyświetlić ostatnie incydenty, ich ważność oraz liczbę alertów skojarzonych ze zdarzeniem. Jeśli widzisz jako nagły szczyt w określonym typie alertu, może to oznaczać, że jest aktualnie uruchomiony aktywny atak. Na przykład w przypadku nagłego szczytu 20 zdarzeń typu Pass-the-hash z usługi Azure ATP istnieje możliwość, że ktoś aktualnie próbuje się zaatakować.
 
-- **Anomalie źródła danych:** analitycy danych firmy Microsoft stworzyli modele, które stale przeszukują dane ze źródeł danych w poszukiwaniu anomalii. Jeśli nie ma żadnych anomalii, nic nie jest wyświetlane. Jeśli zostaną wykryte anomalie, należy głęboko zagłębić się w nich, aby zobaczyć, co się stało. Na przykład kliknij na skok w usłudze Azure Activity. Możesz kliknąć **na wykresie,** aby zobaczyć, kiedy nastąpił skok, a następnie filtrować działania, które wystąpiły w tym okresie, aby zobaczyć, co spowodowało skok.
+- **Anomalie źródła danych**: analityki danych firmy Microsoft utworzyły modele, które stale przeszukują dane ze źródeł danych pod kątem anomalii. Jeśli nie ma żadnych anomalii, nic nie zostanie wyświetlone. W przypadku wykrycia anomalii należy szczegółowo szczegółowe je, aby zobaczyć, co się stało. Na przykład kliknij pozycję skok w działaniu platformy Azure. Możesz kliknąć **Wykres** , aby zobaczyć, kiedy nastąpiło przekroczenie, a następnie odfiltrować działania, które wystąpiły w tym okresie, aby zobaczyć, co spowodowało skok.
 
-   ![Mapa azure sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Mapa wskaźnikowa platformy Azure](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Używanie wbudowanych skoroszytów<a name="dashboards"></a>
 
-Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł danych, aby umożliwić głębokie zagłębienie się w zdarzenia generowane w tych usługach. Wbudowane skoroszyty obejmują usługę Azure AD, zdarzenia aktywności platformy Azure i lokalne, które mogą być danymi z zdarzeń systemu Windows z serwerów, alertów innych firm, z dowolnego stron trzecich, w tym dzienników ruchu zapory, usługi Office 365 i niezabezpieczonych protokołów opartych na systemie Windows Zdarzenia. Skoroszyty są oparte na skoroszytach usługi Azure Monitor, aby zapewnić ci większą elastyczność dostosowywania i elastyczność w projektowaniu własnego skoroszytu. Aby uzyskać więcej informacji, zobacz [Skoroszyty](../azure-monitor/app/usage-workbooks.md).
+Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł danych, co pozwala na głębokie szczegółowe zdarzeń generowanych w ramach tych usług. Wbudowane skoroszyty obejmują usługi Azure AD, zdarzenia aktywności platformy Azure i lokalne, które mogą być danymi z zdarzeń systemu Windows z serwerów, od alertów z pierwszej strony, w tym dzienników ruchu zapory, pakietu Office 365 i niezabezpieczonych protokołów opartych na zdarzeniach systemu Windows. Skoroszyty są oparte na Azure Monitor skoroszytach, aby zapewnić lepszą szerszym i elastyczność projektowania własnych skoroszytów. Aby uzyskać więcej informacji, zobacz [skoroszyty](../azure-monitor/app/usage-workbooks.md).
 
-1. W obszarze **Ustawienia**wybierz pozycję **Skoroszyty**. W obszarze **Zainstalowane**można wyświetlić cały zainstalowany skoroszyt. W obszarze **Wszystkie**można wyświetlić całą galerię wbudowanych skoroszytów, które są dostępne do zainstalowania. 
-2. Wyszukaj określony skoroszyt, aby wyświetlić całą listę i opis tego, co oferuje każdy z nich. 
-3. Zakładając, że używasz usługi Azure AD, aby rozpocząć pracę z usługą Azure Sentinel, zaleca się zainstalowanie co najmniej następujących skoroszytów:
-   - **Usługa Azure AD:** Użyj jednej lub obu następujących czynności:
-       - **Logowania usługi Azure AD** analizuje logowania w czasie, aby sprawdzić, czy istnieją anomalie. Ten skoroszyt udostępnia nieudane logowania przez aplikacje, urządzenia i lokalizacje, dzięki czemu można zauważyć, na pierwszy rzut oka, jeśli dzieje się coś niezwykłego. Należy zwrócić uwagę na wiele nieudanych logów. 
-       - **Dzienniki inspekcji usługi Azure AD** analizuje działania administratora, takie jak zmiany w użytkownikach (dodawanie, usuwanie itp.), tworzenie grup i modyfikacje.  
+1. W obszarze **Ustawienia**wybierz pozycję **skoroszyty**. W obszarze **zainstalowane**można zobaczyć wszystkie zainstalowane skoroszyty. W obszarze **wszystko**można zobaczyć całą galerię wbudowanych skoroszytów, które są dostępne do zainstalowania. 
+2. Wyszukaj konkretny skoroszyt, aby zobaczyć całą listę i opis poszczególnych ofert. 
+3. Przy założeniu, że używasz usługi Azure AD, aby rozpocząć korzystanie z platformy Azure, zalecamy zainstalowanie co najmniej następujących skoroszytów:
+   - **Azure AD**: Użyj jednego lub obu następujących elementów:
+       - **Logowania za pomocą usługi Azure AD** analizują logowania w czasie, aby sprawdzić, czy występują anomalie. Te skoroszyty zawierają nieudane logowania w aplikacjach, urządzeniach i lokalizacjach, dzięki czemu możesz zauważyć, że w przypadku nietypowego działania wystąpią. Zwróć uwagę na wiele nieudanych logowań. 
+       - **Dzienniki inspekcji usługi Azure AD** analizują działania administracyjne, takie jak zmiany użytkowników (Dodawanie, usuwanie itp.), tworzenie grup i modyfikacje.  
 
-   - Dodawanie skoroszytu zapory. Na przykład dodaj skoroszyt Palo Alto. Skoroszyt analizuje ruch zapory, zapewniając korelacje między danymi zapory a zdarzeniami zagrożeń i wyróżnia podejrzane zdarzenia między jednostkami. Skoroszyty dostarczają informacji o trendach w ruchu drogowym oraz umożliwiają przechodzenie do szczegółów i filtrowanie wyników. 
+   - Dodaj skoroszyt dla zapory. Na przykład Dodaj skoroszyt Palo Alto. Skoroszyt analizuje ruch związany z zaporą, zapewniając korelacje między zdarzeniami danych i zagrożeniami zapory, a następnie wyróżnia podejrzane zdarzenia w różnych jednostkach. Skoroszyty zawierają informacje o trendach w ruchu i umożliwiają przechodzenie do szczegółów i filtrowanie wyników. 
 
-      ![Panel pal alto](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![PAL Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Skoroszyty można dostosować, edytując przycisk ![](./media/qs-get-visibility/edit-query-button.png)zapytania głównego . Możesz kliknąć ![przycisk,](./media/qs-get-visibility/go-to-la-button.png) aby przejść do [usługi Log Analytics, aby edytować kwerendę,](../azure-monitor/log-query/get-started-portal.md)a następnie wybrać wielokropek (...) i wybrać opcję Dostosuj dane **kafelka**, który umożliwia edycję głównego filtru czasu lub usunięcie określonych kafelków ze skoroszytu.
+Możesz dostosować skoroszyty, edytując przycisk ![](./media/qs-get-visibility/edit-query-button.png)głównej kwerendy. Możesz kliknąć przycisk ![przycisk,](./media/qs-get-visibility/go-to-la-button.png) aby przejść do log Analytics, [Aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu i można wybrać wielokropek (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
 
-Aby uzyskać więcej informacji na temat pracy z kwerendami, zobacz [Samouczek: Dane wizualne w usłudze Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Dodawanie nowego kafelka
 
-Jeśli chcesz dodać nowy kafelek, możesz dodać go do istniejącego skoroszytu, który tworzysz lub do wbudowanego skoroszytu Usługi Azure Sentinel. 
-1. W usłudze Log Analytics utwórz kafelek, korzystając z instrukcji znalezionych w [samouczku: Dane wizualne w usłudze Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Po utworzeniu kafelka w obszarze **Przypnij**zaznacz skoroszyt, w którym ma się pojawić kafelek.
+Jeśli chcesz dodać nowy kafelek, możesz dodać go do istniejącego skoroszytu, który został utworzony lub wbudowany arkusz kontrolny platformy Azure. 
+1. W Log Analytics Utwórz kafelek przy użyciu instrukcji znalezionych w [samouczku: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+2. Po utworzeniu kafelka w obszarze **Przypnij**wybierz skoroszyt, w którym ma się pojawić kafelek.
 
-## <a name="create-new-workbooks"></a>Tworzenie nowych skoroszytów
-Możesz utworzyć nowy skoroszyt od podstaw lub użyć wbudowanego skoroszytu jako podstawy nowego skoroszytu.
+## <a name="create-new-workbooks"></a>Utwórz nowe skoroszyty
+Możesz utworzyć nowy skoroszyt od podstaw lub użyć wbudowanego skoroszytu jako podstawy dla nowego skoroszytu.
 
-1. Aby utworzyć nowy skoroszyt od podstaw, wybierz **skoroszyty,** a następnie **+Nowy skoroszyt**.
-2. Wybierz subskrypcję, w jakiej skoroszyt jest tworzony, i nadaj mu opisową nazwę. Każdy skoroszyt jest zasobem platformy Azure, jak każdy inny i można przypisać go role (RBAC) do definiowania i ograniczania, kto może uzyskać dostęp. 
-3. Aby włączyć wyświetlanie go w skoroszytach, do których można przypiąć wizualizacje, musisz je udostępnić. Kliknij **pozycję Udostępnij,** a następnie **pozycję Zarządzaj użytkownikami**. 
+1. Aby utworzyć nowy skoroszyt od podstaw, zaznacz opcję **skoroszyty** , a następnie pozycję **+ nowy skoroszyt**.
+2. Wybierz subskrypcję, w której jest tworzony skoroszyt, i nadaj jej nazwę opisową. Każdy skoroszyt jest zasobem platformy Azure, podobnie jak inne, i można przypisać role IT (RBAC), aby zdefiniować i ograniczyć dostęp do nich. 
+3. Aby umożliwić wyświetlanie w skoroszytach do przypinania wizualizacji do, należy ją udostępnić. Kliknij przycisk **Udostępnij** , a następnie **Zarządzaj użytkownikami**. 
  
-1. Użyj **sprawdź przydziałów dostępu** i **roli,** jak w przypadku innych zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [Udostępnianie skoroszytów platformy Azure przy użyciu funkcji RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Użyj **uprawnień Sprawdź dostęp** i **rola** , tak jak w przypadku innych zasobów platformy Azure. Aby uzyskać więcej informacji, zobacz [udostępnianie skoroszytów platformy Azure przy użyciu RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Przykłady nowych skoroszytów
 
-Poniższa przykładowa kwerenda umożliwia porównywanie trendów ruchu w ciągu kilku tygodni. Można łatwo przełączyć dostawcę urządzenia i źródło danych, na którym uruchamiasz kwerendę. W tym przykładzie użyto SecurityEvent z systemu Windows, można przełączyć go do uruchomienia na AzureActivity lub CommonSecurityLog na dowolnej innej zaporze.
+Poniższe przykładowe zapytanie umożliwia porównanie trendów ruchu w tygodniach. Można łatwo przełączać dostawcę urządzenia i źródło danych, na których uruchomiono zapytanie. W tym przykładzie używamy SecurityEvent z systemu Windows, możesz przełączyć go do uruchamiania w usłudze Azure lub CommonSecurityLog na dowolnej innej zaporze.
 
      |where DeviceVendor == "Palo Alto Networks":
       // week over week query
@@ -99,7 +99,7 @@ Poniższa przykładowa kwerenda umożliwia porównywanie trendów ruchu w ciągu
       | extend Week = iff(TimeGenerated>ago(7d), "This Week", "Last Week"), TimeGenerated = iff(TimeGenerated>ago(7d), TimeGenerated, TimeGenerated + 7d)
 
 
-Można utworzyć kwerendę, która zawiera dane ze źródeł wielokrotności. Można utworzyć kwerendę, która analizuje dzienniki inspekcji usługi Azure Active Directory dla nowych użytkowników, które właśnie zostały utworzone, a następnie sprawdza dzienniki platformy Azure, aby sprawdzić, czy użytkownik rozpoczął wprowadzanie zmian przypisania ról w ciągu 24 godzin od utworzenia. Ta podejrzana aktywność pojawi się na tym pulpicie nawigacyjnym:
+Możesz chcieć utworzyć zapytanie, które zawiera dane z wielu źródeł. Można utworzyć zapytanie, które przeszukuje Azure Active Directory dzienniki inspekcji dla nowo utworzonych użytkowników, a następnie sprawdza dzienniki platformy Azure, aby sprawdzić, czy użytkownik rozpoczął wprowadzanie zmian przypisań ról w ciągu 24 godzin od utworzenia. Podejrzane działanie będzie widoczne na tym pulpicie nawigacyjnym:
 
     AuditLogs
     | where OperationName == "Add user"
@@ -109,22 +109,22 @@ Można utworzyć kwerendę, która zawiera dane ze źródeł wielokrotności. Mo
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Możesz tworzyć różne skoroszyty na podstawie roli osoby patrzącej na dane i tego, czego szukają. Można na przykład utworzyć skoroszyt dla administratora sieci zawierający dane zapory. Można również tworzyć skoroszyty na podstawie częstotliwości, jak często chcesz na nie patrzeć, czy są rzeczy, które chcesz codziennie przeglądać, oraz inne elementy, które chcesz sprawdzić raz na godzinę, na przykład możesz chcieć przeglądać logowania usługi Azure AD co godzinę, aby wyszukać anomalie . 
+Możesz tworzyć różne skoroszyty w oparciu o rolę osoby, która przegląda dane i czego szukają. Na przykład można utworzyć skoroszyt dla administratora sieci, który zawiera dane zapory. Można również tworzyć skoroszyty na podstawie tego, jak często mają być przeglądane informacje, czy istnieją jakieś elementy, które mają być codziennie sprawdzane, i innych elementów, które mają zostać sprawdzone po godzinie, na przykład możesz chcieć zajrzeć do logowania za pomocą usługi Azure AD co godzinę, aby wyszukać anomalie. 
 
-## <a name="create-new-detections"></a>Tworzenie nowych wykrywania
+## <a name="create-new-detections"></a>Utwórz nowe wykrycia
 
-Generowanie wykrywania w [źródłach danych połączonych z usługą Azure Sentinel](connect-data-sources.md) w celu zbadania zagrożeń w organizacji.
+Generuj wykrycia dla [źródeł danych połączonych z platformą Azure wskaźnikiem,](connect-data-sources.md) aby zbadać zagrożenia w organizacji.
 
-Podczas tworzenia nowego wykrywania należy korzystać z wbudowanych wykrywania spreparowanych przez badaczy zabezpieczeń firmy Microsoft, które są dostosowane do połączonych źródeł danych.
+Podczas tworzenia nowego wykrywania należy skorzystać z wbudowanych wykryć spreparowanych przez badaczy zabezpieczeń firmy Microsoft, które są dostosowane do połączonych źródeł danych.
 
-Aby wyświetlić wszystkie out-of-the-box wykrywania, przejdź do **Analytics,** a następnie **reguły szablonów**. Ta karta zawiera wszystkie wbudowane reguły usługi Azure Sentinel.
+Aby wyświetlić wszystkie gotowe do użycia wykrycia, przejdź do pozycji **Analiza** , a następnie pozycję **Szablony reguł**. Ta karta zawiera wszystkie wbudowane reguły kontrolki Azure — wskaźnik.
 
-   ![Używanie wbudowanych funkcji wykrywania w celu znajdowania zagrożeń za pomocą usługi Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   ![Używanie wbudowanych wykryć do znajdowania zagrożeń przy użyciu platformy Azure — wskaźnik](media/tutorial-detect-built-in/view-oob-detections.png)
 
-Aby uzyskać więcej informacji na temat wykrywania out-of-the-box, zobacz [Samouczek: Uzyskiwanie wbudowanej analizy](tutorial-detect-threats-built-in.md).
+Aby uzyskać więcej informacji na temat uzyskiwania gotowych wykryć, zobacz [Samouczek: uzyskiwanie wbudowanej analizy](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start dowiesz się, jak rozpocząć korzystanie z usługi Azure Sentinel. Przejdź do [samouczka, jak wykryć zagrożenia](tutorial-detect-threats-built-in.md).
+W tym przewodniku szybki start pokazano, jak rozpocząć korzystanie z platformy Azure. Przejdź do samouczka dotyczącego [sposobu wykrywania zagrożeń](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Utwórz niestandardowe reguły wykrywania zagrożeń,](tutorial-detect-threats-custom.md) aby zautomatyzować reagowanie na zagrożenia.
+> [Utwórz niestandardowe reguły wykrywania zagrożeń](tutorial-detect-threats-custom.md) , aby zautomatyzować odpowiedzi na zagrożenia.
 
