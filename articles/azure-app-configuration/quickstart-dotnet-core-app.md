@@ -8,50 +8,50 @@ ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
 ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80245382"
 ---
-# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki start: tworzenie aplikacji .NET Core z konfiguracją aplikacji
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Szybki Start: Tworzenie aplikacji platformy .NET Core przy użyciu konfiguracji aplikacji
 
-W tym przewodniku Szybki start można włączyć konfigurację aplikacji platformy Azure do aplikacji konsoli .NET Core, aby scentralizować przechowywanie i zarządzanie ustawieniami aplikacji oddzielnie od kodu.
+W tym przewodniku szybki start dołączysz konfigurację aplikacji platformy Azure do aplikacji konsolowej .NET Core w celu scentralizowanego przechowywania i zarządzania ustawieniami aplikacji oddzielonymi od kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
-- [.NET Core SDK](https://dotnet.microsoft.com/download) — dostępny również w usłudze [Azure Cloud Shell](https://shell.azure.com).
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
+- [Zestaw .NET Core SDK](https://dotnet.microsoft.com/download) -również dostępna w [Azure Cloud Shell](https://shell.azure.com).
 
-## <a name="create-an-app-configuration-store"></a>Tworzenie sklepu konfiguracji aplikacji
+## <a name="create-an-app-configuration-store"></a>Tworzenie magazynu konfiguracji aplikacji
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję Tworzenie**Create** > **wartości klucza** w **Eksploratorze** > konfiguracji, aby dodać następujące pary klucz-wartość:
+6. Wybierz pozycję **Eksplorator** > konfiguracji**Utwórz** > **klucz-wartość** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
     | TestApp:Settings:Message | Dane z usługi Azure App Configuration |
 
-    Pozostaw **etykietę** i **typ zawartości** puste na razie.
+    Dla tej pory pozostaw pustą **etykietę** i **Typ zawartości** .
 
 7. Wybierz przycisk **Zastosuj**.
 
 ## <a name="create-a-net-core-console-app"></a>Tworzenie aplikacji konsolowej platformy .NET Core
 
-Za pomocą [interfejsu wiersza polecenia .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) służy do tworzenia nowego projektu aplikacji konsoli .NET Core. Zaletą korzystania z interfejsu wiersza polecenia .NET Core w programie Visual Studio jest to, że jest on dostępny na platformach Windows, macOS i Linux.  Alternatywnie należy użyć preinstalowanych narzędzi dostępnych w usłudze [Azure Cloud Shell.](https://shell.azure.com)
+Za pomocą [interfejsu wiersza polecenia platformy .NET Core](https://docs.microsoft.com/dotnet/core/tools/) można utworzyć nowy projekt aplikacji konsoli .NET Core. Zaletą korzystania z interfejs wiersza polecenia platformy .NET Core przez program Visual Studio jest to, że jest on dostępny na platformach Windows, macOS i Linux.  Alternatywnie możesz użyć wstępnie zainstalowanych narzędzi dostępnych w [Azure Cloud Shell](https://shell.azure.com).
 
 1. Utwórz nowy folder dla projektu.
 
-2. W nowym folderze uruchom następujące polecenie, aby utworzyć nowy projekt aplikacji konsoli ASP.NET Core:
+2. W nowym folderze Uruchom następujące polecenie, aby utworzyć nowy projekt aplikacji konsoli ASP.NET Core:
 
     ```dotnetcli
     dotnet new console
     ```
 
-## <a name="connect-to-an-app-configuration-store"></a>Łączenie się ze sklepem konfiguracji aplikacji
+## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Dodaj odwołanie do `Microsoft.Extensions.Configuration.AzureAppConfiguration` pakietu NuGet, uruchamiając następujące polecenie:
+1. Dodaj odwołanie do pakietu `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet, uruchamiając następujące polecenie:
 
     ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
@@ -63,14 +63,14 @@ Za pomocą [interfejsu wiersza polecenia .NET Core (CLI)](https://docs.microsoft
     dotnet restore
     ```
 
-3. Otwórz *Program.cs*i dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
+3. Otwórz *program.cs*i Dodaj odwołanie do dostawcy konfiguracji aplikacji .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Zaktualizuj metodę, `Main` aby `builder.AddAzureAppConfiguration()` użyć konfiguracji aplikacji, wywołując metodę.
+4. Zaktualizuj `Main` metodę, aby użyć konfiguracji aplikacji przez wywołanie `builder.AddAzureAppConfiguration()` metody.
 
     ```csharp
     static void Main(string[] args)
@@ -85,7 +85,7 @@ Za pomocą [interfejsu wiersza polecenia .NET Core (CLI)](https://docs.microsoft
 
 ## <a name="build-and-run-the-app-locally"></a>Lokalne kompilowanie i uruchamianie aplikacji
 
-1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia uruchom następujące polecenie:
+1. Ustaw zmienną środowiskową o nazwie **ConnectionString**i ustaw ją na klucz dostępu do magazynu konfiguracji aplikacji. W wierszu polecenia Uruchom następujące polecenie:
 
     ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -97,19 +97,19 @@ Za pomocą [interfejsu wiersza polecenia .NET Core (CLI)](https://docs.microsoft
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    Jeśli używasz systemu macOS lub Linux, uruchom następujące polecenie:
+    Jeśli używasz macOS lub Linux, uruchom następujące polecenie:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-    Uruchom ponownie wiersz polecenia, aby umożliwić zmianę. Wydrukuj wartość zmiennej środowiskowej, aby sprawdzić, czy jest ona prawidłowo ustawiona.
+    Ponownie uruchom wiersz polecenia, aby zmiany zaczęły obowiązywać. Wydrukuj wartość zmiennej środowiskowej, aby sprawdzić, czy została ona prawidłowo ustawiona.
 
-2. Uruchom następujące polecenie, aby utworzyć aplikację konsoli:
+2. Uruchom następujące polecenie, aby skompilować aplikację konsolową:
 
     ```dotnetcli
     dotnet build
     ```
 
-3. Po pomyślnym zakończeniu kompilacji uruchom następujące polecenie, aby uruchomić aplikację lokalnie:
+3. Po pomyślnym zakończeniu kompilacji Uruchom następujące polecenie, aby uruchomić aplikację lokalnie:
 
     ```dotnetcli
     dotnet run
@@ -121,7 +121,7 @@ Za pomocą [interfejsu wiersza polecenia .NET Core (CLI)](https://docs.microsoft
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono nowy sklep konfiguracji aplikacji i użyto go z aplikacją konsoli .NET Core za pośrednictwem [dostawcy konfiguracji aplikacji.](https://go.microsoft.com/fwlink/?linkid=2074664) Aby dowiedzieć się, jak skonfigurować aplikację .NET Core do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
+W tym przewodniku szybki start utworzono nowy magazyn konfiguracji aplikacji i używał go z aplikacją konsolową platformy .NET Core za pośrednictwem [dostawcy konfiguracji aplikacji](https://go.microsoft.com/fwlink/?linkid=2074664). Aby dowiedzieć się, jak skonfigurować aplikację .NET Core do dynamicznego odświeżania ustawień konfiguracji, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Włącz konfigurację dynamiczną](./enable-dynamic-configuration-dotnet-core.md)

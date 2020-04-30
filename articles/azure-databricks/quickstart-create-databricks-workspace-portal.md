@@ -1,6 +1,6 @@
 ---
-title: Szybki start — uruchamianie zadania platformy Spark na platformie Azure Databricks przy użyciu witryny Azure portal
-description: Ten przewodnik Szybki start pokazuje, jak używać witryny Azure Portal do tworzenia obszaru roboczego usługi Azure Databricks, klastra Platformy Spark Apache i uruchamiania zadania platformy Spark.
+title: Szybki Start — uruchamianie zadania Spark na Azure Databricks przy użyciu Azure Portal
+description: W tym przewodniku szybki start pokazano, jak za pomocą Azure Portal utworzyć obszar roboczy Azure Databricks, klaster Apache Spark i uruchomić zadanie Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -11,35 +11,35 @@ ms.topic: quickstart
 ms.date: 03/23/2020
 ms.custom: mvc
 ms.openlocfilehash: d6af521238a034bc22612335119f08284b87eb4b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80132707"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Szybki start: uruchamianie zadania Spark w usłudze Azure Databricks przy użyciu witryny Azure Portal
 
-W tym przewodniku Szybki start można użyć witryny Azure portal do utworzenia obszaru roboczego usługi Azure Databricks z klastrem Platformy Spark Apache. Uruchom zadanie w klastrze i używasz niestandardowych wykresów do tworzenia raportów w czasie rzeczywistym z danych bezpieczeństwa Bostonu.
+W tym przewodniku szybki start użyjesz Azure Portal, aby utworzyć obszar roboczy Azure Databricks z klastrem Apache Spark. Uruchamiasz zadanie w klastrze i używasz niestandardowych wykresów do tworzenia raportów w czasie rzeczywistym na podstawie danych o bezpieczeństwie Boston.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 > [!Note]
-> Tego samouczka nie można przeprowadzić przy użyciu **bezpłatnej subskrypcji próbnej platformy Azure.**
-> Jeśli masz darmowe konto, przejdź do swojego profilu i zmień subskrypcję na **płatność zgodnie z rzeczywistymami.** Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). Następnie [usuń limit wydatków](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)i [poproś o zwiększenie przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) dla procesorów wirtualnych w twoim regionie. Podczas tworzenia obszaru roboczego usługi Azure Databricks, można wybrać **warstwę cenową trial (Premium — 14-dniowe bezpłatne dbu),** aby dać obszarowi roboczemu dostęp do bezpłatnych witryn dbu usługi Premium Azure Databricks przez 14 dni.
+> Tego samouczka nie można przeprowadzić za pomocą **subskrypcji bezpłatnej wersji próbnej platformy Azure**.
+> Jeśli masz bezpłatne konto, przejdź do swojego profilu i Zmień subskrypcję na **płatność zgodnie z rzeczywistym**użyciem. Aby uzyskać więcej informacji, zobacz [Bezpłatne konto platformy Azure](https://azure.microsoft.com/free/). Następnie [Usuń limit wydatków](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)i [Poproś o zwiększenie limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) dla procesorów wirtualnych vCPU w Twoim regionie. Podczas tworzenia obszaru roboczego Azure Databricks możesz wybrać warstwę cenową **wersji próbnej (Premium-14-Days Free dBu)** , aby umożliwić dostęp do obszaru roboczego bezpłatnie Azure Databricks DBU przez 14 dni.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Tworzenie obszaru roboczego usługi Azure Databricks
 
 W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W witrynie Azure portal wybierz pozycję **Utwórz zasób** > **Analytics** > **Azure Databricks**.
+1. W Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Azure Databricks**analizy zasobów.
 
-    ![Databricks w witrynie Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks w witrynie Azure portal")
+    ![Datakostki na Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
 2. W obszarze **Usługa Azure Databricks** podaj wartości umożliwiające utworzenie obszaru roboczego usługi Databricks.
 
@@ -53,13 +53,13 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
     |**Subskrypcja**     | Z listy rozwijanej wybierz subskrypcję platformy Azure.        |
     |**Grupa zasobów**     | Określ, czy chcesz utworzyć nową grupę zasobów, czy użyć istniejącej grupy. Grupa zasobów to kontener, który zawiera powiązane zasoby dla rozwiązania platformy Azure. Aby uzyskać więcej informacji, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md). |
     |**Lokalizacja**     | Wybierz pozycję **Zachodnie stany USA 2**. Inne dostępne regiony podano na stronie [dostępności usług platformy Azure według regionów](https://azure.microsoft.com/regions/services/).        |
-    |**Warstwa cenowa**     |  Wybierz między **Standard**, **Premium**lub **Trial**. Aby uzyskać więcej informacji o tych warstwach, zobacz [stronę usługi Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Warstwa cenowa**     |  Wybierz warstwę **standardowa**, **Premium**lub **wersja próbna**. Aby uzyskać więcej informacji o tych warstwach, zobacz [stronę usługi Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-3. Wybierz **pozycję Recenzja + Utwórz**, a następnie **utwórz**. Tworzenie obszaru roboczego trwa kilka minut. Podczas tworzenia obszaru roboczego można wyświetlić stan wdrożenia w **obszarze Powiadomienia**. Po zakończeniu tego procesu konto użytkownika jest automatycznie dodawane jako użytkownik administratora w obszarze roboczym.
+3. Wybierz kolejno pozycje **Przegląd + Utwórz**i **Utwórz**. Tworzenie obszaru roboczego trwa kilka minut. Podczas tworzenia obszaru roboczego można wyświetlić stan wdrożenia w obszarze **powiadomienia**. Po zakończeniu tego procesu konto użytkownika zostanie automatycznie dodane jako administrator w obszarze roboczym.
 
-    ![Kafelek wdrażania databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Kafelek wdrażania databricks")
+    ![Kafelek wdrożenia datakostek](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Kafelek wdrożenia datakostek")
 
-    Gdy wdrożenie obszaru roboczego nie powiedzie się, obszar roboczy jest nadal tworzony w stanie awarii. Usuń nieudany obszar roboczy i utwórz nowy obszar roboczy, który rozwiązuje błędy wdrażania. Po usunięciu nieudanego obszaru roboczego grupa zarządzanych zasobów i wszystkie pomyślnie wdrożone zasoby są również usuwane.
+    W przypadku niepowodzenia wdrożenia obszaru roboczego jest on nadal tworzony w stanie niepowodzenia. Usuń niepowodzenie obszaru roboczego i Utwórz nowy obszar roboczy, który rozwiązuje błędy wdrożenia. Po usunięciu obszaru roboczego niepowodzenie zostanie również usunięta zarządzana Grupa zasobów i wszystkie pomyślnie wdrożone zasoby.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Tworzenie klastra Spark w usłudze Databricks
 
@@ -68,19 +68,19 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 1. W witrynie Azure Portal przejdź do utworzonego obszaru roboczego usługi Databricks, a następnie kliknij pozycję **Uruchom obszar roboczy**.
 
-2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu kliknij pozycję **Nowy klaster**.
+2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu kliknij pozycję **nowy klaster**.
 
-    ![Databricks na platformie Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks na platformie Azure")
+    ![Datakostki na platformie Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Datakostki na platformie Azure")
 
 3. Na stronie **Nowy klaster** podaj wartości, aby utworzyć klaster.
 
-    ![Tworzenie klastra Databricks Spark na platformie Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Tworzenie klastra Databricks Spark na platformie Azure")
+    ![Tworzenie klastra usługi datakosteks Spark na platformie Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Tworzenie klastra usługi datakosteks Spark na platformie Azure")
 
     Zaakceptuj pozostałe wartości domyślne poza następującymi:
 
    * Wprowadź nazwę klastra.
-   * W tym artykule utwórz klaster z czasem wykonywania **5.3.**
-   * Upewnij się, że zaznaczysz pole wyboru **Zakończ po \_ \_ minutach braku aktywności.** Podaj czas (w minutach), po jakim działanie klastra ma zostać zakończone, jeśli nie jest używany.
+   * W tym artykule należy utworzyć klaster ze środowiskiem uruchomieniowym **5,3** .
+   * Upewnij się, że jest zaznaczone pole wyboru **Zakończ po \_ \_ minutach braku aktywności** . Podaj czas (w minutach), po jakim działanie klastra ma zostać zakończone, jeśli nie jest używany.
     
      Wybierz pozycję **Utwórz klaster**. Po uruchomieniu klastra możesz dołączyć do niego notesy i uruchamiać zadania Spark.
 
@@ -88,21 +88,21 @@ Aby uzyskać więcej informacji na temat tworzenia klastrów, zobacz [Create a S
 
 ## <a name="run-a-spark-sql-job"></a>Uruchamianie zadania Spark SQL
 
-Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj notes do odczytu danych z otwartych zestawów danych platformy Azure, a następnie uruchom zadanie programu Spark SQL na danych.
+Wykonaj następujące zadania, aby utworzyć Notes w kostkach danych, skonfigurować Notes, aby odczytywać dane z otwartych zestawów danych platformy Azure, a następnie uruchomić zadanie Spark SQL na danych.
 
-1. W lewym okienku wybierz pozycję **Azure Databricks**. W obszarze **Typowe zadania**wybierz pozycję **Nowy notes**.
+1. W lewym okienku wybierz pozycję **Azure Databricks**. Ze **wspólnych zadań**wybierz pozycję **Nowy Notes**.
 
-    ![Tworzenie notesu w umiań danych](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Tworzenie notesu w umiań danych")
+    ![Tworzenie notesu w kostkach](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Tworzenie notesu w kostkach")
 
-2. W oknie dialogowym **Tworzenie notesu** wprowadź nazwę, wybierz **pozycję Python** jako język i wybierz utworzony wcześniej klaster Platformy Spark.
+2. W oknie dialogowym **Tworzenie notesu** wprowadź nazwę, wybierz opcję **Python** jako język i wybierz utworzony wcześniej klaster Spark.
 
-    ![Tworzenie notesu w umiań danych](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Tworzenie notesu w umiań danych")
+    ![Tworzenie notesu w kostkach](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz **pozycję Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
-3. W tym kroku utwórz ramę Spark DataFrame z boston safety data z [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog/boston-safety-data/#AzureDatabricks)i użyj języka SQL do wykonywania zapytań o dane.
+3. W tym kroku utworzysz ramkę Dataframe o bezpieczeństwie Boston z poziomu [otwartych zestawów danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog/boston-safety-data/#AzureDatabricks)i używasz języka SQL do wykonywania zapytań dotyczących danych.
 
-   Następujące polecenie ustawia informacje o dostępie do magazynu platformy Azure. Wklej ten kod PySpark do pierwszej komórki i użyj **klawiszy Shift+Enter,** aby uruchomić kod.
+   Następujące polecenie ustawia informacje o dostępie do usługi Azure Storage. Wklej ten kod PySpark w pierwszej komórce i Użyj **klawiszy SHIFT + ENTER** , aby uruchomić kod.
 
    ```python
    blob_account_name = "azureopendatastorage"
@@ -111,7 +111,7 @@ Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj not
    blob_sas_token = r"?st=2019-02-26T02%3A34%3A32Z&se=2119-02-27T02%3A34%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=XlJVWA7fMXCSxCKqJm8psMOh0W4h7cSYO28coRqF2fs%3D"
    ```
 
-   Następujące polecenie umożliwia programowi Spark zdalne odczytywanie z magazynu obiektów Blob. Wklej ten kod PySpark do następnej komórki i użyj **klawiszy Shift+Enter,** aby uruchomić kod.
+   Następujące polecenie umożliwia platformie Spark odczytywanie danych z magazynu obiektów BLOB zdalnie. Wklej ten kod PySpark do następnej komórki i Użyj **klawiszy SHIFT + ENTER** , aby uruchomić kod.
 
    ```python
    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
@@ -119,7 +119,7 @@ Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj not
    print('Remote blob path: ' + wasbs_path)
    ```
 
-   Następujące polecenie tworzy DataFrame. Wklej ten kod PySpark do następnej komórki i użyj **klawiszy Shift+Enter,** aby uruchomić kod.
+   Następujące polecenie tworzy ramkę danych. Wklej ten kod PySpark do następnej komórki i Użyj **klawiszy SHIFT + ENTER** , aby uruchomić kod.
 
    ```python
    df = spark.read.parquet(wasbs_path)
@@ -127,7 +127,7 @@ Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj not
    df.createOrReplaceTempView('source')
    ```
 
-4. Uruchom instrukcję SQL zwraca 10 pierwszych wierszy danych z widoku tymczasowego o nazwie **źródło**. Wklej ten kod PySpark do następnej komórki i użyj **klawiszy Shift+Enter,** aby uruchomić kod.
+4. Uruchom instrukcję SQL zwracającą 10 najważniejszych wierszy danych z widoku tymczasowego o nazwie **Źródło**. Wklej ten kod PySpark do następnej komórki i Użyj **klawiszy SHIFT + ENTER** , aby uruchomić kod.
 
    ```python
    print('Displaying top 10 rows: ')
@@ -138,18 +138,18 @@ Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj not
 
     ![Przykładowe dane](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Przykładowe dane JSON")
 
-6. Teraz tworzysz wizualną reprezentację tych danych, aby pokazać, ile zdarzeń bezpieczeństwa jest zgłaszanych przy użyciu aplikacji Citizens Connect i aplikacji City Worker zamiast z innych źródeł. U dołu danych wyjściowych tabelaryczne wybierz ikonę **wykresu słupkowego,** a następnie kliknij pozycję **Opcje wydruku**.
+6. Teraz utworzysz wizualną reprezentację tych danych, aby pokazać, ile zdarzeń związanych z bezpieczeństwem jest raportowanych za pomocą aplikacji do łączenia się z aplikacjami i pracownikami, a nie innymi źródłami. W dolnej części danych wyjściowych tabelarycznych wybierz ikonę **wykresu słupkowego** , a następnie kliknij pozycję **Opcje**wykresów.
 
-    ![Tworzenie wykresu słupkowego](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Tworzenie wykresu słupkowego")
+    ![Utwórz wykres słupkowy](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Utwórz wykres słupkowy")
 
 8. W obszarze **Dostosowywanie wykresu** przeciągnij i upuść wartości, jak pokazano na zrzucie ekranu.
 
-    ![Dostosowywanie wykresu kołowego](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Dostosowywanie wykresu słupkowego")
+    ![Dostosuj wykres kołowy](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Dostosuj wykres słupkowy")
 
-   * Ustaw **klawisze** do **źródła**.
-   * Ustaw **wartości** na **<\id>**.
+   * Ustaw **klucze** na **Źródło**.
+   * Ustaw **wartości** na **< \id>**.
    * W obszarze **Agregacja** ustaw wartość **LICZBA**.
-   * Ustaw **typ wyświetlania** na **wykres kołowy**.
+   * Ustaw **Typ wyświetlania** na **Wykres kołowy**.
 
      Kliknij przycisk **Zastosuj**.
 
@@ -157,13 +157,13 @@ Wykonaj następujące zadania, aby utworzyć notes w Databricks, skonfiguruj not
 
 Gdy skończysz korzystać z tego artykułu, możesz zakończyć działanie klastra. Aby to zrobić, w obszarze roboczym usługi Azure Databricks wybierz pozycję **Klastry** w lewym okienku. W obszarze klastra, którego działanie chcesz zakończyć, przesuń kursor na wielokropek w kolumnie **Akcje**, a następnie wybierz ikonę **Zakończ**.
 
-![Zatrzymywać klaster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Zatrzymywać klaster Databricks")
+![Zatrzymaj klaster datakostki](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Zatrzymaj klaster datakostki")
 
-Jeśli klaster nie zostanie ręcznie zakończony, zostanie on automatycznie wstrzymany, pod warunkiem, że podczas tworzenia klastra zostanie zaznaczone pole wyboru **Zakończ po \_ \_ minutach braku aktywności.** W takim przypadku nieaktywny klaster automatycznie zatrzymuje się po określonym czasie.
+Jeśli klaster nie zostanie ręcznie zakończony, zostanie on automatycznie zatrzymany, pod warunkiem, że podczas tworzenia klastra zaznaczono pole wyboru **Przerwij po \_ \_ minutach braku aktywności** . W takim przypadku nieaktywny klaster automatycznie zatrzymuje się po określonym czasie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule utworzono klaster platformy Spark w usłudze Azure Databricks i uruchomiono zadanie platformy Spark przy użyciu danych z zestawów danych azure open. Aby dowiedzieć się, jak zaimportować dane z innych źródeł danych do usługi Azure Databricks, zobacz [Spark data sources](/azure/databricks/data/data-sources/index) (Źródła danych platformy Spark). Przejdź do następnego artykułu, aby dowiedzieć się, jak wykonać operację ETL (wyodrębnianie, przekształcanie i ładowanie danych) przy użyciu usługi Azure Databricks.
+W tym artykule został utworzony klaster Spark w Azure Databricks i uruchomiono zadanie Spark przy użyciu danych z usługi Azure Open DataSets. Aby dowiedzieć się, jak zaimportować dane z innych źródeł danych do usługi Azure Databricks, zobacz [Spark data sources](/azure/databricks/data/data-sources/index) (Źródła danych platformy Spark). Przejdź do następnego artykułu, aby dowiedzieć się, jak wykonać operację ETL (wyodrębnianie, przekształcanie i ładowanie danych) przy użyciu usługi Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
