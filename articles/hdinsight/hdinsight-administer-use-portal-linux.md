@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/23/2020
-ms.openlocfilehash: 8380cfcbf267b117108d46794153bd5a61b8ec6a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116234"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232891"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
 
@@ -46,7 +46,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
 | Element| Opis |
 |---|---|
 |Move|Przenosi klaster do innej grupy zasobów lub innej subskrypcji.|
-|Usuń|Usuwa klaster. |
+|Usuwanie|Usuwa klaster. |
 |Odświeżanie|Odświeża widok.|
 
 **Menu po lewej:**  
@@ -61,7 +61,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
     |Tagi|Pozwala ustawić pary klucz/wartość, aby zdefiniować niestandardową taksonomię usług w chmurze. Na przykład możesz utworzyć klucz o nazwie **projekt**, a następnie użyć wspólnej wartości dla wszystkich usług skojarzonych z określonym projektem.|
     |Diagnozowanie i rozwiązywanie problemów|Wyświetl informacje dotyczące rozwiązywania problemów.|
     |Szybki start|Wyświetla informacje, które ułatwiają rozpoczęcie pracy z usługą HDInsight.|
-    |narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
+    |Narzędzia|Informacje pomocy dotyczące narzędzi związanych z usługą HDInsight.|
 
   - **Menu ustawień**  
 
@@ -196,13 +196,13 @@ Na [stronie głównej klastra](#homePage):
 1. Wybierz pozycję **SSH + logowanie do klastra** w obszarze **Ustawienia**.
 2. Wybierz pozycję **Zresetuj poświadczenie**.
 3. Wprowadź i Potwierdź nowe hasło w polach tekstowych.
-4. Kliknij przycisk **OK**.
+4. Wybierz przycisk **OK**.
 
 Hasło zostanie zmienione we wszystkich węzłach w klastrze.
 
-### <a name="change-the-ssh-user-password"></a>Zmiana hasła użytkownika SSH
+### <a name="change-the-ssh-user-password-or-public-key"></a>Zmień hasło użytkownika SSH lub klucz publiczny
 
-1. Za pomocą edytora tekstów Zapisz następujący tekst jako plik o nazwie **ChangePassword.sh**.
+1. Za pomocą edytora tekstów Zapisz następujący tekst jako plik o nazwie **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > Musisz użyć edytora, który używa LF jako końca wiersza. Jeśli Edytor używa CRLF, skrypt nie działa.
@@ -222,13 +222,13 @@ Hasło zostanie zmienione we wszystkich węzłach w klastrze.
    | Pole | Wartość |
    | --- | --- |
    | Typ skryptu | Z listy rozwijanej wybierz pozycję **— niestandardowa** .|
-   | Nazwa |"Zmień hasło ssh" |
-   | Identyfikator URI skryptu bash |Identyfikator URI pliku changepassword.sh |
+   | Nazwa |"Zmiana poświadczeń SSH" |
+   | Identyfikator URI skryptu bash |Identyfikator URI pliku changecredentials.sh |
    | Typy węzłów: (kierownik, proces roboczy, Nimbus, Nadzorca lub dozorcy). |✓ dla wszystkich typów węzłów na liście |
    | Parametry |Wprowadź nazwę użytkownika SSH, a następnie nowe hasło. Między nazwą użytkownika i hasłem powinna być jedna spacja. Następujące znaki nie są obsługiwane w hasłach protokołu SSH: "" '/\ <% ~ | $ &
    | Utrwalaj tę akcję skryptu... |Nie zaznaczaj tego pola. |
 
-6. Wybierz pozycję **Utwórz** , aby zastosować skrypt. Po zakończeniu działania skryptu można nawiązać połączenie z klastrem przy użyciu protokołu SSH z nowym hasłem.
+6. Wybierz pozycję **Utwórz** , aby zastosować skrypt. Po zakończeniu działania skryptu można nawiązać połączenie z klastrem przy użyciu protokołu SSH z nowymi poświadczeniami.
 
 ## <a name="find-the-subscription-id"></a>Znajdowanie identyfikatora subskrypcji
 

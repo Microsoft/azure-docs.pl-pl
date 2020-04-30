@@ -1,79 +1,63 @@
 ---
-title: Samouczek — usuwanie klastra OpenShift red hat azure
-description: W tym samouczku dowiesz się, jak usunąć klaster Azure Red Hat OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure
-author: jimzim
-ms.author: jzim
+title: Samouczek — usuwanie klastra usługi Azure Red Hat OpenShift
+description: W tym samouczku dowiesz się, jak usunąć klaster Red Hat OpenShift platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
+author: sakthi-vetrivel
+ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/06/2019
-ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/24/2020
+ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278771"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232142"
 ---
-# <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Samouczek: Usuwanie klastra OpenShift red hat azure
+# <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: usuwanie klastra usługi Azure Red Hat OpenShift 4
 
-To jest koniec samouczka. Po zakończeniu testowania przykładowego klastra, oto jak go usunąć i skojarzone z nim zasoby, aby nie pobierać opłat za to, czego nie używasz.
-
-Część trzecia serii zawiera informacje na temat wykonywania następujących czynności:
+W tym samouczku trzecia część trzech, klaster Red Hat OpenShift systemu Azure z systemem OpenShift 4 został usunięty. Omawiane kwestie:
 
 > [!div class="checklist"]
 > * Usuwanie klastra usługi Azure Red Hat OpenShift
 
-Ta seria samouczków zawiera informacje na temat wykonywania następujących czynności:
-> [!div class="checklist"]
-> * [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md)
-> * [Skalowanie klastra usługi Azure Red Hat OpenShift](tutorial-scale-cluster.md)
-> * Usuwanie klastra usługi Azure Red Hat OpenShift
 
-## <a name="prerequisites"></a>Wymagania wstępne
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem tego samouczka:
+W poprzednich samouczkach klaster usługi Azure Red Hat OpenShift został utworzony i połączony z użyciem konsoli sieci Web OpenShift. Jeśli nie wykonano tych kroków, a chcesz postępować zgodnie z [samouczkiem 1, Utwórz klaster Red Hat OpenShift 4 platformy Azure.](tutorial-create-cluster.md)
 
-* Utwórz klaster, wykonując samouczek [tworzenia klastra OpenShift red hat.](tutorial-create-cluster.md)
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="step-1-sign-in-to-azure"></a>Krok 1: Zaloguj się na platformie Azure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Jeśli korzystasz z interfejsu wiersza polecenia `az login` platformy Azure lokalnie, uruchom, aby zalogować się na platformie Azure.
+Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, uruchom `az login` polecenie, aby zalogować się do platformy Azure.
 
 ```bash
 az login
 ```
 
-Jeśli masz dostęp do wielu `az account set -s {subscription ID}` subskrypcji, uruchom zastąpienie `{subscription ID}` subskrypcją, której chcesz użyć.
+Jeśli masz dostęp do wielu subskrypcji, uruchom `az account set -s {subscription ID}` zastępowanie `{subscription ID}` z subskrypcją, której chcesz użyć.
 
-## <a name="step-2-delete-the-cluster"></a>Krok 2: Usuwanie klastra
+## <a name="delete-the-cluster"></a>Usuwanie klastra
 
-Otwórz terminal Bash i ustaw CLUSTER_NAME zmienną na nazwę klastra:
-
-```bash
-CLUSTER_NAME=yourclustername
-```
-
-Teraz usuń klaster:
+W poprzednich samouczkach zostały ustawione następujące zmienne. 
 
 ```bash
-az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
+CLUSTER=yourclustername
+RESOURCE_GROUP=yourresourcegroup
 ```
 
-Zostanie wyświetlony monit o usunięcie klastra. Po potwierdzenie za pomocą `y`funkcji , usunięcie klastra zajmie kilka minut. Po zakończeniu polecenia cała grupa zasobów i wszystkie znajdujące się w niej zasoby, w tym klaster, zostaną usunięte.
+Korzystając z tych wartości, Usuń klaster:
 
-## <a name="deleting-a-cluster-using-the-azure-portal"></a>Usuwanie klastra przy użyciu witryny Azure portal
+```bash
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+```
 
-Alternatywnie można usunąć skojarzoną grupę zasobów klastra za pośrednictwem witryny Azure portal online. Nazwa grupy zasobów jest taka sama jak nazwa klastra.
-
-Obecnie `Microsoft.ContainerService/openShiftManagedClusters` zasób, który jest tworzony podczas tworzenia klastra jest ukryty w witrynie Azure portal. W `Resource group` widoku sprawdź, czy `Show hidden types` grupa zasobów.
-
-![Zrzut ekranu przedstawiający pole wyboru typu ukrytego](./media/aro-portal-hidden-type.png)
-
-Usunięcie grupy zasobów spowoduje usunięcie wszystkich powiązanych zasobów, które zostaną utworzone podczas tworzenia klastra OpenShift usługi Azure Red Hat.
+Następnie zostanie wyświetlony monit o potwierdzenie, czy chcesz usunąć klaster. Po potwierdzeniu `y`z programem usunięcie klastra zajmie kilka minut. Po zakończeniu wykonywania polecenia cała grupa zasobów i wszystkie znajdujące się w niej zasoby — w tym klaster — zostaną usunięte.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tej części samouczka zawarto informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Usuwanie klastra usługi Azure Red Hat OpenShift
+> * Usuwanie klastra usługi Azure Red Hat OpenShift 4
 
-Dowiedz się więcej o korzystaniu z OpenShift z oficjalną [dokumentacją Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html)
+Dowiedz się więcej o korzystaniu z OpenShift z oficjalną [dokumentacją firmy Red Hat OpenShift](https://www.openshift.com/try)
