@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Diagnozowanie problemu z routingiem sieci maszyn wirtualnych — witryna Azure portal'
+title: 'Samouczek: diagnozowanie problemu z routingiem sieci maszyn wirtualnych — Azure Portal'
 titleSuffix: Azure Network Watcher
 description: Korzystając z tego samouczka, dowiesz się, jak diagnozować problemy z routingiem sieciowym na maszynie wirtualnej przy użyciu funkcji określania następnego przeskoku w usłudze Azure Network Watcher.
 services: network-watcher
@@ -18,15 +18,15 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76845204"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Samouczek: diagnozowanie problemu z routingiem sieciowym na maszynie wirtualnej przy użyciu witryny Azure Portal
 
-Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka domyślnych tras. Możesz tworzyć trasy niestandardowe zastępujące domyślne trasy platformy Azure. Czasami użycie trasy niestandardowej może spowodować niepowodzenie komunikacji między maszyną wirtualną a innymi zasobami. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej
@@ -36,7 +36,7 @@ Podczas wdrażania maszyny wirtualnej na platformie Azure jest tworzonych kilka 
 
 Jeśli wolisz, możesz zdiagnozować problem z routingiem sieciowym na maszynie wirtualnej za pomocą [interfejsu wiersza polecenia platformy Azure](diagnose-vm-network-routing-problem-cli.md) lub programu [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -46,7 +46,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**, a następnie wybierz pozycję **Windows Server 2016 Datacenter** lub **Maszyna wirtualna z systemem Ubuntu Server 17.10**.
-3. Wprowadź lub wybierz następujące informacje, zaakceptuj ustawienia domyślne dla pozostałych ustawień, a następnie wybierz **przycisk OK:**
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
 
     |Ustawienie|Wartość|
     |---|---|
@@ -55,7 +55,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
-    |Lokalizacja| Wybierz **wschodnie stany USA**|
+    |Lokalizacja| Wybierz **Wschodnie stany USA**|
 
 4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
 5. W obszarze **Ustawienia** zaakceptuj wszystkie wartości domyślne i wybierz przycisk **OK**.
@@ -89,7 +89,7 @@ Na platformie Azure są automatycznie tworzone trasy do domyślnych miejsc docel
     | Maszyna wirtualna         | Wybierz pozycję myVm                                            |
     | Interfejs sieciowy       | myvm — nazwa interfejsu sieciowego może się różnić.   |
     | Źródłowy adres IP       | 10.0.0.4                                               |
-    | Docelowy adres IP  | 13.107.21.200 - Jeden z adresów <www.bing.com>. |
+    | Docelowy adres IP  | 13.107.21.200 — jeden z adresów dla <www.bing.com>. |
 
     ![Następny przeskok](./media/diagnose-vm-network-routing-problem/next-hop.png)
 
@@ -114,7 +114,7 @@ Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już po
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
 2. Wybierz pozycję **Usuń grupę zasobów**.
-3. Wprowadź *myResourceGroup* dla **TYPU NAZWA GRUPY ZASOBÓW:** i wybierz pozycję **Usuń**.
+3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

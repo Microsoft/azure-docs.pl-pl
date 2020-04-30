@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75751641"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Dodawanie regionów globalnej bazy danych przy użyciu witryny Azure Portal
-Usługa Azure Cosmos DB jest dostępna we wszystkich [regionach platformy Azure][azureregions] na całym świecie. Po wybraniu domyślnego poziomu spójności dla Twojego konta bazy danych możesz skojarzyć co najmniej jeden region (w zależności od wybranego domyślnego poziomu spójności i globalnych potrzeb dystrybucji).
+Azure Cosmos DB jest dostępna we wszystkich [regionach świadczenia usługi Azure][azureregions] na całym świecie. Po wybraniu domyślnego poziomu spójności dla Twojego konta bazy danych możesz skojarzyć co najmniej jeden region (w zależności od wybranego domyślnego poziomu spójności i globalnych potrzeb dystrybucji).
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) na pasku po lewej stronie kliknij pozycję **Azure Cosmos DB**.
 2. Na stronie usługi **Azure Cosmos DB** wybierz konto bazy danych do modyfikacji.

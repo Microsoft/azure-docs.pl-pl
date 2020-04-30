@@ -1,5 +1,5 @@
 ---
-title: Przykłady programu Azure PowerShell — używanie niestandardowego obrazu maszyny Wirtualnej
+title: Przykłady Azure PowerShell — używanie niestandardowego obrazu maszyny wirtualnej
 description: Ten skrypt tworzy zestaw skalowania maszyn wirtualnych, który używa niestandardowego obrazu maszyny wirtualnej jako źródła dla wystąpień maszyn wirtualnych.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 2a272cf534ef8ac9cbc45c05f1b9d3f0fecfa1f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76276660"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Tworzenie zestawu skalowania maszyn wirtualnych z niestandardowego obrazu maszyny wirtualnej przy użyciu programu PowerShell

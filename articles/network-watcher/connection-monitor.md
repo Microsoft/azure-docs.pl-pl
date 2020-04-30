@@ -1,6 +1,6 @@
 ---
-title: Samouczek — monitorowanie komunikacji sieciowej za pomocą portalu Azure
-description: W tym samouczku dowiesz się, jak monitorować komunikację sieciową między dwiema maszynami wirtualnymi za pomocą funkcji monitora połączeń usługi Azure Network Watcher.
+title: Samouczek — monitorowanie komunikacji sieciowej przy użyciu Azure Portal
+description: W tym samouczku dowiesz się, jak monitorować komunikację sieciową między dwiema maszynami wirtualnymi za pomocą funkcji monitorowania połączeń Network Watcher platformy Azure.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -16,15 +16,15 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76834658"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Samouczek: monitorowanie komunikacji sieciowej między dwiema maszynami wirtualnymi przy użyciu witryny Azure Portal
 
-Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak inna maszyna wirtualna, może być krytyczna dla działania organizacji. Czasami są wprowadzane zmiany konfiguracji, co może powodować przerwy w komunikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie dwóch maszyn wirtualnych
@@ -32,11 +32,11 @@ Pomyślna komunikacja między maszyną wirtualną i punktem końcowym, takim jak
 > * Generowanie alertów dotyczących metryk monitora połączeń
 > * Diagnozowanie problemu z komunikacją między dwiema maszynami wirtualnymi i poznanie sposobu jego rozwiązywania
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [Portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Tworzenie maszyn wirtualnych
 
@@ -46,7 +46,7 @@ Utwórz dwie maszyny wirtualne.
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**, a następnie wybierz system operacyjny. W tym samouczku jest używany system **Windows Server 2016 Datacenter**.
-3. Wprowadź lub wybierz następujące informacje, zaakceptuj ustawienia domyślne dla pozostałych ustawień, a następnie wybierz **przycisk OK:**
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
 
     |Ustawienie|Wartość|
     |---|---|
@@ -55,7 +55,7 @@ Utwórz dwie maszyny wirtualne.
     |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
-    |Lokalizacja| Wybierz **wschodnie stany USA**|
+    |Lokalizacja| Wybierz **Wschodnie stany USA**|
 
 4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
 5. W obszarze **Ustawienia** wybierz pozycję **Rozszerzenia**. Wybierz polecenie **Dodaj rozszerzenie** i wybierz pozycję **Network Watcher Agent for Windows**, jak pokazano na poniższej ilustracji:
@@ -76,7 +76,7 @@ Wykonaj ponownie kroki z sekcji [Tworzenie pierwszej maszyny wirtualnej](#create
 | 3 | Nazwa                                  | myVm2                                                                   |
 | 3 | Typ uwierzytelniania                   | Wklej klucz publiczny SSH lub wybierz opcję **Hasło** i wprowadź hasło. |
 | 3 | Grupa zasobów                        | Wybierz pozycję **Użyj istniejącej** i wybierz grupę **myResourceGroup**.                 |
-| 6 | Rozszerzenia                            | **Agent obserwatora sieci dla systemu Linux**                                             |
+| 6 | Rozszerzenia                            | **Agent Network Watcher dla systemu Linux**                                             |
 
 Wdrożenie maszyny wirtualnej potrwa kilka minut. Zanim przejdziesz do pozostałych kroków, poczekaj na zakończenie wdrażania maszyny wirtualnej.
 
@@ -169,7 +169,7 @@ Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już po
 
 1. Wprowadź ciąg *myResourceGroup* w polu **Szukaj** w górnej części portalu. Gdy pozycja **myResourceGroup** pojawi się w wynikach wyszukiwania, wybierz ją.
 2. Wybierz pozycję **Usuń grupę zasobów**.
-3. Wprowadź *myResourceGroup* dla **TYPU NAZWA GRUPY ZASOBÓW:** i wybierz pozycję **Usuń**.
+3. Wprowadź dla elementu *Webresourcename* **Typ Nazwa grupy zasobów:** a następnie wybierz pozycję **Usuń**.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Aplikacja Java do ładowania przykładowych danych do tabeli interfejsu API Cassandra w usłudze Azure Cosmos DB'
+title: 'Samouczek: aplikacja Java do ładowania przykładowych danych do tabeli interfejs API Cassandra w Azure Cosmos DB'
 description: W tym samouczku pokazano, jak załadować przykładowe dane użytkownika do tabeli na koncie interfejsu API Cassandra w usłudze Azure Cosmos DB przy użyciu aplikacji języka Java.
 author: kanshiG
 ms.service: cosmos-db
@@ -10,10 +10,10 @@ ms.author: govindk
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 66c292bcb02e3b2b215cabe4968fa30a45422cef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75445661"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Samouczek: ładowanie przykładowych danych do tabeli interfejsu API Cassandra w usłudze Azure Cosmos DB
@@ -26,11 +26,11 @@ Ten samouczek obejmuje następujące zadania:
 > * Ładowanie danych do tabeli Cassandra
 > * Uruchomienie aplikacji
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Ten artykuł należy do wieloczęściowego samouczka. Przed rozpoczęciem pracy z tym doc, upewnij się, aby [utworzyć konto api Cassandra, przestrzeni kluczy i tabeli](create-cassandra-api-account-java.md).   
+* Ten artykuł należy do wieloczęściowego samouczka. Przed rozpoczęciem pracy z tym dokumentem upewnij się, że [utworzono konto interfejs API Cassandra, przestrzeń kluczy i tabelę](create-cassandra-api-account-java.md).   
 
 ## <a name="load-data-into-the-table"></a>Ładowanie danych do tabel
 

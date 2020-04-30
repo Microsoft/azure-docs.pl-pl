@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie zadań usługi Azure Stream Analytics za pomocą ciągłej integracji/ciągłej integracji/ciągłego wdrażania i usługi Azure DevOps
+title: Wdrażanie Azure Stream Analytics zadań przy użyciu ciągłej integracji/ciągłego wdrażania i DevOps platformy Azure
 description: W tym artykule opisano sposób wdrażania zadania usługi Stream Analytics z ciągłą integracją/ciągłym wdrażaniem przy użyciu usługi Azure DevOps Services.
 author: su-jie
 ms.author: sujie
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75354432"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Samouczek: wdrażanie zadania usługi Azure Stream Analytics z ciągłą integracją/ciągłym wdrażaniem przy użyciu usługi Azure Pipelines
 W tym samouczku opisano konfigurowanie ciągłej integracji i ciągłego wdrażania na potrzeby zadania usługi Azure Stream Analytics przy użyciu usługi Azure Pipelines. 
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie kontroli źródła do projektu
@@ -29,10 +29,10 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem upewnij się, że dysponujesz następującymi elementami:
 
-* Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Zainstaluj program [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) i obciążenie **Programowanie na platformie Azure** lub **Magazynowanie i przetwarzanie danych**.
 * Utwórz [projekt usługi Stream Analytics w programie Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Tworzenie organizacji [Azure DevOps.](https://visualstudio.microsoft.com/team-services/)
+* Utwórz organizację [usługi Azure DevOps](https://visualstudio.microsoft.com/team-services/) .
 
 ## <a name="configure-nuget-package-dependency"></a>Konfigurowanie zależności pakietu NuGet
 W celu wykonania automatycznej kompilacji i automatycznego wdrożenia na dowolnej maszynie, musisz użyć pakietu NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Zapewnia on program MSBuild, uruchamianie lokalne oraz narzędzia wdrażania, które obsługują proces ciągłej integracji i ciągłego wdrażania projektów programu Visual Studio dla usługi Stream Analytics. Aby uzyskać więcej informacji, zobacz [Stream Analytics CI/CD tools (Narzędzia ciągłej integracji/ciągłego wdrażania usługi Stream Analytics)](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -60,7 +60,7 @@ Udostępnij pliki źródłowe aplikacji w projekcie zespołowym usługi Azure De
 
    ![Przycisk Publikuj repozytorium w obszarze Wypchnij repozytorium Git](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    Opublikowanie repozytorium powoduje utworzenie nowego projektu w Twojej organizacji o takiej samej nazwie co lokalne repozytorium. Aby utworzyć repozytorium w istniejącym projekcie, kliknij pozycję **Zaawansowane** obok **nazwy repozytorium**i wybierz projekt. Aby wyświetlić kod w przeglądarce, wybierz polecenie **Wyświetl w Internecie**.
+    Opublikowanie repozytorium powoduje utworzenie nowego projektu w Twojej organizacji o takiej samej nazwie co lokalne repozytorium. Aby utworzyć repozytorium w istniejącym projekcie, kliknij przycisk **Zaawansowane** obok **nazwy repozytorium**, a następnie wybierz projekt. Aby wyświetlić kod w przeglądarce, wybierz polecenie **Wyświetl w Internecie**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Konfigurowanie ciągłego dostarczania za pomocą usługi Azure DevOps
 Potok kompilacji usługi Azure Pipelines opisuje przepływ pracy, który składa się z kroków kompilacji wykonywanych sekwencyjnie. Dowiedz się więcej o [potokach kompilacji usługi Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
@@ -82,7 +82,7 @@ Otwórz przeglądarkę internetową i przejdź do nowo utworzonego projektu w us
     
     ![Włączanie stanu wyzwalania ciągłej integracji](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. Kompilacje są również wyzwalane przez wypchnięcie lub zaewidencjonowanie. Aby sprawdzić postęp kompilacji, przejdź do karty **Kompilacje.**  Po sprawdzeniu, że kompilacja jest wykonywana pomyślnie, należy zdefiniować potok wydania, który wdraża aplikację do klastra. Kliknij prawym przyciskiem myszy wielokropek obok potoku kompilacji i wybierz pozycję **Edytuj**.
+4. Kompilacje są również wyzwalane przez wypchnięcie lub zaewidencjonowanie. Aby sprawdzić postęp kompilacji, przejdź do karty **kompilacje** .  Po sprawdzeniu, czy kompilacja została wykonana pomyślnie, należy zdefiniować potok wydania, który wdraża aplikację w klastrze. Kliknij prawym przyciskiem myszy wielokropek obok potoku kompilacji i wybierz pozycję **Edytuj**.
 
 5.  W obszarze **Zadania** wprowadź wartość „Hostowana” w polu **Kolejka agentów**.
     

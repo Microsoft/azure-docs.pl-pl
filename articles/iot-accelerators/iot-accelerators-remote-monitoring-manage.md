@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie urządzeń w rozwiązaniu do zdalnego monitorowania — Azure | Dokumenty firmy Microsoft
+title: Konfigurowanie urządzeń w rozwiązaniu do zdalnego monitorowania — Azure | Microsoft Docs
 description: W tym samouczku pokazano, w jaki sposób konfigurować urządzenia połączone z akceleratorem rozwiązania do monitorowania zdalnego.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73890898"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Samouczek: konfigurowanie urządzeń połączonych z rozwiązaniem do monitorowania
@@ -30,7 +30,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Zmiana konfiguracji urządzenia.
 > * Organizowanie urządzeń.
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -38,21 +38,21 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
 
 Przejdź do strony **Device Explorer** w rozwiązaniu, a następnie kliknij przycisk **+ Nowe urządzenie**:
 
-[![Aprowizuj symulowane urządzenie](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
+[![Udostępnianie symulowanego urządzenia](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
 Na panelu **Nowe urządzenie** wybierz pozycję **Symulowane**, pozostaw liczbę urządzeń do aprowizacji **1**, wybierz model urządzenia **Faulty Engine** (Wadliwy silnik), a następnie wybierz polecenie **Zastosuj**, aby utworzyć symulowane urządzenie:
 
-[![Aprowizuj symulowane urządzenie silnika](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
+[![Udostępnianie symulowanego urządzenia z aparatem](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
 
 ## <a name="test-the-simulated-device"></a>Testowanie symulowanego urządzenia
 
 Aby sprawdzić, czy symulowany silnik wysyła dane telemetryczne i zgłasza wartości właściwości, wybierz go z listy urządzeń na stronie **Device Explorer**. Bieżące informacje o silniku są wyświetlane na panelu **Szczegóły urządzenia**:
 
-[![Wyświetlanie nowego symulowanego urządzenia silnika](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
+[![Wyświetlanie nowego symulowanego urządzenia z aparatem](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
 W polu **Szczegóły urządzenia** sprawdź, czy nowe urządzenie wysyła dane telemetryczne. Aby wyświetlić przesyłany z urządzenia strumień danych telemetrycznych o wibracjach, kliknij pozycję **Vibration** (Wibracje):
 
-[![Wybieranie strumienia telemetrii do wyświetlenia](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
+[![Wybierz strumień danych telemetrycznych do wyświetlenia](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 Panel **Szczegóły urządzenia** zawiera inne informacje dotyczące urządzenia, takie jak wartości tagów, obsługiwane metody oraz właściwości zgłaszane przez urządzenie.
 
@@ -74,7 +74,7 @@ Aby śledzić stan zadania, kliknij pozycję **Wyświetl stan zadania**:
 
 Po zakończeniu zadania przejdź do strony **Pulpit nawigacyjny**. Urządzenie zostanie wyświetlone na mapie w nowej lokalizacji:
 
-[![Wyświetlanie lokalizacji silnika](./media/iot-accelerators-remote-monitoring-manage/enginelocation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/enginelocation-expanded.png#lightbox)
+[![Wyświetl lokalizację aparatu](./media/iot-accelerators-remote-monitoring-manage/enginelocation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/enginelocation-expanded.png#lightbox)
 
 ## <a name="organize-your-devices"></a>Organizowanie urządzeń
 
@@ -89,17 +89,17 @@ Aby wyświetlić wszystkie urządzenia, przejdź do strony **Device Explorer** i
 
 ### <a name="add-tags"></a>Dodawanie tagów
 
-Zaznacz wszystkie urządzenia typu **Truck** (Ciężarówka) i **Prototyping** (Prototypy). Następnie kliknij pozycję **Zadania**.
+Zaznacz wszystkie urządzenia typu **Truck** (Ciężarówka) i **Prototyping** (Prototypy). Następnie kliknij pozycję **zadania**.
 
 Na panelu **Zadania** wybierz pozycję **Tag**, ustaw nazwę zadania **AddConnectedVehicleTag**, a następnie dodaj tag tekstowy o nazwie **FieldService** z wartością **ConnectedVehicle**. Następnie kliknij pozycję **Zastosuj**:
 
-[![Dodawanie znaczników do urządzeń prototypowych i ciężarowych](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
+[![Dodawanie tagu do urządzeń prototypowych i samochodowych](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-Na stronie Urządzenia zaznacz wszystkie urządzenia **Chiller** (Chłodnia), **Elevator** (Podnośnik) i **Engine** (Silnik). Następnie kliknij pozycję **Zadania**.
+Na stronie Urządzenia zaznacz wszystkie urządzenia **Chiller** (Chłodnia), **Elevator** (Podnośnik) i **Engine** (Silnik). Następnie kliknij pozycję **zadania**.
 
 Na panelu **Zadania** wybierz pozycję **Tag**, ustaw nazwę zadania **AddSmartBuildingTag**, a następnie dodaj tag tekstowy o nazwie **FieldService** z wartością **SmartBuilding**. Następnie kliknij pozycję **Zastosuj**:
 
-[![Dodawanie znacznika do urządzeń agregatów chłodniczych, wind i silników](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
+[![Dodawanie tagu do urządzeń chłodniczych, wind i Engine](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
 ### <a name="create-filters"></a>Tworzenie filtrów
 
@@ -109,15 +109,15 @@ Teraz możesz użyć wartości tagów do utworzenia filtrów. Na stronie **Devic
 
 Utwórz filtr tekstowy, używając w warunku nazwy tagu **FieldService** i wartości **SmartBuilding**. Zapisz filtr jako **Smart Building**:
 
-[![Tworzenie inteligentnego filtru budynku](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-expanded.png#lightbox)
+[![Utwórz inteligentny filtr konstrukcyjny](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-expanded.png#lightbox)
 
 Utwórz filtr tekstowy, używając w warunku nazwy tagu **FieldService** i wartości **ConnectedVehicle**. Zapisz filtr jako **Connected Vehicle**.
 
-[![Tworzenie filtra podłączonego pojazdu](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
+[![Utwórz filtr połączonego pojazdu](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
 
 Teraz operator firmy Contoso może wykonać zapytanie dotyczące urządzeń według zespołu operacyjnego:
 
-[![Tworzenie filtra podłączonego pojazdu](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
+[![Utwórz filtr połączonego pojazdu](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

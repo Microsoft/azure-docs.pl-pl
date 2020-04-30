@@ -16,10 +16,10 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76896447"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Samouczek: rejestrowanie przepływu ruchu sieciowego do i z maszyny wirtualnej przy użyciu witryny Azure Portal
@@ -31,7 +31,7 @@ ms.locfileid: "76896447"
 > - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Sieciowa grupa zabezpieczeń umożliwia filtrowanie ruchu przychodzącego do i wychodzącego z maszyny wirtualnej. Możesz rejestrować ruch sieciowy, który przepływa przez sieciową grupę zabezpieczeń z możliwością rejestrowania dziennika przepływu sieciowej grupy zabezpieczeń usługi Network Watcher. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Sieciowa grupa zabezpieczeń umożliwia filtrowanie ruchu przychodzącego do i wychodzącego z maszyny wirtualnej. Możesz rejestrować ruch sieciowy, który przepływa przez sieciową grupę zabezpieczeń z możliwością rejestrowania dziennika przepływu sieciowej grupy zabezpieczeń usługi Network Watcher. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie maszyny wirtualnej przy użyciu sieciowej grupy zabezpieczeń
@@ -40,13 +40,13 @@ Sieciowa grupa zabezpieczeń umożliwia filtrowanie ruchu przychodzącego do i w
 > * Pobieranie zarejestrowanych danych
 > * Wyświetlanie zarejestrowanych danych
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **+ Utwórz zasób**.
 2. Wybierz pozycję **Compute**, a następnie wybierz pozycję **Windows Server 2016 Datacenter** lub wersję **Ubuntu Server**.
-3. Wprowadź lub wybierz następujące informacje, zaakceptuj ustawienia domyślne dla pozostałych ustawień, a następnie wybierz **przycisk OK:**
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz przycisk **OK**:
 
     |Ustawienie|Wartość|
     |---|---|
@@ -55,7 +55,7 @@ Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://
     |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
-    |Lokalizacja| Wybierz **wschodnie stany USA**|
+    |Lokalizacja| Wybierz **Wschodnie stany USA**|
 
 4. Wybierz rozmiar maszyny wirtualnej, a następnie wybierz pozycję **Wybierz**.
 5. W obszarze **Ustawienia** zaakceptuj wszystkie wartości domyślne i wybierz przycisk **OK**.
@@ -89,15 +89,15 @@ Rejestrowanie przepływu sieciowej grupy zabezpieczeń wymaga dostawcy **Microso
 
 1. Dane dziennika przepływu sieciowej grupy zabezpieczeń są zapisywane na koncie usługi Azure Storage. Aby utworzyć konto usługi Azure Storage, wybierz pozycję **+ Utwórz zasób** w lewym górnym rogu portalu.
 2. Wybierz pozycję **Storage**, a następnie wybierz pozycję **Konto usługi Storage — Blob, File, Table, Queue**.
-3. Wprowadź lub wybierz następujące informacje, zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Utwórz**.
+3. Wprowadź lub wybierz poniższe informacje, zaakceptuj pozostałe wartości domyślne, a następnie wybierz pozycję **Utwórz**.
 
     | Ustawienie        | Wartość                                                        |
     | ---            | ---   |
     | Nazwa           | Od 3 do 24 znaków, może zawierać tylko małe litery i cyfry i musi być unikatowa dla wszystkich kont usługi Azure Storage.                                                               |
-    | Lokalizacja       | Wybierz **wschodnie stany USA**                                           |
-    | Grupa zasobów | Wybierz **pozycję Użyj istniejącego**, a następnie wybierz **myResourceGroup** |
+    | Lokalizacja       | Wybierz **Wschodnie stany USA**                                           |
+    | Grupa zasobów | Wybierz pozycję **Użyj istniejącej**, a następnie wybierz pozycję Moja **resourceName** . |
 
-    Tworzenie konta usługi Storage może potrwać około minuty. Nie wykonuj pozostałych kroków, dopóki konto usługi Storage nie zostanie utworzone. We wszystkich przypadkach konto magazynu musi znajdować się w tym samym regionie co grupa ndsg.
+    Tworzenie konta usługi Storage może potrwać około minuty. Nie wykonuj pozostałych kroków, dopóki konto usługi Storage nie zostanie utworzone. We wszystkich przypadkach konto magazynu musi znajdować się w tym samym regionie co sieciowej grupy zabezpieczeń.
 4. W lewym górnym rogu portalu wybierz pozycję **Wszystkie usługi**. W polu **Filtr** wpisz ciąg *Network Watcher*. Gdy w wynikach wyszukiwania pojawi się nazwa **Network Watcher**, wybierz ją.
 5. W obszarze **DZIENNIKI** wybierz pozycję **Dzienniki przepływu sieciowej grupy zabezpieczeń**, jak pokazano na poniższej ilustracji:
 
@@ -105,13 +105,13 @@ Rejestrowanie przepływu sieciowej grupy zabezpieczeń wymaga dostawcy **Microso
 
 6. Z listy sieciowych grup zabezpieczeń wybierz grupę o nazwie **myVm-nsg**.
 7. W obszarze **Ustawienia dzienników przepływu** wybierz pozycję **Wł.**
-8. Wybierz wersję dzienników przepływu do rejestrowania. Wersja 2 zawiera statystyki sesji przepływu (bajty i pakiety)
+8. Wybierz wersję dzienników przepływu do rejestrowania. Wersja 2 zawiera statystykę przepływu/sesji (bajty i pakiety)
 
    ![Wybieranie wersji dzienników przepływu](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Wybierz konto usługi Storage utworzone w kroku 3.
    > [!NOTE]
-   > Dzienniki przepływu sieciowej sieciowej nie działają z kontami magazynu, na których jest włączona [hierarchiczna przestrzeń nazw.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)
+   > Dzienniki przepływu sieciowej grupy zabezpieczeń nie działają w przypadku kont magazynu, które mają włączoną [hierarchiczną przestrzeń nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) .
 1. W lewym górnym rogu portalu wybierz pozycję **Wszystkie usługi**. W polu **Filtr** wpisz ciąg *Network Watcher*. Gdy w wynikach wyszukiwania pojawi się nazwa **Network Watcher**, wybierz ją.
 10. Ustaw pozycję **Przechowywanie (dni)** na 5, a następnie wybierz pozycję **Zapisz**.
 
@@ -123,8 +123,8 @@ Rejestrowanie przepływu sieciowej grupy zabezpieczeń wymaga dostawcy **Microso
    ![Pobieranie dzienników przepływu](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Wybierz konto usługi Storage skonfigurowane w kroku 2 sekcji [Włączanie dziennika przepływu sieciowej grupy zabezpieczeń](#enable-nsg-flow-log).
-4. W obszarze **Usługa obiektów Blob**wybierz pozycję **Blobs**, a następnie wybierz kontener **danych insights-logs-networksecuritygroupflowevent.**
-5. W kontenerze przejdź do hierarchii folderów, aż dojdziesz do pliku PT1H.json, jak pokazano na poniższym obrazie. Pliki dziennika są zapisywane w hierarchii folderów, która jest zgodna z następującą konwencją nazewnictwa: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+4. W obszarze **BLOB Service**wybierz pozycję **obiekty blob**, a następnie wybierz kontener **Insights-Logs-networksecuritygroupflowevent** .
+5. W kontenerze przejdź do hierarchii folderów do momentu uzyskania pliku PT1H. JSON, jak pokazano na poniższej ilustracji. Pliki dziennika są zapisywane w hierarchii folderów, która następuje po następującej konwencji nazewnictwa: https://{storageAccountName}. blob. Core. Windows. NET/Insights-Logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {miesiąc}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
    ![Dziennik przepływu](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
@@ -223,4 +223,4 @@ Wartość elementu **mac** w poprzednich danych wyjściowych to adres MAC interf
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób włączania rejestrowania przepływu sieciowej grupy zabezpieczeń dla danej grupy. Przedstawiono również sposób pobierania i wyświetlania danych rejestrowanych w pliku. Nieprzetworzone dane w pliku JSON mogą być trudne do zinterpretowania. Aby wizualizować dane dzienników przepływu, można użyć [usługi Azure Traffic Analytics,](traffic-analytics.md) [microsoft power bi](network-watcher-visualize-nsg-flow-logs-power-bi.md)i innych narzędzi. Można wypróbować alternatywne metody włączania dzienników przepływu sieciowej sieciowych, takich jak [PowerShell,](network-watcher-nsg-flow-logging-powershell.md) [Azure CLI,](network-watcher-nsg-flow-logging-cli.md) [REST API](network-watcher-nsg-flow-logging-rest.md) i [szablony ARM.](network-watcher-nsg-flow-logging-azure-resource-manager.md)
+W tym samouczku przedstawiono sposób włączania rejestrowania przepływu sieciowej grupy zabezpieczeń dla danej grupy. Przedstawiono również sposób pobierania i wyświetlania danych rejestrowanych w pliku. Nieprzetworzone dane w pliku JSON mogą być trudne do zinterpretowania. Aby wizualizować dane dzienników przepływów, możesz użyć [platformy Azure Analiza ruchu](traffic-analytics.md), [programu Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)i innych narzędzi. Możesz wypróbować alternatywne metody włączania dzienników przepływu sieciowej grupy zabezpieczeń, takich jak [PowerShell](network-watcher-nsg-flow-logging-powershell.md), interfejs [wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md), interfejsy [API REST](network-watcher-nsg-flow-logging-rest.md) i [Szablony ARM](network-watcher-nsg-flow-logging-azure-resource-manager.md).

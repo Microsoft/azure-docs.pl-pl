@@ -1,6 +1,6 @@
 ---
-title: 'Usługa Azure HDInsight: przykłady języka Python'
-description: Znajdź przykłady języka Python w usłudze GitHub dla typowych zadań przy użyciu sdk HDInsight dla języka Python.
+title: 'Azure HDInsight: przykłady dla języka Python'
+description: Przykłady języka Python w witrynie GitHub na potrzeby typowych zadań przy użyciu zestawu HDInsight SDK dla języka Python.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.openlocfilehash: 64e1f172a947cb08795272fe2a022e9d7beac7a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74215740"
 ---
-# <a name="azure-hdinsight-python-samples"></a>Usługa Azure HDInsight: przykłady języka Python
+# <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: przykłady dla języka Python
 
 > [!div class="op_single_selector"]
-> * [Przykłady Pythona](hdinsight-sdk-python-samples.md)
+> * [Przykłady języka Python](hdinsight-sdk-python-samples.md)
 > * [Przykłady dla platformy .NET](hdinsight-sdk-dotnet-samples.md)
 > * [Przykłady kodu Java](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 > [!Important]
-> Python 2.7 zostanie przestarzały 1 stycznia 2020. Jeśli nadal używasz języka Python 2.7, uaktualnij do 3.7, aby użyć SDK języka PYTHON HDInsight.  
+> Środowisko Python 2,7 będzie przestarzałe w dniu 1 stycznia 2020. Jeśli nadal używasz języka Python 2,7, Uaktualnij do wersji 3,7, aby użyć zestawu SDK języka Python dla usługi HDInsight.  
 
 Ten artykuł zawiera:
 
-* Łącza do przykładów zadań tworzenia klastra.
-* Łącza do zawartości referencyjnej dla innych zadań zarządzania.
+* Linki do przykładów dla zadań tworzenia klastra.
+* Linki do zawartości referencyjnej dla innych zadań zarządzania.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,11 +40,11 @@ Ten artykuł zawiera:
 
 * [Tworzenie klastra platformy Apache Kafka](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
 * [Tworzenie klastra platformy Apache Spark](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Tworzenie klastra Platformy Spark apache za pomocą usługi Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
-* [Tworzenie klastra Platformy Spark Apache z pakietem zabezpieczeń przedsiębiorstwa (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
+* [Tworzenie klastra Apache Spark z Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Tworzenie klastra Apache Spark z pakiet Enterprise Security (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
-Te przykłady można uzyskać dla języka Python, klonując repozytorium GitHub [hdinsight-python-sdk-samples.](https://github.com/Azure-Samples/hdinsight-python-sdk-samples)
+Te przykłady dla języka Python można uzyskać, klonowanie repozytorium usługi [HDInsight-Python-SDK-Samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) w witrynie GitHub.
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Fragmenty kodu dla tej dodatkowej funkcji SDK można znaleźć w [hdinsight SDK dla dokumentacji referencyjnej języka Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Fragmenty kodu dla tej dodatkowej funkcji zestawu SDK można znaleźć w dokumentacji usługi [HDINSIGHT SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).

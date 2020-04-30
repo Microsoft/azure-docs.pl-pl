@@ -15,15 +15,15 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76844993"
 ---
 # <a name="what-is-azure-network-watcher"></a>Co to jest Azure Network Watcher?
 
-Azure Network Watcher to usługa, która udostępnia narzędzia umożliwiające monitorowanie, diagnozowanie, wyświetlanie metryk i włączanie lub wyłączanie dzienników zasobów w sieci wirtualnej platformy Azure. Network Watcher jest przeznaczony do monitorowania i naprawy kondycji sieci produktów IaaS (Infrastructure-as-a-Service), która obejmuje maszyny wirtualne, sieci wirtualne, bramy aplikacji, moduły równoważenia obciążenia itp. Uwaga: Nie jest przeznaczony do monitorowania PaaS lub analizy sieci Web i nie będzie działać. 
+Azure Network Watcher to usługa, która udostępnia narzędzia umożliwiające monitorowanie, diagnozowanie, wyświetlanie metryk i włączanie lub wyłączanie dzienników zasobów w sieci wirtualnej platformy Azure. Network Watcher zaprojektowano do monitorowania i naprawy kondycji sieci usług IaaS (infrastruktura jako usługa), w tym Virtual Machines, sieci wirtualnych, bram aplikacji, modułów równoważenia obciążenia itp. Uwaga: nie jest ona przeznaczona dla i nie będzie działała w przypadku monitorowania PaaS lub analizy sieci Web. 
 
 ## <a name="monitoring"></a>Monitorowanie
 

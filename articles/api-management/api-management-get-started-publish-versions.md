@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73176821"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publikowanie wielu wersji interfejsu API 
 
 Istnieją sytuacje, w których używanie tej samej wersji przez wszystkich wywołujących interfejs API jest niepraktyczne. Kiedy wywołujący chcą przeprowadzić uaktualnienie do nowszej wersji, chcą mieć możliwość wykonania tej operacji w łatwy do zrozumienia sposób. Jest to możliwe do zrobienia przy użyciu **wersji** w usłudze Azure API Management. Aby uzyskać więcej informacji, zobacz [Wersje i poprawki](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej wersji do istniejącego interfejsu API
@@ -37,7 +37,7 @@ Niniejszy samouczek zawiera informacje na temat wykonywania następujących czyn
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 + Poznaj [terminologię dotyczącą usługi Azure API Management](api-management-terminology.md).
-+ Ukończ następujące przewodniki Szybki start: [Utwórz wystąpienie usługi Azure API Management](get-started-create-service-instance.md).
++ Wykonaj następujące kroki szybkiego startu: [Tworzenie wystąpienia usługi Azure API Management](get-started-create-service-instance.md).
 + Ponadto wykonaj zadania z następującego samouczka: [Importowanie i publikowanie pierwszego interfejsu API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Dodawanie nowej wersji
@@ -89,19 +89,19 @@ Aby wywołujący mogli zobaczyć nową wersję, musi zostać ona dodana do **pro
 3. Wybierz pozycję **Interfejsy API**.
 4. Wybierz pozycję **Dodaj**.
 5. Wybierz pozycję **Interfejs API Pokaz konferencji, wersja v1**.
-6. Kliknij **pozycję Wybierz**.
+6. Kliknij pozycję **Wybierz**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Przeglądanie portalu dla deweloperów w celu wyświetlenia wersji
 
 1. Wybierz opcję **Portal dla deweloperów** z górnego menu.
-2. Wybierz **interfejsy API** i kliknij interfejs **API konferencji demonstracyjnej**.
-3. Powinna zostać wyświetlonych listy rozwijanej z wieloma wersjami obok nazwy interfejsu API.
+2. Wybierz pozycję **interfejsy API** , a następnie kliknij pozycję **interfejs API konferencji demonstracyjnej**.
+3. Powinna zostać wyświetlona lista rozwijana z wieloma wersjami obok nazwy interfejsu API.
 4. Wybierz opcję **v1**.
 5. Zwróć uwagę na **Adres URL żądania** pierwszej operacji na liście. Pozycja pokazuje, że ścieżka adresu URL interfejsu API uwzględnia ciąg **v1**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Dodawanie nowej wersji do istniejącego interfejsu API

@@ -1,5 +1,5 @@
 ---
-title: Używanie alertów w rozwiązaniu do zdalnego monitorowania — Azure | Dokumenty firmy Microsoft
+title: Korzystanie z alertów w rozwiązaniu do zdalnego monitorowania — Azure | Microsoft Docs
 description: Ten samouczek przedstawia sposób używania alertów w celu identyfikowania i rozwiązywania problemów z urządzeniami podłączonymi do akceleratora rozwiązania do monitorowania zdalnego.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73890920"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Samouczek: rozwiązywanie problemów z urządzeniami
@@ -28,7 +28,7 @@ W tym samouczku zostały wykonane następujące czynności:
 > * Badanie alertu z urządzenia
 > * Rozwiązywanie problemu z urządzeniem
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -40,7 +40,7 @@ Na stronie **Pulpit nawigacyjny** możesz zauważyć, że istnieją nieoczekiwan
 
 Aby zbadać problem, wybierz opcję **Eksploruj alert** obok alertu:
 
-[![Eksplorowanie alertów z pulpitu nawigacyjnego](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
+[![Eksplorowanie alertu z poziomu pulpitu nawigacyjnego](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
 Szczegółowy widok alertu zawiera następujące elementy:
 
@@ -52,7 +52,7 @@ Szczegółowy widok alertu zawiera następujące elementy:
 
 Aby potwierdzić otrzymanie alertu, wybierz wszystkie **wystąpienia alertu**, a następnie wybierz opcję **Potwierdź**. Dzięki tej akcji inni operatorzy dowiedzą się, że użytkownik zobaczył alert i pracuje nad nim:
 
-[![Potwierdzanie wpisów](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
+[![Potwierdzanie alertów](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceacknowledge-expanded.png#lightbox)
 
 Po potwierdzeniu alertu stan wystąpienia zmieni się na **Potwierdzono**.
 
@@ -66,19 +66,19 @@ Aby rozwiązać problem z urządzeniem **Prototyp**, musisz wywołać metodę **
 
 Aby wykonać działania na urządzeniu, wybierz je z listy urządzeń z alertami, a następnie wybierz opcję **Zadania**. Model urządzenia **Prototyp** obsługuje sześć metod:
 
-[![Wyświetlanie metod, które obsługuje urządzenie](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
+[![Wyświetlanie metod obsługiwanych przez urządzenie](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
 Wybierz metodę **DecreaseTemperature** i ustaw nazwę zadania na **DecreaseTemperature**. Następnie kliknij pozycję **Zastosuj**:
 
-[![Tworzenie zadania w celu obniżenia temperatury](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
+[![Utwórz zadanie, aby zmniejszyć temperaturę](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-Aby śledzić stan zadania, kliknij pozycję **Wyświetl stan zadania**. Użyj widoku **Zadania**, aby śledzić wszystkie zadania i wywołania metody w rozwiązaniu:
+Aby śledzić stan zadania, kliknij przycisk **Wyświetl stan zadania**. Użyj widoku **Zadania**, aby śledzić wszystkie zadania i wywołania metody w rozwiązaniu:
 
-[![Monitorowanie zadania w celu obniżenia temperatury](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
+[![Monitoruj zadanie, aby zmniejszyć temperaturę](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
 Możesz sprawdzić, czy temperatura urządzenia zmniejszyła się, wyświetlając telemetrię na stronie **Pulpit nawigacyjny**:
 
-[![Zobacz spadek temperatury](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+[![Wyświetl spadek temperatury](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
