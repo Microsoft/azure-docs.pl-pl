@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: Włącz usługę'
-description: Dowiedz się, jak włączyć i włączyć usługę zabezpieczeń Usługi IoT usługi Azure Security Center for IoT w centrum Azure IoT Hub.
+title: 'Szybki Start: Włączanie usługi'
+description: Dowiedz się, jak dołączać i włączać Azure Security Center usługi zabezpieczeń IoT w usłudze Azure IoT Hub.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,66 +16,66 @@ ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
 ms.openlocfilehash: 0d3e4ad63baf6883aa8fadaca5b1f2d28fa14881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81310750"
 ---
-# <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Szybki start: wbudowana usługa Azure Security Center dla usługi IoT w centrum IoT Hub
+# <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Szybki Start: dołączanie Azure Security Center dla usługi IoT w programie IoT Hub
 
-Ten artykuł zawiera wyjaśnienie, jak włączyć usługę Azure Security Center dla usługi IoT w istniejącym centrum IoT Hub. Jeśli nie masz obecnie Centrum IoT, zobacz [Tworzenie centrum IoT Hub przy użyciu witryny Azure portal,](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) aby rozpocząć.
+Ten artykuł zawiera informacje na temat sposobu włączania usługi IoT Azure Security Center dla istniejących IoT Hub. Jeśli obecnie nie masz IoT Hub, zobacz [tworzenie IoT Hub przy użyciu Azure Portal](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) , aby rozpocząć pracę.
 
 > [!NOTE]
-> Usługa Azure Security Center for IoT obsługuje obecnie tylko centra IoT warstwy standardowej.
+> Azure Security Center IoT obecnie obsługuje tylko centra IoT w warstwie Standardowa.
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Wymagania wstępne dotyczące włączania usługi
 
 - Obszar roboczy usługi Log Analytics
-  - Dwa typy informacji są domyślnie przechowywane w obszarze roboczym usługi Log Analytics przez usługę Azure Security Center dla IoT; **alertów** i **zaleceń**dotyczących bezpieczeństwa .
-  - Można dodać magazyn dodatkowego typu informacji, **zdarzenia nieprzetworzone**. Należy zauważyć, że przechowywanie **nieprzetworzonych zdarzeń** w usłudze Log Analytics wiąże się z dodatkowymi kosztami magazynowania.
-- Centrum IoT Hub (warstwa standardowa)
-- Spełnij wszystkie [wymagania wstępne usługi](service-prerequisites.md)
+  - Dwa typy informacji są domyślnie przechowywane w obszarze roboczym Log Analytics przez Azure Security Center dla IoT; **alerty** i **zalecenia dotyczące**zabezpieczeń.
+  - Możesz dodać magazyn o dodatkowym typie informacji, **zdarzenia pierwotne**. Należy pamiętać, że przechowywanie **nieprzetworzonych zdarzeń** w log Analytics obejmuje dodatkowe koszty magazynowania.
+- IoT Hub (warstwa standardowa)
+- Spełnia wszystkie [wymagania wstępne dotyczące usługi](service-prerequisites.md)
 
-## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Włączanie usługi Azure Security Center dla usługi IoT w centrum IoT Hub
+## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Włącz Azure Security Center IoT na IoT Hub
 
-Aby włączyć zabezpieczenia w centrum IoT Hub:
+Aby włączyć zabezpieczenia na IoT Hub:
 
-1. Otwórz centrum **IoT Hub** w witrynie Azure portal.
-1. W menu **Zabezpieczenia** kliknij polecenie **Zabezpiecz rozwiązanie IoT**.
+1. Otwórz **IoT Hub** w Azure Portal.
+1. W menu **zabezpieczenia** kliknij pozycję **Zabezpiecz swoje rozwiązanie IoT**.
 
-Gratulacje! Ukończono włączanie usługi Azure Security Center dla IoT w centrum IoT Hub.
+Gratulacje! Ukończono Włączanie Azure Security Center IoT na IoT Hub.
 
-### <a name="geolocation-and-ip-address-handling"></a>Geolokalizacja i obsługa adresów IP
+### <a name="geolocation-and-ip-address-handling"></a>Obsługa geolokalizacji i adresów IP
 
-Aby zabezpieczyć rozwiązanie IoT, adresy IP połączeń przychodzących i wychodzących do i z urządzeń IoT, usługi IoT Edge i IoT Hub są zbierane i przechowywane domyślnie. Te informacje są niezbędne do wykrywania nieprawidłowej łączności z podejrzanych źródeł IP. Na przykład, gdy podejmowane są próby ustanowienia połączeń ze źródła IP znanego botnetu lub ze źródła IP poza geolokalizacją. Usługa Azure Security Center for IoT oferuje elastyczność umożliwiającą włączanie i wyłączanie zbierania danych adresów IP w dowolnym momencie.
+Aby zabezpieczyć rozwiązanie IoT, adresy IP przychodzących i wychodzących połączeń z i z urządzeń IoT, IoT Edge i IoT Hub są zbierane i przechowywane domyślnie. Te informacje są niezbędne do wykrywania nietypowej łączności z podejrzanych źródeł adresów IP. Na przykład podczas próby nawiązania połączenia ze źródła IP znanego botnet lub ze źródła IP poza lokalizacją geolokalizację. Azure Security Center usługi IoT oferuje elastyczność umożliwiającą w dowolnym momencie włączenie i wyłączenie zbierania danych adresów IP.
 
 Aby włączyć lub wyłączyć zbieranie danych adresów IP:
 
-1. Otwórz centrum IoT Hub, a następnie wybierz **polecenie Omówienie** z menu **Zabezpieczenia.**
-1. Wybierz ekran **Ustawienia** i zmodyfikuj ustawienia geolokalizacji i/lub obsługi adresów IP.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
+1. Wybierz ekran **Ustawienia** , a następnie zmodyfikuj ustawienia geolokalizacji i/lub obsługa adresów IP.
 
-### <a name="log-analytics-creation"></a>Tworzenie usługi Log Analytics
+### <a name="log-analytics-creation"></a>Tworzenie Log Analytics
 
-Po włączeniu usługi Azure Security Center dla IoT tworzony jest domyślny obszar roboczy usługi Azure Log Analytics do przechowywania nieprzetworzonych zdarzeń zabezpieczeń, alertów i zaleceń dotyczących urządzeń IoT, usługi IoT Edge i Usługi IoT Hub. Każdego miesiąca pierwszych pięć (5) GB danych pojął na klienta do usługi Azure Log Analytics jest bezpłatny. Każdy GB danych przynajmowanych do obszaru roboczego usługi Azure Log Analytics jest zachowywany bezpłatnie przez pierwsze 31 dni. Dowiedz się więcej o cenach [usługi Log Analytics.](https://azure.microsoft.com/pricing/details/monitor/)
+Gdy Azure Security Center IoT jest włączona, zostanie utworzony domyślny obszar roboczy platformy Azure Log Analytics w celu przechowywania nieprzetworzonych zdarzeń zabezpieczeń, alertów i zaleceń dotyczących urządzeń IoT, IoT Edge i IoT Hub. Co miesiąc, pierwsze pięć (5) GB danych pozyskanych na klientach do usługi Log Analytics platformy Azure jest bezpłatnych. Co GB Dane pozyskiwane w obszarze roboczym usługi Azure Log Analytics są przechowywane bezpłatnie przez pierwsze 31 dni. Dowiedz się więcej o cenach [log Analytics](https://azure.microsoft.com/pricing/details/monitor/) .
 
-Aby zmienić konfigurację obszaru roboczego usługi Log Analytics:
+Aby zmienić konfigurację obszaru roboczego Log Analytics:
 
-1. Otwórz centrum IoT Hub, a następnie wybierz **polecenie Omówienie** z menu **Zabezpieczenia.**
-1. Wybierz ekran **Ustawienia** i zmodyfikuj konfigurację obszaru roboczego ustawień usługi Log Analytics.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
+1. Wybierz ekran **Ustawienia** i zmodyfikuj konfigurację obszaru roboczego ustawień log Analytics.
 
-### <a name="customize-your-iot-security-solution"></a>Dostosowywanie rozwiązania zabezpieczającego IoT
+### <a name="customize-your-iot-security-solution"></a>Dostosowywanie rozwiązania do zabezpieczeń IoT
 
-Domyślnie włączenie rozwiązania Azure Security Center dla IoT automatycznie zabezpiecza wszystkie centra IoT w ramach subskrypcji platformy Azure.
+Domyślnie włączenie Azure Security Center na potrzeby rozwiązania IoT automatycznie zabezpiecza wszystkie centra IoT w ramach subskrypcji platformy Azure.
 
-Aby włączyć lub wyłączyć usługę Azure Security Center dla usługi IoT na określonym centrum IoT Hub:
+Aby włączyć lub wyłączyć Azure Security Center usługi IoT na określonym IoT Hub:
 
-1. Otwórz centrum IoT Hub, a następnie wybierz **polecenie Omówienie** z menu **Zabezpieczenia.**
-1. Wybierz ekran **Ustawienia** i zmodyfikuj ustawienia zabezpieczeń dowolnego centrum IoT w ramach subskrypcji platformy Azure.
+1. Otwórz IoT Hub a następnie wybierz pozycję **Przegląd** z menu **zabezpieczenia** .
+1. Wybierz ekran **Ustawienia** i zmodyfikuj ustawienia zabezpieczeń dowolnego Centrum IoT Hub w ramach subskrypcji platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do następnego artykułu, aby skonfigurować rozwiązanie...
+Przejdź do następnego artykułu, aby skonfigurować Twoje rozwiązanie...
 
 > [!div class="nextstepaction"]
 > [Konfigurowanie rozwiązania](quickstart-configure-your-solution.md)

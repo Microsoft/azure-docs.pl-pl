@@ -1,6 +1,6 @@
 ---
-title: Koncepcje architektoniczne w usłudze Azure IoT Central — energia | Dokumenty firmy Microsoft
-description: W tym artykule przedstawiono kluczowe pojęcia dotyczące architektury szablonu aplikacji energetycznej Usługi Azure IoT Central
+title: Koncepcje dotyczące architektury w usłudze Azure IoT Central — energia | Microsoft Docs
+description: W tym artykule przedstawiono najważniejsze pojęcia związane z architekturą szablonu aplikacji energetycznej usługi Azure IoT Central
 author: op-ravi
 ms.author: omravi
 ms.date: 10/22/2019
@@ -9,37 +9,37 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77024317"
 ---
-# <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central — architektura aplikacji inteligentnych liczników
+# <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central — architektura aplikacji licznika inteligentnego
 
 
 
-Ten artykuł zawiera omówienie architektury szablonu aplikacji do monitorowania inteligentnych liczników. Poniższy diagram przedstawia powszechnie używaną architekturę aplikacji inteligentnych liczników na platformie Azure przy użyciu platformy IoT Central.
+Ten artykuł zawiera omówienie architektury szablonu aplikacji do monitorowania mierników inteligentnych. Na poniższym diagramie przedstawiono powszechnie używaną architekturę dla inteligentnego miernika aplikacji na platformie Azure przy użyciu platformy IoT Central.
 
 > [!div class="mx-imgBorder"]
-> ![architektura inteligentnych liczników](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+> ![Architektura miernika inteligentnego](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
-Niniejsza architektura zawiera następujące składniki. Niektóre rozwiązania mogą nie wymagać każdego składnika wymienionego tutaj.
+Niniejsza architektura zawiera następujące składniki. Niektóre rozwiązania mogą nie wymagać każdego składnika wymienionego w tym miejscu.
 
 ## <a name="smart-meters-and-connectivity"></a>Inteligentne liczniki i łączność 
 
-Inteligentny licznik jest jednym z najważniejszych urządzeń spośród wszystkich zasobów energetycznych. Rejestruje i przekazuje dane dotyczące zużycia energii do narzędzi do monitorowania i innych przypadków użycia, takich jak rozliczenia i odpowiedzi na żądanie. W zależności od typu miernika może łączyć się z IoT Central za pomocą bram lub innych urządzeń pośrednich lub systemów, takich urządzeń brzegowych i systemów head-end. Tworzenie mostka urządzenia IoT Central w celu łączenia urządzeń, których nie można podłączyć bezpośrednio. Mostek na urządzenia IoT Central jest rozwiązaniem typu open source, a szczegółowe informacje można znaleźć [tutaj.](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) 
+Inteligentny licznik jest jednym z najważniejszych urządzeń we wszystkich zasobach energii. Rejestruje i przekazuje dane dotyczące zużycia energii do narzędzi do monitorowania i innych przypadków użycia, takich jak rozliczenia i reagowanie na żądania. Na podstawie typu licznika może połączyć się z IoT Central przy użyciu bram lub innych urządzeń lub systemów pośrednich, takich jak urządzenia brzegowe i systemy główne. Kompiluj IoT Central mostek urządzeń, aby połączyć urządzenia, które nie mogą być połączone bezpośrednio. IoT Central mostka urządzenia to rozwiązanie Open Source, w [tym miejscu](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)można znaleźć pełne szczegóły. 
 
 
-## <a name="iot-central-platform"></a>Platforma IoT Central
+## <a name="iot-central-platform"></a>IoT Central platformę
 
-Usługa Azure IoT Central to platforma, która upraszcza tworzenie rozwiązania IoT i pomaga zmniejszyć obciążenie i koszty zarządzania IoT, operacji i rozwoju. Dzięki IoT Central można łatwo łączyć, monitorować i zarządzać zasobami Internetu rzeczy (IoT) na dużą skalę. Po podłączeniu inteligentnych liczników do usługi IoT Central szablon aplikacji korzysta z wbudowanych funkcji, takich jak modele urządzeń, polecenia i pulpity nawigacyjne. Szablon aplikacji używa również magazynu IoT Central do scenariuszy ścieżek o ciepłej, takich jak monitorowanie danych licznika w czasie rzeczywistym, analiza, reguły i wizualizacja. 
+Azure IoT Central to platforma, która upraszcza tworzenie rozwiązania IoT oraz zmniejsza obciążenie i koszty związane z zarządzaniem IoT, operacjami i programowaniem. Dzięki IoT Central można łatwo łączyć i monitorować zasoby Internet rzeczy (IoT) oraz zarządzać nimi na dużą skalę. Po połączeniu inteligentnych mierników do IoT Central szablon aplikacji będzie używać wbudowanych funkcji, takich jak modele urządzeń, polecenia i pulpity nawigacyjne. Szablon aplikacji korzysta również z IoT Central magazynu dla scenariuszy ścieżki ciepłej, takich jak monitorowanie danych, analiza, reguły i wizualizacja w czasie rzeczywistym. 
 
 
-## <a name="extensibility-options-to-build-with-iot-central"></a>Opcje rozszerzalności do tworzenia za pomocą IoT Central
-Platforma IoT Central udostępnia dwie opcje rozszerzalności: ciągły eksport danych (CDE) i interfejsy API. Klienci i partnerzy mogą wybierać między tymi opcjami w celu dostosowania swoich rozwiązań do konkretnych potrzeb. Na przykład jeden z naszych partnerów skonfigurowany CDE z usługi Azure Data Lake Storage (ADLS). Używają usługi ADLS do długoterminowego przechowywania danych i innych scenariuszy przechowywania ścieżek chłodniczych, takich jak przetwarzanie wsadowe, inspekcja i raportowanie. 
+## <a name="extensibility-options-to-build-with-iot-central"></a>Opcje rozszerzalności do skompilowania przy użyciu IoT Central
+Platforma IoT Central udostępnia dwie opcje rozszerzalności: ciągły eksport danych (CDE) i interfejsy API. Klienci i partnerzy mogą wybrać jedną z tych opcji, aby dostosować swoje rozwiązania do konkretnych potrzeb. Na przykład jeden z naszych partnerów skonfigurował CDE z Azure Data Lake Storage (ADLS). Korzystają one z ADLS do długoterminowego przechowywania danych i innych scenariuszy magazynu zimnej ścieżki, takich jak przetwarzanie wsadowe, Inspekcja i raportowanie. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Teraz, gdy dowiedziałeś się o architekturze, [utwórz aplikację inteligentnych liczników za darmo](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Aby dowiedzieć się więcej o UIOT Central, zobacz [Omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Teraz, gdy już znasz architekturę, [Utwórz za darmo aplikację z miernikiem inteligentnym](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Aby dowiedzieć się więcej na temat IoT Central, zobacz [omówienie IoT Central](https://docs.microsoft.com/azure/iot-central/)

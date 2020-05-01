@@ -1,5 +1,5 @@
 ---
-title: Jaka jest hierarchia magazynowania plików NetApp platformy Azure | Dokumenty firmy Microsoft
+title: Co to jest hierarchia magazynu Azure NetApp Files | Microsoft Docs
 description: W tym artykule opisano hierarchię magazynu usługi Azure NetApp Files, obejmującą konta, pule pojemności i woluminy.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78163968"
 ---
-# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Jaka jest hierarchia magazynowania plików NetApp usługi Azure
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Co to jest hierarchia magazynu Azure NetApp Files
 
 Przed utworzeniem woluminu w usłudze Azure NetApp Files należy kupić i skonfigurować pulę aprowizowanej pojemności.  Do skonfigurowania puli pojemności potrzebne jest konto usługi NetApp. Zrozumienie hierarchii magazynu pomaga w konfigurowaniu zasobów usługi Azure NetApp Files i zarządzaniu nimi.
 
 > [!IMPORTANT] 
-> Usługa Azure NetApp Files obecnie nie obsługuje migracji zasobów między subskrypcjami.
+> Azure NetApp Files obecnie nie obsługuje migracji zasobów między subskrypcjami.
 
 ## <a name="netapp-accounts"></a><a name="azure_netapp_files_account"></a>Konta usługi NetApp
 
@@ -45,14 +45,14 @@ Przed utworzeniem woluminu w usłudze Azure NetApp Files należy kupić i skonfi
   Na przykład na poniższym [diagramie koncepcyjnym hierarchii magazynu](#conceptual_diagram_of_storage_hierarchy) nie można przenieść puli pojemności 1 z konta usługi NetApp w regionie Wschodnie stany USA na konto usługi NetApp w regionie Zachodnie stany USA 2.  
 - Puli pojemności nie można usunąć, dopóki nie zostaną usunięte wszystkie woluminy w puli pojemności.
 
-## <a name="volumes"></a><a name="volumes"></a>Woluminów
+## <a name="volumes"></a><a name="volumes"></a>Objętości
 
 - Woluminy są mierzone według użycia pojemności logicznej i można je skalować. 
 - Użycie pojemności woluminu jest liczone jako użycie aprowizowanej pojemności puli.
 - Każdy wolumin należy tylko do jednej puli, ale jedna pula może zawierać wiele woluminów. 
-- Woluminu nie można przenosić między pulami pojemności. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  Na przykład w [diagramie koncepcyjnym hierarchii magazynu](#conceptual_diagram_of_storage_hierarchy) poniżej nie można przenieść woluminów z puli pojemności 1 do puli pojemności 2.
-- Woluminu nie można usunąć, dopóki nie zostaną usunięte wszystkie jego migawki.
+- Nie można przenieść woluminu między pulami pojemności. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Na przykład na [diagramie koncepcyjnym hierarchii magazynu](#conceptual_diagram_of_storage_hierarchy) poniżej nie można przenieść woluminów z puli pojemności 1 do puli pojemności 2.
+- Nie można usunąć woluminu, dopóki nie zostaną usunięte wszystkie jego migawki.
 
 ## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagram koncepcyjny hierarchii magazynu 
 Poniższy przykład przedstawia zależności między subskrypcją platformy Azure, kontami usługi NetApp, pulami pojemności i woluminami.   

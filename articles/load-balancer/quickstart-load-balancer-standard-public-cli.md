@@ -1,5 +1,5 @@
 ---
-title: Szybki start:Tworzenie publicznego modułu równoważenia obciążenia — narzędzie Azure CLI
+title: 'Szybki Start: Tworzenie Load Balancer publicznego — interfejs wiersza polecenia platformy Azure'
 titleSuffix: Azure Load Balancer
 description: W tym samouczku przedstawiono sposób tworzenia publicznego modułu równoważenia obciążenia przy użyciu interfejsu wiersza polecenia platformy Azure
 services: load-balancer
@@ -18,15 +18,15 @@ ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79477769"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki start: tworzenie standardowego modułu równoważenia obciążenia w celu równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Szybki Start: Tworzenie usługa Load Balancer w warstwie Standardowa równoważenia obciążenia maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Ten przewodnik Szybki start pokazuje, jak utworzyć publiczny moduł równoważenia obciążenia. W celu przetestowania modułu równoważenia obciążenia wdrożysz dwie maszyny wirtualne z systemem Ubuntu Server i zrównoważysz obciążenie aplikacji internetowej między dwiema maszynami wirtualnymi.
+W tym przewodniku szybki start przedstawiono sposób tworzenia Load Balancer publicznego. W celu przetestowania modułu równoważenia obciążenia wdrożysz dwie maszyny wirtualne z systemem Ubuntu Server i zrównoważysz obciążenie aplikacji internetowej między dwiema maszynami wirtualnymi.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -46,22 +46,22 @@ W poniższym przykładzie zostanie utworzona grupa zasobów o nazwie *myResource
 
 ## <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-Aby uzyskać dostęp do aplikacji internetowej za pośrednictwem Internetu, potrzebujesz publicznego adresu IP modułu równoważenia obciążenia. Użyj [tworzenia az network public-ip,](https://docs.microsoft.com/cli/azure/network/public-ip) aby utworzyć strefę standardową nadmiarowy publiczny adres IP o nazwie *myPublicIP* w *myResourceGroupSLB*.
+Aby uzyskać dostęp do aplikacji internetowej za pośrednictwem Internetu, potrzebujesz publicznego adresu IP modułu równoważenia obciążenia. Użyj [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip) , aby utworzyć strefę Standard nadmiarowy publiczny adres IP o nazwie *myPublicIP* w *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
 
-Aby utworzyć strefowy publiczny adres IP w strefie 1, należy:
+Aby utworzyć strefowy publiczny adres IP w strefie 1, użyj:
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-Służy `-SKU Basic` do tworzenia podstawowego publicznego adresu IP. Podstawowe publiczne wiadomości IP nie są zgodne ze **standardowym modułem** równoważenia obciążenia. Firma Microsoft zaleca stosowanie **standardu** dla obciążeń produkcyjnych.
+Użyj `-SKU Basic` , aby utworzyć podstawowy publiczny adres IP. Podstawowe publiczne adresy IP nie są zgodne z usługą równoważenia obciążenia w **warstwie Standardowa** . Firma Microsoft zaleca używanie **standardu** dla obciążeń produkcyjnych.
 
 > [!IMPORTANT]
-> Pozostała część tego przewodnika Szybki start zakłada, że **standardowa** jednostka SKU jest wybierana podczas procesu wyboru jednostki SKU powyżej.
+> W pozostałej części tego przewodnika Szybki Start przyjęto założenie, że w ramach procesu wyboru jednostki SKU zostanie wybrana **standardowa** jednostka SKU.
 
 ## <a name="create-azure-load-balancer"></a>Tworzenie modułu równoważenia obciążenia platformy Azure
 
@@ -73,7 +73,7 @@ W tej sekcji opisano szczegółowo procedurę tworzenia i konfigurowania następ
 
 ### <a name="create-the-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
-Utwórz publiczny moduł równoważenia obciążenia platformy Azure za pomocą [sieci az lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **myLoadBalancer,** która zawiera pulę frontonu o nazwie **myFrontEnd**, pulę wewnętrznej bazy danych o nazwie **myBackEndPool,** która jest skojarzona z publicznym adresem IP **myPublicIP** utworzonym w poprzednim kroku. Służy `--sku basic` do tworzenia podstawowego publicznego adresu IP. Firma Microsoft zaleca standardowe jednostki SKU dla obciążeń produkcyjnych.
+Utwórz publiczną Azure Load Balancer za pomocą [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) o nazwie **myLoadBalancer** , która zawiera pulę frontonu o nazwie Moja **fronton**, pulę zaplecza o nazwie **myBackEndPool** , która jest skojarzona z publicznym adresem IP **myPublicIP** utworzonym w poprzednim kroku. Użyj `--sku basic` , aby utworzyć podstawowy publiczny adres IP. Firma Microsoft zaleca użycie standardowej jednostki SKU dla obciążeń produkcyjnych.
 
 ```azurecli-interactive
   az network lb create \
@@ -86,7 +86,7 @@ Utwórz publiczny moduł równoważenia obciążenia platformy Azure za pomocą 
 ```
 
 > [!IMPORTANT]
-> Pozostała część tego przewodnika Szybki start zakłada, że **standardowa** jednostka SKU jest wybierana podczas procesu wyboru jednostki SKU powyżej.
+> W pozostałej części tego przewodnika Szybki Start przyjęto założenie, że w ramach procesu wyboru jednostki SKU zostanie wybrana **standardowa** jednostka SKU.
 
 ### <a name="create-the-health-probe"></a>Tworzenie sondy kondycji
 
@@ -202,7 +202,7 @@ Utwórz trzy interfejsy sieciowe za pomocą polecenia [az network nic create](/c
 
 W tym przykładzie utworzysz trzy maszyny wirtualne, które będą używane jako serwery zaplecza dla modułu równoważenia obciążenia. Aby sprawdzić, czy moduł równoważenia obciążenia został utworzony pomyślnie, zainstalujesz także serwer NGINX na maszynach wirtualnych.
 
-Jeśli tworzysz podstawowy moduł równoważenia obciążenia z podstawowym publicznym adresem IP, musisz utworzyć zestaw dostępności przy użyciu ([az vm availabilityset create](/cli/azure/network/nic) to add your virtual machines into. Standardowe moduły równoważenia obciążenia nie wymagają tego dodatkowego kroku. Firma Microsoft zaleca korzystanie ze standardu.
+Jeśli tworzysz podstawową Load Balancer z podstawowym publicznym adresem IP, musisz utworzyć zestaw dostępności za pomocą ([AZ VM availabilityset Create](/cli/azure/network/nic) , aby dodać maszyny wirtualne do programu. Standardowe usługi równoważenia obciążenia nie wymagają tego dodatkowego kroku. Firma Microsoft zaleca używanie standardu.
 
 ### <a name="create-three-virtual-machines"></a>Tworzenie trzech maszyn wirtualnych
 
@@ -311,6 +311,6 @@ Gdy grupa zasobów nie będzie już potrzebna, możesz użyć polecenia [az grou
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start utworzono standardowy moduł równoważenia obciążenia, dołączono do niego maszyny wirtualne, skonfigurowano regułę ruchu modułu równoważenia obciążenia, sondę kondycji, a następnie przetestowano moduł równoważenia obciążenia. Aby dowiedzieć się więcej o modułie równoważenia obciążenia platformy Azure, przejdź do [samouczków dotyczący równoważenia obciążenia platformy Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+W tym przewodniku szybki start utworzono usługa Load Balancer w warstwie Standardowa, dołączono do niego maszyny wirtualne, skonfigurowano regułę ruchu Load Balancer, sondę kondycji, a następnie przetestowano Load Balancer. Aby dowiedzieć się więcej na temat Azure Load Balancer, przejdź do [Azure Load Balancer samouczków](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-Dowiedz się więcej o [strefach równoważenia obciążenia i dostępności](load-balancer-standard-availability-zones.md).
+Dowiedz się więcej na temat [stref Load Balancer i dostępności](load-balancer-standard-availability-zones.md).
