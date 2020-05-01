@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/18/2020
 ms.author: glenga
 ms.openlocfilehash: eb54439f89cc2443eeed2d3b63dfbe7fedb4bf17
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673495"
 ---
 ## <a name="update-the-tests"></a>Aktualizowanie testów
 
-Ponieważ archetyp tworzy również zestaw testów, należy zaktualizować te testy `msg` do `run` obsługi nowego parametru w podpisie metody.  
+Ponieważ Archetype również tworzy zestaw testów, należy zaktualizować te testy, aby obsłużyć nowy `msg` parametr w podpisie `run` metody.  
 
-Przejdź do lokalizacji kodu testowego pod _src/test/java_, otwórz plik projektu *Function.java* `//Invoke` i zastąp wiersz kodu pod następującym kodem.
+Przejdź do lokalizacji kodu testu w obszarze _src/test/Java_, Otwórz plik projektu *Functions. Java* i Zastąp wiersz kodu `//Invoke` następującym kodem.
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/test/java/com/function/FunctionTest.java" range="48-50":::

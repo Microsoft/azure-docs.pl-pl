@@ -1,101 +1,101 @@
 ---
 title: Co to jest usługa Azure Data Share?
-description: Dowiedz się więcej o udostępnianiu danych w prosty i bezpieczny sposób wielu klientom i partnerom korzystającym z usługi Azure Data Share.
+description: Uzyskaj informacje na temat udostępniania danych w sposób zwykły i bezpieczny dla wielu klientów i partnerów przy użyciu udziału danych platformy Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77621850"
 ---
 # <a name="what-is-azure-data-share"></a>Co to jest usługa Azure Data Share?
 
-W dzisiejszym świecie dane są postrzegane jako kluczowy atut strategiczny, który wiele organizacji musi w prosty i bezpieczny sposób udostępniać swoim klientom i partnerom. Istnieje wiele sposobów, że klienci to zrobić dzisiaj, w tym za pośrednictwem FTP, e-mail, interfejsów API, aby wymienić tylko kilka. Organizacje mogą łatwo stracić możliwość śledzenia tego, komu udostępniły swoje dane. Udostępnianie danych za pośrednictwem protokołu FTP lub wstawanie własnej infrastruktury interfejsu API jest często kosztowne w udostępnianiu i administrowaniu. Istnieje obciążenie związane z zarządzaniem związane z wykorzystaniem tych metod udostępniania na dużą skalę. 
+W dzisiejszym świecie dane są wyświetlane jako kluczowy zasób strategiczny, który wiele organizacji musi po prostu i bezpiecznie udostępnić klientom i partnerom. Istnieje wiele sposobów, w których obecnie klienci wykonują te czynności, w tym za pośrednictwem protokołu FTP, poczty e-mail i interfejsów API, aby nazwać kilka. Organizacje mogą łatwo utracić śledzenie osób, w których udostępnili swoje dane. Udostępnianie danych przy użyciu protokołu FTP lub w ramach infrastruktury interfejsu API jest często kosztowne do aprowizacji i administrowania. Istnieją narzuty związane z zarządzaniem za pomocą tych metod udostępniania na dużą skalę. 
 
-Wiele organizacji musi odpowiadać za udostępnione dane. Oprócz odpowiedzialności wiele organizacji chce mieć możliwość prostego kontrolowania, zarządzania i monitorowania wszystkich udostępnianych danych. W dzisiejszym świecie, gdzie oczekuje się, że dane będą nadal rosnąć w wykładniczym tempie, organizacje potrzebują prostego sposobu udostępniania dużych zbiorów danych. Klienci żądają najbardziej aktualnych danych, aby upewnić się, że są w stanie uzyskać szczegółowe informacje w odpowiednim czasie.
+Wiele organizacji musi być odpowiedzialnych za udostępnione dane. Oprócz odpowiedzialności wiele organizacji chce mieć w prosty sposób kontrolować i monitorować wszystkie współużytkowanie danych oraz zarządzać nimi. W dzisiejszym świecie, w którym oczekuje się, że dane będą nadal wzrastać w wykładniczym tempie, organizacje muszą mieć prosty sposób udostępniania danych Big Data. Klienci wymagają najnowszych danych, aby mieć pewność, że będą oni mogli uzyskiwać szczegółowe informacje.
 
-Usługa Azure Data Share umożliwia organizacjom łatwe i bezpieczne udostępnianie danych wielu klientom i partnerom. Za pomocą kilku kliknięć można aprowizować nowe konto udostępniania danych, dodawać zestawy danych i zapraszać klientów i partnerów do udostępniania danych. Dostawcy danych zawsze kontrolują dane, które udostępnili. Usługa Azure Data Share ułatwia zarządzanie i monitorowanie, jakie dane zostały udostępnione, kiedy i przez kogo. 
+Udział danych platformy Azure umożliwia organizacjom proste i bezpieczne udostępnianie danych wielu klientom i partnerom. Wystarczy kilka kliknięć, aby zainicjować nowe konto udostępniania danych, dodać zestawy danych i zaprosić klientów i partnerów do udziału danych. Dostawcy danych zawsze kontrolują udostępnione dane. Udział danych platformy Azure ułatwia zarządzanie i monitorowanie danych, które zostały udostępnione, kiedy i przez kogo. 
 
-Dostawca danych może zachować kontrolę nad tym, jak ich dane są obsługiwane przez określenie warunków użytkowania ich udziału w danych. Uzyskanie danych jest uzależnione od tego, czy konsument danych zaakceptował te warunki. Dostawcy danych mogą określać częstotliwość, z jaką konsumenci danych będą otrzymywać aktualizacje. Dostawca danych może w dowolnym momencie odwołać dostęp do nowych aktualizacji. 
+Dostawca danych może zachować kontrolę nad sposobem obsługi ich danych, określając warunki użytkowania ich udziału danych. Uzyskanie danych jest uzależnione od tego, czy konsument danych zaakceptował te warunki. Dostawcy danych mogą określać częstotliwość, z jaką konsumenci danych będą otrzymywać aktualizacje. Dostawca danych może w dowolnym momencie odwołać dostęp do nowych aktualizacji. 
 
-Usługa Azure Data Share pomaga udoskonalić szczegółowe informacje, ułatwiając łączenie danych od stron trzecich w celu wzbogacenia analiz i scenariuszy sztucznej inteligencji. Łatwe korzystanie z możliwości narzędzi analitycznych platformy Azure do przygotowywania, przetwarzania i analizowania danych udostępnionych przy użyciu usługi Azure Data Share. 
+Udział danych platformy Azure ułatwia zwiększenie wglądu w dane, ułatwiając łączenie danych od innych firm w celu wzbogacania scenariuszy analizy i AI. Korzystaj z możliwości narzędzi analitycznych platformy Azure, aby przygotować, przetwarzać i analizować dane udostępnione za pomocą udziału danych platformy Azure. 
 
-Dostawca danych i konsument danych muszą mieć subskrypcję platformy Azure, aby udostępniać i odbierać dane. Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+Dostawca danych i odbiorca danych muszą mieć subskrypcję platformy Azure, aby udostępniać i odbierać dane. Jeśli nie masz subskrypcji platformy Azure, Utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
-## <a name="scenarios-for-azure-data-share"></a>Scenariusze udostępniania danych platformy Azure
+## <a name="scenarios-for-azure-data-share"></a>Scenariusze dotyczące udziału danych platformy Azure
 
-Usługa Azure Data Share może być używana w wielu różnych branżach. Na przykład sprzedawca detaliczny może chcieć udostępnić swoim dostawcom najnowsze dane dotyczące punktów sprzedaży. Korzystając z usługi Azure Data Share, sprzedawca detaliczny może skonfigurować udział danych zawierający dane o punktach sprzedaży dla wszystkich dostawców i udostępniać sprzedaż co godzinę lub codziennie. 
+Udział danych platformy Azure może być używany w wielu różnych branżach. Na przykład sprzedawca detaliczny może chcieć udostępnić ostatni punkt danych sprzedaży swoim dostawcom. Korzystając z udziału danych platformy Azure, sprzedawca detaliczny może skonfigurować udział danych zawierający punkt danych sprzedaży dla wszystkich dostawców i dzielić się sprzedażą co godzinę lub codziennie. 
 
-Usługa Azure Data Share może również służyć do ustanawiania portalu danych dla określonej branży. Na przykład rząd lub instytucja badawcza, która regularnie udostępnia zanonimizowane dane o wzroście populacji stronom trzecim. 
+Udział danych platformy Azure może być również używany do ustanawiania rynku danych dla konkretnej branży. Na przykład organizacja rządowa lub instytucja badawcza, która regularnie udostępnia dane anonimowe na temat wzrostu populacji innym podmiotom. 
 
-Innym przypadkiem użycia usługi Azure Data Share jest ustanowienie konsorcjum danych. Na przykład wiele różnych instytucji badawczych może udostępniać dane jednemu zaufanemu organowi. Dane są analizowane, agregowane lub przetwarzane przy użyciu narzędzi analitycznych platformy Azure, a następnie udostępniane zainteresowanym stronom. 
+Innym przypadkiem użycia usługi Azure Data Share jest ustanowienie konsorcjum danych. Na przykład niektóre różne instytucje badawcze mogą udostępniać dane za pomocą jednej zaufanej treści. Dane są analizowane, agregowane lub przetwarzane przy użyciu narzędzi analitycznych platformy Azure, a następnie udostępniane zainteresowanym stronom. 
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Usługa Azure Data Share oferuje obecnie udostępnianie oparte na migawkach i udostępnianie w miejscu. 
+Udział danych platformy Azure oferuje obecnie udostępnianie oparte na migawce i udostępnianie w miejscu. 
 
-W udostępnianiu opartym na migawkach dane są przenoszone z subskrypcji platformy Azure dostawcy danych i lądują w subskrypcji platformy Azure konsumenta danych. Jako dostawca danych aprowizujesz udostępnianie danych i zapraszasz odbiorców do udziału danych. Konsumenci danych otrzymują zaproszenie do udostępniania danych za pośrednictwem poczty e-mail. Gdy konsument danych zaakceptuje zaproszenie, może wyzwolić pełną migawkę danych udostępnionych im. Te dane są odbierane na konto przechowywania danych konsumentów. Konsumenci danych mogą otrzymywać regularne, przyrostowe aktualizacje danych udostępnionych im, dzięki czemu zawsze mają najnowszą wersję danych. 
+W ramach udostępniania opartego na migawce dane są przenoszone z subskrypcji platformy Azure dostawcy danych i gruntów w ramach subskrypcji platformy Azure klienta danych. Jako dostawca danych zastrzegasz udział danych i zapraszasz odbiorców do udziału danych. Odbiorcy danych otrzymują zaproszenie do udziału danych za pośrednictwem poczty e-mail. Gdy odbiorca danych zaakceptuje zaproszenie, może wyzwolić pełną migawkę danych, które zostały do nich udostępnione. Te dane są odbierane na koncie magazynu odbiorcy danych. Odbiorcy danych mogą odbierać regularne, przyrostowe aktualizacje danych, które są do nich udostępniane, aby zawsze miały najnowszą wersję danych. 
 
-Dostawcy danych mogą oferować swoim odbiorcom danych przyrostowe aktualizacje danych udostępnionych im za pośrednictwem harmonogramu migawek. Harmonogramy migawek są oferowane co godzinę lub codziennie. Gdy konsument danych akceptuje i konfiguruje swój udział danych, może subskrybować harmonogram migawki. Jest to korzystne w scenariuszach, w których udostępnione dane są regularnie aktualizowane, a konsument danych potrzebuje najbardziej aktualnych danych. 
+Dostawcy danych mogą oferować klientom danych przyrostowe aktualizacje danych, które są im udostępniane przez harmonogram migawek. Harmonogramy migawek są oferowane co godzinę lub codziennie. Gdy odbiorca danych akceptuje i konfiguruje udział danych, może subskrybować harmonogram migawek. Jest to przydatne w scenariuszach, w których dane udostępnione są regularnie aktualizowane, a odbiorca danych wymaga najnowszych danych. 
 
-![przepływ udziału danych](media/data-share-flow.png)
+![przepływ udostępniania danych](media/data-share-flow.png)
 
-Gdy konsument danych akceptuje udostępnianie danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane przy użyciu usługi Azure Blob Storage, konsument danych może odbierać te dane w usłudze Azure Data Lake Store. Podobnie jeśli dostawca danych udostępnia dane z usługi Azure SQL Data Warehouse, konsument danych może wybrać, czy chcą odbierać dane do magazynu usługi Azure Data Lake Store, bazy danych SQL azure lub usługi Azure SQL Data Warehouse. W przypadku udostępniania ze źródeł opartych na języku SQL konsument danych może również wybrać, czy odbiera dane w parkietach czy csv. 
+Gdy odbiorca danych akceptuje udział danych, może odbierać dane w wybranym przez siebie magazynie danych. Na przykład jeśli dostawca danych udostępnia dane za pomocą usługi Azure Blob Storage, odbiorca danych może odbierać te dane w Azure Data Lake Store. Podobnie, jeśli dostawca danych udostępnia dane z Azure SQL Data Warehouse, odbiorca danych może zdecydować, czy chcą otrzymywać dane do Azure Data Lake Store, Azure SQL Database czy Azure SQL Data Warehouse. W przypadku udostępniania z poziomu źródeł opartych na języku SQL odbiorca danych może również wybrać, czy mają oni odbierać dane w Parquet czy CSV. 
 
-Dzięki udostępnianiu danych w miejscu dostawcy danych mogą udostępniać dane tam, gdzie się znajdują, bez kopiowania danych. Po nawiązaniu relacji udostępniania za pośrednictwem przepływu zaproszenia tworzone jest łącze symboliczne między źródłowym magazynem danych dostawcy danych a docelowym magazynem danych konsumenta danych. Konsument danych może odczytywać i wysyłać zapytania do danych w czasie rzeczywistym przy użyciu własnego magazynu danych. Zmiany w magazynie danych źródłowych są natychmiast dostępne dla konsumenta danych. Udostępnianie w miejscu jest obecnie w wersji zapoznawczej dla Usługi Azure Data Explorer.
+W przypadku udostępniania w miejscu dostawcy danych mogą udostępniać dane, w których znajdują się bez kopiowania danych. Po ustanowieniu relacji udostępniania za pomocą przepływu zaproszenia zostanie utworzone łącze symboliczne między źródłowym magazynem danych dostawcy danych a docelowym magazynem danych odbiorcy danych. Konsument danych może odczytywać i wysyłać zapytania dotyczące danych w czasie rzeczywistym przy użyciu własnego magazynu danych. Zmiany w źródłowym magazynie danych są natychmiast dostępne dla konsumenta danych. Udostępnianie w miejscu jest obecnie dostępne w wersji zapoznawczej dla usługi Azure Eksplorator danych.
 
 ## <a name="key-capabilities"></a>Najważniejsze możliwości
 
-Usługa Azure Data Share umożliwia dostawcom danych:
+Udział danych platformy Azure umożliwia dostawcom danych:
 
 * Udostępnianie danych z listy [obsługiwanych magazynów danych](supported-data-stores.md) klientom i partnerom spoza organizacji
 
-* Śledź, komu udostępniłeś swoje dane
+* Śledź użytkowników, którym udostępniono Twoje dane
 
-* Wybór migawki lub udostępniania w miejscu
+* Wybór migawki lub udostępnianie w miejscu
 
-* Jak często twoje dane są odbierane przez konsumentów aktualizacji twoich danych
+* Jak często odbiorcy danych otrzymują aktualizacje danych
 
-* Zezwalaj klientom na ściąganie najnowszej wersji danych w razie potrzeby lub zezwalaj im na automatyczne otrzymywanie przyrostowych zmian danych w określonym przez Ciebie odstępach czasu.
+* Zezwól klientom na ściąganie najnowszej wersji danych zgodnie z potrzebami lub Zezwól im na automatyczne otrzymywanie zmian przyrostowych danych z interwałem zdefiniowanym przez użytkownika
 
-Usługa Azure Data Share umożliwia użytkownikom danych: 
+Udział danych platformy Azure umożliwia użytkownikom danych: 
 
-* Wyświetlanie opisu typu udostępnianych danych
+* Wyświetl opis typu danych, które są udostępniane
 
-* Wyświetlanie warunków użytkowania danych
+* Wyświetl warunki użytkowania danych
 
-* Akceptowanie lub odrzucanie zaproszenia do udostępniania danych platformy Azure
+* Akceptowanie lub odrzucanie zaproszenia udziału danych platformy Azure
 
-* Zaakceptuj dane udostępnione do [obsługiwanego magazynu danych](supported-data-stores.md).
+* Akceptuj dane udostępnione Tobie w [obsługiwanym magazynie danych](supported-data-stores.md).
 
-* Wyzwalanie pełnej lub przyrostowej migawki udziału danych udostępnionego przez organizację
+* Wyzwól pełną lub przyrostową migawkę udziału danych, który organizacja udostępniła Tobie
 
-* Subskrybowanie udziału danych w celu odbierania najnowszej kopii danych za pomocą migawki przyrostowej
+* Zasubskrybuj udział danych, aby otrzymać najnowszą kopię danych za pomocą migawki przyrostowej
 
-Wszystkie kluczowe funkcje wymienione powyżej są obsługiwane za pośrednictwem witryny Azure portal lub za pośrednictwem interfejsów API REST. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Data Share za pośrednictwem interfejsów API REST, zapoznaj się z naszą dokumentacją referencyjną. 
+Wszystkie najważniejsze możliwości wymienione powyżej są obsługiwane za pośrednictwem Azure Portal lub za pośrednictwem interfejsów API REST. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Data Share za pośrednictwem interfejsów API REST, zapoznaj się z dokumentacją referencyjną. 
 
 ## <a name="security"></a>Zabezpieczenia
 
-Usługa Azure Data Share wykorzystuje podstawowe zabezpieczenia, które oferuje platforma Azure w celu ochrony danych w spoczynku i podczas przesyłania. Dane są szyfrowane w spoczynku, gdzie są obsługiwane przez podstawowy magazyn danych. Dane są również szyfrowane podczas przesyłania. Metadane dotyczące udziału danych są również szyfrowane w spoczynku i podczas przesyłania. 
+Udział danych platformy Azure wykorzystuje podstawowe zabezpieczenia oferowane przez platformę Azure w celu ochrony danych przechowywanych i przesyłanych. Dane są szyfrowane w spoczynku, gdzie są obsługiwane przez podstawowy magazyn danych. Dane są również szyfrowane podczas przesyłania. Metadane dotyczące udziału danych są również szyfrowane w czasie spoczynku i podczas przesyłania. 
 
-Formanty dostępu można ustawić na poziomie zasobów usługi Azure Data Share, aby upewnić się, że jest dostępny dla osób, które są autoryzowane. 
+Kontrolę dostępu można ustawić na poziomie zasobów udziału danych platformy Azure, aby upewnić się, że jest on dostępny dla autoryzowanych. 
 
-Usługa Azure Data Share wykorzystuje tożsamości zarządzane dla zasobów platformy Azure (wcześniej znane jako MSI) do automatycznego zarządzania tożsamościami w usłudze Azure Active Directory. Tożsamości zarządzane dla zasobów platformy Azure są wykorzystywane do dostępu do magazynów danych, które są używane do udostępniania danych. Nie ma wymiany poświadczeń między dostawcą danych a konsumentem danych. Aby uzyskać więcej informacji, zobacz [stronę Tożsamości zarządzane dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+Udział danych platformy Azure wykorzystuje zarządzane tożsamości dla zasobów platformy Azure (wcześniej znanych jako MSIs) do automatycznego zarządzania tożsamościami w Azure Active Directory. Zarządzane tożsamości dla zasobów platformy Azure są wykorzystywane do uzyskiwania dostępu do magazynów danych używanych do udostępniania danych. Nie ma wymiany poświadczeń między dostawcą danych i konsumentem danych. Więcej informacji można znaleźć na [stronie zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Aby uzyskać listę regionów platformy Azure, które udostępniają udostępnianie danych platformy Azure, zapoznaj się z [produktami dostępnymi na](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) stronie regionu i wyszukaj udział danych platformy Azure. 
+Listę regionów świadczenia usługi Azure, które udostępniają udział danych platformy Azure, można znaleźć na stronie [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) i wyszukać udział danych platformy Azure. 
 
-Usługa Azure Data Share nie przechowuje kopii samych danych. Dane są przechowywane w magazynie danych źródłowych, który jest udostępniany. Na przykład jeśli producent danych przechowuje swoje dane na koncie usługi Azure Data Lake Store znajdującym się w zachodnie stany USA, czyli w obszarze przechowywania danych. Jeśli udostępniają dane z kontem usługi Azure Storage znajdującym się w Europie Zachodniej za pomocą migawki, zazwyczaj dane są przesyłane bezpośrednio do konta usługi Azure Storage znajdującego się w Europie Zachodniej.
+Udział danych platformy Azure nie przechowuje kopii samych danych. Dane są przechowywane w magazynie danych, który jest udostępniany. Na przykład, jeśli producent danych przechowuje swoje dane na koncie Azure Data Lake Store zlokalizowanym w regionie zachodnie stany USA, w którym są przechowywane dane. Jeśli udostępniają dane za pomocą konta usługi Azure Storage znajdującego się w regionie Europa Zachodnia za pośrednictwem migawki, zazwyczaj dane są przekazywane bezpośrednio do konta usługi Azure Storage znajdującego się w regionie Europa Zachodnia.
 
-Usługa Azure Data Share nie musi być dostępna w twoim regionie, aby korzystać z usługi. Na przykład jeśli masz dane przechowywane na koncie usługi Azure Storage znajdującym się w regionie, w którym udostępnianie danych platformy Azure nie jest jeszcze dostępne, nadal możesz wykorzystać tę usługę do udostępniania danych. 
+Usługa udziału danych platformy Azure nie musi być dostępna w Twoim regionie, aby można było korzystać z usługi. Jeśli na przykład dane są przechowywane na koncie usługi Azure Storage znajdującym się w regionie, w którym udział danych platformy Azure nie jest jeszcze dostępny, można nadal korzystać z usługi do udostępniania danych. 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak rozpocząć udostępnianie danych, przejdź do [samouczka udostępniania danych.](share-your-data.md)
+Aby dowiedzieć się, jak zacząć udostępniać dane, przejdź do samouczka [udostępnianie danych](share-your-data.md) .

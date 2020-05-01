@@ -1,6 +1,6 @@
 ---
 title: Co to jest Azure Databricks?
-description: Dowiedz się więcej o usłudze Azure Databricks i o tym, jak wprowadza ona program Spark on Databricks na platformę Azure. Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure.
+description: Dowiedz się więcej na temat Azure Databricks i sposobu, w jaki zapewnia ona platformę Spark na platformie Azure. Usługa Azure Databricks to platforma analizy oparta na usłudze Apache Spark zoptymalizowana pod kątem platformy usług w chmurze Microsoft Azure.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -11,10 +11,10 @@ ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
 ms.openlocfilehash: 902486f7e19f2dfd7cc64e27589e192c57ef64e8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81255519"
 ---
 # <a name="what-is-azure-databricks"></a>Co to jest Azure Databricks?
@@ -37,7 +37,7 @@ Usługa Azure Databricks zapewnia pełny zestaw możliwości i technologii klast
 
 * **Przesyłanie strumieniowe**: przetwarzanie i analiza danych w czasie rzeczywistym dla aplikacji analitycznych i interakcyjnych. Integruje się z rozwiązaniami HDFS, Flume i Kafka.
 
-* **MLlib**: Biblioteka uczenia maszynowego składająca się ze wspólnych algorytmów uczenia się i narzędzi, w tym klasyfikacji, regresji, klastrowania, filtrowania współpracy, redukcji wymiarowości, a także podstawowych podstawowych podstawowych.
+* **MLlib**: Biblioteka Machine Learning składająca się z typowych algorytmów uczenia i narzędzi, takich jak Klasyfikacja, regresja, klastrowanie, filtrowanie i współdziałanie, zmniejszenie liczby wymiarów, a także podstawowe elementy pierwotne optymalizacji.
 
 * **GraphX**: wykresy i obliczenia dotyczące wykresów do szerokiego zakresu zastosowań, od analizy poznawczej po eksplorację danych.
 
@@ -53,7 +53,7 @@ Usługa Azure Databricks bazuje na możliwościach platformy Spark, zapewniając
 
 ### <a name="fully-managed-apache-spark-clusters-in-the-cloud"></a>W pełni zarządzane klastry Apache Spark w chmurze
 
-Usługa Azure Databricks zapewnia bezpieczne i niezawodne środowisko produkcyjne w chmurze, zarządzane i obsługiwane przez ekspertów ds. platformy Spark. Możesz:
+Usługa Azure Databricks zapewnia bezpieczne i niezawodne środowisko produkcyjne w chmurze, zarządzane i obsługiwane przez ekspertów ds. platformy Spark. Można:
 
 * Tworzyć klastry w ciągu sekund.
 * Dynamicznie automatycznie skalować klastry w górę i w dół, w tym klastry bezserwerowe, i udostępniać je między zespołami. 
@@ -88,7 +88,7 @@ Usługa Azure Databricks zapewnia zabezpieczenia klasy korporacyjnej platformy A
 
 > [!IMPORTANT]
 >
-> Usługa Azure Databricks to usługa firmy Microsoft Azure, która jest wdrażana w infrastrukturze globalnej chmury publicznej platformy Azure. Cała komunikacja między składnikami usługi, w tym między publicznymi usługami IP na płaszczyźnie kontrolnej a płaszczyzną danych klienta, pozostaje w ramach szkieletu sieci Microsoft Azure. Zobacz też [globalna sieć firmy Microsoft](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Azure Databricks to Microsoft Azure usługa pierwszej firmy, która jest wdrażana w globalnej infrastrukturze chmury publicznej platformy Azure. Cała komunikacja między składnikami usługi, w tym między publicznymi adresami IP w płaszczyźnie kontroli a płaszczyzną danych klienta, pozostaje w obrębie sieci szkieletowej Microsoft Azure. Zobacz również [Microsoft Global Network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
 
 
 ## <a name="integration-with-azure-services"></a>Integracja z usługami Azure
