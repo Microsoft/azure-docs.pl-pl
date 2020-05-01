@@ -1,6 +1,6 @@
 ---
-title: Tworzenie usługi SignalR za pomocą usługi App Service przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć usługę SignalR z usługą App Service. Poznaj wszystkie polecenia interfejsu wiersza polecenia usługi Azure SignalR.
+title: Tworzenie usługi sygnalizującej za pomocą App Service przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Użyj interfejsu wiersza polecenia platformy Azure do utworzenia usługi sygnalizującej z App Service. Uzyskaj informacje na temat wszystkich poleceń interfejsu wiersza polecenia dla usługi Azure Signal.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
@@ -9,10 +9,10 @@ ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74158028"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Tworzenie usługi SignalR Service za pomocą usługi App Service

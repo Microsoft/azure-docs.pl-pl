@@ -1,6 +1,6 @@
 ---
-title: Interfejs API usługi Azure Cosmos DB dla mongodb (wersja 3.6) obsługiwane funkcje i składni
-description: Dowiedz się więcej o interfejsie API usługi Azure Cosmos DB dla obsługiwanych funkcji i składni usługi MongoDB (wersja 3.6).
+title: Interfejs API Azure Cosmos DB dla MongoDB (wersja 3,6) obsługiwane funkcje i składnia
+description: Dowiedz się więcej o obsługiwanych funkcjach i składni interfejsu API Azure Cosmos DB (wersja 3,6).
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -8,25 +8,25 @@ ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81393613"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
 
-Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB można komunikować się przy użyciu dowolnego [sterownika](https://docs.mongodb.org/ecosystem/drivers)klienta mongodb typu open source. Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta dzięki przestrzeganiu [protokołu przewodowego](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
+Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Można komunikować się z interfejsem API Azure Cosmos DB dla MongoDB przy użyciu dowolnego ze [sterowników](https://docs.mongodb.org/ecosystem/drivers)klienta MongoDB typu open source. Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB umożliwia korzystanie z istniejących sterowników klienta dzięki przestrzeganiu [protokołu przewodowego](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
-Korzystając z interfejsu API usługi Azure Cosmos DB dla mongodb, można korzystać z zalet MongoDB, który jesteś przyzwyczajony do, ze wszystkimi możliwościami przedsiębiorstwa, które zapewnia usługi Cosmos DB: [dystrybucja](distribute-data-globally.md) [globalna, automatyczne dzielenie na fragmenty,](partition-data.md)gwarancje dostępności i opóźnienia, szyfrowanie w spoczynku, kopie zapasowe i wiele więcej.
+Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet MongoDB, z których korzystasz, ze wszystkimi możliwościami przedsiębiorstwa, które Cosmos DB oferuje: [globalna dystrybucja](distribute-data-globally.md), [Automatyczna fragmentowania](partition-data.md), dostępność i gwarancje opóźnienia, szyfrowanie w spoczynku, tworzenie kopii zapasowych i wiele innych.
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB jest domyślnie zgodny z serwerem MongoDB w wersji **3.6** dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Należy zauważyć, że podczas korzystania z interfejsu API usługi Azure Cosmos DB dla kont MongoDB, wersja 3.6 kont mają punkt końcowy w formacie, `*.mongo.cosmos.azure.com` podczas gdy wersja 3.2 kont mają punkt końcowy w formacie `*.documents.azure.com`.
+Interfejs API Azure Cosmos DB dla MongoDB jest domyślnie zgodny z serwerem MongoDB w wersji **3,6** dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Należy pamiętać, że w przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, wersja 3,6 kont ma punkt końcowy w `*.mongo.cosmos.azure.com` formacie, podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 
-Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB zapewnia niemal pełną obsługę konstrukcji języka zapytań bazy danych MongoDB. Poniżej znajduje się szczegółowa lista aktualnie obsługiwanych operacji, operatorów, etapów, poleceń i opcji.
+Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB zapewnia niemal pełną obsługę konstrukcji języka zapytań bazy danych MongoDB. Poniżej znajdziesz szczegółową listę obecnie obsługiwanych operacji, operatorów, etapów, poleceń i opcji.
 
 ## <a name="database-commands"></a>Polecenia bazy danych
 
@@ -47,7 +47,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |resetError |    Nie  |
 |update  |   Tak  |
 |[Zmiana strumieni](mongodb-change-streams.md)  |  Tak  |
-|GridFS (FS) |   Tak  |
+|GridFS |   Tak  |
 
 ### <a name="authentication-commands"></a>Polecenia uwierzytelniania
 
@@ -62,12 +62,12 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|Kolekcje ograniczone   |   Nie      |
+|Kolekcje z ograniczeniami   |   Nie      |
 |cloneCollectionAsCapped     |   Nie      |
-|collMod (collMod)     |   Nie      |
+|collMod     |   Nie      |
 |collMod: expireAfterSeconds   |   Nie      |
-|convertToCaped (ConvertToCaped)   |  Nie       |
-|copydb (kopia db)     |  Nie       |
+|convertToCapped   |  Nie       |
+|copydb     |  Nie       |
 |create   |    Tak     |
 |createIndexes     |  Tak       |
 |currentOp     |  Tak       |
@@ -75,13 +75,13 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |dropDatabase     |  Tak       |
 |dropIndexes     |   Tak      |
 |filemd5    |   Tak      |
-|killCursors ( killCursors )    |  Tak       |
-|killOp (zabijOp)     |   Nie      |
+|killCursors    |  Tak       |
+|killOp     |   Nie      |
 |listCollections     |  Tak       |
 |listDatabases     |  Tak       |
 |listIndexes     |  Tak       |
 |reIndex     |    Tak     |
-|renameCollection (zmiana nazwy)     |    Nie     |
+|Nazwa nazwy     |    Nie     |
 |connectionStatus    |     Nie    |
 
 ### <a name="diagnostics-commands"></a>Polecenia diagnostyki
@@ -90,19 +90,19 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |---------|---------|
 |buildInfo         |   Tak      |
 |collStats    |  Tak       |
-|connPoolStats (connPoolStats)     |  Nie       |
+|connPoolStats     |  Nie       |
 |connectionStatus     |  Nie       |
-|Datasize     |   Nie      |
-|dbHash (dbHash)    |    Nie     |
+|dataSize     |   Nie      |
+|dbhash    |    Nie     |
 |dbStats     |   Tak      |
-|Wyjaśnić     |   Tak      |
-|wyjaśnić: executionStats     |   Tak      |
+|uzasadnieni     |   Tak      |
+|Wyjaśnij: executionStats     |   Tak      |
 |funkcje     |    Nie     |
 |hostInfo     |   Nie      |
 |listDatabases         |   Tak      |
-|listaZakłady     |  Nie       |
-|Profiler     |  Nie       |
-|status serwera     |  Nie       |
+|listCommands     |  Nie       |
+|profilera     |  Nie       |
+|serverStatus     |  Nie       |
 |top     |    Nie     |
 |whatsmyuri     |   Tak      |
 
@@ -117,7 +117,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |aggregate |   Tak  |
 |count     |   Tak  |
 |distinct  | Tak |
-|mapaReduce | Nie |
+|mapReduce | Nie |
 
 ### <a name="aggregation-stages"></a>Etapy agregacji
 
@@ -256,14 +256,14 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|$CURRENT usd|    Tak|
-|$DESCEND usd|        Tak|
-|$KEEP usd        |Tak|
-|$PRUNE usd    |    Tak|
-|$REMOVE usd    |Tak|
-|$ROOT usd        |Tak|
+|$ $CURRENT|    Tak|
+|$ $DESCEND|        Tak|
+|$ $KEEP        |Tak|
+|$ $PRUNE    |    Tak|
+|$ $REMOVE    |Tak|
+|$ $ROOT        |Tak|
 
-### <a name="literal-operator"></a>Operator dosłowny
+### <a name="literal-operator"></a>Operator literału
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -305,7 +305,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |---------|---------|
 | $type| Tak|
 
-### <a name="accumulator-expressions"></a>Wyrażenia akumulatora
+### <a name="accumulator-expressions"></a>Wyrażenia akumulowana
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -331,20 +331,20 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |Polecenie  |Obsługiwane |
 |---------|---------|
 |Double    |Tak    |
-|Ciąg    |Tak    |
+|String    |Tak    |
 |Obiekt    |Tak    |
 |Tablica    |Tak    |
 |Dane binarne    |Tak|    
 |ObjectId    |Tak    |
-|Wartość logiczna    |Tak    |
+|Boolean    |Tak    |
 |Date    |Tak    |
-|Null    |Tak    |
-|32-bitowa ćda (int)    |Tak    |
+|Zero    |Tak    |
+|32-bitowa liczba całkowita (int)    |Tak    |
 |Znacznik czasu    |Tak    |
-|64-bitowa ć całkowita (długa)    |Tak    |
-|MinKey (Klucz min.)    |Tak    |
-|Klawisz MaxKey    |Tak    |
-|Dziesiętny128    |Tak|    
+|64-bitowa liczba całkowita (Long)    |Tak    |
+|MinKey    |Tak    |
+|MaxKey    |Tak    |
+|Decimal128    |Tak|    
 |Wyrażenie regularne    |Tak|
 |JavaScript    |Tak|
 |JavaScript (z zakresem)|    Tak    |
@@ -356,13 +356,13 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|Indeks pojedynczego pola    |Tak    |
+|Indeks jednego pola    |Tak    |
 |Indeks złożony    |Tak    |
-|Indeks multikey    |Tak    |
+|Indeks MultiKey    |Tak    |
 |Indeks tekstu    |Nie|
-|Sfera 2dsphere    |Tak    |
-|Indeks 2d    |Nie    |
-|Indeks mieszania    | Tak|
+|2dsphere    |Tak    |
+|Indeks 2D    |Nie    |
+|Indeks z wartością skrótu    | Tak|
 
 ### <a name="index-properties"></a>Właściwości indeksu
 
@@ -370,7 +370,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |---------|---------|
 |TTL|    Tak    |
 |Unikatowe    |Tak|
-|Częściowo|    Nie|
+|Częściowe|    Nie|
 |Bez uwzględniania wielkości liter    |Nie|
 |Rozrzedzone    |Nie |
 |Tło|    Tak |
@@ -386,14 +386,14 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |$not    |    Tak|
 |$nor    |    Tak| 
 
-### <a name="element-operators"></a>Operatory elementów
+### <a name="element-operators"></a>Operatory elementu
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
 |$exists|    Tak|
 |$type    |    Tak|
 
-### <a name="evaluation-query-operators"></a>Operatory zapytań ewaluacyjnych
+### <a name="evaluation-query-operators"></a>Operatory zapytań oceny
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -401,18 +401,18 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |$jsonSchema    |    Nie|
 |$mod    |    Tak|
 |$regex |    Tak|
-|$text    | Nie (nie jest obsługiwany. Zamiast tego użyj $regex).)| 
+|$text    | Nie (nieobsługiwane. Użyj zamiast tego $regex.)| 
 |$where    |Nie| 
 
-W kwerendach $regex wyrażenia zakotwiczone w lewo umożliwiają wyszukiwanie indeksu. Jednak użycie modyfikatora „i” (wielkość liter nie ma znaczenia) oraz modyfikatora „m” (wiele wierszy) powoduje skanowanie kolekcji we wszystkich wyrażeniach.
+W zapytaniach $regex wyrażenia zakotwiczone w lewo umożliwiają wyszukiwanie indeksu. Jednak użycie modyfikatora „i” (wielkość liter nie ma znaczenia) oraz modyfikatora „m” (wiele wierszy) powoduje skanowanie kolekcji we wszystkich wyrażeniach.
 
-Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, biorąc pod ```find({x:{$regex: /^abc$/})```uwagę następujące oryginalne zapytanie: , musi być modyfikowany w następujący sposób:
+Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, uwzględniając następujące oryginalne zapytanie: ```find({x:{$regex: /^abc$/})```, należy je zmodyfikować w następujący sposób:
 
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 
 Pierwsza część użyje indeksu, aby ograniczyć wyszukiwanie do dokumentów, które rozpoczynają się od ^abc, a druga część będzie dokładnie dopasowywana do wpisów. Operator kreski „|” działa jako funkcja „or” — zapytanie ```find({x:{$regex: /^abc|^def/})``` pasuje do dokumentów, w których pole „x” ma wartości zaczynające się od „abc” lub „def”. Aby korzystać z indeksu, zaleca się podzielenie zapytania na dwa różne zapytania połączone operatorem $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
-### <a name="array-operators"></a>Operatory macierzy
+### <a name="array-operators"></a>Operatory tablic
 
 |Polecenie  |Obsługiwane | 
 |---------|---------|
@@ -426,7 +426,7 @@ Pierwsza część użyje indeksu, aby ograniczyć wyszukiwanie do dokumentów, k
 |---------|---------|
 $comment |Tak| 
 
-### <a name="projection-operators"></a>Operatory projekcyjne
+### <a name="projection-operators"></a>Operatory projekcji
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -465,7 +465,7 @@ $comment |Tak|
 |$pushAll| Tak|
 
 
-#### <a name="update-modifiers"></a>Modyfikatory aktualizacji
+#### <a name="update-modifiers"></a>Aktualizuj Modyfikatory
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
@@ -504,37 +504,37 @@ $polygon |  Tak |
 
 |Polecenie  |Obsługiwane |
 |---------|---------|
-|cursor.batchSize()    |    Tak|
-|kursor.close()    |Tak|
-|kursor.isClosed()|        Tak|
-|kursor.sortation()|    Nie|
-|kursor.comment()    |Tak|
-|kursor.count()    |Tak|
-|kursor.explain()|    Nie|
-|kursor.forEach()    |Tak|
-|kursor.hasNastępny()    |Tak|
-|kursor.hint()    |Tak|
-|kursor.isWyczesane()|    Tak|
-|kursor.itcount()    |Tak|
-|kursor.limit()    |Tak|
-|kursor.map()    |Tak|
-|cursor.maxScan()    |Tak|
-|cursor.maxTimeMS()|    Tak|
-|kursor.max()    |Tak|
-|kursor.min()    |Tak|
-|kursor.next()|    Tak|
-|plik cursor.noCursorTimeout()    |Nie|
-|kursor.objsLeftInBatch()    |Tak|
-|kursor.pretty()|    Tak|
-|kursor.readConcern()|    Tak|
-|plik cursor.readPref()        |Tak|
-|plik cursor.returnKey()    |Nie|
-|kursor.showRecordId()|    Nie|
-|kursor.size()    |Tak|
-|kursor.skip()    |Tak|
+|Cursor. batchSize ()    |    Tak|
+|Cursor. Close ()    |Tak|
+|Cursor. IsClosed ()|        Tak|
+|Cursor. Collation ()|    Nie|
+|Cursor. comment ()    |Tak|
+|Cursor. Count ()    |Tak|
+|Cursor. Wyjaśnij ()|    Nie|
+|Cursor. forEach ()    |Tak|
+|Cursor. hasNext ()    |Tak|
+|Cursor. Hint ()    |Tak|
+|Cursor. iswyczerpaład ()|    Tak|
+|Cursor. itcount ()    |Tak|
+|Cursor. limit ()    |Tak|
+|Cursor. map ()    |Tak|
+|Cursor. maxScan ()    |Tak|
+|Cursor. maxTimeMS ()|    Tak|
+|Cursor. max ()    |Tak|
+|Cursor. min ()    |Tak|
+|Cursor. Next ()|    Tak|
+|Cursor. noCursorTimeout ()    |Nie|
+|Cursor. objsLeftInBatch ()    |Tak|
+|Cursor. dość ()|    Tak|
+|Cursor. readConcern ()|    Tak|
+|Cursor. readPref ()        |Tak|
+|Cursor. returnKey ()    |Nie|
+|Cursor. showRecordId ()|    Nie|
+|Cursor. size ()    |Tak|
+|Cursor. Skip ()    |Tak|
 |cursor.sort()    |    Tak|
-|kursor.tailable()|    Nie|
-|kurs.toArray()    |Tak|
+|Cursor. Add()|    Nie|
+|Cursor. ToArray — ()    |Tak|
 
 ## <a name="sort-operations"></a>Operacje sortowania
 
@@ -542,7 +542,7 @@ W przypadku używania operacji `findOneAndUpdate` obsługiwane są operacje sort
 
 ## <a name="unique-indexes"></a>Indeksy unikatowe
 
-Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość jest zachowywana na domyślnym kluczu "_id". Indeksy niestandardowe można tworzyć w usłudze Cosmos DB za pomocą polecenia createIndex, w tym ograniczenia "unikatowy".
+Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak w przypadku domyślnego klucza "_id". Indeksy niestandardowe można tworzyć w Cosmos DB przy użyciu polecenia CREATE INDEX, łącznie z ograniczeniem "Unique".
 
 ## <a name="time-to-live-ttl"></a>Czas wygaśnięcia (TTL)
 
@@ -550,7 +550,7 @@ Usługa Cosmos DB obsługuje czas wygaśnięcia (TTL) na podstawie znacznika cza
 
 ## <a name="user-and-role-management"></a>Zarządzanie użytkownikami i rolami
 
-Usługa Cosmos DB nie obsługuje jeszcze użytkowników i ról. Jednak usługa Cosmos DB obsługuje sterowanie dostępem oparte na rolach (RBAC) oraz hasła/klucze tylko do odczytu i do odczytu, które można uzyskać za pośrednictwem [witryny Azure portal](https://portal.azure.com) (strona Parametry połączenia).
+Usługa Cosmos DB nie obsługuje jeszcze użytkowników i ról. Jednakże Cosmos DB obsługuje funkcję kontroli dostępu opartej na rolach (RBAC) oraz hasła do odczytu i zapisu oraz klucze, które można uzyskać za pośrednictwem [Azure Portal](https://portal.azure.com) (strona parametrów połączenia).
 
 ## <a name="replication"></a>Replikacja
 
@@ -562,17 +562,17 @@ Niektóre aplikacje polegają na ustawieniu [Write Concern](https://docs.mongodb
 
 ## <a name="sharding"></a>Dzielenie na fragmenty
 
-Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Automatycznie zarządza tworzeniem, umieszczaniem i równoważeniem fragmentów. Usługa Azure Cosmos DB nie obsługuje ręcznych poleceń dzielenia na fragmenty, co oznacza, że nie trzeba wywoływać poleceń, takich jak addShard, balancerStart, moveChunk itp. Wystarczy określić klucz niezależnego fragmentu podczas tworzenia kontenerów lub wykonywania zapytań o dane.
+Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Zarządza on fragmentu tworzeniem, umieszczaniem i zrównoważeniem automatycznie. Azure Cosmos DB nie obsługuje ręcznych poleceń fragmentowania, co oznacza, że nie trzeba Wywoływanie poleceń takich jak addShard, balancerStart, moveChunk itp. Wystarczy określić klucz fragmentu podczas tworzenia kontenerów lub wykonywania zapytań dotyczących danych.
 
 ## <a name="sessions"></a>Sesje
 
-Usługa Azure Cosmos DB nie obsługuje jeszcze poleceń sesji po stronie serwera.
+Azure Cosmos DB nie obsługuje jeszcze poleceń sesji po stronie serwera.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, sprawdź [funkcje wersji Mongo 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
+- Aby uzyskać więcej informacji, zobacz [funkcje wersji Mongo 3,6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Dowiedz się, jak [korzystać z programu Studio 3T](mongodb-mongochef.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Dowiedz się, jak [korzystać z programu Robo 3T](mongodb-robomongo.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Eksploruj [przykłady](mongodb-samples.md) bazy danych MongoDB za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
-<sup>Uwaga: W tym artykule opisano funkcję usługi Azure Cosmos DB, która zapewnia zgodność protokołu przewodowego z bazami danych MongoDB. Firma Microsoft nie uruchamia baz danych MongoDB w celu świadczenia tej usługi. Usługa Azure Cosmos DB nie jest powiązana z mongodb, inc.</sup>
+<sup>Uwaga: w tym artykule opisano funkcję Azure Cosmos DB, która zapewnia zgodność protokołu telekomunikacyjnych z bazami danych MongoDB. Firma Microsoft nie uruchamia MongoDB baz danych w celu zapewnienia tej usługi. Azure Cosmos DB nie jest powiązany z MongoDB, Inc.</sup>

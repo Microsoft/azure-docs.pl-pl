@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji platformy Xamarin za pomocą interfejsu API usługi .NET i usługi Azure Cosmos DB dla usługi MongoDB
+title: Tworzenie aplikacji platformy Xamarin przy użyciu interfejsu API .NET i Azure Cosmos DB dla usługi MongoDB
 description: Przykładowy kod Xamarin, którego można używać do nawiązywania połączeń z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB i wysyłania do niego zapytań
 author: codemillmatt
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
 ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79481691"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Szybki start: tworzenie aplikacji Xamarin.Forms za pomocą narzędzia .NET SDK i interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji Xamarin. Forms przy użyciu zestawu .NET SDK i interfejsu API Azure Cosmos DB dla MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -34,7 +34,7 @@ Ten przewodnik Szybki start przedstawia tworzenie [konta Cosmos skonfigurowanego
 
 Aby uruchomić przykład, musisz mieć program [Visual Studio](https://www.visualstudio.com/downloads/) lub [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) i ważne konto usługi Azure CosmosDB.
 
-Jeśli nie masz jeszcze programu Visual Studio, pobierz [program Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) z programem Mobile development z zainstalowanym instalatorem obciążenia platformy **.NET.**
+Jeśli nie masz jeszcze programu Visual Studio, Pobierz [program Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) z pakietem roboczym **opracowywanie aplikacji mobilnych za pomocą platformy .NET** zainstalowanej z instalatorem.
 
 Jeśli wolisz pracować na komputerze Mac, pobierz program [Visual Studio dla komputerów Mac](https://visualstudio.microsoft.com/vs/mac/) i uruchom instalację.
 
@@ -56,7 +56,7 @@ Najpierw pobierz przykładową aplikację z usługi GitHub. Implementuje ona apl
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-1. W systemie Windows otwórz wiersz polecenia lub na komputerze Mac otwórz terminal, utwórz nowy folder o nazwie git-samples, a następnie zamknij okno.
+1. W systemie Windows otwórz wiersz polecenia lub na komputerze Mac otwórz Terminal, Utwórz nowy folder o nazwie git-Samples, a następnie zamknij okno.
 
     ```batch
     md "C:\git-samples"
@@ -78,7 +78,7 @@ Najpierw pobierz przykładową aplikację z usługi GitHub. Implementuje ona apl
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started.git
     ```
 
-Jeśli nie chcesz korzystać z git, możesz również [pobrać projekt jako plik ZIP](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
+Jeśli nie chcesz używać narzędzia Git, możesz również [pobrać projekt jako plik zip](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-xamarin-getting-started/archive/master.zip)
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
@@ -170,10 +170,10 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 3. Skopiuj **podstawowe parametry połączenia** z portalu (używając przycisku kopiowania) i wprowadź je jako wartość pola **ConnectionString** w pliku **APIKeys.cs**.
 
-4. Usuń `&replicaSet=globaldb` z ciągu połączenia. Zostanie wyświetlony błąd środowiska uruchomieniowego, jeśli nie usuniesz tej wartości z ciągu zapytania.
+4. Usuń `&replicaSet=globaldb` z parametrów połączenia. Jeśli ta wartość nie zostanie usunięta z ciągu zapytania, zostanie wyświetlony komunikat o błędzie środowiska uruchomieniowego.
 
 > [!IMPORTANT]
-> Aby uniknąć `&replicaSet=globaldb` błędu środowiska uruchomieniowego, należy usunąć parę klucz/wartość z ciągu zapytania ciągu połączenia.
+> Należy usunąć parę `&replicaSet=globaldb` klucz/wartość z ciągu zapytania ciągu połączenia w celu uniknięcia błędu czasu wykonywania.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB.
 
@@ -189,7 +189,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 6. Kliknij prawym przyciskiem myszy projekt **TaskList.iOS** i wybierz polecenie **Ustaw jako projekt startowy**.
 7. Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio dla komputerów Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
 1. Na liście rozwijanej platform wybierz pozycję TaskList.iOS lub TaskList.Android, w zależności od platformy, na której chcesz uruchamiać aplikację.
 2. Naciśnij klawisze Cmd + Enter, aby rozpocząć debugowanie aplikacji.
