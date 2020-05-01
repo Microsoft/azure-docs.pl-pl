@@ -1,5 +1,5 @@
 ---
-title: Tworzenie obszaru roboczego usługi Log Analytics — usługa Azure PowerShell
+title: Utwórz obszar roboczy Log Analytics — Azure PowerShell
 description: Przykładowy skrypt programu Azure PowerShell — tworzenie obszaru roboczego usługi Log Analytics
 ms.subservice: logs
 ms.topic: sample
@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/07/2017
 ms.openlocfilehash: 62b02de5d1c08f6047052d71e3be420cceb1c5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80054626"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Tworzenie obszaru roboczego usługi Log Analytics przy użyciu programu PowerShell
@@ -33,8 +33,8 @@ Ten skrypt korzysta z poniższych poleceń w celu utworzenia nowego obszaru robo
 
 | Polecenie | Uwagi |
 |---|---|
-| [Obszar roboczy Get-AzOperationalInsights](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) | Pobiera informacje o istniejącym obszarze roboczym. |
-| [Nowa przestrzeń robocza AzOperationalInsights](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) | Tworzy obszar roboczy w określonej grupie zasobów i lokalizacji. |
+| [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) | Pobiera informacje o istniejącym obszarze roboczym. |
+| [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) | Tworzy obszar roboczy w określonej grupie zasobów i lokalizacji. |
 
 
 ## <a name="next-steps"></a>Następne kroki
