@@ -1,6 +1,6 @@
 ---
-title: Tworzenie dedykowanego klastra centrum zdarzeń przy użyciu portalu Azure
-description: W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster usługi Azure Event Hubs przy użyciu witryny Azure portal.
+title: Tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal
+description: W tym przewodniku szybki start dowiesz się, jak utworzyć klaster usługi Azure Event Hubs przy użyciu Azure Portal.
 services: event-hubs
 documentationcenter: ''
 author: femila
@@ -11,105 +11,105 @@ ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
 ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77157486"
 ---
-# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Szybki start: tworzenie dedykowanego klastra centrów zdarzeń przy użyciu portalu Azure 
-Klastry centrów zdarzeń oferują wdrożenia z jedną dzierżawą dla klientów o najbardziej wymagających potrzebach przesyłania strumieniowego. Ta oferta ma gwarantowaną 99,99% umowy SLA i jest dostępna tylko w naszej dedykowanej warstwie cenowej. [Klaster centrum zdarzeń](event-hubs-dedicated-overview.md) może przychodzących miliony zdarzeń na sekundę z gwarantowaną pojemnością i opóźnieniem podsekundowym. Przestrzenie nazw i centra zdarzeń utworzone w klastrze zawierają wszystkie funkcje standardowej oferty i więcej, ale bez żadnych limitów transferu danych przychodzących. Dedykowana oferta obejmuje również popularną funkcję [przechwytywania centrów zdarzeń](event-hubs-capture-overview.md) bez dodatkowych kosztów, co pozwala automatycznie wsadować i rejestrować strumienie danych do [usługi Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) lub usługi Azure Data Lake Storage Gen [1.](../data-lake-store/data-lake-store-overview.md)
+# <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Szybki Start: tworzenie dedykowanego klastra Event Hubs przy użyciu Azure Portal 
+Klastry Event Hubs oferują wdrożenia z jedną dzierżawą dla klientów z najbardziej wymaganymi potrzebami przesyłania strumieniowego. Ta oferta ma gwarantowaną umowę SLA na 99,99% i jest dostępna tylko w naszej dedykowanej warstwie cenowej. [Klaster Event Hubs](event-hubs-dedicated-overview.md) może odbierać miliony zdarzeń na sekundę z gwarantowaną pojemnością i drugim opóźnieniem. Przestrzenie nazw i centra zdarzeń utworzone w ramach klastra obejmują wszystkie funkcje standardowej oferty i wiele innych, ale bez ograniczeń związanych z transferem danych przychodzących. Oferta dedykowana obejmuje również popularne funkcje [przechwytywania Event Hubs](event-hubs-capture-overview.md) bez dodatkowych kosztów, co pozwala na automatyczne tworzenie partii i rejestrowanie strumieni danych na [platformie Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) lub [Azure Data Lake Storage generacji 1](../data-lake-store/data-lake-store-overview.md).
 
-Dedykowane klastry są aprowizowane i rozliczane przez **jednostki pojemności (CU),** wstępnie przydzieloną ilość zasobów procesora CPU i pamięci. Dla każdego klastra można kupić 1, 2, 4, 8, 12, 16 lub 20 punktów zakupu. W tym przewodniku Szybki start przejdziemy przez tworzenie klastra 1 cu event hubs za pośrednictwem witryny Azure portal.
+Dedykowane klastry są udostępniane i są rozliczane według **jednostek pojemności**, wstępnie przydzielonej ilości zasobów procesora i pamięci. W każdym klastrze można zakupić 1, 2, 4, 8, 12, 16 lub 20 jednostek. W tym przewodniku szybki start przeprowadzimy Cię przez proces tworzenia 1% CU Event Hubs klastra za pomocą Azure Portal.
 
 > [!NOTE]
-> To samoobsługowe środowisko jest obecnie dostępne w wersji zapoznawczej w witrynie [Azure Portal.](https://aka.ms/eventhubsclusterquickstart) Jeśli masz jakieś pytania dotyczące dedykowanej oferty, skontaktuj się z [zespołem Event Hubs.](mailto:askeventhubs@microsoft.com)
+> To środowisko samoobsługowe jest obecnie dostępne w wersji zapoznawczej w witrynie [Azure Portal](https://aka.ms/eventhubsclusterquickstart). Jeśli masz jakieś pytania dotyczące dedykowanej oferty, skontaktuj się z [zespołem Event Hubs](mailto:askeventhubs@microsoft.com).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz następującymi elementami:
 
-- Konto platformy Azure. Jeśli go nie masz, [kup konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) przed rozpoczęciem. Ta funkcja nie jest obsługiwana przy bezpłatnym koncie platformy Azure. 
-- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 Aktualizacja 3 (wersja 15.3, 26730.01) lub nowsza.
+- Konto platformy Azure. Jeśli nie masz takiego konta, [Kup](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) je przed rozpoczęciem. Ta funkcja nie jest obsługiwana przez bezpłatne konto platformy Azure. 
+- [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 Update 3 (wersja 15,3, 26730,01) lub nowszy.
 - [Zestaw .NET Standard SDK](https://dotnet.microsoft.com/download) w wersji 2.0 lub nowszej.
 - [Utworzono grupę zasobów](../event-hubs/event-hubs-create.md#create-a-resource-group).
 
-## <a name="create-an-event-hubs-dedicated-cluster"></a>Tworzenie dedykowanego klastra centrów zdarzeń
-Klaster centrum zdarzeń udostępnia unikatowy kontener zakresu, w którym można utworzyć jeden lub więcej obszarów nazw. W tej fazie podglądu samoobsługowego portalu można utworzyć 1 klastry CU w wybranych regionach. Jeśli potrzebujesz klastra większego niż 1 CU, możesz przesłać żądanie pomocy technicznej platformy Azure, aby skalować w górę klastra po jego utworzeniu.
+## <a name="create-an-event-hubs-dedicated-cluster"></a>Tworzenie klastra Event Hubs — warstwa Dedykowana
+Klaster Event Hubs udostępnia unikatowy kontener zakresu, w którym można utworzyć co najmniej jeden obszar nazw. W tej fazie zapoznawczej środowiska samoobsługowego w portalu można utworzyć 1 CU klastrów w wybranych regionach. Jeśli potrzebujesz klastra większego niż 1 CU, możesz przesłać żądanie pomocy technicznej platformy Azure w celu skalowania klastra po jego utworzeniu.
 
-Aby utworzyć klaster w grupie zasobów przy użyciu witryny Azure portal, wykonaj następujące kroki:
+Aby utworzyć klaster w grupie zasobów przy użyciu Azure Portal, wykonaj następujące czynności:
 
-1. Kliknij [ten link,](https://aka.ms/eventhubsclusterquickstart) aby utworzyć klaster w witrynie Azure portal. Z drugiej strony wybierz **pozycję Wszystkie usługi** z lewego okienka nawigacji, a następnie wpisz "Klastry centrów zdarzeń" na pasku wyszukiwania i wybierz "Klastry centrów zdarzeń" z listy wyników.
+1. Użyj [tego linku](https://aka.ms/eventhubsclusterquickstart) , aby utworzyć klaster na Azure Portal. W lewym okienku nawigacji wybierz pozycję **wszystkie usługi** , a następnie wpisz ciąg "Event Hubs klastrów" na pasku wyszukiwania i wybierz pozycję "klastry Event Hubs" z listy wyników.
 2. Na stronie **Tworzenie klastra** skonfiguruj następujące elementy:
     1. Wprowadź **nazwę klastra**. System od razu sprawdza, czy nazwa jest dostępna.
-    2. Wybierz **subskrypcję,** w której chcesz utworzyć klaster.
-    3. Wybierz **grupę zasobów,** w której chcesz utworzyć klaster.
-    4. Wybierz **lokalizację** klastra. Jeśli preferowany region jest wyszarzony, jest tymczasowo poza możliwością i można przesłać [żądanie pomocy technicznej](#submit-a-support-request) do zespołu centrum zdarzeń.
-    5. Wybierz przycisk **Dalej: Znaczniki** u dołu strony. Może być konieczne odczekanie kilku minut, aby system przeprowadził pełną aprowizację zasobów.
+    2. Wybierz **subskrypcję** , w której chcesz utworzyć klaster.
+    3. Wybierz **grupę zasobów** , w której chcesz utworzyć klaster.
+    4. Wybierz **lokalizację** klastra. Jeśli preferowany region jest wyszarzony, jest tymczasowo poza pojemnością i można przesłać [żądanie pomocy technicznej](#submit-a-support-request) do zespołu Event Hubs.
+    5. Wybierz przycisk **Następny: Tagi** w dolnej części strony. Może być konieczne odczekanie kilku minut, aby system przeprowadził pełną aprowizację zasobów.
 
-        ![Tworzenie klastra centrów zdarzeń — strona Podstawy](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
-3. Na stronie **Znaczniki** skonfiguruj następujące elementy:
-    1. Wprowadź **nazwę** i **wartość** znacznika, który chcesz dodać. Ten krok jest **opcjonalny**.  
-    2. Wybierz przycisk **Recenzja + Utwórz.**
+        ![Tworzenie Event Hubs klastra — Strona podstawy](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
+3. Na stronie **Tagi** skonfiguruj następujące elementy:
+    1. Wprowadź **nazwę** i **wartość** tagu, który chcesz dodać. Ten krok jest **opcjonalny**.  
+    2. Wybierz przycisk **Recenzja + Utwórz** .
 
-        ![Strona Tworzenie klastra centrów zdarzeń — strona Znaczniki](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
-4. Na stronie **Recenzja + Utwórz** przejrzyj szczegóły i wybierz pozycję **Utwórz**. 
+        ![Utwórz stronę Event Hubs klastra — Strona tagów](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
+4. Na stronie **Recenzja i tworzenie** Przejrzyj szczegóły, a następnie wybierz pozycję **Utwórz**. 
 
-    ![Strona Tworzenie klastra centrów zdarzeń — recenzja + strona Utwórz](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
+    ![Tworzenie strony klastra Event Hubs — Recenzja i Tworzenie strony](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
 
-## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>Tworzenie obszaru nazw i centrum zdarzeń w klastrze
+## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>Tworzenie przestrzeni nazw i centrum zdarzeń w klastrze
 
-1. Aby utworzyć obszar nazw w klastrze, na stronie **Klaster centrów zdarzeń** dla klastra wybierz **polecenie +Obszar nazw** z górnego menu.
+1. Aby utworzyć przestrzeń nazw w klastrze, na stronie **Event Hubs klastra** dla klastra wybierz pozycję **+ przestrzeń nazw** z górnego menu.
 
-    ![Strona zarządzania klastrem — przycisk dodaj obszar nazw](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
-2. Na stronie tworzenie obszaru nazw wykonaj następujące czynności:
-    1. Wprowadź **nazwę obszaru nazw**.  System sprawdza, czy nazwa jest dostępna.
-    2. Obszar nazw dziedziczy następujące właściwości:
+    ![Strona Zarządzanie klastrem — przycisk Dodaj przestrzeń nazw](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
+2. Na stronie Tworzenie przestrzeni nazw wykonaj następujące czynności:
+    1. Wprowadź **nazwę dla przestrzeni nazw**.  System sprawdza, czy nazwa jest dostępna.
+    2. Przestrzeń nazw dziedziczy następujące właściwości:
         1. Identyfikator subskrypcji
         2. Grupa zasobów
         3. Lokalizacja
         4. Nazwa klastra
-    3. Wybierz **pozycję Utwórz,** aby utworzyć obszar nazw. Teraz możesz zarządzać klastrem.  
+    3. Wybierz pozycję **Utwórz** , aby utworzyć przestrzeń nazw. Teraz możesz zarządzać klastrem.  
 
-        ![Tworzenie obszaru nazw na stronie klastra](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
-3. Po utworzeniu obszaru nazw można [utworzyć centrum zdarzeń,](event-hubs-create.md#create-an-event-hub) tak jak zwykle w obszarze nazw. 
+        ![Tworzenie przestrzeni nazw na stronie klastra](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
+3. Po utworzeniu przestrzeni nazw można [utworzyć centrum zdarzeń](event-hubs-create.md#create-an-event-hub) , tak jak zwykle utworzysz je w przestrzeni nazw. 
 
 
-## <a name="submit-a-support-request"></a>Prześlij prośbę o pomoc techniczną
+## <a name="submit-a-support-request"></a>Prześlij żądanie pomocy technicznej
 
-Jeśli chcesz zmienić rozmiar klastra po utworzeniu lub jeśli preferowany region nie jest dostępny, prześlij prośbę o pomoc techniczną, wykonując następujące kroki:
+Jeśli chcesz zmienić rozmiar klastra po utworzeniu lub jeśli preferowany region nie jest dostępny, Prześlij żądanie pomocy technicznej, wykonując następujące czynności:
 
-1. W [witrynie Azure portal](https://portal.azure.com)wybierz pomoc + **wsparcie** z lewego menu.
-2. Wybierz **+ Nowe żądanie pomocy technicznej** z menu Pomoc techniczna.
-3. Na stronie pomocy technicznej wykonaj następujące kroki:
-    1. W przypadku **typu problemu**wybierz pozycję **Techniczne** z listy rozwijanej.
+1. W obszarze [Azure Portal](https://portal.azure.com)wybierz pozycję **Pomoc i obsługa techniczna** w menu po lewej stronie.
+2. Wybierz pozycję **+ nowe żądanie obsługi** w menu Pomoc techniczna.
+3. Na stronie Pomoc techniczna wykonaj następujące kroki:
+    1. W polu **typ problemu**wybierz pozycję **techniczne** z listy rozwijanej.
     2. W polu **Subskrypcja** wybierz subskrypcję.
-    3. W **obszarze Usługa**wybierz pozycję Moje **usługi**, a następnie wybierz pozycję Centrum **zdarzeń**.
-    4. W przypadku **zasobu**wybierz klaster, jeśli już istnieje, w przeciwnym razie wybierz opcję **Ogólne pytanie/zasób niedostępny**.
-    5. W obszarze **Typ problemu**wybierz opcję **Przydział**.
-    6. W polu **Problem wybierz**jedną z następujących wartości z listy rozwijanej:
-        1. Wybierz **opcję Poproś o dedykowaną jednostkę SKU,** aby zażądać tej funkcji, która ma być obsługiwana w Twoim regionie.
-        2. Wybierz **żądanie skalowania w górę lub skalowanie w dół dedykowanego klastra,** jeśli chcesz skalować w górę lub skalować w dół dedykowanego klastra. 
-    7. W przypadku **tematu**opisz problem.
+    3. W obszarze **Usługa**wybierz pozycję **Moje usługi**, a następnie wybierz pozycję **Event Hubs**.
+    4. W obszarze **zasób**wybierz swój klaster, jeśli istnieje już, w przeciwnym razie wybierz pozycję **Ogólne pytanie/zasób**niedostępne.
+    5. W obszarze **typ problemu**wybierz pozycję **przydział**.
+    6. Aby uzyskać **podtyp problemu**, wybierz jedną z następujących wartości z listy rozwijanej:
+        1. Wybierz pozycję **żądanie dla dedykowanej jednostki SKU** , aby zażądać, aby funkcja była obsługiwana w Twoim regionie.
+        2. Wybierz pozycję **Żądaj, aby skalować dedykowany klaster w górę lub w dół** , jeśli chcesz skalować w górę lub w dół dedykowany klaster. 
+    7. W **temacie**opisz problem.
 
         ![Strona biletu pomocy technicznej](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
 
  ## <a name="delete-a-dedicated-cluster"></a>Usuwanie dedykowanego klastra
  
-1. Aby usunąć klaster, wybierz **polecenie Usuń** z górnego menu. Należy pamiętać, że klaster będzie rozliczany przez co najmniej 4 godziny użytkowania po utworzeniu. 
-2. Pojawi się komunikat potwierdzający chęć usunięcia klastra.
-3. Wpisz **nazwę klastra** i wybierz pozycję **Usuń,** aby usunąć klaster.
+1. Aby usunąć klaster, wybierz pozycję **Usuń** z górnego menu. Należy pamiętać, że po utworzeniu klastra zostanie naliczona co najmniej 4 godziny użycia. 
+2. Zostanie wyświetlony komunikat z potwierdzeniem, że chcesz usunąć klaster.
+3. Wpisz **nazwę klastra** , a następnie wybierz pozycję **Usuń** , aby usunąć klaster.
 
-    ![Usuwanie strony klastra](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
+    ![Usuń stronę klastra](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
 
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule utworzono klaster centrum zdarzeń. Aby uzyskać instrukcje krok po kroku do wysyłania i odbierania zdarzeń z centrum zdarzeń i przechwytywania zdarzeń do magazynu platformy Azure lub usługi Azure Data Lake Store, zobacz następujące samouczki:
+W tym artykule opisano tworzenie klastra Event Hubs. Aby uzyskać instrukcje krok po kroku dotyczące wysyłania i odbierania zdarzeń z centrum zdarzeń oraz przechwytywania zdarzeń do usługi Azure Storage lub Azure Data Lake Store, zobacz następujące samouczki:
 
 - Wysyłanie i odbieranie zdarzeń 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
-- [Włącz przechwytywanie usługi Event Hubs za pomocą witryny Azure Portal](event-hubs-capture-enable-through-portal.md)
-- [Korzystanie z usługi Azure Event Hubs dla platformy Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+    - [JavaScript](get-started-java-send-v2.md)
+- [Włączanie przechwytywania Event Hubs przy użyciu Azure Portal](event-hubs-capture-enable-through-portal.md)
+- [Użyj usługi Azure Event Hubs dla Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

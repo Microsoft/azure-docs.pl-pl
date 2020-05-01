@@ -1,5 +1,5 @@
 ---
-title: Samouczek — używanie niestandardowego obrazu maszyny Wirtualnej w zestawie skalowania za pomocą programu Azure PowerShell
+title: Samouczek — używanie niestandardowego obrazu maszyny wirtualnej w zestawie skalowania z Azure PowerShell
 description: Dowiedz się, jak za pomocą programu Azure PowerShell utworzyć niestandardowy obraz maszyny wirtualnej, którego można użyć do wdrożenia zestawu skalowania maszyny wirtualnej
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: daef03b411a451fc3e5b73e46091672810b0f9bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76278293"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Samouczek: tworzenie niestandardowego obrazu i używanie go dla zestawów skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
@@ -25,7 +25,7 @@ Podczas tworzenia zestawu skalowania należy wskazać obraz używany do wdrożen
 > * Tworzenie niestandardowego obrazu maszyny wirtualnej ze źródłowej maszyny wirtualnej
 > * Wdrażanie zestawu skalowania, który używa niestandardowego obrazu maszyny wirtualnej
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -105,8 +105,8 @@ $image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID
 New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="configure-the-network-security-group-rules"></a>Konfigurowanie reguł sieciowej grupy zabezpieczeń
-Przed utworzeniem zestawu skalowania musimy skonfigurować reguły kojarzenia sieciowej grupy zabezpieczeń, aby umożliwić dostęp do protokołu HTTP, RDP i komunikacji zdalnej 
+## <a name="configure-the-network-security-group-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń
+Przed utworzeniem zestawu skalowania należy skonfigurować reguły kojarzenia sieciowych grup zabezpieczeń, aby zezwolić na dostęp do protokołu HTTP, RDP i komunikacji zdalnej. 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80

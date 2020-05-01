@@ -8,20 +8,20 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: cfd0f8a9a3180b14b4da9dc61e252054fe06628c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78274169"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(PRZESTARZAŁE) Szybki start — wdrażanie klastra Kubernetes dla kontenerów systemu Linux
 
 > [!TIP]
-> Aby uzyskać zaktualizowaną wersję tego przewodnika Szybki start, który korzysta z usługi Azure Kubernetes, zobacz [Szybki start: Wdrażanie klastra usługi Azure Kubernetes (AKS).](../../aks/kubernetes-walkthrough.md)
+> Aby uzyskać zaktualizowaną wersję tego przewodnika Szybki Start korzystającego z usługi Azure Kubernetes, zobacz [Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-W tym przewodniku Szybki start klaster kubernetes jest wdrażany przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie w klastrze jest wdrażana i uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis. Po ukończeniu aplikacja będzie dostępna w Internecie. 
+W tym przewodniku szybki start klaster Kubernetes jest wdrażany przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie w klastrze jest wdrażana i uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis. Po ukończeniu aplikacja będzie dostępna w Internecie. 
 
 Przykładowa aplikacja używana w tym dokumencie jest napisana w języku Python. Koncepcje i kroki przedstawione w tym miejscu mogą być używane do wdrożenia dowolnego obrazu kontenera w klastrze Kubernetes. Kod, plik Dockerfile i wstępnie utworzony plik manifestu rozwiązania Kubernetes powiązane z tym projektem są dostępne w [witrynie GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
@@ -29,7 +29,7 @@ Przykładowa aplikacja używana w tym dokumencie jest napisana w języku Python.
 
 Na potrzeby tego przewodnika Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać szczegółowe informacje na jego temat, zapoznaj się z [dokumentacją rozwiązania Kubernetes]( https://kubernetes.io/docs/home/).
 
-Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) przed rozpoczęciem.
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
