@@ -1,6 +1,6 @@
 ---
-title: Monitorowanie zasobu platformy Azure za pomocą usługi Azure Monitor
-description: Dowiedz się, jak zbierać i analizować dane dla zasobu platformy Azure w usłudze Azure Monitor.
+title: Monitorowanie zasobu platformy Azure za pomocą Azure Monitor
+description: Dowiedz się, jak zbierać i analizować dane dla zasobu platformy Azure w Azure Monitor.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
@@ -8,55 +8,55 @@ author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
 ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79503657"
 ---
-# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki start: monitorowanie maszyny wirtualnej platformy Azure za pomocą usługi Azure Monitor
-[Usługa Azure Monitor](../overview.md) rozpoczyna zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich utworzenia. W tym przewodniku Szybki start omówisz krótki przewodnik po danych, które są automatycznie zbierane dla maszyny Wirtualnej platformy Azure i jak ją wyświetlić w witrynie Azure portal. Następnie włączysz [usługę Azure Monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.
+# <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki Start: monitorowanie maszyny wirtualnej platformy Azure za pomocą Azure Monitor
+[Azure monitor](../overview.md) uruchamia zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich tworzenia. W tym przewodniku szybki start zawarto krótkie wskazówki dotyczące danych, które są automatycznie zbierane dla maszyny wirtualnej platformy Azure oraz jak wyświetlać ją w Azure Portal. Następnie włączysz [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.
 
-W tym przewodniku Szybki start przyjęto założenie, że masz już maszynę wirtualną platformy Azure. Jeśli nie, możesz utworzyć [maszynę wirtualną z systemem Windows](../../virtual-machines/windows/quick-create-portal.md) lub utworzyć [maszynę wirtualną z systemem Linux](../../virtual-machines/linux/quick-create-cli.md) po naszych szybkich startach maszyn wirtualnych.
+W tym przewodniku Szybki start przyjęto założenie, że masz już maszynę wirtualną platformy Azure. W przeciwnym razie można utworzyć [maszynę wirtualną z systemem Windows](../../virtual-machines/windows/quick-create-portal.md) lub utworzyć [maszynę wirtualną](../../virtual-machines/linux/quick-create-cli.md) z systemem Linux przy użyciu samouczków szybki start dla maszyn wirtualnych.
 
-Aby uzyskać bardziej szczegółowe opisy danych monitorowania zebranych z zasobów platformy Azure, zobacz [Monitorowanie maszyn wirtualnych platformy Azure za pomocą usługi Azure Monitor.](../insights/monitor-vm-azure.md)
-
-
-## <a name="complete-the-monitor-an-azure-resource-quickstart"></a>Ukończ przewodnik szybki start zasobów monitoruj za pomocą platformy Azure.
-Ukończ [zasób platformy Azure za pomocą usługi Azure Monitor,](quick-monitor-azure-resource.md) aby wyświetlić stronę przeglądu, dziennik aktywności i metryki maszyny Wirtualnej w ramach subskrypcji. Maszyny wirtualne platformy Azure zbierają te same dane monitorowania, co każdy inny zasób platformy Azure, ale dotyczy to tylko maszyny Wirtualnej hosta. Pozostała część tego przewodnika Szybki start skupi się na monitorowaniu systemu operacyjnego gościa i jego obciążeń.
+Aby uzyskać bardziej szczegółowe opisy danych monitorowania zbieranych z zasobów platformy Azure, zobacz [monitorowanie maszyn wirtualnych platformy Azure przy użyciu Azure monitor](../insights/monitor-vm-azure.md).
 
 
-## <a name="enable-azure-monitor-for-vms"></a>Włączanie usługi Azure Monitor dla maszyn wirtualnych
-Podczas gdy metryki i dzienniki aktywności będą zbierane dla maszyny Wirtualnej hosta, potrzebujesz agenta i konfiguracji do zbierania i analizowania danych monitorowania z systemu operacyjnego gościa i jego obciążeń. Usługa Azure Monitor dla maszyn wirtualnych instaluje tych agentów i zapewnia dodatkowe zaawansowane funkcje do monitorowania maszyn wirtualnych.
+## <a name="complete-the-monitor-an-azure-resource-quickstart"></a>Ukończ monitorowanie usługi Azure Resource szybkiego startu.
+Ukończ [monitorowanie zasobu platformy Azure za pomocą Azure monitor](quick-monitor-azure-resource.md) , aby wyświetlić stronę przeglądu, dziennik aktywności i metryki dla maszyny wirtualnej w ramach subskrypcji. Maszyny wirtualne platformy Azure zbierają te same dane monitorowania co inne zasoby platformy Azure, ale tylko dla maszyny wirtualnej hosta. Pozostała część tego przewodnika Szybki Start koncentruje się na monitorowaniu systemu operacyjnego gościa i jego obciążeń.
 
-1. Przejdź do menu maszyny wirtualnej.
-2. Kliknij pozycję **Przejdź do aplikacji Insights** na kafelku na stronie **Przegląd** lub kliknij **pozycję Insights** z menu **Monitorowanie.**
 
-    ![Strona przeglądowa](media/quick-monitor-azure-vm/overview-insights.png)
+## <a name="enable-azure-monitor-for-vms"></a>Włącz Azure Monitor dla maszyn wirtualnych
+W trakcie zbierania metryk i dzienników aktywności dla maszyny wirtualnej hosta potrzebna jest Agent i pewna konfiguracja służąca do zbierania i analizowania danych monitorowania z systemu operacyjnego gościa i jego obciążeń. Azure Monitor dla maszyn wirtualnych instaluje tych agentów i oferuje dodatkowe zaawansowane funkcje do monitorowania maszyn wirtualnych.
 
-3. Jeśli usługa Azure Monitor dla maszyn wirtualnych nie została jeszcze włączona dla maszyny wirtualnej, kliknij przycisk **Włącz**. 
+1. Przejdź do menu dla swojej maszyny wirtualnej.
+2. Kliknij pozycję **Przejdź do szczegółowych** informacji na kafelku na stronie **Przegląd** lub kliknij pozycję **szczegółowe** dane w menu **monitorowanie** .
 
-    ![Włączanie szczegółowych informacji](media/quick-monitor-azure-vm/enable-insights.png)
+    ![Strona przeglądu](media/quick-monitor-azure-vm/overview-insights.png)
 
-4. Jeśli maszyna wirtualna nie jest jeszcze dołączony do obszaru roboczego usługi Log Analytics, zostanie wyświetlony monit, aby wybrać istniejący obszar roboczy lub utworzyć nowy. Wybierz wartość domyślną, która jest obszarem roboczym o unikatowej nazwie w tym samym regionie co maszyna wirtualna.
+3. Jeśli Azure Monitor dla maszyn wirtualnych nie został jeszcze włączony dla maszyny wirtualnej, kliknij pozycję **Włącz**. 
+
+    ![Włącz szczegółowe dane](media/quick-monitor-azure-vm/enable-insights.png)
+
+4. Jeśli maszyna wirtualna nie jest już dołączona do obszaru roboczego Log Analytics, zostanie wyświetlony monit o wybranie istniejącego obszaru roboczego lub utworzenie nowego. Wybierz wartość domyślną, która jest obszarem roboczym z unikatową nazwą w tym samym regionie co maszyna wirtualna.
 
     ![Wybór obszaru roboczego](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. Dołączanie potrwa kilka minut, ponieważ rozszerzenia są włączone i agenci są instalowani na maszynie wirtualnej. Po jego zakończeniu zostanie wyświetlony komunikat, że szczegółowe informacje zostały pomyślnie wdrożone. Kliknij **pozycję Azure Monitor,** aby otworzyć usługę Azure Monitor dla maszyn wirtualnych.
+5. Dołączanie zajmie kilka minut, ponieważ rozszerzenia są włączone, a agenci są zainstalowani na maszynie wirtualnej. Po zakończeniu otrzymasz komunikat informujący o pomyślnym wdrożeniu szczegółowych informacji. Kliknij **Azure monitor** , aby otworzyć Azure monitor dla maszyn wirtualnych.
 
-    ![Otwórz monitor platformy Azure](media/quick-monitor-azure-vm/azure-monitor.png)
+    ![Otwórz Azure Monitor](media/quick-monitor-azure-vm/azure-monitor.png)
 
-6. Zobaczysz maszynę wirtualną z innymi maszynami wirtualnymi w ramach subskrypcji, które są wbudowane. Wybierz **kartę Niemonitorowane,** jeśli chcesz wyświetlić maszyny wirtualne w ramach subskrypcji, które nie są dołączane.
+6. Zostanie wyświetlona Twoja maszyna wirtualna z innymi maszynami wirtualnymi w ramach subskrypcji, które są dołączane. Wybierz kartę **Niemonitorowane** , jeśli chcesz wyświetlić maszyny wirtualne w subskrypcji, które nie zostały dołączone.
 
     ![Wprowadzenie](media/quick-monitor-azure-vm/get-started.png)
 
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
-Podczas tworzenia nowego obszaru roboczego usługi Log Analytics, musi być skonfigurowany do zbierania dzienników. Ta konfiguracja musi być wykonana tylko raz, ponieważ konfiguracja jest wysyłana do wszystkich maszyn wirtualnych, które się z nią łączą.
+Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurować do zbierania dzienników. Tę konfigurację należy wykonać tylko raz, ponieważ konfiguracja jest wysyłana do wszystkich maszyn wirtualnych, które się z nią nawiązują.
 
-1. Wybierz **pozycję Konfiguracja obszaru roboczego,** a następnie wybierz obszar roboczy.
+1. Wybierz pozycję **Konfiguracja obszaru roboczego** , a następnie wybierz obszar roboczy.
 
-2. Wybieranie **ustawień zaawansowanych**
+2. Wybierz **Ustawienia zaawansowane**
 
     ![Ustawienia zaawansowane usługi Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
@@ -65,29 +65,29 @@ Podczas tworzenia nowego obszaru roboczego usługi Log Analytics, musi być skon
 
 2. Wybierz pozycję **Dane**, a następnie pozycję **Dzienniki zdarzeń systemu Windows**.
 
-3. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **system,** a następnie **+** wybierz znak plus .
+3. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **system** , a następnie wybierz znak plus **+**.
 
 4. W tabeli zaznacz ważności **Błąd** i **Ostrzeżenie**.
 
-5. Wybierz **pozycję Zapisz** u góry strony, aby zapisać konfigurację.
+5. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać konfigurację.
 
 ### <a name="data-collection-from-linux-vm"></a>Zbieranie danych z maszyny wirtualnej z systemem Linux
 
 1. Wybierz dziennik **Syslog**.  
 
-2. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **Syslog,** a następnie **+** wybierz znak plus .  
+2. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz **+** znak plus.  
 
-3. W tabeli usuń zaznaczenie ważności **Informacje**, **Uwaga** i **Debugowanie**. 
+3. W tabeli Usuń zaznaczenie **informacji o informacjach**dotyczących serwerów, **powiadomienia** i **debugowania**. 
 
-4. Wybierz **pozycję Zapisz** u góry strony, aby zapisać konfigurację.
+4. Wybierz pozycję **Zapisz** w górnej części strony, aby zapisać konfigurację.
 
 ## <a name="view-data-collected"></a>Wyświetlanie zebranych danych
 
-7. Kliknij maszynę wirtualną, a następnie wybierz kartę **Wydajność.** Spowoduje to wyświetlenie wybranej grupy liczników wydajności zebranych z systemu operacyjnego gościa maszyny Wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń kursor myszy na wykres, aby wyświetlić średnie i percentyle w różnym czasie.
+7. Kliknij maszynę wirtualną, a następnie wybierz kartę **wydajność** . Spowoduje to wyświetlenie grupy liczników wydajności zebranych z systemu operacyjnego gościa maszyny wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentyly w różnych godzinach.
 
     ![Wydajność](media/quick-monitor-azure-vm/performance.png)
 
-9. Wybierz **mapę,** aby otworzyć funkcję map, która pokazuje procesy uruchomione na maszynie wirtualnej i ich zależności. Wybierz **właściwości,** aby otworzyć okienko właściwości, jeśli nie jest jeszcze otwarte.
+9. Wybierz pozycję **Mapuj** , aby otworzyć funkcję Maps, która pokazuje procesy działające na maszynie wirtualnej i ich zależności. Wybierz pozycję **Właściwości** , aby otworzyć okienko właściwości, jeśli nie jest jeszcze otwarte.
 
     ![Mapa](media/quick-monitor-azure-vm/map.png)
 
@@ -95,16 +95,16 @@ Podczas tworzenia nowego obszaru roboczego usługi Log Analytics, musi być skon
 
     ![Procesy](media/quick-monitor-azure-vm/processes.png)
 
-12. Ponownie wybierz maszynę wirtualną, a następnie wybierz pozycję **Zaloguj zdarzenia**. 
+12. Ponownie wybierz maszynę wirtualną, a następnie wybierz pozycję **zdarzenia dziennika**. 
 
-    ![Rejestrowanie zdarzeń](media/quick-monitor-azure-vm/log-events.png)
+    ![Zdarzenia dziennika](media/quick-monitor-azure-vm/log-events.png)
 
-13. Widoczna jest lista tabel przechowywanych w obszarze roboczym usługi Log Analytics dla maszyny wirtualnej. Ta lista będzie się różnić w zależności od tego, czy używasz maszyny wirtualnej systemu Windows lub Linux. Kliknij tabelę **Zdarzenie.** Obejmuje to wszystkie zdarzenia z dziennika zdarzeń systemu Windows. Usługa Log Analytics zostanie otwarta z prostą kwerendą do pobierania wpisów dziennika zdarzeń.
+13. Zostanie wyświetlona lista tabel, które są przechowywane w obszarze roboczym Log Analytics dla maszyny wirtualnej. Ta lista będzie się różnić w zależności od tego, czy korzystasz z maszyny wirtualnej z systemem Windows lub Linux. Kliknij tabelę **zdarzeń** . Obejmuje to wszystkie zdarzenia z dziennika zdarzeń systemu Windows. Log Analytics otwiera z prostym zapytaniem do pobrania wpisów dziennika zdarzeń.
 
     ![Analiza dziennika](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przewodniku Szybki start włączono usługę Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej i skonfigurowano obszar roboczy usługi Log Analytics do zbierania zdarzeń dla systemu operacyjnego gościa. Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
+W tym przewodniku szybki start włączono Azure Monitor dla maszyn wirtualnych dla maszyny wirtualnej i skonfigurowano obszar roboczy Log Analytics do zbierania zdarzeń dla systemu operacyjnego gościa. Aby dowiedzieć się, jak wyświetlać i analizować dane, przejdź do następnego samouczka.
 
 > [!div class="nextstepaction"]
 > [Wyświetlanie i analizowanie danych w usłudze Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)

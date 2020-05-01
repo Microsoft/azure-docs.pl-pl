@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: klastry Platformy Spark apache z interfejsem wiersza polecenia platformy Azure — usługa Azure HDInsight'
-description: Ten przewodnik Szybki start pokazuje, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia klastra Platformy Spark apache w usłudze Azure HDInsight.
+title: 'Szybki Start: klastry Apache Spark z interfejsem wiersza polecenia platformy Azure — Azure HDInsight'
+description: Ten przewodnik Szybki Start przedstawia sposób tworzenia klastra Apache Spark w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,26 +8,26 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77049682"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Szybki start: tworzenie klastra Platformy Spark apache w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Szybki Start: Tworzenie klastra Apache Spark w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spark apache w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure (CLI). Azure HDInsight jest zarządzaną usługą analityczną typu „open source” o szerokim zakresie, z przeznaczeniem dla przedsiębiorstw. Struktura Apache Spark dla usługi HDInsight umożliwia szybką analizę danych i przetwarzanie klastrów przy użyciu przetwarzania w pamięci. Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.
+W tym przewodniku szybki start dowiesz się, jak utworzyć klaster Apache Spark w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure. Azure HDInsight jest zarządzaną usługą analityczną typu „open source” o szerokim zakresie, z przeznaczeniem dla przedsiębiorstw. Platforma Apache Spark dla usługi HDInsight umożliwia szybkie analizowanie danych i przetwarzanie klastrów przy użyciu przetwarzania w pamięci. Interfejs wiersza polecenia platformy Azure to wieloplatformowe środowisko wiersza polecenia do zarządzania zasobami platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Narzędzie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), jeśli nie chcesz używać usługi Azure Cloud Shell.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), jeśli nie chcesz używać Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Tworzenie klastra platformy Apache Spark
 
-1. Zaloguj się do subskrypcji platformy Azure. Jeśli planujesz używać usługi Azure Cloud Shell, wybierz pozycję **Wypróbuj ją** w prawym górnym rogu następującego bloku kodu. W przeciwnym razie wprowadź następujące polecenie:
+1. Zaloguj się do subskrypcji platformy Azure. Jeśli planujesz używać Azure Cloud Shell, wybierz opcję **Wypróbuj** w prawym górnym rogu poniższego bloku kodu. W przeciwnym razie wprowadź następujące polecenie:
 
     ```azurecli-interactive
     az login
@@ -36,7 +36,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Ustawianie zmiennych środowiskowych. Użycie zmiennych w tym przewodniku Szybki start opiera się na bash. Niewielkie różnice będą potrzebne w innych środowiskach. Zastąp NAZWA RESOURCEGROUPNAME, LOCATION, CLUSTERNAME, STORAGEACCOUNTNAME i HASŁO w poniższym urywek kodu żądanymi wartościami. Następnie wprowadź polecenia interfejsu wiersza polecenia, aby ustawić zmienne środowiskowe.
+2. Ustaw zmienne środowiskowe. Użycie zmiennych w tym przewodniku Szybki Start opiera się na bash. Inne środowiska będą wymagały niewielkich zmian. W poniższym fragmencie kodu Zastąp wartości RESOURCEGROUPNAME, LOCATION, CLUSTERname, STORAGEACCOUNTNAME i PASSWORD. Następnie wprowadź polecenie interfejsu wiersza polecenia, aby ustawić zmienne środowiskowe.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
@@ -53,7 +53,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
     export componentVersion=Spark=2.3
     ```
 
-3. Utwórz grupę zasobów, wprowadzając poniższe polecenie:
+3. Utwórz grupę zasobów, wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az group create \
@@ -61,7 +61,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
         --name $resourceGroupName
     ```
 
-4. Utwórz konto magazynu platformy Azure, wprowadzając poniższe polecenie:
+4. Utwórz konto usługi Azure Storage, wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az storage account create \
@@ -73,7 +73,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
         --sku Standard_LRS
     ```
 
-5. Wyodrębnij klucz podstawowy z konta magazynu platformy Azure i przechowuj go w zmiennej, wprowadzając poniższe polecenie:
+5. Wyodrębnij klucz podstawowy z konta usługi Azure Storage i Zapisz go w zmiennej, wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -82,7 +82,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
         --query [0].value -o tsv)
     ```
 
-6. Utwórz kontener magazynu platformy Azure, wprowadzając poniższe polecenie:
+6. Utwórz kontener usługi Azure Storage, wprowadzając następujące polecenie:
 
     ```azurecli-interactive
     az storage container create \
@@ -113,7 +113,7 @@ W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spa
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu szybkiego startu można usunąć klaster. Dzięki funkcji HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Naliczana jest również opłata za klaster HDInsight, nawet jeśli nie jest używana. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ma ekonomiczny sens usuwanie klastrów, gdy nie są używane.
+Po zakończeniu przewodnika Szybki Start możesz chcieć usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 
 Wprowadź wszystkie lub niektóre z następujących poleceń, aby usunąć zasoby:
 
@@ -140,7 +140,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć klaster Platformy Spark apache w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure.  Przejdź do następnego samouczka, aby dowiedzieć się, jak używać klastra HDInsight do uruchamiania zapytań interaktywnych na przykładowych danych.
+W tym przewodniku szybki start przedstawiono sposób tworzenia klastra Apache Spark w usłudze Azure HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure.  Przejdź do następnego samouczka, aby dowiedzieć się, jak uruchamiać interakcyjne zapytania dotyczące przykładowych danych za pomocą klastra usługi HDInsight.
 
 > [!div class="nextstepaction"]
 > [Uruchamianie interakcyjnych zapytań na platformie Apache Spark](./apache-spark-load-data-run-query.md)

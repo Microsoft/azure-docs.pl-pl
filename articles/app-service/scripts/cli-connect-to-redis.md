@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Łączenie aplikacji z Redis'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak połączyć aplikację z pamięcią podręczną Azure dla redis.
+title: 'Interfejs wiersza polecenia: łączenie aplikacji z usługą Redis'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak połączyć aplikację z pamięcią podręczną platformy Azure dla Redis.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 27b7040bace80fff5cbcb6a12e4020cfe0c7fc9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058642"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Łączenie aplikacji usługi App Service z pamięcią podręczną Azure Cache for Redis przy użyciu interfejsu wiersza polecenia
