@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/22/2019
+ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422337"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608385"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Zamiana mowy na tekst (wykres podrzędny: wykresy/speechToText)
 
@@ -40,3 +40,30 @@ Aby zastąpić wykres "parasol", Dodaj prefiks `speechToText.` na dowolnym param
 | `service.annotations` | Adnotacja **zamiany mowy na tekst** dla metadanych usługi. Adnotacje to pary klucz-wartość. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Określa, czy jest włączona funkcja [automatycznego skalowania w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) . Jeśli `true`program `speech-to-text-autoscaler` zostanie wdrożony w klastrze Kubernetes. | `true` |
 | `service.podDisruption.enabled` | Czy jest włączony budżet w przypadku [przerwania](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) działania. Jeśli `true`program `speech-to-text-poddisruptionbudget` zostanie wdrożony w klastrze Kubernetes. | `true` |
+
+#### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Analiza tonacji (wykres podrzędny: wykresy/speechToText)
+
+Począwszy od 2.2.0 w języku v kontenera zamiany mowy na tekst, do interfejs API analizy tekstu analizy tonacji służą następujące parametry.
+
+|Parametr|Opis|Wartości|Domyślny|
+| --- | --- | --- | --- |
+|`textanalytics.enabled`| Czy jest włączona usługa **analizy tekstu**| PRAWDA/FAŁSZ| `false`|
+|`textanalytics.image.registry`| Rejestr obrazu platformy Docker **analizy tekstu**| prawidłowy rejestr obrazu platformy Docker| |
+|`textanalytics.image.repository`| Repozytorium obrazów platformy Docker **analizy tekstu**| prawidłowe repozytorium obrazów platformy Docker| |
+|`textanalytics.image.tag`| Tag obrazu platformy Docker **analizy tekstu**| prawidłowy tag obrazu platformy Docker| |
+|`textanalytics.image.pullSecrets`| Wpisy tajne obrazu do ściągania obrazu platformy Docker **analizy tekstu**| prawidłowa nazwa wpisu tajnego| |
+|`textanalytics.image.pullByHash`| Określa, czy ściąganie obrazu platformy Docker następuje przez mieszanie.  Jeśli `yes` `image.hash` jest również wymagany. Jeśli `no`, ustaw ją jako "false". Wartość domyślna to `false`.| PRAWDA/FAŁSZ| `false`|
+|`textanalytics.image.hash`| Skrót obrazu platformy Docker **analizy tekstu** . Używać go tylko z `image.pullByHash:true`.| prawidłowy skrót obrazu platformy Docker | |
+|`textanalytics.image.args.eula`| Jeden z argumentów wymaganych przez kontener **analizy tekstu** , który oznacza, że licencja została zaakceptowana. Wartość tej opcji musi być równa: `accept`.| `accept`, jeśli chcesz używać kontenera | |
+|`textanalytics.image.args.billing`| Jeden z argumentów wymaganych przez kontener **analizy tekstu** , który określa identyfikator URI punktu końcowego rozliczenia. Wartość identyfikatora URI punktu końcowego rozliczenia jest dostępna na stronie Przegląd mowy Azure Portal.|prawidłowy identyfikator URI punktu końcowego rozliczenia||
+|`textanalytics.image.args.apikey`| Jeden z argumentów wymaganych przez kontener **analizy tekstu** , który jest używany do śledzenia informacji dotyczących rozliczeń.| prawidłowy apikey||
+|`textanalytics.cpuRequest`| Żądany procesor CPU dla kontenera **analizy tekstu**| int| `3000m`|
+|`textanalytics.cpuLimit`| Ograniczony procesor CPU dla kontenera **analizy tekstu**| | `8000m`|
+|`textanalytics.memoryRequest`| Żądana pamięć dla kontenera **analizy tekstu**| | `3Gi`|
+|`textanalytics.memoryLimit`| Ograniczona ilość pamięci dla kontenera **analizy tekstu**| | `8Gi`|
+|`textanalytics.service.sentimentURISuffix`| Sufiks identyfikatora URI analizy tonacji, cały identyfikator URI jest w formacie "http://`<service>`:`<port>`/`<sentimentURISuffix>`". | | `text/analytics/v3.0-preview/sentiment`|
+|`textanalytics.service.type`| Typ usługi **analizy tekstu** w Kubernetes. Zobacz [typy usługi Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) | prawidłowy typ usługi Kubernetes | `LoadBalancer` |
+|`textanalytics.service.port`| Port usługi **analizy tekstu**| int| `50085`|
+|`textanalytics.service.annotations`| Adnotacje, które użytkownicy mogą dodawać do metadanych usługi **analizy tekstu** . Przykład:<br/> **adnotacj**<br/>`   `**część/annotation1: wartość1**<br/>`  `**część/annotation2: wartość2** | Adnotacje, jeden na każdy wiersz| |
+|`textanalytics.serivce.autoScaler.enabled`| Określa, czy jest włączona funkcja [automatycznego skalowania w poziomie](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) . Jeśli ta funkcja `text-analytics-autoscaler` jest włączona, zostanie wdrożona w klastrze Kubernetes | PRAWDA/FAŁSZ| `true`|
+|`textanalytics.service.podDisruption.enabled`| Czy jest włączony [budżet z przerwy](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) w działaniu. Jeśli ta funkcja `text-analytics-poddisruptionbudget` jest włączona, zostanie wdrożona w klastrze Kubernetes| PRAWDA/FAŁSZ| `true`|

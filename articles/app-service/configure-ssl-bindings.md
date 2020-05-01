@@ -3,15 +3,15 @@ title: Zabezpieczanie niestandardowego serwera DNS przy użyciu powiązania TLS/
 description: Zabezpiecz dostęp HTTPS do domeny niestandardowej przez utworzenie powiązania TLS/SSL z certyfikatem. Popraw zabezpieczenia witryny sieci Web, wymuszając protokół HTTPS lub TLS 1,2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811751"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597899"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Zabezpiecz niestandardową nazwę DNS z powiązaniem TLS/SSL w Azure App Service
 
@@ -83,7 +83,7 @@ Skorzystaj z poniższej tabeli, aby skonfigurować powiązanie protokołu TLS w 
 |-|-|
 | Domena niestandardowa | Nazwa domeny, dla której ma zostać dodane powiązanie protokołu TLS/SSL. |
 | Odcisk palca certyfikatu prywatnego | Certyfikat do powiązania. |
-| Typ protokołu TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** — można dodać wiele SNI SSL powiązań. Ta opcja umożliwia wielu certyfikatom protokołu TLS/SSL zabezpieczenie wielu domen na tym samym adresie IP. Większość nowoczesnych przeglądarek (w tym Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (Aby uzyskać więcej informacji, zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**Połączenie SSL z adresu IP** — można dodać tylko jedno powiązanie połączenie SSL z adresu IP. Ta opcja zezwala na zabezpieczenie dedykowanego publicznego adresu IP tylko jednemu certyfikatowi TLS/SSL. Po skonfigurowaniu powiązania postępuj zgodnie z instrukcjami w sekcji ponowne [Mapowanie rekordu dla połączenie SSL z adresu IP](#remap-a-record-for-ip-ssl).<br/>Połączenie SSL z adresu IP jest obsługiwana tylko w warstwach produkcyjnych lub izolowanych. </li></ul> |
+| Typ protokołu TLS/SSL | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** — można dodać wiele SNI SSL powiązań. Ta opcja umożliwia wielu certyfikatom protokołu TLS/SSL zabezpieczenie wielu domen na tym samym adresie IP. Większość nowoczesnych przeglądarek (w tym Internet Explorer, Chrome, Firefox i Opera) obsługuje SNI (Aby uzyskać więcej informacji, zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**Połączenie SSL z adresu IP** — można dodać tylko jedno powiązanie połączenie SSL z adresu IP. Ta opcja zezwala na zabezpieczenie dedykowanego publicznego adresu IP tylko jednemu certyfikatowi TLS/SSL. Po skonfigurowaniu powiązania postępuj zgodnie z instrukcjami w sekcji ponowne [Mapowanie rekordów dla połączenie SSL z adresu IP](#remap-records-for-ip-ssl).<br/>Połączenie SSL z adresu IP jest obsługiwana tylko w warstwie **standardowa** lub wyższej. </li></ul> |
 
 Po zakończeniu operacji stan protokołu TLS/SSL domeny niestandardowej zostanie zmieniony na **bezpieczny**.
 
@@ -92,15 +92,17 @@ Po zakończeniu operacji stan protokołu TLS/SSL domeny niestandardowej zostanie
 > [!NOTE]
 > **Bezpiecznym** stanem w **domenach niestandardowych** jest zabezpieczenie certyfikatu, ale App Service nie sprawdza, czy certyfikat ma podpis własny lub wygasł, na przykład może spowodować, że przeglądarki wyświetlają błąd lub ostrzeżenie.
 
-## <a name="remap-a-record-for-ip-ssl"></a>Ponowne mapowanie rekordu A dla połączenia SSL z adresu IP
+## <a name="remap-records-for-ip-ssl"></a>Ponowne mapowanie rekordów dla Połączenie SSL z adresu IP
 
 Jeśli nie używasz Połączenie SSL z adresu IP w aplikacji, przejdź do [testowania protokołu HTTPS dla domeny niestandardowej](#test-https).
 
-Domyślnie aplikacja używa udostępnionego publicznego adresu IP. Po powiązaniu certyfikatu z Połączenie SSL z adresu IP, App Service tworzy nowy, dedykowany adres IP dla aplikacji.
+Istnieją dwie zmiany, które należy wprowadzić, potencjalnie:
 
-Jeśli rekord A został zmapowany do aplikacji, należy zaktualizować rejestr domeny za pomocą tego nowego, dedykowanego adresu IP.
+- Domyślnie aplikacja używa udostępnionego publicznego adresu IP. Po powiązaniu certyfikatu z Połączenie SSL z adresu IP, App Service tworzy nowy, dedykowany adres IP dla aplikacji. Jeśli rekord A został zmapowany do aplikacji, należy zaktualizować rejestr domeny za pomocą tego nowego, dedykowanego adresu IP.
 
-Strona **Domena niestandardowa** Twojej aplikacji zostanie zaktualizowana za pomocą nowego, dedykowanego adresu IP. [Skopiuj ten adres IP](app-service-web-tutorial-custom-domain.md#info), a następnie [ponownie mapuj rekord A](app-service-web-tutorial-custom-domain.md#map-an-a-record) na ten nowy adres IP.
+    Strona **Domena niestandardowa** Twojej aplikacji zostanie zaktualizowana za pomocą nowego, dedykowanego adresu IP. [Skopiuj ten adres IP](app-service-web-tutorial-custom-domain.md#info), a następnie [ponownie mapuj rekord A](app-service-web-tutorial-custom-domain.md#map-an-a-record) na ten nowy adres IP.
+
+- Jeśli masz powiązanie SNI SSL z, ponownie `<app-name>.azurewebsites.net` [zamapuj każde mapowanie CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record) na punkt `sni.<app-name>.azurewebsites.net` zamiast tego (Dodaj `sni` prefiks).
 
 ## <a name="test-https"></a>Testowanie protokołu HTTPS
 

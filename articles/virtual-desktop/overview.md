@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160021"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612847"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -98,9 +98,12 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |prod.warmpath.msftcloudes.com|443|Ruch agenta|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Aktywacja systemu Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
 
 >[!IMPORTANT]
 >Zalecamy używanie tagów usługi zamiast adresów URL w większości przypadków, aby zapobiec problemom z usługą. Odblokowywanie tych adresów URL jest niezbędne dla niezawodnego wdrożenia pulpitu wirtualnego systemu Windows. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows, a nie zawierają adresów URL dla innych usług, takich jak Azure Active Directory.
+>
+>Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN.
 
 W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
 
@@ -193,7 +196,9 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć, musisz utworzyć dzierżawę. Aby dowiedzieć się więcej na temat tworzenia dzierżawy, przejdź do samouczka dotyczącego tworzenia dzierżawy.
+Jeśli używasz pulpitu wirtualnego systemu Windows, użyj wersji 2019, możesz rozpocząć pracę z naszym samouczkiem w temacie [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+W przypadku korzystania z systemu Windows Virtual Desktop w wersji 2020, należy zamiast tego utworzyć pulę hostów. Przejdź do następującego samouczka, aby rozpocząć pracę.
 
 > [!div class="nextstepaction"]
-> [Tworzenie dzierżawy w usłudze Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Tworzenie puli hostów przy użyciu Azure Portal](create-host-pools-azure-marketplace.md)

@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f4d8eabdba32eaa0a2c04e6b330fbd4c8d3a563e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 900fb5120b1674397c248fd7d090660c7a813705
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061136"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594189"
 ---
 # <a name="azure-storage-samples"></a>Przykłady usługi Azure Storage
 
@@ -50,9 +50,9 @@ Aby poznać przykłady dla środowiska Node. js, Pobierz [bibliotekę kliencką 
 
 Aby zapoznać się z przykładami języka C++, Pobierz [bibliotekę kliencką usługi C++ Storage](https://www.nuget.org/packages/wastorage/) z narzędzia NuGet.
 
-* [Wprowadzenie do obiektów BLOB](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Wprowadzenie do tabel](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Wprowadzenie do kolejek](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Wprowadzenie do obiektów BLOB](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
+* [Wprowadzenie do tabel](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
+* [Wprowadzenie do kolejek](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
@@ -64,11 +64,11 @@ Aby poznać przykłady interfejsu wiersza polecenia platformy Azure, najpierw [Z
 
 ## <a name="api-reference-and-source-code"></a>Dokumentacja interfejsu API i kod źródłowy
 
-| Język | Dokumentacja interfejsu API | Kod źródłowy |
+| Język | Odwołanie API | Kod źródłowy |
 |----------|---------------|-------------|
 | .NET | [Dokumentacja biblioteki klienta platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi .NET Storage](https://github.com/Azure/azure-storage-net) |
 | Java | [Dokumentacja biblioteki klienta Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Kod źródłowy biblioteki klienta usługi Java Storage](https://github.com/azure/azure-storage-java) |
-| Python | [Dokumentacja biblioteki klienta języka Python](https://azure-storage.readthedocs.io/) | [Kod źródłowy biblioteki klienta usługi Python Storage](https://github.com/Azure/azure-storage-p[ython]) |
+| Python | [Dokumentacja biblioteki klienta języka Python](https://azure-storage.readthedocs.io/) | [Kod źródłowy biblioteki klienta usługi Python Storage](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Dokumentacja biblioteki klienta Node. js](https://azure.github.io/azure-storage-node) | [Kod źródłowy biblioteki klienta magazynu Node. js](https://github.com/Azure/azure-storage-node) |
 | C++ | [Dokumentacja biblioteki klienta C++](https://azure.github.io/azure-storage-cpp/) | [Kod źródłowy biblioteki klienta usługi C++ Storage](https://github.com/Azure/azure-storage-cpp)|
 | Interfejs wiersza polecenia platformy Azure | [Dokumentacja biblioteki interfejsu wiersza polecenia platformy Azure](/cli/azure/storage) | [Kod źródłowy biblioteki klienta magazynu interfejsu wiersza polecenia platformy Azure](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)

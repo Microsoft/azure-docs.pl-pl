@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481419"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597726"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego przy użyciu serwera proxy aplikacji w Azure Active Directory
 
@@ -47,10 +47,12 @@ Aby użyć serwera proxy aplikacji, potrzebujesz serwera systemu Windows z syste
 Aby zapewnić wysoką dostępność w środowisku produkcyjnym, zalecamy użycie więcej niż jednego serwera systemu Windows. W tym samouczku wystarczy nam jeden serwer systemu Windows.
 
 > [!IMPORTANT]
-> W przypadku instalowania łącznika w systemie Windows Server 2019 istnieje ograniczenie HTTP2. Obejście użycia łącznika w tej wersji powoduje dodanie następującego klucza rejestru i ponowne uruchomienie serwera. Pamiętaj, że jest to kluczowy rejestr maszynowy. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> W przypadku instalowania łącznika w systemie Windows Server 2019 należy wyłączyć obsługę protokołu HTTP2 w składniku WinHttp. Ta wartość jest domyślnie wyłączona we wcześniejszych wersjach obsługiwanych systemów operacyjnych. Dodanie następującego klucza rejestru i ponowne uruchomienie serwera spowoduje wyłączenie go w systemie Windows Server 2019. Należy pamiętać, że jest to klucz rejestru dla całego komputera.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>Zalecenia dotyczące serwera łącznika
 

@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048414"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610993"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurowanie aplikacji uwierzytelniania OpenID/OAuth z galerii aplikacji usługi Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Proces dodawania aplikacji uwierzytelniania OpenID z galerii
 
-1. W [witrynie Azure Portal](https://portal.azure.com) w okienku po lewej stronie wybierz pozycję **Azure Active Directory**. 
+1. W [witrynie Azure Portal](https://portal.azure.com) w okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
 
     ![Przycisk Azure Active Directory](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ Najbardziej podstawowy przepływ logowania zawiera następujące kroki:
 
 ![Przepływ uwierzytelniania w przypadku protokołu OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Aplikacja wielodostępna 
-Aplikacje wielodostępne są przeznaczona do użytku w wielu (a nie tylko jednej) organizacjach. Są to zazwyczaj aplikacje typu SaaS (software-as-a-service) napisane przez niezależnych dostawców oprogramowania (ISV). 
+### <a name="multitenant-application"></a>Aplikacja wielodostępna
+Aplikacje wielodostępne są przeznaczona do użytku w wielu (a nie tylko jednej) organizacjach. Są to zazwyczaj aplikacje typu SaaS (software-as-a-service) napisane przez niezależnych dostawców oprogramowania (ISV).
 
-Aplikację wielodostępną należy aprowizować w każdym katalogu, w którym będzie używana. Ich zarejestrowanie wymaga zgody użytkownika lub administratora. Proces wyrażania zgody rozpoczyna się po zarejestrowaniu aplikacji w katalogu i udzieleniu jej dostępu do interfejsu API programu Graph lub innego internetowego interfejsu API. Gdy użytkownik lub administrator z innej organizacji zarejestruje się w celu korzystania z aplikacji, zostanie wyświetlone okno dialogowe z uprawnieniami wymaganymi przez aplikację. 
+Aplikację wielodostępną należy aprowizować w każdym katalogu, w którym będzie używana. Ich zarejestrowanie wymaga zgody użytkownika lub administratora. Proces wyrażania zgody rozpoczyna się po zarejestrowaniu aplikacji w katalogu i udzieleniu jej dostępu do interfejsu API programu Graph lub innego internetowego interfejsu API. Gdy użytkownik lub administrator z innej organizacji zarejestruje się w celu korzystania z aplikacji, zostanie wyświetlone okno dialogowe z uprawnieniami wymaganymi przez aplikację.
 
 Użytkownik lub administrator może wtedy wyrazić zgodę na aplikację. Zgoda umożliwia aplikacji dostęp do określonych danych oraz ostatecznie rejestruje aplikację w katalogu.
 
 > [!NOTE]
 > Jeśli udostępnisz aplikację użytkownikom w wielu katalogach, potrzebujesz mechanizmu, aby określić dzierżawcę, w którym się znajdują. Aplikacja jednodostępna musi szukać użytkownika tylko w swoim własnym katalogu. Aplikacja wielodostępna musi zidentyfikować określonego użytkownika na podstawie wszystkich katalogów w usłudze Azure AD.
-> 
-> Aby to umożliwić, usługa Azure AD udostępnia wspólny punkt końcowy uwierzytelniania (zamiast punktów końcowych specyficznych dla dzierżawy), gdzie dowolna aplikacja wielodostępna może kierować żądania logowania. Ten punkt końcowy to `https://login.microsoftonline.com/common` dla wszystkich katalogów w usłudze Azure AD. Punkt końcowy specyficzny dla dzierżawy to na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
+>
+> Aby to umożliwić, usługa Azure AD udostępnia wspólny punkt końcowy uwierzytelniania (zamiast punktów końcowych specyficznych dla dzierżawy), gdzie dowolna aplikacja wielodostępna może kierować żądania logowania. Ten punkt końcowy to `https://login.microsoftonline.com/common` dla wszystkich katalogów w usłudze Azure AD. Punkt końcowy specyficzny dla dzierżawy to na przykład `https://login.microsoftonline.com/contoso.onmicrosoft.com`.
 >
 > Wspólny punkt końcowy to ważne zagadnienie do uwzględnienia podczas opracowywania aplikacji. Potrzebna jest logika niezbędna do obsługi wielu dzierżawców podczas logowania, wylogowywania i weryfikacji tokenu.
 
@@ -80,9 +81,9 @@ Domyślnie usługa Azure AD promuje aplikacje wielodostępne. Łatwo jest uzyska
 ## <a name="consent-framework"></a>Platforma wyrażania zgody
 
 Struktura wyrażania zgody w usłudze Azure AD umożliwia opracowywanie wielodostępnych aplikacji internetowych i natywnych aplikacji klienckich. Te aplikacje umożliwiają logowanie za pomocą kont użytkownika z dzierżawy usługi Azure AD innej niż dzierżawa, w której aplikacja jest zarejestrowana. Mogą ona także potrzebować dostępu do internetowych interfejsów API, takich jak:
-- Interfejs API programu Microsoft Graph — na potrzeby dostępu do usług Azure AD, Intune i usług w ramach platformy Office 365. 
+- Interfejs API programu Microsoft Graph — na potrzeby dostępu do usług Azure AD, Intune i usług w ramach platformy Office 365.
 - Inne interfejsy API usług firmy Microsoft.
-- Twoje własne internetowe interfejsy API. 
+- Twoje własne internetowe interfejsy API.
 
 Struktura opiera się na zgodzie wyrażanej przez użytkownika lub administratora w odpowiedzi na żądanie zarejestrowania w katalogu kierowane przez aplikację. Rejestracja może obejmować uzyskiwanie dostępu do danych katalogu. Po wyrażeniu zgody aplikacja kliencka może wywoływać interfejs API programu Microsoft Graph w imieniu użytkownika i używać informacji zgodnie z potrzebami.
 
@@ -125,7 +126,7 @@ Poniższe kroki pokazują, jak środowisko wyrażania zgody działa dla dewelope
 
 3. Jeśli użytkownik nie jest jeszcze uwierzytelniony, punkt końcowy autoryzacji / usługa Azure AD wyświetli monit logowania.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Uwierzytelnianie](./media/openidoauth-tutorial/authentication.png)
 
 4. Gdy użytkownik jest już zalogowany, usługa Azure AD określa, czy należy mu pokazać stronę wyrażenia zgody. To ustalenie zależy od tego, czy użytkownik (lub administrator organizacji) już udzielił zgody aplikacji.
 
@@ -146,7 +147,7 @@ Jako administrator możesz także wyrazić zgodę na uprawnienia delegowane apli
 
 Uprawnienia tylko do aplikacji zawsze wymagają zgody administratora dzierżawy. Jeśli aplikacja żąda uprawnienia dotyczącego tylko aplikacji, a użytkownik spróbuje zalogować się do aplikacji, zostanie wyświetlony komunikat o błędzie. Komunikat informujący o tym, że użytkownik nie jest w stanie wyrazić zgody.
 
-Jeśli aplikacja używa uprawnień wymagających zgody administratora, potrzebujesz elementu takiego jak przycisk lub link, za pomocą którego administrator może uruchomić akcję. Żądanie wysyłane przez aplikację na potrzeby tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect. To żądanie zawiera parametr ciągu zapytania *prompt=admin_consent*. 
+Jeśli aplikacja używa uprawnień wymagających zgody administratora, potrzebujesz elementu takiego jak przycisk lub link, za pomocą którego administrator może uruchomić akcję. Żądanie wysyłane przez aplikację na potrzeby tej akcji to zwykłe żądanie autoryzacji OAuth2/OpenID Connect. To żądanie zawiera parametr ciągu zapytania *prompt=admin_consent*.
 
 Po tym, jak administrator wyraził zgodę, a jednostka usługi jest tworzona w dzierżawie klienta, późniejsze żądania logowania nie potrzebują parametru *Prompt = admin_consent* . Ponieważ administrator zdecydował, że żądane uprawnienia są akceptowalne, od tego momentu żadni inni użytkownicy w dzierżawie nie będą monitowani o zgodę.
 

@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72386321"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595022"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Samouczek: powiadomienia wypychane do urządzeń z systemem Android przy użyciu usługi Azure Notification Hubs i Google Cloud Messaging (przestarzałe)
 
@@ -43,7 +43,7 @@ Utworzysz pustą aplikację dla systemu Android służącą do odbierania powiad
 > [!IMPORTANT]
 > W tym temacie przedstawiono powiadomienia wypychane za pomocą usługi Google Cloud Messaging (GCM). Jeśli używasz usługi Google Firebase Cloud Messaging (FCM), zobacz [Wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
-Kompletny kod dla tego samouczka można pobrać z witryny GitHub [tutaj](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+Kompletny kod dla tego samouczka można pobrać z witryny GitHub [tutaj](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
 W tym samouczku wykonasz następujące czynności:
 
@@ -746,4 +746,4 @@ W tym samouczku wysłano wyemitowane powiadomienia do wszystkich urządzeń z sy
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

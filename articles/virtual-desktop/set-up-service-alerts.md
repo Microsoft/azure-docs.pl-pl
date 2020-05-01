@@ -8,14 +8,20 @@ ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2834ba924fa9c29d955c38fbaeb45ab23e5c4e9b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad25ab219cdb83227d39f86109d18b2c8402c38f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79127715"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612354"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Samouczek: Konfigurowanie alertów usługi
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Service Health służy do monitorowania problemów z usługami i klasyfikatorów kondycji dla pulpitu wirtualnego systemu Windows. Azure Service Health może powiadomić użytkownika o różnych typach alertów (np. wiadomości e-mail lub wiadomości SMS), pomóc Ci zrozumieć efekt problemu i aktualizować je w miarę rozwiązywania problemu. Azure Service Health może również pomóc w ograniczeniu przestoju i przygotowaniu się do planowanej konserwacji i zmian, które mogą mieć wpływ na dostępność zasobów.
 
@@ -25,12 +31,6 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Tworzenie i Konfigurowanie alertów usługi.
 
 Aby dowiedzieć się więcej na temat Azure Service Health, zobacz dokumentację dotyczącą [kondycji platformy Azure](https://docs.microsoft.com/azure/service-health/).
-
-## <a name="prerequisites"></a>Wymagania wstępne
-
-- [Samouczek: Tworzenie dzierżawy w programie Virtual Desktop systemu Windows](tenant-setup-azure-active-directory.md)
-- [Samouczek: tworzenie jednostek usługi i przypisań ról przy użyciu programu PowerShell](create-service-principal-role-powershell.md)
-- [Samouczek: Tworzenie puli hostów za pomocą witryny Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## <a name="create-service-alerts"></a>Tworzenie alertów usługi
 
@@ -51,7 +51,7 @@ Aby skonfigurować alerty usługi:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz **Service Health.**
-3. Aby skonfigurować alerty i powiadomienia, użyj instrukcji w temacie [tworzenie alertów dziennika aktywności w ramach powiadomień dotyczących usług](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) .
+3. Postępuj zgodnie z instrukcjami w temacie [tworzenie alertów dziennika aktywności w powiadomieniach dotyczących usług](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) , aby skonfigurować alerty i powiadomienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

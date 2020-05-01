@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81391508"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609361"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Szybki Start: Tworzenie i publikowanie definicji aplikacji zarządzanej
 
@@ -290,7 +290,7 @@ Niektóre z parametrów użytych w powyższym przykładzie to:
 
 * **Grupa zasobów**: Nazwa grupy zasobów, w której utworzono definicję aplikacji zarządzanej.
 * **poziom blokady**: typ blokady umieszczonej w zarządzanej grupie zasobów. Uniemożliwia klientowi wykonywanie niepożądanych operacji na tej grupie zasobów. Obecnie jedynym obsługiwanym poziomem blokady jest ReadOnly. Gdy zostanie określony poziom ReadOnly, klient może jedynie odczytywać zasoby obecne w zarządzanej grupie zasobów. Tożsamości wydawcy, które mają dostęp do zarządzanej grupy zasobów, są wykluczone z blokady.
-* **authorizations**: opisuje identyfikator podmiotu zabezpieczeń i identyfikator definicji roli, przy użyciu których udzielany jest dostęp do zarządzanej grupy zasobów. Określa się go w formacie `<principalId>:<roleDefinitionId>`. Jeśli wymagana jest więcej niż jedna wartość, należy podać wartości w formacie `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Wartości rozdziela się spacją.
+* **authorizations**: opisuje identyfikator podmiotu zabezpieczeń i identyfikator definicji roli, przy użyciu których udzielany jest dostęp do zarządzanej grupy zasobów. Określa się go w formacie `<principalId>:<roleDefinitionId>`. Jeśli wymagana jest więcej niż jedna wartość, należy podać wartości w formacie `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Wartości są oddzielone przecinkami.
 * **Identyfikator URI pliku pakietu**: lokalizacja pakietu. zip, który zawiera wymagane pliki.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Przenoszenie własnego magazynu dla definicji aplikacji zarządzanej

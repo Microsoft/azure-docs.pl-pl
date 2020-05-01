@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239308"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594920"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Samouczek: analizowanie danych połączeń telefonicznych za pomocą Stream Analytics i wizualizacji wyników na pulpicie nawigacyjnym Power BI
 
@@ -264,7 +264,7 @@ Zapytanie można przetestować z poziomu edytora zapytań przy użyciu przykład
 
 W tej części samouczka użyjesz przykładowej aplikacji sieci Web [ASP.NET](https://asp.net/) utworzonej przez zespół Power BI, aby osadzić pulpit nawigacyjny. Aby uzyskać więcej informacji na temat osadzania pulpitów nawigacyjnych, zobacz artykuł [Osadzanie za pomocą usługi Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Aby skonfigurować aplikację, przejdź do repozytorium usługi [PowerBI — Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) w witrynie GitHub i postępuj zgodnie z instrukcjami w sekcji **Informacje o użytkowniku** . Użyj adresów URL przekierowania i strony głównej w podsekcji **Integruj-Web-App** . Ponieważ korzystamy z przykładu pulpitu nawigacyjnego, użyj kodu przykładowego **Integruj-Web-App** znajdującego się w [repozytorium GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
+Aby skonfigurować aplikację, przejdź do repozytorium usługi [PowerBI — Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) w witrynie GitHub i postępuj zgodnie z instrukcjami w sekcji **Informacje o użytkowniku** . Użyj adresów URL przekierowania i strony głównej w podsekcji **Integruj-Web-App** . Ponieważ korzystamy z przykładu pulpitu nawigacyjnego, użyj kodu przykładowego **Integruj-Web-App** znajdującego się w [repozytorium GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
 Po uruchomieniu aplikacji w przeglądarce wykonaj następujące kroki, aby osadzić utworzony wcześniej pulpit nawigacyjny na stronie internetowej:
 
 1. Wybierz pozycję **Zaloguj się do Power BI**, co spowoduje przyznanie aplikacji dostępu do pulpitów nawigacyjnych na koncie Power BI.

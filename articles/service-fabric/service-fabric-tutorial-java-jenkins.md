@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376659"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594767"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Samouczek: konfigurowanie środowiska Jenkins w celu włączenia ciągłej integracji/ciągłego wdrażania dla aplikacji Java w usłudze Service Fabric
 
@@ -85,7 +85,7 @@ Narzędzie Jenkins możesz skonfigurować wewnątrz klastra usługi Service Fabr
 
    a. W sekcji Ogólne zaznacz pole wyboru **projektu GitHub** i określ adres URL projektu usługi GitHub. Pod tym adresem URL jest hostowana aplikacja Java usługi Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania narzędzia Jenkins (na przykład ``https://github.com/testaccount/dev_test``).
 
-   b. W obszarze **Source Code Management** (Zarządzanie kodem źródłowym) wybierz pozycję **Git**. Określ adres URL repozytorium, który obsługuje aplikację Java Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania Jenkins ( *https://github.com/testaccount/dev_test.git*na przykład). W tym miejscu możesz również określić gałąź do skompilowania (na przykład **/master**).
+   b. W obszarze **Source Code Management** (Zarządzanie kodem źródłowym) wybierz pozycję **Git**. Określ adres URL repozytorium, który obsługuje aplikację Java Service Fabric, którą chcesz zintegrować z przepływem ciągłej integracji/ciągłego wdrażania Jenkins ( *`https://github.com/testaccount/dev_test.git`* na przykład). W tym miejscu możesz również określić gałąź do skompilowania (na przykład **/master**).
 
 1. Skonfiguruj usługę *GitHub* (która hostuje repozytorium), aby mogła komunikować się z narzędziem Jenkins. Wykonaj następujące czynności:
 

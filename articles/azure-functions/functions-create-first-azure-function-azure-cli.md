@@ -4,14 +4,43 @@ description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następ
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 547acb42be6a0c89dbc315031c46192b5c9a4a0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5022ff7239a040a163d8d6a82864d0dee8e65f1e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732808"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610908"
 ---
-# <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
+::: zone pivot="programming-language-csharp"  
+# <a name="quickstart-create-a-c-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji opartej na bibliotece klasy C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+# <a name="quickstart-create-a-javascript-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka JavaScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end
+::: zone pivot="programming-language-typescript"
+# <a name="quickstart-create-a-typescript-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka TypeScript na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka TypeScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+# <a name="quickstart-create-a-powershell-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji programu PowerShell, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end  
+::: zone pivot="programming-language-python" 
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Python, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end  
+::: zone pivot="programming-language-java" 
+# <a name="quickstart-create-a-java-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure, która odpowiada na żądania HTTP
+
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Java, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone-end
 
 W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji reagującej na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
@@ -382,9 +411,16 @@ Jeśli przejdziesz do następnego kroku, [Dodaj powiązanie danych wyjściowych 
 
 W przeciwnym razie użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie zawarte w niej zasoby, aby uniknąć ponoszenia dalszych kosztów.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
+::: zone pivot="programming-language-java"
+```azurecli
+az group delete --name java-functions-group
+```
+::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238867"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610687"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla lokalnych maszyn wirtualnych VMware
 
@@ -65,11 +65,11 @@ W środowisku źródłowym potrzebna jest pojedyncza maszyna, o wysokiej dostęp
 - **Główny serwer docelowy**: główny serwer docelowy obsługuje dane replikacji podczas powrotu po awarii z platformy Azure.
 
 
-Wszystkie te składniki są instalowane razem na maszynach lokalnych, które są znane jako *serwer konfiguracji*. Domyślnie w przypadku odzyskiwania po awarii programu VMware jest ustawiany serwer konfiguracji jako maszynę wirtualną VMware o wysokiej dostępności. W tym celu Pobierz przygotowaną szablon aplikacji Open Virtualization (komórki jajowe) i zaimportuj szablon do programu VMware w celu utworzenia maszyny wirtualnej. 
+Wszystkie te składniki są instalowane razem na maszynach lokalnych, które są znane jako *serwer konfiguracji*. Domyślnie w przypadku odzyskiwania po awarii programu VMware jest ustawiany serwer konfiguracji jako maszynę wirtualną VMware o wysokiej dostępności. W tym celu Pobierz przygotowaną szablon aplikacji Open Virtualization (komórki jajowe) i zaimportuj szablon do programu VMware w celu utworzenia maszyny wirtualnej.
 
 - Najnowsza wersja serwera konfiguracji jest dostępna w portalu. Można go również pobrać bezpośrednio z [Centrum pobierania Microsoft](https://aka.ms/asrconfigurationserver).
 - Jeśli z jakiegoś powodu nie można skonfigurować maszyny wirtualnej przy użyciu szablonu komórki jajowe, postępuj zgodnie z poniższymi [instrukcjami](physical-manage-configuration-server.md) , aby ręcznie skonfigurować serwer konfiguracji.
-- Licencja świadczona z szablonem OVF to licencja ewaluacyjna ważna przez 180 dni. System Windows działający na maszynie wirtualnej musi być aktywowany przy użyciu wymaganej licencji. 
+- Licencja świadczona z szablonem OVF to licencja ewaluacyjna ważna przez 180 dni. System Windows działający na maszynie wirtualnej musi być aktywowany przy użyciu wymaganej licencji.
 
 
 ### <a name="download-the-vm-template"></a>Pobieranie szablonu maszyny wirtualnej
@@ -77,7 +77,7 @@ Wszystkie te składniki są instalowane razem na maszynach lokalnych, które są
 1. W magazynie przejdź do pozycji **Przygotowanie infrastruktury** > **Źródło**.
 2. W obszarze **Przygotowywanie źródła** wybierz pozycję **+Serwer konfiguracji**.
 3. W obszarze **Dodawanie serwera** sprawdź, czy w sekcji **Typ serwera** jest widoczna pozycja **Serwer konfiguracji dla oprogramowania VMware**.
-4. Pobierz szablon OVF dla serwera konfiguracji.
+4. Pobierz szablon komórki jajowe dla serwera konfiguracji.
 
 
 
@@ -85,7 +85,7 @@ Wszystkie te składniki są instalowane razem na maszynach lokalnych, które są
 
 
 1. Zaloguj się do serwera VMware vCenter lub hosta vSphere ESXi przy użyciu klienta VMware vSphere.
-2. W menu **plik** wybierz polecenie **Wdróż szablon OVF** , aby uruchomić **Kreatora wdrażania szablonu OVF**. 
+2. W menu **plik** wybierz polecenie **Wdróż szablon OVF** , aby uruchomić **Kreatora wdrażania szablonu OVF**.
 
      ![Szablon OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ Jeśli chcesz dodać dodatkową kartę sieciową do serwera konfiguracji, Dodaj 
 
 1. Kliknij prawym przyciskiem myszy maszynę wirtualną na liście w kliencie vSphere, a następnie wybierz pozycję **Edytuj ustawienia**.
 2. Na stronie **Hardware** (Sprzęt) wybierz pozycje **Add** > **Ethernet Adapter** (Dodaj, Karta Ethernet). Następnie wybierz pozycję **Dalej**.
-3. Wybierz typ karty i sieć. 
+3. Wybierz typ karty i sieć.
 4. Aby nawiązać połączenie z wirtualną kartą sieciową po włączeniu maszyny wirtualnej, zaznacz pole **Połącz po włączeniu**. Wybierz pozycję **dalej** > **Zakończ**. Następnie wybierz pozycję **OK**.
 
 
-## <a name="register-the-configuration-server"></a>Rejestrowanie serwera konfiguracji 
+## <a name="register-the-configuration-server"></a>Rejestrowanie serwera konfiguracji
 
 Po skonfigurowaniu serwera konfiguracji należy zarejestrować go w magazynie.
 
@@ -179,7 +179,7 @@ Włącz replikację dla maszyn wirtualnych w następujący sposób:
 3. W obszarze **Typ maszyny** wybierz pozycję **Maszyny wirtualne**.
 4. W obszarze **vCenter/vSphere Hypervisor** wybierz hosta vSphere lub serwer vCenter zarządzający tym hostem.
 5. Wybierz serwer przetwarzania (domyślnie instalowany na maszynie wirtualnej serwera konfiguracji). Następnie wybierz pozycję **OK**. Stan kondycji każdego serwera przetwarzania jest wskazany zgodnie z zalecanymi limitami i innymi parametrami. Wybierz serwer przetwarzania w dobrej kondycji. Nie można wybrać serwera przetwarzania [krytycznego](vmware-physical-azure-monitor-process-server.md#process-server-alerts) . Możesz [rozwiązywać problemy i](vmware-physical-azure-troubleshoot-process-server.md) rozwiązywać te błędy **albo** skonfigurować [serwer przetwarzania skalowalny](vmware-azure-set-up-process-server-scale.md)w poziomie.
-6. W obszarze **Cel** wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne w trybie failover. Stosujemy model wdrażania korzystający z usługi Resource Manager. 
+6. W obszarze **Cel** wybierz subskrypcję i grupę zasobów, w której chcesz utworzyć maszyny wirtualne w trybie failover. Stosujemy model wdrażania korzystający z usługi Resource Manager.
 7. Wybierz sieć platformy Azure i podsieć, z którą nawiążą połączenie maszyny wirtualne platformy Azure, gdy zostaną uruchomione po przejściu do trybu failover.
 8. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wirtualnych, na których ma zostać włączona replikacja. Wybierz pozycję **Konfiguruj później** , aby wybrać sieć platformy Azure na maszynę.
 9. W obszarze **Virtual Machines** > **Wybierz pozycję Maszyny wirtualne**zaznacz każdą maszynę, którą chcesz replikować. Możesz wybrać tylko te maszyny, dla których można włączyć replikację. Następnie wybierz pozycję **OK**. Jeśli nie możesz wyświetlić/wybrać konkretnej maszyny wirtualnej, [Dowiedz się więcej](https://aka.ms/doc-plugin-VM-not-showing) o rozwiązywaniu problemu.

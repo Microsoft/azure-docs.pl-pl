@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879029"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610749"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, kt�
 
 | Funkcja | Funkcje | Najnowsza |
 |--|--|--|
-| Zamiana mowy na tekst | Przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio w trybie wsadowym do tekstu z wynikami pośrednimi. | 2.1.1 |
+| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | 2.2.0 |
 | Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.1.1 |
 | Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.3.0 |
 | Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.3.0 |
@@ -164,7 +164,7 @@ Wszystkie Tagi, z wyjątkiem `latest` programu, są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-2.1.1-amd64-en-us-preview
+2.2.0-amd64-en-us-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych kontenera **zamiany mowy na tekst** należy zapoznać się [ze znacznikami obrazu zamiany mowy na tekst](../containers/container-image-tags.md#speech-to-text).
@@ -258,6 +258,33 @@ To polecenie:
 * Przydziela 4 rdzenie procesora CPU i 4 gigabajty (GB) pamięci.
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera.
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.
+
+
+#### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizuj tonacji w danych wyjściowych zamiany mowy na tekst 
+
+Począwszy od 2.2.0 kontenera zamiany mowy na tekst, można wywołać [interfejs API analizy tonacji](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) w wersji 3 w danych wyjściowych. Aby wywołać analizę tonacji, wymagany jest punkt końcowy zasobów interfejs API analizy tekstu. Przykład: 
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
+
+Jeśli uzyskujesz dostęp do punktu końcowego analizy tekstu w chmurze, będziesz potrzebować klucza. Jeśli używasz analiza tekstu lokalnie, może nie musisz go podawać.
+
+Klucz i punkt końcowy są przekazane do kontenera mowy jako argumenty, jak w poniższym przykładzie.
+
+```bash
+docker run -it --rm -p 5000:5000 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
+CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+```
+
+To polecenie:
+
+* Wykonuje te same czynności co polecenie powyżej.
+* Przechowuje interfejs API analizy tekstu punkt końcowy i klucz do wysyłania żądań analizy tonacji. 
+
 
 # <a name="custom-speech-to-text"></a>[Custom Speech do tekstu](#tab/cstt)
 
@@ -380,6 +407,9 @@ To polecenie:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
 
+> [!NOTE]
+> Użyj unikatowego numeru portu, jeśli korzystasz z wielu kontenerów.
+
 | Containers | Adres URL hosta zestawu SDK | Protocol (Protokół) |
 |--|--|--|
 | Zamiana mowy na tekst i Custom Speech na tekst | `ws://localhost:5000` | WS |
@@ -388,6 +418,121 @@ To polecenie:
 Aby uzyskać więcej informacji na temat korzystania z protokołów WSS i HTTPS, zobacz [zabezpieczenia kontenera](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
+
+#### <a name="analyze-sentiment"></a>Analiza tonacji
+
+Jeśli podano poświadczenia interfejs API analizy tekstu [do kontenera](#analyze-sentiment-on-the-speech-to-text-output), można użyć zestawu Speech SDK, aby wysyłać żądania rozpoznawania mowy z analizą tonacji. Można skonfigurować odpowiedzi interfejsu API w taki sposób, aby korzystały z *prostego* lub *szczegółowego* formatu.
+
+# <a name="simple-format"></a>[Format prosty](#tab/simple-format)
+
+Aby skonfigurować klienta mowy do używania prostego formatu, należy dodać `"Sentiment"` jako wartość dla. `Simple.Extensions` Jeśli chcesz wybrać konkretną wersję modelu analiza tekstu, Zastąp `'latest'` wartość `speechcontext-phraseDetection.sentimentAnalysis.modelversion` w obszarze Konfiguracja właściwości.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Simple.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Simple.Extensions`zwróci wynik tonacji w warstwie głównej odpowiedzi.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6098574b79434bd4849fee7e0a50f22e",
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+# <a name="detailed-format"></a>[Format szczegółowy](#tab/detailed-format)
+
+Aby skonfigurować klienta mowy do używania formatu szczegółowego, Dodaj `"Sentiment"` jako wartość dla `Detailed.Extensions`, `Detailed.Options`lub obie. Jeśli chcesz wybrać konkretną wersję modelu analiza tekstu, Zastąp `'latest'` wartość `speechcontext-phraseDetection.sentimentAnalysis.modelversion` w obszarze Konfiguracja właściwości.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Options',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Detailed.Extensions`dostarcza wynik tonacji w warstwie głównej odpowiedzi. `Detailed.Options`zapewnia wynik w `NBest` warstwie odpowiedzi. Mogą być używane osobno lub razem.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6a2aac009b9743d8a47794f3e81f7963",
+   "NBest":[
+      {
+         "Confidence":0.973695,
+         "Display":"What's the weather like?",
+         "ITN":"what's the weather like",
+         "Lexical":"what's the weather like",
+         "MaskedITN":"What's the weather like",
+         "Sentiment":{
+            "Negative":0.03,
+            "Neutral":0.79,
+            "Positive":0.18
+         }
+      },
+      {
+         "Confidence":0.9164971,
+         "Display":"What is the weather like?",
+         "ITN":"what is the weather like",
+         "Lexical":"what is the weather like",
+         "MaskedITN":"What is the weather like",
+         "Sentiment":{
+            "Negative":0.02,
+            "Neutral":0.88,
+            "Positive":0.1
+         }
+      }
+   ],
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+---
+
+Jeśli chcesz całkowicie wyłączyć analizę tonacji, Dodaj `false` wartość do. `sentimentanalysis.enabled`
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
 
 ### <a name="text-to-speech-or-custom-text-to-speech"></a>Zamiana tekstu na mowę lub niestandardowej zamiany tekstu na mowę
 

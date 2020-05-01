@@ -6,18 +6,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: d63c143ddbc702f7f3983a9ae5d6d5f2822d9fdc
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 343f74cce03a5ea70d036f5548e523e62b6d211e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560354"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592200"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Samouczek: kompleksowe uwierzytelnianie i autoryzacja użytkowników w usłudze Azure App Service w systemie Linux
 
-[App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ponadto usługa App Service zapewnia wbudowaną obsługę [uwierzytelniania i autoryzacji użytkowników](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ten samouczek przedstawia sposób zabezpieczania aplikacji za pomocą uwierzytelniania i autoryzacji usługi App Service. W samouczku użyto aplikacji ASP.NET Core z frontonem Angular.js, ale jest to tylko przykład. Uwierzytelnianie i autoryzacja usługi App Service obsługuje wszystkie środowiska uruchomieniowe języków, a wykonując kroki samouczka, można dowiedzieć się, jak zastosować je w przypadku preferowanego języka.
-
-Samouczek korzysta z aplikacji przykładowej w celu pokazania, jak zabezpieczyć aplikację samodzielną (w sekcji [Włączanie uwierzytelniania i autoryzacji w aplikacji zaplecza](#enable-authentication-and-authorization-for-back-end-app)).
+[App Service w systemie Linux](app-service-linux-intro.md) oferuje wysoce skalowalną, samoobsługową usługę hostingu w Internecie przy użyciu systemu operacyjnego Linux. Ponadto usługa App Service zapewnia wbudowaną obsługę [uwierzytelniania i autoryzacji użytkowników](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ten samouczek przedstawia sposób zabezpieczania aplikacji za pomocą uwierzytelniania i autoryzacji usługi App Service. Używa ona aplikacji ASP.NET Core z frontonem ze kątowym. js jako przykładu. Uwierzytelnianie i autoryzacja usługi App Service obsługuje wszystkie środowiska uruchomieniowe języków, a wykonując kroki samouczka, można dowiedzieć się, jak zastosować je w przypadku preferowanego języka.
 
 ![Proste uwierzytelnianie i autoryzacja](./media/tutorial-auth-aad/simple-auth.png)
 
@@ -237,6 +235,8 @@ Wybierz **Azure Active Directory** ponownie, a następnie wybierz **aplikacja us
 Skopiuj **Identyfikator klienta** aplikacji usługi Azure AD do Notatnika. Ta wartość będzie potrzebna później.
 
 ![Interfejs API platformy ASP.NET Core uruchomiony w usłudze Azure App Service](./media/tutorial-auth-aad/get-application-id-back-end.png)
+
+Jeśli zatrzymasz tutaj, będziesz mieć samodzielną aplikację, która jest już zabezpieczona przez App Service uwierzytelnianie i autoryzację. Pozostałe sekcje przedstawiają sposób zabezpieczania rozwiązania z obsługą aplikacji przez "przepływanie" uwierzytelnionego użytkownika z frontonu do zaplecza. 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Włączanie uwierzytelniania i autoryzacji w aplikacji frontonu
 

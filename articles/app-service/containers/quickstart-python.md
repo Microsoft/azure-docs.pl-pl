@@ -6,12 +6,12 @@ ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 606758cf81d069124c67bc06c650b96d91262deb
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085131"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597879"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -104,6 +104,11 @@ W folderze *Python-docs-Hello-World* , który zawiera przykładowy kod, uruchom 
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> W przypadku korzystania z **platformy Azure — interfejs wiersza polecenia 2.5.0** istnieje regresja `az webapp up` , w której niektóre scenariusze zakończą `-l <location-name>` się niepowodzeniem, jeśli parametr nie zostanie uwzględniony. Ten problem jest [śledzony w tym miejscu](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>Możesz sprawdzić wersję interfejsu wiersza `az --version` polecenia platformy Azure, który jest używany z poleceniem.
+>
 
 `--sku F1` Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Możesz pominąć ten argument, aby zamiast tego użyć warstwy Premium, która ponosi koszt godzinowy.
 

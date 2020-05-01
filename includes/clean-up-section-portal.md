@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 5c5b2a0c6e27f83e94b8f6a0ba3bb09ed1831680
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f9e50f0d4969e10d3c01496ea29652712a407c5
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73471562"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592398"
 ---
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -19,4 +19,4 @@ W menu Azure Portal lub stronie **głównej** wybierz pozycję **grupy zasobów*
 
 Na stronie Moja **zasobów** upewnij się, że wymienione zasoby są tymi, które chcesz usunąć.
 
-Wybierz pozycję **Usuń**, wpisz ciąg **myResourceGroup** w polu tekstowym, a następnie wybierz opcję **Usuń**.
+Wybierz pozycję **Usuń grupę zasobów**, wpisz w polu tekstowym pozycję Moja **zasobów** , a następnie wybierz pozycję **Usuń**.

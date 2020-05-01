@@ -1,23 +1,29 @@
 ---
-title: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows — Azure
-description: Opisuje sposób konfigurowania dzierżawców pulpitów wirtualnych systemu Windows w Azure Active Directory.
+title: Zarządzanie grupami aplikacji dla systemu Windows Virtual Desktop Portal — Azure
+description: Jak zarządzać grupami aplikacji klasycznymi systemu Windows przy użyciu Azure Portal.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9a9d92ea525c6b5a64fdf7cc74babdce6a97f923
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f072ed8a758173645c886cabf0b20f9e123cbbab
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79127813"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612182"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Samouczek: Zarządzanie grupami aplikacji dla pulpitu wirtualnego systemu Windows
+# <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Samouczek: Zarządzanie grupami aplikacji przy użyciu Azure Portal
 
-Domyślna grupa aplikacji utworzona dla nowej puli hostów systemu Windows Virtual Desktop również publikuje pełny pulpit. Ponadto można utworzyć co najmniej jedną grupę aplikacji RemoteApp dla puli hostów. Postępuj zgodnie z tym samouczkiem, aby utworzyć grupę aplikacji RemoteApp i opublikować poszczególne aplikacje menu **Start** .
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Domyślna grupa aplikacji utworzona dla nowej puli hostów systemu Windows Virtual Desktop również publikuje pełny pulpit. Ponadto można utworzyć co najmniej jedną grupę aplikacji RemoteApp dla puli hostów. Postępuj zgodnie z tym samouczkiem, aby utworzyć grupę aplikacji RemoteApp i opublikować poszczególne aplikacje menu Start.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -25,56 +31,109 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Utwórz grupę usługi RemoteApp.
 > * Udzielanie dostępu do programów RemoteApp.
 
-Przed rozpoczęciem [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 ## <a name="create-a-remoteapp-group"></a>Tworzenie grupy usługi RemoteApp
 
-1. Uruchom następujące polecenie cmdlet programu PowerShell, aby utworzyć nową pustą grupę aplikacji RemoteApp.
+Jeśli utworzono już pulę hostów i maszyny wirtualne hosta sesji przy użyciu Azure Portal lub programu PowerShell, można dodać grupy aplikacji z Azure Portal za pomocą następującego procesu:
 
-   ```powershell
-   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
-   ```
+1.  Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-2. Obowiązkowe Aby sprawdzić, czy grupa aplikacji została utworzona, możesz uruchomić następujące polecenie cmdlet, aby wyświetlić listę wszystkich grup aplikacji dla puli hostów.
+2.  Wyszukaj i wybierz pozycję **pulpit wirtualny systemu Windows**.
 
-   ```powershell
-   Get-RdsAppGroup <tenantname> <hostpoolname>
-   ```
+3.  W menu po lewej stronie wybierz pozycję **grupy aplikacji** , a następnie wybierz pozycję **+ Dodaj**.
 
-3. Uruchom następujące polecenie cmdlet, aby uzyskać listę aplikacji menu **Start** w obrazie maszyny wirtualnej puli hostów. Zapisz wartości **FilePath**, **IconPath**, **IconIndex**i inne ważne informacje dla aplikacji, którą chcesz opublikować.
+4. Na karcie **podstawowe** wybierz grupę subskrypcji i grupę zasobów, dla której chcesz utworzyć grupę aplikacji. Możesz również utworzyć nową grupę zasobów zamiast wybierać istniejącą.
 
-   ```powershell
-   Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+5. Wybierz pulę hostów, która zostanie skojarzona z grupą aplikacji z menu rozwijanego obok **puli hostów**.
+
+    >[!NOTE]
+    >Musisz wybrać pulę hostów skojarzoną z grupą aplikacji. Grupy aplikacji mają aplikacje lub pulpity, które są obsługiwane przez Host sesji i hosty sesji, są częścią pul hostów. Grupa aplikacji musi być skojarzona z pulą hostów podczas tworzenia.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający kartę podstawowe w Azure Portal.](media/basics-tab.png)
+
+6. Jeśli chcesz dodać grupy aplikacji do puli hostów, wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
    
-4. Uruchom następujące polecenie cmdlet, aby zainstalować aplikację opartą `AppAlias`na systemie. `AppAlias`staną się widoczne po uruchomieniu danych wyjściowych z kroku 3.
+    Następnie wybierz nazwę puli hostów, do której chcesz dodać grupy aplikacji.
+   
+    Po wybraniu tej opcji wybierz pozycję **grupy aplikacji** z menu po lewej stronie ekranu, a następnie wybierz pozycję **+ Dodaj**.
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
-   ```
+    Na koniec wybierz grupę subskrypcji i grupę zasobów, w której chcesz utworzyć grupę aplikacji. Możesz wybrać nazwę istniejącej grupy zasobów z menu rozwijanego lub wybrać pozycję **Utwórz nową** , aby utworzyć nową.
 
-5. Obowiązkowe Uruchom następujące polecenie cmdlet, aby opublikować nowy Program RemoteApp w grupie aplikacji utworzonej w kroku 1.
+      >[!NOTE]
+      >Po dodaniu grup aplikacji do puli hostów Pula hostów, która jest powiązana z grupą aplikacji, jest już zaznaczona, ponieważ przejdziesz od niej.
+      > 
+      > [!div class="mx-imgBorder"]
+      >![Zrzut ekranu przedstawiający kartę podstawowe z wybraną pulą hostów.](media/host-pool-selected.png)
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
-   ```
+7. Wybierz pozycję **RemoteApp** w obszarze Typ grupy aplikacji, a następnie wprowadź nazwę dla usługi RemoteApp.
 
-6. Aby sprawdzić, czy aplikacja została opublikowana, uruchom następujące polecenie cmdlet.
+      > [!div class="mx-imgBorder"]
+      > ![Zrzut ekranu przedstawiający pola typu grupy aplikacji. Wyróżniono "RemoteApp".](media/remoteapp-button.png)
 
-   ```powershell
-   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+8.  Wybierz kartę **przypisania** .
 
-7. Powtórz kroki od 1 do 5 dla każdej aplikacji, która ma zostać opublikowana dla tej grupy aplikacji.
-8. Uruchom następujące polecenie cmdlet, aby udzielić użytkownikom dostępu do programów RemoteApp w grupie aplikacji.
+9.  Aby opublikować poszczególnych użytkowników lub grupy użytkowników w grupie aplikacji, wybierz pozycję **+ Dodaj użytkowników usługi Azure AD lub grupy użytkowników**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
-   ```
+10.  Wybierz liczbę użytkowników, do których chcesz dodać aplikacje. Można wybrać jednego lub wielu użytkowników i grup użytkowników.
+
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający menu wyboru użytkownika.](media/select-users.png)
+
+11.  Wybierz przycisk **Wybierz**.
+
+12.  Wybierz kartę **aplikacje** , a następnie wybierz pozycję **+ Dodaj aplikacje**.
+
+13.  Aby dodać aplikację z menu Start: 
+
+      - Przejdź do pozycji **Źródło aplikacji** i wybierz **menu Start** z menu rozwijanego. Następnie przejdź do **aplikacji** i wybierz aplikację z menu rozwijanego.
+
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający ekran Dodawanie aplikacji z wybranym menu Start.](media/add-app-start.png)
+
+      - W polu **Nazwa wyświetlana**wprowadź nazwę aplikacji, która będzie wyświetlana użytkownikowi na swoim kliencie.
+
+      - Pozostaw inne opcje jako-is i wybierz pozycję **Zapisz**.
+
+14. Aby dodać aplikację z określonej ścieżki pliku:
+
+      - Przejdź do pozycji **Źródło aplikacji** i wybierz pozycję **ścieżka pliku** z menu rozwijanego.
+
+      - Wprowadź ścieżkę do aplikacji na hoście sesji zarejestrowanej za pomocą skojarzonej puli hostów.
+
+      - Wprowadź szczegóły aplikacji w polach **Nazwa aplikacji**, **Nazwa wyświetlana**, **ścieżka ikony**i **indeks ikony** .
+
+      - Wybierz pozycję **Zapisz**.
+
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający stronę Dodawanie aplikacji z wybraną ścieżką pliku.](media/add-app-file.png)
+
+     Powtórz ten proces dla każdej aplikacji, którą chcesz dodać do grupy aplikacji.
+
+15.  Następnie wybierz kartę **obszar roboczy** .
+
+16.  Jeśli chcesz zarejestrować grupę aplikacji w obszarze roboczym, przejdź do pozycji **zarejestruj grupę aplikacji** i wybierz opcję **tak**. Jeśli wolisz zarejestrować grupę aplikacji w późniejszym czasie, wybierz pozycję **nie**.
+
+17.  Jeśli wybierzesz opcję **tak**, możesz wybrać istniejący obszar roboczy, aby zarejestrować grupę aplikacji.
+       
+       >[!NOTE]
+       >Grupę aplikacji można zarejestrować tylko w obszarach roboczych utworzonych w tej samej lokalizacji, w której znajduje się pula hostów. Być. Jeśli w obszarze roboczym została wcześniej zarejestrowana inna grupa aplikacji z tej samej puli, co Nowa grupa aplikacji, zostanie ona wybrana i nie będzie można jej edytować. Wszystkie grupy aplikacji z puli hostów muszą być zarejestrowane w tym samym obszarze roboczym.
+
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający stronę Zarejestruj grupę aplikacji dla już istniejącego obszaru roboczego. Pula hostów jest wybierana jako prewybrana.](media/register-existing.png)
+
+18. Opcjonalnie, jeśli chcesz utworzyć Tagi, aby ułatwić organizowanie obszaru roboczego, wybierz kartę **Tagi** i wprowadź nazwy tagów.
+
+19. Gdy skończysz, wybierz kartę **Recenzja + tworzenie** .
+
+20. Poczekaj na zakończenie procesu walidacji. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz** , aby wdrożyć grupę aplikacji.
+
+Proces wdrażania wykona następujące czynności:
+
+- Utwórz grupę aplikacji usługi RemoteApp.
+- Dodaj wybrane aplikacje do grupy aplikacji.
+- Opublikuj grupę aplikacji opublikowaną dla wybranych użytkowników i grup użytkowników.
+- Zarejestruj grupę aplikacji, jeśli wybrano tę opcję.
+- Utwórz link do szablonu Azure Resource Manager w oparciu o konfigurację, którą możesz pobrać i zapisać na później.
 
 ## <a name="next-steps"></a>Następne kroki
 

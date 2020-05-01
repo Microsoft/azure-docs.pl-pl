@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 4eddf34f4887f0e2bad08eb5700d83eaeae0ef7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f374e0611b887e2a2c787569d9fe58bc1a5c84e9
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81687089"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594070"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Szybki Start: uruchamianie aplikacji w chmurze ze sprężyną na platformie Azure przy użyciu wtyczki Maven
 
@@ -121,6 +121,6 @@ W tym przewodniku szybki start wdrożono aplikację w chmurze ze sprężyną z r
 
 > [!div class="nextstepaction"]
 > [Przygotowywanie aplikacji w chmurze Azure wiosny do wdrożenia](spring-cloud-tutorial-prepare-app-deployment.md)
-> [Dowiedz się więcej o wtyczkach Maven dla platformy Azure](https://github.com/microsoft/azure-maven-plugin)
+> [Dowiedz się więcej o wtyczkach Maven dla platformy Azure](https://github.com/microsoft/azure-maven-plugins)
 
 Więcej przykładów można znaleźć w witrynie GitHub: [przykłady chmur usługi Azure wiosennej](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

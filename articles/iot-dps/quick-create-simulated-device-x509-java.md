@@ -1,6 +1,6 @@
 ---
 title: Inicjowanie obsługi symulowanego urządzenia X. 509 na platformie Azure IoT Hub przy użyciu języka Java
-description: 'Przewodnik Szybki start platformy Azure: tworzenie i aprowizowanie symulowanego urządzenia X.509 za pomocą zestawu SDK urządzenia języka Java dla usługi IoT Hub Device Provisioning. W tym przewodniku Szybki start używane są rejestracje indywidualne.'
+description: Przewodnik Szybki Start platformy Azure — tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzenia Java dla IoT Hub Device Provisioning Service (DPS). Ten przewodnik Szybki Start używa indywidualnych rejestracji.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,25 +9,27 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: ec4c276b951e5cda43a4b224f25aac547cd26bec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 5122726cbda2145d190e3dbeb10a3c5b4ae65947
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229569"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82588455"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Szybki Start: Tworzenie i Inicjowanie obsługi symulowanego urządzenia X. 509 za pomocą zestawu SDK urządzenia Java dla IoT Hub Device Provisioning Service
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Te kroki pokazują, jak zasymulować urządzenie X.509 na maszynie deweloperskiej z systemem operacyjnym Windows OS i użyć przykładowego kodu do połączenia tego symulowanego urządzenia z usługą Device Provisioning Service i Twoim centrum IoT Hub. 
+W tym przewodniku szybki start utworzysz symulowane urządzenie X. 509 na komputerze z systemem Windows. Używasz przykładowego kodu Java urządzenia do połączenia tego symulowanego urządzenia z usługą IoT Hub przy użyciu rejestracji indywidualnej w usłudze Device Provisioning Service (DPS).
 
-Jeśli nie znasz procesu automatycznego aprowizowania, zapoznaj się również z tematem [Auto-provisioning concepts (Pojęcia związane z automatycznym aprowizowaniem)](concepts-auto-provisioning.md). Pamiętaj również, aby wcześniej wykonać kroki przedstawione w części [Konfigurowanie usługi IoT Hub Device Provisioning za pomocą witryny Azure Portal](./quick-setup-auto-provision.md). 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
-- [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
-- [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służą do rejestrowania pojedynczych urządzeń.
-
-W tym artykule przedstawiono rejestracje indywidualne.
+- Przegląd pojęć związanych z obsługą [administracyjną](concepts-auto-provisioning.md).
+- Zakończenie [konfigurowania IoT Hub Device Provisioning Service przy użyciu Azure Portal](./quick-setup-auto-provision.md).
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Maven](https://maven.apache.org/install.html).
+- Usługi [git](https://git-scm.com/download/).
 
 ## <a name="prepare-the-environment"></a>Przygotowywanie środowiska 
 
@@ -64,36 +66,42 @@ W tej sekcji zostanie użyty certyfikat z podpisem własnym X.509. Ważne jest, 
 
 Przykładowy kod z [zestawu Azure IoT SDK dla środowiska Java](https://github.com/Azure/azure-iot-sdk-java.git) zostanie użyty do utworzenia certyfikatu, który będzie używany z indywidualnym wpisem rejestracji dla urządzenia symulowanego.
 
+Usługa Azure IoT Device Provisioning obsługuje dwa typy rejestracji:
 
-1. Przy użyciu wiersza polecenia z poprzednich kroków przejdź do folderu `target`, a następnie wykonaj plik jar utworzony w poprzednim kroku.
+- [Grupy rejestracji](concepts-service.md#enrollment-group): służą do rejestrowania wielu pokrewnych urządzeń.
+- [Rejestracje indywidualne](concepts-service.md#individual-enrollment): służy do rejestrowania jednego urządzenia.
+
+W tym artykule przedstawiono rejestracje indywidualne.
+
+1. Korzystając z wiersza polecenia z poprzednich kroków, przejdź do `target` folderu, a następnie wykonaj plik JAR utworzony w poprzednim kroku.
 
     ```cmd/sh
     cd target
     java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
     ```
 
-2. Wprowadź **N** w odpowiedzi na pytanie _Czy chcesz wprowadzić nazwę pospolitą_. Skopiuj do schowka dane wyjściowe z sekcji `Client Cert` rozpoczynające się od wiersza *-----BEGIN CERTIFICATE-----* i kończące się wierszem *-----END CERTIFICATE-----* .
+2. Wprowadź **N** w odpowiedzi na pytanie _Czy chcesz wprowadzić nazwę pospolitą_. Skopiuj do schowka dane wyjściowe z sekcji `Client Cert` rozpoczynające się od wiersza *-----BEGIN CERTIFICATE-----* i kończące się wierszem *-----END CERTIFICATE-----*.
 
    ![Generator indywidualnego certyfikatu](./media/java-quick-create-simulated-device-x509/individual.png)
 
 3. Utwórz plik o nazwie **_X509individual.pem_** na maszynie z systemem Windows, otwórz go w wybranym edytorze, a następnie skopiuj zawartość schowka do tego pliku. Zapisz plik i zamknij edytor.
 
-4. W wierszu polecenia wprowadź **N** w odpowiedzi na pytanie _Czy chcesz wprowadzić kod weryfikacyjny_ i nie zamykaj danych wyjściowych programu, ponieważ będą one potrzebne w dalszej części przewodnika Szybki start. Później skopiuj wartości `Client Cert` i `Client Cert Private Key` do użycia w następnej sekcji.
+4. W wierszu polecenia wprowadź **N** dla _czy chcesz wprowadzić kod weryfikacyjny_ i zachować otwarte dane wyjściowe programu dla odwołania w dalszej części przewodnika Szybki Start. Później skopiuj wartości `Client Cert` i `Client Cert Private Key` do użycia w następnej sekcji.
 
-5. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com), kliknij przycisk **Wszystkie zasoby** w menu po lewej stronie i otwórz swoje wystąpienie usługi Device Provisioning Service.
+5. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz przycisk **wszystkie zasoby** w menu po lewej stronie i Otwórz wystąpienie usługi Device Provisioning Service.
 
-6. W bloku podsumowania usługi Device Provisioning Service wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **Rejestracje indywidualne** i kliknij przycisk **Dodaj rejestrację indywidualną** u góry strony. 
+6. W menu usługi Device Provisioning wybierz pozycję **Zarządzaj rejestracjami**. Wybierz kartę **indywidualne rejestracje** i wybierz u góry przycisk **Dodaj rejestrację indywidualną** . 
 
 7. W panelu **Dodawanie rejestracji** wprowadź następujące informacje:
    - Wybierz opcję **X.509** jako *Mechanizm* poświadczania tożsamości.
-   - W obszarze *Plik PEM lub CER certyfikatu podstawowego* kliknij opcję *Wybierz plik*, aby wybrać plik certyfikatu **X509individual.pem** utworzony we wcześniejszych krokach.  
+   - W obszarze *plik PEM lub CER certyfikatu podstawowego*wybierz *pozycję Wybierz plik* , aby wybrać plik certyfikatu **X509individual. pem** utworzony w poprzednich krokach.  
    - Opcjonalnie można podać następujące informacje:
      - Wybierz centrum IoT połączone z Twoją usługą aprowizacji.
      - Wprowadź unikatowy identyfikator urządzenia. Nadając nazwę urządzeniu, unikaj korzystania z danych poufnych. 
      - Zaktualizuj pole **Początkowy stan bliźniaczej reprezentacji urządzenia** za pomocą wybranej konfiguracji początkowej dla urządzenia.
-     - Gdy skończysz, kliknij przycisk **Zapisz**. 
+     - Po zakończeniu naciśnij przycisk **Zapisz** . 
 
-     [![Dodawanie indywidualnej rejestracji dla zaświadczenia X.509 w portalu](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Dodawanie rejestracji indywidualnej dla zaświadczania X. 509 w portalu](./media/java-quick-create-simulated-device-x509/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Po pomyślnej rejestracji urządzenie X.509 jest wyświetlane jako **microsoftriotcore** w kolumnie *Identyfikator rejestracji* na karcie *Indywidualne rejestracje*. 
 
@@ -101,7 +109,7 @@ Przykładowy kod z [zestawu Azure IoT SDK dla środowiska Java](https://github.c
 
 ## <a name="simulate-the-device"></a>Symulowanie urządzenia
 
-1. W bloku podsumowania usługi Device Provisioning wybierz pozycję **Przegląd** i zanotuj wartości _Identyfikator zakresu_ oraz _Globalny punkt końcowy usługi aprowizacji_.
+1. W menu usługi Device Provisioning wybierz pozycję **Przegląd** i zanotuj _zakres identyfikatorów_ i _globalny punkt końcowy usługi aprowizacji_.
 
     ![Informacje o usłudze](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -140,7 +148,7 @@ Przykładowy kod z [zestawu Azure IoT SDK dla środowiska Java](https://github.c
             "-----END PRIVATE KEY-----\n";
       ```
 
-4. Skompiluj przykład. Przejdź do folderu `target` i wykonaj utworzony plik jar.
+4. Skompiluj przykład. Przejdź do `target` folderu i wykonaj utworzony plik JAR.
 
     ```cmd/sh
     mvn clean install
@@ -148,7 +156,7 @@ Przykładowy kod z [zestawu Azure IoT SDK dla środowiska Java](https://github.c
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-5. W witrynie Azure Portal przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **Device Explorer**. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Eksplorator urządzeń** z pozycją *STATUS* (Stan) ustawioną na wartość **enabled** (włączone).  Jeśli blok został otwarty przed uruchomieniem przykładowej aplikacji urządzenia, konieczne może być kliknięcie przycisku **Odśwież** znajdującego się u góry. 
+5. W witrynie Azure Portal przejdź do centrum IoT Hub połączonego z usługą aprowizacji, a następnie otwórz blok **Device Explorer**. Po pomyślnej aprowizacji symulowanego urządzenia X.509 w centrum identyfikator urządzenia jest wyświetlany w bloku **Eksplorator urządzeń** z pozycją *STATUS* (Stan) ustawioną na wartość **enabled** (włączone).  Może być konieczne naciśnięcie przycisku **Odśwież** w górnej części, jeśli blok został już otwarty przed uruchomieniem przykładowej aplikacji urządzenia. 
 
     ![Urządzenie jest rejestrowane w centrum IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
@@ -159,16 +167,16 @@ Przykładowy kod z [zestawu Azure IoT SDK dla środowiska Java](https://github.c
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz dalszą pracę z przykładem klienta urządzenia i eksplorowanie go, nie czyść zasobów utworzonych w ramach tego przewodnika Szybki start. Jeśli nie planujesz kontynuować pracy, wykonaj poniższe kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki start.
+Jeśli planujesz kontynuować pracę i eksplorowanie przykładowego klienta urządzenia, nie czyść zasobów utworzonych w tym przewodniku Szybki Start. Jeśli nie planujesz kontynuować pracy, wykonaj następujące kroki, aby usunąć wszystkie zasoby utworzone w ramach tego przewodnika Szybki Start.
 
 1. Zamknij okno danych wyjściowych przykładu klienta urządzenia na swojej maszynie.
-2. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz swoją usługę Device Provisioning Service. Otwórz blok **Zarządzanie rejestracjami** dla usługi, a następnie kliknij kartę **rejestracje indywidualne** . Wybierz *Identyfikator rejestracji* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie kliknij przycisk **Usuń** u góry. 
-3. W witrynie Azure Portal w menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie wybierz swoje centrum IoT. Otwórz blok **Urządzenia IoT** Twojego centrum, wybierz *IDENTYFIKATOR URZĄDZENIA* zarejestrowanego w ramach tego przewodnika Szybki start, a następnie kliknij przycisk **Usuń** u góry.
+2. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz usługę Device Provisioning. Otwórz blok **Zarządzanie rejestracjami** dla usługi, a następnie wybierz kartę **indywidualne rejestracje** . Zaznacz pole wyboru obok *identyfikatora rejestracji* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka. 
+3. Z menu po lewej stronie w Azure Portal wybierz pozycję **wszystkie zasoby** , a następnie wybierz swoje centrum IoT Hub. Otwórz blok **urządzenia IoT** dla centrum, zaznacz pole wyboru obok *identyfikatora urządzenia* urządzenia zarejestrowanego w tym przewodniku Szybki Start, a następnie naciśnij przycisk **Usuń** w górnej części okienka.
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start utworzono symulowane urządzenie X.509 na komputerze z systemem Windows. Skonfigurowano jego rejestrację w usłudze Azure IoT Hub Device Provisioning Service, a następnie automatycznie aprowizowano urządzenie w centrum IoT. Aby dowiedzieć się, jak zarejestrować urządzenie X.509 programowo, przejdź do przewodnika Szybki start dotyczącego programowej rejestracji urządzeń X.509. 
+W tym przewodniku szybki start utworzono symulowane urządzenie X. 509 na komputerze z systemem Windows. Skonfigurowano jego rejestrację w usłudze Azure IoT Hub Device Provisioning Service, a następnie automatycznie aprowizowano urządzenie w centrum IoT. Aby dowiedzieć się, jak zarejestrować urządzenie X. 509 programowo, przejdź do przewodnika Szybki Start dotyczącego rejestrowania na urządzeniach X. 509. 
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki start platformy Azure — Rejestrowanie urządzenia X.509 w usłudze Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)
+> [Przewodnik Szybki Start platformy Azure — rejestrowanie urządzeń X. 509 w usłudze Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
