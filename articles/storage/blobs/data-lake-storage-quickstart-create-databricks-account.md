@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: analizowanie danych w usłudze Azure Data Lake Storage Gen2 przy użyciu usługi Azure Databricks | Dokumenty firmy Microsoft'
+title: 'Szybki Start: analizowanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Databricks | Microsoft Docs'
 description: Dowiedz się, w jaki sposób uruchomić zadanie platformy Spark w usłudze Azure Databricks, korzystając z witryny Azure Portal oraz konta magazynu usługi Azure Data Lake Storage Gen2.
 author: normesta
 ms.author: normesta
@@ -9,34 +9,34 @@ ms.topic: quickstart
 ms.date: 02/17/2020
 ms.reviewer: jeking
 ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77470738"
 ---
-# <a name="quickstart-analyze-data-with-databricks"></a>Szybki start: analizowanie danych za pomocą databricks
+# <a name="quickstart-analyze-data-with-databricks"></a>Szybki Start: analizowanie danych z użyciem datakostki
 
-W tym przewodniku Szybki start uruchom zadanie Platformy Spark Apache przy użyciu usługi Azure Databricks do wykonywania analiz danych przechowywanych na koncie magazynu. W ramach zadania Spark przeanalizujesz dane subskrypcji kanałów radiowych, aby na podstawie danych demograficznych uzyskać szczegółowe informacje dotyczące korzystania z usług płatnych/bezpłatnych.
+W tym przewodniku szybki start uruchomisz zadanie Apache Spark przy użyciu Azure Databricks, aby przeprowadzić analizę danych przechowywanych na koncie magazynu. W ramach zadania Spark przeanalizujesz dane subskrypcji kanałów radiowych, aby na podstawie danych demograficznych uzyskać szczegółowe informacje dotyczące korzystania z usług płatnych/bezpłatnych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Nazwa konta magazynu usługi Azure Data Lake Gen2. [Utwórz konto magazynu usługi Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* Nazwa konta magazynu Azure Data Lake Gen2. [Utwórz konto magazynu Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Identyfikator dzierżawy, identyfikator aplikacji i hasło jednostki usługi platformy Azure z przypisaną rolą **współautora danych obiektów blob magazynu.** [Utwórz jednostkę usługi](../../active-directory/develop/howto-create-service-principal-portal.md).
+* Identyfikator dzierżawy, identyfikator aplikacji i hasło jednostki usługi platformy Azure z przypisaną rolą **współautor danych obiektu blob magazynu**. [Utwórz nazwę główną usługi](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!IMPORTANT]
-  > Przypisz rolę w zakresie konta magazynu Usługi Data Lake Storage Gen2. Możesz przypisać rolę do nadrzędnej grupy zasobów lub subskrypcji, ale będzie zgłaszany błąd dotyczący uprawnień do momentu rozpropagowania przypisań roli do konta magazynu.
+  > Przypisz rolę w zakresie konta magazynu Data Lake Storage Gen2. Możesz przypisać rolę do nadrzędnej grupy zasobów lub subskrypcji, ale będzie zgłaszany błąd dotyczący uprawnień do momentu rozpropagowania przypisań roli do konta magazynu.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Tworzenie obszaru roboczego usługi Azure Databricks
 
 W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witryny Azure Portal.
 
-1. W witrynie Azure portal wybierz pozycję **Utwórz zasób** > **Analytics** > **Azure Databricks**.
+1. W Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Azure Databricks**analizy zasobów.
 
-    ![Databricks w witrynie Azure portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks w witrynie Azure portal")
+    ![Datakostki na Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Datakostki na Azure Portal")
 
 2. W obszarze **Usługa Azure Databricks** podaj wartości umożliwiające utworzenie obszaru roboczego usługi Databricks.
 
@@ -62,11 +62,11 @@ W tej sekcji utworzysz obszar roboczy usługi Azure Databricks przy użyciu witr
 
 2. Nastąpi przekierowanie do portalu usługi Azure Databricks. W portalu wybierz pozycję **Nowy** > **klaster**.
 
-    ![Databricks na platformie Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks na platformie Azure")
+    ![Datakostki na platformie Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Datakostki na platformie Azure")
 
 3. Na stronie **Nowy klaster** podaj wartości, aby utworzyć klaster.
 
-    ![Tworzenie klastra Databricks Spark na platformie Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Tworzenie klastra Databricks Spark na platformie Azure")
+    ![Tworzenie klastra usługi datakosteks Spark na platformie Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Tworzenie klastra usługi datakosteks Spark na platformie Azure")
 
     Uzupełnij wartości następujących pól i zaakceptuj wartości domyślne w pozostałych polach:
 
@@ -86,13 +86,13 @@ W tej sekcji utworzysz notes w obszarze roboczym usługi Azure Databricks, a nas
 
 2. W lewym okienku wybierz pozycję **Obszar roboczy**. Z listy rozwijanej **Obszar roboczy** wybierz pozycję **Utwórz** > **Notes**.
 
-    ![Tworzenie notesu w umiań danych](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Tworzenie notesu w umiań danych")
+    ![Tworzenie notesu w kostkach](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Tworzenie notesu w kostkach")
 
 3. W oknie dialogowym**Tworzenie notesu** wprowadź nazwę notesu. Jako język wybierz pozycję **Scala**, a następnie wybierz utworzony wcześniej klaster Spark.
 
-    ![Tworzenie notesu w umiań danych](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Tworzenie notesu w umiań danych")
+    ![Tworzenie notesu w kostkach](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Tworzenie notesu w kostkach")
 
-    Wybierz **pozycję Utwórz**.
+    Wybierz przycisk **Utwórz**.
 
 4. Skopiuj i wklej następujący blok kodu do pierwszej komórki, ale jeszcze nie uruchamiaj kodu.
 
@@ -107,7 +107,7 @@ W tej sekcji utworzysz notes w obszarze roboczym usługi Azure Databricks, a nas
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
-5. W tym bloku kodu zamień symbole zastępcze `storage-account-name`, `appID`, `password` i `tenant-id` na wartości zebrane podczas tworzenia jednostki usługi. Ustaw `container-name` wartość symbolu zastępczego na dowolną nazwę, którą chcesz nadać kontenerowi.
+5. W tym bloku kodu zamień symbole zastępcze `storage-account-name`, `appID`, `password` i `tenant-id` na wartości zebrane podczas tworzenia jednostki usługi. Ustaw wartość `container-name` symbolu zastępczego na dowolną nazwę, którą chcesz nadać kontenerowi.
 
 6. Naciśnij klawisze **SHIFT+ENTER**, aby uruchomić kod w tym bloku.
 
@@ -162,11 +162,11 @@ Aby uruchomić zadanie Spark SQL w danych, wykonaj poniższe zadania.
 
 4. Teraz utworzysz reprezentację wizualną tych danych w celu pokazania, ilu użytkowników każdej płci ma konta bezpłatne, a ilu opłaca subskrypcję. U dołu tabelarycznych danych wyjściowych kliknij ikonę **Wykres słupkowy**, a następnie pozycję **Opcje wykresu**.
 
-    ![Tworzenie wykresu słupkowego](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Tworzenie wykresu słupkowego")
+    ![Utwórz wykres słupkowy](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Utwórz wykres słupkowy")
 
 5. W obszarze **Dostosowywanie wykresu** przeciągnij i upuść wartości, jak pokazano na zrzucie ekranu.
 
-    ![Dostosowywanie wykresu słupkowego](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Dostosowywanie wykresu słupkowego")
+    ![Dostosuj wykres słupkowy](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Dostosuj wykres słupkowy")
 
     - W obszarze **Klucze** ustaw wartość **gender** (płeć).
     - W obszarze **Grupowania serii** ustaw wartość **level** (poziom).
@@ -177,15 +177,15 @@ Aby uruchomić zadanie Spark SQL w danych, wykonaj poniższe zadania.
 
 7. Wynikiem będzie reprezentacja wizualna przedstawiona na zrzucie ekranu:
 
-     ![Dostosowywanie wykresu słupkowego](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sql-query-output-bar-chart.png "Dostosowywanie wykresu słupkowego")
+     ![Dostosuj wykres słupkowy](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sql-query-output-bar-chart.png "Dostosuj wykres słupkowy")
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy skończysz pracować z tym artykułem, możesz zakończyć działanie klastra. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Klastry** i znajdź klaster, którego działanie chcesz zakończyć. Przesuń kursor myszy na wielokropek w kolumnie **Akcje** i wybierz ikonę **Przerwij**.
 
-![Zatrzymywać klaster Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Zatrzymywać klaster Databricks")
+![Zatrzymaj klaster datakostki](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Zatrzymaj klaster datakostki")
 
-Jeśli klaster nie zostanie automatycznie zakończony ręcznie, zostanie wybrany pole wyboru **Zakończ po \_ \_ minutach braku aktywności** podczas tworzenia klastra. Jeśli ustawisz tę opcję, klaster zatrzyma się po upłynięciu wyznaczonego okresu nieaktywności.
+Jeśli klaster nie zostanie ręcznie zakończony automatycznie, pod warunkiem, że podczas tworzenia klastra zostanie zaznaczone pole wyboru **Zakończ po \_ \_ minutach braku aktywności** . Jeśli ustawisz tę opcję, klaster zatrzyma się po upłynięciu wyznaczonego okresu nieaktywności.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -194,8 +194,8 @@ W tym artykule utworzono klaster Spark w usłudze Azure Databricks i uruchomiono
 Przejdź do następnego artykułu, aby dowiedzieć się, jak wykonać operację ETL (wyodrębnianie, przekształcanie i ładowanie danych) przy użyciu usługi Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+>[Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
 
-- Aby dowiedzieć się, jak importować dane z innych źródeł danych do usługi Azure Databricks, zobacz [Źródła danych platformy Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- Aby dowiedzieć się, jak importować dane z innych źródeł danych do Azure Databricks, zobacz [źródła danych Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 
-- Aby dowiedzieć się więcej o innych sposobach uzyskiwania dostępu do usługi Azure Data Lake Storage Gen2 z obszaru roboczego usługi Azure Databricks, zobacz [Usługa Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- Aby dowiedzieć się więcej na temat innych sposobów uzyskiwania dostępu do Azure Data Lake Storage Gen2 z poziomu obszaru roboczego Azure Databricks, zobacz [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).

@@ -1,5 +1,5 @@
 ---
-title: Szybki start — integracja konta magazynu platformy Azure z usługą Azure CDN
+title: Szybki Start — integrowanie konta usługi Azure Storage z usługą Azure CDN
 description: Dowiedz się, jak używać usługi Azure Content Delivery Network (CDN) w celu dostarczania zawartości z wysoką przepustowością dzięki buforowaniu dużych obiektów binarnych z usługi Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 35de327b4a6602bb5191157e3b3c4e56c9c091b5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254091"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Przewodnik Szybki start — integracja konta magazynu platformy Azure z usługą Azure CDN
@@ -55,9 +55,9 @@ Do utworzenia konta magazynu, m.in. w witrynie Azure Portal i programie PowerShe
    
     Ta wartość staje się nazwą hosta w identyfikatorze URI, która jest wykorzystywana do adresowania zasobów blob, kolejki lub tabeli odpowiadających subskrypcji. Aby adresować zasób kontenera w magazynie obiektów blob, użyj identyfikatora URI w następującym formacie:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt; *
+    http://*&lt;StorageAcountLabel&gt;**&lt;. blob.Core.Windows.NET/&gt; *
 
-    gdzie * &lt;&gt; StorageAccountLabel* odnosi się do wartości wprowadzonej w polu **Nazwa.**
+    gdzie * &lt;StorageAccountLabel&gt; * odnosi się do wartości wprowadzonej w polu **Nazwa** .
    
     > [!IMPORTANT]    
     > Etykieta adresu URL tworzy poddomenę identyfikatora URI konta magazynu i musi być unikatowa wśród wszystkich usług hostowanych na platformie Azure.
@@ -80,7 +80,7 @@ Do utworzenia konta magazynu, m.in. w witrynie Azure Portal i programie PowerShe
     
 5. Wybierz pozycję **Przypnij do pulpitu nawigacyjnego**, aby zapisać konto magazynu na pulpicie nawigacyjnym po jego utworzeniu.
     
-6. Wybierz **pozycję Utwórz**. Tworzenie konta magazynu może potrwać kilka minut.
+6. Wybierz przycisk **Utwórz**. Tworzenie konta magazynu może potrwać kilka minut.
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Włączanie usługi Azure CDN dla konta magazynu
 
@@ -96,12 +96,12 @@ Usługę Azure CDN dla konta magazynu można włączyć bezpośrednio z konta ma
 
     | Ustawienie  | Wartość |
     | -------- | ----- |
-    | **Profil CDN** | Wybierz **pozycję Utwórz nowy** i wprowadź nazwę profilu, na przykład *mój-cdn-profile-123*. Ta nazwa musi być unikatowa w skali globalnej.  |
+    | **Profil CDN** | Wybierz pozycję **Utwórz nową** i wprowadź nazwę profilu, na przykład *My-CDN-profile-123*. Ta nazwa musi być unikatowa w skali globalnej.  |
     | **Warstwa cenowa** | Z listy rozwijanej wybierz pozycję **Verizon — Standardowa**. |
-    | **Nazwa punktu końcowego usługi CDN** | Wprowadź swoją adres hosta punktu końcowego, czyli *my-endpoint-123*. Ta nazwa musi być unikatowa w skali globalnej. Ta nazwa jest używana do uzyskiwania dostępu do buforowanych zasobów w _ &lt;nazwie&gt;punktu końcowego_domeny .azureedge.net. |
+    | **Nazwa punktu końcowego usługi CDN** | Wprowadź nazwę hosta punktu końcowego, na przykład *My-Endpoint-123*. Ta nazwa musi być unikatowa w skali globalnej. Ta nazwa służy do uzyskiwania dostępu do buforowanych zasobów w domenie _ &lt;nazwa&gt;punktu końcowego_. azureedge.NET. |
     | **Nazwa hosta źródła** | Domyślnie nowy punkt końcowy CDN używa jako nazwy serwera pochodzenia nazwy hosta konta magazynu. |
 
-3. Wybierz **pozycję Utwórz**. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
+3. Wybierz przycisk **Utwórz**. Po utworzeniu punktu końcowego zostanie on wyświetlony na liście punktów końcowych.
 
     ![Przechowywanie nowego punktu końcowego usługi CDN](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png)
 
@@ -117,7 +117,7 @@ Jeśli chcesz przyznać ograniczony dostęp do prywatnych kontenerów magazynu, 
 ## <a name="access-cdn-content"></a>Uzyskiwanie dostępu do zawartości usługi CDN
 Aby uzyskać dostęp do zawartości w pamięci podręcznej w sieci CDN, użyj adresu URL sieci CDN w portalu. Adres buforowanego obiektu blob ma następujący format:
 
-http://<EndpointName .azureedge.net/<myPublicContainer BlobName http://<EndpointName .azureedge.net/<myPublicContainer BlobName http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName* http://\>
+http://<*EndpointName*\>. azureedge.NET/<*myPublicContainer*\>/<*blobname*\>
 
 > [!NOTE]
 > Po włączeniu dostępu usługi Azure CDN do konta magazynu wszystkie publicznie dostępne obiekty kwalifikują się do buforowania POP w sieci CDN. Jeśli zmodyfikujesz obiekt, który jest aktualnie w pamięci podręcznej w sieci CDN, nowa zawartość nie będzie dostępna za pośrednictwem usługi Azure CDN, dopóki usługa Azure CDN nie odświeży zawartości po wygaśnięciu okresu czasu wygaśnięcia zawartości w pamięci podręcznej.
@@ -125,7 +125,7 @@ http://<EndpointName .azureedge.net/<myPublicContainer BlobName http://<Endpoint
 ## <a name="remove-content-from-azure-cdn"></a>Usuwanie zawartości z usługi Azure CDN
 Jeśli nie chcesz już buforować obiektu w usłudze Azure CDN, możesz wykonać jedną z następujących czynności:
 
-* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie anonimowym dostępem do odczytu kontenerów i obiektów blob.](../storage/blobs/storage-manage-access-to-resources.md)
+* Ustaw kontener jako prywatny, a nie publiczny. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym do odczytu do kontenerów i obiektów BLOB](../storage/blobs/storage-manage-access-to-resources.md).
 * Wyłącz lub usuń punkt końcowy usługi CDN przy użyciu witryny Azure Portal.
 * Zmodyfikuj usługę hostowaną w taki sposób, aby nie odpowiadała już na żądania dla obiektu.
 

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71212062"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień do konkretnych użytkowników przy użyciu usługi Azure Notification Hubs
@@ -33,7 +33,7 @@ ms.locfileid: "71212062"
 W tym samouczku pokazano, jak wysyłać powiadomienia push do użytkownika konkretnej aplikacji na konkretnym urządzeniu za pomocą usługi Azure Notification Hubs. Zaplecze ASP.NET interfejsu WebAPI jest używane do uwierzytelniania klientów. Kiedy zaplecze uwierzytelnia użytkownika aplikacji klienckiej, automatycznie dodaje tag do rejestracji powiadomienia. Zaplecze używa tego tagu do wysyłania powiadomień do określonego użytkownika.
 
 > [!NOTE]
-> Wypełniony kod dla tego samouczka można znaleźć na [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+> Ukończony kod dla tego samouczka można znaleźć w witrynie [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 W tym samouczku wykonasz następujące kroki:
 
@@ -55,18 +55,18 @@ Ten samouczek jest oparty na centrum powiadomień i projekcie programu Visual St
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-uwp-client"></a>Aktualizowanie kodu klienta platformy uniwersalnej systemu Windows
+## <a name="update-the-code-for-the-uwp-client"></a>Aktualizowanie kodu dla klienta platformy UWP
 
 W tej sekcji aktualizujesz kod w projekcie utworzonym na potrzeby samouczka [Samouczek: wysyłanie powiadomień do aplikacji platformy uniwersalnej systemu Windows przy użyciu usługi Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Projekt powinien już być skojarzony ze Sklepem Windows. Ponadto powinien być skonfigurowany do używania centrum powiadomień. W tej sekcji dodasz kod, aby wywołać nowe zaplecze interfejsu WebAPI oraz rejestrować i wysyłać powiadomienia za jego pomocą.
 
 1. W programie Visual Studio otwórz rozwiązanie utworzone w ramach sekcji [Samouczek: wysyłanie powiadomień do aplikacji platformy uniwersalnej systemu Windows przy użyciu usługi Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt platformy uniwersalnej systemu Windows (UWP), a następnie kliknij polecenie **Zarządzaj pakietami NuGet**.
+2. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt platforma uniwersalna systemu Windows (platformy UWP), a następnie kliknij pozycję **Zarządzaj pakietami NuGet**.
 3. Po lewej stronie wybierz pozycję **Przeglądaj**.
 4. W polu **Wyszukaj** wpisz ciąg **Klient HTTP**.
 5. Na liście wyników kliknij pozycję **System.Net.Http**, a następnie kliknij opcję **Zainstaluj**. Ukończ instalację.
 6. W polu **Wyszukaj** w menedżerze pakietów NuGet wpisz ciąg **Json.net**. Zainstaluj pakiet **Newtonsoft.json**, a następnie zamknij okno menedżera pakietów NuGet.
 7. W Eksploratorze rozwiązań kliknij projekt **WindowsApp** i kliknij dwukrotnie plik **MainPage.xaml**, aby otworzyć go w edytorze programu Visual Studio.
-8. W `MainPage.xaml` kodzie XML `<Grid>` zastąp sekcję następującym kodem: Ten kod dodaje pole tekstowe nazwy użytkownika i hasła, które użytkownik uwierzytelnia. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
+8. W kodzie `MainPage.xaml` XML Zastąp `<Grid>` sekcję następującym kodem: ten kod dodaje pole tekstowe username i Password, z którym użytkownik jest uwierzytelniany. Ponadto kod dodaje pola tekstowe dla komunikatu powiadomienia oraz tagu nazwy użytkownika, który ma otrzymać powiadomienie:
 
     ```xml
     <Grid>

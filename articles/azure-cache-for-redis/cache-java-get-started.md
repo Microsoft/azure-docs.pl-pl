@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: używanie pamięci podręcznej Azure dla funkcji Redis w języku Java'
+title: 'Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka Java'
 description: W tym przewodniku Szybki start utworzysz nową aplikację Java, która korzysta z pamięci podręcznej Azure Cache for Redis.
 author: yegu-ms
 ms.service: cache
@@ -9,19 +9,19 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: df8c827567e116e3be908221b9004eb455b24c8b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010787"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Szybki start: używanie pamięci podręcznej Azure dla funkcji Redis w języku Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka Java
 
-W tym przewodniku Szybki start można włączyć usługi Azure Cache for Redis do aplikacji Java przy użyciu klienta [Jedis](https://github.com/xetorthio/jedis) Redis, aby mieć dostęp do bezpiecznej, dedykowanej pamięci podręcznej, która jest dostępna z dowolnej aplikacji na platformie Azure.
+W tym przewodniku szybki start dodaliśmy usługę Azure cache for Redis do aplikacji Java przy użyciu klienta [Jedis](https://github.com/xetorthio/jedis) Redis, aby uzyskać dostęp do bezpiecznej, dedykowanej pamięci podręcznej dostępnej z dowolnej aplikacji na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [utwórz bezpłatną subskrypcję](https://azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Tworzenie usługi Azure Cache for Redis
@@ -59,7 +59,7 @@ Otwórz plik *pom.xml* i dodaj zależność dla [Jedis](https://github.com/xetor
     </dependency>
 ```
 
-Zapisz plik *pom.xml.*
+Zapisz plik *pliku pom. XML* .
 
 Otwórz plik *App.java* i zastąp kod następującym:
 
@@ -128,7 +128,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podręcznej wartość, która została ustawiona za pomocą konsoli Redis w witrynie Azure Portal. Aplikacja zaktualizowała tę wartość w pamięci podręcznej. Aplikacja również wykonała polecenia `PING` i `CLIENT LIST`.
 
-![Ukończono zakończenie pracy aplikacji Azure Cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
+![Ukończono aplikację Azure cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -142,7 +142,7 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
 
-1. W polach tekstowych **Filtruj według nazwy** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wyników wybierz pozycję **...** a następnie **Usuń grupę zasobów**.
+1. W polu tekstowym **Filtruj według nazwy** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. W grupie zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
 
    ![Usunięto grupę zasobów platformy Azure](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 

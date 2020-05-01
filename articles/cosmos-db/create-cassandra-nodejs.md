@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77210371"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji Cassandra za pomocą zestawów SDK node.js i usługi Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra przy użyciu zestawu SDK środowiska Node. js i Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "77210371"
 > * [Python](create-cassandra-python.md)
 >  
 
-W tym przewodniku Szybki start utworzysz konto interfejsu API usługi Azure Cosmos DB Cassandra i użyj aplikacji Cassandra Node.js sklonowanej z usługi GitHub w celu utworzenia bazy danych i kontenera Cassandra. Usługa Azure Cosmos DB to wielomodelowa usługa bazy danych, która umożliwia szybkie tworzenie i wykonywanie zapytań o bazy danych dokumentów, tabeli, wartości klucza i wykresów z możliwościami dystrybucji globalnej i skali poziomej.
+W tym przewodniku szybki start utworzysz konto usługi Azure Cosmos DB interfejs API Cassandra i używasz aplikacji node. js Cassandra, która została sklonowana z usługi GitHub w celu utworzenia bazy danych i kontenera Cassandra. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -166,7 +166,7 @@ Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak kod tworzy zasoby 
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Parametry połączenia umożliwiają aplikacji komunikowanie się z hostowaną bazą danych.
 
-1. Na swoim koncie usługi Azure Cosmos DB w [portalu Azure](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
     Użyj przycisku ![Kopiuj](./media/create-cassandra-nodejs/copy.png) po prawej stronie ekranu, aby skopiować górną wartość, PUNKT KONTAKTOWY.
 
@@ -196,7 +196,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     
 ## <a name="use-the-x509-certificate"></a>Używanie certyfikatu X509
 
-1. Pobierz certyfikat Baltimore CyberTrust Root [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)lokalnie z . Zmień rozszerzenie nazwy tego pliku na `.cer`.
+1. Pobierz certyfikat główny Baltimore CyberTrust lokalnie z [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)programu. Zmień rozszerzenie nazwy tego pliku na `.cer`.
 
    Certyfikat ma numer seryjny `02:00:00:b9` i odcisk palca SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -205,30 +205,30 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 3. Zapisz plik `uprofile.js`.
 
 > [!NOTE]
-> Jeśli w kolejnych krokach wystąpi błąd związany z certyfikatem i jest uruchomiony na komputerze z systemem Windows, upewnij się, że postępuje proces poprawnego konwertowania pliku crt do poniższego formatu .cer firmy Microsoft.
+> Jeśli wystąpi błąd związany z certyfikatem w kolejnych krokach i jest uruchomiony na komputerze z systemem Windows, należy się upewnić, że wykonano proces prawidłowo przekonwertowane pliku CRT do formatu Microsoft. cer poniżej.
 > 
-> Kliknij dwukrotnie plik crt, aby otworzyć go na ekranie certyfikatu. 
+> Kliknij dwukrotnie plik CRT, aby otworzyć go na ekranie certyfikatu. 
 >
 > ![Wyświetlanie i weryfikowanie danych wyjściowych](./media/create-cassandra-nodejs/crtcer1.gif)
 >
-> Naciśnij przycisk Dalej w Kreatorze certyfikatów. Wybierz bazę-64 zakodowaną X.509 (. CER), a następnie Dalej.
+> Naciśnij przycisk Dalej w Kreatorze certyfikatów. Wybierz pozycję Base-64 encoded X. 509 (. CER), a następnie kliknij przycisk Dalej.
 >
 > ![Wyświetlanie i weryfikowanie danych wyjściowych](./media/create-cassandra-nodejs/crtcer2.gif)
 >
-> Wybierz opcję Przeglądaj (aby zlokalizować miejsce docelowe) i wpisz nazwę pliku.
-> Wybierz pozycję Dalej, a następnie zakończono.
+> Wybierz pozycję Przeglądaj (aby zlokalizować miejsce docelowe) i wpisz nazwę pliku.
+> Wybierz pozycję Dalej, a następnie kliknij przycisk Zakończ.
 >
-> Teraz powinien mieć poprawnie sformatowany plik .cer. Upewnij się, `uprofile.js` że ścieżka w punktach do tego pliku.
+> Powinien być teraz poprawnie sformatowany plik CER. Upewnij się, że ścieżka `uprofile.js` wskazuje ten plik.
 
 ## <a name="run-the-nodejs-app"></a>Uruchamianie aplikacji Node.js
 
-1. W oknie terminala git upewnij się, że znajdujesz się w przykładowym katalogu, który został sklonowany wcześniej:
+1. W oknie terminalu usługi git upewnij się, że znajduje się w katalogu przykładowym, który został sklonowany wcześniej:
 
     ```bash
     cd azure-cosmos-db-cassandra-nodejs-getting-started
     ```
 
-2. Uruchom, `npm install` aby zainstalować wymagane moduły npm.
+2. Uruchom `npm install` , aby zainstalować wymagane moduły npm.
 
 3. Uruchom polecenie `node uprofile.js`, aby uruchomić aplikację Node.
 
@@ -236,7 +236,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     ![Wyświetlanie i weryfikowanie danych wyjściowych](./media/create-cassandra-nodejs/output.png)
 
-    Naciśnij klawisze CTRL+C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
+    Naciśnij klawisze CTRL + C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
 
 5. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi. 
 
@@ -252,7 +252,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć konto usługi Azure Cosmos DB za pomocą interfejsu API Cassandra i uruchomić aplikację Cassandra Node.js, która tworzy bazę danych i kontener Cassandra. Teraz można importować dodatkowe dane do konta usługi Azure Cosmos DB. 
+W tym przewodniku szybki start przedstawiono sposób tworzenia konta Azure Cosmos DB przy użyciu interfejs API Cassandra i uruchamiania aplikacji Cassandra Node. js, która tworzy bazę danych Cassandra i kontener. Teraz możesz zaimportować dodatkowe dane do konta Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych bazy danych Cassandra do usługi Azure Cosmos DB](cassandra-import-data.md)

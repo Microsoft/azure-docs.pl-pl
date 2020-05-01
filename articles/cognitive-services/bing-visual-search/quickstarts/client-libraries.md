@@ -1,7 +1,7 @@
 ---
-title: 'Szybki start: korzystanie z biblioteki klienta wyszukiwania wizualnego usługi Bing'
+title: 'Szybki Start: korzystanie z biblioteki klienta wyszukiwanie wizualne Bing'
 titleSuffix: Azure Cognitive Services
-description: Interfejs API wyszukiwania wizualnego oferuje biblioteki klienckie, które ułatwiają integrację funkcji wyszukiwania z aplikacjami. Ten szybki start umożliwia rozpoczęcie wysyłania żądań wyszukiwania i uzyskanie wyników.
+description: Interfejs API wyszukiwanie wizualne oferuje biblioteki klienckie, które ułatwiają integrację możliwości wyszukiwania z aplikacjami. Użyj tego przewodnika Szybki Start, aby rozpocząć wysyłanie żądań wyszukiwania i uzyskać wyniki.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: aahi
 ms.openlocfilehash: e1d3a947df486cd347c17afae5d8dbce21878e09
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549995"
 ---
-# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Szybki start: korzystanie z biblioteki klienta wyszukiwania wizualnego usługi Bing
+# <a name="quickstart-use-the-bing-visual-search-client-library"></a>Szybki Start: korzystanie z biblioteki klienta wyszukiwanie wizualne Bing
 
 ::: zone pivot="programming-language-csharp"
 
