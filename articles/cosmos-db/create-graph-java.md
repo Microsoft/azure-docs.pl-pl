@@ -1,5 +1,5 @@
 ---
-title: Tworzenie bazy danych wykresów za pomocą oprogramowania Java w usłudze Azure Cosmos DB
+title: Tworzenie bazy danych grafu przy użyciu języka Java w Azure Cosmos DB
 description: Przykładowy kod Java, którego można używać do nawiązywania połączeń z danymi grafu i wykonywania zapytań względem nich w usłudze Azure Cosmos DB za pomocą języka Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062067"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Szybki start: tworzenie bazy danych wykresów za pomocą zestawu Java SDK i interfejsu API Gremlin usługi Azure Cosmos DB
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Szybki Start: Tworzenie bazy danych grafu przy użyciu zestawu Java SDK i interfejsu API Azure Cosmos DB Gremlin
 
 > [!div class="op_single_selector"]
 > * [Konsola Gremlin](create-graph-gremlin-console.md)
@@ -27,13 +27,13 @@ ms.locfileid: "77062067"
 > * [PHP](create-graph-php.md)
 >  
 
-W tym przewodniku Szybki start można utworzyć konto interfejsu API usługi Azure Cosmos DB Gremlin (wykres) i zarządzać nim z witryny Azure Portal i dodawać dane przy użyciu aplikacji Java sklonowanej z usługi GitHub. Usługa Azure Cosmos DB to wielomodelowa usługa bazy danych, która umożliwia szybkie tworzenie i wykonywanie zapytań o bazy danych dokumentów, tabeli, wartości klucza i wykresów z możliwościami dystrybucji globalnej i skali poziomej.
+W tym przewodniku szybki start utworzysz konto interfejsu API Azure Cosmos DB Gremlin (Graph) z Azure Portal i zarządzasz nim, a następnie dodasz dane przy użyciu aplikacji Java sklonowanej z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Zestaw java development (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Skieruj `JAVA_HOME` zmienną środowiskową do folderu, w którym jest zainstalowany JDK.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż zmienną `JAVA_HOME` środowiskową do folderu, w którym zainstalowano JDK.
 - [Archiwum binarne Maven](https://maven.apache.org/download.cgi). 
-- [Git](https://www.git-scm.com/downloads). 
+- Usługi [git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -71,11 +71,11 @@ Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację interfejsu API języka 
 
 Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-information).
 
-Poniższe fragmenty kodu są pobierane z pliku *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.*
+Wszystkie poniższe fragmenty kodu pochodzą z pliku *C:\git-samples\azure-Cosmos-DB-Graph-Java-getting-started\src\GetStarted\Program.Java* .
 
-Ta aplikacja konsoli Java korzysta z bazy danych [API Gremlin](graph-introduction.md) ze sterownikiem OSS [Apache TinkerPop.](https://tinkerpop.apache.org/) 
+Ta Aplikacja konsolowa języka Java korzysta z bazy danych [interfejsu API Gremlin](graph-introduction.md) z sterownikiem OSS [Apache TinkerPop](https://tinkerpop.apache.org/) . 
 
-- Gremlin `Client` jest inicjowany z konfiguracji w pliku *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.*
+- Gremlin `Client` jest inicjowana z konfiguracji w pliku *C:\git-samples\azure-Cosmos-DB-Graph-Java-getting-started\src\remote.YAML* .
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -100,14 +100,14 @@ Ta aplikacja konsoli Java korzysta z bazy danych [API Gremlin](graph-introductio
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i skopiować je do aplikacji. Te ustawienia umożliwiają aplikacji komunikację z hostowaną bazą danych.
 
-1. Na swoim koncie usługi Azure Cosmos DB w [portalu Azure](https://portal.azure.com/)wybierz pozycję **Klucze**. 
+1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **klucze**. 
 
     Skopiuj pierwszą część wartości identyfikatora URI.
 
     ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Azure Portal, strona Klucze](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. Otwórz plik *src/remote.yaml* i wklej unikatową `$name$` `hosts: [$name$.graphs.azure.com]`wartość identyfikatora w pliku .
+2. Otwórz plik *src/Remote. YAML* i wklej unikatową wartość identyfikatora `$name$` w programie. `hosts: [$name$.graphs.azure.com]`
 
-    Linia 1 *remote.yaml* powinna teraz wyglądać podobnie do 
+    Wiersz 1 elementu *Remote. YAML* powinien teraz wyglądać podobnie do 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -119,11 +119,11 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
 4. W witrynie Azure Portal użyj przycisku kopiowania, aby skopiować KLUCZ PODSTAWOWY, i wklej go za pośrednictwem elementu `$masterKey$` w `password: $masterKey$`.
 
-    Linia 4 *remote.yaml* powinna teraz wyglądać podobnie do 
+    Wiersz 4 elementu *Remote. YAML* powinien teraz wyglądać podobnie do 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. Zmień wiersz 3 *pliku remote.yaml* z
+5. Zmień wiersz 3 elementu *Remote. YAML* z
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -133,7 +133,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
 
     W przypadku użycia unikatowej nazwy dla przykładowej bazy danych lub grafu odpowiednio zaktualizuj wartości.
 
-6. Zapisz plik *remote.yaml.*
+6. Zapisz plik *Remote. YAML* .
 
 ## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
 
@@ -159,14 +159,14 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
     
     Jeśli występują błędy przekroczenia limitu czasu, sprawdź, czy zaktualizowano poprawnie informacje o połączeniu w sekcji [Aktualizowanie danych połączenia](#update-your-connection-information), a także spróbuj ponownie uruchomić ostatnie polecenie. 
     
-    Po zatrzymaniu programu wybierz pozycję Enter, a następnie wróć do witryny Azure portal w przeglądarce internetowej. 
+    Po zatrzymaniu programu wybierz pozycję ENTER, a następnie przejdź z powrotem do Azure Portal w przeglądarce internetowej. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Przeglądanie i dodawanie przykładowych danych
 
 Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do grafu, a także dodać kolejne punkty danych.
 
-1. W swoim koncie usługi Azure Cosmos DB w portalu Azure wybierz **pozycję Eksplorator danych**, rozwiń **przykładowy wykres**, wybierz pozycję **Wykres**, a następnie wybierz pozycję **Zastosuj filtr**. 
+1. Na koncie Azure Cosmos DB w Azure Portal wybierz pozycję **Eksplorator danych**, rozwiń węzeł **przykład-Graph**, wybierz pozycję **Graph**, a następnie wybierz pozycję **Zastosuj filtr**. 
 
    ![Tworzenie nowych dokumentów w Eksploratorze danych w witrynie Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -174,13 +174,13 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
 
    ![Nowe wierzchołki grafu w Eksploratorze danych w witrynie Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Dodajmy kilku nowych użytkowników. Wybierz **pozycję Nowy wierzchołek,** aby dodać dane do wykresu.
+3. Dodajmy kilku nowych użytkowników. Wybierz pozycję **nowy wierzchołek** , aby dodać dane do grafu.
 
    ![Tworzenie nowych dokumentów w Eksploratorze danych w witrynie Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. W polu etykiety wprowadź *osobę*.
 
-5. Wybierz **dodaj właściwość,** aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
+5. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości. Zauważ, że możesz utworzyć unikatowe właściwości dla każdej osoby w grafie. Tylko klucz id jest wymagany.
 
     key|value|Uwagi
     ----|----|----
@@ -191,13 +191,13 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
     > [!NOTE]
     > W tym przewodniku Szybki start tworzona jest kolekcja niepartycjonowana. Niemniej jednak, jeśli utworzysz kolekcję partycjonowaną poprzez określenie klucza partycji podczas tworzenia kolekcji, musisz uwzględnić klucz partycji jako klucz w każdym nowym wierzchołku. 
 
-6. Kliknij przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
+6. Wybierz przycisk **OK**. Może być konieczne rozszerzenie ekranu w celu wyświetlenia przycisku **OK** u dołu ekranu.
 
-7. Ponownie wybierz **pozycję Nowy wierzchołek** i dodaj kolejnego nowego użytkownika. 
+7. Ponownie wybierz **nowy wierzchołek** i Dodaj dodatkowego nowego użytkownika. 
 
 8. Wprowadź etykietę *osoba*.
 
-9. Wybierz **dodaj właściwość,** aby dodać każdą z następujących właściwości:
+9. Wybierz pozycję **Dodaj właściwość** , aby dodać każdą z następujących właściwości:
 
     key|value|Uwagi
     ----|----|----
@@ -205,23 +205,23 @@ Teraz możesz wrócić do Eksploratora danych i zobaczyć wierzchołki dodane do
     płeć|mężczyzna| 
     szkoła|MIT| 
 
-10. Kliknij przycisk **OK**. 
+10. Wybierz przycisk **OK**. 
 
-11. Wybierz przycisk **Zastosuj filtr** `g.V()` z filtrem domyślnym, aby wyświetlić wszystkie wartości na wykresie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
+11. Wybierz przycisk **Zastosuj filtr** z domyślnym `g.V()` filtrem, aby wyświetlić wszystkie wartości na grafie. Wszyscy użytkownicy będą teraz wyświetlani na liście **Wyniki**. 
 
-    W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. Jeśli filtr został zmieniony, zmień `g.V()` filtr z powrotem na i wybierz opcję **Zastosuj filtr,** aby ponownie wyświetlić wszystkie wyniki.
+    W miarę dodawania większej ilości danych można używać filtrów do ograniczania wyników. Domyślnie Eksplorator danych korzysta z zapytania `g.V()` w celu pobrania wszystkich wierzchołków grafu. Można je zmienić na inne [zapytanie o graf](tutorial-query-graph.md), takie jak`g.V().count()`, aby zwrócić liczbę wszystkich wierzchołków grafu w formacie JSON. W przypadku zmiany filtru Zmień filtr z powrotem na `g.V()` i wybierz pozycję **Zastosuj filtr** , aby ponownie wyświetlić wszystkie wyniki.
 
-12. Teraz możesz połączyć użytkowników rakesh i ashley. Upewnij **się, że ashley** jest zaznaczone na liście **Wyniki,** a następnie wybierz zmień ![cel wierzchołka na wykresie](./media/create-graph-java/edit-pencil-button.png) obok pozycji Obiekty **docelowe** w prawym dolnym czasie. Może być konieczne rozszerzenie okna w celu wyświetlenia przycisku.
+12. Teraz możesz połączyć użytkowników rakesh i ashley. Upewnij się, że na liście **wyników** została ![wybrana opcja **Ashley** , a następnie wybierz pozycję Zmień obiekt docelowy wierzchołka w grafie](./media/create-graph-java/edit-pencil-button.png) obok **elementów docelowych** znajdujących się w prawej dolnej części. Może być konieczne rozszerzenie okna w celu wyświetlenia przycisku.
 
-    ![Zmienianie obiektu docelowego wierzchołka na wykresie — usługa Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Zmiana celu wierzchołka w grafie — Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. W polu **Cel** wprowadź *rakesh*, a w polu **Etykieta Krawędź** wprowadź *polecenie zna*, a następnie zaznacz pole wyboru.
+13. W polu **Target** wpisz *Rakesh*, a w polu **etykieta krawędzi** wpisz *wie*, a następnie zaznacz pole wyboru.
 
-    ![Dodawanie połączenia w Eksploratorze danych — Usługa Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Dodawanie połączenia w Eksplorator danych — Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Teraz wybierz użytkownika **rakesh** z listy wyników, aby zobaczyć, że użytkownicy ashley i rakesh są połączeni. 
 
-    ![Dwa wierzchołki połączone w Eksploratorze danych — Usługa Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Dwa wierzchołki połączone w Eksplorator danych — Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
 Na tym kończy się część tego samouczka poświęcona tworzeniu zasobów. Możesz dodać do grafu kolejne wierzchołki, zmodyfikować istniejące wierzchołki lub zmienić zapytania. Teraz przejrzyjmy metryki udostępniane przez usługę Azure Cosmos DB, a następnie wyczyśćmy zasoby. 
 
@@ -235,7 +235,7 @@ Na tym kończy się część tego samouczka poświęcona tworzeniu zasobów. Mo�
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć konto usługi Azure Cosmos DB, utworzyć wykres przy użyciu Eksploratora danych i uruchomić aplikację Java, która dodaje dane do wykresu. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
+W tym przewodniku szybki start przedstawiono sposób tworzenia konta Azure Cosmos DB, tworzenia wykresu przy użyciu Eksplorator danych i uruchamiania aplikacji Java, która dodaje dane do grafu. Teraz możesz tworzyć bardziej złożone zapytania i implementować zaawansowaną logikę przechodzenia grafu za pomocą języka Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Wykonywanie zapytań przy użyciu języka Gremlin](tutorial-query-graph.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki start: tworzenie eksperymentu do nauki o danych'
+title: 'Szybki Start: Tworzenie eksperymentu do nauki o danych'
 titleSuffix: ML Studio (classic) - Azure
 description: Ten przewodnik Szybki start z dziedziny uczenia maszynowego przeprowadzi Cię przez łatwy eksperyment dotyczący nauki o danych. Będziemy prognozować cenę samochodu, używając algorytmu regresji.
 services: machine-learning
@@ -11,19 +11,19 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204566"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Szybki start: tworzenie pierwszego eksperymentu nauki o danych w usłudze Azure Machine Learning Studio (klasyczny)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Szybki Start: Tworzenie pierwszego eksperymentu do nauki o danych w Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-W tym przewodniku Szybki start utworzysz eksperyment uczenia maszynowego w [usłudze Azure Machine Learning Studio (klasyczny),](what-is-ml-studio.md) który przewiduje cenę samochodu na podstawie różnych zmiennych, takich jak make i specyfikacje techniczne.
+W tym przewodniku szybki start utworzysz eksperyment uczenia maszynowego w [Azure Machine Learning Studio (klasyczny)](what-is-ml-studio.md) , który przewiduje cenę samochodu na podstawie różnych zmiennych, takich jak marka i specyfikacje techniczne.
 
 Jeśli dopiero zaczynasz korzystać z uczenia maszynowego, seria filmów wideo zatytułowana [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) (Analiza danych dla początkujących) stanowi znakomite wprowadzenie do uczenia maszynowego przedstawione przy użyciu codziennego języka i pojęć.
 
@@ -31,31 +31,31 @@ W tym przewodniku Szybki start obowiązuje domyślny przepływ pracy dla ekspery
 
 1. **Tworzenie modelu**
     - [Pobieranie danych]
-    - [Przygotowanie danych]
-    - [Definiowanie obiektów]
+    - [Przygotowywanie danych]
+    - [Definiowanie funkcji]
 1. **Uczenie modelu**
     - [Wybieranie i stosowanie algorytmu]
 1. **Generowanie wyników i testowanie modelu**
     - [Przewidywanie nowych cen samochodów]
 
 [Pobieranie danych]: #get-the-data
-[Przygotowanie danych]: #prepare-the-data
-[Definiowanie obiektów]: #define-features
+[Przygotowywanie danych]: #prepare-the-data
+[Definiowanie funkcji]: #define-features
 [Wybieranie i stosowanie algorytmu]: #choose-and-apply-an-algorithm
 [Przewidywanie nowych cen samochodów]: #predict-new-automobile-prices
 
 ## <a name="get-the-data"></a>Pobieranie danych
 
 Do przeprowadzenia uczenia maszynowego potrzebne są dane.
-Istnieje kilka przykładowych zestawów danych dołączonych do studio (klasyczny), których można użyć lub można importować dane z wielu źródeł. W tym scenariuszu będziemy używać przykładowego zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów), dołączonego do obszaru roboczego.
+Istnieje kilka przykładowych zestawów danych zawartych w programie Studio (klasyczny), których można użyć, lub można importować dane z wielu źródeł. W tym scenariuszu będziemy używać przykładowego zestawu danych **Automobile price data (Raw)** (Nieprzetworzone dane z cenami samochodów), dołączonego do obszaru roboczego.
 Zestaw ten zawiera dane różnych modeli samochodów, na przykład informacje dotyczące marki, ceny czy specyfikacji technicznej.
 
 > [!TIP]
-> Funkcjonalną kopię poniższego eksperymentu można znaleźć w [galerii sztucznej inteligencji platformy Azure](https://gallery.azure.ai). Przejdź do **[pierwszego eksperymentu nauki o danych — przewidywanie cen samochodów](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** i kliknij przycisk Otwórz w **Studio,** aby pobrać kopię eksperymentu do klasycznego obszaru roboczego Machine Learning Studio.
+> Funkcjonalną kopię poniższego eksperymentu można znaleźć w [galerii sztucznej inteligencji platformy Azure](https://gallery.azure.ai). Przejdź do **[pierwszego eksperymentu z nauką o danych — Prognoza cen samochodów](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** i kliknij pozycję **Otwórz w programie Studio** , aby pobrać kopię eksperymentu do obszaru roboczego Machine Learning Studio (klasycznego).
 
 Poniżej przedstawiono procedurę dołączania zestawu danych do eksperymentu.
 
-1. Utwórz nowy eksperyment, klikając **przycisk +NOWOŚĆ** u dołu okna usługi Machine Learning Studio (klasyczne). Wybierz **EKSPERYMENT** >  **Pusty eksperyment**.
+1. Utwórz nowy eksperyment, klikając pozycję **+ Nowy** u dołu okna Machine Learning Studio (klasycznego). Wybierz pozycję **eksperymentowanie** >  **pusty eksperyment**.
 
 1. Eksperymentowi zostanie nadana domyślna nazwa, wyświetlana w górnej części obszaru roboczego. Zaznacz ten tekst i wpisz opisową nazwę, na przykład **Prognozowanie cen samochodów**. Nazwa nie musi być unikatowa.
 
@@ -132,7 +132,7 @@ Po oczyszczeniu danych można określić, jakie cechy zostaną użyte w modelu p
 
 ## <a name="define-features"></a>Definiowanie funkcji
 
-W uczeniu maszynowym *funkcje* są indywidualnymi mierzalnymi właściwościami czegoś, co Cię interesuje. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów.
+W uczeniu maszynowym *funkcje* są indywidualnymi właściwościami interesujących rzeczy. W naszym zestawie danych poszczególne wiersze odpowiadają różnym samochodom, a kolumny — cechom tych samochodów.
 
 Znalezienie odpowiedniego zestawu cech, który ma służyć do utworzenia modelu predykcyjnego, wymaga eksperymentowania oraz dysponowania wiedzą na temat bieżącego problemu. Pewne cechy lepiej nadają się do prognozowania danych docelowych. Niektóre cechy są ściśle powiązane z innymi, dlatego można je usunąć. Na przykład dane dotyczące zużycia paliwa w mieście i w trasie mają bliski związek ze sobą, co sprawia, że usunięcie jednej z tych cech nie będzie miało zasadniczego wpływu na prognozę.
 
@@ -242,7 +242,7 @@ W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepsz
 W ramach tego przewodnika Szybki start utworzyliśmy prosty eksperyment przy użyciu przykładowego zestawu danych. Aby bardziej szczegółowo zapoznać się z procesem tworzenia i wdrażania modelu, przejdź do samouczka dotyczącego rozwiązań do analizy predykcyjnej.
 
 > [!div class="nextstepaction"]
-> [Samouczek: Opracowanie rozwiązania predykcyjnego w Studio (klasyczny)](tutorial-part1-credit-risk.md)
+> [Samouczek: opracowywanie rozwiązania predykcyjnego w programie Studio (klasyczne)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

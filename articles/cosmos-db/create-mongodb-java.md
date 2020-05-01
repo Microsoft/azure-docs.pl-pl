@@ -1,6 +1,6 @@
 ---
-title: 'Szybki start: tworzenie aplikacji sieci web przy użyciu interfejsu API usługi Azure Cosmos DB dla mongo DB i Java SDK'
-description: Dowiedz się, jak utworzyć przykładowy kod Java, którego można użyć do łączenia się i wykonywania zapytań przy użyciu interfejsu API usługi Azure Cosmos DB dla usługi MongoDB.
+title: 'Szybki Start: Tworzenie aplikacji sieci Web przy użyciu interfejsu API Azure Cosmos DB dla Mongo DB i zestawu Java SDK'
+description: Dowiedz się, jak utworzyć przykładowy kod Java, którego można użyć do nawiązania połączenia z interfejsem API Azure Cosmos DB i wykonywania zapytań przy użyciu interfejsu MongoDB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 35c6944ddcfac1553ffb2c1cc28472f2a56d4515
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77061720"
 ---
-# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji konsoli z interfejsem Java i interfejsu API MongoDB w usłudze Azure Cosmos DB
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji konsolowej przy użyciu języka Java i interfejsu API MongoDB w Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -27,13 +27,13 @@ ms.locfileid: "77061720"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-W tym przewodniku Szybki start można utworzyć konto interfejsu API usługi Azure Cosmos DB dla mongodb i zarządzać nim konto z witryny Azure portal i dodawać dane przy użyciu aplikacji Java SDK sklonowane z usługi GitHub. Usługa Azure Cosmos DB to wielomodelowa usługa bazy danych, która umożliwia szybkie tworzenie i wykonywanie zapytań o bazy danych dokumentów, tabeli, wartości klucza i wykresów z możliwościami dystrybucji globalnej i skali poziomej.
+W tym przewodniku szybki start utworzysz Azure Cosmos DB konta interfejsu API MongoDB z Azure Portal i zarządzasz nim, a następnie dodasz dane przy użyciu aplikacji Java SDK sklonowanej z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz jeden za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Możesz [też bezpłatnie wypróbować usługę Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora bazy danych usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator) z ciągiem `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`połączenia .
-- [Java Development Kit (JDK) wersja 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
-- [Maven](https://maven.apache.org/download.cgi). Lub `apt-get install maven` uruchomić, aby zainstalować Maven.
-- [Git](https://git-scm.com/downloads). 
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`połączenia.
+- [Zestaw Java Development Kit (JDK) w wersji 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
+- [Maven](https://maven.apache.org/download.cgi). Lub uruchom `apt-get install maven` , aby zainstalować Maven.
+- Usługi [git](https://git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Tworzenie konta bazy danych
 
@@ -41,7 +41,7 @@ W tym przewodniku Szybki start można utworzyć konto interfejsu API usługi Azu
 
 ## <a name="add-a-collection"></a>Dodawanie kolekcji
 
-Nazwij nową **bazę danych db**i nową **kolekcję coll**.
+Nadaj nazwę **nowej bazie danych, a**Nowa kolekcja **Coll**.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
 
@@ -73,9 +73,9 @@ Teraz sklonujemy aplikację z repozytorium GitHub, ustawimy parametry połączen
 
 Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-string). 
 
-Poniższe fragmenty kodu są pobierane z pliku *Program.java.*
+Wszystkie poniższe fragmenty kodu pochodzą z pliku *program. Java* .
 
-Ta aplikacja konsoli używa [sterownika MongoDB Java](https://docs.mongodb.com/ecosystem/drivers/java/). 
+Ta Aplikacja konsolowa używa [sterownika Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 * Inicjowanie klienta DocumentClient.
 
@@ -111,9 +111,9 @@ Ta aplikacja konsoli używa [sterownika MongoDB Java](https://docs.mongodb.com/e
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji.
 
-1. Z konta usługi Azure Cosmos DB wybierz pozycję **Szybki start**, wybierz pozycję **Java**, a następnie skopiuj ciąg połączenia do schowka.
+1. Na koncie usługi Azure Cosmos DB wybierz pozycję **Szybki Start**, wybierz pozycję **Java**, a następnie skopiuj parametry połączenia do Schowka.
 
-2. Otwórz plik *Program.java,* zastąp argument konstruktorowi MongoClientURI ciągiem połączenia. Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
+2. Otwórz plik *program. Java* , Zastąp argument konstruktorem MongoClientURI parametrami połączenia. Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
     
 ## <a name="run-the-console-app"></a>Uruchamianie aplikacji konsolowej
 
@@ -121,7 +121,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 2. Uruchom polecenie `mvn exec:java -D exec.mainClass=GetStarted.Program` w terminalu, aby uruchomić aplikację Java.
 
-Teraz możesz używać [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) do wykonywania zapytań, modyfikowania i pracy z tymi nowymi danymi.
+Teraz można używać [Korzystanie narzędzia robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) do wykonywania zapytań, modyfikowania i pracy z nowymi danymi.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
@@ -133,7 +133,7 @@ Teraz możesz używać [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-m
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start dowiesz się, jak utworzyć interfejs API bazy danych usługi Azure Cosmos DB dla konta Mongo DB, dodać bazę danych i kontener za pomocą Eksploratora danych i dodać dane za pomocą aplikacji konsoli Java. Teraz możesz zaimportować dodatkowe dane do swojej bazy danych usługi Cosmos. 
+W tym przewodniku szybki start przedstawiono sposób tworzenia Azure Cosmos DB interfejsu API dla konta usługi Mongo DB, dodawania bazy danych i kontenera przy użyciu Eksplorator danych i dodawania danych przy użyciu aplikacji konsolowej Java. Teraz możesz zaimportować dodatkowe dane do swojej bazy danych usługi Cosmos. 
 
 > [!div class="nextstepaction"]
 > [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](mongodb-migrate.md)

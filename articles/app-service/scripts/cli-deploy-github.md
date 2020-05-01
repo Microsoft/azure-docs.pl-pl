@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Wdrażanie aplikacji z usługi GitHub'
-description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy Azure zautomatyzować wdrażanie aplikacji usługi App Service i zarządzanie nimi. W tym przykładzie pokazano, jak wdrożyć aplikację z usługi GitHub.
+title: 'Interfejs wiersza polecenia: wdrażanie aplikacji z usługi GitHub'
+description: Dowiedz się, jak zautomatyzować wdrażanie aplikacji App Service i zarządzanie nią za pomocą interfejsu wiersza polecenia platformy Azure. Ten przykład pokazuje, jak wdrożyć aplikację z usługi GitHub.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 368a5d6810de5628ab98a7bef43cfceab750f95f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057840"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Tworzenie aplikacji usługi App Service wraz wdrożeniem z usługi GitHub przy użyciu interfejsu wiersza polecenia platformy Azure

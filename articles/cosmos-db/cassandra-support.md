@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80420151"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
@@ -75,7 +75,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 
 * Token  
 * Funkcje agregujące
-  * min, maks., śr., liczba
+  * min, Max, AVG, Count
 * Funkcje konwersji dużych obiektów binarnych 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -96,21 +96,21 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 
 ## <a name="cassandra-api-limits"></a>Ograniczenia interfejsu API Cassandra
 
-Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każda jednostka lub odpowiednik wiersza nie ma żadnych ograniczeń co do liczby kolumn. Jednak całkowity rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie może przekraczać 20 GB, jak we wszystkich innych interfejsów API.
+Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>narzędzia 
+## <a name="tools"></a>Narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 
-* Eksplorator danych usługi Azure portal, metryki, diagnostyka dziennika, program PowerShell i cli są inne obsługiwane mechanizmy do zarządzania kontem.
+* Azure Portal Eksplorator danych, metryki, Diagnostyka dzienników, program PowerShell i interfejs wiersza polecenia są innymi obsługiwanymi mechanizmami do zarządzania kontem.
 
 ## <a name="cql-shell"></a>Powłoka CQL  
 
-CQLSH narzędzie wiersza polecenia pochodzi z Apache Cassandra 3.1.1 i działa po wyjęciu z pudełka, ustawiając niektóre zmienne środowiskowe.
+Narzędzie wiersza polecenia CQLSH jest dostarczane z Apache Cassandra 3.1.1 i działa przez ustawienie niektórych zmiennych środowiskowych.
 
-**Windows:**
+**Systemy**
 
-Jeśli korzystasz z systemu Windows, zalecamy włączenie [systemu plików Windows dla systemu Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Następnie możesz postępować zgodnie z poniższymi poleceniami linuksowymi.
+W przypadku korzystania z systemu Windows zaleca się włączenie [systemu Windows w systemie Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Następnie możesz użyć poniższych poleceń systemu Linux.
 
 **Unix/Linux/Mac:**
 
@@ -143,9 +143,9 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontach interfejsu API Cassandra.
 
-* TWORZENIE PRZESTRZENI KLAWISZY (ustawienia replikacji dla tego polecenia są ignorowane)
+* Utwórz miejsce na dysku (ustawienia replikacji dla tego polecenia są ignorowane)
 * CREATE TABLE 
-* TWORZENIE INDEKSU (bez określania nazwy indeksu i indeksów w pełni zablokowanych, które nie są jeszcze obsługiwane)
+* Utwórz indeks (bez określania nazwy indeksu i pełne zablokowane indeksy nie są jeszcze obsługiwane)
 * ZEZWALAJ NA FILTROWANIE
 * ALTER TABLE 
 * USE 
@@ -155,7 +155,7 @@ Usługa Azure Cosmos DB obsługuje następujące polecenia bazy danych na kontac
 * BATCH — obsługiwane są tylko polecenia nierejestrowane 
 * DELETE
 
-Wszystkie operacje CRUD, które są wykonywane za pośrednictwem CQL v4 zgodny SDK zwróci dodatkowe informacje o błędach i jednostek żądania używane. Polecenia DELETE i UPDATE powinny być obsługiwane z uwzględnieniem zarządzania zasobami, aby zapewnić najbardziej efektywne wykorzystanie aprowizowanej przepływności.
+Wszystkie operacje CRUD, które są wykonywane za pomocą zestawu SDK zgodnego z CQL v4, zwracają dodatkowe informacje na temat liczby użytych jednostek błędu i żądania. Polecenia DELETE i UPDATE powinny być obsługiwane przez zarządzanie zasobami, które są brane pod uwagę w celu zapewnienia najbardziej wydajnego wykorzystania alokowanej przepływności.
 
 * Uwaga: jeśli wartość gc_grace_seconds została określona, musi być równa zero.
 
@@ -173,18 +173,18 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapowanie spójności 
 
-Interfejs API Cassandra usługi Azure Cosmos DB zapewnia możliwość wyboru spójności operacji odczytu.  Mapowanie spójności jest szczegółowo [opisane tutaj](consistency-levels-across-apis.md#cassandra-mapping).
+Interfejs API Cassandra usługi Azure Cosmos DB zapewnia możliwość wyboru spójności operacji odczytu.  Mapowanie spójności jest szczegółowo opisane w [tym miejscu](consistency-levels-across-apis.md#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Zarządzanie uprawnieniami i rolami
 
-Usługa Azure Cosmos DB obsługuje sterowanie dostępem oparte na rolach (RBAC) do inicjowania obsługi administracyjnej, obracania kluczy, przeglądania metryk oraz haseł/kluczy tylko do odczytu i do odczytu, które można uzyskać za pośrednictwem [portalu Azure.](https://portal.azure.com) Usługa Azure Cosmos DB nie obsługuje ról dla działań CRUD.
+Azure Cosmos DB obsługuje kontrolę dostępu opartą na rolach (RBAC) na potrzeby aprowizacji, obracania klawiszy, wyświetlania metryk oraz haseł do odczytu i zapisu oraz kluczy, które można uzyskać za pośrednictwem [Azure Portal](https://portal.azure.com). Azure Cosmos DB nie obsługuje ról dla działań CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opcje przestrzeni kluczy i tabeli
 
-Opcje nazwy regionu, klasy, replication_factor i centrum danych w poleceniu "Utwórz przestrzeń kluczy" są obecnie ignorowane. System używa podstawowej metody replikacji [dystrybucji globalnej](global-dist-under-the-hood.md) usługi Azure Cosmos DB w celu dodania regionów. Jeśli potrzebujesz międzyregionowej obecności danych, możesz włączyć je na poziomie konta w programie PowerShell, CLI lub portalu, aby dowiedzieć się więcej, zobacz [artykuł jak dodawać regiony.](how-to-manage-database-account.md#addremove-regions-from-your-database-account) Durable_writes nie można wyłączyć, ponieważ usługa Azure Cosmos DB zapewnia, że każdy zapis jest trwały. W każdym regionie usługa Azure Cosmos DB replikuje dane w zestawie replik składającym się z czterech replik i nie można zmodyfikować tej [konfiguracji](global-dist-under-the-hood.md) zestawu replik.
+Opcje nazwy regionu, klasy, replication_factor i centrum danych w poleceniu "Utwórz przestrzeń kluczy" są obecnie ignorowane. System używa podstawowej metody replikacji [dystrybucji](global-dist-under-the-hood.md) Azure Cosmos DB, aby dodać regiony. Jeśli potrzebujesz obecności danych między regionami, możesz ją włączyć na poziomie konta przy użyciu programu PowerShell, interfejsu wiersza polecenia lub portalu, aby dowiedzieć się więcej, zobacz artykuł [jak dodać regiony](how-to-manage-database-account.md#addremove-regions-from-your-database-account) . Nie można wyłączyć Durable_writes, ponieważ Azure Cosmos DB gwarantuje, że każdy zapis jest trwały. W każdym regionie Azure Cosmos DB replikuje dane przez zestaw replik składający się z czterech replik i nie można zmodyfikować tej [konfiguracji](global-dist-under-the-hood.md) zestawu replik.
  
-Wszystkie opcje są ignorowane podczas tworzenia tabeli, z wyjątkiem gc_grace_seconds, które powinny być ustawione na zero.
-Przestrzeń kluczy i tabela mają dodatkową opcję o nazwie "cosmosdb_provisioned_throughput" o minimalnej wartości 400 RU/s. Przepływność przestrzeni kluczy umożliwia współużytkowanie przepływności w wielu tabelach i jest przydatne w scenariuszach, gdy wszystkie tabele nie są przy użyciu aprowizowanej przepływności. Polecenie Zmień tabelę umożliwia zmianę aprowizowanej przepływności w regionach. 
+Wszystkie opcje są ignorowane podczas tworzenia tabeli, z wyjątkiem gc_grace_seconds, które powinny mieć wartość zero.
+Przestrzeń kluczy i tabela mają dodatkową opcję o nazwie "cosmosdb_provisioned_throughput" z minimalną wartością 400 RU/s. Przepływność przestrzeni kluczy umożliwia udostępnianie przepływności w wielu tabelach i jest przydatne w scenariuszach, gdy wszystkie tabele nie korzystają z zainicjowanej przepływności. Polecenie ALTER TABLE umożliwia zmianę zainicjowanej przepływności w regionach. 
 
 ```
 CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
@@ -198,7 +198,7 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Użycie zasad ponawiania próby połączenia bazy danych Cassandra
 
-Usługa Azure Cosmos DB to system zarządzany przez zasoby. Oznacza to, że można wykonać określoną liczbę operacji w danej sekundzie na podstawie jednostek żądań używanych przez operacje. Jeśli aplikacja przekracza ten limit w danym drugim, żądania są ograniczone stawki i zostaną odrzucone wyjątki. Interfejs API Cassandra w usłudze Azure Cosmos DB tłumaczy te wyjątki na przeciążone błędy w protokole macierzystym Cassandra. Aby upewnić się, że aplikacja może przechwytywać i ponawiać żądania w przypadku ograniczenia szybkości, [iskry](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) i rozszerzenia [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) są dostarczane. Jeśli używasz innych zestawów SDK, aby uzyskać dostęp do interfejsu API Cassandra w usłudze Azure Cosmos DB, utwórz zasady połączenia, aby ponowić próbę tych wyjątków.
+Azure Cosmos DB jest systemem zarządzanym przez zasoby. Oznacza to, że można wykonać określoną liczbę operacji w danej sekundzie na podstawie jednostek żądań używanych przez operacje. Jeśli aplikacja przekroczy ten limit w danej sekundzie, żądania są ograniczone, a wyjątki zostaną zgłoszone. Interfejs API Cassandra w Azure Cosmos DB tłumaczy te wyjątki na przeciążone błędy w protokole natywnym Cassandra. Aby upewnić się, że aplikacja może przechwycić i ponowić próbę żądania w przypadku ograniczenia szybkości przypadków, dostępne są rozszerzenia [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) i [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) . Jeśli używasz innych zestawów SDK do uzyskiwania dostępu do interfejs API Cassandra w Azure Cosmos DB, Utwórz zasady połączenia, aby ponowić próbę wykonania tych wyjątków.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,6 +1,6 @@
 ---
-title: Interfejs API usługi Azure Cosmos DB dla mongodb (wersja 3.2) obsługiwane funkcje i składni
-description: Dowiedz się więcej o interfejsie API usługi Azure Cosmos DB dla obsługiwanych funkcji i składni usługi MongoDB (wersja 3.2).
+title: Interfejs API Azure Cosmos DB dla MongoDB (wersja 3,2) obsługiwane funkcje i składnia
+description: Dowiedz się więcej o obsługiwanych funkcjach i składni interfejsu API Azure Cosmos DB (wersja 3,2).
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 94b65b4e7947bc02b1fdaae90c8f774ec216e7bb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80981889"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.2): obsługiwane funkcje i składnia
@@ -21,11 +21,11 @@ Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firm
 Używając interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB, można korzystać z dobrze znanych zalet bazy danych MongoDB oraz wszystkich funkcji na poziomie korporacyjnym dostarczanych przez usługę Cosmos DB: [globalnej dystrybucji](distribute-data-globally.md), [automatycznego fragmentowania](partition-data.md), gwarancji dostępności i opóźnień, automatycznego indeksowania każdego pola, szyfrowania danych magazynowanych, tworzenia kopii zapasowych itd.
 
 > [!NOTE]
-> Ten artykuł jest dla interfejsu API usługi Azure Cosmos DB dla mongodb 3.2. W przypadku wersji MongoDB 3.6 zobacz [Obsługiwane funkcje i składnię MongoDB 3.6](mongodb-feature-support-36.md).
+> Ten artykuł dotyczy interfejsu API Azure Cosmos DB MongoDB 3,2. Aby uzyskać wersję MongoDB 3,6, zobacz [MongoDB 3,6 obsługiwane funkcje i składnia](mongodb-feature-support-36.md).
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Wszystkie nowe konta interfejsu API usługi Azure Cosmos DB dla MongoDB są zgodne z wersją serwera MongoDB w wersji **3.6.** W tym artykule opisano bazę danych MongoDB w wersji 3.2. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB.
+Wszystkie nowe konta interfejsu API Azure Cosmos DB MongoDB są zgodne z serwerem MongoDB w wersji **3,6**. W tym artykule opisano bazę danych MongoDB w wersji 3.2. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 
@@ -77,7 +77,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 ## <a name="aggregation-pipelinea"></a>Potok agregacji</a>
 
-Usługa Cosmos DB obsługuje potok agregacji dla mongodb 3.2 w publicznej wersji zapoznawczej. Instrukcje dotyczące dołączenia do publicznej wersji zapoznawczej znajdują się na [blogu platformy Azure](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/).
+Cosmos DB obsługuje potok agregacji dla MongoDB 3,2 w publicznej wersji zapoznawczej. Instrukcje dotyczące dołączenia do publicznej wersji zapoznawczej znajdują się na [blogu platformy Azure](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/).
 
 ### <a name="aggregation-commands"></a>Polecenia agregacji
 
@@ -314,7 +314,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | Bez pomocy technicznej. Zamiast tego użyj operatora $regex.
+$text |  | Nieobsługiwane. Zamiast tego użyj operatora $regex.
 
 ## <a name="unsupported-operators"></a>Nieobsługiwane operatory
 
@@ -332,7 +332,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokumenty bez klucza so
 
 ## <a name="unique-indexes"></a>Indeksy unikatowe
 
-Usługa Cosmos DB indeksuje każde pole w dokumentach, które są domyślnie zapisywane w bazie danych. Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość jest zachowywana w kluczu domyślnym. `_id` Indeksy niestandardowe można tworzyć w usłudze Cosmos DB za pomocą polecenia createIndex, w tym ograniczenia "unikatowy".
+Usługa Cosmos DB indeksuje każde pole w dokumentach, które są domyślnie zapisywane w bazie danych. Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość jest zachowywana w kluczu domyślnym `_id` . Indeksy niestandardowe można tworzyć w Cosmos DB przy użyciu polecenia CREATE INDEX, łącznie z ograniczeniem "Unique".
 
 Unikatowe indeksy są dostępne dla wszystkich kont usługi Cosmos używających interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
@@ -354,7 +354,7 @@ Niektóre aplikacje polegają na ustawieniu [Write Concern](https://docs.mongodb
 
 ## <a name="sharding"></a>Dzielenie na fragmenty
 
-Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Automatycznie zarządza tworzeniem, umieszczaniem i równoważeniem fragmentów. Usługa Azure Cosmos DB nie obsługuje ręcznych poleceń dzielenia na fragmenty, co oznacza, że nie trzeba wywoływać poleceń, takich jak shardCollection, addShard, balancerStart, moveChunk itp. Wystarczy określić klucz niezależnego fragmentu podczas tworzenia kontenerów lub wykonywania zapytań o dane.
+Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stronie serwera. Zarządza on fragmentu tworzeniem, umieszczaniem i zrównoważeniem automatycznie. Azure Cosmos DB nie obsługuje ręcznych poleceń fragmentowania, co oznacza, że nie trzeba Wywoływanie poleceń takich jak shardCollection, addShard, balancerStart, moveChunk itd. Wystarczy określić klucz fragmentu podczas tworzenia kontenerów lub wykonywania zapytań dotyczących danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -362,4 +362,4 @@ Usługa Azure Cosmos DB obsługuje automatyczne dzielenie na fragmenty po stroni
 - Dowiedz się, jak [korzystać z programu Robo 3T](mongodb-robomongo.md) za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 - Eksploruj [przykłady](mongodb-samples.md) bazy danych MongoDB za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 
-<sup>Uwaga: W tym artykule opisano funkcję usługi Azure Cosmos DB, która zapewnia zgodność protokołu przewodowego z bazami danych MongoDB. Firma Microsoft nie uruchamia baz danych MongoDB w celu świadczenia tej usługi. Usługa Azure Cosmos DB nie jest powiązana z mongodb, inc.</sup>
+<sup>Uwaga: w tym artykule opisano funkcję Azure Cosmos DB, która zapewnia zgodność protokołu telekomunikacyjnych z bazami danych MongoDB. Firma Microsoft nie uruchamia MongoDB baz danych w celu zapewnienia tej usługi. Azure Cosmos DB nie jest powiązany z MongoDB, Inc.</sup>
