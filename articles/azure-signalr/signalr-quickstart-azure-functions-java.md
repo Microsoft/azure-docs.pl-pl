@@ -1,5 +1,5 @@
 ---
-title: Tworzenie pokoju rozmów za pomocą funkcji Azure Functions i SignalR service za pomocą oprogramowania Java
+title: Używanie języka Java do tworzenia pokoju rozmów z usługą Azure Functions i usługi sygnalizującej
 description: Przewodnik Szybki start pokazujący, jak za pomocą usług Azure SignalR Service i Azure Functions utworzyć pokój czatu.
 author: sffamily
 ms.service: signalr
@@ -8,27 +8,27 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77083204"
 ---
-# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Szybki start: tworzenie pokoju rozmów z usługą Azure Functions i SignalR Service za pomocą języka Java
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Szybki Start: używanie języka Java do tworzenia pokoju rozmów z usługą Azure Functions i usługi sygnalizującej
 
-Usługa Azure SignalR service umożliwia łatwe dodawanie funkcji w czasie rzeczywistym do aplikacji, a usługa Azure Functions to platforma bezserwerowa, która umożliwia uruchamianie kodu bez zarządzania infrastrukturą. W tym przewodniku Szybki start używasz oprogramowania Java do tworzenia aplikacji do czatu bez użycia serwera w czasie rzeczywistym przy użyciu usługi SignalR i funkcji.
+Usługa Azure Signal Service umożliwia łatwe dodawanie funkcji w czasie rzeczywistym do aplikacji, a Azure Functions jest platformą bezserwerową, która umożliwia uruchamianie kodu bez konieczności zarządzania infrastrukturą. W tym przewodniku szybki start używasz języka Java do kompilowania bezserwerowej aplikacji do rozmowy w czasie rzeczywistym przy użyciu usługi sygnalizującej i funkcji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Edytor kodu, taki jak [Visual Studio Code](https://code.visualstudio.com/)
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto za darmo](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Podstawowe narzędzia usług Azure Functions](https://github.com/Azure/azure-functions-core-tools#installing). Służy do uruchamiania aplikacji funkcji platformy Azure lokalnie.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Służy do lokalnego uruchamiania aplikacji funkcji platformy Azure.
 
    > [!NOTE]
-   > Wymagane powiązania usługi SignalR w języku Java są obsługiwane tylko w usłudze Azure Function Core Tools w wersji 2.4.419 (wersja hosta 2.0.12332) lub wyższej.
+   > Wymagane powiązania usługi sygnalizujące w języku Java są obsługiwane tylko w podstawowych narzędziach funkcji platformy Azure w wersji 2.4.419 (host w wersji 2.0.12332) lub nowszej.
 
    > [!NOTE]
-   > Aby zainstalować rozszerzenia, narzędzia Podstawowe usługi Azure Functions wymagają zainstalowanego [zestawu SDK .NET Core.](https://www.microsoft.com/net/download) Do tworzenia aplikacji funkcji platformy Azure dla w języku JavaScript nie jest jednak wymagana jakakolwiek wiedza dotycząca platformy .NET.
+   > Aby zainstalować rozszerzenia, Azure Functions Core Tools wymaga zainstalowanego [zestaw .NET Core SDK](https://www.microsoft.com/net/download) . Do tworzenia aplikacji funkcji platformy Azure dla w języku JavaScript nie jest jednak wymagana jakakolwiek wiedza dotycząca platformy .NET.
 
 - Zestaw [Java Developer Kit](https://www.azul.com/downloads/zulu/), wersja 8
 - Narzędzie [Apache Maven](https://maven.apache.org), wersja 3.0 lub nowsza
@@ -56,18 +56,18 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 
     ![Tworzenie usługi SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. W edytorze kodu otwórz folder *src/chat/java* w sklonowanym repozytorium.
+1. W edytorze kodu Otwórz folder *src/Chat/Java* w sklonowanym repozytorium.
 
 1. Zmień nazwę pliku *local.settings.sample.json* na *local.settings.json*.
 
 1. W pliku **local.settings.json** wklej parametry połączenia jako wartość ustawienia **AzureSignalRConnectionString**. Zapisz plik.
 
-1. Główny plik, który zawiera funkcje są w *src / chat / java / src / main / java / com / function/Functions.java:*
+1. Główny plik, który zawiera funkcje są w języku *src/Chat/Java/src/Main/Java/com/funkcja/Functions. Java*:
 
     - **negotiate** — ta funkcja generuje i zwraca ważne informacje o połączeniu przy użyciu danych wejściowych powiązania *SignalRConnectionInfo*.
-    - **sendMessage** — odbiera wiadomość czatu w treści żądania i używa powiązania wyjściowego *SignalR* do emisji wiadomości do wszystkich połączonych aplikacji klienckich.
+    - **SendMessage** — odbiera komunikat rozmowy w treści żądania i używa powiązania danych wyjściowych *sygnalizującego* , aby emitować komunikat do wszystkich połączonych aplikacji klienckich.
 
-1. W terminalu upewnij się, że znajdujesz się w folderze *src/chat/java.* Tworzenie aplikacji funkcji.
+1. Upewnij się, że jesteś w folderze *src/Chat/Java* . Kompiluj aplikację funkcji.
 
     ```bash
     mvn clean package
@@ -85,7 +85,7 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku Szybki start został utworzony i uruchomiony w czasie rzeczywistym bezserwerowej aplikacji przy użyciu Maven. Następnie dowiedz się, jak tworzyć funkcje Java Azure od podstaw.
+W tym przewodniku szybki start utworzono i uruchomiono aplikację bezserwerową w czasie rzeczywistym przy użyciu Maven. Następnie Dowiedz się, jak utworzyć Azure Functions języka Java od podstaw.
 
 > [!div class="nextstepaction"]
 > [Tworzenie pierwszej funkcji przy użyciu języka Java i narzędzia Maven](../azure-functions/functions-create-first-java-maven.md)

@@ -1,5 +1,5 @@
 ---
-title: Szybkie starty łączenia i wyszukiwania
+title: Łączenie i tworzenie zapytań Szybki Start
 description: Przewodniki Szybki start z informacjami na temat nawiązywania połączeń z bazą danych Azure SQL Database i wykonywania zapytań.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 05ba54c10cc693f81115f364d7a400e2275a3875
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80528230"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Szybki start: połączenie i kwerenda usługi Azure SQL Database
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Przewodniki Szybki Start: łączenie Azure SQL Database i zapytania
 
 Poniższy dokument zawiera linki do przykładów związanych z platformą Azure przedstawiających nawiązywanie połączeń z bazą danych Azure SQL Database i wykonywanie zapytań. Zawiera także pewne rekomendacje dotyczące protokołu TLS.
 
-## <a name="quickstarts"></a>Przewodniki Szybki Start
+## <a name="quickstarts"></a>Przewodniki Szybki start
 
 | |  |
 |---|---|
@@ -31,14 +31,14 @@ Poniższy dokument zawiera linki do przykładów związanych z platformą Azure 
 |[Azure Portal](sql-database-connect-query-portal.md)|W tym przewodniku Szybki start pokazano, jak używać edytora zapytań w celu nawiązywania połączenia z bazą danych SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane oraz wstawiać, aktualizować i usuwać dane z bazy danych.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|W tym przewodniku Szybki start pokazano, jak używać edytora Visual Studio Code w celu nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane, a także wstawiać, aktualizować i usuwać dane z bazy danych.|
 |[.NET przy użyciu programu Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|W tym przewodniku Szybki start pokazano, jak używać programu .NET Framework w celu utworzenia — za pomocą programu Visual Studio — programu w języku C# służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
-|[Rdzeń .NET](sql-database-connect-query-dotnet-core.md)|W tym przewodniku Szybki start pokazano, jak używać platformy .NET Core w systemach operacyjnych Windows/Linux/macOS w celu utworzenia programu w języku C# służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
+|[.NET Core](sql-database-connect-query-dotnet-core.md)|W tym przewodniku Szybki start pokazano, jak używać platformy .NET Core w systemach operacyjnych Windows/Linux/macOS w celu utworzenia programu w języku C# służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
 |[Przejdź](sql-database-connect-query-go.md)|W tym przewodniku Szybki start przedstawiono sposób nawiązywania połączeń z bazą danych Azure SQL Database za pomocą języka Go. Ponadto przedstawiono instrukcje języka Transact-SQL umożliwiające wykonywanie zapytań i modyfikowanie danych.|
 |[Java](sql-database-connect-query-java.md)|W tym przewodniku Szybki start pokazano, jak używać języka Java w celu nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
 |[Node.js](sql-database-connect-query-nodejs.md)|W tym przewodniku Szybki start pokazano, jak używać narzędzia Node.js w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
 |[PHP](sql-database-connect-query-php.md)|W tym przewodniku Szybki start pokazano, jak używać języka PHP w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
 |[Python](sql-database-connect-query-python.md)|W tym przewodniku Szybki start pokazano, jak używać języka Python w celu nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane. |
 |[Ruby](sql-database-connect-query-ruby.md)|W tym przewodniku Szybki start pokazano, jak używać języka Ruby w celu utworzenia programu służącego do nawiązywania połączenia z bazą danych Azure SQL Database, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane.|
-|[R](sql-database-connect-query-r.md)|Ten przewodnik Szybki start pokazuje, jak używać języka R za pomocą usług Azure SQL Database Machine Learning Services do tworzenia programu do łączenia się z bazą danych SQL platformy Azure i używania instrukcji Transact-SQL do wykonywania zapytań o dane.|
+|[R](sql-database-connect-query-r.md)|Ten przewodnik Szybki Start przedstawia sposób używania języka R z usługą Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z bazą danych Azure SQL i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Zagadnienia dotyczące protokołu TLS na potrzeby łączności z usługą SQL Database
@@ -59,14 +59,14 @@ Do łączenia z usługą Azure SQL Database można używać różnych bibliotek 
 
 W poniższej tabeli wymieniono biblioteki łączności (*sterowniki*), których aplikacje klienckie mogą używać w różnych językach, aby łączyć się z programem SQL Server działającym lokalnie lub w chmurze i korzystać z niego. Można ich używać w systemach Linux i Windows oraz na platformie Docker, a także za ich pomocą łączyć się z usługami Azure SQL Database i Azure SQL Data Warehouse. 
 
-| Język | Platforma | Zasoby dodatkowe | Pobierz | Rozpoczęcie pracy |
+| Język | Platforma | Dodatkowe zasoby | Pliki do pobrania | Wprowadzenie |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobierz](https://www.microsoft.com/net/download/) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Pobierz](https://go.microsoft.com/fwlink/?linkid=852460) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Sterowniki PHP SQL dla programu SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Pobierz](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
-| Node.js | Windows, Linux, macOS | [Sterowniki Node.js dla programu SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Zainstaluj](https://msdn.microsoft.com/library/mt652094.aspx) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Sterownik SQL języka Python](https://msdn.microsoft.com/library/mt652092.aspx) | Opcje instalacji: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Sterowniki Ruby dla programu SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Zainstaluj](https://msdn.microsoft.com/library/mt711041.aspx) | [Rozpoczęcie pracy](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C# | Windows, Linux, macOS | [Program Microsoft ADO.NET dla programu SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Pobierz](https://www.microsoft.com/net/download/) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Sterownik JDBC firmy Microsoft dla programu SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Pobierz](https://go.microsoft.com/fwlink/?linkid=852460) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Sterowniki PHP SQL dla programu SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Pobierz](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Sterowniki Node.js dla programu SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Zainstaluj](https://msdn.microsoft.com/library/mt652094.aspx) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Sterownik SQL języka Python](https://msdn.microsoft.com/library/mt652092.aspx) | Opcje instalacji: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Sterowniki Ruby dla programu SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Zainstaluj](https://msdn.microsoft.com/library/mt711041.aspx) | [Wprowadzenie](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Sterownik ODBC firmy Microsoft dla programu SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Pobierz](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
 Poniższa tabela zawiera przykłady struktur mapowania obiektowo-relacyjnego (ORM) i struktur internetowych, których aplikacje klienckie mogą używać z programem SQL Server działającym lokalnie lub w chmurze. Tych struktur można używać w systemach Linux i Windows oraz na platformie Docker i łączyć się za ich pomocą z usługami SQL Database i SQL Data Warehouse. 
