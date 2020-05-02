@@ -4,53 +4,42 @@ description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następ
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5022ff7239a040a163d8d6a82864d0dee8e65f1e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610908"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626262"
 ---
-::: zone pivot="programming-language-csharp"  
-# <a name="quickstart-create-a-c-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure, która odpowiada na żądania HTTP
+# <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji opartej na bibliotece klasy C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+::: zone pivot="programming-language-csharp"  
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji opartej na bibliotece klasy C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-# <a name="quickstart-create-a-javascript-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure, która odpowiada na żądania HTTP
-
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka JavaScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka JavaScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# <a name="quickstart-create-a-typescript-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka TypeScript na platformie Azure, która odpowiada na żądania HTTP
-
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka TypeScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka TypeScript, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-# <a name="quickstart-create-a-powershell-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure, która odpowiada na żądania HTTP
-
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji programu PowerShell, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji programu PowerShell, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure, która odpowiada na żądania HTTP
-
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Python, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Python, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-# <a name="quickstart-create-a-java-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure, która odpowiada na żądania HTTP
-
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Java, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji języka Java, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end
 
-W tym artykule opisano użycie narzędzi wiersza polecenia w celu utworzenia funkcji reagującej na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
+W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 Istnieje również oparta na [Visual Studio Code wersja](functions-create-first-function-vs-code.md) tego artykułu.
 ::: zone-end  
-
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Jeśli Maven nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java za pomocą [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ pomysłu](/azure/developer/java/toolkit-for-intellij/quickstart-functions) i [vs Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Jeśli Maven nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java za pomocą [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ pomysłu](/azure/developer/java/toolkit-for-intellij/quickstart-functions) i [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: f1cae958fce1de000ee4349a2fe8229d69f1a0ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c5e177aca446d9a81db1a339cb8d81f0486a91e5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80366164"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653063"
 ---
 # <a name="get-throughput-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Pobierz przepływność (RU/s) dla przestrzeni kluczy lub tabeli dla Azure Cosmos DB-interfejs API Cassandra
 
@@ -39,8 +39,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Pobiera wartość przepływności określonego interfejs API Cassandra przestrzeni kluczy. |
-| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Pobiera wartość przepływności określonej tabeli interfejs API Cassandra. |
+| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Pobiera wartość przepływności interfejs API Cassandra przestrzeni kluczy. |
+| [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Pobiera wartość przepływności tabeli interfejs API Cassandra. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

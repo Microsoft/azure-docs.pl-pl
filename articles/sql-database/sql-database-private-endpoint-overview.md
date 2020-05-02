@@ -3,24 +3,24 @@ title: Link prywatny
 description: Omówienie funkcji prywatnego punktu końcowego
 author: rohitnayakmsft
 ms.author: rohitna
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4338c179fb8c0eebbb64ac5b33dc5dd8878d0794
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd717d653e57fbb8c540e4ef023011c64778a3b0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176723"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629001"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Prywatny link do Azure SQL Database i magazynu danych
+# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatne łącze do Azure SQL Database i analizy Synapse Azure
 
 Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem **prywatnego punktu końcowego**. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do strony z [dokumentacją linku prywatnego](../private-link/index.yml) . Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../virtual-network/virtual-networks-overview.md) i podsieci. 
 
 > [!IMPORTANT]
-> Ten artykuł ma zastosowanie do programu Azure SQL Server oraz do baz danych SQL Database i SQL Data Warehouse utworzonych na serwerze SQL platformy Azure. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database. Ten artykuł *nie* dotyczy wdrożenia **wystąpienia zarządzanego** w Azure SQL Database.
+> Ten artykuł ma zastosowanie do programu Azure SQL Server oraz SQL Database do baz danych usługi Azure Synapse Analytics, które są tworzone na serwerze SQL platformy Azure. Dla uproszczenia SQL Database jest używany podczas odnoszących się do SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy wdrożenia **wystąpienia zarządzanego** w Azure SQL Database.
 
 ## <a name="data-exfiltration-prevention"></a>Ochrona danych eksfiltracji
 
@@ -28,7 +28,7 @@ Eksfiltracji danych w Azure SQL Database polega na tym, że autoryzowany użytko
 
 Rozważmy scenariusz z użytkownikiem z uruchomioną SQL Server Management Studio (SSMS) wewnątrz maszyny wirtualnej platformy Azure łączącej się z SQL Database. Ten SQL Database znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w SQL Database przy użyciu funkcji kontroli dostępu do sieci.
 
-1. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na **wyłączanie**usług platformy Azure. Upewnij się, że żadne adresy IP nie są dozwolone w regułach zapory na poziomie serwera i bazy danych. Aby uzyskać więcej informacji, zobacz [Azure SQL Database i kontroli dostępu do sieci magazynu danych](sql-database-networkaccess-overview.md).
+1. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na **wyłączanie**usług platformy Azure. Upewnij się, że żadne adresy IP nie są dozwolone w regułach zapory na poziomie serwera i bazy danych. Aby uzyskać więcej informacji, zobacz [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](sql-database-networkaccess-overview.md).
 1. Zezwalaj tylko na ruch do SQL Database przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](sql-database-vnet-service-endpoint-rule-overview.md) i [reguł zapory sieci wirtualnej](sql-database-firewall-configure.md).
 1. Na maszynie wirtualnej platformy Azure Zawęź zakres połączenia wychodzącego za pomocą [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../virtual-network/manage-network-security-group.md) i tagów usługi w następujący sposób:
     - Określ regułę sieciowej grupy zabezpieczeń, aby zezwolić na ruch dla programu Service Tag = SQL. Zachodnie — Zezwalanie na połączenie tylko SQL Database w regionie zachodnie stany USA
@@ -142,7 +142,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 Wynik pokazuje, że jeden adres IP jest w użyciu. odpowiada adresowi IP dla prywatnego punktu końcowego.
 
-
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Sprawdź łączność przy użyciu SQL Server Management Studio (SSMS)
 > [!NOTE]
 > Użyj w **pełni kwalifikowanej nazwy domeny (FQDN)** serwera w parametrach połączenia dla klientów. Wszystkie próby logowania wprowadzone bezpośrednio do adresu IP nie powiodą się. To zachowanie jest zgodne z projektem, ponieważ prywatny punkt końcowy kieruje ruch do bramy SQL w regionie i należy określić nazwę FQDN, aby logowanie powiodło się.
@@ -174,11 +173,9 @@ Aby nawiązać połączenie ze środowiskiem lokalnym z SQL Database, wybierz i 
 - [Obwód usługi ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Łączenie z Azure SQL Data Warehouse do usługi Azure Storage przy użyciu bazy danych
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Łączenie z usługi Azure Synapse Analytics do usługi Azure Storage przy użyciu bazy danych
 
-Baza danych wielobase jest często używana do ładowania dane do Azure SQL Data Warehouse z kont usługi Azure Storage. Jeśli konto usługi Azure Storage, z którego są ładowane dane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej za pośrednictwem prywatnych punktów końcowych, punktów końcowych usługi lub zapór opartych na protokole IP, połączenie z bazą danych z bazy danych na koncie zostanie przerwane. Aby włączyć oba podstawowe scenariusze importu i eksportu z Azure SQL Data Warehouse łączenia się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj kroki podane [tutaj](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
-
-
+Baza danych wielobase jest często używana do ładowania do usługi Azure Synapse Analytics z kont usługi Azure Storage. Jeśli konto usługi Azure Storage, z którego są ładowane dane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej za pośrednictwem prywatnych punktów końcowych, punktów końcowych usługi lub zapór opartych na protokole IP, połączenie z bazą danych z bazy danych na koncie zostanie przerwane. Aby włączyć zarówno podstawowe scenariusze importu i eksportu z usługą Azure Synapse Analytics łączącą się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj kroki podane [tutaj](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Następne kroki
 

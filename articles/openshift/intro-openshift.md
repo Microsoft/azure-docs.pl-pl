@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 04/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 87126d1beca97a905f0f3b09b565c12c37a4774d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203917"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628524"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -32,19 +32,11 @@ W celu zwiększenia bezpieczeństwa i zarządzania usługa Azure Red Hat OpenShi
 
 ## <a name="cluster-and-node"></a>Klaster i węzeł
 
-Węzły usługi Azure Red Hat OpenShift są uruchamiane na maszynach wirtualnych platformy Azure. Możesz połączyć magazyn z węzłami i zasobnikami, uaktualnić składniki klastra oraz używać procesorów GPU.
-
-## <a name="virtual-networks-and-ingress"></a>Sieci wirtualne i ruch przychodzący
-
-Można [połączyć sieć wirtualną klastra z istniejącą siecią wirtualną lub utworzyć sieć wirtualną podczas tworzenia klastra](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
-
-## <a name="kubernetes-certification"></a>Certyfikat platformy Kubernetes
-
-Usługa Azure Red Hat OpenShift została CNCF certyfikowaną jako Kubernetes.
+Węzły usługi Azure Red Hat OpenShift są uruchamiane na maszynach wirtualnych platformy Azure. Można połączyć magazyn z węzłami i składnikami programu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Zapoznaj się z wymaganiami wstępnymi dotyczącymi usługi Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie środowiska deweloperskiego](howto-setup-environment.md)
+> [Konfigurowanie środowiska deweloperskiego](tutorial-create-cluster.md)

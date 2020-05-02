@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: bd764dce0bc55582125bdb4e6ffd86dec924390b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fb78be672566ef281a1323ca893d7fc2f194a6b0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80366041"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651944"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Wyświetl i Pobierz bazy danych i wykresy dla interfejsu API Azure Cosmos DB Gremlin
 
@@ -40,8 +40,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont Cosmos DB lub pobiera określone konto Cosmos DB. |
-| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Wyświetla listę Cosmos DB baz danych interfejsu API Gremlin na koncie lub pobiera określoną Cosmos DB bazę danych interfejsu API Gremlin na koncie. |
-| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Wyświetla listę Cosmos DB wykresy interfejsu API Gremlin w bazie danych lub pobiera określoną Cosmos DB tabelę interfejsu API Gremlin w bazie danych. |
+| [Get-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabase) | Wyświetla listę baz danych interfejsu API Gremlin na koncie lub pobiera określoną bazę danych interfejsu API Gremlin na koncie. |
+| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Wyświetla wykresy interfejsu API Gremlin w bazie danych lub pobiera określoną tabelę interfejsu API Gremlin w bazie danych. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

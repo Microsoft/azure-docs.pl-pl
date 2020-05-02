@@ -1,14 +1,14 @@
 ---
 title: Przykłady zakrytych w usłudze CIS Microsoft Azure przykładowe kontrolki testu
 description: Rekomendacja zaleceń usługi CIS Microsoft Azure przykłady planów testów porównawczych do Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/01/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 735ab26e1f9432a87d5a0d927c64d44e680b0694
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656966"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688105"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekomendacja zaleceń przykładowego planu testów usługi CIS Microsoft Azure
 
@@ -25,7 +25,7 @@ Liczne zamapowane zalecenia są implementowane z inicjatywy [Azure Policy](../..
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają monitorowanie, kiedy uwierzytelnianie wieloskładnikowe nie jest włączone na kontach Azure Active Directory uprzywilejowanych.
 
 - Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami właściciela w ramach subskrypcji
-- Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do zapisu w Twojej subskrypcji
+- W ramach usługi MFA należy włączyć konta z uprawnieniami do zapisu w Twojej subskrypcji
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1,2 Upewnij się, że uwierzytelnianie wieloskładnikowe jest włączone dla wszystkich użytkowników bez uprawnień
 
@@ -37,9 +37,9 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają monitorować konta gościa, które mogą wymagać usunięcia.
 
-- Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji
 - Konta zewnętrzne z uprawnieniami do zapisu powinny zostać usunięte z subskrypcji
+- Konta zewnętrzne z uprawnieniami właściciela powinny zostać usunięte z subskrypcji
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 upewnij się, że nie są tworzone role niestandardowego właściciela subskrypcji
 
@@ -51,7 +51,7 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga monitorować sieci i maszyny wirtualne, na których nie włączono warstwy Security Center Standard.
 
- - Należy wybrać Security Center warstwy cenowej Standard
+- Należy wybrać Security Center warstwy cenowej Standard
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2,2 Upewnij się, że "Automatyczna obsługa administracyjna agenta monitorowania" jest ustawiona na "on"
 
@@ -87,20 +87,14 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga chronić maszyny wirtualne dostępne z Internetu.
 
-- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2,8 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj zaporę aplikacji sieci Web" nie jest "wyłączone"
-
-Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga chronić maszyny wirtualne z uruchomionymi aplikacjami sieci Web.
-
-- Reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web w usłudze IaaS powinny być zaostrzone
+- Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2,9 upewnij się, że domyślne ustawienie zasad ASC "Włączanie monitorowania zapory nowej generacji (zapory następnej generacji)" nie jest wyłączone
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) chroniące podsieci i maszyny wirtualne przed zagrożeniami przez ograniczenie dostępu. Zasady Security Center, do których odwołują się te usługi CIS Microsoft Azure zalecenia porównawcze zostały zastąpione przez dwa nowe zalecenia. Zasady, do których odwołuje się poniżej, dotyczą nowych zaleceń.
 
 - Podsieci powinny być skojarzone z sieciową grupą zabezpieczeń
-- Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń
+- Maszyny wirtualne dostępne z Internetu powinny być chronione za pomocą sieciowych grup zabezpieczeń
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2,10 upewnij się, że domyślne ustawienie zasad ASC "Ocena luk w zabezpieczeniach monitora" nie jest wyłączone
 
@@ -128,7 +122,7 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że Inspekcja programu SQL Server jest włączona.
 
-- Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
+- Inspekcja w programie SQL Server powinna być włączona
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2,15 upewnij się, że domyślne ustawienie zasad ASC "Monitoruj szyfrowanie SQL" nie jest wyłączone
 
@@ -182,7 +176,7 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że Inspekcja programu SQL Server jest włączona. 
 
-- Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
+- Inspekcja w programie SQL Server powinna być włączona
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4,2 Upewnij się, że element "AuditActionGroups" w zasadach "Audits" dla programu SQL Server jest skonfigurowany prawidłowo
 
@@ -200,8 +194,8 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane zabezpieczenia danych są włączone na serwerach SQL i wystąpieniach zarządzanych SQL.
 
-- Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych SQL
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL
+- Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Upewnij się, że ustawienie "typy wykrywania zagrożeń" ma wartość "All"
 
@@ -214,15 +208,15 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
 
-- Zaawansowane ustawienia zabezpieczeń danych dla wystąpienia zarządzanego SQL powinny zawierać adres e-mail, aby otrzymywać alerty zabezpieczeń
 - Zaawansowane ustawienia zabezpieczeń danych dla programu SQL Server powinny zawierać adres e-mail, aby otrzymywać alerty zabezpieczeń
+- Zaawansowane ustawienia zabezpieczeń danych dla wystąpienia zarządzanego SQL powinny zawierać adres e-mail, aby otrzymywać alerty zabezpieczeń
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4,7 upewnij się, że "usługa poczty E-mail i współadministratory" jest włączona
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że zaawansowane powiadomienia o zabezpieczeniach danych są prawidłowo włączone.
 
-- Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych danych wystąpienia zarządzanego SQL
 - Powiadomienia e-mail dla administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych zabezpieczeń danych programu SQL Server
+- Powiadomienia e-mail do administratorów i właścicieli subskrypcji powinny być włączone w ustawieniach zaawansowanych danych wystąpienia zarządzanego SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4,8 upewnij się, że skonfigurowano administratora Azure Active Directory
 
@@ -240,8 +234,8 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które ułatwiają zapewnienie, że funkcja ochrony zaszyfrowanych danych dla serwerów SQL i wystąpień zarządzanych przez program SQL jest szyfrowana przy użyciu własnego klucza.
 
-- Funkcja ochrony TDE wystąpienia zarządzanego SQL powinna być szyfrowana przy użyciu własnego klucza
 - Funkcja ochrony programu SQL Server TDE powinna być szyfrowana przy użyciu własnego klucza
+- Funkcja ochrony TDE wystąpienia zarządzanego SQL powinna być szyfrowana przy użyciu własnego klucza
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4,11 upewnij się, że ustawienie "Wymuszaj połączenie SSL" ma wartość "ENABLED" dla serwera bazy danych MySQL
 
@@ -315,11 +309,83 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 - Azure Monitor powinna zbierać dzienniki aktywności ze wszystkich regionów
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Upewnij się, że konto magazynu zawierające kontener z dziennikami aktywności jest szyfrowane za pomocą BYOK (Użyj własnego klucza)
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że konta magazynu zawierające dzienniki aktywności są szyfrowane za pomocą BYOK.
+
+- Konto magazynu zawierające kontener z dziennikami aktywności musi być zaszyfrowane za pomocą BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 upewnij się, że rejestrowanie dla magazynu kluczy platformy Azure ma włączoną funkcję "Enabled"
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że dzienniki diagnostyczne są włączone dla magazynów kluczy.
 
 - Dzienniki diagnostyczne w Key Vault powinny być włączone
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Upewnij się, że alert dziennika aktywności istnieje dla tworzenia przypisania zasad
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Dla określonych operacji zasad powinien istnieć alert dziennika aktywności
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2. Upewnij się, że alert dziennika aktywności istnieje dla tworzenia lub aktualizowania sieciowej grupy zabezpieczeń
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Upewnij się, że alert dziennika aktywności istnieje dla usunięcia sieciowej grupy zabezpieczeń
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>ppkt 5.2.4 Upewnij się, że alert dziennika aktywności istnieje dla reguły tworzenia lub aktualizowania sieciowej grupy zabezpieczeń
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Upewnij się, że alert dziennika aktywności istnieje dla reguły usuwania sieciowej grupy zabezpieczeń
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Upewnij się, że alert dziennika aktywności istnieje dla rozwiązania do tworzenia lub aktualizacji zabezpieczeń
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji zabezpieczeń
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 upewnij się, że dla rozwiązania do usuwania zabezpieczeń istnieje alert dziennika aktywności
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji zabezpieczeń
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 upewnij się, że alert dziennika aktywności istnieje dla reguły zapory tworzenia lub aktualizowania lub usuwania SQL Server
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji administracyjnych
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 upewnij się, że alert dziennika aktywności istnieje dla zasad zabezpieczeń aktualizacji
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że istnieją określone alerty dziennika aktywności.
+
+- Alert dziennika aktywności powinien istnieć dla określonych operacji zabezpieczeń
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6,1 Upewnij się, że dostęp do protokołu RDP jest ograniczony z Internetu
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że dostęp do protokołu RDP jest ograniczony.
+
+- Dostęp RDP z Internetu powinien być zablokowany
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6,2 Upewnij się, że dostęp SSH jest ograniczony z Internetu
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że dostęp SSH jest ograniczony.
+
+- Dostęp SSH z Internetu powinien być zablokowany
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6,5 Upewnij się, że Network Watcher jest "Enabled"
 
@@ -349,7 +415,7 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga upewnić się, że są zainstalowane tylko zatwierdzone rozszerzenia maszyn wirtualnych. Te zasady wymagają tablicy parametrów, która określa wszystkie zatwierdzone rozszerzenia maszyny wirtualnej. Ta definicja inicjatywy zasad zawiera sugerowane wartości domyślne, które klienci powinni zweryfikować. 
 
- - Należy zainstalować tylko zatwierdzone rozszerzenia maszyn wirtualnych
+- Należy zainstalować tylko zatwierdzone rozszerzenia maszyn wirtualnych
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7,5 Upewnij się, że są stosowane najnowsze poprawki systemu operacyjnego dla wszystkich Virtual Machines
 
@@ -373,7 +439,15 @@ Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , kt�
 
 Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga zapewnić, że kontrola dostępu oparta na rolach służy do zarządzania uprawnieniami zarządzanymi w klastrach usługi Kubernetes
 
-- \[Wersja\]zapoznawcza: Access Control oparte na ROLACH (RBAC) powinny być używane w usługach Kubernetes Services
+- Access Control oparte na rolach (RBAC) powinny być używane w usługach Kubernetes Services
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9,1 Upewnij się, App Service uwierzytelnianie jest ustawione na Azure App Service
+
+Ten plan przypisuje definicję [Azure Policy](../../../policy/overview.md) , która pomaga w zapewnieniu uwierzytelniania żądań App Service aplikacji.
+
+- Należy włączyć uwierzytelnianie w aplikacji interfejsu API
+- Należy włączyć uwierzytelnianie w aplikacji funkcji
+- Należy włączyć uwierzytelnianie w aplikacji sieci Web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 Upewnij się, że aplikacja internetowa przekierowuje cały ruch HTTP do protokołu HTTPS w Azure App Service
 
@@ -434,7 +508,7 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które pomagają zagwarantować, że aplikacje sieci Web używają najnowszej wersji środowiska Java.
 
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji interfejsu API
-- Upewnij się, że "wersja Java" jest najnowsza, jeśli jest używana jako część aplikacji funtion
+- Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji funkcji
 - Upewnij się, że wersja języka Java jest najnowsza, jeśli jest używana jako część aplikacji sieci Web
 
 ## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
@@ -444,7 +518,6 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji interfejsu API
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji funkcji
 - Upewnij się, że wersja protokołu HTTP jest najnowsza, jeśli jest używana do uruchamiania aplikacji sieci Web
-
 
 ## <a name="next-steps"></a>Następne kroki
 

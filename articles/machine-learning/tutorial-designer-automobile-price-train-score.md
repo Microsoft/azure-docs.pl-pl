@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47288c5da5b32a9f9640b1ee65c646885bf5cbab
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80389430"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653239"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co s
     Jeśli masz już dostępny element docelowy obliczeń, możesz wybrać go do uruchomienia tego potoku.
 
     > [!NOTE]
-    > Projektant może uruchamiać eksperymenty tylko na Azure Machine Learning docelowych obliczeń. Inne elementy docelowe obliczeń nie będą wyświetlane.
+    > Projektant może uruchamiać eksperymenty szkoleniowe dotyczące Azure Machine Learning obliczeń i Azure Machine Learning obiektów docelowych wystąpienia obliczeniowego. Inne elementy docelowe obliczeń nie będą wyświetlane.
 
 1. Wprowadź nazwę zasobu obliczeniowego.
 

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 53110875596830f63a946c1263bdbff3711366bf
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610749"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653156"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
 Kontenery umożliwiają uruchamianie niektórych interfejsów API usługi mowy w Twoim środowisku. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. W tym artykule dowiesz się, jak pobrać, zainstalować i uruchomić kontener mowy.
 
-Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, która jest zoptymalizowana pod kątem niezawodnych możliwości chmury i lokalizacji brzegowej. Dostępne są cztery różne kontenery. Dwa standardowe kontenery to **Zamiana mowy na tekst** i zamiana **tekstu na mowę**. Dwa kontenery niestandardowe są **Custom Speech do tekstu** i **niestandardowego tekstu na mowę**.
+Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, która jest zoptymalizowana pod kątem niezawodnych możliwości chmury i lokalizacji brzegowej. Dostępne są cztery różne kontenery. Dwa standardowe kontenery to **Zamiana mowy na tekst** i zamiana **tekstu na mowę**. Dwa kontenery niestandardowe są **Custom Speech do tekstu** i **niestandardowego tekstu na mowę**. Kontenery mowy mają takie same [ceny](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) jak usługi Azure Speech Services oparte na chmurze.
 
 > [!IMPORTANT]
 > Wszystkie kontenery mowy są obecnie oferowane w ramach [publicznej wersji zapoznawczej "Gated"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Ogłoszenie zostanie wykonane, gdy kontenery mowy postępują z ogólnie dostępnymi wersjami.

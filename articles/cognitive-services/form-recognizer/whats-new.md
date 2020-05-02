@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81531086"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627997"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -22,6 +22,23 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 > [!NOTE]
 > Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
+
+### <a name="new-features"></a>Nowe funkcje
+* **Obsługa zestawu SDK interfejsu API rozpoznawania formularzy w wersji 2.0** W tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK w wersji zapoznawczej dla aparatu rozpoznawania dla programu format 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
+   * [Zestaw SDK .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
+   * [Zestaw SDK Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [Zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
+   * [Zestaw SDK dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
+
+
+  Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
+ 
+* **Kopiuj model niestandardowy** Teraz można kopiować modele między regionami i subskrypcjami przy użyciu nowej funkcji kopiowania modelu niestandardowego. Przed wywołaniem interfejsu API kopiowania niestandardowych modeli należy najpierw uzyskać autoryzację do skopiowania do zasobu docelowego, wywołując operację kopiowania autoryzacji do docelowego punktu końcowego zasobu.
+   * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
+   * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) INTERFEJS API REST 
+
 
 ## <a name="march-2020"></a>Marzec 2020 r. 
 

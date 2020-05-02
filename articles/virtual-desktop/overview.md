@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612847"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628320"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -103,7 +103,7 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 >[!IMPORTANT]
 >Zalecamy używanie tagów usługi zamiast adresów URL w większości przypadków, aby zapobiec problemom z usługą. Odblokowywanie tych adresów URL jest niezbędne dla niezawodnego wdrożenia pulpitu wirtualnego systemu Windows. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows, a nie zawierają adresów URL dla innych usług, takich jak Azure Active Directory.
 >
->Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN.
+>Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
 
 W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
 

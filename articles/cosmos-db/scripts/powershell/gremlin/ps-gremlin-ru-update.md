@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61c06fca0fe2f2449f67890dd962905642605716
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: febf39c8017a5db559ef2063a2c9bdee200acdf7
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80366021"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653031"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Aktualizowanie RU/s dla bazy danych lub grafu dla interfejsu API Azure Cosmos DB Gremlin
 
@@ -39,9 +39,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBGremlinDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbgremlindatabase) | Tworzy lub aktualizuje bazę danych interfejsu API Gremlin. |
-| [Get-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraph) | Pobiera Graf interfejsu API Gremlin. |
-| [Set-AzCosmosDBGremlinGraph](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbgremlingraph) | Tworzy lub aktualizuje Graf interfejsu API Gremlin. |
+| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Pobiera wartość przepływności grafu interfejsu API Gremlin. |
+| [Update-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbgremlingraphthroughput) | Aktualizuje wartość przepływności grafu interfejsu API Gremlin. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

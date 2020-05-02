@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 03/17/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 950a76c2caaffe6eef578d5614e9469c5942e08c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19b13db83b2c2533e963a503dc8ea3e362b5b5ed
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80365976"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652965"
 ---
 # <a name="update-throughput-rus-for-an-azure-cosmos-db-sql-api-database-or-container"></a>Aktualizowanie przepływności (RU/s) dla bazy danych lub kontenera Azure Cosmos DB SQL API
 
@@ -39,9 +39,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | Polecenie | Uwagi |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Tworzy nowy lub aktualizuje istniejący SQL Database Cosmos DB. |
-| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Pobiera kontener SQL Cosmos DB. |
-| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Tworzy nowy lub aktualizuje istniejący kontener Cosmos DB SQL. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Pobiera wartość przepływności kontenera SQL. |
+| [Update-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Aktualizuje wartość przepływności kontenera SQL. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

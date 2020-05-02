@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 59e30de7a0f069cfc69db715115f776034e94909
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 06d386f80b6a9c1116e71a629a2c445da3082836
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80365872"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653015"
 ---
 # <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>Tworzenie bazy danych i kolekcji dla interfejsu API Azure Cosmos DB MongoDB
 
@@ -40,9 +40,9 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 |**Azure Cosmos DB**| |
 | [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Tworzy nowe konto Cosmos DB. |
-| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Tworzy nową lub aktualizuje istniejącą Cosmos DB bazę danych interfejsu API MongoDB. |
+| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Tworzy nową lub aktualizuje istniejącą bazę danych interfejsu API MongoDB. |
 | [New-AzCosmosDBMongoDBIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbindex) | Tworzy nowy indeks interfejsu API MongoDB. |
-| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Tworzy nową lub aktualizuje istniejącą Cosmos DB kolekcję SQL. |
+| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Tworzy nową lub aktualizuje istniejącą kolekcję interfejsów API MongoDB. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

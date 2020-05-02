@@ -5,51 +5,42 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter, seo
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8954f75aba176d8222f8a82256e66131bdee8921
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 64c2e813743a772692efcb1d966c8ab7b52cc66d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610959"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628184"
 ---
-::: zone pivot="programming-language-csharp"  
-# <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka C# na platformie Azure przy użyciu Visual Studio Code
+# <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu Visual Studio Code
 
-W tym artykule użyto Visual Studio Code do utworzenia funkcji opartej na bibliotece języka C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+::: zone pivot="programming-language-csharp"  
+W tym artykule użyto Visual Studio Code do utworzenia funkcji opartej na bibliotece języka C#, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-# <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka JavaScript na platformie Azure przy użyciu Visual Studio Code
-
-W tym artykule opisano tworzenie funkcji języka JavaScript reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+W tym artykule opisano tworzenie funkcji języka JavaScript reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# <a name="quickstart-create-a-typescript-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka TypeScript na platformie Azure przy użyciu Visual Studio Code
-
-W tym artykule opisano tworzenie funkcji języka TypeScript reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+W tym artykule opisano tworzenie funkcji języka TypeScript reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-# <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji programu PowerShell na platformie Azure przy użyciu Visual Studio Code
-
-W tym artykule opisano tworzenie funkcji programu PowerShell reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+W tym artykule opisano tworzenie funkcji programu PowerShell reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
-# <a name="quickstart-create-a-python-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka Python na platformie Azure przy użyciu Visual Studio Code
-
-W tym artykule użyto Visual Studio Code do utworzenia funkcji języka Python, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+W tym artykule użyto Visual Studio Code do utworzenia funkcji języka Python, która reaguje na żądania HTTP. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-# <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji języka Java na platformie Azure przy użyciu Visual Studio Code
-
-W tym artykule opisano tworzenie funkcji języka Java reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
+W tym artykule opisano tworzenie funkcji języka Java reagującej na żądania HTTP przy użyciu Visual Studio Code. Po przetestowaniu kodu lokalnie należy wdrożyć go w środowisku bezserwerowym Azure Functions. 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Istnieje również wersja tego artykułu [oparta na interfejsie wiersza polecenia](functions-create-first-azure-function-azure-cli.md) .
-::: zone-end  
+W ramach tego przewodnika Szybki Start powiąże się niewielką opłatą za kilka centów USD lub mniej na koncie platformy Azure. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+Istnieje również wersja tego artykułu [oparta na interfejsie wiersza polecenia](functions-create-first-azure-function-azure-cli.md) .
+::: zone-end
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Jeśli VS Code nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java przy użyciu pomysłów [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) i [IntelliJ](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> Jeśli Visual Studio Code nie jest preferowanym narzędziem programistycznym, zapoznaj się z naszymi samouczkami dotyczącymi deweloperów języka Java przy użyciu pomysłów [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) i [IntelliJ](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## <a name="configure-your-environment"></a>Konfigurowanie środowiska

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 686b140915e90adefa15084c2e8317404b91ed09
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 94c41df305abe3e1678efc1dc59d0c855c5cb069
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80365897"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652996"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Wyświetl i Pobierz bazy danych i wykresy dla interfejsu API Azure Cosmos DB MongoDB
 
@@ -40,8 +40,8 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Wyświetla listę kont Cosmos DB lub pobiera określone konto Cosmos DB. |
-| [Get-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabase) | Wyświetla listę Cosmos DB baz danych interfejsu API MongoDB na koncie lub pobiera określoną Cosmos DB bazę danych interfejsu API MogoDB na koncie. |
-| [Get-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollection) | Wyświetla listę Cosmos DB kolekcji interfejsów API MongoDB lub pobiera określoną Cosmos DB kolekcji interfejsów API MongoDB w bazie danych |
+| [Get-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabase) | Wyświetla listę baz danych interfejsu API MongoDB na koncie lub pobiera określoną bazę danych interfejsu API MongoDB na koncie. |
+| [Get-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollection) | Wyświetla kolekcje interfejsów API MongoDB lub pobiera określoną kolekcję interfejsów API MongoDB w bazie danych. |
 |**Grupy zasobów platformy Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||

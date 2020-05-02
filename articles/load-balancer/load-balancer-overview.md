@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: dd15b2ec985ddaba6031765368571a582fae1993
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 11c63c9dac6186e1c21cc0e76518a95e117574ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583721"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629460"
 ---
 # <a name="what-is-azure-load-balancer"></a>Co to jest usługa Azure Load Balancer?
 
@@ -27,9 +27,9 @@ ms.locfileid: "82583721"
 
 Azure Load Balancer działa w warstwie cztery z modelem połączenia typu Open Systems (OSI). Jest to pojedynczy punkt kontaktu dla klientów. Load Balancer dystrybuuje przepływy przychodzące, które docierają do frontonu modułu równoważenia obciążenia z wystąpieniami puli zaplecza. Te przepływy są zależne od skonfigurowanych reguł równoważenia obciążenia i sond kondycji. Wystąpienia puli zaplecza mogą być Virtual Machinesami platformy Azure lub wystąpieniami w zestawie skalowania maszyn wirtualnych.
 
-**[Publiczny moduł równoważenia obciążenia](./concepts-limitations.md#publicloadbalancer)** może zapewnić połączenia wychodzące maszyn wirtualnych w sieci wirtualnej. Te połączenia są realizowane przez przetłumaczenie prywatnych adresów IP na publiczne adresy IP. Publiczne usługi równoważenia obciążenia są używane do równoważenia obciążenia ruchu internetowego na maszynach wirtualnych.
+**[Publiczny moduł równoważenia obciążenia](./types.md#publicloadbalancer)** może zapewnić połączenia wychodzące maszyn wirtualnych w sieci wirtualnej. Te połączenia są realizowane przez przetłumaczenie prywatnych adresów IP na publiczne adresy IP. Publiczne usługi równoważenia obciążenia są używane do równoważenia obciążenia ruchu internetowego na maszynach wirtualnych.
 
-**[Wewnętrzny (lub prywatny) moduł równoważenia obciążenia](./concepts-limitations.md#internalloadbalancer)** jest używany w przypadku, gdy prywatne adresy IP są używane tylko na frontonie. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej. Dostęp do frontonu modułu równoważenia obciążenia można uzyskać z sieci lokalnej w scenariuszu hybrydowym.
+**[Wewnętrzny (lub prywatny) moduł równoważenia obciążenia](./types.md#internalloadbalancer)** jest używany w przypadku, gdy prywatne adresy IP są używane tylko na frontonie. Wewnętrzne moduły równoważenia obciążenia są używane do równoważenia obciążenia ruchu w sieci wirtualnej. Dostęp do frontonu modułu równoważenia obciążenia można uzyskać z sieci lokalnej w scenariuszu hybrydowym.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
@@ -37,7 +37,7 @@ Azure Load Balancer działa w warstwie cztery z modelem połączenia typu Open S
 
 *Ilustracja: Równoważenie aplikacji wielowarstwowych przy użyciu Load Balancer publicznego i wewnętrznego*
 
-Aby uzyskać więcej informacji na temat poszczególnych składników modułu równoważenia obciążenia, zobacz [Azure Load Balancer składników i ograniczeń](./concepts-limitations.md).
+Aby uzyskać więcej informacji na temat poszczególnych składników usługi równoważenia obciążenia, zobacz [Azure Load Balancer Components](./components.md).
 
 ## <a name="why-use-azure-load-balancer"></a>Dlaczego warto używać Azure Load Balancer?
 Za pomocą usługa Load Balancer w warstwie Standardowa można skalować aplikacje i tworzyć usługi o wysokiej dostępności. Moduł równoważenia obciążenia obsługuje scenariusze przychodzące i wychodzące. Moduł równoważenia obciążenia zapewnia małe opóźnienia i wysoką przepływność oraz skaluje do milionów przepływów dla wszystkich aplikacji TCP i UDP.
@@ -80,6 +80,6 @@ Zobacz [uaktualnianie podstawowego Load Balancer](upgrade-basic-standard.md) , a
 
 Aby rozpocząć korzystanie z Load Balancer, zobacz [tworzenie usługa Load Balancer w warstwie Standardowa publicznego](quickstart-load-balancer-standard-public-portal.md) .
 
-Aby uzyskać więcej informacji o Azure Load Balancer ograniczeniach i składnikach, zobacz [Azure Load Balancer pojęć i ograniczeń](./concepts-limitations.md)
+Aby uzyskać więcej informacji o Azure Load Balancer ograniczeniach i składnikach, zobacz [składniki Azure Load Balancer](./components.md) i [koncepcje Azure Load Balancer](./concepts.md)
 
 Aby zapoznać się z porównaniem opcji równoważenia obciążenia platformy Azure, zobacz [Omówienie opcji równoważenia obciążenia na platformie Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
