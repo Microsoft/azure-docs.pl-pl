@@ -1,6 +1,6 @@
 ---
-title: Twórz rozwiązania dla służby zdrowia dzięki usłudze Azure IoT Central | Dokumenty firmy Microsoft
-description: Dowiedz się, jak tworzyć rozwiązania dla służby zdrowia przy użyciu szablonów aplikacji Usługi Azure IoT Central.
+title: Tworzenie rozwiązań do ochrony zdrowia za pomocą usługi Azure IoT Central | Microsoft Docs
+description: Dowiedz się, jak tworzyć rozwiązanie do opieki zdrowotnej przy użyciu szablonów aplikacji IoT Central platformy Azure.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -9,39 +9,39 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77021494"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Tworzenie rozwiązań dla opieki zdrowotnej za pomocą usługi Azure IoT Central 
 
 
 
-Dowiedz się, jak tworzyć rozwiązania dla służby zdrowia za pomocą usługi Azure IoT Central przy użyciu szablonów aplikacji.
+Dowiedz się, jak tworzyć rozwiązania do ochrony zdrowia za pomocą usługi Azure IoT Central przy użyciu szablonów aplikacji.
 
-## <a name="what-is-continuous-patient-monitoring-template"></a>Co to jest szablon ciągłego monitorowania pacjenta?
+## <a name="what-is-continuous-patient-monitoring-template"></a>Co to jest szablon monitorowania ciągłego pacjenta?
 
-W przestrzeni IoT opieki zdrowotnej ciągłe monitorowanie pacjentów jest jednym z kluczowych czynników umożliwiających zmniejszenie ryzyka readmisji, skuteczniejsze zarządzanie chorobami przewlekłymi oraz poprawę wyników pacjentów. Ciągłe monitorowanie pacjenta można podzielić na dwie główne kategorie:
+W obszarze IoT opieki zdrowotnej ciągłe monitorowanie pacjenta to jeden z najważniejszych elementów umożliwiających zmniejszenie ryzyka związanego z readmisjami, bardziej wydajne zarządzanie chorobami przewlekłymi oraz poprawa wyników pacjenta. Monitorowanie ciągłego pacjenta można podzielić na dwie główne kategorie:
 
-1. **Monitorowanie pacjenta**: Za pomocą urządzeń do noszenia i innych urządzeń medycznych w szpitalu, zespoły opieki mogą monitorować parametry życiowe pacjenta i choroby bez konieczności wysyłania pielęgniarki, aby sprawdzić pacjenta kilka razy dziennie. Zespoły opieki mogą zrozumieć moment, w którym pacjent potrzebuje krytycznej uwagi poprzez powiadomienia i skutecznie nadaje priorytet swojemu czasowi.
-1. **Zdalne monitorowanie pacjenta**: Dzięki zastosowaniu medycznych wearables i wyników zgłoszonych przez pacjentów (PRO) do monitorowania pacjentów poza szpitalem, ryzyko readmisji może zostać obniżone. Można zbierać dane pochodzące od pacjentów cierpiących na choroby przewlekłe i pacjentów z rehabilitacją, aby upewnić się, że pacjenci przestrzegają planów opieki i że mogą pojawić się alarmy o pogorszeniu stanu pacjentów zespołom opieki, zanim staną się krytyczne.
+1. **Monitorowanie w pacjentach**: korzystanie z noszenia medycznego i innych urządzeń w szpitalu, zespoły opiekijące mogą monitorować kluczowe objawy i warunki medyczne bez konieczności wysyłania pielęgniarek/pielęgniarzy w celu wyszukania pacjenta przez wiele razy dziennie. Zespoły zajmujące się opieką mogą zrozumieć moment, w którym pacjent wymaga krytycznej uwagi za pomocą powiadomień, i ustalają priorytety czasu efektywnie.
+1. **Zdalne monitorowanie pacjentów**: dzięki noszenia lekarskim i raportom dotyczącym pacjenta (specjalistów) do monitorowania pacjentów poza szpitalem można obniżyć ryzyko readmisji. Można zbierać dane z pacjentów przed przewlekłą chorobą i pacjentów do odbudowy, aby upewnić się, że pacjente są zgodne z planami opieki, a także że alerty dotyczące pogorszenia pacjenta mogą być nadane zespołom opieki, zanim staną się krytyczne.
 
 Ten szablon aplikacji może służyć do tworzenia rozwiązań dla obu kategorii ciągłego monitorowania pacjenta. Korzyści:
 
-* Bezproblemowe łączenie różnych rodzajów medycznych noszonych do instancji IoT Central.
-* Monitoruj urządzenia i zarządzaj nimi, aby zapewnić ich zdrowie.
-* Tworzenie niestandardowych reguł wokół danych urządzenia, aby wyzwolić odpowiednie alerty.
-* Eksportuj dane dotyczące kondycji pacjenta do interfejsu API platformy Azure dla FHIR, zgodnego magazynu danych.
-* Eksportuj zagregowane informacje o istniejących lub nowych aplikacjach biznesowych.
+* Bezproblemowo łącz różne rodzaje noszenia lekarskich z wystąpieniem IoT Central.
+* Monitoruj urządzenia i zarządzaj nimi, aby upewnić się, że pozostaną w dobrej kondycji.
+* Utwórz niestandardowe reguły dotyczące danych urządzenia, aby wyzwolić odpowiednie alerty.
+* Wyeksportuj dane o kondycji pacjenta do interfejsu API platformy Azure dla FHIR, zgodnego magazynu danych.
+* Wyeksportuj zagregowane informacje do istniejących lub nowych aplikacji branżowych.
 
 >[!div class="mx-imgBorder"] 
->![CPM-panel](media/in-patient-dashboard.png)
+>![CPM — pulpit nawigacyjny](media/in-patient-dashboard.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć tworzenie rozwiązania do ciągłego monitorowania pacjenta:
+Aby rozpocząć tworzenie rozwiązania ciągłego monitorowania pacjenta:
 
-* [Wdrażanie szablonu aplikacji](tutorial-continuous-patient-monitoring.md)
+* [Wdróż szablon aplikacji](tutorial-continuous-patient-monitoring.md)
 * [Zobacz przykładową architekturę](concept-continuous-patient-monitoring-architecture.md)
