@@ -697,6 +697,8 @@
               href: mongodb-feature-support-36.md
             - name: Obsługa protokołu przewodowego (3.2)
               href: mongodb-feature-support.md
+            - name: Często zadawane pytania
+              href: mongodb-api-faq.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Przewodnik przed migracją
@@ -763,6 +765,10 @@
           items:
             - name: 1 — Wykonywanie zapytania o dane
               href: tutorial-query-graph.md
+        - name: Pojęcia
+          items:
+            - name: Często zadawane pytania
+              href: gremlin-api-faq.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Modelowanie danych grafu
@@ -844,6 +850,10 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
+        - name: Pojęcia
+          items:
+            - name: Często zadawane pytania
+              href: table-api-faq.md
         - name: Przewodniki z instrukcjami
           items:
             - name: Tworzenie aplikacji za pomocą interfejsu API tabel

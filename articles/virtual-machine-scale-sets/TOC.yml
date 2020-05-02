@@ -109,7 +109,7 @@
           href: ../virtual-machines/windows/sizes-gpu.md
           maintainContext: true
           items:
-            - name: Konfigurowanie sterowników procesora GPU
+            - name: Konfigurowanie sterowników procesorów GPU firmy NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: Obliczenia o wysokiej wydajności

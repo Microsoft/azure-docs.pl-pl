@@ -225,7 +225,7 @@
               href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Seria NVv4
               href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Konfigurowanie sterowników procesora GPU
+            - name: Konfigurowanie sterowników procesorów GPU firmy NVIDIA
               href: n-series-driver-setup.md
             - name: Konfigurowanie sterowników procesora GPU AMD
               href: n-series-amd-driver-setup.md
