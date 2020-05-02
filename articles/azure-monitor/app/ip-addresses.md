@@ -7,7 +7,7 @@ ms.author: lagayhar
 ms.date: 04/23/2020
 ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82105849"
