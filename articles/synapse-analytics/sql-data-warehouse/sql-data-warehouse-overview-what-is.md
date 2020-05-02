@@ -10,14 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81416029"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690908"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest Azure Synapse Analytics (dawniej SQL DW)?
+
+> [!NOTE] 
+> Wypróbuj najnowsze funkcje usługi Azure Synapse, takie jak obszary robocze, Spark, SQL na żądanie i zintegrowane środowisko Synapse Studio, [żądając dostępu do usługi Azure Synapse (obszary robocze w wersji zapoznawczej)](https://aka.ms/synapsepreview). 
+>
+>Zapoznaj się z [dokumentacją platformy Azure Synapse (wersja zapoznawcza)](../overview-what-is.md).
 
 Azure Synapse to Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse udostępnia te dwa światy wraz z ujednoliconym doświadczeniem do pozyskiwania, przygotowywania, zarządzania i obsługi danych w celu natychmiastowej analizy biznesowej i uczenia maszynowego.
 
@@ -30,10 +35,7 @@ Usługa Azure Synapse ma cztery składniki:
 - Potoki Synapse: integracja danych hybrydowych (wersja zapoznawcza)
 - Studio: ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
 
-> [!NOTE]
-> Aby uzyskać dostęp do funkcji w wersji zapoznawczej usługi Azure Synapse, zażądaj dostępu [tutaj](https://aka.ms/synapsepreview). Firma Microsoft będzie Klasyfikacja wszystkie żądania i odpowiadać tak szybko, jak to możliwe.
->
-> Zapoznaj się z [dokumentacją usługi Azure Synapse w wersji zapoznawczej](../overview-what-is.md).
+
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse pulę SQL na platformie Azure Synapse
 

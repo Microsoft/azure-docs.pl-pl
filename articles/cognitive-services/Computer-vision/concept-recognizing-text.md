@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220161"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690815"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Rozpoznawanie tekstu drukowanego i pisma odręcznego
 
@@ -26,10 +26,10 @@ Przetwarzanie obrazów udostępnia wiele usług, które wykrywają i wyodrębnia
 
 Interfejs API odczytu wykrywa zawartość tekstową w obrazie przy użyciu najnowszych modeli rozpoznawania i konwertuje zidentyfikowany tekst na strumień znaków do odczytu maszynowego. Są one zoptymalizowane pod kątem obrazów z dużym użyciem tekstu (takich jak dokumenty, które zostały przeskanowane cyfrowo) i obrazów z dużą ilością szumów wizualnych. Określi model rozpoznawania, który ma być używany dla każdego wiersza tekstu, obsługując obrazy zarówno w postaci tekstu, jak i w postaci odręcznej. Interfejs API odczytu jest wykonywany asynchronicznie, ponieważ w większych dokumentach można zwrócić wynik.
 
-Operacja odczytu zachowuje pierwotne Grupowanie wierszy w danych wyjściowych. Każdy wiersz zawiera współrzędne pola ograniczenia, a każdy wyraz w wierszu ma także własne współrzędne. Jeśli wyraz został rozpoznany z niskim poziomem pewności, te informacje są również przekazywane. Aby dowiedzieć się więcej, zobacz dokumentację dokumentacji [dotyczącej interfejsów API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) i [Przeczytaj dokumentację dokumentacji interfejsu API w wersji zapoznawczej](https://go.microsoft.com/fwlink/?linkid=2118322) .
+Operacja odczytu zachowuje pierwotne Grupowanie wierszy w danych wyjściowych. Każdy wiersz zawiera współrzędne pola ograniczenia, a każdy wyraz w wierszu ma także własne współrzędne. Jeśli wyraz został rozpoznany z niskim poziomem pewności, te informacje są również przekazywane. Aby dowiedzieć się więcej, zobacz [Przeczytaj dokumenty referencyjne interfejsu API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) lub [Przeczytaj dokumentację referencyjną interfejsu API v 3.0 w wersji zapoznawczej](https://go.microsoft.com/fwlink/?linkid=2118322) .
 
 > [!NOTE]
-> Ta funkcja jest dostępna tylko dla tekstu w języku angielskim i hiszpańskim (wersja zapoznawcza).
+> Ta funkcja jest dostępna tylko dla tekstu w języku angielskim i hiszpańskim (wersja zapoznawcza 3.0).
 
 ### <a name="image-requirements"></a>Wymagania obrazu
 

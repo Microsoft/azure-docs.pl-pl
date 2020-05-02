@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096337"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692424"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>Szybki Start: korzystanie z programu Synapse Studio (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Możesz tworzyć nowe foldery i przekazywać pliki przy użyciu linków na pasku
 
    ![Wysyłanie zapytań do plików w magazynie](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Uruchom wygenerowane zapytanie lub Notes, aby zobaczyć zawartość pliku:
+3. Uruchom wygenerowane zapytanie lub Notes, aby zobaczyć zawartość pliku.
 
    ![Zobacz zawartość pliku](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Możesz tworzyć nowe foldery i przekazywać pliki przy użyciu linków na pasku
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Włącz użytkownikom usługi Azure AD wykonywanie zapytań [dotyczących plików, przypisując im uprawnienia kontrola dostępu do **magazynu danych** lub **Magazyn danych obiektów BLOB** w usłudze Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Włącz użytkownikom usługi Azure AD wykonywanie zapytań dotyczących plików, przypisując im [uprawnienia kontrola dostępu do **magazynu danych** lub **Magazyn danych obiektów BLOB** w usłudze Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Wysyłanie zapytań do plików w usłudze Azure Storage przy użyciu programu SQL na żądanie](sql/on-demand-workspace-overview.md)
-- [Utwórz pulę Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Utwórz pulę Apache Spark przy użyciu Azure Portal](quickstart-create-apache-spark-pool.md)
 - [Tworzenie raportu Power BI dla plików przechowywanych w usłudze Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

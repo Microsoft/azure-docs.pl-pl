@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876510"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690822"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
 
@@ -76,7 +76,11 @@ Odp **.:** Główne zmiany wersji wskazują na nieprzerwaną zmianę sygnatury i
 
 **P: jak uruchamiać kontenery Cognitive Services na urządzeniach IoT?**
 
-Bez względu na to, czy nie masz niezawodnego połączenia z Internetem, czy chcesz zaoszczędzić koszt przepustowości. Lub jeśli mają wymagania dotyczące małych opóźnień lub zawierają dane poufne, które należy analizować w witrynie, [Azure IoT Edge z kontenerami Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) zapewnia spójność z chmurą.
+Odp **.:** Bez względu na to, czy nie masz niezawodnego połączenia z Internetem, czy chcesz zaoszczędzić koszt przepustowości. Lub jeśli mają wymagania dotyczące małych opóźnień lub zawierają dane poufne, które należy analizować w witrynie, [Azure IoT Edge z kontenerami Cognitive Services](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) zapewnia spójność z chmurą.
+
+**P: czy te kontenery są zgodne z OpenShift?** 
+
+Kontenery nie są testowane z OpenShift, ale ogólnie kontenery Cognitive Services powinny działać na dowolnej platformie, która obsługuje obrazy platformy Docker. Jeśli używasz OpenShift, zalecamy uruchomienie kontenerów jako `root-user`.
 
 **P: Jak mogę zapewniać opinie o produkcie i zalecenia dotyczące funkcji?**
 

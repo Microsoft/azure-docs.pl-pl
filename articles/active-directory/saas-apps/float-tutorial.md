@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b057f817fb0c30e45c08f8d708441bd52122af7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92d3f2381f2fdce123511caa2339d41b0641b077
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82206752"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690635"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą typu float
 
@@ -37,7 +37,7 @@ Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zo
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Obsługa logowania jednokrotnego (SSO).
+* Subskrypcja zmiennoprzecinkowa. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://app.float.com/join?).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
@@ -92,7 +92,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     W polu tekstowym **adres URL logowania** wpisz adres URL we wzorcu `https://<hostname>.float.com/login`.
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Aby uzyskać te wartości, skontaktuj się z [zespołem pomocy technicznej dla klientów zmiennoprzecinkowych](mailto:support@float.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Należy je zastąpić rzeczywistymi wartościami identyfikatora, adresu URL odpowiedzi i adresu URL logowania. Zamień <hostname> na nazwę hosta zmiennoprzecinkowego. Jeśli nie masz pewności, skontaktuj się z [zespołem pomocy technicznej dla klientów zmiennoprzecinkowych](mailto:support@float.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Aplikacja zmiennoprzecinkowa oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
@@ -143,11 +143,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-float-sso"></a>Konfigurowanie typu Logowanie jednokrotne
 
-Aby **skonfigurować logowanie** jednokrotne, należy wysłać pobrany **certyfikat (base64)** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej zmiennoprzecinkowej](mailto:support@float.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne po stronie sieci **zmiennoprzecinkowej** , przejdź do sekcji ustawienia zespołu zmiennoprzecinkowego i wybierz pozycję Konfiguruj z modułu uwierzytelniania. Wklej adres URL logowania do usługi Azure AD w polu adres URL punktu końcowego protokołu SAML 2,0, wklej tekst usługi Azure AD identyfikatora w polu adres URL wystawcy dostawcy tożsamości, wklej pełny tekstu z pobranego **certyfikatu (base64)** w polu Certyfikat X. 509 i Zapisz.
 
 ### <a name="create-float-test-user"></a>Utwórz użytkownika testowego zmiennoprzecinkowego
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w obszarze float. Pracuj z [zespołem pomocy technicznej zmiennoprzecinkowej](mailto:support@float.com) , aby dodać użytkowników na platformie zmiennoprzecinkowej. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji Utwórz użytkownika o nazwie Britta Simon w obszarze float. Dodaj użytkownika z sekcji osoby lub gość ustawienia zespołu i Udziel im prawa dostępu. Przed skorzystaniem z logowania jednokrotnego należy utworzyć i zaakceptować zaproszenie.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -155,7 +155,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka float w panelu dostępu należy automatycznie zalogować się do elementu zmiennoprzecinkowego, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

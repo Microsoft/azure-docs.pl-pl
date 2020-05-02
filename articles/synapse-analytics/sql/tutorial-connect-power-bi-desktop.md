@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769478"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692407"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Samouczek: łączenie programu SQL na żądanie (wersja zapoznawcza) w celu Power BI Desktop & tworzenia raportu
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie SQL na żądanie (wersja zapoznawcza) z Power BI Desktop & Tworzenie raportu
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -24,7 +24,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 >
 > - Utwórz demonstracyjną bazę danych
 > - Utwórz widok używany na potrzeby raportu
-> - Nawiązywanie połączenia z programem Power BI Desktop
+> - Łączenie Power BI Desktop z SQL na żądanie
 > - Utwórz raport w oparciu o widok
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -130,11 +130,11 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
     - Przykład dla usługi AAD 
   
-    ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Przykład logowania SQL — wpisz nazwę użytkownika i hasło.
 
-    ![Użyj logowania SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Użyj logowania SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Wybierz widok `usPopulationView`, a następnie wybierz pozycję **Załaduj**. 

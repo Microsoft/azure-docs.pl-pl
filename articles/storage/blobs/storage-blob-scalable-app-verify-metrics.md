@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68698990"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692438"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Sprawdzanie metryk przepływności i opóźnień dla konta magazynu
 
@@ -24,7 +24,7 @@ Część czwarta serii zawiera informacje na temat wykonywania następujących c
 > * Konfigurowanie wykresów na portalu Azure Portal
 > * Weryfikowanie metryk przepływności i opóźnienia
 
-[Metryki usługi Azure Storage](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) używają usługi Azure Monitor, aby zapewnić spójny widok wydajności i dostępności konta magazynu.
+[Metryki usługi Azure Storage](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) używają usługi Azure Monitor, aby zapewnić spójny widok wydajności i dostępności konta magazynu.
 
 ## <a name="configure-metrics"></a>Konfigurowanie metryk
 
@@ -34,7 +34,7 @@ Wybierz pozycję Blob z listy rozwijanej **USŁUGA PODRZĘDNA**.
 
 W obszarze **METRYKA** wybierz jedną z metryk z poniższej tabeli:
 
-Następujące metryki umożliwiają sprawdzenie opóźnienia i przepływności aplikacji. Metryki skonfigurowane w portalu przedstawiają wartości średnie z 1 minuty. Jeśli transakcja zakończy się po 30 sekundach, dane z tej minuty są dzielone na pół w celu uśrednienia. W aplikacji czas operacji przekazywania i pobierania został zmierzony, a rzeczywisty czas, jaki zajęło przekazanie i pobranie plików, został podany w danych wyjściowych. Tych informacji można użyć w połączeniu z metrykami w portalu, aby uzyskać pełny obraz przepływności.
+Następujące metryki umożliwiają sprawdzenie opóźnienia i przepływności aplikacji. Metryki skonfigurowane w portalu przedstawiają wartości średnie z 1 minuty. Jeśli transakcja zakończyła się w połowie minuty, że dane minutowe są średnio średnie. W aplikacji czas operacji przekazywania i pobierania został zmierzony, a rzeczywisty czas, jaki zajęło przekazanie i pobranie plików, został podany w danych wyjściowych. Tych informacji można użyć w połączeniu z metrykami w portalu, aby uzyskać pełny obraz przepływności.
 
 |Metryka|Definicja|
 |---|---|
@@ -52,7 +52,7 @@ Wykresy mogą mieć przypisaną więcej niż jedną metrykę, ale przypisanie wi
 
 ## <a name="dimensions"></a>Wymiary
 
-[Wymiary](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) umożliwiają głębszą analizy wykresów i uzyskanie bardziej szczegółowych informacji. Różne metryki mają różne wymiary. Jednym z dostępnych wymiarów jest **Nazwa interfejsu API**. Ten wymiar dzieli wykres na poszczególne wywołania interfejsu API. Pierwszy obraz poniżej przedstawia przykładowy wykres łącznej liczby transakcji dla konta magazynu. Drugi obraz pokazuje ten sam wykres, ale z wybranym wymiarem Nazwa interfejsu API. Jak widać, wymieniona jest każda transakcja, co daje więcej informacji na temat liczby utworzonych wywołań według nazwy interfejsu API.
+[Wymiary](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) umożliwiają głębszą analizy wykresów i uzyskanie bardziej szczegółowych informacji. Różne metryki mają różne wymiary. Jednym z dostępnych wymiarów jest **Nazwa interfejsu API**. Ten wymiar dzieli wykres na poszczególne wywołania interfejsu API. Pierwszy obraz poniżej przedstawia przykładowy wykres łącznej liczby transakcji dla konta magazynu. Drugi obraz pokazuje ten sam wykres, ale z wybranym wymiarem Nazwa interfejsu API. Jak widać, wymieniona jest każda transakcja, co daje więcej informacji na temat liczby utworzonych wywołań według nazwy interfejsu API.
 
 ![Metryki konta magazynu — transakcje bez wymiaru](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

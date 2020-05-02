@@ -1,6 +1,6 @@
 ---
 title: Korzystanie z SQL na żądanie (wersja zapoznawcza)
-description: W tym przewodniku szybki start zobaczysz, jak łatwo można wykonywać zapytania o różne typy plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
+description: W tym przewodniku szybki start zobaczysz, jak łatwo można wysyłać zapytania o różne typy plików przy użyciu funkcji SQL na żądanie (wersja zapoznawcza).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49918fc67a45419e5c7ca123642c48e689a1496
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113786"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692167"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
 
-Synapse SQL na żądanie (wersja zapoznawcza) to bezserwerowa usługa zapytań, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie.
+Synapse SQL na żądanie (wersja zapoznawcza) to usługa zapytań bezserwerowych, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie.
 
 Obsługiwane są następujące typy plików: JSON, CSV, Apache Parquet
 
@@ -41,19 +41,18 @@ Parametry szybkiego startu:
 
 ## <a name="first-time-setup"></a>Konfiguracja pierwszego czasu
 
-Przed użyciem przykładów:
+Przed rozpoczęciem korzystania z przykładów:
 
 - Tworzenie bazy danych dla widoków (w przypadku, gdy chcesz używać widoków)
 - Utwórz poświadczenia, które będą używane przez SQL na żądanie do uzyskiwania dostępu do plików w magazynie
 
 ### <a name="create-database"></a>Tworzenie bazy danych
 
-Utwórz własną bazę danych w celach demonstracyjnych. To jest baza danych, w której tworzysz widoki. Użyj tej bazy danych w przykładowych zapytaniach w tym artykule.
+Utwórz własną bazę danych w celach demonstracyjnych. Ta baza danych zostanie użyta do utworzenia widoków i przykładowych zapytań w tym artykule.
 
 > [!NOTE]
 > Bazy danych są używane tylko do wyświetlania metadanych, a nie dla rzeczywistych danych.
->
-> Zapisz nazwę bazy danych używaną w dalszej części przewodnika Szybki Start.
+>Zapisz nazwę bazy danych używaną w dalszej części przewodnika Szybki Start.
 
 Użyj następującego zapytania, aby zmienić `mydbname` nazwę wybranego elementu:
 
@@ -66,15 +65,15 @@ CREATE DATABASE mydbname
 Aby uruchamiać zapytania przy użyciu programu SQL na żądanie, Utwórz poświadczenia dla programu SQL na żądanie, aby używać go do uzyskiwania dostępu do plików w magazynie.
 
 > [!NOTE]
-> Aby pomyślnie uruchomić przykłady w tej sekcji, musisz użyć tokenu SAS.
+> Aby można było pomyślnie uruchomić przykłady w tej sekcji, należy użyć tokenu SAS.
 >
 > Aby rozpocząć korzystanie z tokenów SAS, należy porzucić tożsamość użytkownika, który został wyjaśniony w następującym [artykule](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > Funkcja SQL on-Demand domyślnie zawsze używa przekazywania w usłudze AAD.
 
-Aby uzyskać więcej informacji na temat zarządzania kontrolą dostępu do magazynu, zaznacz ten [link](sql/develop-storage-files-storage-access-control.md).
+Aby uzyskać więcej informacji na temat zarządzania kontrolą dostępu do magazynu, zobacz artykuł[Kontrola dostępu do konta magazynu dla usługi SQL na żądanie](sql/develop-storage-files-storage-access-control.md) .
 
-Wykonaj Poniższy fragment kodu, aby utworzyć poświadczenie używane w przykładach w tej sekcji:
+Wykonaj Poniższy fragment kodu, aby utworzyć poświadczenia używane w przykładach w tej sekcji:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -124,7 +123,7 @@ Aby uzyskać więcej przykładów, zobacz jak [zbadać plik CSV](sql/query-singl
 Poniższy przykład pokazuje możliwości automatycznego wnioskowania schematu do wykonywania zapytań dotyczących plików Parquet. Zwraca liczbę wierszy we wrześniu 2017 bez określania schematu.
 
 > [!NOTE]
-> Nie ma potrzeby określania kolumn w klauzuli w `OPENROWSET WITH` przypadku odczytywania plików Parquet. W takim przypadku SQL na żądanie wykorzystuje metadane w pliku Parquet i tworzy powiązanie kolumn według nazwy.
+> Nie ma potrzeby określania kolumn w klauzuli w `OPENROWSET WITH` przypadku odczytywania plików Parquet. W takim przypadku SQL na żądanie wykorzystuje metadane w pliku Parquet i wiąże kolumny według nazwy.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -135,7 +134,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Więcej informacji na temat [wykonywania zapytań dotyczących plików Parquet](sql/query-parquet-files.md)].
+Znajdź więcej informacji na temat [wykonywania zapytań dotyczących plików Parquet](sql/query-parquet-files.md).
 
 ## <a name="querying-json-files"></a>Wykonywanie zapytania dotyczącego plików JSON
 
@@ -161,7 +160,7 @@ Pliki są przechowywane w kontenerze *JSON* , w *książkach*folderów i zawiera
 
 ### <a name="querying-json-files"></a>Wykonywanie zapytania dotyczącego plików JSON
 
-Poniższe zapytanie pokazuje, jak używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
+Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
 
 ```sql
 SELECT
@@ -183,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Odczytujemy cały plik JSON jako pojedynczy wiersz/kolumnę, więc FIELDTERMINATOR, FIELDQUOTE i ROWTERMINATOR są ustawione na 0x0B, ponieważ nie oczekujemy, że znajdą się w pliku.
+> Odczytujemy cały plik JSON jako pojedynczy wiersz/kolumnę. Tak więc FIELDTERMINATOR, FIELDQUOTE i ROWTERMINATOR są ustawione na 0x0B, ponieważ nie oczekujemy, że znajdą się w pliku.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz możesz zacząć od następujących artykułów szybkiego startu:
+Teraz możesz przystąpić do kontynuowania pracy z następującymi artykułami:
 
 - [Kwerenda pojedynczego pliku CSV](sql/query-single-csv-file.md)
 - [Foldery zapytań i wiele plików CSV](sql/query-folders-multiple-csv-files.md)
@@ -198,7 +197,4 @@ Teraz możesz zacząć od następujących artykułów szybkiego startu:
 - [Tworzenie widoków i korzystanie z nich](sql/create-use-views.md)
 - [Tworzenie i używanie tabel zewnętrznych](sql/create-use-external-tables.md)
 - [Utrwalanie wyniku zapytania w usłudze Azure Storage](sql/create-external-table-as-select.md)
-
-Przejdź do następnego artykułu, aby dowiedzieć się, jak wykonać zapytanie dotyczące pojedynczego pliku CSV.
-> [!div class="nextstepaction"]
-> [Kwerenda pojedynczego pliku CSV](sql/query-single-csv-file.md)
+- [Kwerenda pojedynczego pliku CSV](sql/query-single-csv-file.md)

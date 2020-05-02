@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a9db42bcd69d9a24a454c02c9bb0e2d339cb4860
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185782"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692393"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Utwórz poświadczenia
 
-Aby można było uruchamiać zapytania, musimy utworzyć poświadczenia. Poświadczenia będą używane przez usługę SQL na żądanie do uzyskiwania dostępu do plików w magazynie.
+Aby można było uruchamiać zapytania, musimy utworzyć poświadczenia. To poświadczenie będzie używane przez usługę SQL na żądanie do uzyskiwania dostępu do plików w magazynie.
 
 > [!NOTE]
-> Musisz utworzyć poświadczenia, aby uzyskać dostęp do konta magazynu. Mimo że usługa SQL na żądanie może uzyskać dostęp do magazynu z różnych regionów, posiadanie magazynu i obszaru roboczego usługi Azure Synapse w tym samym regionie zapewni lepszą wydajność.
+> Musisz utworzyć poświadczenia dla dostępu do konta magazynu. Chociaż usługa SQL na żądanie może uzyskać dostęp do magazynu z różnych regionów, posiadanie magazynu i obszaru roboczego usługi Azure Synapse w tym samym regionie zapewni lepszą wydajność.
 
 **Fragment kodu dotyczący tworzenia poświadczeń dla kontenerów danych spisu**i uruchamiania:
 
@@ -93,6 +93,7 @@ GO
 ## <a name="creating-power-bi-desktop-report"></a>Tworzenie raportu na Power BI pulpicie
 
 Otwórz aplikację klasyczną Power BI i wybierz opcję **Pobierz dane** .
+
 ![Otwórz aplikację klasyczną Power BI i wybierz pozycję Pobierz dane.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Krok 1. Wybieranie źródła danych

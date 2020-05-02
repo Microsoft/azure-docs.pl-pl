@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: f8525c883eb6b2c736e5fbf433464aa64ff42068
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae866c8be8d162213077e0488a19a556399384b2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101786"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692687"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https:/portal.azure.com/)
+Zaloguj się w witrynie [Azure Portal](https:/portal.azure.com/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -66,7 +66,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 
    ![Utwórz obiekt ramki danych](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Wyjście z zadania platformy Spark")
 
-10. Jeśli wystąpienie puli Apache Spark nie jest już uruchomione, zostanie automatycznie uruchomione. Możesz zobaczyć stan wystąpienia puli Apache Spark poniżej używanej komórki, a także w panelu stanu w dolnej części notesu. W zależności od rozmiaru puli rozpoczęcie powinno trwać 2-5 minut. Po zakończeniu działania kodu informacje znajdujące się poniżej komórki pokazują, jak długo wymagało uruchomienia i jego wykonania. W komórce danych wyjściowych są wyświetlane dane wyjściowe.
+10. Jeśli wystąpienie puli Apache Spark nie jest już uruchomione, zostanie automatycznie uruchomione. Stan wystąpienia puli Apache Spark można zobaczyć poniżej używanej komórki, a także w panelu stanu w dolnej części notesu. W zależności od rozmiaru puli rozpoczęcie powinno trwać 2-5 minut. Po zakończeniu działania kodu informacje znajdujące się poniżej komórki pokazują, jak długo wymagało uruchomienia i jego wykonania. W komórce danych wyjściowych są wyświetlane dane wyjściowe.
 
     ![Wyjście z wykonywania komórki](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Wyjście z zadania platformy Spark")
 
@@ -89,7 +89,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 
 ## <a name="run-spark-sql-statements"></a>Uruchamianie instrukcji Spark SQL
 
-SQL (Structured Query Language) to najczęściej używany język służący do definiowania danych i wykonywania zapytań na tych danych. Rozwiązanie Spark SQL stanowi rozszerzenie platformy Apache Spark służące do przetwarzania danych strukturalnych za pomocą dobrze znanej składni języka SQL.
+Structured Query Language (SQL) to najbardziej typowy i szeroko używany język służący do wykonywania zapytań i definiowania danych. Rozwiązanie Spark SQL stanowi rozszerzenie platformy Apache Spark służące do przetwarzania danych strukturalnych za pomocą dobrze znanej składni języka SQL.
 
 1. Wklej następujący kod do pustej komórki, a następnie uruchom kod. Polecenie wyświetla listę tabel w puli.
 
@@ -109,11 +109,11 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
 
     Kod tworzy dwie komórki wyjściowe, jeden, który zawiera dane, jest inny, który pokazuje widok zadania.
 
-    Domyślnie widok wyników zawiera siatkę, ale w obszarze siatki znajduje się przełącznik widoku, który pozwala na przełączanie się między widokami siatki i wykresów.
+    Domyślnie w widoku wyniki jest wyświetlana siatka. Ale istnieje przełącznik widoku pod siatką umożliwiającą przełączenie widoku między widokami siatki i wykresów.
 
     ![Zapytanie wyjściowe zapytania w usłudze Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Zapytanie wyjściowe zapytania w usłudze Azure Synapse Spark")
 
-3. W przełączniku **widoku** wybierz pozycję **Wykres**
+3. W przełączniku **widoku** wybierz pozycję **Wykres**.
 4. Wybierz ikonę **Wyświetl opcje** z prawej strony.
 5. W polu **Typ wykresu** wybierz pozycję "wykres słupkowy".
 6. W polu kolumna osi X wybierz pozycję stan.
@@ -133,7 +133,7 @@ SQL (Structured Query Language) to najczęściej używany język służący do d
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Usługa Azure Synapse zapisuje dane w Azure Data Lake Storage. Można bezpiecznie zezwolić na wyłączenie wystąpienia platformy Spark, gdy nie jest ono używane. Opłata jest naliczana za pulę Apache Spark platformy Azure Synapse o ile jest uruchomiona, nawet jeśli nie jest używana. Ze względu na to, że opłaty za pulę są znacznie większe niż opłaty za magazyn, sprawia, że wystąpienia platformy Spark są zamykane, gdy nie są używane.
+Usługa Azure Synapse zapisuje dane w Azure Data Lake Storage. Można bezpiecznie zezwolić na wyłączenie wystąpienia platformy Spark, gdy nie jest ono używane. Opłata jest naliczana za pulę Apache Spark platformy Azure Synapse o ile jest uruchomiona, nawet jeśli nie jest używana. Opłaty za pulę mają wiele razy więcej niż opłaty za magazyn. W związku z tym czynią ekonomiczną, aby umożliwić wyłączenie wystąpień platformy Spark, gdy nie są one używane.
 
 Aby upewnić się, że wystąpienie platformy Spark zostanie zamknięte, Zakończ wszystkie połączone sesje (notesy). Pula jest zamykana, gdy zostanie osiągnięty **czas bezczynności** określony w puli Apache Spark. Możesz również wybrać opcję **sesja końcowa** na pasku stanu w dolnej części notesu.
 

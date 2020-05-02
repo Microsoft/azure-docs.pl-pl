@@ -3,16 +3,16 @@ title: Przykładowe formanty usługi Azure Security test
 description: Kontroluj mapowanie przykładowego planu usługi Azure Security test do Azure Policy.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538733"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691302"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Sterowanie mapowaniem przykładowego planu usługi Azure Security test
 
-W tym artykule szczegółowo przedstawiono sposób, w jaki platforma Azure planuje przykład planu wydajności Azure Security, mapuje się na kontrolki testu porównawczego zabezpieczeń platformy Azure. Aby uzyskać więcej informacji na temat kontrolek, zobacz [Azure Security Tests](https://docs.microsoft.com/azure/security/benchmarks/overview).
+W tym artykule szczegółowo przedstawiono sposób, w jaki platforma Azure planuje przykład planu wydajności Azure Security, mapuje się na kontrolki testu porównawczego zabezpieczeń platformy Azure. Aby uzyskać więcej informacji na temat kontrolek, zobacz [Azure Security Tests](../../../../security/benchmarks/overview.md).
 
 Następujące mapowania znajdują się w formantach **testu porównawczego zabezpieczeń platformy Azure** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Zamapowane kontrolki są implementowane z inicjatywy [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[\]zapoznawczą: Przeprowadź inspekcję zaleceń dotyczących usługi Azure Security test i Wdróż konkretną** inicjatywę z wbudowanymi rozszerzeniami maszyny wirtualnej.
 

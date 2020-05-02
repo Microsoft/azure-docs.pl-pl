@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81676670"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691880"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Upewnij się, że [odpowiednie wywnioskowane typy danych](best-practices-sql-on-demand.md#check-inferred-data-types) są używane w celu uzyskania optymalnej wydajności. 
+
 ### <a name="filename-function"></a>Funkcja filename
 
-Ta funkcja zwraca nazwę pliku, z którego pochodzi wiersz.
+Ta funkcja zwraca nazwę pliku, z którego pochodzi wiersz. 
 
 Aby wykonać zapytanie dotyczące określonych plików, przeczytaj sekcję filename w artykule [dotyczącej określonych plików](query-specific-files.md#filename) .
+
+Zwracany typ danych to nvarchar (1024). W celu uzyskania optymalnej wydajności zawsze należy rzutować wynik funkcji filename na odpowiedni typ danych. Jeśli używasz znaku typu danych, upewnij się, że jest używana odpowiednia długość.
 
 ### <a name="filepath-function"></a>FilePath — funkcja
 
@@ -137,6 +141,8 @@ Ta funkcja zwraca pełną ścieżkę lub część ścieżki:
 - Gdy jest wywoływana z parametrem, zwraca część ścieżki, która pasuje do symbolu wieloznacznego na pozycji określonej w parametrze. Na przykład wartość parametru 1 zwróci część ścieżki, która pasuje do pierwszego symbolu wieloznacznego.
 
 Aby uzyskać dodatkowe informacje, zapoznaj się z sekcją FilePath artykułu dotyczącego [określonych plików zapytania](query-specific-files.md#filepath) .
+
+Zwracany typ danych to nvarchar (1024). W celu uzyskania optymalnej wydajności zawsze należy rzutować wynik funkcji FilePath na odpowiedni typ danych. Jeśli używasz znaku typu danych, upewnij się, że jest używana odpowiednia długość.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych
 
