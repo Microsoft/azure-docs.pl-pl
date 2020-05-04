@@ -43,6 +43,8 @@
       href: analysis-services-long-operations.md
     - name: Obsługiwane źródła danych
       href: analysis-services-datasource.md
+    - name: Łączność sieciowa — często zadawane pytania
+      href: analysis-services-network-faq.md
 - name: Porady
   items:
     - name: Serwer

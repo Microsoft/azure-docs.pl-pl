@@ -167,6 +167,10 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Konfigurowanie protokołu SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Ciągłość działalności biznesowej
+          items:
+            - name: Tworzenie kopii zapasowej i przywracanie
+              href: concepts-hyperscale-backup.md
         - name: Monitorowanie i dostrajanie
           items:
             - name: Monitorowanie i dostrajanie
@@ -273,6 +277,8 @@
               href: howto-data-encryption-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-data-encryption-cli.md
+            - name: Weryfikowanie szyfrowania danych
+              href: howto-data-encryption-validation.md
         - name: Ponowne uruchamianie serwera
           items:
             - name: Azure Portal

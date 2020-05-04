@@ -40,8 +40,6 @@
       href: components.md
     - name: Pojęcia
       href: concepts.md
-    - name: Typy
-      href: types.md
     - name: Monitorowanie kondycji
       items:
         - name: Sondy kondycji
