@@ -214,6 +214,7 @@
             - name: Strony sieci Web
               items:
                 - name: Język JavaScript po stronie klienta
+                  displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Mapa źródła języka JavaScript
                   href: app/source-map-support.md
@@ -441,6 +442,11 @@
               href: app/custom-data-correlation.md
             - name: Parametry połączeń
               href: app/sdk-connection-string.md
+            - name: Parametry połączeń
+              href: app/sdk-connection-string.md
+            - name: GetMetric
+              displayname: 'get metric, custom metrics, metrics, TrackMetric'
+              href: app/get-metric.md
             - name: Tematy specjalne
               items:
                 - name: Szczegółowa diagnostyka dla usług i aplikacji internetowych
