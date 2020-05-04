@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: udzielanie grupie dostępu do zasobów platformy Azure za pomocą RBAC i Azure PowerShell'
-description: Dowiedz się, jak przyznać grupie dostęp do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i Azure PowerShell w tym samouczku.
+title: 'Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu Azure PowerShell — RBAC'
+description: Dowiedz się, jak przyznać grupie dostęp do zasobów platformy Azure przy użyciu usług Azure PowerShell i kontroli dostępu opartej na rolach (RBAC) na platformie Azure w tym samouczku.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138242"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735525"
 ---
-# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu Azure PowerShell
 
-[Kontrola dostępu oparta na rolach (RBAC, Role Based Access Control)](overview.md) to sposób zarządzania dostępem do zasobów platformy Azure. W tym samouczku przyznasz grupie dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym samouczku przyznasz grupie dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -44,7 +44,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 ## <a name="role-assignments"></a>Przypisania ról
 
-Aby udzielić dostępu za pomocą kontroli dostępu opartej na rolach, tworzy się przypisanie roli. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. W tym samouczku utworzysz dwa przypisania ról:
+W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie roli. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. W tym samouczku utworzysz dwa przypisania ról:
 
 | Podmiot zabezpieczeń | Definicja roli | Zakres |
 | --- | --- | --- |
@@ -70,7 +70,7 @@ Do przypisania roli potrzebny jest użytkownik, grupa lub jednostka usługi. Je�
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Jeśli nie masz uprawnień do tworzenia grup, możesz spróbować skorzystać z [samouczka: Udziel użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell](tutorial-role-assignments-user-powershell.md) zamiast tego.
+Jeśli nie masz uprawnień do tworzenia grup, możesz skorzystać z [samouczka: Udziel użytkownikowi dostępu do zasobów platformy Azure przy użyciu Azure PowerShell](tutorial-role-assignments-user-powershell.md) zamiast tego.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -294,4 +294,4 @@ Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów i grupę
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Zarządzanie dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach i programu Azure PowerShell](role-assignments-powershell.md)
+> [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)

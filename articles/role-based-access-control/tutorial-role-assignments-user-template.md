@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą RBAC i szablonu Menedżer zasobów'
-description: Dowiedz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) przy użyciu szablonu Azure Resource Manager w tym samouczku.
+title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu szablonu Azure Resource Manager na platformie Azure RBAC'
+description: Dowiedz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu szablonu Azure Resource Manager i kontroli dostępu opartej na rolach (RBAC) na platformie Azure w tym samouczku.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138217"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735474"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą RBAC i szablonu Menedżer zasobów
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu szablonu Azure Resource Manager
 
-[Kontrola dostępu oparta na rolach (RBAC, Role Based Access Control)](overview.md) to sposób zarządzania dostępem do zasobów platformy Azure. W tym samouczku utworzysz grupę zasobów i udzielą użytkownikowi dostępu do tworzenia maszyn wirtualnych w grupie zasobów i zarządzania nimi. Ten samouczek koncentruje się na procesie wdrażania szablonu Menedżer zasobów w celu udzielenia dostępu. Aby uzyskać więcej informacji na temat opracowywania szablonów Menedżer zasobów, zobacz [dokumentację Menedżer zasobów i dokumentacja](/azure/azure-resource-manager/) [szablonu](/azure/templates/microsoft.authorization/allversions
+[Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym samouczku utworzysz grupę zasobów i udzielą użytkownikowi dostępu do tworzenia maszyn wirtualnych w grupie zasobów i zarządzania nimi. Ten samouczek koncentruje się na procesie wdrażania szablonu Menedżer zasobów w celu udzielenia dostępu. Aby uzyskać więcej informacji na temat opracowywania szablonów Menedżer zasobów, zobacz [dokumentację Menedżer zasobów i dokumentacja](/azure/azure-resource-manager/) [szablonu](/azure/templates/microsoft.authorization/allversions
 ).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure PowerShell](tutorial-role-assignments-user-powershell.md)

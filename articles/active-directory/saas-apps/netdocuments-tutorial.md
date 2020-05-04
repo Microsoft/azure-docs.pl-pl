@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79038152dd40b213b92a379c4b50ddd840eb8e6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72035701"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732582"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Samouczek: integracja logowania jednokrotnego (SSO) Azure Active Directory z dokumentami
 
@@ -137,49 +137,48 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 1. W innym oknie przeglądarki sieci Web Zaloguj się do firmowej witryny dokumentów w organizacji jako administrator.
 
-2. Przejdź do pozycji **Administracja**.
+2. W prawym górnym rogu wybierz swoją nazwę>**administrator**.
 
-3. Kliknij przycisk **Dodaj i Usuń użytkowników i grupy**.
+3. Wybierz pozycję **Centrum zabezpieczeń**.
    
-    ![Repozytorium](./media/netdocuments-tutorial/ic795047.png "Repozytorium")
+    ![Repozytorium](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-4. Kliknij pozycję **Konfiguruj zaawansowane opcje uwierzytelniania**.
+4. Wybierz pozycję **Zaawansowane uwierzytelnianie**.
     
-    ![Skonfiguruj zaawansowane opcje uwierzytelniania](./media/netdocuments-tutorial/ic795048.png "Skonfiguruj zaawansowane opcje uwierzytelniania")
+    ![Skonfiguruj zaawansowane opcje uwierzytelniania](./media/netdocuments-tutorial/advance-authentication.png "Skonfiguruj zaawansowane opcje uwierzytelniania")
 
-5. W oknie dialogowym **Tożsamość federacyjna** wykonaj następujące czynności:
+5.  Na karcie **Identyfikator federacyjny** wykonaj następujące czynności:   
    
-    ![Tożsamość federacyjna](./media/netdocuments-tutorial/ic795049.png "Tożsamość federacyjna")
+    ![Tożsamość federacyjna](./media/netdocuments-tutorial/federated-id.png "Tożsamość federacyjna")
    
     a. Jako **Typ federacyjnego serwera tożsamości**wybierz **Active Directory Federation Services**.
-   
-    b. Kliknij pozycję **Wybierz plik**, aby przekazać pobrany plik metadanych pobrany z Azure Portal.
-   
-    c. Kliknij przycisk **OK**.
+    
+    b.  Wybierz pozycję **Wybierz plik**, aby przekazać pobrany plik metadanych pobrany z Azure Portal.
+    
+    c.  Wybierz pozycję **Zapisz**.
 
 ### <a name="create-netdocuments-test-user"></a>Tworzenie użytkownika testowego
 
-Aby umożliwić użytkownikom usługi Azure AD logowanie się w dokumentach, muszą one być obsługiwane w dokumentach.  
-W przypadku dokumentów, Inicjowanie obsługi jest zadaniem ręcznym.
+Aby umożliwić użytkownikom usługi Azure AD logowanie się w dokumentach, muszą one być obsługiwane w dokumentach. W przypadku dokumentów, Inicjowanie obsługi jest zadaniem ręcznym.
 
 **Aby aprowizować konto użytkownika, wykonaj następujące czynności:**
 
 1. Zaloguj się do witryny firmowej **dokumentów** w organizacji jako administrator.
 
-2. W menu u góry kliknij pozycję **Admin** (Administrator).
+2. W prawym górnym rogu wybierz swoją nazwę>**administrator**.
    
-    ![Administracja](./media/netdocuments-tutorial/ic795051.png "Administrator")
+    ![Administracja](./media/netdocuments-tutorial/user-admin.png "Administrator")
 
-3. Kliknij przycisk **Dodaj i Usuń użytkowników i grupy**.
+3. Wybierz pozycję **Użytkownicy i grupy**.
    
-    ![Repozytorium](./media/netdocuments-tutorial/ic795047.png "Repozytorium")
+    ![Repozytorium](./media/netdocuments-tutorial/users-groups.png "Repozytorium")
 
 4. W polu tekstowym **adres e-mail** wpisz adres e-mail prawidłowego konta Azure Active Directory, które chcesz udostępnić, a następnie kliknij przycisk **Dodaj użytkownika**.
    
-    ![Adres e-mail](./media/netdocuments-tutorial/ic795053.png "Adres e-mail")
+    ![Adres e-mail](./media/netdocuments-tutorial/user-mail.png "Adres e-mail")
    
-    >[!NOTE]
-    >Właściciel konta Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim staną się aktywne. Do aprowizacji Azure Active Directory kont użytkowników można używać innych narzędzi do tworzenia kont użytkowników i interfejsów API dostarczonych przez dokumenty.
+    > [!NOTE]
+    > Właściciel konta Azure Active Directory otrzyma wiadomość e-mail z linkiem umożliwiającym potwierdzenie konta, zanim staną się aktywne. Do aprowizacji Azure Active Directory kont użytkowników można używać innych narzędzi do tworzenia kont użytkowników i interfejsów API dostarczonych przez dokumenty.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -187,7 +186,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka dokumenty w panelu dostępu należy automatycznie zalogować się do dokumentów, dla których skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -196,4 +195,3 @@ Po kliknięciu kafelka dokumenty w panelu dostępu należy automatycznie zalogow
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj dokumenty w usłudze Azure AD](https://aad.portal.azure.com/)
-

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: tworzenie roli niestandardowej dla zasobów platformy Azure za pomocą Azure PowerShell'
-description: Rozpocznij tworzenie roli niestandardowej dla zasobów platformy Azure przy użyciu Azure PowerShell w tym samouczku.
+title: 'Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell — kontrola RBAC na platformie Azure'
+description: Rozpocznij tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell i kontroli dostępu opartej na rolach (RBAC) na platformie Azure w tym samouczku.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138278"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735593"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Samouczek: tworzenie roli niestandardowej dla zasobów platformy Azure przy użyciu Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell
 
-Jeśli [wbudowane role dla zasobów platformy Azure](built-in-roles.md) nie spełniają potrzeb Twojej organizacji, możesz tworzyć własne role niestandardowe. W tym samouczku utworzysz niestandardową rolę o nazwie Reader Support Tickets przy użyciu programu Azure PowerShell. Rola niestandardowa umożliwi użytkownikowi przeglądanie całej zawartości płaszczyzny zarządzania subskrypcją, a także otwieranie biletów pomocy technicznej.
+Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. W tym samouczku utworzysz niestandardową rolę o nazwie Reader Support Tickets przy użyciu programu Azure PowerShell. Rola niestandardowa umożliwi użytkownikowi przeglądanie całej zawartości płaszczyzny zarządzania subskrypcją, a także otwieranie biletów pomocy technicznej.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -73,7 +73,7 @@ Najprostszym sposobem na utworzenie roli niestandardowej jest rozpoczęcie od wb
 
 1. Otwórz plik **ReaderSupportRole.json** w edytorze.
 
-    Poniżej przedstawiono dane wyjściowe w formacie JSON. Informacje o różnych właściwościach zawiera temat [Role niestandardowe](custom-roles.md).
+    Poniżej przedstawiono dane wyjściowe w formacie JSON. Aby uzyskać informacje o różnych właściwościach, zobacz [role niestandardowe platformy Azure](custom-roles.md).
 
     ```json
     {
@@ -277,4 +277,4 @@ Aby zaktualizować rolę niestandardową, zaktualizuj plik JSON lub użyj obiekt
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie ról niestandardowych dla zasobów platformy Azure przy użyciu programu Azure PowerShell](custom-roles-powershell.md)
+> [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure PowerShell](custom-roles-powershell.md)

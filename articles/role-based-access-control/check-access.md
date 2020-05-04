@@ -1,6 +1,6 @@
 ---
-title: Przewodnik Szybki Start — wyświetlanie dostępu użytkownika do zasobów platformy Azure
-description: W tym przewodniku szybki start dowiesz się, jak wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i Azure Portal.
+title: Przewodnik Szybki Start — wyświetlanie dostępu użytkownika do zasobów platformy Azure — kontrola RBAC Azure
+description: W tym przewodniku szybki start dowiesz się, jak wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure przy użyciu Azure Portal i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74419607"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734165"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Szybki Start: wyświetlanie dostępu użytkownika do zasobów platformy Azure
 
-Informacje o dostępie użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure można wyświetlić w bloku **Kontrola dostępu (IAM)** w obszarze [Kontrola dostępu oparta na rolach (RBAC)](overview.md). Czasami jednak wystarczy szybki przegląd informacji o dostępie pojedynczego użytkownika lub innego podmiotu zabezpieczeń. Najłatwiej można to zrobić przy użyciu funkcji **Sprawdź dostęp** w witrynie Azure Portal.
+Możesz użyć bloku **kontroli dostępu (IAM)** w [kontroli dostępu opartej na ROLACH (Azure RBAC)](overview.md) na platformie Azure, aby wyświetlić dostęp użytkownika lub innego podmiotu zabezpieczeń do zasobów platformy Azure. Czasami jednak wystarczy szybki przegląd informacji o dostępie pojedynczego użytkownika lub innego podmiotu zabezpieczeń. Najłatwiej można to zrobić przy użyciu funkcji **Sprawdź dostęp** w witrynie Azure Portal.
 
 ## <a name="view-role-assignments"></a>Wyświetlanie przypisań ról
 
@@ -54,4 +54,4 @@ Informacje o dostępie użytkownika lub innego podmiotu zabezpieczeń do zasobó
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure Portal](quickstart-assign-role-user-portal.md)
+> [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal](quickstart-assign-role-user-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Typy Azure Load Balancer
-description: Przegląd typów Azure Load Balancer
+title: Jednostki SKU Azure Load Balancer
+description: Przegląd Azure Load Balancer jednostek SKU
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -9,54 +9,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 31e2bf19967bb8870ee6ab75687bb3fcc37373f7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: c7ca630b4a6a1bedeab21feacc22cd27a1a3ee7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629973"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734947"
 ---
-# <a name="azure-load-balancer-types"></a>Typy Azure Load Balancer
+# <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
-Azure Load Balancer ma dwa typy i dwie jednostki SKU.
+Azure Load Balancer ma dwie wersje lub jednostki SKU.
 
-## <a name="public-load-balancer"></a><a name = "publicloadbalancer"></a>Publiczny moduł równoważenia obciążenia
-
-Publiczny moduł równoważenia obciążenia mapuje publiczny adres IP i port ruchu przychodzącego na prywatny adres IP i port maszyny wirtualnej. Usługa równoważenia obciążenia mapuje ruch w inny sposób wokół ruchu odpowiedzi z maszyny wirtualnej. Można dystrybuować określone typy ruchu między wieloma maszynami wirtualnymi lub usługami, stosując reguły równoważenia obciążenia. Na przykład można rozłożyć obciążenie ruchu związanego z żądaniami internetowymi na wiele serwerów internetowych.
-
->[!NOTE]
->Możliwe jest zaimplementowanie tylko jednego publicznego modułu równoważenia obciążenia i jednego wewnętrznego modułu równoważenia obciążenia na zestaw dostępności.
-
-Na poniższej ilustracji przedstawiono punkt końcowy ze zrównoważonym obciążeniem dla ruchu internetowego, który jest współużytkowany przez trzy maszyny wirtualne dla portu publicznego i TCP 80. Te trzy maszyny wirtualne znajdują się w zestawie z równoważeniem obciążenia.
-
-![Przykład publicznego modułu równoważenia obciążenia](./media/load-balancer-overview/load-balancer.png)
-
-*Ilustracja: Równoważenie ruchu internetowego za pomocą publicznego modułu równoważenia obciążenia*
-
-Klienci internetowi wysyłają żądania strony sieci Web na publiczny adres IP aplikacji sieci Web na porcie TCP 80. Azure Load Balancer dystrybuuje żądania między trzema maszynami wirtualnymi w zestawie o zrównoważonym obciążeniu. Aby uzyskać więcej informacji na temat algorytmów modułu równoważenia obciążenia, zobacz [pojęcia dotyczące usługi równoważenia obciążenia](concepts.md).
-
-Azure Load Balancer domyślnie dystrybuuje ruch sieciowy między wieloma wystąpieniami maszyn wirtualnych. Można również skonfigurować koligację sesji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie trybu dystrybucji dla Azure Load Balancer](load-balancer-distribution-mode.md).
-
-## <a name="internal-load-balancer"></a><a name = "internalloadbalancer"></a>Wewnętrzny moduł równoważenia obciążenia
-
-Wewnętrzny moduł równoważenia obciążenia dystrybuuje ruch do zasobów znajdujących się w sieci wirtualnej. Platforma Azure ogranicza dostęp do adresów IP frontonu sieci wirtualnej ze zrównoważonym obciążeniem. 
-
-Adresy IP frontonu i sieci wirtualne nigdy nie są bezpośrednio ujawniane w internetowym punkcie końcowym. Wewnętrzne aplikacje biznesowe są uruchomiane na platformie Azure i dostęp do nich jest uzyskiwany z poziomu platformy Azure lub zasobów lokalnych.
-
-Wewnętrzny moduł równoważenia obciążenia włącza następujące typy równoważenia obciążenia:
-
-* **W ramach sieci wirtualnej**: Równoważenie obciążenia z maszyn wirtualnych w sieci wirtualnej do zestawu maszyn wirtualnych znajdujących się w tej samej sieci wirtualnej.
-* W **przypadku sieci wirtualnej obejmującej wiele**lokalizacji: Równoważenie obciążenia z komputerów lokalnych do zestawu maszyn wirtualnych znajdujących się w tej samej sieci wirtualnej.
-* **W przypadku aplikacji wielowarstwowych**: Równoważenie obciążenia dla aplikacji wielowarstwowych dostępnych z Internetu, w których warstwy zaplecza nie są dostępne w Internecie. Warstwy zaplecza wymagają równoważenia obciążenia sieciowego z warstwy połączonej z Internetem. Zobacz następną ilustrację.
-* **Dla aplikacji biznesowych**: równoważenie obciążenia na potrzeby aplikacji biznesowych, które są hostowane na platformie Azure bez użycia dodatkowego sprzętu lub oprogramowania służącego do równoważenia obciążenia. Ten scenariusz obejmuje serwery lokalne, które znajdują się w zestawie komputerów, których ruch jest zrównoważony.
-
-![Przykład wewnętrznego modułu równoważenie obciążenia](./media/load-balancer-overview/load-balancer.png)
-
-*Ilustracja: Równoważenie aplikacji wielowarstwowych przy użyciu usługi równoważenia obciążenia publicznego i wewnętrznego*
-
-## <a name="load-balancer-sku-comparison"></a><a name="skus"></a> Porównanie jednostek SKU modułu równoważenia obciążenia
+## <a name="sku-comparison"></a><a name="skus"></a>Porównanie jednostek SKU
 
 Moduł równoważenia obciążenia obsługuje podstawowe i standardowe jednostki SKU. Te jednostki SKU różnią się w zależności od skali, funkcji i cen. Każdy scenariusz, który jest możliwy w przypadku podstawowego modułu równoważenia obciążenia, można utworzyć za pomocą usługi równoważenia obciążenia w warstwie Standardowa.
 
@@ -66,7 +32,21 @@ Aby porównać i poznać różnice, zapoznaj się z poniższą tabelą. Aby uzys
 > Firma Microsoft zaleca użycie usługi równoważenia obciążenia w warstwie Standardowa.
 Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszyn wirtualnych można połączyć tylko jednej jednostki SKU — nigdy do obu. Moduł równoważenia obciążenia i jednostka SKU publicznego adresu IP muszą być zgodne, gdy są używane z publicznymi adresami IP. Usługa równoważenia obciążenia i jednostki SKU publicznego adresu IP nie są modyfikowalne.
 
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
+| | usługa Load Balancer w warstwie Standardowa | Load Balancer podstawowa |
+| --- | --- | --- |
+| [Rozmiar puli zaplecza](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Obsługuje do 1000 wystąpień. | Obsługuje do 300 wystąpień. |
+| Punkty końcowe puli zaplecza | Wszystkie maszyny wirtualne lub zestawy skalowania maszyn wirtualnych w jednej sieci wirtualnej. | Maszyny wirtualne w jednym zestawie dostępności lub zestaw skalowania maszyn wirtualnych. |
+| [Sondy kondycji](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Zachowanie sondy kondycji podczas niepowodzenia](./load-balancer-custom-probe-overview.md#probedown) | Połączenia TCP pozostają aktywne na sondie wystąpienia __, a__ wszystkie sondy w dół. | Połączenia TCP pozostają aktywne na sondie wystąpienia. Wszystkie połączenia TCP kończą się, gdy wszystkie sondy są wyłączone. |
+| Strefy dostępności | Strefowo nadmiarowe i strefowe frontony dla ruchu przychodzącego i wychodzącego. | Niedostępne |
+| Diagnostyka | [Azure Monitor metryki wielowymiarowych](./load-balancer-standard-diagnostics.md) | [Dzienniki usługi Azure Monitor](./load-balancer-monitor-log.md) |
+| Porty wysokiej dostępności | [Dostępne dla Load Balancer wewnętrznej](./load-balancer-ha-ports-overview.md) | Niedostępne |
+| Zabezpieczenie domyślne | Zamknięty do przepływów przychodzących, chyba że jest to dozwolone przez grupę zabezpieczeń sieci. Należy pamiętać, że ruch wewnętrzny z sieci wirtualnej do wewnętrznego modułu równoważenia obciążenia jest dozwolony. | Otwórz domyślnie. Opcjonalna Grupa zabezpieczeń sieci. |
+| Reguły ruchu wychodzącego | [Deklaratywna konfiguracja wychodzącego NAT](./load-balancer-outbound-rules-overview.md) | Niedostępne |
+| Resetowanie protokołu TCP w wyniku bezczynności | [Dostępne dla każdej reguły](./load-balancer-tcp-reset.md) | Niedostępne |
+| [Wiele frontonów](./load-balancer-multivip-overview.md) | Ruch przychodzący i [wychodzący](./load-balancer-outbound-connections.md) | Tylko ruch przychodzący |
+| Operacje zarządzania | Większość operacji < 30 sekund | typowe 60 – 90 sekund |
+| Umowa SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Niedostępne | 
 
 Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciążenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Szczegółowe informacje dotyczące modułu równoważenia obciążenia w warstwie Standardowa zawiera [przegląd](load-balancer-standard-overview.md), [cennik](https://aka.ms/lbpricing) i [umowa dotycząca poziomu usług](https://aka.ms/lbsla).
 

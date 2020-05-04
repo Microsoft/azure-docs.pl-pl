@@ -3,12 +3,12 @@ title: Przegląd stanu platformy Azure | Microsoft Docs
 description: Globalny widok kondycji usług platformy Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898337"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732554"
 ---
 # <a name="azure-status-overview"></a>Przegląd stanu platformy Azure
 
@@ -24,9 +24,7 @@ Strona stanu platformy Azure zostanie zaktualizowana w czasie rzeczywistym w mia
 
 ## <a name="azure-status-history"></a>Historia stanu platformy Azure
 
-Mimo że na stronie stanu platformy Azure są zawsze wyświetlane najnowsze informacje o kondycji, możesz wyświetlić starsze zdarzenia, korzystając ze [strony Historia stanu platformy Azure](https://status.azure.com/status/history/).
-
-Począwszy od zdarzeń opublikowanych w listopadzie 2019, na stronie Historia stanu są wyświetlane zdarzenia do 365 dni w przeszłości, w tym wstępna przyczyna główna, środki zaradcze i następne kroki dla systemu Azure.
+Mimo że na stronie stanu platformy Azure są zawsze wyświetlane najnowsze informacje o kondycji, możesz wyświetlić starsze zdarzenia, korzystając ze [strony Historia stanu platformy Azure](https://status.azure.com/status/history/). Strona Historia zawiera wszystkie RCAs zdarzeń, które wystąpiły w dniu 20 listopada 2019 lub nowszym i od tej daty będą przekazywać 5-letnią historię. RCAs przed 20 listopada, 2019 nie są dostępne.
 
 ## <a name="rss-feed"></a>Kanał informacyjny RSS
 

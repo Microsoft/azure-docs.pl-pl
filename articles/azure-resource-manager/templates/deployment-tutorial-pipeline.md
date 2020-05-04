@@ -4,12 +4,12 @@ description: Dowiedz się, jak ciągle kompilować, testować i wdrażać szablo
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82084332"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731938"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Samouczek: Ciągła integracja szablonów Azure Resource Manager z Azure Pipelines
 
@@ -57,7 +57,7 @@ Jeśli nie masz konta usługi GitHub, zapoznaj się z tematem [wymagania wstępn
 
 1. Wybierz pozycję **Nowy**, zielony przycisk.
 1. W polu **Nazwa repozytorium**wprowadź nazwę repozytorium.  Na przykład **AzureRmPipeline-repozytorium**. Pamiętaj, aby zastąpić dowolną **AzureRmPipeline** nazwą projektu. Możesz wybrać opcję **publiczny** lub **prywatny** do przechodzenia przez ten samouczek. A następnie wybierz pozycję **Utwórz repozytorium**.
-1. Zapisz adres URL. Adres URL repozytorium ma następujący format: ** https://github.com/[YourAccountName]/[YourRepositoryName]**.
+1. Zapisz adres URL. Adres URL repozytorium ma następujący format: **`https://github.com/[YourAccountName]/[YourRepositoryName]`**.
 
 To repozytorium jest określane jako *zdalne repozytorium*. Każdy deweloper tego samego projektu może sklonować własne *repozytorium lokalne*i scalić zmiany w repozytorium zdalnym.
 
@@ -104,7 +104,7 @@ Plik azuredeploy. JSON został dodany do repozytorium lokalnego. Następnie Prze
     ```
 
     Może pojawić się ostrzeżenie dotyczące LF. Możesz zignorować to ostrzeżenie. **główny** jest gałęzią główną.  Tworzona jest zwykle gałąź dla każdej aktualizacji. Aby uprościć samouczek, należy bezpośrednio użyć gałęzi głównej.
-1. Przejdź do repozytorium GitHub z przeglądarki.  Adres URL to ** https://github.com/[YourAccountName]/[YourGitHubRepository]**. Zobaczysz folder **CreateWebApp** i trzy pliki znajdujące się w folderze.
+1. Przejdź do repozytorium GitHub z przeglądarki.  Adres URL to **`https://github.com/[YourAccountName]/[YourGitHubRepository]`**. Zobaczysz folder **CreateWebApp** i trzy pliki znajdujące się w folderze.
 1. Wybierz pozycję **linkedStorageAccount. JSON** , aby otworzyć szablon.
 1. Wybierz przycisk **RAW** . Adres URL jest uruchamiany z **RAW.githubusercontent.com**.
 1. Utwórz kopię adresu URL.  Należy podać tę wartość podczas konfigurowania potoku w dalszej części tego samouczka.

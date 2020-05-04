@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure za pomocą RBAC i Azure PowerShell'
-description: Dowiedz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu kontroli dostępu opartej na rolach (RBAC) i Azure PowerShell w tym samouczku.
+title: 'Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu usługi Azure PowerShell — RBAC'
+description: Dowiedz się, jak przyznać użytkownikom dostęp do zasobów platformy Azure przy użyciu usług Azure PowerShell i kontroli dostępu opartej na rolach (RBAC) na platformie Azure w tym samouczku.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c35c08889892e877ecfac20910607ddf85b2282
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138225"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735491"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure PowerShell
 
-[Kontrola dostępu oparta na rolach (RBAC, Role Based Access Control)](overview.md) to sposób zarządzania dostępem do zasobów platformy Azure. W tym samouczku przyznasz użytkownikowi dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
+[Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) umożliwia zarządzanie dostępem do zasobów platformy Azure. W tym samouczku przyznasz użytkownikowi dostęp z możliwością wyświetlania wszystkiego w ramach subskrypcji i zarządzania wszystkim w grupie zasobów przy użyciu programu Azure PowerShell.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -44,7 +44,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 ## <a name="role-assignments"></a>Przypisania ról
 
-Aby udzielić dostępu za pomocą kontroli dostępu opartej na rolach, tworzy się przypisanie roli. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. W tym samouczku utworzysz dwa przypisania ról:
+W celu udzielenia dostępu w usłudze Azure RBAC należy utworzyć przypisanie roli. Przypisanie roli składa się z trzech elementów: podmiotu zabezpieczeń, definicji roli i zakresu. W tym samouczku utworzysz dwa przypisania ról:
 
 | Podmiot zabezpieczeń | Definicja roli | Zakres |
 | --- | --- | --- |
@@ -279,4 +279,4 @@ Aby wyczyścić zasoby utworzone w tym samouczku, usuń grupę zasobów i użytk
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Zarządzanie dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach i programu Azure PowerShell](role-assignments-powershell.md)
+> [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)
