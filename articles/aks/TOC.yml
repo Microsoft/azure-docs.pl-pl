@@ -252,7 +252,7 @@
         - name: Wyświetlanie danych kontenera w czasie rzeczywistym
           href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
-    - name: Używanie kontenerów systemu Windows Server (wersja zapoznawcza)
+    - name: Używanie kontenerów systemu Windows Server
       items:
         - name: Tworzenie klastra AKS
           href: windows-container-cli.md

@@ -291,7 +291,7 @@
       items:
         - name: Wszystkie funkcje
           href: template-functions.md
-        - name: Funkcje tablicy i obiektów
+        - name: Funkcje tablicy
           href: template-functions-array.md
         - name: Funkcje porównania
           href: template-functions-comparison.md
@@ -303,6 +303,8 @@
           href: template-functions-logical.md
         - name: Funkcje liczbowe
           href: template-functions-numeric.md
+        - name: Funkcje obiektów
+          href: template-functions-object.md
         - name: Funkcje zasobów
           href: template-functions-resource.md
         - name: Funkcje ciągów

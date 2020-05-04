@@ -155,9 +155,9 @@
           href: directory-assign-admin-roles.md
         - name: Wyświetlanie i przypisywanie ról
           href: directory-manage-roles-portal.md
-        - name: Rola niestandardowa
+        - name: Role niestandardowe
           items:
-            - name: Rola niestandardowa
+            - name: Role niestandardowe
               href: roles-custom-overview.md
             - name: Tworzenie roli niestandardowej
               href: roles-create-custom.md

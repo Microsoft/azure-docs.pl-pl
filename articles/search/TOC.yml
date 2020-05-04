@@ -262,9 +262,11 @@
       items:
         - name: Praca z wynikami
           href: search-pagination-page-layout.md
-        - name: Dostrajanie trafności (profile oceniania)
+        - name: Ocenianie istotności
+          href: index-similarity-and-scoring.md
+        - name: Profile oceniania
           href: index-add-scoring-profiles.md
-        - name: Dostrajanie istotności (algorytm podobieństwa)
+        - name: Algorytm podobieństwa
           href: index-ranking-similarity.md
     - name: Planowanie
       items:

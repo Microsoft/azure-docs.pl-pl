@@ -6,57 +6,67 @@
       href: intro-openshift.md
 - name: Samouczki
   items:
-    - name: Tworzenie klastra usługi Azure Red Hat OpenShift i zarządzanie nim
-      items:
-        - name: 1. Tworzenie klastra usługi Azure Red Hat OpenShift
-          href: tutorial-create-cluster.md
-        - name: 2. Skalowanie klastra usługi Azure Red Hat OpenShift
-          href: tutorial-scale-cluster.md
-        - name: 3. Usuwanie klastra usługi Azure Red Hat OpenShift
-          href: tutorial-delete-cluster.md
-- name: Administracja klastrami
-  items:
-    - name: Administracja klastrami usługi Azure Red Hat OpenShift
-      items:
-        - name: 1 — Rola administratora klastra usługi Azure Red Hat OpenShift
-          href: cluster-administration-cluster-admin-role.md
-        - name: 2 — Zarządzanie ograniczeniami kontekstu zabezpieczeń
-          href: cluster-administration-security-context-constraints.md
+    - name: 1 — Tworzenie klastra usługi Azure Red Hat OpenShift 4
+      href: tutorial-create-cluster.md
+    - name: 2 — Nawiązywanie połączenia z klastrem usługi Azure Red Hat OpenShift 4
+      href: tutorial-connect-cluster.md
+    - name: 3 — Usuwanie klastra usługi Azure Red Hat OpenShift 4
+      href: tutorial-delete-cluster.md
 - name: Przewodniki z instrukcjami
   expanded: true
   items:
-    - name: Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift
-      href: howto-setup-environment.md
-      expanded: true
+    - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 4
+      href: create-private-cluster.md
+    - name: Konfigurowanie przekazywania DNS dla klastra usługi Azure Red Hat OpenShift 4
+      href: dns-forwarding.md
+    - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory dla klastra usługi Azure Red Hat OpenShift 4
       items:
-        - name: Tworzenie dzierżawy usługi Azure AD
-          href: howto-create-tenant.md
-        - name: Tworzenie użytkownika i obiektu aplikacji usługi Azure AD
-          href: howto-aad-app-configuration.md
-    - name: Azure Red Hat OpenShift 4.3 (wersja zapoznawcza)
+        - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (interfejs wiersza polecenia)
+          href: configure-azure-ad-cli.md
+        - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory (portal)
+          href: configure-azure-ad-ui.md
+    - name: Monitorowanie i rejestrowanie dla usługi Azure Red Hat OpenShift 4
       items:
-        - name: Tworzenie klastra usługi Azure Red Hat OpenShift 4.3
-          href: howto-using-azure-redhat-openshift.md
-        - name: Konfigurowanie usługi Azure Monitor na potrzeby usługi Azure Red Hat OpenShift 4.3
-          href: howto-azure-monitor-v4.md
-    - name: Wdrażanie autonomicznego rozwiązania Prometheus w klastrze platformy Azure Red Hat OpenShift
-      href: howto-deploy-prometheus.md
-    - name: Zarządzanie projektami w klastrze usługi Azure Red Hat OpenShift
-      href: howto-manage-projects.md
-    - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift
-      href: howto-create-private-cluster.md
-    - name: Monitorowanie i rejestrowanie
-      items:
-        - name: Usługa Azure Monitor dla kontenerów (wersja zapoznawcza)
+        - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 4 (wersja zapoznawcza)
           items:
-            - name: Konfigurowanie usługi Azure Monitor dla kontenerów
-              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
-              maintainContext: true
-            - name: Wyłączanie usługi Azure Monitor dla kontenerów
-              href: ../azure-monitor/insights/container-insights-optout-openshift.md
-              maintainContext: true
-    - name: Uruchamianie uprzywilejowanych kontenerów w klastrze usługi Azure Red Hat OpenShift
-      href: howto-run-privileged-containers.md
+            - name: Konfigurowanie usługi Azure Monitor dla kontenerów dla usługi Azure Red Hat OpenShift 4 (wersja zapoznawcza)
+              href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
+            - name: Wyłączanie usługi Azure Monitor dla kontenerów na platformie Azure Red Hat OpenShift 3.11 (wersja zapoznawcza)
+              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+    - name: Azure Red Hat OpenShift 3.11
+      items:
+        - name: Konfigurowanie środowiska deweloperskiego usługi Azure Red Hat OpenShift dla usługi Azure Red Hat OpenShift 3.11
+          href: howto-setup-environment.md
+          expanded: true
+          items:
+            - name: Tworzenie dzierżawy usługi Azure AD
+              href: howto-create-tenant.md
+            - name: Tworzenie użytkownika i obiektu aplikacji usługi Azure AD
+              href: howto-aad-app-configuration.md
+        - name: Wdrażanie autonomicznego rozwiązania Prometheus w klastrze usługi Azure Red Hat OpenShift 3.11
+          href: howto-deploy-prometheus.md
+        - name: Zarządzanie projektami w klastrze usługi Azure Red Hat OpenShift 3.11
+          href: howto-manage-projects.md
+        - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 3.11
+          href: howto-create-private-cluster.md
+        - name: Monitorowanie i rejestrowanie dla usługi Azure Red Hat OpenShift 3.11
+          items:
+            - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 3.11 (wersja zapoznawcza)
+              items:
+                - name: Konfigurowanie usługi Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 3.11
+                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  maintainContext: true
+                - name: Wyłączanie usługi Azure Monitor dla kontenerów na platformie Azure Red Hat OpenShift 3.11
+                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  maintainContext: true
+        - name: Uruchamianie uprzywilejowanych kontenerów w usłudze Azure Red Hat OpenShift 3.11
+          href: howto-run-privileged-containers.md
+        - name: Administracja klastrami w usłudze Azure Red Hat OpenShift 3.11
+          items:
+            - name: 1 — Rola administratora klastra usługi Azure Red Hat OpenShift 3.11
+              href: cluster-administration-cluster-admin-role.md
+            - name: 2 — Zarządzanie ograniczeniami kontekstu zabezpieczeń w usłudze Azure Red Hat OpenShift 3.11
+              href: cluster-administration-security-context-constraints.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia usługi Azure Red Hat OpenShift
@@ -69,8 +79,10 @@
       href: openshift-faq.md
     - name: Rozwiązywanie problemów
       href: troubleshoot.md
-    - name: Obsługiwane zasoby
+    - name: Obsługiwane zasoby dla usługi Azure Red Hat OpenShift 3.11
       href: supported-resources.md
+    - name: Obsługiwane zasoby dla usługi Azure Red Hat OpenShift 4.3
+      href: support-policies-v4.md
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dokumentacja usługi Red Hat OpenShift

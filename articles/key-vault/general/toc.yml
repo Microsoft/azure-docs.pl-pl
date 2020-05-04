@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Wskazówki dotyczące ograniczania usługi Azure Key Vault
       href: overview-throttling.md
+    - name: Dostępność i nadmiarowość w usłudze Azure Key Vault
+      href: disaster-recovery-guidance.md
     - name: Punkty końcowe usługi sieci wirtualnej dla usługi Azure Key Vault — Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Przewodniki z instrukcjami
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Używanie usuwania nietrwałego za pomocą programu PowerShell
           href: soft-delete-powershell.md
+    - name: Przenoszenie magazynu kluczy
+      items:
+        - name: Przenoszenie magazynu kluczy do innego regionu
+          href: keyvault-moveregion.md
     - name: Rozwiązywanie problemów
       items:
         - name: Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji

@@ -17,12 +17,15 @@
     - name: Uruchamianie pierwszego zapytania — program PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
+      displayName: 'resource manager, queries'
+      href: shared-query-template.md
 - name: Samouczki
   items:
     - name: Tworzenie i udostępnianie zapytania w witrynie Azure Portal
       displayName: 'query, portal'
       href: ./tutorials/create-share-query.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Zapytania dla początkujących
       displayName: 'query language, data explorer, count, list, show'
@@ -78,6 +81,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Szablony usługi Resource Manager
+      href: /azure/templates/microsoft.resourcegraph/allversions
     - name: Typy zasobów i tabel usługi Resource Graph
       href: ./reference/supported-tables-resources.md
 - name: Zasoby

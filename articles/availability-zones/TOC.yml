@@ -8,10 +8,12 @@
   items:
     - name: Wysoka dostępność dla aplikacji platformy Azure
       href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Regiony i strefy dostępności
+      href: az-overview.md
     - name: Dokumentacja dotycząca stref dostępności
       items:
-        - name: Co to są strefy dostępności?
-          href: az-overview.md
+        - name: Regiony obsługujące strefy dostępności
+          href: az-region.md
         - name: Maszyny wirtualne
           items:
             - name: Tworzenie maszyny wirtualnej z systemem Linux w strefie dostępności przy użyciu interfejsu wiersza polecenia

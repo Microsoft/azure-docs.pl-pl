@@ -76,6 +76,8 @@
           href: ha-setup-with-stonith.md
         - name: Kopia zapasowa systemu operacyjnego dla jednostek SKU typu II
           href: os-backup-type-ii-skus.md
+        - name: Włączanie narzędzia Kdump dla dużych wystąpień platformy HANA
+          href: hana-large-instance-enable-kdump.md
         - name: Uaktualnianie systemu operacyjnego dla dużych wystąpień HANA
           href: os-upgrade-hana-large-instance.md
         - name: Konfigurowanie serwera SMT dla serwera z systemem SUSE Linux

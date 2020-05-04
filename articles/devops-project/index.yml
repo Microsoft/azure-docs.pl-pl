@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Dokumentacja funkcji Azure DevOps Projects
-summary: Funkcja Azure DevOps Projects stanowi uproszczone środowisko, do którego możesz przenieść istniejący kod i repozytorium Git lub dokonać wyboru jednej z aplikacji przykładowych, aby utworzyć potok ciągłej integracji i ciągłego dostarczania na platformie Azure.
+title: Dokumentacja usługi Azure DevOps Starter
+summary: Usługa Azure DevOps Starter stanowi uproszczone środowisko, w którym możesz umieścić istniejący kod i repozytorium Git albo wybrać jedną z przykładowych aplikacji, aby utworzyć potok ciągłej integracji i ciągłego wdrażania na platformie Azure.
 metadata:
-  title: Dokumentacja funkcji Azure DevOps Projects
+  title: Dokumentacja usługi Azure DevOps Starter
   description: Przenieś istniejący kod i repozytorium Git lub wybierz aplikację przykładową, aby utworzyć potok ciągłej integracji i ciągłego wdrażania na platformie Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
-  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78942468"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82231474"
 landingContent:
-- title: Informacje o funkcji Azure DevOps Projects
+- title: Informacje o usłudze Azure DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: Co to jest Azure DevOps Projects?
+    - text: Co to jest usługa Azure DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Wideo na temat tworzenia potoku ciągłej integracji/ciągłego dostarczania za pomocą funkcji DevOps Projects (8:53)
+    - text: Film wideo dotyczący tworzenia ciągłej integracji/ciągłego wdrażania za pomocą usługi DevOps Starter (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 - title: Tworzenie potoku ciągłej integracji/ciągłego wdrażania
   linkLists:
