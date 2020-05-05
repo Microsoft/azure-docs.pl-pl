@@ -4,16 +4,16 @@ description: Ten artykuł zawiera informacje referencyjne dotyczące polecenia A
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74034000"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780729"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opcje
 
-**--exclude-Path — ciąg**      Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: folder. webfolders/subDirName/plik. PDF.
+**--Usuń ciąg migawek** domyślnie, operacja usuwania kończy się niepowodzeniem, jeśli obiekt BLOB ma migawki. Określ element "include", aby usunąć główny obiekt BLOB i wszystkie jego migawki; Alternatywnie można określić tylko wartość "tylko", aby usunąć tylko migawki, ale zachować główny obiekt BLOB.
+
+**--exclude-Path** ciąg Wyklucz te ścieżki podczas usuwania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej. Na przykład: folder. webfolders/subDirName/plik. PDF.
 
 **--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: *. jpg;*. PDF; exactname
+
+**--Wymuś-if-tylko do odczytu**    Podczas usuwania pliku Azure Files lub folderu Wymuś działanie operacji usuwania, nawet jeśli istniejący obiekt ma ustawiony atrybut tylko do odczytu
 
 **-h,--** Pomoc dotycząca usuwania
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--Cap-MB/s UInt32|Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.|
 |--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
+|--Zaufane — ciąg sufiksów firmy Microsoft   | Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
 
 ## <a name="see-also"></a>Zobacz także
 

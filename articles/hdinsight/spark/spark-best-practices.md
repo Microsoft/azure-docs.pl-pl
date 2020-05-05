@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 424a0cfd02cfce9fb87bc3e21d7b067740df8218
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 01cdc121abded954c2443599c5d69689acd69b62
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509418"
+ms.locfileid: "82562342"
 ---
 # <a name="apache-spark-guidelines"></a>Wskazówki dotyczące Apache Spark
 
@@ -30,8 +30,8 @@ Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usł
 | Zdalne przesyłanie zadania za pomocą usługi Livy | [Przesyłanie zadań zdalnych do klastra usługi HDInsight Spark przy użyciu interfejsu API REST platformy Apache Spark](./apache-spark-livy-rest-interface.md) |
 |[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie to przepływ pracy i system koordynacji, który zarządza zadaniami usługi Hadoop.|
 |[Apache Livy](./apache-spark-livy-rest-interface.md)|Można użyć usługi Livy do uruchamiania interakcyjnych powłok Spark lub przesyłania zadań wsadowych do uruchamiania na platformie Spark.|
-|[Azure Data Factory Apache Spark](/../data-factory/transform-data-using-spark.md)|Działanie platformy Spark w potoku Data Factory wykonuje program platformy Spark we własnym lub [w klastrze usługi HDInsight na żądanie.|
-|[Azure Data Factory Apache Hive](/../data-factory/transform-data-using-hadoop-hive.md)|Działanie programu Hive w usłudze HDInsight w potoku Data Factory wykonuje zapytania Hive w klastrze usługi HDInsight w twoim własnym lub na żądanie.|
+|[Azure Data Factory Apache Spark](../../data-factory/transform-data-using-spark.md)|Działanie platformy Spark w potoku Data Factory wykonuje program platformy Spark we własnym lub [w klastrze usługi HDInsight na żądanie.|
+|[Azure Data Factory Apache Hive](../../data-factory/transform-data-using-hadoop-hive.md)|Działanie programu Hive w usłudze HDInsight w potoku Data Factory wykonuje zapytania Hive w klastrze usługi HDInsight w twoim własnym lub na żądanie.|
 
 ## <a name="how-do-i-monitor-and-debug-spark-jobs"></a>Jak mogę monitorować i debugować zadania platformy Spark?
 
@@ -62,7 +62,7 @@ Ten artykuł zawiera różne wskazówki dotyczące używania Apache Spark w usł
 
 | Opcja | Dokumenty |
 |---|---|
-| Usługa Data Lake Storage 2. generacji | [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Usługa Data Lake Storage 2. generacji | [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | Usługa Data Lake Storage 1. generacji | [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md) |
 | Azure Blob Storage | [Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md) |
 

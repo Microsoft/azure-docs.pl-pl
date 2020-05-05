@@ -3,15 +3,15 @@ title: Zarządzanie środowiskami usługi integracji w Azure Logic Apps
 description: Sprawdź kondycję sieci i Zarządzaj aplikacjami logiki, połączeniami, łącznikami niestandardowymi i kontami integracji w środowisku usługi integracji (ISE) dla Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284202"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598423"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Zarządzanie środowiskiem usługi integracji (ISE) w Azure Logic Apps
 
@@ -23,7 +23,7 @@ W tym artykule pokazano, jak wykonywać zadania zarządzania dla [środowiska us
 
 ## <a name="view-your-ise"></a>Wyświetlanie ISE
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 1. W polu wyszukiwania portalu wprowadź "środowiska usługi integracji", a następnie wybierz pozycję **środowiska usługi integracji**.
 
@@ -54,6 +54,10 @@ Aplikacje logiki można wyświetlać i zarządzać nimi, które znajdują się w
    ![Wyświetlanie aplikacji logiki](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. Aby usunąć aplikacje logiki, które nie są już potrzebne w ISE, wybierz te aplikacje logiki, a następnie wybierz pozycję **Usuń**. Aby potwierdzić, że chcesz usunąć, wybierz pozycję **tak**.
+
+> [!NOTE]
+> Jeśli usuniesz i utworzysz ponownie podrzędną aplikację logiki, musisz ponownie zapisać nadrzędną aplikację logiki. Ponownie utworzona aplikacja podrzędna będzie miała inne metadane.
+> Jeśli nie zapiszesz ponownie nadrzędnej aplikacji logiki po ponownym utworzeniu elementu podrzędnego, Twoje wywołania podrzędnej aplikacji logiki zakończą się niepowodzeniem z błędem "Brak autoryzacji". To zachowanie dotyczy aplikacji logiki nadrzędny-podrzędny, na przykład tych, które używają artefaktów na kontach integracji lub wywołują usługi Azure Functions.
 
 <a name="find-api-connections"></a>
 

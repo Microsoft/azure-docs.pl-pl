@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i interfejsu API REST
-description: Dowiedz się, jak określić zasoby, których użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane są dostępne do korzystania z kontroli dostępu opartej na rolach (RBAC) na platformie Azure i interfejsu API REST.
+title: Wyświetlanie listy przypisań ról platformy Azure przy użyciu interfejsu API REST — Azure RBAC
+description: Dowiedz się, jak określić zasoby, których użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane mają dostęp do korzystania z interfejsu API REST i kontroli dostępu opartej na rolach platformy Azure (RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 043c91e5c1ecd86951ac3f9423558a3ab369d506
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062154"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735678"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i interfejsu API REST
+# <a name="list-azure-role-assignments-using-the-rest-api"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu interfejsu API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]W tym artykule opisano sposób wyświetlania listy przypisań ról przy użyciu interfejsu API REST.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80062154"
 
 ## <a name="list-role-assignments"></a>Lista przypisań ról
 
-W polu RBAC, aby wyświetlić listę uprawnień dostępu, należy wyświetlić listę przypisań ról. Aby wyświetlić listę przypisań ról, użyj jednego z [przypisań ról —](/rest/api/authorization/roleassignments/list) interfejsów API REST. Aby uściślić wyniki, należy określić zakres i opcjonalny filtr.
+W celu wyświetlenia listy uprawnień w usłudze Azure RBAC należy wyświetlić listę przypisań ról. Aby wyświetlić listę przypisań ról, użyj jednego z [przypisań ról —](/rest/api/authorization/roleassignments/list) interfejsów API REST. Aby uściślić wyniki, należy określić zakres i opcjonalny filtr.
 
 1. Rozpocznij od następującego żądania:
 
@@ -63,5 +63,5 @@ W polu RBAC, aby wyświetlić listę uprawnień dostępu, należy wyświetlić l
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i interfejsu API REST](role-assignments-rest.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)

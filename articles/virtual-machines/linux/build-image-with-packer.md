@@ -3,16 +3,17 @@ title: Tworzenie obrazów maszyn wirtualnych z systemem Linux przy użyciu progr
 description: Dowiedz się, jak tworzyć obrazy maszyn wirtualnych z systemem Linux na platformie Azure przy użyciu programu Packer
 author: cynthn
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aec50b8c8f2033b7340bde15ea7670c1a0b6bb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534223"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792704"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Linux na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję i wersję systemu operacyjnego Linux. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów pierwszej i innej firmy dla typowych dystrybucji i środowisk aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano sposób użycia pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.

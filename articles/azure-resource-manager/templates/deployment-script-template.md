@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188913"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610806"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
 Dowiedz się, jak używać skryptów wdrażania w szablonach zasobów platformy Azure. Po wywołaniu `Microsoft.Resources/deploymentScripts`nowego typu zasobu użytkownicy mogą wykonywać skrypty wdrażania w ramach wdrożeń szablonów i przeglądać wyniki wykonania. Skrypty te mogą służyć do wykonywania czynności niestandardowych, takich jak:
 
 - Dodawanie użytkowników do katalogu
-- Tworzenie rejestracji aplikacji
 - Wykonaj operacje płaszczyzny danych, na przykład skopiuj obiekty blob lub bazę danych inicjatora
 - Wyszukiwanie i sprawdzanie poprawności klucza licencji
 - Tworzenie certyfikatu z podpisem własnym
@@ -37,14 +36,14 @@ Zalety skryptu wdrażania:
 Zasób skryptu wdrożenia jest dostępny tylko w regionach, w których usługa Azure Container instance jest dostępna.  Zobacz [dostępność zasobów dla Azure Container Instances w regionach świadczenia usługi Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> Dwa zasoby skryptu wdrożenia, konto magazynu i wystąpienie kontenera są tworzone w tej samej grupie zasobów na potrzeby wykonywania skryptu i rozwiązywania problemów. Te zasoby są zwykle usuwane przez usługę skryptów, gdy wykonywanie skryptu wdrożenia jest w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby dowiedzieć się więcej, zobacz [Zasoby skryptu wdrożenia oczyszczanie](#clean-up-deployment-script-resources).
+> Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Dwa automatycznie tworzone zasoby są zwykle usuwane przez usługę skryptów, gdy wykonywanie skryptu wdrożenia zostanie oddzielone w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby dowiedzieć się więcej, zobacz [Zasoby skryptu wdrożenia oczyszczanie](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - **Tożsamość zarządzana przypisana przez użytkownika z rolą współautor do docelowej grupy zasobów**. Ta tożsamość jest używana do wykonywania skryptów wdrażania. Aby wykonać operacje poza grupą zasobów, należy udzielić dodatkowych uprawnień. Na przykład Przypisz tożsamość do poziomu subskrypcji, jeśli chcesz utworzyć nową grupę zasobów.
 
   > [!NOTE]
-  > Aparat skryptu wdrażania tworzy konto magazynu i wystąpienie kontenera w tle.  Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji jest wymagana, jeśli subskrypcja nie zarejestrowała dostawców zasobów konta usługi Azure Storage (Microsoft. Storage) i Azure Container Instance (Microsoft. ContainerInstance).
+  > Usługa skryptów tworzy konto magazynu (chyba że użytkownik określi istniejące konto magazynu) i wystąpienie kontenera w tle.  Tożsamość zarządzana przypisana przez użytkownika z rolą współautor na poziomie subskrypcji jest wymagana, jeśli subskrypcja nie zarejestrowała dostawców zasobów konta usługi Azure Storage (Microsoft. Storage) i Azure Container Instance (Microsoft. ContainerInstance).
 
   Aby utworzyć tożsamość, zobacz [Tworzenie tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)lub przy [użyciu interfejsu wiersza polecenia platformy Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)lub przy [użyciu Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Identyfikator tożsamości jest wymagany podczas wdrażania szablonu. Format tożsamości:
 
@@ -101,6 +100,13 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Szczegóły wartości właściwości:
 - **Tożsamość**: usługa skryptu wdrażania używa zarządzanej tożsamości przypisanej przez użytkownika do wykonywania skryptów. Obecnie obsługiwana jest tylko tożsamość zarządzana przypisana przez użytkownika.
 - **rodzaj**: Określ typ skryptu. Obecnie obsługiwane są Azure PowerShell i skrypty interfejsu wiersza polecenia platformy Azure. Wartości to **AzurePowerShell** i **AzureCLI**.
 - **forceUpdateTag**: zmiana tej wartości między wdrożeniami szablonów Wymusza ponowne wykonanie skryptu wdrażania. Użyj funkcji newGuid () lub utcNow (), która musi być ustawiona jako wartość domyślna parametru. Aby dowiedzieć się więcej, zobacz [Uruchamianie skryptu więcej niż raz](#run-script-more-than-once).
+- **containerSettings**: Określ ustawienia umożliwiające dostosowanie wystąpienia kontenera platformy Azure.  **containerGroupName** służy do określania nazwy grupy kontenerów.  Jeśli nie zostanie określony, nazwa grupy zostanie wygenerowana automatycznie.
+- **storageAccountSettings**: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Określ wersję modułu do użycia. Aby zapoznać się z listą obsługiwanych wersji programu PowerShell i interfejsu wiersza polecenia, zobacz [wymagania wstępne](#prerequisites).
 - **argumenty**: Określ wartości parametrów. Wartości są rozdzielone spacjami.
 - **environmentVariables**: Określ zmienne środowiskowe, które mają zostać przekazane do skryptu. Aby uzyskać więcej informacji, zobacz temat [programowanie skryptów wdrażania](#develop-deployment-scripts).
@@ -241,7 +249,7 @@ Dane wyjściowe skryptu wdrożenia muszą być zapisane w lokalizacji AZ_SCRIPTS
 ### <a name="handle-non-terminating-errors"></a>Obsługuj błędy niepowodujące zakończenia
 
 Można kontrolować, jak program PowerShell reaguje na błędy niepowodujące zakończenia przy użyciu zmiennej [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) w skrypcie wdrożenia. Aparat skryptu wdrażania nie ustawił/nie zmienia wartości.  Pomimo wartości ustawionej dla $ErrorActionPreference skrypt wdrażania ustawia stan aprowizacji zasobów na *Niepowodzenie* , gdy wystąpi błąd w skrypcie.
+) w skrypcie wdrożenia. Usługa skryptu nie ustawia/nie zmienia wartości.  Pomimo wartości ustawionej dla $ErrorActionPreference skrypt wdrażania ustawia stan aprowizacji zasobów na *Niepowodzenie* , gdy wystąpi błąd w skrypcie.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Przekaż zabezpieczone ciągi do skryptu wdrażania
 
@@ -249,7 +257,7 @@ Ustawienie zmiennych środowiskowych (zmiennych środowiskowych) w wystąpieniac
 
 ## <a name="debug-deployment-scripts"></a>Debuguj skrypty wdrażania
 
-Usługa skryptów tworzy [konto magazynu](../../storage/common/storage-account-overview.md) i [wystąpienie kontenera](../../container-instances/container-instances-overview.md) na potrzeby wykonywania skryptu. Oba zasoby mają sufiks **azscripts** w nazwach zasobów.
+Usługa skryptów tworzy [konto magazynu](../../storage/common/storage-account-overview.md) (o ile nie zostanie określone istniejące konto magazynu) i [wystąpienie kontenera](../../container-instances/container-instances-overview.md) na potrzeby wykonywania skryptu. Jeśli te zasoby są tworzone automatycznie przez usługę skryptów, oba zasoby mają sufiks **azscripts** w nazwach zasobów.
 
 ![Nazwy zasobów skryptu wdrożenia szablonu Menedżer zasobów](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ Aby wyświetlić zasób deploymentScripts w portalu, wybierz pozycję **Pokaż u
 
 ![Skrypt wdrażania szablonu Menedżer zasobów, wyświetlanie ukrytych typów, Portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Użyj istniejącego konta magazynu
+
+Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Wymagania dotyczące korzystania z istniejącego konta magazynu:
+
+- Obsługiwane rodzaje kont magazynu to: konta ogólnego przeznaczenia w wersji 2, konta ogólnego przeznaczenia w wersji 1 i konta fileStorage. Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../../storage/common/storage-account-overview.md).
+- Reguły zapory konta magazynu muszą być wyłączone. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnej](../../storage/common/storage-network-security.md)
+- Tożsamość zarządzana przypisana przez użytkownika skryptu wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, które obejmuje odczyt, tworzenie i usuwanie udziałów plików.
+
+Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do elementu właściwości `Microsoft.Resources/deploymentScripts`:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+Zobacz [przykładowe szablony](#sample-templates) , aby zapoznać `Microsoft.Resources/deploymentScripts` się z kompletnym przykładem definicji.
+
+W przypadku korzystania z istniejącego konta magazynu usługa skryptów tworzy udział plików z unikatową nazwą. Zobacz [Oczyszczanie zasobów skryptu wdrażania](#clean-up-deployment-script-resources) , aby usługa skryptów czyści udział plików.
+
 ## <a name="clean-up-deployment-script-resources"></a>Czyszczenie zasobów skryptu wdrożenia
 
-Skrypt wdrażania tworzy konto magazynu i wystąpienie kontenera, które są używane do wykonywania skryptów wdrażania i przechowywania informacji debugowania. Te dwa zasoby są tworzone w tej samej grupie zasobów co zasoby aprowizacji i zostaną usunięte przez usługę skryptów, gdy skrypt wygaśnie. Możesz kontrolować cykl życia tych zasobów.  Dopóki nie zostaną usunięte, opłaty są naliczane za oba zasoby. Aby uzyskać informacje o cenach, zobacz [Container Instances Cennik](https://azure.microsoft.com/pricing/details/container-instances/) i [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Dwa automatycznie utworzone zasoby są usuwane przez usługę skryptów, gdy wykonywanie skryptu wdrożenia zostanie oddzielone w stanie terminalu. Opłaty są naliczane za zasoby do momentu usunięcia zasobów. Aby uzyskać informacje o cenach, zobacz [Container Instances Cennik](https://azure.microsoft.com/pricing/details/container-instances/) i [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w szablonie:
 
-- **cleanupPreference**: Wyczyść preferencję, gdy wykonywanie skryptu zostanie odszukane w stanie terminalu.  Obsługiwane są następujące wartości:
+- **cleanupPreference**: Wyczyść preferencję, gdy wykonywanie skryptu zostanie odszukane w stanie terminalu. Obsługiwane są następujące wartości:
 
-  - **Zawsze**: Usuń zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, skrypt systemu skopiuje wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp. do bazy danych przed usunięciem zasobów.
-  - **OnSuccess**: usuwanie zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
-  - **Onwygaśnięcia**: Usuń zasoby tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Ta właściwość jest obecnie wyłączona.
+  - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługi skryptów utrwalają wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp. przed usunięciem zasobów.
+  - **OnSuccess**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików tylko po pomyślnym wykonaniu skryptu. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
+  - **Onwygaśnięcia**: usuwanie zasobów automatycznie tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowa konto magazynu.
 
 - **retentionInterval**: Określ interwał czasu, przez który zasób skryptu zostanie zachowany, a następnie zostanie usunięty.
 
