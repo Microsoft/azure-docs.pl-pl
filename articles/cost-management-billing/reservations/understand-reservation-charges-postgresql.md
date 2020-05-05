@@ -1,20 +1,17 @@
 ---
-title: Omówienie stosowania rabatu za rezerwację do pojedynczego serwera usługi Azure Database for PostgreSQL
-description: Omówienie stosowania rabatu za rezerwację do pojedynczego serwera usługi Azure Database for PostgreSQL
+title: Informacje o rabacie na rezerwacje — pojedynczy serwer usługi Azure Database for PostgreSQL
+description: Dowiedz się, jak jest stosowany rabat na rezerwację do pojedynczych serwerów usługi Azure Database for PostgreSQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199300"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509401"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Omówienie stosowania rabatu za rezerwację do pojedynczego serwera usługi Azure Database for PostgreSQL
 
@@ -28,7 +25,7 @@ Po wyłączeniu zasobu rabat za rezerwację automatycznie stosuje się do innego
 
 ## <a name="discount-applied-to-azure-database-for-postgresql-single-server"></a>Rabat zastosowany do pojedynczego serwera usługi Azure Database for PostgreSQL
 
-Rabat za pojemność zarezerwowaną pojedynczego serwera usługi Azure Database for PostgreSQL jest stosowany do działającego pojedynczego serwera PostgreSQL z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działający pojedynczy serwer usługi Azure Database for PostgreSQL. W przypadku pojedynczych serwerów usługi Azure Database for PostgreSQL, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innego pojedynczego serwera usługi Azure Database for PostgreSQL pasującego do atrybutów rezerwacji. Rabat może być stosowany do pojedynczych serwerów usługi Azure Database for PostgreSQL, które działają równolegle. Jeśli nie masz pojedynczych serwerów usługi Azure Database for PostgreSQL, które działają przez pełną godzinę i pasują do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu za rezerwację w tej godzinie.
+Rabat za pojemność zarezerwowaną pojedynczego serwera usługi Azure Database for PostgreSQL jest stosowany do działającego pojedynczego serwera PostgreSQL z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działający pojedynczy serwer usługi Azure Database for PostgreSQL. W przypadku pojedynczych serwerów usługi Azure Database for PostgreSQL, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innego pojedynczego serwera usługi Azure Database for PostgreSQL pasującego do atrybutów rezerwacji. Rabat może być stosowany do pojedynczych serwerów usługi Azure Database for PostgreSQL, które działają równolegle. Jeśli nie masz pojedynczych serwerów usługi Azure Database for PostgreSQL, które działają przez pełną godzinę i pasują do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu na rezerwację w tej godzinie.
 
 W poniższych przykładach pokazano, w jaki sposób rabat za pojemność zarezerwowaną pojedynczego serwera usługi Azure Database for PostgreSQL jest stosowany w zależności od liczby zakupionych rdzeni oraz czasu ich działania.
 
@@ -44,5 +41,6 @@ W pozostałych przykładach przyjęto założenie, że zakupiona pojemność zar
 
 Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
+## <a name="next-steps"></a>Następne kroki
+
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).

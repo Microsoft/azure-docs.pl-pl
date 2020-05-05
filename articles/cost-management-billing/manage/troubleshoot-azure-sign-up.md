@@ -1,5 +1,5 @@
 ---
-title: Nie można utworzyć nowego konta platformy Azure
+title: Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 description: Rozwiązywanie problemu, który może wystąpić przy próbie utworzenia nowego konta w Centrum konta w witrynie Microsoft Azure Portal.
 services: cost-management-billing
 author: v-miegge
@@ -9,20 +9,23 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: e8536555e3763674a2c018182e70f8d50e11556b
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641733"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133181"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 
 Podczas próby utworzenia nowego konta w witrynie Microsoft Azure Portal lub w Centrum konta platformy Azure może wystąpić problem. Przed rozwiązaniem tego problemu należy najpierw sprawdzić następujące kwestie:
 
 - Informacje podane dla Twojego profilu konta platformy Azure (w tym kontaktowy adres e-mail, adres i numer telefonu) są poprawne.
 - Informacje o karcie kredytowej są poprawne.
 - Nie masz jeszcze konta Microsoft używającego tych samych informacji.
+
+> [!NOTE]
+> Jeśli masz już konto i szukasz wskazówek dotyczących rozwiązywania problemów z logowaniem, zobacz [Rozwiązywanie problemów z logowaniem w przypadku subskrypcji platformy Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 ## <a name="resolutions"></a>Rozwiązania
 

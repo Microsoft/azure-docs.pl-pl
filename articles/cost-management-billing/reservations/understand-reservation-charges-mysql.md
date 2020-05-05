@@ -1,20 +1,17 @@
 ---
-title: W jaki sposób rabat za rezerwacje jest stosowany do usługi Azure Database for MySQL
-description: W jaki sposób rabat za rezerwacje jest stosowany do usługi Azure Database for MySQL
+title: Informacje o rabacie na rezerwacje — Azure Database for MySQL
+description: Dowiedz się, w jaki sposób rabat na rezerwacje jest stosowany do serwerów usługi Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e47153b24234480ee52847f07e723c02fabb3113
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199317"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509435"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>W jaki sposób rabat za rezerwacje jest stosowany do usługi Azure Database for MySQL
 
@@ -28,7 +25,7 @@ Po wyłączeniu zasobu rabat za rezerwację automatycznie stosuje się do innego
 
 ## <a name="discount-applied-to-azure-database-for-mysql"></a>Rabat zastosowany do usługi Azure Database for MySQL
 
-Rabat za pojemność zarezerwowaną usługi Azure Database for MySQL jest stosowany do działających serwerów MySQL z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działające pojedyncze serwery usługi Azure Database for MySQL. W przypadku serwerów MySQL, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innych serwerów usługi Azure Database for MySQL pasujących do atrybutów rezerwacji. Rabat może być stosowany do serwerów usługi Azure Database for MySQL, które działają równolegle. Jeśli nie masz serwera MySQL, który działa przez pełną godzinę i pasuje do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu za rezerwację w tej godzinie.
+Rabat za pojemność zarezerwowaną usługi Azure Database for MySQL jest stosowany do działających serwerów MySQL z rozliczeniem godzinowym. Kupowana rezerwacja jest dopasowywana do użycia zasobów obliczeniowych emitowanych przez działające pojedyncze serwery usługi Azure Database for MySQL. W przypadku serwerów MySQL, które nie działają przez pełną godzinę, rezerwacja jest automatycznie stosowana do innych serwerów usługi Azure Database for MySQL pasujących do atrybutów rezerwacji. Rabat może być stosowany do serwerów usługi Azure Database for MySQL, które działają równolegle. Jeśli nie masz serwera MySQL, który działa przez pełną godzinę i pasuje do atrybutów rezerwacji, nie wykorzystasz w pełni korzyści z rabatu na rezerwację w tej godzinie.
 
 W poniższych przykładach pokazano, w jaki sposób rabat za pojemność zarezerwowaną usługi Azure Database for MySQL jest stosowany w zależności od liczby zakupionych rdzeni oraz czasu ich działania.
 
@@ -44,5 +41,6 @@ W pozostałych przykładach przyjęto założenie, że zakupiona pojemność zar
 
 Aby poznać zastosowanie swoich rezerwacji platformy Azure w raportach rozliczeń użycia i przejrzeć je, zobacz [Omówienie użycia rezerwacji platformy Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
+## <a name="next-steps"></a>Następne kroki
+
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).
