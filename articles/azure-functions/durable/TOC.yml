@@ -31,7 +31,7 @@
       href: durable-functions-phone-verification.md
     - name: Publikowanie w usłudze Event Grid
       href: durable-functions-event-publishing.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: /samples/browse/?products=azure-functions&term=durable
@@ -83,6 +83,8 @@
       href: durable-functions-http-api.md
     - name: Interfejs API .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    - name: Interfejs API Node.js
+      href: /javascript/api/durable-functions/?view=azure-node-latest
 - name: Przewodniki z instrukcjami
   items:
     - name: Programowanie
@@ -113,15 +115,15 @@
           href: durable-functions-diagnostics.md
         - name: Monitorowanie
           href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Ceny
+        - name: Cennik
           href: durable-functions-billing.md
 - name: Zasoby
   items:
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-functions
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

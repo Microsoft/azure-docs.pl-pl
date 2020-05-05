@@ -3,22 +3,22 @@ title: Dokumentacja testów porównawczych zabezpieczeń platformy Azure
 summary: Dowiedz się, jak zabezpieczyć rozwiązania w chmurze na platformie Azure, korzystając z naszych najlepszych rozwiązań i wskazówek.
 metadata:
   title: Testy porównawcze zabezpieczeń platformy Azure
-  description: Test porównawczy mechanizmów zabezpieczeń platformy Azure zawiera zalecenia, które pomogą Ci w poprawie stanu zabezpieczeń Twoich aplikacji i danych na platformie Azure.
+  description: Test porównawczy zabezpieczeń platformy Azure zawiera zalecenia, które pomogą Ci w poprawie stanu zabezpieczeń Twoich aplikacji i danych na platformie Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
-  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.openlocfilehash: 7cebc4fb6e676470b46a52cf1ea62e0990e708e9
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/15/2020
-  ms.locfileid: "81393837"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82607756"
 landingContent:
 - title: Informacje o teście porównawczym zabezpieczeń platformy Azure
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
     links:
     - text: Wprowadzenie do testu porównawczego zabezpieczeń platformy Azure
       url: introduction.md
-    - text: Omówienie kontroli zabezpieczeń platformy Azure
+    - text: Omówienie mechanizmów zabezpieczeń platformy Azure
       url: overview.md
 - title: Mechanizmy zabezpieczeń
   linkLists:

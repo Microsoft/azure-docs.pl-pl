@@ -1,22 +1,20 @@
-- name: Windows Virtual Desktop
+- name: 'Windows Virtual Desktop, wersja Wiosna 2020'
   href: index.yml
 - name: Omówienie
   items:
     - name: Co to jest Windows Virtual Desktop?
       href: overview.md
+    - name: Dokumentacja wersji Jesień 2019
+      href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Samouczki
   items:
-    - name: 1. Tworzenie dzierżawy w usłudze Windows Virtual Desktop
-      href: tenant-setup-azure-active-directory.md
-    - name: 2. Tworzenie jednostek usługi i przypisań ról za pomocą programu PowerShell
-      href: create-service-principal-role-powershell.md
-    - name: 3. Tworzenie puli hostów za pomocą witryny Azure Marketplace
+    - name: 1. Tworzenie puli hostów za pomocą witryny Azure Portal
       href: create-host-pools-azure-marketplace.md
-    - name: 4. Zarządzanie grupami aplikacji
+    - name: 2. Zarządzanie grupami aplikacji
       href: manage-app-groups.md
-    - name: 5. Tworzenie puli hostów na potrzeby weryfikacji aktualizacji usług
+    - name: 3. Tworzenie puli hostów na potrzeby weryfikacji aktualizacji usług
       href: create-validation-host-pool.md
-    - name: 6. Konfigurowanie alertów usługi
+    - name: 4. Konfigurowanie alertów usługi
       href: set-up-service-alerts.md
 - name: Porady
   items:
@@ -32,18 +30,18 @@
           href: connect-macos.md
         - name: Nawiązywanie połączenia z klientem systemu iOS
           href: connect-ios.md
+    - name: Konfigurowanie modułu programu PowerShell
+      href: powershell-module.md
     - name: Tworzenie puli hostów i hostów sesji
       items:
-        - name: Szablon usługi Azure Resource Manager
-          href: create-host-pools-arm-template.md
         - name: PowerShell
           href: create-host-pools-powershell.md
-        - name: Wdrażanie maszyny wirtualnej z systemem Windows 7
-          href: deploy-windows-7-virtual-machine.md
         - name: Wdrażanie hosta sesji opartego na procesorze graficznym
           href: configure-vm-gpu.md
         - name: Rozszerzanie istniejącej puli hostów
           href: expand-existing-host-pool.md
+        - name: Zarządzanie grupami aplikacji za pomocą programu PowerShell
+          href: manage-app-groups-powershell.md
     - name: Tworzenie kontenera profilu
       items:
         - name: Używanie udziału plików opartego na maszynie wirtualnej
@@ -68,20 +66,10 @@
           href: set-up-customize-master-image.md
         - name: Instalowanie pakietu Office w głównym obrazie wirtualnego dysku twardego
           href: install-office-on-wvd-master-image.md
-    - name: Automatyczne skalowanie hostów sesji
-      href: set-up-scaling-script.md
     - name: Dostosowywanie źródła
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Wdrażanie narzędzia do zarządzania
-      items:
-        - name: Szablon usługi Azure Resource Manager
-          href: manage-resources-using-ui.md
-        - name: PowerShell
-          href: manage-resources-using-ui-powershell.md
     - name: Korzystanie z diagnostyki usługi
       items:
-        - name: Wdrażanie narzędzia diagnostycznego
-          href: deploy-diagnostics.md
         - name: Korzystanie z diagnostyki z usługą Log Analytics
           href: diagnostics-log-analytics.md
     - name: Publikowanie wbudowanych aplikacji
@@ -124,10 +112,6 @@
       href: troubleshoot-set-up-issues.md
     - name: Konfiguracja maszyny wirtualnej hosta sesji
       href: troubleshoot-vm-configuration.md
-    - name: Rozwiązywanie problemów z maszynami wirtualnymi z systemem Windows 7 w usłudze Windows Virtual Desktop
-      href: troubleshoot-windows-7-vm.md
-    - name: Rozwiązywanie problemów z narzędziem zarządzania Windows Virtual Desktop
-      href: troubleshoot-management-tool.md
     - name: Połączenia usług pulpitu zdalnego
       href: troubleshoot-service-connection.md
     - name: Problemy z klientem pulpitu zdalnego
@@ -140,10 +124,6 @@
   items:
     - name: Obsługa systemu Linux
       href: linux-overview.md
-    - name: PowerShell
-      href: /powershell/windows-virtual-desktop/overview
-    - name: Interfejs API REST
-      href: /rest/api/virtual-desktop/
     - name: Obsługiwane ustawienia pliku RDP
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
     - name: Wskazówki dotyczące sieci

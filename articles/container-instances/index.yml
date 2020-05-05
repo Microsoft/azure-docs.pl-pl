@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 1503cad9c85f60b930f520cf24e0d772d7ffe1e7
+  ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75445753"
+  ms.lasthandoff: 05/01/2020
+  ms.locfileid: "82628933"
 landingContent:
 - title: Informacje o usłudze Azure Container Instances
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: container-instances-container-groups.md
     - text: Często zadawane pytania
       url: container-instances-faq.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -36,6 +36,8 @@ landingContent:
       url: container-instances-quickstart.md
     - text: Wdrażanie wystąpienia kontenera — portal
       url: container-instances-quickstart-portal.md
+    - text: Wdrażanie wystąpienia kontenera — szablon usługi Resource Manager
+      url: container-instances-quickstart-template.md
   - linkListType: learn
     links:
     - text: Uruchamianie kontenerów Docker w usłudze Azure Container Instances
@@ -46,7 +48,7 @@ landingContent:
     links:
     - text: Wdrażanie grupy kontenerów — YAML
       url: container-instances-multi-container-yaml.md
-    - text: Wdrażanie grupy kontenerów — szablon
+    - text: Wdrażanie grupy kontenerów — szablon usługi Resource Manager
       url: container-instances-multi-container-group.md
 - title: Scenariusze wdrażania
   linkLists:

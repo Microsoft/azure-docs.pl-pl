@@ -165,8 +165,6 @@
               href: azure-to-azure-about-networking.md
             - name: Dostosowywanie konfiguracji sieci dla docelowej maszyny wirtualnej platformy Azure
               href: azure-to-azure-customize-networking.md
-            - name: Konfigurowanie ustawień serwera proxy usługi mobilności
-              href: configure-mobility-service-proxy-settings.md
             - name: Konfigurowanie mapowania sieci i zachowywanie adresów IP po przełączeniu do trybu failover
               href: azure-to-azure-network-mapping.md
             - name: Przykłady zachowywania adresów IP po przełączeniu do trybu failover
@@ -191,6 +189,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Konfigurowanie odzyskiwania po awarii maszyn wirtualnych platformy Azure po migracji na platformę Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Umożliwianie odzyskiwania po awarii między strefami
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Zarządzanie
           items:
             - name: Aktualizowanie usługi mobilności na maszynach wirtualnych platformy Azure
@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Wdrażanie usługi mobilności
               items:
-                - name: Informacje o instalacji usługi mobilności
+                - name: Omówienie i instalacja usługi mobilności
                   href: vmware-physical-mobility-service-overview.md
                 - name: Przygotowanie do instalacji wypychanej
                   href: vmware-azure-install-mobility-service.md

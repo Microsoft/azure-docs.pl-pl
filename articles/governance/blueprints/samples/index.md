@@ -3,12 +3,12 @@ title: Indeks przykładów strategii
 description: Indeks przykładów dotyczących zgodności i przykładów standardowych dotyczących wdrażania środowisk, zasad i podstaw struktury Cloud Adoptions Framework za pomocą usługi Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 582a4bbc1ec21e231d2a9f1feb1cfef34b3cce37
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383525"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594274"
 ---
 # <a name="azure-blueprints-samples"></a>Przykłady usługi Azure Blueprints
 
@@ -18,6 +18,7 @@ Poniższa tabela zawiera linki do przykładów dla usługi Azure Blueprints. Ka�
 
 |  |  |
 |---------|---------|
+| [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Zapewnia zabezpieczenia zgodności z wytycznymi Australian Government ISM PROTECTED. |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Zapewnia zabezpieczenia zgodności zgodnie z wytycznymi Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Udostępnia zestaw zasad pomagających w zachowaniu zgodności z zaleceniami CIS Microsoft Azure Foundations Benchmark. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Zawiera zestaw zasad, które ułatwiają zapewnienie zgodności ze standardem DoD Impact Level 4. |

@@ -1,10 +1,11 @@
-- name: Testy porównawcze zabezpieczeń platformy Azure
+- name: Test porównawczy zabezpieczeń platformy Azure
   href: index.yml
 - name: Wprowadzenie
   href: introduction.md
 - name: Mechanizmy zabezpieczeń
+  expanded: true
   items:
-    - name: Omówienie kontroli zabezpieczeń platformy Azure
+    - name: Omówienie mechanizmów zabezpieczeń platformy Azure
       href: overview.md
     - name: Bezpieczeństwo sieci
       href: security-control-network-security.md
@@ -28,9 +29,9 @@
       href: security-control-incident-response.md
     - name: Testy penetracyjne i ćwiczenia typu „red team”
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Punkty odniesienia zabezpieczeń
+- name: Punkty odniesienia zabezpieczeń dla platformy Azure
   items:
-    - name: Omówienie punktów odniesienia zabezpieczeń platformy Azure
+    - name: Omówienie punktów odniesienia zabezpieczeń dla platformy Azure
       href: security-baselines-overview.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md

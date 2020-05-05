@@ -23,6 +23,9 @@
     - name: Wdrażanie przy użyciu wielu adresów
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
+    - name: Wdrażanie przy użyciu stref dostępności
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: Samples
   items:
     - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Wdrażanie przy użyciu interfejsu wiersza polecenia platformy Azure
       href: deploy-cli.md
-    - name: Wdrażanie przy użyciu szablonu
-      href: deploy-template.md
     - name: Wdrażanie przy użyciu wielu publicznych adresów IP
       href: deploy-multi-public-ip-powershell.md
     - name: Wdrażanie przy użyciu stref dostępności
@@ -75,6 +76,8 @@
       href: snat-private-range.md
     - name: Tworzenie grup adresów IP
       href: create-ip-group.md
+    - name: Ochrona usługi Windows Virtual Desktop
+      href: protect-windows-virtual-desktop.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

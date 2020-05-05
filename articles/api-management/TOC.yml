@@ -35,7 +35,7 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 — Dostosowywanie portalu deweloperów
       href: api-management-howto-developer-portal-customize.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Zasady
       href: policy-samples.md
@@ -51,7 +51,7 @@
           href: api-management-howto-policies.md
         - name: Informacje ogólne o zasadach — indeks
           href: api-management-policies.md
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
         - name: Wbudowane mechanizmy zabezpieczeń
           href: api-management-security-controls.md
@@ -101,10 +101,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Aprowizowanie własnej bramy
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Wdrażanie własnej bramy w usłudze Azure Kubernetes Service
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Wdrażanie własnej bramy w usłudze Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Wdrażanie własnej bramy na platformie Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Konfigurowanie domeny niestandardowej dla własnej bramy
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Pamięć podręczna
@@ -209,12 +211,20 @@
           href: api-management-transformation-policies.md
     - name: Zarządzanie w produkcji
       items:
+        - name: Eksportowanie interfejsów API na platformę Power Platform
+          href: export-api-power-platform.md
         - name: Zarządzanie grupami
           href: api-management-howto-create-groups.md
         - name: Pobieranie adresów IP
           href: api-management-howto-ip-addresses.md
         - name: Rejestrowanie zdarzeń w usłudze Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Rejestrowanie żądań za pomocą usługi Azure Application Insights
+          href: api-management-howto-app-insights.md
+        - name: Konfigurowanie metryk i dzienników w chmurze dla własnej bramy
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Konfigurowanie lokalnych metryk i dzienników dla własnej bramy
+          href: how-to-configure-local-metrics-logs.md
         - name: Rejestrowanie żądań za pomocą usługi Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Konfigurowanie odzyskiwania po awarii przy użyciu funkcji wykonywania/przywracania kopii zapasowej
@@ -249,7 +259,7 @@
   items:
     - name: Często zadawane pytania
       href: api-management-faq.md
-    - name: Ceny
+    - name: Cennik
       href: 'https://aka.ms/apimpricing'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'

@@ -11,12 +11,12 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 12/05/2019
-  ms.openlocfilehash: d215bbfb80d634780ebfb7e33129c19f241d12a7
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "76263527"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82732992"
 landingContent:
 - title: Informacje o usłudze Load Balancer
   linkLists:
@@ -24,7 +24,11 @@ landingContent:
     links:
     - text: Co to jest moduł równoważenia obciążenia?
       url: load-balancer-overview.md
-- title: Wprowadzenie
+    - text: Pojęcia dotyczące modułu równoważenia obciążenia
+      url: concepts.md
+    - text: Składniki dotyczące modułu równoważenia obciążenia
+      url: components.md
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -80,6 +84,8 @@ landingContent:
       url: load-balancer-standard-diagnostics.md
     - text: Rozwiązywanie problemów z usługą Azure Load Balancer
       url: load-balancer-troubleshoot.md
+    - text: Typowe błędy usługi Azure Load Balancer
+      url: load-balancer-common-deployment-errors.md
 - title: Dokumentacja
   linkLists:
   - linkListType: reference

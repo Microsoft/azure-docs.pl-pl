@@ -4,6 +4,11 @@
   items:
     - name: Co to jest usługa Azure Arc dla serwerów?
       href: ./servers/overview.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie z usługą Azure Arc

@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Z elementu runbook usługi Automation
                   href: automation-onboard-solutions.md
-            - name: Wyświetlanie zawartości śledzonych plików
+            - name: Zarządzanie usługą Change Tracking and Inventory
               href: change-tracking-file-contents.md
             - name: Zarządzanie zbieraniem spisu z maszyn wirtualnych
               href: automation-vm-inventory.md
@@ -230,7 +230,7 @@
           href: updatemgmt-mecmintegration.md
         - name: Konfigurowanie klienta usługi Windows Update
           href: automation-configure-windows-update.md
-        - name: Korzystanie z grup dynamicznych
+        - name: Używanie grup dynamicznych
           href: automation-update-management-groups.md
         - name: Wykonywanie zapytań względem dzienników rozwiązania Update Management
           href: automation-update-management-query-logs.md

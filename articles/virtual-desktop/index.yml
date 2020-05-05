@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 2f00d7b0b1c0bdf78a4908e945dd0f8a890ded1b
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78898667"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82611521"
 landingContent:
 - title: Informacje o usłudze Windows Virtual Desktop
   linkLists:
@@ -24,18 +24,30 @@ landingContent:
     links:
     - text: Co to jest Windows Virtual Desktop?
       url: overview.md
-- title: Wprowadzenie
+- title: Wprowadzenie do usługi Windows Virtual Desktop w wersji Wiosna 2020
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie puli hostów za pomocą witryny Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Zarządzanie grupami aplikacji dla usługi Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Tworzenie puli hostów na potrzeby weryfikacji aktualizacji usług
+      url: create-validation-host-pool.md
+    - text: Konfigurowanie alertów usługi
+      url: set-up-service-alerts.md
+- title: Wprowadzenie do usługi Windows Virtual Desktop w wersji Jesień 2019
   linkLists:
   - linkListType: tutorial
     links:
     - text: Tworzenie dzierżawy w usłudze Windows Virtual Desktop
-      url: tenant-setup-azure-active-directory.md
+      url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
     - text: Tworzenie puli hostów za pomocą witryny Azure Marketplace
       url: create-host-pools-azure-marketplace.md
     - text: Zarządzanie grupami aplikacji dla usługi Windows Virtual Desktop
       url: manage-app-groups.md
     - text: Tworzenie jednostek usługi i przypisań ról za pomocą programu PowerShell
-      url: create-service-principal-role-powershell.md
+      url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
 - title: Łączenie się z usługą Windows Virtual Desktop
   linkLists:
   - linkListType: how-to-guide

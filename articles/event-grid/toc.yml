@@ -149,6 +149,8 @@
           href: event-filtering.md
         - name: Dostarczanie i ponawianie prób
           href: delivery-and-retry.md
+        - name: Dostarczanie zdarzeń elementów webhook
+          href: webhook-event-delivery.md
     - name: Odzyskiwanie po awarii
       items:
         - name: Geograficzne odzyskiwanie po awarii
@@ -161,6 +163,12 @@
           href: security-authorization.md
         - name: Bezpieczeństwo sieci
           href: network-security.md
+    - name: Monitorowanie i rozwiązywanie problemów
+      items:
+        - name: Dzienniki diagnostyczne
+          href: null
+        - name: Metryki
+          href: metrics.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
@@ -191,12 +199,16 @@
       href: how-to-event-domains.md
     - name: Implementowanie trybu failover po stronie klienta
       href: custom-disaster-recovery.md
+    - name: Śledzenie asynchronicznych operacji REST
+      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Rozwiązywanie problemów
       items:
-        - name: Włączanie dzienników diagnostycznych dla tematu
+        - name: Włączanie dzienników diagnostycznych
           href: enable-diagnostic-logs-topic.md
         - name: Rozwiązywanie problemów
           href: troubleshoot-errors.md
+        - name: Rozwiązywanie problemów z walidacją subskrypcji
+          href: troubleshoot-subscription-validation.md
         - name: Monitorowanie dostarczania zdarzeń
           href: monitor-event-delivery.md
 - name: Dokumentacja

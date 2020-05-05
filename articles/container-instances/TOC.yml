@@ -13,6 +13,9 @@
       href: container-instances-quickstart-portal.md
     - name: Wdrażanie wystąpienia kontenera — PowerShell
       href: container-instances-quickstart-powershell.md
+    - name: Wdrażanie wystąpienia kontenera — szablon usługi Resource Manager
+      displayName: Resource Manager
+      href: container-instances-quickstart-template.md
 - name: Samouczki
   items:
     - name: Tworzenie i wdrażanie obrazu kontenera
@@ -51,6 +54,8 @@
       href: container-instances-orchestrator-relationship.md
     - name: Zagadnienia związane z zabezpieczeniami
       href: container-instances-image-security.md
+    - name: Sieć wirtualna
+      href: container-instances-virtual-network-concepts.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wdrażanie
@@ -77,8 +82,6 @@
           href: container-instances-start-command.md
         - name: Wykonywanie polecenia (exec)
           href: container-instances-exec.md
-        - name: Uruchamianie zadania kompilacji usługi Jenkins
-          href: container-instances-jenkins.md
         - name: Korzystanie z tożsamości zarządzanej (wersja zapoznawcza)
           href: container-instances-managed-identity.md
         - name: Korzystanie z zasobów procesora GPU (wersja zapoznawcza)

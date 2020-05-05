@@ -1,9 +1,9 @@
-- name: Dokumentacja kontroli dostępu opartej na rolach dla zasobów platformy Azure
+- name: Dokumentacja kontroli RBAC na platformie Azure
   href: index.yml
   items: null
 - name: Omówienie
   items:
-    - name: Co to jest kontrola dostępu oparta na rolach?
+    - name: Co to jest kontrola RBAC na platformie Azure?
       href: overview.md
     - name: Omówienie różnych ról
       href: rbac-and-directory-admin-roles.md
@@ -74,7 +74,7 @@
           href: deny-assignments-powershell.md
         - name: Interfejs API REST
           href: deny-assignments-rest.md
-    - name: Tworzenie ról niestandardowych
+    - name: Tworzenie lub aktualizowanie ról niestandardowych
       items:
         - name: Omówienie
           href: custom-roles.md
@@ -100,7 +100,7 @@
       href: built-in-roles.md
     - name: Operacje dostawcy zasobów
       href: resource-provider-operations.md
-    - name: Limity kontroli dostępu opartej na rolach
+    - name: Limity kontroli RBAC na platformie Azure
       href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources

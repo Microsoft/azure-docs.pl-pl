@@ -17,6 +17,9 @@
     - name: Tworzenie strategii — interfejs API REST
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
+    - name: Tworzenie strategii — szablon usługi Resource Manager
+      displayName: 'assign, compliance, resource manager'
+      href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
 - name: Samouczki
   items:
     - name: Tworzenie na podstawie przykładu strategii
@@ -32,9 +35,20 @@
       href: ./samples/index.md
     - name: Test porównawczy zabezpieczeń platformy Azure
       items:
+        - name: Omówienie
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/index.md
         - name: Mapowanie kontrolek
           displayName: 'standards, azure, benchmark'
           href: ./samples/azure-security-benchmark/control-mapping.md
+        - name: Procedura wdrażania
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/deploy.md
+    - name: Australian Government ISM PROTECTED
+      items:
+        - name: Mapowanie kontrolek
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/control-mapping.md
     - name: Canada Federal PBMM
       items:
         - name: Omówienie

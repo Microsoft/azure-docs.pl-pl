@@ -35,6 +35,8 @@
           href: concept-conditional-access-grant.md
         - name: Sesja
           href: concept-conditional-access-session.md
+    - name: Analizy i raportowanie
+      href: howto-conditional-access-insights-reporting.md
     - name: Tryb samego raportu
       href: concept-conditional-access-report-only.md
     - name: Zależności usługi

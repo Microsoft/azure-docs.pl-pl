@@ -23,10 +23,10 @@
       items:
         - name: Kwestie dotyczące wydajności dla usługi Azure NetApp Files
           href: azure-netapp-files-performance-considerations.md
-        - name: Wyniki testu wydajności dla usługi Azure NetApp Files
-          href: azure-netapp-files-performance-benchmarks.md
         - name: Zalecenia dotyczące testu wydajności dla usługi Azure NetApp Files
           href: azure-netapp-files-performance-metrics-volumes.md
+        - name: Testy porównawcze wydajności dla systemu Linux
+          href: performance-benchmarks-linux.md
         - name: Często zadawane pytania dotyczące wydajności protokołu SMB
           href: azure-netapp-files-smb-performance.md
     - name: Model kosztów usługi Azure NetApp Files
@@ -37,10 +37,12 @@
       items:
         - name: Architektury rozwiązań używające usługi Azure NetApp Files
           href: azure-netapp-files-solution-architectures.md
-        - name: Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database
-          href: solutions-benefits-azure-netapp-files-oracle-database.md
-        - name: Zalety korzystania z usługi Azure NetApp Files na potrzeby automatyzacji projektowania elektroniki
-          href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
+        - name: Konkretne rozwiązania
+          items:
+            - name: Korzyści związane z korzystaniem z usługi Azure NetApp Files w bazie danych Oracle Database
+              href: solutions-benefits-azure-netapp-files-oracle-database.md
+            - name: Zalety korzystania z usługi Azure NetApp Files na potrzeby automatyzacji projektowania elektroniki
+              href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
     - name: Często zadawane pytania dotyczące usługi Azure NetApp Files
       href: azure-netapp-files-faqs.md
 - name: Przewodniki z instrukcjami
