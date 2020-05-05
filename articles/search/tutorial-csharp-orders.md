@@ -1,21 +1,21 @@
 ---
 title: Samouczek języka C# dotyczący porządkowania wyników
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku pokazano, jak zamówić wyniki wyszukiwania. Kompiluje on w poprzednim projekcie hoteli, porządkując według właściwości podstawowej, właściwości pomocniczej i zawiera profil oceniania, aby dodać kryteria zwiększania wydajności.
+description: W tym samouczku w języku C# pokazano, jak zamówić wyniki wyszukiwania. Kompiluje on w poprzednim projekcie hoteli, sortując według właściwości podstawowej, właściwości pomocniczej i zawiera profil oceniania, aby dodać kryteria zwiększania wydajności.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121549"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780610"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Samouczek języka C#: kolejność wyników — Wyszukiwanie poznawcze platformy Azure
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Samouczek: kolejność wyników wyszukiwania przy użyciu zestawu .NET SDK
 
 W górę do tego momentu w naszej serii samouczków wyniki są zwracane i wyświetlane w kolejności domyślnej. Może to być kolejność, w której znajdują się dane lub prawdopodobnie został zdefiniowany domyślny _profil oceniania_ , który będzie używany, gdy nie zostaną określone żadne parametry porządkowania. W tym samouczku przejdziemy do sposobu porządkowania wyników w oparciu o Właściwość podstawową, a następnie dla wyników, które mają tę samą Właściwość podstawową, w jaki sposób należy określić kolejność tego wyboru we właściwości pomocniczej. Zamiast określania kolejności na podstawie wartości liczbowych, ostatni przykład pokazuje, jak zamówić na podstawie niestandardowego profilu oceniania. Dodatkowo przejdziemy do wyświetlania _typów złożonych_.
 

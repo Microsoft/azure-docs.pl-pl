@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: C# i AI za pośrednictwem obiektów blob platformy Azure'
+title: Samouczek C# dotyczący używania AI w obiektach Blob platformy Azure
 titleSuffix: Azure Cognitive Search
 description: Przechodzenie między przykładem wyodrębniania tekstu i przetwarzania języka naturalnego za pośrednictwem zawartości w usłudze BLOB Storage przy użyciu języka C# i zestawu Azure Wyszukiwanie poznawcze .NET SDK.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 51e1b24f9080d102dee234fa1ca6d460c400ba78
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851139"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780678"
 ---
-# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języka C# i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
+# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Samouczek: wygenerowane przez program AI zawartość do przeszukiwania z obiektów blob platformy Azure przy użyciu zestawu .NET SDK
 
 Jeśli w usłudze Azure Blob Storage znajduje się tekst lub obrazy bez struktury, [potok wzbogacenia AI](cognitive-search-concept-intro.md) może wyodrębnić informacje i utworzyć nową zawartość, która jest przydatna w przypadku wyszukiwania pełnotekstowego lub scenariuszy wyszukiwania w bazie wiedzy. W tym samouczku w języku C# Zastosuj optyczne rozpoznawanie znaków (OCR) na obrazach i wykonaj przetwarzanie języka naturalnego, aby utworzyć nowe pola, których można użyć w zapytaniach, aspektach i filtrach.
 

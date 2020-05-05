@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: indeksowanie danych z baz danych usługi Azure SQL Database w języku C # '
+title: Samouczek języka C# — indeksowanie danych usługi Azure SQL
 titleSuffix: Azure Cognitive Search
 description: W tym samouczku w języku C# Nawiąż połączenie z usługą Azure SQL Database, Wyodrębnij dane z możliwością wyszukiwania i załaduj je do indeksu Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78193972"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780763"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Samouczek: używanie języka C# do indeksowania danych z baz danych SQL na platformie Azure Wyszukiwanie poznawcze
+# <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
 Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane z możliwością wyszukiwania z usługi Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
 

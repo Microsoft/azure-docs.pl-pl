@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184592"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779017"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu z użyciem zestawu SDK języka Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za po�
 
 W tym samouczku używany jest serwer notesu chmury w obszarze roboczym do obsługi wstępnie skonfigurowanego środowiska instalacji. Jeśli wolisz sterować środowiskiem, pakietami i zależnościami, użyj [własnego środowiska](how-to-configure-environment.md#local) .
 
-Postępuj zgodnie z tym filmem wideo lub użyj szczegółowych kroków poniżej, aby sklonować i uruchomić samouczek z obszaru roboczego. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Wykonaj poniższe szczegółowe kroki, aby sklonować i uruchomić samouczek z obszaru roboczego. 
 
 ### <a name="clone-a-notebook-folder"></a>Klonowanie folderu notesu
 
@@ -63,7 +59,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
 1. Wybierz **notesy** po lewej stronie.
 
-1. Otwórz folder **Samples** .
+1. Wybierz kartę **przykłady** w górnej części ekranu.
 
 1. Otwórz folder **Python** .
 
@@ -71,20 +67,21 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
 1. Wybierz pozycję **"..."** po prawej stronie folderu **samouczki** , a następnie wybierz pozycję **Klonuj**.
 
-    ![Klonuj folder](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Folder klonów samouczków":::
 
 1. Zostanie wyświetlona lista folderów pokazująca każdego użytkownika, który uzyskuje dostęp do obszaru roboczego.  Wybierz folder, w którym ma zostać sklonowany folder **samouczków** .
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Otwieranie sklonowanego notesu
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Otwieranie sklonowanego notesu
 
-1. W obszarze **pliki użytkownika** Otwórz folder, a następnie otwórz folder sklonowane **samouczki** .
-
-    ![Otwórz folder samouczków](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Otwórz folder **samouczków** , który został właśnie zamknięty w sekcji **plików użytkownika** .
 
     > [!IMPORTANT]
     > Notesy można wyświetlać w folderze **Samples** , ale nie można w tym miejscu uruchamiać notesu.  W celu uruchomienia notesu upewnij się, że otwarto sklonowaną wersję notesu w sekcji **pliki użytkownika** .
     
 1. Wybierz **samouczek — pierwszy eksperyment z zestawem SDK — uczenie. ipynb** w folderze **samouczki/Utwórz pierwszy-ml eksperymentu** .
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Otwórz folder samouczków":::
+
 
 1. Na górnym pasku wybierz wystąpienie obliczeniowe, które ma zostać użyte do uruchomienia notesu. Te maszyny wirtualne są wstępnie skonfigurowane z [wszystko, czego potrzebujesz do uruchamiania Azure Machine Learning](concept-compute-instance.md#contents). 
 

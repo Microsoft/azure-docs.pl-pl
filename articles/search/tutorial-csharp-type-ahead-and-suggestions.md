@@ -1,21 +1,21 @@
 ---
-title: Autouzupełnianie i sugestie
+title: Samouczek języka C# dotyczący funkcji Autouzupełnianie i sugestii
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku pokazano Autouzupełnianie i sugestie, które umożliwiają zebranie danych wejściowych wyszukiwanego terminu od użytkowników przy użyciu listy rozwijanej. Jest ona oparta na istniejącym projekcie hoteli.
+description: Dodawanie funkcji Autouzupełnianie i sugestii w celu zbierania danych wejściowych terminu wyszukiwania od użytkowników przy użyciu listy rozwijanej. Ten samouczek jest oparty na istniejącym projekcie hoteli.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81641073"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780559"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>Samouczek języka C#: Dodawanie funkcji Autouzupełnianie i sugestii — Azure Wyszukiwanie poznawcze
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Samouczek: Dodawanie funkcji Autouzupełnianie i sugestii przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować Autouzupełnianie (zapytania typeahead i sugerowane dokumenty), gdy użytkownik zaczyna pisać w polu wyszukiwania. W tym samouczku zostaną pokazane osobno zapytania i wyniki sugestii, a następnie razem. Użytkownik może tylko wpisać dwa lub trzy znaki, aby znaleźć wszystkie dostępne wyniki.
 

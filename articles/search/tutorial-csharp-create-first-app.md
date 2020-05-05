@@ -3,19 +3,19 @@ title: Samouczek języka C# do tworzenia pierwszej aplikacji
 titleSuffix: Azure Cognitive Search
 description: Dowiedz się, jak utworzyć pierwszą aplikację wyszukiwania w języku C# krok po kroku. Samouczek zawiera link do działającej aplikacji w witrynie GitHub oraz kompletny proces tworzenia aplikacji od podstaw. Poznaj najważniejsze składniki Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121591"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780627"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Samouczek języka C#: Tworzenie pierwszej aplikacji — Wyszukiwanie poznawcze platformy Azure
+# <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 

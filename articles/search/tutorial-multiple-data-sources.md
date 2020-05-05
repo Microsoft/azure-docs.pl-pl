@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek języka C#: indeksowanie wielu źródeł danych'
+title: Samouczek języka C# — indeksowanie wielu źródeł danych platformy Azure
 titleSuffix: Azure Cognitive Search
 description: Dowiedz się, jak importować dane z wielu źródeł danych do jednego indeksu Wyszukiwanie poznawcze platformy Azure przy użyciu indeksatorów. Ten samouczek i przykładowy kod są w języku C#.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78271482"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780525"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Samouczek: indeksowanie danych z wielu źródeł danych w języku C #
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Samouczek: indeksowanie z wielu źródeł danych przy użyciu zestawu .NET SDK
 
 Usługa Azure Wyszukiwanie poznawcze umożliwia importowanie, analizowanie i indeksowanie danych z wielu źródeł danych w jednym indeksie wyszukiwania skonsolidowanego. Obsługuje to sytuacje, w których dane strukturalne są agregowane przy użyciu mniej strukturalnych lub nawet danych zwykłego tekstu z innych źródeł, takich jak tekst, HTML lub dokumenty JSON.
 

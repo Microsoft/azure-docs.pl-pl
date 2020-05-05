@@ -1,21 +1,21 @@
 ---
 title: Samouczek języka C# dotyczący dzielenia na strony wyników wyszukiwania
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku przedstawiono stronicowanie wyników wyszukiwania. Jest ona oparta na istniejącym projekcie hoteli, ze stronicowaniem według przycisków pierwszy, następny, poprzedni, ostatni i numerowany. Drugi system stronicowania używa Nieskończonego przewijania wyzwalanego przez przeniesienie pionowego paska przewijania do jego dolnego limitu.
+description: Dodawanie przycisków podziału na strony i nawigacji do wyników wyszukiwania, kompilowanie na istniejącym projekcie hoteli w celu dodania przycisków pierwszy, następny, poprzedni, ostatni i numerowany. Drugi system stronicowania używa Nieskończonego przewijania wyzwalanego przez przeniesienie pionowego paska przewijania do jego dolnego limitu.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121525"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780576"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Samouczek języka C#: wyszukiwanie wyników wyszukiwania na platformie Azure Wyszukiwanie poznawcze
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Samouczek: Dodawanie stronicowania do wyników wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak zaimplementować dwa różne systemy stronicowania, pierwsze na podstawie numerów stron i drugi przy nieskończonym przewijaniu. Oba systemy stronicowania są szeroko używane i wybór jednego z nich zależy od środowiska użytkownika, które chcesz uzyskać w wyniku. W tym samouczku przedstawiono systemy stronicowania w projekcie utworzonym w [samouczku języka C#: Tworzenie pierwszej aplikacji — samouczek wyszukiwanie poznawcze platformy Azure](tutorial-csharp-create-first-app.md) .
 

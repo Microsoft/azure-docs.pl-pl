@@ -1,21 +1,21 @@
 ---
 title: Samouczek języka C# dotyczący używania aspektów do nawigacji
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku przedstawiono projekt "wyniki wyszukiwania na stronie spisu — Wyszukiwanie poznawcze platformy Azure", aby dodać nawigację aspektu. Dowiedz się, jak można użyć aspektów, aby łatwo zawęzić wyszukiwanie.
+description: Kontynuuj od "wyników stronicowania", aby dodać nawigację aspektową. Dowiedz się, jak można użyć aspektów, aby łatwo zawęzić wyszukiwanie.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121567"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780593"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Samouczek języka C#: używanie aspektów w celu ułatwienia nawigacji — Wyszukiwanie poznawcze platformy Azure
+# <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Samouczek: Dodawanie nawigacji aspektowej przy użyciu zestawu .NET SDK
 
 Zestawy reguł służą do ułatwienia nawigacji, dostarczając użytkownikowi zestaw linków umożliwiających skoncentrowanie się na wyszukiwaniu. Aspektami są atrybuty danych (takie jak kategoria lub określona funkcja w hotelu w naszych przykładowych danych).
 
