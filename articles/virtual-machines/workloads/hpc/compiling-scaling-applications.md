@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67707835"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594801"
 ---
 # <a name="scaling-hpc-applications"></a>Skalowanie aplikacji HPC
 
@@ -37,7 +37,7 @@ Clang to język C, C++ i zamierzenie obsługujący przetwarzanie wstępne, anali
 
 ### <a name="flang"></a>FLANG
 
-Kompilator FLANG jest ostatnim dodatkiem do pakietu AOCC (dodano 2018 kwietnia) i jest obecnie w wersji wstępnej dla deweloperów do pobrania i przetestowania. W oparciu o Pascal 2008, AMD rozszerza wersję usługi GitHub FLANG (https://github.com/flangcompiler/flang). Kompilator FLANG obsługuje wszystkie opcje kompilatora Clang i dodatkową liczbę opcji kompilatora specyficznych dla FLANG.
+Kompilator FLANG jest ostatnim dodatkiem do pakietu AOCC (dodano 2018 kwietnia) i jest obecnie w wersji wstępnej dla deweloperów do pobrania i przetestowania. W oparciu o Pascal 2008, AMD rozszerza wersję usługi GitHub FLANG (https://github.com/flang-compiler/flang). Kompilator FLANG obsługuje wszystkie opcje kompilatora Clang i dodatkową liczbę opcji kompilatora specyficznych dla FLANG.
 
 ### <a name="dragonegg"></a>DragonEgg
 

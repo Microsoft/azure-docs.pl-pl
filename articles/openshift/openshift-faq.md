@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203696"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594971"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift — często zadawane pytania
 
@@ -135,7 +135,7 @@ Klienci mogą uzyskać dostęp do metryk procesora/pamięci na poziomie węzła 
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Co to jest domyślna konfiguracja usługi Scheduler pod kątem wypróbowania?
 
-Funkcja ARO używa domyślnego harmonogramu, który jest dostarczany w OpenShift. Istnieje kilka dodatkowych mechanizmów, które nie są obsługiwane w przypadku tej procedury. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją domyślnego harmonogramu](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) i [dokumentacją usługi Master Scheduler](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) .
+Funkcja ARO używa domyślnego harmonogramu, który jest dostarczany w OpenShift. Istnieje kilka dodatkowych mechanizmów, które nie są obsługiwane w przypadku tej procedury. Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją domyślnego harmonogramu](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) i [dokumentacją usługi Master Scheduler](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) .
 
 Planowanie zaawansowane/niestandardowe nie jest obecnie obsługiwane. Więcej informacji można znaleźć w [dokumentacji planowania](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) .
 
