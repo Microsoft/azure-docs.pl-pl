@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 80ca7d8ed89ba0a3b196f1b2b29384c749cf1b22
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459784"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792551"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -28,7 +28,7 @@ Jeśli używasz [Azure Security Center](../../security-center/index.yml), zostan
 > - Niektóre zalecenia mogą zwiększyć użycie zasobów, sieci lub obliczeń, co skutkuje dodatkowymi kosztami licencji lub subskrypcji. Aby tworzyć zasoby na platformie Azure w obsługiwanych regionach, musisz mieć prawidłową aktywną subskrypcję platformy Azure.
 > - Obecnie maszyny wirtualne generacji 2 nie obsługują Azure Disk Encryption. Aby uzyskać szczegółowe informacje, zobacz [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .
 
-Podstawowe informacje o Azure Disk Encryption dla systemu Linux można uzyskać w ciągu kilku minut od [utworzenia i zaszyfrowania maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli-quickstart.md) z przewodnikiem Szybki start lub [tworzenia i szyfrowania maszyny wirtualnej z systemem Linux przy użyciu programu Azure PowerShell — szybki start](disk-encryption-powershell-quickstart.md).
+Podstawowe informacje o Azure Disk Encryption dla systemu Linux można uzyskać w ciągu kilku minut od [utworzenia i zaszyfrowania maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure — szybki start](disk-encryption-cli-quickstart.md) lub [Tworzenie i szyfrowanie maszyny wirtualnej z systemem linux przy użyciu Azure PowerShell przewodnika Szybki Start](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>Obsługiwane maszyny wirtualne i systemy operacyjne
 
@@ -56,29 +56,37 @@ Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux
 
 Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platformę Azure, nie obsługują Azure Disk Encryption; z tych, które są zatwierdzone, obsługiwane są tylko następujące dystrybucje i wersje Azure Disk Encryption:
 
-| Dystrybucja systemu Linux | Wersja | Typ woluminu obsługiwany na potrzeby szyfrowania|
-| --- | --- |--- |
-| Ubuntu | 18,04| System operacyjny i dysk z danymi |
-| Ubuntu | 16,04| System operacyjny i dysk z danymi |
-| Ubuntu | 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | System operacyjny i dysk z danymi |
-| RHEL | 7,7 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 7,6 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 7,5 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 7.4 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 7.3 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 7.2 | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
-| RHEL | 6.8 | Dysk danych (patrz Uwaga poniżej) |
-| RHEL | 6.7 | Dysk danych (patrz Uwaga poniżej) |
-| CentOS | 7,7 | System operacyjny i dysk z danymi |
-| CentOS | 7,6 | System operacyjny i dysk z danymi |
-| CentOS | 7,5 | System operacyjny i dysk z danymi |
-| CentOS | 7.4 | System operacyjny i dysk z danymi |
-| CentOS | 7.3 | System operacyjny i dysk z danymi |
-| CentOS | 7.2 n | System operacyjny i dysk z danymi |
-| CentOS | 6.8 | Dysk z danymi |
-| openSUSE | 42,3 | Dysk z danymi |
-| SLES | 12 — SP4 | Dysk z danymi |
-| SLES | 12 — SP3 | Dysk z danymi |
+| Wydawca | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18,04 – LTS | Kanoniczny: UbuntuServer: 18.04-LTS: Najnowsza | System operacyjny i dysk z danymi |
+| Canonical | Ubuntu 18.04 | 18,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 18.04-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
+| Canonical | Ubuntu 16.04 | 16,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 16.04-DAILy-LTS: Najnowsze | System operacyjny i dysk z danymi |
+| Canonical | Ubuntu 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Kanoniczny: UbuntuServer: 14.04.5-LTS: Najnowsza | System operacyjny i dysk z danymi |
+| Canonical | Ubuntu 14.04.5</br>[Dzięki dostrojeniu jądra platformy Azure do wersji 4,15 lub nowszej](disk-encryption-troubleshooting.md) | 14.04.5 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 14.04.5-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
+| RedHat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,7 | 7 — NIEPRZETWORZONY | RedHat: RHEL: 7 — wersja RAW: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,7 | 7 — LVM | RedHat: RHEL: 7-LVM: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7.5 | 7,5 | RedHat: RHEL: 7.5: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,4 | 7.4 | RedHat: RHEL: 7.4: Najpóźniejsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,3 | 7.3 | RedHat: RHEL: 7.3: Najnowsza | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 7,2 | 7.2 | RedHat: RHEL: 7.2: Najnowsze | Dysk systemu operacyjnego i danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6,8: Najnowsze | Dysk danych (patrz Uwaga poniżej) |
+| RedHat | RHEL 6,7 | 6.7 | RedHat: RHEL: 6.7. Najnowsza | Dysk danych (patrz Uwaga poniżej) |
+| OpenLogic | CentOS 7,7 | 7,7 | OpenLogic: CentOS: 7.7: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,7 | 7 — LVM | OpenLogic: CentOS: 7-LVM: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7.5 | 7,5 | OpenLogic: CentOS: 7.5: Najnowsze | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: Najpóźniejsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,3 | 7.3 | OpenLogic: CentOS: 7.3: Najnowsza | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7.2 n | 7.2 n | OpenLogic: CentOS: 7.2 n: Najnowsze | System operacyjny i dysk z danymi |
+| OpenLogic | CentOS 7,1 | 7.1 | OpenLogic: CentOS: 7.1: Najnowsze | Tylko dysk z danymi |
+| OpenLogic | CentOS 7,0 | 7.0 | OpenLogic: CentOS: 7.0: Najnowsze | Tylko dysk z danymi |
+| OpenLogic | CentOS 6,8 | 6.8 | OpenLogic: CentOS: 6,8: Najnowsze | Tylko dysk z danymi |
+| SUSE | openSUSE 42,3 | 42,3 | SUSE: openSUSE-przestępne: 42.3: Najnowsze | Tylko dysk z danymi |
+| SUSE | Priorytet SLES 12 — SP4 | 12 — SP4 | SUSE: SLES-Priority: 12-SP4: Najnowsze | Tylko dysk z danymi |
+| SUSE | Priorytet SLES 12 — SP3 | 12 — SP3 | SUSE: SLES-Priority: 12 – SP3: Najnowsze | Tylko dysk z danymi |
+| SUSE | SLES HPC 12-SP3 | 12 — SP3 | SUSE: SLES-HPC: 12-SP3: Najnowsze | Tylko dysk z danymi |
 
 > [!NOTE]
 > Nowa implementacja Azure Disk Encryption jest obsługiwana w przypadku systemu operacyjnego RHEL i dysku danych dla obrazów z opcją płatność zgodnie z rzeczywistym użyciem.  

@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368583"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790919"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Podczas wdrażania klastra Service Fabric są umieszczane guardrails, co spowoduje niepowodzenie wdrożenia Azure Resource Manager w przypadku nieprawidłowej konfiguracji klastra. Poniższe sekcje zawierają omówienie typowych problemów z konfiguracją klastra oraz czynności wymagane w celu rozwiązania tych problemów. 
@@ -79,7 +79,7 @@ Wykryto operację usuwania węzła inicjatora i zostanie on odrzucony.
 Upewnij się, że typ węzła podstawowego ma wystarczającą Virtual Machines, aby zapewnić niezawodność określoną w klastrze. Nie będzie można usunąć maszyny wirtualnej, jeśli zestaw skalowania maszyn wirtualnych zostanie ustawiony poniżej minimalnej liczby węzłów dla danej warstwy niezawodności.
 * Jeśli warstwa niezawodności jest określona prawidłowo, upewnij się, że masz wystarczającą liczbę węzłów w podstawowym typie węzła, zgodnie z wymaganiami dla warstwy niezawodności. 
 * Jeśli warstwa niezawodności jest niepoprawna, przed zainicjowaniem operacji zestawu skalowania maszyn wirtualnych należy zaczekać na zainicjowanie Service Fabric zmiany poziomu niezawodności, a następnie zaczekaj na jej zakończenie.
-* Jeśli warstwa niezawodności jest Bronem, wykonaj następujące [kroki](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) , aby bezpiecznie skalować klaster.
+* Jeśli warstwa niezawodności jest Bronem, wykonaj następujące [kroki](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) , aby bezpiecznie skalować swój klaster.
 
 ## <a name="next-steps"></a>Następne kroki
 * Tworzenie klastra na maszynach wirtualnych lub komputerach z systemem Windows Server: [Service Fabric tworzenia klastra dla systemu Windows Server](service-fabric-cluster-creation-for-windows-server.md)
