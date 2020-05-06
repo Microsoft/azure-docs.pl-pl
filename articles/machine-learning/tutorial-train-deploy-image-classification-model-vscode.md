@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: uczenie i wdrażanie modelu przy użyciu rozszerzenia Visual Studio Code'
+title: 'Samouczek: uczenie & Wdrażanie modeli: VS Code'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak nauczyć i wdrożyć model klasyfikacji obrazów przy użyciu TensorFlow i rozszerzenia Visual Studio Code Azure Machine Learning
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 04/13/2020
-ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8b72e85f1d1660ee7d21afe3d34fde66f08ff8c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272828"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791837"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Uczenie i wdrażanie modelu TensorFlow klasyfikacji obrazów przy użyciu rozszerzenia Visual Studio Code Azure Machine Learning
 

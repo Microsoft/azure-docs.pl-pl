@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 184ffd39281ea27d8596bc37a9f89fd22acfb1ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 224a5ce0a2c8a7fc031f1ad3314e4d8889966433
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732186"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788301"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Szybki Start: korzystanie z kolejek Azure Service Bus w języku Java do wysyłania i odbierania wiadomości
 
@@ -197,6 +197,6 @@ Teraz, gdy znasz już podstawy Service Busych kolejek, zobacz sekcję [kolejki, 
 Więcej informacji możesz znaleźć w [Centrum deweloperów języka Java](https://azure.microsoft.com/develop/java/).
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

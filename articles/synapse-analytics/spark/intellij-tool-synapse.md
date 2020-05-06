@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 310dfec2bbd1bf6cb69f6293becead30487d6cbd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422655"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790970"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark dla pul Spark (wersja zapoznawcza) za pomocą Azure Toolkit for IntelliJ
 
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - [INTELLIJ pomysł](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Wtyczka zestawu Azure Toolkit 3.27.0-2019.2 — Instalacja z [repozytorium wtyczki IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (wersja 1,8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 - To wymaganie wstępne jest przeznaczone tylko dla użytkowników systemu Windows.
 
   Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w platformie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje, ponieważ w systemie Windows brakuje pliku WinUtils. exe.

@@ -4,12 +4,12 @@ description: Omówienie przyczyn kompilowania aplikacji w chmurze z podejściem 
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75750619"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792872"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Dlaczego warto stosować podejście mikrousług do kompilowania aplikacji
 
@@ -35,7 +35,7 @@ W trakcie oceny ery klient/serwer zamierzamy skupić się na tworzeniu aplikacji
 
 Istnieją zalety podejścia do projektowania monolitycznego. Aplikacje monolityczne są często prostsze do projektowania, a wywołania między składnikami są szybsze, ponieważ te wywołania często korzystają z komunikacji międzyprocesowej (IPC). Ponadto wszyscy testuje pojedynczy produkt, który bardziej wydajnie korzysta z zasobów ludzkich. Minusem polega na tym, że istnieje ścisłe sprzężenie między warstwami warstwowymi i nie można skalować pojedynczych składników. Jeśli potrzebujesz poprawek lub uaktualnień, musisz poczekać, aż inni ukończyją testy. Trudniejsze jest to elastyczne.
 
-Mikrousługi dotyczą tych downsides i są bardziej ściśle dopasowane z poprzednimi wymaganiami biznesowymi. Jednak mają również zarówno korzyści, jak i zobowiązania. Zalety mikrousług polegają na tym, że każdy z nich zazwyczaj hermetyzuje prostsze funkcje biznesowe, które można skalować w górę lub w dół, testować, wdrażać i zarządzać niezależnie. Jedną z ważnych zalet podejścia mikrousług jest to, że zespoły są sterowane bardziej dzięki scenariuszom biznesowym niż przez technologię. Mniejsze zespoły opracowują mikrousługi na podstawie scenariusza klienta i używają wszelkich technologii, których chcą używać.
+Mikrousługi dotyczą tych downsides i są bardziej ściśle dopasowane z poprzednimi wymaganiami biznesowymi. Jednak mają również zarówno korzyści, jak i zobowiązania. Zalety mikrousług polegają na tym, że każdy z nich zazwyczaj hermetyzuje prostsze funkcje biznesowe, które można skalować w poziomie lub w, testować, wdrażać i zarządzać niezależnie. Jedną z ważnych zalet podejścia mikrousług jest to, że zespoły są sterowane bardziej dzięki scenariuszom biznesowym niż przez technologię. Mniejsze zespoły opracowują mikrousługi na podstawie scenariusza klienta i używają wszelkich technologii, których chcą używać.
 
 Innymi słowy, organizacja nie musi znormalizować Tech, aby zachować aplikacje mikrousług. Poszczególne zespoły mogą wykonywać te działania, co ma sens dla nich, na podstawie ekspertyzy zespołu lub najbardziej odpowiednich do rozwiązania problemu. W przypadku zestawu zalecanych technologii, takich jak określony Magazyn NoSQL lub struktura aplikacji sieci Web, jest preferowany.
 
