@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111729"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864576"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -154,7 +154,8 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Obsługiwane są w
 
 **Release** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Obsługiwane są wszystkie jądra systemu SUSE 15 i 15.</br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure |
+SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Zreplikowane maszyny — system plików Linux/magazyn gościa
 
@@ -178,6 +179,8 @@ Obrazy niestandardowe — Opublikowano przez inną firmę | Obsługiwane | Obsł
 Maszyny wirtualne migrowane przy użyciu Site Recovery | Obsługiwane | Jeśli maszyna wirtualna VMware lub maszyna fizyczna została zmigrowana do platformy Azure przy użyciu Site Recovery, należy odinstalować starszą wersję usługi mobilności działającej na maszynie i ponownie uruchomić maszynę przed replikacją jej do innego regionu platformy Azure.
 Zasady RBAC | Nieobsługiwane | Zasady kontroli dostępu opartej na rolach (RBAC) na maszynach wirtualnych nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym.
 Rozszerzenia | Nieobsługiwane | Rozszerzenia nie są replikowane do maszyny wirtualnej trybu failover w regionie docelowym. Należy ją zainstalować ręcznie po przejściu do trybu failover.
+Grupy umieszczania zbliżeniowe | Nieobsługiwane | Nie można chronić maszyn wirtualnych znajdujących się w grupie umieszczania w sąsiedztwie przy użyciu Site Recovery.
+
 
 ## <a name="replicated-machines---disk-actions"></a>Zreplikowane maszyny — akcje dysku
 
