@@ -4,12 +4,12 @@ description: Dowiedz się, jak skalować aplikację internetową zasobów, usłu
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db1814c0a27ac6d61c7353a2c66cb5a1a72688d3
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75396350"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801607"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Rozpoczynanie pracy ze skalowaniem automatycznym na platformie Azure
 W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowania dla zasobu w Microsoft Azure Portal.
@@ -17,6 +17,9 @@ W tym artykule opisano sposób konfigurowania ustawień automatycznego skalowani
 Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Odkryj ustawienia skalowania automatycznego w Twojej subskrypcji
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u7ts]
+
 Możesz odkryć wszystkie zasoby, dla których Skalowanie automatyczne ma zastosowanie w Azure Monitor. Wykonaj następujące kroki, aby zapoznać się z przewodnikiem krok po kroku:
 
 1. Otwórz [Azure Portal.][1]

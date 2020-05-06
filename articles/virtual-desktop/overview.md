@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628320"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837400"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -157,12 +157,12 @@ Klienci Pulpit zdalny muszą mieć dostęp do następujących adresów URL:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszystkie|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystkie|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystkie|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszystkie|
-|docs.microsoft.com|443|Dokumentacja|Wszystkie|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystkie|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszyscy|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszyscy|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszyscy|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszyscy|
+|docs.microsoft.com|443|Dokumentacja|Wszyscy|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszyscy|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]
@@ -183,16 +183,16 @@ Pulpit wirtualny systemu Windows nie obsługuje obrazów systemu operacyjnego x8
 
 Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacyjnego i wersji, jak pokazano w poniższej tabeli: 
 
-|System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|Aktualizacje agenta pulpitu wirtualnego systemu Windows|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
-|Wiele sesji systemu Windows 10, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Tak|Automatyczny|
-|Windows 10 Enterprise, wersja 1809|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows 7 Enterprise|Tak|Tak|Nie|Nie|Ręcznie|
-|Windows Server 2019|Tak|Tak|Nie|Nie|Automatyczny|
-|Windows Server 2016|Tak|Tak|Tak|Tak|Automatyczny|
-|Windows Server 2012 R2|Tak|Tak|Nie|Nie|Automatyczny|
+|System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|
+|Wiele sesji systemu Windows 10, wersja 1809|Tak|Yes|Nie|Nie|
+|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Tak|
+|Windows 10 Enterprise, wersja 1809|Tak|Yes|Nie|Nie|
+|Windows 7 Enterprise|Tak|Yes|Nie|Nie|
+|Windows Server 2019|Tak|Yes|Nie|Nie|
+|Windows Server 2016|Tak|Tak|Tak|Tak|
+|Windows Server 2012 R2|Tak|Yes|Nie|Nie|
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -201,4 +201,4 @@ Jeśli używasz pulpitu wirtualnego systemu Windows, użyj wersji 2019, możesz 
 W przypadku korzystania z systemu Windows Virtual Desktop w wersji 2020, należy zamiast tego utworzyć pulę hostów. Przejdź do następującego samouczka, aby rozpocząć pracę.
 
 > [!div class="nextstepaction"]
-> [Tworzenie puli hostów przy użyciu Azure Portal](create-host-pools-azure-marketplace.md)
+> [Tworzenie puli hostów za pomocą witryny Azure Portal](create-host-pools-azure-marketplace.md)

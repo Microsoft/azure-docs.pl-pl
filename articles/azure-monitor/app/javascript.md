@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: daea761d027341eaf8f6c0d137f3049c45e82924
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276077"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836618"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -61,7 +61,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich następujące elementy:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -76,7 +76,7 @@ Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele eleme
     - Identyfikator (jeśli istnieje) użytkownika wysyłającego żądanie
     - Kontekst korelacji (jeśli istnieje), w którym jest wykonywane żądanie
 - **Informacje o użytkowniku** (na przykład lokalizacja, Sieć, adres IP)
-- **Informacje o urządzeniu** (na przykład przeglądarka, system operacyjny, wersja, język, rozwiązanie, model)
+- **Informacje o urządzeniu** (na przykład przeglądarka, system operacyjny, wersja, język, model)
 - **Informacje o sesji**
 
 ### <a name="telemetry-initializers"></a>Inicjatory telemetrii
@@ -96,7 +96,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey`.
 
 | Nazwa | Domyślny | Opis |

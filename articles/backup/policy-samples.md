@@ -1,21 +1,21 @@
 ---
-title: Lista wbudowanych definicji zasad dla Azure Backup
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Backup. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 04/30/2020
+title: Wbudowane definicje zasad dla Azure Backup
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Backup. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 05/05/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 5fb96ff8b68166586fe89d7d3553a04bb00b766b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 424cb4f17c657db5a239fb7dd19a71324283f18b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629847"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837802"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-backup"></a>Azure Policy wbudowane definicje zasad dla Azure Backup
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Backup. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-backup"></a>Azure Backup
 

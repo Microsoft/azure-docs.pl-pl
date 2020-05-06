@@ -5,19 +5,19 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 3/26/2020
+ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: a60591fb33c8f14a65b406073cf3194fca882d12
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509741"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837383"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -31,7 +31,7 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 
 
 > [!NOTE]
-> Nazwa produktu zwracana przez polecenie SELECT @@VERSION zmieni się z Microsoft Azure SQL Data Warehouse na usługę Azure Synapse Analytics. Przed wprowadzeniem zmian wyślemy zaawansowane powiadomienie. Ta zmiana jest odpowiednia dla klientów, którzy analizują nazwę produktu z wyniku SELECT @@VERSION w kodzie aplikacji. Aby uniknąć zmian w kodzie aplikacji ze względu na oznaczenie produktu, Użyj tych poleceń, aby wysłać zapytanie do SERVERPROPERTY o nazwie i wersji produktu bazy danych: w celu zwrócenia numeru wersji XX. X. XXXXX. X (bez nazwy produktu) Użyj tego polecenia:
+> Nazwa produktu zwracana przez polecenie SELECT @@VERSION zmieni się z Microsoft Azure SQL Data Warehouse na Microsoft Azure Synapse Analytics. Przed wprowadzeniem zmian wyślemy zaawansowane powiadomienie. Ta zmiana jest odpowiednia dla klientów, którzy analizują nazwę produktu z wyniku SELECT @@VERSION w kodzie aplikacji. Aby uniknąć zmian w kodzie aplikacji ze względu na oznaczenie produktu, Użyj tych poleceń, aby wysłać zapytanie do SERVERPROPERTY o nazwie i wersji produktu bazy danych: w celu zwrócenia numeru wersji XX. X. XXXXX. X (bez nazwy produktu) Użyj tego polecenia:
 >
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
@@ -43,18 +43,22 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 
 
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 | Ulepszenia usługi | Szczegóły |
 | --- | --- |
 |**Poziom zgodności bazy danych (wersja zapoznawcza)**| W tej wersji użytkownicy mogą teraz ustawiać poziom zgodności bazy danych w celu uzyskania zachowań języka Transact-SQL i przetwarzania zapytań dla określonej wersji aparatu SQL Synapse. Aby uzyskać więcej informacji, zobacz sekcję [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i [ALTER DATABASE scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-|**Sp_describe_undeclared_parameters**| Zezwól użytkownikom na wyświetlanie metadanych dotyczących niezadeklarowanych parametrów w partii Transact-SQL. Aby uzyskać więcej informacji, zobacz [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Sp_describe_undeclared_parameters**| Zezwól użytkownikom na wyświetlanie metadanych dotyczących niezadeklarowanych parametrów w partii Transact-SQL. Aby uzyskać więcej informacji, zobacz [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).| <br/><br/><br/>
+
+| Ulepszenia narzędzi                                         | Szczegóły                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16,6 Preview 5](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) — narzędzia danych SQL Server (SSDT)** | Ta wersja obejmuje następujące udoskonalenia programu SSDT: </br> </br> -Odnajdywanie i Klasyfikacja danych<br/> -COPY — instrukcja <br/> -Tabele z ograniczeniami unikatowymi<br/> -Tabele z uporządkowanym klastrowanym indeksem magazynu kolumn<br/> <br/>Ta wersja zawiera następujące poprawki dla SSDT: </br></br>  — W przypadku zmiany typu danych kolumny dystrybucji skrypt aktualizacji wygenerowany przez SSDT będzie wykonywał operację CTAS i zmienić nazwę zamiast porzucania i ponownego tworzenia tabeli. </br> |
 
 ## <a name="march-2020"></a>Marzec 2020 r.
 
 | Ulepszenia narzędzi                                         | Szczegóły                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) — narzędzia danych SQL Server (SSDT)** | Ta wersja zawiera następujące ulepszenia i poprawki dotyczące programu SSDT: </br> </br> -Rozwiązano problem polegający na tym, że zmiana tabeli, do której odwołuje się widok z materiałami (MV) powoduje, że instrukcje ALTER View są generowane, co nie jest obsługiwane w przypadku systemu MVS<br/><br/> -Zaimplementowano zmianę w celu upewnienia się, że operacja porównywania schematu nie powiedzie się, gdy obiekty zabezpieczeń na poziomie wierszy znajdują się w bazie danych lub projekcie. Obiekty zabezpieczeń na poziomie wiersza nie są obecnie obsługiwane w przypadku SSDT.  <br/><br/> -Eksplorator obiektów SQL Server próg limitu czasu, aby uniknąć przekroczeń limitu czasu podczas wyświetlania dużej liczby obiektów w bazie danych<br/><br/> Zoptymalizowany pod kątem sposobu, w jaki Eksplorator obiektów SQL Server pobiera listę obiektów bazy danych, aby zmniejszyć niestabilność i zwiększyć wydajność podczas zapełniania Eksploratora obiektów |
+| **[Visual Studio 16,6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) — narzędzia danych SQL Server (SSDT)** | Ta wersja zawiera następujące ulepszenia i poprawki dotyczące programu SSDT: </br> </br> -Rozwiązano problem polegający na tym, że zmiana tabeli, do której odwołuje się widok z materiałami (MV) powoduje, że instrukcje ALTER View są generowane, co nie jest obsługiwane w przypadku systemu MVS<br/><br/> -Zaimplementowano zmianę w celu upewnienia się, że operacja porównywania schematu nie powiedzie się, gdy obiekty zabezpieczeń na poziomie wierszy znajdują się w bazie danych lub projekcie. Obiekty zabezpieczeń na poziomie wiersza nie są obecnie obsługiwane w przypadku SSDT.  <br/><br/> -Eksplorator obiektów SQL Server próg limitu czasu, aby uniknąć przekroczeń limitu czasu podczas wyświetlania dużej liczby obiektów w bazie danych<br/><br/> Zoptymalizowany pod kątem sposobu, w jaki Eksplorator obiektów SQL Server pobiera listę obiektów bazy danych, aby zmniejszyć niestabilność i zwiększyć wydajność podczas zapełniania Eksploratora obiektów |
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 

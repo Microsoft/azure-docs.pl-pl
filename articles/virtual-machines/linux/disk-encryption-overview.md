@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80ca7d8ed89ba0a3b196f1b2b29384c749cf1b22
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7d8cf03342f51a7bc6584800cb9fff8d8238921e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792551"
+ms.locfileid: "82801658"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -84,8 +84,7 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 | OpenLogic | CentOS 7,0 | 7.0 | OpenLogic: CentOS: 7.0: Najnowsze | Tylko dysk z danymi |
 | OpenLogic | CentOS 6,8 | 6.8 | OpenLogic: CentOS: 6,8: Najnowsze | Tylko dysk z danymi |
 | SUSE | openSUSE 42,3 | 42,3 | SUSE: openSUSE-przestępne: 42.3: Najnowsze | Tylko dysk z danymi |
-| SUSE | Priorytet SLES 12 — SP4 | 12 — SP4 | SUSE: SLES-Priority: 12-SP4: Najnowsze | Tylko dysk z danymi |
-| SUSE | Priorytet SLES 12 — SP3 | 12 — SP3 | SUSE: SLES-Priority: 12 – SP3: Najnowsze | Tylko dysk z danymi |
+| SUSE | Priorytet SLES 12 — SP4 | 12 — SP4 | SUSE: SLES: 12-SP4: Najnowsza | Tylko dysk z danymi |
 | SUSE | SLES HPC 12-SP3 | 12 — SP3 | SUSE: SLES-HPC: 12-SP3: Najnowsze | Tylko dysk z danymi |
 
 > [!NOTE]

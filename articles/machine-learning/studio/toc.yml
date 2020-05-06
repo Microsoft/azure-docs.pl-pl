@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: Zarządzanie
           href: manage-workspace.md
-        - name: Rozwiązywanie problemów
-          href: troubleshooting-creating-ml-workspace.md
         - name: Wdrażanie przy użyciu usługi ARM
           href: deploy-with-resource-manager-template.md
     - name: Importowanie danych treningowych
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: Interpretowanie wyników
               href: interpret-model-results.md
-            - name: Debugowanie
-              href: debug-models.md
         - name: Ponowne szkolenie modeli
           items:
             - name: „Nowe” usługi internetowe
@@ -96,19 +92,12 @@
           items:
             - name: Wprowadzenie do języka R
               href: r-get-started.md
-            - name: Wykonywanie skryptów w języku R
-              href: extend-your-experiment-with-r.md
             - name: Tworzenie niestandardowych modułów języka R
               href: custom-r-modules.md
             - name: Wykonywanie skryptów w języku Python
               href: execute-python-scripts.md
     - name: Wybieranie algorytmu
-      items:
-        - name: Wybieranie algorytmów
-          href: algorithm-choice.md
-        - name: Przykłady algorytmów
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: Wdrażanie modeli
       items:
         - name: Wdrażanie usługi internetowej
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Korzystanie z dodatku programu Excel
           href: excel-add-in-for-web-services.md
-    - name: Przypadki zastosowań
-      items:
-        - name: Odpływ klientów
-          href: azure-ml-customer-churn-scenario.md
-        - name: Analiza tonacji
-          href: text-analytics-module-tutorial.md
-        - name: Migrowanie analizy z programu Excel do usługi Studio (klasycznej)
-          href: use-case-excel-studio.md
     - name: Usuwanie i eksportowania danych klientów
       items:
         - name: Dane usługi Studio (klasycznej)

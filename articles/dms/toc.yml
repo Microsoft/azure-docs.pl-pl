@@ -78,7 +78,7 @@
         - name: Znane problemy — migracja online z bazy danych Oracle do usługi Azure DB for PostgreSQL — jeden serwer
           href: known-issues-oracle-azure-postgresql-online.md
         - name: Znane problemy — migracja z usługi MongoDB do interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
-          href: tutorial-mongodb-cosmos-db.md
+          href: known-issues-mongo-cosmos-db.md
         - name: Znane problemy — korzystanie z trybu hybrydowego
           href: known-issues-dms-hybrid-mode.md
     - name: Filmy wideo

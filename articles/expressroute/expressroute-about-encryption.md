@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461467"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838760"
 ---
 # <a name="expressroute-encryption"></a>Szyfrowanie ExpressRoute
  
@@ -30,8 +30,8 @@ Tak. W przypadku konfiguracji MACsec obsługuje tylko tryb klucza wstępnego. Oz
 Nie. Jeśli MACsec jest skonfigurowany i występuje niezgodność kluczy, utracisz łączność z firmą Microsoft. Innymi słowy, nie powrócimy do nieszyfrowanego połączenia, ponieważ uwidaczniasz dane. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Czy włączenie MACsec na ExpressRoute bezpośrednie obniża wydajność sieci?
 MACsec szyfrowanie i odszyfrowywanie odbywa się na sprzęcie na routerach, z których korzystamy. Po naszej stronie nie ma wpływu na wydajność. Należy jednak skontaktować się z dostawcą sieci dla używanych urządzeń i sprawdzić, czy MACsec ma dowolną wydajność.
-### <a name="which-cipher-suites-are-supported-for-encryption"></a>które mechanizmy szyfrowania są obsługiwane na potrzeby szyfrowania?
-Obsługujemy AES128 i AES256.
+### <a name="which-cipher-suites-are-supported-for-encryption"></a>Które mechanizmy szyfrowania są obsługiwane na potrzeby szyfrowania?
+Obsługujemy tylko [rozszerzoną wersję numerowania pakietów](https://1.ieee802.org/security/802-1aebw/) AES128 i AES256. Ponadto należy wyłączyć [Identyfikator Secure Channel (Sci)](https://en.wikipedia.org/wiki/IEEE_802.1AE) w konfiguracji MACsec na urządzeniu. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Kompleksowe szyfrowanie przy użyciu protokołu IPsec — często zadawane pytania
 Protokół IPsec jest [standardem IETF](https://tools.ietf.org/html/rfc6071). Szyfruje dane na poziomie protokołu internetowego (IP) lub w warstwie sieciowej 3. Za pomocą protokołu IPsec można szyfrować kompleksowe połączenie między siecią lokalną a siecią wirtualną (VNET) na platformie Azure. Zobacz inne często zadawane pytania poniżej.

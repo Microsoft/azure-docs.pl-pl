@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 8acf04d26d0c69c426eb86f8a26a9f243c6f5ad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136672"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836669"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -159,7 +159,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 
@@ -329,42 +329,6 @@ W przypadku wielu routingu opartych na domenach (opartych na hostach) można utw
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Czy mogę używać znaków specjalnych w haśle pliku PFX?
 
 Nie, używaj tylko znaków alfanumerycznych w haśle pliku PFX.
-
-## <a name="configuration---web-application-firewall-waf"></a>Konfiguracja — Zapora aplikacji sieci Web (WAF)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>Czy jednostka SKU WAF oferuje wszystkie funkcje dostępne w ramach standardowej jednostki SKU?
-
-Tak. WAF obsługuje wszystkie funkcje w standardowej jednostce SKU.
-
-### <a name="how-do-i-monitor-waf"></a>Jak mogę monitorować WAF?
-
-Monitoruj WAF za poorednictwem rejestrowania diagnostycznego. Aby uzyskać więcej informacji, zobacz [rejestrowanie diagnostyczne i metryki dla Application Gateway](application-gateway-diagnostics.md).
-
-### <a name="does-detection-mode-block-traffic"></a>Czy tryb wykrywania blokuje ruch?
-
-Nie. Tryb wykrywania rejestruje tylko ruch wyzwalający regułę WAF.
-
-### <a name="can-i-customize-waf-rules"></a>Czy mogę dostosować reguły WAF?
-
-Tak. Aby uzyskać więcej informacji, zobacz [Dostosowywanie grup reguł i reguł WAF](application-gateway-customize-waf-rules-portal.md).
-
-### <a name="what-rules-are-currently-available-for-waf"></a>Jakie reguły są obecnie dostępne dla WAF?
-
-WAF obecnie obsługuje KSR [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3,0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)i [3,1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Te reguły zapewniają zabezpieczenia bazowe przed większością luk 10 najważniejszych, które są używane do otwierania projektu zabezpieczeń aplikacji sieci Web (OWASP): 
-
-* Ochrona przed atakami polegającymi na iniekcji SQL
-* Ochrona skryptów między lokacjami
-* Ochrona przed typowymi atakami sieci Web, takimi jak iniekcja poleceń, przemycie żądań HTTP, dzielenie odpowiedzi HTTP i ataki plików zdalnych
-* Ochrona przed naruszeniami protokołu HTTP
-* Ochrona przed nieprawidłowościami protokołu HTTP, takimi jak brakujące powiązania agenta i użytkownika hosta oraz akceptowanie nagłówków
-* Zapobieganie atakom z użyciem robotów, przeszukiwarek i skanerów
-* Wykrywanie typowych niespotykanych konfiguracji aplikacji (to jest Apache, IIS itd.)
-
-Aby uzyskać więcej informacji, zobacz temat [OWASPs Top-10](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
-
-### <a name="does-waf-support-ddos-protection"></a>Czy WAF obsługuje ochronę DDoS?
-
-Tak. Ochronę DDoS można włączyć w sieci wirtualnej, w której wdrożono bramę aplikacji. To ustawienie zapewnia, że usługa Azure DDoS Protection chroni również wirtualny adres IP bramy aplikacji (VIP).
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Konfiguracja — kontroler ruchu przychodzącego dla AKS
 

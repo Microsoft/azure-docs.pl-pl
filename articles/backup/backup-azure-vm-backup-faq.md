@@ -4,12 +4,12 @@ description: W tym artykule znajdują się odpowiedzi na często zadawane pytani
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190099"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800655"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure
 
@@ -176,6 +176,14 @@ Utworzono kopię zapasową maszyny wirtualnej przy użyciu ustawień harmonogram
 4. Wznów tworzenie kopii zapasowej.
 
 Można przywrócić maszynę wirtualną z dostępnych punktów przywracania utworzonych przed operacją przenoszenia.
+
+### <a name="what-happens-after-i-move-a-vm-to-a-different-resource-group"></a>Co się stanie po przeniesieniu maszyny wirtualnej do innej grupy zasobów?
+
+Gdy maszyna wirtualna zostanie przeniesiona do innej grupy zasobów, jest to nowa maszyna wirtualna, o ile jest to konieczne Azure Backup.
+
+Po przeniesieniu maszyny wirtualnej do nowej grupy zasobów można ponownie włączyć ochronę maszyny wirtualnej w tym samym magazynie lub w innym magazynie. Ponieważ jest to nowa maszyna wirtualna dla Azure Backup, opłaty są naliczane oddzielnie.
+
+Punkty przywracania starych maszyn wirtualnych będą dostępne do przywracania w razie potrzeby. Jeśli te dane kopii zapasowej nie są potrzebne, możesz zatrzymać ochronę starej maszyny wirtualnej, usuwając dane.
 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Czy istnieje ograniczenie liczby maszyn wirtualnych, które można skojarzyć z tymi samymi zasadami tworzenia kopii zapasowych?
 

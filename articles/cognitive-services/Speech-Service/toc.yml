@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: Custom — słowo kluczowe
       items:
+        - name: Omówienie niestandardowych słów kluczowych
+          href: custom-keyword-overview.md
         - name: Wskazówki dotyczące nazewnictwa niestandardowych słów kluczowych
           href: speech-devices-sdk-kws-guidelines.md
         - name: Wykrywanie niestandardowych słów kluczowych
@@ -519,6 +521,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Szczegóły urządzenia Roobo v2
           href: speech-devices-sdk-roobo-v2.md
+    - name: Przewodniki z instrukcjami
+      items:
+        - name: Jak skonfigurować macierz mikrofonów
+          href: how-to-devices-microphone-array-configuration.md
     - name: Szybki start
       items:
         - name: Używanie zestawu Speech Devices SDK
