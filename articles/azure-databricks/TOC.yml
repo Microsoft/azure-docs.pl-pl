@@ -1010,6 +1010,8 @@
         - name: Omówienie zabezpieczeń
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Kontrola dostępu
           items:
             - name: Omówienie kontroli dostępu

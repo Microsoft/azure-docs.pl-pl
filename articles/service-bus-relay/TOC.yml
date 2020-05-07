@@ -24,7 +24,7 @@
           href: service-bus-relay-tutorial.md
         - name: Uwidacznianie lokalnej usługi WCF dla klienta WCF spoza sieci
           href: service-bus-relay-rest-tutorial.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Połączenia hybrydowe
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
@@ -32,7 +32,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Pojęcia
   items:
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
         - name: Uwierzytelnianie i autoryzacja
           href: relay-authentication-and-authorization.md
@@ -59,10 +59,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Węzeł
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: Zarządzanie
+    - name: Zarządzanie i monitorowanie
       items:
         - name: Monitorowanie usługi Azure Relay przy użyciu funkcji monitorowania platformy Azure
           href: relay-metrics-azure-monitor.md
+        - name: Konfigurowanie dzienników diagnostycznych
+          href: diagnostic-logs.md
 - name: Dokumentacja
   items:
     - name: .NET
@@ -83,11 +85,11 @@
       href: relay-faq.md
     - name: Blog
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Przykłady
+    - name: Samples
       href: 'https://github.com/azure/azure-relay/tree/master/samples'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-servicebusrelay'

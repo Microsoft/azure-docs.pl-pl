@@ -56,6 +56,8 @@
       href: use-key-vault-references-spring-boot.md
     - name: Integracja z potokiem ciągłej integracji/ciągłego wdrażania
       href: integrate-ci-cd-pipeline.md
+    - name: Integracja z wdrażaniem usługi Kubernetes przy użyciu rozwiązania Helm
+      href: integrate-kubernetes-deployment-helm.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure

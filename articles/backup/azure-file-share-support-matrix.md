@@ -3,12 +3,12 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207993"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838573"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -18,13 +18,13 @@ Za pomocą [usługi Azure Backup](https://docs.microsoft.com/azure/backup/backup
 
 Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następujących GEOREGIONY:
 
-| Regiony | Obsługiwane regiony, ale nie ogólnie                                                      |
+| Regiony | Obsługiwane regiony (w ramach wersji zapoznawczej), ale jeszcze nie GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morze), Szwajcaria Zachodnia (SZW), Australia Środkowa (UAC)                                                  |Australia Wschodnia (AE), Kanada Wschodnia (CE), Azja Wschodnia (EA), Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Japonia Zachodnia (JPW), Indie Środkowe (INC.), Korea Środkowa (KRC), Korea Południowa (KRS), Europa Północna (NE), Południowo-środkowe stany USA (SCUS), Południowe Zjednoczone Królestwo (UKS), Zachodnie Zjednoczone Królestwo (UKW), Europa Zachodnia (my), zachodnie stany USA (WUS), US Gov Arizona (UGA), US Gov Teksas (UGT), US Gov Wirginia (UGV), Północna Republika Południowej Afryki (SAN) , Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Niemcy Północne (GN), Niemcy Środkowo-Zachodnie (GWC), Zachodnia Republika Południowej Afryki (piły), Norwegia Zachodnia (NWW), Szwajcaria Północna (SZN), środkowe stany USA (CUS)           |
+| Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morze), Szwajcaria Zachodnia (SZW), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (INW), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia (JPW), Północna Republika Południowej Afryki (SAN), Zachodnie Zjednoczone Królestwo , Korea Południowa (KRS), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (Piła), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), (EA), Azja Wschodnia Australia Wschodnia (AE), środkowe stany USA (ci), zachodnie stany USA (WUS)                                                  |  Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Północna (NE), Południowo-środkowe stany USA (SCUS), Południowe Zjednoczone Królestwo (UKS), Europa Zachodnia (my), US Gov Arizona (UGA), US Gov Teksas (UGT), US Gov Wirginia (UGV)           |
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
-| Szczegóły konta magazynu | Pomoc techniczna                                                      |
+| Szczegóły konta magazynu | Obsługa                                                      |
 | ------------------------ | ------------------------------------------------------------ |
 | Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, w wersji 2 i w przypadku typów magazynu plików |
 | Wydajność              | Azure Backup obsługuje udziały plików zarówno na kontach standardowych, jak i Premium Storage |
@@ -32,7 +32,7 @@ Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następuj
 
 ## <a name="supported-file-shares"></a>Obsługiwane udziały plików
 
-| Typ udziału plików                                   | Pomoc techniczna   |
+| Typ udziału plików                                   | Obsługa   |
 | -------------------------------------------------- | --------- |
 | Standardowa                                           | Obsługiwane |
 | Large                                              | Obsługiwane |

@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 06c7f26fcbe0e57d2d535f4050280b993a51ed70
-  ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+  ms.openlocfilehash: e86427df4f0c36983a960876e2602620208ac636
+  ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/06/2020
-  ms.locfileid: "80755908"
+  ms.lasthandoff: 05/04/2020
+  ms.locfileid: "82744793"
 landingContent:
 - title: Dowiedz się więcej o usłudze Azure Backup
   linkLists:
@@ -56,7 +56,7 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Usuwanie nietrwałe dla danych kopii zapasowej maszyny wirtualnej platformy Azure
+    - text: Usuwanie nietrwałe dla usługi Azure Backup
       url: backup-azure-security-feature-cloud.md
     - text: Przywracanie jako plików programu SQL Server na maszynach wirtualnych platformy Azure
       url: restore-sql-database-azure-vm.md#restore-as-files

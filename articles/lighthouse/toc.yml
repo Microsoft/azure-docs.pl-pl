@@ -10,6 +10,9 @@
     - name: Indeks
       displayName: 'template, sample'
       href: ./samples/index.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-samples.md
 - name: Pojęcia
   items:
     - name: Zarządzanie zasobami delegowanymi na platformie Azure
@@ -33,6 +36,9 @@
     - name: Usługa Azure Lighthouse w scenariuszach dla przedsiębiorstw
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Usługa Azure Lighthouse i aplikacje zarządzane na platformie Azure
+      displayName: 'managed apps, ama'
+      href: ./concepts/managed-applications.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Dołączanie klienta do zarządzania zasobami delegowanymi na platformie Azure

@@ -4,6 +4,8 @@
   items:
     - name: Co to jest usługa Azure Load Balancer?
       href: load-balancer-overview.md
+    - name: Często zadawane pytania
+      href: load-balancer-faqs.md
 - name: Szybki start
   items:
     - name: Tworzenie modułu równoważenia obciążenia — portal
@@ -40,6 +42,8 @@
       href: components.md
     - name: Pojęcia
       href: concepts.md
+    - name: Jednostki SKU
+      href: skus.md
     - name: Monitorowanie kondycji
       items:
         - name: Sondy kondycji

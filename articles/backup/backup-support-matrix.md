@@ -3,12 +3,12 @@ title: Tabela obsługi usługi Azure Backup
 description: Zawiera podsumowanie ustawień obsługi i ograniczeń dotyczących usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537325"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801267"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Macierz obsługi dla Azure Backup
 
@@ -56,7 +56,7 @@ Oto nowości obsługiwane, jeśli chcesz utworzyć kopię zapasową maszyn lokal
 
 **Limit** | **Szczegóły**
 --- | ---
-**Dyski z danymi maszyn wirtualnych platformy Azure** | Limit wynoszący 16 <br> Aby skorzystać z prywatnej wersji zapoznawczej maszyn wirtualnych z ponad 16 dyskami (do 32 dysków), wyślij wiadomość na adres AskAzureBackupTeam@microsoft.com
+**Dyski z danymi maszyn wirtualnych platformy Azure** | Limit wynoszący 16 <br> Aby zarejestrować się w celu uzyskania ograniczonej wersji zapoznawczej maszyn wirtualnych z 16 dyskami (do 32 dysków), Zapisz się do nas naAskAzureBackupTeam@microsoft.com
 **Rozmiar dysku z danymi maszyn wirtualnych platformy Azure** | Rozmiar poszczególnych dysków może należeć do 32 TB i maksymalnie 256 TB łączny dla wszystkich dysków w maszynie wirtualnej.
 
 ### <a name="azure-vm-backup-options"></a>Opcje kopii zapasowych maszyn wirtualnych platformy Azure
@@ -152,9 +152,9 @@ Azure Backup dodano funkcję przywracania między regionami w celu wzmocnienia d
 | Typ zarządzania kopiami zapasowymi | Obsługiwane                                                    |  Obsługiwane regiony |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Maszyna wirtualna platformy Azure               | Tak.   Obsługiwane dla szyfrowanych maszyn wirtualnych i maszyn wirtualnych z dyskami o pojemności mniejszej niż 4 TB | Wszystkie regiony publiczne platformy Azure.  |
-| Agent MARS/lokalnie | Nie                                                           | Nie dotyczy               |
-| SQL/SAP HANA          | Nie                                                           | Nie dotyczy               |
-| AFS                    | Nie                                                           | Nie dotyczy               |
+| Agent MARS/lokalnie | Nie                                                           | Brak               |
+| SQL/SAP HANA          | Nie                                                           | Brak               |
+| AFS                    | Nie                                                           | Brak               |
 
 ## <a name="next-steps"></a>Następne kroki
 

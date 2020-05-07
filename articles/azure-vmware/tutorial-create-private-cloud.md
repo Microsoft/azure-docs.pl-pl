@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie klastra vSphere na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare (Automatyczna synchronizacja)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: f6dab0dd56adae8b98137354896412e447931c69
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740143"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838805"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej automatycznej synchronizacji na platformie Azure
 
@@ -28,6 +28,16 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - Odpowiednie prawa administracyjne i uprawnienia do tworzenia chmury prywatnej.
 - Upewnij się, że skonfigurowano odpowiednią sieć, zgodnie z opisem w [samouczku: Lista kontrolna sieci](tutorial-network-checklist.md).
 
+## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
+
+Aby można było korzystać z rozwiązania VMWare na platformie Azure, należy najpierw zarejestrować dostawcę zasobów. Poniższy przykład rejestruje dostawcę zasobów w ramach subskrypcji.
+
+```azurecli-interactive
+az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+```
+
+Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się do [portalu Azure](https://portal.azure.com).
@@ -38,7 +48,7 @@ Chmurę prywatną można utworzyć za pomocą [Azure Portal](#azure-portal) lub 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W Azure Portal wybierz pozycję **+ Utwórz nowy zasób**. W polu `vmcp`tekstowym **Wyszukaj w portalu Marketplace** wybierz z listy pozycję **VMCP-Private** . W oknie **chmura VMCP-Private** wybierz pozycję **Utwórz** .
+W Azure Portal wybierz pozycję **+ Utwórz nowy zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** `Azure VMware Solution`, a następnie wybierz pozycję **Azure VMware Solution** z listy. W oknie **rozwiązanie platformy Azure VMware** wybierz pozycję **Utwórz** .
 
 Na karcie **podstawowe** wpisz wartości pól. W poniższej tabeli przedstawiono szczegółową listę właściwości.
 
@@ -70,14 +80,6 @@ Alternatywnie możesz użyć interfejsu wiersza polecenia platformy Azure, aby u
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
 
 Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Możesz również uruchomić usługę Cloud Shell w oddzielnej karcie przeglądarki, przechodząc do strony https://shell.azure.com/bash. Wybierz pozycję **Kopiuj** , aby skopiować bloki kodu, wkleić je do Cloud Shell i naciśnij klawisz **Enter** , aby go uruchomić.
-
-#### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
-
-Aby można było korzystać z rozwiązania VMWare na platformie Azure, należy najpierw zarejestrować dostawcę zasobów. Poniższy przykład rejestruje dostawcę zasobów w ramach subskrypcji.
-
-```azurecli-interactive
-az extension add --name vmware
-```
 
 #### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
