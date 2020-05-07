@@ -3,12 +3,12 @@ title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMWare na 
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: e8278eb3ab5e99d330e34fd9739ed2bc49aa7f08
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740213"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837621"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMWare na platformie Azure
 
@@ -24,7 +24,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://rc.portal.azure.com).
+Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 

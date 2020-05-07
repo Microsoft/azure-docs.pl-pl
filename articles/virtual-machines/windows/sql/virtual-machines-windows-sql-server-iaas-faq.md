@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e1f61641eed0584ecb5bb33f1a510c7df6e60e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270829"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839083"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Często zadawane pytania dotyczące programu SQL Server uruchomionego na maszynach wirtualnych z systemem Windows na platformie Azure
 
@@ -52,10 +52,14 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 1. **Czy jest możliwe wdrożenie starszego obrazu SQL Server, który nie jest widoczny w Azure Portal?**
 
    Tak, przy użyciu programu PowerShell. Aby uzyskać więcej informacji na temat wdrażania maszyn wirtualnych SQL Server przy użyciu programu PowerShell, zobacz [jak zainicjować obsługę administracyjną SQL Server maszyny wirtualne w Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+   
+1. **Czy jest możliwe utworzenie uogólnionego obrazu witryny Azure SQL Server Marketplace SQL Server VM i użycie go do wdrożenia maszyn wirtualnych?**
 
-1. **Jak mogę uogólnić SQL Server na maszynie wirtualnej platformy Azure i używać jej do wdrażania nowych maszyn wirtualnych?**
+   Tak, ale musisz [zarejestrować każdą SQL Server maszynę wirtualną przy użyciu dostawcy zasobów maszyny wirtualnej SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) , aby zarządzać SQL Server maszyną wirtualną w portalu, a także korzystać z takich funkcji, jak automatyczne stosowanie poprawek i automatyczne tworzenie kopii zapasowych. Podczas rejestrowania się w dostawcy zasobów należy również określić typ licencji dla każdej maszyny wirtualnej SQL Server.
 
-   Możesz wdrożyć maszynę wirtualną z systemem Windows Server (bez zainstalowanych na niej SQL Server) i użyć procesu [Sysprep programu SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) do uogólnienia SQL Server na maszynie wirtualnej platformy Azure (Windows) przy użyciu nośnika instalacyjnego programu SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z poziomu obrazu maszyny wirtualnej SQL Server Marketplace z odpowiednią wersją.
+1. **Jak mogę generalize SQL Server na maszynie wirtualnej platformy Azure i używać jej do wdrażania nowych maszyn wirtualnych?**
+
+   Możesz wdrożyć maszynę wirtualną z systemem Windows Server (bez zainstalowanego SQL Server) i użyć procesu [Sysprep programu SQL](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) do uogólnienia SQL Server na maszynie wirtualnej platformy Azure (Windows) przy użyciu nośnika instalacyjnego programu SQL Server. Klienci posiadający [program Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) mogą uzyskać nośnik instalacyjny z [centrum licencjonowania zbiorowego](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Klienci, którzy nie mają programu Software Assurance, mogą korzystać z nośnika instalacyjnego z poziomu obrazu maszyny wirtualnej SQL Server Marketplace z odpowiednią wersją.
 
    Alternatywnie możesz użyć jednego z SQL Server obrazów w portalu Azure Marketplace, aby uogólnić SQL Server na maszynie wirtualnej platformy Azure. Należy pamiętać, że przed utworzeniem własnego obrazu należy usunąć następujący klucz rejestru z obrazu źródłowego. Niewykonanie tej czynności może skutkować SQL Server przeładowania folderu Bootstrap Instalatora i/lub rozszerzenia IaaS SQL w stanie Niepowodzenie.
 
@@ -63,7 +67,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Zaleca się, aby wszystkie SQL Server maszyny wirtualne platformy Azure, w tym te wdrożone z niestandardowymi obrazami uogólnionymi, były [zarejestrowane za pomocą dostawcy odkursu maszyny wirtualnej SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) w celu spełnienia wymagań dotyczących zgodności oraz do korzystania z funkcji opcjonalnych, takich jak automatyczne stosowanie poprawek i automatyczne tworzenie kopii zapasowych. Pozwala także [określić typ licencji](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) dla każdej maszyny wirtualnej SQL Server.
+   > SQL Server na maszynach wirtualnych platformy Azure, w tym tych wdrożonych z niestandardowych obrazów uogólnionych, należy [zarejestrować w dostawcy zasobów maszyny wirtualnej SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) , aby spełnić wymagania dotyczące zgodności i korzystać z funkcji opcjonalnych, takich jak automatyczne stosowanie poprawek i automatyczne tworzenie kopii zapasowych. Dostawca zasobów pozwala także [określić typ licencji](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) dla każdej maszyny wirtualnej SQL Server.
 
 1. **Czy mogę użyć własnego wirtualnego dysku twardego do wdrożenia maszyny wirtualnej SQL Server?**
 
@@ -92,7 +96,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy mogę zmienić maszynę wirtualną tak, aby używać mojej licencji programu SQL Server, jeśli została ona utworzona z jednego z obrazów z galerii w modelu płatności zgodnie z rzeczywistym użyciem?**
 
-   Tak. Możesz łatwo przełączyć obraz galerii płatność zgodnie z rzeczywistym użyciem, aby przenieść własną licencję (BYOL), włączając [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Obecnie ta funkcja jest dostępna tylko dla klientów chmury publicznej.
+   Tak. Możesz łatwo przełączyć obraz galerii płatność zgodnie z rzeczywistym użyciem, aby przenieść własną licencję (BYOL), włączając [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Aby uzyskać więcej informacji, zobacz [How to Change the Licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Obecnie ta funkcja jest dostępna tylko dla klientów korzystających z chmury publicznej i Azure Government.
 
 1. **Czy przełączanie modeli licencjonowania wymaga jakiegokolwiek przestoju w pracy programu SQL Server?**
 
@@ -154,10 +158,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Czy istnieje możliwość zarejestrowania samoczynnych maszyn wirtualnych SQL Server z dostawcą zasobów maszyny wirtualnej SQL Server?**
 
-    Tak. Jeśli wdrożono SQL Server z własnego nośnika i zainstalowano rozszerzenie SQL IaaS, można zarejestrować SQL Serverą maszynę wirtualną przy użyciu dostawcy zasobów, aby uzyskać korzyści z zarządzania udostępniane przez rozszerzenie SQL IaaS. Nie można jednak skonwertować samodzielnie wdrożonej maszyny wirtualnej SQL Server na płatność zgodnie z rzeczywistym użyciem.
-
-
-   
+    Tak. Jeśli wdrożono SQL Server z własnego nośnika i zainstalowano rozszerzenie SQL IaaS, można zarejestrować SQL Serverą maszynę wirtualną przy użyciu dostawcy zasobów, aby uzyskać korzyści z zarządzania udostępniane przez rozszerzenie SQL IaaS.    
 
 
 ## <a name="administration"></a>Administracja

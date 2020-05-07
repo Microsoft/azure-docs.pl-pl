@@ -13,19 +13,19 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680069"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853967"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurowalne okresy istnienia tokenu w Azure Active Directory (wersja zapoznawcza)
 
 Możliwe jest określenie okresu istnienia tokenu wystawionego przez usługę Azure Active Directory (Azure AD). Okresy istnienia tokenów można ustawić dla wszystkich aplikacji w organizacji, dla aplikacji wielodostępnych (dla wielu organizacji) lub dla określonej jednostki usługi w organizacji.
 
 > [!IMPORTANT]
-> Po przesłuchaniu od klientów w wersji zapoznawczej wdrożono [funkcje zarządzania sesjami uwierzytelniania](https://go.microsoft.com/fwlink/?linkid=2083106) w usłudze Azure AD dostęp warunkowy. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania. Po 1 maja 2020 nie będzie można używać konfigurowalnych zasad istnienia tokenu w celu konfigurowania tokenów sesji i odświeżania. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.
+> Po przesłuchaniu od klientów w wersji zapoznawczej wdrożono [funkcje zarządzania sesjami uwierzytelniania](https://go.microsoft.com/fwlink/?linkid=2083106) w usłudze Azure AD dostęp warunkowy. Ta nowa funkcja służy do konfigurowania okresów istnienia tokenu odświeżania przez ustawienie częstotliwości logowania. Po 30 maja 2020 żadna Nowa dzierżawa nie będzie mogła korzystać z konfigurowalnych zasad okresu istnienia tokenu do konfigurowania tokenów sesji i odświeżania. Wycofanie zostanie wykonane w ciągu kilku miesięcy od tego momentu, co oznacza, że zaprzestanie przestrzegania istniejącej sesji i zasad odświeżania tokenów. Nadal można skonfigurować okresy istnienia tokenu dostępu po zakończeniu działania.
 
 W usłudze Azure AD obiekt zasad reprezentuje zestaw reguł, które są wymuszane dla poszczególnych aplikacji lub we wszystkich aplikacjach w organizacji. Każdy typ zasad ma unikatową strukturę z zestawem właściwości, które są stosowane do obiektów, do których są przypisane.
 

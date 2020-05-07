@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679070"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836635"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z usługą Linux Update Agent
 
-Może istnieć wiele przyczyn, dla których maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w Update Management. W Update Management można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z poziomu maszyn Azure Portal i spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
+Może istnieć wiele przyczyn, dla których maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w rozwiązaniu Azure Automation Update Management. W Update Management można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z poziomu maszyn Azure Portal i spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
 
-Na poniższej liście przedstawiono trzy Stany gotowości, w których może znajdować się maszyna:
+Komputer może być w trzech stanach gotowości:
 
-* Gotowy — został wdrożony hybrydowy proces roboczy elementu Runbook, który był ostatnio widoczny poniżej 1 godzinę temu.
-* Rozłączono — został wdrożony hybrydowy proces roboczy elementu Runbook, który był ostatnio widoczny ponad 1 godzinę temu.
-* Nie skonfigurowano — nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
+* **Gotowe**: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
+* **Rozłączono**: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
+* **Nieskonfigurowane**: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
 
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
-W przypadku maszyn platformy Azure kliknij link **Rozwiązywanie problemów** w kolumnie **Aktualizacja gotowości agenta** w portalu spowoduje uruchomienie strony Rozwiązywanie problemów z aktualizacją agenta. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Zapoznaj się z instrukcjami w trybie offline, aby rozwiązać problem z maszyną spoza platformy Azure.
+W przypadku maszyn platformy Azure wybierz link **Rozwiązywanie problemów** w kolumnie **Aktualizuj gotowość agenta** w portalu, aby otworzyć stronę **Rozwiązywanie problemów z aktualizacją agenta** . W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Aby rozwiązać problem z maszyną spoza platformy Azure, zapoznaj się z instrukcjami w sekcji "Rozwiązywanie problemów w trybie offline".
 
 ![Strona listy maszyn wirtualnych](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Sprawdzanie wymaga, aby maszyna wirtualna była uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, zobaczysz przycisk **Uruchom maszynę wirtualną** .
+> Sprawdzanie wymaga, aby maszyna wirtualna była uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, **Uruchom maszynę wirtualną** .
 
-Na stronie Rozwiązywanie problemów z aktualizacją agenta kliknij pozycję **Uruchom testy**, aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) , aby uruchomić skrypt na komputerze w celu zweryfikowania zależności. Po ukończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
+Na stronie **Rozwiązywanie problemów z agentem aktualizacji** wybierz pozycję **Uruchom testy** , aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) , aby uruchomić skrypt na komputerze w celu zweryfikowania zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
 
 ![Strona rozwiązywania problemów](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-Po zakończeniu wyniki są zwracane w oknie. Sekcje sprawdzania zawierają informacje o tym, co szuka każdy test.
+Po zakończeniu sprawdzania wyniki są zwracane w oknie. Sekcje sprawdzania zawierają informacje o tym, co szuka każdy test.
 
 ![Strona sprawdzania agentów aktualizacji](../media/update-agent-issues-linux/update-agent-checks.png)
 
@@ -50,11 +50,11 @@ Po zakończeniu wyniki są zwracane w oknie. Sekcje sprawdzania zawierają infor
 
 ### <a name="operating-system"></a>System operacyjny
 
-Sprawdzanie systemu operacyjnego sprawdza, czy hybrydowy proces roboczy elementu Runbook uruchamia jeden z następujących systemów operacyjnych:
+Sprawdzanie systemu operacyjnego sprawdza, czy hybrydowy proces roboczy elementu Runbook uruchamia jeden z następujących systemów operacyjnych.
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|CentOS 6 (x86/x64) i 7 (x64)      | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga, aby element "yum" zwracał dane zabezpieczeń, które nie znajdują się w polu CentOS.         |
+|CentOS 6 (x86/x64) i 7 (x64)      | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga, aby element "yum" zwracał dane zabezpieczeń, które CentOS nie są dostępne.         |
 |Red Hat Enterprise 6 (x86/x64) i 7 (x64)     | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)     | Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.        |
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 LTS (x86/x64)      |Agenci dla systemu Linux muszą mieć dostęp do repozytorium aktualizacji.         |
@@ -63,12 +63,11 @@ Sprawdzanie systemu operacyjnego sprawdza, czy hybrydowy proces roboczy elementu
 
 ### <a name="log-analytics-agent"></a>Agent usługi Log Analytics
 
-Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest zainstalowany. Aby uzyskać instrukcje dotyczące sposobu instalacji, zobacz [Instalowanie agenta dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
-).
+Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest zainstalowany. Aby uzyskać instrukcje dotyczące sposobu instalacji, zobacz [Instalowanie agenta dla systemu Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux).
 
 ### <a name="log-analytics-agent-status"></a>Stan agenta Log Analytics
 
-Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest uruchomiony. Jeśli Agent nie jest uruchomiony, możesz uruchomić następujące polecenie, aby spróbować uruchomić go ponownie. Aby uzyskać więcej informacji na temat rozwiązywania problemów z agentem, zobacz [Rozwiązywanie problemów z hybrydowym procesem roboczym](hybrid-runbook-worker.md#linux)
+Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest uruchomiony. Jeśli Agent nie jest uruchomiony, możesz uruchomić następujące polecenie, aby spróbować uruchomić go ponownie. Aby uzyskać więcej informacji na temat rozwiązywania problemów z agentem, zobacz temat [Rozwiązywanie problemów z hybrydowym procesem roboczym](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -76,7 +75,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Wieloadresowości
 
-Ta kontrola określa, czy Agent wysyła raporty do wielu obszarów roboczych. Obsługa multihostingu nie jest obsługiwana przez Update Management.
+Ta kontrola określa, czy Agent wysyła raporty do wielu obszarów roboczych. Wieloadresowości nie jest obsługiwane przez Update Management.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrydowy proces roboczy elementu Runbook
 
@@ -100,15 +99,15 @@ Ten test sprawdza, czy komputer ma dostęp do Internetu.
 
 ### <a name="registration-endpoint"></a>Punkt końcowy rejestracji
 
-Ta kontrola określa, czy hybrydowy proces roboczy elementu Runbook może prawidłowo komunikować się z Azure Automation Log Analytics obszaru roboczego.
+Ta kontrola określa, czy hybrydowy proces roboczy elementu Runbook może prawidłowo komunikować się z Azure Automation w obszarze roboczym Log Analytics.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning)
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Punkt końcowy operacji
 
 Ta kontrola określa, czy Agent może prawidłowo komunikować się z usługą danych czasu wykonywania zadania.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning)
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="log-analytics-endpoint-1"></a>Log Analytics punkt końcowy 1
 
@@ -124,7 +123,7 @@ Ten test sprawdza, czy komputer ma dostęp do punktów końcowych wymaganych prz
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Rozwiązywanie problemów w trybie offline
 
-Aby użyć narzędzia do rozwiązywania problemów w trybie offline w hybrydowym procesie roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Skrypt w języku Python, [update_mgmt_health_check. PR](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) , można znaleźć w centrum skryptów. Przykład danych wyjściowych tego skryptu pokazano w następującym przykładzie:
+Aby użyć narzędzia do rozwiązywania problemów w trybie offline w hybrydowym procesie roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Skrypt w języku Python, [update_mgmt_health_check. PR](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6), można znaleźć w centrum skryptów. Przykład danych wyjściowych tego skryptu pokazano w następującym przykładzie:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2
@@ -179,4 +178,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozwiązać dodatkowe problemy dotyczące hybrydowych procesów roboczych elementów Runbook, zobacz [Rozwiązywanie problemów — hybrydowe procesy robocze elementów Runbook](hybrid-runbook-worker.md).
+Aby rozwiązać dodatkowe problemy dotyczące hybrydowych procesów roboczych elementów Runbook, zobacz [Rozwiązywanie problemów hybrydowych procesów roboczych elementów Runbook](hybrid-runbook-worker.md).

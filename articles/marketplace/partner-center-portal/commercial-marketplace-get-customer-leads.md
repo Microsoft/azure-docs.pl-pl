@@ -1,24 +1,24 @@
 ---
-title: Konfigurowanie potencjalnych klientów z oferty komercyjnej witryny Marketplace firmy Microsoft
-description: Skonfiguruj potencjalnych klientów w komercyjnym portalu Microsoft Marketplace.
+title: Zarządzanie potencjalnymi klientami z portalu komercyjnego firmy Microsoft
+description: Dowiedz się więcej na temat generowania i otrzymywania potencjalnych klientów z Microsoft AppSource i ofert w portalu Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131095"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837332"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Potencjalni klienci z oferty w witrynie Marketplace
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
 
-Potencjalni klienci są zainteresowani lub wdrażają oferty z firmy Microsoft [AppSource](https://appsource.microsoft.com) i [witryny Azure Marketplace](https://azuremarketplace.microsoft.com). Po opublikowaniu oferty w portalu Marketplace otrzymasz potencjalnych klientów. W tym artykule wyjaśniono:
+Potencjalni klienci są zainteresowani lub wdrażają oferty w witrynie [Microsoft AppSource](https://appsource.microsoft.com) i [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com). Potencjalni klienci mogą otrzymywać dostęp do klientów po opublikowaniu oferty na komercyjnym rynku. W tym artykule wyjaśniono następujące pojęcia związane z zarządzaniem potencjalnym liderem:
 
-* Jak oferta w witrynie Marketplace generuje potencjalnych klientów, aby upewnić się, że nie trafią możliwości biznesowe. 
+* Jak Twoja oferta komercyjnej witryny Marketplace generuje potencjalnych klientów, aby upewnić się, że nie trafią możliwości biznesowe. 
 * Jak połączyć system zarządzania relacjami z klientami (CRM) z ofertą, aby umożliwić zarządzanie potencjalnymi klientami w jednej centralnej lokalizacji.
 * Dane potencjalnych klientów, które wysyłamy, aby można było wykonać kolejne czynności w odniesieniu do klientów, którzy dotarły do Ciebie.
 
@@ -56,7 +56,7 @@ Każdy potencjalny klient, który otrzymasz w procesie pozyskiwania klientów, m
 
 Możliwe wartości:
 
-- **"Ins"**: oznacza *instalację*. Ta akcja znajduje się w witrynie Azure Marketplace lub AppSource, gdy klient kupuje produkt.
+- **"Ins"**: oznacza *instalację*. Ta akcja znajduje się w witrynie Azure Marketplace lub AppSource, gdy klient uzyskuje produkt.
 - **"PLT"**: oznacza *wersję próbną dla partnera*. Ta akcja jest w AppSource, gdy klient wybierze opcję **kontakt ze mną** .
 - **"DNC"**: oznacza *nie kontakt*. Ta akcja jest w AppSource, gdy Partner, który został krzyżowo wymieniony na stronie Twojej aplikacji, otrzymuje prośbę o kontakt. Udostępnimy powiadomienie, że ten klient został wystawiony w aplikacji, ale nie musisz się z nimi skontaktować.
 - **"Utwórz"**: Ta akcja jest dostępna tylko wewnątrz Azure Portal i jest generowana, gdy klient kupi ofertę na swoje konto.
@@ -92,7 +92,7 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 - **Monitowanie**: nie zapomnij się monitować. Oczekiwano, że typowa transakcja wymaga od 5 do 12 wywołań kolejnych.
 - **Informacyjna**: informacyjna potencjalni klienci w celu uzyskania lepszego marginesu zysków.
 
-## <a name="leads-frequently-asked-questions"></a>Potencjalni klienci często zadawane pytania
+## <a name="common-questions-about-lead-management"></a>Często zadawane pytania dotyczące zarządzania potencjalnymi klientami
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?
 
@@ -133,7 +133,7 @@ Usługa Azure Blob Storage nie jest już obsługiwana jako miejsce docelowe pote
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Z komercyjnej witryny Marketplace otrzymałem wiadomość e-mail, ale dlaczego nie mogę znaleźć potencjalnego klienta w moim programie CRM?
 
-Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy informacji umożliwiających identyfikację użytkownika z domeny. edu. Prześlij bilet pomocy technicznej, korzystając z [pomocy i pomocy technicznej Centrum partnerskiego](https://partner.microsoft.com/support/v2/?stage=1).
+Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy informacji osobistych z domeny. edu. Prześlij bilet pomocy technicznej, korzystając z [pomocy i pomocy technicznej Centrum partnerskiego](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Jak mogę wyświetlić potencjalnych klientów?
 
@@ -149,7 +149,7 @@ Sprawdź, czy formularz sieci Web do potencjalnego klienta jest polem obowiązko
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Wystąpił problem z miejscem docelowym potencjalnego klienta i pominięto kilka potencjalnych klientów. Czy mogę je wysłać do mnie w wiadomości e-mail?
 
-Ze względu na dane osobowe, nie możemy udostępniać informacji o potencjalnych klientach za pośrednictwem niezabezpieczonej poczty e-mail.
+Ze względu na zasady dotyczące informacji osobistych nie można udostępniać informacji o potencjalnych klientach za pośrednictwem niezabezpieczonej poczty e-mail.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Ile będzie kosztować?
 
