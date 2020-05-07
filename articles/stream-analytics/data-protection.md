@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299400"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857291"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Ochrona danych w Azure Stream Analytics 
 
@@ -32,7 +32,7 @@ Nie można zaktualizować ani obrócić kluczy do konta magazynu przy użyciu po
 
 Wykonaj poniższe kroki, aby skonfigurować konto magazynu dla prywatnych zasobów danych. Ta konfiguracja została wykonana z zadania Stream Analytics, a nie z konta magazynu.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**. 
 
@@ -61,6 +61,9 @@ Wszystkie prywatne dane, które są wymagane do utrwalenia przez Stream Analytic
 Są również przechowywane szczegóły połączenia zasobów, które są używane przez zadanie Stream Analytics. Zaszyfruj konto magazynu, aby zabezpieczyć wszystkie Twoje dane. 
 
 Aby dowiedzieć się, jak zapewnić zgodność z wymaganiami dotyczącymi zgodności w dowolnych sektorach lub środowiskach objętych regulacją, możesz przeczytać więcej na temat [ofert zgodności firmy Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="known-issues"></a>Znane problemy
+Istnieje znany problem polegający na tym, że zadanie korzystające z klucza zarządzanego przez klienta działa w niepowodzeń podczas korzystania z tożsamości zarządzanej do uwierzytelniania w dowolnych danych wejściowych lub wyjściowych. Poprawka tego problemu jest opracowywana i będzie dostępna w najbliższej przyszłości. 
 
 ## <a name="next-steps"></a>Następne kroki
 

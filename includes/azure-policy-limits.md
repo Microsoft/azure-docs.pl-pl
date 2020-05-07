@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
@@ -19,7 +19,7 @@ Dla każdego typu obiektu dla Azure Policy istnieje maksymalna liczba. Wpis _Zak
 |---|---|---|
 | Zakres | Definicje zasad | 500 |
 | Zakres | Definicje inicjatyw | 100 |
-| Dzierżawa | Definicje inicjatyw | 1000 |
+| Dzierżawca | Definicje inicjatyw | 1000 |
 | Zakres | Zasady lub przypisania inicjatywy | 100 |
 | Definicja zasad | Parametry | 20 |
 | Definicja inicjatywy | Zasady | 100 |

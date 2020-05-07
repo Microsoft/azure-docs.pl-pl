@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303226"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612762"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurowanie wystąpienia klastra trybu failover SQL Server z udziałem plików w warstwie Premium na maszynach wirtualnych platformy Azure
 
@@ -47,7 +47,7 @@ Należy również uzyskać ogólne informacje na temat tych technologii:
 > [!IMPORTANT]
 > W tej chwili SQL Server wystąpienia klastra trybu failover w usłudze Azure Virtual Machines są obsługiwane tylko w [trybie uproszczonego zarządzania](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) [rozszerzenia agenta SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Podczas usuwania zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal **Wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej**. Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały w przypadku maszyn wirtualnych SQL po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
 
-Udziały plików w warstwie Premium zapewniają operacje we/wy na sekundę, które będą spełniały potrzeby wielu obciążeń. W przypadku obciążeń intensywnie korzystających z operacji we/wy należy rozważyć [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](virtual-machines-windows-portal-sql-create-failover-cluster.md), na podstawie zarządzanych dysków Premium lub Ultra dysków.  
+Udziały plików w warstwie Premium zapewniają możliwości IOPS i przepływności, które będą spełniały potrzeby wielu obciążeń. W przypadku obciążeń intensywnie korzystających z operacji we/wy należy rozważyć [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](virtual-machines-windows-portal-sql-create-failover-cluster.md), na podstawie zarządzanych dysków Premium lub Ultra dysków.  
 
 Sprawdź działanie IOPS w środowisku i sprawdź, czy w wersji Premium udziały plików będą wymagały potrzebnych operacji we/wy przed rozpoczęciem wdrażania lub migracji. Liczniki dysku monitora wydajności systemu Windows służą do monitorowania łącznej liczby operacji we/wy (transfery dysku/s) i przepływności (bajty dysku/s) wymaganych dla plików SQL Server, dzienników i tymczasowych baz danych.
 
@@ -155,7 +155,7 @@ Po spełnieniu tych wymagań wstępnych można rozpocząć tworzenie klastra try
 
    | Przeznaczenie | Port TCP | Uwagi
    | ------ | ------ | ------
-   | SQL Server | 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty.
+   | Oprogramowanie SQL Server | 1433 | Normalny port dla domyślnych wystąpień SQL Server. Jeśli obraz został użyty z galerii, ten port zostanie automatycznie otwarty.
    | Sonda kondycji | 59999 | Dowolny otwarty port TCP. W późniejszym kroku należy skonfigurować [sondę kondycji](#probe) modułu równoważenia obciążenia oraz klaster, aby używać tego portu.
    | Udział plików | 445 | Port używany przez usługę udziału plików.
 

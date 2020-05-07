@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083531"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838726"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Najlepsze rozwiązania dotyczące wybierania identyfikatora szeregów czasowych
 
@@ -27,6 +27,7 @@ Wybór odpowiedniego identyfikatora szeregów czasowych ma krytyczne znaczenie. 
 
 > [!IMPORTANT]
 > Identyfikatory szeregów czasowych:
+>
 > * Właściwość uwzględniająca *wielkość* liter: litery i wielkości liter znaków są używane w wyszukiwaniach, porównaniach, aktualizacjach i podczas partycjonowania.
 > * *Niezmienna* Właściwość: po utworzeniu nie można jej zmienić.
 
@@ -56,7 +57,7 @@ W poniższych scenariuszach opisano wybieranie więcej niż jednej właściwośc
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Przykład 2: Identyfikator szeregów czasowych z kluczem złożonym
 
-* Wymagane jest, aby wiele właściwości była unikatowa w ramach tej samej floty zasobów. 
+* Wymagane jest, aby wiele właściwości była unikatowa w ramach tej samej floty zasobów.
 * Jesteś producentem inteligentnych budynków i wdrażaj czujniki w każdym pokoju. W każdym pokoju zwykle są te same wartości dla **sensorId**. Przykłady to **sensor1**, **Sensor2**i **sensor3**.
 * Budynek zawiera nakładające się numery podłóg i pomieszczeń między lokacjami we właściwości **flrRm**. Te liczby zawierają wartości, takie jak **1a**, **2b**i **3a**.
 * Istnieje właściwość, **Lokalizacja**, która zawiera wartości, takie jak **Redmond**, **Barcelona**i **Tokio**. Aby utworzyć unikatowość, należy wyznaczyć następujące trzy właściwości jako klucze identyfikatorów szeregów czasowych: **sensorId**, **flrRm**i **Location**.
@@ -72,7 +73,7 @@ Przykładowe zdarzenie pierwotne:
 }
 ```
 
-W Azure Portal można następnie wprowadzić klucz złożony w następujący sposób: 
+W Azure Portal można następnie wprowadzić klucz złożony w następujący sposób:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

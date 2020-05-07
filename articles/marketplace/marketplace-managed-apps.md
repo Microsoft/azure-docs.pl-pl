@@ -1,5 +1,5 @@
 ---
-title: Przewodnik publikowania oferty aplikacji zarządzanych przez aplikacje platformy Azure | Portal Azure Marketplace
+title: Przewodnik publikowania oferty aplikacji zarządzanych przez aplikacje platformy Azure — Azure Marketplace
 description: W tym artykule opisano wymagania dotyczące publikowania aplikacji zarządzanej w portalu Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,41 +7,48 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: dsindona
-ms.openlocfilehash: 946e7524eada600d5ef17b2663a3fea066dcfaa2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bd89e406c3067585595479dc1d8351e9ea7eea8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084876"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856120"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-requirements"></a>Aplikacje platformy Azure: wymagania dotyczące publikowania ofert aplikacji zarządzanych
+# <a name="publishing-guide-for-azure-managed-applications"></a>Przewodnik publikowania dla aplikacji zarządzanych przez platformę Azure
 
-W tym artykule wyjaśniono wymagania dotyczące typu oferty aplikacji zarządzanej, który jest jednym ze sposobów opublikowania oferty aplikacji platformy Azure w portalu Azure Marketplace. Aplikacje zarządzane to oferty Transact wdrożone i rozliczane za pomocą witryny Azure Marketplace. Wywołanie akcji, którą widzi użytkownik, to "Pobierz teraz".
+Oferta *aplikacji zarządzanej* przez platformę Azure to jeden ze sposobów publikowania aplikacji platformy Azure w portalu Azure Marketplace. Aplikacje zarządzane to oferty Transact wdrożone i rozliczane za pomocą witryny Azure Marketplace. Wywołanie akcji, którą widzi użytkownik, jest *teraz gotowe*.
 
-Użyj typu oferty aplikacji zarządzanej, jeśli są wymagane następujące warunki:
+W tym artykule wyjaśniono wymagania dotyczące typu oferty aplikacji zarządzanej.
 
-- Rozwiązanie oparte na subskrypcji można wdrożyć dla klienta przy użyciu maszyny wirtualnej lub całego rozwiązania opartego na IaaS.
+Użyj typu oferty aplikacji zarządzanej w następujących warunkach:
+
+- Wdrażasz rozwiązanie oparte na subskrypcji dla klienta przy użyciu maszyny wirtualnej (VM) lub całego rozwiązania opartego na infrastrukturze jako usługi (IaaS).
 - Ty lub Twój klient wymaga, aby rozwiązanie było zarządzane przez partnera.
 
 >[!NOTE]
->Na przykład partner może być dostawcą usług (MSP) lub usługą zarządzaną.  
+>Na przykład partner może być integratorem systemów lub dostawcą usług zarządzanych (MSP).  
 
-## <a name="managed-application-offer"></a>Oferta aplikacji zarządzanej
+## <a name="managed-application-offer-requirements"></a>Wymagania oferty zarządzanej aplikacji
 
 |Wymagania |Szczegóły  |
 |---------|---------|
-|Wdrożone w subskrypcji platformy Azure klienta | Zarządzane aplikacje muszą być wdrożone w subskrypcji klienta i mogą być zarządzane przez inną firmę. |
-|Rozliczenia i pomiary    |  Zasoby będą obsługiwane w ramach subskrypcji platformy Azure klienta. Maszyny wirtualne z płatnością zgodnie z rzeczywistym użyciem (PAYGO) będą w firmie Microsoft rozliczane za pośrednictwem subskrypcji platformy Azure (PAYGO) klienta. <br> W przypadku dołączenia do własnej licencji, podczas gdy firma Microsoft będzie rozliczać koszty infrastruktury związane z subskrypcją klienta, należy bezpośrednio wprowadzić opłaty za licencję na oprogramowanie klienta.        |
-|Wirtualny dysk twardy (VHD) zgodny z platformą Azure    |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux.<ul> <ul> <li>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego z systemem Linux, zobacz [dystrybucje systemu Linux zatwierdzone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego systemu Windows, zobacz [Tworzenie oferty aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md).</li> </ul> |
+|Subskrypcja platformy Azure | Zarządzane aplikacje muszą być wdrożone w ramach subskrypcji klienta, ale mogą być zarządzane przez inną firmę. |
+|Rozliczenia i pomiary    |  Zasoby są udostępniane w ramach subskrypcji platformy Azure klienta. Maszyny wirtualne korzystające z modelu płatności zgodnie z rzeczywistym użyciem są transakcyjne dla klienta przez firmę Microsoft i rozliczane za pośrednictwem subskrypcji platformy Azure klienta. <br><br> W przypadku maszyn wirtualnych służących do przenoszenia własnych licencji firma Microsoft rozlicza wszelkie koszty związane z infrastrukturą, które są naliczane w ramach subskrypcji klienta, ale bezpośrednio obciążają opłaty za Licencjonowanie oprogramowania.        |
+|Wirtualny dysk twardy (VHD) zgodny z platformą Azure    |   Maszyny wirtualne muszą być wbudowane w system Windows lub Linux.<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego z systemem Linux, zobacz [dystrybucje systemu Linux zatwierdzone na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).<br><br>Aby uzyskać więcej informacji na temat tworzenia wirtualnego dysku twardego systemu Windows, zobacz [Tworzenie oferty aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md). |
 
->[!NOTE]
-> Zarządzane aplikacje muszą być wdrażane za pomocą portalu Marketplace. Jeśli komunikacja z klientem jest istotna, należy skontaktować się z zainteresowanymi klientami po włączeniu udostępniania potencjalnego klienta.  
+---
 
->[!Note]
->Niedostępność kanału partnera dostawcy rozwiązań w chmurze (CSP) jest teraz dostępna. Aby uzyskać więcej informacji na temat marketingu oferty za pomocą kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](./cloud-solution-providers.md).
+> [!NOTE]
+> Zarządzane aplikacje muszą być wdrażane za pomocą witryny Azure Marketplace. Jeśli komunikacja z klientem jest istotna, skontaktuj się z zainteresowanymi klientami po włączeniu udostępniania potencjalnego klienta.  
+
+> [!Note]
+> Niedostępność kanału partnera dostawcy rozwiązań w chmurze (CSP) jest teraz dostępna. Aby uzyskać więcej informacji na temat marketingu oferty za pomocą kanałów partnerów CSP firmy Microsoft, zobacz [dostawcy rozwiązań w chmurze](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli jeszcze tego nie zrobiono, [Dowiedz się więcej](https://azuremarketplace.microsoft.com/sell) o witrynie Azure Marketplace.
+Jeśli jeszcze tego nie zrobiono, Dowiedz się, jak [rozwijać swoją firmę w chmurze za pomocą witryny Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+
+Aby zarejestrować się i rozpocząć pracę w centrum partnerskim:
+
 - [Zaloguj się do Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć lub zakończyć swoją ofertę.
-- [Utwórz ofertę aplikacji platformy Azure,](./partner-center-portal/create-new-azure-apps-offer.md) Aby uzyskać więcej informacji.
+- Aby uzyskać więcej informacji, zobacz [Tworzenie oferty aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) .

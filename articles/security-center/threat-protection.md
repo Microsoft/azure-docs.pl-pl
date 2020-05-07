@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234081"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606895"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -34,7 +34,9 @@ Czy alert jest generowany przez Security Center, czy odbierany przez Security Ce
 > [!TIP]
 > Aby włączyć funkcje ochrony przed zagrożeniami Security Center, należy zastosować warstwę cenową standardowa do subskrypcji zawierającej odpowiednie obciążenia.
 >
-> Security Center ochrony przed zagrożeniami dla kont magazynu i serwerów SQL/MySQL/PG są obecnie jedynymi obciążeniami, które można włączyć na poziomie zasobów, aby chronić poszczególne obciążenia magazynu/usługi SQL.
+> Ochronę przed zagrożeniami dla **kont usługi Azure Storage** można włączyć na poziomie subskrypcji lub na poziomie zasobu.
+> Ochronę przed zagrożeniami dla **Azure SQL Database serwerów SQL** można włączyć na poziomie subskrypcji lub na poziomie zasobu.
+> Ochronę przed zagrożeniami dla **Azure Database for MariaDB/MySQL/PostgreSQL** można włączyć tylko na poziomie zasobów.
 
 
 
