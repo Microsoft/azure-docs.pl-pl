@@ -1,14 +1,14 @@
 ---
 title: Zapoznaj się z cyklem życia planu
 description: Dowiedz się więcej na temat cyklu życia, przez który przechodzą definicje planu i szczegółowe informacje o każdym z etapów, w tym aktualizowanie i usuwanie przypisań strategii.
-ms.date: 07/30/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864032"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Zapoznaj się z cyklem życia Azure Blueprint
 

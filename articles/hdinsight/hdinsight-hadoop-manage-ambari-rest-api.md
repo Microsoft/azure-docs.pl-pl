@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 317d12f6d5dee92d998266d4e9b6d52e6ef9c7a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 48602cb65430bcf6720b4d6f4ba05c771a7bd55b
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81381378"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559967"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu API REST usługi Apache Ambari
 
@@ -23,7 +23,7 @@ Dowiedz się, jak używać interfejsu API REST usługi Apache Ambari do zarządz
 
 ## <a name="what-is-apache-ambari"></a>Co to jest Apache Ambari
 
-Platforma [Apache Ambari](https://ambari.apache.org) upraszcza zarządzanie i monitorowanie klastrów usługi Hadoop, zapewniając łatwy do użycia interfejs użytkownika sieci Web, który jest obsługiwany przez [interfejsy API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari jest domyślnie dostarczany z klastrami usługi HDInsight opartymi na systemie Linux.
+Platforma Apache Ambari upraszcza zarządzanie i monitorowanie klastrów usługi Hadoop, zapewniając łatwy do użycia interfejs użytkownika sieci Web, który jest obsługiwany przez [interfejsy API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari jest domyślnie dostarczany z klastrami usługi HDInsight opartymi na systemie Linux.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,13 +33,13 @@ Platforma [Apache Ambari](https://ambari.apache.org) upraszcza zarządzanie i mo
 
 * JQ, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* Windows PowerShell.  Można też użyć [bash](https://www.gnu.org/software/bash/).
+* Windows PowerShell.  Można też użyć bash.
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Podstawowe Uniform Resource Identifier interfejsu API REST Ambari
 
  Podstawowy Uniform Resource Identifier (URI) dla interfejsu API REST Ambari w usłudze HDInsight to `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, gdzie `CLUSTERNAME` jest nazwą klastra.  Nazwy klastra w identyfikatorach URI są **rozróżniane wielkości**liter.  W czasie, gdy nazwa klastra w w pełni kwalifikowana nazwa domeny (FQDN) w ramach identyfikatora`CLUSTERNAME.azurehdinsight.net`URI () nie uwzględnia wielkości liter, inne wystąpienia w identyfikatorze URI uwzględniają wielkość liter.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Połączenie z usługą Ambari w usłudze HDInsight wymaga protokołu HTTPS. Użyj nazwy konta administratora (wartość domyślna to **admin**) i hasła podanego podczas tworzenia klastra.
 
