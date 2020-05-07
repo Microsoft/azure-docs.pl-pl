@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie przypisaniami przy użyciu programu PowerShell
 description: Dowiedz się, jak zarządzać przypisaniami planów przy użyciu oficjalnego modułu programu PowerShell platformy Azure, AZ. plan.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677422"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863981"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Zarządzanie przypisaniami przy użyciu programu PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Przykład 2: użycie pliku definicji przypisania JSON
 
-Poniższy przykład tworzy niemal to samo przypisanie jak [przykład 1](#example-1-provide-parameters).
-Zamiast przekazywania parametrów do polecenia cmdlet, w przykładzie pokazano użycie pliku definicji przypisania JSON i parametru **AssignmentFile** . Ponadto Właściwość **excludedPrincipals** jest konfigurowana jako część **blokad**. Nie istnieje parametr programu PowerShell dla usługi **excludedPrincipals** , a właściwość można skonfigurować tylko przez ustawienie jej przy użyciu pliku definicji przypisania JSON.
+Poniższy przykład tworzy niemal to samo przypisanie jak [przykład 1](#example-1-provide-parameters). Zamiast przekazywania parametrów do polecenia cmdlet, w przykładzie pokazano użycie pliku definicji przypisania JSON i parametru **AssignmentFile** . Ponadto Właściwość **excludedPrincipals** jest konfigurowana jako część **blokad**. Nie istnieje parametr programu PowerShell dla usługi **excludedPrincipals** , a właściwość można skonfigurować tylko przez ustawienie jej przy użyciu pliku definicji przypisania JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Przykład kodu kompleksowego
+## <a name="code-example"></a>Przykładowy kod
 
 Wykonanie wszystkich kroków razem, w poniższym przykładzie pobiera definicję planu, tworzy, aktualizuje i usuwa przypisanie strategii w ramach określonej subskrypcji reprezentowanej jako `{subId}`:
 

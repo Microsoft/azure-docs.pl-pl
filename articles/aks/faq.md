@@ -2,13 +2,13 @@
 title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: a58c3510d8937b209bf6c73d33237785ecab161d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/04/2020
+ms.openlocfilehash: 112060e72f36bfe5d11a997fc4161e26c36259ff
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206615"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854245"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -18,21 +18,20 @@ W tym artykule opisano często zadawane pytania dotyczące usługi Azure Kuberne
 
 Aby uzyskać pełną listę dostępnych regionów, zobacz [AKS regiony i dostępność][aks-regions].
 
-## <a name="does-aks-support-node-autoscaling"></a>Czy AKS obsługuje automatyczne skalowanie węzła?
+## <a name="can-i-spread-an-aks-cluster-across-regions"></a>Czy mogę rozłożyć klaster AKS w różnych regionach?
 
-Tak, możliwość automatycznego skalowania węzłów agentów w poziomie w AKS jest obecnie dostępna w wersji zapoznawczej. Aby uzyskać instrukcje [, zobacz Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w AKS][aks-cluster-autoscaler] . Skalowanie automatyczne AKS opiera się na [automatycznym skalowaniu Kubernetes][auto-scaler].
+Nie. Klastry AKS są zasobami regionalnymi i nie mogą obejmować regionów. Zapoznaj się z [najlepszymi rozwiązaniami dotyczącymi ciągłości działania i odzyskiwania po awarii][bcdr-bestpractices] , aby uzyskać wskazówki dotyczące tworzenia architektury obejmującej wiele regionów.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Czy mogę wdrożyć AKS w istniejącej sieci wirtualnej?
+## <a name="can-i-spread-an-aks-cluster-across-availability-zones"></a>Czy mogę rozłożyć klaster AKS w różnych strefach dostępności?
 
-Tak, klaster AKS można wdrożyć w istniejącej sieci wirtualnej przy użyciu [funkcji zaawansowanej sieci][aks-advanced-networking].
+Tak. Klaster AKS można wdrożyć w jednej lub większej liczbie [stref dostępności][availability-zones] w [regionach, które je obsługują][az-regions].
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Czy mogę ograniczyć dostęp do serwera interfejsu API Kubernetes?
 
-Tak, możesz ograniczyć dostęp do serwera interfejsu API Kubernetes przy użyciu [zakresów adresów IP autoryzowanych przez serwer interfejsu API][api-server-authorized-ip-ranges].
+Tak. Dostępne są dwie opcje ograniczania dostępu do serwera interfejsu API:
 
-## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Czy serwer interfejsu API Kubernetes może być dostępny tylko w ramach mojej sieci wirtualnej?
-
-W tej chwili nie jest to planowane. Postęp można śledzić w [repozytorium GitHub AKS][private-clusters-github-issue].
+- Jeśli chcesz zachować publiczny punkt końcowy dla serwera interfejsu API, Użyj adresów [IP autoryzowanych przez serwer API][api-server-authorized-ip-ranges] , ale Ogranicz dostęp do zestawu zaufanych zakresów adresów IP.
+- Użyj [klastra prywatnego][private-clusters] , jeśli chcesz ograniczyć serwer API tak, aby był dostępny *tylko* z poziomu sieci wirtualnej.
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Czy mogę mieć różne rozmiary maszyn wirtualnych w jednym klastrze?
 
@@ -118,7 +117,7 @@ Etykieta: ```"admissions.enforcer/disabled": "true"``` lub Adnotacja:```"admissi
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Czy Azure Key Vault jest zintegrowany z AKS?
 
-AKS nie jest obecnie natywnie zintegrowana z Azure Key Vault. Jednak [Azure Key Vault FlexVolume for Kubernetes Project][keyvault-flexvolume] umożliwia bezpośrednią integrację z Kubernetesowych zasobników z Key Vaultymi kluczami tajnymi.
+AKS nie jest obecnie natywnie zintegrowana z Azure Key Vault. Jednak [dostawca Azure Key Vault dla magazynu kluczy tajnych CSI][csi-driver] umożliwia bezpośrednią integrację z Kubernetesowych zasobników z Key Vaultymi kluczami tajnymi.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Czy można uruchamiać kontenery systemu Windows Server na AKS?
 
@@ -131,19 +130,6 @@ Obsługa systemu Windows Server dla puli węzłów obejmuje pewne ograniczenia, 
 W umowie dotyczącej poziomu usług (SLA) dostawca zgadza się zwrócić klienta koszt usługi, jeśli nie jest spełniony opublikowany poziom usług. Ponieważ AKS jest bezpłatny, żaden koszt nie jest dostępny do zwrotu, więc AKS nie ma formalnej umowy SLA. AKS ma jednak na celu zachowanie dostępności co najmniej 99,5% dla serwera interfejsu API Kubernetes.
 
 Ważne jest, aby rozpoznać rozróżnienie między dostępnością usługi AKS, która odnosi się do czasu przestoju płaszczyzny kontroli Kubernetes i dostępności konkretnego obciążenia działającego w usłudze Azure Virtual Machines. Mimo że płaszczyzna kontroli może być niedostępna, jeśli płaszczyzna kontroli nie jest gotowa, obciążenia klastra uruchomione na maszynach wirtualnych platformy Azure mogą nadal działać. Maszyny wirtualne platformy Azure są płatnymi zasobami, które są objęte umową SLA. Przeczytaj [tutaj, aby uzyskać więcej informacji](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) na temat umowy SLA dotyczącej maszyn wirtualnych platformy Azure i jak zwiększyć dostępność przy użyciu funkcji, takich jak [strefy dostępności][availability-zones].
-
-## <a name="why-cant-i-set-maxpods-below-30"></a>Dlaczego nie mogę ustawić maxPods poniżej 30?
-
-W AKS można ustawić `maxPods` wartość podczas tworzenia klastra przy użyciu interfejsu wiersza polecenia platformy Azure i szablonów Azure Resource Manager. Jednak zarówno korzystającą wtyczki kubenet, jak i Azure CNI wymagają *wartości minimalnej* (zweryfikowany podczas tworzenia):
-
-| Networking | Minimalne | Maksimum |
-| -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Korzystającą wtyczki kubenet | 30 | 110 |
-
-Ponieważ AKS jest usługą zarządzaną, wdrażamy Dodatki i zasobniki oraz zarządzają nimi w ramach klastra. W przeszłości użytkownicy mogą definiować `maxPods` wartość niższą niż wartość, którą muszą używać zarządzane zasobniki (na przykład 30). AKS teraz oblicza minimalną liczbę zasobników przy użyciu tej formuły: (((maxPods lub (maxPods * vm_count)), > minimalnym zarządzanym zasobnikiem.
-
-Użytkownicy nie mogą zastąpić minimalnej `maxPods` weryfikacji.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Czy mogę zastosować rabaty rezerwacji platformy Azure do węzłów agenta AKS?
 
@@ -181,7 +167,7 @@ Najczęściej jest to spowodowane tym, że użytkownicy, którzy mają co najmni
 
 Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) i [AKS Aktualizuj poświadczenia](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może zainicjować obsługi LoadBalancers, instalacji obwodów PVC itp.? 
+## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>Mój klaster działał, ale nagle nie może zainicjować obsługi LoadBalancers, instalacji obwodów PVC itp.? 
 
 Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem: [AKS nazwa główna usługi](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) i [AKS Aktualizuj poświadczenia](https://docs.microsoft.com/azure/aks/update-credentials).
 
@@ -219,12 +205,15 @@ Chociaż AKS ma mechanizmy odporności, aby wytrzymać takie konfiguracje i odzy
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
+[private-clusters]: ./private-clusters.md
+[bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
+[availability-zones]: ./availability-zones.md
+[az-regions]: ../availability-zones/az-region.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
-[hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
-[keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
+[csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure

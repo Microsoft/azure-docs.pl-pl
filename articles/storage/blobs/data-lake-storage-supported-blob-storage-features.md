@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfc7e12efb0e5e4613bb4cc5f2f9a35383f37546
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637213"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857254"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -38,9 +38,9 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Interfejsy API magazynu obiektów BLOB|Ogólnie dostępne|[Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET](storage-quickstart-blobs-dotnet.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java](storage-quickstart-blobs-java.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python](storage-quickstart-blobs-python.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka JavaScript w programie Node. js](storage-quickstart-blobs-nodejs.md)|
 |Archiwizowanie warstwy dostępu|Wersja zapoznawcza|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
 |Zasady zarządzania cyklem życia|Wersja zapoznawcza|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
-|Dzienniki diagnostyczne|Ogólnie dostępne|[Rejestrowanie analityki magazynu platformy Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Dzienniki diagnostyczne|Ogólnie dostępne|[Rejestrowanie usługi Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Źródło zmian|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
-|Tryb failover konta|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Tryb failover konta|Jeszcze nieobsługiwane|[Odzyskiwanie po awarii i tryb failover konta magazynu](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Lista ACL kontenera obiektów BLOB|Jeszcze nieobsługiwane|[Ustawianie listy ACL kontenerów](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Domeny niestandardowe|Jeszcze nieobsługiwane|[Mapowanie domeny niestandardowej na punkt końcowy usługi Azure Blob Storage](storage-custom-domain-name.md)|
 |Niezmienny magazyn|Jeszcze nieobsługiwane|[Przechowywanie kluczowych dla działalności danych obiektów blob z niezmiennym magazynem](storage-blob-immutable-storage.md)|
@@ -50,7 +50,7 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Logowanie Azure Monitor|Jeszcze nieobsługiwane|Jeszcze niedostępne|
 |Blokowe obiekty blob w warstwie Premium|Jeszcze nieobsługiwane|[Utwórz konto BlockBlobStorage](storage-blob-create-account-block-blob.md)|
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

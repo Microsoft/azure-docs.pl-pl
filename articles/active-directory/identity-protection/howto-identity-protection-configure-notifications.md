@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77120130"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853118"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Powiadomienia Azure Active Directory Identity Protection
 
@@ -50,12 +50,11 @@ Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail 
 Cotygodniowa wiadomość e-mail z podsumowaniem zawiera streszczenie nowych wykrytych zagrożeń.  
 Obejmuje:
 
-- Narażeni użytkownicy
-- Podejrzane działania
-- Wykryte luki w zabezpieczeniach
+- Wykryto nowych ryzykownych użytkowników
+- Wykryto nowe ryzykowne logowania (w czasie rzeczywistym)
 - Linki do pokrewnych raportów w usłudze Identity Protection
 
-![Tygodniowy adres e-mail w postaci skróconej](./media/howto-identity-protection-configure-notifications/400.png)
+![Tygodniowy adres e-mail w postaci skróconej](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
 Domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administratorzy globalni mogą również dodawać innych administratorów globalnych, administratorów zabezpieczeń, czytelników zabezpieczeń jako odbiorców.
 

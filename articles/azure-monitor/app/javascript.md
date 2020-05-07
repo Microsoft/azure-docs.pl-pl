@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: daea761d027341eaf8f6c0d137f3049c45e82924
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836618"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854981"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -145,7 +145,14 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 
 Domyślnie ten zestaw SDK **nie** będzie obsługiwał zmiany trasy opartej na stanie, która występuje w aplikacjach jednostronicowych. Aby włączyć automatyczne śledzenie zmian trasy dla aplikacji jednostronicowej, możesz dodać `enableAutoRouteTracking: true` do konfiguracji instalacji.
 
-Obecnie oferujemy osobne wtyczki do [reagowania](#react-extensions) , które można zainicjować za pomocą tego zestawu SDK. Spowoduje to również przekazanie śledzenia zmian trasy, a także zebranie [innych danych telemetrycznych związanych z reagowaniem](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+Obecnie oferujemy oddzielną [wtyczkę reakcji](#react-extensions), którą można zainicjować za pomocą tego zestawu SDK. Spowoduje to również przekazanie śledzenia zmian trasy, a także zebranie [innych danych telemetrycznych związanych z reagowaniem](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Używaj `enableAutoRouteTracking: true` tylko wtedy, gdy **nie** używasz wtyczki do reagowania. Oba są w stanie wysyłać nowe PageViews w przypadku zmiany trasy. Jeśli oba są włączone, może być wysyłanych zduplikowanych PageViews.
+
+## <a name="configuration-autotrackpagevisittime"></a>Konfiguracja: autoTrackPageVisitTime
+
+Przez ustawienie `autoTrackPageVisitTime: true`czas, przez jaki użytkownik spędza na każdej stronie, jest śledzony. Na każdym nowym PageView czas trwania, przez który użytkownik spędził na *poprzedniej* stronie, jest wysyłany jako [Metryka niestandardowa](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) o nazwie `PageVisitTime`. Ta Metryka niestandardowa jest wyświetlana w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) jako "Metryka oparta na dzienniku".
 
 ## <a name="react-extensions"></a>Przereaguj rozszerzenia
 

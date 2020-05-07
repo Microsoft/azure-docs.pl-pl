@@ -4,12 +4,12 @@ description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć ap
 services: container-service
 ms.topic: article
 ms.date: 04/14/2020
-ms.openlocfilehash: 148ba900839c6eaf031416b0884778edded5735c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8b4d7fff6bb03e31976c28ba67c1db0e68d7cc8f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208112"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854407"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -294,7 +294,7 @@ Aby dowiedzieć się więcej o usłudze AKS i poznać dokładnie proces od kompl
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add

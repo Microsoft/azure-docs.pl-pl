@@ -6,14 +6,14 @@ manager: dcscontentpm
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: c83850ea479e115121da8eb049db4a01befe7f89
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: bf96cea2f64c52714ed6c63b0e973d0d26999856
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201078"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864389"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Przygotowywanie dysku VHD lub VHDX systemu Windows do przekazania na platformę Azure
 
@@ -151,8 +151,8 @@ Jeśli masz obraz maszyny wirtualnej z systemem Windows w [formacie VMDK](https:
 1. Upewnij się, że zmienne środowiskowe **temp** i **tmp** są ustawione na wartości domyślne:
 
    ```powershell
-   Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
-   Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
 
 ## <a name="check-the-windows-services"></a>Sprawdzanie usług systemu Windows

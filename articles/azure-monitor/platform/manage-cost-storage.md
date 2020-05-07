@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207330"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854767"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor
 
@@ -44,11 +44,13 @@ We wszystkich warstwach cenowych wolumin danych jest obliczany na podstawie cią
 
 Należy również pamiętać, że niektóre rozwiązania, takie jak [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [wskaźnik platformy Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) i [Zarządzanie konfiguracją](https://azure.microsoft.com/pricing/details/automation/) mają własne modele cen. 
 
-### <a name="dedicated-clusters"></a>Dedykowane klastry
+### <a name="log-analytics-clusters"></a>Klastry Log Analytics
 
-Klastry dedykowane Azure Monitor są kolekcjami obszarów roboczych w jednym zarządzanym klastrze usługi Azure Eksplorator danych (ADX) w celu obsługi zaawansowanych scenariuszy, takich jak [klucze zarządzane przez klienta](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Dedykowane klastry obsługują tylko model cenowy rezerwacji pojemności, zaczynając od 1000 GB/dzień z rabatem w wysokości 25% w porównaniu z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem. Każde użycie powyżej poziomu rezerwacji będzie rozliczane według stawki płatności zgodnie z rzeczywistym użyciem. Rezerwacja pojemności klastra obejmuje 31-dniowy okres zobowiązania po zwiększeniu poziomu rezerwacji. W okresie obowiązywania zobowiązania nie można zmniejszyć poziomu rezerwacji pojemności, ale można go zwiększyć w dowolnym momencie. Dowiedz się więcej na temat [tworzenia dedykowanych klastrów](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) i [kojarzenia ich z obszarami roboczymi](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Klastry Log Analytics to kolekcje obszarów roboczych w jednym zarządzanym klastrze Eksplorator danych platformy Azure, które obsługują zaawansowane scenariusze, takie jak [klucze zarządzane przez klienta](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Klastry Log Analytics obsługują tylko model cen rezerwacji pojemności, zaczynając od 1000 GB/dzień z rabatem w wysokości 25% w porównaniu z cennikiem z opcją płatność zgodnie z rzeczywistym użyciem. Każde użycie powyżej poziomu rezerwacji będzie rozliczane według stawki płatności zgodnie z rzeczywistym użyciem. Rezerwacja pojemności klastra obejmuje 31-dniowy okres zobowiązania po zwiększeniu poziomu rezerwacji. W okresie obowiązywania zobowiązania nie można zmniejszyć poziomu rezerwacji pojemności, ale można go zwiększyć w dowolnym momencie. Dowiedz się więcej na temat [tworzenia klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) i [kojarzenia z nią obszarów roboczych](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-Ponieważ rozliczanie danych pobieranych odbywa się na poziomie klastra, obszary robocze skojarzone z klastrem nie mają już warstwy cenowej. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł Azure Security Center są stosowane na poziomie obszaru roboczego przed tą agregacją. Przechowywanie danych jest nadal rozliczane na poziomie obszaru roboczego.  
+Poziom rezerwacji pojemności klastra jest konfigurowany za pośrednictwem programowo z Azure Resource Manager przy `Capacity` użyciu parametru `Sku`w obszarze. Wartość `Capacity` jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień. [Tutaj opisano tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Jeśli klaster wymaga rezerwacji powyżej 2000 GB/dzień, skontaktuj się z nami [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)pod adresem.
+
+Ponieważ rozliczanie danych pobieranych odbywa się na poziomie klastra, obszary robocze skojarzone z klastrem nie mają już warstwy cenowej. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](https://docs.microsoft.com/azure/security-center/) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. Przechowywanie danych jest nadal rozliczane na poziomie obszaru roboczego. Należy pamiętać, że podczas tworzenia klastra rozliczenia są rozliczane, niezależnie od tego, czy obszary robocze zostały skojarzone z klastrem. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Szacowanie kosztów związanych z zarządzaniem środowiskiem 
 
@@ -310,7 +312,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Ilość danych według komputera
 
-Typ `Usage` danych nie zawiera informacji na poziomie kompletności. Aby wyświetlić **rozmiar** pobieranych danych na komputer, użyj `_BilledSize` [Właściwości](log-standard-properties.md#_billedsize), która zapewnia rozmiar w bajtach:
+Typ `Usage` danych nie zawiera informacji na poziomie komputera. Aby wyświetlić **rozmiar** pobieranych danych na komputer, użyj `_BilledSize` [Właściwości](log-standard-properties.md#_billedsize), która zapewnia rozmiar w bajtach:
 
 ```kusto
 union withsource = tt * 
@@ -467,7 +469,7 @@ union withsource = tt *
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
-| join (
+| join kind=leftouter (
     Heartbeat 
     | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
     | where Computer != ""

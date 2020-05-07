@@ -1,14 +1,14 @@
 ---
-title: Skonfiguruj środowisko dla operatora planu
+title: Konfigurowanie środowiska dla operatora tworzenia planów
 description: Dowiedz się, jak skonfigurować środowisko platformy Azure do używania z wbudowaną rolą kontroli dostępu opartej na rolach (RBAC).
-ms.date: 08/26/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: fba0dd3f2eeb69f768800d1d04640510462d3c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a61997f5e3247e5b42d5e2f07c0fc38cc1b5114d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873220"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864015"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurowanie środowiska dla operatora strategii
 

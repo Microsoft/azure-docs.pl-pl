@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461722"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857162"
 ---
 # <a name="design-secure-applications-on-azure"></a>Projektowanie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas projektowania aplikacji w chmurze. Zasoby szkoleniowe wraz z pytaniami i pojęciami związanymi z bezpieczeństwem, które należy wziąć pod uwagę podczas wymagań i fazy projektowania [cyklu życia Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do zaprojektowania bezpieczniejszej aplikacji.
@@ -153,7 +153,7 @@ Modelowanie projektu aplikacji i wyliczanie [zagrożeń dotyczących](https://do
 
 | Ważną | Właściwość zabezpieczeń | Potencjalne ograniczenia dotyczące platformy Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Fałszowanie zawartości               | Uwierzytelnianie        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Fałszowanie zawartości               | Authentication        | [Wymagaj połączeń HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulowanie              | Integralność             | Sprawdź poprawność certyfikatów SSL/TLS. Aplikacje korzystające z protokołu SSL/TLS muszą w pełni weryfikować certyfikaty X. 509 jednostek, z którymi się łączą. Użyj Azure Key Vault certyfikatów do [zarządzania certyfikatami x509](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Rzuca            | Brak wyparcia       | Włącz [monitorowanie i diagnostykę](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)platformy Azure.|
 | Ujawnianie informacji | Poufność       | Szyfruj [poufne dane przechowywane](../fundamentals/encryption-atrest.md) [i przesyłane](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -222,11 +222,11 @@ Czy deweloper oprogramowania musi mieć prawa administratora domeny? Czy asysten
 Upewnij się, że aplikacja wymusza [najmniejsze uprawnienia](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) w całym wzorcu dostępu.
 
 > [!NOTE]
->  Reguły najniższych uprawnień muszą mieć zastosowanie do oprogramowania i osób tworzących oprogramowanie. Deweloperzy oprogramowania mogą być ogromnymi zagrożeniami związanymi z bezpieczeństwem IT, jeśli mają zbyt dużo dostępu. Konsekwencje mogą być poważne, jeśli deweloper ma złośliwe intencje lub ma za dużo dostępu. Zalecamy stosowanie reguł najniższych uprawnień do deweloperów w całym cyklu życia.
+> Reguły najniższych uprawnień muszą mieć zastosowanie do oprogramowania i osób tworzących oprogramowanie. Deweloperzy oprogramowania mogą być ogromnymi zagrożeniami związanymi z bezpieczeństwem IT, jeśli mają zbyt dużo dostępu. Konsekwencje mogą być poważne, jeśli deweloper ma złośliwe intencje lub ma za dużo dostępu. Zalecamy stosowanie reguł najniższych uprawnień do deweloperów w całym cyklu życia.
 
 #### <a name="implement-just-in-time-access"></a>Implementowanie dostępu just in Time
 
-Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas ekspozycji na uprawnienia. Użyj [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) , aby:
+Zaimplementuj dostęp *just-in-Time* (JIT), aby jeszcze bardziej obniżyć czas ekspozycji na uprawnienia. Użyj [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) , aby:
 
 - Nadaj użytkownikom uprawnienia, które potrzebują tylko JIT.
 - Przypisywanie ról w skrócie czasu trwania z zachowaniem pewności, że uprawnienia są automatycznie odwoływane.

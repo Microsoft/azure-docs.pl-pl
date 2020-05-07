@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2c53993d9e71e7dab1f88b3b980273f62fedb63
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 24befd6e5d90c7c3fffd2049bae3bee392e6e0e0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787315"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855672"
 ---
 # <a name="update-management-in-azure-automation"></a>Update Management w Azure Automation
 
@@ -27,6 +27,9 @@ Update Management dla maszyn wirtualnych można włączyć przy użyciu następu
 > Update Management wymaga połączenia obszaru roboczego Log Analytics z kontem usługi Automation. Aby uzyskać ostateczną listę obsługiwanych regionów, zobacz [mapowania obszaru roboczego platformy Azure](how-to/region-mappings.md). Mapowania regionów nie mają wpływu na możliwość zarządzania maszynami wirtualnymi w innym regionie niż konto usługi Automation.
 
 [Azure Resource Manager szablon](automation-update-management-deploy-template.md) jest dostępny, aby ułatwić wdrożenie Update Management na nowym lub istniejącym koncie usługi Automation i log Analytics obszarze roboczym w ramach subskrypcji.
+
+> [!NOTE]
+> Nie można użyć komputera skonfigurowanego przy użyciu Update Management do uruchamiania skryptów niestandardowych z Azure Automation. Na tym komputerze można uruchomić tylko skrypt aktualizacji podpisany przez firmę Microsoft. 
 
 ## <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 

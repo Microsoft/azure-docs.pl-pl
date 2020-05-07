@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858005"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Jak utworzyć i skonfigurować Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ Wykonaj następujące kroki, aby utworzyć Azure IR przy użyciu Azure Data Fact
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
 1. Na poniższej stronie wybierz pozycję **Azure** , aby utworzyć Azure IR, a następnie wybierz pozycję **Kontynuuj**.
-   ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Tworzenie środowiska Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Wprowadź nazwę Azure IR i wybierz pozycję **Utwórz**.
-   ![Tworzenie Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Tworzenie Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Po zakończeniu tworzenia zostanie wyświetlone wyskakujące powiadomienie. Na stronie **Integration Runtime (środowisko uruchomieniowe** ) Upewnij się, że na liście jest widoczny nowo utworzony port IR.
 

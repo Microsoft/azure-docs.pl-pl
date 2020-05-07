@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727114"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857408"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Pisanie wtyczek dla Azure Media Player #
 
@@ -87,7 +87,7 @@ Aby uzyskać inspiracje i więcej przykładów na temat tworzenia wtyczki, zapoz
 
 ### <a name="plugin-gallery"></a>Galeria wtyczek ###
 
-[Galeria wtyczek](http//:aka.ms/ampplugins) zawiera kilka wtyczek, które zostały już utworzone przez społeczność dla funkcji, takich jak znaczniki wiersza czasu, powiększanie, analiza i nie tylko. Strona zapewnia dostęp do wtyczek i instrukcje dotyczące sposobu ich konfigurowania oraz pokazu, który pokazuje wtyczkę w działaniu. Jeśli utworzysz chłodną wtyczkę, którą uważasz, że powinna zostać uwzględniona w naszej galerii, możesz ją przesłać, aby ją wyewidencjonować.
+[Galeria wtyczek](https://aka.ms/ampplugins) zawiera kilka wtyczek, które zostały już utworzone przez społeczność dla funkcji, takich jak znaczniki wiersza czasu, powiększanie, analiza i nie tylko. Strona zapewnia dostęp do wtyczek i instrukcje dotyczące sposobu ich konfigurowania oraz pokazu, który pokazuje wtyczkę w działaniu. Jeśli utworzysz chłodną wtyczkę, którą uważasz, że powinna zostać uwzględniona w naszej galerii, możesz ją przesłać, aby ją wyewidencjonować.
 
 ## <a name="next-steps"></a>Następne kroki ##
 

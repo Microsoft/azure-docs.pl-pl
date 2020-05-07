@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255407"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853501"
 ---
 # <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
 
@@ -75,7 +75,7 @@ Brak.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Nie dotyczy
+Brak
 
 ---
 
@@ -152,8 +152,8 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 z inną opcją r
 |Magazyn strefowo nadmiarowy (ZRS)     |Standard_ZRS         |
 |Magazyn geograficznie nadmiarowy (GRS)     |Standard_GRS         |
 |Magazyn geograficznie nadmiarowy dostępny do odczytu (GRS)     |Standard_RAGRS         |
-|Magazyn Geograficznie nadmiarowy (GZRS) (wersja zapoznawcza)    |Standard_GZRS         |
-|Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS) (wersja zapoznawcza)    |Standard_RAGZRS         |
+|Magazyn geograficznie i strefowo nadmiarowy (GZRS)    |Standard_GZRS         |
+|Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -195,12 +195,12 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 z inną opcją r
 |Magazyn strefowo nadmiarowy (ZRS)     |Standard_ZRS         |
 |Magazyn geograficznie nadmiarowy (GRS)     |Standard_GRS         |
 |Magazyn geograficznie nadmiarowy dostępny do odczytu (GRS)     |Standard_RAGRS         |
-|Magazyn Geograficznie nadmiarowy (GZRS) (wersja zapoznawcza)    |Standard_GZRS         |
-|Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS) (wersja zapoznawcza)    |Standard_RAGZRS         |
+|Magazyn geograficznie i strefowo nadmiarowy (GZRS)    |Standard_GZRS         |
+|Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Szablon](#tab/template)
 
-Za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można wdrożyć szablon Menedżer zasobów, aby utworzyć konto magazynu. Szablon używany w tym artykule z [przewodnikiem pochodzi z Azure Resource Manager szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Aby uruchomić skrypty, wybierz pozycję **Wypróbuj** , aby otworzyć usługę Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**.
+Aby wdrożyć szablon Menedżer zasobów w celu utworzenia konta magazynu, można użyć Azure PowerShell lub interfejsu wiersza polecenia platformy Azure. Szablon używany w tym artykule z [przewodnikiem pochodzi z Azure Resource Manager szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Aby uruchomić skrypty, wybierz opcję **Wypróbuj** , aby otworzyć Azure Cloud Shell. Aby wkleić skrypt, kliknij prawym przyciskiem myszy powłokę, a następnie wybierz polecenie **Wklej**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

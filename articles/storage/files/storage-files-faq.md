@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537699"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856275"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -68,7 +68,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * <a id="redundancy-options"></a>
   **Jakie opcje nadmiarowości magazynu są obsługiwane przez Azure Files?**  
-    Obecnie Azure Files obsługuje Magazyn lokalnie nadmiarowy (LRS), magazyn strefowo nadmiarowy (ZRS), magazyn Geograficznie nadmiarowy (GRS) i geograficznie nadmiarowy magazyn (GZRS) (wersja zapoznawcza). Firma Microsoft planuje obsługę magazynu geograficznie nadmiarowego do odczytu (RA-GRS) w przyszłości, ale nie mamy już do udostępnienia osi czasu.
+    Obecnie Azure Files obsługuje Magazyn lokalnie nadmiarowy (LRS), magazyn strefowo nadmiarowy (ZRS), magazyn Geograficznie nadmiarowy (GRS) i magazyn Geograficznie nadmiarowy (GZRS). Firma Microsoft planuje obsługę magazynu geograficznie nadmiarowego do odczytu (RA-GRS) w przyszłości, ale nie mamy już do udostępnienia osi czasu.
 
 * <a id="tier-options"></a>
   **Jakie warstwy magazynowania są obsługiwane w Azure Files?**  
@@ -414,7 +414,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

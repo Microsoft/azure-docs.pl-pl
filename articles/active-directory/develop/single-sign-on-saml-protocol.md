@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80881286"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853777"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protokół SAML logowania jednokrotnego
 
@@ -92,7 +92,7 @@ Usługa Azure AD ignoruje `AllowCreate` atrybut.
 
 Jeśli jest `ProxyCount` podany, nie dołączaj `IDPListOption` atrybutu `RequesterID` lub elementu, ponieważ nie są one obsługiwane.
 
-### <a name="signature"></a>Sygnatura
+### <a name="signature"></a>Podpis
 Nie dołączaj `Signature` elementu `AuthnRequest` do elementów, ponieważ usługa Azure AD nie obsługuje podpisanych żądań uwierzytelniania.
 
 ### <a name="subject"></a>Podmiot
@@ -153,12 +153,12 @@ Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do us�
 
 ### <a name="issuer"></a>Wystawca
 
-Usługa Azure AD ustawia `Issuer` element, `https://login.microsoftonline.com/<TenantIDGUID>/` na \<który TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
+Usługa Azure AD ustawia `Issuer` element, `https://sts.windows.net/<TenantIDGUID>/` na \<który TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 Na przykład odpowiedź z elementem Issuer może wyglądać jak w następującym przykładzie:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Stan
@@ -191,10 +191,10 @@ Oprócz `ID`elementów `IssueInstant` i `Version`usługa Azure AD ustawia nastę
 Jest to ustawienie, `https://sts.windows.net/<TenantIDGUID>/`gdzie \<TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>Sygnatura
+#### <a name="signature"></a>Podpis
 
 Usługa Azure AD podpisuje potwierdzenie w odpowiedzi na pomyślne logowanie. `Signature` Element zawiera podpis cyfrowy, którego usługa w chmurze może użyć do uwierzytelnienia źródła w celu zweryfikowania integralności potwierdzenia.
 
