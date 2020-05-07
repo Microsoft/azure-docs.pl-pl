@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100060"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562087"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -25,6 +25,7 @@ Ten artykuł zawiera informacje dotyczące rozwiązywania problemów w celu rozw
   >wszystkie udziały plików konta magazynu mogą być chronione w ramach jednego magazynu usługi Recovery Services. Za pomocą [tego skryptu](scripts/backup-powershell-script-find-recovery-services-vault.md) można znaleźć magazyn usługi Recovery Services, w którym zarejestrowano konto magazynu.
 
 - Upewnij się, że udział plików nie znajduje się na żadnym z nieobsługiwanych kont magazynu. Aby znaleźć obsługiwane konta magazynu, można zapoznać się z [macierzą pomocy technicznej dla kopii zapasowej udziału plików platformy Azure](azure-file-share-support-matrix.md) .
+- Sprawdź ustawienia zapory konta magazynu, aby upewnić się, że opcja zezwalania zaufanym usługom firmy Microsoft na dostęp do konta magazynu jest włączona.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Błąd w portalu odnajdywanie kont magazynu nie powiodło się
 

@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67183691"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561754"
 ---
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
 2. Aby uzyskać `Get-HcsApplianceInfo` informacje dotyczące urządzenia, użyj programu.
@@ -49,7 +49,7 @@ ms.locfileid: "67183691"
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Przyjazna nazwa urządzenia skonfigurowana za pomocą lokalnego interfejsu użytkownika sieci Web podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia.  |   |
     | SerialNumber                   | Numer seryjny urządzenia jest unikatowym numerem przypisanym w fabryce.                                                                             |   |
-    | Model                          | Model dla Data Box Edge lub Data Box Gateway urządzenia. Model jest wirtualny dla Data Box Gateway i fizycznych dla Data Box Edge.                   |   |
+    | Model                          | Model dla urządzenia Azure Stack Edge lub Data Box Gateway. Model jest fizyczny dla Azure Stack Edge i wirtualny dla Data Box Gateway.                   |   |
     | FriendlySoftwareVersion        | Przyjazny ciąg, który odpowiada wersji oprogramowania urządzenia. W przypadku systemu z systemem w wersji zapoznawczej przyjazna wersja oprogramowania byłaby Data Box Edge 1902. |   |
     | HcsVersion                     | Wersja oprogramowania magazynu HCS uruchomiona na urządzeniu. Na przykład magazynu HCS wersja oprogramowania odpowiadająca Data Box Edge 1902 to 1.4.771.324.            |   |
     | LocalCapacityInMb              | Całkowita pojemność lokalnego urządzenia w megabitach.                                                                                                        |   |

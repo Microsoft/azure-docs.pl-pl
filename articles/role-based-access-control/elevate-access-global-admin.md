@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641370"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733667"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania
 
@@ -84,7 +84,7 @@ Wykonaj następujące kroki, aby podwyższyć poziom dostępu administratora glo
 
 1. Wprowadź zmiany, które należy wykonać w przypadku dostępu z podwyższonym poziomem uprawnień.
 
-    Aby uzyskać informacje na temat przypisywania ról, zobacz [Zarządzanie dostępem przy użyciu RBAC i Azure Portal](role-assignments-portal.md). Jeśli używasz Azure AD Privileged Identity Management (PIM), zobacz [odnajdywanie zasobów platformy Azure do zarządzania w usłudze PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) lub [Przypisywanie ról zasobów platformy Azure w programie PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Informacje o przypisywaniu ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md). Jeśli używasz Azure AD Privileged Identity Management (PIM), zobacz [odnajdywanie zasobów platformy Azure do zarządzania w usłudze PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) lub [Przypisywanie ról zasobów platformy Azure w programie PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Usuń dostęp z podwyższonym poziomem uprawnień
 
@@ -321,5 +321,5 @@ Po wywołaniu `elevateAccess`Utwórz przypisanie roli dla siebie, więc aby odwo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Understand the different roles in Azure (Omówienie ról na platformie Azure)](rbac-and-directory-admin-roles.md)
-- [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu API REST](role-assignments-rest.md)
+- [Omówienie różnych ról](rbac-and-directory-admin-roles.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)

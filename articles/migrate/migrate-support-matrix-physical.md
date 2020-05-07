@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f21ec149aa6f85c0a1f33e91dacf9de48ff72bbb
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538158"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744515"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -34,16 +34,18 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 | **Pomoc techniczna**                | **Szczegóły**               
 | :-------------------       | :------------------- |
 | **Wdrożenie serwera fizycznego**       | Serwer fizyczny może być autonomiczny lub wdrożony w klastrze. |
-| **Uprawnienia**           | **System Windows:** Musisz mieć konto użytkownika lokalnego lub domeny na wszystkich serwerach z systemem Windows, które mają zostać odnajdywane. Konto użytkownika należy dodać do tych grup: Użytkownicy Pulpit zdalny, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. |
-| **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , które są obsługiwane przez platformę Azure, z wyjątkiem systemu Windows Server 2003 i SUSE Linux.|
+| **Uprawnienia**           | **System Windows:** Musisz być administratorem domeny lub administratorem lokalnym na wszystkich serwerach z systemem Windows, które mają zostać odnajdywane. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. |
+| **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , które są obsługiwane przez platformę Azure, z wyjątkiem systemu Windows Server 2003 i SUSE Linux.<br/><br/> Klienckie systemy operacyjne Windows 10 i Windows 8. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Wymagania urządzenia usługi Azure Migrate
 
-Azure Migrate używa [urządzenia Azure Migrate](migrate-appliance.md) do odnajdowania i oceny. Urządzenie dla serwerów fizycznych można uruchomić na maszynie wirtualnej lub na komputerze fizycznym. Urządzenie można skonfigurować przy użyciu skryptu programu PowerShell pobranego z Azure Portal.
+Azure Migrate używa [urządzenia Azure Migrate](migrate-appliance.md) do odnajdowania i oceny. Urządzenie dla serwerów fizycznych można uruchomić na maszynie wirtualnej lub na komputerze fizycznym. 
 
 - Dowiedz się więcej o [wymaganiach dotyczących urządzeń](migrate-appliance.md#appliance---physical) dla serwerów fizycznych.
 - Uzyskaj informacje o adresach URL, do których urządzenie musi uzyskać dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [administracji rządowej](migrate-appliance.md#government-cloud-urls) .
+- Urządzenie można skonfigurować przy użyciu [skryptu programu PowerShell](how-to-set-up-appliance-physical.md) pobranego z Azure Portal.
+W Azure Government Wdróż urządzenie [przy użyciu tego skryptu](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Dostęp do portu
 

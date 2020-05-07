@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547887"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738052"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -194,10 +194,10 @@ Można replikować 16 maszyn wirtualnych razem w grupie replikacji.
 Ponieważ spójność wielu maszyn wirtualnych jest intensywnym PROCESORem, włączenie jej może wpłynąć na wydajność obciążeń. Spójność wielu maszyn wirtualnych należy stosować tylko wtedy, gdy na maszynach są uruchomione te same obciążenia i wymagana jest spójność między wieloma maszynami. Na przykład jeśli masz dwa SQL Server wystąpienia i dwa serwery sieci Web w aplikacji, należy mieć tylko spójność dla SQL Server wystąpień.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Czy można dodać już replikację maszyny wirtualnej do grupy replikacji?
-
 Podczas włączania replikacji można dodać maszynę wirtualną do nowej grupy replikacji. Podczas włączania replikacji można także dodać maszynę wirtualną do istniejącej grupy replikacji. Nie można jednak dodać już replikowanej maszyny wirtualnej do nowej grupy replikacji lub istniejącej grupy replikacji.
-
+ 
 ## <a name="failover"></a>Tryb failover
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Jak jest zapewniana pojemność w regionie docelowym maszyn wirtualnych platformy Azure?
 
@@ -285,7 +285,7 @@ Zależy to od sytuacji. Jeśli istnieje maszyna wirtualna regionu źródłowego,
 
 Po przeprowadzeniu ochrony powrót po awarii pobiera ten sam czas pracy awaryjnej z regionu podstawowego do regionu pomocniczego.
 
-## <a name="capacity"></a><a name="capacity"></a>Pojemności
+## <a name="capacity"></a><a name="capacity"></a>Pojemność
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Jak jest zapewniana pojemność w regionie docelowym maszyn wirtualnych platformy Azure?
 

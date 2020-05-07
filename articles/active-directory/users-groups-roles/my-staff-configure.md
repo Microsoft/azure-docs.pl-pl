@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b88f4aad650d77fea12677e61d3f249a77367e6f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165873"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690687"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -26,9 +26,28 @@ Moi pracownicy umożliwiają delegowanie do zespołu ds. usług, takich jak kier
 
 Przed skonfigurowaniem personelu dla organizacji zalecamy zapoznanie się z tą dokumentacją oraz [dokumentację dotyczącą użytkowników](../user-help/my-staff-team-manager.md) , aby poznać funkcje i wpływ tej funkcji na użytkowników. Można wykorzystać dokumentację użytkownika do uczenia i przygotowania użytkowników do nowego środowiska i zapewnienia pomyślnego wdrożenia.
 
+Uwierzytelnianie oparte na programie SMS dla użytkowników jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure
+
 ## <a name="how-my-staff-works"></a>Jak działa mój personel
 
 Mój personel jest oparty na jednostkach administracyjnych (Australia), które są kontenerami zasobów, których można użyć do ograniczenia zakresu kontroli administracyjnej przypisania roli. W obszarze mój personel należy określić podzbiór użytkowników organizacji, takich jak sklep lub dział. Następnie na przykład menedżer zespołu może zostać przypisany do roli, której zakres jest jeden lub więcej. W poniższym przykładzie użytkownikowi została udzielona rola administracyjna uwierzytelniania, a trzecia jest zakresem roli. Aby uzyskać więcej informacji o jednostkach administracyjnych, zobacz [Zarządzanie jednostkami administracyjnymi w Azure Active Directory](directory-administrative-units.md).
+
+## <a name="before-you-begin"></a>Przed rozpoczęciem
+
+Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
+
+* Aktywna subskrypcja platformy Azure.
+
+  * Jeśli nie masz subskrypcji platformy Azure, [Utwórz konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Dzierżawa usługi Azure Active Directory skojarzona z Twoją subskrypcją.
+
+  * W razie konieczności [Utwórz dzierżawę Azure Active Directory](../fundamentals/sign-up-organization.md) lub [skojarz subskrypcję platformy Azure z Twoim kontem](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Musisz mieć uprawnienia *administratora globalnego* w dzierżawie usługi Azure AD, aby włączyć uwierzytelnianie oparte na programie SMS.
+* Każdy użytkownik, który jest włączony w zasadach metody uwierzytelniania wiadomości tekstowych musi być licencjonowany, nawet jeśli nie używa tego programu. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD lub Microsoft 365:
+
+  * [Azure AD — wersja Premium P1 lub P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 lub F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 lub E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) lub [Microsoft 365 (M365) E3 lub E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Jak włączyć personel
 
@@ -47,7 +66,7 @@ Portal mojego personelu można chronić za pomocą zasad dostępu warunkowego us
 
 Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu warunkowego usługi Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Aby zastosować zasady dostępu warunkowego do mojego personelu, musisz ręcznie utworzyć główną nazwę usługi Personaler przy użyciu programu PowerShell.
 
-### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Zastosuj zasady dostępu warunkowego do mojego personelu
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Zastosuj zasady dostępu warunkowego do mojego personelu
 
 1. Zainstaluj [polecenia cmdlet programu PowerShell w programie Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Uruchom następujące polecenia:
@@ -62,13 +81,6 @@ Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu war
 ## <a name="using-my-staff"></a>Korzystanie z mojego personelu
 
 Gdy użytkownik przechodzi do mojego pracownika, są wyświetlane nazwy [jednostek administracyjnych](directory-administrative-units.md) , do których mają uprawnienia administracyjne. W [dokumentacji użytkownika mojego personelu](../user-help/my-staff-team-manager.md)do odwoływania się do jednostek administracyjnych używamy terminu "lokalizacja". Jeśli uprawnienia administratora nie mają zakresu funkcji AU, uprawnienia są stosowane w całej organizacji. Po włączeniu mojego pracownika użytkownicy, którzy zostali włączeni i mają przypisaną rolę administracyjną, mogą uzyskać do niej dostęp [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Można wybrać pozycję "Uruchom", aby wyświetlić użytkowników w tej funkcji, i wybrać użytkownika, aby otworzyć swój profil.
-
-## <a name="licenses"></a>Licencje
-
-Każdy użytkownik, który jest włączony w moim personelem, musi mieć licencję, nawet jeśli nie korzystają z portalu My personel. Każdy włączony użytkownik musi mieć jedną z następujących licencji usługi Azure AD lub Microsoft 365:
-
-- Azure AD — wersja Premium P1 lub P2
-- Microsoft 365 F1 lub F3
 
 ## <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
 

@@ -6,21 +6,22 @@ ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: ea6bca1367d4b34aa54b65e92e7cbfdd02642f4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086236"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583925"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Oblicz wyniki testów porównawczych dla maszyn wirtualnych z systemem Windows
 Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dla wybranych maszyn wirtualnych platformy Azure z systemem Windows Server. Wyniki testów porównawczych obliczeń są również dostępne dla [maszyn wirtualnych z systemem Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="av2---general-compute"></a>Av2 — ogólne obliczenia
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_A1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2660 0 @ 2.20 GHz | 12 | 14,2 | 0.3 | 
@@ -45,9 +46,14 @@ Poniższe wyniki testu porównawczego SPECInt pokazują wydajność obliczeń dl
 | Standardowa_A8m_v2 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 10 | 104,5 | 5.1 | 
 | Standardowa_A8m_v2 | 8 | 2 | Procesor Intel (R) Xeon (R) E5-2660 0 @ 2.20 GHz | 13 | 111,6 | 2.3 | 
 
-Uwaga: maszyny wirtualne z serii Av2 można wdrożyć na różnych typach sprzętu i procesorach (jak pokazano powyżej). Maszyny wirtualne z serii Av2 mają wydajność procesora CPU i konfiguracje pamięci, które najlepiej pasują do obciążeń poziomu wejścia, takich jak programowanie i testowanie. Rozmiar jest ograniczany w celu zapewnienia stosunkowo spójnej wydajności procesora dla uruchomionego wystąpienia, niezależnie od sprzętu, na którym jest wdrożony. jednak oprogramowanie, które korzysta z konkretnych nowszych optymalizacji procesora, może zobaczyć bardziej znaczące różnice między różnymi typami procesorów.
+
+> [!NOTE]
+> Maszyny wirtualne z serii Av2 można wdrażać na różnych typach sprzętu i procesorach (jak pokazano powyżej). Maszyny wirtualne z serii Av2 mają wydajność procesora CPU i konfiguracje pamięci, które najlepiej pasują do obciążeń poziomu wejścia, takich jak programowanie i testowanie. Rozmiar jest ograniczany w celu zapewnienia stosunkowo spójnej wydajności procesora dla uruchomionego wystąpienia, niezależnie od sprzętu, na którym jest wdrożony. jednak oprogramowanie, które korzysta z konkretnych nowszych optymalizacji procesora, może zobaczyć bardziej znaczące różnice między różnymi typami procesorów.
 
 ## <a name="b---burstable"></a>B — do serii
+
+(Zaktualizowano 2019-10-23 do 2019-11-03 PBI: 5604451)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 9 | 6.3 | 0.2 | 
@@ -59,12 +65,20 @@ Uwaga: maszyny wirtualne z serii Av2 można wdrożyć na różnych typach sprzę
 | Standard_B4ms | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 43 | 28,3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 3 | 42,0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 25 | 41,4 | 0.9 | 
+| Standard_B12ms | 12 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 19 | 58,9 | 2.3 |
+| Standard_B16ms | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 18 | 75,4 | 2.1 |
+| Standard_B20ms | 20 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4| 2 | 90,6 | 1.3 |
 
-Uwaga: maszyny wirtualne z serii B są przeznaczone do obciążeń z wymaganymi możliwościami wydajności. Wystąpienia maszyn wirtualnych gromadzą kredyty przy użyciu mniejszej niż jej podstawy. Gdy maszyna wirtualna ma Zakumulowany kredyt, maszyna wirtualna może przekroczyć poziom odniesienia do 100%, aby spełnić krótkie wymagania dotyczące obciążeń procesora. Czas szeregowania zależy od dostępnych kredytów, które są funkcją rozmiaru i czasu maszyn wirtualnych.  
 
-Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dostępne środki na korzystanie z serii.  W związku z tym Powyższe liczby są bliżej wydajności linii bazowej maszyny wirtualnej (chociaż mogą one odzwierciedlać czas szeregowania między przebiegami).  W przypadku krótkich, obciążeń (typowych dla serii B) wydajność zwykle będzie bliżej tego, czy jest to wersja z serii ds..
+>[!NOTE]
+> Maszyny wirtualne z serii B są przeznaczone do obciążeń z wymaganymi możliwościami wydajności. Wystąpienia maszyn wirtualnych gromadzą kredyty przy użyciu mniejszej niż jej podstawy. Gdy maszyna wirtualna ma Zakumulowany kredyt, maszyna wirtualna może przekroczyć poziom odniesienia do 100%, aby spełnić krótkie wymagania dotyczące obciążeń procesora. Czas szeregowania zależy od dostępnych kredytów, które są funkcją rozmiaru i czasu maszyn wirtualnych.  
+>
+> Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dostępne środki na korzystanie z serii.  W związku z tym Powyższe liczby są bliżej wydajności linii bazowej maszyny wirtualnej (chociaż mogą one odzwierciedlać czas szeregowania między przebiegami).  W przypadku krótkich, obciążeń (typowych dla serii B) wydajność zwykle będzie bliżej tego, czy jest to wersja z serii ds..
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 — ogólne obliczenia i Premium Storage
+
+(Zaktualizowano 2019-10-23 do 2019-11-03 PBI: 5604451)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_D2s_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 10 | 40,8 | 2.3 | 
@@ -77,9 +91,17 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_D16s_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 38 | 298,2 | 4.4 | 
 | Standard_D32s_v3 | 32 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 24 | 545,8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 9 | 535,6 | 12,6 | 
+| Standard_D32 — 8s_v3 | 8 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 6 | 166,0 | 8,8 |
+| Standard_D32 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 300,8 | 6.4 |
+| Standard_D48s_v3 | 48 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 1 | 838,0 | 0.0 |
 | Standard_D64s_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 35 | 1070,6 | 2.4 | 
+| Standard_D64 — 16s_v3 | 16 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 4 | 340,0 | 21,4 |
+| Standard_D64 — 32s_v3 | 32 |  | Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 592,3 | 1.5 |
 
 ## <a name="dv3---general-compute"></a>Dv3 — ogólne obliczenia
+
+(Zaktualizowano 2019-10-23 do 2019-11-03 PBI: 5604451)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_D2_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 10 | 38,6 | 1.8 | 
@@ -92,9 +114,11 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_D16_v3 | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 300,7 | 8,8 | 
 | Standard_D32_v3 | 32 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 24 | 549,3 | 11,1 | 
 | Standard_D32_v3 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 7 | 538,6 | 9.4 | 
+| Standard_D48_v3 | 48 |  |  Procesor Intel (R) Xeon (R) E5-2673 v3 lub v4 | 3 | 839,7 | 14,4 |
 | Standard_D64_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 32 | 1070,6 | 12,4 | 
 
 ## <a name="dsv2---storage-optimized"></a>DSv2 — zoptymalizowane pod kątem magazynu
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_DS1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 12 | 33,0 | 1.1 | 
@@ -132,6 +156,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_DS15_v2 | 20 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 45 | 546,1 | 10.5 | 
 
 ## <a name="dv2---general-compute"></a>Dv2 — ogólne obliczenia
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_D1_v2 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 30 | 33,5 | 1.7 | 
@@ -156,6 +181,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_D15_v2 | 20 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 37 | 558,8 | 8.4 | 
 
 ## <a name="esv3---memory-optimized--premium-storage"></a>Esv3 — zoptymalizowane pod kątem pamięci + Premium Storage
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_E2s_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 39 | 42,5 | 2.2 | 
@@ -176,11 +202,13 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_E64 — 32s_v3 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 4 | 592,5 | 4.4 | 
 
 ## <a name="eisv3---memory-opt--premium-storage-isolated"></a>Eisv3-Memory opt + Premium Storage (izolowany)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 28 | 1073,9 | 5.7 | 
 
 ## <a name="ev3---memory-optimized"></a>EV3 — zoptymalizowane pod kątem pamięci
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_E2_v3 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 41 | 41,2 | 2.4 | 
@@ -192,11 +220,13 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_E64_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 31 | 1080,0 | 11,3 | 
 
 ## <a name="eiv3---memory-optimized-isolated"></a>Eiv3 — zoptymalizowane pod kątem pamięci (izolowany)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 28 | 1081,4 | 11,1 | 
 
 ## <a name="fsv2---compute--storage-optimized"></a>Fsv2-COMPUTE + magazyn zoptymalizowany
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F2s_v2 | 2 | 1 | Procesor Intel (R) Xeon (R) Platinum 8168 CPU @ 2.70 GHz | 46 | 56,5 | 2.4 | 
@@ -208,6 +238,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_F72s_v2 | 72 | 2 | Procesor Intel (R) Xeon (R) Platinum 8168 CPU @ 2.70 GHz | 29 | 1372,1 | 8.2 | 
 
 ## <a name="fs---compute-and-storage-optimized"></a>FS — zoptymalizowane pod kątem obliczeń i magazynu
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_F1s | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 31 | 33,2 | 1.0 | 
@@ -222,6 +253,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_F16s | 16 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v4 @ 2.30 GHz | 36 | 471,8 | 7,5 | 
 
 ## <a name="f---compute-optimized"></a>F — Optymalizacja obliczeń
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_F1 | 1 | 1 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 15 | 32,8 | 1.8 | 
@@ -237,6 +269,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_F16 | 16 | 2 | Procesor Intel (R) Xeon (R) E5-2673 v3 @ 2.40 GHz | 6 | 472,3 | 13.2 | 
 
 ## <a name="gs---storage-optimized"></a>GS — zoptymalizowane pod kątem magazynu
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_GS1 | 2 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 29 | 63,6 | 4,7 | 
@@ -259,6 +292,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_G5 | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 31 | 774,1 | 4.1 | 
 
 ## <a name="h---high-performance-compute-hpc"></a>Obliczenia o wysokiej wydajności (HPC)
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_H8 | 8 | 1 | Procesor Intel (R) Xeon (R) E5-2667 V3 @ 3.20 GHz | 31 | 296,1 | 1.4 | 
@@ -269,6 +303,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_H16r | 16 | 2 | Procesor Intel (R) Xeon (R) E5-2667 V3 @ 3.20 GHz | 17 | 562,2 | 4.2 | 
 
 ## <a name="ls---storage-optimized"></a>LS — magazyn zoptymalizowany pod kątem
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_L4s | 4 | 1 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 29 | 122,7 | 6.6 | 
@@ -277,6 +312,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standardowa_L32s | 32 | 2 | Procesor Intel (R) Xeon (R) E5-2698B v3 @ 2,00 GHz | 31 | 766,1 | 3,5 | 
 
 ## <a name="m---memory-optimized"></a>M — zoptymalizowane pod kątem pamięci
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8 — 2 MS | 2 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 15 | 42,1 | 2.1 | 
@@ -306,6 +342,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_M8ms | 8 | 1 | Procesor Intel (R) Xeon (R) E7-8890 v3 @ 2.50 GHz | 13 | 158,2 | 5,5 | 
 
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3 — procesor GPU włączony
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v3 | 6 | 1 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 6 | 230,2 | 1.6 | 
@@ -314,6 +351,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_NC24s_v3 | 24 | 2 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 3 | 809,3 | 2.3 | 
 
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2 — procesor GPU włączony
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v2 | 6 | 1 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 11 | 227,0 | 6.2 | 
@@ -322,6 +360,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_NC24s_v2 | 24 | 2 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 11 | 811,5 | 4.4 | 
 
 ## <a name="nc---gpu-enabled"></a>NC — procesor GPU włączony
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_NC6 | 6 | 1 | Procesor Intel (R) Xeon (R) E5-2690 v3 @ 2.60 GHz | 27 | 209,6 | 4.4 | 
@@ -330,6 +369,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_NC24r | 24 | 2 | Procesor Intel (R) Xeon (R) E5-2690 v3 @ 2.60 GHz | 27 | 752,9 | 3.4 | 
 
 ## <a name="nds--gpu-enabled"></a>NDs — włączono procesor GPU
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_ND6s | 6 | 1 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 8 | 230,1 | 1.2 | 
@@ -338,6 +378,7 @@ Specyfikacja int to dość długotrwały test, który zazwyczaj wyczerpuje dost�
 | Standard_ND24s | 24 | 2 | Procesor Intel (R) Xeon (R) E5-2690 v4 @ 2.60 GHz | 11 | 812,6 | 4.4 | 
 
 ## <a name="nv---gpu-enabled"></a>NV — procesor GPU włączony
+
 | Rozmiar | Procesory wirtualne | Węzły NUMA | Procesor CPU | Uruchamianie | Średnia stawka podstawowa | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standardowa_NV6 | 6 | 1 | Procesor Intel (R) Xeon (R) E5-2690 v3 @ 2.60 GHz | 28 | 210,5 | 6.1 | 

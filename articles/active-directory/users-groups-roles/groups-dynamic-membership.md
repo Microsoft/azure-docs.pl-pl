@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114739"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582904"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -31,7 +31,7 @@ W przypadku zmiany atrybutów użytkownika lub urządzenia system oblicza wszyst
 - Nie można utworzyć grupy urządzeń opartej na atrybutach właścicieli urządzeń. Reguły członkostwa urządzeń mogą odwoływać się tylko do atrybutów urządzeń.
 
 > [!NOTE]
-> Ta funkcja wymaga Azure AD — wersja Premium licencji P1 dla każdego unikatowego użytkownika, który jest członkiem jednej lub więcej grup dynamicznych. Nie musisz przypisywać licencji użytkownikom, aby nie były członkami grup dynamicznych, ale musisz mieć minimalną liczbę licencji w dzierżawie, aby uwzględnić wszystkich tych użytkowników. Na przykład jeśli masz łącznie 1 000 unikatowych użytkowników we wszystkich grupach dynamicznych w dzierżawie, musisz mieć co najmniej 1 000 licencji na Azure AD — wersja Premium P1, aby spełnić wymagania dotyczące licencji.
+> Ta funkcja wymaga Azure AD — wersja Premium licencji P1 dla każdego unikatowego użytkownika, który jest członkiem jednej lub więcej grup dynamicznych. Nie musisz przypisywać licencji użytkownikom, aby były członkami grup dynamicznych, ale musisz mieć minimalną liczbę licencji w organizacji usługi Azure AD, aby uwzględnić wszystkich tych użytkowników. Na przykład jeśli masz łącznie 1 000 unikatowych użytkowników we wszystkich grupach dynamicznych w organizacji, musisz mieć co najmniej 1 000 licencji na Azure AD — wersja Premium P1, aby spełnić wymagania dotyczące licencji.
 > Dla urządzeń, które są członkami dynamicznej grupy urządzeń, nie jest wymagana żadna licencja.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Konstruktor reguł w Azure Portal
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 Poniższe porady mogą pomóc w poprawnym użyciu zasady.
 
 - **Identyfikator Menedżera** jest identyfikatorem obiektu menedżera. Można je znaleźć w **profilu**Menedżera.
-- Aby reguła działała, upewnij się, że właściwość **Manager** została ustawiona poprawnie dla użytkowników w dzierżawie. Bieżącą wartość można sprawdzić w **profilu**użytkownika.
+- Aby reguła działała, upewnij się, że właściwość **Manager** została ustawiona poprawnie dla użytkowników w organizacji. Bieżącą wartość można sprawdzić w **profilu**użytkownika.
 - Ta reguła obsługuje tylko raporty bezpośrednie Menedżera. Innymi słowy, nie można utworzyć grupy z bezpośrednimi raportami Menedżera *i* ich raportami.
 - Tej reguły nie można łączyć z żadną inną regułą członkostwa.
 
 ### <a name="create-an-all-users-rule"></a>Tworzenie reguły "Wszyscy użytkownicy"
 
-Można utworzyć grupę zawierającą wszystkich użytkowników w dzierżawie przy użyciu reguły członkostwa. Gdy użytkownicy są dodawani lub usuwani z dzierżawy w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.
+Można utworzyć grupę zawierającą wszystkich użytkowników w organizacji przy użyciu reguły członkostwa. Gdy użytkownicy są dodawani lub usuwani z organizacji w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.
 
 Reguła "Wszyscy użytkownicy" jest zbudowana przy użyciu wyrażenia pojedynczego, przy użyciu operatora-ne i wartości null. Ta zasada umożliwia dodanie użytkowników-Gości, a także użytkowników należących do grupy.
 
 ```
 user.objectId -ne null
 ```
-Jeśli chcesz, aby grupa wykluczać użytkowników-Gości i dołączać tylko członków dzierżawy, możesz użyć następującej składni:
+Jeśli chcesz, aby grupa wykluczać użytkowników-Gości i dołączać tylko członków organizacji, możesz użyć następującej składni:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ Jeśli chcesz, aby grupa wykluczać użytkowników-Gości i dołączać tylko cz
 
 ### <a name="create-an-all-devices-rule"></a>Tworzenie reguły "wszystkie urządzenia"
 
-Można utworzyć grupę zawierającą wszystkie urządzenia w dzierżawie przy użyciu reguły członkostwa. Gdy urządzenia są dodawane lub usuwane z dzierżawy w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.
+Można utworzyć grupę zawierającą wszystkie urządzenia w organizacji przy użyciu reguły członkostwa. Gdy urządzenia są dodawane lub usuwane z organizacji w przyszłości, członkostwo w grupie jest dostosowywane automatycznie.
 
 Reguła "wszystkie urządzenia" jest zbudowana przy użyciu wyrażenia pojedynczego, przy użyciu operatora-ne i wartości null:
 

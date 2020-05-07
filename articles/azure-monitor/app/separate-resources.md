@@ -2,13 +2,13 @@
 title: Oddzielanie danych telemetrycznych na platformie Azure Application Insights
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536781"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562155"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Oddzielanie danych telemetrycznych od opracowywania, testowania i produkcji
 
@@ -20,13 +20,24 @@ Podczas tworzenia kolejnej wersji aplikacji sieci Web nie chcesz mieszać danych
 
 Po skonfigurowaniu monitorowania Application Insights dla aplikacji sieci Web należy utworzyć *zasób* Application Insights w Microsoft Azure. Ten zasób jest otwierany w Azure Portal w celu wyświetlenia i przeanalizowania danych telemetrycznych zebranych z aplikacji. Zasób jest identyfikowany przez *klucz Instrumentacji* (iKey). Po zainstalowaniu pakietu Application Insights do monitorowania aplikacji należy skonfigurować go przy użyciu klucza instrumentacji, aby wiedział, gdzie należy wysłać dane telemetryczne.
 
-Zazwyczaj wybiera się użycie oddzielnych zasobów lub pojedynczego zasobu udostępnionego w różnych scenariuszach:
+Każdy zasób Application Insights jest dostarczany z metrykami, które są dostępne jako gotowe. W przypadku całkowitego oddzielenia składników do tego samego Application Insights zasobów te metryki mogą nie mieć sensu dla pulpitu nawigacyjnego/alertu.
 
-* Różne aplikacje niezależne — Użyj oddzielnego zasobu i iKey dla każdej aplikacji.
-* Wiele składników lub ról jednej aplikacji biznesowej — Użyj [jednego udostępnionego zasobu](../../azure-monitor/app/app-map.md) dla wszystkich aplikacji składników. Dane telemetryczne mogą być filtrowane lub segmentować według właściwości cloud_RoleName.
-* Programowanie, testowanie i wydanie — Użyj oddzielnego zasobu i iKey dla wersji systemu w "sygnaturze" lub etapie produkcji.
-* A | Testowanie B — Użyj jednego zasobu. Utwórz TelemetryInitializer, aby dodać właściwość do telemetrii, która identyfikuje warianty.
+### <a name="use-a-single-application-insights-resource"></a>Użyj pojedynczego zasobu Application Insights
 
+-   Dla składników aplikacji, które są wdrażane razem. Zwykle opracowywane przez jednego zespołu, zarządzane przez ten sam zestaw użytkowników DevOps/ITOps.
+-   Jeśli warto agregować kluczowe wskaźniki wydajności (KPI), takie jak czasy trwania odpowiedzi, współczynniki niepowodzeń na pulpicie nawigacyjnym itp., wszystkie te ustawienia są domyślnie (można wybrać segment według nazwy roli w Eksplorator metryk środowisku).
+-   Jeśli nie ma potrzeby zarządzania Access Control opartej na rolach (RBAC) w różny sposób między składnikami aplikacji.
+-   Jeśli nie są potrzebne kryteria alertów metryk, które różnią się między składnikami programu.
+-   Jeśli nie ma potrzeby zarządzania ciągłymi eksportami w różny sposób między składnikami programu.
+-   Jeśli nie jest konieczne Zarządzanie rozliczeniami/przydziałami w różny sposób między składnikami programu.
+-   Jeśli nie masz klucza interfejsu API mającego taki sam dostęp do danych ze wszystkich składników programu. I 10 kluczy interfejsu API są wystarczające dla potrzeb wszystkich z nich.
+-   Jeśli chcesz mieć te same ustawienia inteligentnego wykrywania i integracji elementów roboczych we wszystkich rolach.
+
+### <a name="other-things-to-keep-in-mind"></a>Inne kwestie, na które należy pamiętać
+
+-   Może być konieczne dodanie niestandardowego kodu w celu upewnienia się, że odpowiednie wartości są ustawione na atrybut [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) . Bez znaczących wartości ustawionych dla tego atrybutu *żadne* środowisko portalu nie będzie działało.
+- W przypadku aplikacji Service Fabric i klasycznych usług Cloud Services zestaw SDK automatycznie odczytuje ze środowiska roli platformy Azure i ustawia te ustawienia. Dla wszystkich innych typów aplikacji prawdopodobnie trzeba będzie ją jawnie ustawić.
+-   Środowisko metryk na żywo nie obsługuje dzielenia według nazwy roli.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Dynamiczny klucz Instrumentacji
 
@@ -47,7 +58,7 @@ Ustaw klucz w metodzie inicjującej, na przykład global.aspx.cs w usłudze ASP.
 W tym przykładzie kluczy iKey dla różnych zasobów są umieszczane w różnych wersjach pliku konfiguracji sieci Web. Zamienianie pliku konfiguracji sieci Web, który można wykonać jako część skryptu wydania — spowoduje zamianę zasobu docelowego.
 
 ### <a name="web-pages"></a>Strony sieci Web
-IKey jest również używany na stronach sieci Web aplikacji w [skrypcie uzyskanym w bloku szybki start](../../azure-monitor/app/javascript.md). Zamiast kodowania go do skryptu, wygeneruj go ze stanu serwera. Na przykład w aplikacji ASP.NET:
+IKey jest również używany na stronach sieci Web aplikacji w [skrypcie, który został uzyskany z okienka szybkiego startu](../../azure-monitor/app/javascript.md). Zamiast kodowania go do skryptu, wygeneruj go ze stanu serwera. Na przykład w aplikacji ASP.NET:
 
 *Kod JavaScript w Razor*
 
@@ -63,26 +74,11 @@ IKey jest również używany na stronach sieci Web aplikacji w [skrypcie uzyskan
 
 
 ## <a name="create-additional-application-insights-resources"></a>Tworzenie dodatkowych zasobów Application Insights
-Aby oddzielić dane telemetryczne dla różnych składników aplikacji lub dla różnych sygnatur (Tworzenie/testowanie/produkcja) tego samego składnika, należy utworzyć nowy zasób Application Insights.
 
-W [Portal.Azure.com](https://portal.azure.com)dodaj zasób Application Insights:
-
-![Kliknij kolejno polecenia Nowy, Application Insights](./media/separate-resources/01-new.png)
-
-* **Typ aplikacji** ma wpływ na to, co widzisz w bloku przegląd i właściwości dostępne w [Eksploratorze metryk](../../azure-monitor/platform/metrics-charts.md). Jeśli nie widzisz typu aplikacji, wybierz jeden z typów sieci Web dla stron sieci Web.
-* **Grupa zasobów** jest wygodą do zarządzania właściwościami, takimi jak [Kontrola dostępu](../../azure-monitor/app/resources-roles-access-control.md). Do tworzenia, testowania i produkcji można używać oddzielnych grup zasobów.
-* **Subskrypcja** jest kontem płatności na platformie Azure.
-* **Lokalizacja** polega na tym, że przechowujemy Twoje dane. Obecnie nie można jej zmienić. 
-* Opcja **Dodaj do pulpitu nawigacyjnego** umieszcza kafelek szybkiego dostępu dla zasobu na stronie głównej platformy Azure. 
-
-Tworzenie zasobu trwa kilka sekund. Po zakończeniu zostanie wyświetlony alert.
-
-(Można napisać [skrypt programu PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) , aby automatycznie utworzyć zasób).
+Aby utworzyć zasób usługi Application Insights, postępuj zgodnie z [przewodnikiem tworzenia zasobów](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
 ### <a name="getting-the-instrumentation-key"></a>Pobieranie klucza Instrumentacji
-Klucz Instrumentacji identyfikuje utworzony zasób. 
-
-![Kliknij pozycję Essentials, kliknij klucz instrumentacji, CTRL + C](./media/separate-resources/02-props.png)
+Klucz Instrumentacji identyfikuje utworzony zasób.
 
 Potrzebne są klucze Instrumentacji wszystkich zasobów, do których aplikacja będzie wysyłać dane.
 
@@ -90,8 +86,6 @@ Potrzebne są klucze Instrumentacji wszystkich zasobów, do których aplikacja b
 Po opublikowaniu nowej wersji aplikacji należy mieć możliwość oddzielenia danych telemetrycznych od różnych kompilacji.
 
 Właściwość wersji aplikacji można ustawić tak, aby można było filtrować wyniki [wyszukiwania](../../azure-monitor/app/diagnostic-search.md) i [Eksploratora metryk](../../azure-monitor/platform/metrics-charts.md) .
-
-![Filtrowanie właściwości](./media/separate-resources/050-filter.png)
 
 Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 
@@ -146,7 +140,6 @@ Należy jednak zauważyć, że numer wersji kompilacji jest generowany tylko prz
 ### <a name="release-annotations"></a>Adnotacje dotyczące wersji
 Jeśli używasz usługi Azure DevOps, możesz [uzyskać znacznik adnotacji](../../azure-monitor/app/annotations.md) dodany do wykresów po każdym wydaniu nowej wersji. Na następującej ilustracji pokazano sposób wyświetlania tego znacznika.
 
-![Zrzut ekranu przedstawiający przykładową adnotację dotyczącą wersji widoczną na wykresie](media/separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zasoby udostępnione dla wielu ról](../../azure-monitor/app/app-map.md)

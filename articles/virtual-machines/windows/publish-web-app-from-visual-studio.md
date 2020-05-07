@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82098237"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583348"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publikowanie aplikacji sieci Web ASP.NET na maszynie wirtualnej platformy Azure z poziomu programu Visual Studio
 
@@ -24,7 +24,7 @@ W tym dokumencie opisano sposób publikowania aplikacji sieci Web ASP.NET na mas
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby można było opublikować projekt ASP.NET na maszynie wirtualnej platformy Azure przy użyciu programu Visual Studio, należy prawidłowo skonfigurować maszynę wirtualną.
 
-- Komputer musi być skonfigurowany do uruchamiania aplikacji sieci Web ASP.NET i zainstalowania narzędzia webdeploy.
+- Komputer musi być skonfigurowany do uruchamiania aplikacji sieci Web ASP.NET i zainstalowania narzędzia webdeploy. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej ASP.NET za pomocą narzędzia webdeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - Maszyna wirtualna musi mieć skonfigurowaną nazwę DNS. Aby uzyskać więcej informacji, zobacz [Tworzenie w pełni kwalifikowanej nazwy domeny w Azure Portal dla maszyny wirtualnej z systemem Windows](portal-create-fqdn.md).
 

@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146793"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580629"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Łączenie z lokalnymi systemami plików przy użyciu usługi Azure Logic Apps
 
@@ -73,7 +73,7 @@ W tym artykule pokazano, jak połączyć się z lokalnym systemem plików zgodni
    | **Nazwa połączenia** | Tak | <*Nazwa połączenia*> | Nazwa, która ma być używany dla połączenia |
    | **Folder główny** | Tak | <*Nazwa folderu głównego*> | Folder główny systemu plików, na przykład jeśli zainstalowano lokalną bramę danych, taką jak folder lokalny na komputerze, na którym jest zainstalowana lokalna Brama danych lub folder udziału sieciowego, do którego komputer ma dostęp. <p>Na przykład: `\\PublicShare\\DropboxFiles` <p>Folder główny jest głównym folderem nadrzędnym, który jest używany dla ścieżek względnych dla wszystkich akcji związanych z plikami. |
    | **Typ uwierzytelniania** | Nie | <*Typ uwierzytelniania*> | Typ uwierzytelniania używany przez system plików: **Windows** |
-   | **Uż** | Tak | <*domain*>\\<*Nazwa użytkownika* domeny> | Nazwa użytkownika komputera, na którym znajduje się system plików |
+   | **Uż** | Tak | <*domain*>\\<*Nazwa użytkownika* domeny> <p>— lub — <p><*local-computer*>\\<*Nazwa użytkownika* komputera lokalnego> | Nazwa użytkownika komputera, na którym znajduje się folder systemu plików. <p>Jeśli folder systemu plików znajduje się na tym samym komputerze co lokalna Brama danych, można użyć <*nazwy użytkownika* *lokalnego komputera*>\\<>. |
    | **Hasło** | Tak | <*Twoje hasło*> | Hasło do komputera, na którym znajduje się system plików |
    | **punkt** | Tak | <*Instalacja bramy — nazwa*> | Nazwa zainstalowanej wcześniej bramy |
    |||||

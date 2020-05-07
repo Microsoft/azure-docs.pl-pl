@@ -4,12 +4,12 @@ description: Dowiedz się, jak wykonywać aplikacje MPI (Message Passing Interfa
 ms.topic: article
 ms.date: 03/13/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39c7aff0618daafc2c02efaea229de3741804c7a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4502fc9632c2cb05d757459d07bcfe17ae96aea2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231700"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735270"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Używanie zadań o wiele wystąpień do uruchamiania aplikacji interfejsu przekazywania komunikatów (MPI) w usłudze Batch
 
@@ -256,7 +256,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 ## <a name="code-sample"></a>Przykład kodu
 Przykład kodu [MultiInstanceTasks][github_mpi] w witrynie GitHub pokazuje, jak używać zadania wieloetapowego do uruchamiania aplikacji [MS-MPI][msmpi_msdn] w węzłach obliczeniowych usługi Batch. Wykonaj kroki opisane w temacie [przygotowanie](#preparation) i [wykonanie](#execution) , aby uruchomić przykład.
 
-### <a name="preparation"></a>Przygotowywanie
+### <a name="preparation"></a>Przygotowanie
 1. Wykonaj dwa pierwsze kroki w temacie [jak skompilować i uruchomić prosty program MS-MPI][msmpi_howto]. Spełnia to wymagania wstępne dotyczące poniższego kroku.
 2. Utwórz wersję *wydania* przykładowego programu [MPIHelloWorld][helloworld_proj] Sample MPI. Jest to program, który będzie uruchamiany w węzłach obliczeniowych za pomocą zadania obejmującego wiele wystąpień.
 3. Utwórz plik zip zawierający `MPIHelloWorld.exe` (który został skompilowany krok 2) i `MSMpiSetup.exe` (który został pobrany krok 1). Ten plik zip zostanie przekazany jako pakiet aplikacji w następnym kroku.
@@ -327,7 +327,7 @@ Sample complete, hit ENTER to exit...
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
-[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
+[coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/coordination-cmd
 [github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip

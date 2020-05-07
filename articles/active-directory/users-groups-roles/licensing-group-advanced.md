@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266288"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582779"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenariusze, ograniczenia i znane problemy przy użyciu grup do zarządzania licencjonowaniem w programie Azure Active Directory
 
@@ -100,7 +100,7 @@ Początkowo użytkownik dziedziczy licencję tylko z *podstawowej grupy usług E
 
 ## <a name="managing-new-services-added-to-products"></a>Zarządzanie nowymi usługami dodanymi do produktów
 
-Gdy firma Microsoft dodaje nową usługę do planu licencji produktu, jest domyślnie włączona we wszystkich grupach, do których przypisano licencję na produkt. Użytkownicy w dzierżawie, którzy subskrybują powiadomienia o zmianach produktu, będą otrzymywać wiadomości e-mail z wyprzedzeniem o nadchodzącym czasie dodawania usług.
+Gdy firma Microsoft dodaje nową usługę do planu licencji produktu, jest domyślnie włączona we wszystkich grupach, do których przypisano licencję na produkt. Użytkownicy w organizacji, którzy subskrybują powiadomienia o zmianach produktu, będą otrzymywać wiadomości e-mail z wyprzedzeniem o nadchodzącym czasie dodawania usług.
 
 Jako administrator możesz przejrzeć wszystkie grupy, których dotyczy zmiana, i podjąć działania, takie jak wyłączenie nowej usługi w każdej grupie. Jeśli na przykład utworzono grupy przeznaczone tylko dla określonych usług do wdrożenia, możesz ponownie odwiedzić te grupy i upewnić się, że wszystkie nowo dodane usługi są wyłączone.
 
@@ -108,7 +108,7 @@ Oto przykład tego, jak ten proces może wyglądać następująco:
 
 1. Pierwotnie przypisano produkt *Office 365 Enterprise E5* do kilku grup. Jedna z tych grup o nazwie *O365 E5 — Exchange* została zaprojektowana tak, aby umożliwić jej członkom tylko usługę *Exchange Online (plan 2)* .
 
-2. Otrzymasz powiadomienie od firmy Microsoft, że produkt E5 zostanie rozszerzony przy użyciu nowej usługi — *Microsoft Stream*. Gdy usługa stanie się dostępna w dzierżawie, możesz wykonać następujące czynności:
+2. Otrzymasz powiadomienie od firmy Microsoft, że produkt E5 zostanie rozszerzony przy użyciu nowej usługi — *Microsoft Stream*. Gdy usługa stanie się dostępna w organizacji, możesz wykonać następujące czynności:
 
 3. Przejdź do okna [**Azure Active Directory licencje > > wszystkie produkty**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) i wybierz pozycję *Office 365 Enterprise E5*, a następnie wybierz pozycję **licencjonowane grupy** , aby wyświetlić listę wszystkich grup z tym produktem.
 
@@ -128,9 +128,9 @@ Oto przykład tego, jak ten proces może wyglądać następująco:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Użyj programu PowerShell, aby zobaczyć, kto ma Odziedziczone i bezpośrednie licencje
 Możesz użyć skryptu programu PowerShell, aby sprawdzić, czy użytkownicy mają licencję przypisaną bezpośrednio lub dziedziczoną przez grupę.
 
-1. Uruchom `connect-msolservice` polecenie cmdlet w celu uwierzytelnienia i nawiązania połączenia z dzierżawcą.
+1. Uruchom `connect-msolservice` polecenie cmdlet w celu uwierzytelnienia i nawiązania połączenia z organizacją.
 
-2. `Get-MsolAccountSku`może służyć do wykrywania wszystkich licencji na produkty inicjowane w dzierżawie.
+2. `Get-MsolAccountSku`można go użyć do odnalezienia wszystkich licencji na produkty inicjowane w organizacji usługi Azure AD.
 
    ![Zrzut ekranu przedstawiający polecenie cmdlet Get-Msolaccountsku i sprawdź](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

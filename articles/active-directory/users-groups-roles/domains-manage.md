@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559237"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582971"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Zarządzanie niestandardowymi nazwami domen w Azure Active Directory
 
@@ -41,7 +41,7 @@ Po utworzeniu katalogu początkową nazwą domeny, taką jak "contoso.onmicrosof
 
 Nazwę domeny podstawowej dla katalogu można zmienić na dowolną zweryfikowaną domenę niestandardową, która nie jest federacyjny. Zmiana domeny podstawowej dla katalogu nie spowoduje zmiany nazwy użytkownika dla żadnych istniejących użytkowników.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Dodawanie niestandardowych nazw domen do dzierżawy usługi Azure AD
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Dodawanie niestandardowych nazw domen do organizacji usługi Azure AD
 
 Można dodać maksymalnie 900 nazw domen zarządzanych. Jeśli konfigurujesz wszystkie domeny dla Federacji przy użyciu Active Directory lokalnych, możesz dodać do 450 nazw domen w każdym katalogu.
 
@@ -72,7 +72,7 @@ Można **ForceDelete** nazwę domeny w [centrum administracyjnym usługi Azure A
 Aby wywołać **ForceDelete** w Azure Portal, należy się upewnić, że istnieje mniej niż 1000 odwołań do nazwy domeny i wszystkie odwołania, w których program Exchange jest usługą aprowizacji, należy zaktualizować lub usunąć w [centrum administracyjnym programu Exchange](https://outlook.office365.com/ecp/). Obejmuje to grupy zabezpieczeń z włączoną obsługą poczty programu Exchange i listy rozproszone; Aby uzyskać więcej informacji, zobacz [usuwanie grup zabezpieczeń z włączoną obsługą poczty](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Ponadto operacja **ForceDelete** nie powiedzie się, jeśli jest spełniony jeden z następujących warunków:
 
 * Użytkownik kupił domenę za pośrednictwem usług subskrypcji domeny pakietu Office 365
-* Jesteś partnerem administrowania w imieniu innej dzierżawy klienta
+* Jesteś partnerem administrowania w imieniu innej organizacji klienta
 
 Następujące akcje są wykonywane w ramach operacji **ForceDelete** :
 

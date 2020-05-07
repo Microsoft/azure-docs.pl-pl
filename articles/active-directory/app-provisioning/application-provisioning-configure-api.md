@@ -2,26 +2,21 @@
 title: Używanie Microsoft Graph interfejsów API do konfigurowania aprowizacji — Azure Active Directory | Microsoft Docs
 description: Potrzebujesz skonfigurować Inicjowanie obsługi dla wielu wystąpień aplikacji? Dowiedz się, jak zaoszczędzić czas przy użyciu interfejsów API Microsoft Graph, aby zautomatyzować konfigurację automatycznej aprowizacji.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481470"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593951"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurowanie aprowizacji przy użyciu Microsoft Graph interfejsów API
 
@@ -55,7 +50,7 @@ Azure Portal to wygodny sposób konfigurowania aprowizacji pojedynczych aplikacj
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Pobierz identyfikator szablonu aplikacji galerii
 Aplikacje w galerii aplikacji usługi Azure AD zawierają [szablon aplikacji](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) opisujący metadane dla tej aplikacji. Za pomocą tego szablonu można utworzyć wystąpienie aplikacji i nazwy głównej usługi w dzierżawie na potrzeby zarządzania.
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 
 <!-- {
   "blockType": "request",
@@ -107,7 +102,7 @@ Content-type: application/json
 
 Użyj identyfikatora szablonu pobranego dla aplikacji w ostatnim kroku, aby [utworzyć wystąpienie](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) aplikacji i nazwy głównej usługi w dzierżawie.
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 
 <!-- {
   "blockType": "request",
@@ -176,7 +171,7 @@ Content-type: application/json
 
 Aplikacje w galerii, w których włączono obsługę aprowizacji, mają szablony usprawniające konfigurację. Użyj poniższego żądania, aby [pobrać szablon konfiguracji aprowizacji](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Należy pamiętać, że należy podać identyfikator. IDENTYFIKATOR odwołuje się do poprzedniego zasobu, który w tym przypadku jest obiektem serviceprincipal. 
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 
 <!-- {
   "blockType": "request",
@@ -214,7 +209,7 @@ HTTP/1.1 200 OK
 ### <a name="create-the-provisioning-job"></a>Tworzenie zadania aprowizacji
 Aby włączyć obsługę administracyjną, należy najpierw [utworzyć zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Użyj poniższego żądania, aby utworzyć zadanie aprowizacji. Użyj templateId z poprzedniego kroku, aby określić szablon, który ma być używany dla tego zadania.
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 <!-- {
   "blockType": "request",
   "name": "create_synchronizationjob_from_synchronization"
@@ -268,7 +263,7 @@ Content-type: application/json
 
 Przetestuj połączenie z aplikacją innej firmy. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Aplikacje często używają BaseAddress zamiast ClientSecret. Aby określić, jakie poświadczenia są wymagane przez aplikację, przejdź do strony Konfiguracja aprowizacji dla aplikacji i w trybie dewelopera kliknij pozycję Testuj połączenie. Ruch sieciowy będzie zawierać parametry używane do poświadczeń. Pełną listę poświadczeń można znaleźć [tutaj](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 { 
@@ -292,7 +287,7 @@ HTTP/1.1 204 No Content
 
 Konfigurowanie aprowizacji wymaga ustanowienia relacji zaufania między usługą Azure AD a aplikacją. Autoryzuj dostęp do aplikacji innych firm. Poniższy przykład dotyczy aplikacji wymagającej clientSecret i secretToken. Każda aplikacja ma swoje wymagania. Zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) , aby wyświetlić dostępne opcje. 
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
@@ -318,7 +313,7 @@ HTTP/1.1 204 No Content
 Teraz, gdy zadanie aprowizacji jest skonfigurowane, użyj następującego polecenia, aby [uruchomić zadanie](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_start"
@@ -344,7 +339,7 @@ HTTP/1.1 204 No Content
 
 Teraz, gdy zadanie aprowizacji jest uruchomione, użyj następującego polecenia, aby śledzić postęp bieżącego cyklu aprowizacji, a także dane statystyczne, takie jak liczba użytkowników i grup utworzonych w systemie docelowym. 
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 <!-- {
   "blockType": "request",
   "name": "get_synchronizationjob"
@@ -399,7 +394,7 @@ Content-length: 2577
 ### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Monitorowanie zdarzeń aprowizacji przy użyciu dzienników aprowizacji
 Oprócz monitorowania stanu zadania aprowizacji można użyć [dzienników aprowizacji](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) do wykonywania zapytań dotyczących wszystkich zdarzeń, które są wykonywane (np. zapytanie dla określonego użytkownika i określić, czy zostały one pomyślnie zainicjowane).
 
-#### <a name="request"></a>*Request*
+#### <a name="request"></a>*Żądanie*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```

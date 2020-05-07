@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681121"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737899"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Tworzenie ustawień diagnostycznych w celu zbierania dzienników zasobów i metryk na platformie Azure
 
@@ -31,7 +31,13 @@ Każdy zasób platformy Azure wymaga własnego ustawienia diagnostycznego, któr
 Pojedyncze ustawienie diagnostyczne może definiować nie więcej niż jeden z elementów docelowych. Jeśli chcesz wysyłać dane do więcej niż jednego określonego typu miejsca docelowego (na przykład do dwóch różnych obszarów roboczych usługi Log Analytics), utwórz wiele ustawień. Każdy zasób może mieć do 5 ustawień diagnostycznych.
 
 > [!NOTE]
-> [Metryki platformy](metrics-supported.md) są zbierane automatycznie, aby [Azure monitor metryki](data-platform-metrics.md). Za pomocą ustawień diagnostycznych można zbierać metryki dla określonych usług platformy Azure w Azure Monitor dzienników do analizy z innymi danymi monitorowania przy użyciu [zapytań dzienników](../log-query/log-query-overview.md).
+> [Metryki platformy](metrics-supported.md) są zbierane automatycznie, aby [Azure monitor metryki](data-platform-metrics.md). Za pomocą ustawień diagnostycznych można zbierać metryki dla określonych usług platformy Azure w Azure Monitor dzienników do analizy z innymi danymi monitorowania przy użyciu [zapytań dzienników](../log-query/log-query-overview.md) z określonymi ograniczeniami. 
+>  
+>  
+> Wysyłanie metryk wielowymiarowych za pomocą ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach. *Na przykład*: metrykę "IOReadBytes" na łańcucha bloków można eksplorować i wykreślić na poziomie węzła. Jednak po wyeksportowaniu za pośrednictwem ustawień diagnostycznych Metryka wyeksportowana reprezentuje jako wszystkie bajty odczytu dla wszystkich węzłów. Ponadto ze względu na ograniczenia wewnętrzne nie wszystkie metryki są eksportowane do Azure Monitor dzienników/Log Analytics. Aby uzyskać więcej informacji, zobacz [listę metryk możliwych do eksportu](metrics-supported-export-diagnostic-settings.md). 
+>  
+>  
+> Aby obejść te ograniczenia dotyczące określonych metryk, zalecamy ręczne wyodrębnienie ich przy użyciu [interfejsu API REST metryk](https://docs.microsoft.com/rest/api/monitor/metrics/list) i zaimportowanie ich do dzienników Azure monitor przy użyciu [interfejsu API modułu zbierającego dane Azure monitor](data-collector-api.md).  
 
 ## <a name="destinations"></a>Miejsca docelowe
 
@@ -78,9 +84,8 @@ Ustawienia diagnostyczne można skonfigurować w Azure Portal z menu Azure Monit
      - **AllMetrics** kieruje metryki platformy zasobu do magazynu dzienników platformy Azure, ale w formularzu dziennika. Te metryki są zwykle wysyłane tylko do bazy danych szeregów czasowych metryk Azure Monitor. Wysłanie ich do magazynu dzienników Azure Monitor (który można przeszukiwać za pośrednictwem Log Analytics), aby zintegrować je z kwerendami, które przeszukują inne dzienniki. Ta opcja może być niedostępna dla wszystkich typów zasobów. Jeśli jest obsługiwana, [Azure monitor obsługiwane metryki](metrics-supported.md) wyświetlają metryki, które są zbierane dla typów zasobów.
 
        > [!NOTE]
-       > Wysyłanie metryk wielowymiarowych za pomocą ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach.
-       >
-       > *Na przykład*: metrykę "IOReadBytes" na łańcucha bloków można eksplorować i wykreślić na poziomie węzła. Jednak po wyeksportowaniu za pośrednictwem ustawień diagnostycznych Metryka wyeksportowana reprezentuje jako wszystkie bajty odczytu dla wszystkich węzłów.
+       > Zobacz limitatation, aby uzyskać metryki routingu, aby Azure Monitor dzienniki wcześniej w tym artykule.  
+
 
      - **Dzienniki** zawiera różne kategorie dostępne w zależności od typu zasobu. Sprawdź wszystkie kategorie, które chcesz skierować do miejsca docelowego.
 

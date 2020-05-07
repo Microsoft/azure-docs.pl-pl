@@ -1,0 +1,123 @@
+---
+title: Szczegółowe informacje o dostępie warunkowym i skoroszycie raportowania — Azure Active Directory
+description: Korzystanie z skoroszytu usługi Azure AD Insights i raportowania w celu rozwiązywania problemów z zasadami
+services: active-directory
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: article
+ms.date: 05/01/2020
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: dawoo
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d4113328a5de02c36b7285c837bd5314d11e526b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690388"
+---
+# <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
+
+Skoroszyt usługi Dostęp warunkowy usługi Insights i raportowania pozwala zrozumieć wpływ zasad dostępu warunkowego w organizacji w miarę upływu czasu. Podczas logowania można zastosować co najmniej jedną zasadę dostępu warunkowego, udzielając dostępu, jeśli pewne kontrolki grantu są spełnione lub odmówili dostępu w przeciwnym razie. Ze względu na to, że podczas każdego logowania można ocenić wiele zasad dostępu warunkowego, skoroszyt usługi Insights i raportów umożliwia badanie wpływu poszczególnych zasad lub podzbiór wszystkich zasad.  
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby włączyć szczegółowe informacje i skoroszyt raportowania, dzierżawca musi mieć obszar roboczy Log Analytics, aby zachować dane dzienników logowania. Aby można było korzystać z dostępu warunkowego, użytkownicy muszą mieć licencje na Azure AD — wersja Premium P1 lub P2.
+
+Następujące role mogą uzyskać dostęp do usługi Insights i raportowania:  
+
+- Administrator dostępu warunkowego 
+- Czytelnik zabezpieczeń 
+- Administrator zabezpieczeń 
+- Czytnik globalny 
+- Administrator globalny 
+
+Użytkownicy muszą także mieć jedną z następujących Log Analytics ról obszaru roboczego:  
+
+- Czytelnik 
+- Czytnik monitorowania 
+- Log Analytics czytelnik 
+- Współautor  
+- Właściciel 
+
+### <a name="stream-sign-in-logs-from-azure-ad-to-azure-monitor-logs"></a>Przesyłanie strumieniowe dzienników logowania z usługi Azure AD do dzienników Azure Monitor 
+
+Jeśli dzienniki usługi Azure AD nie zostały zintegrowane z dziennikami Azure Monitor, przed załadowaniem skoroszytu należy wykonać następujące czynności:  
+
+1. [Utwórz obszar roboczy log Analytics w Azure monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Integrowanie dzienników usługi Azure AD z dziennikami Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+## <a name="how-it-works"></a>Jak to działa 
+
+Aby uzyskać dostęp do szczegółowych informacji i skoroszytu raportów:  
+
+1. Zaloguj się w witrynie **Azure Portal**.
+1. Przejdź do **Azure Active Directory** > **zabezpieczenia** >  > **i raportowanie****dostępu warunkowego**.
+
+### <a name="get-started-select-parameters"></a>Wprowadzenie: Wybieranie parametrów 
+
+Pulpit nawigacyjny szczegółowe informacje i raporty pozwala zobaczyć wpływ jednego lub kilku zasad dostępu warunkowego w określonym przedziale czasu. Zacznij od ustawienia każdego z parametrów w górnej części skoroszytu. 
+
+![Pulpit nawigacyjny uzyskiwania dostępu warunkowego i raportowania w Azure Portal](./media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard.png)
+
+**Zasady dostępu warunkowego**: Wybierz co najmniej jedną zasadę dostępu warunkowego, aby wyświetlić łączny wpływ. Zasady są rozdzielone na dwie grupy: włączone i zasady tylko do raportowania. Domyślnie zaznaczone są wszystkie włączone zasady. Te włączone zasady są obecnie wymuszane w dzierżawie.  
+
+**Zakres czasu**: Wybierz zakres czasu z przedziału od 4 do 90 dni. Jeśli zostanie wybrany zakres czasu w dalszej części niż w przypadku zintegrowania dzienników usługi Azure AD z Azure Monitor, zostaną wyświetlone tylko logowania po upływie czasu integracji.  
+
+**Użytkownik**: domyślnie pulpit nawigacyjny pokazuje wpływ wybranych zasad dla wszystkich użytkowników. Aby odfiltrować według pojedynczego użytkownika, wpisz nazwę użytkownika w polu tekstowym. Aby filtrować według wszystkich użytkowników, wpisz "Wszyscy użytkownicy" w polu tekstowym lub pozostaw pusty parametr. 
+
+**Aplikacja**: domyślnie pulpit nawigacyjny pokazuje wpływ wybranych zasad dla wszystkich aplikacji. Aby odfiltrować według pojedynczej aplikacji, wpisz nazwę aplikacji w polu tekstowym. Aby filtrować według wszystkich aplikacji, wpisz "wszystkie aplikacje" w polu tekstowym lub pozostaw pusty parametr. 
+
+**Widok danych**: Wybierz, czy chcesz, aby pulpit nawigacyjny pokazywał wyniki w postaci liczby użytkowników lub liczby logowań. Pojedynczy użytkownik może mieć setki logowania do wielu aplikacji z wieloma różnymi wynikami w danym przedziale czasu. W przypadku wybrania widoku danych przeznaczonego dla użytkowników można uwzględnić zarówno liczbę powodzeń, jak i niepowodzeń (na przykład jeśli nie ma 10 użytkowników, 8 z nich mogło wynikać z sukcesu w ciągu ostatnich 30 dni, a 9 z nich mogło wynikać z błędów w ciągu ostatnich 30 dni).
+
+## <a name="impact-summary"></a>Podsumowanie wpływu 
+
+Po ustawieniu parametrów, podsumowanie wpływu zostanie załadowane. Podsumowanie pokazuje, ile użytkowników lub logowań w przedziale czasu spowodowało "powodzenie", "Niepowodzenie", "Akcja wymagana przez użytkownika" lub "nie zastosowano" podczas oceny wybranych zasad.  
+
+![Podsumowanie wpływu w skoroszycie dostępu warunkowego](./media/howto-conditional-access-insights-reporting/workbook-impact-summary.png)
+
+**Łącznie**: liczba użytkowników lub logowań w okresie, w którym została oceniona co najmniej jedna z wybranych zasad.
+
+**Sukces**: liczba użytkowników lub logowań w okresie, w którym połączony wynik wybranych zasad miał wartość "powodzenie" lub "tylko raport: powodzenie".
+
+**Niepowodzenie**: liczba użytkowników lub logowań w okresie, w którym wynik co najmniej jednej z wybranych zasad miał wartość "Niepowodzenie" lub "tylko raport: niepowodzenie".
+
+**Wymagana akcja użytkownika**: liczba użytkowników lub logowań w okresie, w którym połączony wynik wybranych zasad miał wartość "tylko raport: wymagana akcja użytkownika". Akcja użytkownika jest wymagana, gdy interaktywna kontrolka, taka jak uwierzytelnianie wieloskładnikowe, jest wymagana przez zasady dostępu warunkowego tylko do raportów. Ponieważ interaktywny formant Grant nie jest wymuszany przez zasady tylko do raportowania, nie można określić sukcesu lub niepowodzenia.  
+
+**Nie zastosowano**: liczba użytkowników lub logowań w okresie, w którym nie zastosowano żadnych wybranych zasad.
+
+### <a name="understanding-the-impact"></a>Zrozumienie wpływu 
+
+![Podział skoroszytu na warunek i stan](./media/howto-conditional-access-insights-reporting/workbook-breakdown-condition-and-status.png)
+
+Wyświetl podział użytkowników lub logowania dla każdego z tych warunków. Można filtrować logowania określonego wyniku (na przykład powodzenie lub niepowodzenie), wybierając pozycję na kafelkach podsumowania w górnej części skoroszytu. Można zobaczyć podział logowań dla poszczególnych warunków dostępu warunkowego: stan urządzenia, platforma urządzenia, aplikacja kliencka, lokalizacja, aplikacja i ryzyko związane z logowaniem.  
+
+## <a name="sign-in-details"></a>Szczegóły logowania 
+
+![Szczegóły logowania skoroszytu](./media/howto-conditional-access-insights-reporting/workbook-sign-in-details.png)
+
+Możesz również zbadać logowania określonego użytkownika, wyszukując logowania w dolnej części pulpitu nawigacyjnego. Zapytanie po lewej stronie wyświetla najbardziej częste użytkowników. Wybranie użytkownika spowoduje odfiltrowanie zapytania po prawej stronie.  
+
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Dlaczego pobieranie skoroszytu trwa dużo czasu?  
+
+W zależności od wybranego zakresu czasu i rozmiaru dzierżawy skoroszyt może oceniać bardzo dużą liczbę zdarzeń logowania. W przypadku dużych dzierżawców wielkość logowań może przekroczyć pojemność zapytania wynoszącą Log Analytics. Spróbuj skrócić zakres czasu do 4 godzin, aby sprawdzić, czy skoroszyt został załadowany.  
+
+### <a name="after-loading-for-a-few-minutes-why-is-the-workbook-returning-zero-results"></a>Po załadowaniu przez kilka minut, dlaczego skoroszyt zwróci zero wyników? 
+
+Gdy objętość logowań przekracza pojemność kwerendy Log Analytics, skoroszyt zwróci zero wyników. Spróbuj skrócić zakres czasu do 4 godzin, aby sprawdzić, czy skoroszyt został załadowany.  
+
+### <a name="can-i-save-my-parameter-selections"></a>Czy mogę zapisać moje wybrane parametry?  
+
+Możesz zapisać wybrane opcje parametrów w górnej części skoroszytu, przechodząc do **Azure Active Directory** > **skoroszyty** > **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. 
+
+### <a name="can-i-edit-and-customize-the-workbook-with-additional-queries"></a>Czy mogę edytować i dostosowywać skoroszyt z dodatkowymi zapytaniami? 
+
+Można edytować i dostosowywać skoroszyt, przechodząc do **Azure Active Directory** > **skoroszyty** > **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. Aby rozpocząć edytowanie zapytań, kliknij przycisk **Edytuj** w górnej części skoroszytu.  
+ 
+## <a name="next-steps"></a>Następne kroki
+
+[Tryb tylko do raportowania dostępu warunkowego](concept-conditional-access-report-only.md)

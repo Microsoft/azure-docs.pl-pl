@@ -2,13 +2,13 @@
 title: Dokumentacja pliku host. JSON dla Azure Functions 2. x
 description: Dokumentacja referencyjna dotycząca pliku Azure Functions hosta. JSON z użyciem środowiska uruchomieniowego v2.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758836"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690898"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Dokumentacja pliku host. JSON dla Azure Functions 2. x i nowszych 
 
@@ -24,6 +24,8 @@ Plik metadanych *hosta. JSON* zawiera globalne opcje konfiguracji, które mają 
 Inne opcje konfiguracji aplikacji funkcji są zarządzane w [ustawieniach aplikacji](functions-app-settings.md) (dla wdrożonych aplikacji) lub pliku [Local. JSON](functions-run-local.md#local-settings-file) (na potrzeby lokalnego tworzenia).
 
 Konfiguracje w pliku host. JSON powiązane z powiązaniami są stosowane równie do poszczególnych funkcji w aplikacji funkcji. 
+
+Możesz również [przesłonić lub zastosować ustawienia dla środowiska](#override-hostjson-values) przy użyciu ustawień aplikacji.
 
 ## <a name="sample-hostjson-file"></a>Przykładowy plik host. JSON
 
@@ -386,6 +388,23 @@ Zestaw [udostępnionych katalogów kodu](functions-reference-csharp.md#watched-d
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Zastąp wartości host. JSON
+
+Mogą istnieć wystąpienia, w których można skonfigurować lub zmodyfikować określone ustawienia w pliku host. JSON dla określonego środowiska, bez zmiany pliku host. JSON.  Można przesłonić określone wartości pliku host. JSON jako ustawienia aplikacji. Gdy środowisko uruchomieniowe odnajdzie ustawienie aplikacji w formacie `AzureFunctionsJobHost__path__to__setting`, zastępuje równoważne ustawienie host. JSON znajdujące się `path.to.setting` w pliku JSON. Gdy jest wyrażona jako ustawienie aplikacji, kropka`.`() używana do wskazania hierarchii JSON jest zastępowana podwójnym podkreśleniem (`__`). 
+
+Załóżmy na przykład, że chcesz wyłączyć próbkowanie w usłudze Application Insight w przypadku uruchamiania lokalnego. W przypadku zmiany lokalnego pliku host. JSON w celu wyłączenia Application Insights ta zmiana może zostać przekazana do aplikacji produkcyjnej podczas wdrażania. W tym celu bezpieczniejszym sposobem jest utworzenie ustawienia aplikacji jako `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` `local.settings.json` pliku. Można go zobaczyć w następującym `local.settings.json` pliku, który nie jest opublikowany:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

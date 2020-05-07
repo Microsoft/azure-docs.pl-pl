@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022685"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562412"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Przypadki użycia dla Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Ten transfer zbiorczy kończy początkową fazę wypełniania.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Ciągłe źródło danych za pomocą Data Box Gateway
 
-Wykonaj następujące kroki, aby uzyskać bieżące pozyskiwanie przez Data Box Gateway.
+Wykonaj następujące kroki, aby uzyskać bieżące pozyskiwanie przez Data Box Gateway. 
 
 1. Utwórz udział w chmurze na Data Box Gateway. Ten udział automatycznie przekazuje wszystkie dane do konta usługi Azure Storage. Przejdź do pozycji **udziały** w zasobie Data Box Gateway i kliknij pozycję **+ Dodaj udział**.
 

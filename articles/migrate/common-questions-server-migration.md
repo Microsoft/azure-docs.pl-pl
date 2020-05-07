@@ -1,14 +1,14 @@
 ---
-title: Migracja serwera Azure Migrate — często zadawane pytania
+title: Często zadawane pytania dotyczące migracji Azure Migrate serwera
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące korzystania z migracji Azure Migrate serwera w celu migrowania maszyn.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146049"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744327"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migracja serwera Azure Migrate: typowe pytania
 
@@ -86,6 +86,10 @@ Można ograniczyć użycie NetQosPolicy. Przykład:
 AppNamePrefix do użycia w NetQosPolicy to "GatewayWindowsService. exe". Można utworzyć zasady na urządzeniu Azure Migrate, aby ograniczyć ruch związany z replikacją z urządzenia przez utworzenie zasad, takich jak:
  
 New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
+
+## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Czy mogę migrować maszyny wirtualne, które są już replikowane na platformę Azure? 
+
+Jeśli maszyny wirtualne są już replikowane na platformę Azure, nie można migrować tych maszyn jako maszyn wirtualnych za pomocą migracji Azure Migrate Server. Jako obejście można traktować maszyny wirtualne jako serwery fizyczne i migrować je zgodnie z [obsługiwaną migracją serwera fizycznego](migrate-support-matrix-physical-migration.md).
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Kiedy należy migrować maszyny jako serwery fizyczne?
 

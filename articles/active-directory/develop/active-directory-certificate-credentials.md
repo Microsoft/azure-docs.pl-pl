@@ -3,7 +3,7 @@ title: Poświadczenia certyfikatu platformy tożsamości firmy Microsoft
 titleSuffix: Microsoft identity platform
 description: W tym artykule omówiono rejestrację i użycie poświadczeń certyfikatu na potrzeby uwierzytelniania aplikacji.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 12/18/2019
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d834d37f686279facf0052e3c8f4da3c8d259e0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47a35f70251622674205a28af9b7cc64132d0530
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309678"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690285"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Poświadczenia certyfikatu uwierzytelniania aplikacji platformy tożsamości firmy Microsoft
 
@@ -48,7 +48,7 @@ Platforma tożsamości firmy Microsoft w celu obliczenia potwierdzenia można u�
 | `nbf` | Nie przed: Data, przed upływem którego nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0: 0Z) UTC do momentu wystawienia tokenu. |
 | `sub` | Podmiot: jako dla `iss`, powinien być CLIENT_ID (Identyfikator aplikacji usługi klienta) |
 
-### <a name="signature"></a>Sygnatura
+### <a name="signature"></a>Podpis
 
 Sygnatura jest obliczana przy zastosowaniu certyfikatu zgodnie z opisem w [specyfikacji RFC7519 tokenu internetowego JSON](https://tools.ietf.org/html/rfc7519)
 
@@ -94,7 +94,7 @@ Poświadczenie certyfikatu można skojarzyć z aplikacją kliencką na platformi
 W usłudze Azure App Registration dla aplikacji klienckiej:
 1. Wybierz pozycję **certyfikaty & wpisy tajne**.
 2. Kliknij pozycję **Przekaż certyfikat** i wybierz plik certyfikatu do przekazania.
-3. Kliknij pozycję **Add** (Dodaj).
+3. Kliknij pozycję **Dodaj**.
   Po przekazaniu certyfikatu zostaną wyświetlone wartości odcisku palca, Data rozpoczęcia i wygaśnięcie.
 
 ### <a name="updating-the-application-manifest"></a>Aktualizowanie manifestu aplikacji

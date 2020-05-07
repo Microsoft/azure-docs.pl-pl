@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658408"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731745"
 ---
 # <a name="programmatically-manage-workbooks"></a>Programowe Zarządzanie skoroszytami
 
-Właściciele zasobów mają możliwość programistycznego tworzenia skoroszytów i zarządzania nimi za pomocą szablonów Menedżer zasobów. 
+Właściciele zasobów mają możliwość programistycznego tworzenia skoroszytów i zarządzania nimi za pomocą szablonów Menedżer zasobów.
 
 Może to być przydatne w scenariuszach takich jak:
 * Wdrażanie raportów analiz specyficznych dla organizacji lub dla domeny wraz z wdrożeniami zasobów. Na przykład można wdrożyć dla nowych aplikacji lub maszyn wirtualnych odpowiednie dla organizacji skoroszyty wydajności i niepowodzeń.
@@ -26,7 +26,98 @@ Może to być przydatne w scenariuszach takich jak:
 
 Skoroszyt zostanie utworzony w odpowiedniej grupie podrzędnej i w podanej w niej sposób z zawartością określoną w szablonach Menedżer zasobów.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Azure Resource Manager szablon do wdrażania skoroszytów
+Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programowo:
+* [Szablony skoroszytów](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Wystąpienia skoroszytu](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Azure Resource Manager szablon do wdrażania szablonu skoroszytu
+
+1. Otwórz skoroszyt, który ma zostać wdrożony programowo.
+2. Przełącz skoroszyt do trybu edycji, klikając element paska narzędzi _Edytowanie_ .
+3. Otwórz _Edytor zaawansowany_ przy użyciu _</>_ przycisku na pasku narzędzi.
+4. Upewnij się, że korzystasz z karty _szablonu galerii_ .
+
+    ![Karta szablonu galerii](./media/workbooks-automate/gallery-template.png)
+1. Skopiuj kod JSON w szablonie galerii do Schowka.
+2. Poniżej znajduje się przykładowy szablon Azure Resource Manager, który wdraża szablon skoroszytu do Azure Monitor galerii skoroszytów. Wklej skopiowany kod JSON w miejscu `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Szablon Azure Resource Manager odwołania, który tworzy szablon skoroszytu, można znaleźć [tutaj](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+
+    ```json
+          {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. W `galleries` obiekcie Wypełnij wartości `name` i. `category` Więcej informacji o [parametrach](#parameters) znajduje się w następnej sekcji.
+2. Wdróż ten szablon Azure Resource Manager przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [interfejsu wiersza polecenia](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)itd.
+3. Otwórz Azure Portal i przejdź do galerii skoroszytów wybranego w szablonie Azure Resource Manager. W przykładzie szablonu przejdź do galerii skoroszytów Azure Monitor:
+    1. Otwórz Azure Portal i przejdź do Azure Monitor
+    2. Otwórz `Workbooks` z spisu treści
+    3. Znajdź szablon w galerii w obszarze Kategoria `Deployed Templates` (będzie to jeden z elementów purpurowych).
+
+### <a name="parameters"></a>Parametry
+
+|Parametry                |Wyjaśnienie                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Nazwa zasobu szablonu skoroszytu w Azure Resource Manager.                                  |
+|`type`                    | Zawsze Microsoft. Insights/workbooktemplates                                                            |
+| `location`               | Lokalizacja platformy Azure, w której zostanie utworzony skoroszyt.                                               |
+| `apiVersion`             | wersja zapoznawcza 2019-10-17                                                                                     |
+| `type`                   | Zawsze Microsoft. Insights/workbooktemplates                                                            |
+| `galleries`              | Zestaw galerii, w których będzie pokazywany ten szablon skoroszytu.                                                |
+| `gallery.name`           | Przyjazna nazwa szablonu skoroszytu w galerii.                                             |
+| `gallery.category`       | Grupa w galerii, w której ma zostać umieszczony szablon.                                                     |
+| `gallery.order`          | Liczba, która decyduje o kolejności wyświetlania szablonu w kategorii w galerii. Niższa kolejność oznacza wyższy priorytet. |
+| `gallery.resourceType`   | Typ zasobu odpowiadający galerii. Jest to zazwyczaj ciąg typu zasobu odpowiadający zasobowi (na przykład Microsoft. operationalinsights/Workspaces). |
+|`gallery.type`            | Określany jako typ skoroszytu jest to unikatowy klucz, który odróżnia galerię w ramach typu zasobu. Application Insights, na przykład, mają typy `workbook` i `tsg` odpowiadają różnym galeriom skoroszytów. |
+
+### <a name="galleries"></a>Galerie
+
+| Galeria                                        | Typ zasobu                                      | Typ skoroszytu |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Skoroszyty w Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
+| Szczegółowe informacje o maszynie wirtualnej w Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
+| Skoroszyty w obszarze roboczym usługi log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Skoroszyty w Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Wskazówki dotyczące rozwiązywania problemów w Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Użycie w Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Skoroszyty w usłudze Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Skoroszyty w grupach zasobów                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Skoroszyty w Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| Szczegółowe informacje o maszynie wirtualnej na maszynach wirtualnych                | `microsoft.compute/virtualmachines`                | `insights`    |
+| Szczegółowe informacje o maszynie wirtualnej w zestawach skalowania maszyn wirtualnych                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager szablon do wdrażania wystąpienia skoroszytu
+
 1. Otwórz skoroszyt, który ma zostać wdrożony programowo.
 2. Przełącz skoroszyt do trybu edycji, klikając element paska narzędzi _Edytowanie_ .
 3. Otwórz _Edytor zaawansowany_ przy użyciu _</>_ przycisku na pasku narzędzi.
@@ -124,4 +215,3 @@ Ze względów technicznych ten mechanizm nie może być używany do tworzenia wy
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, w jaki sposób skoroszyty są używane do [obsługi nowego Azure monitor na potrzeby środowiska magazynowego](../insights/storage-insights-overview.md).
-
