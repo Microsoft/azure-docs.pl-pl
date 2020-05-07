@@ -139,7 +139,7 @@
         - name: Aprowizacja przepływności kontenerów i baz danych
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Aprowizacja przepływności — tryb autoskalowania
+        - name: Aprowizacja przepływności — autoskalowanie
           href: provision-throughput-autoscale.md
         - name: Autoskalowanie — często zadawane pytania
           href: autoscale-faq.md
@@ -916,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Konfigurowanie zasad rozwiązywania konfliktów
           href: how-to-manage-conflicts.md
+        - name: Konwertowanie formatu tokenu sesji
+          href: how-to-convert-session-token.md
     - name: Aprowizowana przepływność
       items:
         - name: Aprowizowanie przepływności w kontenerze
@@ -1062,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: Monitorowanie użycia jednostek żądań
               href: monitor-request-unit-usage.md
-        - name: Używanie dzienników diagnostycznych
+        - name: Korzystanie z dzienników usługi Azure Monitor
           items:
             - name: Monitorowanie za pomocą dzienników diagnostycznych
               href: cosmosdb-monitor-resource-logs.md

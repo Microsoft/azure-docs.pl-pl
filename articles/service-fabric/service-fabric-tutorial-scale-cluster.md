@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak skalować klaster Service Fabric 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251795"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788843"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Samouczek: skalowanie klastra usługi Service Fabric na platformie Azure
 
@@ -84,7 +84,7 @@ Skalowanie do wewnątrz i na zewnątrz lub skalowanie w poziomie powoduje zmian�
 
 Aby więc zaktualizować wartość *nt1InstanceCount* , należy zmienić liczbę węzłów w drugim typie węzła.  Należy pamiętać, że nie można skalować typu węzła do więcej niż 100 węzłów.  Typy węzłów innych niż podstawowe działające stanowe obciążenia produkcyjne powinny mieć zawsze pięć lub więcej węzłów. Typy węzłów innych niż podstawowe, które działają bezstanowe obciążenia produkcyjne, powinny zawsze mieć co najmniej dwa węzły.
 
-W przypadku skalowania w programie usuwanie węzłów z, typ węzła na [poziomie trwałości][durability] brony, należy [ręcznie usunąć stan tych węzłów](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  W przypadku warstwy trwałości Silver i Gold te kroki są wykonywane automatycznie przez platformę.
+W przypadku skalowania w programie usuwanie węzłów z, typ węzła na [poziomie trwałości][durability] brony, należy [ręcznie usunąć stan tych węzłów](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  W przypadku warstwy trwałości Silver i Gold te kroki są wykonywane automatycznie przez platformę.
 
 ### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
 Zapisz wszelkie zmiany w plikach *Template. JSON* i *Parameters. JSON* .  Aby wdrożyć zaktualizowany szablon, uruchom następujące polecenie:

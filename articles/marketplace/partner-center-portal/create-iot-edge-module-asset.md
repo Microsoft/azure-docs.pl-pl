@@ -7,21 +7,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 2c0cd47acbd4639ff5eff2af78dcebdfc26270a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730697"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856731"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Przygotuj zasoby techniczne modułu IoT Edge
 
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami IoT Edge z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zawartymi w temacie [przygotowanie zasobów technicznych modułu IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets) , aby Portal Cloud partner zarządzać ofertami.
-
 W tym artykule opisano wymagania, które muszą spełniać zasoby techniczne modułu brzegowego Internet rzeczy (IoT) przed opublikowaniem w witrynie Azure Marketplace.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Moduł IoT Edge jest kontenerem zgodnym z platformą Docker, który działa na urządzeniu IoT Edge.
 
@@ -67,7 +64,7 @@ Skopiuj ten tekst HTML lub użyj odpowiednich funkcji tekstu sformatowanego w ok
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Moduł musi zawierać domyślne ustawienia konfiguracji, aby wdrożenie na urządzeniu IoT Edge było możliwie jak najszybciej. Te informacje można znaleźć na stronie **konfiguracja techniczna** planu w [centrum partnerskim](https://partner.microsoft.com/dashboard/commercial-marketplace). Kontener może również zawierać zestaw SDK modułu IoT Edge, aby umożliwić komunikację z centrum brzegowym i IoT Hub.
 
@@ -110,7 +107,7 @@ Moduły korzystające z zestawu SDK modułu IoT muszą ustawić unikatowy identy
 
 Użyj jednej z następujących metod z zestawów SDK modułu IoT, aby ustawić ProductInfo dla tego identyfikatora:
 
-- [S #](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [S](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
