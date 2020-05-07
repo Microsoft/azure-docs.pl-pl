@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131412"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561033"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Ciągła integracja i ciągłe wdrażanie do Azure IoT Edge
 
@@ -54,7 +54,7 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
 >
 >Aby uzyskać więcej informacji, zobacz [Tworzenie potoku kompilacji](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Zaloguj się do organizacji usługi Azure DevOps (**https\/:/dev.Azure.com/{Your Organization}/**) i otwórz projekt zawierający repozytorium IoT Edge rozwiązania.
+1. Zaloguj się do swojej organizacji usługi Azure DevOps (**https\/:/dev.Azure.com/{Your Organization}/**) i Otwórz projekt zawierający repozytorium rozwiązań IoT Edge.
 
    W tym artykule utworzyliśmy repozytorium o nazwie **IoTEdgeRepo**. To repozytorium zawiera **IoTEdgeSolution** , w którym znajduje się kod modułu o nazwie **filtermodule**.
 
@@ -100,6 +100,13 @@ W tej sekcji utworzysz nowy potok kompilacji. Skonfiguruj potok do automatyczneg
    * **Platforma domyślna**: wybierz odpowiednią platformę dla modułów na podstawie docelowego urządzenia IoT Edge.
    * **Zmienne wyjściowe**: zmienne wyjściowe zawierają nazwę odwołania, której można użyć do skonfigurowania ścieżki pliku, w którym zostanie wygenerowany plik wdrożenia. JSON. Ustaw nazwę odwołania na coś do zapamiętania, na przykład **Edge**.
 
+
+   Te konfiguracje używają repozytorium obrazów i znacznika, które są zdefiniowane w `module.json` pliku jako nazwa i oznakowanie obrazu modułu. **Obrazy modułu kompilacji** ułatwiają także zastępowanie zmiennych wartościami dokładnie zdefiniowanymi w `module.json` pliku. W programie Visual Studio lub Visual Studio Code określasz rzeczywistą wartość w `.env` pliku. W Azure Pipelines ustawiasz wartość na karcie **zmienne potoku** . Wybierz kartę **zmienne** i skonfiguruj nazwę i wartość w następujący sposób:
+
+    * **ACR_ADDRESS**: adres Azure Container Registry. 
+
+    Jeśli w projekcie znajdują się inne zmienne, można na tej karcie określić nazwę i wartość. w **obrazach modułu kompilacji** są rozpoznawane tylko zmienne, `${VARIABLE}` które są w formacie. Upewnij się, że używasz tego formatu w `**/module.json` plikach.
+    
 7. Wybierz drugie zadanie **Azure IoT Edge** , aby je edytować. To zadanie powoduje wypchnięcie wszystkich obrazów modułu do rejestru kontenerów, które zostały wybrane.
 
    * **Nazwa wyświetlana**: Nazwa wyświetlana jest automatycznie aktualizowana, gdy pole akcji ulega zmianie.

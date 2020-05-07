@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585275"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559524"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitoruj Media Services metryki i dzienniki diagnostyczne za pośrednictwem Azure Monitor
 
@@ -63,7 +63,7 @@ Następujące metryki [punktów końcowych przesyłania strumieniowego](https://
 |Nazwa metryki|Nazwa wyświetlana|Opis|
 |---|---|---|
 |Żądania|Żądania|Zapewnia łączną liczbę żądań HTTP obsłużonych przez punkt końcowy przesyłania strumieniowego.|
-|Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących. Na przykład bajty przesyłane strumieniowo przez punkt końcowy przesyłania strumieniowego.|
+|Ruch wychodzący|Ruch wychodzący|Całkowita liczba bajtów wychodzących na minutę na punkt końcowy przesyłania strumieniowego.|
 |SuccessE2ELatency|Pomyślne zakończenie oczekiwania|Czas trwania od momentu, gdy punkt końcowy przesyłania strumieniowego otrzymał żądanie do momentu wysłania ostatniego bajtu odpowiedzi.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Dlaczego warto używać metryk?

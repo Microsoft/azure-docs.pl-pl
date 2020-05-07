@@ -19,11 +19,11 @@ Magazyn jest ograniczony przez miejsce na dysku lub stały limit *maksymalnej li
 
 | Zasób | Bezpłatna | Podstawowa<sup>1</sup> | S1 | S2 | S3 | Wyjście&nbsp;S3 HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Umowa dotycząca poziomu usług (SLA)<sup>3</sup>  |Nie |Tak |Tak |Tak |Tak |Tak |Tak |Tak |
+| Umowa dotycząca poziomu usług (SLA)<sup>3</sup>  |Nie |Yes |Tak |Tak |Tak |Tak |Tak |Tak |
 | Magazyn na partycję |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Partycje na usługę |Nie dotyczy |1 |12 |12 |12 |3 |12 |12 |
-| Rozmiar partycji |Nie dotyczy |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Repliki |Nie dotyczy |3 |12 |12 |12 |12 |12 |12 |
+| Partycje na usługę |Brak |1 |12 |12 |12 |3 |12 |12 |
+| Rozmiar partycji |Brak |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Repliki |Brak |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> podstawowa ma jedną stałą partycję. W tej warstwie dodatkowe jednostki wyszukiwania są używane do przydzielania większej liczby replik w celu zwiększenia obciążeń związanych z zapytaniami.
 

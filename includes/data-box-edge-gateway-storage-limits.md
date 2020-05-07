@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67183687"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561371"
 ---
-Ta sekcja zawiera opis limitów usługi Azure Storage oraz wymaganych konwencji nazewnictwa dla Azure Files, blokowych obiektów blob platformy Azure i obiektów BLOB na stronie platformy Azure, które dotyczą usługi Data Box Gateway/Data Box Edge. Uważnie Przejrzyj limity magazynu i postępuj zgodnie ze wszystkimi zaleceniami.
+Ta sekcja zawiera opis limitów usługi Azure Storage oraz wymaganych konwencji nazewnictwa dla Azure Files, blokowych obiektów blob platformy Azure i obiektów BLOB na stronie platformy Azure, które dotyczą usługi Azure Stack Edge/Data Box Gateway. Uważnie Przejrzyj limity magazynu i postępuj zgodnie ze wszystkimi zaleceniami.
 
 Najnowsze informacje na temat limitów usługi Azure Storage i najlepszych rozwiązań dotyczących nazewnictwa udziałów, kontenerów i plików można znaleźć w temacie:
 
@@ -20,4 +20,4 @@ Najnowsze informacje na temat limitów usługi Azure Storage i najlepszych rozwi
 - [Zablokuj obiekty blob i konwencje obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Jeśli istnieją pliki lub katalogi, które przekraczają limity usługi Azure Storage lub nie są zgodne z konwencjami nazewnictwa Azure Files/obiektów blob, te pliki lub katalogi nie są pozyskiwane w usłudze Azure Storage za pośrednictwem usługi Data Box Gateway/Data Box Edge.
+> Jeśli istnieją pliki lub katalogi, które przekraczają limity usługi Azure Storage lub nie są zgodne z konwencjami nazewnictwa Azure Files/obiektów blob, te pliki lub katalogi nie są pozyskiwane w usłudze Azure Storage za pośrednictwem usługi Azure Stack Edge/Data Box Gateway.

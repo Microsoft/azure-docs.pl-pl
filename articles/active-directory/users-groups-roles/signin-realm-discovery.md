@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024250"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582554"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Odnajdywanie obszaru macierzystego dla stron logowania Azure Active Directory
 
@@ -28,7 +28,7 @@ Zmieniamy zachowanie logowania w usłudze Azure Active Directory (Azure AD), aby
 
 W przeszłości odnajdywanie obszaru macierzystego było regulowane przez domenę dostarczoną podczas logowania lub przez zasady odnajdywania obszaru macierzystego dla niektórych starszych aplikacji. Na przykład w naszym zachowaniu odnajdywania Azure Active Directory użytkownik może wpisać swoją nazwę użytkownika, ale nadal dotrze do ekranu zbierania poświadczeń w organizacji. Dzieje się tak, gdy użytkownik prawidłowo poda nazwę domeny organizacji "contoso.com". Takie zachowanie nie pozwala na szczegółowości dostosowywania środowisk dla poszczególnych użytkowników.
 
-Aby zapewnić obsługę szerszego zakresu poświadczeń i zwiększyć użyteczność, Azure Active Directory zachowanie wyszukiwania nazwy użytkownika w trakcie procesu logowania zostanie zaktualizowane. Nowe zachowanie podejmuje inteligentne decyzje poprzez odczytywanie ustawień dzierżawy i poziomu użytkownika na podstawie nazwy użytkownika wprowadzonej na stronie logowania. Aby to umożliwić, Azure Active Directory sprawdzi, czy nazwa użytkownika wprowadzona na stronie logowania istnieje w podanej domenie lub przekierowuje użytkownika w celu podania poświadczeń.
+Aby zapewnić obsługę szerszego zakresu poświadczeń i zwiększyć użyteczność, Azure Active Directory zachowanie wyszukiwania nazwy użytkownika w trakcie procesu logowania zostanie zaktualizowane. Nowe zachowanie podejmuje inteligentne decyzje poprzez odczytywanie ustawień na poziomie organizacji i na poziomie użytkownika w oparciu o nazwę użytkownika wprowadzoną na stronie logowania. Aby to umożliwić, Azure Active Directory sprawdzi, czy nazwa użytkownika wprowadzona na stronie logowania istnieje w podanej domenie lub przekierowuje użytkownika w celu podania poświadczeń.
 
 Dodatkową zaletą tej pracy jest ulepszona obsługa komunikatów o błędach. Poniżej przedstawiono kilka przykładów ulepszonych komunikatów o błędach podczas logowania do aplikacji, która obsługuje tylko Azure Active Directory użytkowników.
 

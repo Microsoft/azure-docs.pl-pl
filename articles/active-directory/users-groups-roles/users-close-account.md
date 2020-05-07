@@ -1,5 +1,5 @@
 ---
-title: Zamknij konto służbowe w niezarządzanym katalogu usługi Azure AD
+title: Zamknij konto służbowe w niezarządzanej organizacji usługi Azure AD
 description: Jak zamknąć konto służbowe w niezarządzanym Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -13,18 +13,18 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73815720"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582533"
 ---
-# <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Zamknij konto służbowe w niezarządzanym katalogu
+# <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Zamknij konto służbowe w niezarządzanej organizacji usługi Azure AD
 
-Jeśli jesteś użytkownikiem w organizacji niezarządzanej Azure Active Directory (Azure AD), a nie potrzebujesz już korzystać z aplikacji z tej organizacji lub nie masz żadnych skojarzonych z nimi powiązań, możesz zamknąć konto w dowolnym momencie. Niezarządzany katalog nie ma administratora globalnego. Użytkownicy w niezarządzanym katalogu mogą samodzielnie zamknąć swoje konta bez konieczności kontaktowania się z administratorem.
+Jeśli jesteś użytkownikiem w organizacji niezarządzanej usługi Azure Active Directory (Azure AD) i nie potrzebujesz już korzystać z aplikacji z tej organizacji lub nie masz żadnych skojarzonych z nimi powiązań, możesz zamknąć konto w dowolnym momencie. Niezarządzana organizacja nie ma administratora globalnego. Użytkownicy w niezarządzanej organizacji mogą samodzielnie zamknąć swoje konta bez konieczności kontaktowania się z administratorem.
 
-Użytkownicy w niezarządzanym katalogu są często tworzeniu podczas tworzenia konta samoobsługowego. Przykładem może być pracownik przetwarzający informacje w organizacji, który zarejestruje się w celu uzyskania bezpłatnej usługi. Aby uzyskać więcej informacji na temat rejestracji samoobsługowej, zobacz [co to jest samoobsługowe rejestrowanie w usłudze Azure Active Directory?](directory-self-service-signup.md).
+Użytkownicy w organizacji niezarządzanej są często tworzeniu podczas tworzenia konta samoobsługowego. Przykładem może być pracownik przetwarzający informacje w organizacji, który zarejestruje się w celu uzyskania bezpłatnej usługi. Aby uzyskać więcej informacji na temat rejestracji samoobsługowej, zobacz [co to jest samoobsługowe rejestrowanie w usłudze Azure Active Directory?](directory-self-service-signup.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -32,7 +32,7 @@ Użytkownicy w niezarządzanym katalogu są często tworzeniu podczas tworzenia 
 
 Przed zamknięciem konta należy potwierdzić następujące elementy:
 
-* Upewnij się, że jesteś użytkownikiem niezarządzanego katalogu usługi Azure AD. Nie można zamknąć konta, jeśli użytkownik należy do katalogu zarządzanego. Jeśli należysz do katalogu zarządzanego i chcesz zamknąć konto, musisz skontaktować się z administratorem. Aby uzyskać informacje na temat sposobu ustalania, czy należysz do niezarządzanego katalogu, zobacz [Usuwanie użytkownika z niezarządzanej dzierżawy](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Upewnij się, że jesteś użytkownikiem niezarządzanej organizacji usługi Azure AD. Nie można zamknąć konta, jeśli należysz do zarządzanej organizacji. Jeśli należysz do zarządzanej organizacji i chcesz zamknąć konto, musisz skontaktować się z administratorem. Aby uzyskać informacje na temat sposobu ustalania, czy należysz do niezarządzanej organizacji, zobacz [Usuwanie użytkownika z niezarządzanej dzierżawy](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Zapisz wszystkie dane, które chcesz zachować. Informacje o sposobach przesyłania żądania eksportu znajdują się w temacie [Uzyskiwanie dostępu do dzienników generowanych przez system i eksportowanie ich dla niezarządzanych dzierżawców](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 

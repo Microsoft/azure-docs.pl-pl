@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253067"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582713"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory
 
 W tym artykule przedstawiono sposób przypisywania licencji produktów do grupy użytkowników i weryfikowania, czy są one prawidłowo licencjonowane w usłudze Azure Active Directory (Azure AD).
 
-W tym przykładzie dzierżawca zawiera grupę zabezpieczeń o nazwie **Dział kadr**. Ta grupa obejmuje wszystkich członków działu kadr (około 1 000 użytkowników). Chcesz przypisać licencje Office 365 Enterprise E3 do całego działu. Usługa Yammer Enterprise, która jest dołączona do produktu, musi być tymczasowo wyłączona do momentu, aż dział zacznie korzystać z niego. Należy również wdrożyć licencje Enterprise Mobility + Security dla tej samej grupy użytkowników.
+W tym przykładzie organizacja usługi Azure AD zawiera grupę zabezpieczeń o nazwie **Dział kadr**. Ta grupa obejmuje wszystkich członków działu kadr (około 1 000 użytkowników). Chcesz przypisać licencje Office 365 Enterprise E3 do całego działu. Usługa Yammer Enterprise, która jest dołączona do produktu, musi być tymczasowo wyłączona do momentu, aż dział zacznie korzystać z niego. Należy również wdrożyć licencje Enterprise Mobility + Security dla tej samej grupy użytkowników.
 
 > [!NOTE]
 > Nie wszystkie usługi firmy Microsoft są dostępne we wszystkich lokalizacjach. Aby można było przypisać licencję do użytkownika, administrator musi określić właściwość lokalizacja użycia dla użytkownika.
@@ -37,7 +37,7 @@ W tym przykładzie dzierżawca zawiera grupę zabezpieczeń o nazwie **Dział ka
 
 1. Zaloguj się do [**Centrum administracyjnego usługi Azure AD**](https://aad.portal.azure.com) przy użyciu konta administratora licencji. Aby zarządzać licencjami, konto musi być administratorem licencji, administratorem użytkowników lub administratorem globalnym.
 
-1. Wybierz pozycję **licencje** , aby otworzyć stronę, na której można zobaczyć wszystkie objętego produkty w dzierżawie i zarządzać nimi.
+1. Wybierz pozycję **licencje** , aby otworzyć stronę, na której można wyświetlić wszystkie produkty objętego w organizacji i zarządzać nimi.
 
 1. W obszarze **wszystkie produkty**wybierz pozycję Office 365 Enterprise E5 i Enterprise Mobility + Security E3, wybierając pozycję nazwy produktów. Aby rozpocząć przypisanie, wybierz pozycję **Przypisz** w górnej części strony.
 

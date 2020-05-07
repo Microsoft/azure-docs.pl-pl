@@ -21,7 +21,7 @@ Na żądanie można zwiększyć maksymalną liczbę limitów usług. Jeśli potr
 | Zasób            | Bezpłatnie<sup>1</sup> | Podstawowy | S1  | S2 | S3 | Wyjście&nbsp;S3 HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | Maksymalna liczba usług    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
-| Maksymalna skala w jednostkach wyszukiwania (SU)<sup>2</sup> |Nie dotyczy |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
+| Maksymalna skala w jednostkach wyszukiwania (SU)<sup>2</sup> |Brak |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
 
 <sup>1</sup> bezpłatna jest oparta na udostępnionych, niededykowanych zasobach. Skalowanie w górę nie jest obsługiwane w zasobach udostępnionych.
 
