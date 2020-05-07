@@ -13,7 +13,7 @@ ms.locfileid: "67183673"
 ---
 Poniżej przedstawiono protokoły obsługiwane przez klientów uzyskujących dostęp do urządzenia.
 
-|**Protokol** |**Wersje**   |**Uwagi**  |
+|**Protokół** |**Wersje**   |**Uwagi**  |
 |---------|---------|---------|
 |SMB    | 2. X, 3. X      | Protokół SMB 1 nie jest obsługiwany.|
 |System plików NFS (obecnie w wersji zapoznawczej)     |3,0, 4,1        | Mac OS nie jest obsługiwana w systemie plików NFS v 4.1.         |

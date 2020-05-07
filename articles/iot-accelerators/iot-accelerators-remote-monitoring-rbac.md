@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67203154"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612949"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurowanie kontroli dostępu opartej na rolach w akceleratorze rozwiązania do zdalnego monitorowania
 
@@ -28,19 +29,19 @@ Każdy użytkownik w roli **administratora** ma pełny dostęp do rozwiązania, 
 | Uprawnienie            | Administrator | Tylko do odczytu |
 |----------------       |-------|-----------|
 | Wyświetl rozwiązanie         | Tak   | Tak       |
-| Aktualizuj alarmy         | Tak   | Nie        |
-| Usuń alarmy         | Tak   | Nie        |
-| Tworzenie urządzeń        | Tak   | Nie        |
-| Aktualizowanie urządzeń        | Tak   | Nie        |
-| Usuwanie urządzeń        | Tak   | Nie        |
-| Tworzenie grup urządzeń  | Tak   | Nie        |
-| Aktualizowanie grup urządzeń  | Tak   | Nie        |
-| Usuwanie grup urządzeń  | Tak   | Nie        |
-| Tworzenie reguł          | Tak   | Nie        |
-| Reguły aktualizacji          | Tak   | Nie        |
-| Usuwanie reguł          | Tak   | Nie        |
-| Tworzenie zadań           | Tak   | Nie        |
-| Aktualizowanie zarządzania SIM | Tak   | Nie        |
+| Aktualizuj alarmy         | Yes   | Nie        |
+| Usuń alarmy         | Yes   | Nie        |
+| Tworzenie urządzeń        | Yes   | Nie        |
+| Aktualizowanie urządzeń        | Yes   | Nie        |
+| Usuwanie urządzeń        | Yes   | Nie        |
+| Tworzenie grup urządzeń  | Yes   | Nie        |
+| Aktualizowanie grup urządzeń  | Yes   | Nie        |
+| Usuwanie grup urządzeń  | Yes   | Nie        |
+| Tworzenie reguł          | Yes   | Nie        |
+| Reguły aktualizacji          | Yes   | Nie        |
+| Usuwanie reguł          | Yes   | Nie        |
+| Tworzenie zadań           | Yes   | Nie        |
+| Aktualizowanie zarządzania SIM | Yes   | Nie        |
 
 Domyślnie użytkownik, który wdrożył rozwiązanie, ma automatycznie przypisaną rolę **administratora** i jest właścicielem aplikacji Azure Active Directory. Jako właściciel aplikacji można przypisać role do innych użytkowników za pomocą Azure Portal. Jeśli chcesz, aby inny użytkownik przypisał role w rozwiązaniu, należy również ustawić jako właściciela aplikacji w Azure Portal.
 
@@ -51,7 +52,7 @@ Domyślnie użytkownik, który wdrożył rozwiązanie, ma automatycznie przypisa
 
 Jako właściciel aplikacji Azure Active Directory możesz użyć Azure Portal do dodania lub usunięcia użytkownika do roli z rozwiązania do zdalnego monitorowania. W poniższych krokach użyto [aplikacji Azure Active Directory Enterprise](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) , która została utworzona podczas wdrażania rozwiązania do monitorowania zdalnego.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 1. Sprawdź, czy [użytkownik znajduje się w katalogu](../active-directory/fundamentals/add-users-azure-active-directory.md) , którego używasz. Należy wybrać katalog, który ma być używany podczas logowania do witryny [Microsoft Azure IoT Solution Accelerator](https://www.azureiotsolutions.com/Accelerators) . Nazwa katalogu jest widoczna w prawym górnym rogu [strony](https://www.azureiotsolutions.com/Accelerators).
 

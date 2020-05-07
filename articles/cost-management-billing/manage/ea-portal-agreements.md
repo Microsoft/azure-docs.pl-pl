@@ -3,16 +3,16 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586223"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690992"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
