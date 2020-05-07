@@ -3,12 +3,12 @@ title: Dowiedz się więcej o usłudze Azure Service Fabric
 description: Zapoznaj się z podstawowymi pojęciami i Głównymi obszarami Service Fabric platformy Azure. Zawiera dodatkowe Omówienie Service Fabric i sposobu tworzenia mikrousług.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458148"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791854"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Czy chcesz dowiedzieć się więcej o Service Fabric?
 Usługa Azure Service Fabric to platforma systemów rozproszonych ułatwiająca pakowanie i wdrażanie skalowalnych i niezawodnych mikrousług oraz zarządzanie nimi.  Service Fabric ma jednak duże powierzchnie, ale istnieje wiele informacji.  Ten artykuł zawiera streszczenie Service Fabric i zawiera opis podstawowych pojęć, modeli programowania, cyklu życia aplikacji, testowania, klastrów i monitorowania kondycji. Zapoznaj się z [omówieniem](service-fabric-overview.md) i [co to są mikrousługi?](service-fabric-overview-microservices.md) , aby zapoznać się z wprowadzeniem i jak Service Fabric może służyć do tworzenia mikrousług. Ten artykuł nie zawiera obszernej listy zawartości, ale łączy się z artykułami dotyczącymi przeglądu i uruchamiania dla każdego obszaru Service Fabric. 
@@ -136,7 +136,7 @@ Scenariusze zabezpieczeń klastra są następujące:
 Aby uzyskać więcej informacji, przeczytaj temat [Zabezpieczanie klastra](service-fabric-cluster-security.md).
 
 ### <a name="scaling"></a>Skalowanie
-W przypadku dodania nowych węzłów do klastra program Service Fabric ponownie zrównoważy repliki partycji i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle. Klastry można skalować na platformie Azure [ręcznie](service-fabric-cluster-scale-up-down.md) lub [programowo](service-fabric-cluster-programmatic-scaling.md). Klastry autonomiczne mogą być skalowane [ręcznie](service-fabric-cluster-windows-server-add-remove-nodes.md).
+W przypadku dodania nowych węzłów do klastra program Service Fabric ponownie zrównoważy repliki partycji i wystąpienia w większej liczbie węzłów. Ogólna wydajność aplikacji zwiększa się i rywalizacja o zmniejszenie ilości pamięci. Jeśli węzły w klastrze nie są efektywnie używane, można zmniejszyć liczbę węzłów w klastrze. Service Fabric ponownie zrównoważy repliki partycji i wystąpienia na zmniejszonej liczbie węzłów, aby lepiej wykorzystać sprzęt w każdym węźle. Klastry można skalować na platformie Azure [ręcznie](service-fabric-cluster-scale-in-out.md) lub [programowo](service-fabric-cluster-programmatic-scaling.md). Klastry autonomiczne mogą być skalowane [ręcznie](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Uaktualnienia klastra
 Okresowo są wydawane nowe wersje środowiska uruchomieniowego Service Fabric. Przeprowadzaj środowisko uruchomieniowe lub Sieć szkieletowa, uaktualnienia w klastrze, aby zawsze działać [obsługiwana wersja](service-fabric-support.md). Oprócz uaktualnień sieci szkieletowej można także aktualizować konfigurację klastra, na przykład certyfikaty lub porty aplikacji.

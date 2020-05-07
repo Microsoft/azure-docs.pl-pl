@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509073"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787179"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>Przegląd Change Tracking i spisu
 
@@ -23,10 +23,15 @@ W tym artykule przedstawiono Change Tracking i spis w Azure Automation. Ta funkc
 - Usługi firmy Microsoft
 - Demony systemu Linux
 
-Change Tracking i spis uzyskują swoje dane z usługi Azure Monitor w chmurze. System Azure wysyła zmiany w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze systemu Windows i na monitorowanych serwerach, aby Azure Monitor do przetwarzania. Usługa w chmurze stosuje logikę do odbieranych danych, rejestruje ją i udostępnia. 
-
 > [!NOTE]
 > Aby śledzić zmiany właściwości Azure Resource Manager, zobacz [historię zmian](../governance/resource-graph/how-to/get-resource-changes.md)grafu zasobów platformy Azure.
+
+Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualne połączone z obszarami roboczymi Log Analytics używają agentów Log Analytics do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz wszystkich demonach z systemem Linux na monitorowanych serwerach. Gdy dane są dostępne, agenci wysyłają je do Azure Monitor do przetwarzania. Azure Monitor stosuje logikę do odbieranych danych, rejestruje ją i udostępnia. 
+
+Funkcja Change Tracking i spis włącza zarówno obszary działania śledzenia zmian, jak i spisu w programie Azure Automation. Ponieważ oba obszary używają tego samego agenta Log Analytics, proces dodawania maszyny wirtualnej jest taki sam w każdym obszarze funkcjonalnym. 
+
+> [!NOTE]
+> Aby korzystać z funkcji Change Tracking i spisu, należy zlokalizować wszystkie maszyny wirtualne w tej samej subskrypcji i regionie konta usługi Automation.
 
 Change Tracking i spis nie obsługują obecnie następujących elementów:
 
@@ -38,7 +43,7 @@ Change Tracking i spis nie obsługują obecnie następujących elementów:
 Inne ograniczenia:
 
 * Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
-* Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, wydajność rozwiązania może być obniżona.
+* Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, może to spowodować spadek wydajności śledzenia zmian i spisu.
 * Gdy ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
 * Jeśli zmodyfikujesz konfigurację podczas zamykania komputera, komputer może opublikować zmiany należące do poprzedniej konfiguracji.
 
@@ -49,33 +54,7 @@ W Change Tracking i spisu są obecnie występują następujące problemy:
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis i Azure Monitor Log Analytics agentów są obsługiwane zarówno w systemach operacyjnych Windows, jak i Linux.
-
-### <a name="windows-operating-systems"></a>Systemy operacyjne Windows
-
-Wersja systemu operacyjnego Windows obsługiwana oficjalnie to Windows Server 2008 R2 lub nowszy.
-
-### <a name="linux-operating-systems"></a>Systemy operacyjne Linux
-
-Dystrybucje systemu Linux omówione poniżej są oficjalnie obsługiwane dla agenta Log Analytics dla systemu Linux. Jednak Agent systemu Linux może być również uruchamiany na innych dystrybucjach, których nie ma na liście. O ile nie zaznaczono inaczej, wszystkie wersje pomocnicze są obsługiwane dla każdej wymienionej wersji głównej.
-
-#### <a name="64-bit-linux-operating-systems"></a>64-bitowe systemy operacyjne Linux
-
-* CentOS 6 i 7
-* Amazon Linux 2017,09
-* Oracle Linux 6 i 7
-* Red Hat Enterprise Linux Server 6 i 7
-* Debian GNU/Linux 8 i 9
-* Ubuntu Linux 14,04 LTS, 16,04 LTS i 18,04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>32-bitowe systemy operacyjne Linux
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 i 9
-* Ubuntu Linux 14,04 LTS i 16,04 LTS
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Wersje systemu operacyjnego Windows, które są obsługiwane oficjalnie to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz Windows 7 z dodatkiem SP1 lub nowszym. Obsługiwane są również różne systemy operacyjne Linux. Zobacz [Omówienie agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -83,14 +62,14 @@ Change Tracking i spis wymagają wyłącznie adresów sieciowych wymienionych w 
 
 |Azure — publiczna  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *. ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*. azure-automation.us|
+|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *. azure-automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>Change Tracking i interfejs użytkownika spisu
 
-Użyj Change Tracking i spisu w Azure Portal, aby wyświetlić podsumowanie zmian dla monitorowanych komputerów. Ta funkcja jest dostępna po wybraniu opcji **śledzenie zmian** w obszarze **Zarządzanie konfiguracją** na koncie usługi Automation. 
+Użyj Change Tracking i spisu w Azure Portal, aby wyświetlić podsumowanie zmian dla monitorowanych komputerów. Ta funkcja jest dostępna po wybraniu jednej z opcji dodawania maszyn wirtualnych do **śledzenia zmian** lub **spisu** w obszarze **Zarządzanie konfiguracją** na koncie usługi Automation.  
 
 ![Pulpit nawigacyjny Change Tracking](./media/change-tracking/change-tracking-dash01.png)
 
@@ -186,7 +165,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie. Ta wartość jest tylko przybliżeniem i może ulec zmianie w zależności od używanego środowiska. Zalecamy monitorowanie środowiska, aby zobaczyć dokładne użycie.
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Korzystając z funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics, można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Możesz użyć tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 

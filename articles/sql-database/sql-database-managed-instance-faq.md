@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364156"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598515"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database często zadawane pytania dotyczące wystąpienia zarządzanego
 
@@ -94,7 +94,13 @@ Automatyczne przełączanie do trybu online między generacjami sprzętowymi jes
 
 Jest to długotrwała operacja, ponieważ nowe wystąpienie zarządzane zostanie udostępnione w tle, a bazy danych zostaną automatycznie przeniesione między starym i nowym wystąpieniem z szybką pracą w trybie failover na końcu procesu. 
 
+**Co zrobić, jeśli oba generacje sprzętowe nie są obsługiwane w tym samym regionie?**
+
 Jeśli oba generacje sprzętowe nie są obsługiwane w tym samym regionie, zmiana generacji sprzętu jest możliwa, ale należy ją wykonać ręcznie. Wymaga to zainicjowania obsługi nowego wystąpienia w regionie, w którym jest dostępna żądana generacja sprzętu, a następnie ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem.
+
+**Co zrobić, jeśli nie ma wystarczającej liczby adresów IP do wykonania operacji aktualizacji?**
+
+W przypadku braku wystarczającej liczby adresów IP w podsieci, w której jest inicjowane zarządzane wystąpienie, należy utworzyć w nim nową podsieć i nowe wystąpienie zarządzane. Sugerujemy również, że Nowa podsieć jest tworzona z większą liczbą adresów IP alocated, tak aby przyszłe operacje aktualizowania zapewnią podobną sytuację (dla rozmiaru podsieci Propper, należy sprawdzić, [jak określić rozmiar podsieci sieci wirtualnej](sql-database-managed-instance-determine-size-vnet-subnet.md). Po aprowizacji nowego wystąpienia można ręcznie utworzyć kopię zapasową i przywrócić dane między starym i nowym wystąpieniem albo wykonać [przywracanie do określonego momentu w czasie](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## <a name="tune-performance"></a>Dostosowywanie wydajności

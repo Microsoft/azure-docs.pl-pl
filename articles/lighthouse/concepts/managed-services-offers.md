@@ -1,24 +1,24 @@
 ---
-title: Oferty usług zarządzanych w witrynie Azure Marketplace
+title: Oferty usługi zarządzanej w witrynie Azure Marketplace
 description: Oferty usługi zarządzanej umożliwiają dostawcom usług sprzedawanie ofert zarządzania zasobami klientom w portalu Azure Marketplace.
-ms.date: 03/30/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 13e1825ae6eb50b1b376e3bd3de908a545fbe023
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 975c9ab98229626a513404b2092b266a9e284279
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144908"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792296"
 ---
-# <a name="managed-service-offers-in-azure-marketplace"></a>Oferty usług zarządzanych w witrynie Azure Marketplace
+# <a name="managed-service-offers-in-azure-marketplace"></a>Oferty usługi zarządzanej w witrynie Azure Marketplace
 
-W tym artykule opisano typ oferty **usługi zarządzanej** w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com). Oferty usługi zarządzanej umożliwiają oferowanie klientom usług zarządzania zasobami przy użyciu funkcji [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md). Oferty te można udostępnić wszystkim potencjalnym klientom lub tylko jednemu lub wielu konkretnym klientom. Ze względu na to, że opłaty są naliczane bezpośrednio za koszty związane z tymi usługami zarządzanymi, firma Microsoft nie pobiera żadnych opłat.
+W tym artykule opisano typ oferty **usługi zarządzanej** w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com). Oferty usługi zarządzanej umożliwiają oferowanie klientom usług zarządzania zasobami za pomocą [zarządzania zasobami delegowanymi przez platformę Azure](azure-delegated-resource-management.md). Oferty te można udostępnić wszystkim potencjalnym klientom lub tylko jednemu lub wielu konkretnym klientom. Ze względu na to, że opłaty są naliczane bezpośrednio za koszty związane z tymi usługami zarządzanymi, firma Microsoft nie pobiera żadnych opłat.
 
 ## <a name="understand-managed-service-offers"></a>Opis ofert usług zarządzanych
 
 Oferty usługi zarządzanej usprawniają proces dołączania klientów do zarządzania zasobami delegowanymi przez platformę Azure. Gdy klient kupuje ofertę w portalu Azure Marketplace, będzie mógł określić, które subskrypcje i/lub grupy zasobów powinny zostać dołączone.
 
-Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z poziomu dzierżawy organizacji, zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pośrednictwem manifestu, który określa użytkowników usługi Azure AD, grupy i jednostki usługi, które będą miały dostęp do zasobów klienta przy użyciu funkcji zarządzania zasobami delegowanych przez platformę Azure, wraz z rolami, które definiują poziom dostępu. Przypisując uprawnienia do grupy usługi Azure AD, a nie serii poszczególnych kont użytkowników lub aplikacji, można dodawać lub usuwać poszczególnych użytkowników, gdy zmienią się wymagania dotyczące dostępu.
+Następnie użytkownicy w organizacji będą mogli korzystać z tych zasobów z poziomu dzierżawy organizacji, zgodnie z dostępem zdefiniowanym podczas tworzenia oferty. Jest to realizowane za pomocą manifestu, który określa użytkowników, grupy i jednostki usługi Azure Active Directory (Azure AD), które będą miały dostęp do zasobów klienta, wraz z rolami, które definiują poziom dostępu. Przypisując uprawnienia do grupy usługi Azure AD, a nie serii poszczególnych kont użytkowników lub aplikacji, można dodawać lub usuwać poszczególnych użytkowników, gdy zmienią się wymagania dotyczące dostępu.
 
 ## <a name="public-and-private-offers"></a>Oferty publiczne i prywatne
 

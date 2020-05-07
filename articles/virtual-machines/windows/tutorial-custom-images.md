@@ -23,7 +23,7 @@ Obrazy mogą służyć do uruchamiania wdrożeń i zapewnienia spójności międ
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie maszyny wirtualnej na podstawie obrazu 
 > * Udostępnianie galerii obrazów
 
@@ -109,7 +109,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-an-image-version"></a>Utwórz wersję obrazu
+## <a name="create-an-image-version"></a>Tworzenie wersji obrazu
 
 Utwórz wersję obrazu z maszyny wirtualnej przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
@@ -216,7 +216,7 @@ W tym samouczku utworzono wyspecjalizowany obraz maszyny wirtualnej. W tym samou
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie maszyny wirtualnej na podstawie obrazu 
 > * Udostępnianie galerii obrazów
 

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce0cd0866cc6daa36d598767a486faeabac8076d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376940"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791820"
 ---
 # <a name="monitoring-the-cluster"></a>Monitorowanie klastra
 
@@ -74,7 +74,7 @@ Jeśli musisz skontaktować się z pomocą techniczną firmy Microsoft w celu uz
 
 ## <a name="measuring-performance"></a>Mierzenie wydajności
 
-Pomiar wydajności klastra pomoże zrozumieć, jak można obsłużyć obciążenia i rozwiązywać decyzje dotyczące skalowania klastra (Zobacz więcej na temat skalowania klastra [na platformie Azure](service-fabric-cluster-scale-up-down.md)lub [lokalnego](service-fabric-cluster-windows-server-add-remove-nodes.md)). Dane dotyczące wydajności są również przydatne w porównaniu z akcjami, które mogły zostać wykonane przez użytkownika lub aplikacje i usługi, podczas analizowania dzienników w przyszłości. 
+Pomiar wydajności klastra pomoże zrozumieć, jak można obsłużyć obciążenia i rozwiązywać decyzje dotyczące skalowania klastra (Zobacz więcej na temat skalowania klastra [na platformie Azure](service-fabric-cluster-scale-in-out.md)lub [lokalnego](service-fabric-cluster-windows-server-add-remove-nodes.md)). Dane dotyczące wydajności są również przydatne w porównaniu z akcjami, które mogły zostać wykonane przez użytkownika lub aplikacje i usługi, podczas analizowania dzienników w przyszłości. 
 
 Aby uzyskać listę liczników wydajności zbieranych podczas korzystania z Service Fabric, zobacz [liczniki wydajności w Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

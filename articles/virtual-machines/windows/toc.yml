@@ -140,6 +140,8 @@
                   href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Pojęcia
   items:
+    - name: Obrazy
+      href: shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regiony
@@ -524,19 +526,64 @@
         - name: Pobieranie metryk użycia za pomocą interfejsu REST
           href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Korzystanie z obrazów
+      displayName: 'SIG, AMI, image'
       items:
-        - name: Udostępnione obrazy
+        - name: Tworzenie i udostępnianie obrazów
           items:
-            - name: Omówienie
-              href: shared-image-galleries.md
             - name: PowerShell
-              href: shared-images.md
-            - name: Portal
-              href: shared-images-portal.md
+              items:
+                - name: Tworzenie galerii
+                  href: ../shared-images-powershell.md
+                - name: Tworzenie obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-powershell.md
             - name: Interfejs wiersza polecenia
-              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Rejestracja aplikacji na potrzeby udostępniania
-              href: share-images-across-tenants.md
+              items:
+                - name: Tworzenie galerii
+                  href: ../linux/shared-images.md
+                - name: Tworzenie obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-cli.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-cli.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-cli.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-cli.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-cli.md
+            - name: Portal
+              items:
+                - name: 'Tworzenie galerii, obrazu i maszyny wirtualnej'
+                  href: shared-images-portal.md
+            - name: Szablony usługi Resource Manager
+              items:
+                - name: Tworzenie galerii obrazów udostępnionych
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Tworzenie definicji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Tworzenie wersji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Rozwiązywanie problemów z obrazami udostępnionymi
               href: troubleshooting-shared-images.md
         - name: Konstruktor obrazów (wersja zapoznawcza)

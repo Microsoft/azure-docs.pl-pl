@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133482"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598372"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funkcje zdefiniowane przez użytkownika w Azure Stream Analytics
 
@@ -47,6 +47,9 @@ Azure Stream Analytics nie zachowuje rekordu wszystkich wywołań funkcji i zwra
 
 Wszystkie błędy środowiska uruchomieniowego są uznawane za krytyczne i są rozłączone za poorednictwem dzienników aktywności i zasobów. Zaleca się, aby funkcja obsługiwała wszystkie wyjątki i błędy i zwracała prawidłowy wynik do zapytania. Uniemożliwi to przechodzenie zadania do [stanu zakończonego niepowodzeniem](job-states.md).  
 
+## <a name="exception-handling"></a>Obsługa wyjątków
+
+Każdy wyjątek podczas przetwarzania danych jest uznawany za krytyczny błąd podczas używania danych w Azure Stream Analytics. Funkcje zdefiniowane przez użytkownika mają wyższy potencjał do zgłaszania wyjątków i spowodowania zatrzymania przetwarzania. Aby uniknąć tego problemu, należy użyć bloku *try-catch* w języku JavaScript lub C# do przechwytywania wyjątków podczas wykonywania kodu. Przechwycone wyjątki mogą być rejestrowane i traktowane bez powodowania awarii systemu. Zaleca się, aby zawsze otoczyć niestandardowy kod w bloku *try-catch* , aby uniknąć zgłaszania nieoczekiwanych wyjątków do aparatu przetwarzania.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -54,4 +57,3 @@ Wszystkie błędy środowiska uruchomieniowego są uznawane za krytyczne i są r
 * [Azure Stream Analytics kodu JavaScript zdefiniowanych przez użytkownika](stream-analytics-javascript-user-defined-aggregates.md)
 * [Opracowywanie .NET Standard funkcji zdefiniowanych przez użytkownika dla zadań Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
 * [Integracja Azure Stream Analytics z usługą Azure Machine Learning](machine-learning-udf.md)
-

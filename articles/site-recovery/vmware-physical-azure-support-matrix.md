@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185799"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801794"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -128,7 +128,9 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 
 **Release** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Obsługiwane są wszystkie jądra systemu SUSE 15 i 15. </br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure
+SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Systemy plików Linux/magazyn gościa
 
@@ -223,7 +225,7 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla systemu Windows Server 2012 l
 |Rozmieszczanie w trybie offline        |   Nie      |
 | Azure Data Box | Nie
 
-## <a name="azure-storage"></a>Usługa Azure Storage
+## <a name="azure-storage"></a>Azure Storage
 
 **Składnik** | **Obsługiwał**
 --- | ---

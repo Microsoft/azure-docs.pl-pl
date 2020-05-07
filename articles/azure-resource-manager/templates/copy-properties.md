@@ -3,12 +3,12 @@ title: Definiowanie wielu wystąpień właściwości
 description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wielokrotnie podczas tworzenia właściwości w zasobie.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81391337"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583407"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteracja właściwości w szablonach ARM
 
@@ -16,7 +16,7 @@ W tym artykule pokazano, jak utworzyć więcej niż jedno wystąpienie właściw
 
 Możesz również używać kopiowania z [zasobami](copy-resources.md), [zmiennymi](copy-variables.md)i [wyjściami](copy-outputs.md).
 
-## <a name="property-iteration"></a>Iteracja właściwości
+## <a name="syntax"></a>Składnia
 
 Element Copy ma następujący format ogólny:
 
@@ -35,6 +35,21 @@ W polu **Nazwa**Podaj nazwę właściwości zasobu, którą chcesz utworzyć.
 Właściwość **Count** określa liczbę iteracji dla właściwości.
 
 Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** .
+
+## <a name="copy-limits"></a>Limity kopiowania
+
+Liczba nie może przekraczać 800.
+
+Liczba nie może być liczbą ujemną. Może to być zero, jeśli szablon zostanie wdrożony przy użyciu najnowszej wersji interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. W tym celu należy użyć:
+
+* Azure PowerShell **2,6** lub nowszy
+* Interfejs wiersza polecenia platformy Azure **2.0.74** lub nowszy
+* Interfejs API REST w wersji **2019-05-10** lub nowszej
+* [Połączone wdrożenia](linked-templates.md) muszą używać interfejsu API w wersji **2019-05-10** lub nowszej dla typu zasobu wdrożenia
+
+We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
+
+## <a name="property-iteration"></a>Iteracja właściwości
 
 Poniższy przykład pokazuje, jak zastosować `copy` do właściwości datadisks na maszynie wirtualnej:
 
@@ -232,12 +247,6 @@ Iteracji zasobów i właściwości można używać razem. Odwołuje się do iter
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limity kopiowania
-
-Liczba nie może przekraczać 800.
-
-Liczba nie może być liczbą ujemną. Jeśli szablon jest wdrażany z Azure PowerShell 2,6 lub nowszym, interfejs wiersza polecenia platformy Azure 2.0.74 lub nowszy albo interfejs API REST w wersji **2019-05-10** lub nowszej, można ustawić liczbę na zero. We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
 
 ## <a name="example-templates"></a>Przykładowe szablony
 

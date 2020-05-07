@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458285"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787145"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Programowe skalowanie klastra Service Fabricowego 
 
-Klastry Service Fabric działające na platformie Azure są oparte na zestawach skalowania maszyn wirtualnych.  [Skalowanie klastra](./service-fabric-cluster-scale-up-down.md) opisuje, jak klastry Service Fabric mogą być skalowane ręcznie lub przy użyciu reguł skalowania automatycznego. W tym artykule opisano sposób zarządzania poświadczeniami i skalowania klastra do lub z użyciem usługi Azure COMPUTE SDK, która jest bardziej zaawansowanym scenariuszem. Aby zapoznać się z omówieniem, zapoznaj się [z programowanymi metodami koordynacji operacji skalowania platformy Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Klastry Service Fabric działające na platformie Azure są oparte na zestawach skalowania maszyn wirtualnych.  [Skalowanie klastra](./service-fabric-cluster-scale-in-out.md) opisuje, jak klastry Service Fabric mogą być skalowane ręcznie lub przy użyciu reguł skalowania automatycznego. W tym artykule opisano sposób zarządzania poświadczeniami i skalowania klastra do lub z użyciem usługi Azure COMPUTE SDK, która jest bardziej zaawansowanym scenariuszem. Aby zapoznać się z omówieniem, zapoznaj się [z programowanymi metodami koordynacji operacji skalowania platformy Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Aby rozpocząć implementowanie własnej logiki automatycznego skalowania, zapoznaj się z następującymi pojęciami i przydatnymi interfejsami API:
 
-- [Skalowanie ręczne lub przy użyciu reguł skalowania automatycznego](./service-fabric-cluster-scale-up-down.md)
+- [Skalowanie ręczne lub przy użyciu reguł skalowania automatycznego](./service-fabric-cluster-scale-in-out.md)
 - [Biblioteki zarządzania systemu Azure Fluent dla platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (przydatne do współdziałania z podstawowymi zestawami skalowania maszyn wirtualnych w klastrze Service Fabric)
 - [System. Fabric. FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (przydatny do współpracy z klastrem Service Fabric i jego węzłami)

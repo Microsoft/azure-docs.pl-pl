@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Adviso
 description: Użyj klasyfikatora, aby zoptymalizować wydajność wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443052"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787944"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -28,6 +28,10 @@ Usługa Advisor zapewnia spójny, skonsolidowany widok zaleceń dotyczących wsz
 > Aby uzyskać zalecenia, baza danych musi mieć co tydzień użytkowania i w tym tygodniu musi mieć pewne spójne działanie. SQL Database Advisor można łatwo zoptymalizować dla spójnych wzorców zapytań niż w przypadku losowych obciążeń aktywności.
 
 Aby uzyskać więcej informacji na temat SQL Database Advisor, zobacz [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Uaktualnij bibliotekę klienta usługi Storage do najnowszej wersji, aby uzyskać większą niezawodność i wydajność
+
+Najnowsza wersja biblioteki klienta usługi Storage i zestawu SDK zawiera poprawki do problemów raportowanych przez klientów i proaktywnie identyfikowanych w naszym procesie pytań i odpowiedzi. Najnowsza wersja zawiera również optymalizację niezawodności i wydajności, a także nowe funkcje, które mogą ulepszyć ogólne środowisko pracy z usługą Azure Storage. Doradca zawiera zalecenia i kroki umożliwiające uaktualnienie do najnowszej wersji zestawu SDK, jeśli używasz starej wersji. Zalecenia dotyczą języków obsługiwanych w języku C++ i .NET.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Zwiększ wydajność i niezawodność App Service
 
@@ -73,6 +77,26 @@ Migruj model wdrażania konta magazynu do Azure Resource Manager (Menedżer zaso
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Zaprojektuj konta magazynu, aby zapobiec osiągnięciu maksymalnego limitu subskrypcji
 
 Region świadczenia usługi Azure może obsłużyć maksymalnie 250 kont magazynu na subskrypcję. Po osiągnięciu limitu nie będzie można utworzyć więcej kont magazynu w ramach tej kombinacji regionu/subskrypcji. Doradca sprawdzi Twoje subskrypcje i zalecenia dotyczące powierzchni, aby zaprojektować mniejszą liczbę kont magazynu dla dowolnego miejsca, które zbliżają się do maksymalnego limitu.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu uzyskania P2Sego użycia
+
+Każda jednostka SKU bramy może obsługiwać tylko określoną liczbę współbieżnych połączeń P2S. Jeśli liczba połączeń zbliża się do limitu bramy, to dodatkowe próby połączenia mogą zakończyć się niepowodzeniem. Zwiększenie rozmiaru bramy umożliwi obsługę większej liczby współbieżnych użytkowników P2S. Doradca zawiera rekomendacje i kroki, które należy wykonać, aby to zrobić.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu rozwiązania wysokiego procesora CPU
+
+W przypadku dużego obciążenia ruchem bramy sieci VPN może porzucić pakiety ze względu na wysoki procesor CPU. Należy rozważyć uaktualnienie VPN Gateway jednostki SKU, ponieważ sieć VPN była stale uruchomiona w systemie. Zwiększenie rozmiaru bramy sieci VPN zapewni, że połączenia nie zostaną usunięte ze względu na wysoki procesor CPU. Zalecenie provdes doradcy, aby rozwiązać ten problem. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Zwiększenie rozmiaru partii podczas ładowania w celu zmaksymalizowania przepływności ładowania, kompresji danych i wydajności zapytań
+
+Klasyfikator może wykryć, że można zwiększyć wydajność ładowania i przepływność przez zwiększenie rozmiaru partii podczas ładowania do bazy danych. Można rozważyć użycie instrukcji COPY. Jeśli nie można użyć instrukcji COPY, rozważ zwiększenie rozmiaru partii podczas korzystania z narzędzi do ładowania, takich jak interfejs API SQLBulkCopy lub BCP-Dobra reguła kciuka to rozmiar wsadu między 100 000 do 1M wierszy. Spowoduje to zwiększenie przepływności obciążenia, kompresji danych i wydajności zapytań.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Lokalizowanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
+
+Klasyfikator może wykryć, że ładujesz z regionu innego niż Pula SQL. Należy rozważyć ładowanie z konta magazynu znajdującego się w tym samym regionie co Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Pomoże to zminimalizować opóźnienia i zwiększyć wydajność ładowania.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>Wykryto nieobsługiwaną wersję Kubernetes
+
+Klasyfikator może wykryć, czy wykryto nieobsługiwaną wersję Kubernetes. Zalecenie pomoże zapewnić, że klaster Kubernetes będzie działać z obsługiwaną wersją.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optymalizacja wydajności serwerów Azure MySQL, Azure PostgreSQL i Azure MariaDB 
 

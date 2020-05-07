@@ -69,6 +69,8 @@
       href: powershell-samples.md
 - name: Pojęcia
   items:
+    - name: Obrazy
+      href: shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiony
@@ -457,17 +459,64 @@
         - name: Tworzenie alertów dotyczących dzienników
           href: ../../azure-monitor/platform/alerts-log.md
     - name: Korzystanie z obrazów
+      displayName: 'SIG, AMI, image'
       items:
-        - name: Udostępnione galerie obrazów
+        - name: Galerie obrazów udostępnionych
           items:
-            - name: Omówienie
-              href: shared-image-galleries.md
             - name: Interfejs wiersza polecenia
-              href: shared-images.md
+              items:
+                - name: Tworzenie galerii
+                  href: ../shared-images-cli.md
+                - name: Tworzenie obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-cli.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-cli.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-cli.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-cli.md
+                - name: Rejestracja aplikacji na potrzeby udostępniania
+                  href: share-images-across-tenants.md
+            - name: PowerShell
+              items:
+                - name: Tworzenie galerii
+                  href: ../shared-images-powershell.md
+                - name: Tworzenie wersji obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-powershell.md
             - name: Portal
-              href: shared-images-portal.md
-            - name: Rejestracja aplikacji na potrzeby udostępniania
-              href: share-images-across-tenants.md
+              items:
+                - name: 'Tworzenie galerii, obrazu i maszyny wirtualnej'
+                  href: shared-images-portal.md
+            - name: Szablony usługi Resource Manager
+              items:
+                - name: Tworzenie galerii obrazów udostępnionych
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Tworzenie definicji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Tworzenie wersji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Rozwiązywanie problemów z obrazami udostępnionymi
               href: troubleshooting-shared-images.md
         - name: Konstruktor obrazów (wersja zapoznawcza)
@@ -544,9 +593,9 @@
         - name: Terraform
           items:
             - name: Instalowanie i konfigurowanie
-              href: ../../terraform/terraform-install-configure.md
+              href: /azure/developer/terraform/install-configure
             - name: Tworzenie pełnej maszyny wirtualnej
-              href: ../../terraform/terraform-create-complete-vm.md
+              href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
         - name: Cloud-init
           items:
             - name: Omówienie pakietu cloud-init
@@ -564,14 +613,14 @@
             - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: /azure/developer/jenkins/overview.md
+          href: /azure/developer/jenkins/overview
           items:
             - name: Tworzenie serwera Jenkins
-              href: /azure/developer/jenkins/configure-on-linux-vm.md
+              href: /azure/developer/jenkins/configure-on-linux-vm
             - name: Skalowanie przy użyciu agentów maszyn wirtualnych
-              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents
             - name: Publikowanie artefaktów w usłudze Storage
-              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
             - name: Zabezpieczanie usługi Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Uruchamianie kontenerów

@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych systemu Windo
 description: W tym artykule dowiesz się, jak używać programu PowerShell do konfigurowania Azure Backup w systemie Windows Server lub kliencie systemu Windows oraz zarządzania kopiami zapasowymi i odzyskiwaniem.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193024"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597981"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 Dane kopii zapasowej wysyłane do Azure Backup są szyfrowane w celu ochrony poufności danych. Hasło szyfrowania to "hasło" do odszyfrowania danych w momencie przywracania.
 
-Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze**Właściwości** >  **Ustawienia** > **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal. Następnie użyj tego polecenia jako `generatedPIN` w poleceniu:
+Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze**Właściwości** >  **Ustawienia** > **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal. 
+
+>[!NOTE]
+> KOD PIN zabezpieczeń można wygenerować tylko za pośrednictwem Azure Portal.
+
+Następnie użyj tego polecenia jako `generatedPIN` w poleceniu:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

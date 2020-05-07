@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76314763"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610976"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Kompleksowe rozwiązywanie problemów przy użyciu metryk i rejestrowania usługi Azure Storage, narzędzia AzCopy i narzędzia Message Analyzer
 
@@ -161,7 +161,7 @@ Analizator komunikatów zawiera zasoby dla usługi Azure Storage, które ułatwi
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Pobieranie i Instalowanie programu Message Analyzer oraz zasobów usługi Azure Storage
 
-1. Pobierz [Analizator komunikatów](https://www.microsoft.com/download/details.aspx?id=44226) z centrum pobierania Microsoft, a następnie uruchom Instalatora.
+1. Pobierz [Analizator komunikatów](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Uruchom Analizator komunikatów.
 3. W menu **Narzędzia** wybierz pozycję **Menedżer zasobów**. W oknie dialogowym **Menedżer zasobów** wybierz pozycję **pliki do pobrania**, a następnie odfiltruj w **usłudze Azure Storage**. Zostaną wyświetlone zasoby usługi Azure Storage, jak pokazano na poniższej ilustracji.
 4. Kliknij pozycję **Synchronizuj wszystkie wyświetlane elementy** , aby zainstalować zasoby usługi Azure Storage. Dostępne są następujące zasoby:
@@ -311,14 +311,14 @@ Teraz, gdy wiesz już, jak używać analizatora komunikatów do analizowania dan
 | Nieoczekiwane opóźnienia w dostarczaniu komunikatów w kolejce |AzureStorageClientDotNetV4. Description zawiera "ponawianie nieudanej operacji". |Klient |
 | Zwiększenie HTTP w wzrost percentthrottlingerror |Protokoły. Response. StatusCode = = 500 &#124;&#124; HTTP. Odpowiedź. StatusCode = = 503 |Sieć |
 | Zwiększ w wzrost percenttimeouterror |Protokoły. Odpowiedź. StatusCode = = 500 |Sieć |
-| Zwiększ w wzrost percenttimeouterror (wszystko) |* StatusCode = = 500 |Wszystkie |
+| Zwiększ w wzrost percenttimeouterror (wszystko) |* StatusCode = = 500 |Wszyscy |
 | Zwiększ w wzrost percentnetworkerror |AzureStorageClientDotNetV4. EventLogEntry. Level < 2 |Klient |
 | Komunikaty HTTP 403 (Zabronione) |Protokoły. Odpowiedź. StatusCode = = 403 |Sieć |
 | Komunikaty HTTP 404 (Nie znaleziono) |Protokoły. Odpowiedź. StatusCode = = 404 |Sieć |
-| 404 (wszystkie) |* StatusCode = = 404 |Wszystkie |
+| 404 (wszystkie) |* StatusCode = = 404 |Wszyscy |
 | Problem z autoryzacją sygnatury dostępu współdzielonego |AzureStorageLog. stanem żądania = = "SASAuthorizationError" |Sieć |
 | Komunikaty HTTP 409 (Konflikt) |Protokoły. Odpowiedź. StatusCode = = 409 |Sieć |
-| 409 (wszystkie) |* StatusCode = = 409 |Wszystkie |
+| 409 (wszystkie) |* StatusCode = = 409 |Wszyscy |
 | Niskie PercentSuccess lub wpisy dziennika analizy zawierają operacje ze stanem transakcji ClientOtherErrors |AzureStorageLog. stanem żądania = = "ClientOtherError" |Serwer |
 | Ostrzeżenie nagle |((AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS) > (AzureStorageLog. ServerLatencyMS * 1,5)) oraz (AzureStorageLog. RequestPacketSize <1460) i (AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS >= 200) |Serwer |
 | Zakres czasu w dziennikach serwera i sieci |#Timestamp >= 2014-10-20T16:36:38 i #Timestamp <= 2014-10-20T16:36:39 |Serwer, Sieć |
@@ -329,7 +329,7 @@ Teraz, gdy wiesz już, jak używać analizatora komunikatów do analizowania dan
 Aby uzyskać więcej informacji na temat rozwiązywania problemów z kompleksowym scenariuszem w usłudze Azure Storage, zobacz następujące zasoby:
 
 * [Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
-* [analityka magazynu](https://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Analityka magazynu](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorowanie konta magazynu w witrynie Azure Portal](storage-monitor-storage-account.md)
 * [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
 * [Instrukcja obsługi narzędzia Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)

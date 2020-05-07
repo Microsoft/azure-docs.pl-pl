@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885756"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583246"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-Aby zapewnić wyższy poziom zabezpieczeń, Notification Hubs spowoduje wyłączenie obsługi protokołu TLS w wersji 1,0 i 1,1 31 maja 2020 (rozszerzone od 30 kwietnia 2020). Te starsze protokoły zapewniają słabą kryptografię i są narażone na ataki BEAST i POODLE. Ta zmiana nie ma wpływu na aplikacje wdrożone na urządzeniach z systemem Android w wersji 5 lub nowszej lub iOS w wersji 5 lub nowszej, ponieważ te systemy operacyjne obsługują protokół TLS 1,2, a klient i serwer negocjują największą wzajemnie obsługiwaną wersję protokołu po nawiązaniu połączenia.
+Aby zapewnić wyższy poziom zabezpieczeń, Notification Hubs spowoduje wyłączenie obsługi protokołu TLS w wersji 1,0 i 1,1 w dniu **31 grudnia 2020** (przedłużony od 30 kwietnia 2020). Te starsze protokoły zapewniają słabą kryptografię i są narażone na ataki BEAST i POODLE. Ta zmiana nie ma wpływu na aplikacje wdrożone na urządzeniach z systemem Android w wersji 5 lub nowszej lub iOS w wersji 5 lub nowszej, ponieważ te systemy operacyjne obsługują protokół TLS 1,2, a klient i serwer negocjują największą wzajemnie obsługiwaną wersję protokołu po nawiązaniu połączenia.
 
 Zalecamy zapoznanie się ze wszystkimi aplikacjami korzystającymi z usługi Azure Notification Hubs, aby upewnić się, że korzystają z najbardziej odpowiednich bibliotek i stosów protokołu TLS, które obsługują protokół TLS 1,2.
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak monitorować aplikacje w Azure App Service przy u
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181226"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738103"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -36,7 +36,7 @@ Przydziały dla aplikacji bezpłatnych lub udostępnionych:
 | **PROCESOR (krótki)** | Ilość procesora CPU dozwolona dla tej aplikacji w interwale 5-minutowym. Ten przydział resetuje co pięć minut. |
 | **PROCESOR (dzień)** | Całkowita ilość procesora CPU dozwolona dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
 | **Rozmiar** | Całkowita ilość pamięci dozwolonej dla tej aplikacji. |
-| **Przepustowość** | Całkowita ilość wychodzącej przepustowości dozwolonej dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
+| **Szerokość pasma** | Całkowita ilość wychodzącej przepustowości dozwolonej dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
 | **Filesystem** | Łączna ilość dozwolonego miejsca w magazynie. |
 
 Jedynym przydziałem stosowanym dla aplikacji hostowanych w warstwach *podstawowa*, *standardowa*i *Premium* jest system plików.
@@ -49,7 +49,7 @@ Jeśli aplikacja przekroczy *procesor (krótki)*, *procesor (dzień)* lub limit 
 
 ![komunikat o błędzie 403][http403]
 
-W przypadku przekroczenia limitu przydziału pamięci aplikacji aplikacja zostanie uruchomiona ponownie.
+W przypadku przekroczenia limitu przydziału pamięci aplikacji aplikacja zostanie zatrzymana tymczasowo.
 
 W przypadku przekroczenia limitu przydziału systemu plików operacja zapisu nie powiedzie się. Błędy operacji zapisu obejmują wszystkie zapisy w dziennikach.
 
@@ -131,8 +131,7 @@ Istnieją dwie metryki odzwierciedlające użycie procesora CPU:
 **Procent użycia procesora CPU**: przydatne w przypadku aplikacji hostowanych w planach Basic, standard i Premium, ponieważ mogą one być skalowane w poziomie. Wartość procentowa procesora CPU jest dobrym wskaźnikiem ogólnego użycia we wszystkich wystąpieniach.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Zasady szczegółowości i przechowywania metryk
-
-Metryki dla aplikacji i planu usługi App Service są rejestrowane i agregowane przez usługę. Metryki są przechowywane przez 90 dni.
+Metryki dla aplikacji i planu usługi App Service są rejestrowane i agregowane przez usługę i [przechowywane zgodnie z tymi regułami](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitorowanie przydziałów i metryk w Azure Portal
 Aby sprawdzić stan różnych przydziałów i metryk, które mają wpływ na aplikację, przejdź do [Azure Portal](https://portal.azure.com).

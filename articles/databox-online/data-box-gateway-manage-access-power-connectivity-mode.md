@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474445"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561341"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Zarządzanie dostępem, możliwością i trybem łączności dla Azure Data Box Gateway
 
-W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Data Box Gateway. Te operacje są wykonywane za pośrednictwem lokalnego interfejsu użytkownika sieci Web lub Azure Portal.
+W tym artykule opisano sposób zarządzania dostępem, możliwością i trybem łączności dla Azure Data Box Gateway. Te operacje są wykonywane za pośrednictwem lokalnego interfejsu użytkownika sieci Web lub Azure Portal. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -56,16 +56,16 @@ Resetowanie przepływu pracy nie wymaga od użytkownika odwoływania starego has
 
 ## <a name="manage-resource-access"></a>Zarządzenie dostępem do zasobów
 
-Aby utworzyć zasób Data Box Edge/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage, musisz mieć uprawnienia jako współautor lub wyższy na poziomie grupy zasobów. Wymagane są także odpowiednie dostawcy zasobów do zarejestrowania. W przypadku wszelkich operacji, które obejmują klucz aktywacji i poświadczenia, wymagane są również uprawnienia do Azure Active Directory interfejs API programu Graph. Opisano je w poniższych sekcjach.
+Aby utworzyć Azure Stack krawędź/Data Box Gateway, IoT Hub i zasób usługi Azure Storage, musisz mieć uprawnienia jako współautor lub wyższe na poziomie grupy zasobów. Wymagane są także odpowiednie dostawcy zasobów do zarejestrowania. W przypadku wszelkich operacji, które obejmują klucz aktywacji i poświadczenia, wymagane są również uprawnienia do Azure Active Directory interfejs API programu Graph. Opisano je w poniższych sekcjach.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Zarządzanie uprawnieniami interfejsu API Microsoft Graph
 
-Podczas generowania klucza aktywacji dla urządzenia Data Box Edge lub wykonywania żadnych operacji wymagających poświadczeń wymagane są uprawnienia do Microsoft Graph interfejsu API. Operacje, które wymagają poświadczeń, mogą być następujące:
+Podczas generowania klucza aktywacji dla urządzenia brzegowego Azure Stack lub wykonywania wszelkich operacji wymagających poświadczeń wymagane są uprawnienia do Microsoft Graph interfejsu API. Operacje, które wymagają poświadczeń, mogą być następujące:
 
 -  Tworzenie udziału ze skojarzonym kontem magazynu.
 -  Tworzenie użytkownika, który może uzyskiwać dostęp do udziałów na urządzeniu.
 
-Musisz mieć `User` dostęp do Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects`. Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień `Read all directory objects`do programu. Jeśli jesteś gościem, niektóre operacje, takie jak generowanie klucza aktywacji, tworzenie udziału na urządzeniu Data Box Edge i tworzenie użytkownika, zakończą się niepowodzeniem.
+Musisz mieć `User` dostęp do Active Directory dzierżawy, ponieważ musisz mieć możliwość `Read all directory objects`. Nie możesz być użytkownikiem-gościem, ponieważ nie ma uprawnień `Read all directory objects`do programu. Jeśli jesteś gościem, operacje takie jak generacja klucza aktywacji, utworzenie udziału na urządzeniu Azure Stack Edge spowoduje niepowodzenie tworzenia użytkownika.
 
 Aby uzyskać więcej informacji na temat zapewniania dostępu użytkownikom do Microsoft Graph interfejsu API, zobacz [Microsoft Graph informacje o uprawnieniach](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -88,7 +88,7 @@ Aby uzyskać listę zarejestrowanych dostawców zasobów w bieżącej subskrypcj
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-W przypadku urządzenia Data Box Edge `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować `Microsoft.DataBoxEdge`się, administrator subskrypcji powinien uruchomić następujące polecenie:
+W przypadku Azure Stack urządzenia brzegowego `Microsoft.DataBoxEdge` należy zarejestrować. Aby zarejestrować `Microsoft.DataBoxEdge`się, administrator subskrypcji powinien uruchomić następujące polecenie:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

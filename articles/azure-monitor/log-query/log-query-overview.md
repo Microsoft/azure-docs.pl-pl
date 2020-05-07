@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670121"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591656"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Przegląd zapytań dzienników w Azure Monitor
 Zapytania dzienników ułatwiają całkowite wykorzystanie wartości danych zebranych w [dziennikach Azure monitor](../platform/data-platform-logs.md). Zaawansowany język zapytań umożliwia sprzęganie danych z wielu tabel, agregowanie dużych zestawów danych i wykonywanie złożonych operacji przy minimalnym kodzie. Niemal każde pytanie może być odpowiedzią i analizą wykonywaną, o ile dane pomocnicze zostały zebrane, i zrozumieć, jak utworzyć odpowiednie zapytanie.
@@ -81,7 +81,7 @@ Log Analytics to podstawowe narzędzie w Azure Portal do zapisywania zapytań dz
 Log Analytics można uruchomić z kilku miejsc w Azure Portal. Zakres danych dostępnych do Log Analytics jest określany na podstawie sposobu jego uruchomienia. Aby uzyskać więcej informacji, zobacz [zakres zapytań](scope.md) .
 
 - Wybierz pozycję **dzienniki** z menu **Azure monitor** lub **log Analytics obszary robocze** .
-- Wybierz pozycję **Analiza** na stronie **Przegląd** aplikacji Application Insightsowej.
+- Wybierz pozycję **dzienniki** na stronie **Przegląd** aplikacji Application Insights.
 - Wybierz pozycję **dzienniki** z menu zasobu platformy Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)
