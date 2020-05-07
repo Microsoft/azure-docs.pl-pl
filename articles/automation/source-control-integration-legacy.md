@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dcadfcb4c2f8e6bc371b0a70b917c8c1e218fba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b990db39ffe0623b50a2cfc728da61bc51bdd4da
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679509"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855341"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integracja kontroli źródła w programie Azure Automation — Starsza wersja
 
@@ -38,7 +38,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
 2. Zostanie otwarta strona kontrola źródła, w której można skonfigurować szczegóły konta usługi GitHub. Poniżej znajduje się lista parametrów do skonfigurowania:  
 
-   | **Konstruktora** | **Opis** |
+   | **Parametr** | **Opis** |
    |:--- |:--- |
    | Wybieranie źródła |Wybierz źródło. Obecnie obsługiwane są tylko usługi **GitHub** . |
    | Autoryzacja |Kliknij przycisk **Autoryzuj** , aby udzielić Azure Automation dostępu do repozytorium GitHub. Jeśli użytkownik jest już zalogowany do konta usługi GitHub w innym oknie, zostaną użyte poświadczenia tego konta. Po pomyślnym uwierzytelnieniu na stronie zostanie wyświetlona nazwa użytkownika usługi GitHub w obszarze **Właściwości autoryzacji**. |
@@ -60,7 +60,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
    * Zmienna **Microsoft. Azure. Automation. SourceControl. Connection** zawiera wartości parametrów połączenia, jak pokazano poniżej.  
 
-     | **Konstruktora** | **Wartościami** |
+     | **Parametr** | **Wartość** |
      |:--- |:--- |
      | `Name`  |Microsoft. Azure. Automation. SourceControl. Connection |
      | `Type`  |String |
@@ -68,7 +68,7 @@ Jeśli masz już konto usługi GitHub i repozytorium, do którego chcesz utworzy
 
    * Zmienna **Microsoft. Azure. Automation. SourceControl. OAuthToken**zawiera bezpieczną zaszyfrowaną wartość OAuthToken.  
 
-     |**Konstruktora**            |**Wartościami** |
+     |**Parametr**            |**Wartość** |
      |:---|:---|
      | `Name`  | `Microsoft.Azure.Automation.SourceControl.OAuthToken` |
      | `Type`  | `Unknown(Encrypted)` |
@@ -102,7 +102,7 @@ Zaewidencjonowanie elementu Runbook umożliwia wypchnięcie zmian wprowadzonych 
    > [!NOTE]
    > Elementy Runbook kontroli źródła są specjalnymi elementami Runbook automatyzacji, których nie można wyświetlić ani edytować. Chociaż nie są wyświetlane na liście elementów Runbook, na liście zadań wyświetlane są zadania synchronizacji.
 
-5. Nazwa zmodyfikowanego elementu Runbook jest wysyłana jako parametr wejściowy dla zaewidencjonowanych elementów Runbook. [Szczegóły zadania można wyświetlić](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) , rozwijając element Runbook na stronie synchronizacji repozytorium.  
+5. Nazwa zmodyfikowanego elementu Runbook jest wysyłana jako parametr wejściowy dla zaewidencjonowanych elementów Runbook. [Szczegóły zadania można wyświetlić](automation-runbook-execution.md#job-statuses) , rozwijając element Runbook na stronie synchronizacji repozytorium.  
 
     ![Okno pokazujące dane wejściowe dla zadania synchronizacji](media/source-control-integration-legacy/automation-CheckinInput.png)
 6. Odśwież repozytorium GitHub po zakończeniu zadania, aby wyświetlić zmiany.  W repozytorium powinno być dostępne zatwierdzenie: **Zaktualizowano *nazwę elementu Runbook* w Azure Automation.**  

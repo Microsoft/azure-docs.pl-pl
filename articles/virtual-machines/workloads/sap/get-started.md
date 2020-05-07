@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb1dba32ed2e913268a9fc37f37ab8cec360c5de
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147743"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858425"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -111,6 +111,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 05/05/2020: zmiany [dotyczące planowania i implementacji usługi Azure Virtual Machines dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) w celu wyrażenia, że wdrożenia Gen2 są dostępne dla Mv1 rodziny maszyn wirtualnych
 - 04/24/2020: zmiany w [SAP HANA skalowanie w poziomie z aktywnym węzłem na maszynach wirtualnych platformy Azure z usługą ANF na SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), w [SAP HANA skalowanie w poziomie z węzłem gotowości](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)na maszynach wirtualnych platformy Azure z ANF na RHEL, [wysokiej dostępności dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) na maszynach wirtualnych platformy Azure na SLES z ANF i [wysoką dostępność dla SAP NetWeaver na maszynach](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) wirtualnych platformy Azure w RHEL
 - 04/22/2020: Zmień [wysoką dostępność SAP HANA na maszynach wirtualnych platformy Azure w usłudze SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) , aby `is-managed` usunąć atrybut meta z instrukcji, ponieważ powoduje to konflikt z umieszczeniem klastra w trybie konserwacji lub z niego
 - 04/21/2020: dodano usługę SQL Azure DB jako obsługiwaną w systemie DBMS dla oprogramowania SAP (Hybris) Commerce platform 1811 i nowszych w artykułach [jakie oprogramowanie SAP jest obsługiwane przez wdrożenia platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) oraz [Certyfikaty i konfiguracje SAP działające w systemie Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

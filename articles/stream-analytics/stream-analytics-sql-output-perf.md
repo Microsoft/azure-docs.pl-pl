@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443602"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839117"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
 
@@ -24,7 +24,7 @@ Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomó
 
 ## <a name="azure-stream-analytics"></a>Usługa Azure Stream Analytics
 
-- **Dziedzicz partycjonowanie** — ta opcja konfiguracji danych wyjściowych SQL umożliwia dziedziczenie schematu partycjonowania poprzedniego kroku zapytania lub danych wejściowych. Dzięki temu można zapisywać dane w tabeli opartej na dyskach i mieć w [pełni równoległą](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologię dla danego zadania, co pozwala na wyświetlanie większej przepływności. Takie partycjonowanie jest już automatycznie wykonywane dla wielu innych danych [wyjściowych](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Blokowanie tabeli (TABLOCK) jest również wyłączone dla operacji wstawiania zbiorczego z tą opcją.
+- **Dziedzicz partycjonowanie** — ta opcja konfiguracji danych wyjściowych SQL umożliwia dziedziczenie schematu partycjonowania poprzedniego kroku zapytania lub danych wejściowych. Dzięki temu można zapisywać dane w tabeli opartej na dyskach i mieć w [pełni równoległą](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologię dla danego zadania, co pozwala na wyświetlanie większej przepływności. Takie partycjonowanie jest już automatycznie wykonywane dla wielu innych danych [wyjściowych](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Blokowanie tabeli (TABLOCK) jest również wyłączone dla operacji wstawiania zbiorczego z tą opcją.
 
 > [!NOTE] 
 > Jeśli istnieje więcej niż 8 partycji wejściowych, dziedziczenie schematu partycjonowania danych wejściowych może nie być odpowiednią opcją. Ten górny limit został zaobserwowany w tabeli z kolumną o pojedynczej tożsamości i indeksem klastrowanym. W takim przypadku Rozważ użycie [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 w zapytaniu, aby jawnie określić liczbę składników zapisywania danych wyjściowych. W oparciu o schemat i wybór indeksów Twoje uwagi mogą się różnić.

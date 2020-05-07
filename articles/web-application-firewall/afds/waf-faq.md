@@ -1,23 +1,23 @@
 ---
-title: Zapora aplikacji sieci Web platformy Azure — często zadawane pytania
+title: Zapora aplikacji sieci Web platformy Azure na platformie Azure — często zadawane pytania
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące zapory aplikacji sieci Web na platformie Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314320"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837638"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Często zadawane pytania dotyczące zapory aplikacji sieci Web platformy Azure w usłudze Azure Front-drzwiczk
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące funkcji i funkcji zapory aplikacji sieci Web (WAF) platformy Azure. 
+W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące usługi Azure Web Application Firewall (WAF) na platformie Azure i jej funkcje. 
 
 ## <a name="what-is-azure-waf"></a>Co to jest Azure WAF?
 

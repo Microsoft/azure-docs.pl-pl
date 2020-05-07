@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770387"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858354"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uaktualnij usługę Azure Internal Load Balancer — nie jest wymagane połączenie wychodzące
-[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 W tym artykule wprowadzono skrypt programu PowerShell, który tworzy usługa Load Balancer w warstwie Standardowa z taką samą konfiguracją jak podstawowa Load Balancer, a także migruje ruch z podstawowych Load Balancer do usługa Load Balancer w warstwie Standardowa.
 
@@ -33,6 +33,17 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 * Skrypt obsługuje tylko wewnętrzne uaktualnienie Load Balancer, w którym nie jest wymagane połączenie wychodzące. Jeśli wymagane jest [połączenie wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) dla niektórych maszyn wirtualnych, Skorzystaj z tej [strony](upgrade-InternalBasic-To-PublicStandard.md) , aby uzyskać instrukcje. 
 * Jeśli w innym regionie zostanie utworzony standardowy moduł równoważenia obciążenia, nie będzie możliwe skojarzenie maszyn wirtualnych istniejących w starym regionie z nowo utworzonymi usługa Load Balancer w warstwie Standardowa. Aby obejść to ograniczenie, należy utworzyć nową maszynę wirtualną w nowym regionie.
 * Jeśli Load Balancer nie ma żadnej konfiguracji adresu IP frontonu lub puli zaplecza, można napotkać błąd podczas uruchamiania skryptu. Upewnij się, że nie są puste.
+
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Zmień metodę alokacji adresu IP na statyczną dla konfiguracji adresu IP frontonu (Zignoruj ten krok, jeśli jest już statyczny)
+
+1. W menu po lewej stronie wybierz pozycję Wszystkie **usługi** , wybierz pozycję **wszystkie zasoby**, a następnie wybierz podstawową Load Balancer z listy zasoby.
+
+2. W obszarze **Ustawienia**wybierz pozycję **Konfiguracja adresu IP frontonu**, a następnie wybierz pierwszą konfigurację adresu IP frontonu. 
+
+3. W obszarze **przypisywanie**wybierz pozycję **statyczny** .
+
+4. Powtórz krok 3 dla wszystkich konfiguracji adresu IP frontonu podstawowego Load Balancer.
+
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
@@ -74,7 +85,7 @@ Aby uruchomić skrypt:
    * **newLBName: [ciąg]: wymagane** — jest to nazwa usługa Load Balancer w warstwie Standardowa, która ma zostać utworzona.
 1. Uruchom skrypt przy użyciu odpowiednich parametrów. Ukończenie tego procesu może potrwać od 5 do siedmiu minut.
 
-    **Przyklad**
+    **Przykład**
 
    ```azurepowershell
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"

@@ -3,12 +3,12 @@ title: Przechowuj wykresy Helm
 description: Dowiedz się, jak przechowywać wykresy Helm dla aplikacji Kubernetes przy użyciu repozytoriów w Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399388"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857611"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Wypychanie i ściąganie wykresów Helm do usługi Azure Container Registry
 
@@ -31,8 +31,8 @@ Można użyć Helm 3 lub Helm 2 do hostowania wykresów Helm w Azure Container R
 ### <a name="additional-information"></a>Dodatkowe informacje
 
 * W przypadku większości scenariuszy zalecamy używanie przepływu pracy Helm 3 z poleceniami `helm chart` natywnymi do zarządzania wykresami jako artefakty OCI.
-* Można użyć starszych poleceń [AZ ACR Helm][az-acr-helm] platformy Azure z interfejsem wiersza polecenia i przepływem pracy przy użyciu klienta i wykresów Helm 3. Jednak niektóre polecenia, takie jak `az acr helm list` nie są zgodne z wykresami Helm 3.
-* Od Helm 3 polecenia [AZ ACR Helm][az-acr-helm] są obsługiwane głównie w celu zapewnienia zgodności z formatem wykresu i klienta Helm 2. Przyszłe opracowywanie tych poleceń nie jest obecnie planowane.
+* Od Helm 3 polecenia [AZ ACR Helm][az-acr-helm] są obsługiwane w celu zapewnienia zgodności z formatem wykresu i klienta Helm 2. Przyszłe opracowywanie tych poleceń nie jest obecnie planowane. Zapoznaj się z [planem produktu](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
+* Wykresy Helm 2 nie mogą być wyświetlane ani zarządzane przy użyciu Azure Portal.
 
 ## <a name="use-the-helm-3-client"></a>Korzystanie z klienta Helm 3
 

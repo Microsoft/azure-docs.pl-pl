@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113457"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856737"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Install the Azure IoT Edge runtime on Windows (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemie Windows)
 
@@ -193,17 +193,21 @@ Przeanalizuj dzienniki usług z ostatnich 5 minut. Po zakończeniu instalowania 
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Uruchamiaj automatyczne sprawdzanie najbardziej typowych błędów konfiguracji i sieci.
+Uruchom [Narzędzie do rozwiązywania problemów](troubleshoot.md#run-the-check-command) , aby sprawdzić najbardziej typowe błędy konfiguracji i sieci.
 
 ```powershell
 iotedge check
 ```
 
-Wyświetl listę uruchomionych modułów. Po nowej instalacji jedynym modułem, który powinien zostać uruchomiony, jest **edgeAgent**. Po [wdrożeniu modułów IoT Edge](how-to-deploy-modules-portal.md) po raz pierwszy na urządzeniu zostanie uruchomiony inny moduł systemowy **edgeHub**.
+Do momentu wdrożenia pierwszego modułu do IoT Edge na urządzeniu moduł **$edgeHub** system nie zostanie wdrożony na urządzeniu. W związku z tym, automatyczne sprawdzanie zwróci błąd sprawdzania `Edge Hub can bind to ports on host` łączności. Ten błąd można zignorować, chyba że występuje po wdrożeniu modułu na urządzeniu.
+
+Na koniec Wyświetl listę uruchomionych modułów:
 
 ```powershell
 iotedge list
 ```
+
+Po nowej instalacji jedynym modułem, który powinien zostać uruchomiony, jest **edgeAgent**. Po [wdrożeniu modułów IoT Edge](how-to-deploy-modules-portal.md) po raz pierwszy na urządzeniu zostanie uruchomiony inny moduł systemowy **edgeHub**.
 
 ## <a name="manage-module-containers"></a>Zarządzanie kontenerami modułów
 
@@ -278,7 +282,7 @@ Polecenie Initialize-IoTEdge konfiguruje IoT Edge przy użyciu parametrów poł�
 
 | Parametr | Dopuszczalne wartości | Komentarze |
 | --------- | --------------- | -------- |
-| **Ręcznie** | Brak | **Parametr przełącznika**. Jeśli typ aprowizacji nie zostanie określony, wartość domyślna to ręczna.<br><br>Deklaruje, że podajesz parametry połączenia urządzenia, aby ręcznie zainicjować obsługę urządzenia |
+| **Ręczne** | Brak | **Parametr przełącznika**. Jeśli typ aprowizacji nie zostanie określony, wartość domyślna to ręczna.<br><br>Deklaruje, że podajesz parametry połączenia urządzenia, aby ręcznie zainicjować obsługę urządzenia |
 | **Dokumenty** | Brak | **Parametr przełącznika**. Jeśli typ aprowizacji nie zostanie określony, wartość domyślna to ręczna.<br><br>Deklaruje, że podajesz identyfikator zakresu usługi Device Provisioning Service (DPS) i Identyfikator rejestracji urządzenia, aby zapewnić obsługę administracyjną.  |
 | **DeviceConnectionString** | Parametry połączenia z urządzenia IoT Edge zarejestrowane w IoT Hub, w pojedynczym cudzysłowie | **Wymagane** do ręcznego inicjowania obsługi. Jeśli nie podano parametrów połączenia w parametrach skryptu, zostanie wyświetlony monit o podanie jednego z nich. |
 | **Identyfikatora zakresu** | Identyfikator zakresu z wystąpienia usługi Device Provisioning skojarzonej z IoT Hubem. | **Wymagane** do APROWIZACJI usługi DPS. Jeśli w parametrach skryptu nie podano identyfikatora zakresu, zostanie wyświetlony monit o podanie jednego z nich. |

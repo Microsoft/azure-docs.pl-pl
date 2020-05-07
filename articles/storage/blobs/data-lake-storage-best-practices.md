@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79c4f051318113ebe0c7e0085539d2f24405b4f9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72299660"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857884"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Najlepsze rozwiązania dotyczące korzystania z Azure Data Lake Storage Gen2
 
 Ten artykuł zawiera informacje o najlepszych rozwiązaniach i kwestiach związanych z pracą z usługą Azure Data Lake Storage Gen2. Ten artykuł zawiera informacje dotyczące zabezpieczeń, wydajności, odporności i monitorowania Data Lake Storage Gen2. Przed Data Lake Storage Gen2, praca z naprawdę dużą ilością danych w usługach, takich jak usługa Azure HDInsight, została złożona. Fragmentu dane na wielu kontach magazynu obiektów blob, dzięki czemu można osiągnąć magazyn petabajtów i optymalną wydajność w tej skali. Data Lake Storage Gen2 obsługuje pojedyncze rozmiary plików, tak jakby 5TB i większość stałych limitów wydajności został usunięty. Jednak nadal istnieją pewne zagadnienia, które opisano w tym artykule, aby uzyskać najlepszą wydajność dzięki Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Azure Data Lake Storage Gen2 oferuje funkcje kontroli dostępu w systemie POSIX dla użytkowników, grup Azure Active Directory (Azure AD) i jednostek usługi. Te kontrolki dostępu można ustawić na istniejące pliki i katalogi. Kontroli dostępu można także użyć do tworzenia uprawnień domyślnych, które mogą być automatycznie stosowane do nowych plików lub katalogów. Więcej szczegółów na temat list ACL Data Lake Storage Gen2 są dostępne w [programie w programie Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 
@@ -49,7 +49,7 @@ Podczas tworzenia architektury systemu przy użyciu Data Lake Storage Gen2 lub d
 
 ### <a name="high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii
 
-Wysoką dostępność (HA) i odzyskiwanie po awarii (DR) może być czasami połączone ze sobą, Chociaż każda z nich ma nieco inną strategię, szczególnie w przypadku, gdy zawiera dane. Data Lake Storage Gen2 już obsługuje replikację 3. pod okapem, aby chronić przed zlokalizowanymi awariami sprzętowymi. Ponadto inne opcje replikacji, takie jak ZRS lub GZRS (wersja zapoznawcza), zwiększają HA, podczas gdy GRS & RA-GRS ulepszają program DR. Podczas kompilowania planu o wysokiej dostępności w przypadku przerwania działania usługi obciążenie musi mieć dostęp do najnowszych danych tak szybko, jak to możliwe, przez przełączenie na lokalnie lub w nowym regionie.
+Wysoką dostępność (HA) i odzyskiwanie po awarii (DR) może być czasami połączone ze sobą, Chociaż każda z nich ma nieco inną strategię, szczególnie w przypadku, gdy zawiera dane. Data Lake Storage Gen2 już obsługuje replikację 3. pod okapem, aby chronić przed zlokalizowanymi awariami sprzętowymi. Ponadto inne opcje replikacji, takie jak ZRS lub GZRS, wzbogacają HA, a GRS & RA-GRS ulepszają program DR. Podczas kompilowania planu o wysokiej dostępności w przypadku przerwania działania usługi obciążenie musi mieć dostęp do najnowszych danych tak szybko, jak to możliwe, przez przełączenie na lokalnie lub w nowym regionie.
 
 W strategii odzyskiwania po awarii, aby przygotować się do mało prawdopodobnego uszkodzenia regionu, ważne jest również, aby dane były replikowane do innego regionu przy użyciu replikacji GRS lub RA-GRS. Należy również wziąć pod uwagę wymagania dotyczące przypadków granicznych, takich jak uszkodzenie danych, w przypadku których warto utworzyć okresowe migawki, aby wrócić do programu. W zależności od ważności i rozmiaru danych należy rozważyć stopniowe przyrostowe migawki z 1-, 6-i 24-godzinnego okresu, zgodnie z tolerancją ryzyka.
 

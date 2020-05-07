@@ -3,12 +3,12 @@ title: Aktualizuj grupę kontenerów
 description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kontenerów Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160106"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854451"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
 
@@ -28,7 +28,7 @@ Aby zaktualizować istniejącą grupę kontenerów:
 * Ustaw inne właściwości o podane wcześniej wartości. Jeśli nie ustawisz wartości dla właściwości, zostanie ona przywrócona do wartości domyślnej.
 
 > [!TIP]
-> [Plik YAML](/container-instances-container-groups.md#deployment) pomaga zachować konfigurację wdrożenia grupy kontenerów i zapewnia punkt wyjścia do wdrożenia zaktualizowanej grupy. Jeśli do utworzenia grupy użyto innej metody, można wyeksportować konfigurację do YAML przy użyciu polecenia [AZ Container Export][az-container-export]. 
+> [Plik YAML](container-instances-container-groups.md#deployment) pomaga zachować konfigurację wdrożenia grupy kontenerów i zapewnia punkt wyjścia do wdrożenia zaktualizowanej grupy. Jeśli do utworzenia grupy użyto innej metody, można wyeksportować konfigurację do YAML przy użyciu polecenia [AZ Container Export][az-container-export]. 
 
 ### <a name="example"></a>Przykład
 
