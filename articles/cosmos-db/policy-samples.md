@@ -1,24 +1,24 @@
 ---
-title: Lista wbudowanych definicji zasad dla Azure Cosmos DB
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Cosmos DB. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 04/30/2020
+title: Wbudowane definicje zasad dla Azure Cosmos DB
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Cosmos DB. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+ms.date: 05/05/2020
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 6e89e3ed7b5061a1b9f5ae7c200edf91a40346e5
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 0a1c9f406864e19b2125ea6e7fb6a6b2870762de
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783437"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836477"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cosmos-db"></a>Azure Policy wbudowane definicje zasad dla Azure Cosmos DB
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Cosmos DB. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

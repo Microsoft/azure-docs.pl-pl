@@ -1,50 +1,54 @@
 ---
-title: Wyeksportuj konfigurację aprowizacji i wróć do znanego dobrego stanu na potrzeby odzyskiwania po awarii. | Microsoft Docs
+title: Eksportuj konfigurację aprowizacji i przywracaj do znanego dobrego stanu na potrzeby odzyskiwania po awarii
 description: Dowiedz się, jak wyeksportować konfigurację aprowizacji i wrócić do znanego dobrego stanu na potrzeby odzyskiwania po awarii.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051312"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593764"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Eksportuj konfigurację aprowizacji i przywracaj do znanego dobrego stanu
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Porada: eksportowanie konfiguracji aprowizacji i przywracanie do znanego dobrego stanu
+
+W tym artykule dowiesz się, jak:
+
+- Wyeksportuj i zaimportuj konfigurację aprowizacji z Azure Portal
+- Eksportowanie i Importowanie konfiguracji aprowizacji za pomocą interfejsu API Microsoft Graph
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Wyeksportuj i zaimportuj konfigurację aprowizacji z Azure Portal
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Jak mogę wyeksportować moją konfigurację aprowizacji?
+### <a name="export-your-provisioning-configuration"></a>Eksportowanie konfiguracji aprowizacji
+
 Aby wyeksportować konfigurację:
+
 1. W [Azure Portal](https://portal.azure.com/)w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
-2. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** i wybierz aplikację.
-3. W okienku nawigacji po lewej stronie wybierz opcję **Inicjowanie obsługi**. Na stronie Konfiguracja aprowizacji kliknij pozycję **mapowania atrybutów**, a następnie **Wyświetl opcje zaawansowane**i **na koniec Przejrzyj schemat**. Spowoduje to przejście do Edytora schematu. 
-5. Kliknij pozycję Pobierz na pasku poleceń w górnej części strony, aby pobrać schemat.
+1. W okienku **Azure Active Directory** wybierz pozycję **aplikacje dla przedsiębiorstw** i wybierz aplikację.
+1. W okienku nawigacji po lewej stronie wybierz opcję **Inicjowanie obsługi**. Na stronie Konfiguracja aprowizacji kliknij pozycję **mapowania atrybutów**, a następnie **Wyświetl opcje zaawansowane**i **na koniec Przejrzyj schemat**. Spowoduje to przejście do Edytora schematu.
+1. Kliknij pozycję Pobierz na pasku poleceń w górnej części strony, aby pobrać schemat.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Odzyskiwanie po awarii — przywracanie do znanego dobrego stanu
-Eksportowanie i Zapisywanie konfiguracji pozwala przywrócić poprzednią wersję konfiguracji. Zalecamy eksportowanie konfiguracji aprowizacji i zapisanie jej w celu późniejszego użycia w dowolnym momencie, gdy wprowadzisz zmiany do mapowań atrybutów lub filtrów zakresu. Wystarczy otworzyć plik JSON, który został pobrany w powyższych krokach, skopiować całą zawartość pliku JSON, zastąpić całą zawartość ładunku JSON w edytorze schematu, a następnie zapisać. Jeśli istnieje aktywny cykl aprowizacji, zostanie ukończony, a następny cykl będzie korzystał ze zaktualizowanego schematu. Następny cykl będzie również cyklem wstępnym, który ponownie oblicza każdy użytkownik i grupę w oparciu o nową konfigurację. Podczas wycofywania do poprzedniej konfiguracji należy wziąć pod uwagę następujące kwestie:
-* Użytkownicy będą ponownie oceniani, aby określić, czy powinny znajdować się w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie znajduje się w zakresie, co spowoduje, że nie zostaną one wyłączone. Chociaż jest to odpowiednie zachowanie w większości przypadków, istnieją przypadki, w których może być konieczne ich uniemożliwienie i użycie funkcji [pomijania usunięć poza zakresem](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-* Zmiana konfiguracji aprowizacji powoduje ponowne uruchomienie usługi i wyzwala [cykl początkowy](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+Eksportowanie i Zapisywanie konfiguracji pozwala przywrócić poprzednią wersję konfiguracji. Zalecamy eksportowanie konfiguracji aprowizacji i zapisanie jej w celu późniejszego użycia w dowolnym momencie, gdy wprowadzisz zmiany do mapowań atrybutów lub filtrów zakresu. Wystarczy otworzyć plik JSON, który został pobrany w powyższych krokach, skopiować całą zawartość pliku JSON, zastąpić całą zawartość ładunku JSON w edytorze schematu, a następnie zapisać. Jeśli istnieje aktywny cykl aprowizacji, zostanie ukończony, a następny cykl będzie korzystał ze zaktualizowanego schematu. Następny cykl będzie również cyklem wstępnym, który ponownie oblicza każdy użytkownik i grupę w oparciu o nową konfigurację. Podczas wycofywania do poprzedniej konfiguracji należy wziąć pod uwagę następujące kwestie:
+
+- Użytkownicy będą ponownie oceniani, aby określić, czy powinny znajdować się w zakresie. Jeśli filtry zakresu zostały zmienione, użytkownik nie znajduje się w zakresie, co spowoduje, że nie zostaną one wyłączone. Chociaż jest to odpowiednie zachowanie w większości przypadków, istnieją przypadki, w których może być konieczne ich uniemożliwienie i użycie funkcji [pomijania usunięć poza zakresem](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
+- Zmiana konfiguracji aprowizacji powoduje ponowne uruchomienie usługi i wyzwala [cykl początkowy](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Eksportowanie i Importowanie konfiguracji aprowizacji za pomocą interfejsu API Microsoft Graph
-Możesz użyć interfejsu API Microsoft Graph i Eksploratora Microsoft Graph, aby wyeksportować mapowania atrybutów aprowizacji użytkowników i schemat do pliku JSON, a następnie zaimportować go z powrotem do usługi Azure AD. Możesz również użyć tutaj przechwyconych kroków, aby utworzyć kopię zapasową konfiguracji aprowizacji. 
+
+Możesz użyć interfejsu API Microsoft Graph i Eksploratora Microsoft Graph, aby wyeksportować mapowania atrybutów aprowizacji użytkowników i schemat do pliku JSON, a następnie zaimportować go z powrotem do usługi Azure AD. Możesz również użyć tutaj przechwyconych kroków, aby utworzyć kopię zapasową konfiguracji aprowizacji.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Krok 1. Pobieranie inicjowania obsługi App Service Identyfikator podmiotu zabezpieczeń (identyfikator obiektu)
 
-1. Uruchom [Azure Portal](https://portal.azure.com)i przejdź do sekcji właściwości aplikacji aprowizacji. Na przykład jeśli chcesz wyeksportować swój *dzień roboczy do usługi AD mapowanie aplikacji* , przejdź do sekcji Właściwości tej aplikacji. 
+1. Uruchom [Azure Portal](https://portal.azure.com)i przejdź do sekcji właściwości aplikacji aprowizacji. Na przykład jeśli chcesz wyeksportować swój *dzień roboczy do usługi AD mapowanie aplikacji* , przejdź do sekcji Właściwości tej aplikacji.
 1. W sekcji właściwości aplikacji aprowizacji skopiuj wartość identyfikatora GUID skojarzoną z polem *Identyfikator obiektu* . Ta wartość jest również nazywana **ServicePrincipalId** aplikacji i będzie używana w operacjach Microsoft Graph Explorer.
 
    ![Identyfikator podmiotu zabezpieczeń App Service Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -99,4 +103,4 @@ Na karcie "nagłówki żądań" Dodaj atrybut nagłówka Content-Type z wartośc
 
    [![Nagłówki żądań](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Kliknij przycisk "uruchom zapytanie", aby zaimportować nowy schemat.
+Wybierz pozycję **Uruchom zapytanie** , aby zaimportować nowy schemat.

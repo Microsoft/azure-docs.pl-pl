@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202563"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801488"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Tworzenie aplikacji w języku Node. js na platformie Azure
 
@@ -151,7 +151,7 @@ W tej sekcji dowiesz się, jak wyświetlać dzienniki (lub "ogon") z działając
 
 Znajdź aplikację w Eksploratorze **usługi Azure App Service** , kliknij prawym przyciskiem myszy aplikację, a następnie wybierz polecenie **Wyświetl dzienniki przesyłania strumieniowego**.
 
-Po wyświetleniu monitu wybierz włączenie rejestrowania i ponownie uruchom aplikację. Po ponownym uruchomieniu aplikacji zostanie otwarte okno dane wyjściowe VS Code z połączeniem ze strumieniem dziennika.
+Zostanie otwarte okno dane wyjściowe VS Code z połączeniem ze strumieniem dziennika.
 
 ![Wyświetlanie dzienników przesyłania strumieniowego](./media/quickstart-nodejs/view-logs.png)
 
