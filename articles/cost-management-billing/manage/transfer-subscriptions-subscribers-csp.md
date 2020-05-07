@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b198a781da6e18c363e90d8bd5314dafc563dcca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200524"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791157"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze
 
@@ -50,6 +50,7 @@ Aby przenieść wszelkie inne subskrypcje od partnera będącego dostawcą usłu
 
 1. Utwórz docelowe subskrypcje platformy Azure.
 1. Upewnij się, że subskrypcje źródłowe i docelowe znajdują się w tej samej dzierżawie usługi Azure Active Directory (Azure AD). Aby uzyskać więcej informacji na temat zmiany dzierżawy usługi Azure AD, zobacz [Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Katalog zmian nie jest subskrypcją programu CSP. Na przykład przechodzisz z programu CSP na subskrypcję z opcją płatności zgodnie z rzeczywistym użyciem. Aby zapewnić zgodność z katalogiem, należy zmienić katalog subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem.
 
     > [!IMPORTANT]
     >  - Po skojarzeniu subskrypcji z innym katalogiem użytkownicy, którzy mają przypisane role za pomocą [RBAC](../../role-based-access-control/role-assignments-portal.md), utracą dostęp. Klasyczni administratorzy subskrypcji, w tym administrator usługi i współadministratorzy, również utracą dostęp.

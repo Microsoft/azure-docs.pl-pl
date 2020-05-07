@@ -11,6 +11,9 @@
   items:
     - name: Replikowanie maszyny wirtualnej platformy Azure do innego regionu
       href: azure-to-azure-quickstart.md
+    - name: Tworzenie magazynu — szablon usługi ARM
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: Samouczki
   items:
     - name: Odzyskiwanie po awarii maszyn wirtualnych platformy Azure na platformę Azure
