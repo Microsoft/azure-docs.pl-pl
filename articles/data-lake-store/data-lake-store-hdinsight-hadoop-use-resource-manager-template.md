@@ -1,23 +1,17 @@
 ---
-title: Używanie szablonów platformy Azure do tworzenia usługi HDInsight z użyciem Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Korzystanie z Azure Resource Manager szablonów do tworzenia klastrów usługi HDInsight i korzystania z nich Azure Data Lake Storage Gen1
-services: data-lake-store,hdinsight
-documentationcenter: ''
+title: Szablon — klaster usługi HDInsight z Data Lake Storage Gen1
+description: Użyj szablonów Azure Resource Manager, aby tworzyć klastry usługi Azure HDInsight i korzystać z nich przy użyciu Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 486809201db45e0f5bbeed870e24b1f63770e319
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66161387"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692026"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Tworzenie klastra usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu szablonu Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -30,7 +24,7 @@ ms.locfileid: "66161387"
 
 Dowiedz się, jak skonfigurować klaster usługi HDInsight Azure Data Lake Storage Gen1 przy użyciu usługi Azure PowerShell **jako dodatkowego magazynu**.
 
-W przypadku obsługiwanych typów klastrów Data Lake Storage Gen1 może być używany jako magazyn domyślny lub dodatkowe konto magazynu. Gdy Data Lake Storage Gen1 jest używany jako dodatkowy magazyn, domyślne konto magazynu dla klastrów nadal będzie zawierać obiekty blob usługi Azure Storage (WASB) i pliki związane z klastrem (takie jak dzienniki itp.) są nadal zapisywane w magazynie domyślnym, podczas gdy dane, które mają zostać przetworzone, mogą być przechowywane na koncie Data Lake Storage Gen1. Używanie Data Lake Storage Gen1 jako dodatkowego konta magazynu nie ma wpływu na wydajność ani na odczyt/zapis w magazynie z klastra.
+W przypadku obsługiwanych typów klastrów Data Lake Storage Gen1 może być używany jako magazyn domyślny lub jako dodatkowe konto magazynu. Gdy Data Lake Storage Gen1 jest używany jako dodatkowy magazyn, domyślne konto magazynu dla klastrów nadal będzie zawierać obiekty blob usługi Azure Storage (WASB) i pliki związane z klastrem (takie jak dzienniki itp.) są nadal zapisywane w magazynie domyślnym, podczas gdy dane, które mają zostać przetworzone, mogą być przechowywane na koncie Data Lake Storage Gen1. Używanie Data Lake Storage Gen1 jako dodatkowego konta magazynu nie ma wpływu na wydajność ani na odczyt/zapis w magazynie z klastra.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Używanie Data Lake Storage Gen1 dla magazynu klastra usługi HDInsight
 
@@ -40,7 +34,7 @@ Poniżej przedstawiono kilka istotnych kwestii dotyczących używania usługi HD
 
 * Opcja tworzenia klastrów usługi HDInsight z dostępem do Data Lake Storage Gen1 jako dodatkowy magazyn jest dostępny dla usługi HDInsight w wersji 3,2, 3,4, 3,5 i 3,6.
 
-W tym artykule opisano obsługę klastra Hadoop z Data Lake Storage Gen1 jako dodatkowy magazyn. Aby uzyskać instrukcje dotyczące sposobu tworzenia klastra Hadoop z Data Lake Storage Gen1 jako magazyn domyślny, zobacz [Tworzenie klastra usługi HDInsight za pomocą Data Lake Storage Gen1 przy użyciu witryny Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
+W tym artykule opisano obsługę klastra Hadoop z Data Lake Storage Gen1 jako dodatkowy magazyn. Aby uzyskać instrukcje dotyczące sposobu tworzenia klastra Hadoop z Data Lake Storage Gen1 jako magazyn domyślny, zobacz [Tworzenie klastra usługi HDInsight za pomocą Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -88,7 +82,7 @@ Aby upewnić się, że przekazywane dane przykładowe są dostępne z klastra us
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Uruchom zadania testowe w klastrze usługi HDInsight, aby używać Data Lake Storage Gen1
 Po skonfigurowaniu klastra usługi HDInsight można uruchomić zadania testowe w klastrze, aby sprawdzić, czy klaster usługi HDInsight ma dostęp do Data Lake Storage Gen1. W tym celu zostanie uruchomione przykładowe zadanie Hive, które tworzy tabelę przy użyciu przykładowych danych, które zostały przekazane wcześniej do konta Data Lake Storage Gen1.
 
-W tej sekcji przeprowadzisz protokół SSH do klastra usługi HDInsight w systemie Linux i uruchomisz przykładowe zapytanie Hive. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+W tej sekcji poznasz protokół SSH w klastrze usługi HDInsight Linux i uruchomiono zapytanie przykładowego programu Hive. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -105,7 +99,7 @@ Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [U
    SELECT * FROM vehicles LIMIT 10;
    ```
 
-   Powinny pojawić się dane wyjściowe podobne do następujących:
+   Powinny zostać wyświetlone dane wyjściowe podobne do następujących:
 
    ```
    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
@@ -124,7 +118,7 @@ Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [U
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Data Lake Storage Gen1 dostępu przy użyciu systemu plików HDFS
 Po skonfigurowaniu klastra usługi HDInsight do używania Data Lake Storage Gen1 można uzyskać dostęp do magazynu za pomocą poleceń powłoki systemu plików HDFS.
 
-W tej sekcji przeprowadzisz protokół SSH do klastra usługi HDInsight w systemie Linux i uruchomisz polecenia HDFS. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+W tej sekcji nawiążesz połączenie SSH z klastrem usługi HDInsight Linux i uruchomisz polecenia HDFS. W przypadku korzystania z klienta systemu Windows zalecamy korzystanie z polecenia wyszukania, które można pobrać **z programu.** [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 Aby uzyskać więcej informacji na temat korzystania z tego polecenia, zobacz [Używanie protokołu SSH z opartą na systemie Linux usługą Hadoop w usłudze HDInsight z systemu Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
