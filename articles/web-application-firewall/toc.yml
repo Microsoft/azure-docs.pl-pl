@@ -63,6 +63,8 @@
           href: ./ag/policy-overview.md
         - name: Omówienie ochrony przed botami
           href: ./ag/bot-protection-overview.md
+        - name: Często zadawane pytania
+          href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
         - name: Reguły niestandardowe

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
-ms.date: 05/02/2018
+ms.date: 05/05/2020
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7d8b3852f31965099d8a46d2e095be0522c7e763
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144535"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839134"
 ---
 # <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Azure Policy przykładowe wbudowane dla sieci wirtualnej
 

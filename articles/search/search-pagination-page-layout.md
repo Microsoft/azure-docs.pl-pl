@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641618"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801777"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -92,9 +92,15 @@ Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
 
-Wyróżnianie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtego wyróżnienia) do dopasowywania terminu w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents). Aparat wyszukiwania obejmuje termin zgodny ze znacznikami `highlightPreTag` i `highlightPostTag`, a kod obsługuje odpowiedź (na przykład zastosowanie pogrubionej czcionki).
+Podświetlanie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtych świateł) stosowanych do dopasowywania warunków w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Formatowanie jest stosowane do zapytań w całym okresie. W poniższym przykładzie warunki "piaskowobrązowy", "piasek", "plażach", "sekwencje" Znalezione w polu opisu są oznaczone do wyróżniania. Zapytania wyzwalające rozszerzanie zapytania w aparacie, takie jak rozmyte i wieloznaczne wyszukiwanie, mają ograniczoną obsługę wyróżniania trafień.
+Aby włączyć podświetlanie trafień, `highlight=[comma-delimited list of string fields]` Dodaj, aby określić, które pola będą używać wyróżniania. Wyróżnianie jest przydatne w przypadku dłuższych pól zawartości, takich jak pole opisu, gdzie dopasowanie nie jest od razu oczywiste. Tylko definicje pól, które są przypisywane jako **kryterium wyszukiwania** , kwalifikują się do wyróżniania trafień.
+
+Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca maksymalnie pięć świateł na pole. Możesz dostosować tę liczbę, dołączając do pola średnik, po którym następuje liczba całkowita. Na przykład `highlight=Description-10` zwraca do 10 świateł na pasującej zawartości w polu Opis.
+
+Formatowanie jest stosowane do zapytań w całym okresie. Typ formatowania jest określany przez Tagi `highlightPreTag` i `highlightPostTag`, a kod obsługuje odpowiedź (na przykład zastosowanie pogrubionej czcionki lub żółtego tła).
+
+W poniższym przykładzie warunki "piaskowobrązowy", "piasek", "plażach", "sekwencje" Znalezione w polu opisu są oznaczone do wyróżniania. Zapytania wyzwalające rozszerzanie zapytania w aparacie, takie jak rozmyte i wieloznaczne wyszukiwanie, mają ograniczoną obsługę wyróżniania trafień.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

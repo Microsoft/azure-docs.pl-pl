@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810355"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837162"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,13 +32,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Azure Machine Learning obszar roboczy z jednostką SKU przedsiębiorstwa.
-* Zestaw danych dostępny dla projektanta. Może to być jedna z następujących:
-   * Azure Machine Learning zarejestrowany zestaw danych
-    
-     **oraz**
-   * Plik danych, który jest przechowywany w magazynie datastore Azure Machine Learning.
-   
-Aby uzyskać informacje o dostępie do danych za pomocą projektanta, zobacz [jak importować dane do projektanta](how-to-designer-import-data.md).
+* Ukończ część 1 tej serii jak to zrobić, [Przekształć dane w projektancie](how-to-designer-transform-data.md).
 
 W tym artykule założono również, że masz podstawową wiedzę na temat tworzenia potoków w projektancie. Aby zapoznać się z przewodnikiem, Ukończ [samouczek](tutorial-designer-automobile-price-train-score.md). 
 
