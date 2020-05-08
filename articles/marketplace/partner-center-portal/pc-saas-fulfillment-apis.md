@@ -1,26 +1,25 @@
 ---
-title: Interfejsy API realizacji SaaS | Portal Azure Marketplace
-description: Wprowadza wersje interfejsów API realizacji, które umożliwiają integrację ofert SaaS z portalem Azure Marketplace.
+title: Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace
+description: Wprowadzenie do interfejsów API realizacji, które umożliwiają integrację ofert SaaS w Microsoft AppSource i witrynie Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275734"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858092"
 ---
-# <a name="saas-fulfillment-apis"></a>Interfejsy API realizacji SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w komercyjnej witrynie Microsoft Marketplace
 
-Interfejsy API realizacji SaaS zapewniają niezależnym dostawcom oprogramowania (ISV) integrację swoich aplikacji SaaS z portalem Azure Marketplace. Te interfejsy API umożliwiają aplikacjom niezależnego dostawcy oprogramowania uczestnictwo we wszystkich kanałach z obsługą handlu: bezpośrednich, partnerskich (odsprzedawców) i na terenie.  Są one wymagane do tworzenia listy ofert SaaS transakcyjnych w portalu Azure Marketplace.
+Interfejsy API do realizacji SaaS umożliwiają niezależnym dostawcom oprogramowania integrację swoich aplikacji SaaS w Microsoft AppSource i witrynie Azure Marketplace. Te interfejsy API umożliwiają aplikacjom niezależnego dostawcy oprogramowania uczestnictwo we wszystkich kanałach z obsługą handlu: bezpośredni, partnerski-LED (odsprzedawca) i dioda. Są one wymagane do wyświetlania listy ofert SaaS transakcyjnych w Microsoft AppSource i witrynie Azure Marketplace.
 
 > [!WARNING]
 > Bieżąca wersja tego interfejsu API jest w wersji 2, która powinna być używana dla wszystkich nowych ofert SaaS.  Wersja 1 interfejsu API jest przestarzała i jest utrzymywana do obsługi istniejących ofert.
-
 
 ## <a name="business-model-support"></a>Obsługa modelu biznesowego
 

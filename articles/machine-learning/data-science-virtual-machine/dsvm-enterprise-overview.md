@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 03fdbf6979db3249d1322a3025b48de81b953ae1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460549"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856214"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Analiza zespołu oparta na Data Science Virtual Machineach i środowisko AI 
 [Data Science Virtual Machine](overview.md) (DSVM) zapewnia rozbudowane środowisko na platformie Azure z wbudowanym oprogramowaniem do sztucznej analizy (AI) i analizy danych.
@@ -43,7 +43,7 @@ Ta seria zawiera wskazówki i wskaźniki dla każdego z powyższych tematów. Ni
 * [Kontrola dostępu oparta na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Ustawienie zasad i wymuszanie](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Szyfrowanie](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
+* [Szyfrowanie](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
 * [Odnajdywanie i zarządzanie danymi](https://docs.microsoft.com/azure/data-catalog/)
 
 Na koniec [centrum architektury platformy Azure](https://docs.microsoft.com/azure/architecture/) zawiera szczegółową kompleksową architekturę i modele umożliwiające tworzenie infrastruktury analitycznej opartej na chmurze i zarządzanie nią.

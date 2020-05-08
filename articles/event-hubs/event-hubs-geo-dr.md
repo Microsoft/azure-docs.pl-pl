@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209149"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858290"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
 
@@ -138,7 +138,7 @@ Strefy dostępności można włączyć tylko dla nowych przestrzeni nazw, korzys
 ## <a name="next-steps"></a>Następne kroki
 
 * [Przykład w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) zawiera prosty przepływ pracy, który tworzy parowanie geograficzne i inicjuje tryb failover w przypadku scenariusza odzyskiwania po awarii.
-* [Dokumentacja interfejsu API REST](/rest/api/eventhub/disasterrecoveryconfigs) zawiera opis interfejsów API służących do wykonywania konfiguracji odzyskiwania po awarii geograficznej.
+* [Dokumentacja interfejsu API REST](/rest/api/eventhub/) zawiera opis interfejsów API służących do wykonywania konfiguracji odzyskiwania po awarii geograficznej.
 
 Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
 

@@ -1,18 +1,18 @@
 ---
-title: Zarządzanie potencjalnymi klientami dla programu Dynamics 365 Customer Engagement | Portal Azure Marketplace
-description: Skonfiguruj zarządzanie potencjalnymi klientami dla programu Dynamics 365 Customer Engagement.
+title: Zarządzanie potencjalnymi klientami w programie Dynamics 365 Customer Engagement — Microsoft Commercial Marketplace
+description: Dowiedz się, jak skonfigurować usługę Dynamics 365 Customer Engagement w celu zarządzania potencjalnymi klientami z poziomu Microsoft AppSource i witryny Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131051"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791004"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
 
@@ -23,12 +23,12 @@ W tym artykule opisano sposób konfigurowania zaangażowania klienta Dynamics 36
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym artykule, są wymagane następujące uprawnienia użytkownika. Należy:
+Następujące uprawnienia użytkownika są niezbędne do wykonania kroków opisanych w tym artykule:
 
-* Być administratorem wystąpienia programu Dynamics 365 Customer Engagement, aby móc zainstalować rozwiązanie i postępować zgodnie z tymi instrukcjami.
-* Być administratorem dzierżawy, aby utworzyć nowe konto usługi dla usługi lidera używanej do wysyłania potencjalnych klientów z komercyjnych ofert portalu Marketplace.
+* Uprawnienia administratora w wystąpieniu pakietu zaangażowania klienta w systemie Dynamics 365, aby można było zainstalować rozwiązanie.
+* Uprawnienia administratora dzierżawy do tworzenia nowego konta usługi dla usługi lidera używanej do wysyłania potencjalnych klientów z komercyjnych ofert portalu Marketplace.
 * Dostęp do portalu administracyjnego pakietu Office 365.
-* Mieć dostęp do Azure Portal.
+* Dostęp do Azure Portal.
 
 ## <a name="install-the-solution"></a>Instalowanie rozwiązania
 
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby utworzyć konto usługi i przypisać uprawnieni
 >[!NOTE]
 >Przejdź do odpowiednich instrukcji w zależności od wybranej opcji uwierzytelniania. Zobacz [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) lub [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Zalecamy korzystanie z tej opcji, ponieważ nie trzeba aktualizować nazwy użytkownika ani hasła, aby nadal otrzymywać potencjalnych klientów. Aby użyć opcji Azure Active Directory, należy podać identyfikator aplikacji, klucz aplikacji i identyfikator katalogu w aplikacji Active Directory.
 

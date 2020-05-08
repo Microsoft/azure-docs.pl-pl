@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537682"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858587"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Włączanie i tworzenie dużych udziałów plików
 
@@ -26,14 +26,15 @@ Po włączeniu dużych udziałów plików na koncie magazynu udziały plików mo
 
 ## <a name="restrictions"></a>Ograniczenia
 
-Na razie można używać tylko magazynu lokalnie nadmiarowego (LRS) lub magazynu Strefowo nadmiarowego (ZRS) na kontach z włączonym dużym udziałem plików. Nie można używać magazynu geograficznie nadmiarowego (GZRS), magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficznie nadmiarowego dostępnego do odczytu (RA-GRS).
-Włączenie dużych udziałów plików na koncie jest procesem nieodwracalnym. Po włączeniu tej operacji nie będzie możliwe przekonwertowanie konta na GZRS, GRS lub RA-GRS.
+Na razie można używać tylko magazynu lokalnie nadmiarowego (LRS) lub magazynu Strefowo nadmiarowego (ZRS) na kontach z włączonym dużym udziałem plików. Nie można używać magazynu geograficznie nadmiarowego (GZRS), magazynu geograficznie nadmiarowego (GRS), magazynu geograficznie nadmiarowego do odczytu (RA-GRS) lub geograficznie nadmiarowego magazynu (RA-GZRS).
+
+Włączenie dużych udziałów plików na koncie jest procesem nieodwracalnym. Po włączeniu tej operacji nie będzie możliwe przekonwertowanie konta na GZRS, GRS, RA-GRS lub RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Tworzenie nowego konta magazynu
 
 ### <a name="portal"></a>Portal
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. W Azure Portal wybierz pozycję **wszystkie usługi**. 
 1. Na liście zasobów wprowadź **konto magazynu**. Podczas wpisywania lista jest filtrowana na podstawie danych wejściowych. Wybierz pozycję **konta magazynu**.
 1. W wyświetlonym oknie **konta magazynu** wybierz pozycję **Dodaj**.
@@ -68,7 +69,7 @@ Najpierw [Zainstaluj najnowszą wersję interfejsu wiersza polecenia platformy A
 Aby utworzyć konto magazynu z włączonymi dużymi udziałami plików, użyj następującego polecenia. `<yourStorageAccountName>`Zastąp `<yourResourceGroup>`, i `<yourDesiredRegion>` wraz z informacjami.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ Najpierw [Zainstaluj najnowszą wersję programu PowerShell](https://docs.micros
 Aby utworzyć konto magazynu z włączonymi dużymi udziałami plików, użyj następującego polecenia. `<yourStorageAccountName>`Zastąp `<yourResourceGroup>`, i `<yourDesiredRegion>` wraz z informacjami.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Włącz udziały dużych plików na istniejącym koncie
 
-Możesz również włączyć duże udziały plików na istniejących kontach. Jeśli włączysz duże udziały plików, nie będzie możliwe przekonwertowanie na GZRS, GRS lub RA-GRS. Włączenie dużych udziałów plików jest nieodwracalne na tym koncie magazynu.
+Możesz również włączyć duże udziały plików na istniejących kontach. Jeśli włączysz duże udziały plików, nie będzie możliwe przekonwertowanie na GZRS, GRS, RA-GRS lub RA-GZRS. Włączenie dużych udziałów plików jest nieodwracalne na tym koncie magazynu.
 
 ### <a name="portal"></a>Portal
 

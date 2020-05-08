@@ -1,26 +1,24 @@
 ---
-title: Często zadawane pytania i terminologia dotyczące komercyjnej analizy portalu Marketplace w centrum partnerskim
-description: Dowiedz się, jak rozwiązywać często zadawane pytania dotyczące komercyjnej analizy portalu Marketplace. Zawiera słownik danych dla terminologii dotyczącej analizy.
+title: Komercyjne często zadawane pytania dotyczące analizy portalu Marketplace & terminologia — centrum partnerskie
+description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące komercyjnej analizy portalu Marketplace w centrum partnerskim. Ten artykuł zawiera słownik danych dla terminologii dotyczącej analizy.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251830"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791480"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Często zadawane pytania i terminologia dla komercyjnych analiz w portalu Marketplace
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia komercyjna dotycząca analizy Marketplace i często zadawane pytania
 
 Ten artykuł dotyczy często zadawanych pytań dotyczących komunikatów analitycznych w centrum partnerskim, a także zawiera słownik terminologii dotyczącej analizy.
 
-## <a name="frequently-asked-questions"></a>Często zadawane pytania
-
-W tej sekcji znajdują się odpowiedzi na często zadawane pytania dotyczące **braku dostępnych jeszcze komunikatów analizy** w centrum partnerskim.
+## <a name="common-questions"></a>Często zadawane pytania
 
 **Nie mogę wyświetlić danych analitycznych w centrum partnerskim. Gdy uzyskuję dostęp do tych stron, zobaczysz poniższy komunikat. Dlaczego to jest?**
 

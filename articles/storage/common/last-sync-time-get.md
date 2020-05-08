@@ -1,27 +1,27 @@
 ---
 title: Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 titleSuffix: Azure Storage
-description: Dowiedz się, jak sprawdzić Właściwość **godzina ostatniej synchronizacji** dla konta magazynu z replikacją geograficzną. Właściwość **czas ostatniej synchronizacji** wskazuje czas, w którym wszystkie zapisy z regionu podstawowego zostały pomyślnie wprowadzone do regionu pomocniczego.
+description: Dowiedz się, jak sprawdzić Właściwość godzina ostatniej synchronizacji dla konta magazynu z replikacją geograficzną. Właściwość czas ostatniej synchronizacji wskazuje czas, w którym wszystkie zapisy z regionu podstawowego zostały pomyślnie wprowadzone do regionu pomocniczego.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/16/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3a406ce6db060b9ff5be7bcadecb6c7ff7e65a1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: afcadd55e87579b25f03176fa3227024863b90fb
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77165490"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858508"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 
 Podczas konfigurowania konta magazynu można określić, że dane są kopiowane do regionu pomocniczego, który ma setki kilometrów od regionu podstawowego. Replikacja geograficzna zapewnia trwałość danych w przypadku znacznej awarii w regionie podstawowym, na przykład klęski żywiołowej. Jeśli dodatkowo włączysz dostęp do odczytu do regionu pomocniczego, dane pozostają dostępne dla operacji odczytu, jeśli region podstawowy stał się niedostępny. Możesz zaprojektować aplikację, aby bezproblemowo przełączać się do odczytu z regionu pomocniczego, jeśli region podstawowy nie odpowiada.
 
-Magazyn Geograficznie nadmiarowy (GRS) i strefa Geograficznie nadmiarowy (GZRS) (wersja zapoznawcza) obie te dane są replikowane asynchronicznie do regionu pomocniczego. Aby uzyskać dostęp do odczytu do regionu pomocniczego, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) lub strefę geograficzną z dostępem do odczytu (RA-GZRS). Aby uzyskać więcej informacji na temat różnych opcji nadmiarowości oferowanych przez usługę Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
+Magazyn Geograficznie nadmiarowy (GRS) i strefa Geograficznie nadmiarowy (GZRS) obie te dane są replikowane asynchronicznie do regionu pomocniczego. Aby uzyskać dostęp do odczytu do regionu pomocniczego, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) lub strefę geograficzną z dostępem do odczytu (RA-GZRS). Aby uzyskać więcej informacji na temat różnych opcji nadmiarowości oferowanych przez usługę Azure Storage, zobacz [nadmiarowość usługi Azure Storage](storage-redundancy.md).
 
 W tym artykule opisano, jak sprawdzić Właściwość **godzina ostatniej synchronizacji** dla konta magazynu, aby można było oszacować rozbieżność między regionem podstawowym i pomocniczym.
 
@@ -37,10 +37,10 @@ Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Az
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, zainstaluj moduł w wersji zapoznawczej usługi Azure Storage, który obsługuje pobieranie statystyk replikacji geograficznej. Na przykład:
+Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, Zainstaluj wersję modułu AZ. Storage, która obsługuje pobieranie statystyki replikacji geograficznej. Na przykład:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
 ```
 
 Następnie sprawdź Właściwość **GeoReplicationStats. LastSyncTime** konta magazynu. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
@@ -66,8 +66,8 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)
-- [Projektowanie aplikacji o wysokiej dostępności przy użyciu magazynu geograficznie nadmiarowego do odczytu](storage-designing-ha-apps-with-ragrs.md)
+- [Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej](geo-redundant-design.md)

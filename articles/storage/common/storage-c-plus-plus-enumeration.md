@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269447"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591690"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
 
@@ -62,7 +62,7 @@ Odpowiedź na operację tworzenia segmentów z segmentacją obejmuje:
 * *_segment*, który zawiera zestaw wyników zwróconych dla pojedynczego wywołania interfejsu API wyświetlania.
 * *continuation_token*, która jest przenoszona do następnego wywołania w celu uzyskania następnej strony wyników. Gdy nie ma więcej wyników do zwrócenia, token kontynuacji ma wartość null.
 
-Na przykład typowe wywołanie listy wszystkich obiektów BLOB w kontenerze może wyglądać podobnie jak w poniższym fragmencie kodu. Kod jest dostępny w naszych [przykładach](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Na przykład typowe wywołanie listy wszystkich obiektów BLOB w kontenerze może wyglądać podobnie jak w poniższym fragmencie kodu. Kod jest dostępny w naszych [przykładach](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
 ```cpp
 // List blobs in the blob container

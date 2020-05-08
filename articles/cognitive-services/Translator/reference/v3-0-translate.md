@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052392"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858546"
 ---
 # <a name="translator-text-api-30-translate"></a>Interfejs API tłumaczenia tekstu w usłudze Translator 3,0: tłumaczenie
 
@@ -454,6 +454,14 @@ Odpowiedź:
 
 ### <a name="obtain-alignment-information"></a>Uzyskiwanie informacji o wyrównaniu
 
+Wyrównanie jest zwracane jako wartość ciągu następującego formatu dla każdego wyrazu źródła. Informacje dla każdego wyrazu są oddzielone spacjami, w tym dla języków (skryptów), takich jak chiński:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Przykładowy ciąg wyrównania: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+Inaczej mówiąc, dwukropek oddziela indeks początkowy i końcowy, myślnik oddziela Języki, a spacja oddziela słowa. Jedno słowo może być wyrównane z zerem, jednym lub wieloma wyrazami w innym języku, a wyrównane słowa mogą nie być ciągłe. Gdy żadne informacje o wyrównaniu nie są dostępne, element wyrównania będzie pusty. Metoda nie zwraca żadnego błędu w tym przypadku.
+
 Aby uzyskać informacje o wyrównaniu `includeAlignment=true` , określ wartość w ciągu zapytania.
 
 ```curl
@@ -483,9 +491,10 @@ Uzyskiwanie informacji o wyrównaniu to eksperymentalna funkcja, która umożliw
 
 * Wyrównanie nie jest dostępne dla tekstu w formacie HTML tzn., texttype = HTML
 * Wyrównanie jest zwracane tylko dla podzestawu par języka:
-  - od języka angielskiego do dowolnego innego języka;
-  - z dowolnego innego języka w języku angielskim, z wyjątkiem chiński uproszczony, chiński tradycyjny i łotewski do Polski;
+  - Angielski do/z dowolnego innego języka, z wyjątkiem chińskiego tradycyjnego, kantoński (tradycyjny) lub serbski (cyrylica).
   - od wersji japońskiej do koreańskiej lub z koreańskiej do japońskiej.
+  - od japońskiego do chińskiego uproszczonego i chińskiego uproszczonego w języku japońskim. 
+  - od chińskiej uproszczonej na chiński tradycyjny i chiński tradycyjny do chińskiego uproszczonego. 
 * Nie otrzymasz wyrównania, jeśli zdanie jest przekształceniem w konserwie. Przykładem przeprowadzonego tłumaczenia jest "to jest test", "mam miłość" i inne zdania o wysokiej częstotliwości.
 * Wyrównanie nie jest dostępne w przypadku zastosowania któregokolwiek z metod, aby zapobiec translacji zgodnie z opisem w [tym miejscu](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ Odpowiedź:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Tłumaczenie przy użyciu słownika dynamicznego
 
-Jeśli znasz już tłumaczenie, które chcesz zastosować do wyrazu lub frazy, możesz podać je jako znacznik w żądaniu. Słownik dynamiczny jest bezpieczny tylko w przypadku rzeczowników złożonych, takich jak poprawne nazwy i nazwy produktów.
+Jeśli znasz już tłumaczenie, które chcesz zastosować do wyrazu lub frazy, możesz podać je jako znacznik w żądaniu. Słownik dynamiczny jest bezpieczny tylko dla właściwych rzeczowników, takich jak imiona i nazwiska oraz nazwy produktów.
 
 Znacznik do dostarczenia używa następującej składni.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203152"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790483"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Jak wdrożyć wystąpienie usługi Azure API Management w wielu regionach świadczenia usługi Azure
 
 Usługa Azure API Management obsługuje wdrażanie w wielu regionach, co umożliwia wydawcom interfejsu API dystrybucję pojedynczej usługi Azure API Management w dowolnej liczbie obsługiwanych regionów platformy Azure. Funkcja wieloregionowa pomaga zmniejszyć opóźnienie żądania postrzegane przez geograficznie rozproszonych klientów interfejsu API i zwiększa dostępność usługi, jeśli jeden region przejdzie w tryb offline.
 
-Nowa usługa API Management platformy Azure początkowo zawiera tylko jedną [jednostkę][unit] w jednym regionie platformy Azure, regionie podstawowym. Dodatkowe regiony można dodać do regionu podstawowego lub pomocniczego. Składnik bramy API Management jest wdrażany w każdym wybranym regionie podstawowym i pomocniczym. Przychodzące żądania interfejsu API są automatycznie kierowane do najbliższego regionu. Jeśli region przejdzie w tryb offline, żądania interfejsu API będą automatycznie kierowane wokół regionu zakończonego niepowodzeniem do następnej najbliższej bramy.
+Nowa usługa API Management platformy Azure początkowo zawiera tylko jedną [jednostkę][unit] w jednym regionie platformy Azure, regionie podstawowym. Dodatkowe jednostki można dodać do regionu podstawowego lub pomocniczego. Składnik bramy API Management jest wdrażany w każdym wybranym regionie podstawowym i pomocniczym. Przychodzące żądania interfejsu API są automatycznie kierowane do najbliższego regionu. Jeśli region przejdzie w tryb offline, żądania interfejsu API będą automatycznie kierowane wokół regionu zakończonego niepowodzeniem do następnej najbliższej bramy.
 
 > [!NOTE]
 > Tylko składnik bramy API Management jest wdrażany we wszystkich regionach. Składnik zarządzania usługami i Portal dla deweloperów są hostowane tylko w regionie podstawowym. W związku z tym, w przypadku awarii regionu podstawowego, dostęp do portalu dla deweloperów i możliwość zmiany konfiguracji (np. dodanie interfejsów API, zastosowanie zasad) zostanie ograniczony do momentu powrotu do trybu online w regionie podstawowym. Chociaż region podstawowy jest dostępny w trybie offline, regiony pomocnicze będą nadal obsługiwały ruch interfejsu API przy użyciu najnowszej dostępnej konfiguracji.

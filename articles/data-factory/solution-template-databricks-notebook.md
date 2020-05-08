@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414845"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857648"
 ---
 # <a name="transformation-with-azure-databricks"></a>Przekształcanie za pomocą usługi Azure Databricks
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 W tym samouczku utworzysz kompleksowy potok zawierający dane dotyczące **weryfikacji**, **kopiowania**i działania **notesu** w Azure Data Factory.
 
@@ -153,6 +153,9 @@ W nowym potoku większość ustawień jest konfigurowana automatycznie z wartoś
 1. Sprawdź, czy **Parametry potoku** są zgodne z tym, co pokazano na ![poniższym zrzucie ekranu: parametry potoku](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Nawiąż połączenie z zestawami danych.
+
+    >[!NOTE]
+    >W poniższych zestawach danych ścieżka pliku została automatycznie określona w szablonie. Jeśli jakiekolwiek zmiany są wymagane, należy się upewnić, że należy określić ścieżkę dla **kontenera** i **katalogu** w przypadku błędu połączenia.
 
    - **SourceAvailabilityDataset** — aby sprawdzić, czy dane źródłowe są dostępne.
 

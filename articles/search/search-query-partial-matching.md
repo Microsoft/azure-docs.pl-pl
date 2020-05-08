@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262880"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592047"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce ze znakami specjalnymi (symbol wieloznaczny, wyrażenie regularne, wzorce)
 
@@ -24,7 +24,7 @@ Wyszukiwanie częściowe i wzorców może być problematyczne, jeśli indeks nie
 Rozwiązaniem jest wywołanie analizatora, który zachowuje kompletny ciąg, w tym spacje i znaki specjalne, w razie potrzeby, aby można było dopasować częściowe terminy i wzorce. Tworzenie dodatkowego pola dla nieuszkodzonego ciągu, przy użyciu analizatora obsługującego zawartość, jest podstawą rozwiązania.
 
 > [!TIP]
-> Znasz interfejsy API Poster i REST? [Pobierz kolekcję przykładów zapytania](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) , aby wykonać zapytanie dotyczące częściowych terminów i znaków specjalnych opisanych w tym artykule.
+> Znasz interfejsy API Poster i REST? [Pobierz kolekcję przykładów zapytania](https://github.com/Azure-Samples/azure-search-postman-samples/) , aby wykonać zapytanie dotyczące częściowych terminów i znaków specjalnych opisanych w tym artykule.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Co to jest częściowe wyszukiwanie w usłudze Azure Wyszukiwanie poznawcze
 

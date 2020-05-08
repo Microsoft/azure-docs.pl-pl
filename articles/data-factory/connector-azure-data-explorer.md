@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410781"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560164"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Eksplorator danych przy użyciu Azure Data Factory
 
@@ -196,7 +196,7 @@ Aby skopiować dane do usługi Azure Eksplorator danych, ustaw właściwość Ty
 |:--- |:--- |:--- |
 | type | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość: **AzureDataExplorerSink**. | Tak |
 | ingestionMappingName | Nazwa wstępnie utworzonego [mapowania](/azure/kusto/management/mappings#csv-mapping) dla tabeli Kusto. Aby zmapować kolumny ze źródła do Eksplorator danych platformy Azure (które mają zastosowanie do [wszystkich obsługiwanych magazynów i formatów źródłowych](copy-activity-overview.md#supported-data-stores-and-formats), w tym formatów CSV/JSON/Avro), można użyć [mapowania kolumny](copy-activity-schema-and-type-mapping.md) działania kopiowania (niejawnie według nazwy lub jawnie skonfigurowane) i/lub mapowań Eksplorator danych platformy Azure. | Nie |
-| additionalProperties | Zbiór właściwości, który może służyć do określania wszelkich właściwości pozyskiwania, które nie są ustawiane jeszcze przez ujścia Eksplorator danych platformy Azure. W odniesieniu do nich można określić Tagi pozyskiwania. Dowiedz się więcej z dokumentacji pozyskiwania [danych na platformie Azure](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | Nie |
+| additionalProperties | Zbiór właściwości, który może służyć do określania wszelkich właściwości pozyskiwania, które nie są ustawiane jeszcze przez ujścia Eksplorator danych platformy Azure. W odniesieniu do nich można określić Tagi pozyskiwania. Dowiedz się więcej z dokumentacji pozyskiwania [danych na platformie Azure](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | Nie |
 
 **Przykład:**
 

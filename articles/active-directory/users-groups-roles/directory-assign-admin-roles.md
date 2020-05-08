@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/22/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 0c16ba26d1c59bd932e657f41882fbd23dc3a69e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207534"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592234"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -102,11 +102,11 @@ Użytkownicy z tą rolą mają wszystkie uprawnienia w usłudze Azure Informatio
 
 ### <a name="b2c-user-flow-administrator"></a>[Administrator przepływu użytkownika B2C](#b2c-user-flow-administrator-permissions)
 
-Użytkownicy z tą rolą mogą tworzyć i zarządzać Przepływy użytkownika B2C (nazywane również zasadami "wbudowanymi") w Azure Portal.Tworząc lub edytując przepływy użytkownika, Ci użytkownicy mogą zmieniać zawartość HTML/CSS/JavaScript środowiska użytkownika, zmieniać wymagania usługi MFA dla przepływu użytkownika, zmieniać oświadczenia w tokenie i dostosowywać ustawienia sesji dla wszystkich zasad w dzierżawie. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach zawartych w schemacie dzierżawców.Zmiany w strukturze środowiska tożsamości (znane również jako niestandardowe) również są poza zakresem tej roli.
+Użytkownicy z tą rolą mogą tworzyć i zarządzać Przepływy użytkownika B2C (nazywane również zasadami "wbudowanymi") w Azure Portal.Tworząc lub edytując przepływy użytkowników, mogą oni zmienić zawartość HTML/CSS/JavaScript środowiska użytkownika, zmienić wymagania usługi MFA dla przepływu użytkownika, zmienić oświadczenia w tokenie i dostosować ustawienia sesji dla wszystkich zasad w organizacji usługi Azure AD. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach, które są zawarte w schemacie organizacji.Zmiany w strukturze środowiska tożsamości (znane również jako niestandardowe) również są poza zakresem tej roli.
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>[B2C atrybutu przepływu użytkownika](#b2c-user-flow-attribute-administrator-permissions)
 
-Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w dzierżawie.W związku z tym użytkownicy z tą rolą mogą zmieniać lub dodawać nowe elementy do schematu użytkownika końcowego i wpływać na zachowanie wszystkich przepływów użytkownika, a także pośrednio wprowadzić zmiany w jakie dane mogą być zadawane przez użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkowników.
+Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w organizacji usługi Azure AD.W związku z tym użytkownicy z tą rolą mogą zmieniać lub dodawać nowe elementy do schematu użytkownika końcowego i wpływać na zachowanie wszystkich przepływów użytkownika, a także pośrednio wprowadzić zmiany w jakie dane mogą być zadawane przez użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkowników.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrator zestawu kluczy B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -117,10 +117,10 @@ Użytkownik może tworzyć klucze zasad i wpisy tajne oraz zarządzać nimi na p
 
 ### <a name="b2c-ief-policy-administrator"></a>[Administrator zasad B2C IEF](#b2c-ief-policy-administrator-permissions)
 
-Użytkownicy w tej roli mogą tworzyć, odczytywać, aktualizować i usuwać wszystkie niestandardowe zasady w Azure AD B2C i dlatego mieć pełną kontrolę nad strukturą środowiska tożsamości w odpowiedniej dzierżawie Azure AD B2C. Edytując zasady, ten użytkownik może ustanowić bezpośrednią Federacji z zewnętrznymi dostawcami tożsamości, zmienić schemat katalogu, zmienić całą zawartość dostępną dla użytkownika (HTML, CSS, JavaScript), zmienić wymagania w celu ukończenia uwierzytelniania, utworzyć nowych użytkowników, wysłać dane użytkowników do systemów zewnętrznych, w tym pełne migracje i edytować wszystkie informacje o użytkowniku, w tym hasła i numery telefonów. Z drugiej strony ta rola nie może zmienić kluczy szyfrowania ani edytować wpisów tajnych używanych dla Federacji w dzierżawie.
+Użytkownicy w tej roli mogą tworzyć, odczytywać, aktualizować i usuwać wszystkie niestandardowe zasady w Azure AD B2C i dlatego mieć pełną kontrolę nad strukturą środowiska tożsamości w odpowiedniej organizacji Azure AD B2C. Edytując zasady, ten użytkownik może ustanowić bezpośrednią Federacji z zewnętrznymi dostawcami tożsamości, zmienić schemat katalogu, zmienić całą zawartość dostępną dla użytkownika (HTML, CSS, JavaScript), zmienić wymagania w celu ukończenia uwierzytelniania, utworzyć nowych użytkowników, wysłać dane użytkowników do systemów zewnętrznych, w tym pełne migracje i edytować wszystkie informacje o użytkowniku, w tym hasła i numery telefonów. Z drugiej strony ta rola nie może zmienić kluczy szyfrowania ani edytować wpisów tajnych używanych dla Federacji w organizacji.
 
 > [!IMPORTANT]
-> IEF zasad jest wysoce poufną rolą, która powinna być przypisana na bardzo ograniczonym poziomie dla dzierżawców w środowisku produkcyjnym.Działania tych użytkowników powinny być ściśle poddawane inspekcji, szczególnie w przypadku dzierżawców w środowisku produkcyjnym.
+> IEF zasad jest wysoce poufną rolą, która powinna być przypisana na bardzo ograniczonym poziomie dla organizacji w środowisku produkcyjnym.Działania tych użytkowników powinny być ściśle poddawane inspekcji, szczególnie w przypadku organizacji w środowisku produkcyjnym.
 
 ### <a name="billing-administrator"></a>[Administrator rozliczeń](#billing-administrator-permissions)
 
@@ -202,7 +202,7 @@ Jest to Starsza rola, która ma zostać przypisana do aplikacji, które nie obs�
 
 ### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrator programu Dynamics 365/programu CRM](#crm-service-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia globalne w systemie Microsoft Dynamics 365 online, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na temat [używania roli administratora usługi do zarządzania dzierżawcą](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+Użytkownicy z tą rolą mają uprawnienia globalne w systemie Microsoft Dynamics 365 online, gdy usługa jest obecna, a także możliwość zarządzania biletami pomocy technicznej i monitorowania kondycji usługi. Więcej informacji na temat [używania roli administratora usługi do zarządzania organizacją usługi Azure AD](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Dynamics 365." Jest to "administrator systemu Dynamics 365" w [Azure Portal](https://portal.azure.com).
@@ -216,14 +216,14 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 
 ### <a name="external-identity-provider-administrator"></a>[Administrator zewnętrznego dostawcy tożsamości](#external-identity-provider-administrator-permissions)
 
-Ten administrator zarządza Federacją między dzierżawami Azure Active Directory i zewnętrznymi dostawcami tożsamości.Za pomocą tej roli użytkownicy mogą dodawać nowych dostawców tożsamości i konfigurować wszystkie dostępne ustawienia (np. ścieżkę uwierzytelniania, identyfikator usługi, przypisane kontenery kluczy).Ten użytkownik może umożliwić dzierżawcom ufanie uwierzytelnieniom od zewnętrznych dostawców tożsamości.Wynikowy wpływ na środowisko użytkownika końcowego zależy od typu dzierżawy:
+Ten administrator zarządza Federacją między organizacjami usługi Azure AD a zewnętrznymi dostawcami tożsamości.Za pomocą tej roli użytkownicy mogą dodawać nowych dostawców tożsamości i konfigurować wszystkie dostępne ustawienia (np. ścieżkę uwierzytelniania, identyfikator usługi, przypisane kontenery kluczy).Ten użytkownik może włączyć, aby organizacja usługi Azure AD mogła ufać uwierzytelnianiu od zewnętrznych dostawców tożsamości.Wynikowy wpływ na środowisko użytkownika końcowego zależy od typu organizacji:
 
-* Azure Active Directory dzierżawców dla pracowników i partnerów: dodanie Federacji (np. z użyciem usługi Gmail) natychmiast wpłynie na wszystkie zaproszenia gościa, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie usługi Google jako dostawcy tożsamości dla użytkowników-Gości B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C dzierżawców: dodanie Federacji (na przykład w usłudze Facebook lub innej organizacji usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywane również zasadami wbudowanymi). Zapoznaj się z przykładem dotyczącym [konfigurowania konto Microsoft jako dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) .Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
+* Organizacje usługi Azure AD dla pracowników i partnerów: dodanie Federacji (np. z użyciem usługi Gmail) natychmiast wpłynie na wszystkie zaproszenia gościa, które nie zostały jeszcze zrealizowane. Zobacz [Dodawanie usługi Google jako dostawcy tożsamości dla użytkowników-Gości B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+* Azure Active Directory B2C organizacje: dodanie Federacji (na przykład w usłudze Facebook lub innej organizacji usługi Azure AD) nie wpływa natychmiast na przepływy użytkowników końcowych, dopóki dostawca tożsamości nie zostanie dodany jako opcja w przepływie użytkownika (nazywane również zasadami wbudowanymi). Zapoznaj się z przykładem dotyczącym [konfigurowania konto Microsoft jako dostawcy tożsamości](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) .Aby zmienić przepływy użytkowników, wymagana jest ograniczona rola "Administrator przepływu użytkownika B2C".
 
 ### <a name="global-administrator--company-administrator"></a>[Administrator globalny/administrator firmy](#company-administrator-permissions)
 
-Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Osoba, która zarejestruje się dla dzierżawy Azure Active Directory, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą resetować hasła dla wszystkich użytkowników oraz wszystkich pozostałych administratorów.
+Użytkownicy z tą rolą mają dostęp do wszystkich funkcji administracyjnych w Azure Active Directory, a także usług korzystających z tożsamości Azure Active Directory, takich jak Microsoft 365 Security Center, Microsoft 365 Centrum zgodności, Exchange Online, SharePoint Online i Skype dla firm Online. Osoba, która zarejestruje się w usłudze Azure AD, zostaje administratorem globalnym. W Twojej firmie może istnieć więcej niż jeden administrator globalny. Administratorzy globalni mogą resetować hasła dla wszystkich użytkowników oraz wszystkich pozostałych administratorów.
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator firmy". Jest to "Administrator globalny" w [Azure Portal](https://portal.azure.com).
@@ -240,7 +240,6 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 >- [Centrum administracyjne usługi OneDrive](https://admin.onedrive.com/) — centrum administracyjne usługi OneDrive nie obsługuje roli czytnika globalnego.
 >- [Portal usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) — globalny czytnik nie może odczytać trybu aprowizacji aplikacji dla przedsiębiorstw.
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
->- [M365 Security Center](https://security.microsoft.com/homepage) — czytnik globalny nie może odczytać etykiet czułości i przechowywania. W lewym okienku Centrum zabezpieczeń M365 nie znajdziesz **etykiet czułości**, **etykiet przechowywania**oraz kart **analitycznych etykiet** .
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
 >- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) nie obsługuje roli czytnika globalnego.
@@ -251,7 +250,7 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 
 ### <a name="groups-administrator"></a>[Administrator grup](#groups-administrator-permissions)
 
-Użytkownicy w tej roli mogą tworzyć grupy i ich ustawienia, takie jak zasady nazewnictwa i wygasania, oraz zarządzać nimi. Ważne jest, aby zrozumieć, że przypisanie użytkownika do tej roli daje im możliwość zarządzania wszystkimi grupami w dzierżawie w różnych obciążeniach, takimi jak zespoły, SharePoint, Yammer w dodatku do programu Outlook. Ponadto użytkownik będzie mógł zarządzać różnymi ustawieniami grup w różnych portalach administracyjnych, takich jak centrum administracyjne firmy Microsoft, Azure Portal, a także obciążenie specyficzne dla zespołów i centrów administracyjnych programu SharePoint.
+Użytkownicy w tej roli mogą tworzyć grupy i ich ustawienia, takie jak zasady nazewnictwa i wygasania, oraz zarządzać nimi. Ważne jest, aby zrozumieć, że przypisanie użytkownika do tej roli daje im możliwość zarządzania wszystkimi grupami w organizacji między różnymi obciążeniami, takimi jak zespoły, SharePoint, Yammer, oprócz programu Outlook. Ponadto użytkownik będzie mógł zarządzać różnymi ustawieniami grup w różnych portalach administracyjnych, takich jak centrum administracyjne firmy Microsoft, Azure Portal, a także obciążenie specyficzne dla zespołów i centrów administracyjnych programu SharePoint.
 
 ### <a name="guest-inviter"></a>[Zapraszający gościa](#guest-inviter-permissions)
 
@@ -288,7 +287,7 @@ Użytkownicy w tej roli mogą włączać i konfigurować usługi oraz ustawienia
 
 Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Intune online, gdy usługa jest obecna. Ponadto ta rola obejmuje możliwość zarządzania użytkownikami i urządzeniami w celu kojarzenia zasad, a także tworzenia grup i zarządzania nimi. Więcej informacji na temat [kontroli administracji opartej na rolach (RBAC) z Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
-Ta rola może tworzyć wszystkie grupy zabezpieczeń i zarządzać nimi. Jednak administrator usługi Intune nie ma uprawnień administratora w grupach pakietu Office. Oznacza to, że administrator nie może zaktualizować właścicieli ani członkostw wszystkich grup pakietu Office w dzierżawie. Może jednak zarządzać utworzoną przez siebie grupą pakietu Office, która jest częścią swoich uprawnień użytkownika końcowego. W związku z tym wszystkie grupy pakietu Office (nie grupy zabezpieczeń), które tworzy, powinny być wliczane do limitu przydziału 250.
+Ta rola może tworzyć wszystkie grupy zabezpieczeń i zarządzać nimi. Jednak administrator usługi Intune nie ma uprawnień administratora w grupach pakietu Office. Oznacza to, że administrator nie może zaktualizować właścicieli ani członkostw wszystkich grup pakietu Office w organizacji. Może jednak zarządzać utworzoną przez siebie grupą pakietu Office, która jest częścią swoich uprawnień użytkownika końcowego. W związku z tym wszystkie grupy pakietu Office (nie grupy zabezpieczeń), które tworzy, powinny być wliczane do limitu przydziału 250.
 
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Intune". Jest to "administrator usługi Intune" w [Azure Portal](https://portal.azure.com).
@@ -468,7 +467,7 @@ Użytkownicy w tej roli mogą zarządzać wszystkimi aspektami obciążeń progr
 
 ### <a name="user-administrator"></a>[Administrator użytkowników](#user-administrator-permissions)
 
-Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi aspektami użytkowników z pewnymi ograniczeniami (zobacz poniżej) i mogą aktualizować zasady wygasania haseł. Ponadto użytkownicy z tą rolą mogą tworzyć wszystkie grupy i zarządzać nimi. Ta rola obejmuje również możliwość tworzenia widoków użytkowników i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Administratorzy użytkowników nie mają uprawnień do zarządzania niektórymi właściwościami użytkowników w większości ról administratorów. Użytkownik mający tę rolę nie ma udzielanych do zarządzania usługą MFA. Role, które są wyjątkami do tego ograniczenia, są wymienione w poniższej tabeli.
+Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi aspektami użytkowników z pewnymi ograniczeniami (zobacz poniżej) i mogą aktualizować zasady wygasania haseł. Ponadto użytkownicy z tą rolą mogą tworzyć wszystkie grupy i zarządzać nimi. Ta rola obejmuje również możliwość tworzenia widoków użytkowników i zarządzania nimi, zarządzania biletami pomocy technicznej oraz monitorowania kondycji usługi. Administratorzy użytkowników nie mają uprawnień do zarządzania niektórymi właściwościami użytkowników w większości ról administratorów. Użytkownik z tą rolą nie ma uprawnień do zarządzania usługą MFA. Role, które są wyjątkami do tego ograniczenia, są wymienione w poniższej tabeli.
 
 | | |
 | --- | --- |

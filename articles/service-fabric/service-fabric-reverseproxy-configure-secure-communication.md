@@ -1,23 +1,21 @@
 ---
 title: Bezpieczna komunikacja z usługą Azure Service Fabric zwrotny bezpieczny serwer proxy
 description: Skonfiguruj zwrotny serwer proxy, aby zapewnić bezpieczną kompleksową komunikację w aplikacji Service Fabric platformy Azure.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617109"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858529"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connect to a secure service with the reverse proxy (Łączenie z bezpieczną usługą przy użyciu zwrotnego serwera proxy)
 
 W tym artykule wyjaśniono, jak ustanowić bezpieczne połączenie między zwrotnym serwerem proxy a usługami, umożliwiając w ten sposób kompleksowe bezpiecznego kanału. Aby dowiedzieć się więcej na temat zwrotnego serwera proxy, zobacz [zwrotny serwer proxy na platformie Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Łączenie z usługami zabezpieczonymi jest obsługiwane tylko wtedy, gdy serwer proxy odwrotny jest skonfigurowany do nasłuchiwania przy użyciu protokołu HTTPS. W tym artykule założono, że jest to przypadek.
-Aby skonfigurować zwrotny serwer proxy w programie Service Fabric, zobacz temat [Konfiguracja zwrotnego serwera proxy w usłudze Azure Service Fabric](service-fabric-reverseproxy-setup.md) .
+> [!IMPORTANT]
+> Łączenie z usługami zabezpieczonymi jest obsługiwane tylko wtedy, gdy serwer proxy odwrotny jest skonfigurowany do nasłuchiwania przy użyciu protokołu HTTPS. W tym artykule założono, że jest to przypadek. Aby skonfigurować zwrotny serwer proxy w programie Service Fabric, zobacz temat [Konfiguracja zwrotnego serwera proxy w usłudze Azure Service Fabric](service-fabric-reverseproxy-setup.md) .
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Ustanowienie bezpiecznego połączenia między zwrotnym serwerem proxy a usługami 
 
@@ -180,10 +178,10 @@ Jest to zachowanie domyślne.
 
 2. Gdy **ForwardClientCertificate** ma **wartość true**, zwrotny serwer proxy żąda certyfikatu klienta podczas uzgadniania protokołu TLS z klientem.
 Następnie przekazuje dane certyfikatu klienta w niestandardowym nagłówku HTTP o nazwie **X-Client-Certificate**. Wartość nagłówka to ciąg formatu PEM szyfrowany algorytmem Base64 certyfikatu klienta. Usługa może zakończyć się powodzeniem/niepowodzeniem żądania przy użyciu odpowiedniego kodu stanu po sprawdzeniu danych certyfikatu.
-Jeśli klient nie zaprezentuje certyfikatu, zwrotny serwer proxy przekazuje pusty nagłówek i zezwoli usłudze na obsługę tego przypadku.
+Jeśli klient nie zaprezentuje certyfikatu, zwrotny serwer proxy przekaże pusty nagłówek i umożliwi usłudze obsługę tego przypadku.
 
 > [!NOTE]
-> Zwrotny serwer proxy to usługa przesyłania dalej. Nie zostanie przeprowadzone żadne sprawdzenie poprawności certyfikatu klienta.
+> Zwrotny serwer proxy działa tylko jako usługa przekazywania dalej. Nie zostanie przeprowadzone żadne sprawdzenie poprawności certyfikatu klienta.
 
 
 ## <a name="next-steps"></a>Następne kroki
