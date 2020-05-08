@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 2cf1ab2b9ec7e1094a0afa34973db3441c22ee5b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608034"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982772"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Praca z danymi za pomocą Eksploratora usługi Azure Storage
 
@@ -273,7 +273,7 @@ Jeśli nie możesz usunąć konta lub jeśli link do ponownego uwierzytelniania 
 
 ### <a name="httphttps-proxy-issue"></a>Problem z serwerem proxy HTTP/HTTPS
 
-Podczas konfigurowania serwera proxy HTTP/HTTPS w środowisku ASE nie możesz wyświetlać listy węzłów usługi Azure Cosmos DB w drzewie po lewej stronie. Jest to znany problem i zostanie rozwiązany w następnej wersji. Jako obejścia w tej chwili możesz użyć eksploratora danych usługi Azure Cosmos DB w witrynie Azure Portal.
+Podczas konfigurowania serwera proxy HTTP/HTTPS w środowisku ASE nie możesz wyświetlać listy węzłów usługi Azure Cosmos DB w drzewie po lewej stronie. Jako obejścia w tej chwili możesz użyć eksploratora danych usługi Azure Cosmos DB w witrynie Azure Portal.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>Problem z węzłem „Programowanie” w węźle „Lokalne i dołączone”
 

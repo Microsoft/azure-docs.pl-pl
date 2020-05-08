@@ -4,20 +4,20 @@ description: Warto skonfigurować konto użytkownika, w ramach którego ma zosta
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111746"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980290"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
+
 > [!NOTE] 
 > Konta użytkowników omówione w tym artykule różnią się od kont użytkowników używanych dla Remote Desktop Protocol (RDP) lub Secure Shell (SSH) ze względów bezpieczeństwa. 
 >
 > Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją maszyny wirtualnej z systemem Linux za pośrednictwem protokołu SSH, zobacz [używanie pulpit zdalny do maszyny wirtualnej z systemem Linux na platformie Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md) Aby połączyć się z węzłami z systemem Windows za pomocą protokołu RDP, zobacz [nawiązywanie połączenia z maszyną wirtualną z systemem Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Aby nawiązać połączenie z węzłem z uruchomioną konfiguracją usługi w chmurze za pośrednictwem protokołu RDP, zobacz [włączanie Podłączanie pulpitu zdalnego dla roli w usłudze Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
 Zadanie w Azure Batch zawsze działa w ramach konta użytkownika. Domyślnie zadania są uruchamiane w ramach kont użytkowników standardowych, bez uprawnień administratora. Te domyślne ustawienia konta użytkownika są zwykle wystarczające. W niektórych scenariuszach warto jednak skonfigurować konto użytkownika, w ramach którego ma zostać uruchomione zadanie. W tym artykule omówiono typy kont użytkowników i sposoby ich konfigurowania dla danego scenariusza.
 

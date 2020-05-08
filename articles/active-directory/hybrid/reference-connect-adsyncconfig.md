@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60381199"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982007"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig programu PowerShell
 Poniższa dokumentacja zawiera informacje dotyczące modułu PowerShell ADSyncConfig. PSM1, który jest dołączony do Azure AD Connect.
@@ -59,25 +59,24 @@ Wyszukiwanie w usłudze AD rozpoczyna się od parametru SearchBase i zwraca wszy
 ### <a name="examples"></a>PRZYKŁADY
 
 #### <a name="example-1"></a>PRZYKŁAD 1
+Znajdź obiekty z wyłączonym dziedziczeniem w domenie "contoso" (domyślnie zwracają tylko obiekty "organizationalUnit")
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 ```
-
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase "contoso"
 
 #### <a name="example-2"></a>PRZYKŁAD 2
+Znajdź obiekty "User" z wyłączonym dziedziczeniem w domenie "contoso"
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 ```
-
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase "contoso"-ObjectClass "User"
 
 #### <a name="example-3"></a>PRZYKŁAD 3
+Znajdź wszystkie typy obiektów z wyłączonym dziedziczeniem w jednostce organizacyjnej
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase OU = AzureAD, DC = contoso, DC = com-ObjectClass ' * '
+
 
 ### <a name="parameters"></a>PARAMETRY
 

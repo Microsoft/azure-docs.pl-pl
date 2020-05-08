@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6d364f1a9974d6d638bb0f824e88ed3866644c15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f109bef1c7ebb3ac77c58357ad3cb6064e8afb3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247412"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869952"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
@@ -21,7 +21,9 @@ W przypadku zapisów w wielu regionach, gdy wielu klientów zapisuje do tego sam
 
 Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego składnika zapisywania usługi WINS jest pole timestamp lub `_ts` właściwość. W przypadku interfejsu API SQL może to również być ustawiona jako ścieżka zdefiniowana przez użytkownika z typem liczbowym. W konflikcie jest najwyższa wartość WINS. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie jest to `_ts`. Konflikty rozwiązane z tymi zasadami nie są wyświetlane w kanale informacyjnym konfliktu. Te zasady mogą być używane przez wszystkie interfejsy API.
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>ZESTAW .NET SDK V2
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Zestaw SDK .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -36,7 +38,7 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>ZESTAW .NET SDK V3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -49,8 +51,11 @@ Container container = await createClient.GetDatabase(this.databaseName)
         }
     });
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-java"></a>Zestaw SDK Java
+
+# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -60,7 +65,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a name="java-sync-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
+# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -69,6 +74,7 @@ ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWi
 lwwCollection.setConflictResolutionPolicy(lwwPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -171,7 +177,9 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 }
 ```
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>ZESTAW .NET SDK V2
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>Zestaw SDK .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -194,7 +202,7 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
 });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>ZESTAW .NET SDK V3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -211,8 +219,11 @@ await container.Scripts.CreateStoredProcedureAsync(
     new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
 );
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-java"></a>Zestaw SDK Java
+
+# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -224,7 +235,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
-### <a name="java-sync-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
+# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -234,6 +245,7 @@ ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy
 udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
+---
 
 Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
@@ -276,7 +288,9 @@ Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
 
 Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą niestandardowych zasad rozwiązywania konfliktów. Te konflikty są widoczne w kanale informacyjnym konfliktów.
 
-### <a name="net-sdk-v2"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>ZESTAW .NET SDK V2
+### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-dotnet"></a>Zestaw SDK .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -290,7 +304,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a name="net-sdk-v3"></a><a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>ZESTAW .NET SDK V3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = await createClient.GetDatabase(this.databaseName)
@@ -302,8 +316,11 @@ Container container = await createClient.GetDatabase(this.databaseName)
         }
     });
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="create-custom-conflict-resolution-policy-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-java"></a>Zestaw SDK Java
+
+# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -313,7 +330,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a name="java-sync-sdk"></a><a id="create-custom-conflict-resolution-policy-java-sync"></a>Java Sync SDK
+# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -322,6 +339,7 @@ ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPol
 manualCollection.setConflictResolutionPolicy(customPolicy);
 DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="create-custom-conflict-resolution-policy-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -354,13 +372,15 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 Te przykłady pokazują, jak odczytywać z kanału informacyjnego konfliktów kontenera. Konflikty są wyświetlane w kanale informacyjnym powodującym konflikt tylko wtedy, gdy nie zostały rozpoznane automatycznie lub w przypadku użycia niestandardowych zasad konfliktu.
 
-### <a name="net-sdk-v2"></a><a id="read-from-conflict-feed-dotnet"></a>ZESTAW .NET SDK V2
+### <a name="net-sdk"></a><a id="read-from-conflict-feed-dotnet"></a>Zestaw SDK .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a name="net-sdk-v3"></a><a id="read-from-conflict-feed-dotnet-v3"></a>ZESTAW .NET SDK V3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
@@ -381,8 +401,11 @@ while (conflictFeed.HasMoreResults)
     }
 }
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="read-from-conflict-feed-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="read-from-conflict-feed-java"></a>Zestaw SDK Java
+
+# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -391,8 +414,7 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-
-### <a name="java-sync-sdk"></a><a id="read-from-conflict-feed-java-sync"></a>Java Sync SDK
+# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/sync)
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -401,6 +423,7 @@ while (conflictsIterator.hasNext()) {
     /* Do something with conflict */
 }
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="read-from-conflict-feed-javascript"></a>Node.js/JavaScript/TypeScript SDK
 

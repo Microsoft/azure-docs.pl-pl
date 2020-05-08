@@ -2,17 +2,17 @@
 title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/04/2020
+ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81532208"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779913"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
-W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi podczas oceniania maszyn wirtualnych VMware do migracji na platformę Azure przy użyciu Azure Migrate: Ocena serwera] (Migrowanie usług — Omówienie. MD # Azure-Migration-Server-Assessment-narzędzie). Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-vmware-migration.md).
+W tym artykule przedstawiono podsumowanie wymagań wstępnych i wymagań dotyczących obsługi podczas oceniania maszyn wirtualnych VMware do migracji na platformę Azure przy użyciu narzędzia do [oceny serwera Azure Migrate:](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Jeśli chcesz przeprowadzić migrację maszyn wirtualnych VMware na platformę Azure, zapoznaj się z [matrycą obsługi migracji](migrate-support-matrix-vmware-migration.md).
 
 Aby ocenić maszyny wirtualne VMware, należy utworzyć projekt Azure Migrate, a następnie dodać narzędzie do oceny serwera do projektu. Po dodaniu narzędzia należy wdrożyć [urządzenie Azure Migrate](migrate-appliance.md). Urządzenie stale odnajduje maszyny lokalne i wysyła metadane maszyny oraz dane wydajności do platformy Azure. Po zakończeniu odnajdywania można zebrać odnalezione maszyny do grup i uruchomić ocenę dla grupy.
 
@@ -39,7 +39,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 **poświadczenia vCenter** | Funkcja odnajdywania aplikacji musi mieć konto vCenter Server z dostępem tylko do odczytu i ma uprawnienia do Virtual Machines > operacji gościa.
 **Poświadczenia maszyny wirtualnej** | Funkcja odnajdywania aplikacji obecnie obsługuje używanie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jednego poświadczenia dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.
 **Narzędzia VMware** | Narzędzia VMware muszą być zainstalowane i uruchomione na maszynach wirtualnych, które mają zostać odnajdywane. <br/> Wersja narzędzi VMware musi być nowsza niż 10.2.0.
-**Narzędzia** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
 **Dostęp do portu** | Na hostach ESXi z uruchomionymi maszynami wirtualnymi urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
 **Limity** | W przypadku odnajdywania aplikacji można wyszukiwać do 10000 maszyn wirtualnych na każdym urządzeniu Azure Migrate.
 
@@ -62,7 +62,7 @@ Azure Migrate używa [urządzenia Azure Migrate](migrate-appliance.md) do odnajd
 
 - Dowiedz się więcej o [wymaganiach dotyczących urządzeń](migrate-appliance.md#appliance---vmware) w oprogramowaniu VMware.
 - Uzyskaj informacje o adresach URL, do których urządzenie musi uzyskać dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [administracji rządowej](migrate-appliance.md#government-cloud-urls) .
-- W Azure Government należy wdrożyć urządzenie przy użyciu skryptu.
+- W Azure Government należy wdrożyć urządzenie [przy użyciu skryptu](deploy-appliance-script-government.md).
 
 
 ## <a name="port-access"></a>Dostęp do portu
@@ -73,6 +73,23 @@ Wprowadzony | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na po
 Serwer vCenter | Połączenia przychodzące na porcie TCP 443 umożliwiające urządzeniu zbieranie metadanych dotyczących konfiguracji i wydajności dla ocen. <br/><br/> Urządzenie domyślnie łączy się z programem vCenter na porcie 443. Jeśli serwer vCenter nasłuchuje na innym porcie, można zmodyfikować port podczas konfigurowania odnajdywania.
 Hosty ESXi (Odnajdywanie aplikacji/analiza zależności bez wykorzystania agentów) | Jeśli chcesz przeprowadzić [odnajdywanie aplikacji](how-to-discover-applications.md) lub [analizę zależności bez wykorzystania agentów](concepts-dependency-visualization.md#agentless-analysis), urządzenie łączy się z hostami ESXi na porcie TCP 443, w celu odnajdywania aplikacji i uruchamiania wizualizacji zależności bez agenta na maszynach wirtualnych.
 
+## <a name="application-discovery"></a>Odnajdywanie aplikacji
+
+Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funkcje uruchomione na maszynach. Odnajdywanie spisu aplikacji umożliwia zidentyfikowanie i zaplanowanie ścieżki migracji dopasowanej do obciążeń lokalnych. 
+
+**Pomoc techniczna** | **Szczegóły**
+--- | ---
+**Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware.
+**Odnajdowa** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
+**Obsługa maszyn wirtualnych** | Funkcja odnajdywania aplikacji jest obsługiwana w przypadku wszystkich wersji systemów Windows i Linux.
+**poświadczenia vCenter** | Funkcja odnajdywania aplikacji musi mieć konto vCenter Server z dostępem tylko do odczytu i ma uprawnienia do Virtual Machines > operacji gościa.
+**Poświadczenia maszyny wirtualnej** | Funkcja odnajdywania aplikacji obecnie obsługuje używanie jednego poświadczenia dla wszystkich serwerów z systemem Windows i jednego poświadczenia dla wszystkich serwerów z systemem Linux.<br/><br/> Tworzysz konto użytkownika-gościa dla maszyn wirtualnych z systemem Windows oraz normalne/normalne konto użytkownika (dostęp sudo) dla wszystkich maszyn wirtualnych z systemem Linux.
+**Narzędzia VMware** | Narzędzia VMware muszą być zainstalowane i uruchomione na maszynach wirtualnych, które mają zostać odnajdywane. <br/> Wersja narzędzi VMware musi być nowsza niż 10.2.0.
+**PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**Dostęp do portu** | Na hostach ESXi z uruchomionymi maszynami wirtualnymi urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
+**Limity** | W przypadku odnajdywania aplikacji można wyszukiwać do 10000 maszyn wirtualnych na każdym urządzeniu Azure Migrate.
+
+
 ## <a name="agentless-dependency-analysis-requirements"></a>Wymagania analizy zależności bez agentów
 
 [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować zależności między maszynami lokalnymi, które mają zostać poddane ocenie i zmigrować na platformę Azure. W tabeli zestawiono wymagania dotyczące konfigurowania analizy zależności bez agenta. 
@@ -82,13 +99,13 @@ Hosty ESXi (Odnajdywanie aplikacji/analiza zależności bez wykorzystania agent�
 **Przed wdrożeniem** | Należy mieć projekt Azure Migrate przy użyciu narzędzia do oceny serwera dodanego do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia Azure Migrate w celu odnalezienia lokalnych maszyn VMWare.<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> [Dowiedz się, jak](how-to-set-up-appliance-vmware.md) skonfigurować urządzenie Azure Migrate do oceny maszyn wirtualnych VMware.
 **Obsługa maszyn wirtualnych** | Obecnie obsługiwane tylko w przypadku maszyn wirtualnych VMware.
 **Maszyny wirtualne z systemem Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitowy).
-**Konto systemu Windows** |  Aby można było uzyskać dostęp do maszyn wirtualnych z systemem Windows, urządzenie Azure Migrate wymaga lokalnego lub konta administratora domeny.
+**Konto systemu Windows** |  W przypadku analizy zależności urządzenie Azure Migrate wymaga konta administratora domeny lub konta administratora lokalnego, aby uzyskać dostęp do maszyn wirtualnych z systemem Windows.
 **Maszyny wirtualne z systemem Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Konto systemu Linux** | W przypadku analizy zależności na komputerach z systemem Linux urządzenie Azure Migrate musi mieć konto użytkownika z uprawnieniami administratora.<br/><br/> Alternatywnie konto użytkownika wymaga tych uprawnień w przypadku plików/bin/netstat i/bin/ls: CAP_DAC_READ_SEARCH i CAP_SYS_PTRACE.
 **Wymagani agenci** | Na maszynach, które mają być analizowane, nie jest wymagany żaden Agent.
 **Narzędzia VMware** | Narzędzia VMware (nowsze niż 10,2) muszą być zainstalowane i uruchomione na każdej maszynie wirtualnej, która ma zostać przeanalizowana.
 **poświadczenia vCenter Server** | Wizualizacja zależności wymaga konta vCenter Server z dostępem tylko do odczytu, a uprawnienia do Virtual Machines > operacji gościa. 
-**Narzędzia** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
+**PowerShell** | Na maszynach wirtualnych musi być zainstalowany program PowerShell w wersji 2,0 lub nowszej.
 **Dostęp do portu** | Na hostach ESXi z maszynami wirtualnymi, które chcesz analizować, urządzenie Azure Migrate musi mieć możliwość nawiązania połączenia z portem TCP 443.
 
 

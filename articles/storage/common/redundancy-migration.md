@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6376d858ae5113996bf7c93a8b3054797151c6b3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858689"
+ms.locfileid: "82871366"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Zmień sposób replikowania konta magazynu
 
@@ -40,10 +40,11 @@ Poniższa tabela zawiera omówienie sposobu przełączania poszczególnych typó
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>... z LRS</b> | Brak | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> | Przeprowadź migrację ręczną <br /><br />Żądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do GRS/RA-GRS, a następnie Zażądaj migracji na żywo<sup>1</sup> |
 | <b>... z GRS/RA-GRS</b> | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak | Przeprowadź migrację ręczną <br /><br /> LUB <br /><br /> Najpierw przejdź do LRS, a następnie Zażądaj migracji na żywo | Przeprowadź migrację ręczną <br /><br /> Żądaj migracji na żywo |
-| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Brak | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia<sup>1</sup> |
+| <b>... z ZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Brak | Użyj Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby zmienić ustawienie replikacji<sup>1, 2</sup> |
 | <b>... z GZRS/RA-GZRS</b> | Przeprowadź migrację ręczną | Przeprowadź migrację ręczną | Zmienianie ustawienia replikacji za pomocą Azure Portal, programu PowerShell lub interfejsu wiersza polecenia | Brak |
 
-<sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.
+<sup>1</sup> powoduje naliczenie jednorazowej opłaty za ruch wychodzący.<br />
+<sup>2</sup> konwersja z ZRS na GZRS/RA-GZRS lub odwrotnie nie jest obsługiwana w następujących regionach: Wschodnie stany USA 2, Wschodnie stany USA, Europa Zachodnia.
 
 > [!CAUTION]
 > W przypadku przełączenia w [tryb failover konta](storage-disaster-recovery-guidance.md) dla konta usługi (Ra-) GRS lub (Ra-) GZRS konto jest lokalnie nadmiarowy w nowym regionie podstawowym po przejściu do trybu failover. Migracja na żywo do ZRS lub GZRS dla konta LRS, które wynika z trybu failover, nie jest obsługiwana. Konieczne będzie przeprowadzenie [ręcznej migracji](#perform-a-manual-migration-to-zrs) do ZRS lub GZRS.

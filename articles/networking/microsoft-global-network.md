@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b78e227159065d2ae85d9b1dc989e8ea192ae26a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453071"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982806"
 ---
 # <a name="microsoft-global-network"></a>Globalna sieć firmy Microsoft
 
-Firma Microsoft jest właścicielem i obsługuje jedną z największych sieci szkieletowych na świecie. Ta globalna i rozbudowana architektura obejmująca ponad 100 000 kilometrów łączy nasze centra danych i klientów. 
+Firma Microsoft jest właścicielem i obsługuje jedną z największych sieci szkieletowych na świecie. Ta globalna i rozbudowana architektura obejmująca ponad 160 000 kilometrów łączy nasze centra danych i klientów. 
  
 Codziennie klienci na całym świecie łączą i przekazują biliony żądań do Microsoft Azure, Bing, Dynamics 365, Office 365, XBox i wielu innych. Niezależnie od typu klienci oczekują natychmiastowej niezawodności i czasu reakcji z naszych usług. 
  
@@ -32,7 +32,7 @@ Codziennie klienci na całym świecie łączą i przekazują biliony żądań do
  
 ## <a name="get-the-premium-cloud-network"></a>Pobierz sieć w chmurze w warstwie Premium
  
-W przypadku korzystania z chmury firmy Microsoft można łatwo wybrać [najlepsze możliwe środowisko](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) . Od momentu, gdy ruch klientów przejdzie do naszej sieci globalnej za pośrednictwem strategicznie rozmieszczonych węzłów brzegowych, dane są przesyłane przez zoptymalizowane trasy w najbliższym tempie. Zapewnia to optymalny czas oczekiwania na najlepszą wydajność. Te węzły brzegowe, wszystkie połączone z ponad 3500 unikatowymi partnerami internetowymi (równorzędnymi) za pomocą tysięcy połączeń w więcej niż 145 lokalizacjach, stanowią podstawę naszej strategii połączeń. 
+W przypadku korzystania z chmury firmy Microsoft można łatwo wybrać [najlepsze możliwe środowisko](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) . Od momentu, gdy ruch klientów przejdzie do naszej sieci globalnej za pośrednictwem strategicznie rozmieszczonych węzłów brzegowych, dane są przesyłane przez zoptymalizowane trasy w najbliższym tempie. Zapewnia to optymalny czas oczekiwania na najlepszą wydajność. Te węzły brzegowe, wszystkie połączone z ponad 3500 unikatowymi partnerami internetowymi (równorzędnymi) za pomocą tysięcy połączeń w więcej niż 165 lokalizacjach, stanowią podstawę naszej strategii połączeń. 
  
 Bez względu na to, czy jest nawiązywane połączenie z Warszawy do Tokio, czy z Waszyngton DC do Los Angeles, wydajność sieci jest określana i wpływa na takie elementy, jak opóźnienia, wahania, utrata pakietów i przepływność.  Firma Microsoft zaleca, aby używać bezpośrednich połączeń z przeciwieństwem do przesyłania linków, dzięki czemu ruch związany z odpowiedzią jest symetryczny i pomaga w zachowaniu przeskoków, stron i ścieżek komunikacji równorzędnej jako krótkich i prostych, jak to możliwe. 
 
