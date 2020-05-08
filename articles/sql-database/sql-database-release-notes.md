@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201316"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801692"
 ---
 # <a name="sql-database-release-notes"></a>Informacje o wersji SQL Database
 
@@ -78,30 +78,35 @@ W modelu wdrażania wystąpienia zarządzanego w H1 2019 są włączone następu
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
-|[Uprawnienia do grupy zasobów nie zostały zastosowane do wystąpienia zarządzanego](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 lutego|Ma obejście||
-|[Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Sty 2020|Ma obejście||
-|[Role agenta SQL wymagają jawnych uprawnień do wykonywania dla logowań innych niż sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Ma obejście||
+|[Agent przestaje odpowiadać przy modyfikowaniu, wyłączaniu lub włączaniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 maja|Automatycznie skorygowane| |
+|[Uprawnienia do grupy zasobów nie zostały zastosowane do wystąpienia zarządzanego](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 lutego|Ma obejście| |
+|[Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Sty 2020|Ma obejście| |
+|[Role agenta SQL wymagają jawnych uprawnień do wykonywania dla logowań innych niż sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Ma obejście| |
 |[Zadania agenta SQL można przerwać przez ponowne uruchomienie procesu agenta](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Resolved|Mar 2020|
-|[Nazwy logowania i użytkownicy usługi AAD nie są obsługiwane w programie SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Lis 2019|Brak obejścia||
-|[Limity pamięci OLTP w pamięci nie są stosowane](#in-memory-oltp-memory-limits-are-not-applied)|2019 października|Ma obejście||
-|[Podczas próby usunięcia pliku, który nie jest pusty, został zwrócony nieprawidłowy błąd](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|2019 października|Ma obejście||
-|[Zmiana warstwy usługi i tworzenie wystąpienia są blokowane przez trwającą operację przywracania bazy danych](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Wrz 2019|Ma obejście||
-|[Po przejściu w tryb failover może zajść konieczność ponownego skonfigurowania przyrządu zasobów na Krytyczne dla działania firmyej warstwie usług](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Wrz 2019|Ma obejście||
-|[Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane po uaktualnieniu warstwy usług](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|2019 sie|Ma obejście||
-|[Impersonification typów logowania usługi Azure AD nie jest obsługiwana](#impersonification-of-azure-ad-login-types-is-not-supported)|Lip 2019|Brak obejścia||
-|[@queryparametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia||
-|[Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Brak obejścia||
-|[Tymczasowa baza danych jest używana podczas operacji przywracania](#temporary-database-is-used-during-restore-operation)||Ma obejście||
-|[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)||Brak obejścia||
-|[Przekraczanie miejsca do magazynowania z małymi plikami bazy danych](#exceeding-storage-space-with-small-database-files)||Ma obejście||
-|[Wyświetlane wartości identyfikatora GUID zamiast nazw baz danych](#guid-values-shown-instead-of-database-names)||Ma obejście||
-|[Dzienniki błędów nie są utrwalone](#error-logs-arent-persisted)||Brak obejścia||
+|[Nazwy logowania i użytkownicy usługi AAD nie są obsługiwane w programie SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Lis 2019|Brak obejścia| |
+|[Limity pamięci OLTP w pamięci nie są stosowane](#in-memory-oltp-memory-limits-are-not-applied)|2019 października|Ma obejście| |
+|[Podczas próby usunięcia pliku, który nie jest pusty, został zwrócony nieprawidłowy błąd](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|2019 października|Ma obejście| |
+|[Zmiana warstwy usługi i tworzenie wystąpienia są blokowane przez trwającą operację przywracania bazy danych](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Wrz 2019|Ma obejście| |
+|[Po przejściu w tryb failover może zajść konieczność ponownego skonfigurowania przyrządu zasobów na Krytyczne dla działania firmyej warstwie usług](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Wrz 2019|Ma obejście| |
+|[Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane po uaktualnieniu warstwy usług](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|2019 sie|Ma obejście| |
+|[Impersonification typów logowania usługi Azure AD nie jest obsługiwana](#impersonification-of-azure-ad-login-types-is-not-supported)|Lip 2019|Brak obejścia| |
+|[@queryparametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia| |
+|[Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Brak obejścia| |
+|[Tymczasowa baza danych jest używana podczas operacji przywracania](#temporary-database-is-used-during-restore-operation)||Ma obejście| |
+|[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)||Brak obejścia| |
+|[Przekraczanie miejsca do magazynowania z małymi plikami bazy danych](#exceeding-storage-space-with-small-database-files)||Ma obejście| |
+|[Wyświetlane wartości identyfikatora GUID zamiast nazw baz danych](#guid-values-shown-instead-of-database-names)||Ma obejście| |
+|[Dzienniki błędów nie są utrwalone](#error-logs-arent-persisted)||Brak obejścia| |
 |[Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Ma obejście|Mar 2020|
-|[Moduły CLR i połączone serwery czasami nie mogą odwoływać się do lokalnego adresu IP](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Ma obejście||
-|Nie sprawdzono spójności bazy danych przy użyciu polecenia DBCC CHECKDB po przywróceniu bazy danych z platformy Azure Blob Storage.||Resolved|Lis 2019|
-|Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.||Resolved|2019 października|
-|Funkcja Poczta bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia||Resolved|2019 października|
-|Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym||Resolved|2019 sie|
+|[Moduły CLR i połączone serwery czasami nie mogą odwoływać się do lokalnego adresu IP](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Ma obejście| |
+|Nie sprawdzono spójności bazy danych przy użyciu polecenia DBCC CHECKDB po przywróceniu bazy danych z platformy Azure Blob Storage.| |Resolved|Lis 2019|
+|Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.| |Resolved|2019 października|
+|Funkcja Poczta bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia| |Resolved|2019 października|
+|Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym| |Resolved|2019 sie|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent przestaje odpowiadać przy modyfikowaniu, wyłączaniu lub włączaniu istniejących zadań
+
+W pewnych okolicznościach modyfikacja istniejącego zadania, wyłączenie go lub włączenie go może spowodować, że Agent przestanie odpowiadać. Problem jest automatycznie zmniejszany w przypadku wykrywania powodującego ponowne uruchomienie procesu agenta.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Uprawnienia do grupy zasobów nie zostały zastosowane do wystąpienia zarządzanego
 

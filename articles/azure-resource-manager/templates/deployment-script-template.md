@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
-ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610806"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872342"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -304,8 +304,8 @@ Aby wyświetlić zasób deploymentScripts w portalu, wybierz pozycję **Pokaż u
 
 Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Wymagania dotyczące korzystania z istniejącego konta magazynu:
 
-- Obsługiwane rodzaje kont magazynu to: konta ogólnego przeznaczenia w wersji 2, konta ogólnego przeznaczenia w wersji 1 i konta fileStorage. Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../../storage/common/storage-account-overview.md).
-- Reguły zapory konta magazynu muszą być wyłączone. Zobacz [Konfigurowanie zapór usługi Azure Storage i sieci wirtualnej](../../storage/common/storage-network-security.md)
+- Obsługiwane rodzaje kont magazynu: ogólnego przeznaczenia w wersji 2, ogólnego przeznaczenia w wersji 1 i FileStorage. Tylko FileStorage obsługuje jednostkę SKU w warstwie Premium. Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../../storage/common/storage-account-overview.md).
+- Reguły zapory konta magazynu nie są jeszcze obsługiwane. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../../storage/common/storage-network-security.md).
 - Tożsamość zarządzana przypisana przez użytkownika skryptu wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, które obejmuje odczyt, tworzenie i usuwanie udziałów plików.
 
 Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do elementu właściwości `Microsoft.Resources/deploymentScripts`:
@@ -316,6 +316,16 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
   "storageAccountKey": "myKey"
 },
 ```
+
+- **storageAccountName**: Określ nazwę konta magazynu.
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) aby pobrać klucz. Przykład:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 Zobacz [przykładowe szablony](#sample-templates) , aby zapoznać `Microsoft.Resources/deploymentScripts` się z kompletnym przykładem definicji.
 
@@ -336,7 +346,7 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 - **retentionInterval**: Określ interwał czasu, przez który zasób skryptu zostanie zachowany, a następnie zostanie usunięty.
 
 > [!NOTE]
-> Nie zaleca się używania zasobów skryptu wdrażania do innych celów.
+> Nie zaleca się używania konta magazynu i wystąpienia kontenera, które są generowane przez usługę skryptów do innych celów. Te dwa zasoby mogą zostać usunięte w zależności od cyklu życia skryptu.
 
 ## <a name="run-script-more-than-once"></a>Uruchom skrypt więcej niż raz
 

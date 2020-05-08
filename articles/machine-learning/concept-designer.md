@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79037627"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872621"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +82,7 @@ Moduł może zawierać zestaw parametrów, za pomocą których można konfigurow
 
 ![Właściwości modułu](./media/concept-designer/properties.png)
 
-Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algorytmów uczenia maszynowego, zobacz [algorytm & — informacje o module](algorithm-module-reference/module-reference.md)
+Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algorytmów uczenia maszynowego, zobacz [Omówienie algorytmu & modułu](algorithm-module-reference/module-reference.md). Aby uzyskać pomoc dotyczącą wybierania algorytmu, zobacz [arkusz Azure Machine Learning Algorithm Ściągawka](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Zasoby obliczeniowe
 
@@ -91,9 +91,10 @@ Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostow
 | Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
+| Wystąpienie obliczeniowe Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w [Azure Machine Learning Studio (klasyczny)](https://ml.azure.com).
+Elementy docelowe obliczeń są dołączone do [obszaru roboczego Azure Machine Learning](concept-workspace.md). Obiektami docelowymi obliczeń można zarządzać w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com).
 
 ## <a name="deploy"></a>Wdrażanie
 

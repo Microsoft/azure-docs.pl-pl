@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858354"
+ms.locfileid: "82871584"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uaktualnij usługę Azure Internal Load Balancer — nie jest wymagane połączenie wychodzące
 [Usługa Azure usługa Load Balancer w warstwie Standardowa](load-balancer-overview.md) oferuje bogaty zestaw funkcji i wysokiej dostępności za pomocą nadmiarowości stref. Aby dowiedzieć się więcej na temat Load Balancer SKU, zobacz [tabela porównania](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -31,6 +31,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
 * Skrypt obsługuje tylko wewnętrzne uaktualnienie Load Balancer, w którym nie jest wymagane połączenie wychodzące. Jeśli wymagane jest [połączenie wychodzące](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) dla niektórych maszyn wirtualnych, Skorzystaj z tej [strony](upgrade-InternalBasic-To-PublicStandard.md) , aby uzyskać instrukcje. 
+* Podstawowa Load Balancer musi znajdować się w tej samej grupie zasobów co maszyny wirtualne zaplecza i karty sieciowe.
 * Jeśli w innym regionie zostanie utworzony standardowy moduł równoważenia obciążenia, nie będzie możliwe skojarzenie maszyn wirtualnych istniejących w starym regionie z nowo utworzonymi usługa Load Balancer w warstwie Standardowa. Aby obejść to ograniczenie, należy utworzyć nową maszynę wirtualną w nowym regionie.
 * Jeśli Load Balancer nie ma żadnej konfiguracji adresu IP frontonu lub puli zaplecza, można napotkać błąd podczas uruchamiania skryptu. Upewnij się, że nie są puste.
 
@@ -47,7 +48,7 @@ Dostępny jest skrypt Azure PowerShell, który wykonuje następujące czynności
 
 ## <a name="download-the-script"></a>Pobierz skrypt
 
-Pobierz skrypt migracji z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
+Pobierz skrypt migracji z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
 ## <a name="use-the-script"></a>Używanie skryptu
 
 W zależności od konfiguracji i preferencji lokalnego środowiska programu PowerShell dostępne są dwie opcje:
@@ -85,7 +86,7 @@ Aby uruchomić skrypt:
    * **newLBName: [ciąg]: wymagane** — jest to nazwa usługa Load Balancer w warstwie Standardowa, która ma zostać utworzona.
 1. Uruchom skrypt przy użyciu odpowiednich parametrów. Ukończenie tego procesu może potrwać od 5 do siedmiu minut.
 
-    **Przykład**
+    **Przyklad**
 
    ```azurepowershell
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422599"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901263"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -60,10 +60,10 @@ Identyfikator objectId aplikacji odpowiada skojarzonej z nią jednostce usługi.
 
 Istnieją dwa sposoby uzyskania identyfikatora objectId dla aplikacji.  Pierwszy polega na zarejestrowaniu aplikacji w Azure Active Directory. Aby to zrobić, wykonaj kroki opisane w sekcji Szybki Start [zarejestruj aplikację na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md). Po zakończeniu rejestracji identyfikator objectID zostanie wyświetlony jako "Identyfikator aplikacji".
 
-Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą interfejsu wiersza polecenia platformy Azure należy użyć [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) .
+Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http://<my-Unique-Service-Name>".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `clientID`.
@@ -72,7 +72,7 @@ Za pomocą Azure PowerShell Użyj polecenia cmdlet [New-AzADServicePrincipal](/p
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `Id` (nie `ApplicationId`).

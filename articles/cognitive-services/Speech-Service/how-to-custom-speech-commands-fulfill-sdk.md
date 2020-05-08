@@ -3,19 +3,19 @@ title: Jak zrealizować polecenia z klienta przy użyciu zestawu Speech SDK
 titleSuffix: Azure Cognitive Services
 description: W tym artykule wyjaśniono, jak obsługiwać działania poleceń niestandardowych na kliencie przy użyciu zestawu Speech SDK.
 services: cognitive-services
-author: don-d-kim
-manager: yetian
+author: trevorbye
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.author: donkim
-ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.author: trbye
+ms.openlocfilehash: f11f5f3c2ad4c9f0241d34edeb664f739f88d15c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79367753"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871736"
 ---
 # <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Realizacja poleceń z klienta przy użyciu zestawu Speech SDK (wersja zapoznawcza)
 
@@ -27,14 +27,11 @@ W tym artykule przedstawiono następujące:
 - Odbieranie i wizualizacja zawartości niestandardowego ładunku JSON z aplikacji klienckiej zestawu SDK języka C# platformy UWP
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Klucz subskrypcji platformy Azure dla usługi mowy
-  - [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
-- Wcześniej utworzona aplikacja poleceń niestandardowych
-  - [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
-- Aplikacja kliencka z włączonym zestawem SDK mowy
-  - [Szybki Start: Nawiązywanie połączenia z aplikacją niestandardową za pomocą zestawu Speech SDK (wersja zapoznawcza)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * Klucz subskrypcji platformy Azure dla usługi mowy: [Uzyskaj jeden bezpłatnie](get-started.md) lub utwórz go na [Azure Portal](https://portal.azure.com)
+> * Wcześniej utworzona aplikacja poleceń niestandardowych: [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
+> * Aplikacja kliencka z obsługą zestawu Speech SDK: [Szybki Start: Nawiązywanie połączenia z aplikacją polecenia niestandardowego za pomocą zestawu Speech SDK (wersja zapoznawcza)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Opcjonalne: szybkie rozpoczynanie pracy
 
@@ -42,7 +39,7 @@ W tym artykule opisano krok po kroku, jak umożliwić aplikacji klienckiej komun
 
 ## <a name="fulfill-with-json-payload"></a>Realizacja z ładunkiem JSON
 
-1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych z programu [Speech Studio](https://speech.microsoft.com/)
+1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych z [przewodników szybki start: Utwórz niestandardowe polecenie z parametrami](./quickstart-custom-speech-commands-create-parameters.md)
 1. Zapoznaj się z sekcją **reguły uzupełniania** , aby upewnić się, że masz wcześniej utworzoną regułę, która reaguje z powrotem do użytkownika.
 1. Aby wysłać ładunek bezpośrednio do klienta, Utwórz nową regułę z akcją Wyślij działanie
 
@@ -55,9 +52,7 @@ W tym artykule opisano krok po kroku, jak umożliwić aplikacji klienckiej komun
    | Warunki | Wymagany parametr- `OnOff` i`SubjectDevice` | Warunki określające, kiedy można uruchomić regułę |
    | Akcje | `SendActivity`(zobacz poniżej) | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
 
-   > [!div class="mx-imgBorder"]
-   > ![Wyślij ładunek aktywności](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
-
+1. Skopiuj poniższy kod JSON do **zawartości działania**
    ```json
    {
      "type": "event",
@@ -66,12 +61,14 @@ W tym artykule opisano krok po kroku, jak umożliwić aplikacji klienckiej komun
      "device": "{SubjectDevice}"
    }
    ```
+   > [!div class="mx-imgBorder"]
+   > ![Wyślij ładunek aktywności](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
 ## <a name="create-visuals-for-device-on-or-off-state"></a>Tworzenie wizualizacji na potrzeby stanu lub wyłączenia urządzenia
 
-W [szybkim samouczku: Nawiązywanie połączenia z aplikacją polecenia niestandardowego za pomocą zestawu Speech SDK (wersja zapoznawcza)](./quickstart-custom-speech-commands-speech-sdk.md) została utworzona aplikacja kliencka zestawu Speech SDK, która obsługiwała polecenia takie jak `turn on the tv`, `turn off the fan`. Teraz Dodaj wizualizacje, aby zobaczyć wynik tych poleceń.
+W samouczku [Szybki Start: Nawiązywanie połączenia z aplikacją polecenia niestandardowego za pomocą zestawu Speech SDK](./quickstart-custom-speech-commands-speech-sdk.md)została utworzona aplikacja kliencka zestawu Speech SDK `turn on the tv`, `turn off the fan`która obsłuży polecenia takie jak,. Po dodaniu niektórych wizualizacji można zobaczyć wynik tych poleceń.
 
-Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy użyciu następującego kodu XML dodanego do`MainPage.xaml.cs`
+Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy użyciu następującego kodu XML dodanego do`MainPage.xaml`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -91,13 +88,23 @@ Dodaj pola z etykietami z tekstem **wskazującym** lub **wyłączonym** przy uż
 ```
 
 ## <a name="handle-customizable-payload"></a>Obsługuj konfigurowalny ładunek
+### <a name="add-reference-libraries"></a>Dodawanie bibliotek referencyjnych
 
-Teraz, po utworzeniu ładunku JSON, można dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
+Ze względu na to, że utworzono ładunek JSON, musisz dodać odwołanie do biblioteki [JSON.NET](https://www.newtonsoft.com/json) w celu obsługi deserializacji.
+- Klient z odpowiednim rozwiązaniem.
+- Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**, a następnie wybierz pozycję **Zainstaluj** . 
+- Wyszukaj plik **Newtonsoft. JSON** na liście aktualizacji, zaktualizuj plik **Microsoft. Core. UniversalWindowsPlatform** do najnowszej wersji
 
 > [!div class="mx-imgBorder"]
 > ![Wyślij ładunek aktywności](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-W `InitializeDialogServiceConnector` obszarze Dodaj następujący kod do `ActivityReceived` programu obsługi zdarzeń. Dodatkowy kod wyodrębni ładunek z działania i odpowiednio zmieni stan wizualizacji telewizora lub wentylatora.
+W pliku "MainPage. XAML. cs" Dodaj
+- `using Newtonsoft.Json;` 
+- `using Windows.ApplicationModel.Core;`
+
+### <a name="handle-received-payload"></a>Obsługa odebranego ładunku
+
+W `InitializeDialogServiceConnector`programie Zastąp `ActivityReceived` procedurę obsługi zdarzeń poniższym kodem. Zmodyfikowana `ActivityReceived` procedura obsługi zdarzeń wyodrębni ładunek z działania i odpowiednio zmieni stan wizualizacji telewizora lub wentylatoru.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -105,22 +112,33 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
+    var name = activity?.name != null ? activity.name.ToString() : string.Empty;
 
-    if(activity?.name == "SetDeviceState")
+    if (name.Equals("UpdateDeviceState"))
     {
-        var state = activity?.state;
-        var device = activity?.device;
-        switch(device)
+        Debug.WriteLine("Here");
+        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
+        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+
+        if (state.Equals("on") || state.Equals("off"))
         {
-            case "tv":
-                State_TV.Text = state;
-                break;
-            case "fan":
-                State_Fan.Text = state;
-                break;
-            default:
-                NotifyUser($"Received request to set unsupported device {device} to {state}");
-                break;
+            switch (device)
+            {
+                case "tv":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_TV.Text = state; });
+                    break;
+                case "fan":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_Fan.Text = state; });
+                    break;
+                default:
+                    NotifyUser($"Received request to set unsupported device {device} to {state}");
+                    break;
+            }
+        }
+        else { 
+            NotifyUser($"Received request to set unsupported state {state}");
         }
     }
 
@@ -138,6 +156,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Wybierz przycisk Rozmowa
 1. Wydać`turn on the tv`
 1. Wizualny stan telewizora powinien zmienić na "on"
+   > [!div class="mx-imgBorder"]
+   > ![Wyślij ładunek aktywności](media/custom-speech-commands/fulfill-sdk-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

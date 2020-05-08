@@ -4,15 +4,15 @@ description: W tym artykule opisano sposób tworzenia kopii zapasowych i przywra
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145457"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871298"
 ---
 # <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 
@@ -24,7 +24,7 @@ Tworzenie kopii zapasowych baz danych modeli tabelarycznych w Azure Analysis Ser
 > 
 
 > [!NOTE]
-> Jeśli konto magazynu znajduje się w innym regionie, ustawienia zapory należy skonfigurować tak, aby zezwalały na dostęp ze **wszystkich sieci**. Ustawienia zapory skonfigurowane dla wybranych sieci z listy dozwolonych adresy IP i Zezwalaj na wyjątek zaufanych usług firmy Microsoft nie są obsługiwane.
+> Jeśli konto magazynu znajduje się w innym regionie, skonfiguruj ustawienia zapory konta magazynu, aby zezwolić na dostęp z **wybranych sieci**. W obszarze **zakres adresów**zapory Określ zakres adresów IP dla regionu, w którym znajduje się serwer Analysis Services. Konfigurowanie ustawień zapory konta magazynu w celu zezwalania na dostęp ze wszystkich sieci jest obsługiwane, jednak wybranie opcji wybrane sieci i określenie zakresu adresów IP jest preferowane. Aby dowiedzieć się więcej, zobacz [często zadawane pytania dotyczące łączności sieciowej](analysis-services-network-faq.md#backup-and-restore).
 
 Kopie zapasowe są zapisywane z rozszerzeniem ABF. Dla modeli tabelarycznych w pamięci są przechowywane zarówno dane modelu, jak i metadane. W przypadku modeli tabelarycznych zapytania bezpośredniego są przechowywane tylko metadane modelu. Kopie zapasowe mogą być kompresowane i szyfrowane w zależności od wybranych opcji.
 
@@ -107,5 +107,5 @@ Użyj polecenia cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershel
 ## <a name="related-information"></a>Informacje pokrewne
 
 [Konta usługi Azure Storage](../storage/common/storage-create-storage-account.md)  
-[Wysoka dostępność](analysis-services-bcdr.md)     
-[Zarządzaj Azure Analysis Services](analysis-services-manage.md)
+[Wysoka dostępność](analysis-services-bcdr.md)      
+[Analysis Services często zadawane pytania dotyczące łączności sieciowej](analysis-services-network-faq.md)

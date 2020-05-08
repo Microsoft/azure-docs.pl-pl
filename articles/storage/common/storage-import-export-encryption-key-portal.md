@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176332"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871164"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export
 
@@ -90,9 +90,8 @@ Konfigurowanie klucza zarządzanego przez klienta dla usługi Import/Export jest
 
 W bloku **szyfrowanie** można zobaczyć Magazyn kluczy i klucz wybrany dla klucza zarządzanego przez klienta.
 
-## <a name="disable-keys"></a>Wyłącz klucze
-
-Klucze zarządzane przez firmę Microsoft można wyłączyć i przenieść do kluczy zarządzanych przez klienta na dowolnym etapie zadania importowania/eksportowania. Nie można jednak wyłączyć klucza zarządzanego przez klienta po jego utworzeniu.
+> [!IMPORTANT]
+> Klucze zarządzane przez firmę Microsoft można wyłączyć i przenieść do kluczy zarządzanych przez klienta na dowolnym etapie zadania importowania/eksportowania. Nie można jednak wyłączyć klucza zarządzanego przez klienta po jego utworzeniu.
 
 ## <a name="troubleshoot-customer-managed-key-errors"></a>Rozwiązywanie problemów z błędami kluczy zarządzanych przez klienta
 

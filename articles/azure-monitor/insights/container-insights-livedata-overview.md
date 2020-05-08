@@ -3,12 +3,12 @@ title: Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure Monit
 description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i metryk w czasie rzeczywistym bez używania polecenia kubectl w Azure Monitor for Containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216538"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872114"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego
 
@@ -42,7 +42,7 @@ Aby zawiesić automatyczne przewijanie i kontrolować zachowanie okienka, umożl
 >Zalecamy Wstrzymywanie lub wstrzymywanie autoprzewijania przez krótki okres czasu podczas rozwiązywania problemu. Te żądania mogą mieć wpływ na dostępność i ograniczenie interfejsu API Kubernetes w klastrze. 
 
 >[!IMPORTANT]
->Podczas wykonywania tej funkcji żadne dane nie są trwale przechowywane. Wszystkie informacje przechwycone podczas sesji są usuwane, gdy zamkniesz przeglądarkę lub opuścisz ją. Dane pozostają obecne tylko dla wizualizacji w oknie 5 minut funkcji metryki. wszystkie metryki starsze niż pięć minut również są usuwane. Bufory danych na żywo (wersja zapoznawcza) są wysyłane w ramach rozsądnych limitów użycia pamięci (w tym miejscu należy wprowadzić bardziej szczegółowe informacje, co jest uzasadnione?). 
+>Podczas wykonywania tej funkcji żadne dane nie są trwale przechowywane. Wszystkie informacje przechwycone podczas sesji są usuwane, gdy zamkniesz przeglądarkę lub opuścisz ją. Dane pozostają obecne tylko dla wizualizacji w oknie 5 minut funkcji metryki. wszystkie metryki starsze niż pięć minut również są usuwane. Bufory danych na żywo (wersja zapoznawcza) są wysyłane w ramach rozsądnych limitów użycia pamięci.
 
 ## <a name="view-logs"></a>Wyświetlanie dzienników
 

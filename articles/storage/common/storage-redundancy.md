@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4fff7c8865a59b916755a69a98448a1684da229
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853332"
+ms.locfileid: "82872015"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -103,6 +103,18 @@ Magazyn strefy Geograficznie nadmiarowy (GZRS) łączy wysoką dostępność zap
 Za pomocą konta magazynu GZRS można nadal odczytywać i zapisywać dane, jeśli strefa dostępności stanie się niedostępna lub nie można jej odzyskać. Ponadto dane są również trwałe w przypadku kompletnej awarii regionalnej lub awarii, w której region podstawowy nie jest możliwy do odzyskania. GZRS zaprojektowano w celu udostępnienia co najmniej 99.99999999999999% (16 9) trwałości obiektów w danym roku.
 
 Tylko konta magazynu ogólnego przeznaczenia w wersji 2 obsługują GZRS i RA-GZRS. Aby uzyskać więcej informacji dotyczących typów kont magazynu, zobacz temat [Przegląd konta usługi Azure Storage](storage-account-overview.md). GZRS i RA-GZRS obsługują blokowe obiekty blob, stronicowe obiekty blob (z wyjątkiem dysków VHD), pliki, tabele i kolejki. GZRS i RA-GZRS są dostępne we wszystkich regionach świadczenia usługi Azure.
+
+GZRS i RA-GZRS są obsługiwane w następujących regionach:
+
+- Azja Południowo-Wschodnia
+- Europa Północna
+- Europa Zachodnia
+- Japonia Wschodnia
+- Południowe Zjednoczone Królestwo
+- Środkowe stany USA
+- Wschodnie stany USA
+- Wschodnie stany USA 2
+- Zachodnie stany USA 2
 
 Aby uzyskać informacje na temat cen, zobacz szczegóły cennika [obiektów BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), [plików](https://azure.microsoft.com/pricing/details/storage/files/), [kolejek](https://azure.microsoft.com/pricing/details/storage/queues/)i [tabel](https://azure.microsoft.com/pricing/details/storage/tables/).
 

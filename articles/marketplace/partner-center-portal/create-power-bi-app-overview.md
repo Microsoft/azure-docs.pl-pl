@@ -1,5 +1,5 @@
 ---
-title: Omówienie tworzenia aplikacji Power BI — Azure Marketplace
+title: Omówienie tworzenia aplikacji Power BI — Microsoft AppSource
 description: W tym artykule opisano ogólne kroki publikowania aplikacji Power BI w programie Microsoft AppSource. Dostępne są również wymagania techniczne i biznesowe, które aplikacja Power BI musi spełnić, aby można było je opublikować w portalu komercyjnym.
 author: anbene
 ms.author: mingshen
@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732676"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837842"
 ---
 # <a name="power-bi-app-creation-overview"></a>Omówienie tworzenia aplikacji Power BI
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami Power BI aplikacji z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Power BI oferta aplikacji](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer) Portal Cloud partner, aby zarządzać ofertami.
 
 W tym artykule opisano sposób publikowania aplikacji Power BI w programie Microsoft [AppSource](https://appsource.microsoft.com/). Power BI dostosowywalne pakiety aplikacji, w tym zestawy danych, raporty i pulpity nawigacyjne. Następnie możesz użyć aplikacji z innymi Power BI platformami za pomocą AppSource, wykonać korekty i dostosowania dozwolone przez dewelopera, a następnie połączyć je ze swoimi danymi.
 
@@ -32,14 +29,14 @@ Zalety publikowania na komercyjnej witrynie Marketplace:
 
 ## <a name="overview"></a>Omówienie
 
-:::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="przegląd czynności związanych z publikowaniem aplikacji Power BI" border="false":::
+:::image type="content" source="media/power-bi-app-publishing-steps.png" alt-text="Przegląd czynności związanych z publikowaniem aplikacji Power BI" border="false":::
 
 Oto podstawowe kroki publikowania:
 
 1. Utwórz aplikację w Power BI. Otrzymasz link instalacji pakietu, który jest głównym zasobem technicznym oferty. Wyślij pakiet testowy do środowiska przedprodukcyjnego przed utworzeniem oferty w centrum partnerskim. Aby uzyskać szczegółowe informacje, zobacz [co to są Power BI Apps?](https://docs.microsoft.com/power-bi/service-template-apps-overview).
 2. Dodaj materiały marketingowe, takie jak Oficjalna nazwa, opis i logo.
 3. Dołącz do oferty dokumenty prawne i pomoc techniczna, takie jak warunki użytkowania, zasady ochrony prywatności, zasady pomocy technicznej i pomoc użytkownika.
-4. Utwórz ofertę: Użyj Centrum partnerskiego, aby edytować szczegóły, w tym opis oferty, materiały marketingowe, informacje prawne, informacje o pomocy technicznej i specyfikacje zasobów.
+4. Utwórz ofertę — Użyj Centrum partnerskiego, aby edytować szczegóły, w tym opis oferty, materiały marketingowe, informacje prawne, informacje o pomocy technicznej i specyfikacje zasobów.
 5. Prześlij ją do publikacji.
 6. Monitoruj proces w centrum partnerskim, w którym zespół AppSource dołączania, sprawdza poprawność i poświadcza swoją aplikację.
 7. Po uzyskaniu certyfikatu zapoznaj się z aplikacją w środowisku testowym i zwolnij ją. Spowoduje to wyświetlenie listy w witrynie AppSource ("trafia na żywo").
@@ -79,6 +76,6 @@ Wymagania biznesowe obejmują proceduralne, umowne i prawne zobowiązania. Nale�
 - Podaj zawartość, która spełnia kryteria oferty do wystawienia w witrynie AppSource. Aby uzyskać więcej informacji, zobacz temat [czy aplikacja ma być wyświetlana w witrynie AppSource? Oto jak to zrobić](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Zaakceptuj [zasady zachowania poufności informacji firmy Microsoft](https://privacy.microsoft.com/privacystatement)i postępuj zgodnie z tymi zasadami.
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-step"></a>Następny krok
 
 - [Tworzenie oferty aplikacji Power BI w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

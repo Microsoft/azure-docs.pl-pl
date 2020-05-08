@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509520"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872423"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Połącz z usługą Azure IoT Central
 
@@ -95,6 +95,14 @@ Aby połączyć zbiorczo urządzenia za pomocą certyfikatów X. 509, należy na
 
 Generuj certyfikaty liścia X. 509 dla urządzeń przy użyciu przekazanego certyfikatu głównego lub pośredniego. Użyj **identyfikatora urządzenia** jako `CNAME` wartości w certyfikatach liścia. Kod urządzenia wymaga wartości **identyfikatora zakresu** dla aplikacji, **identyfikatora urządzenia**i odpowiedniego certyfikatu urządzenia.
 
+#### <a name="sample-device-code"></a>Przykładowy kod urządzenia
+
+Poniższy przykład z [zestawu SDK środowiska Node. js usługi Azure IoT](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) pokazuje, w jaki sposób klient urządzenia Node. js używa certyfikatu liścia X. 509 i usługi DPS do zarejestrowania się w aplikacji IoT Central:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+Aby uzyskać odpowiedni przykład C, zobacz [prov_dev_client_sample. C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) w [zestawie SDK klienta urządzenia Azure IoT c Provisioning](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### <a name="for-testing-purposes-only"></a>Tylko do celów testowych
 
 Do celów testowych można użyć następujących narzędzi do generowania certyfikatów głównych, pośrednich i urządzeń:
@@ -106,11 +114,6 @@ Do celów testowych można użyć następujących narzędzi do generowania certy
   - Zapisz certyfikaty jako pliki. cer, aby przekazać je do aplikacji IoT Central.
   - Użyj kodu weryfikacyjnego z aplikacji IoT Central w celu wygenerowania certyfikatu weryfikacji.
   - Utwórz certyfikaty liści dla urządzeń, korzystając z identyfikatorów urządzeń jako parametru do narzędzia.
-
-### <a name="further-reference"></a>Dalsze informacje
-
-- [Przykładowa implementacja dla RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Przykładowy klient urządzenia w języku C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Łączenie bez rejestrowania urządzeń
 

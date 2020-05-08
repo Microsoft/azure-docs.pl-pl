@@ -8,8 +8,6 @@
       href: overview.md
     - name: Porównanie usług obsługi wiadomości
       href: compare-messaging-services.md
-    - name: Warstwy Premium a Podstawowa
-      href: premium-basic-tiers.md
 - name: Przewodniki Szybki start
   expanded: true
   items:
@@ -166,23 +164,15 @@
     - name: Monitorowanie i rozwiązywanie problemów
       items:
         - name: Dzienniki diagnostyczne
-          href: null
+          href: diagnostic-logs.md
         - name: Metryki
           href: metrics.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
-      href: configure-private-endpoints.md
-    - name: Konfigurowanie zapory IP (wersja zapoznawcza)
-      href: configure-firewall.md
-    - name: Aktualizowanie warstwy cenowej
-      href: update-tier.md
     - name: Publikowanie w temacie niestandardowym
       href: post-to-custom-topic.md
     - name: Odbieranie zdarzeń w punkcie końcowym HTTP
       href: receive-events.md
-    - name: Zabezpieczanie elementu webhook za pomocą usługi AAD
-      href: secure-webhook-delivery.md
     - name: Utracone wiadomości i ponawianie prób
       href: manage-event-delivery.md
     - name: Filtrowanie zdarzeń
@@ -201,6 +191,14 @@
       href: custom-disaster-recovery.md
     - name: Śledzenie asynchronicznych operacji REST
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Bezpieczeństwo
+      items:
+        - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
+          href: configure-private-endpoints.md
+        - name: Konfigurowanie zapory IP (wersja zapoznawcza)
+          href: configure-firewall.md
+        - name: Zabezpieczanie elementu webhook za pomocą usługi AAD
+          href: secure-webhook-delivery.md
     - name: Rozwiązywanie problemów
       items:
         - name: Włączanie dzienników diagnostycznych

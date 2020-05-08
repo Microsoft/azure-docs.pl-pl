@@ -1,5 +1,5 @@
 ---
-title: Utwórz nową ofertę usługi zarządzanej w komercyjnej witrynie Marketplace
+title: Tworzenie oferty usługi zarządzanej w witrynie Microsoft Commercial Marketplace
 description: Tworzenie nowej oferty usługi zarządzanej na potrzeby wyświetlania listy w witrynie Azure Marketplace przy użyciu portalu komercyjnej witryny Marketplace w centrum partnerskim.
 author: JnHs
 ms.author: jenhayes
@@ -8,56 +8,60 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147906"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871911"
 ---
-# <a name="create-a-new-managed-service-offer"></a>Utwórz nową ofertę usługi zarządzanej
+# <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami usług zarządzanych z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Publikowanie oferty usługi zarządzanej w witrynie Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) , aby zarządzać ofertami w Portal Cloud partner.
+Usługa zarządzana oferuje pomoc w włączaniu scenariuszy [usługi Azure Lighthouse](../../lighthouse/overview.md) . Gdy klient zaakceptuje ofertę usługi zarządzanej, może później dołączyć zasoby do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md). Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-Usługa zarządzana oferuje pomoc w włączaniu scenariuszy [usługi Azure Lighthouse](../../lighthouse/overview.md) . Gdy klient zaakceptuje ofertę usługi zarządzanej, może później dołączyć zasoby do [zarządzania zasobami delegowanymi przez platformę Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
-
-Aby rozpocząć tworzenie ofert usług zarządzanych, należy najpierw [utworzyć konto Centrum partnerskiego](./create-account.md) i otworzyć [komercyjny pulpit nawigacyjny portalu Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)z wybraną stroną **Przegląd** . Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kompetencji](https://partner.microsoft.com/membership/cloud-platform-competency) lub [specjalistą dla chmury platformy Azure](https://partner.microsoft.com/membership/azure-expert-msp) .
-
-![Komercyjny pulpit nawigacyjny portalu Marketplace w centrum partnerskim](./media/new-offer-overview.png)
-
->[!Note]
-> Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim zostaną zaktualizowane w systemie i przechowane przed ponownym opublikowaniem. Upewnij się, że przesyłasz ofertę do publikacji po wprowadzeniu zmian.
+Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kompetencji](https://partner.microsoft.com/membership/cloud-platform-competency) lub [specjalistą dla chmury platformy Azure](https://partner.microsoft.com/membership/azure-expert-msp) .
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
-Wybierz przycisk **+ Nowa oferta** , a następnie wybierz element menu **usługi zarządzanej** . Zostanie wyświetlone okno dialogowe **Nowa oferta** .
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferowana** > **usługa zarządzana**.
 
-### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-managed-service.png)
 
-- **Identyfikator oferty**: unikatowy identyfikator dla każdej oferty na Twoim koncie. Ten identyfikator będzie widoczny dla klientów w adresie URL dla oferty portalu Marketplace. Ten identyfikator może zawierać tylko małe znaki alfanumeryczne (w tym łączniki i podkreślenia, ale nie odstępy), ograniczony do 50 znaków i nie można go zmienić po wybraniu opcji **Utwórz**.  Jeśli na przykład wprowadzisz polecenie *test-Offer-1* tutaj, adres URL oferty będzie mieć `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`wartość.
+>[!NOTE]
+>Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
-- **Alias oferty**: nazwa używana do odwoływania się do oferty w centrum partnerskim. Ta nazwa nie będzie używana w portalu Marketplace i różni się od nazwy oferty i innych wartości, które będą widoczne dla klientów. Tej wartości nie można zmienić po wybraniu opcji **Utwórz**.
+## <a name="new-offer"></a>Nowa oferta
 
-Po wprowadzeniu **identyfikatora oferty** i **aliasu oferty**wybierz pozycję **Utwórz**. Następnie będzie można obejść wszystkie różne części oferty.
+Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+
+* Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
+* Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+
+* Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
+* Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
+
+Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
-
-Na stronie **Konfiguracja oferty** są wyświetlane poniższe informacje. Pamiętaj, aby po zakończeniu tych pól wybrać opcję **Zapisz** .
 
 ## <a name="connect-lead-management"></a>Zarządzanie potencjalnymi klientami
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Należy pamiętać, że zgodnie z [zasadami certyfikacji usług zarządzanych](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)wymagany jest **obiekt docelowy potencjalnego klienta** . Spowoduje to utworzenie rekordu w systemie CRM przy każdym wdrożeniu oferty przez klienta.
+Dla [zasad certyfikacji usług zarządzanych](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)wymagane jest **miejsce docelowe lidera** . Spowoduje to utworzenie rekordu w systemie CRM przy każdym wdrożeniu oferty przez klienta.
 
 Aby uzyskać więcej informacji, zobacz temat [Zarządzanie potencjalnymi klientami — Omówienie](./commercial-marketplace-get-customer-leads.md).
 
-Pamiętaj, aby **zapisać** stronę przed przejściem do następnej sekcji.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="properties"></a>Właściwości
 
-Strona **Właściwości** umożliwia definiowanie kategorii używanych do grupowania oferty w witrynie Marketplace oraz umów prawnych wspierających Twoją ofertę. Wybierz pozycję **Zapisz** po zakończeniu tej strony.
+Ta strona umożliwia definiowanie kategorii używanych do grupowania oferty w witrynie Marketplace oraz umów prawnych wspierających Twoją ofertę.
 
 ### <a name="category"></a>Kategoria
 
@@ -67,12 +71,14 @@ Wybierz co najmniej jedną i maksymalnie pięć kategorii, które będą używan
 
 Podaj własne warunki prawne i postanowienia w polu Warunki **i** postanowienia. Możesz także podać adres URL, pod którym można znaleźć warunki i postanowienia. Klienci będą musieli zaakceptować te warunki, aby wypróbować ofertę.
 
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
 ## <a name="offer-listing"></a>Lista oferty
 
-Na stronie z **listą ofert** można definiować szczegóły witryny Marketplace (nazwę oferty, opis, obrazy itp.) oferty.
+Na tej stronie można definiować szczegóły witryny Marketplace (takie jak nazwa oferty, opis i obrazy).
 
 > [!NOTE]
-> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu, warunki użytkowania itp.) nie jest wymagana w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
+> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
 ### <a name="name"></a>Nazwa
 
@@ -100,23 +106,13 @@ Niektóre porady dotyczące pisania opisu:
 - Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości.  
 - Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.
 
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego do formatowania opisu.
+Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
 
-![Korzystanie z edytora tekstu sformatowanego](./media/text-editor2.png)
+![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
 
-Skorzystaj z poniższych instrukcji, aby użyć edytora tekstu sformatowanego:
-
-- Aby zmienić format zawartości, zaznacz tekst, który chcesz sformatować, i wybierz styl tekstu, jak pokazano poniżej:
-
-     ![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png)
-
-- Aby dodać listę punktowaną lub numerowaną do tekstu, Użyj poniższych opcji:
-
-     ![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png)
-
-- Aby dodać lub usunąć wcięcie do tekstu, Użyj poniższych opcji:
-
-     ![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png)
+| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
+| --- | --- | --- |
+| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
 
 ### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
@@ -138,12 +134,19 @@ Jeśli masz pomoc techniczną dla klientów **globalnych platformy Azure** i/lub
 
 W tej sekcji można podać logo i obrazy, które będą używane podczas wyświetlania oferty dla klienta. Wszystkie obrazy muszą mieć format PNG.
 
->[!Note]
+>[!NOTE]
 >Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
 #### <a name="marketplace-logos"></a>Logo witryny Marketplace
 
-Wymagane są cztery rozmiary logo: **małe (40x40)**, **średnie (90x90)**, **duże (115x115)** i **szerokie (255x115)**. Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
+Podaj logo swojej oferty w postaci czterech pikseli:
+
+- **Mały** (40 x 40)
+- **Średni** (90 x 90)
+- **Duże** (115 x 115)
+- **Szeroki** (255 x 115)
+
+Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:
 
 - Projekt platformy Azure ma prostą paletę kolorów. Ogranicz liczbę podstawowych i pomocniczych kolorów w logo.
 - Kolory motywu portalu to biały i czarny. Nie używaj tych kolorów jako kolorów tła swojego logo. Użyj koloru, który sprawi, że logo będzie się wyróżniać w portalu. Zalecamy proste kolory podstawowe.
@@ -164,6 +167,8 @@ Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują
 
 - [Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
 ## <a name="preview"></a>Wersja zapoznawcza
 
 Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace musisz najpierw udostępnić ją w ograniczonej grupie odbiorców w wersji zapoznawczej. Dzięki temu można potwierdzić, jak oferta jest wyświetlana w portalu Azure Marketplace przed udostępnieniem jej klientom. Zespoły pomocy technicznej i inżynierów firmy Microsoft będą mogli wyświetlać Twoją ofertę w tym okresie zapoznawczym.
@@ -171,6 +176,8 @@ Przed opublikowaniem oferty na żywo w szerszej ofercie z witryny Marketplace mu
 Możesz zdefiniować odbiorców wersji zapoznawczej, wprowadzając identyfikatory subskrypcji platformy Azure w sekcji **Podgląd odbiorców** . Możesz wprowadzić maksymalnie 10 identyfikatorów subskrypcji ręcznie lub przekazać plik CSV z maksymalnie 100 identyfikatorami subskrypcji.
 
 Wszyscy klienci powiązani z tymi subskrypcjami będą mogli wyświetlać ofertę w portalu Azure Marketplace przed rozpoczęciem jej używania. Pamiętaj o dołączeniu własnych subskrypcji tutaj, aby można było wyświetlić podgląd oferty.
+
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="plan-overview"></a>Przegląd planu
 
@@ -237,18 +244,20 @@ Dla każdej **autoryzacji**należy podać następujące dane. Następnie można 
 
 Po zakończeniu wszystkich sekcji planu możesz wybrać pozycję **+ Utwórz nowy plan** dowolną liczbę razy, aby utworzyć dodatkowe plany. Po zakończeniu wybierz pozycję **Zapisz**.
 
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
 ## <a name="publish"></a>Publikowanie
 
 ### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
 
-Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Publikuj** w prawym górnym rogu portalu. Nastąpi przekierowanie do strony **Recenzja i publikowanie** .
+Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 
 Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
 
 - Zobacz stan ukończenia dla każdej sekcji oferty.
-  - *Nie uruchomiono* — oznacza, że sekcja nie została dotknięcia i należy ją ukończyć.
-  - *Niekompletne* — oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
-  - *Gotowe* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
+  - **Nie uruchomiono** — sekcja nie została dotknięcia i należy ją ukończyć.
+  - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub aby można było dostarczyć więcej informacji. Wróć do sekcji i zaktualizuj ją.
+  - **Ukończono** — sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 - W sekcji **uwagi dotyczące certyfikacji** Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także dodatkowe uwagi przydatne do poznania aplikacji.
 - Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail, gdy zostanie udostępniona wersja zapoznawcza oferty, którą możesz przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
 

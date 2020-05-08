@@ -1,32 +1,21 @@
 ---
 title: Dodaj narzędzia migracji w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia migracji w Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/26/2020
+ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185959"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901476"
 ---
 # <a name="add-migration-tools"></a>Dodawanie narzędzi migracji
 
 W tym artykule opisano sposób dodawania narzędzi migracji w programie [Azure Migrate](migrate-overview.md).
 
-Azure Migrate oferuje centrum narzędzi do oceny i migracji na platformę Azure. Obejmuje ona narzędzia natywne, Narzędzia udostępniane przez inne usługi platformy Azure oraz oferty niezależnych dostawców oprogramowania (ISV) innych firm.
-
-Jeśli chcesz dodać narzędzie do migracji i nie został jeszcze skonfigurowany projekt Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
-
-
-
-## <a name="selecting-an-isv-tool"></a>Wybieranie narzędzia niezależnego dostawcy oprogramowania
-
-Jeśli wybierzesz [Narzędzie niezależnego dostawcy oprogramowania](migrate-services-overview.md#isv-integration) do migracji, możesz zacząć od uzyskania licencji lub zarejestrować się w celu skorzystania z bezpłatnej wersji próbnej zgodnie z zasadami dotyczącymi niezależnych dostawców oprogramowania. W każdym narzędziu jest dostępna opcja nawiązywania połączenia z Azure Migrate. Wdróż narzędzie i postępuj zgodnie z instrukcjami i dokumentacją narzędzia, aby połączyć obszar roboczy narzędzia z Azure Migrate. 
+- Jeśli chcesz dodać narzędzie do migracji i nie został jeszcze skonfigurowany projekt Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
+- Jeśli dodano narzędzie niezależnego dostawcy oprogramowania do migracji, [wykonaj te kroki](prepare-isv-movere.md), aby przygotować się do pracy z narzędziem.
 
 ## <a name="select-a-migration-scenario"></a>Wybierz scenariusz migracji
 

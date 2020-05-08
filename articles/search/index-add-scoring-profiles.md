@@ -3,34 +3,29 @@ title: Zwiększ rangę wyszukiwania przy użyciu profilów oceniania
 titleSuffix: Azure Cognitive Search
 description: Zwiększ wyniki oceny rangi wyszukiwania na platformie Azure Wyszukiwanie poznawcze przez dodanie profilów oceniania.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231105"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890175"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Dodawanie profilów oceniania do indeksu usługi Azure Cognitive Search
 
 *Ocenianie* oblicza wynik wyszukiwania dla każdego elementu w zestawie wyników uporządkowane według rangi. Każdy element w zestawie wyników wyszukiwania ma przypisany wynik wyszukiwania, a następnie rangę do najniższego.
 
  Usługa Azure Wyszukiwanie poznawcze używa domyślnego oceniania, aby obliczyć początkowy wynik, ale można dostosować obliczenia za pośrednictwem *profilu oceniania*. Profile oceniania zapewniają większą kontrolę nad klasyfikacją elementów w wynikach wyszukiwania. Na przykład możesz chcieć poprawić elementy w oparciu o potencjalną przychody, podwyższyć poziom nowych elementów lub ewentualnie poprawić elementy, które zostały zbyt długie.  
+
+ Poniższy segment wideo szybko przekazuje do sposobu działania profilów oceniania w usłudze Azure Wyszukiwanie poznawcze.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Definicje profilu oceniania
 
  Profil oceniania jest częścią definicji indeksu składającą się z pól ważonych, funkcji i parametrów.  
 
@@ -284,7 +279,7 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 
  Aby uzyskać więcej przykładów, zobacz [schemat XML: typy danych (witryna sieci web w3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Zobacz także  
+## <a name="see-also"></a>Zobacz też  
 
 + [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/)   
 + [Tworzenie interfejsu API indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index)   

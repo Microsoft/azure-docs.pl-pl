@@ -2,7 +2,7 @@
 title: Dostosowywanie zadań analizy kodu zabezpieczeń firmy Microsoft
 titleSuffix: Azure
 description: W tym artykule opisano dostosowywanie zadań w rozszerzeniu Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499988"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871894"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
 
@@ -82,7 +82,7 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 
 Aby uzyskać więcej informacji na temat argumentów wiersza polecenia BinSkim, reguł według identyfikatora lub kodów zakończenia, zobacz [Podręcznik użytkownika BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
-Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zobacz nasze [BINSKIM YAML Options](yaml-configuration.md#binskim-task)
+Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML BinSkim](yaml-configuration.md#binskim-task)
 
 ## <a name="credential-scanner-task"></a>Zadanie skanera poświadczeń
 
@@ -91,7 +91,8 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 ![Konfigurowanie zadania kompilacji skanera poświadczeń](./media/security-tools/3-taskdetails.png)
 
 Dostępne opcje to:
-
+  - **Nazwa wyświetlana**: Nazwa zadania usługi Azure DevOps. Wartość domyślna to uruchom skaner poświadczeń
+  - **Wersja główna narzędzia**: dostępne wartości to **CredScan v2**, **CredScan V1**. Zalecamy klientom korzystanie z wersji **CredScan v2** .
   - **Format danych wyjściowych**: dostępne wartości to **TSV**, **CSV**, **SARIF**i **PREfast**.
   - **Wersja narzędzia**: zalecamy wybranie opcji **najnowsze**.
   - **Folder skanowania**: folder repozytorium do przeskanowania.
@@ -172,7 +173,7 @@ Aby uzyskać dodatkowe zasoby dla Roslyn analizatorów, zapoznaj [się z analiza
 
 Pakiet analizatora zainstalowany i używany przez to zadanie kompilacji można znaleźć na stronie narzędzia NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
-Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, sprawdź [Opcje YAML analizatorów Roslyn](yaml-configuration.md#roslyn-analyzers-task)
+Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML analizatorów Roslyn](yaml-configuration.md#roslyn-analyzers-task)
 
 ## <a name="tslint-task"></a>TSLint, zadanie
 
@@ -181,7 +182,7 @@ Aby uzyskać więcej informacji na temat TSLint, przejdź do [repozytorium GitHu
 >[!NOTE] 
 >Ponieważ użytkownik może mieć świadomość, Strona główna [repozytorium usługi GitHub TSLint](https://github.com/palantir/tslint) informuje, że TSLint będzie przestarzałe w 2019. Firma Microsoft bada [ESLint](https://github.com/eslint/eslint) jako alternatywne zadanie.
 
-Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zobacz nasze [TSLINT YAML Options](yaml-configuration.md#tslint-task)
+Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML TSLint](yaml-configuration.md#tslint-task)
 
 ## <a name="publish-security-analysis-logs-task"></a>Zadanie publikowania dzienników analizy zabezpieczeń
 
@@ -206,7 +207,7 @@ Szczegóły konfiguracji raportów zabezpieczeń przedstawiono na poniższym zrz
 - **Opcje zaawansowane**: Jeśli nie ma żadnych dzienników dla jednego z wybranych narzędzi, możesz wybrać opcję rejestrowania ostrzeżenia lub błędu. Jeśli rejestrujesz błąd, zadanie zakończy się niepowodzeniem.
 - **Folder dzienników bazowych**: można dostosować podstawowy folder dzienników, w którym mają zostać znalezione dzienniki. Jednak ta opcja nie jest zazwyczaj używana.
 
-Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [raportami zabezpieczeń YAML opcje](yaml-configuration.md#security-report-task)
+Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML raportu zabezpieczeń](yaml-configuration.md#security-report-task)
 
 ## <a name="post-analysis-task"></a>Zadanie po analizie
 

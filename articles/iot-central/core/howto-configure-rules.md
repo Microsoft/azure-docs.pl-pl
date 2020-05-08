@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158475"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871941"
 ---
 # <a name="configure-rules"></a>Konfigurowanie reguł
-
-
 
 *Ten artykuł dotyczy operatorów, konstruktorów i administratorów.*
 
@@ -36,6 +34,12 @@ Warunki są wyzwalane przez reguły. Obecnie po dodaniu wielu warunków do regu�
 Na poniższym zrzucie ekranu warunki sprawdzają, kiedy temperatura jest większa niż 70&deg; F, a wilgotność jest mniejsza niż 10. Gdy obie te instrukcje są spełnione, reguła zwraca wartość true i wyzwala akcję.
 
 ![Warunki](media/howto-configure-rules/conditions.png)
+
+### <a name="use-a-cloud-property-in-a-value-field"></a>Używanie właściwości chmury w polu wartości
+
+Można odwołać się do właściwości chmury z szablonu urządzenia w polu **wartość** dla warunku. Właściwość chmury i wartość telemetrii muszą mieć podobne typy. Na przykład jeśli **temperatura** jest podwójna, wówczas tylko właściwości chmury typu Double Pokaż jako opcje na liście rozwijanej **wartość** .
+
+Jeśli wybierzesz wartość telemetrii typu zdarzenia, lista rozwijana **wartość** zawiera opcję **dowolny**. **Każda** opcja oznacza, że reguła jest wyzwalana, gdy aplikacja otrzymuje zdarzenie tego typu, niezależnie od ładunku.
 
 ## <a name="use-aggregate-windowing"></a>Użyj okna agregacji
 

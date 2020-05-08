@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 03/05/2020
-ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/07/2020
+ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78328667"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891341"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Jak wybrać algorytmy dla Azure Machine Learning
 
@@ -40,7 +40,35 @@ Program Machine Learning Designer zapewnia kompleksowy portfel algorytmów, taki
 
 Wraz ze wskazówkami Azure Machine Learning w arkuszu Ściągawka Algorithm, pamiętaj o innych wymaganiach podczas wybierania algorytmu uczenia maszynowego dla rozwiązania. Poniżej znajdują się dodatkowe czynniki, które należy wziąć pod uwagę, takie jak dokładność, czas uczenia, liniowość, liczba parametrów i liczba funkcji.
 
-## <a name="additional-requirements-for-a-data-science-scenario"></a>Dodatkowe wymagania dotyczące scenariusza analizy danych
+## <a name="comparison-of-machine-learning-algorithms"></a>Porównanie algorytmów uczenia maszynowego
+
+Niektóre algorytmy uczenia składają szczególne założenia dotyczące struktury danych lub żądanych wyników. Jeśli znajdziesz je, która odpowiada Twoim potrzebom, może to dać bardziej przydatne wyniki, dokładniejsze przewidywania lub szybszy czas uczenia się.
+
+Poniższa tabela zawiera podsumowanie najważniejszych cech algorytmów z rodziny klasyfikacji, regresji i klastrowania:
+
+| **Algorytm** | **Odpowiedni** | **Czas trenowania** | **Liniowość** | **Parametry** | **Uwagi** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **Rodzina klasyfikacji** | | | | | |
+| [Regresja logistyczna dla dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Dobrze  |Fast |Tak |4 | |
+| [Las decyzyjny dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Nie |5 |Pokazuje wolniejsze czasy oceniania. Sugeruj, że nie pracuje z moduł wieloklasowy "jeden przeciw wszystkim", z powodu wolniejszych czasów oceniania spowodowanych przez blokowanie bieżnika w przypadku prognozowania drzewa |
+| [Dwuklasowe drzewo decyzyjne](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Nie |6 |Duże rozmiary pamięci |
+| [Sieć neuronowych z dwiema klasami](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Dobrze |Średni |Nie |8 | |
+| [Średnia Perceptron średniej klasy](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Dobrze |Średni |Tak |4 | |
+| [Maszyna wektorowa obsługi dwóch klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Dobrze |Fast |Tak |5 |Dobre dla dużych zestawów funkcji |
+| [Wieloklasowa regresja logistyczna](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Dobrze |Fast |Tak |4 | |
+| [Las decyzyjny wieloklasowej](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Nie |5 |Pokazuje wolniejsze czasy oceniania |
+| [Wieloklasowe drzewo decyzyjne](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Nie |6 | Pozwala zwiększyć dokładność z niewielkim ryzykiem mniejszego pokrycia |
+| [Wieloklasowa sieć neuronowych](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Dobrze |Średni |Nie |8 | |
+| [Jeden — i wiele klas](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Zobacz właściwości wybranej metody dwuklasowej |
+| **Rodzina regresji** | | | | | |
+| [Regresja liniowa](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Dobrze |Fast |Tak |4 | |
+| [Regresja lasu decyzyjnego](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Excellent (Doskonały) |Średni |Nie |5 | |
+| [Regresja drzewa decyzyjnej](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Nie |6 |Duże rozmiary pamięci |
+| [Regresja sieci neuronowych](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Dobrze |Średni |Nie |8 | |
+| **Rodzina klastrowania** | | | | | |
+| [K-oznacza klastrowanie](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Excellent (Doskonały) |Średni |Tak |8 |Algorytm klastrowania |
+
+## <a name="requirements-for-a-data-science-scenario"></a>Wymagania dotyczące scenariusza analizy danych
 
 Gdy wiesz, co chcesz zrobić z danymi, musisz określić dodatkowe wymagania dotyczące rozwiązania. 
 
@@ -117,7 +145,6 @@ Wiele funkcji może ją przeciążyć niektóre algorytmy uczenia, co wydłuża 
 Wybór funkcji odnosi się do procesu zastosowania testów statystycznych do danych wejściowych, z uwzględnieniem określonych danych wyjściowych. Celem jest określenie, które kolumny są bardziej predykcyjne w danych wyjściowych. [Moduł wyboru funkcji oparty na filtrach](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) w programie Machine Learning Designer udostępnia wiele algorytmów wyboru funkcji do wyboru. Moduł zawiera metody korelacji, takie jak korelacja Pearsona i wartości chi-kwadrat.
 
 Można również użyć [modułu ważności funkcji permutacji](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) do obliczenia zestawu ocen ważności funkcji dla zestawu danych. Następnie można wykorzystać te wyniki, aby pomóc w ustaleniu najlepszych funkcji do użycia w modelu.
-
 
 ## <a name="next-steps"></a>Następne kroki
 

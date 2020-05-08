@@ -1,24 +1,22 @@
 ---
-title: Wsparcie dla komercyjnej witryny Marketplace | Portal Azure Marketplace
-description: Informacje o pomocy technicznej i linki dla witryny Azure Marketplace i AppSource
+title: Microsoft Commercial Marketplace support — Azure Marketplace
+description: Informacje o pomocy technicznej i linki dla portalu Azure Marketplace i AppSource w centrum partnerskim
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9dacbbac1caad33a6ab2f5f09d3f6c9d31c32bb7
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159919"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871554"
 ---
-# <a name="support-for-the-marketplace"></a>Obsługa portalu Marketplace
+# <a name="support-for-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
-Poniżej znajduje się lista opcji pomocy technicznej dla portalu Marketplace.  
-
-Ponadto możesz uzyskać odpowiedzi na wiele pytań w [kanale Marketplace forum społeczności C + AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Masz pytania dotyczące rozpoczynania pracy jako komercyjnego wydawcy portalu Marketplace firmy Microsoft? Oto lista opcji pomocy technicznej dla komercyjnego portalu Marketplace. Oprócz następujących zasobów można także uzyskać odpowiedzi na wiele pytań w [kanale Marketplace forum społeczności C + AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Dołączanie
 

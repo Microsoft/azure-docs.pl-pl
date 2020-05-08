@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5eab523dde2a13a85b0c8ff5bcbb3ecb5912e78e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c74ec73eb06c43110747d87e6fecd12183527759
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80586701"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872532"
 ---
 # <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Samouczek — kompleksowa Przykładowa aplikacja interfejsu API SQL w języku Java ze źródłem zmian
 
@@ -89,8 +89,8 @@ mvn clean package
 
     Naciśnij klawisz ENTER. Teraz Poniższy blok kodu zostanie wykonany i zainicjuje procesor źródła zmian w innym wątku: 
 
+   # <a name="java-sdk-40"></a>[Zestaw Java SDK 4,0](#tab/v4sdk)
 
-    **Zestaw Java SDK 4,0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -103,7 +103,8 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
-    **3.7.0 zestawu Java SDK**
+   # <a name="java-sdk-370"></a>[3.7.0 zestawu Java SDK](#tab/v3sdk)
+
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -115,6 +116,7 @@ mvn clean package
 
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
     ```
+   ---
 
     ```"SampleHost_1"```jest nazwą procesu roboczego procesora źródła zmian. ```changeFeedProcessorInstance.start()```Czy w rzeczywistości zaczyna się procesorem źródła zmian.
 
@@ -124,7 +126,8 @@ mvn clean package
 
 1. Naciśnij klawisz Enter ponownie w terminalu. Spowoduje to wyzwolenie 10 dokumentów do wstawienia do **InventoryContainer**. Każda wstawka dokumentu pojawia się w kanale zmian jako kod JSON; Poniższy kod wywołania zwrotnego obsługuje te zdarzenia przez dublowanie dokumentów JSON do widoku z materiałami:
 
-    **Zestaw Java SDK 4,0**
+   # <a name="java-sdk-40"></a>[Zestaw Java SDK 4,0](#tab/v4sdk)
+
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -150,7 +153,8 @@ mvn clean package
     }
     ```
 
-    **3.7.0 zestawu Java SDK**
+   # <a name="java-sdk-370"></a>[3.7.0 zestawu Java SDK](#tab/v3sdk)
+
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -175,6 +179,7 @@ mvn clean package
         typeContainer.upsertItem(document).subscribe();
     }    
     ```
+   ---
 
 1. Zezwól na uruchomienie kodu 5-10sec. Następnie wróć do witryny Azure Portal Eksplorator danych i przejdź do **pozycji InventoryContainer > Items**. Należy zobaczyć, że elementy są wstawiane do kontenera spisu; Zanotuj klucz partycji (```id```).
 
@@ -190,7 +195,8 @@ mvn clean package
 
     Ponownie naciśnij klawisz ENTER, aby wywołać ```deleteDocument()``` funkcję w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5```, który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
     
-    **Zestaw Java SDK 4,0**
+   # <a name="java-sdk-40"></a>[Zestaw Java SDK 4,0](#tab/v4sdk)
+
     ```java
     public static void deleteDocument() {
 
@@ -217,8 +223,8 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   # <a name="java-sdk-370"></a>[3.7.0 zestawu Java SDK](#tab/v3sdk)
 
-    **3.7.0 zestawu Java SDK**
     ```java
     public static void deleteDocument() {
 
@@ -245,6 +251,7 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   ---
 
     Kanał informacyjny ```feedPollDelay``` zmiany jest ustawiany na 100 MS; w związku z tym, kanał informacyjny zmiany reaguje na tę ```updateInventoryTypeMaterializedView()``` aktualizację niemal natychmiast i pokazanych powyżej wywołaniach. To ostatnie wywołanie funkcji będzie upsert nowy dokument z wartością TTL 5Sec do **InventoryContainer-pktype**.
 

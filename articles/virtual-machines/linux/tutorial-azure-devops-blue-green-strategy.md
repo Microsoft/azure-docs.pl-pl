@@ -1,6 +1,6 @@
 ---
-title: Samouczek — Konfigurowanie wdrożeń programu Kanaryjskie dla Linux Virtual Machines platformy Azure
-description: W tym samouczku dowiesz się, jak skonfigurować potok ciągłego wdrażania (CD) służący do aktualizowania grupy maszyn wirtualnych platformy Azure przy użyciu strategii wdrażania Blue-Green
+title: Samouczek — Konfigurowanie wdrożeń programu Kanaryjskie dla maszyn wirtualnych platformy Azure z systemem Linux
+description: W tym samouczku dowiesz się, jak skonfigurować potok ciągłego wdrażania (CD). Ten potok aktualizuje grupę maszyn wirtualnych platformy Azure z systemem Linux przy użyciu strategii wdrażania niebiesko-zielonego.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,69 +12,81 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b1a57245434bb188ffaab56a8891b4b0ee27f044
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120492"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871601"
 ---
-# <a name="tutorial---configure-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania Blue-Green dla platformy Azure Linux Virtual Machines
+# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Samouczek — Konfigurowanie strategii wdrażania Blue-Green dla maszyn wirtualnych platformy Azure z systemem Linux
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>Infrastruktura jako usługa (IaaS) — Konfigurowanie ciągłej integracji/ciągłego wdrażania
 
-## <a name="iaas---configure-cicd"></a>IaaS — Konfigurowanie ciągłej integracji/ciągłego dostarczania 
-Azure Pipelines zawiera kompletny, w pełni funkcjonalny zestaw narzędzi do automatyzacji ciągłej integracji i ciągłego wdrażania na maszynach wirtualnych. Potok ciągłego dostarczania można skonfigurować dla maszyny wirtualnej platformy Azure bezpośrednio z poziomu Azure Portal. Ten dokument zawiera kroki związane z konfigurowaniem potoku ciągłej integracji/ciągłego wdrażania, który używa strategii Blue-Green dla wdrożeń obejmujących wiele maszyn. Możesz również zapoznać się z innymi strategiami, takimi jak [stopniowe](https://aka.ms/AA7jlh8) i [Kanaryjskie](https://aka.ms/AA7jdrz), które są obsługiwane w Azure Portal. 
+Azure Pipelines udostępnia w pełni polecany zestaw narzędzi do automatyzacji ciągłej integracji i ciągłego wdrażania na maszynach wirtualnych. Można skonfigurować potok ciągłego dostarczania dla maszyny wirtualnej platformy Azure z poziomu Azure Portal.
 
- 
- **Konfigurowanie ciągłej integracji/ciągłego wdrażania Virtual Machines**
+W tym artykule przedstawiono sposób konfigurowania potoku ciągłej integracji/ciągłego wdrażania, który używa strategii Blue-Green dla wdrożeń wielomaszynowych. Azure Portal obsługuje również inne strategie, takie jak [stopniowe](https://aka.ms/AA7jlh8) i [Kanaryjskie](https://aka.ms/AA7jdrz).
 
-Maszyny wirtualne mogą być dodawane jako elementy docelowe do [grupy wdrożenia](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) i mogą być przeznaczone do aktualizacji na wiele maszyn. Po wdrożeniu **historia wdrożenia** w ramach grupy wdrożenia zapewnia możliwość śledzenia z maszyny wirtualnej do potoku, a następnie do zatwierdzenia. 
- 
-  
-**Wdrożenia Blue-Green**: wdrożenie Blue-Green zmniejsza czas przestoju, mając identyczne środowisko w stanie wstrzymania. W dowolnym momencie w jednym z tych środowisk jest aktywny. Podczas przygotowywania do nowej wersji Ukończ etap testowania w środowisku zielonym. Gdy oprogramowanie działa w środowisku zielonym, należy przełączyć ruch, aby wszystkie żądania przychodzące przechodzą do zielonego środowiska — niebieskie środowisko jest teraz w stanie bezczynności.
-Wdrożenia Blue-Green można skonfigurować dla "**maszyn wirtualnych**" z Azure Portal przy użyciu opcji ciągłego dostarczania. 
+### <a name="configure-cicd-on-virtual-machines"></a>Konfigurowanie ciągłej integracji/ciągłego wdrażania na maszynach wirtualnych
 
-Oto przewodnik krok po kroku.
+Maszyny wirtualne można dodać jako obiekty docelowe do [grupy wdrożenia](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Następnie można wskazać je na potrzeby aktualizacji wielomaszynowych. Po wdrożeniu na maszynach należy wyświetlić **historię wdrożenia** w ramach grupy wdrożenia. Ten widok umożliwia śledzenie z maszyny wirtualnej do potoku, a następnie do zatwierdzenia.
 
-1. Zaloguj się do Azure Portal i przejdź do maszyny wirtualnej 
-2. W lewym okienku maszyny wirtualnej przejdź do **ciągłego dostarczania**. Następnie kliknij przycisk **Konfiguruj**. 
+### <a name="blue-green-deployments"></a>Wdrożenia Blue-Green
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. W panelu Konfiguracja kliknij pozycję **Azure DevOps Organization** , aby wybrać istniejące konto lub utwórz je. Następnie wybierz projekt, w którym chcesz skonfigurować potok.  
+Wdrożenie Blue-Green zmniejsza czas przestoju, mając identyczne środowisko w stanie wstrzymania. W dowolnym momencie tylko jedno środowisko jest aktywne.
 
+Podczas przygotowywania do nowej wersji Dokończ końcowy etap testowania w środowisku zielonym. Gdy oprogramowanie działa w środowisku zielonego, przełącz ruch, aby wszystkie żądania przychodzące przechodzą do zielonego środowiska. Niebieskie środowisko jest w stanie bezczynności.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne; na przykład "dev", "test", "przeprowadzających" i "Product". Można utworzyć nową grupę wdrożenia lub wybrać istniejącą grupę wdrożenia. 
-5. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Należy zauważyć, że opublikowany pakiet powinien mieć skrypt wdrożenia _Deploy. ps1_ lub _Deploy.sh_ w `deployscripts` folderze głównym pakietu. Ten skrypt wdrażania zostanie wykonany przez potok Azure DevOps w czasie wykonywania.
-6. Wybierz wybraną strategię wdrażania. Wybierz **niebieską i zieloną**.
-7. Dodaj tag "Blue" lub "zielony" do maszyn wirtualnych, które mają być częścią wdrożeń Blue-Green. Jeśli maszyna wirtualna jest dla roli wstrzymania, należy oznaczyć ją jako "Green", w przeciwnym razie oznacz ją jako "niebieska".
-![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+Korzystając z opcji ciągłego dostarczania, można skonfigurować wdrożenia Blue-Green na maszynach wirtualnych z poziomu Azure Portal. Oto instrukcje krok po kroku:
 
-8. Kliknij przycisk **OK** , aby skonfigurować potok ciągłego dostarczania. Teraz będzie dostępny potok ciągłego dostarczania skonfigurowany do wdrożenia na maszynie wirtualnej.
-![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+1. Zaloguj się do Azure Portal i przejdź do maszyny wirtualnej.
+1. W okienku po lewej stronie ustawień maszyny wirtualnej wybierz pozycję **ciągłe dostarczanie**. Następnie wybierz pozycję **Konfiguruj**.
 
+   ![Okienko ciągłe dostarczanie z przyciskiem Konfiguruj](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Kliknij pozycję **Edytuj** potok wydania na platformie Azure DevOps, aby wyświetlić konfigurację potoku. Potok składa się z trzech faz. Pierwsza faza to faza grupy wdrożenia i wdrożenia na maszynach wirtualnych, które są oznaczone jako _zielone_ (gotowość do zarezerwowania maszyn wirtualnych). Druga faza wstrzymuje potok i czeka na ręczną interwencję w celu wznowienia uruchomienia. Gdy użytkownik ma pewność, że wdrożenie jest stabilne, może teraz przekierować ruch do _zielonych_ maszyn wirtualnych i wznowić uruchomienie potoku, które następnie zastąpią _niebieskie_ i _zielone_ Tagi na maszynach wirtualnych. Pozwala to upewnić się, że maszyny wirtualne, które mają starszą wersję aplikacji, są oznaczone jako _zielone_ i są wdrażane w ramach następnego uruchomienia potoku.
-![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+1. W panelu konfiguracja wybierz pozycję **Azure DevOps Organization (organizacja** ), aby wybrać istniejące konto lub Utwórz nowe. Następnie wybierz projekt, w którym chcesz skonfigurować potok.  
 
+   ![Panel ciągłego dostarczania](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-10. Zadanie wykonaj wdrożenie skryptu domyślnie wykonuje skrypt wdrożenia _Deploy. ps1_ lub _Deploy.sh_ w `deployscripts` folderze w katalogu głównym opublikowanego pakietu. Upewnij się, że wybrany potok kompilacji opublikuje go w folderze głównym pakietu.
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Grupa wdrożenia to logiczny zestaw maszyn docelowych wdrożenia, które reprezentują środowiska fizyczne. Przykłady dla deweloperów, testów, przeprowadzających i produkcji. Można utworzyć nową grupę wdrożenia lub wybrać istniejącą.
+1. Wybierz potok kompilacji, który publikuje pakiet przeznaczony do wdrożenia na maszynie wirtualnej. Opublikowany pakiet powinien mieć skrypt wdrożenia o nazwie Deploy. ps1 lub deploy.sh w folderze deployscripts w folderze głównym pakietu. Potok uruchamia ten skrypt wdrożenia.
+1. W obszarze **strategia wdrażania**wybierz pozycję **niebieska i zielona**.
+1. Dodaj tag "Blue" lub "zielony" do maszyn wirtualnych, które mają być częścią wdrożeń Blue-Green. Jeśli maszyna wirtualna jest dla roli w stanie wstrzymania, oznacz ją jako "Green" (zielony). W przeciwnym razie oznacz ją jako "niebieska".
 
+   ![Panel dostarczania ciągłego z wybraną wartością strategii wdrażania niebieską i zieloną](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
+1. Wybierz **przycisk OK** , aby skonfigurować potok ciągłego dostarczania do wdrożenia na maszynie wirtualnej.
 
+   ![Potok Blue-zielony](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+1. Zostaną wyświetlone szczegóły wdrożenia maszyny wirtualnej. Możesz wybrać link, aby przejść do potoku wydania w usłudze Azure DevOps. W potoku wydania wybierz pozycję **Edytuj** , aby wyświetlić konfigurację potoku. Potok ma trzy fazy:
+
+   1. Ta faza to faza grupy wdrożenia. Aplikacje są wdrażane na maszynach wirtualnych w stanie wstrzymania, które są oznaczone jako "zielone".
+   1. W tej fazie potok zatrzymuje się i czeka na ręczną interwencję w celu wznowienia uruchomienia. Użytkownicy mogą wznowić uruchomienie potoku po ręcznym zapewnieniu stabilności wdrożenia na maszynach wirtualnych oznaczonych jako "zielone".
+   1. Ta faza zamienia Tagi "Blue" i "Green" na maszynach wirtualnych. Dzięki temu maszyny wirtualne ze starszymi wersjami aplikacji będą teraz oznaczone jako "zielone". Podczas następnego uruchomienia potoku aplikacje zostaną wdrożone na tych maszynach wirtualnych.
+
+      ![Okienko grupy wdrożenia dla zadania Deploy Blue-Green](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+1. Zadanie wykonaj wdrożenie skryptu domyślnie uruchamia skrypt wdrażania Deploy. ps1 lub deploy.sh. Skrypt znajduje się w folderze deployscripts w folderze głównym opublikowanego pakietu. Upewnij się, że wybrany potok kompilacji opublikuje wdrożenie w folderze głównym pakietu.
+
+   ![Okienko artefakty pokazujące deploy.sh w folderze deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Inne strategie wdrażania
-- [Konfiguruj strategię wdrażania stopniowego](https://aka.ms/AA7jlh8)
-- [Konfiguruj strategię wdrażania w programie Kanaryjskie](https://aka.ms/AA7jdrz)
 
-## <a name="azure-devops-project"></a>Projekt usługi Azure DevOps 
-Rozpocznij pracę z platformą Azure łatwiej niż kiedykolwiek wcześniej.
- 
-Za pomocą DevOps Projects Zacznij uruchamiać aplikację w dowolnej usłudze platformy Azure w zaledwie trzech krokach: Wybierz język aplikacji, środowisko uruchomieniowe i usługę platformy Azure.
- 
-[Dowiedz się więcej](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Dodatkowe zasoby 
-- [Wdrażanie na platformie Azure Virtual Machines przy użyciu projektu DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+- [Konfigurowanie strategii wdrażania stopniowego](https://aka.ms/AA7jlh8)
+- [Konfigurowanie strategii wdrażania programu Kanaryjskie](https://aka.ms/AA7jdrz)
+
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Możesz szybko rozpocząć pracę z platformą Azure. Korzystając z Azure DevOps Projects, zacznij uruchamiać aplikację w dowolnej usłudze platformy Azure w zaledwie trzech krokach, wybierając:
+
+- Język aplikacji
+- Środowisko uruchomieniowe
+- Usługa platformy Azure
+
+[Dowiedz się więcej](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Zasoby dodatkowe
+
+- [Wdrażanie na maszynach wirtualnych platformy Azure przy użyciu Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implementowanie ciągłego wdrażania aplikacji w zestawie skalowania maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

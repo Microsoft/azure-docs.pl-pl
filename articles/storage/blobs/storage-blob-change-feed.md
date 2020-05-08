@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536891"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883344"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -61,17 +61,17 @@ Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę po włą
 
 Włącz źródło zmian na koncie magazynu przy użyciu Azure Portal:
 
-1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu. 
+1. W [Azure Portal](https://portal.azure.com/)wybierz konto magazynu.
 
 2. Przejdź do opcji **Ochrona danych** w obszarze **BLOB Service**.
 
-3. Kliknij pozycję **włączone** w obszarze **źródła zmian obiektu BLOB**
+3. Kliknij pozycję **włączone** w obszarze **źródła zmian obiektu BLOB**.
 
-4. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia ochrony danych
+4. Wybierz przycisk **Zapisz** , aby potwierdzić ustawienia **ochrony danych** .
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Włącz źródło zmian przy użyciu programu PowerShell:
 
@@ -319,7 +319,7 @@ W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zap
 - Nie widzisz obecnie kontenera **$blobchangefeed** podczas wywoływania interfejsu API ListContainers, a kontener nie jest wyświetlany na Azure Portal lub Eksplorator usługi Storage
 - Konta magazynu, w przypadku których wcześniej zainicjowano [pracę w trybie failover](../common/storage-disaster-recovery-guidance.md) , mogą mieć problemy z plikiem dziennika, które nie są wyświetlane. Wszystkie przyszłe przełączenia w tryb failover może mieć wpływ na plik dziennika w wersji zapoznawczej.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Jaka jest różnica między źródłem zmian i rejestrowaniem analityka magazynu?
 Dzienniki analityczne zawierają rekordy wszystkich operacji odczytu, zapisu, listy i usuwania z żądaniami zakończonymi powodzeniem i niepomyślnymi przez wszystkie operacje. Dzienniki analizy są najlepszym nakładem pracy i kolejność nie jest gwarantowana.

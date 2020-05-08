@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101012"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890829"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen (wersja zapoznawcza)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
 
 W tym artykule opisano sposób konfigurowania prywatnych punktów końcowych dla tematów lub domen.
-
-> [!IMPORTANT]
-> Funkcja prywatnych punktów końcowych jest dostępna dla tematów i domen tylko w warstwie Premium. Aby przeprowadzić uaktualnienie z warstwy Podstawowa do warstwy Premium, zobacz artykuł dotyczący [aktualizacji warstwy cenowej](update-tier.md) . 
 
 ## <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal 
 W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć prywatny punkt końcowy dla tematu lub domeny.
@@ -79,7 +76,7 @@ Istnieją cztery Stany aprowizacji:
 | Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
 | Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
-| Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
+| Usuń | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
 ###  <a name="how-to-manage-a-private-endpoint-connection"></a>Jak zarządzać połączeniem prywatnego punktu końcowego
 W poniższych sekcjach pokazano, jak zatwierdzić lub odrzucić prywatne połączenie z punktem końcowym. 
@@ -205,7 +202,7 @@ Oto przykładowy skrypt, który tworzy następujące zasoby platformy Azure:
 - Grupa zasobów
 - Sieć wirtualna
 - Podsieć w sieci wirtualnej
-- Temat Azure Event Grid (warstwa Premium)
+- Temat Azure Event Grid
 - Prywatny punkt końcowy tematu
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

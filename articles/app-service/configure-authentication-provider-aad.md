@@ -4,13 +4,13 @@ description: Dowiedz się, jak skonfigurować Azure Active Directory uwierzyteln
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190014"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609905"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
@@ -33,7 +33,7 @@ Podczas konfigurowania aplikacji i uwierzytelniania postępuj zgodnie z następu
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Skonfiguruj przy użyciu ustawień ekspresowych
 
 > [!NOTE]
-> Opcja **ekspresowa** nie jest dostępna dla chmur dla instytucji rządowych. 
+> Opcja **ekspresowa** nie jest dostępna dla chmur dla instytucji rządowych.
 
 1. W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację.
 2. W lewym okienku nawigacji wybierz pozycję **uwierzytelnianie/autoryzacja** > **na**.
@@ -45,9 +45,9 @@ Podczas konfigurowania aplikacji i uwierzytelniania postępuj zgodnie z następu
    2. Wybierz istniejącą rejestrację aplikacji, a następnie kliknij przycisk **OK**.
 
 3. Wybierz **przycisk OK** , aby zarejestrować aplikację App Service w Azure Active Directory. Zostanie utworzona nowa Rejestracja aplikacji.
-   
+
     ![Ustawienia ekspresowe w Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. Obowiązkowe Domyślnie App Service zapewnia uwierzytelnianie, ale nie ogranicza uprawnień dostępu do zawartości i interfejsów API witryny. Musisz autoryzować użytkowników w kodzie aplikacji. Aby ograniczyć dostęp do aplikacji tylko do użytkowników uwierzytelnionych przez Azure Active Directory, ustaw **akcję do wykonania, gdy żądanie nie zostanie uwierzytelnione** w celu **zalogowania się przy użyciu Azure Active Directory**. Po ustawieniu tej funkcji aplikacja wymaga uwierzytelnienia wszystkich żądań. Przekierowuje także wszystkie nieuwierzytelnione do Azure Active Directory na potrzeby uwierzytelniania.
 
     > [!CAUTION]
@@ -75,7 +75,7 @@ Wykonaj poniższe czynności:
 1. Zaloguj się do [Azure Portal], Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. Zanotuj **adres URL**aplikacji. Zostanie ona użyta do skonfigurowania rejestracji aplikacji Azure Active Directory.
 1. Wybierz pozycję **Azure Active Directory** > **rejestracje aplikacji** > **nową rejestrację**.
 1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji.
-1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję `<app-url>/.auth/login/aad/callback` **Sieć Web** i wpisz. Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję `<app-url>/.auth/login/aad/callback` **Sieć Web** i wpisz. Na przykład `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Wybierz przycisk **Utwórz**.
 1. Po utworzeniu rejestracji aplikacji Skopiuj **Identyfikator aplikacji (klienta)** i **Identyfikator katalogu (dzierżawcy)** w przyszłości.
 1. Wybierz pozycję **Uwierzytelnianie**. W obszarze **niejawne Przyznaj** **tokeny identyfikatora** , aby zezwolić OpenID Connect na logowanie użytkowników z App Service.
@@ -87,14 +87,14 @@ Wykonaj poniższe czynności:
 
 1. Wybierz polecenie **Dodaj zakres**.
    1. W polu **Nazwa zakresu**wprowadź *user_impersonation*.
-   1. W polach tekstowych wprowadź nazwę i opis zakresu zgody, które użytkownicy mają zobaczyć na stronie zgody. Na przykład wprowadź *dostęp do mojej aplikacji*. 
+   1. W polach tekstowych wprowadź nazwę i opis zakresu zgody, które użytkownicy mają zobaczyć na stronie zgody. Na przykład wprowadź *dostęp do mojej aplikacji*.
    1. Wybierz pozycję **Dodaj zakres**.
 1. Obowiązkowe Aby utworzyć klucz tajny klienta, wybierz pozycję **Certyfikaty &** > wpisy tajne**Nowy klient Dodaj wpis tajny** > **Add**. Skopiuj wartość klucza tajnego klienta podaną na stronie. Nie zostanie on wyświetlony ponownie.
 1. Obowiązkowe Aby dodać wiele **adresów URL odpowiedzi**, wybierz pozycję **uwierzytelnianie**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Włączanie Azure Active Directory w aplikacji App Service
 
-1. W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. 
+1. W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację.
 1. W lewym okienku w obszarze **Ustawienia**wybierz pozycję **uwierzytelnianie/autoryzacja** > **na**.
 1. Obowiązkowe Domyślnie uwierzytelnianie App Service zezwala na nieuwierzytelniony dostęp do aplikacji. Aby wymusić uwierzytelnianie użytkowników, należy ustawić **akcję podejmowaną, gdy żądanie nie zostanie uwierzytelnione** w celu **zalogowania się za pomocą Azure Active Directory**.
 1. W obszarze **dostawcy uwierzytelniania**wybierz pozycję **Azure Active Directory**.

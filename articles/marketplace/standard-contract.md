@@ -1,22 +1,22 @@
 ---
-title: Kontrakt standardowy | Portal Azure Marketplace
-description: Kontrakt standardowy dla portalu Azure Marketplace i AppSource
+title: Umowa standardowa dla portalu komercyjnego firmy Microsoft
+description: Kontrakt standardowy dla portalu Azure Marketplace i AppSource w centrum partnerskim
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681444"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871434"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standardowa umowa dla komercyjnego portalu Microsoft Marketplace
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Umowa standardowa dla portalu komercyjnego firmy Microsoft
 
-Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardową umowę dotyczącą komercyjnej witryny Marketplace firmy Microsoft w celu ułatwienia realizacji transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, Komercyjni wydawcy portalu Marketplace mogą zaoferować swoje oprogramowanie zgodnie z umową standardową, której klienci muszą jedynie Zweryfikuj i akceptować. Kontrakt standardowy można znaleźć tutaj: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
+Firma Microsoft oferuje standardową umowę na potrzeby portalu komercyjnego firmy Microsoft. Pozwala to uprościć proces zaopatrzenia dla klientów, zmniejszyć złożoność dla dostawców oprogramowania i ułatwić wykonywanie transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, jako komercyjny wydawca portalu Marketplace możesz zaoferować swoje oprogramowanie w ramach [standardowej umowy](https://go.microsoft.com/fwlink/?linkid=2041178), której klienci muszą jedynie Zweryfikuj i akceptować.
 
 Warunki i postanowienia oferty są definiowane podczas tworzenia oferty w centrum partnerskim. Możesz wybrać opcję użycia standardowej umowy dla komercyjnej witryny Marketplace firmy Microsoft zamiast podawania własnych niestandardowych warunków i postanowień.
 

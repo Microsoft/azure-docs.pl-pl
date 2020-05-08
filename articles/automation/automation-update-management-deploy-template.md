@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165794"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872191"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Dołączanie Update Management rozwiązania przy użyciu szablonu Azure Resource Manager
 
@@ -26,6 +26,9 @@ Za pomocą [szablonów Azure Resource Manager](../azure-resource-manager/templat
 Szablon nie automatyzuje dołączania do co najmniej jednej maszyny wirtualnej platformy Azure lub innej niż Azure.
 
 Jeśli masz już obszar roboczy Log Analytics i konto usługi Automation wdrożone w obsługiwanym regionie w ramach subskrypcji, nie są one połączone. W obszarze roboczym nie wdrożono jeszcze rozwiązania Update Management. Użycie tego szablonu spowoduje utworzenie linku i wdrożenie Update Management rozwiązanie. 
+
+>[!NOTE]
+>Użytkownik **nxautomation** zalogowany jako część Update Management w systemie Linux wykonuje wyłącznie podpisane elementy Runbook.
 
 >[!NOTE]
 >Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).

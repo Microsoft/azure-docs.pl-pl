@@ -9,7 +9,7 @@ ms.author: cgronlun
 ms.date: 05/06/2020
 ms.openlocfilehash: e4d9003a6786af1218e4e1b85d1bd93b65f1abe5
 ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
 ms.locfileid: "82872029"

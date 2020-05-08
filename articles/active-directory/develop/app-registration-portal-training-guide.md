@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154597"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889996"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji Azure Portal
 
-Istnieje wiele ulepszeń w nowych [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowiska Azure Portal. Jeśli masz więcej informacji na temat korzystania z portalu rejestracji aplikacji (apps.dev.microsoft.com) do rejestrowania aplikacji i zarządzania nimi, nazywanego starym doświadczeniem, ten przewodnik szkoleniowy umożliwi rozpoczęcie pracy przy użyciu nowego środowiska.
+Istnieje wiele ulepszeń w nowych [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowiska Azure Portal. Jeśli wiesz już, jak korzystać z portalu rejestracji aplikacji (apps.dev.microsoft.com) na potrzeby rejestrowania aplikacji i zarządzania nimi, o ile jest to "stare środowisko", ten przewodnik umożliwi rozpoczęcie pracy przy użyciu nowego środowiska.
 
 ## <a name="whats-not-changing"></a>Co nie jest zmieniane?
 
@@ -37,7 +37,7 @@ Istnieje wiele ulepszeń w nowych [rejestracje aplikacji](https://go.microsoft.c
 
 ## <a name="key-changes"></a>Zmiany kluczy
 
--   W starym środowisku aplikacje były domyślnie zarejestrowane jako aplikacje zbieżne obsługujące wszystkie konta organizacji (wielodostępne) oraz osobiste konta Microsoft. Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji obsługujących tylko konta organizacji (z wieloma dzierżawami lub pojedynczym dzierżawcą).
+-   W starym środowisku aplikacje były domyślnie zarejestrowane jako aplikacje *zbieżne* — aplikacje obsługujące wszystkie konta organizacji (wielodostępne) oraz osobiste konta Microsoft. Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji obsługujących tylko konta organizacji (z wieloma dzierżawami lub pojedynczym dzierżawcą).
     Nowe środowisko pozwala zarejestrować aplikacje obsługujące wszystkie te opcje. [Dowiedz się więcej o typach aplikacji](active-directory-v2-registration-portal.md).
 
 -   W nowym środowisku, jeśli Twoje osobiste konto Microsoft znajdują się również w dzierżawie usługi Azure AD, zobaczysz trzy karty — wszystkie aplikacje w dzierżawie, należące do nich aplikacje w dzierżawie oraz aplikacje z konta osobistego. Tak więc, jeśli uważasz, że aplikacje zarejestrowane przy użyciu Twojego osobistego konto Microsoft są niedostępne, sprawdź **aplikacje na karcie konto osobiste** .
@@ -52,28 +52,23 @@ Istnieje wiele ulepszeń w nowych [rejestracje aplikacji](https://go.microsoft.c
 
 ## <a name="new-app-registration"></a>Rejestrowanie nowej aplikacji
 
-Aby zarejestrować zbieżną aplikację w starym środowisku, musisz podać nazwę. Utworzone aplikacje zostały zarejestrowane jako aplikacje zbieżne obsługujące wszystkie katalogi organizacyjne (wielodostępne) oraz osobiste konta Microsoft.  Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji obsługujących tylko konta organizacji (z wieloma dzierżawami lub pojedynczym dzierżawcą). [Dowiedz się więcej o obsługiwanych typach kont](v2-supported-account-types.md)
+W starym środowisku, aby zarejestrować aplikację, musisz podać nazwę. Utworzone aplikacje zostały zarejestrowane jako aplikacje o *zbieżności* — aplikacje obsługujące wszystkie katalogi organizacyjne (wielodostępne) oraz osobiste konta Microsoft.  Nie można jej zmodyfikować przy użyciu starego środowiska, co utrudnia Tworzenie aplikacji, które obsługują tylko konta organizacji (pojedyncza lub wielodostępna). [Dowiedz się więcej o obsługiwanych typach kont](v2-supported-account-types.md)
 
 W nowym środowisku należy podać nazwę aplikacji i wybrać obsługiwane typy kont. Opcjonalnie możesz podać identyfikator URI przekierowania.
 W przypadku podania identyfikatora URI przekierowania należy określić, czy jest on w sieci Web, czy publiczny (natywny/mobilny i pulpit). Aby uzyskać więcej informacji na temat sposobu rejestrowania aplikacji przy użyciu nowego środowiska rejestracji aplikacji, zobacz [ten przewodnik Szybki Start](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Strona zarządzania aplikacjami
 
-Stare środowisko miało jedną stronę zarządzania aplikacjami dla zbieżnych aplikacji z następującymi sekcjami: właściwości, wpisy tajne aplikacji, platformy, właściciele, uprawnienia Microsoft Graph, profil i opcje zaawansowane.
+Stare środowisko miało jedną stronę zarządzania aplikacjami dla aplikacji z następującymi sekcjami: właściwości, wpisy tajne aplikacji, platformy, właściciele, uprawnienia Microsoft Graph, profil i opcje zaawansowane.
 
-Nowe środowisko Azure Portal reprezentuje te funkcje na oddzielnych stronach. Tutaj można znaleźć funkcje równoważne:
+Nowe środowisko Azure Portal przedstawia te funkcje na oddzielnych stronach. Tutaj można znaleźć funkcje równoważne:
 
--   Właściwości-Name i ID aplikacji znajduje się na stronie Przegląd.
-
--   Wpisy tajne aplikacji są na stronie certyfikatów & Secret
-
--   Konfiguracja platform znajduje się na stronie uwierzytelnianie
-
--   Uprawnienia Microsoft Graph są na stronie uprawnień interfejsu API wraz z innymi uprawnieniami
-
--   Profil jest na stronie znakowania
-
--   Opcja zaawansowana — obsługa zestawu SDK na żywo znajduje się na stronie uwierzytelnianie.
+- Właściwości-Name i ID aplikacji znajduje się na stronie Przegląd.
+- Wpisy tajne aplikacji są na stronie certyfikatów & Secret
+- Konfiguracja platform znajduje się na stronie uwierzytelnianie
+- Uprawnienia Microsoft Graph są na stronie uprawnień interfejsu API wraz z innymi uprawnieniami
+- Profil jest na stronie znakowania
+- Opcja zaawansowana — obsługa zestawu SDK na żywo znajduje się na stronie uwierzytelnianie.
 
 ## <a name="application-secretscertificates--secrets"></a>Wpisy tajne/certyfikaty aplikacji & wpisy tajne
 
@@ -111,7 +106,7 @@ Istnieje nowy interfejs użytkownika dla właściwości, które wcześniej mogł
 
 -   Zakresy zdefiniowane przez ten interfejs API (oauth2Permissions) i autoryzowane aplikacje klienckie (preAuthorizedApplications) można skonfigurować za pomocą strony Uwidacznianie interfejsu API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako interfejsu API sieci Web i uwidaczniania uprawnień/zakresów, zobacz [ten przewodnik Szybki Start](quickstart-configure-app-expose-web-apis.md).
 
--   Domenę wydawcy (wyświetlaną dla użytkowników w [monicie o zgodę\'aplikacji s](application-consent-experience.md)) można znaleźć na stronie bloku znakowania. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób](howto-configure-publisher-domain.md).
+-   Domenę wydawcy (wyświetlaną dla użytkowników w [monicie o zgodę\'aplikacji s](application-consent-experience.md)) można znaleźć na stronie znakowania. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -125,3 +120,7 @@ Nowe środowisko ma następujące ograniczenia:
 
    > [!NOTE]
    > Jeśli jesteś użytkownikiem konto Microsoft osobistym w dzierżawie usługi Azure AD, a Administrator dzierżawy ograniczył dostęp do Azure Portal, nastąpi odmowa dostępu. Jeśli jednak przejdziesz przez skrót, wpisując Rejestracje aplikacji na pasku wyszukiwania lub przypinając go, będziesz mieć dostęp do nowego środowiska.
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby rozpocząć pracę z nowym interfejsem rejestracji aplikacji, zobacz [Szybki Start: rejestrowanie aplikacji na platformie tożsamości firmy Microsoft](quickstart-register-app.md).

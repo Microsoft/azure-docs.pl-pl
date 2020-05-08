@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686277"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890922"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -90,16 +90,15 @@ Obsługiwane **Ustawienia zapisu** w formacie `formatSettings`json w obszarze:
 | Właściwość      | Opis                                                  | Wymagany                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Typ formatSettings musi być ustawiony na **JsonWriteSettings**. | Tak                                                   |
-| filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
+| filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** (linie JSON) i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 
 ### <a name="json-file-patterns"></a>Wzorce plików JSON
 
-Działanie kopiowania może automatycznie wykrywać i analizować następujące wzorce plików JSON. 
+Podczas kopiowania danych z plików JSON działania kopiowania mogą automatycznie wykrywać i analizować następujące wzorce plików JSON. Podczas zapisywania danych w plikach JSON można skonfigurować wzorzec pliku dla ujścia działania kopiowania.
 
 - **Typ I: setOfObjects**
 
-    Każdy plik zawiera pojedynczy obiekt lub wiele obiektów rozdzielonych wierszami bądź połączonych. 
-    Po wybraniu tej opcji w obiekcie ujścia działania kopiowania działanie kopiowania tworzy pojedynczy plik JSON z każdym obiektem w wierszu (rozdzielonym wierszem).
+    Każdy plik zawiera pojedynczy obiekt, linie JSON lub połączone obiekty.
 
     * **przykład kodu JSON z pojedynczym obiektem**
 
@@ -114,7 +113,7 @@ Działanie kopiowania może automatycznie wykrywać i analizować następujące 
         }
         ```
 
-    * **przykład kodu JSON z obiektami rozdzielonymi wierszami**
+    * **Linie JSON (domyślnie dla ujścia)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

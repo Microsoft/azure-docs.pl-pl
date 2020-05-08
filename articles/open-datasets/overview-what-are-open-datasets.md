@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.date: 05/06/2020
+ms.openlocfilehash: aa7cbd9b213d35becd65d9335312c0468760d655
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73606156"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872042"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Co to są otwarte zestawy danych platformy Azure i jak można z nich korzystać?
 
@@ -24,6 +24,8 @@ Zestawy danych obejmują dane z domeny publicznej na potrzeby pogodowych, spisu,
 
 ## <a name="curated-prepared-datasets"></a>Nadzorowane, przygotowane zestawy danych
 Nadzorowane otwieranie publicznych zestawów danych w systemie Azure otwartych zestawów danych jest zoptymalizowane pod kątem użycia w przepływach pracy uczenia maszynowego. 
+
+Aby wyświetlić wszystkie dostępne zestawy danych, przejdź do [katalogu otwarte zestawy danych platformy Azure](https://azure.microsoft.com/services/open-datasets/catalog/).
 
 Naukowcy danych często spędzają większością czasu na oczyszczenie i przygotowanie danych do zaawansowanej analizy. Otwarte zestawy danych są kopiowane do chmury platformy Azure i wstępnie przetworzone w celu zaoszczędzenia czasu. W regularnych odstępach czasu dane są pobierane ze źródeł, takich jak połączenie FTP z krajowym administracją oceaniczną i ciśnieniem atmosferycznym (NOAA). Następnie dane są analizowane w formacie strukturalnym, a następnie wzbogacone odpowiednio o funkcje, takie jak kod pocztowy lub lokalizacja najbliższej stacji pogodowej.
 
