@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656300"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900960"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -22,10 +22,13 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowaneg
 * Wyzwalanie przepływu pracy po wystąpieniu zewnętrznego zdarzenia elementu webhook.
 * Odbieraj i odpowiadaj na wywołanie HTTPS z innej aplikacji logiki.
 
+Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) do autoryzacji wywołań przychodzących do aplikacji logiki. Aby uzyskać więcej informacji na temat włączania tego uwierzytelniania, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — Włącz uwierzytelnianie OAuth usługi Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> Wyzwalacz żądania obsługuje *tylko* Transport Layer Security (TLS) 1,2 dla wywołań przychodzących. Wywołania wychodzące nadal obsługują protokoły TLS 1,0, 1,1 i 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Wyzwalacz żądania obsługuje *tylko* Transport Layer Security (TLS) 1,2 dla wywołań przychodzących. Wywołania wychodzące obsługują protokoły TLS 1,0, 1,1 i 1,2. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemu z protokołem TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Jeśli widzisz błędy uzgadniania protokołu TLS, upewnij się, że korzystasz z protokołu TLS 1,2. W przypadku wywołań przychodzących Oto obsługiwane mechanizmy szyfrowania:
+> W przypadku uzyskiwania błędów uzgadniania protokołu TLS upewnij się, że używasz protokołu TLS 1,2. 
+> W przypadku wywołań przychodzących Oto obsługiwane mechanizmy szyfrowania:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowaneg
 
 ## <a name="add-request-trigger"></a>Dodaj wyzwalacz żądania
 
-Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcowy HTTPS, który może odbierać *tylko* przychodzące żądania HTTPS. Po wystąpieniu tego zdarzenia wyzwalacz uruchamia i uruchamia aplikację logiki. Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcowy HTTPS, który może odbierać *tylko* przychodzące żądania HTTPS. Po wystąpieniu tego zdarzenia wyzwalacz uruchamia i uruchamia aplikację logiki.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Tworzenia pustej aplikacji logiki.
 
@@ -177,13 +180,17 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną minutę. Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
 
-1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**. 
+1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
    Ten krok generuje adres URL służący do wysyłania żądania wyzwalającego aplikację logiki. Aby skopiować ten adres URL, wybierz ikonę kopiowania obok adresu URL.
 
    ![Adres URL używany do wyzwalania aplikacji logiki](./media/connectors-native-reqres/generated-url.png)
 
-1. Aby wyzwolić aplikację logiki, Wyślij HTTP POST do wygenerowanego adresu URL. Można na przykład użyć narzędzia, takiego jak [Poster](https://www.getpostman.com/).
+1. Aby wyzwolić aplikację logiki, Wyślij HTTP POST do wygenerowanego adresu URL.
+
+   Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać wpis http. Jeśli [włączono Azure Active Directory otwierania uwierzytelniania](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) do autoryzacji wywołań przychodzących do wyzwalacza żądania, wywołaj wyzwalacz przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) lub przy użyciu tokenu uwierzytelniania, ale nie możesz użyć obu tych opcji. Token uwierzytelniania musi określać `Bearer` typ w nagłówku autoryzacji. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — dostęp do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz te tematy, [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ### <a name="trigger-outputs"></a>Wyjściowe wyzwalacza
 

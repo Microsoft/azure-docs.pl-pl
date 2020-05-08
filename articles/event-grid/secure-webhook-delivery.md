@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 4cb8168cd6d1c19cc797a7cd5454b96131fa35be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106621"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900469"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publikuj zdarzenia w celu Azure Active Directory chronionych punktów końcowych
 
@@ -31,8 +31,8 @@ Zacznij od utworzenia aplikacji usługi Azure AD dla chronionego punktu końcowe
 
 Użyj poniższego skryptu programu PowerShell, aby utworzyć regułę roli i usługi w aplikacji usługi Azure AD. Wymagany jest identyfikator dzierżawy i identyfikator obiektu z aplikacji usługi Azure AD:
 
-    > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
+   > [!NOTE]
+   > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) .
     
 1. Zmodyfikuj $myTenantId skryptu programu PowerShell, aby użyć identyfikatora dzierżawy usługi Azure AD.
 1. Zmodyfikuj $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD

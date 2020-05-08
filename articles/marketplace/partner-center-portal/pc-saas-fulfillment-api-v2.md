@@ -1,22 +1,22 @@
 ---
-title: Interfejs API realizacji SaaS w wersji 2 | Portal Azure Marketplace
-description: W tym artykule wyjaśniono, jak utworzyć i zarządzać ofertą SaaS w AppSource i witrynie Azure Marketplace przy użyciu skojarzonych interfejsów API realizacji w wersji 2.
+title: Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
+description: Dowiedz się, jak utworzyć i zarządzać ofertą SaaS na Microsoft AppSource i witrynie Azure Marketplace przy użyciu interfejsów API realizacji w wersji 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275768"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854191"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>Interfejsy API realizacji SaaS, wersja 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Interfejsy API realizacji SaaS w wersji 2 w portalu komercyjnym firmy Microsoft
 
-W tym artykule opisano interfejsy API, które umożliwiają partnerom sprzedawanie aplikacji SaaS w witrynie AppSource Marketplace i witrynie Azure Marketplace. Te interfejsy API są wymagane w przypadku ofert SaaS transakcyjnych w witrynie AppSource i witrynie Azure Marketplace.
+Ten artykuł zawiera szczegółowe informacje o interfejsach API realizacji, które umożliwiają partnerom sprzedawanie aplikacji SaaS w Microsoft AppSource i witrynie Azure Marketplace. Te interfejsy API są wymagane do transakcyjnych ofert SaaS.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Zarządzanie cyklem życia subskrypcji SaaS
 
@@ -70,7 +70,7 @@ Ten stan wskazuje, że płatność klienta nie została odebrana. Zgodnie z zasa
 Subskrypcje docierają do tego stanu w odpowiedzi na jawne żądanie klienta lub niepłaty opłat. Oczekiwanie od partnera polega na tym, że dane klienta są przechowywane na żądanie przez określoną liczbę dni, a następnie usuwane. 
 
 
-## <a name="api-reference"></a>Odwołanie API
+## <a name="api-reference"></a>Dokumentacja interfejsu API
 
 Ta sekcja dotyczy *interfejsu API subskrypcji* SaaS i *interfejsu API operacji*.  Wartość `api-version` parametru dla interfejsów API w wersji 2 to `2018-08-31`.  
 
@@ -592,7 +592,7 @@ Wewnętrzny błąd serwera.
 
 Anuluj subskrypcję i Usuń określoną subskrypcję.
 
-##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Usuwanie<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="deletebr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Usuń<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parametry zapytania:*
 
@@ -859,9 +859,9 @@ Gdzie akcja może być jedną z następujących czynności:
 Stan może mieć jedną z następujących wartości: 
 - **NotStarted** <br>
  - **Toku** <br>
-- **Sukces** <br>
+- **Powiodło się** <br>
 - **Niepowodzenie** <br>
-- **Konflikt** <br>
+- **Kolizj** <br>
 
 W powiadomieniu elementu webhook Stany akcji zostały **wykonane pomyślnie** i **zakończyły się niepowodzeniem**. Cykl życia operacji pochodzi z **NotStarted** do stanu terminalu, takiego jak **sukces**, **Niepowodzenie**lub **konflikt**. Jeśli otrzymasz **NotStarted** lub w **toku**, Kontynuuj Zażądaj stanu za pomocą interfejsu API Get, dopóki operacja nie osiągnie stanu terminalu przed podjęciem działania. 
 

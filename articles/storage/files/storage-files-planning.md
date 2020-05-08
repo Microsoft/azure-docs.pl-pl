@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209489"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856903"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planowanie wdrażania usługi Pliki Azure
 [Azure Files](storage-files-introduction.md) można wdrożyć na dwa sposoby: przez bezpośrednie zainstalowanie udziałów plików platformy Azure bezserwerowych lub buforowanie udziałów plików platformy Azure lokalnie przy użyciu Azure File Sync. Wybór opcji wdrożenia powoduje zmianę warunków, które należy wziąć pod uwagę podczas planowania wdrożenia. 
@@ -84,7 +84,7 @@ Ogólnie rzecz biorąc, funkcje Azure Files i współdziałanie z innymi usługa
     - Udziały plików w warstwie Premium są rozliczane przy użyciu modelu rozliczania z zainicjowaną obsługą, co oznacza, że płacisz za ilość miejsca w magazynie, które ma zostać zainicjowane. 
     - Standardowe udziały plików są rozliczane przy użyciu modelu płatności zgodnie z rzeczywistym użyciem, który obejmuje podstawowy koszt magazynu, w którym faktycznie zużywa się magazyn, a następnie dodatkowy koszt transakcji na podstawie sposobu korzystania z udziału. W przypadku standardowych udziałów plików rachunek zostanie zwiększony w przypadku użycia (odczytu/zapisu/instalacji) udziału plików platformy Azure.
 - **Opcje nadmiarowości**
-    - Udziały plików w warstwie Premium są dostępne tylko dla magazynu lokalnie nadmiarowego (LRS) i strefy nadmiarowego (ZRS). 
+    - Udziały plików w warstwie Premium są dostępne tylko dla magazynu lokalnie nadmiarowego (LRS) i strefy nadmiarowego (ZRS).
     - Standardowe udziały plików są dostępne lokalnie nadmiarowe, nadmiarowe strefy, Geograficznie nadmiarowy (GRS) i strefę geograficzną nadmiarowy (GZRS).
 - **Maksymalny rozmiar udziału plików**
     - Udziały plików w warstwie Premium można obsługiwać nawet do 100 TiB bez żadnej dodatkowej pracy.

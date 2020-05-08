@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b4e7d827536245a22d168c7d9923c2e5b82830b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 112dbea4ef54c5923c586b87be9770c2e91befd2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111797"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901431"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architektura łączności usługi Azure SQL
 > [!NOTE]
@@ -100,7 +100,7 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Indie Środkowe        | 104.211.96.159     |
 | Indie Południowe          | 104.211.224.146    |
 | Indie Zachodnie           | 104.211.160.80     |
-| Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japonia Wschodnia           | 13.78.61.196, 40.79.184.8, 191.237.240.43, 40.79.192.5 | 
 | Japonia Zachodnia           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Korea Środkowa        | 52.231.32.42       |
 | Korea Południowa          | 52.231.200.86      |

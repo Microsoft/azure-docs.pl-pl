@@ -1,31 +1,21 @@
 ---
 title: Dodawanie narzędzi do oceny w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185908"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901057"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
 
-W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](migrate-overview.md).
+W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](migrate-overview.md). 
 
-Azure Migrate oferuje centrum narzędzi do oceny i migracji na platformę Azure. Zawiera narzędzia Azure Migrate, a także inne narzędzia i oferty niezależnych dostawców oprogramowania (ISV).
-
-Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
-
-## <a name="select-a-tool"></a>Wybierz narzędzie
-
-W przypadku wybrania narzędzia innego niż Azure Migrate do oceny Zacznij od uzyskania licencji lub zarejestrowania się w celu skorzystania z bezpłatnej wersji próbnej zgodnie z zasadami dotyczącymi narzędzi. Narzędzia mają opcję nawiązywania połączenia z Azure Migrate. Postępuj zgodnie z instrukcjami i dokumentacją, aby podłączyć narzędzie do Azure Migrate. [Dowiedz się więcej](migrate-services-overview.md) o narzędziach.
-
+- Jeśli chcesz dodać narzędzie do oceny i nie masz jeszcze projektu Azure Migrate, postępuj zgodnie z tym [artykułem](how-to-add-tool-first-time.md).
+- Po dodaniu narzędzia niezależnego dostawcy oprogramowania lub przeniesieniu do oceny [postępuj zgodnie z](prepare-isv-movere.md)instrukcjami, aby przygotować się do pracy z narzędziem.
 
 ## <a name="select-an-assessment-scenario"></a>Wybierz scenariusz oceny
 

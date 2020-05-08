@@ -1,25 +1,27 @@
 ---
-title: Komercyjne zarządzanie potencjalnymi klientami portalu Marketplace firmy Microsoft z użyciem protokołu HTTPS
-description: Skonfiguruj zarządzanie liderem komercyjnego portalu Microsoft Marketplace dla punktu końcowego HTTPS.
+title: Zarządzanie potencjalnymi klientami za pomocą punktu końcowego HTTPS — Microsoft Commercial Marketplace
+description: Dowiedz się, jak używać automatyzacji i punktu końcowego HTTPS do zarządzania potencjalni klienci z Microsoft AppSource i witryny Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133739"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790987"
 ---
-# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Konfigurowanie zarządzania liderem przy użyciu punktu końcowego HTTPS
+# <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Używanie punktu końcowego HTTPS do zarządzania komercyjnymi liderami w portalu Marketplace
+
+Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w centrum partnerskim, aby otrzymywać Microsoft AppSource i potencjalni klienci portalu Azure Marketplace, możesz użyć punktu końcowego HTTPS w programie [PowerShell](https://powerapps.microsoft.com/automate-processes/) , aby obsłużyć te potencjalni klienci. Za pomocą punktu końcowego HTTPS potencjalni klienci portalu Marketplace mogą wysyłać pocztą e-mail jako powiadomienie lub mogą być zapisywana w systemie CRM obsługiwanym przez program.
+
+W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell w celu wygenerowania adresu URL POST protokołu HTTP, który będzie używany do konfigurowania potencjalnych klientów w centrum partnerskim. Obejmuje również kroki testowania przepływu za pomocą programu [Poster](https://www.getpostman.com/downloads/).
 
 >[!NOTE]
->Łącznik automatyzacji, używany w tych instrukcjach, wymaga płatnej subskrypcji do automatyzacji. Przed wykonaniem instrukcji opisanych w tym artykule upewnij się, że to konto jest odpowiednie.
-
-Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiwany w centrum partnerskim, aby otrzymywać Microsoft AppSource i potencjalni klienci portalu Azure Marketplace, możesz użyć punktu końcowego HTTPS w programie PowerShell, aby obsłużyć te potencjalni klienci. Za pomocą punktu końcowego HTTPS te potencjalni klienci mogą być wysyłane jako powiadomienia e-mail lub mogą być zapisywane w systemie CRM obsługiwanym przez program. Instrukcje zawarte w tym artykule przeprowadzą Cię przez proces podstawowy, aby utworzyć nowy przepływ przy użyciu narzędzia do automatyzowania, które generuje adres URL post protokołu HTTP, który zostanie wprowadzony do portalu wydawców w polu > **adres URL punktu końcowego protokołu HTTPS** **zarządzania liderem**. Uwzględniono również instrukcje testowania przepływu za pomocą narzędzia o nazwie [Poster](https://www.getpostman.com/downloads/), które jest dostępne online.
+>Łącznik automatyzacji, używany w tych instrukcjach, wymaga płatnej subskrypcji do automatyzacji. Przed skonfigurowaniem tego przepływu upewnij się, że to konto jest odpowiednie.
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Tworzenie przepływu za pomocą automatyzacji
 
@@ -27,22 +29,24 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
 1. Zaloguj się, a następnie wybierz pozycję **Moje przepływy** w menu.
 
-1. Wybierz pozycję **+ Automatyczne — od pustej**.
+    ![Zaloguj się do moich przepływów](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. W obszarze **+ Nowy**wybierz pozycję **+ błyskawiczne — od zera**.
 
-1. W oknie **kompilacja przepływu automatycznego** wybierz pozycję **Pomiń**. 
+    ![Moje przepływy + automatyczne — z pustej](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Nadaj nazwę przepływowi, a następnie w obszarze **Wybierz sposób wyzwalania tego przepływu**wybierz opcję **po odebraniu żądania HTTP**.
 
-1. W polu **Łączniki wyszukiwania i wyzwalacze** wprowadź **żądanie** znalezienia łącznika żądania.
-1. W obszarze **wyzwalacze**wybierz opcję **po odebraniu żądania HTTP**. 
+    ![Kompiluj przycisk pomijania okna przepływu automatycznego](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Menu wyzwalaczy](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Kliknij krok przepływu, aby go rozwinąć.
 
-1. W oknie dialogowym **po odebraniu żądania HTTP** skopiuj i wklej poniższy schemat JSON do pola tekstowego **schemat JSON treści żądania** . Ten schemat jest używany przez firmę Microsoft do przechowywania danych potencjalnych klientów.
+    ![Rozwiń krok przepływu](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Pole tekstowe schematu JSON treści żądania](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Użyj jednej z następujących metod, aby skonfigurować **schemat JSON treści żądania**:
+
+    - Skopiuj schemat JSON do pola tekstowego **schemat JSON treści żądania** .
+    - Wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**. W polu tekstowym **wprowadź lub wklej przykładowy ładunek JSON** Wklej w przykładzie JSON. Wybierz pozycję **gotowe** , aby utworzyć schemat.
 
     **Schemat JSON**
 
@@ -103,6 +107,26 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
     }
     ```
 
+    **Przykład JSON**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >W tym momencie konfiguracji można wybrać opcję nawiązywania połączenia z systemem CRM lub skonfigurować powiadomienie e-mail. Postępuj zgodnie z pozostałymi instrukcjami.
 
@@ -157,7 +181,7 @@ Jeśli system zarządzania relacjami z klientami (CRM) nie jest jawnie obsługiw
 
 ### <a name="testing"></a>Testowanie
 
-Możesz sprawdzić, czy wszystko działa zgodnie z oczekiwaniami przy użyciu narzędzia o nazwie [Poster](https://app.getpostman.com/app/download/win64), które można pobrać w trybie online. To narzędzie jest dostępne dla systemu Windows. 
+Konfigurację można przetestować za pomocą programu [Poster](https://app.getpostman.com/app/download/win64). Pobieranie online dla programu Poster jest dostępne dla systemu Windows. 
 
 1. Uruchom program Poster i wybierz pozycję **nowe** > **żądanie** , aby skonfigurować narzędzie testowe. 
 
@@ -201,10 +225,18 @@ Możesz sprawdzić, czy wszystko działa zgodnie z oczekiwaniami przy użyciu na
 
 Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące kroki.
 
-1. Przejdź do strony **konfiguracji oferty** oferty.
-1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** .
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+
+1. Wybierz ofertę i przejdź do karty **Konfiguracja oferty** .
+
+1. W sekcji **Zarządzanie potencjalnymi klientami** wybierz pozycję **Połącz**. 
+    ![Przycisk Połącz z zarządzaniem potencjalnym klientem](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **punkt końcowy https** dla **miejsca docelowego potencjalnego klienta**. Wklej adres URL POST protokołu HTTP z przepływu utworzonego przez wykonanie wcześniejszych kroków w polu **adres URL punktu końcowego HTTPS** .
+    ![Adres e-mail osoby kontaktowej szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. W obszarze **kontaktowy adres e-mail**wprowadź adresy e-mail osób w firmie, które powinny otrzymywać powiadomienia e-mail po odebraniu nowego potencjalnego klienta. Można podać wiele wiadomości e-mail, rozdzielając je średnikami.
+
 1. Wybierz przycisk **OK**.
 
 Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
@@ -213,10 +245,3 @@ Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym p
 >Musisz zakończyć konfigurowanie reszty oferty i opublikować ją przed odebraniem potencjalnych klientów do oferty.
 
 Gdy są generowane potencjalni klienci, firma Microsoft wysyła potencjalni klienci do przepływu. Potencjalni klienci są kierowani do skonfigurowanego systemu CRM lub adresu e-mail.
-
-![Przycisk Połącz z zarządzaniem potencjalnym klientem](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Miejsce docelowe lidera szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Adres e-mail osoby kontaktowej szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-

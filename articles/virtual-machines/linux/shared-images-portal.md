@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 74c87d589f1c50551ac5685fe0fa126a82bffbde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28cdc96020d085c6f44c8b6818aa76dd7eb29891
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758434"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789003"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Tworzenie galerii udostępnionych obrazów platformy Azure przy użyciu portalu
 
@@ -27,21 +27,13 @@ Galeria jest zasobem najwyższego poziomu, który zapewnia pełną kontrolę dos
 
 Funkcja galerii obrazów udostępnionych ma wiele typów zasobów. Firma Microsoft będzie używać tych aplikacji lub tworzyć je w tym artykule:
 
-| Zasób | Opis|
-|----------|------------|
-| **Obraz zarządzany** | Podstawowy obraz, który może być używany samodzielnie lub do tworzenia **wersji obrazu** w galerii obrazów. Obrazy zarządzane są tworzone na podstawie [uogólnionych](shared-image-galleries.md#generalized-and-specialized-images) maszyn wirtualnych. Obraz zarządzany jest specjalnym typem dysku VHD, który może służyć do tworzenia wielu maszyn wirtualnych i może być teraz używany do utworzenia wersji obrazu udostępnionego. |
-| **Zdjęcie** | Kopia dysku VHD, której można użyć do udostępnienia **wersji obrazu**. Migawki mogą być pobierane z [wyspecjalizowanej](shared-image-galleries.md#generalized-and-specialized-images) maszyny wirtualnej (która nie została uogólniona), a następnie używana samodzielnie lub z migawkami dysków danych, aby utworzyć wyspecjalizowaną wersję obrazu.
-| **Galeria obrazów** | Podobnie jak w przypadku portalu Azure Marketplace, **Galeria obrazów** jest repozytorium do zarządzania i udostępniania obrazów, ale ty kontrolujesz, kto ma dostęp. |
-| **Definicja obrazu** | Obrazy są zdefiniowane w galerii i zawierają informacje o obrazie i wymaganiach dotyczących używania go w organizacji. Można dołączyć informacje takie jak uogólnione lub wyspecjalizowane obrazy, system operacyjny, minimalne i maksymalne wymagania dotyczące pamięci oraz informacje o wersji. Jest to definicja typu obrazu. |
-| **Wersja obrazu** | **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii. Dla danego środowiska można mieć wiele wersji obrazu. Podobnie jak w przypadku obrazu zarządzanego, w przypadku tworzenia maszyny wirtualnej przy użyciu **wersji obrazu** wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać. |
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 
-> [!IMPORTANT]
-> Wyspecjalizowane obrazy są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Ograniczenia znanej wersji zapoznawczej** Maszyny wirtualne można tworzyć tylko z wyspecjalizowanych obrazów przy użyciu portalu lub interfejsu API. Program nie obsługuje interfejsu wiersza polecenia lub programu PowerShell dla wersji zapoznawczej.
+
+
 
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
@@ -82,9 +74,9 @@ Jeśli chcesz usunąć poszczególne zasoby, musisz je usunąć w odwrotnej kole
 Możesz również utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów. Dostępnych jest kilka szablonów szybkiego startu platformy Azure: 
 
 - [Tworzenie galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Tworzenie definicji obrazu w galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Tworzenie wersji obrazu w galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Tworzenie maszyny wirtualnej z wersji obrazu](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Tworzenie maszyny wirtualnej na podstawie wersji obrazu](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Aby uzyskać więcej informacji na temat udostępnionych galerii obrazów, zobacz [Omówienie](shared-image-galleries.md). Jeśli występują problemy, zobacz temat [Rozwiązywanie problemów z udostępnionymi galeriami obrazów](troubleshooting-shared-images.md).
 

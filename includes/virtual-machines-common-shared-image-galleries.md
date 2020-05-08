@@ -1,42 +1,41 @@
 ---
 title: Plik dyrektywy include
 description: Plik dyrektywy include
-services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80117000"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789044"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym zarządzanym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
 - Zarządza replikacją globalną obrazów.
 - Przechowywanie wersji i grupowanie obrazów w celu łatwiejszego zarządzania.
 - Obrazy o wysokiej dostępności z kontami magazynu Strefowo nadmiarowego (ZRS) w regionach, które obsługują Strefy dostępności. ZRS zapewnia lepszą odporność na awarie stref.
+- Wsparcie Premium Storage (Premium_LRS).
 - Udostępnianie między subskrypcjami, a nawet między dzierżawami Active Directory (AD) przy użyciu RBAC.
 - Skalowanie wdrożeń przy użyciu replik obrazów w każdym regionie.
 
 Za pomocą udostępnionej galerii obrazów możesz udostępnić swoje obrazy innym użytkownikom, podmiotom usług lub grupom usługi AD w organizacji. Obrazy udostępnione mogą być replikowane do wielu regionów, co umożliwia szybsze skalowanie wdrożeń.
 
-Obraz zarządzany to kopia pełnej maszyny wirtualnej (w tym dowolnych dołączonych dysków danych) lub tylko dysku systemu operacyjnego, w zależności od sposobu tworzenia obrazu. Podczas tworzenia maszyny wirtualnej na podstawie obrazu kopia dysków VHD w obrazie jest używana do tworzenia dysków dla nowej maszyny wirtualnej. Zarządzany obraz pozostaje w magazynie i może być ponownie używany do tworzenia nowych maszyn wirtualnych.
+Obraz to kopia pełnej maszyny wirtualnej (w tym dowolnych dołączonych dysków danych) lub tylko dysku systemu operacyjnego, w zależności od sposobu jego tworzenia. Podczas tworzenia maszyny wirtualnej na podstawie obrazu kopia dysków VHD w obrazie jest używana do tworzenia dysków dla nowej maszyny wirtualnej. Obraz pozostaje w magazynie i może być ponownie używany do tworzenia nowych maszyn wirtualnych.
 
-Jeśli masz dużą liczbę zarządzanych obrazów, które chcesz zachować i chcesz udostępnić je w całej firmie, możesz użyć udostępnionej galerii obrazów jako repozytorium, która ułatwia udostępnianie obrazów. 
+Jeśli masz dużą liczbę obrazów, które musisz zachować i chcesz udostępnić je w całej firmie, możesz użyć udostępnionej galerii obrazów jako repozytorium. 
 
 Funkcja galerii obrazów udostępnionych ma wiele typów zasobów:
 
 | Zasób | Opis|
 |----------|------------|
-| **Obraz zarządzany** | Podstawowy obraz, który może być używany samodzielnie lub do tworzenia **wersji obrazu** w galerii obrazów. Obrazy zarządzane są tworzone na podstawie [uogólnionych](#generalized-and-specialized-images) maszyn wirtualnych. Obraz zarządzany jest specjalnym typem dysku VHD, który może służyć do tworzenia wielu maszyn wirtualnych i może być teraz używany do utworzenia wersji obrazu udostępnionego. |
-| **Zdjęcie** | Kopia dysku VHD, której można użyć do udostępnienia **wersji obrazu**. Migawki mogą być pobierane z [wyspecjalizowanej](#generalized-and-specialized-images) maszyny wirtualnej (która nie została uogólniona), a następnie używana samodzielnie lub z migawkami dysków danych, aby utworzyć wyspecjalizowaną wersję obrazu.
+| **Źródło obrazu** | Jest to zasób, którego można użyć do utworzenia **wersji obrazu** w galerii obrazów. Źródłem obrazu może być istniejąca maszyna wirtualna platformy Azure, która jest [uogólniona lub wyspecjalizowana](#generalized-and-specialized-images), zarządzanym obrazem, migawką lub wersją obrazu w innej galerii obrazów. |
 | **Galeria obrazów** | Podobnie jak w przypadku portalu Azure Marketplace, **Galeria obrazów** jest repozytorium do zarządzania i udostępniania obrazów, ale ty kontrolujesz, kto ma dostęp. |
-| **Definicja obrazu** | Obrazy są zdefiniowane w galerii i zawierają informacje o obrazie i wymaganiach dotyczących używania go w organizacji. Można dołączyć informacje takie jak uogólnione lub wyspecjalizowane obrazy, system operacyjny, minimalne i maksymalne wymagania dotyczące pamięci oraz informacje o wersji. Jest to definicja typu obrazu. |
+| **Definicja obrazu** | Definicje obrazów są tworzone w galerii i zawierają informacje o obrazie i wymaganiach dotyczących używania go wewnętrznie. Dotyczy to zarówno obrazu systemu Windows, jak i Linux, informacji o wersji oraz minimalnych i maksymalnych wymagań dotyczących pamięci. Jest to definicja typu obrazu. |
 | **Wersja obrazu** | **Wersja obrazu** jest używana do tworzenia maszyny wirtualnej w przypadku korzystania z galerii. Dla danego środowiska można mieć wiele wersji obrazu. Podobnie jak w przypadku obrazu zarządzanego, w przypadku tworzenia maszyny wirtualnej przy użyciu **wersji obrazu** wersja obrazu jest używana do tworzenia nowych dysków dla maszyny wirtualnej. Wersje obrazów można wielokrotnie używać. |
 
 <br>
@@ -45,7 +44,7 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów:
 
 ## <a name="image-definitions"></a>Definicje obrazu
 
-Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Definicja obrazu jest taka sama jak w przypadku planu dla wszystkich szczegółów dotyczących tworzenia określonego obrazu. Nie można wdrożyć maszyny wirtualnej na podstawie definicji obrazu, ale z wersji obrazu utworzonej na podstawie definicji.
+Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego i innych informacji na temat korzystania z obrazu. Definicja obrazu jest taka sama jak w przypadku planu dla wszystkich szczegółów dotyczących tworzenia określonego obrazu. Nie można wdrożyć maszyny wirtualnej na podstawie definicji obrazu, ale z wersji obrazu utworzonych na podstawie definicji.
 
 Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy**, **oferty** i **jednostki SKU**. Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
 
@@ -68,23 +67,18 @@ Poniżej znajdują się inne parametry, które można ustawić w definicji obraz
 * Tag — możesz dodać tagi podczas tworzenia definicji obrazu. Aby uzyskać więcej informacji na temat tagów, zobacz [Używanie tagów do organizowania zasobów](../articles/azure-resource-manager/management/tag-resources.md)
 * Minimalne i maksymalne zalecenia dotyczące vCPU i pamięci — Jeśli obraz ma zalecenia vCPU i pamięci, możesz dołączyć te informacje do definicji obrazu.
 * Niedozwolone typy dysków — można podać informacje o wymaganiach dotyczących magazynu dla maszyny wirtualnej. Na przykład jeśli obraz nie jest odpowiedni dla standardowych dysków DYSKowych, należy dodać je do listy nie Zezwalaj.
+* Generacja funkcji Hyper-V — możesz określić, czy obraz został utworzony z dysku VHD funkcji Hyper-V generacji 1 lub Gen 2.
 
 ## <a name="generalized-and-specialized-images"></a>Uogólnione i wyspecjalizowane obrazy
 
 Udostępnione galerii obrazów są obsługiwane przez dwa stany systemu operacyjnego. Zazwyczaj obrazy wymagają, aby maszyna wirtualna użyta do utworzenia obrazu była uogólniona przed pobraniem obrazu. Uogólnianie to proces, który usuwa informacje specyficzne dla komputera i użytkownika z maszyny wirtualnej. W przypadku systemu Windows jest używany program Sysprep. W przypadku systemu Linux można użyć [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` parametrów.
 
-Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkretnych informacji i kont komputera. Ponadto maszyny wirtualne utworzone z wyspecjalizowanych obrazów nie są `osProfile` skojarzone z nimi. Oznacza to, że specjalne obrazy mają pewne ograniczenia.
+Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkretnych informacji i kont komputera. Ponadto maszyny wirtualne utworzone z wyspecjalizowanych obrazów nie są `osProfile` skojarzone z nimi. Oznacza to, że specjalne obrazy będą mieć pewne ograniczenia oprócz niektórych korzyści.
 
+- Maszyny wirtualne i zestawy skalowania utworzone na podstawie wyspecjalizowanych obrazów mogą działać szybciej. Ponieważ są one tworzone na podstawie źródła, które zostało już w trakcie pierwszego uruchomienia, maszyny wirtualne utworzone na podstawie tych obrazów są szybsze.
 - Konta, których można użyć do logowania się do maszyny wirtualnej, można również używać na dowolnej maszynie wirtualnej utworzonej przy użyciu obrazu wyspecjalizowanego tworzonego na podstawie tej maszyny wirtualnej.
 - Maszyny wirtualne będą miały **nazwę komputera** maszyny wirtualnej, z której zrobiono obraz. Należy zmienić nazwę komputera, aby uniknąć kolizji.
 - `osProfile` Jest to sposób przekazywania informacji poufnych do maszyny wirtualnej przy użyciu programu `secrets`. Może to powodować problemy przy użyciu magazynu kluczy, usługi WinRM i innych funkcji `secrets` używanych w `osProfile`programie. W niektórych przypadkach można użyć tożsamości usługi zarządzanej (MSI) do obejścia tych ograniczeń.
-
-> [!IMPORTANT]
-> Wyspecjalizowane obrazy są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Ograniczenia znanej wersji zapoznawczej** Maszyny wirtualne można tworzyć tylko z wyspecjalizowanych obrazów przy użyciu portalu lub interfejsu API. Program nie obsługuje interfejsu wiersza polecenia lub programu PowerShell dla wersji zapoznawczej.
-
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
@@ -113,6 +107,7 @@ Istnieją limity dla każdej subskrypcji dotyczące wdrażania zasobów przy uż
 - 100 udostępnione Galerie obrazów na subskrypcję na region
 - 1 000 definicji obrazów na subskrypcję na region
 - 10 000 wersje obrazów na subskrypcję na region
+- 10 replik wersji obrazu na subskrypcję na region
 - Dowolny dysk dołączony do obrazu musi być mniejszy lub równy 1 TB
 
 Aby uzyskać więcej informacji, zobacz [Sprawdzanie użycia zasobów względem limitów](https://docs.microsoft.com/azure/networking/check-usage-against-limits) na potrzeby przykładów sprawdzania bieżącego użycia.
@@ -151,7 +146,7 @@ Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszy
 | Udostępnione użytkownikowi     | Galeria obrazów udostępnionych | Definicja obrazu | Wersja obrazu |
 |----------------------|----------------------|--------------|----------------------|
 | Galeria obrazów udostępnionych | Tak                  | Tak          | Tak                  |
-| Definicja obrazu     | Nie                   | Tak          | Tak                  |
+| Definicja obrazu     | Nie                   | Yes          | Tak                  |
 
 Zalecamy udostępnianie na poziomie galerii w celu uzyskania najlepszego środowiska. Nie zaleca się udostępniania poszczególnych wersji obrazu. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -196,9 +191,9 @@ Następujące zestawy SDK obsługują Tworzenie udostępnionych galerii obrazów
 Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów. Dostępnych jest kilka szablonów szybkiego startu platformy Azure: 
 
 - [Tworzenie galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Tworzenie definicji obrazu w galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Tworzenie wersji obrazu w galerii obrazów udostępnionych](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Tworzenie maszyny wirtualnej z wersji obrazu](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Tworzenie definicji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Tworzenie wersji obrazu w usłudze Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Tworzenie maszyny wirtualnej na podstawie wersji obrazu](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania 
 
@@ -217,31 +212,32 @@ Możesz utworzyć zasób udostępnionej galerii obrazów przy użyciu szablonów
 * [Jakie są opłaty za korzystanie z galerii obrazów udostępnionych?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia galerii obrazów udostępnionych i definicji obrazu i wersji obrazu?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Jakiej wersji interfejsu API należy użyć do utworzenia udostępnionej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych z wersji obrazu?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby użyć obrazów z galerii udostępnionych obrazów?]
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Jak można wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów w ramach subskrypcji?
 
 Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz dostęp na Azure Portal, wykonaj następujące czynności:
 
 1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
-1. Przejdź do pozycji **wszystkie zasoby**.
+1. Przewiń w dół stronę i wybierz pozycję **wszystkie zasoby**.
 1. Wybierz wszystkie subskrypcje, w ramach których chcesz wyświetlić listę wszystkich zasobów.
-1. Wyszukaj zasoby typu **Galeria prywatna**.
- 
-   Aby wyświetlić definicje obrazu i wersje obrazu, należy również wybrać **Pokaż ukryte typy**.
- 
-   Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz uprawnienia, użyj następującego polecenia w interfejsie wiersza polecenia platformy Azure:
+1. Wyszukaj zasoby typu **Shared Image Gallery**.
+  
+Aby wyświetlić listę wszystkich udostępnionych zasobów galerii obrazów między subskrypcjami, do których masz uprawnienia, użyj następującego polecenia w interfejsie wiersza polecenia platformy Azure:
 
-   ```azurecli
+```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-   ```
+```
+
+Aby uzyskać więcej informacji, zobacz **Zarządzanie zasobami galerii** za pomocą [interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/update-image-resources-cli.md) lub [programu PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Czy mogę przenieść istniejący obraz do galerii obrazów udostępnionych?
  
 Tak. Istnieją 3 scenariusze na podstawie typów obrazów, które mogą mieć.
 
- Scenariusz 1. Jeśli masz zarządzany obraz w tej samej subskrypcji co SIG, możesz utworzyć definicję obrazu i wersję obrazu.
+ Scenariusz 1. Jeśli masz obraz zarządzany, możesz utworzyć definicję obrazu i wersję obrazu. Aby uzyskać więcej informacji, zobacz **Migrowanie z obrazu zarządzanego do wersji obrazu** przy użyciu [interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/image-version-managed-image-cli.md) lub [programu PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
- Scenariusz 2. Jeśli masz niezarządzany obraz w tej samej subskrypcji co rekord SIG, możesz utworzyć zarządzany obraz z tego elementu, a następnie utworzyć definicję obrazu i wersję obrazu. 
+ Scenariusz 2. Jeśli masz obraz niezarządzany, możesz utworzyć z niego obraz zarządzany, a następnie utworzyć definicję obrazu i wersję obrazu. 
 
  Scenariusz 3. Jeśli masz dysk VHD w lokalnym systemie plików, musisz przekazać wirtualny dysk twardy do zarządzanego obrazu, a następnie utworzyć definicję obrazu i wersję obrazu.
 
@@ -250,11 +246,17 @@ Tak. Istnieją 3 scenariusze na podstawie typów obrazów, które mogą mieć.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Czy mogę utworzyć wersję obrazu z wyspecjalizowanego dysku?
 
-Tak, obsługa wyspecjalizowanych dysków jako obrazów jest w wersji zapoznawczej. Maszynę wirtualną można utworzyć tylko na podstawie wyspecjalizowanego obrazu przy użyciu portalu ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) lub [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) i interfejsu API. Brak obsługi programu PowerShell na potrzeby wersji zapoznawczej.
+Tak, obsługa wyspecjalizowanych dysków jako obrazów jest w wersji zapoznawczej. Maszynę wirtualną można utworzyć tylko na podstawie wyspecjalizowanego obrazu przy użyciu portalu, programu PowerShell lub interfejsu API. 
+
+
+Użyj [programu PowerShell, aby utworzyć obraz wyspecjalizowanej maszyny wirtualnej](../articles/virtual-machines/image-version-vm-powershell.md).
+
+Użyj portalu, aby utworzyć [system Windows](../articles/virtual-machines/linux/shared-images-portal.md) lub [Linux] (.. /articles/Virtual-Machines/Linux/Shared-images-Portal.MD). 
+
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Czy mogę przenieść zasób udostępnionej galerii obrazów do innej subskrypcji po jej utworzeniu?
 
-Nie, nie można przenieść zasobu udostępnionej galerii obrazów do innej subskrypcji. Jednak będzie można replikować wersje obrazu w galerii do innych regionów zgodnie z wymaganiami.
+Nie, nie można przenieść zasobu udostępnionej galerii obrazów do innej subskrypcji. Możesz replikować wersje obrazu z galerii do innych regionów lub skopiować obraz z innej galerii przy użyciu [interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/image-version-another-gallery-cli.md) lub [programu PowerShell](../articles/virtual-machines/image-version-another-gallery-powershell.md).
 
 ### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Czy można replikować moje wersje obrazów między chmurami, takimi jak Azure Chiny 21Vianet czy Azure (Niemcy) czy Azure Government Cloud?
 
@@ -308,3 +310,7 @@ Aby współpracować z udostępnionymi galeriami obrazów, definicjami obrazów 
 ### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Jakiej wersji interfejsu API należy użyć do utworzenia udostępnionej maszyny wirtualnej lub zestawu skalowania maszyn wirtualnych z wersji obrazu?
 
 W przypadku wdrożeń maszyny wirtualnej i zestawu skalowania maszyn wirtualnych przy użyciu wersji obrazu zalecamy użycie interfejsu API w wersji 2018-04-01 lub nowszej.
+
+### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Czy mogę zaktualizować zestaw skalowania maszyn wirtualnych utworzony przy użyciu obrazu zarządzanego, aby używać obrazów z galerii obrazów udostępnionych?
+
+Tak, możesz zaktualizować odwołanie do obrazu zestawu skalowania z obrazu zarządzanego do obrazu udostępnionej galerii obrazów, o ile typ systemu operacyjnego, generacja funkcji Hyper-V i układ dysku danych dopasowuje się między obrazami. 

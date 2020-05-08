@@ -1,6 +1,6 @@
 ---
-title: Wbudowane role platformy Azure dla usługi Azure RBAC
-description: W tym artykule opisano wbudowane role platformy Azure dla kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Zawiera listę akcji, nienaruszonych, akcji dataactions i NotDataActions.
+title: Role wbudowane platformy Azure — RBAC Azure
+description: W tym artykule opisano wbudowane role platformy Azure na potrzeby kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Zawiera listę akcji, nienaruszonych, akcji dataactions i NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 78e5c219d83198f3bf4c329c33018caad2b0cc62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194928"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838743"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
-[Kontrola dostępu oparta na rolach (RBAC) na platformie](overview.md) Azure ma kilka wbudowanych ról platformy Azure, które można przypisać do użytkowników, grup, podmiotów usługi i zarządzanych tożsamości. Przypisania ról są sposobem kontroli dostępu do zasobów platformy Azure. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe platformy Azure](custom-roles.md).
+[Kontrola dostępu oparta na rolach na platformie Azure (RBAC)](overview.md) ma kilka wbudowanych ról platformy Azure, które można przypisać do użytkowników, grup, podmiotów usługi i tożsamości zarządzanych. Przypisania ról są sposobem kontroli dostępu do zasobów platformy Azure. Jeśli wbudowane role nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne [role niestandardowe platformy Azure](custom-roles.md).
 
-W tym artykule wymieniono wbudowane role dla zasobów platformy Azure, które są zawsze zmieniane. Aby uzyskać najnowsze role, użyj funkcji [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list). Jeśli szukasz ról administratorów dla Azure Active Directory (Azure AD), zobacz [uprawnienia roli administratora w programie Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Ten artykuł zawiera listę wbudowanych ról platformy Azure, które są zawsze rozwijane. Aby uzyskać najnowsze role, użyj funkcji [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list). Jeśli szukasz ról administratorów dla Azure Active Directory (Azure AD), zobacz [uprawnienia roli administratora w programie Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="all"></a>Wszystkie
+## <a name="all"></a>Wszyscy
 
-W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej wbudowanej roli. `Actions`Wybierz nazwę roli, aby wyświetlić listę `NotActions`,, `DataActions`i `NotDataActions` dla każdej roli. Aby uzyskać informacje o tym, co oznaczają te działania oraz o sposobie ich zastosowania do płaszczyzny zarządzania i danych, zobacz [Omówienie definicji ról dla zasobów platformy Azure](role-definitions.md).
+W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej wbudowanej roli. `Actions`Wybierz nazwę roli, aby wyświetlić listę `NotActions`,, `DataActions`i `NotDataActions` dla każdej roli. Aby uzyskać informacje o tym, co oznaczają te działania oraz o sposobie ich zastosowania do płaszczyzny zarządzania i danych, zobacz [Opis ról roli platformy Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -81,7 +81,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Nadawca komunikatu o danych kolejki magazynu](#storage-queue-data-message-sender) | Dodawanie komunikatów do kolejki usługi Azure Storage. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Czytnik danych kolejki magazynu](#storage-queue-data-reader) | Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce. Aby dowiedzieć się, które akcje są wymagane dla danej operacji danych, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Sieć Web** |  |  |
-> | [Czytnik danych Azure Maps (wersja zapoznawcza)](#azure-maps-data-reader-preview) | Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Maps czytnika danych](#azure-maps-data-reader) | Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Współautor Search Service](#search-service-contributor) | Umożliwia zarządzanie usługami wyszukiwania, ale nie umożliwia uzyskiwania do nich dostępu. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Współautor planu sieci Web](#web-plan-contributor) | Umożliwia zarządzanie planami sieci Web dla witryn internetowych, ale nie umożliwia uzyskiwania do nich dostępu. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Współautor witryny sieci Web](#website-contributor) | Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie umożliwia uzyskiwania do nich dostępu. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,10 +147,10 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Czytnik wskaźnikowy platformy Azure](#azure-sentinel-reader) | Czytnik wskaźnikowy platformy Azure | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Obiekt odpowiadający wskaźnikowi platformy Azure](#azure-sentinel-responder) | Obiekt odpowiadający wskaźnikowi platformy Azure | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Współautor Key Vault](#key-vault-contributor) | Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nich dostępu. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Administrator zabezpieczeń](#security-admin) | Może wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia, odrzucać alerty i zalecenia. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrator zabezpieczeń](#security-admin) | Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, jak rola czytelnik zabezpieczeń, mogą także aktualizować zasady zabezpieczeń i odrzucać alerty i zalecenia. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Współautor oceny zabezpieczeń](#security-assessment-contributor) | Umożliwia wypychanie ocen do Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (starsza wersja)](#security-manager-legacy) | Jest to Starsza rola. Zamiast tego należy użyć administratora zabezpieczeń. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Czytelnik zabezpieczeń](#security-reader) | Można wyświetlać zalecenia i alerty, wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, ale nie mogą wprowadzać zmian. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Czytelnik zabezpieczeń](#security-reader) | Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty, zasady zabezpieczeń i Stany zabezpieczeń, ale nie może wprowadzać zmian. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [Użytkownik DevTest Labs](#devtest-labs-user) | Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wirtualnych w Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Twórca laboratorium](#lab-creator) | Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -2543,7 +2543,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 ## <a name="web"></a>Sieć Web
 
 
-### <a name="azure-maps-data-reader-preview"></a>Czytnik danych Azure Maps (wersja zapoznawcza)
+### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
 
 Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azure Maps.
 
@@ -2555,7 +2555,7 @@ Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azu
 > | **NotActions** |  |
 > | *brak* |  |
 > | **Akcje dataactions** |  |
-> | Microsoft. Maps/konta/dane/odczyt | Przyznaje dostęp do odczytu do konta Maps. |
+> | Microsoft. Maps/accounts/*/Read |  |
 > | **NotDataActions** |  |
 > | *brak* |  |
 
@@ -2572,12 +2572,12 @@ Przyznaje dostęp do odczytu danych związanych z mapowaniem z konta usługi Azu
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5710,7 +5710,7 @@ Umożliwia Zarządzanie magazynami kluczy, ale nie umożliwia uzyskiwania do nic
 
 ### <a name="security-admin"></a>Administrator zabezpieczeń
 
-Może wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia, odrzucać alerty i zalecenia.
+Wyświetl i zaktualizuj uprawnienia dla Security Center. Te same uprawnienia, jak rola czytelnik zabezpieczeń, mogą także aktualizować zasady zabezpieczeń i odrzucać alerty i zalecenia.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5868,7 +5868,7 @@ Jest to Starsza rola. Zamiast tego należy użyć administratora zabezpieczeń.
 
 ### <a name="security-reader"></a>Czytelnik zabezpieczeń
 
-Można wyświetlać zalecenia i alerty, wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, ale nie mogą wprowadzać zmian.
+Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty, zasady zabezpieczeń i Stany zabezpieczeń, ale nie może wprowadzać zmian.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6217,6 +6217,9 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
 > | Microsoft. Insights/scheduledqueryrules/* |  |
 > | Microsoft. Insights/webtests/* | Tworzenie testów sieci Web usługi Insights i zarządzanie nimi |
 > | Microsoft. Insights/skoroszyty/* |  |
+> | Microsoft. Insights/privateLinkScopes/* |  |
+> | Microsoft. Insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft. OperationalInsights/obszary robocze/zapis | Tworzy nowy obszar roboczy lub łączy z istniejącym obszarem roboczym, podając identyfikator klienta z istniejącego obszaru roboczego. |
 > | Microsoft. OperationalInsights/Workspaces/intelligencepacks/* | Odczytaj/Zapisz/Usuń pakiety rozwiązań usługi log Analytics. |
 > | Microsoft. OperationalInsights/Workspaces/savedSearches/* | Odczyt/zapis/usuwanie zapisanych wyszukiwań usługi log Analytics. |
 > | Microsoft. OperationalInsights/obszary robocze/wyszukiwanie/akcja | Wykonuje zapytanie wyszukiwania |
@@ -6263,6 +6266,9 @@ Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowa
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",

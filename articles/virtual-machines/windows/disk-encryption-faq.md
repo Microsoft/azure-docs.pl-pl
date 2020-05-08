@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082598"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901281"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
 
@@ -21,7 +21,7 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Dis
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Co to jest Azure Disk Encryption dla maszyn wirtualnych z systemem Windows?
 
-Azure Disk Encryption dla maszyn wirtualnych z systemem Windows używa funkcji BitLocker systemu Windows w celu zapewnienia pełnego szyfrowania dysków systemu operacyjnego i dysków z danymi. Ponadto zapewnia szyfrowanie dysku zasobów tymczasowych, gdy [parametr volumetype ma wartość All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Zawartość jest zaszyfrowana z maszyny wirtualnej do zaplecza magazynu. W związku z tym zapewnia to kompleksowe szyfrowanie za pomocą klucza zarządzanego przez klienta.
+Azure Disk Encryption dla maszyn wirtualnych z systemem Windows używa funkcji BitLocker systemu Windows w celu zapewnienia pełnego szyfrowania dysków systemu operacyjnego i dysków z danymi. Ponadto zapewnia szyfrowanie dysku tymczasowego, gdy [parametr volumetype ma wartość All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Zawartość jest zaszyfrowana z maszyny wirtualnej do zaplecza magazynu. W związku z tym zapewnia to kompleksowe szyfrowanie za pomocą klucza zarządzanego przez klienta.
  
 Zobacz [obsługiwane maszyny wirtualne i systemy operacyjne](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ Szyfrowanie po stronie serwera magazynu szyfruje dyski zarządzane platformy Azu
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Jak różni się Azure Disk Encryption od szyfrowania po stronie serwera magazynu z kluczem zarządzanym przez klienta i kiedy należy używać poszczególnych rozwiązań?
 
-Azure Disk Encryption zapewnia kompleksowe szyfrowanie dla dysku systemu operacyjnego, dysków danych i dysku zasobów tymczasowych z kluczem zarządzanym przez klienta.
+Azure Disk Encryption zapewnia kompleksowe szyfrowanie dysku systemu operacyjnego, dysków danych i dysku tymczasowego z kluczem zarządzanym przez klienta.
 
 - Jeśli wymagania obejmują szyfrowanie wszystkich powyższych i kompleksowych danych szyfrowania, użyj Azure Disk Encryption. 
 - Jeśli wymagania obejmują szyfrowanie tylko danych przechowywanych w kluczu zarządzanym przez klienta, należy użyć [szyfrowania po stronie serwera z kluczami zarządzanymi przez klienta](disk-encryption.md). Nie można zaszyfrować dysku z szyfrowaniem po stronie serwera Azure Disk Encryption i magazynu przy użyciu kluczy zarządzanych przez klienta.
@@ -129,9 +129,6 @@ Azure Disk Encryption wybiera metodę szyfrowania w funkcji BitLocker na podstaw
 \*Bit AES 256 z rozpraszaniem nie jest obsługiwany w systemie Windows 2012 i nowszych.
 
 Aby określić wersję systemu operacyjnego Windows, uruchom narzędzie "winver" na maszynie wirtualnej.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Jeśli korzystam z EncryptFormatAll i określisz wszystkie typy woluminów, spowoduje to wymazanie danych na dyskach danych, które zostały już zaszyfrowane?
-Nie. nie można wymazać danych z dysków danych, które są już zaszyfrowane przy użyciu Azure Disk Encryption. Podobnie jak EncryptFormatAll nie szyfruje dysku systemu operacyjnego, nie szyfruje już jeszcze zaszyfrowanego dysku danych. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Czy można utworzyć kopię zapasową i przywrócić zaszyfrowaną maszynę wirtualną? 
 

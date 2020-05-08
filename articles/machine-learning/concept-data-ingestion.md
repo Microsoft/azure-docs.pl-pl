@@ -1,5 +1,5 @@
 ---
-title: Opcje pozyskiwania danych
+title: Automatyzacja & pozyskiwania danych
 titleSuffix: Azure Machine Learning
 description: Dowiedz się więcej o opcjach pozyskiwania danych służących do uczenia modeli uczenia maszynowego.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086890"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789865"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Pozyskiwanie danych w Azure Machine Learning
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opcje pozyskiwania danych dla przepływów pracy Azure Machine Learning
 
-W tym artykule poznasz zalety i wady następujących opcji pozyskiwania danych dostępnych w programie Azure Machine Learning. 
+Ten artykuł zawiera informacje o profesjonalistach i wadach opcji pozyskiwania danych dostępnych w programie Azure Machine Learning. 
 
-1. Potoki [Azure Data Factory](#use-azure-data-factory)
-2. [Azure Machine Learning Python SDK](#use-the-python-sdk)
+Wybierz spośród opcji:
++ [Azure Data Factory](#azure-data-factory) potoki, specjalnie utworzone do wyodrębniania, ładowania i przekształcania danych
+
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), dostarczając rozwiązanie niestandardowego kodu dla podstawowych zadań pozyskiwania danych.
+
++ połączenie obu
 
 Pozyskiwanie danych to proces, w którym dane bez struktury są wyodrębniane z jednego lub wielu źródeł, a następnie przygotowane do szkolenia modeli uczenia maszynowego. Jest to również czasochłonne, szczególnie jeśli jest wykonywane ręcznie, i jeśli masz duże ilości danych z wielu źródeł. Automatyzacja tego wysiłku powoduje zwolnienie zasobów i gwarantuje, że modele korzystają z najnowszych i odpowiednich danych.
 
-Azure Data Factory (ADF) jest specjalnie skonstruowany do wyodrębniania, ładowania i przekształcania danych, ale zestaw SDK języka Python umożliwia tworzenie niestandardowych rozwiązań kodu dla podstawowych zadań pozyskiwania danych. Jeśli żaden z nich nie jest w żaden sposób, możesz również użyć ADF i zestawu SDK języka Python, aby utworzyć ogólny przepływ pracy pozyskiwania danych, który spełnia Twoje potrzeby. 
-
-## <a name="use-azure-data-factory"></a>Za pomocą usługi Azure Data Factory
+## <a name="azure-data-factory"></a>Azure Data Factory
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) oferuje natywną obsługę monitorowania i wyzwalaczy źródła danych na potrzeby potoków pozyskiwania danych.  
 
@@ -55,7 +57,7 @@ Te kroki i Poniższy diagram ilustrują przepływ pracy pozyskiwania danych Azur
     
 Dowiedz się, jak utworzyć potok pozyskiwania danych dla Machine Learning z [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Używanie zestawu Python SDK 
+## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning Python SDK 
 
 Za pomocą [zestawu SDK języka Python](https://docs.microsoft.com/python/api/overview/azure/ml)można uwzględnić zadania pozyskiwania danych w ramach kroku [potoku Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 
@@ -73,5 +75,7 @@ Na poniższym diagramie potok Azure Machine Learning składa się z dwóch krok�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się, jak utworzyć potok pozyskiwania danych dla Machine Learning z [Azure Data Factory](how-to-data-ingest-adf.md)
-* Dowiedz się, jak zautomatyzować cykle życia rozwoju potoków pozyskiwania danych i zarządzać nimi za pomocą [Azure Pipelines](how-to-cicd-data-ingestion.md).
+Postępuj zgodnie z następującymi artykułami:
+* [Tworzenie potoku pozyskiwania danych za pomocą Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatyzuj potoki pozyskiwania danych i zarządzaj nimi za pomocą Azure Pipelines](how-to-cicd-data-ingestion.md).

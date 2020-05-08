@@ -1,44 +1,41 @@
 ---
-title: Pulpit nawigacyjny klasyfikacji i przeglądów w komercyjnej analizie Marketplace w centrum partnerskim
-description: Dowiedz się, jak uzyskać skonsolidowany widok opinii klientów dla ofert w witrynie Azure Marketplace i AppSource.
+title: Klasyfikacja & przeglądy pulpit nawigacyjny analizy w centrum partnerskim
+description: Dowiedz się, jak uzyskać skonsolidowany widok opinii klientów dla ofert w witrynie Microsoft AppSource i witrynie Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262421"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792925"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klasyfikacji i przeglądów w komercyjnej analizie Marketplace
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klasyfikacja & przeglądy pulpit nawigacyjny analizy w centrum partnerskim
 
-Ten artykuł zawiera informacje na temat oceny & przeglądów na pulpicie nawigacyjnym w centrum partnerskim. Ten pulpit nawigacyjny wyświetla skonsolidowany widok opinii klientów dla ofert w witrynie Azure Marketplace i AppSource.
-
-Aby uzyskać dostęp do **pulpitu nawigacyjnego recenzje & przeglądów** w narzędziach do analiz Centrum partnerskiego, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
-
->[!NOTE]
-> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
-
-## <a name="ratings--reviews"></a>Klasyfikacje & przeglądy
-
-Gdy klienci przeglądają, szukają i kupują oferty w ramach obu rynków, mogą opuścić klasyfikacje i przeglądy dla ofert, które zostały nabyte.
+Ten artykuł zawiera informacje na temat oceny & przeglądów na pulpicie nawigacyjnym w centrum partnerskim. Ten pulpit nawigacyjny wyświetla skonsolidowany widok opinii klientów dla ofert w Microsoft AppSource i witrynie Azure Marketplace. Gdy klienci przeglądają, szukają i kupują oferty w ramach obu rynków, mogą opuścić klasyfikacje i przeglądy dla ofert, które zostały nabyte.
 
 - Klienci mogą przesłać nową klasyfikację lub przejrzeć i zaktualizować lub usunąć istniejącą ocenę lub sprawdzić, czy zostały one przesłane. Klienci mogą wprowadzać zmiany tylko do ocen i przeglądów, których są właścicielami.  
 - Przeglądy są publikowane na karcie przeglądy na stronie ekran produktu oferty w witrynie Azure Marketplace lub AppSource. Klienci mogą dołączać swoją nazwę lub ogłaszać anonimowo.  
 
-**Pulpit nawigacyjny recenzja & przegląd** przedstawia trendy i szczegółowe informacje o tym działaniu według klientów. Można wyświetlić graficzną reprezentację następujących elementów:
+>[!NOTE]
+> Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
+
+## <a name="access-the-dashboard"></a>Dostęp do pulpitu nawigacyjnego
+
+Na [pulpicie nawigacyjnym komercyjnego portalu Marketplace](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) w centrum partnerskim rozwiń sekcję **[Analizowanie](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** i wybierz pozycję **klasyfikacje & Recenzje**.
+
+Na pulpicie nawigacyjnym zostanie wyświetlona graficzna reprezentacja następującej aktywności klienta:
 
 - Klasyfikacje & przeglądy  
 - Przejrzyj Komentarze
 
-**Karty witryny portalu Marketplace** umożliwiają wydawcom wyświetlanie metryk oferty osobno na kartach AppSource & Azure Marketplace. Aby wyświetlić określone metryki oferty, wybierz ofertę z listy rozwijanej oferta.
+Skorzystaj z kart **witryny Marketplace** , aby wyświetlić oferty Microsoft AppSource i metryki portalu Azure Marketplace osobno. Aby wyświetlić określone metryki oferty, wybierz ofertę z listy rozwijanej oferta.
 
-
-### <a name="ratings-and-reviews-summary"></a>Podsumowanie klasyfikacji i przeglądów
+### <a name="ratings--reviews-summary"></a>Klasyfikacja & przeglądy podsumowania
 
 Sekcja podsumowania ocen & przeglądów zawiera poniższe metryki dla wybranego zakresu dat:
 

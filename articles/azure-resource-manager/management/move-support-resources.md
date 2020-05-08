@@ -3,12 +3,12 @@ title: Obsługa operacji przenoszenia według typu zasobu
 description: Wyświetla listę typów zasobów platformy Azure, które można przenieść do nowej grupy zasobów lub subskrypcji.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804796"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900975"
 ---
 # <a name="move-operation-support-for-resources"></a>Obsługa operacji przenoszenia dla zasobów
 W tym artykule przedstawiono, czy typ zasobu platformy Azure obsługuje operację przenoszenia. Zawiera również informacje dotyczące specjalnych warunków, które należy wziąć pod uwagę podczas przeniesienia zasobu.
@@ -418,8 +418,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | domainnames | Tak | Nie |
-> | virtualmachines | Tak | Nie |
+> | domainnames | Yes | Nie |
+> | virtualmachines | Yes | Nie |
 
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
@@ -441,7 +441,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | storageaccounts | Tak | Nie |
+> | storageaccounts | Yes | Nie |
 
 > [!IMPORTANT]
 > Zobacz [klasyczne wskazówki dotyczące przenoszenia wdrożenia](./move-limitations/classic-model-move-limitations.md). Klasyczne zasoby wdrażania można przenosić między subskrypcjami przy użyciu operacji specyficznych dla tego scenariusza.
@@ -771,10 +771,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | labcenters | Nie | Nie |
-> | Labs | Tak | Nie |
+> | Labs | Yes | Nie |
 > | laboratoria/środowiska | Tak | Tak |
 > | laboratoria/servicerunner | Tak | Tak |
-> | Labs/virtualmachines | Tak | Nie |
+> | Labs/virtualmachines | Yes | Nie |
 > | Uruchamianie | Tak | Tak |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
@@ -1025,8 +1025,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- | ---------- |
 > | hostingenvironments | Nie | Nie |
 > | integrationaccounts | Tak | Tak |
-> | integrationserviceenvironments | Tak | Nie |
-> | integrationserviceenvironments/managedapis | Tak | Nie |
+> | integrationserviceenvironments | Yes | Nie |
+> | integrationserviceenvironments/managedapis | Yes | Nie |
 > | isolatedenvironments | Nie | Nie |
 > | przebieg | Tak | Tak |
 
@@ -1036,7 +1036,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | commitmentplans | Nie | Nie |
-> | WebServices | Tak | Nie |
+> | WebServices | Yes | Nie |
 > | obszary robocze | Tak | Tak |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
@@ -1197,10 +1197,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkinterfaces | Tak | Tak |
 > | networkprofiles | Nie | Nie |
 > | networksecuritygroups | Tak | Tak |
-> | networkwatchers | Tak | Nie |
-> | networkwatchers / connectionmonitors | Tak | Nie |
-> | networkwatchers / flowlogs | Tak | Nie |
-> | networkwatchers / pingmeshes | Tak | Nie |
+> | networkwatchers | Yes | Nie |
+> | networkwatchers / connectionmonitors | Yes | Nie |
+> | networkwatchers / flowlogs | Yes | Nie |
+> | networkwatchers / pingmeshes | Yes | Nie |
 > | p2svpngateways | Nie | Nie |
 > | privatednszones | Tak | Tak |
 > | privatednszones / virtualnetworklinks | Tak | Tak |
@@ -1253,6 +1253,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 > [!IMPORTANT]
 > Upewnij się, że przejście do nowej subskrypcji nie przekracza [przydziałów subskrypcji](azure-subscription-service-limits.md#azure-monitor-limits).
+
+> [!IMPORTANT]
+> Nie można przenieść obszarów roboczych, które mają połączone konto usługi Automation. Przed rozpoczęciem operacji przenoszenia należy pamiętać o odłączeniu wszystkich kont usługi Automation.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 
@@ -1396,7 +1399,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | aplikacje | Tak | Nie |
+> | aplikacje | Yes | Nie |
 
 ## <a name="microsoftsearch"></a>Microsoft. Search
 
@@ -1523,6 +1526,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
 > | instancepools | Nie | Nie |
+> | locations | Tak | Tak |
 > | managedinstances | Nie | Nie |
 > | ManagedInstances/bazy danych | Nie | Nie |
 > | serwerem | Tak | Tak |
@@ -1709,7 +1713,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Grupa zasobów | Subskrypcja |
 > | ------------- | ----------- | ---------- |
-> | certyfikaty | Nie | Tak |
+> | certyfikaty | Nie | Yes |
 > | connectiongateways | Tak | Tak |
 > | Licznik | Tak | Tak |
 > | customapis | Tak | Tak |

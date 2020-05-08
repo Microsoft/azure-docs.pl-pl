@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332784"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900378"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny hasła jednorazowego w zasadach niestandardowych Azure AD B2C
 
@@ -74,11 +74,11 @@ Następujące ustawienia mogą służyć do konfigurowania trybu generowania kod
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | Nie | Czas (w sekundach) do wygaśnięcia kodu. Minimum: `60`; Wartość maksymalna `1200`:; Wartość domyślna `600`:. |
-| CodeLength | Nie | Długość kodu. Wartością domyślną jest `6`. |
-| CharacterSet | Nie | Zestaw znaków dla kodu sformatowany do użycia w wyrażeniu regularnym. Na przykład `a-z0-9A-Z`. Wartością domyślną jest `0-9`. Zestaw znaków musi zawierać co najmniej 10 różnych znaków w określonym zestawie. |
-| NumRetryAttempts | Nie | Liczba prób weryfikacji przed kodem jest uznawana za nieprawidłową. Wartością domyślną jest `5`. |
+| CodeLength | Nie | Długość kodu. Wartość domyślna to `6`. |
+| CharacterSet | Nie | Zestaw znaków dla kodu sformatowany do użycia w wyrażeniu regularnym. Na przykład `a-z0-9A-Z`. Wartość domyślna to `0-9`. Zestaw znaków musi zawierać co najmniej 10 różnych znaków w określonym zestawie. |
+| NumRetryAttempts | Nie | Liczba prób weryfikacji przed kodem jest uznawana za nieprawidłową. Wartość domyślna to `5`. |
 | Operacja | Tak | Operacja do wykonania. Możliwa wartość: `GenerateCode`. |
-| ReuseSameCode | Nie | Czy należy określić zduplikowany kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartością domyślną jest `false`. |
+| ReuseSameCode | Nie | Czy należy określić zduplikowany kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartość domyślna to `false`. |
 
 ### <a name="example"></a>Przykład
 
@@ -144,6 +144,7 @@ Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wy
 | UserMessageIfSessionDoesNotExist | Nie | Komunikat, który ma być wyświetlany użytkownikowi, jeśli sesja weryfikacji kodu wygasła. To albo kod wygasł albo kod nigdy nie został wygenerowany dla danego identyfikatora. |
 | UserMessageIfMaxRetryAttempted | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku przekroczenia maksymalnej dozwolonej liczby prób weryfikacji. |
 | UserMessageIfInvalidCode | Nie | Komunikat, który ma być wyświetlany użytkownikowi, jeśli podał nieprawidłowy kod. |
+| UserMessageIfVerificationFailedRetryAllowed | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku podania nieprawidłowego kodu, a użytkownik może podać poprawny kod.  |
 |UserMessageIfSessionConflict|Nie| Komunikat, który ma być wyświetlany użytkownikowi, jeśli nie można zweryfikować kodu.|
 
 ### <a name="example"></a>Przykład

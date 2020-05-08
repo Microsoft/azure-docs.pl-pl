@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: b83f530549ffa43789963fd0c95b4982f5289356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054460"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791412"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegowanie podsieci do usługi Azure NetApp Files 
 
@@ -28,7 +28,8 @@ Podsieć należy delegować do usługi Azure NetApp Files.   Podczas tworzenia w
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 * Kreator tworzenia nowej podsieci przyjmuje wartość domyślną maski sieci /24, która zapewnia 251 dostępnych adresów IP. Użycie maski sieci /28, która zapewnia 16 adresów IP, jest wystarczająca dla tej usługi.
 * W każdej sieci wirtualnej Azure Virtual Network (VNet) można delegować tylko jedną podsieć do usługi Azure NetApp Files.   
-   System Azure umożliwia tworzenie wielu delegowanych podsieci w sieci wirtualnej.  Jednak wszelkie próby utworzenia nowego woluminu zakończą się niepowodzeniem, jeśli zostanie użyta więcej niż jedna delegowana podsieć.
+   System Azure umożliwia tworzenie wielu delegowanych podsieci w sieci wirtualnej.  Jednak wszelkie próby utworzenia nowego woluminu zakończą się niepowodzeniem, jeśli zostanie użyta więcej niż jedna delegowana podsieć.  
+   W sieci wirtualnej można mieć tylko jedną delegowaną podsieć. Konto NetApp może wdrażać woluminy w wielu sieci wirtualnych, z których każda ma własną podsieć delegowaną.  
 * W delegowanej podsieci nie można wyznaczyć sieciowej grupy zabezpieczeń ani punktu końcowego usługi. Jeśli się to zrobi, delegowanie podsieci nie powiedzie się.
 * Dostęp do woluminu z globalnej, równorzędnej sieci wirtualnej nie jest obecnie obsługiwany.
 * Tworzenie [niestandardowych tras zdefiniowanych przez użytkownika](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) w podsieciach maszyny wirtualnej z prefiksem adresu (miejsce docelowe) do podsieci delegowanej do Azure NetApp Files nie jest obsługiwane. Takie działanie będzie miało wpływ na łączność z maszyną wirtualną.

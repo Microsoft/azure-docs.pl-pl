@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 032b49631c6adb30d4b25f8b82d35dab49ffd3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bf26fa096058f5a73d5527c0c6adb1649c9884f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757673"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857322"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem SLES lub openSUSE dla platformy Azure
 
@@ -39,7 +39,7 @@ Alternatywą dla tworzenia własnego wirtualnego dysku twardego jest również p
 4. Zaktualizuj system przy użyciu najnowszych poprawek:
    
         # sudo zypper update
-5. Zainstaluj agenta systemu Linux platformy Azure z repozytorium SLES:
+5. Zainstaluj agenta systemu Linux platformy Azure z repozytorium SLES (SLE11-Public-Cloud-module):
    
         # sudo zypper install python-azure-agent
 6. Sprawdź, czy waagent jest ustawiona na wartość "on" w chkconfig, a jeśli nie, włącz ją dla autostartu:

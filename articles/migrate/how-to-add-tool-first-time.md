@@ -3,17 +3,26 @@ title: Dodaj narzędzie do oceny/migracji w Azure Migrate
 description: Opisuje sposób tworzenia projektu Azure Migrate i dodawania narzędzia do oceny/migracji.
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1294831162df973e1f87052c1520d5d95990cf8f
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537733"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901189"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Dodawanie narzędzia oceny/migracji po raz pierwszy
 
 W tym artykule opisano sposób dodawania narzędzia do oceny lub migracji do projektu [Azure Migrate](migrate-overview.md) po raz pierwszy.  
 Azure Migrate udostępnia centralne centrum do śledzenia odnajdywania, oceny i migracji lokalnych aplikacji i obciążeń oraz maszyn wirtualnych chmur prywatnych/publicznych na platformie Azure. Centrum udostępnia Azure Migrate narzędzia do oceny i migracji, a także inne narzędzia i [oferty](migrate-services-overview.md#isv-integration) niezależnych dostawców oprogramowania (ISV). 
+
+## <a name="check-permissions-to-create-project"></a>Sprawdź uprawnienia do tworzenia projektu
+
+Jeśli projekt Azure Migrate nie został jeszcze utworzony, sprawdź, czy masz odpowiednie uprawnienia.
+
+1. W Azure Portal Otwórz subskrypcję i wybierz pozycję **Kontrola dostępu (IAM)**.
+2. W obszarze Sprawdź dostęp Znajdź odpowiednie konto i kliknij je, aby wyświetlić uprawnienia. Należy mieć uprawnienia współautora lub właściciela.
+    - Jeśli właśnie utworzono bezpłatne konto platformy Azure, jesteś właścicielem subskrypcji.
+    - Jeśli nie jesteś właścicielem subskrypcji, Pracuj z właścicielem, aby przypisać rolę.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Tworzenie projektu i Dodawanie narzędzia
 
@@ -66,4 +75,6 @@ W pewnych okolicznościach może być konieczne utworzenie dodatkowych projektó
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak dodać dodatkowe narzędzia do [oceny](how-to-assess.md) i [migracji](how-to-migrate.md) . 
+- Wprowadzenie do [Azure Migrate: Ocena serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool)lub [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool).
+- Po dodaniu narzędzia niezależnego dostawcy oprogramowania lub przeniesieniu, [Przejrzyj kroki](prepare-isv-movere.md) , aby przygotować się do łączenia narzędzia do Azure Migrate.
+- Dowiedz się, jak dodać dodatkowe narzędzia do [oceny](how-to-assess.md) i [migracji](how-to-migrate.md) . 

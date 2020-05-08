@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667414"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901353"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Rozwiązywanie problemów z replikacją w ramach odzyskiwania po awarii maszyny wirtualnej Azure
 
@@ -41,7 +41,7 @@ W przypadku wybrania zdarzenia powinny zostać wyświetlone dokładne informacje
 
 W poniższej tabeli przedstawiono limity usługi Azure Site Recovery. Limity te są oparte na naszych testach, ale nie obejmują wszystkich możliwych kombinacji operacji wejścia/wyjścia aplikacji (we/wy). Rzeczywiste wyniki mogą różnić w zależności od kombinacji operacji we/wy aplikacji.
 
-Istnieją dwa ograniczenia, które należy wziąć pod uwagę: zmiany danych na dysk i zmiany danych na maszynę wirtualną. Spójrzmy na dysk P20 Premium w poniższej tabeli, aby zapoznać się z przykładem. Dla jednej maszyny wirtualnej Site Recovery może obsłużyć 5 MB/s zmian na dysk z maksymalnie pięcioma dyskami. Site Recovery ma limit 25 MB/s całkowitej liczby zmian na maszynę wirtualną.
+Istnieją dwa ograniczenia, które należy wziąć pod uwagę: zmiany danych na dysk i zmiany danych na maszynę wirtualną. Spójrzmy na dysk P20 Premium w poniższej tabeli, aby zapoznać się z przykładem. Dla jednej maszyny wirtualnej Site Recovery może obsłużyć 5 MB/s zmian na dysk z maksymalnie pięcioma dyskami. Site Recovery ma limit 54 MB/s całkowitej liczby zmian na maszynę wirtualną.
 
 **Cel magazynu replikacji** | **Średni rozmiar operacji we/wy dla dysku źródłowego** |**Średni współczynnik zmian danych na dysku źródłowym** | **Łączny współczynnik zmian danych dziennie dla dysku z danymi źródłowymi**
 ---|---|---|---

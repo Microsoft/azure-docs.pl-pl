@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619161"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857296"
 ---
 # <a name="translator-text-api-v30"></a>Interfejs API tłumaczenia tekstu w usłudze Translator v 3.0
 
@@ -147,7 +147,7 @@ Token uwierzytelniania jest ważny przez 10 minut. Token powinien być ponownie 
 
 ## <a name="virtual-network-support"></a>Obsługa sieci wirtualnej
 
-Usługa Translator jest teraz dostępna z możliwościami Virtual Network w ograniczonych`WestUS2`regionach `EastUS`( `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`,,). Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Usługa Translator jest teraz dostępna z możliwościami Virtual Network w ograniczonych`WestUS2`regionach `EastUS`( `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`,,). Aby włączyć Virtual Network, zobacz [Konfigurowanie platformy Azure Cognitive Services sieci wirtualnych](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Po włączeniu tej funkcji musisz użyć niestandardowego punktu końcowego, aby wywołać interfejs API usługi Translator. Nie można użyć globalnego punktu końcowego usługi Translator ("api.cognitive.microsofttranslator.com") i nie można uwierzytelnić się przy użyciu tokenu dostępu.
 
