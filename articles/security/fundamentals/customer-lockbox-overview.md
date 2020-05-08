@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77561973"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735440"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Skrytka klienta Microsoft Azure
 
@@ -49,7 +49,7 @@ Poniższe kroki przedstawiają typowy przepływ pracy dla żądania Skrytka klie
 
     Żądanie jest teraz **zgłaszane przez klienta** w stanie "Oczekiwanie na zatwierdzenie klienta" przed udzieleniem dostępu.
 
-7. W organizacji klienta użytkownik, który ma [rolę właściciela](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) dla subskrypcji platformy Azure, otrzymuje wiadomość E-mail od firmy Microsoft w celu powiadomienia o oczekującym żądaniu dostępu. W przypadku żądań Skrytka klienta ta osoba jest Wyznaczeni osoby zatwierdzającej.
+7. W organizacji klienta użytkownik, który ma [rolę właściciela](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) dla subskrypcji platformy Azure, otrzymuje wiadomość E-mail od firmy Microsoft w celu powiadomienia o oczekującym żądaniu dostępu. W przypadku żądań Skrytka klienta ta osoba jest Wyznaczeni osoby zatwierdzającej.
 
     Przykład wiadomości e-mail:
 

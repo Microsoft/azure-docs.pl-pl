@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
-ms.openlocfilehash: 0a8864555798d3b64d675c70728ab97d191be81f
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891390"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982653"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Zmień transformację wierszy w mapowaniu przepływu danych
 
@@ -61,13 +61,15 @@ Transformacja ujścia wymaga jednego klucza lub szeregu kluczy dla unikatowej id
 
 Przepływy danych ADF obsługują scalanie względem puli baz danych Azure SQL Database i Synapse (hurtowni danych) z opcją upsert.
 
-Można jednak uruchamiać scenariusze, w których docelowy schemat bazy danych wykorzystuje właściwość Identity kolumn klucza. ADF wymaga zidentyfikowania kluczy, które będą używane w celu dopasowania do wartości wierszy dla aktualizacji i upserts. Ale jeśli kolumna Target ma ustawioną właściwość Identity i używasz zasad Upsert, docelowa baza danych nie umożliwi zapisu w kolumnie.
+Można jednak uruchamiać scenariusze, w których docelowy schemat bazy danych wykorzystuje właściwość Identity kolumn klucza. ADF wymaga zidentyfikowania kluczy, które będą używane w celu dopasowania do wartości wierszy dla aktualizacji i upserts. Ale jeśli kolumna Target ma ustawioną właściwość Identity i używasz zasad Upsert, docelowa baza danych nie umożliwi zapisu w kolumnie. Błędy można także napotkać podczas próby upsert względem kolumny dystrybucji tabeli rozproszonej.
 
-Dostępne są dwie opcje:
+Poniżej przedstawiono sposoby rozwiązania tego problemu:
 
-1. Użyj opcji SQL przed przetwarzaniem transformacji ujścia: ```SET IDENTITY_INSERT tbl_content ON```. Następnie wyłącz go przy użyciu właściwości SQL po przetworzeniu: ```SET IDENTITY_INSERT tbl_content OFF```.
+1. Przejdź do ustawień transformacji ujścia i ustaw pozycję "Pomiń zapisywanie kolumn klucza". Spowoduje to wyświetlenie podajnika APD w celu zapisania kolumny, która została wybrana jako wartość klucza mapowania.
 
-2. Zamiast używać Upsert, przełącz logikę, aby oddzielić warunki aktualizacji z warunków wstawiania przy użyciu transformacji podziału warunkowego. W ten sposób można ustawić mapowanie dla ścieżki aktualizacji, aby zignorować mapowanie kolumny klucza.
+2. Jeśli kolumna klucza nie jest kolumną, która powoduje problem z kolumnami tożsamości, można użyć opcji wstępnego przetwarzania przekształceń ujścia: ```SET IDENTITY_INSERT tbl_content ON```. Następnie wyłącz go przy użyciu właściwości SQL po przetworzeniu: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+3. Dla obu rodzajów tożsamości i kolumny rozkładu można zmienić logikę z upsert na użycie oddzielnego warunku aktualizacji i oddzielny warunek wstawiania przy użyciu transformacji podziału warunkowego. W ten sposób można ustawić mapowanie dla ścieżki aktualizacji, aby zignorować mapowanie kolumny klucza.
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 

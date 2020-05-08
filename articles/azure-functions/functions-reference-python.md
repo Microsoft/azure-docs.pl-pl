@@ -3,12 +3,12 @@ title: Dokumentacja dla deweloperów języka Python dla Azure Functions
 description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185986"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780049"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions oczekuje, że funkcja będzie metodą bezstanową w skrypcie ję
 
 Dane z wyzwalaczy i powiązań są powiązane z funkcją za pośrednictwem atrybutów metod przy `name` użyciu właściwości zdefiniowanej w pliku *Function. JSON* . Na przykład, _Funkcja. JSON_ poniżej opisuje prostą funkcję wyzwalaną przez żądanie HTTP o nazwie `req`:
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 W oparciu o tę definicję `__init__.py` plik zawierający kod funkcji może wyglądać podobnie jak w poniższym przykładzie:
 
@@ -77,6 +77,7 @@ Zalecana struktura folderów dla projektu funkcji w języku Python wygląda nast
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 Główny\_\_folder projektu (aplikacja\_\_) może zawierać następujące pliki:
@@ -86,6 +87,7 @@ Główny\_\_folder projektu (aplikacja\_\_) może zawierać następujące pliki:
 * plik *host. JSON*: zawiera globalne opcje konfiguracji, które mają wpływ na wszystkie funkcje w aplikacji funkcji. Ten plik jest publikowany na platformie Azure. Nie wszystkie opcje są obsługiwane w przypadku uruchamiania lokalnego. Aby dowiedzieć się więcej, zobacz plik [host. JSON](functions-host-json.md).
 * *. funcignore*: (opcjonalnie) deklaruje pliki, które nie powinny zostać opublikowane na platformie Azure.
 * *. gitignore*: (opcjonalnie) deklaruje pliki, które są wykluczone z repozytorium git, takie jak Local. Settings. JSON.
+* *Pliku dockerfile*: (opcjonalnie) używany podczas publikowania projektu w [kontenerze niestandardowym](functions-create-function-linux-custom-image.md).
 
 Każda funkcja ma własny plik kodu i plik konfiguracji powiązania (Function. JSON). 
 

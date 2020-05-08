@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: d04902a8d53397b7e7d9712a1c75ce44cc7aa7ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80880792"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739351"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus wyjątki komunikatów
 W tym artykule wymieniono wyjątki platformy .NET wygenerowane przez interfejsy API .NET Framework. 
@@ -46,8 +46,6 @@ Poniższa tabela zawiera listę typów wyjątków komunikatów i ich przyczyny o
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Spróbuj odebrać komunikat z określonym numerem sekwencyjnym. Nie znaleziono tego komunikatu. |Upewnij się, że wiadomość nie została już odebrana. Sprawdź kolejkę utraconych wiadomości, aby sprawdzić, czy wiadomość została deadlettered. |Ponowienie nie pomaga. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Klient nie może nawiązać połączenia z Service Bus. |Upewnij się, że podana nazwa hosta jest poprawna i że host jest osiągalny. |Ponowienie próby może pomóc w przypadku sporadycznych problemów z łącznością. |
 | [Wyjątek serverbusyexception](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Usługa nie może w tej chwili przetworzyć żądania. |Klient może czekać przez pewien czas, a następnie ponowić próbę wykonania operacji. |Klient może ponowić próbę po pewnym interwale. Jeśli ponowienie próby spowoduje inny wyjątek, sprawdź ponowienie tego wyjątku. |
-| [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |Token blokady skojarzony z komunikatem wygasł lub nie znaleziono tokenu blokady. |Usuń wiadomość. |Ponowienie nie pomaga. |
-| [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Blokada skojarzona z tą sesją zostanie utracona. |Przerwij obiekt [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |Ponowienie nie pomaga. |
 | [Komunikatexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Ogólny wyjątek komunikatów, który może być zgłaszany w następujących przypadkach:<p>Podjęto próbę utworzenia [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) przy użyciu nazwy lub ścieżki, która należy do innego typu jednostki (na przykład tematu).</p><p>Podjęto próbę wysłania komunikatu o rozmiarze większym niż 256 KB. </p>Serwer lub usługa napotkała błąd podczas przetwarzania żądania. Aby uzyskać szczegółowe informacje, zobacz komunikat o wyjątku. Zwykle jest to wyjątek przejściowy.</p><p>Żądanie zostało przerwane, ponieważ trwa ograniczanie jednostki. Kod błędu: 50001, 50002, 50008. </p> | Sprawdź kod i upewnij się, że tylko obiekty możliwe do serializacji są używane dla treści wiadomości (lub użyj serializatora niestandardowego). <p>Zapoznaj się z dokumentacją dla obsługiwanych typów wartości właściwości i używaj tylko obsługiwanych typów.</p><p> Sprawdź Właściwość [Isprzejściową](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Jeśli jest to **prawdziwe**, można ponowić próbę wykonania operacji. </p>| Jeśli wyjątek jest spowodowany ograniczeniem, poczekaj kilka sekund, a następnie spróbuj ponownie wykonać operację. Zachowanie przy ponowieniu próby jest niezdefiniowane i może nie pomóc w innych scenariuszach.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Podjęto próbę utworzenia jednostki o nazwie, która jest już używana przez inną jednostkę w tej przestrzeni nazw usługi. |Usuń istniejącą jednostkę lub wybierz inną nazwę dla jednostki, która ma zostać utworzona. |Ponowienie nie pomaga. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |Jednostka obsługi komunikatów osiągnęła maksymalny dozwolony rozmiar lub Przekroczono maksymalną liczbę połączeń z przestrzenią nazw. |Utwórz miejsce w jednostce przez odebranie komunikatów z jednostki lub jej podkolejek. Zobacz [QuotaExceededException](#quotaexceededexception). |Ponowienie próby może pomóc w przypadku usunięcia komunikatów w międzyczasie. |
@@ -102,6 +100,96 @@ Należy sprawdzić wartość właściwości [ServicePointManager. DefaultConnect
 
 ### <a name="queues-and-topics"></a>Kolejki i tematy
 W przypadku kolejek i tematów limit czasu jest określony we właściwości [MessagingFactorySettings. OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) w ramach parametrów połączenia lub przez [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Sam komunikat o błędzie może się różnić, ale zawsze zawiera wartość limitu czasu określoną dla bieżącej operacji. 
+
+## <a name="messagelocklostexception"></a>MessageLockLostException
+
+### <a name="cause"></a>Przyczyna
+
+**MessageLockLostException** jest generowany, gdy wiadomość zostanie odebrana przy użyciu trybu odbierania [PeekLock](message-transfers-locks-settlement.md#peeklock) i blokada przechowywana przez klienta wygaśnie po stronie usługi.
+
+Blokada komunikatu może wygasnąć z różnych powodów — 
+
+  * Czasomierz blokady wygasł przed odnowieniem przez aplikację kliencką.
+  * Aplikacja kliencka uzyskała blokadę, Zapisano ją w magazynie trwałym, a następnie ponownie uruchomiona. Po ponownym uruchomieniu aplikacja kliencka przegląda komunikaty numerów porządkowych określających i próbowała wykonać te czynności.
+
+### <a name="resolution"></a>Rozwiązanie
+
+W przypadku **MessageLockLostException**aplikacja kliencka nie może już przetwarzać komunikatu. Aplikacja kliencka może opcjonalnie rozważyć zarejestrowanie wyjątku do analizy, ale klient *musi* usunąć komunikat.
+
+Ponieważ blokada wiadomości wygasła, może ona wrócić do kolejki (lub subskrypcji) i będzie mogła zostać przetworzona przez następną aplikację kliencką, która wywołuje odbieranie.
+
+W przypadku przekroczenia **MaxDeliveryCount** komunikat może zostać przeniesiony do **DeadLetterQueue**.
+
+## <a name="sessionlocklostexception"></a>SessionLockLostException
+
+### <a name="cause"></a>Przyczyna
+
+**SessionLockLostException** jest generowany, gdy sesja zostanie zaakceptowana, a blokada zatrzymywana przez klienta wygaśnie po stronie usługi.
+
+Blokada sesji może wygasnąć z różnych powodów — 
+
+  * Czasomierz blokady wygasł przed odnowieniem przez aplikację kliencką.
+  * Aplikacja kliencka uzyskała blokadę, Zapisano ją w magazynie trwałym, a następnie ponownie uruchomiona. Po ponownym uruchomieniu aplikacja kliencka przeszukała sesji numerów porządkowych określających i próbowała przetwarzać komunikaty w tych sesjach.
+
+### <a name="resolution"></a>Rozwiązanie
+
+W przypadku **SessionLockLostException**aplikacja kliencka nie może już przetwarzać komunikatów w sesji. Aplikacja kliencka może rozważyć zarejestrowanie wyjątku do analizy, ale klient *musi* usunąć komunikat.
+
+Ponieważ blokada sesji wygasła, może ona wrócić do kolejki (lub subskrypcji) i można ją zablokować przez następną aplikację kliencką, która akceptuje daną sesję. Ponieważ blokada sesji jest utrzymywana przez pojedynczą aplikację kliencką w dowolnym momencie, jest gwarantowane przetwarzanie w kolejności.
+
+## <a name="socketexception"></a>SocketException
+
+### <a name="cause"></a>Przyczyna
+
+W poniższych przypadkach jest generowany obiekt **SocketException** -
+   * Próba nawiązania połączenia nie powiedzie się, ponieważ Host nie odpowiedział prawidłowo po określonym czasie (kod błędu TCP 10060).
+   * Nawiązywanie połączenia nie powiodło się, ponieważ podłączony host nie odpowiedział.
+   * Wystąpił błąd podczas przetwarzania komunikatu lub Przekroczono limit czasu hosta zdalnego.
+   * Problem z zasobem sieciowym.
+
+### <a name="resolution"></a>Rozwiązanie
+
+Błędy **gniazdaexception** wskazują, że maszyna wirtualna obsługująca aplikacje nie może skonwertować nazwy `<mynamespace>.servicebus.windows.net` na odpowiedni adres IP. 
+
+Zaznacz, aby zobaczyć, czy poniższe polecenie powiodło się w mapowaniu na adres IP.
+
+```Powershell
+PS C:\> nslookup <mynamespace>.servicebus.windows.net
+```
+
+który powinien podawać dane wyjściowe poniżej
+
+```bash
+Name:    <cloudappinstance>.cloudapp.net
+Address:  XX.XX.XXX.240
+Aliases:  <mynamespace>.servicebus.windows.net
+```
+
+Jeśli powyższa nazwa nie **jest rozpoznawana** jako adres IP i alias przestrzeni nazw, sprawdź, który administrator sieci powinien dokładniej zbadać. Rozpoznawanie nazw odbywa się za pomocą serwera DNS zazwyczaj zasobu w sieci klienta. Jeśli rozwiązanie DNS jest wykonywane przez Azure DNS, skontaktuj się z pomocą techniczną platformy Azure.
+
+Jeśli rozpoznawanie nazw **działa zgodnie z oczekiwaniami**, sprawdź, czy połączenia z Azure Service Bus są dozwolone w [tym miejscu](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues)
+
+
+## <a name="messagingexception"></a>Komunikatexception
+
+### <a name="cause"></a>Przyczyna
+
+**Messagingexception** to ogólny wyjątek, który może być zgłoszony z różnych powodów. Poniżej wymieniono niektóre z przyczyn.
+
+   * Podjęto próbę utworzenia **QueueClient** w **temacie** lub **subskrypcji**.
+   * Rozmiar wysyłanej wiadomości jest większy niż limit dla danej warstwy. Przeczytaj więcej na temat [przydziałów i limitów](service-bus-quotas.md)Service Bus.
+   * Żądanie określonej płaszczyzny danych (wysyłanie, odbieranie, zakończenie, Porzuć) zostało przerwane z powodu ograniczenia.
+   * Przejściowe problemy spowodowane uaktualnieniem i ponownym uruchomieniem usług.
+
+> [!NOTE]
+> Powyższa lista wyjątków nie jest wyczerpująca.
+
+### <a name="resolution"></a>Rozwiązanie
+
+Kroki rozwiązywania problemów zależą od tego, co spowodowało zgłoszenie wyjątku **Messaging** .
+
+   * W przypadku **problemów przejściowych** (gdzie ***isprzejściowa*** jest ustawiona na ***wartość true***) lub w przypadku **problemów z ograniczeniami**próba wykonania operacji może zostać rozwiązana. Dla tej usługi można użyć domyślnych zasad ponawiania prób w zestawie SDK.
+   * W przypadku innych problemów szczegóły w wyjątku wskazują, że kroki problemu i rozwiązania można wywnioskować z tego samego.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać pełne informacje dotyczące interfejsów API platformy .NET Service Bus, zobacz [Dokumentacja interfejsu API platformy Azure](/dotnet/api/overview/azure/service-bus).

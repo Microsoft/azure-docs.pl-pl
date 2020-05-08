@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: Tworzenie strategii przy użyciu programu PowerShell'
 description: W tym przewodniku szybki start używasz planów platformy Azure do tworzenia, definiowania i wdrażania artefaktów przy użyciu programu PowerShell.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: quickstart
-ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79feafa48d5d180949b8a23163f2ee9b686e6076
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80676585"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864117"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Szybki Start: Definiowanie i przypisywanie Azure Blueprint przy użyciu programu PowerShell
 

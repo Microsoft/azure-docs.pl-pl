@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e92cba923bc197d82083973b3fac476ab93117ad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db852254d7f6ec9c0cb76151fa23e58e2d97bd2c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231377"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981803"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą SAP Cloud Platform uwierzytelnianie tożsamości
 
@@ -176,7 +176,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Konfigurowanie tożsamości logowania jednokrotnego uwierzytelniania platformy SAP Cloud Platform
 
-1. Aby umożliwić aplikacji skonfigurowanie logowania jednokrotnego, przejdź do konsoli administracyjnej usługi SAP Cloud Platform Identity Authentication. Adres URL odpowiada następującemu wzorcowi: `https://<tenant-id>.accounts.ondemand.com/admin`. Następnie zapoznaj się z tematem [Integration with Microsoft Azure AD (Integracja z usługą Microsoft Azure AD)](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/626b17331b4d4014b8790d3aea70b240.html) w dokumentacji usługi SAP Cloud Platform Identity Authentication.
+1. Aby umożliwić aplikacji skonfigurowanie logowania jednokrotnego, przejdź do konsoli administracyjnej usługi SAP Cloud Platform Identity Authentication. Adres URL odpowiada następującemu wzorcowi: `https://<tenant-id>.accounts.ondemand.com/admin`. Następnie zapoznaj się z tematem [Integration with Microsoft Azure AD (Integracja z usługą Microsoft Azure AD)](https://developers.sap.com/tutorials/cp-ias-azure-ad.html) w dokumentacji usługi SAP Cloud Platform Identity Authentication.
 
 2. W witrynie Azure Portal wybierz przycisk **Zapisz**.
 
@@ -199,7 +199,7 @@ Usługa SAP Cloud Platform Identity Authentication obsługuje opcję federacji t
 
 Opcja federacji tożsamości jest domyślnie wyłączona. Jeśli opcja federacji tożsamości jest włączona, tylko użytkownicy, którzy są zaimportowani w usłudze SAP Cloud Platform Identity Authentication, mogą uzyskać dostęp do aplikacji.
 
-Abu uzyskać więcej informacji na temat włączania lub wyłączania funkcji federacji tożsamości w usłudze SAP Cloud Platform Identity Authentication, zobacz „Enable Identity Federation with SAP Cloud Platform Identity Authentication” („Włączanie funkcji federacji tożsamości w usłudze SAP Cloud Platform Identity Authentication”) w temacie [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication (Konfigurowanie funkcji federacji tożsamości z magazynem użytkowników w usłudze SAP Cloud Platform Identity Authentication)](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/c029bbbaefbf4350af15115396ba14e2.html).
+Abu uzyskać więcej informacji na temat włączania lub wyłączania funkcji federacji tożsamości w usłudze SAP Cloud Platform Identity Authentication, zobacz „Enable Identity Federation with SAP Cloud Platform Identity Authentication” („Włączanie funkcji federacji tożsamości w usłudze SAP Cloud Platform Identity Authentication”) w temacie [Configure Identity Federation with the User Store of SAP Cloud Platform Identity Authentication (Konfigurowanie funkcji federacji tożsamości z magazynem użytkowników w usłudze SAP Cloud Platform Identity Authentication)](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/c029bbbaefbf4350af15115396ba14e2.html).
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -207,7 +207,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka SAP Cloud Platform Identity Authentication w panelu dostępu powinno nastąpić automatyczne zalogowanie do usługi SAP Cloud Platform Identity Authentication, dla której skonfigurowano logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

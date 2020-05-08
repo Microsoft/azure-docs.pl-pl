@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662488"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871246"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Zoptymalizuj środowisko SQL za pomocą rozwiązania do sprawdzania kondycji SQL Server w Azure Monitor
 
@@ -34,8 +34,8 @@ Po dodaniu rozwiązania i zakończeniu oceny informacje podsumowujące dotycząc
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Rozwiązanie sprawdzania kondycji SQL wymaga obsługiwanej wersji programu .NET Framework 4.6.2 zainstalowanej na każdym komputerze, na którym zainstalowano Microsoft Monitoring Agent (MMA).  Agent MMA jest używany przez program System Center 2016 — Operations Manager i Operations Manager 2012 R2 i Azure Monitor.  
-* Rozwiązanie obsługuje SQL Server w wersji 2012, 2014 i 2016.
-* Log Analytics obszar roboczy, aby dodać rozwiązanie sprawdzania kondycji SQL z witryny Azure Marketplace w Azure Portal.  Aby można było zainstalować rozwiązanie, musisz być administratorem lub współautorem w subskrypcji platformy Azure.
+* Rozwiązanie obsługuje SQL Server w wersji 2012, 2014, 2016, 2017 i 2019.
+* Log Analytics obszar roboczy, aby dodać rozwiązanie sprawdzania kondycji SQL z witryny Azure Marketplace w Azure Portal. Aby można było zainstalować rozwiązanie, musisz być administratorem lub współautorem w subskrypcji platformy Azure.
 
   > [!NOTE]
   > Po dodaniu rozwiązania do serwerów z agentami zostanie dodany plik AdvisorAssessment. exe. Dane konfiguracji są odczytywane, a następnie wysyłane do Azure Monitor w chmurze w celu przetworzenia. Logika jest stosowana do odebranych danych, a usługa w chmurze rejestruje dane.

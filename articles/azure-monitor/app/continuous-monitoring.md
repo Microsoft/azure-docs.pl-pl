@@ -2,13 +2,13 @@
 title: Ciągłe monitorowanie potoku wydania usługi DevOps przy użyciu Azure Pipelines i platformy Azure Application Insights | Microsoft Docs
 description: Zawiera instrukcje umożliwiające szybkie konfigurowanie ciągłego monitorowania za pomocą Application Insights
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655399"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652764"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Dodawanie ciągłego monitorowania do potoku wydania
 
@@ -51,17 +51,19 @@ W przypadku ciągłego monitorowania potoki wersji mogą zawierać dane monitoro
 
 Aby zmodyfikować ustawienia reguły alertu:
 
-1. W lewym okienku na stronie potoku wydania wybierz pozycję **konfiguruj Application Insights alerty**.
+W lewym okienku na stronie potoku wydania wybierz pozycję **konfiguruj Application Insights alerty**.
 
-1. W okienku **alerty Azure monitor** wybierz przycisk wielokropka **...** obok **reguły alertów**.
-   
-1. W oknie dialogowym **reguły alertów** wybierz symbol listy rozwijanej obok reguły alertu, np. **dostępność**. 
-   
-1. Zmodyfikuj **wartość progową** i inne ustawienia w celu spełnienia wymagań.
-   
-   ![Modyfikuj alert](media/continuous-monitoring/003.png)
-   
-1. Wybierz pozycję **OK**, a następnie wybierz pozycję **Zapisz** w prawym górnym rogu okna Azure DevOps. Wprowadź komentarz opisowy, a następnie wybierz przycisk **OK**.
+Cztery domyślne reguły alertów są tworzone za pośrednictwem skryptu wbudowanego:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+Możesz zmodyfikować skrypt i dodać dodatkowe reguły alertów, zmodyfikować warunki alertu lub usunąć reguły alertów, które nie mają sensu dla celów wdrożenia.
 
 ## <a name="add-deployment-conditions"></a>Dodaj warunki wdrażania
 

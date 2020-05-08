@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207228"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871054"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)i [Azure Automation](../../automation/automation-intro.md).
@@ -147,7 +147,7 @@ Aby zapewnić bezpieczeństwo danych przesyłanych do dzienników Azure Monitor,
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Wymagania dotyczące obsługi podpisywania kodu SHA-2 w przypadku systemu Windows
-Agent systemu Windows rozpocznie korzystanie wyłącznie z podpisywania SHA-2 w dniu 18 maja 2020. Ta zmiana wpłynie na klientów korzystających z agenta Log Analytics w ramach starszej wersji systemu operacyjnego w ramach dowolnej usługi platformy Azure (Azure Monitor, Azure Automation, Update Management platformy Azure, Change Tracking platformy Azure, Azure Security Center, platformy Azure, usługi Windows Defender ATP). Zmiana nie wymaga żadnej akcji klienta, chyba że Agent jest uruchomiony w starszej wersji systemu operacyjnego (Windows 7, Windows Server 2008 R2 i Windows Server 2008). Klienci korzystający ze starszej wersji systemu operacyjnego muszą podejmować następujące działania na ich maszynach przed 18 maja 2020 r. lub ich agenci przestają wysyłać dane do swoich Log Analyticsych obszarów roboczych:
+Agent systemu Windows rozpocznie korzystanie wyłącznie z podpisywania SHA-2 w dniu 17 sierpnia 2020. Ta zmiana wpłynie na klientów korzystających z agenta Log Analytics w ramach starszej wersji systemu operacyjnego w ramach dowolnej usługi platformy Azure (Azure Monitor, Azure Automation, Update Management platformy Azure, Change Tracking platformy Azure, Azure Security Center, platformy Azure, usługi Windows Defender ATP). Zmiana nie wymaga żadnej akcji klienta, chyba że Agent jest uruchomiony w starszej wersji systemu operacyjnego (Windows 7, Windows Server 2008 R2 i Windows Server 2008). Klienci korzystający ze starszej wersji systemu operacyjnego są zobowiązani do podjęcia następujących działań na swoich maszynach przed 17 sierpnia 2020 lub ich agenci przestają wysyłać dane do swoich Log Analyticsych obszarów roboczych:
 
 1. Zainstaluj najnowszy dodatek Service Pack dla systemu operacyjnego. Wymagane wersje dodatku Service Pack to:
     - Windows 7 z dodatkiem SP1

@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112205"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981990"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -47,6 +47,17 @@ Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania.
 >Jeśli włączono Azure AD Connect do synchronizacji, wkrótce rozpocznie się automatyczne otrzymywanie powiadomień o kondycji, które ostrzegają o nadchodzących zastosowaniach, gdy korzystasz z jednej ze starszych wersji.
 >
 >Zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) , aby dowiedzieć się więcej o tym, jak uaktualnić Azure AD Connect do najnowszej wersji.
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>Stan wydania
+05/07/2020: wydano do pobrania
+
+### <a name="fixed-issues"></a>Rozwiązane problemy
+- Rozwiązano problem polegający na tym, że usunięto niewybrane domeny z interfejsu użytkownika kreatora.
+- Rozwiązano problem w module ADSyncConfig PowerShell, gdzie Wywoływanie polecenia DSACLS użytego we wszystkich poleceniach cmdlet Set-ADSync * spowoduje wystąpienie jednego z następujących błędów:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Ta kompilacja poprawek rozwiązuje problem z kompilacją 1.5.18.0, jeśli włąc
 - Rozwiązano problem polegający na utworzeniu konta synchronizacji Azure Active Directory, w którym włączenie rozszerzeń katalogów lub PHS może się nie powieść, ponieważ konto nie zostało propagowane we wszystkich replikach usługi przed próbą użycia. 
 - Rozwiązano błąd w narzędziu kompresji błędy synchronizacji, które nie obsługują poprawnie znaków dwuskładnikowych. 
 - Rozwiązano błąd w ramach autouaktualnienia, który opuścił serwer w stanie wstrzymania usługi Scheduler. 
+- Naprawiono usterkę na stronie filtrowania domeny/jednostki organizacyjnej, która usunie profile przebiegu domeny, tylko częściowo rozszerzając drzewo domeny bez wprowadzania żadnych zmian.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Stan wydania
@@ -897,7 +909,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Wybierz|
+    |CertVersion|CertSignatureAlgorithmOid|Wybierz pozycję|
     |CertKeyAlgorithmParams|CertHashString|Lokalizacja|
     |||With|
 

@@ -1,6 +1,6 @@
 ---
-title: Dodawanie i usuwanie przypisań ról z RBAC i Azure Portal
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure i Azure Portal.
+title: Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal — RBAC
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu Azure Portal i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246359"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735695"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu Azure Portal.
 
@@ -143,7 +143,7 @@ W celu usunięcia dostępu z zasobów platformy Azure w usłudze Azure RBAC nale
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](role-assignments-list-portal.md)
-- [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu RBAC i Azure Portal](quickstart-assign-role-user-portal.md)
-- [Rozwiązywanie problemów z funkcją RBAC dla zasobów platformy Azure](troubleshooting.md)
+- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
+- [Samouczek: udzielanie użytkownikom dostępu do zasobów platformy Azure przy użyciu Azure Portal](quickstart-assign-role-user-portal.md)
+- [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)
 - [Organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy definicji ról w usłudze Azure RBAC przy użyciu usług Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST | Microsoft Docs
-description: Dowiedz się, jak wyświetlić listę ról wbudowanych i niestandardowych w usłudze Azure RBAC przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
+title: Wyświetlanie listy definicji ról platformy Azure — Azure RBAC
+description: Dowiedz się, jak wyświetlić listę wbudowanych i niestandardowych ról platformy Azure przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062986"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891271"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Wyświetlanie listy definicji ról w usłudze Azure RBAC
+# <a name="list-azure-role-definitions"></a>Wyświetlanie listy definicji ról platformy Azure
 
-Definicja roli to zbiór uprawnień, które mogą być wykonywane, takie jak Odczyt, zapis i usuwanie. Zwykle jest nazywana rolą. [Kontrola dostępu oparta na rolach (RBAC) na platformie Azure](overview.md) ma ponad 120 [ról wbudowanych](built-in-roles.md) lub można utworzyć własne role niestandardowe. W tym artykule opisano sposób tworzenia listy ról wbudowanych i niestandardowych, których można użyć w celu udzielenia dostępu do zasobów platformy Azure.
+Definicja roli to zbiór uprawnień, które mogą być wykonywane, takie jak Odczyt, zapis i usuwanie. Zwykle jest nazywana rolą. [Kontrola dostępu oparta na rolach (Azure RBAC)](overview.md) obejmuje ponad 120 [ról wbudowanych](built-in-roles.md) lub można utworzyć własne role niestandardowe. W tym artykule opisano sposób tworzenia listy ról wbudowanych i niestandardowych, których można użyć w celu udzielenia dostępu do zasobów platformy Azure.
 
 Aby wyświetlić listę ról administratorów dla Azure Active Directory, zobacz [uprawnienia roli administrator w programie Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -344,6 +344,55 @@ Aby wyświetlić listę definicji ról, użyj interfejsu API REST z [listą ról
     > | `$filter=atScopeAndBelow()` | Wyświetla definicje ról dla określonego zakresu i wszelkich podzakresów. |
     > | `$filter=type+eq+'{type}'` | Wyświetla definicje ról określonego typu. Typem roli może być `CustomRole` lub. `BuiltInRole` |
 
+Następujące żądanie zawiera listę niestandardowych definicji ról w zakresie subskrypcji:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+Poniżej przedstawiono przykład danych wyjściowych:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
+
 ### <a name="list-a-role-definition"></a>Lista definicji roli
 
 Aby wyświetlić szczegółowe informacje o określonej roli, należy użyć definicji [ról — Get](/rest/api/authorization/roledefinitions/get) lub definicji ról — interfejsu API REST usługi [Get przez ID](/rest/api/authorization/roledefinitions/getbyid) .
@@ -372,9 +421,45 @@ Aby wyświetlić szczegółowe informacje o określonej roli, należy użyć def
      
 1. Zastąp ciąg *{zduplikowanych}* identyfikatorem definicji roli.
 
+Następujące żądanie zawiera listę definicji roli [czytnika](built-in-roles.md#reader) :
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+Poniżej przedstawiono przykład danych wyjściowych:
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wbudowane role dla zasobów platformy Azure](built-in-roles.md)
-- [Niestandardowe role dla zasobów platformy Azure](custom-roles.md)
-- [Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](role-assignments-list-portal.md)
-- [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](role-assignments-portal.md)
+- [Wbudowane role platformy Azure](built-in-roles.md)
+- [Role niestandardowe platformy Azure](custom-roles.md)
+- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-list-portal.md)
+- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)

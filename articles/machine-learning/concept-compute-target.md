@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398180"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780117"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -57,7 +57,7 @@ Możesz tworzyć Azure Machine Learning wystąpienia obliczeniowe (wersja zapozn
 
 Można również tworzyć klastry obliczeniowe przy użyciu [rozszerzenia Machine Learning dla interfejsu wiersza polecenia platformy Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru roboczego w przeciwieństwie do innych rodzajów obiektów docelowych obliczeń.
+Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru roboczego, w przeciwieństwie do innych rodzajów obiektów docelowych obliczeń.
 
 ### <a name="compute-clusters"></a>Klastry obliczeniowe
 
@@ -68,7 +68,33 @@ Azure Machine Learning klastrów obliczeniowych można użyć do szkolenia i us�
 * Automatyczne zarządzanie klastrami i planowanie zadań 
 * Obsługa zasobów procesora CPU i procesora GPU
 
+### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 
+Po wybraniu rozmiaru węzła dla zarządzanego zasobu obliczeniowego w Azure Machine Learning można wybierać spośród spośród wybranych rozmiarów maszyn wirtualnych dostępnych na platformie Azure. Platforma Azure oferuje szeroką gamę rozmiarów dla systemów Linux i Windows dla różnych obciążeń. Zapoznaj się z tym artykułem, aby dowiedzieć się więcej o różnych [typach i rozmiarach maszyn wirtualnych](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+
+Istnieje kilka wyjątków i ograniczeń umożliwiających wybranie rozmiaru maszyny wirtualnej:
+* Niektóre serie maszyn wirtualnych nie są obsługiwane w Azure Machine Learning.
+* Niektóre serie maszyn wirtualnych są ograniczone. Aby skorzystać z serii z ograniczeniami, skontaktuj się z pomocą techniczną i poproś o zwiększenie limitu przydziału dla serii. Aby uzyskać informacje na temat kontaktowania się z pomocą techniczną, zobacz [Opcje pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/)
+
+Zapoznaj się z poniższą tabelą, aby dowiedzieć się więcej na temat obsługiwanych serii i ograniczeń. 
+
+| **Obsługiwana seria maszyn wirtualnych**  | **Ograniczenia** |
+|------------|------------|
+| D | Brak |
+| Dv2 | Brak |  
+| DSv2 | Brak |  
+| FSv2 | Brak |  
+| M | Wymaga zatwierdzenia |
+| NC | Brak |    
+| NCsv2 | Wymaga zatwierdzenia |
+| NCsv3 | Wymaga zatwierdzenia |  
+| NDs | Wymaga zatwierdzenia |
+| NDv2 | Wymaga zatwierdzenia |
+| NV | Brak |
+| NVv3 | Wymaga zatwierdzenia | 
+
+
+Mimo że Azure Machine Learning obsługuje te serie maszyn wirtualnych, mogą one nie być dostępne we wszystkich regionach świadczenia usługi Azure. Serie maszyn wirtualnych można sprawdzić tutaj: dostępne [produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Obliczenia niezarządzane
 

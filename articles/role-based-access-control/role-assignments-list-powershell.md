@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell
-description: Dowiedz się, jak określić, które zasoby użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane są dostępne do korzystania z kontroli dostępu opartej na rolach (RBAC) na platformie Azure i Azure PowerShell.
+title: Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure PowerShell — RBAC na platformie Azure
+description: Dowiedz się, jak określić zasoby, których użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane mają dostęp do korzystania z usług Azure PowerShell i kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931153"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735712"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]W tym artykule opisano sposób wyświetlania listy przypisań ról przy użyciu Azure PowerShell.
 
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell](role-assignments-powershell.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell](role-assignments-powershell.md)

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060191"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791140"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Samouczek: Ręczne konfigurowanie grupy dostępności na platformie Azure SQL Server VM
 
@@ -348,7 +348,7 @@ W tym momencie masz grupę dostępności z replikami w dwóch wystąpieniach SQL
 
 W przypadku usługi Azure Virtual Machines Grupa dostępności SQL Server wymaga modułu równoważenia obciążenia. Moduł równoważenia obciążenia przechowuje adresy IP dla odbiorników grupy dostępności i klastra trybu failover systemu Windows Server. Ta sekcja zawiera podsumowanie sposobu tworzenia modułu równoważenia obciążenia w Azure Portal.
 
-Azure Load Balancer może być usługa Load Balancer w warstwie Standardowa lub Load Balancer podstawowy. Usługa Load Balancer w warstwie Standardowa ma więcej funkcji niż Load Balancer podstawowa. W przypadku grupy dostępności usługa Load Balancer w warstwie Standardowa jest wymagana w przypadku używania strefy dostępności (zamiast zestawu dostępności). Aby uzyskać szczegółowe informacje na temat różnic między typami modułów równoważenia obciążenia, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/concepts-limitations.md#skus).
+Azure Load Balancer może być usługa Load Balancer w warstwie Standardowa lub Load Balancer podstawowy. Usługa Load Balancer w warstwie Standardowa ma więcej funkcji niż Load Balancer podstawowa. W przypadku grupy dostępności usługa Load Balancer w warstwie Standardowa jest wymagana w przypadku używania strefy dostępności (zamiast zestawu dostępności). Aby uzyskać szczegółowe informacje na temat różnic między jednostkami SKU modułu równoważenia obciążenia, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/skus.md).
 
 1. W Azure Portal przejdź do grupy zasobów, w której znajdują się serwery SQL, a następnie kliknij pozycję **+ Dodaj**.
 1. Wyszukaj **Load Balancer**. Wybierz usługę równoważenia obciążenia opublikowaną przez firmę Microsoft.
@@ -405,7 +405,7 @@ Aby skonfigurować moduł równoważenia obciążenia, należy utworzyć pulę z
    | Ustawienie | Opis | Przykład
    | --- | --- |---
    | **Nazwa** | Tekst | SQLAlwaysOnEndPointProbe |
-   | **Protokol** | Wybierz pozycję TCP | TCP |
+   | **Protokół** | Wybierz pozycję TCP | TCP |
    | **Przewożąc** | Dowolny nieużywany port | 59999 |
    | **Dat**  | Czas między próbami sondy w sekundach |5 |
    | **Próg złej kondycji** | Liczba kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna mogła zostać uznana za złą  | 2 |
@@ -422,7 +422,7 @@ Aby skonfigurować moduł równoważenia obciążenia, należy utworzyć pulę z
    | --- | --- |---
    | **Nazwa** | Tekst | SQLAlwaysOnEndPointListener |
    | **Adres IP frontonu** | Wybierz adres |Użyj adresu utworzonego podczas tworzenia modułu równoważenia obciążenia. |
-   | **Protokol** | Wybierz pozycję TCP |TCP |
+   | **Protokół** | Wybierz pozycję TCP |TCP |
    | **Przewożąc** | Użyj portu dla odbiornika grupy dostępności | 1433 |
    | **Port zaplecza** | To pole nie jest używane, gdy jest ustawiany swobodny adres IP dla bezpośredniego powrotu serwera | 1433 |
    | **Badane** |Nazwa określona dla sondy | SQLAlwaysOnEndPointProbe |
@@ -448,7 +448,7 @@ Adres IP usługi WSFC musi również znajdować się w usłudze równoważenia o
    | Ustawienie | Opis | Przykład
    | --- | --- |---
    | **Nazwa** | Tekst | WSFCEndPointProbe |
-   | **Protokol** | Wybierz pozycję TCP | TCP |
+   | **Protokół** | Wybierz pozycję TCP | TCP |
    | **Przewożąc** | Dowolny nieużywany port | 58888 |
    | **Dat**  | Czas między próbami sondy w sekundach |5 |
    | **Próg złej kondycji** | Liczba kolejnych niepowodzeń sondy, które muszą wystąpić, aby maszyna wirtualna mogła zostać uznana za złą  | 2 |
@@ -463,7 +463,7 @@ Adres IP usługi WSFC musi również znajdować się w usłudze równoważenia o
    | --- | --- |---
    | **Nazwa** | Tekst | WSFCEndPoint |
    | **Adres IP frontonu** | Wybierz adres |Użyj adresu utworzonego podczas konfigurowania adresu IP usługi WSFC. Różni się to od adresu IP odbiornika |
-   | **Protokol** | Wybierz pozycję TCP |TCP |
+   | **Protokół** | Wybierz pozycję TCP |TCP |
    | **Przewożąc** | Użyj portu dla adresu IP klastra. Jest to dostępny port, który nie jest używany przez port sondy odbiornika. | 58888 |
    | **Port zaplecza** | To pole nie jest używane, gdy jest ustawiany swobodny adres IP dla bezpośredniego powrotu serwera | 58888 |
    | **Badane** |Nazwa określona dla sondy | WSFCEndPointProbe |

@@ -8,18 +8,19 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: ec0894818c0c246223749e1efcf7ea9e5ebee463
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eef6ece115afc41fd30d77747eb3e368cf95719c
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194537"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780185"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
+
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez bazy danych usługi Azure Cosmos oraz sposób używania funkcji Azure Monitor do analizowania i generowania alertów dotyczących tych danych.
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
-Azure Cosmos DB tworzy dane monitorowania przy użyciu [Azure monitor](../azure-monitor/overview.md) , który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych. 
+Azure Cosmos DB tworzy dane monitorowania przy użyciu [Azure monitor](../azure-monitor/overview.md) , który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
 
 Jeśli nie znasz jeszcze monitorowania usług platformy Azure, Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) , w którym opisano następujące kwestie:
 
@@ -32,9 +33,8 @@ Jeśli nie znasz jeszcze monitorowania usług platformy Azure, Zacznij od artyku
 Poniższe sekcje dotyczą tego artykułu, opisując określone dane zebrane z Azure Cosmos DB i dostarczając przykłady dotyczące konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
 
 ## <a name="azure-monitor-for-cosmos-db-preview"></a>Azure Monitor dla Cosmos DB (wersja zapoznawcza)
-[Azure monitor dla Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) jest oparta na [funkcjach skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md) i korzysta z tych samych danych monitorowania zebranych dla Cosmos DB opisanych w poniższych sekcjach. Za pomocą tego narzędzia można zapoznać się z ogólną wydajnością, niepowodzeniami, pojemnością i kondycją operacyjną wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym oraz korzystać z innych funkcji Azure Monitor na potrzeby szczegółowej analizy i generowania alertów. 
 
-![Azure Monitor Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
+Azure Monitor dla Azure Cosmos DB jest oparta na [funkcjach skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md) i korzysta z tych samych danych monitorowania zebranych dla Cosmos DB opisanych w poniższych sekcjach. Użyj Azure Monitor, aby zapoznać się z ogólną wydajnością, niepowodzeniami, pojemnością i kondycją operacyjną wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym i wykorzystać inne funkcje Azure Monitor do szczegółowej analizy i generowania alertów. Aby dowiedzieć się więcej, zobacz artykuł [eksplorowanie Azure Monitor Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
 
 > [!NOTE]
 > Podczas tworzenia kontenerów upewnij się, że nie utworzysz dwóch kontenerów o takiej samej nazwie, ale o innej wielkości liter. Wynika to z faktu, że niektóre części platformy Azure nie uwzględniają wielkości liter. może to spowodować pomylenie/kolizję danych telemetrycznych i akcji w kontenerach z takimi nazwami.
@@ -87,7 +87,6 @@ Metryki dla Azure Cosmos DB z metrykami z innych usług platformy Azure za pomoc
 - Region
 - Stanu
 
-
 ## <a name="analyzing-log-data"></a>Analizowanie danych dziennika
 Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każda tabela ma swój własny zestaw unikatowych właściwości. Azure Cosmos DB przechowuje dane w poniższych tabelach.
 
@@ -110,31 +109,15 @@ Poniżej przedstawiono zapytania, których można użyć do monitorowania baz da
 
     ```Kusto
     AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests"
 
-    ```
-
-* Aby wykonać zapytanie o 10 ostatnio zarejestrowanych zdarzeń:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | limit 10
-    ```
-
-* Aby wykonać zapytanie o wszystkie operacje, pogrupowane według typu operacji:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by OperationName
     ```
 
 * Aby wykonać zapytanie o wszystkie operacje, pogrupowane według zasobu:
 
     ```Kusto
     AzureActivity 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
 
     ```
@@ -143,62 +126,16 @@ Poniżej przedstawiono zapytania, których można użyć do monitorowania baz da
 
     ```Kusto
     AzureActivity 
-    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | where Caller == "test@company.com" and ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
-    ```
-* Aby uzyskać wszystkie zapytania większe niż 100 jednostek ru dołączone do danych z **DataPlaneRequests** i **QueryRunTimeStatistics**.
-
-    ```Kusto
-    AzureDiagnostics
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
-    | project activityId_g, requestCharge_s
-    | join kind= inner (
-           AzureDiagnostics
-           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
-           | project activityId_g, querytext_s
-    ) on $left.activityId_g == $right.activityId_g
-    | order by requestCharge_s desc
-    | limit 100
-    ```
-
-* Aby wykonać zapytanie, dla którego operacje trwają dłużej niż 3 ms:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by clientIpAddress_s, TimeGenerated
-    ```
-
-* Aby wyszukać agenta, dla którego Agent wykonuje operacje:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | summarize count() by OperationName, userAgent_s
-    ```
-
-* Aby wykonać zapytanie o czas wykonywania długotrwałych operacji:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
-    | project TimeGenerated , duration_s 
-    | summarize count() by bin(TimeGenerated, 5s)
-    | render timechart
-    ```
-    
-* Aby uzyskać statystykę klucza partycji umożliwiającą ocenę pochylenia w pierwszych 3 partycjach dla konta bazy danych:
-
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
     ```
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitoruj Azure Cosmos DB programowo
+
 Metryki na poziomie konta dostępne w portalu, takie jak użycie magazynu kont i łączna liczba żądań, nie są dostępne za pośrednictwem interfejsów API SQL. Można jednak pobrać dane użycia na poziomie kolekcji przy użyciu interfejsów API SQL. Aby pobrać dane na poziomie kolekcji, wykonaj następujące czynności:
 
 * Aby użyć interfejsu API REST, [Wykonaj OPERACJĘ Get na kolekcji](https://msdn.microsoft.com/library/mt489073.aspx). Informacje o przydziale i użyciu dla kolekcji są zwracane w nagłówkach x-MS-Resource-limit i x-MS-Resource-Usage w odpowiedzi.
+
 * Aby użyć zestawu .NET SDK, użyj metody [DocumentClient. ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) , która zwraca [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) , która zawiera wiele właściwości użycia, takich jak **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**i inne.
 
 Aby uzyskać dostęp do dodatkowych metryk, użyj [zestawu SDK Azure monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). Dostępne definicje metryk można pobrać, wywołując:
