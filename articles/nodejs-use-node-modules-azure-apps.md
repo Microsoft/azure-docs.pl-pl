@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8621dde43ff38cee15feb1d30b6ea80ab681c855
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70309272"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594784"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Using Node.js Modules with Azure applications (Używanie modułów Node.js z aplikacjami platformy Azure)
 Ten dokument zawiera wskazówki dotyczące używania modułów Node. js z aplikacjami hostowanymi na platformie Azure. Zawiera on wskazówki dotyczące zapewnienia, że aplikacja korzysta z określonej wersji modułu, a także przy użyciu modułów macierzystych z platformą Azure.
@@ -85,7 +85,7 @@ Gdy aplikacja jest gotowa do produkcji, można zablokować wymagania dotyczące 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy rozumiesz, jak używać modułów Node. js z platformą Azure, Dowiedz się, jak [określić wersję środowiska Node. js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [skompilować i wdrożyć aplikację sieci Web w języku Node. js](app-service/app-service-web-get-started-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Teraz, gdy rozumiesz, jak używać modułów Node. js z platformą Azure, Dowiedz się, jak [określić wersję środowiska Node. js](https://github.com/squillace/nodejs-microservice), [skompilować i wdrożyć aplikację sieci Web w języku Node. js](app-service/app-service-web-get-started-nodejs.md)oraz [jak korzystać z interfejsu wiersza polecenia platformy Azure dla systemów Mac i Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Aby uzyskać więcej informacji, odwiedź stronę [Centrum deweloperów środowiska Node.js](/azure/javascript/).
 

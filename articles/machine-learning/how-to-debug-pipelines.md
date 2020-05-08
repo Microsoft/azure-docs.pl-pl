@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257219"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594653"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Debugowanie i rozwiązywanie problemów w programie Azure Machine Learning Designer (wersja zapoznawcza)
 
-Ta sekcja zawiera omówienie sposobu rozwiązywania problemów z potokami w projektancie.
-W przypadku potoków utworzonych w projektancie można znaleźć **pliki dziennika** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
+Ta sekcja zawiera omówienie sposobu rozwiązywania problemów z potokami w projektancie. W przypadku potoków utworzonych w projektancie można znaleźć plik **70_driver_log** na stronie Tworzenie lub na stronie szczegółów uruchomienia potoku.
 
-### <a name="access-logs-from-the-authoring-page"></a>Dostęp do dzienników ze strony tworzenia
+### <a name="get-logs-from-the-authoring-page"></a>Pobieranie dzienników ze strony tworzenia
 
-Po przesłaniu uruchomienia potoku i pozostawania na stronie Tworzenie można znaleźć pliki dziennika wygenerowane dla każdego modułu.
+Po przesłaniu uruchomienia potoku i pozostawania na stronie Tworzenie można znaleźć pliki dziennika wygenerowane dla każdego modułu, ponieważ każdy moduł kończy działanie.
 
-1. Wybierz dowolny moduł na kanwie tworzenia.
+1. Wybierz moduł, który zakończył działanie na kanwie tworzenia.
 1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
-1. Wybierz plik `70_driver_log.txt`dziennika.
+1. Rozwiń okienko po prawej stronie i wybierz plik **70_driver_log. txt** , aby wyświetlić go w przeglądarce. Możesz również pobrać dzienniki lokalnie.
 
-    ![Tworzenie dzienników modułu strony](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Rozwinięte okienko danych wyjściowych w projektancie](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Dostęp do dzienników z przebiegów potoku
+### <a name="get-logs-from-pipeline-runs"></a>Pobierz dzienniki z przebiegów potoku
 
-Pliki dziennika określonych przebiegów można również znaleźć na stronie szczegółów uruchomienia potoku w sekcjach **potoków** lub **eksperymentów** .
+Pliki dziennika dla określonych przebiegów można również znaleźć na stronie szczegółów uruchomienia potoku, która znajduje się w sekcji **potoki** lub **eksperymenty** w programie Studio.
 
 1. Wybierz uruchomienie potoku utworzone w projektancie.
-    ![Strona uruchomienia potoku](./media/how-to-debug-pipelines/pipelinerun-04.png)
-1. Wybierz dowolny moduł w okienku podglądu.
+
+    ![Strona uruchomienia potoku](./media/how-to-debug-pipelines/designer-pipelines.png)
+
+1. Wybierz moduł w okienku podglądu.
 1. W prawym okienku modułu przejdź do karty dane **wyjściowe i dzienniki** .
-1. Wybierz plik `70_driver_log.txt`dziennika.
+1. Rozwiń okienko po prawej stronie, aby wyświetlić plik **70_driver_log. txt** w przeglądarce, lub wybierz plik, aby pobrać dzienniki lokalnie.
+
+> [!IMPORTANT]
+> Aby zaktualizować potok na stronie szczegółów uruchomienia potoku, należy **sklonować** uruchomienie potoku do nowej wersji roboczej potoku. Uruchomienie potoku jest migawką potoku. Jest on podobny do pliku dziennika i nie można go zmienić. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Debugowanie i rozwiązywanie problemów w Application Insights
 Aby uzyskać więcej informacji na temat korzystania z biblioteki OpenCensus Python w ten sposób, zobacz ten przewodnik: [debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights](how-to-debug-pipelines-application-insights.md)

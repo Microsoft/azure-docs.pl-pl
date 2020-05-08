@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259089"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610925"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie i zarządzanie wieloma pulami węzłów dla klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 Zaktualizowanie klastra AKS może potrwać kilka minut, w zależności od ustawień puli węzłów i operacji zdefiniowanych w szablonie Menedżer zasobów.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Przypisz publiczny adres IP na węzeł puli węzłów (wersja zapoznawcza)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Przypisz publiczny adres IP na węzeł dla pul węzłów (wersja zapoznawcza)
 
 > [!WARNING]
-> W trakcie korzystania z wersji zapoznawczej przypisywania publicznego adresu IP na węzeł nie można jej używać z jednostką *SKU usługa Load Balancer w warstwie Standardowa w AKS* ze względu na ewentualne reguły modułu równoważenia obciążenia powodujące konflikt z obsługą maszyny wirtualnej. W wyniku tego ograniczenia pule agentów systemu Windows nie są obsługiwane w tej funkcji w wersji zapoznawczej. W wersji zapoznawczej należy użyć *podstawowej jednostki SKU Load Balancer* , jeśli trzeba przypisać publiczny adres IP na węzeł.
+> Aby korzystać z funkcji Public IP na węzeł, należy zainstalować rozszerzenie 0.4.43 w wersji zapoznawczej interfejsu wiersza polecenia.
 
 Węzły AKS nie wymagają swoich własnych publicznych adresów IP do komunikacji. Jednak scenariusze mogą wymagać, aby węzły w puli węzłów otrzymywały własne dedykowane publiczne adresy IP. Typowy scenariusz dotyczy obciążeń gier, gdzie konsola programu musi nawiązać bezpośrednie połączenie z maszyną wirtualną w chmurze, aby zminimalizować liczbę przeskoków. Ten scenariusz można uzyskać w witrynie AKS, rejestrując się w celu uzyskania funkcji w wersji zapoznawczej, publicznego adresu IP węzła (wersja zapoznawcza).
 
-Zarejestruj się, aby uzyskać funkcję publicznego adresu IP węzła, wydając następujące polecenie interfejsu wiersza polecenia platformy Azure.
+Aby zainstalować i zaktualizować najnowsze rozszerzenie AKS-Preview, użyj następujących poleceń interfejsu wiersza polecenia platformy Azure:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Zarejestruj się, aby uzyskać dostęp do funkcji publicznego adresu IP węzła przy użyciu następującego polecenia platformy Azure:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+Zarejestrowanie funkcji może potrwać kilka minut.  Stan można sprawdzić za pomocą następującego polecenia:
 
-Po pomyślnej rejestracji Wdróż szablon Azure Resource Manager zgodnie z takimi samymi instrukcjami jak [powyżej](#manage-node-pools-using-a-resource-manager-template) , a `enableNodePublicIP` następnie Dodaj właściwość Boolean do agentPoolProfiles. Ustaw wartość tak, `true` aby była domyślnie ustawiona tak, `false` jakby nie została określona. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Ta właściwość jest właściwością tylko do utworzenia i wymaga minimalnej wersji interfejsu API 2019-06-01. Można to zastosować do pul węzłów systemu Linux i Windows.
+Po pomyślnej rejestracji Utwórz nową grupę zasobów.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Utwórz nowy klaster AKS i Dołącz publiczny adres IP dla węzłów. Każdy węzeł w puli węzłów otrzymuje unikatowy publiczny adres IP. Można to sprawdzić, przeglądając wystąpienia zestawu skalowania maszyn wirtualnych.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+W przypadku istniejących klastrów AKS można również dodać nową pulę węzłów i dołączyć publiczny adres IP dla węzłów.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> W trakcie okresu zapoznawczego usługa Azure Instance Metadata Service nie obsługuje obecnie pobierania publicznych adresów IP dla jednostki SKU maszyny wirtualnej w warstwie Standardowa. Ze względu na to ograniczenie nie można używać poleceń polecenia kubectl do wyświetlania publicznych adresów IP przypisanych do węzłów. Jednak adresy IP są przypisywane i funkcjonują zgodnie z oczekiwaniami. Publiczne adresy IP dla węzłów są dołączone do wystąpień w zestawie skalowania maszyn wirtualnych.
+
+Publiczne adresy IP dla węzłów można znaleźć na różne sposoby:
+
+* Korzystanie z interfejsu wiersza polecenia platformy Azure [AZ VMSS list-instance-Public-IP][az-list-ips]
+* Użyj [poleceń programu PowerShell lub bash][vmss-commands]. 
+* Możesz również wyświetlić publiczne adresy IP w Azure Portal, wyświetlając wystąpienia w zestawie skalowania maszyn wirtualnych.
+
+> [!Important]
+> [Grupa zasobów węzła][node-resource-group] zawiera węzły i ich publiczne adresy IP. Użyj grupy zasobów węzła podczas wykonywania poleceń, aby znaleźć publiczne adresy IP dla węzłów.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
@@ -753,6 +796,12 @@ Aby usunąć klaster, użyj polecenia [AZ Group Delete][az-group-delete] , aby u
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+Można również usunąć dodatkowy klaster utworzony dla publicznego adresu IP dla scenariusza pule węzłów.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -795,3 +844,7 @@ Aby utworzyć i użyć pul węzłów kontenera systemu Windows Server, zobacz [T
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

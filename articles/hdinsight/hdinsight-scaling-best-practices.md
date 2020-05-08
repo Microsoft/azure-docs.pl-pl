@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189368"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592064"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skalowanie klastrów usługi Azure HDInsight
 
@@ -74,27 +74,38 @@ Wpływ zmiany liczby węzłów danych różni się w zależności od typu klastr
 
 * Apache Storm
 
-    Można bezproblemowo dodawać lub usuwać węzły danych, gdy burza jest uruchomiona. Jednak po pomyślnym zakończeniu operacji skalowania należy ponownie zrównoważyć topologię.
-
-    Ponowne równoważenie można wykonać na dwa sposoby:
+    Można bezproblemowo dodawać lub usuwać węzły danych, gdy burza jest uruchomiona. Jednak po pomyślnym zakończeniu operacji skalowania należy ponownie zrównoważyć topologię. Ponowne równoważenie umożliwia topologii dopasowanie [ustawień równoległości](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) na podstawie nowej liczby węzłów w klastrze. Aby ponownie zrównoważyć uruchomione topologie, użyj jednej z następujących opcji:
 
   * Interfejs użytkownika sieci Web burzy
+
+    Wykonaj następujące kroki, aby ponownie zrównoważyć topologię przy użyciu interfejsu użytkownika burzy.
+
+    1. Otwórz `https://CLUSTERNAME.azurehdinsight.net/stormui` w przeglądarce sieci Web, gdzie `CLUSTERNAME` to nazwa klastra burzy. Jeśli zostanie wyświetlony monit, wprowadź nazwę administratora klastra usługi HDInsight (administratora) i hasło określone podczas tworzenia klastra.
+
+    1. Wybierz topologię, którą chcesz ponownie zrównoważyć, a następnie wybierz przycisk **Zrównoważ** ponownie. Wprowadź opóźnienie przed wykonaniem operacji ponownego równoważenia.
+
+        ![Ponowne równoważenie skali burzy usługi HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Narzędzie interfejsu wiersza polecenia (CLI)
 
-    Aby uzyskać więcej informacji, zobacz [dokumentację Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Połącz się z serwerem i użyj następującego polecenia, aby ponownie zrównoważyć topologię:
 
-    Interfejs użytkownika sieci Web burzy jest dostępny w klastrze usługi HDInsight:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Ponowne równoważenie skali burzy usługi HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    Można także określić parametry, aby zastąpić wskazówki równoległości początkowo dostarczone przez topologię. Na przykład poniższy kod ponownie konfiguruje `mytopology` topologię do 5 procesów roboczych, 3 wykonawców dla składnika Blue-elementu Spout i 10 programów wykonujących dla żółtego składnika.
 
-    Oto przykładowe polecenie interfejsu wiersza polecenia do ponownego zrównoważenia topologii burzy:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    Należy ponownie zrównoważyć repliki partycji po przeprowadzeniu operacji skalowania. Aby uzyskać więcej informacji, zobacz [wysoka dostępność danych w dokumencie Apache Kafka w usłudze HDInsight](./kafka/apache-kafka-high-availability.md) .
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Jak bezpiecznie skalować klaster
 
@@ -252,3 +263,8 @@ Serwery regionów są automatycznie równoważone w ciągu kilku minut od zakoń
 ## <a name="next-steps"></a>Następne kroki
 
 * [Automatyczne skalowanie klastrów usługi Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Aby uzyskać szczegółowe informacje na temat skalowania klastra usługi HDInsight, zobacz:
+
+* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md#scale-clusters)

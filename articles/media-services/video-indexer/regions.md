@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: c91b38fcbfb9b517651adead010408425e519a82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b71890323f6aca92fb9f847252feed57d8db234f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80382753"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594954"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiony platformy Azure, w których istnieje Video Indexer
 
@@ -23,7 +23,7 @@ Interfejsy API Video Indexer zawierają parametr **lokalizacji** , który należ
 
 ## <a name="locations"></a>Lokalizacje
 
-Jako wartość parametru **Location** należy nadać nazwę kodową regionu platformy Azure. Jeśli używasz Video Indexer w trybie wersji zapoznawczej, należy umieścić jako wartość *"wersję próbną"* . W przeciwnym razie, aby uzyskać nazwę kodową regionu platformy Azure, w którym znajduje się konto, a połączenie powinno być kierowane, można uruchomić następujący wiersz w [interfejsie wiersza polecenia platformy Azure](/cli/azure):
+Jako `location` wartość parametru musi być określona nazwa kodu regionu platformy Azure. Jeśli używasz Video Indexer w trybie wersji zapoznawczej, należy ustawić `"trial"` jako wartość. `trial`jest wartością domyślną dla `location` parametru. W przeciwnym razie, aby uzyskać nazwę kodową regionu platformy Azure, w którym znajduje się konto, a połączenie powinno być kierowane, można uruchomić następujący wiersz w [interfejsie wiersza polecenia platformy Azure](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations

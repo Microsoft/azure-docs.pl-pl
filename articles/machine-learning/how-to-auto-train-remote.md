@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79080415"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612320"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trenowanie modeli za pomocą automatycznego uczenia maszynowego w chmurze
 
@@ -30,7 +30,9 @@ W tym artykule dowiesz się, jak skompilować model przy użyciu zautomatyzowane
 
 ## <a name="how-does-remote-differ-from-local"></a>W jaki sposób zdalne różni się od lokalnego?
 
-Samouczek "[uczenie modelu klasyfikacji przy użyciu automatycznego uczenia maszynowego](tutorial-auto-train-models.md)" uczy się, w jaki sposób używać komputera lokalnego do uczenia modelu o zautomatyzowanej ml. Przepływ pracy, gdy szkolenie lokalnie dotyczy również zdalnych obiektów docelowych. Jednak ze zdalnym przetwarzaniem, zautomatyzowane iteracje eksperymentów w ML są wykonywane asynchronicznie. Ta funkcja pozwala anulować określoną iterację, obserwować stan wykonania lub kontynuować pracę nad innymi komórkami w notesie Jupyter. Aby przeprowadzić uczenie zdalne, należy najpierw utworzyć zdalne miejsce docelowe obliczeń, takie jak AmlCompute. Następnie należy skonfigurować zasób zdalny i przesłać tam swój kod.
+Więcej funkcji jest dostępnych w przypadku użycia zdalnego obiektu docelowego obliczeń.  Aby uzyskać więcej informacji, zobacz [lokalne i zdalne elementy docelowe obliczeń](concept-automated-ml.md#local-remote).
+
+Samouczek "[uczenie modelu klasyfikacji przy użyciu automatycznego uczenia maszynowego](tutorial-auto-train-models.md)" uczy się, w jaki sposób używać komputera lokalnego do uczenia modelu o zautomatyzowanej ml. Przepływ pracy, gdy szkolenie lokalnie dotyczy również zdalnych obiektów docelowych. Aby przeprowadzić uczenie zdalne, należy najpierw utworzyć zdalne miejsce docelowe obliczeń, takie jak AmlCompute. Następnie należy skonfigurować zasób zdalny i przesłać tam swój kod.
 
 W tym artykule przedstawiono dodatkowe kroki niezbędne do uruchomienia zautomatyzowanego eksperymentu ML na zdalnym miejscu docelowym AmlCompute. Obiekt `ws`obszaru roboczego, z samouczka jest używany w całym kodzie tutaj.
 

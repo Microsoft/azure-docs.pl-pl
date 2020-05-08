@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522414"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593543"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -27,7 +26,7 @@ Usługa Azure Active Directory (Azure AD) automatyczne Inicjowanie obsługi uży
 
 Zapoznaj się [z automatyzacją aprowizacji użytkowników i cofaj obsługę administracyjną, aby SaaS aplikacje za pomocą Azure Active Directory](../app-provisioning/user-provisioning.md) w celu lepszego zrozumienia funkcjonalności.
 
-## <a name="learn"></a>Informacje
+## <a name="learn"></a>Learn
 
 Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami i zwiększa jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
@@ -51,7 +50,7 @@ Usługa Azure AD zapewnia samoobsługową integrację dowolnej aplikacji przy u�
 
 Wymagane są odpowiednie licencje dla aplikacji, które mają być automatycznie inicjowane. Należy omówić z właścicielami aplikacji, czy użytkownicy przypisani do aplikacji mają odpowiednie licencje dla ich ról aplikacji. Jeśli usługa Azure AD zarządza automatyczną obsługą administracyjną opartą na rolach, role przypisane w usłudze Azure AD muszą być wyrównane do licencji aplikacji. Nieprawidłowe licencje należące do aplikacji mogą prowadzić do błędów podczas aprowizacji/aktualizowania użytkownika.
 
-### <a name="terms"></a>Warunki
+### <a name="terms"></a>Terminologia
 
 W tym artykule są stosowane następujące warunki:
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415593"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594308"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresy IP usługi Azure Integration Runtime
 
@@ -25,7 +25,7 @@ ms.locfileid: "81415593"
 Adresy IP używane przez Azure Integration Runtime są zależne od regionu, w którym znajduje się środowisko Azure Integration Runtime. *Wszystkie* Środowiska Azure Integration Runtime, które znajdują się w tym samym regionie, używają tych samych zakresów adresów IP.
 
 > [!IMPORTANT]  
-> Przepływy danych nie korzystają obecnie z tych adresów IP. 
+> Przepływy danych nie obsługują używania stałych zakresów adresów IP.
 >
 > Możesz użyć tych zakresów adresów IP na potrzeby przenoszenia danych, wykonywania potoku i działań zewnętrznych. Te zakresy adresów IP mogą być używane dla listy dozwolonych w magazynach danych/sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)/zaporach na potrzeby dostępu przychodzącego z platformy Azure Integration Runtime. 
 

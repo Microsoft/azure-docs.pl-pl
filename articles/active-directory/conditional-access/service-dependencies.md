@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74380010"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778485"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Co to są zależności usługi w Azure Active Directory dostęp warunkowy? 
 
 Za pomocą zasad dostępu warunkowego można określić wymagania dostępu do witryn sieci Web i usług. Na przykład wymagania dostępu mogą obejmować wymaganie uwierzytelniania wieloskładnikowego (MFA) lub [urządzeń zarządzanych](require-managed-devices.md). 
 
-W przypadku bezpośredniego dostępu do witryny lub usługi, wpływ powiązanych zasad jest zwykle łatwy do oceny. Na przykład jeśli masz zasady, które wymagają skonfigurowania usługi MFA dla usługi SharePoint Online, uwierzytelnianie wieloskładnikowe jest wymuszane dla każdego logowania do portalu sieci Web programu SharePoint. Nie zawsze jest to jednak proste, aby ocenić wpływ zasad, ponieważ istnieją aplikacje w chmurze z zależnościami od innych aplikacji w chmurze. Na przykład firma Microsoft Teams może zapewnić dostęp do zasobów w usłudze SharePoint Online. W związku z tym podczas uzyskiwania dostępu do programu Microsoft Teams w naszym bieżącym scenariuszu podlegają one również zasadom MFA programu SharePoint.   
+W przypadku bezpośredniego dostępu do witryny lub usługi, wpływ powiązanych zasad jest zwykle łatwy do oceny. Jeśli na przykład masz zasady, które wymagają uwierzytelniania wieloskładnikowego (MFA) dla usługi SharePoint Online, uwierzytelnianie wieloskładnikowe jest wymuszane dla każdego logowania do portalu sieci Web programu SharePoint. Nie zawsze jest to jednak proste, aby ocenić wpływ zasad, ponieważ istnieją aplikacje w chmurze z zależnościami od innych aplikacji w chmurze. Na przykład firma Microsoft Teams może zapewnić dostęp do zasobów w usłudze SharePoint Online. W związku z tym podczas uzyskiwania dostępu do programu Microsoft Teams w naszym bieżącym scenariuszu podlegają one również zasadom MFA programu SharePoint. 
 
 ## <a name="policy-enforcement"></a>Wymuszanie zasad 
 
@@ -37,28 +37,30 @@ Na poniższym diagramie przedstawiono zależności usługi MS Teams. Pełne strz
 
 Najlepszym rozwiązaniem jest skonfigurowanie w miarę możliwości wspólnych zasad w ramach powiązanych aplikacji i usług. Posiadanie spójnej stan zabezpieczeń zapewnia najlepsze środowisko użytkownika. Na przykład ustawienie wspólnych zasad w usłudze Exchange Online, SharePoint Online, Microsoft Teams i Skype dla firm znacznie zmniejsza nieoczekiwane komunikaty, które mogą wynikać z różnych zasad stosowanych do usług podrzędnych. 
 
+Znakomitym sposobem osiągnięcia tego działania w aplikacjach w stosie pakietu Office jest użycie [pakietu office 365 (wersja zapoznawcza)](concept-conditional-access-cloud-apps.md#office-365-preview) , a nie kierowanie poszczególnych aplikacji.
+
 W poniższej tabeli wymieniono dodatkowe zależności usługi, w przypadku których aplikacje klienckie muszą być zgodne  
 
 | Aplikacje klienckie         | Usługa podrzędny                          | Tytułu |
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 | Microsoft — Klasa | Exchange                                    | Wczesna granica |
-|                     | SharePoint                                  | Wczesna granica |
+|                     | Sharepoint                                  | Wczesna granica |
 | Microsoft Teams     | Exchange                                    | Wczesna granica |
 |                     | Planista firmy Microsoft                                  | Późne wiązanie  |
-|                     | SharePoint                                  | Wczesna granica |
+|                     | Sharepoint                                  | Wczesna granica |
 |                     | Skype dla firm Online                   | Wczesna granica |
 | Portal Office       | Exchange                                    | Późne wiązanie  |
-|                     | SharePoint                                  | Późne wiązanie  |
+|                     | Sharepoint                                  | Późne wiązanie  |
 | Grupy programu Outlook      | Exchange                                    | Wczesna granica |
-|                     | SharePoint                                  | Wczesna granica |
+|                     | Sharepoint                                  | Wczesna granica |
 | PowerApps           | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 |                     | Windows Azure Active Directory              | Wczesna granica |
 | Projekt             | Dynamics CRM                                | Wczesna granica |
 | Skype dla firm  | Exchange                                    | Wczesna granica |
 | Visual Studio       | Zarządzanie Microsoft Azure (Portal i interfejs API) | Wczesna granica |
 | Microsoft Forms     | Exchange                                    | Wczesna granica |
-|                     | SharePoint                                  | Wczesna granica |
+|                     | Sharepoint                                  | Wczesna granica |
 | Microsoft To-Do     | Exchange                                    | Wczesna granica |
 
 ## <a name="next-steps"></a>Następne kroki

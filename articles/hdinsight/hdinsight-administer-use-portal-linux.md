@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/23/2020
-ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232891"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598502"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal
 
@@ -46,7 +46,7 @@ Wybierz nazwę klastra na stronie [**Klastry usługi HDInsight**](#showClusters)
 | Element| Opis |
 |---|---|
 |Move|Przenosi klaster do innej grupy zasobów lub innej subskrypcji.|
-|Usuwanie|Usuwa klaster. |
+|Usuń|Usuwa klaster. |
 |Odświeżanie|Odświeża widok.|
 
 **Menu po lewej:**  
@@ -219,13 +219,19 @@ Hasło zostanie zmienione we wszystkich węzłach w klastrze.
 4. Na stronie **Akcje skryptu** wybierz pozycję **Prześlij nowy**.
 5. Na stronie **Prześlij akcję skryptu** wprowadź następujące informacje:
 
+> [!NOTE]
+> Hasła protokołu SSH nie mogą zawierać następujących znaków:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | Pole | Wartość |
    | --- | --- |
    | Typ skryptu | Z listy rozwijanej wybierz pozycję **— niestandardowa** .|
    | Nazwa |"Zmiana poświadczeń SSH" |
    | Identyfikator URI skryptu bash |Identyfikator URI pliku changecredentials.sh |
    | Typy węzłów: (kierownik, proces roboczy, Nimbus, Nadzorca lub dozorcy). |✓ dla wszystkich typów węzłów na liście |
-   | Parametry |Wprowadź nazwę użytkownika SSH, a następnie nowe hasło. Między nazwą użytkownika i hasłem powinna być jedna spacja. Następujące znaki nie są obsługiwane w hasłach protokołu SSH: "" '/\ <% ~ | $ &
+   | Parametry |Wprowadź nazwę użytkownika SSH, a następnie nowe hasło. Między nazwą użytkownika i hasłem powinna być jedna spacja. |
    | Utrwalaj tę akcję skryptu... |Nie zaznaczaj tego pola. |
 
 6. Wybierz pozycję **Utwórz** , aby zastosować skrypt. Po zakończeniu działania skryptu można nawiązać połączenie z klastrem przy użyciu protokołu SSH z nowymi poświadczeniami.

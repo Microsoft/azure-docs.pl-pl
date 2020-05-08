@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605009"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610823"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
@@ -20,6 +20,7 @@ Aby wdrażać szablony na poziomie subskrypcji, użyj interfejsu wiersza polecen
 
 Na poziomie subskrypcji można wdrożyć następujące typy zasobów:
 
+* [plany](/azure/templates/microsoft.blueprint/blueprints)
 * [budżetów](/azure/templates/microsoft.consumption/budgets)
 * [wdrożenia](/azure/templates/microsoft.resources/deployments) — dla szablonów zagnieżdżonych wdrażanych w grupach zasobów.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -244,11 +245,11 @@ Poniższy przykład tworzy grupę zasobów i wdraża konto magazynu w grupie zas
 }
 ```
 
-## <a name="create-policies"></a>Tworzenie zasad
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Przypisywanie zasad
+### <a name="assign-policy-definition"></a>Przypisz definicję zasad
 
-Poniższy przykład przypisuje istniejącą definicję zasad do subskrypcji. Jeśli zasady pobierają parametry, podaj je jako obiekt. Jeśli zasady nie przyjmują parametrów, Użyj domyślnego pustego obiektu.
+Poniższy przykład przypisuje istniejącą definicję zasad do subskrypcji. Jeśli definicja zasad przyjmuje parametry, podaj je jako obiekt. Jeśli definicja zasad nie przyjmuje parametrów, Użyj domyślnego pustego obiektu.
 
 ```json
 {
@@ -285,7 +286,7 @@ Poniższy przykład przypisuje istniejącą definicję zasad do subskrypcji. Je�
 Aby wdrożyć ten szablon przy użyciu interfejsu wiersza polecenia platformy Azure, użyj polecenia:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +313,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definiowanie i przypisywanie zasad
+### <a name="create-and-assign-policy-definitions"></a>Tworzenie i przypisywanie definicji zasad
 
-Zasady można [definiować](../../governance/policy/concepts/definition-structure.md) i przypisywać w tym samym szablonie.
+Można [zdefiniować](../../governance/policy/concepts/definition-structure.md) i przypisać definicję zasad w tym samym szablonie.
 
 ```json
 {
@@ -357,7 +358,7 @@ Zasady można [definiować](../../governance/policy/concepts/definition-structur
 }
 ```
 
-Aby utworzyć definicję zasad w ramach subskrypcji, a następnie zastosować ją do subskrypcji, użyj następującego polecenia CLI:
+Aby utworzyć definicję zasad w ramach subskrypcji, a następnie przypisać ją do subskrypcji, użyj następującego polecenia CLI:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +374,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprints
+
+### <a name="create-blueprint-definition"></a>Utwórz definicję planu
+
+Definicję planu można [utworzyć](../../governance/blueprints/tutorials/create-from-sample.md) na podstawie szablonu.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Aby utworzyć definicję planu w ramach subskrypcji, należy użyć następującego polecenia CLI:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Aby wdrożyć ten szablon przy użyciu programu PowerShell, użyj polecenia:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Przykłady szablonów

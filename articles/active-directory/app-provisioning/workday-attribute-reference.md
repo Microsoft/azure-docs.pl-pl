@@ -1,27 +1,25 @@
 ---
-title: Odwołanie do atrybutu produktu Workday | Microsoft Docs
+title: Dokumentacja atrybutów rozwiązania Workday
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: b0acb058e7e58656257d55f82f5dd02a8ae7d9c3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112885"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593067"
 ---
 # <a name="workday-attribute-reference"></a>Dokumentacja atrybutów rozwiązania Workday
+
 Ta sekcja zawiera listę atrybutów, które można pobrać z produktu Workday przy użyciu zapytań XPATH. Na podstawie wersji interfejsu API usług sieci Web w dniu Workday planujesz używać programu, zapoznaj się z odpowiednią sekcją. 
 
 ## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>Wartości XPATH dla programu Workday Web Services (WWS) API v 21.1

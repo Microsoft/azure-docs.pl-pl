@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246476"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611788"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowy tabeli usługi Azure Table Storage: skalowalne i wydajne tabele
 
@@ -208,7 +208,7 @@ Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapyt
 * Druga Najlepsza to *zapytanie zakresowe*. Używa i filtrów `PartitionKey`dla zakresu `RowKey` wartości, aby zwrócić więcej niż jedną jednostkę. `PartitionKey` Wartość identyfikuje konkretną partycję, a `RowKey` wartości identyfikują podzestaw jednostek w tej partycji. Na przykład: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * Trzecia Najlepsza to *skanowanie partycji*. Używa `PartitionKey`on i filtruje dla innej właściwości niebędącej kluczem i może zwrócić więcej niż jedną jednostkę. `PartitionKey` Wartość identyfikuje konkretną partycję, a wartości właściwości wybierają podzbiór jednostek w tej partycji. Na przykład: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * *Skanowanie tabeli* nie obejmuje i jest `PartitionKey`niewydajne, ponieważ przeszukuje wszystkie partycje wchodzące w skład tabeli pod kątem pasujących jednostek. Wykonuje skanowanie tabeli niezależnie od tego, czy filtr używa `RowKey`. Na przykład: `$filter=LastName eq 'Jones'`.  
-* Zapytania usługi Azure Table Storage zwracające wiele jednostek sortują `PartitionKey` je `RowKey` w kolejności i. Aby uniknąć tworzenia `RowKey` obiektów w kliencie, należy wybrać, który definiuje najbardziej typowy porządek sortowania. Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Zapytania usługi Azure Table Storage zwracające wiele jednostek sortują `PartitionKey` je `RowKey` w kolejności i. Aby uniknąć tworzenia `RowKey` obiektów w kliencie, należy wybrać, który definiuje najbardziej typowy porządek sortowania. Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Użycie "**or**" do określenia filtru na podstawie `RowKey` wartości powoduje skanowanie partycji i nie jest traktowane jako zapytanie zakresu. W związku z tym Unikaj zapytań używających filtrów `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`, takich jak:.  
 
@@ -250,7 +250,7 @@ Wiele projektów musi spełniać wymagania, aby umożliwić wyszukiwanie jednost
 Usługa Table Storage zwraca wyniki zapytania posortowane w kolejności rosnącej `PartitionKey` , oparte na `RowKey`, a następnie przez.
 
 > [!NOTE]
-> Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Klucze w magazynie tabel są wartościami ciągu. Aby upewnić się, że wartości liczbowe są sortowane prawidłowo, należy przekonwertować je na stałą długość i uzupełnić je zerami. Na przykład jeśli wartość identyfikatora pracownika, która będzie używana jako wartość `RowKey` będąca liczbą całkowitą, należy przekonwertować pracownika o identyfikatorze **123** do **00000123**. 
 
@@ -733,7 +733,7 @@ Podczas implementowania tego wzorca mogą być istotne następujące wzorce i ws
 Pobierz jednostki *n* ostatnio dodane do partycji przy użyciu wartości, która jest `RowKey` sortowana w odwrotnej kolejności daty i godziny.  
 
 > [!NOTE]
-> Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. W ten sposób, chociaż ten wzorzec jest odpowiedni dla magazynu tabel, nie jest odpowiedni dla Azure Cosmos DB. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Table Storage platformy Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Wyniki zapytania zwrócone przez interfejs API tabel platformy Azure w Azure Cosmos DB nie są posortowane według klucza partycji lub klucza wiersza. W ten sposób, chociaż ten wzorzec jest odpowiedni dla magazynu tabel, nie jest odpowiedni dla Azure Cosmos DB. Aby uzyskać szczegółową listę różnic między funkcjami, zobacz [różnice między interfejs API tabel w Azure Cosmos DB i Table Storage platformy Azure](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Kontekst i problem
 Typowym wymaganiem jest możliwość pobrania ostatnio utworzonych jednostek, na przykład dziesięciu ostatnich oświadczeń wydatków przesłanych przez pracownika. Zapytania tabeli obsługują operację `$top` zapytania, aby zwrócić pierwsze *n* jednostek z zestawu. Brak równoważnej operacji zapytania do zwrócenia ostatnich *n* jednostek w zestawie.  

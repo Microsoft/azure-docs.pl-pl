@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313756"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594138"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -91,7 +91,7 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
 
 - Skonfiguruj ACLing IP dla zaplecza, aby akceptować ruch z przestrzeni adresów IP zaplecza platformy Azure i usług infrastruktury platformy Azure. Zapoznaj się z poniższymi informacjami dotyczącymi adresu IP ACLing zaplecza:
  
-    - Zapoznaj się z sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza IPv4 lub można także użyć znacznika usługi *AzureFrontDoor. zaplecza* w [grupach zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) lub z [zaporą platformy Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Zapoznaj *się z* sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza [IPv4.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
     - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do`2a01:111:2050::/44`
     - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta `168.63.129.16` : i`169.254.169.254`
 
@@ -123,7 +123,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026541"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582731"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Rozwiązywanie problemów dotyczących grup
 
@@ -43,7 +43,7 @@ Aby wyłączyć tworzenie grupy dla użytkowników niebędących administratoram
    ```
 
 <br/>**Podczas próby utworzenia grupy dynamicznej w programie PowerShell otrzymałem maksymalną dozwoloną liczbę grup.**<br/>
-Jeśli zostanie wyświetlony komunikat w programie PowerShell wskazujący, że _dynamiczna grupa zasad grupy osiągnęła maksymalną dozwoloną liczbę grup_, oznacza to, że osiągnięto maksymalny limit grup dynamicznych w dzierżawie. Maksymalna liczba grup dynamicznych na dzierżawcę to 5 000.
+Jeśli zostanie wyświetlony komunikat w programie PowerShell wskazujący, że _dynamiczna grupa zasad grupy osiągnęła maksymalną dozwoloną liczbę grup_, oznacza to, że osiągnięto maksymalny limit grup dynamicznych w organizacji. Maksymalna liczba grup dynamicznych na organizację to 5 000.
 
 Aby utworzyć nowe grupy dynamiczne, należy najpierw usunąć niektóre istniejące grupy dynamiczne. Nie ma sposobu na zwiększenie limitu.
 
@@ -53,7 +53,7 @@ Aby utworzyć nowe grupy dynamiczne, należy najpierw usunąć niektóre istniej
 1. Sprawdź wartości atrybutów użytkownika lub urządzenia w regule. Upewnij się, że istnieją użytkownicy, którzy spełniają tę zasadę. W przypadku urządzeń sprawdź właściwości urządzenia, aby upewnić się, że wszystkie zsynchronizowane atrybuty zawierają oczekiwane wartości.<br/>
 2. Sprawdź stan przetwarzania członkostwa, aby upewnić się, czy został ukończony. Można sprawdzić [stan przetwarzania członkostwa](groups-create-rule.md#check-processing-status-for-a-rule) i datę ostatniej aktualizacji na stronie **Przegląd** dla grupy.
 
-Jeśli wszystko wygląda dobrze, poczekaj chwilę, aż grupa zostanie wypełniona. W zależności od rozmiaru dzierżawy pierwsze wypełnienie grupy lub wypełnienie grupy po zmianie reguły może potrwać do 24 godzin.
+Jeśli wszystko wygląda dobrze, poczekaj chwilę, aż grupa zostanie wypełniona. W zależności od rozmiaru organizacji usługi Azure AD po raz pierwszy lub po zmianie reguły może minąć do 24 godzin.
 
 **Zasada została skonfigurowana, ale teraz istniejące elementy członkowskie reguły są usuwane**<br/>Jest to oczekiwane zachowanie. Istniejące elementy członkowskie grupy są usuwane, gdy reguła jest włączona lub zmieniona. Użytkownicy, którzy otrzymali ocenę reguły, są dodawani jako członkowie do grupy.
 
@@ -74,7 +74,7 @@ Obecnie nie ma możliwości automatycznego wyzwalania grupy do przetworzenia na 
 
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
-* [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
+* [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Zarządzanie aplikacjami w usłudze Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Co to jest usługa Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

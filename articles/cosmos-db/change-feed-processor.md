@@ -1,21 +1,21 @@
 ---
-title: Zmień bibliotekę procesora kanału informacyjnego w Azure Cosmos DB
-description: Dowiedz się, jak używać biblioteki procesora kanału zmian Azure Cosmos DB do odczytywania źródła zmian, składników procesora źródła zmian
-author: markjbrown
-ms.author: mjbrown
+title: Procesor zestawienia zmian w usłudze Azure Cosmos DB
+description: Dowiedz się, jak użyć procesora Azure Cosmos DB zmian, aby odczytać Źródło zmian, składniki procesora źródła zmian
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273303"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594155"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
 Procesor kanału informacyjnego zmian jest częścią [zestawu Azure Cosmos DB SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Upraszcza proces odczytywania źródła zmian i rozpowszechniania przetwarzania zdarzeń przez wielu użytkowników efektywnie.
 
@@ -23,13 +23,13 @@ Główną zaletą biblioteki procesora kanału informacyjnego jest zachowanie od
 
 ## <a name="components-of-the-change-feed-processor"></a>Składniki procesora źródła zmian
 
-Istnieją cztery główne składniki implementacji procesora kanału informacyjnego zmiany: 
+Istnieją cztery główne składniki implementacji procesora kanału informacyjnego zmiany:
 
 1. **Monitorowany kontener:** Monitorowany kontener zawiera dane, z których jest generowane strumieniowe źródło zmian. Wszystkie wstawienia i aktualizacje monitorowanego kontenera są odzwierciedlone w kanale zmian kontenera.
 
-1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie źródła zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie. 
+1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie źródła zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie.
 
-1. **Host:** Host jest wystąpieniem aplikacji korzystającym z procesora źródła zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**. 
+1. **Host:** Host jest wystąpieniem aplikacji korzystającym z procesora źródła zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**.
 
 1. **Delegat:** Delegat to kod, który definiuje, co ty i dla deweloperów chce wykonać przy każdej partii zmian, które procesor kanału informacyjnego zmian odczytuje. 
 
@@ -65,7 +65,11 @@ Normalny cykl życia wystąpienia hosta to:
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-Procesor kanału informacyjnego zmiany jest odporny na błędy kodu użytkownika. Oznacza to, że jeśli w implementacji delegata występuje nieobsłużony wyjątek (krok #4), przetwarzanie wątku, w którym określona partia zmian zostanie zatrzymane i zostanie utworzony nowy wątek. Nowy wątek sprawdzi, który był ostatnim punktem w czasie, gdy magazyn dzierżawy ma dla tego zakresu wartości kluczy partycji, a następnie ponownie uruchomi się z tego powodu, wysyłając tę samą partię zmian do delegata. Takie zachowanie będzie kontynuowane do momentu poprawnego przetworzenia przez delegata zmian i jest to powód, dla którego procesor źródła zmian ma gwarancję "co najmniej raz", ponieważ w przypadku zgłaszania kodu delegata zostanie ponowiona ta partia.
+Procesor kanału informacyjnego zmiany jest odporny na błędy kodu użytkownika. Oznacza to, że jeśli w implementacji delegata występuje nieobsłużony wyjątek (krok #4), przetwarzanie wątku, w którym określona partia zmian zostanie zatrzymane i zostanie utworzony nowy wątek. Nowy wątek sprawdzi, który był ostatnim punktem w czasie, gdy magazyn dzierżawy ma dla tego zakresu wartości kluczy partycji, a następnie ponownie uruchomi się z tego powodu, wysyłając tę samą partię zmian do delegata. Takie zachowanie będzie kontynuowane do momentu poprawnego przetworzenia przez delegata zmian i jest to powód, dla którego procesor źródła zmian ma gwarancję "co najmniej raz", ponieważ jeśli kod delegata zgłasza wyjątek, ponowi próbę wykonania tej partii.
+
+Aby zapobiec nieudanej próbie wykonania tej samej partii zmian przez procesor kanału informacyjnego zmian, należy dodać logikę w kodzie delegata do zapisu dokumentów, po wyjątku, do kolejki utraconych wiadomości. Ten projekt umożliwia śledzenie nieprzetworzonych zmian, gdy nadal można nadal przetwarzać przyszłe zmiany. Kolejka utraconych wiadomości może po prostu być innym kontenerem Cosmos. Dokładny magazyn danych nie ma znaczenia, po prostu, że nieprzetworzone zmiany są utrwalane.
+
+Ponadto można użyć [szacowania źródła zmian](how-to-use-change-feed-estimator.md) do monitorowania postępu wystąpień procesora źródła zmian podczas odczytywania źródła zmian. Poza monitorowaniem, jeśli procesor źródła zmian nie zostanie "zablokowany" ciągle ponawianie tej samej partii zmian, można również zrozumieć, czy procesor kanału informacyjnego zmian jest opóźniony z powodu dostępnych zasobów, takich jak procesor CPU, pamięć i przepustowość sieci.
 
 ## <a name="dynamic-scaling"></a>Dynamiczne skalowanie
 
@@ -85,7 +89,7 @@ Ponadto procesor kanału informacyjnego zmiany można dynamicznie dopasować do 
 
 Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do i z kontenerów Cosmos zawsze zużywa jednostek ru. Opłata jest naliczana za jednostek ru zużyty przez kontener dzierżawy.
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

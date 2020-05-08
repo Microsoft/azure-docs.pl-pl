@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049735"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610449"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
 W tym artykule wyjaśniono, jak działa połączenie między Azure AD Connect i usługą Azure AD oraz jak rozwiązywać problemy z łącznością. Te problemy najprawdopodobniej będą widoczne w środowisku z serwerem proxy.
@@ -31,7 +32,7 @@ Azure AD Connect korzysta z nowoczesnego uwierzytelniania (przy użyciu bibliote
 
 W tym artykule pokazano, jak firma Fabrikam nawiązuje połączenie z usługą Azure AD za pomocą serwera proxy. Serwer proxy ma nazwę fabrikamproxy i używa portu 8080.
 
-Najpierw musimy upewnić się, że [**plik Machine. config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany.  
+Najpierw musimy upewnić się, że [**plik Machine. config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ Kreator instalacji korzysta z dwóch różnych kontekstów zabezpieczeń. Na str
 Poniżej znajdują się najczęstsze błędy występujące w Kreatorze instalacji.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Kreator instalacji nie został poprawnie skonfigurowany
-Ten błąd pojawia się, gdy Kreator nie może nawiązać połączenia z serwerem proxy.  
+Ten błąd pojawia się, gdy Kreator nie może nawiązać połączenia z serwerem proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Jeśli widzisz ten błąd, sprawdź, czy [plik Machine. config](how-to-connect-install-prerequisites.md#connectivity) został poprawnie skonfigurowany.
 * Jeśli jest to poprawne, wykonaj kroki opisane w sekcji [Weryfikowanie łączności z serwerem proxy](#verify-proxy-connectivity) , aby sprawdzić, czy problem jest obecny poza kreatorem.
 
 ### <a name="a-microsoft-account-is-used"></a>Zostanie użyta konto Microsoft
-Jeśli używasz **konto Microsoft** , a nie konta w **organizacji** , zobaczysz błąd ogólny.  
+Jeśli używasz **konto Microsoft** , a nie konta w **organizacji** , zobaczysz błąd ogólny.
 ![Używane jest konto Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Nie można nawiązać połączenia z punktem końcowym usługi MFA
-Ten błąd jest wyświetlany, jeśli **https://secure.aadcdn.microsoftonline-p.com** nie można skontaktować się z punktem końcowym, a Administrator globalny ma WŁĄCZONĄ usługę MFA.  
+Ten błąd jest wyświetlany, jeśli **https://secure.aadcdn.microsoftonline-p.com** nie można skontaktować się z punktem końcowym, a Administrator globalny ma WŁĄCZONĄ usługę MFA.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Jeśli widzisz ten błąd, sprawdź, czy punkt końcowy **Secure.aadcdn.microsoftonline-p.com** został dodany do serwera proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>Nie można zweryfikować hasła
-Jeśli Kreator instalacji pomyślnie nawiązuje połączenie z usługą Azure AD, ale nie można zweryfikować hasła, zostanie wyświetlony następujący błąd:  
-![Nieprawidłowe hasło.](./media/tshoot-connect-connectivity/badpassword.png)
+Jeśli Kreator instalacji pomyślnie nawiązuje połączenie z usługą Azure AD, ale nie można zweryfikować hasła, zobaczysz następujący błąd: ![nieprawidłowe hasło.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Czy hasło jest hasłem tymczasowym i należy je zmienić? Czy jest to prawidłowe hasło? Spróbuj zalogować się do `https://login.microsoftonline.com` programu (na innym komputerze niż serwer Azure AD Connect) i sprawdź, czy konto jest możliwe do użycia.
 
@@ -186,7 +186,7 @@ Uwierzytelnianie zakończyło się pomyślnie, ale w programie Azure AD PowerShe
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Wymagana rola administratora globalnego usługi Azure AD
-Użytkownik został pomyślnie uwierzytelniony. Jednak użytkownik nie ma przypisanej roli administratora globalnego. W ten [sposób można przypisywać użytkownikowi rolę administratora globalnego](../users-groups-roles/directory-assign-admin-roles.md) . 
+Użytkownik został pomyślnie uwierzytelniony. Jednak użytkownik nie ma przypisanej roli administratora globalnego. W ten [sposób można przypisywać użytkownikowi rolę administratora globalnego](../users-groups-roles/directory-assign-admin-roles.md) .
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Wyświetlany jako nieoczekiwany błąd w Kreatorze instalacji. Może się zdarzy
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Kroki rozwiązywania problemów z poprzednimi wersjami.
 W przypadku wersji zaczynających się od numeru kompilacji 1.1.105.0 (wydanie z lutego 2016) Asystent logowania został wycofany. Ta sekcja i konfiguracja nie powinna już być wymagana, ale jest przechowywana jako odwołanie.
 
-Aby Asystent logowania jednokrotnego działał, należy skonfigurować usługę WinHTTP. Tę konfigurację można wykonać przy użyciu [**polecenia netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+Aby Asystent logowania jednokrotnego działał, należy skonfigurować usługę WinHTTP. Tę konfigurację można wykonać przy użyciu [**polecenia netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![kontekstu](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Asystent logowania nie został poprawnie skonfigurowany

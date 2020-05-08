@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
-ms.custom: seodec18
-ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411668"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608034"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Praca z danymi za pomocą Eksploratora usługi Azure Storage
 
@@ -30,9 +30,9 @@ Zainstaluj najnowszą wersję Eksploratora usługi Azure Storage. Program [Ekspl
 ## <a name="connect-to-an-azure-subscription"></a>Łączenie się z subskrypcją platformy Azure
 
 1. Po zainstalowaniu **Eksploratora usługi Azure Storage** kliknij ikonę **wtyczki** widoczną po lewej stronie, jak pokazano na poniższym obrazie:
-       
+
    ![Ikona wtyczki](./media/storage-explorer/plug-in-icon.png)
- 
+
 2. Wybierz pozycję **Dodaj konto platformy Azure**, a następnie kliknij pozycję **Zaloguj się**.
 
    ![Łączenie się z subskrypcją platformy Azure](./media/storage-explorer/connect-to-azure-subscription.png)
@@ -100,27 +100,27 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 * Do paska **Szybki dostęp** można także dodać konto, bazę danych lub kolekcję usługi Azure Cosmos DB.
 * Opcja **Wyszukaj od tego miejsca** umożliwia wyszukiwanie słów kluczowych w obrębie wybranej ścieżki.
 
-    ![Wyszukaj od tego miejsca](./media/storage-explorer/search-from-here.png) 
+    ![Wyszukaj od tego miejsca](./media/storage-explorer/search-from-here.png)
 
 ### <a name="database-and-collection-management"></a>Zarządzanie bazą danych i kolekcją
-#### <a name="create-a-database"></a>Tworzenie bazy danych 
+#### <a name="create-a-database"></a>Tworzenie bazy danych
 -   Kliknij prawym przyciskiem myszy konto usługi Azure Cosmos DB, wybierz polecenie **Utwórz bazę danych**, wprowadź nazwę bazy danych, a następnie naciśnij klawisz **Enter**, aby zakończyć procedurę.
-       
-    ![Tworzenie bazy danych](./media/storage-explorer/create-database.png) 
+
+    ![Tworzenie bazy danych](./media/storage-explorer/create-database.png)
 
 #### <a name="delete-a-database"></a>Usuwanie bazy danych
 - Kliknij prawym przyciskiem myszy bazę danych, kliknij polecenie **Usuń bazę danych** i kliknij przycisk **Tak** w oknie podręcznym. Węzeł bazy danych zostanie usunięty, a konto usługi Azure Cosmos DB zostanie odświeżone automatycznie.
 
-    ![Usuwanie bazy danych 1](./media/storage-explorer/delete-database1.png)  
+    ![Usuwanie bazy danych 1](./media/storage-explorer/delete-database1.png)
 
-    ![Usuwanie bazy danych 2](./media/storage-explorer/delete-database2.png) 
+    ![Usuwanie bazy danych 2](./media/storage-explorer/delete-database2.png)
 
 #### <a name="create-a-collection"></a>Tworzenie kolekcji
-1. Kliknij prawym przyciskiem myszy bazę danych, wybierz polecenie **Utwórz kolekcję**, a następnie podaj następujące informacje, takie jak **identyfikator kolekcji**, **pojemność magazynu**itp. Kliknij przycisk **OK** , aby zakończyć. 
+1. Kliknij prawym przyciskiem myszy bazę danych, wybierz polecenie **Utwórz kolekcję**, a następnie podaj następujące informacje, takie jak **identyfikator kolekcji**, **pojemność magazynu**itp. Kliknij przycisk **OK** , aby zakończyć.
 
     ![Tworzenie kolekcji 1](./media/storage-explorer/create-collection.png)
 
-    ![Tworzenie kolekcji 2](./media/storage-explorer/create-collection2.png) 
+    ![Tworzenie kolekcji 2](./media/storage-explorer/create-collection2.png)
 
 2. Wybierz wartość **Bez ograniczeń**, aby możliwe było określenie klucza partycji, a następnie kliknij przycisk **OK**, aby zakończyć.
 
@@ -129,11 +129,11 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
     ![Klucz partycji](./media/storage-explorer/partitionkey.png)
 
 #### <a name="delete-a-collection"></a>Usuwanie kolekcji
-- Kliknij prawym przyciskiem myszy kolekcję, kliknij polecenie **Usuń kolekcję**, a następnie kliknij przycisk **Tak** w oknie podręcznym. 
+- Kliknij prawym przyciskiem myszy kolekcję, kliknij polecenie **Usuń kolekcję**, a następnie kliknij przycisk **Tak** w oknie podręcznym.
 
     Węzeł kolekcji zostanie usunięty, a baza danych zostanie odświeżona automatycznie.
 
-    ![Usuwanie kolekcji](./media/storage-explorer/delete-collection.png) 
+    ![Usuwanie kolekcji](./media/storage-explorer/delete-collection.png)
 
 ### <a name="document-management"></a>Zarządzanie dokumentami
 
@@ -155,8 +155,8 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
 ### <a name="graph-management"></a>Zarządzanie programem Graph
 
 #### <a name="create-and-modify-vertex"></a>Tworzenie i modyfikowanie wierzchołków
-1. Aby utworzyć nowy wierzchołek, otwórz program **Graph** w oknie po lewej stronie, kliknij pozycję **Nowy wierzchołek**, dokonaj edycji zawartości, a następnie kliknij przycisk **OK**.    
-2. Aby zmodyfikować istniejący wierzchołek, kliknij ikonę pióra w okienku po prawej stronie.   
+1. Aby utworzyć nowy wierzchołek, otwórz program **Graph** w oknie po lewej stronie, kliknij pozycję **Nowy wierzchołek**, dokonaj edycji zawartości, a następnie kliknij przycisk **OK**.
+2. Aby zmodyfikować istniejący wierzchołek, kliknij ikonę pióra w okienku po prawej stronie.
 
     ![Graph](./media/storage-explorer/vertex.png)
 
@@ -193,7 +193,7 @@ Po kliknięciu prawym przyciskiem myszy subskrypcji w okienku Eksploratora pojaw
     ![Zapytanie dotyczące tabeli](./media/storage-explorer/table-query.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Zarządzanie procedurami składowanymi, wyzwalaczami i funkcjami definiowanymi przez użytkownika (UDF)
-* Aby utworzyć procedurę składowaną, w drzewie po lewej stronie kliknij prawym przyciskiem myszy pozycję **Procedura składowana**, wybierz polecenie **Utwórz procedurę składowaną**, wprowadź nazwę po lewej stronie, wpisz skrypty procedury składowanej w prawym okienku, a następnie kliknij przycisk **Utwórz**. 
+* Aby utworzyć procedurę składowaną, w drzewie po lewej stronie kliknij prawym przyciskiem myszy pozycję **Procedura składowana**, wybierz polecenie **Utwórz procedurę składowaną**, wprowadź nazwę po lewej stronie, wpisz skrypty procedury składowanej w prawym okienku, a następnie kliknij przycisk **Utwórz**.
 * Możesz również edytować istniejące procedury składowane. W tym celu kliknij dwukrotnie procedurę, wprowadź zmiany, a następnie kliknij pozycję **Aktualizuj**, aby zapisać zmiany, lub pozycję **Odrzuć**, aby je anulować.
 
     ![Procedura składowana](./media/storage-explorer/stored-procedure.png)
@@ -248,7 +248,7 @@ Jeśli nie możesz pobrać subskrypcji po pomyślnym zalogowaniu:
 
 ![console](./media/storage-explorer/console.png)
 
-#### <a name="unable-to-see-the-authentication-page"></a>Nie można wyświetlić strony uwierzytelniania 
+#### <a name="unable-to-see-the-authentication-page"></a>Nie można wyświetlić strony uwierzytelniania
 
 Jeśli nie możesz wyświetlić strony uwierzytelniania:
 
@@ -273,7 +273,7 @@ Jeśli nie możesz usunąć konta lub jeśli link do ponownego uwierzytelniania 
 
 ### <a name="httphttps-proxy-issue"></a>Problem z serwerem proxy HTTP/HTTPS
 
-Podczas konfigurowania serwera proxy HTTP/HTTPS w środowisku ASE nie możesz wyświetlać listy węzłów usługi Azure Cosmos DB w drzewie po lewej stronie. Jest to znany problem i zostanie rozwiązany w następnej wersji. Jako obejścia w tej chwili możesz użyć eksploratora danych usługi Azure Cosmos DB w witrynie Azure Portal. 
+Podczas konfigurowania serwera proxy HTTP/HTTPS w środowisku ASE nie możesz wyświetlać listy węzłów usługi Azure Cosmos DB w drzewie po lewej stronie. Jest to znany problem i zostanie rozwiązany w następnej wersji. Jako obejścia w tej chwili możesz użyć eksploratora danych usługi Azure Cosmos DB w witrynie Azure Portal.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>Problem z węzłem „Programowanie” w węźle „Lokalne i dołączone”
 
@@ -289,7 +289,7 @@ Jeśli poniższy błąd zostanie wyświetlony po dołączeniu konta usługi Azur
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Błąd rozwijania węzła usługi Azure Cosmos DB
 
-Podczas próby rozwinięcia węzłów drzewa z lewej strony możesz zobaczyć poniższy błąd. 
+Podczas próby rozwinięcia węzłów drzewa z lewej strony możesz zobaczyć poniższy błąd.
 
 ![Błąd rozwijania](./media/storage-explorer/expand-error.png)
 
@@ -306,4 +306,3 @@ Jeśli żadna z rozwiązań nie działa, Wyślij wiadomość e-mail do Azure Cos
 
 * Obejrzyj ten film wideo, aby dowiedzieć się, jak używać usługi Azure Cosmos DB w Eksploratorze usługi Azure Storage: [Use Azure Cosmos DB in Azure Storage Explorer (Używanie usługi Azure Cosmos DB w Eksploratorze usługi Azure Storage)](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Aby dowiedzieć się więcej o Eksploratorze usługi Storage i sposobach łączenia się z dodatkowymi usługami, zobacz [Wprowadzenie do Eksploratora usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-

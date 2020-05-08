@@ -4,12 +4,12 @@ description: Dowiedz się, jak Agent MARS obsługuje scenariusze tworzenia kopii
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673291"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611487"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informacje o agencie Microsoft Azure Recovery Services (MARS)
 
@@ -39,19 +39,21 @@ Agent MARS obsługuje następujące scenariusze przywracania:
 
 ## <a name="backup-process"></a>Proces tworzenia kopii zapasowej
 
-1. Z Azure Portal Utwórz [magazyn Recovery Services](install-mars-agent.md#create-a-recovery-services-vault), a następnie wybierz pliki, foldery i stan systemu z celów tworzenia kopii zapasowych.
+1. Z Azure Portal Utwórz [magazyn Recovery Services](install-mars-agent.md#create-a-recovery-services-vault), a następnie wybierz pliki, foldery i stan systemu z **celów tworzenia kopii zapasowych**.
 2. [Pobierz poświadczenia magazynu Recovery Services i instalatora agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) na maszynę lokalną.
 
-    Aby chronić maszynę lokalną przez wybranie opcji kopia zapasowa, wybierz pliki, foldery i stan systemu, a następnie pobierz agenta MARS.
-
-3. Przygotuj infrastrukturę:
-
-    a. Uruchom Instalatora, aby [zainstalować agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Użyj pobranych poświadczeń magazynu, aby zarejestrować maszynę w magazynie Recovery Services.
-4. W konsoli agenta programu na kliencie [Skonfiguruj kopię zapasową](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy). Określ zasady przechowywania danych kopii zapasowej, aby rozpocząć ich ochronę.
+3. [Zainstaluj agenta](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) i użyj pobranych poświadczeń magazynu, aby zarejestrować maszynę w magazynie Recovery Services.
+4. Z poziomu konsoli agenta na kliencie [Skonfiguruj kopię zapasową](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) , aby określić, co ma być wykonywane w ramach kopii zapasowej (harmonogram), jak długo kopie zapasowe mają być przechowywane na platformie Azure (zasady przechowywania) i Rozpocznij ochronę.
 
 ![Diagram agenta Azure Backup](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Dodatkowe informacje
+
+- **Początkowa kopia zapasowa** (pierwsza kopia zapasowa) jest uruchamiana zgodnie z ustawieniami kopii zapasowej.  Agent MARS korzysta z usługi VSS, aby wykonać migawkę woluminów wybranych do utworzenia kopii zapasowej w danym momencie. Agent używa tylko operacji modułu zapisywania systemu Windows, aby przechwycić migawkę. Nie używa żadnych składników zapisywania usługi VSS aplikacji i nie przechwytuje migawek spójnych na poziomie aplikacji. Po przeprowadzeniu migawki przy użyciu usługi VSS Agent MARS tworzy wirtualny dysk twardy (VHD) w folderze pamięci podręcznej określonym podczas konfigurowania kopii zapasowej. Agent przechowuje również sumy kontrolne dla każdego bloku danych.
+
+- **Przyrostowe kopie zapasowe** (kolejne kopie zapasowe) działają zgodnie z określonym harmonogramem. Podczas przyrostowych kopii zapasowych zostaną zidentyfikowane zmienione pliki i zostanie utworzony nowy wirtualny dysk twardy. Wirtualny dysk twardy jest kompresowany i szyfrowany, a następnie wysyłany do magazynu. Po zakończeniu przyrostowej kopii zapasowej nowy wirtualny dysk twardy zostanie scalony z dyskiem VHD utworzonym po replikacji początkowej. Ten scalony wirtualny dysk twardy zawiera najnowszy stan, który będzie używany do porównywania ciągłej kopii zapasowej.
+
+- Agent MARS może uruchomić zadanie tworzenia kopii zapasowej w **trybie zoptymalizowanym** przy użyciu numeru USN (numer sekwencji aktualizacji) lub w **trybie niezoptymalizowanym** , sprawdzając zmiany w katalogach lub plikach przez skanowanie całego woluminu. Tryb niezoptymalizowany jest wolniejszy, ponieważ Agent programu musi skanować każdy plik w woluminie i porównywać go z metadanymi w celu określenia zmienionych plików.  **Początkowa kopia zapasowa** będzie zawsze uruchamiana w trybie niezoptymalizowanym. Jeśli Poprzednia kopia zapasowa nie powiodła się, następne zaplanowane zadanie tworzenia kopii zapasowej zostanie uruchomione w trybie niezoptymalizowanym.
 
 ### <a name="additional-scenarios"></a>Dodatkowe scenariusze
 
