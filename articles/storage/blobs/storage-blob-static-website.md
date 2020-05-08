@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 848fd89444281d82d6d0d1bfc4df15d499c09ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79370495"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779981"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hostowanie statycznej witryny internetowej w usłudze Azure Storage
 
@@ -41,8 +41,8 @@ Pliki w kontenerze **$Web** są rozróżniane wielkości liter, obsługiwane prz
 Aby przekazać zawartość do kontenera **$Web** , można użyć dowolnego z tych narzędzi:
 
 > [!div class="checklist"]
-> * [Interfejs wiersza polecenia platformy Azure](storage-blob-static-website-how-to.md#cli)
-> * [Moduł programu Azure PowerShell](storage-blob-static-website-how-to.md#powershell)
+> * [Interfejs wiersza polecenia platformy Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> * [Moduł programu Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)

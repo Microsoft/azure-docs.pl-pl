@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049793"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982041"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
 Użyj logo organizacji i niestandardowych schematów kolorów, aby zapewnić spójny wygląd i działanie na stronach logowania Azure Active Directory (Azure AD). Strony logowania są wyświetlane, gdy użytkownicy logują się do aplikacji sieci Web w organizacji, takich jak Office 365, które korzystają z usługi Azure AD jako dostawcy tożsamości.
@@ -52,9 +52,9 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
         - **Językowe.** Język jest automatycznie ustawiany jako domyślny i nie można go zmienić.
         
-        - **Obraz tła strony logowania.** Wybierz plik obrazu PNG lub jpg, który ma być wyświetlany jako tło dla stron logowania. 
+        - **Obraz tła strony logowania.** Wybierz plik obrazu PNG lub jpg, który ma być wyświetlany jako tło dla stron logowania. Obraz zostanie zakotwiczony do środka przeglądarki i będzie skalowany do rozmiaru widocznego obszaru. Nie można wybrać obrazu o rozmiarze większym niż 1920 x 1080 pikseli lub pliku o rozmiarze większym niż 300 KB.
         
-            Rozmiar obrazu nie może być większy niż 1920 x 1080 pikseli i musi mieć rozmiar pliku mniejszy niż 300 KB.
+            Zalecane jest korzystanie z obrazów bez silnego punktu skupienia, np. nieprzezroczyste, białe pole na środku ekranu i może obejmować dowolną część obrazu w zależności od wymiarów widocznego miejsca.
 
         - **Logo transparentu.** Wybierz plik PNG lub jpg logo do wyświetlania na stronie logowania, gdy użytkownik wprowadzi nazwę użytkownika i na stronie portalu **Moje aplikacje** .
             
@@ -62,7 +62,7 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
         - **Wskazówka nazwy użytkownika.** Wpisz tekst wskazówki, który pojawia się dla użytkowników w przypadku zapomnienia ich nazwy użytkownika. Ten tekst musi być w formacie Unicode, bez linków lub kodu i nie może przekraczać 64 znaków. Jeśli Goście logują się do aplikacji, sugerujemy, aby nie dodawać tej wskazówki.
 
-        - **Tekst strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 256 znaków. Sugerujemy również, aby nie dołączać do linków ani tagów HTML.
+        - **Tekst strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 256 znaków.
 
     - **Ustawienia zaawansowane**
             
@@ -127,7 +127,7 @@ Nie można zmienić języka oryginalnej konfiguracji z poziomu języka domyślne
 ## <a name="add-your-custom-branding-to-pages"></a>Dodawanie niestandardowej marki do stron
 Dodaj niestandardowe znakowanie do stron, `?whr=yourdomainname`modyfikując koniec adresu URL z tekstem. Ta modyfikacja działa na kilku stronach, w tym na stronie konfiguracji Multi-Factor Authentication (MFA), stronie Konfiguracja samoobsługowego resetowania hasła (SSPR) oraz na stronie logowania.
 
-**Pokazują**
+**Przykłady:**
 
 **Oryginalny adres URL:**https://aka.ms/MFASetup<br>
 **Niestandardowy adres URL:**`https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`

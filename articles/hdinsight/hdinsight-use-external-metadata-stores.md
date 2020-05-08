@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313969"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929336"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight
 
@@ -41,6 +41,8 @@ Domyślnie Usługa HDInsight tworzy magazyn metadanych dla każdego typu klastra
 * Domyślny magazyn metadanych jest używany w podstawowej bazie danych SQL Azure, która ma pięć jednostek DTU (jednostka transakcji bazy danych).
 Ten domyślny magazyn metadanych jest zazwyczaj używany dla relatywnie prostych obciążeń. Obciążenia, które nie wymagają wielu klastrów i nie wymagają metadanych zachowywanych poza cyklem życia klastra.
 
+* W przypadku obciążeń produkcyjnych zalecamy przeprowadzenie migracji do zewnętrznego magazynu metadanych. Aby uzyskać szczegółowe informacje, zobacz poniższą sekcję.
+
 ## <a name="custom-metastore"></a>Niestandardowy magazyn metadanych
 
 Usługa HDInsight obsługuje również niestandardowe magazyny metadanych, które są zalecane w przypadku klastrów produkcyjnych:
@@ -64,6 +66,8 @@ Usługa HDInsight obsługuje również niestandardowe magazyny metadanych, któr
 Przed skonfigurowaniem niestandardowego magazyn metadanych Hive klastra usługi HDInsight należy utworzyć lub mieć istniejące Azure SQL Database.  Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pojedynczej bazy danych w usłudze Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
 Podczas tworzenia klastra Usługa HDInsight musi połączyć się z zewnętrznym magazynem metadanych i zweryfikować swoje poświadczenia. Skonfiguruj reguły zapory Azure SQL Database, aby zezwolić usługom i zasobom platformy Azure na dostęp do serwera. Włącz tę opcję w Azure Portal, wybierając pozycję **Ustaw zaporę serwera**. Następnie wybierz pozycję **nie** poniżej opcji **Odmów dostępu do sieci publicznej**i **przycisk tak** poniżej **umożliwia usługom i zasobom platformy Azure dostęp do tego serwera** dla serwera Azure SQL Database lub bazy danych. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+Prywatne punkty końcowe dla magazynów SQL nie są obsługiwane.
 
 ![przycisk ustawiania zapory serwera](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -94,6 +98,8 @@ Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym
 * W przypadku udostępniania magazynu metadanych w wielu klastrach upewnij się, że wszystkie klastry są w tej samej wersji usługi HDInsight. Różne wersje programu Hive używają różnych schematów bazy danych magazynu metadanych. Nie można na przykład udostępnić magazynu metadanych w ramach klastrów Hive 2,1 i Hive 3,1
 
 * W usłudze HDInsight 4,0, Spark i Hive używają niezależnych wykazów do uzyskiwania dostępu do tabel SparkSQL lub Hive. Tabela utworzona przez platformę Spark w katalogu Spark. Tabela utworzona przez program Hive znajduje się w katalogu Hive. To zachowanie różni się od usługi HDInsight 3,6, w której znajduje się gałąź Hive i wspólny katalog usługi Spark. Integracja Hive i Spark w usłudze HDInsight 4,0 opiera się na łączniku magazynu Hive (obsługiwane). OBSŁUGIWANE działa jako Most między platformami Spark i Hive. [Dowiedz się więcej o łączniku magazynu Hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+
+* W usłudze HDInsight 4,0, jeśli chcesz udostępnić magazyn metadanych między platformami Hive i Spark, możesz to zrobić, zmieniając wartość właściwości magazynu metadanych. Catalog. default na Hive w klastrze Spark. Tę właściwość można znaleźć w Ambari Advanced spark2-Hive-site-override. Ważne jest, aby zrozumieć, że udostępnianie magazynu metadanych działa tylko w przypadku zewnętrznych tabel programu Hive, nie będzie to działać, jeśli istnieją wewnętrzne/zarządzane tabele lub tabele w środowisku Hive.  
 
 ## <a name="apache-oozie-metastore"></a>Magazyn metadanych Apache Oozie
 

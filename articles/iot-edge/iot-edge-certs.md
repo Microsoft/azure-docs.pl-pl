@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733160"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982732"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Dowiedz się, jak Azure IoT Edge używa certyfikatów
 
@@ -36,7 +36,7 @@ Urząd certyfikacji (CA) jest w krótkim przypadku jednostką, która wystawia c
 
 ### <a name="root-ca-certificate"></a>Certyfikat głównego urzędu certyfikacji
 
-Certyfikat głównego urzędu certyfikacji jest głównym elementem zaufania całego procesu. W scenariuszach produkcyjnych ten certyfikat urzędu certyfikacji jest zwykle kupowany z zaufanego komercyjnego urzędu certyfikacji, takiego jak Baltimore, VeriSign lub DigiCert. Jeśli masz pełną kontrolę nad urządzeniami łączącymi się z IoT Edge urządzeniami, możliwe jest korzystanie z urzędu certyfikacji na poziomie firmy. W każdym z tych zdarzeń cały łańcuch certyfikatów z Centrum IoT Edge, w którym się znajduje, a więc urządzenia IoT muszą ufać certyfikatowi głównemu. Certyfikat głównego urzędu certyfikacji można przechowywać w magazynie zaufanych głównych urzędów certyfikacji lub podawać szczegóły certyfikatu w kodzie aplikacji.
+Certyfikat głównego urzędu certyfikacji jest głównym elementem zaufania całego procesu. W scenariuszach produkcyjnych ten certyfikat urzędu certyfikacji jest zwykle kupowany z zaufanego komercyjnego urzędu certyfikacji, takiego jak Baltimore, VeriSign lub DigiCert. Jeśli masz pełną kontrolę nad urządzeniami łączącymi się z IoT Edge urządzeniami, możliwe jest korzystanie z urzędu certyfikacji na poziomie firmy. W każdym z tych zdarzeń cały łańcuch certyfikatów z Centrum IoT Edge do niego, dlatego urządzenia IoT typu liść muszą ufać certyfikatowi głównemu. Certyfikat głównego urzędu certyfikacji można przechowywać w magazynie zaufanych głównych urzędów certyfikacji lub podawać szczegóły certyfikatu w kodzie aplikacji.
 
 ### <a name="intermediate-certificates"></a>Certyfikaty pośrednie
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113175"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786975"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -98,6 +98,9 @@ W tym modelu każda gałąź, która jest połączona z wirtualnym koncentratore
 Gałęzie mogą być połączone z koncentratorem wirtualnej sieci WAN platformy Azure przy użyciu obwodów usługi ExpressRoute i/lub połączeń sieci VPN typu lokacja-lokacja. Gałęzie można połączyć z koncentratorem wirtualnej sieci WAN, który znajduje się w regionie najbliższym gałęzi.
 
 Ta opcja umożliwia przedsiębiorstwom wykorzystanie szkieletu platformy Azure do łączenia gałęzi. Jednak mimo że ta funkcja jest dostępna, należy zastanowić się nad korzyściami z łączenia gałęzi za pośrednictwem wirtualnej sieci WAN platformy Azure a korzystanie z prywatnej sieci WAN.  
+
+> [!NOTE]
+> Wyłączanie połączenia rozgałęzienia z gałęzią w wirtualnej sieci WAN — wirtualna sieć WAN można skonfigurować tak, aby wyłączyć połączenie między gałęziami. Ta konfiguracji zablokuje propagację tras między sieciami VPN (S2S i P2S) i witrynami z łączami Express Route. Ta konfiguracja nie ma wpływu na propagację i łączność między gałęziami i sieciami wirtualnymi między sieciami wirtualnymi. Aby skonfigurować to ustawienie za pomocą witryny Azure Portal: menu Konfiguracja wirtualnej sieci WAN, wybierz ustawienie: rozgałęzienie-gałąź — wyłączone. 
 
 ### <a name="remote-user-to-vnet-c"></a>Zdalne użytkownika do sieci wirtualnej (c)
 

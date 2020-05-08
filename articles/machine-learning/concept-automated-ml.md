@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082013"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983469"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -130,11 +130,72 @@ Dostępne są również dodatkowe zaawansowane procesy przetwarzania wstępnego 
 
 + Zestaw SDK języka Python `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` : Określanie dla [ `AutoMLConfig` klasy](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a>Modele kompletów
+
+Automatyczne Uczenie maszynowe obsługuje modele kompletów, które są domyślnie włączone. Program dblearning podnosi wyniki uczenia maszynowego i wydajność predykcyjną przez połączenie wielu modeli w przeciwieństwie do korzystania z pojedynczych modeli. Iteracje kompletka są wyświetlane jako ostateczne iteracje przebiegu. Automatyczne Uczenie maszynowe używa metody "głosowania" i "stosu" do łączenia modeli:
+
+* **Głosowanie**: przewidywania w oparciu o średnią ważoną przewidywanych prawdopodobieństw zajęć (dla zadań klasyfikacji) lub przewidywane cele regresji (dla zadań regresji).
+* **Stosowanie**: stosy łączy heterogenicznych modele i pociąga za siebie model na podstawie danych wyjściowych z poszczególnych modeli. Bieżące domyślne meta models to LogisticRegression dla zadań klasyfikacji i ElasticNet dla zadań regresji/prognozowania.
+
+[Algorytm wyboru Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) DBZ posortowaną inicjalizacją kompletną służy do decydowania, które modele mają być używane w ramach tego modułu. Na wysokim poziomie ten algorytm inicjuje zespół z maksymalnie pięcioma modelami z najlepszymi wynikami i sprawdza, czy te modele mieszczą się w przedziale od 5% do największej wartości, aby uniknąć słabego początkowego elementu. Następnie dla każdej iteracji, nowy model jest dodawany do istniejącej, a wynik jest obliczany. Jeśli nowy model poprawi istniejący wynik, jego kompletność zostanie zaktualizowana w celu uwzględnienia nowego modelu.
+
+Zapoznaj się z [tematem jak](how-to-configure-auto-train.md#ensemble) zmienić domyślne ustawienia zestawu w usłudze automat Machine Learning.
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Wskazówki dotyczące lokalnego i zdalnego zarządzania ML obiektów docelowych obliczeń
+
+Interfejs sieci Web dla zautomatyzowanej ML zawsze używa zdalnego [miejsca docelowego obliczeń](concept-compute-target.md).  Ale w przypadku korzystania z zestawu SDK języka Python należy wybrać lokalne obliczenia lub zdalne miejsce docelowe obliczeń na potrzeby automatycznego szkolenia ML.
+
+* **Lokalne Obliczanie**: szkolenie odbywa się na lokalnym komputerze przenośnym lub w ramach obliczeń dotyczących maszyn wirtualnych. 
+* **Zdalne Obliczanie**: szkolenie odbywa się w przypadku Machine Learning klastrów obliczeniowych.  
+
+### <a name="choose-compute-target"></a>Wybierz element docelowy obliczeń
+Należy wziąć pod uwagę te czynniki podczas wybierania obiektu docelowego obliczeń:
+
+ * **Wybierz lokalne obliczenie**: Jeśli Twój scenariusz dotyczy wstępnych eksploracji lub pokazów przy użyciu małych danych i krótkich pociągów (tj. sekund lub kilku minut na uruchomienie podrzędne), szkolenie na komputerze lokalnym może być lepszym wyborem.  Nie ma czasu instalacji, zasoby infrastruktury (komputer lub maszyna wirtualna) są dostępne bezpośrednio.
+ * **Wybierz klaster obliczeniowy zdalnego ml**: w przypadku szkoleń z większymi zestawami danych, takimi jak w szkoleniu produkcyjnym tworzenie modeli, które wymagają dłuższych pociągów, usługa zdalne obliczenia zapewnia `AutoML` znacznie lepszą wydajność, ponieważ zrównoleglanie pociąga w węzłach klastra. W przypadku zdalnego obliczenia czas rozpoczęcia dla infrastruktury wewnętrznej zostanie dodany około 1,5 minut na uruchomienie podrzędne, a także dodatkowe minuty dla infrastruktury klastra, jeśli maszyny wirtualne nie są jeszcze uruchomione.
+
+### <a name="pros-and-cons"></a>Specjaliści i wady
+Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lokalnego i zdalnego.
+
+|  | Specjaliści (zalety)  |Wady (wady)  |
+|---------|---------|---------|---------|
+|**Lokalne miejsce docelowe obliczeń** |  <li> Brak czasu uruchomienia środowiska   | <li>  Podzbiór funkcji<li>  Nie można zrównoleglanie przebiegów <li> Gorsz w przypadku dużych ilości danych. <li>Brak przesyłania strumieniowego danych podczas uczenia <li>  Brak cechowania opartych na DNN <li> Tylko zestaw SDK języka Python |
+|**Klastry obliczeniowe zdalnej ML**|  <li> Pełny zestaw funkcji <li> Uruchomienia podrzędne zrównoleglanie <li>   Obsługa dużych ilości danych<li>  Cechowania DNN <li>  Dynamiczna skalowalność klastra obliczeniowego na żądanie <li> Dostępne są również środowiska bez kodu (interfejs użytkownika sieci Web)  |  <li> Czas uruchamiania węzłów klastra <li> Uruchom czas dla każdego uruchomienia podrzędnego    |
+
+### <a name="feature-availability"></a>Dostępność funkcji 
+
+ Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. Niektóre z tych funkcji są dostępne tylko w obszarze roboczym przedsiębiorstwa.
+
+| Funkcja                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | ✓                             |
+| DNN BERT tekstu cechowania i szkolenia             | ✓      |       | ✓                             |
+| Wbudowana obsługa procesora GPU (szkolenia i wnioskowanie)        | ✓      |       | ✓                             |
+| Obsługa klasyfikacji i etykietowania obrazów                  | ✓      |       | ✓                             |
+| Modele autoARIMA, Prophet i ForecastTCN do prognozowania | ✓      |       | ✓                             |
+| Wiele przebiegów/iteracji równolegle                       | ✓      |       | ✓                             |
+| Tworzenie modeli z możliwością interpretacji w interfejsie użytkownika środowiska Web AutoML Studio      | ✓      |       | ✓                             |
+| Dostosowywanie inżynierii funkcji w interfejsie użytkownika programu Studio Web Experience                        | ✓      |       | ✓                              |
+| Dostrajanie parametru do usługi Azure ML                             | ✓      |       |                               |
+| Obsługa przepływu pracy potoku usługi Azure ML                         | ✓      |       |                               |
+| Kontynuuj przebieg                                             | ✓      |       |                               |
+| Prognozowanie                                                | ✓      | ✓     | ✓                             |
+| Twórz i uruchamiaj eksperymenty w notesach                    | ✓      | ✓     |                               |
+| Zarejestruj i Wizualizuj informacje i metryki eksperymentu w interfejsie użytkownika | ✓      | ✓     |                               |
+| Guardrails danych                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>Automatyczna ML w Azure Machine Learning
+
+Azure Machine Learning oferuje dwa środowiska do pracy z automatycznymi ML
+
+* W przypadku kodów doświadczonych klientów [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* W przypadku klientów z ograniczoną ilością kodu, Azure Machine Learning Studio w[https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Studio VS SDK
-
-Dowiedz się więcej o parzystości i różnicach między zautomatyzowanymi funkcjami o wysokiej dostępności, które są dostępne za pomocą zestawu SDK języka Python i Studio w Azure Machine Learning. 
 
 ### <a name="experiment-settings"></a>Ustawienia eksperymentu 
 
@@ -181,17 +242,6 @@ Te ustawienia umożliwiają przeglądanie i kontrolowanie przebiegów eksperymen
 |Pobierz guardrails| ✓|✓|
 |Wstrzymywanie przebiegów & wznawiania| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Modele kompletów
-
-Automatyczne Uczenie maszynowe obsługuje modele kompletów, które są domyślnie włączone. Program dblearning podnosi wyniki uczenia maszynowego i wydajność predykcyjną przez połączenie wielu modeli w przeciwieństwie do korzystania z pojedynczych modeli. Iteracje kompletka są wyświetlane jako ostateczne iteracje przebiegu. Automatyczne Uczenie maszynowe używa metody "głosowania" i "stosu" do łączenia modeli:
-
-* **Głosowanie**: przewidywania w oparciu o średnią ważoną przewidywanych prawdopodobieństw zajęć (dla zadań klasyfikacji) lub przewidywane cele regresji (dla zadań regresji).
-* **Stosowanie**: stosy łączy heterogenicznych modele i pociąga za siebie model na podstawie danych wyjściowych z poszczególnych modeli. Bieżące domyślne meta models to LogisticRegression dla zadań klasyfikacji i ElasticNet dla zadań regresji/prognozowania.
-
-[Algorytm wyboru Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) DBZ posortowaną inicjalizacją kompletną służy do decydowania, które modele mają być używane w ramach tego modułu. Na wysokim poziomie ten algorytm inicjuje zespół z maksymalnie pięcioma modelami z najlepszymi wynikami i sprawdza, czy te modele mieszczą się w przedziale od 5% do największej wartości, aby uniknąć słabego początkowego elementu. Następnie dla każdej iteracji, nowy model jest dodawany do istniejącej, a wynik jest obliczany. Jeśli nowy model poprawi istniejący wynik, jego kompletność zostanie zaktualizowana w celu uwzględnienia nowego modelu.
-
-Zapoznaj się z [tematem jak](how-to-configure-auto-train.md#ensemble) zmienić domyślne ustawienia zestawu w usłudze automat Machine Learning.
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML & ONNX
@@ -202,20 +252,19 @@ Zobacz jak skonwertować do formatu ONNX [w tym przykładzie notesu Jupyter](htt
 
 Środowisko uruchomieniowe ONNX obsługuje również język C#, dzięki czemu można użyć modelu skompilowanego automatycznie w aplikacjach C# bez konieczności ponownego kodowania lub dowolnych opóźnień sieci, które wprowadzają punkty końcowe REST. Dowiedz się więcej o [modelach INFERENCING ONNX przy użyciu interfejsu API języka C# środowiska uruchomieniowego ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-
-
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz przykłady i Dowiedz się, jak tworzyć modele przy użyciu automatycznego uczenia maszynowego:
-
-+ Postępuj zgodnie z [samouczkiem: automatyczne uczenie modelu regresji z Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Skonfiguruj ustawienia dla eksperymentu automatycznego szkolenia:
   + W programie Azure Machine Learning Studio [wykonaj te kroki](how-to-use-automated-ml-for-ml-models.md).
   + Za pomocą zestawu SDK języka Python [wykonaj te kroki](how-to-configure-auto-train.md).
 
++ Dowiedz się, jak używać [zdalnego obiektu docelowego obliczeń](how-to-auto-train-remote.md)
+
++ Postępuj zgodnie z [samouczkiem: automatyczne uczenie modelu regresji z Azure Machine Learning](tutorial-auto-train-models.md) 
+
 + Dowiedz się, jak korzystać z funkcji autouczenia przy użyciu danych szeregów czasowych, [wykonując następujące kroki](how-to-auto-train-forecast.md).
 
 + Wypróbuj [Jupyter Notebook przykłady w celu automatycznego uczenia maszynowego](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-
 * Zautomatyzowana ML jest również dostępna w innych rozwiązaniach firmy Microsoft, takich jak [ml.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) i [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

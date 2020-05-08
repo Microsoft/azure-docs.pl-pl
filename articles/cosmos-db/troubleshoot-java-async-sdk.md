@@ -1,22 +1,35 @@
 ---
-title: Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB Async SDK Java
-description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB.
-author: moderakh
+title: Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB Async Java SDK V2
+description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB w asynchronicznym zestawie Java SDK V2.
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 04/30/2019
-ms.author: moderakh
+ms.date: 05/08/2020
+ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65519980"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982619"
 ---
-# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Rozwiązywanie problemów podczas korzystania z zestawu Java Async SDK z kontami interfejsu API SQL usługi Azure Cosmos DB
+# <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Rozwiązywanie problemów w przypadku korzystania z Azure Cosmos DB asynchronicznego zestawu Java SDK V2 z kontami interfejsu API SQL
+
+> [!div class="op_single_selector"]
+> * [Zestaw Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK 2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
+> [!IMPORTANT]
+> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Rozważ użycie Azure Cosmos DB Java SDK v4 dla projektu. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i [reaktorem programu vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+>
+> W tym artykule omówiono Rozwiązywanie problemów dotyczących Azure Cosmos DB asynchronicznego zestawu Java SDK V2. Aby uzyskać więcej informacji, zobacz informacje o [wersji](sql-api-sdk-async-java.md)Azure Cosmos DB asynchronicznego zestawu Java SDK V2, [repozytorium Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) i [porady dotyczące wydajności](performance-tips-async-java.md) .
+>
+
 W tym artykule opisano typowe problemy, obejścia, kroki diagnostyczne i narzędzia używane w przypadku korzystania z [asynchronicznego zestawu SDK Java](sql-api-sdk-async-java.md) z kontami interfejsu API SQL Azure Cosmos DB.
 Zestaw Java Async SDK zapewnia reprezentację logiczną po stronie klienta służącą do uzyskania dostępu do interfejsu API SQL usługi Azure Cosmos DB. W tym artykule opisano narzędzia i podejścia pomocne w przypadku napotkania jakichkolwiek problemów.
 
@@ -80,6 +93,9 @@ Zestaw SDK używa biblioteki [we/wy w celu](https://netty.io/) komunikowania si�
 Wątki we/wy są przeznaczone do użycia tylko dla nieblokujących sieci we/wy. Zestaw SDK zwraca wynik wywołania interfejsu API na jednym z wątków we/wy do kodu aplikacji. Jeśli aplikacja wykonuje długotrwałą operację po odebraniu wyników w wątku sieci, zestaw SDK może nie mieć wystarczającej liczby wątków we/wy do wykonania wewnętrznej operacji we/wy. Takie kodowanie aplikacji może spowodować niską przepływność, duże opóźnienia i `io.netty.handler.timeout.ReadTimeoutException` niepowodzenia. Obejście polega na przełączeniu wątku, gdy wiadomo, że operacja trwa.
 
 Na przykład zapoznaj się z poniższym fragmentem kodu. Można wykonywać długotrwałe zadania, które trwają więcej niż kilka milisekund w wątku. Jeśli tak, możesz przejść do stanu, w którym nie ma żadnego wątku we/wy w celu przetworzenia operacji we/wy. W związku z tym zostanie wyświetlony błąd ReadTimeoutException.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -131,13 +147,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   Obejście polega na zmianie wątku, w którym wykonywane są zadania. Zdefiniuj pojedyncze wystąpienie harmonogramu dla swojej aplikacji.
-   ```java
+Obejście polega na zmianie wątku, w którym wykonywane są zadania. Zdefiniuj pojedyncze wystąpienie harmonogramu dla swojej aplikacji.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika `customScheduler` przy użyciu `.observeOn(customScheduler)` interfejsu API.
+```
+Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika `customScheduler` przy użyciu `.observeOn(customScheduler)` interfejsu API.
+
+### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
+
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -169,7 +191,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()
 
 Powyższy wyjątek sugeruje, że masz zależność od starszej wersji biblioteki RxJava (np. 1.2.2). Nasze zestawy SDK opierają się na RxJava 1.3.8, która ma interfejsy API niedostępne w starszej wersji programu RxJava. 
 
-Obejście dla takich issuses polega na zidentyfikowaniu, która inna zależność znajduje się w RxJava-1.2.2 i wykluczać zależność przechodnią w RxJava-1.2.2 i Zezwalanie na CosmosDB zestawu SDK.
+Obejście tych problemów polega na zidentyfikowaniu, która inna zależność jest RxJava-1.2.2 i wykluczać zależność przechodnią w RxJava-1.2.2 i Zezwalanie na CosmosDB zestawu SDK.
 
 Aby określić, która biblioteka znajduje się w RxJava-1.2.2, uruchom następujące polecenie obok pliku Project pliku pom. XML:
 ```bash

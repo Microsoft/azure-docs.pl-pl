@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c003af296b10037505e6d6006b6bfc788e641dc3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731461"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930407"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Tworzenie puli hostów przy użyciu programu PowerShell
 
@@ -37,7 +37,7 @@ Uruchom następujące polecenie cmdlet, aby zalogować się do środowiska pulpi
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
 ```
 
-To polecenie cmdlet spowoduje utworzenie puli hostów, obszaru roboczego i grupy aplikacji klasycznych. Ponadto będzie ona rejestrować grupę aplikacji klasycznych w obszarze roboczym. Obszar roboczy można utworzyć tylko za pomocą tego polecenia cmdlet, nie używając istniejącego obszaru roboczego w tym poleceniu cmdlet. 
+To polecenie cmdlet spowoduje utworzenie puli hostów, obszaru roboczego i grupy aplikacji klasycznych. Ponadto będzie ona rejestrować grupę aplikacji klasycznych w obszarze roboczym. Możesz utworzyć obszar roboczy za pomocą tego polecenia cmdlet lub użyć istniejącego obszaru roboczego. 
 
 Uruchom następne polecenie cmdlet, aby utworzyć token rejestracji służący do autoryzowania hosta sesji do przyłączenia do puli hostów i zapisania go w nowym pliku na komputerze lokalnym. Możesz określić, jak długo token rejestracji jest prawidłowy przy użyciu parametru-ExpirationHours.
 

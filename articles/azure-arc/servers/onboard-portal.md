@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 40885e1de4ff4c16d2a50399c654d8596396ab53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366365"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980953"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -73,7 +73,7 @@ Na przykład Uruchom program instalacyjny z `/?` parametrem, aby przejrzeć opcj
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Aby zainstalować agenta w trybie dyskretnym i utworzyć plik dziennika instalacji w `C:\Support\Logs` folderze, uruchom następujące polecenie.
+Aby zainstalować agenta w trybie dyskretnym i utworzyć plik dziennika instalacji w `C:\Support\Logs` folderze, który istnieje, uruchom następujące polecenie.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
@@ -109,7 +109,7 @@ Restart-Service -Name himds
 
 Po zainstalowaniu agenta należy skonfigurować agenta do komunikowania się z usługą Azure ARC, uruchamiając następujące polecenie:
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Instalowanie i weryfikowanie agenta w systemie Linux
 
@@ -146,7 +146,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 Po zainstalowaniu agenta skonfiguruj go do komunikacji z usługą Azure ARC, uruchamiając następujące polecenie:
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Weryfikowanie połączenia z usługą Azure Arc
 

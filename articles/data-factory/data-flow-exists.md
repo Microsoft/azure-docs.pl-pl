@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 9c43b141608e5a9051499fdfb2adb5d8b0b593df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: 805b51bf4e6d8feab9539f660dfc72ca78b82d5c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232478"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982636"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Istnieje transformacja przepływu danych mapowania
 
@@ -21,7 +21,9 @@ ms.locfileid: "82232478"
 
 Transformacja EXISTS to transformacja filtrowania wierszy, która sprawdza, czy dane istnieją w innym źródle lub strumieniu. Strumień wyjściowy zawiera wszystkie wiersze w lewym strumieniu, który istnieje lub nie istnieje w odpowiednim strumieniu. Transformacja istnieje podobna do ```SQL WHERE EXISTS``` i. ```SQL WHERE NOT EXISTS```
 
-## <a name="configuration"></a>Konfiguracja
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
+
+## <a name="configuration"></a>Konfigurowanie
 
 1. Wybierz, który strumień danych ma być używany na liście rozwijanej **odpowiedniego strumienia** .
 1. Określ, czy chcesz, aby dane były już istniejące, czy nie istnieją w ustawieniu **typu istnieją** .

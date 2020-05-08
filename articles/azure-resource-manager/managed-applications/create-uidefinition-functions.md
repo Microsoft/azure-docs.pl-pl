@@ -5,17 +5,17 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248452"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980817"
 ---
 # <a name="createuidefinition-functions"></a>Funkcje CreateUiDefinition
 Ta sekcja zawiera sygnatury dla wszystkich obsługiwanych funkcji CreateUiDefinition.
 
-Aby użyć funkcji, należy ująć deklarację w nawiasy kwadratowe. Przykład:
+Aby użyć funkcji, należy ująć wywołanie z nawiasami kwadratowymi. Przykład:
 
 ```json
 "[function()]"
@@ -431,7 +431,7 @@ Poniższy przykład zwraca `true`:
 "[greaterOrEquals(2, 2)]"
 ```
 
-### <a name="and"></a>i
+### <a name="and"></a>and
 Zwraca `true` wartość, jeśli wszystkie parametry mają `true`być szacowane do. Ta funkcja obsługuje co najmniej dwa parametry typu Boolean.
 
 Poniższy przykład zwraca `true`:
@@ -485,6 +485,45 @@ Przyjmij `element1` i `element2` nie są zdefiniowane. Poniższy przykład zwrac
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
+Ta funkcja jest szczególnie przydatna w kontekście opcjonalnego wywołania, które następuje z powodu akcji użytkownika po załadowaniu strony. Przykładem jest to, że ograniczenia wprowadzone dla jednego pola w interfejsie użytkownika zależą od aktualnie wybranej wartości innego, **początkowo niewidocznego** pola. W takim przypadku można `coalesce()` użyć, aby zezwolić funkcji na składniowo, w czasie ładowania strony, podczas gdy użytkownik współdziała z polem.
+
+Należy to `DropDown`rozważyć, co umożliwia użytkownikowi wybór spośród kilku różnych typów baz danych:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+Aby warunkować akcję innego pola dla aktualnie wybranej wartości tego pola, użyj `coalesce()`, jak pokazano poniżej:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+Jest to konieczne, ponieważ `databaseType` początkowo nie jest widoczny i w związku z tym nie ma wartości. Powoduje to, że całe wyrażenie nie zostanie prawidłowo obliczone.
+
 ## <a name="conversion-functions"></a>Funkcje konwersji
 Te funkcje mogą służyć do konwertowania wartości między typami danych JSON a kodowaniem.
 
@@ -518,7 +557,7 @@ Poniższy przykład zwraca `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>ciąg
+### <a name="string"></a>string
 Konwertuje parametr na ciąg. Ta funkcja obsługuje parametry wszystkich typów danych JSON.
 
 Poniższy przykład zwraca `"1"`:
