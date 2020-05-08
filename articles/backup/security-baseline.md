@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: acc8ceaa96f6fddafdbf4aa74ab9e43a1a60714a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 68453341defd2d359e69e0ecf8a821464fead0d3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195676"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744059"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Podstawa zabezpieczeń platformy Azure dla kopii zapasowej
 
@@ -460,7 +460,7 @@ Firma Microsoft zarządza podstawową infrastrukturą dla Azure Backup i ma zaim
 
 **Wskazówki**: ruch kopii zapasowych z serwerów do magazynu Recovery Services jest przesyłany za pośrednictwem bezpiecznego łącza https i szyfrowany przy użyciu Advanced Encryption Standard (AES) 256, gdy jest przechowywany w magazynie.
 
-- [Informacje o szyfrowaniu przechowywane w Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Informacje o szyfrowaniu przechowywane w Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -508,7 +508,7 @@ Azure Backup udostępnia trzy wbudowane role do kontrolowania operacji zarządza
 
 Podczas tworzenia kopii zapasowej przy użyciu agenta MARS lub magazynu Recovery Services szyfrowanego z kluczem zarządzanym przez klienta tylko ty masz dostęp do klucza szyfrowania. Firma Microsoft nigdy nie przechowuje kopii i nie ma dostępu do klucza. W przypadku utraty klucza firma Microsoft nie może odzyskać danych kopii zapasowej.
 
-- [Informacje o szyfrowaniu dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption)
+- [Informacje o szyfrowaniu dla Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 
@@ -902,7 +902,7 @@ Utwórz kopię zapasową kluczy zarządzanych przez klienta w Azure Key Vault.
 
 - [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Informacje o szyfrowaniu w Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys)
+- [Informacje o szyfrowaniu w Azure Backup](https://docs.microsoft.com/azure/backup/backup-encryption#encryption-of-backup-data-using-customer-managed-keys)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

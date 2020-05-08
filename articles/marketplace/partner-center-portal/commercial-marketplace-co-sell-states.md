@@ -1,22 +1,22 @@
 ---
-title: Kody stanu i województwa współsprzedawanego | Portal Azure Marketplace
-description: Użyj tych kodów województwa podczas udostępniania informacji kontaktowych na stronie współsprzedaży oferty.
+title: Kody stanu i województwa współsprzedawanego w witrynie Azure Marketplace
+description: Uzyskaj dostępne kody stanu i powiatu podczas udostępniania informacji kontaktowych na stronie współsprzedaży oferty w witrynie Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a39cb5f49c9f038f567b7f3322b5962bc1dc9fc8
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619359"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744700"
 ---
-# <a name="co-sell-state-and-province-codes"></a>Kody stanu i województwa współsprzedawanego
+# <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Kody stanu i województwa współsprzedawanego w witrynie Azure Marketplace
 
-Jeśli ma to zastosowanie, Użyj tych kodów, aby podać informacje o stanie/prowincji podczas [udostępniania informacji kontaktowych na stronie współpracownika oferty](commercial-marketplace-co-sell.md#contacts).
+Ten artykuł zawiera listę dostępnych kodów stanu i powiatu podczas udostępniania informacji kontaktowych na stronie współsprzedaży oferty. Jeśli ma to zastosowanie, Użyj tych kodów, aby podać informacje o stanie/prowincji podczas [udostępniania informacji kontaktowych na stronie współpracownika oferty](commercial-marketplace-co-sell.md#contacts).
 
 ## <a name="us-states-and-territories"></a>Stany USA i terytoria
 

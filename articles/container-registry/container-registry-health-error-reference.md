@@ -3,12 +3,12 @@ title: Informacje o błędzie dotyczące kontroli kondycji
 description: Kody błędów i możliwe rozwiązania problemów odnalezionych przez uruchomienie polecenia AZ ACR Check-Health Diagnostic w Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289145"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978318"
 ---
 # <a name="health-check-error-reference"></a>Informacje o błędach sprawdzania kondycji
 
@@ -58,7 +58,7 @@ Ten błąd oznacza, że serwer DNS dla danego serwera logowania rejestru został
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Ten błąd oznacza, że punkt końcowy wyzwania dla danego rejestru odpowiedział z niedozwolonym stanem HTTP 403. Ten błąd oznacza, że użytkownicy nie mają dostępu do rejestru, najprawdopodobniej ze względu na konfigurację sieci wirtualnej. Aby wyświetlić aktualnie skonfigurowane reguły zapory, uruchom `az acr show --query networkRuleSet --name <registry>`polecenie.
+Ten błąd oznacza, że punkt końcowy wyzwania dla danego rejestru odpowiedział z niedozwolonym stanem HTTP 403. Ten błąd oznacza, że użytkownicy nie mają dostępu do rejestru, najprawdopodobniej ze względu na konfigurację sieci wirtualnej lub że dostęp do publicznego punktu końcowego rejestru jest niedozwolony. Aby wyświetlić aktualnie skonfigurowane reguły zapory, uruchom `az acr show --query networkRuleSet --name <registry>`polecenie.
 
 *Potencjalne rozwiązania*: Usuń reguły sieci wirtualnej lub Dodaj bieżący adres IP klienta do listy dozwolonych.
 

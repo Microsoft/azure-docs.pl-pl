@@ -12,7 +12,7 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "67183872"
 ---
 - **Szczegóły zamówienia**. Gdy zamówienie zostanie utworzone, adres wysyłkowy, adres e-mail i informacje kontaktowe użytkownika są przechowywane w Azure Portal. Zapisane informacje obejmują:
-  - Nazwisko osoby kontaktowej
+  - Nazwa kontaktu
   - Numer telefonu
   - Adres e-mail
   - Adres

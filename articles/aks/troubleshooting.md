@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368336"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778961"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -58,7 +58,7 @@ Przyczyną ostrzeżeń na pulpicie nawigacyjnym jest to, że klaster jest teraz 
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Nie mogę nawiązać połączenia z pulpitem nawigacyjnym. Co mam zrobić?
 
-Najprostszym sposobem, aby uzyskać dostęp do usługi poza klastrem, `kubectl proxy`jest uruchomienie, które serwery proxy żądania wysyłane do portu localhost 8001 do serwera interfejsu API Kubernetes. Z tego miejsca serwer interfejsu API może być serwerem proxy usługi: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+Najprostszym sposobem, aby uzyskać dostęp do usługi poza klastrem, `kubectl proxy`jest uruchomienie, które serwery proxy żądania wysyłane do portu localhost 8001 do serwera interfejsu API Kubernetes. Z tego miejsca serwer interfejsu API może być serwerem proxy usługi: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
 
 Jeśli nie widzisz pulpitu nawigacyjnego Kubernetes, sprawdź, `kube-proxy` czy pod `kube-system` przestrzeni nazw jest uruchomiony program. Jeśli nie jest w stanie uruchomionym, Usuń element pod, a zostanie uruchomiony ponownie.
 
@@ -192,7 +192,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | -- | :--: |
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Nie dotyczy |
+| 1,12 i nowsze | Brak |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
 
@@ -266,7 +266,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1,11 | 1.11.5 lub nowszy |
 | 1.12 | 1.12.3 lub nowszy |
 | 1.13 | 1.13.0 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, czekając kilka minut i ponawiając próbę.
 
@@ -287,7 +287,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1,11 | 1.11.6 lub nowszy |
 | 1.12 | 1.12.4 lub nowszy |
 | 1.13 | 1.13.0 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, wykonując następujące czynności:
 
@@ -308,7 +308,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1,11 | 1.11.9 lub nowszy |
 | 1.12 | 1.12.7 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, ręcznie odłączając dysk.
 
@@ -323,7 +323,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a maszyna wirtualna węzła ma przestarzałą listę dysków, możesz rozwiązać ten problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako pojedynczą operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
@@ -343,7 +343,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Nie dotyczy |
+| 1,15 i nowsze | Brak |
 
 Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a maszyna wirtualna w węźle jest w stanie awarii, możesz rozwiązać problem, ręcznie aktualizując stan maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
@@ -460,7 +460,7 @@ Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 | -- | :--: |
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Nie dotyczy |
+| 1,14 i nowsze | Brak |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Azure Files instalacji nie powiodła się z powodu zmiany klucza konta magazynu
 

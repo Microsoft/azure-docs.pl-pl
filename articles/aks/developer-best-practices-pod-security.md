@@ -1,18 +1,17 @@
 ---
-title: Najlepsze rozwiązania w zakresie zabezpieczeń
-titleSuffix: Azure Kubernetes Service
+title: Najlepsze rozwiązania dla deweloperów — zabezpieczenia pod kątem usługi Azure Kubernetes Services (AKS)
 description: Poznaj najlepsze rozwiązania dla deweloperów dotyczące zabezpieczania zasobników w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804388"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779075"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -75,7 +74,7 @@ Aby ograniczyć ryzyko ujawnienia poświadczeń w kodzie aplikacji, należy unik
 Następujące [skojarzone projekty typu open source AKS][aks-associated-projects] umożliwiają automatyczne uwierzytelnianie z magazynów lub zażądanie poświadczeń i kluczy z magazynu cyfrowego:
 
 * Zarządzane tożsamości dla zasobów platformy Azure i
-* Sterownik FlexVol Azure Key Vault
+* [Dostawca Azure Key Vault dla sterownika CSI magazynu wpisów tajnych](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 Skojarzone projekty open source AKS nie są obsługiwane przez pomoc techniczną platformy Azure. Są one dostarczane w celu zebrania opinii i usterek z naszej społeczności. Te projekty nie są zalecane do użycia w środowisku produkcyjnym.
 
@@ -89,28 +88,28 @@ Przy użyciu tożsamości zarządzanej kod aplikacji nie musi zawierać poświad
 
 Aby uzyskać więcej informacji o tożsamościach pod, zobacz [Konfigurowanie klastra AKS do użycia z tożsamościami zarządzanymi i aplikacjami][aad-pod-identity] .
 
-### <a name="use-azure-key-vault-with-flexvol"></a>Używanie Azure Key Vault z FlexVol
+### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Użyj Azure Key Vault ze sterownikiem CSI magazynu kluczy tajnych
 
-Tożsamości zarządzane pod są doskonałe do uwierzytelniania w celu obsługi usług platformy Azure. W przypadku własnych usług lub aplikacji bez tożsamości zarządzanych dla zasobów platformy Azure nadal można uwierzytelniać się przy użyciu poświadczeń lub kluczy. Magazyn cyfrowy może służyć do przechowywania tych poświadczeń.
+Korzystanie z projektu tożsamości pod Identity umożliwia uwierzytelnianie w celu obsługi usług platformy Azure. W przypadku własnych usług lub aplikacji bez tożsamości zarządzanych dla zasobów platformy Azure można nadal uwierzytelniać się przy użyciu poświadczeń lub kluczy. Magazyn cyfrowy może służyć do przechowywania zawartości tego klucza tajnego.
 
-Gdy aplikacje potrzebują poświadczeń, komunikują się z magazynem cyfrowym, pobierają najnowsze poświadczenia, a następnie nawiązują połączenie z wymaganą usługą. Azure Key Vault może to być ten magazyn cyfrowy. Uproszczony przepływ pracy służący do pobierania poświadczeń z Azure Key Vault przy użyciu tożsamości zarządzanych pod na poniższym diagramie:
+Gdy aplikacje potrzebują poświadczeń, komunikują się z magazynem cyfrowym, pobierają najnowszą zawartość, a następnie nawiązują połączenie z wymaganą usługą. Azure Key Vault może to być ten magazyn cyfrowy. Uproszczony przepływ pracy służący do pobierania poświadczeń z Azure Key Vault przy użyciu tożsamości zarządzanych pod na poniższym diagramie:
 
-![Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![Uproszczony przepływ pracy służący do pobierania poświadczeń z Key Vault przy użyciu tożsamości zarządzanej pod](media/developer-best-practices-pod-security/basic-key-vault.png)
 
-Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, takie jak poświadczenia, klucze konta magazynu lub certyfikaty. Azure Key Vault można zintegrować z klastrem AKS przy użyciu FlexVolume. Sterownik FlexVolume umożliwia klastrowi AKS natywne pobieranie poświadczeń z Key Vault i bezpieczne udostępnianie ich tylko żądającemu. Pracuj z operatorem klastra, aby wdrożyć Key Vault sterownik FlexVol na węzłach AKS. Możesz użyć tożsamości zarządzanej pod, aby zażądać dostępu do Key Vault i pobrać wymagane poświadczenia za pomocą sterownika FlexVolume.
+Dzięki Key Vault można przechowywać i regularnie przekazywać wpisy tajne, takie jak poświadczenia, klucze konta magazynu lub certyfikaty. Azure Key Vault można zintegrować z klastrem AKS przy użyciu [dostawcy Azure Key Vault dla sterownika CSI magazynu](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)Secret. Sterownik CSI magazynu wpisów tajnych umożliwia klastrowi AKS natywne pobieranie zawartości wpisu tajnego z Key Vault i bezpieczne dostarczanie ich tylko do żądania pod. Pracuj z operatorem klastra, aby wdrożyć sterownik CSI magazynu kluczy tajnych na węzłach procesu roboczego AKS. Możesz użyć tożsamości zarządzanej pod, aby zażądać dostępu do Key Vault i pobrać zawartość klucza tajnego wymaganą przez sterownik CSI magazynu wpisów tajnych.
 
-Azure Key Vault z FlexVol jest przeznaczony do użytku z aplikacjami i usługami działającymi w ramach systemów i węzłów systemu Linux.
+Azure Key Vault za pomocą sterownika CSI magazynu kluczy tajnych można używać w przypadku węzłów systemu Linux i Kubernetes, które wymagają wersji 1,16 lub nowszej. W przypadku węzłów systemu Windows i Kubernetes jest wymagana wersja 1,18 lub nowsza.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Ten artykuł koncentruje się na sposobach zabezpieczania swoich zasobników. Aby zaimplementować niektóre z tych obszarów, zobacz następujące artykuły:
 
 * [Korzystanie z tożsamości zarządzanych dla zasobów platformy Azure z usługą AKS][aad-pod-identity]
-* [Integracja Azure Key Vault z usługą AKS][aks-keyvault-flexvol]
+* [Integracja Azure Key Vault z usługą AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
-[aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects

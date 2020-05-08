@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509826"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980902"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Zaawansowane funkcje Eksploratora metryk platformy Azure
 
@@ -137,9 +137,6 @@ Po skonfigurowaniu wykresów linie wykresu zostaną automatycznie przypisane do 
 Aby zmienić kolor linii wykresu, kliknij kolorowy pasek w legendzie, który odnosi się do wykresu. Zostanie otwarte okno dialogowe selektora kolorów. Użyj próbnika kolorów, aby skonfigurować kolor linii.
 
 Po skonfigurowaniu kolorów wykresu pozostaną one w taki sposób, gdy przypinasz wykres do pulpitu nawigacyjnego. W poniższej sekcji pokazano, jak przypiąć wykres.
-
-> [!NOTE]
-> Ze względu na ograniczenia naszej wersji i harmonogramu publikowania zmiana kolorów linii wykresu jest tymczasowo wymagana do przekazania specjalnego parametru **? Funkcja. colorpicker = true** podczas uruchamiania Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). To ograniczenie zostanie wkrótce usunięte. 
 
 ![obraz metryki](./media/metrics-charts/018.png)
 

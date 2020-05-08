@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/25/2020
-ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183300"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735389"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -57,7 +57,7 @@ Użyj działania przepływu danych do przekształcania i przenoszenia danych za 
 Właściwość | Opis | Dozwolone wartości | Wymagany
 -------- | ----------- | -------------- | --------
 przepływu danych | Odwołanie do przepływu danych, który jest wykonywany | DataFlowReference | Tak
-integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja automatycznie Rozwiązuj środowisko Azure Integration Runtime | IntegrationRuntimeReference | Nie
+integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. Obsługiwane są tylko środowisko Integration Runtime regionu do rozwiązywania problemów. | IntegrationRuntimeReference | Nie
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
 przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi SQL DW, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
@@ -75,13 +75,13 @@ Właściwości liczba rdzeni i typ obliczeń można skonfigurować dynamicznie, 
 
 ### <a name="data-flow-integration-runtime"></a>Środowisko Integration Runtime
 
-Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych i bez czasu wygaśnięcia (TTL). Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. Możesz tworzyć własne środowiska Azure Integration Runtime, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych.
+Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych i bez czasu wygaśnięcia (TTL). Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. Możesz tworzyć własne środowiska Azure Integration Runtime, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych. W tej chwili działania przepływu danych obsługują tylko środowisko Integration Runtime (automatyczne rozwiązanie).
 
 W przypadku wykonań potoku klaster jest klastrem zadań, co potrwa kilka minut, zanim uruchomienie zostanie rozpoczęte. Jeśli nie określono czasu wygaśnięcia, ten czas uruchamiania jest wymagany dla każdego uruchomienia potoku. W przypadku określenia czasu wygaśnięcia (TTL) w czasie określonym po ostatnim wykonaniu zostanie uaktywniona bezczynna Pula klastra, co spowoduje skrócenie czasu uruchomienia. Jeśli na przykład czas wygaśnięcia wynosi 60 minut i uruchomisz na nim przepływ danych raz na godzinę, Pula klastrów pozostanie aktywna. Aby uzyskać więcej informacji, zobacz [Azure Integration Runtime](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
-> [!NOTE]
+> [!IMPORTANT]
 > Integration Runtime wybór w działaniu przepływu danych dotyczy tylko *wyzwolonych wykonań* potoku. Debugowanie potoku za pomocą przepływów danych przebiega w klastrze określonym w sesji debugowania.
 
 ### <a name="polybase"></a>PolyBase
@@ -98,9 +98,7 @@ Jeśli przepływ danych używa sparametryzowane zestawy danych, ustaw wartości 
 
 ### <a name="parameterized-data-flows"></a>Sparametryzowane przepływy danych
 
-Jeśli przepływ danych jest sparametryzowane, ustaw wartości dynamiczne parametrów przepływu danych na karcie **Parametry** . Do przypisywania wartości parametrów dynamicznych lub literalnych można użyć języka wyrażeń potoku ADF lub języka wyrażeń przepływu danych. Aby uzyskać więcej informacji, zobacz [parametry przepływu danych](parameters-data-flow.md). Jeśli chcesz uwzględnić właściwości potoku jako część wyrażenia do przekazania do parametru przepływu danych, wybierz pozycję wyrażenia potoku.
-
-![Przykład parametru przepływu danych](media/data-flow/parameter-example.png "Przykład parametru")
+Jeśli przepływ danych jest sparametryzowane, ustaw wartości dynamiczne parametrów przepływu danych na karcie **Parametry** . Do przypisywania wartości parametrów dynamicznych lub literalnych można użyć języka wyrażeń potoku ADF lub języka wyrażeń przepływu danych. Aby uzyskać więcej informacji, zobacz [parametry przepływu danych](parameters-data-flow.md).
 
 ### <a name="parameterized-compute-properties"></a>Sparametryzowane właściwości obliczeniowe.
 
