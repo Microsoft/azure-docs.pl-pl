@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3ec7021e63257a3c9f8cf84c6ddc0c3707fbf3bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209030"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928633"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -36,57 +36,58 @@ Aplikacje nie muszą zmieniać adresu URL połączenia. Podczas próby rozwiąza
 
 W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem w poniższej tabeli:
 
-|Typ zasobu link prywatny   |Układ zasobów podrzędnych  |Nazwa strefy  |
-|---------|---------|---------|
-|Baza danych SQL (Microsoft. SQL/Server)    |  Program SQL Server (sqlServer)        |   privatelink.database.windows.net       |
-|Azure Synapse Analytics (Microsoft. SQL/serwery)    |  Program SQL Server (sqlServer)        | privatelink.database.windows.net |
-|Konto magazynu (Microsoft. Storage/storageAccounts)    |  Obiekt BLOB (BLOB, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Konto magazynu (Microsoft. Storage/storageAccounts)    |    Tabela (tabela, table_secondary)      |   privatelink.table.core.windows.net       |
-|Konto magazynu (Microsoft. Storage/storageAccounts)    |    Kolejka (Kolejka, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Konto magazynu (Microsoft. Storage/storageAccounts)   |    Plik (plik, file_secondary)      |    privatelink.file.core.windows.net      |
-|Konto magazynu (Microsoft. Storage/storageAccounts)     |  Sieć Web (sieć Web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Gen2 systemu plików Data Lake (Microsoft. Storage/storageAccounts)  |  Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL    |privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB    |privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin    |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabela|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL — pojedynczy serwer (Microsoft. DBforPostgreSQL/serwery)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Azure Database for MySQL (Microsoft. DBforMySQL/serwery)|Mójserwersql|privatelink.mysql.database.azure.com|
-|Azure Database for MariaDB (Microsoft. DBforMariaDB/serwery)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Azure Key Vault (magazyn/magazyny Microsoft. kluczy)|magazyn|privatelink.vaultcore.azure.net|
-|Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)    | managedCluster | {GUID}. privatelink. {Region}. azmk8s. IO|
-|Azure Search (Microsoft. Search/searchServices)|searchService|privatelink.search.windows.net|   
-|Azure Container Registry (Microsoft. ContainerRegistry/rejestry) | registry | privatelink.azurecr.io |
-|Konfiguracja aplikacji platformy Azure (Microsoft. Appconfiguration/configurationStores)| Magazyn konfiguracji | privatelink.azconfig.io|
-|Azure Backup (Microsoft. RecoveryServices/magazyny)| magazyn |privatelink. {Region}. Backup. windowsazure. com|
-|Centrum zdarzeń platformy Azure (Microsoft. EventHub/przestrzenie nazw)| namespace |privatelink.servicebus.windows.net|
-|Azure Service Bus (Microsoft. ServiceBus/przestrzenie nazw) | namespace |privatelink.servicebus.windows.net|
-|Azure Relay (Microsoft. Relay/przestrzenie nazw) | namespace |privatelink.servicebus.windows.net|
-|Azure Event Grid (Microsoft. EventGrid/tematy)     | temat | rozdziału. {Region}. privatelink. eventgrid. Azure. NET|
-|Azure Event Grid (Microsoft. EventGrid/domen) | domena | domeny. {Region}. privatelink. eventgrid. Azure. NET |
-|Azure webapps (Microsoft. Web/Sites)    | lokacja | privatelink.azurewebsites.net |
-|Azure Machine Learning (Microsoft. MachineLearningServices/obszary robocze)    | obszar roboczy | privatelink.api.azureml.ms |
+| Prywatny typ zasobu linku/zasób |Nazwa strefy Prywatna strefa DNS | Nazwa publicznej strefy DNS |
+|---|---|---|---|
+| SQL DB (Microsoft. SQL/Server)/SQL Server | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft. SQL/Server)/SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Konto magazynu (Microsoft. Storage/storageAccounts)/obiekt BLOB (BLOB, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
+| Konto magazynu (Microsoft. Storage/storageAccounts)/tabela (tabela, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
+| Konto magazynu (Microsoft. Storage/storageAccounts)/Queue (Queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
+| Konto magazynu (Microsoft. Storage/storageAccounts)/plik (plik, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
+| Konto magazynu (Microsoft. Storage/storageAccounts)/Web (Web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
+| Data Lake Gen2 systemu plików (Microsoft. Storage/storageAccounts)/Data Lake system plików Gen2 (DFS, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/SQL | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/tabela | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Database for PostgreSQL — pojedynczy serwer (Microsoft. DBforPostgreSQL/serwery)/postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+| Azure Database for MySQL (Microsoft. DBforMySQL/Servers)/sqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+| Azure Database for MariaDB (Microsoft. DBforMariaDB/serwery)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
+| Azure Key Vault (magazyn/magazyny firmy Microsoft)/magazyn | privatelink.vaultcore.azure.net | vault.azure.net |
+| Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)/managedCluster | privatelink. {Region}. azmk8s. IO | {Region}. azmk8s. IO |
+| Azure Search (Microsoft. Search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
+| Azure Container Registry (Microsoft. ContainerRegistry/rejestry)/rejestr | privatelink.azurecr.io | azurecr.io |
+| Konfiguracja aplikacji platformy Azure (Microsoft. AppConfiguration/configurationStores)/magazyn konfiguracji | privatelink.azconfig.io | azconfig.io |
+| Azure Backup (Microsoft. RecoveryServices/magazyny)/magazyn | privatelink. {Region}. Backup. windowsazure. com | {Region}. Backup. windowsazure. com |
+| Centrum zdarzeń platformy Azure (Microsoft. EventHub/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Service Bus (Microsoft. ServiceBus/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Relay (Microsoft. Relay/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Event Grid (Microsoft. EventGrid/tematy)/temat | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| Azure Event Grid (Microsoft. EventGrid/domen)/domena | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| Azure webapps (Microsoft. Web/Sites)/lokacja | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/obszar roboczy | privatelink.api.azureml.ms | api.azureml.ms |
+
  
 
 
 ## <a name="dns-configuration-scenarios"></a>Scenariusze konfiguracji DNS
 
-Nazwa FQDN usług rozpoznaje publiczny adres IP, należy zmienić konfigurację DNS w celu rozpoznania prywatnego adresu IP prywatnego punktu końcowego.
+Nazwa FQDN usług jest automatycznie rozpoznawana jako publiczny adres IP, dlatego w celu rozwiązania problemu z prywatnym adresem IP prywatnego punktu końcowego należy odpowiednio zmienić konfigurację DNS.
 
 System DNS jest składnikiem krytycznym, aby aplikacja działała poprawnie przez rozwiązanie w sposób właściwy dla prywatnego adresu IP punktu końcowego.
 
 W oparciu o Twoje preferencje następujące scenariusze są dostępne dla zintegrowanego rozpoznawania nazw DNS:
 
-- [Virtual Network obciążeń bez niestandardowego serwera DNS](#virtual-network-workloads-without-custom-dns-server)
+- [Obciążenia sieci wirtualnej bez niestandardowego serwera DNS](#virtual-network-workloads-without-custom-dns-server)
+- [Obciążenia lokalne przy użyciu usługi przesyłania dalej DNS](#on-premises-workloads-using-a-dns-forwarder)
 
-
-## <a name="virtual-network-workloads-without-custom-dns-server"></a>Virtual Network obciążeń bez niestandardowego serwera DNS
+## <a name="virtual-network-workloads-without-custom-dns-server"></a>Obciążenia sieci wirtualnej bez niestandardowego serwera DNS
 
 Ta konfiguracja jest odpowiednia dla obciążeń sieci wirtualnej bez niestandardowego serwera DNS. W tym scenariuszu klient wysyła zapytania o adres IP prywatnego punktu końcowego do platformy Azure [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)DNS. Azure DNS będzie odpowiedzialna za rozpoznawanie nazw DNS prywatnych stref DNS.
 
 
- > [!NOTE]
+> [!NOTE]
 > W tym scenariuszu jest używana zalecana Prywatna strefa DNS strefa usługi Azure SQL Database. W przypadku innych usług można dostosować model przy użyciu następującej [konfiguracji strefy DNS usług platformy Azure](#azure-services-dns-zone-configuration).
 
 Aby można było skonfigurować poprawne, potrzebne są następujące zasoby:
@@ -99,16 +100,60 @@ Aby można było skonfigurować poprawne, potrzebne są następujące zasoby:
 
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z obciążeń sieci wirtualnej przy użyciu prywatnej strefy DNS
 
-:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="jedna sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="Pojedyncza Sieć wirtualna i usługa DNS udostępniona przez platformę Azure":::
 
 Ten model można rozszerzyć na wiele równorzędnych sieci wirtualnych, które są skojarzone z tym samym prywatnym punktem końcowym. Można to zrobić przez [dodanie nowych linków sieci wirtualnej](../dns/private-dns-virtual-network-links.md) do prywatnej strefy DNS dla wszystkich równorzędnych sieci wirtualnych.
 
- > [!IMPORTANT]
+> [!IMPORTANT]
 >  W przypadku tej konfiguracji wymagana jest pojedyncza prywatna strefa DNS, tworząc wiele stref o takiej samej nazwie dla różnych sieci wirtualnych, aby scalić rekordy DNS, należy wykonać czynności ręczne
 
 W tym scenariuszu istnieje topologia sieci w [centrum & szprychy](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) z sieciami szprych, które udostępniają wspólny prywatny punkt końcowy, a wszystkie sieci wirtualne szprych są połączone z tą samą prywatną strefą DNS. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="centrum i szprycha z systemem DNS dostarczonym przez platformę Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Centrum i szprycha z systemem DNS dostarczonym przez platformę Azure":::
+
+## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Obciążenia lokalne przy użyciu usługi przesyłania dalej DNS
+ 
+W przypadku obciążeń lokalnych aby można było rozpoznać nazwę FQDN prywatnego punktu końcowego w prywatnym adresie IP, należy użyć usługi przesyłania dalej DNS w celu zapewnienia rozdzielczości [publicznej strefy DNS](#azure-services-dns-zone-configuration) usługi platformy Azure wdrożonej na platformie Azure.
+
+
+Następujący scenariusz jest odpowiedni dla sieci lokalnej, która ma usługę przesyłania dalej DNS na platformie Azure, która z kolei jest odpowiedzialna za rozpoznawanie wszystkich zapytań DNS za pośrednictwem usługi przesyłania dalej na poziomie serwera na platformie Azure [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) DNS. 
+
+> [!NOTE]
+> W tym scenariuszu jest używana zalecana Prywatna strefa DNS strefa usługi Azure SQL Database.W przypadku innych usług można dostosować model przy użyciu następującej [konfiguracji strefy DNS usług platformy Azure](#azure-services-dns-zone-configuration).
+
+Aby można było skonfigurować poprawne, potrzebne są następujące zasoby:
+
+- W sieci lokalnej
+- Sieć wirtualna [połączona z lokalnym](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) systemem
+- Usługa przesyłania dalej DNS wdrożona na platformie Azure 
+- Prywatna strefa DNS stref [privatelink.Database.Windows.NET](../dns/private-dns-privatednszone.md) z [rekordem typu A](../dns/dns-zones-records.md#record-types)
+- Prywatne informacje o punkcie końcowym (nazwa rekordu FQDN i prywatny adres IP)
+
+Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z lokalnej sieci, która używa usługi przesyłania dalej DNS wdrożonej na platformie Azure, gdzie rozwiązanie jest wykonywane przez prywatną strefę DNS połączoną z siecią wirtualną.
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="Lokalne przy użyciu Azure DNS":::
+
+Tę konfigurację można rozszerzyć dla sieci lokalnej, która ma już rozwiązanie DNS. 
+Lokalne rozwiązanie DNS musi być skonfigurowane do przekazywania ruchu DNS do Azure DNS za pośrednictwem [usługi przesyłania dalej warunkowego](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) , która odwołuje się do usługi przesyłania dalej DNS wdrożonej na platformie Azure.
+
+> [!NOTE]
+> W tym scenariuszu jest używana zalecana Prywatna strefa DNS strefa usługi Azure SQL Database.W przypadku innych usług można dostosować model przy użyciu następującej [konfiguracji strefy DNS usług platformy Azure](#azure-services-dns-zone-configuration).
+
+Aby można było skonfigurować poprawne, potrzebne są następujące zasoby:
+
+
+- W sieci lokalnej z niestandardowym rozwiązaniem DNS 
+- Sieć wirtualna [połączona z lokalnym](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) systemem
+- Usługa przesyłania dalej DNS wdrożona na platformie Azure
+- Prywatna strefa DNS stref [privatelink.Database.Windows.NET](../dns/private-dns-privatednszone.md)  z [rekordem typu A](../dns/dns-zones-records.md#record-types)
+- Prywatne informacje o punkcie końcowym (nazwa rekordu FQDN i prywatny adres IP)
+
+Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z lokalnej sieci, która warunkowo przekazuje ruch DNS do platformy Azure, gdzie rozwiązanie jest wykonywane przez prywatną strefę DNS połączoną z siecią wirtualną.
+
+> [!IMPORTANT]
+> Warunkowe przekazywanie należy przeprowadzić do [publicznej strefy](#azure-services-dns-zone-configuration) DNS ex: `database.windows.net` , zamiast **privatelink**. Database.Windows.NET
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-forwarding-to-azure.png" alt-text="Lokalne przekazywanie do Azure DNS":::
 
 
 ## <a name="next-steps"></a>Następne kroki

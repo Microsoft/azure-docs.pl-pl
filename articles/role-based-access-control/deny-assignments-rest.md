@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy Odmów przypisań zasobów platformy Azure za pomocą interfejsu API REST
-description: Dowiedz się, jak lista odrzuconych przypisań dla użytkowników, grup i aplikacji przy użyciu kontroli dostępu opartej na rolach (RBAC) dla zasobów platformy Azure i interfejsu API REST.
+title: Wyświetlanie listy przypisań Odmów platformy Azure przy użyciu interfejsu API REST — RBAC
+description: Dowiedz się, jak wyświetlić listę przypisań Odmów na platformie Azure dla użytkowników, grup i aplikacji przy użyciu interfejsu API REST i kontroli dostępu opartej na rolach platformy Azure (RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063028"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733874"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Wyświetlanie listy Odmów przypisań zasobów platformy Azure przy użyciu interfejsu API REST
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>Wyświetlanie listy przypisań Odmów platformy Azure przy użyciu interfejsu API REST
 
-[Odmowa przypisania](deny-assignments.md) uniemożliwia użytkownikom wykonywanie określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli przyznaje im dostęp. W tym artykule opisano sposób wyświetlania listy zablokowanych przypisań przy użyciu interfejsu API REST.
+[Przydziały Odmów na platformie Azure](deny-assignments.md) blokują użytkownikom możliwość wykonywania określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli udzielą im dostępu. W tym artykule opisano sposób wyświetlania listy zablokowanych przypisań przy użyciu interfejsu API REST.
 
 > [!NOTE]
-> Nie można bezpośrednio tworzyć własnych przypisań Odmów. Aby uzyskać informacje na temat sposobu tworzenia przypisań Odmów, zobacz [odmowa przypisań](deny-assignments.md).
+> Nie można bezpośrednio tworzyć własnych przypisań Odmów. Aby uzyskać informacje na temat sposobu tworzenia przypisań Odmów, zobacz [Azure Deny przypisań](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
-- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról dla zasobów platformy Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról platformy Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Utwórz listę jednego przypisania odmowy
 
@@ -91,7 +91,7 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Wyświetl listę odrzuconych przypisań w zakresie głównym (/)
 
-1. Podnieś poziom dostępu zgodnie z opisem w temacie [Podnieś poziom dostępu dla administratora globalnego w Azure Active Directory](elevate-access-global-admin.md).
+1. Podnieś poziom dostępu zgodnie z opisem w temacie [Podnieś poziom dostępu do zarządzania wszystkimi subskrypcjami i grupami zarządzania platformy Azure](elevate-access-global-admin.md).
 
 1. Użyj następującego żądania:
 
@@ -111,6 +111,6 @@ Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Informacje o odmowie przypisań zasobów platformy Azure](deny-assignments.md)
-- [Podnoszenie poziomu dostępu administratora globalnego w usłudze Azure Active Directory](elevate-access-global-admin.md)
+- [Informacje o przypisaniach Odmów na platformie Azure](deny-assignments.md)
+- [Podnoszenie poziomu dostępu w celu zarządzania wszystkimi subskrypcjami platformy Azure i grupami zarządzania](elevate-access-global-admin.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)

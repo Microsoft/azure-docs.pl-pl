@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314307"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929761"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Zarządzanie modelami, wdrażanie i monitorowanie za pomocą Azure Machine Learning
 
@@ -153,7 +153,7 @@ Usługa Azure ML oferuje możliwość śledzenia kompleksowego dziennika inspekc
 - [Interpretacja](how-to-machine-learning-interpretability.md) pozwala na wyjaśnienie modeli, spełnienie zgodności z przepisami i zrozumienie sposobu, w jaki modele docierają do wyniku dla danych danych wejściowych.
 - Historia przebiegów Azure ML przechowuje migawkę kodu, danych i obliczeń używanych do uczenia modelu.
 - Rejestr modelu usługi Azure ML przechwytuje wszystkie metadane skojarzone z Twoim modelem (który eksperyment został przeszkolony, gdzie jest wdrażany, jeśli jego wdrożenia są w dobrej kondycji).
-- [Integracja z usługą Azure Event Grid](concept-event-grid-integration.md) umożliwia wykonywanie działań na zdarzeniach w cyklu życia w ml. Przykład: rejestrowanie modelu, wdrażanie, dryfowanie danych i szkolenia (uruchamianie).
+- [Integracja z platformą Azure](how-to-use-event-grid.md) umożliwia wykonywanie działań na zdarzeniach w cyklu życia usługi ml. Przykład: rejestrowanie modelu, wdrażanie, dryfowanie danych i szkolenia (uruchamianie).
 
 > [!TIP]
 > Niektóre informacje o modelach i zestawach danych są przechwytywane automatycznie, ale można dodać dodatkowe informacje za pomocą __tagów__. Podczas wyszukiwania zarejestrowanych modeli i zestawów danych w obszarze roboczym można używać tagów jako filtru.

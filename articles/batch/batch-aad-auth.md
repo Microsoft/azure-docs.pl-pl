@@ -3,12 +3,13 @@ title: Uwierzytelnianie Azure Batch Services za pomocą Azure Active Directory
 description: Usługa Batch obsługuje uwierzytelnianie z usługi Batch w usłudze Azure AD. Dowiedz się, jak uwierzytelniać się na jeden z dwóch sposobów.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116183"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608476"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory
 
@@ -35,9 +36,9 @@ Aby uwierzytelnić się w usłudze Azure AD, użyj tego punktu końcowego wraz z
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> Punkt końcowy specyficzny dla dzierżawy jest wymagany podczas uwierzytelniania za pomocą nazwy głównej usługi. 
-> 
+> [!NOTE]
+> Punkt końcowy specyficzny dla dzierżawy jest wymagany podczas uwierzytelniania za pomocą nazwy głównej usługi.
+>
 > Punkt końcowy specyficzny dla dzierżawy jest opcjonalny w przypadku uwierzytelniania przy użyciu uwierzytelniania zintegrowanego, ale zalecane. Można jednak również użyć wspólnego punktu końcowego usługi Azure AD. Wspólny punkt końcowy zawiera interfejs zbierania poświadczeń ogólnych, gdy nie podano określonej dzierżawy. Wspólny punkt końcowy to `https://login.microsoftonline.com/common`.
 >
 >
@@ -126,7 +127,7 @@ Aby uwierzytelnić się za pomocą jednostki usługi, należy przypisać kontrol
 1. W sekcji **Ustawienia** konta Partia zadań wybierz pozycję **Access Control (IAM)**.
 1. Wybierz kartę **przypisania ról** .
 1. Wybierz pozycję **Dodaj przypisanie roli**.
-1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).  
+1. Z listy rozwijanej **rola** wybierz rolę *współautor* lub *czytelnika* dla aplikacji. Aby uzyskać więcej informacji na temat tych ról, zobacz Wprowadzenie do [Access Control opartej na rolach w Azure Portal](../role-based-access-control/overview.md).
 1. W polu **Wybierz** wprowadź nazwę aplikacji. Wybierz aplikację z listy, a następnie wybierz pozycję **Zapisz**.
 
 Aplikacja powinna teraz pojawić się w ustawieniach kontroli dostępu z przypisaną rolą RBAC.
@@ -209,7 +210,7 @@ Identyfikator dzierżawy identyfikuje dzierżawę usługi Azure AD, która udost
 Przykłady kodu w tej sekcji przedstawiają sposób uwierzytelniania za pomocą usługi Azure AD przy użyciu uwierzytelniania zintegrowanego i nazwy głównej usługi. Większość z tych przykładów kodu korzysta z platformy .NET, ale koncepcje są podobne dla innych języków.
 
 > [!NOTE]
-> Token uwierzytelniania usługi Azure AD wygasa po upływie godziny. W przypadku korzystania z długotrwałego obiektu **BatchClient** zalecamy pobranie tokenu z biblioteki ADAL na każde żądanie, aby upewnić się, że zawsze masz prawidłowy token. 
+> Token uwierzytelniania usługi Azure AD wygasa po upływie godziny. W przypadku korzystania z długotrwałego obiektu **BatchClient** zalecamy pobranie tokenu z biblioteki ADAL na każde żądanie, aby upewnić się, że zawsze masz prawidłowy token.
 >
 >
 > Aby to osiągnąć, należy napisać metodę pobierającą token z usługi Azure AD i przekazać tę metodę do obiektu **BatchTokenCredentials** jako delegata. Metoda Delegate jest wywoływana dla każdego żądania do usługi Batch, aby upewnić się, że podano prawidłowy token. Domyślnie tokeny pamięci podręcznej biblioteki ADAL, dlatego nowy token jest pobierany z usługi Azure AD tylko wtedy, gdy jest to konieczne. Aby uzyskać więcej informacji na temat tokenów w usłudze Azure AD, zobacz [scenariusze uwierzytelniania dla usługi Azure AD][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Odwołuje się do punktu końcowego usługi Azure AD w kodzie, w tym identyfikat
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Odwołuje się do punktu końcowego zasobu usługi Batch:  
+Odwołuje się do punktu końcowego zasobu usługi Batch:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ W przypadku korzystania z jednostki usługi należy podać identyfikator dzierż
 TENANT_ID = "<tenant-id>"
 ```
 
-Odwołuje się do punktu końcowego zasobu usługi Batch:  
+Odwołuje się do punktu końcowego zasobu usługi Batch:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"

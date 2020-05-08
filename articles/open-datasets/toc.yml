@@ -9,9 +9,9 @@
 - name: Samouczek
   items:
     - name: Regresja przy użyciu zautomatyzowanego uczenia maszynowego
-      href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
     - name: Wzbogacanie modelu klasyfikacji obrazów
-      href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+      href: /azure/machine-learning/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
 - name: Przewodniki z instrukcjami
   items:
     - name: Zestawy danych w usłudze Azure Machine Learning

@@ -1,23 +1,17 @@
 ---
-title: Rejestruj dane z Azure Data Lake Storage Gen1 w Azure Data Catalog | Microsoft Docs
-description: Rejestruj dane z Azure Data Lake Storage Gen1 w Azure Data Catalog
-services: data-lake-store,data-catalog
-documentationcenter: ''
+title: Integracja Data Lake Storage Gen1 z usługą Azure Data Catalog
+description: Dowiedz się, jak zarejestrować dane z Azure Data Lake Storage Gen1 w Azure Data Catalog, aby umożliwić odnajdywanie danych w organizacji.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 66191a52c6ef1f3d19afd2a47356487b07e9eff4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60196616"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692338"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Rejestruj dane z Azure Data Lake Storage Gen1 w Azure Data Catalog
 W tym artykule dowiesz się, jak zintegrować Azure Data Lake Storage Gen1 z Azure Data Catalog, aby umożliwić odnajdywanie danych w organizacji przez integrację jej z Data Catalog. Aby uzyskać więcej informacji na temat katalogowania danych, zobacz [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Aby zrozumieć scenariusze, w których można używać Data Catalog, zobacz [Azure Data Catalog typowych scenariuszach](../data-catalog/data-catalog-common-scenarios.md).
@@ -27,7 +21,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Włącz subskrypcję platformy Azure** , aby uzyskać Data Lake Storage Gen1. Zobacz [instrukcje](data-lake-store-get-started-portal.md).
-* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu witryny Azure Portal](data-lake-store-get-started-portal.md). Na potrzeby tego samouczka Utwórz konto Data Lake Storage Gen1 o nazwie **datacatalogstore**.
+* **Konto Data Lake Storage Gen1**. Postępuj zgodnie z instrukcjami w punkcie wprowadzenie [do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md). Na potrzeby tego samouczka Utwórz konto Data Lake Storage Gen1 o nazwie **datacatalogstore**.
 
     Po utworzeniu konta Przekaż do niego przykładowe dane. W tym samouczku przekażemy nam wszystkie pliki CSV w folderze **AmbulanceData** w [repozytorium Azure Data Lake git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Aby przekazać dane do kontenera obiektów blob, można użyć różnych klientów, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 * **Azure Data Catalog**. Twoja organizacja musi mieć już Azure Data Catalog utworzone dla Twojej organizacji. Dla każdej organizacji dozwolony jest tylko jeden wykaz.
@@ -56,7 +50,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
     b. Pole **dostępne obiekty** zawiera listę plików i folderów znajdujących się w folderze **AmbulanceData** .
 
-    d. Pole **obiekty do zarejestrowania** zawiera listę plików i folderów, które mają zostać zarejestrowane w Azure Data Catalog.
+    c. Pole **obiekty do zarejestrowania** zawiera listę plików i folderów, które mają zostać zarejestrowane w Azure Data Catalog.
 
     ![Wyświetl strukturę danych](./media/data-lake-store-with-data-catalog/view-data-structure.png "Wyświetl strukturę danych")
 1. Na potrzeby tego samouczka należy zarejestrować wszystkie pliki w katalogu. W tym celu kliknij przycisk (![Przenieś obiekty](./media/data-lake-store-with-data-catalog/move-objects.png "Przenoszenie obiektów")), aby przenieść wszystkie pliki do pola **zarejestrowano** .

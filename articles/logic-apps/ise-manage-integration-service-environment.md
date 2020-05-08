@@ -23,7 +23,7 @@ W tym artykule pokazano, jak wykonywać zadania zarządzania dla [środowiska us
 
 ## <a name="view-your-ise"></a>Wyświetlanie ISE
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 1. W polu wyszukiwania portalu wprowadź "środowiska usługi integracji", a następnie wybierz pozycję **środowiska usługi integracji**.
 

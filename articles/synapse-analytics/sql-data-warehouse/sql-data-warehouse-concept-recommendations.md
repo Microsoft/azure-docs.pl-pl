@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/05/2020
+ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17877a1ef5d949fbbee080b6157844ac5b516fe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 546945d70554adbb28f19a3153faa67495e55f04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633683"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607757"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
 
@@ -24,7 +24,7 @@ W tym artykule opisano zalecenia dotyczące programu Synapse SQL obsługiwane za
 
 Analiza SQL udostępnia zalecenia, aby zapewnić ciągłą optymalizację obciążenia magazynu danych pod kątem wydajności. Zalecenia są ściśle zintegrowane z [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , aby zapewnić najlepszym praktykom bezpośrednio w ramach [Azure Portal](https://aka.ms/Azureadvisor). Usługa SQL Analytics zbiera zalecenia dotyczące danych telemetrycznych i powierzchni dla aktywnego obciążenia w codziennym erze. Obsługiwane scenariusze rekomendacji opisano poniżej wraz z sposobem zastosowania zalecanych akcji.
 
-Możesz [sprawdzić swoje rekomendacje](https://aka.ms/Azureadvisor) już dzisiaj! Obecnie ta funkcja ma zastosowanie tylko do magazynów danych Gen2.
+Możesz [sprawdzić swoje rekomendacje](https://aka.ms/Azureadvisor) już dzisiaj! 
 
 ## <a name="data-skew"></a>Pochylenie danych
 
@@ -51,14 +51,22 @@ W przypadku zaleceń dotyczących zreplikowanej tabeli program Advisor wykrywa k
 
 Doradca ciągle korzysta z algorytmów heurystycznych opartych na obciążeniu, takich jak częstotliwość dostępu do tabel, wiersze zwrócone na średnim i progi wokół rozmiaru i aktywności magazynu danych w celu zapewnienia, że generowane są zalecenia o wysokiej jakości.
 
-Poniżej opisano algorytmy heurystyczne oparte na obciążeniu, które mogą znajdować się w Azure Portal dla każdego zalecenia zreplikowanej tabeli:
+W poniższej sekcji opisano algorytmy heurystyczne oparte na obciążeniu, które mogą znajdować się w Azure Portal dla każdego zalecenia zreplikowanej tabeli:
 
 - Skanowanie Średni — Średni procent wierszy zwróconych z tabeli dla każdego dostępu do tabeli w ciągu ostatnich siedmiu dni
 - Często odczytywane, brak aktualizacji — wskazuje, że tabela nie została zaktualizowana w ciągu ostatnich siedmiu dni podczas wyświetlania działania dostępu
 - Współczynnik odczytu/aktualizacji — stosunek częstotliwości uzyskiwania dostępu do tabeli względem czasu, gdy zostanie on zaktualizowany w ciągu ostatnich siedmiu dni
-- Działanie — mierzy użycie na podstawie działania dostępu. Porównuje to działanie dostępu do tabel względem średniej aktywności dostępu do tabeli w magazynie danych w ciągu ostatnich siedmiu dni.
+- Działanie — mierzy użycie na podstawie działania dostępu. To działanie porównuje operacje dostępu do tabel względem średniej aktywności dostępu do tabeli w magazynie danych w ciągu ostatnich siedmiu dni.
 
 Obecnie w usłudze Advisor będą widoczne tylko cztery kandydujące zreplikowane tabele jednocześnie z klastrowanymi indeksami magazynu kolumn o priorytetach o najwyższej aktywności.
 
 > [!IMPORTANT]
-> Zalecenie zreplikowanej tabeli nie jest pełną próbą i nie uwzględnia operacji przenoszenia danych. Pracujemy nad dodaniem tego elementu jako algorytmu heurystycznego, ale w międzyczasie należy zawsze sprawdzić poprawność obciążenia po zastosowaniu zalecenia. Skontaktuj się sqldwadvisor@service.microsoft.com z pomocą techniczną, jeśli odkryjesz zalecenia dotyczące zreplikowanej tabeli, które powodują przeprowadzenie obciążenia. Aby dowiedzieć się więcej na temat zreplikowanych tabel, zapoznaj się z poniższą [dokumentacją](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
+> Zalecenie zreplikowanej tabeli nie jest pełną próbą i nie uwzględnia operacji przenoszenia danych. Pracujemy nad dodaniem tego elementu jako algorytmu heurystycznego, ale w międzyczasie należy zawsze sprawdzić poprawność obciążenia po zastosowaniu zalecenia. Aby dowiedzieć się więcej na temat zreplikowanych tabel, zapoznaj się z poniższą [dokumentacją](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
+
+
+## <a name="adaptive-gen2-cache-utilization"></a>Adaptacyjne (Gen2) użycie pamięci podręcznej
+W przypadku dużego zestawu roboczego można obsłużyć procent trafień w pamięci podręcznej i duże użycie pamięci podręcznej. W tym scenariuszu należy skalować w górę, aby zwiększyć pojemność pamięci podręcznej i ponownie uruchamiać obciążenie. Aby uzyskać więcej informacji, zapoznaj się z poniższą [dokumentacją](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache). 
+
+## <a name="tempdb-contention"></a>Rywalizacja o bazę danych tempdb
+
+Wydajność zapytań może wzniżyć, gdy istnieje duża rywalizacja o bazę danych tempdb.  Rywalizacja o bazę danych tempdb może odbywać się za pośrednictwem tabel tymczasowych zdefiniowanych przez użytkownika lub w przypadku dużej ilości ruchu. W tym scenariuszu można skalować więcej alokacji tempdb i [konfigurować klasy zasobów i zarządzanie obciążeniami](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) w celu zapewnienia większej ilości pamięci dla zapytań. 

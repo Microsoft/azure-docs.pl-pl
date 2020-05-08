@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129847"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983367"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -34,9 +34,13 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 
 ## <a name="how-to-use-evaluate-model"></a>Jak używać modelu szacowania
-1. Połącz **wynikowy zestaw danych** wyjściowych z [modelu wynikowego](./score-model.md) z lewym portem wejściowym **oceny modelu**. 
+1. Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu wynikowego](./score-model.md) lub danych wyjściowych zestawu danych wynikowych [przypisywania danych do klastrów](./assign-data-to-clusters.md) do lewego portu wejściowego **oceny modelu**. 
+  > [!NOTE] 
+  > Jeśli używasz modułów takich jak "Wybieranie kolumn w zestawie danych", aby wybrać część wejściowego zestawu danych, upewnij się, że rzeczywista kolumna etykiety (używana w szkoleniu), kolumna "oceny prawdopodobieństwa" i "oceny etykiet" istnieją do obliczenia metryk, takich jak AUC, dokładność dla binarnej klasyfikacji/wykrywania anomalii.
+  > Rzeczywista kolumna etykiet, kolumna "oceny etykiet" istnieje, aby obliczyć metryki dla klasyfikacji/regresji dla wieloklasowego.
+  > Kolumna "przypisania", kolumny "DistancesToClusterCenter No. X ' (X jest indeksem centroida, od 0,..., liczba centroids-1) istnieje, aby obliczyć metryki dla klastrowania.
 
-2. Obowiązkowe Podłącz **wynikowy zestaw danych** wyjściowych [modelu wynikowego](./score-model.md) dla drugiego modelu do **prawej strony** **oceny modelu**. Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
+2. Obowiązkowe Połącz dane wyjściowe **zestawienia** danych wyjściowych [modelu oceny](./score-model.md) lub danych wyjściowych zestawu danych wynikowych przypisywania danych do klastrów dla drugiego modelu **na odpowiedni port wejściowy** **oceny modelu**. Możesz łatwo porównać wyniki z dwóch różnych modeli na tych samych danych. Dwa algorytmy wejściowe powinny być tym samym typem algorytmu. Lub można porównać wyniki z dwóch różnych przebiegów nad tymi samymi danymi z różnymi parametrami.
 
     > [!NOTE]
     > Typ algorytmu odnosi się do "klasyfikacji dwuklasowej", "klasyfikacji wieloklasowej", "regresji", "klastrowanie" w ramach "Machine Learning algorytmów". 

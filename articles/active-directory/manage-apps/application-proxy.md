@@ -12,23 +12,24 @@ ms.date: 05/09/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4780786f0caea2c211b6b93fb0736feaade8de80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74274832"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609956"
 ---
-# <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory 
+# <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory
 
 Serwer proxy aplikacji Azure Active Directory zapewnia bezpieczny dostęp zdalny do lokalnych aplikacji sieci Web. Po jednokrotnym zalogowaniu się do usługi Azure AD użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze i lokalnych przy użyciu zewnętrznego adresu URL lub wewnętrznego portalu aplikacji. Na przykład serwer proxy aplikacji może zapewnić dostęp zdalny i logowanie jednokrotne do aplikacji Pulpit zdalny, SharePoint, Teams, Tableau, Qlik i LOB.
 
 Serwer proxy aplikacji usługi Azure AD charakteryzuje się następującymi cechami:
 
-- **Prosta do użycia**. Użytkownicy mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do usługi O365 i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji. 
+- **Prosta do użycia**. Użytkownicy mogą uzyskiwać dostęp do aplikacji lokalnych w taki sam sposób, w jaki uzyskują dostęp do usługi O365 i innych aplikacji SaaS zintegrowanych z usługą Azure AD. Nie trzeba zmieniać ani aktualizować aplikacji, aby móc pracować z serwerem proxy aplikacji.
 
 - **Zabezpiecz**. Aplikacje lokalne mogą korzystać z kontroli autoryzacji platformy Azure i analizy zabezpieczeń. Na przykład aplikacje lokalne mogą korzystać z dostępu warunkowego i weryfikacji dwuetapowej. Serwer proxy aplikacji nie wymaga otwierania połączeń przychodzących przez zaporę.
- 
+
 - **Ekonomiczne**. W przypadku rozwiązań lokalnych zwykle wymagane jest skonfigurowanie i konserwacja stref zdemilitaryzowana (stref DMZ), serwerów brzegowych lub innych złożonych infrastruktur. Serwer proxy aplikacji działa w chmurze, co ułatwia korzystanie z programu. Aby można było korzystać z serwera proxy aplikacji, nie trzeba zmieniać infrastruktury sieciowej ani instalować dodatkowych urządzeń w środowisku lokalnym.
 
 ## <a name="what-is-application-proxy"></a>Co to jest serwer proxy aplikacji?
@@ -36,10 +37,10 @@ Serwer proxy aplikacji to funkcja usługi Azure AD, która umożliwia użytkowni
 
 Serwer proxy aplikacji współpracuje z:
 
-* Aplikacje sieci Web, które używają [zintegrowanego uwierzytelniania systemu Windows](application-proxy-configure-single-sign-on-with-kcd.md) na potrzeby uwierzytelniania  
-* Aplikacje sieci Web korzystające z dostępu opartego na formularzach lub [nagłówkach](application-proxy-configure-single-sign-on-with-ping-access.md)  
-* Interfejsy API sieci Web, które mają zostać ujawnione w rozbudowanych aplikacjach na różnych urządzeniach  
-* Aplikacje hostowane za [bramą pulpit zdalny](application-proxy-integrate-with-remote-desktop-services.md)  
+* Aplikacje sieci Web, które używają [zintegrowanego uwierzytelniania systemu Windows](application-proxy-configure-single-sign-on-with-kcd.md) na potrzeby uwierzytelniania
+* Aplikacje sieci Web korzystające z dostępu opartego na formularzach lub [nagłówkach](application-proxy-configure-single-sign-on-with-ping-access.md)
+* Interfejsy API sieci Web, które mają zostać ujawnione w rozbudowanych aplikacjach na różnych urządzeniach
+* Aplikacje hostowane za [bramą pulpit zdalny](application-proxy-integrate-with-remote-desktop-services.md)
 * Rozbudowane aplikacje klienckie zintegrowane z Active Directory Authentication Library (ADAL)
 
 Serwer proxy aplikacji obsługuje logowanie jednokrotne. Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](what-is-single-sign-on.md#choosing-a-single-sign-on-method)jednokrotnego.
@@ -52,11 +53,11 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 
 ![Diagram serwera proxy aplikacji AzureAD](./media/application-proxy/azureappproxxy.png)
 
-1. Gdy użytkownik uzyska dostęp do aplikacji za pomocą punktu końcowego, zostaje on skierowany do strony logowania usługi Azure AD. 
+1. Gdy użytkownik uzyska dostęp do aplikacji za pomocą punktu końcowego, zostaje on skierowany do strony logowania usługi Azure AD.
 2. Po pomyślnym zalogowaniu usługa Azure AD wysyła token do urządzenia klienckiego użytkownika.
 3. Klient wysyła token do usługi serwera proxy aplikacji, która pobiera główną nazwę użytkownika (UPN) i główną nazwę zabezpieczeń (SPN) z tokenu. Serwer proxy aplikacji wysyła żądanie do łącznika serwera proxy aplikacji.
 4. Jeśli skonfigurowano Logowanie jednokrotne, łącznik wykonuje dodatkowe wymagane uwierzytelnienie w imieniu użytkownika.
-5. Łącznik wysyła żądanie do aplikacji lokalnej.  
+5. Łącznik wysyła żądanie do aplikacji lokalnej.
 6. Odpowiedź jest wysyłana przez łącznik i usługę serwera proxy aplikacji do użytkownika.
 
 | Składnik | Opis |
@@ -66,11 +67,9 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 | Usługa serwera proxy aplikacji | Ta usługa serwera proxy aplikacji działa w chmurze w ramach usługi Azure AD. Przekazuje on token logowania od użytkownika do łącznika serwera proxy aplikacji. Serwer proxy aplikacji przekazuje wszystkie dostępne nagłówki w żądaniu i ustawia nagłówki zgodnie z protokołem na adres IP klienta. Jeśli żądanie przychodzące do serwera proxy ma już ten nagłówek, adres IP klienta zostanie dodany na końcu listy rozdzielanej przecinkami, która jest wartością nagłówka.|
 | Łącznik serwera proxy aplikacji | Łącznik jest lekkim agentem działającym na serwerze z systemem Windows w sieci. Łącznik zarządza komunikacją między usługą serwera proxy aplikacji w chmurze a aplikacją lokalną. Łącznik używa tylko połączeń wychodzących, więc nie trzeba otwierać żadnych portów przychodzących ani umieszczać żadnych elementów w strefie DMZ. Łączniki są bezstanowe i pobierają informacje z chmury w razie potrzeby. Aby uzyskać więcej informacji na temat łączników, takich jak równoważenie obciążenia i uwierzytelnianie, zobacz [Omówienie łączników usługi Azure serwer proxy aplikacji usługi Azure AD](application-proxy-connectors.md).|
 | Active Directory (AD) | Active Directory działa lokalnie, aby przeprowadzić uwierzytelnianie dla kont domeny. Po skonfigurowaniu logowania jednokrotnego łącznik komunikuje się z usługą AD, aby wykonać wymagane dodatkowe uwierzytelnianie.
-| Aplikacja lokalna | Na koniec użytkownik może uzyskać dostęp do aplikacji lokalnej. 
+| Aplikacja lokalna | Na koniec użytkownik może uzyskać dostęp do aplikacji lokalnej.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby rozpocząć korzystanie z serwera proxy aplikacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pośrednictwem serwera proxy aplikacji](application-proxy-add-on-premises-application.md). 
+Aby rozpocząć korzystanie z serwera proxy aplikacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pośrednictwem serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
 
 Najnowsze wiadomości i aktualizacje można znaleźć na blogu dotyczącym [serwera proxy aplikacji](https://blogs.technet.com/b/applicationproxyblog/)
-
-

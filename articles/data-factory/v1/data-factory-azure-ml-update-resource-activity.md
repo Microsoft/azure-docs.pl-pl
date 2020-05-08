@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83cb62efd98615b7eda7f52ebafe95dedc282355
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74978717"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930458"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Aktualizowanie modeli Azure Machine Learning przy użyciu działania Update Resource
 
@@ -44,14 +44,14 @@ W miarę upływu czasu modele predykcyjne w eksperymentach oceniania w usłudze 
 1. Utwórz eksperyment w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net).
 2. Gdy korzystasz z modelu, użyj Azure Machine Learning Studio (klasyczny), aby opublikować usługi sieci Web zarówno dla **eksperymentu szkoleniowego** , jak i dla**eksperymentu predykcyjnego**.
 
-W poniższej tabeli opisano usługi sieci Web używane w tym przykładzie.  Szczegółowe informacje można znaleźć w temacie ponowne [uczenie Machine Learning modeli](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
+W poniższej tabeli opisano usługi sieci Web używane w tym przykładzie.  Aby uzyskać szczegółowe informacje, zobacz [modele Machine Learning Studio (klasyczne)](../../machine-learning/studio/retrain-machine-learning-model.md) .
 
 - **Szkolenie usługi sieci Web** — odbiera dane szkoleniowe i produkuje przeszkolone modele. Dane wyjściowe ponownego szkolenia to plik. ilearner w usłudze Azure Blob Storage. **Domyślny punkt końcowy** jest tworzony automatycznie podczas publikowania eksperymentu szkoleniowego jako usługi sieci Web. Można utworzyć więcej punktów końcowych, ale przykład używa tylko domyślnego punktu końcowego.
 - **Ocenianie usługi sieci Web** — odbiera przykłady danych bez etykiet i tworzy przewidywania. Dane wyjściowe przewidywania mogą mieć różne formy, takie jak plik. csv lub wiersze w bazie danych SQL Azure, w zależności od konfiguracji eksperymentu. Domyślny punkt końcowy jest tworzony automatycznie podczas publikowania eksperymentu predykcyjnego jako usługi sieci Web. 
 
 Na poniższej ilustracji przedstawiono relacje między szkoleniami a punktami końcowymi oceniania w usłudze Azure ML.
 
-![Usługi sieci Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+![usługi sieci Web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
 Możesz wywołać **usługę sieci Web szkoleniowej** przy użyciu **działania wykonywania wsadowego usługi Azure ml**. Wywoływanie usługi sieci Web szkoleniowej jest takie samo jak wywoływanie usługi sieci Web Azure ML (ocenianie usługi sieci Web) dla danych oceniania. W poprzednich sekcjach opisano sposób wywołania usługi sieci Web Azure ML z potoku Azure Data Factory. 
 

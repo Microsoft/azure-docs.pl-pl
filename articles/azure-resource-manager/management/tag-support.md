@@ -3,12 +3,12 @@ title: Obsługa tagów dla zasobów
 description: Pokazuje, które typy zasobów platformy Azure obsługują Tagi. Zawiera szczegółowe informacje dotyczące wszystkich usług platformy Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c035f4f9ce6b7c842caeab3b705394417d15ba0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255031"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609293"
 ---
 # <a name="tag-support-for-azure-resources"></a>Obsługa tagów dla zasobów platformy Azure
 W tym artykule opisano, czy typ zasobu obsługuje [Tagi](tag-resources.md). Kolumna z etykietą **obsługuje znaczniki** wskazuje, czy typ zasobu ma właściwość dla tagu. Kolumna **tag z etykietą w raporcie koszt** wskazuje, czy ten typ zasobu przekazuje tag do raportu kosztów. Możesz wyświetlić koszty według tagów w [Cost Management analiza kosztów](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) oraz [dane dotyczące rozliczeń i dziennego użycia na platformie Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -324,7 +324,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectories | Tak | Nie |
+> | b2cDirectories | Yes | Nie |
 > | b2ctenants | Nie | Nie |
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
@@ -701,7 +701,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ReservationTransactions | Nie | Nie |
 > | Tagi | Nie | Nie |
 > | dzierżaw | Nie | Nie |
-> | Warunki | Nie | Nie |
+> | Terminologia | Nie | Nie |
 > | UsageDetails | Nie | Nie |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
@@ -825,7 +825,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | obszary robocze | Tak | Nie |
+> | obszary robocze | Yes | Nie |
 > | obszary robocze/dbworkspaces | Nie | Nie |
 > | obszary robocze/storageEncryption | Nie | Nie |
 > | obszary robocze/virtualNetworkPeerings | Nie | Nie |
@@ -847,11 +847,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | Fabryki datafactors | Tak | Nie |
+> | Fabryki datafactors | Yes | Nie |
 > | datafactors/diagnosticSettings | Nie | Nie |
 > | datafactors/metricDefinitions | Nie | Nie |
 > | dataFactorySchema | Nie | Nie |
-> | fabryki | Tak | Nie |
+> | fabryki | Yes | Nie |
 > | fabryki/integrationRuntimes | Nie | Nie |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
@@ -1466,10 +1466,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Tak | Nie |
+> | netAppAccounts | Yes | Nie |
 > | netAppAccounts / accountBackups | Nie | Nie |
-> | netAppAccounts / capacityPools | Tak | Nie |
-> | netAppAccounts/capacityPools/woluminy | Tak | Nie |
+> | netAppAccounts / capacityPools | Yes | Nie |
+> | netAppAccounts/capacityPools/woluminy | Yes | Nie |
 > | netAppAccounts/capacityPools/woluminy/migawki | Nie | Nie |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
@@ -1481,8 +1481,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | applicationGatewayWebApplicationFirewallPolicies | Tak | Tak |
 > | applicationSecurityGroups | Tak | Tak |
 > | azureFirewallFqdnTags | Nie | Nie |
-> | azureFirewalls | Tak | Nie |
-> | bastionHosts | Tak | Nie |
+> | azureFirewalls | Yes | Nie |
+> | bastionHosts | Yes | Nie |
 > | bgpServiceCommunities | Nie | Nie |
 > | Licznik | Tak | Tak |
 > | ddosCustomPolicies | Tak | Tak |
@@ -1520,10 +1520,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkProfiles | Tak | Tak |
 > | networkSecurityGroups | Tak | Tak |
 > | networkWatchers | Tak | Tak |
-> | networkWatchers / connectionMonitors | Tak | Nie |
+> | networkWatchers / connectionMonitors | Yes | Nie |
 > | networkWatchers / flowLogs | Nie | Nie |
-> | networkWatchers/soczewki | Tak | Nie |
-> | networkWatchers / pingMeshes | Tak | Nie |
+> | networkWatchers/soczewki | Yes | Nie |
+> | networkWatchers / pingMeshes | Yes | Nie |
 > | p2sVpnGateways | Tak | Tak |
 > | privateDnsOperationStatuses | Nie | Nie |
 > | privateDnsZones | Tak | Tak |
@@ -1551,8 +1551,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualHubs | Tak | Tak |
 > | virtualNetworkGateways | Tak | Tak |
 > | virtualNetworks | Tak | Tak |
+> | virtualNetworks/podsieci | Nie | Nie |
 > | virtualNetworkTaps | Tak | Tak |
-> | virtualWans | Tak | Nie |
+> | virtualWans | Yes | Nie |
 > | vpnGateways | Tak | Tak |
 > | vpnSites | Tak | Tak |
 > | webApplicationFirewallPolicies | Tak | Tak |
@@ -1575,8 +1576,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | przestrzeni | Tak | Nie |
-> | przestrzenie nazw/notificationHubs | Tak | Nie |
+> | przestrzeni | Yes | Nie |
+> | przestrzenie nazw/notificationHubs | Yes | Nie |
 
 ## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
 
@@ -1743,15 +1744,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | komputerów | Tak | Nie |
+> | komputerów | Yes | Nie |
 > | wdrożenia/operacje | Nie | Nie |
 > | deploymentScripts | Tak | Tak |
 > | deploymentScripts/dzienniki | Nie | Nie |
 > | linki | Nie | Nie |
 > | notifyResourceJobs | Nie | Nie |
 > | dostawców | Nie | Nie |
-> | resourceGroups | Tak | Nie |
-> | opłaty | Tak | Nie |
+> | resourceGroups | Yes | Nie |
+> | opłaty | Yes | Nie |
 > | dzierżaw | Nie | Nie |
 
 ## <a name="microsoftsaas"></a>Microsoft. SaaS
@@ -2085,10 +2086,10 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Obsługuje Tagi | Tag w raporcie kosztów |
 > | ------------- | ----------- | ----------- |
-> | wiejski | Tak | Nie |
+> | wiejski | Yes | Nie |
 > | środowiska/accessPolicies | Nie | Nie |
-> | środowiska/źródła zdarzeń | Tak | Nie |
-> | środowiska/referenceDataSets | Tak | Nie |
+> | środowiska/źródła zdarzeń | Yes | Nie |
+> | środowiska/referenceDataSets | Yes | Nie |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 

@@ -3,16 +3,16 @@ title: Aktualizuj grupę kontenerów
 description: Dowiedz się, jak aktualizować uruchomione kontenery w grupach kontenerów Azure Container Instances.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854451"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928724"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aktualizowanie kontenerów w usłudze Azure Container Instances
 
-Podczas normalnego działania wystąpień kontenera może być konieczne zaktualizowanie uruchomionych kontenerów w [grupie kontenerów](container-instances-container-groups.md). Na przykład możesz chcieć zaktualizować właściwość, taką jak wersja obrazu, nazwa DNS lub zmienna środowiskowa, lub odświeżyć właściwość w kontenerze, którego aplikacja uległa awarii.
+Podczas normalnego działania wystąpień kontenera może być konieczne zaktualizowanie uruchomionych kontenerów w [grupie kontenerów](./container-instances-container-groups.md). Na przykład możesz chcieć zaktualizować właściwość, taką jak wersja obrazu, nazwa DNS lub zmienna środowiskowa, lub odświeżyć właściwość w kontenerze, którego aplikacja uległa awarii.
 
 Zaktualizuj kontenery w uruchomionej grupie kontenerów przez ponowne wdrożenie istniejącej grupy z co najmniej jedną zmodyfikowaną właściwością. Podczas aktualizowania grupy kontenerów wszystkie uruchomione kontenery w grupie są uruchamiane ponownie w miejscu, zazwyczaj na tym samym hoście kontenera.
 
@@ -28,7 +28,7 @@ Aby zaktualizować istniejącą grupę kontenerów:
 * Ustaw inne właściwości o podane wcześniej wartości. Jeśli nie ustawisz wartości dla właściwości, zostanie ona przywrócona do wartości domyślnej.
 
 > [!TIP]
-> [Plik YAML](container-instances-container-groups.md#deployment) pomaga zachować konfigurację wdrożenia grupy kontenerów i zapewnia punkt wyjścia do wdrożenia zaktualizowanej grupy. Jeśli do utworzenia grupy użyto innej metody, można wyeksportować konfigurację do YAML przy użyciu polecenia [AZ Container Export][az-container-export]. 
+> [Plik YAML](./container-instances-container-groups.md#deployment) pomaga zachować konfigurację wdrożenia grupy kontenerów i zapewnia punkt wyjścia do wdrożenia zaktualizowanej grupy. Jeśli do utworzenia grupy użyto innej metody, można wyeksportować konfigurację do YAML przy użyciu polecenia [AZ Container Export][az-container-export]. 
 
 ### <a name="example"></a>Przykład
 
@@ -80,7 +80,7 @@ Gdy usuniesz grupę kontenerów i utworzysz ją ponownie, nie jest to "redeploye
 
 Wspomniano kilka razy w tym artykule **Grupa kontenerów**. Każdy kontener w Azure Container Instances jest wdrażany w grupie kontenerów, a grupy kontenerów mogą zawierać więcej niż jeden kontener.
 
-[Grupy kontenerów w usłudze Azure Container Instances](container-instances-container-groups.md)
+[Grupy kontenerów w usłudze Azure Container Instances](./container-instances-container-groups.md)
 
 [Wdrażanie grupy z wieloma kontenerami](container-instances-multi-container-group.md)
 

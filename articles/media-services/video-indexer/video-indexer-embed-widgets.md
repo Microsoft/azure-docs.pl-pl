@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262914"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594852"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Osadź Video Indexer widżety w aplikacjach
 
 W tym artykule przedstawiono sposób osadzania Video Indexer widżetów w aplikacjach. Video Indexer obsługuje osadzanie trzech typów elementów widget w aplikacjach: *szczegółowe informacje*, *odtwarzacze*i *Edytor*.
 
-Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie zachodnie stany USA generuje: `https://wus2.videoindexer.ai/embed/insights/...`.
+Począwszy od wersji 2, podstawowy adres URL widżetu zawiera region określonego konta. Na przykład konto w regionie zachodnie stany USA generuje: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## <a name="widget-types"></a>Typy widżetów
 
@@ -34,8 +34,9 @@ Widżet Cognitive Insights (Szczegółowe informacje) zawiera wszystkie szczegó
 |`widgets` | Ciągi rozdzielone przecinkami | Umożliwia kontrolowanie szczegółowych informacji, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderuje tylko osoby i słowa kluczowe dotyczące interfejsu użytkownika.<br/>Dostępne opcje: ludzie, animatedCharacters, keywords, Labels, mową, emocji, tematy, ramki kluczowe, Transkrypcja, OCR, głośniki, sceny i namedEntities.|
 |`controls`|Ciągi rozdzielone przecinkami|Umożliwia kontrolowanie formantów, które mają być renderowane.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderuje tylko opcję wyszukiwania i przycisk pobierania.<br/>Dostępne opcje: wyszukiwanie, pobieranie, ustawienia wstępne, język.|
 |`language`|Kod w języku krótkim (nazwa języka)|Steruje językiem usługi Insights.<br/>Przykład: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>oraz`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
-|`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartością domyślną jest `en`. <br/>Przykład: `locale=de`.|
+|`locale` | Kod w języku krótkim | Kontroluje język interfejsu użytkownika. Wartość domyślna to `en`. <br/>Przykład: `locale=de`.|
 |`tab` | Domyślna wybrana karta | Steruje kartą usługi **Insights** , która jest renderowana domyślnie. <br/>Przykład: `tab=timeline` renderuje szczegółowych informacji przy użyciu karty **oś czasu** .|
+|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="player-widget"></a>Widżet Player
 
@@ -47,8 +48,9 @@ Możesz użyć widżetu odtwarzacza do przesyłania strumieniowego wideo przy u�
 |`captions` | Kod języka | Pobiera podpis w określonym języku podczas ładowania elementu widget, aby był dostępny w menu **podpisy** .<br/> Przykład: `captions=en-US`. |
 |`showCaptions` | Wartość logiczna | Powoduje załadowanie już włączonych napisów.<br/> Przykład: `showCaptions=true`. |
 |`type`| | Aktywuje karnację odtwarzacza audio (część wideo jest usuwana).<br/> Przykład: `type=audio`. |
-|`autoplay` | Wartość logiczna | Wskazuje, czy odtwarzacz powinien rozpocząć odtwarzanie wideo po załadowaniu. Wartością domyślną jest `true`.<br/> Przykład: `autoplay=false`. |
-|`language`/`locale` | Kod języka | Kontroluje język odtwarzacza. Wartością domyślną jest `en-US`.<br/>Przykład: `language=de-DE`.|
+|`autoplay` | Wartość logiczna | Wskazuje, czy odtwarzacz powinien rozpocząć odtwarzanie wideo po załadowaniu. Wartość domyślna to `true`.<br/> Przykład: `autoplay=false`. |
+|`language`/`locale` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`.|
+|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` parametru.| 
 
 ### <a name="editor-widget"></a>Widżet edytora
 
@@ -57,26 +59,31 @@ Za pomocą widżetu edytora można tworzyć nowe projekty i zarządzać szczegó
 |Nazwa|Definicja|Opis|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | Zapewnia dostęp do filmów wideo, które są tylko na koncie używanym do osadzenia widżetu.<br> Widżet edytora wymaga `accessToken` parametru. |
-|`language` | Kod języka | Kontroluje język odtwarzacza. Wartością domyślną jest `en-US`.<br/>Przykład: `language=de-DE`. |
-|`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartością domyślną jest `en`.<br/>Przykład: `language=de`. |
+|`language` | Kod języka | Kontroluje język odtwarzacza. Wartość domyślna to `en-US`.<br/>Przykład: `language=de-DE`. |
+|`locale` | Kod w języku krótkim | Steruje językiem usługi Insights. Wartość domyślna to `en`.<br/>Przykład: `language=de`. |
+|`location` ||`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete.| 
 
 <sup>*</sup>Właściciel powinien zapewnić `accessToken` ostrożność.
 
-## <a name="embedding-public-content"></a>Osadzanie zawartości publicznej
+## <a name="embedding-videos"></a>Osadzanie filmów wideo
+
+W tej sekcji omówiono osadzanie zawartości publicznej i prywatnej w aplikacjach.
+
+`location` Parametr musi być uwzględniony w łączach osadzonych, zobacz [jak uzyskać nazwę regionu](regions.md). Jeśli Twoje konto jest w wersji zapoznawczej, `trial` należy użyć wartości lokalizacji. `trial`jest wartością domyślną dla `location` paramete. Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> Udostępnienie linku dla widżetu **Player** lub **szczegółowych** informacji spowoduje uwzględnienie tokenu dostępu i przyznanie uprawnień tylko do odczytu kontu.
+
+### <a name="public-content"></a>Zawartość publiczna
 
 1. Zaloguj się do witryny sieci Web [Video Indexer](https://www.videoindexer.ai/) .
-2. Wybierz wideo, z którym chcesz współpracować.
-3. Wybierz przycisk Osadź (**</>**), który pojawia się pod klipem wideo.
-
-    Po wybraniu przycisku **Osadź** można wybrać widżet, który ma zostać osadzony w aplikacji.
-4. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz**lub **Edytor**).
+1. Wybierz wideo, z którym chcesz korzystać, i naciśnij klawisz **Play**.
+1. Wybierz odpowiedni typ widżetu (**poznawcze informacje**, **odtwarzacz**lub **Edytor**).
+1. Kliknij ** &lt; / przycisk &gt; Osadź**.
 5. Skopiuj kod osadzania (jest wyświetlany w obszarze **Kopiuj osadzony kod** w oknie dialogowym **udział & Osadź** ).
 6. Dodaj kod do aplikacji.
 
-> [!NOTE]
-> Jeśli masz problemy z udostępnianiem adresów URL wideo, Dodaj `location` parametr do łącza. Parametr powinien być ustawiony na [regiony platformy Azure, w których istnieje Video Indexer](regions.md). Na przykład: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## <a name="embedding-private-content"></a>Osadzanie zawartości prywatnej
+### <a name="private-content"></a>Zawartość prywatna
 
 Aby osadzić prywatny film wideo, należy przekazać token dostępu w `src` atrybucie elementu iframe:
 

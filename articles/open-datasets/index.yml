@@ -10,12 +10,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2c99c349119dea148f9867817c81c22546099c13
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 0453213dd1433989869899d1e886bd87d02340b6
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77617515"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930339"
 landingContent:
 - title: Informacje o usłudze Open Datasets
   linkLists:
@@ -23,16 +23,16 @@ landingContent:
     links:
     - text: Co to jest usługa Open Datasets?
       url: overview-what-are-open-datasets.md
-    - text: Przykłady
+    - text: Samples
       url: samples.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: tutorial
     links:
     - text: Tworzenie modelu regresji przy użyciu zautomatyzowanego uczenia maszynowego
-      url: /azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
+      url: /azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context
     - text: Wzbogacanie modelu klasyfikacji obrazów w usłudze Azure Machine Learning
-      url: /azure/machine-learning/service/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context
+      url: /azure/machine-learning/tutorial-train-models-with-aml?context=azure/open-datasets/context/open-datasets-context
 - title: Eksplorowanie zawartości referencyjnej
   linkLists:
   - linkListType: reference

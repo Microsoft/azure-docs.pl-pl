@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684726"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983605"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -150,6 +150,8 @@ Wstępnie zainstalowane pakiety są następujące:
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> Jeśli potok zawiera wiele modułów skryptu wykonywania w języku Python i potrzebujesz tych samych pakietów, które nie znajdują się na liście wstępnie zainstalowanych, zainstaluj pakiety w każdym module odpowiednio. 
 
 ## <a name="upload-files"></a>Przekazywanie plików
 **Skrypt Execute Python** obsługuje przekazywanie plików przy użyciu [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -218,7 +220,7 @@ Moduł **wykonywania skryptu języka Python** zawiera przykładowy kod w języku
 5. W polu tekstowym **skrypt języka Python** wpisz lub wklej prawidłowy skrypt w języku Python.
 
     > [!NOTE]
-    > Należy zachować ostrożność podczas pisania skryptu i upewnić się, że nie występuje błąd składniowy, taki jak użycie niezadeklarowanego obiektu lub zaimportowanego modułu. Zwróć również uwagę na listę wstępnie zainstalowanych modułów. Aby zaimportować moduły, których nie ma na liście, zainstaluj odpowiednie pakiety w skrypcie, takie jak
+    > Należy zachować ostrożność podczas pisania skryptu i upewnić się, że nie występuje błąd składniowy, na przykład przy użyciu niezadeklarowanych obiektów lub niezaimportowanych modułów. Należy również zwrócić szczególną uwagę na listę wstępnie zainstalowanych modułów. Aby zaimportować moduły, których nie ma na liście, zainstaluj odpowiednie pakiety w skrypcie, takie jak
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")

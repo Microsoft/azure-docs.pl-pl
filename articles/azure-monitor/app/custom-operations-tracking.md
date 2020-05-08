@@ -4,12 +4,12 @@ description: Śledzenie operacji niestandardowych przy użyciu zestawu Azure App
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276103"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690860"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET
 
@@ -38,7 +38,7 @@ Zobaczmy, jak te operacje mogą być śledzone.
 Na wysokim poziomie zadanie jest tworzone `RequestTelemetry` i ustawia znane właściwości. Po zakończeniu operacji Śledź dane telemetryczne. Poniższy przykład ilustruje to zadanie.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>Żądanie HTTP w aplikacji samohostowanej Owin
-W tym przykładzie kontekst śledzenia jest propagowany zgodnie z [protokołem HTTP dla korelacji](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Należy oczekiwać, że nagłówki zostały opisane w tym miejscu.
+W tym przykładzie kontekst śledzenia jest propagowany zgodnie z [protokołem HTTP dla korelacji](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Należy oczekiwać, że nagłówki zostały opisane w tym miejscu.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 Protokół HTTP dla korelacji deklaruje również `Correlation-Context` nagłówek. Jest to jednak pomijane w tym miejscu dla uproszczenia.
 
 ## <a name="queue-instrumentation"></a>Instrumentacja kolejki
-Chociaż istnieją [konteksty śledzenia W3C](https://www.w3.org/TR/trace-context/) i [protokół HTTP dla korelacji](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) do przekazywania szczegółów korelacji z żądaniem http, każdy protokół kolejki musi określać, jak te same szczegóły są przekazywane wzdłuż komunikatu kolejki. Niektóre protokoły kolejek (takie jak AMQP) umożliwiają przekazywanie dodatkowych metadanych i niektórych innych (takich jak Kolejka usługi Azure Storage) Wymagaj kodowania kontekstu do ładunku komunikatów.
+Chociaż istnieją [konteksty śledzenia W3C](https://www.w3.org/TR/trace-context/) i [protokół HTTP dla korelacji](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) do przekazywania szczegółów korelacji z żądaniem http, każdy protokół kolejki musi określać, jak te same szczegóły są przekazywane wzdłuż komunikatu kolejki. Niektóre protokoły kolejek (takie jak AMQP) umożliwiają przekazywanie dodatkowych metadanych i niektórych innych (takich jak Kolejka usługi Azure Storage) Wymagaj kodowania kontekstu do ładunku komunikatów.
 
 > [!NOTE]
 > * **Śledzenie między składnikami nie jest jeszcze obsługiwane w przypadku kolejek** W przypadku protokołu HTTP, jeśli producent i konsument wysyłają dane telemetryczne do różnych zasobów Application Insights, środowisko diagnostyki transakcji i mapa aplikacji pokazują transakcje i zamapowane na zakończenie. W przypadku kolejek to nie jest jeszcze obsługiwane. 
@@ -346,7 +346,7 @@ W przypadku usuwania komunikatów z Instrumentacji upewnij się, że ustawisz id
 
 ### <a name="dependency-types"></a>Typy zależności
 
-Application Insights używa typu zależności do Cusomize środowiska interfejsu użytkownika. W przypadku kolejek rozpoznaje następujące typy `DependencyTelemetry` , które zwiększają [możliwości diagnostyki transakcji](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights używa typu zależności do dostosowywania środowiska interfejsu użytkownika. W przypadku kolejek rozpoznaje następujące typy `DependencyTelemetry` , które zwiększają [możliwości diagnostyki transakcji](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`w przypadku kolejek usługi Azure Storage
 - `Azure Event Hubs`dla usługi Azure Event Hubs
 - `Azure Service Bus`dla Azure Service Bus
@@ -482,4 +482,4 @@ Każda operacja Application Insights (żądanie lub zależność) obejmuje `Acti
 - Zobacz [model danych](../../azure-monitor/app/data-model.md) dla typów Application Insights i modelu danych.
 - Zgłoś niestandardowe [zdarzenia i metryki](../../azure-monitor/app/api-custom-events-metrics.md) do Application Insights.
 - Zapoznaj się z [konfiguracją](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) standardową dla kolekcji właściwości kontekstu.
-- Sprawdź [Przewodnik użytkownika System. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby zobaczyć, jak skorelować dane telemetryczne.
+- Sprawdź [Przewodnik użytkownika System. Diagnostics. Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby zobaczyć, jak skorelować dane telemetryczne.

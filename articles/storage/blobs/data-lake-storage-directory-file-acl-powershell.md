@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: db098210d6de28d9dc1db7e264459f57bc0f4d86
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c859176857f64559b9a2994c9cfc2d4ec5f61e57
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161027"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691074"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Użyj programu PowerShell do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -351,15 +351,25 @@ W tym przykładzie użytkownik będący właścicielem i grupa będąca właści
 
 ### <a name="set-acls-on-all-items-in-a-file-system"></a>Ustawianie list ACL dla wszystkich elementów w systemie plików
 
-Można użyć `Get-AzDataLakeGen2Item` i `-Recurse` parametru razem z poleceniem cmdlet, `Update-AzDataLakeGen2Item` aby cyklicznie ustawić listę kontroli dostępu dla wszystkich katalogów i plików w systemie plików. 
+Można użyć `Get-AzDataLakeGen2Item` i `-Recurse` parametru razem z poleceniem cmdlet, `Update-AzDataLakeGen2Item` aby cyklicznie ustawić listę kontroli dostępu dla katalogów i plików w systemie plików. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
+
+$Token = $Null
+do
+{
+     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
+     if($items.Length -le 0) { Break;}
+     $items | Update-AzDataLakeGen2Item -Acl $acl
+     $Token = $items[$items.Count -1].ContinuationToken;
+}
+While ($Token -ne $Null) 
 ```
+
 ### <a name="add-or-update-an-acl-entry"></a>Dodawanie lub aktualizowanie wpisu listy ACL
 
 Najpierw Pobierz listę kontroli dostępu. Następnie użyj `set-AzDataLakeGen2ItemAclObject` polecenia cmdlet, aby dodać lub zaktualizować wpis listy ACL. Użyj polecenia `Update-AzDataLakeGen2Item` cmdlet, aby zatwierdzić listę kontroli dostępu.
