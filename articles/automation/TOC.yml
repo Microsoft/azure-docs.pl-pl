@@ -24,6 +24,11 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Tworzenie elementu runbook języka Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Omówienie uwierzytelniania konta usługi Automation

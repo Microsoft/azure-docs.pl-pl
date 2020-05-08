@@ -9,36 +9,39 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836635"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927976"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z usługą Linux Update Agent
 
-Może istnieć wiele przyczyn, dla których maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w rozwiązaniu Azure Automation Update Management. W Update Management można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z poziomu maszyn Azure Portal i spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
+Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w Update Management. Aby określić podstawowy problem, można sprawdzić kondycję agenta hybrydowego procesu roboczego dla systemu Linux. Poniżej przedstawiono trzy Stany gotowości dla maszyny:
 
-Komputer może być w trzech stanach gotowości:
-
-* **Gotowe**: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
-* **Rozłączono**: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
-* **Nieskonfigurowane**: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
+* Gotowe: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
+* Rozłączono: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
+* Nieskonfigurowane: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
 
+W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z poziomu maszyn Azure Portal i spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
+
+> [!NOTE]
+> Skrypt narzędzia do rozwiązywania problemów aktualnie nie kieruje ruchu przez serwer proxy, jeśli został skonfigurowany.
+
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
-W przypadku maszyn platformy Azure wybierz link **Rozwiązywanie problemów** w kolumnie **Aktualizuj gotowość agenta** w portalu, aby otworzyć stronę **Rozwiązywanie problemów z aktualizacją agenta** . W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Aby rozwiązać problem z maszyną spoza platformy Azure, zapoznaj się z instrukcjami w sekcji "Rozwiązywanie problemów w trybie offline".
+W przypadku maszyn platformy Azure wybierz link **Rozwiązywanie problemów** w kolumnie **Aktualizuj gotowość agenta** w portalu, aby otworzyć stronę Rozwiązywanie problemów z aktualizacją agenta. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Aby rozwiązać problem z maszyną spoza platformy Azure, zapoznaj się z instrukcjami w sekcji "Rozwiązywanie problemów w trybie offline".
 
 ![Strona listy maszyn wirtualnych](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > Sprawdzanie wymaga, aby maszyna wirtualna była uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, **Uruchom maszynę wirtualną** .
 
-Na stronie **Rozwiązywanie problemów z agentem aktualizacji** wybierz pozycję **Uruchom testy** , aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) , aby uruchomić skrypt na komputerze w celu zweryfikowania zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
+Na stronie Rozwiązywanie problemów z agentem aktualizacji wybierz pozycję **Uruchom testy** , aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/linux/run-command.md) , aby uruchomić skrypt na komputerze w celu zweryfikowania zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
 
 ![Strona rozwiązywania problemów](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -84,6 +87,9 @@ Ten test sprawdza, czy Agent Log Analytics dla systemu Linux ma pakiet hybrydowe
 ### <a name="hybrid-runbook-worker-status"></a>Stan hybrydowego procesu roboczego elementu Runbook
 
 To sprawdzenie gwarantuje, że hybrydowy proces roboczy elementu Runbook jest uruchomiony na komputerze. Jeśli hybrydowy proces roboczy elementu Runbook działa prawidłowo, powinny być obecne następujące procesy. Aby dowiedzieć się więcej, zobacz [Rozwiązywanie problemów z agentem log Analytics dla systemu Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+
+> [!NOTE]
+> Jeśli hybrydowy proces roboczy elementu Runbook nie jest uruchomiony, a punkt końcowy operacji zakończy się niepowodzeniem, aktualizacja może zakończyć się niepowodzeniem. Update Management pobiera pakiety hybrydowego procesu roboczego z punktu końcowego operacji.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

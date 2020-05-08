@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 64e0de153aa33bac17c2bed75b211ddca1bbd28c
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
-ms.translationtype: HT
+ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884399"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926072"
 ---
 # <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
 
@@ -220,13 +220,16 @@ Konta magazynu z hierarchiczną przestrzenią nazw włączone do użycia z Azure
 
 Aby zarejestrować się w wersji zapoznawczej usługi BLOB, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu przesłania żądania zarejestrowania tej funkcji w ramach subskrypcji. Po zatwierdzeniu żądania można włączyć obsługę wersji obiektów BLOB przy użyciu dowolnego nowego lub istniejącego konta programu ogólnego przeznaczenia w wersji 2, BLOB Storage lub Premium Storage blokowych obiektów BLOB.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zarejestrować się w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
+    
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -244,16 +247,13 @@ az feature register --namespace Microsoft.Storage \
 
 Aby sprawdzić stan rejestracji, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić stan rejestracji w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -315,6 +315,6 @@ W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie 
 
 ## <a name="see-also"></a>Zobacz też
 
-- [Włącz przechowywanie wersji obiektów BLOB](versioning-enable.md)
+- [Włączanie obsługi wersji obiektów blob](versioning-enable.md)
 - [Tworzenie migawki obiektu BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Usuwanie nietrwałe dla obiektów BLOB usługi Azure Storage](storage-blob-soft-delete.md)

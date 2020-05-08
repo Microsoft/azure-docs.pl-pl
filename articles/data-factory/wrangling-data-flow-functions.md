@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417661"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626687"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funkcje transformacji w przepływie danych przetwarzanie
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Przepływ danych przetwarzanie w Azure Data Factory umożliwia wykonywanie bezobsługowego przetwarzania danych Agile i przetwarzanie w skali chmury. Przepływ danych przetwarzanie integruje się z usługą [Power Query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) i udostępnia funkcje Power Query M dla przetwarzanie danych za pośrednictwem wykonywania platformy Spark. 
 

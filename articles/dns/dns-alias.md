@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295486"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926235"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Omówienie rekordów aliasów usługi Azure DNS
 
@@ -66,7 +66,7 @@ Na przykład contoso.com i www\.contoso.com mogą wskazywać na ten sam profil T
 
 Podobnie jak w przypadku profilu Traffic Manager, można również użyć rekordów aliasów do wskazywania wierzchołka strefy DNS do Azure CDN punktów końcowych. Jest to przydatne w przypadku tworzenia statycznych witryn sieci Web przy użyciu usługi Azure Storage i Azure CDN. Następnie można uzyskać dostęp do witryny sieci Web bez oczekiwania "www" na nazwę DNS.
 
-Na przykład, jeśli statyczna Witryna internetowa `www.contoso.com, your users can access your site using contoso.com` ma nazwę bez konieczności dołączania sieci WWW do nazwy DNS.
+Na przykład jeśli statyczna Witryna internetowa ma `www.contoso.com`nazwę, użytkownicy mogą uzyskać dostęp do witryny `contoso.com` za pomocą programu bez konieczności dołączania sieci WWW do nazwy DNS.
 
 Jak opisano wcześniej, rekordy CNAME nie są obsługiwane w wierzchołku strefy. Dlatego nie można użyć rekordu CNAME, aby wskazywał contoso.com do punktu końcowego usługi CDN. Zamiast tego można użyć rekordu aliasu, aby wskazywał bezpośrednio na punkt końcowy usługi CDN.
 
