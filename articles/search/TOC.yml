@@ -60,6 +60,8 @@
           href: search-semi-structured-data.md
         - name: Indeksowanie wielu źródeł danych na platformie Azure
           href: tutorial-multiple-data-sources.md
+    - name: Indeksowanie dowolnych danych
+      href: tutorial-optimize-indexing-push-api.md
     - name: Tworzenie zawartości przy użyciu AI
       items:
         - name: 'C#'
@@ -82,6 +84,9 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: Przykłady dla interfejsu REST
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Wyszukiwanie pełnotekstowe

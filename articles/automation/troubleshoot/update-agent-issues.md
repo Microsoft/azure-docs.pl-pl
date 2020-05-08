@@ -9,25 +9,28 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 25f3734a2a12ddf87862cc1d127f88f175225e07
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900304"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927891"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Rozwiązywanie problemów z usługą Windows Update Agent
 
-Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w Update Management. W Update Management można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline).
+Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w Update Management. Aby określić podstawowy problem, można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook systemu Windows. Poniżej przedstawiono trzy Stany gotowości dla maszyny:
 
-Poniżej przedstawiono trzy Stany gotowości dla maszyny:
-
-* Gotowe: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż 1 godzinę temu.
-* Rozłączono: hybrydowy proces roboczy elementu Runbook został wdrożony i był ostatnio widoczny ponad 1 godzinę temu.
+* Gotowe: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
+* Rozłączono: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
 * Nieskonfigurowane: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
+
+W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). Narzędzie do rozwiązywania problemów zawiera teraz testy dotyczące Windows Server Update Services (WSUS) oraz kluczy autopobierania i instalacji.
+
+> [!NOTE]
+> Skrypt narzędzia do rozwiązywania problemów aktualnie nie kieruje ruchu przez serwer proxy, jeśli został skonfigurowany.
 
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
