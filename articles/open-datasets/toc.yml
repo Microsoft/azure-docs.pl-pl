@@ -16,7 +16,7 @@
   items:
     - name: Zestawy danych w usłudze Azure Machine Learning
       href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
-- name: Przykłady
+- name: Samples
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md
 - name: Dokumentacja
@@ -35,10 +35,10 @@
       href: 'https://msropendata.com/'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
     - name: Dostępność regionalna
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional'
     - name: Forum użytkowników
       href: 'https://aka.ms/open-datasets-forum'
     - name: Stack Overflow
