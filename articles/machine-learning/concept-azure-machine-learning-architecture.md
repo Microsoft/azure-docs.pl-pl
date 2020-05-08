@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257338"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871472"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -119,7 +119,7 @@ Na przykład Uruchom konfiguracje, zobacz [Wybieranie i używanie elementu docel
 W przypadku przesyłania przebiegu Azure Machine Learning kompresuje katalog zawierający skrypt jako plik zip i wysyła go do obiektu docelowego obliczeń. Następnie plik zip zostanie wyodrębniony, a skrypt zostanie uruchomiony w tym miejscu. Azure Machine Learning również zapisuje plik zip jako migawkę w ramach rekordu uruchomieniowego. Każda osoba mająca dostęp do obszaru roboczego może przeglądać rekord uruchomienia i pobrać migawkę.
 
 > [!NOTE]
-> Aby zapobiec dołączeniu niepotrzebnych plików do migawki, należy wykonać ignorowanie pliku (. gitignore lub. amlignore). Umieść ten plik w katalogu migawek i Dodaj do niego nazwy plików. Plik. amlignore używa tej samej [składni i wzorców co plik. gitignore](https://git-scm.com/docs/gitignore). Jeśli istnieją oba pliki, plik. amlignore ma pierwszeństwo.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### <a name="github-tracking-and-integration"></a>Śledzenie i integracja z usługą GitHub
 
@@ -224,7 +224,7 @@ Dowiedz się więcej o [wystąpieniach obliczeniowych](concept-compute-instance.
 
 Zestawy danych udostępniają metody pracy z danymi w popularnych formatach, np. przy `from_delimited_files()` użyciu `to_pandas_dataframe()`lub.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie i Rejestrowanie zestawów danych Azure Machine Learning](how-to-create-register-datasets.md).  Aby uzyskać więcej przykładów użycia zestawów danych, zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
+Aby uzyskać więcej informacji, zobacz [Tworzenie i Rejestrowanie zestawów danych Azure Machine Learning](how-to-create-register-datasets.md).  Aby uzyskać więcej przykładów użycia zestawów danych, zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
 **Magazyn** danych to Abstrakcja magazynu przez konto usługi Azure Storage. Magazyn danych może używać kontenera obiektów blob platformy Azure lub udziału plików platformy Azure jako magazynu zaplecza. Każdy obszar roboczy ma domyślny magazyn danych i można zarejestrować dodatkowe magazyny danych. Użyj interfejsu API zestawu SDK języka Python lub wiersza polecenia Azure Machine Learning, aby przechowywać i pobierać pliki z magazynu danych.
 

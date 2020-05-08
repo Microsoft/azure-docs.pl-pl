@@ -63,6 +63,9 @@
       href: samples-powershell.md
     - name: Szablony usługi Resource Manager
       href: samples-resource-manager-templates.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Plany usługi App Service

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
-ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2b9b4d51e89975d988ed94bf85695bd8a1cc770
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456411"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872465"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Szybki Start: używanie poleceń niestandardowych z niestandardowym głosem (wersja zapoznawcza)
 
@@ -35,7 +35,8 @@ W tym artykule wybierzemy niestandardowy głos wyjściowy dla utworzonej aplikac
 > ![Przykładowe zdania z parametrami](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Niestandardowe głosy można tworzyć na stronie niestandardowego projektu głosu. Wybierz łącze do programu **Speech Studio** , a następnie pozycję **niestandardowe** , aby rozpocząć pracę.
+> - Dla **publicznych głosów** **typy neuronowych** są dostępne tylko dla określonych regionów. Aby sprawdzić dostępność, zobacz [głosy standardowe i neuronowych według regionu/punktu końcowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - W przypadku **niestandardowych głosów**można je utworzyć na stronie niestandardowego projektu głosu. Zobacz Rozpoczynanie [pracy z niestandardowym głosem](./how-to-custom-voice.md).
 
 Teraz aplikacja będzie odpowiadać w wybranym głosowaniu zamiast domyślnego głosu.
 

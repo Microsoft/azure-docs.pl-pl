@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: def3ed840d2886aabfce1d1081c94298083fe6d6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3195be3486aaafa91a22b6f6e9cb4fd5f4fe6de2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611657"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929999"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -40,6 +40,8 @@ Należy również znać następujące kwestie:
 
 - Miejsce źródłowe obrazu, którego chcesz użyć, to. Czy pochodzi ona z galerii platformy Azure lub jest obrazem niestandardowym?
 - Poświadczenia dołączania do domeny.
+
+Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje** , wybierz nazwę subskrypcji domenie niestandardowej, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
 
 Podczas tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu szablonu Azure Resource Manager można utworzyć maszynę wirtualną z poziomu galerii platformy Azure, obrazu zarządzanego lub niezarządzanego obrazu. Aby dowiedzieć się więcej na temat tworzenia obrazów maszyn wirtualnych, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) i [Tworzenie zarządzanego obrazu maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).
 

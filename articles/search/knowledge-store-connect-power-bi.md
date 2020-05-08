@@ -7,20 +7,25 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: 4fd71a7f322cb2672eb485f17e4de2619a7c2d2c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: e67bd688d720ed3d7549a86c9cff752bc19fb2fc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78270025"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858818"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Łączenie ze sklepem wiedzy Power BI
 
 > [!IMPORTANT] 
 > Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
 
-W tym artykule dowiesz się, jak nawiązać połączenie z magazynem wiedzy i poznać go przy użyciu Power Query w aplikacji Power BI Desktop. Możesz szybko zacząć korzystać z szablonów lub utworzyć niestandardowy pulpit nawigacyjny od podstaw.
+W tym artykule dowiesz się, jak nawiązać połączenie z magazynem wiedzy i poznać go przy użyciu Power Query w aplikacji Power BI Desktop. Możesz szybko zacząć korzystać z szablonów lub utworzyć niestandardowy pulpit nawigacyjny od podstaw. Ten krótki film wideo pokazuje, jak można wzbogacić środowisko pracy z danymi za pomocą usługi Azure Wyszukiwanie poznawcze w połączeniu z Power BI.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=593&end=663]
+
+
 
 + Wykonaj kroki opisane w temacie [Tworzenie sklepu z bazami danych w Azure Portal](knowledge-store-create-portal.md) lub [Utwórz magazyn wiedzy Azure wyszukiwanie poznawcze przy użyciu opcji REST](knowledge-store-create-rest.md) , aby utworzyć przykładowy magazyn wiedzy użyty w tym instruktażu. Potrzebna będzie również nazwa konta usługi Azure Storage, które zostało użyte do utworzenia magazynu wiedzy, wraz z jego kluczem dostępu z poziomu Azure Portal.
 

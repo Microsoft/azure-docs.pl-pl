@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z tworzenie
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd199bc0245ab1daa090f88b1e92216c714042ee
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677338"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864449"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Rozwiązywanie problemów dotyczących błędów kopii zapasowych w usłudze Azure Virtual Machines
 
@@ -97,6 +97,14 @@ Uruchom ponownie składniki zapisywania usługi VSS, które są w złej kondycji
 
 * ```net stop serviceName```
 * ```net start serviceName```
+
+Kolejną procedurą, która może pomóc, jest uruchomienie następującego polecenia w wierszu polecenia z podwyższonym poziomem uprawnień (jako administrator).
+
+```CMD
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
+```
+
+Dodanie tego klucza rejestru spowoduje, że wątki nie będą tworzone dla migawek obiektów blob, i uniemożliwiają przekroczenie limitu czasu.
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure — błąd podczas analizowania konfiguracji dla rozszerzenia kopii zapasowej
 

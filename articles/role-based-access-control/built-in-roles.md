@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838743"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869992"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -156,7 +156,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Twórca laboratorium](#lab-creator) | Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitor** |  |  |
 > | [Współautor składnika Application Insights](#application-insights-component-contributor) | Może zarządzać składnikami Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) . | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) . Podczas nadawania użytkownikom roli Snapshot Debugger Application Insights należy przyznać rolę bezpośrednio użytkownikowi. Rola nie jest rozpoznawana, gdy zostanie dodana do roli niestandardowej. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Współautor monitorowania](#monitoring-contributor) | Może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Zobacz też Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Wydawca metryk monitorowania](#monitoring-metrics-publisher) | Włącza publikowanie metryk dla zasobów platformy Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Czytnik monitorowania](#monitoring-reader) | Może odczytywać wszystkie dane monitorowania (metryki, dzienniki itp.). Zobacz też Rozpoczynanie [pracy z rolami, uprawnieniami i zabezpieczeniami przy użyciu Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -6144,7 +6144,7 @@ Może zarządzać składnikami Application Insights
 
 ### <a name="application-insights-snapshot-debugger"></a>Application Insights Snapshot Debugger
 
-Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) .
+Daje użytkownikowi uprawnienia do wyświetlania i pobierania migawek debugowania zebranych za pomocą Snapshot Debugger Application Insights. Należy zauważyć, że te uprawnienia nie są uwzględnione w rolach [właściciel](#owner) lub [współautor](#contributor) . Podczas nadawania użytkownikom roli Snapshot Debugger Application Insights należy przyznać rolę bezpośrednio użytkownikowi. Rola nie jest rozpoznawana, gdy zostanie dodana do roli niestandardowej. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |

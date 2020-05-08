@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c032e900cd2f58581517b08905d5b0660ed8bbda
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732906"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857816"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debugowanie Apache Spark aplikacji w klastrze usługi HDInsight z Azure Toolkit for IntelliJ za pośrednictwem protokołu SSH
 
-Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi usługi HDInsight w [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) do zdalnego debugowania aplikacji w klastrze usługi HDInsight. Aby debugować projekt, możesz również wyświetlić [aplikacje do debugowania usługi HDInsight Spark za pomocą Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) wideo.
+Ten artykuł zawiera wskazówki krok po kroku dotyczące korzystania z narzędzi usługi HDInsight w [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) do zdalnego debugowania aplikacji w klastrze usługi HDInsight. Aby debugować projekt, możesz również wyświetlić [aplikacje do debugowania usługi HDInsight Spark za pomocą Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) wideo.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

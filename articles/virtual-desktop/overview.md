@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837400"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929829"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Planujemy dodanie obsługi następujących systemów operacyjnych, więc upewnij
 
 |System operacyjny|Wymagana licencja|
 |---|---|
-|Wiele sesji systemu Windows 10 Enterprise lub Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
+|Wiele sesji systemu Windows 10 Enterprise lub Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Licencja dostępu klienta usług pulpitu zdalnego z programem Software Assurance|
 
 Aby zapewnić obsługę pulpitu wirtualnego systemu Windows, Twoja infrastruktura wymaga następujących czynności:
@@ -101,9 +101,9 @@ Maszyny wirtualne platformy Azure tworzone dla pulpitu wirtualnego systemu Windo
 |wvdportalstorageblob.blob.core.windows.net|443|Obsługa Azure Portal|AzureCloud|
 
 >[!IMPORTANT]
->Zalecamy używanie tagów usługi zamiast adresów URL w większości przypadków, aby zapobiec problemom z usługą. Odblokowywanie tych adresów URL jest niezbędne dla niezawodnego wdrożenia pulpitu wirtualnego systemu Windows. Blokowanie dostępu do tych adresów URL nie jest obsługiwane i wpłynie na funkcjonalność usługi. Te adresy URL odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows, a nie zawierają adresów URL dla innych usług, takich jak Azure Active Directory.
->
 >Pulpit wirtualny systemu Windows obsługuje teraz tag FQDN. Aby uzyskać więcej informacji, zobacz [Korzystanie z zapory platformy Azure do ochrony wdrożeń pulpitów wirtualnych systemu Windows](../firewall/protect-windows-virtual-desktop.md).
+>
+>Zalecamy używanie tagów FQDN lub tagów usług zamiast adresów URL, aby zapobiec problemom z usługą. Wymienione adresy URL i Tagi odnoszą się tylko do witryn i zasobów pulpitu wirtualnego systemu Windows. Nie obejmują one adresów URL dla innych usług, takich jak Azure Active Directory.
 
 W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wirtualne platformy Azure mogą mieć dostęp:
 

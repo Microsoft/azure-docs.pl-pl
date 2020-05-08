@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76759265"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890241"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Zarządzanie zasobami Service Bus przy użyciu programu PowerShell
 
@@ -170,8 +170,8 @@ Za pomocą [modułu Service Bus PowerShell](/powershell/module/az.servicebus) mo
 
 Istnieją różne sposoby zarządzania jednostkami Service Bus, zgodnie z opisem w następujących wpisach w blogu:
 
-* [Jak utworzyć Service Bus kolejki, tematy i subskrypcje przy użyciu skryptu programu PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Jak utworzyć Service Bus przestrzeni nazw i centrum zdarzeń przy użyciu skryptu programu PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Jak utworzyć Service Bus kolejki, tematy i subskrypcje przy użyciu skryptu programu PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Jak utworzyć Service Bus przestrzeni nazw i centrum zdarzeń przy użyciu skryptu programu PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Skrypty Service Bus PowerShell](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

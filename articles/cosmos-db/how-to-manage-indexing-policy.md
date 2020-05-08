@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b913ba58252f4cb84d010aea39d371316582bd6d
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233928"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869912"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 
@@ -371,7 +371,9 @@ Aby utworzyć kontener z niestandardowymi zasadami indeksowania, zobacz [Tworzen
 
 Aby utworzyć kontener z niestandardowymi zasadami indeksowania, zobacz [Tworzenie kontenera z niestandardowymi zasadami indeksu przy użyciu programu PowerShell](manage-with-powershell.md#create-container-custom-index)
 
-## <a name="use-the-net-sdk-v2"></a>Korzystanie z zestawu .NET SDK V2
+## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a>Korzystanie z zestawu SDK platformy .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 `DocumentCollection` Obiekt z [zestawu .NET SDK V2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) uwidacznia `IndexingPolicy` właściwość, która umożliwia zmianę `IndexingMode` i dodanie lub usunięcie `IncludedPaths` i. `ExcludedPaths`
 
@@ -401,7 +403,7 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Korzystanie z zestawu .NET SDK v3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 `ContainerProperties` Obiekt z [zestawu .NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (zobacz [ten przewodnik Szybki Start](create-sql-api-dotnet.md) dotyczący użycia) uwidacznia `IndexingPolicy` właściwość, która umożliwia zmianę `IndexingMode` i dodanie lub usunięcie `IncludedPaths` i. `ExcludedPaths`
 
@@ -457,6 +459,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## <a name="use-the-java-sdk"></a>Korzystanie z zestawu SDK języka Java
 
@@ -610,7 +613,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk-v3"></a>Korzystanie z zestawu Python SDK v3
+## <a name="use-the-python-sdk"></a>Używanie zestawu Python SDK
+
+# <a name="python-sdk-v3"></a>[Zestaw Python SDK v3](#tab/pythonv3)
 
 W przypadku korzystania z [zestawu Python SDK v3](https://pypi.org/project/azure-cosmos/) (zobacz [ten przewodnik Szybki Start](create-sql-api-python.md) dotyczący użycia) Konfiguracja kontenera jest zarządzana jako słownik. Z tego słownika można uzyskać dostęp do zasad indeksowania i wszystkich jej atrybutów.
 
@@ -674,7 +679,7 @@ Aktualizowanie kontenera ze zmianami
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="use-the-python-sdk-v4"></a>Korzystanie z zestawu SDK dla języka Python w wersji 4
+# <a name="python-sdk-v4"></a>[Zestaw Python SDK v4](#tab/pythonv4)
 
 W przypadku korzystania z [zestawu SDK języka Python w wersji 4](https://pypi.org/project/azure-cosmos/), konfiguracja kontenera jest zarządzana jako słownik. Z tego słownika można uzyskać dostęp do zasad indeksowania i wszystkich jej atrybutów.
 
@@ -739,6 +744,7 @@ Aktualizowanie kontenera ze zmianami
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+---
 
 ## <a name="next-steps"></a>Następne kroki
 

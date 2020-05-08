@@ -7,15 +7,17 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/20/2020
-ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 7a1a2aa92549bcab35532120c4af5bd0b6904f58
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77500266"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891244"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Jak dodać niestandardową umiejętność do potoku wzbogacenia Wyszukiwanie poznawcze platformy Azure
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=172&end=221]
 
 [Potok wzbogacania](cognitive-search-concept-intro.md) w usłudze Azure wyszukiwanie poznawcze może być montowany z [wbudowanych umiejętności poznawczych](cognitive-search-predefined-skills.md) , a także [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md) , które tworzysz i dodajesz do potoku. W tym artykule dowiesz się, jak utworzyć niestandardową umiejętność, która uwidacznia interfejs umożliwiający dołączenie go do potoku wzbogacania AI. 
 
@@ -39,6 +41,10 @@ Upewnij się, że identyfikator URI jest bezpieczny (HTTPS).
 Obecnie jedynym mechanizmem do współdziałania z niestandardowymi umiejętnościami jest interfejs API sieci Web. Potrzeby interfejsu API sieci Web muszą spełniać wymagania opisane w tej sekcji.
 
 ### <a name="1--web-api-input-format"></a>1. format danych wejściowych interfejsu API sieci Web
+
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=294&end=340]
+
 
 Internetowy interfejs API musi akceptować tablicę rekordów do przetworzenia. Każdy rekord musi zawierać "zbiór właściwości", który jest danymi wejściowymi do internetowego interfejsu API. 
 
@@ -158,6 +164,7 @@ Podczas tworzenia programu wzbogacania interfejsu API sieci Web można opisać n
 
 W tym artykule omówiono wymagania dotyczące interfejsu niezbędne do integracji niestandardowej umiejętności z zestawu umiejętności. Kliknij poniższe linki, aby dowiedzieć się więcej na temat umiejętności niestandardowych i kompozycji zestawu umiejętności.
 
++ [Obejrzyj nasze wideo dotyczące umiejętności niestandardowych](https://youtu.be/fHLCE-NZeb4)
 + [Umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Przykład: Tworzenie niestandardowej umiejętności dla wzbogacania AI](cognitive-search-create-custom-skill-example.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

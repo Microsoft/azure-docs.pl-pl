@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78933773"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869874"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Zapewnianie przepływności dla bazy danych w Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Aby utworzyć bazę danych o wspólnej przepływności, zobacz
 
 ### <a name="all-apis"></a><a id="dotnet-all"></a>Wszystkie interfejsy API
 
-### <a name="net-v2-sdk"></a>Zestaw .NET V2 SDK
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 //set the throughput for the database
@@ -63,12 +63,16 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
-### <a name="net-v3-sdk"></a>Zestaw SDK dla platformy .NET v3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
+---
+
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra
-Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z CQL. 
+
+Podobne polecenie można wykonać przy użyciu dowolnego sterownika zgodnego z CQL.
+
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");

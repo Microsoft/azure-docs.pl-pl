@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91177c67c9d24f73934381704bca8259af31adca
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81398700"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858636"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Samouczek: zamówienie Azure Data Box Disk
 
@@ -102,7 +102,7 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
 
     ![Podawanie szczegółów zamówienia](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. Na karcie **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie. 
+14. Na karcie **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie. Klienci korzystający z usługi w Japonii, Singapur, Korea i Europa Zachodnia mogą wybrać samozarządzaną wysyłkę podczas umieszczania zamówienia. Po pomyślnym złożeniu zamówienia otrzymasz wiadomość e-mail z instrukcjami dotyczącymi wybierania urządzenia z wystawionego centrum danych platformy Azure.
 
     ![Podawanie adresu wysyłkowego](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 15. W obszarze **Szczegóły powiadomienia** podaj adresy e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail. 

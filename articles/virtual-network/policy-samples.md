@@ -1,33 +1,26 @@
 ---
-title: Przykłady szablonów zasad | Microsoft Docs
-description: Przykłady szablonów Azure Policy dla Virtual Network.
-services: virtual-network
-documentationcenter: ''
-author: KumudD
-manager: twooley
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
+title: Wbudowane definicje zasad dla usługi Azure Virtual Network
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Virtual Network platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 05/05/2020
+ms.topic: sample
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.service: virtual-network
+ms.custom: subject-policy-samples
+ms.openlocfilehash: 557e3658b73314660ffde134b6151f9d83b26824
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839134"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928520"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Azure Policy przykładowe wbudowane dla sieci wirtualnej
+# <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Azure Policy wbudowane definicje zasad dla platformy Azure Virtual Network
 
-Poniższa tabela zawiera linki do przykładów dla usługi [Azure Policy](../governance/policy/overview.md). Przykłady znajdują się w [repozytorium przykładów usługi Azure Policy](https://github.com/Azure/azure-policy).
+Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Virtual Network platformy Azure. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-## <a name="network"></a>Sieć
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+
+## <a name="azure-virtual-network"></a>Azure Virtual Network
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
@@ -38,3 +31,9 @@ Poniższa tabela zawiera linki do przykładów dla usługi [Azure Policy](../gov
 ## <a name="general"></a>Ogólne
 
 [!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## <a name="next-steps"></a>Następne kroki
+
+- Zobacz wbudowane elementy w [repozytorium GitHub usługi Azure Policy](https://github.com/Azure/azure-policy).
+- Przejrzyj temat [Struktura definicji zasad Azure Policy](../governance/policy/concepts/definition-structure.md).
+- Przejrzyj [wyjaśnienie działania zasad](../governance/policy/concepts/effects.md).

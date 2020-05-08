@@ -5,23 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: 21f645e64c9944ed102f538710ea6facc26c7e83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 178daba47acaf8ad161a0634c16b046ec330abb6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314029"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864431"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Wdrażanie usługi Azure Firewall z wieloma publicznymi adresami IP przy użyciu programu Azure PowerShell
 
 Ta funkcja włącza następujące scenariusze:
 
 - **DNAT** — wiele standardowych wystąpień portów można przetłumaczyć na serwery zaplecza. Na przykład jeśli masz dwa publiczne adresy IP, możesz przetłumaczyć port TCP 3389 (RDP) dla obu adresów IP.
-- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli masz jakieś filtrowanie podrzędne w sieci, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą.
+- Reportcy **adresów sieciowych** — dodatkowe porty są dostępne dla wychodzących połączeń z reportem adresów sieciowych, co zmniejsza prawdopodobieństwo wyczerpania portów dla tego elementu. W tej chwili Zapora platformy Azure losowo wybiera źródłowy publiczny adres IP, który ma być używany w połączeniu. Jeśli masz jakieś filtrowanie podrzędne w sieci, musisz zezwolić na wszystkie publiczne adresy IP skojarzone z zaporą. Rozważ użycie [prefiksu publicznego adresu IP](../virtual-network/public-ip-address-prefix.md) , aby uprościć tę konfigurację.
  
-Zapora platformy Azure z wieloma publicznymi adresami IP jest dostępna za pośrednictwem Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure, REST i szablonów. Można wdrożyć zaporę platformy Azure z maksymalnie 100 publicznymi adresami IP.
+Zapora platformy Azure z wieloma publicznymi adresami IP jest dostępna za pośrednictwem Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure, REST i szablonów. Można wdrożyć zaporę platformy Azure z maksymalnie 250 publicznymi adresami IP.
 
 Poniższe Azure PowerShell przykłady pokazują, jak można konfigurować, dodawać i usuwać publiczne adresy IP dla zapory platformy Azure.
 

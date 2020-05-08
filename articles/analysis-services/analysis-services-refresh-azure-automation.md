@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572352"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871320"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
@@ -21,7 +21,7 @@ W przykładzie w tym artykule są wykorzystywane [moduły programu PowerShell Sq
 
 Przykładowy element Runbook programu PowerShell, który demonstruje odświeżenie modelu w dalszej części tego artykułu.  
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Wszystkie wywołania muszą zostać uwierzytelnione z prawidłowym tokenem Azure Active Directory (OAuth 2).  W przykładzie w tym artykule zostanie użyta nazwa główna usługi (SPN) do uwierzytelniania w Azure Analysis Services.
 
@@ -173,7 +173,7 @@ Maszyna wirtualna platformy Azure ze statycznym publicznym adresem IP może być
 > [!IMPORTANT]
 > Upewnij się, że publiczny adres IP maszyny wirtualnej jest skonfigurowany jako statyczny.
 >
->Aby dowiedzieć się więcej o konfigurowaniu Azure Automation hybrydowych procesów roboczych, zobacz [Automatyzowanie zasobów w centrum danych lub w chmurze przy użyciu hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Aby dowiedzieć się więcej o konfigurowaniu Azure Automation hybrydowych procesów roboczych, zobacz [Instalacja hybrydowego procesu roboczego elementu Runbook](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Po skonfigurowaniu hybrydowego procesu roboczego Utwórz element webhook zgodnie z opisem w sekcji [Korzystanie z Data Factory](#consume-with-data-factory).  Jedyną różnicą jest wybranie opcji **Uruchom przy** > użyciu**hybrydowego procesu roboczego** podczas konfigurowania elementu webhook.
 

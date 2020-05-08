@@ -1,27 +1,32 @@
 ---
 title: Zarządzanie elementami Runbook w Azure Automation
-description: W tym artykule opisano sposób zarządzania elementami Runbook w programie Azure Automation.
+description: W tym artykule opisano sposób zarządzania elementami Runbook w programie Azure Automation. Obejmuje ona podstawowe operacje i dodaje niektóre najlepsze rozwiązania.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2f66f94415b7a10fe540cf1c796f4b93349895a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 687579825c652888112ff8ddff7401b3305e3a8e
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855502"
+ms.locfileid: "82871199"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
-Element Runbook można dodać do Azure Automation, [tworząc nowy](#create-a-runbook) lub [importując istniejący](#import-a-runbook) z pliku lub z [galerii elementów Runbook](automation-runbook-gallery.md). Ten artykuł zawiera informacje dotyczące tworzenia i importowania elementów Runbook z pliku. Możesz uzyskać szczegółowe informacje na temat uzyskiwania dostępu do elementów Runbook i modułów z społeczności w [elementach Runbook i galeriach modułów dla Azure Automation](automation-runbook-gallery.md).
+Element Runbook można dodać do Azure Automation, tworząc nowy lub importując istniejący z pliku lub z [galerii elementów Runbook](automation-runbook-gallery.md). Ten artykuł zawiera informacje dotyczące zarządzania elementem Runbook zaimportowanym z pliku. Możesz znaleźć wszystkie szczegóły dotyczące uzyskiwania dostępu do elementów Runbook i modułów z społeczności w [elementach Runbook i galeriach modułów dla Azure Automation](automation-runbook-gallery.md).
 
 >[!NOTE]
 >Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="create-a-runbook"></a>Tworzenie elementu runbook
 
-Nowy element Runbook można utworzyć w Azure Automation przy użyciu jednego z portali platformy Azure lub środowiska Windows PowerShell. Po utworzeniu elementu Runbook można go edytować przy użyciu informacji w [przepływie pracy programu PowerShell](automation-powershell-workflow.md) i [tworzeniu grafiki w programie Azure Automation](automation-graphical-authoring-intro.md).
+Utwórz nowy element Runbook w Azure Automation przy użyciu Azure Portal lub środowiska Windows PowerShell. Po utworzeniu elementu Runbook można go edytować przy użyciu informacji w temacie:
+
+* [Edytuj tekstowy element Runbook w Azure Automation](automation-edit-textual-runbook.md) 
+* [Poznaj kluczowe koncepcje przepływu pracy programu Windows PowerShell dotyczące elementów Runbook usługi Automation](automation-powershell-workflow.md)
+* [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md)
+* [Zarządzanie pakietami Python 2 w Azure Automation](python-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Tworzenie elementu Runbook w Azure Portal
 
@@ -33,7 +38,7 @@ Nowy element Runbook można utworzyć w Azure Automation przy użyciu jednego z 
 
 ### <a name="create-a-runbook-with-powershell"></a>Tworzenie elementu Runbook za pomocą programu PowerShell
 
-Do utworzenia pustego [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks)można użyć polecenia cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) . Użyj `Type` parametru, aby określić jeden z typów elementów Runbook zdefiniowanych dla `New-AzAutomationRunbook`.
+Użyj polecenia cmdlet [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) , aby utworzyć pusty element Runbook. Użyj `Type` parametru, aby określić jeden z typów elementów Runbook zdefiniowanych dla `New-AzAutomationRunbook`.
 
 Poniższy przykład przedstawia sposób tworzenia nowego pustego elementu Runbook.
 
@@ -44,7 +49,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importowanie elementu Runbook
 
-Nowy element Runbook można utworzyć w Azure Automation przez zaimportowanie skryptu programu PowerShell lub przepływu pracy programu PowerShell (**. ps1**), wyeksportowanego graficznego elementu Runbook (**. graphrunbook**) lub skryptu python2 (**. PR**).  Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
+Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu PowerShell (**. ps1**), graficzny element Runbook (**. graphrunbook**) lub skrypt python 2 (**. PR**), aby utworzyć własny element Runbook.  Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
 
 * Plik **. ps1** , który nie zawiera przepływu pracy, można zaimportować do [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli zaimportujesz go do elementu Runbook przepływu pracy programu PowerShell, zostanie on przekonwertowany na przepływ pracy. W takim przypadku Komentarze są zawarte w elemencie Runbook w celu opisania wprowadzonych zmian.
 
@@ -52,9 +57,9 @@ Nowy element Runbook można utworzyć w Azure Automation przez zaimportowanie sk
 
 * Nie należy importować pliku **. ps1** zawierającego przepływ pracy programu PowerShell do [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks), ponieważ aparat skryptu programu PowerShell nie może go rozpoznać.
 
-* Plik **. graphrunbook** można zaimportować tylko do nowego [graficznego elementu Runbook](automation-runbook-types.md#graphical-runbooks). Należy pamiętać, że można utworzyć tylko graficzny element Runbook z pliku **. graphrunbook** .
+* Zaimportuj plik **. graphrunbook** do nowego [graficznego elementu Runbook](automation-runbook-types.md#graphical-runbooks). 
 
-### <a name="import-a-runbook-from-a-file-with-the-azure-portal"></a>Importuj element Runbook z pliku z Azure Portal
+### <a name="import-a-runbook-from-the-azure-portal"></a>Importuj element Runbook z Azure Portal
 
 Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej procedury.
 
@@ -62,7 +67,7 @@ Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej pro
 > Plik **. ps1** można zaimportować tylko do elementu Runbook przepływu pracy programu PowerShell przy użyciu portalu.
 
 1. W witrynie Azure Portal otwórz konto usługi Automation.
-2. W centrum wybierz pozycję **elementy Runbook** w obszarze **Automatyzacja procesów** , aby otworzyć listę elementów Runbook.
+2. Wybierz pozycję **elementy Runbook** w obszarze **Automatyzacja procesów** , aby otworzyć listę elementów Runbook.
 3. Kliknij pozycję **Importuj element Runbook**.
 4. Kliknij pozycję **plik Runbook** i wybierz plik do zaimportowania.
 5. Jeśli pole **Nazwa** jest włączone, istnieje możliwość zmiany nazwy elementu Runbook. Nazwa musi zaczynać się od litery i może zawierać litery, cyfry, podkreślenia i kreski.
@@ -71,11 +76,11 @@ Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej pro
 8. Aby można było uruchomić [element Runbook,](#publish-a-runbook) należy go opublikować.
 
 > [!NOTE]
-> Po zaimportowaniu graficznego elementu Runbook lub graficznego elementu Runbook przepływu pracy programu PowerShell możesz przekonwertować go na inny typ. Nie można jednak skonwertować jednego z tych graficznych elementów Runbook do tekstowego elementu Runbook.
+> Po zaimportowaniu graficznego elementu Runbook można go przekonwertować na inny typ. Nie można jednak skonwertować graficznego elementu Runbook do tekstowego elementu Runbook.
 
-### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Importowanie elementu Runbook z pliku skryptu za pomocą programu Windows PowerShell
+### <a name="import-a-runbook-with-windows-powershell"></a>Importowanie elementu Runbook za pomocą programu Windows PowerShell
 
-Użyj polecenia cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) , aby zaimportować plik skryptu jako szkic elementu Runbook przepływu pracy programu PowerShell. Jeśli element Runbook już istnieje, importowanie nie powiedzie się, o `Force` ile nie zostanie użyty parametr z poleceniem cmdlet.
+Użyj polecenia cmdlet [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) , aby zaimportować plik skryptu jako roboczy element Runbook. Jeśli element Runbook już istnieje, importowanie nie powiedzie się, o `Force` ile nie zostanie użyty parametr z poleceniem cmdlet.
 
 Poniższy przykład pokazuje, jak zaimportować plik skryptu do elementu Runbook.
 
@@ -92,7 +97,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="handle-resources"></a>Obsługa zasobów
 
-Jeśli element Runbook tworzy zasób, skrypt powinien sprawdzić, czy zasób już istnieje, przed podjęciem próby jego utworzenia. Oto przykład podstawowy.
+Jeśli element Runbook tworzy [zasób](automation-runbook-execution.md#resources), skrypt powinien sprawdzić, czy zasób już istnieje, przed podjęciem próby jego utworzenia. Oto przykład podstawowy.
 
 ```powershell
 $vmName = "WindowsVM1"
@@ -113,7 +118,7 @@ else
 
 ## <a name="retrieve-details-from-activity-log"></a>Pobierz szczegóły z dziennika aktywności
 
-Możesz pobrać szczegóły elementu Runbook, takie jak osoba lub konto, które uruchomiło element Runbook, z dziennika aktywności dla konta usługi Automation. Poniższy przykład programu PowerShell zawiera ostatniego użytkownika do uruchomienia określonego elementu Runbook.
+Możesz pobrać szczegóły elementu Runbook, takie jak osoba lub konto, które uruchomiło element Runbook, z [dziennika aktywności](automation-runbook-execution.md#activity-logging) dla konta usługi Automation. Poniższy przykład programu PowerShell zawiera ostatniego użytkownika do uruchomienia określonego elementu Runbook.
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
@@ -145,7 +150,9 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="track-progress"></a>Śledzenie postępu
 
-Dobrym sposobem jest samodzielne tworzenie elementów Runbook w charakterze modularnym, z logiką, którą można ponownie wykorzystać i ponownie uruchomić. Śledzenie postępów w elemencie Runbook to dobry sposób, aby zapewnić, że logika elementu Runbook jest wykonywana prawidłowo w przypadku wystąpienia problemów. Istnieje możliwość śledzenia postępu elementu Runbook przy użyciu zewnętrznego źródła, takiego jak konto magazynu, baza danych lub udostępnione pliki. W elemencie Runbook można utworzyć logikę, aby najpierw sprawdzić stan ostatniej podjętej akcji. Następnie w oparciu o wynik sprawdzenia logika może pominąć lub kontynuować określone zadania w elemencie Runbook.
+Dobrym sposobem jest samodzielne tworzenie elementów Runbook w charakterze modularnym, z logiką, którą można ponownie wykorzystać i ponownie uruchomić. Śledzenie postępu w elemencie Runbook zapewnia, że logika elementu Runbook jest wykonywana prawidłowo w przypadku wystąpienia problemów. 
+
+Postęp elementu Runbook można śledzić przy użyciu zewnętrznego źródła, takiego jak konto magazynu, baza danych lub udostępnione pliki. Utwórz logikę w elemencie Runbook, aby najpierw sprawdzić stan ostatniej podjętej akcji. Następnie w oparciu o wyniki kontroli logika może pominąć lub kontynuować określone zadania w elemencie Runbook.
 
 ## <a name="prevent-concurrent-jobs"></a>Uniemożliwiaj współbieżne zadania
 
@@ -179,7 +186,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ## <a name="handle-transient-errors-in-a-time-dependent-script"></a>Obsługa błędów przejściowych w skrypcie zależnym od czasu
 
-Elementy Runbook muszą być niezawodne i mogą obsługiwać błędy przejściowe, które mogą spowodować ponowne uruchomienie lub niepowodzenie. Jeśli element Runbook ulegnie awarii, Azure Automation ponowienia próby.
+Elementy Runbook muszą być niezawodne i mogą obsługiwać [Błędy](automation-runbook-execution.md#errors), w tym błędy przejściowe, które mogą spowodować ponowne uruchomienie lub niepowodzenie. Jeśli element Runbook ulegnie awarii, Azure Automation ponowienia próby.
 
 Jeśli element Runbook jest zwykle uruchamiany w ramach ograniczenia czasu, należy wdrożyć logikę implementacji skryptu, aby sprawdzić czas wykonywania. To sprawdzenie gwarantuje uruchomienie operacji, takich jak uruchamianie, zamykanie lub skalowanie w poziomie tylko w określonych godzinach.
 
@@ -188,7 +195,7 @@ Jeśli element Runbook jest zwykle uruchamiany w ramach ograniczenia czasu, nale
 
 ## <a name="work-with-multiple-subscriptions"></a>Praca z wieloma subskrypcjami
 
-Aby zająć się wieloma subskrypcjami, element Runbook musi korzystać z polecenia cmdlet [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . To polecenie cmdlet zapewnia, że kontekst uwierzytelniania nie zostanie pobrany z innego elementu Runbook działającego w tej samej piaskownicy. Element Runbook używa również`AzContext` parametru w poleceniach cmdlet AZ module i przekazuje go w odpowiednim kontekście.
+Element Runbook musi mieć możliwość pracy z [subskrypcjami](automation-runbook-execution.md#subscriptions). Aby na przykład obsłużyć wiele subskrypcji, element Runbook używa polecenia cmdlet [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . To polecenie cmdlet zapewnia, że kontekst uwierzytelniania nie zostanie pobrany z innego elementu Runbook działającego w tej samej piaskownicy. Element Runbook używa również`AzContext` parametru w poleceniach cmdlet AZ module i przekazuje go w odpowiednim kontekście.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -215,11 +222,14 @@ Start-AzAutomationRunbook `
 
 ## <a name="work-with-a-custom-script"></a>Pracuj ze skryptem niestandardowym
 
-Zazwyczaj nie można uruchamiać skryptów niestandardowych i elementów Runbook na hoście z zainstalowanym agentem Log Analytics. Jeśli to konieczne, wykonaj następujące czynności:
+> [!NOTE]
+> Zazwyczaj nie można uruchamiać skryptów niestandardowych i elementów Runbook na hoście z zainstalowanym agentem Log Analytics. 
 
-1. Utwórz konto usługi Automation i uzyskaj rolę współautor.
+Aby użyć skryptu niestandardowego:
+
+1. Utwórz konto usługi Automation i uzyskaj [rolę współautor](automation-role-based-access-control.md).
 2. [Połącz konto z obszarem roboczym platformy Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection.md).
-3. Włącz hybrydowy proces roboczy elementu Runbook, Update Management lub inną funkcję automatyzacji. 
+3. Włącz [hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md), [Update Management](automation-update-management.md)lub inną funkcję automatyzacji. 
 4. Jeśli na komputerze z systemem Linux potrzebujesz wysokiego poziomu uprawnień. Zaloguj się, aby wyłączyć [sprawdzanie podpisu](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testowanie elementu Runbook
@@ -234,7 +244,7 @@ Procedura testowania każdego [typu elementu Runbook](automation-runbook-types.m
 1. Kliknij przycisk **Testuj** , aby otworzyć stronę test.
 1. Jeśli element Runbook ma parametry, są one wyświetlane w okienku po lewej stronie, gdzie można podać wartości do użycia w teście.
 1. Jeśli chcesz uruchomić test w [hybrydowym procesie roboczym elementu Runbook](automation-hybrid-runbook-worker.md), Zmień **Parametry uruchomieniowe** na **hybrydowy proces roboczy** i wybierz nazwę grupy docelowej.  W przeciwnym razie Zachowaj domyślną **platformę Azure** , aby uruchomić test w chmurze.
-1. Kliknij przycisk **Uruchom** , aby rozpocząć test.
+1. Kliknij przycisk **Rozpocznij** , aby rozpocząć test.
 1. Za pomocą przycisków w okienku danych wyjściowych można zatrzymać lub wstrzymać [przepływ pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) lub [graficzny](automation-runbook-types.md#graphical-runbooks) element Runbook podczas testowania. Gdy element Runbook zostanie wstrzymany, przed jego wstrzymaniem zostanie ukończone bieżące działanie. Po wstrzymaniu elementu Runbook można go zatrzymać lub uruchomić ponownie.
 1. Sprawdź dane wyjściowe z elementu Runbook w okienku danych wyjściowych.
 
@@ -250,7 +260,7 @@ Podczas tworzenia lub importowania nowego elementu Runbook należy go opublikowa
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publikowanie elementu Runbook przy użyciu programu PowerShell
 
-Użyj polecenia cmdlet [Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) , aby opublikować element Runbook za pomocą programu Windows PowerShell. Poniższy przykład przedstawia sposób publikowania przykładowego elementu Runbook.
+Użyj polecenia cmdlet [Publish-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) , aby opublikować element Runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -263,7 +273,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 
 ## <a name="schedule-a-runbook-in-the-azure-portal"></a>Zaplanuj element Runbook w Azure Portal
 
-Po opublikowaniu elementu Runbook można zaplanować jego działanie.
+Po opublikowaniu elementu Runbook można zaplanować jego działanie:
 
 1. Otwórz element Runbook w Azure Portal.
 2. Wybierz pozycję **harmonogramy** w obszarze **zasoby**.
@@ -278,11 +288,11 @@ Po opublikowaniu elementu Runbook można zaplanować jego działanie.
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Wyświetlanie stanów w Azure Portal
 
-Po prawej stronie wybranego konta usługi Automation można zobaczyć podsumowanie wszystkich zadań elementu Runbook na kafelku **Statystyka zadania** . Szczegóły obsługi zadań w Azure Automation są dostępne w ramach [wykonywania elementu Runbook w programie Azure Automation](automation-runbook-execution.md#jobs).
+Szczegółowe informacje o obsłudze zadań w Azure Automation są dostępne w obszarze [zadania](automation-runbook-execution.md#jobs). Gdy wszystko będzie gotowe do wyświetlenia zadań elementu Runbook, użyj Azure Portal i uzyskaj dostęp do konta usługi Automation. Po prawej stronie można zobaczyć podsumowanie wszystkich zadań elementu Runbook w **statystykach zadań**. 
 
 ![Kafelek statystyk zadania](./media/manage-runbooks/automation-account-job-status-summary.png)
 
-Ten kafelek przedstawia liczbę i graficzną reprezentację stanu zadania dla każdego wykonanego zadania.
+Podsumowanie wyświetla liczbę i graficzną reprezentację stanu zadania dla każdego wykonanego zadania.
 
 Kliknięcie kafelka przedstawia stronę zadania, która zawiera skróconą listę wszystkich wykonanych zadań. Na tej stronie jest wyświetlany stan, nazwa elementu Runbook, czas rozpoczęcia i czas zakończenia każdego zadania.
 
@@ -292,13 +302,13 @@ Listę zadań można filtrować, wybierając pozycję **Filtruj zadania**. Odfil
 
 ![Stan zadania filtrowania](./media/manage-runbooks/automation-account-jobs-filter.png)
 
-Możesz też wyświetlić szczegóły podsumowania zadania dla określonego elementu Runbook, wybierając ten element Runbook ze strony elementów Runbook na koncie usługi Automation, a następnie wybierając kafelek **zadania** . Ta akcja przedstawia stronę zadania. W tym miejscu możesz kliknąć rekord zadania, aby wyświetlić jego szczegóły i dane wyjściowe.
+Możesz też wyświetlić szczegóły podsumowania zadania dla określonego elementu Runbook, wybierając ten element Runbook ze strony elementów Runbook na koncie usługi Automation, a następnie wybierając pozycję **zadania**. Ta akcja przedstawia stronę zadania. W tym miejscu możesz kliknąć rekord zadania, aby wyświetlić jego szczegóły i dane wyjściowe.
 
 ![Strona zadań konta usługi Automation](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Pobieranie stanów zadań przy użyciu programu PowerShell
 
-Użyj polecenia cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) , aby pobrać zadania utworzone dla elementu Runbook i szczegółowe informacje o konkretnym zadaniu. W przypadku uruchomienia elementu Runbook przy użyciu `Start-AzAutomationRunbook`programu PowerShell funkcja zwraca wynikowe zadanie. Użyj polecenia [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) , aby pobrać dane wyjściowe zadania.
+Użyj polecenia cmdlet [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) , aby pobrać zadania utworzone dla elementu Runbook i szczegółowe informacje o konkretnym zadaniu. Po uruchomieniu elementu Runbook za pomocą `Start-AzAutomationRunbook`usługi zwraca ono wynikowe zadanie. Użyj polecenia [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) , aby pobrać dane wyjściowe zadania.
 
 Poniższy przykład pobiera ostatnie zadanie dla przykładowego elementu Runbook i wyświetla jego stan, wartości podane dla parametrów elementu Runbook oraz dane wyjściowe zadania.
 
@@ -311,7 +321,7 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
-Poniższy przykład pobiera dane wyjściowe dla określonego zadania i zwraca każdy rekord. Jeśli istnieje wyjątek dla jednego z rekordów, skrypt zapisuje wyjątek zamiast wartości. To zachowanie jest przydatne, ponieważ wyjątki mogą zawierać dodatkowe informacje, które mogą nie być rejestrowane normalnie podczas danych wyjściowych.
+Poniższy przykład pobiera dane wyjściowe dla określonego zadania i zwraca każdy rekord. Jeśli istnieje [wyjątek](automation-runbook-execution.md#exceptions) dla jednego z rekordów, skrypt zapisuje wyjątek zamiast wartości. To zachowanie jest przydatne, ponieważ wyjątki mogą zawierać dodatkowe informacje, które mogą nie być rejestrowane normalnie podczas danych wyjściowych.
 
 ```azurepowershell-interactive
 $output = Get-AzAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
@@ -331,7 +341,6 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
-* Aby dowiedzieć się, jak możesz skorzystać z galerii modułów Runbook i modułu programu PowerShell, zobacz [elementy Runbook i galerie modułów dla Azure Automation](automation-runbook-gallery.md).
+* Aby dowiedzieć się więcej o przetwarzaniu elementów Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
 * Aby dowiedzieć się więcej o edytowaniu elementów Runbook programu PowerShell i przepływu pracy programu PowerShell przy użyciu edytora tekstu, zobacz [Edytowanie tekstowych elementów Runbook w Azure Automation](automation-edit-textual-runbook.md).
 * Aby dowiedzieć się więcej na temat graficznego tworzenia elementów Runbook, zobacz [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).

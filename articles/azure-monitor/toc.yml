@@ -62,6 +62,9 @@
   items:
     - name: Azure PowerShell
       href: platform/powershell-samples.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Co można monitorować?
@@ -442,8 +445,6 @@
               href: app/custom-data-correlation.md
             - name: Parametry połączeń
               href: app/sdk-connection-string.md
-            - name: Parametry połączeń
-              href: app/sdk-connection-string.md
             - name: GetMetric
               displayname: 'get metric, custom metrics, metrics, TrackMetric'
               href: app/get-metric.md
@@ -750,8 +751,6 @@
           href: insights/containers.md
     - name: Monitorowanie innych zasobów
       items:
-        - name: Usługa Key Vault
-          href: insights/key-vault-insights-overview.md
         - name: Magazyn
           items:
             - name: Usługa Azure Monitor dla magazynu
@@ -927,6 +926,10 @@
               href: platform/workbooks-data-sources.md
             - name: Wdrażanie za pomocą usługi Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Grupy
+              href: platform/workbooks-groups.md
+            - name: Przekształcanie danych JSON przy użyciu wyrażeń JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Konfigurowanie
               items:
                 - name: Kontrola dostępu

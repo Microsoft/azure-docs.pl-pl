@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188127"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864644"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Zabezpieczanie zadań eksperymentowania i wnioskowania usługi Azure ML w ramach Virtual Network platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -359,7 +359,7 @@ Aby użyć maszyny wirtualnej lub klastra usługi Azure HDInsight w sieci wirtua
 Aby dodać AKS w sieci wirtualnej do obszaru roboczego, wykonaj następujące czynności:
 
 > [!IMPORTANT]
-> Przed rozpoczęciem poniższej procedury postępuj zgodnie z wymaganiami wstępnymi w temacie [Konfigurowanie zaawansowanej sieci w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) How-to i planowanie adresowania IP klastra.
+> Przed rozpoczęciem poniższej procedury postępuj zgodnie z wymaganiami wstępnymi w temacie [Konfigurowanie zaawansowanej sieci w usłudze Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) How-to i planowanie adresowania IP klastra.
 >
 > Wystąpienie AKS i Sieć wirtualna platformy Azure muszą znajdować się w tym samym regionie. W przypadku zabezpieczenia kont usługi Azure Storage używanych przez obszar roboczy w sieci wirtualnej, muszą one znajdować się w tej samej sieci wirtualnej co wystąpienie AKS.
 
@@ -506,7 +506,7 @@ Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czy
 
 
 
-## <a name="use-azure-firewall"></a>Korzystanie z zapory platformy Azure
+## <a name="use-azure-firewall"></a>Korzystanie z usługi Azure Firewall
 
 Aby uzyskać informacje na temat używania Azure Machine Learning z zaporą platformy Azure, zobacz [Korzystanie z Azure Machine Learning obszaru roboczego za zaporą platformy Azure](how-to-access-azureml-behind-firewall.md).
 
@@ -557,7 +557,7 @@ Aby uzyskać informacje na temat używania Azure Machine Learning z zaporą plat
     
     Aby uzyskać więcej informacji, zobacz informacje o metodzie [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
-1. Jeśli używasz prywatnego linku do obszaru roboczego Azure Machine Learning i umieścisz Azure Container Registry dla obszaru roboczego w sieci wirtualnej, musisz również zastosować następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR za pośrednictwem prywatnego linku.
+1. Należy zastosować następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR.
 
     ```json
     {

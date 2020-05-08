@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416638"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857702"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -67,7 +67,7 @@ Wykonaj następujące kroki, aby utworzyć środowisko IR samodzielnego przy uż
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
 1. Na poniższej stronie wybierz pozycję **samodzielna** do utworzenia własnego środowiska IR, a następnie wybierz pozycję **Kontynuuj**.
-   ![Tworzenie selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Tworzenie selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Wprowadź nazwę dla swojego środowiska IR, a następnie wybierz pozycję **Utwórz**.
 
@@ -117,7 +117,7 @@ Poniżej znajdują się szczegółowe informacje o parametrach i właściwościa
 | **Klucz** "`<AuthenticationKey>`"                                 | Zastąp lub zaktualizuj poprzedni klucz uwierzytelniania. Należy zachować ostrożność w przypadku tej akcji. Poprzedni udostępniony przez siebie węzeł IR może przejść do trybu offline, jeśli klucz jest nowym środowiskiem Integration Runtime. | Nie       |
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Generuj plik kopii zapasowej dla bieżącego węzła. Plik kopii zapasowej zawiera klucze węzła i poświadczenia magazynu danych. | Nie       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Przywróć węzeł z pliku kopii zapasowej.                          | Nie       |
-| **Uruchomieniu**                                                     | Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.   | Nie       |
+| **Uruchom ponownie**                                                     | Uruchom ponownie funkcję samodzielnego hosta Integration Runtime.   | Nie       |
 | **Początek**                                                       | Uruchom samohostowaną usługę hosta Integration Runtime.     | Nie       |
 | **Zatrzymaj**                                                        | Zatrzymaj samohostowaną usługę hosta Integration Runtime.        | Nie       |
 | **StartUpgradeService**                                         | Uruchom samohostowaną usługę uaktualniania środowiska Integration Runtime.       | Nie       |
