@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067005"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929047"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -58,7 +58,7 @@ Ogólnie rzecz biorąc, ***B*** dla rozmiaru partii, ***L*** dla opóźnienia us
 
 Możesz również skonfigurować "maksymalną liczbę współbieżnych wywołań" w usłudze sieci Web Machine Learning. Zalecane jest ustawienie dla tego parametru wartości maksymalnej (200 obecnie).
 
-Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artykułem skalowanie dla Machine Learning usług sieci Web](../machine-learning/studio/scaling-webservice.md).
+Aby uzyskać więcej informacji na temat tego ustawienia, zapoznaj się z [artykułem skalowanie dla Machine Learning usług sieci Web](../machine-learning/studio/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Przykład — analiza tonacji
 Poniższy przykład obejmuje zadanie Stream Analytics przy użyciu funkcji Machine Learning analizy tonacji, zgodnie z opisem w [samouczku integracji Stream Analytics Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).

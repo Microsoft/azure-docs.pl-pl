@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 392329d254615406204d67a4e135b6857e13a57d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192556"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780848"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: często zadawane pytania
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące uruchamiania [usługi Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -133,7 +133,7 @@ Tak, można wdrożyć dodatkową maszynę wirtualną w tej samej podsieci, w kt�
 
 - Węzły brzegowe: można dodać kolejny węzeł krawędzi do klastra, zgodnie z opisem w temacie [używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Węzły autonomiczne: można dodać autonomiczną maszynę wirtualną do tej samej podsieci i uzyskać dostęp do klastra z tej maszyny wirtualnej przy użyciu prywatnego punktu `https://<CLUSTERNAME>-int.azurehdinsight.net`końcowego. Aby uzyskać więcej informacji, zobacz [sterowanie ruchem sieciowym](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Węzły autonomiczne: można dodać autonomiczną maszynę wirtualną do tej samej podsieci i uzyskać dostęp do klastra z tej maszyny wirtualnej przy użyciu prywatnego punktu `https://<CLUSTERNAME>-int.azurehdinsight.net`końcowego. Aby uzyskać więcej informacji, zobacz [sterowanie ruchem sieciowym](./control-network-traffic.md).
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Czy należy przechowywać dane na dysku lokalnym węzła krawędzi?
 

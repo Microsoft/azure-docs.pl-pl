@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79078417"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872070"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Miejsce zapisywania i zapisywania plików do Azure Machine Learning eksperymentów
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Aby rozwiązać ten problem, należy przechowywać pliki eksperymentów w magazy
 Opis&nbsp;eksperymentu|Rozwiązanie limitu magazynu
 ---|---
 Mniej niż 2000 plików & nie może używać magazynu danych| Przesłoń limit rozmiaru migawki przy użyciu <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Może to potrwać kilka minut w zależności od liczby i rozmiaru plików.
-Musi używać określonego katalogu skryptów| Utwórz `.amlignore` plik do wykluczania plików z migawki eksperymentu, które nie są częścią kodu źródłowego. Dodaj nazwy plików do `.amlignore` pliku i umieść je w tym samym katalogu, co skrypt szkoleniowy. `.amlignore` Plik używa takiej samej [składni i wzorców](https://git-scm.com/docs/gitignore) jak `.gitignore` plik.
+Musi używać określonego katalogu skryptów| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Potok|Użyj innego podkatalogu dla każdego kroku
 Notesy programu Jupyter| Utwórz `.amlignore` plik lub Przenieś Notes do nowego, pustego, podkatalogu i ponownie uruchom kod.
 
