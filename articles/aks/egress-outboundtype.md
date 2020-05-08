@@ -4,12 +4,12 @@ description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676501"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733502"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika (wersja zapoznawcza)
 
@@ -73,7 +73,7 @@ Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, kt�
 
 Jeśli `userDefinedRouting` jest ustawiona, AKS nie skonfiguruje automatycznie ścieżek ruchu wychodzącego. **Użytkownik**powinien wykonać następujące czynności.
 
-Klaster należy wdrożyć w istniejącej sieci wirtualnej z skonfigurowaną podsiecią. Prawidłowa zdefiniowana przez użytkownika trasa (UDR) musi istnieć w podsieci z łącznością wychodzącą.
+Klaster AKS musi zostać wdrożony w istniejącej sieci wirtualnej z skonfigurowaną podsiecią. W przypadku korzystania ze standardowej architektury modułu równoważenia obciążenia należy ustanowić jawne dane wyjściowe. Wymaga to wysyłania żądań wychodzących do urządzenia, takiego jak zapora, Brama, Premium lub aby zezwolić na ruch wychodzący przez publiczny adres IP przypisany do standardowej usługi równoważenia obciążenia lub danego węzła.
 
 Dostawca zasobów AKS będzie wdrażać usługę równoważenia obciążenia w warstwie Standardowa. Moduł równoważenia obciążenia nie jest skonfigurowany z żadną regułą i nie [ponosi opłaty do momentu, gdy reguła zostanie umieszczona](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **nie** będzie automatycznie inicjować publicznego adresu IP dla frontonu modułu równoważenia obciążenia. Usługa AKS **nie** będzie automatycznie konfigurować puli zaplecza modułu równoważenia obciążenia.
 

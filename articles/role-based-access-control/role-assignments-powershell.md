@@ -1,6 +1,6 @@
 ---
-title: Dodawanie i usuwanie przypisań ról przy użyciu RBAC i Azure PowerShell
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure i Azure PowerShell.
+title: Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell — RBAC na platformie Azure
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu Azure PowerShell i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283214"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735661"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu Azure PowerShell.
 
@@ -67,7 +67,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
-W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli.
+W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli.
 
 ### <a name="user-at-a-resource-group-scope"></a>Użytkownik w zakresie grupy zasobów
 
@@ -112,7 +112,7 @@ Aby dodać przypisanie roli przy użyciu unikatowego identyfikatora roli zamiast
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do *Alain\@example.com* użytkownika w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć polecenie [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub zobaczyć [wbudowane role dla zasobów platformy Azure](built-in-roles.md).
+Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do *Alain\@example.com* użytkownika w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć polecenie [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub zobaczyć [wbudowane role platformy Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -205,7 +205,7 @@ CanDelegate        : False
 
 ## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
 
-Aby usunąć dostęp w ramach RBAC, usuń przypisanie roli za pomocą polecenia [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli za pomocą polecenia [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 Poniższy przykład usuwa przypisanie roli *współautor maszyny wirtualnej* z użytkownika *Alain\@example.com* w grupie zasobów *Pharma-Sales* :
 
@@ -225,11 +225,11 @@ Poniższy przykład usuwa rolę <role_name> z <object_id> w zakresie grupy zarz�
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Jeśli zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane do przypisania roli", upewnij się, że określono również parametry `-Scope` lub. `-ResourceGroupName` Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z funkcją RBAC dla zasobów platformy Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Jeśli zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane do przypisania roli", upewnij się, że określono również parametry `-Scope` lub. `-ResourceGroupName` Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure PowerShell](role-assignments-list-powershell.md)
-- [Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu RBAC i Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Samouczek: tworzenie roli niestandardowej dla zasobów platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure PowerShell](role-assignments-list-powershell.md)
+- [Samouczek: udzielanie grupie dostępu do zasobów platformy Azure przy użyciu Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Zarządzanie zasobami za pomocą Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

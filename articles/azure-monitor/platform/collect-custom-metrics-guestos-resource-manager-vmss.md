@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663900"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733264"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla zestawu skalowania maszyn wirtualnych z systemem Windows
 
@@ -252,7 +252,7 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Pamiętaj, aby użyć regionu platformy Azure, który jest włączony dla metryk niestandardowych. Pamiętaj, aby użyć [regionu platformy Azure, który jest włączony dla metryk niestandardowych](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
+   > Pamiętaj, aby użyć regionu platformy Azure, który jest włączony dla metryk niestandardowych. Pamiętaj, aby użyć [regionu platformy Azure, który jest włączony dla metryk niestandardowych](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
  
 1. Uruchom następujące polecenia, aby wdrożyć maszynę wirtualną:  
 
@@ -271,7 +271,7 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Tworzenie wykresów metryk 
 
-1. Zaloguj się do witryny Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 
 1. W menu po lewej stronie wybierz pozycję **monitorowanie**. 
 

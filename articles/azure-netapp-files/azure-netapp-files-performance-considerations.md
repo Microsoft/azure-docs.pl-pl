@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454141"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691313"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Kwestie dotyczące wydajności dla usługi Azure NetApp Files
 
@@ -34,8 +34,6 @@ Typowe zagadnienia dotyczące wydajności magazynu, w tym mieszanie odczytu i za
 Maksymalna przepływność empiryczna, która była obserwowana w testowaniu, to 4 500 MiB/s.  W warstwie Premium Storage przydział woluminu 70,31 TiB będzie zapewniać limit przepływności wystarczający do osiągnięcia tego poziomu wydajności.  
 
 W przypadku rozważania przypisywania ilości przydziałów woluminów poza 70,31 TiB, do woluminu można przypisać dodatkowe dane. Jednak dodany przydział nie spowoduje dalszej podwyżki rzeczywistej przepływności.  
-
-Aby uzyskać dodatkowe informacje, zobacz [wyniki testów wydajności Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) .
 
 ## <a name="overprovisioning-the-volume-quota"></a>Nadmierne Inicjowanie obsługi przydziału woluminu
 
@@ -64,4 +62,4 @@ Jeśli wymagania dotyczące wydajności mają charakter tymczasowy lub w przypad
 ## <a name="next-steps"></a>Następne kroki
 
 - [Poziomy usług dla usługi Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Testy porównawcze wydajności dla usługi Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Testy porównawcze wydajności dla systemu Linux](performance-benchmarks-linux.md)

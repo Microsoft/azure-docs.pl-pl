@@ -1,6 +1,6 @@
 ---
-title: Dodawanie przypisań ról za pomocą szablonów RBAC i Usługi Azure Resource Manager
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure użytkownikom, grupom, jednostkom usług lub tożsamościom zarządzanym przy użyciu szablonów kontroli dostępu opartej na rolach platformy Azure (RBAC) i usługi Azure Resource Manager.
+title: Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager — Azure RBAC
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu szablonów Azure Resource Manager i kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,24 +13,24 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138298"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735627"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Dodawanie przypisań ról przy użyciu szablonów usługi Azure RBAC i usługi Azure Resource Manager
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Oprócz korzystania z usługi Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisać role przy użyciu [szablonów usługi Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba wdrożyć zasoby konsekwentnie i wielokrotnie. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Oprócz używania Azure PowerShell lub interfejsu wiersza polecenia platformy Azure można przypisywać role przy użyciu [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Szablony mogą być przydatne, jeśli trzeba spójnie i wielokrotnie wdrażać zasoby. W tym artykule opisano sposób przypisywania ról przy użyciu szablonów.
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 
-Aby przypisać rolę, należy określić identyfikator użytkownika, grupy lub aplikacji, do której chcesz przypisać rolę. Identyfikator ma format: `11111111-1111-1111-1111-111111111111`. Identyfikator można uzyskać za pomocą witryny Azure portal, usługi Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Aby przypisać rolę, należy określić identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Identyfikator ma format: `11111111-1111-1111-1111-111111111111`. Identyfikator można uzyskać, korzystając z Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="user"></a>Użytkownik
 
-Aby uzyskać identyfikator użytkownika, możesz użyć poleceń [get-AzADUser](/powershell/module/az.resources/get-azaduser) lub [az ad user show.](/cli/azure/ad/user#az-ad-user-show)
+Aby uzyskać identyfikator użytkownika, można użyć poleceń [Get-AzADUser](/powershell/module/az.resources/get-azaduser) lub [AZ AD User show](/cli/azure/ad/user#az-ad-user-show) .
 
 ```azurepowershell
 $objectid = (Get-AzADUser -DisplayName "{name}").id
@@ -42,7 +42,7 @@ objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 
 ### <a name="group"></a>Grupa
 
-Aby uzyskać identyfikator grupy, możesz użyć poleceń [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) lub [az ad group show.](/cli/azure/ad/group#az-ad-group-show)
+Aby uzyskać identyfikator grupy, można użyć poleceń [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) lub [AZ AD Group Show](/cli/azure/ad/group#az-ad-group-show) .
 
 ```azurepowershell
 $objectid = (Get-AzADGroup -DisplayName "{name}").id
@@ -54,7 +54,7 @@ objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 
 ### <a name="application"></a>Aplikacja
 
-Aby uzyskać identyfikator jednostki usługi (tożsamość używana przez aplikację), można użyć polecenia [listy Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) lub [az ad sp.](/cli/azure/ad/sp#az-ad-sp-list) Dla jednostki usługi należy użyć identyfikatora obiektu, a **nie** identyfikatora aplikacji.
+Aby uzyskać identyfikator jednostki usługi (tożsamość używana przez aplikację), można użyć poleceń [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) lub [AZ AD Sp list](/cli/azure/ad/sp#az-ad-sp-list) . Dla jednostki usługi Użyj identyfikatora obiektu, a **nie** identyfikatora aplikacji.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -66,18 +66,18 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
-W RBAC, aby udzielić dostępu, należy dodać przypisanie roli.
+W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli.
 
 ### <a name="resource-group-without-parameters"></a>Grupa zasobów (bez parametrów)
 
-Poniższy szablon przedstawia podstawowy sposób dodawania przypisania roli. Niektóre wartości są określone w szablonie. Następujący szablon pokazuje:
+Poniższy szablon przedstawia podstawowy sposób dodawania przypisania roli. Niektóre wartości są określone w szablonie. Poniższy szablon demonstruje:
 
--  Jak przypisać rolę [czytelnika](built-in-roles.md#reader) do użytkownika, grupy lub aplikacji w zakresie grupy zasobów
+-  Jak przypisać rolę [czytnika](built-in-roles.md#reader) do użytkownika, grupy lub aplikacji w zakresie grupy zasobów
 
 Aby użyć szablonu, należy wykonać następujące czynności:
 
-- Tworzenie nowego pliku JSON i kopiowanie szablonu
-- Zastąp `<your-principal-id>` identyfikatorem użytkownika, grupy lub aplikacji, aby przypisać rolę do
+- Utwórz nowy plik JSON i skopiuj szablon
+- Zamień `<your-principal-id>` na identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola
 
 ```json
 {
@@ -97,7 +97,7 @@ Aby użyć szablonu, należy wykonać następujące czynności:
 }
 ```
 
-Poniżej przedstawiono przykład [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment in a resource group named ExampleGroup.
+Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w grupie zasobów o nazwie example.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
@@ -113,15 +113,15 @@ Poniżej przedstawiono przykład przypisania roli czytnika do użytkownika dla g
 
 ### <a name="resource-group-or-subscription"></a>Grupa zasobów lub subskrypcja
 
-Poprzedni szablon nie jest zbyt elastyczny. Poniższy szablon używa parametrów i może być używany w różnych zakresach. Następujący szablon pokazuje:
+Poprzedni szablon nie jest bardzo elastyczny. Następujący szablon używa parametrów i może być używany w różnych zakresach. Poniższy szablon demonstruje:
 
-- Jak przypisać rolę do użytkownika, grupy lub aplikacji w grupie zasobów lub zakresie subskrypcji
-- Jak określić role właściciela, współautora i czytelnika jako parametru
+- Jak przypisać rolę do użytkownika, grupy lub aplikacji w ramach grupy zasobów lub zakresu subskrypcji
+- Jak określić role właściciela, współautora i czytnika jako parametr
 
 Aby użyć szablonu, należy określić następujące dane wejściowe:
 
-- Identyfikator użytkownika, grupy lub aplikacji, aby przypisać rolę do
-- Unikatowy identyfikator, który będzie używany do przypisania roli lub można użyć domyślnego identyfikatora
+- Identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola
+- Unikatowy identyfikator, który będzie używany na potrzeby przypisania roli, lub można użyć identyfikatora domyślnego
 
 ```json
 {
@@ -173,9 +173,9 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 ```
 
 > [!NOTE]
-> Ten szablon nie jest idempotentne, chyba że ta sama `roleNameGuid` wartość jest podana jako parametr dla każdego wdrożenia szablonu. Jeśli `roleNameGuid` nie jest pod warunkiem, domyślnie nowy identyfikator GUID jest generowany `Conflict: RoleAssignmentExists` na każdym wdrożeniu i kolejnych wdrożeń zakończy się niepowodzeniem z powodu błędu.
+> Ten szablon nie jest idempotentne, chyba że `roleNameGuid` ta sama wartość jest podana jako parametr dla każdego wdrożenia szablonu. Jeśli nie `roleNameGuid` jest podany, domyślnie nowy identyfikator GUID jest generowany dla każdego wdrożenia, a kolejne wdrożenia zakończą się niepowodzeniem z `Conflict: RoleAssignmentExists` powodu błędu.
 
-Zakres przypisania roli jest określany na podstawie poziomu wdrożenia. Poniżej przedstawiono przykład [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+Zakres przypisania roli jest określany na podstawie poziomu wdrożenia. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -185,7 +185,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-Poniżej [przedstawiono przykład New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i [az wdrożenia utworzyć](/cli/azure/deployment#az-deployment-create) polecenia, jak rozpocząć wdrożenie w zakresie subskrypcji i określić lokalizację.
+Poniżej przedstawiono przykładowe polecenia [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) i [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) dotyczące sposobu uruchamiania wdrożenia w zakresie subskrypcji i określania lokalizacji.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
@@ -197,24 +197,24 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 ### <a name="resource"></a>Zasób
 
-Jeśli chcesz dodać przypisanie roli na poziomie zasobu, format przypisania roli jest inny. Udostępnić obszar nazw dostawcy zasobów i typ zasobu do przypisania roli. Należy również podać nazwę zasobu w nazwie przypisania roli.
+Jeśli konieczne jest dodanie przypisania roli na poziomie zasobu, format przypisania roli jest inny. Podaj przestrzeń nazw dostawcy zasobów i typ zasobu zasobu, do którego ma zostać przypisana rola. Należy również podać nazwę zasobu w nazwie przypisania roli.
 
-W przypadku typu i nazwy przypisania roli należy użyć następującego formatu:
+W polu Typ i nazwa przypisania roli Użyj następującego formatu:
 
 ```json
 "type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
 "name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
 ```
 
-Następujący szablon pokazuje:
+Poniższy szablon demonstruje:
 
 - Jak utworzyć nowe konto magazynu
 - Jak przypisać rolę do użytkownika, grupy lub aplikacji w zakresie konta magazynu
-- Jak określić role właściciela, współautora i czytelnika jako parametru
+- Jak określić role właściciela, współautora i czytnika jako parametr
 
 Aby użyć szablonu, należy określić następujące dane wejściowe:
 
-- Identyfikator użytkownika, grupy lub aplikacji, aby przypisać rolę do
+- Identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola
 
 ```json
 {
@@ -277,7 +277,7 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 }
 ```
 
-Aby wdrożyć poprzedni szablon, należy użyć poleceń grupy zasobów. Poniżej przedstawiono przykład [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [az group deployment utworzyć](/cli/azure/group/deployment#az-group-deployment-create) polecenia, jak rozpocząć wdrażanie w zakresie zasobów.
+Aby wdrożyć poprzedni szablon, Użyj poleceń grupy zasobów. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
@@ -287,19 +287,19 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
-Poniżej przedstawiono przykład przypisania roli współautora do użytkownika dla konta magazynu po wdrożeniu szablonu.
+Poniżej przedstawiono przykład przypisania roli współautor do użytkownika dla konta magazynu po wdrożeniu szablonu.
 
 ![Przypisanie roli w zakresie zasobów](./media/role-assignments-template/role-assignment-template-resource.png)
 
-### <a name="new-service-principal"></a>Nowy dyrektor serwisu
+### <a name="new-service-principal"></a>Nowa nazwa główna usługi
 
-Jeśli utworzysz nową jednostkę usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, to przypisanie roli może w niektórych przypadkach zakończyć się niepowodzeniem. Na przykład jeśli utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tego podmiotu usługi w tym samym szablonie usługi Azure Resource Manager, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Podmiot usługi jest tworzony w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który nie replikował jeszcze jednostki usługi. Aby rozwiązać ten scenariusz, `principalType` należy `ServicePrincipal` ustawić właściwość podczas tworzenia przypisania roli.
+Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Jeśli na przykład utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tej jednostki usługi w tym samym szablonie Azure Resource Manager, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi. Aby rozwiązać ten scenariusz, należy ustawić `principalType` właściwość na `ServicePrincipal` przy tworzeniu przypisania roli.
 
-Następujący szablon pokazuje:
+Poniższy szablon demonstruje:
 
-- Jak utworzyć nową jednostkę usługi tożsamości zarządzanej
+- Jak utworzyć nową nazwę główną usługi tożsamości zarządzanej
 - Jak określić`principalType`
-- Jak przypisać rolę współautora do tego podmiotu usługi w zakresie grupy zasobów
+- Jak przypisać rolę współautor do tej nazwy głównej usługi w zakresie grupy zasobów
 
 Aby użyć szablonu, należy określić następujące dane wejściowe:
 
@@ -345,7 +345,7 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 }
 ```
 
-Poniżej przedstawiono przykład [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
+Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
@@ -355,13 +355,13 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rba
 az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
-Poniżej przedstawiono przykład przypisania roli współautora do nowego podmiotu usługi tożsamości zarządzanej po wdrożeniu szablonu.
+Poniżej przedstawiono przykład przypisania roli współautor do nowej jednostki usługi tożsamości zarządzanej po wdrożeniu szablonu.
 
-![Przypisanie roli dla nowego podmiotu usługi tożsamości zarządzanej](./media/role-assignments-template/role-assignment-template-msi.png)
+![Przypisanie roli dla nowej nazwy głównej usługi tożsamości zarządzanej](./media/role-assignments-template/role-assignment-template-msi.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Szybki start: Tworzenie i wdrażanie szablonów usługi Azure Resource Manager przy użyciu witryny Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates (Omówienie struktury i składni szablonów usługi Azure Resource Manager)](../azure-resource-manager/templates/template-syntax.md)
 - [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](../azure-resource-manager/templates/deploy-to-subscription.md)
-- [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

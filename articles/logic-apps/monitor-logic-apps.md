@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907775"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732006"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitoruj stan przebiegu, przejrzyj historię wyzwalacza i skonfiguruj alerty dla Azure Logic Apps
 
@@ -19,7 +19,8 @@ Po [utworzeniu i uruchomieniu aplikacji logiki](../logic-apps/quickstart-create-
 
 Aby monitorować zdarzenia w czasie rzeczywistym i bogatsze debugowanie, skonfiguruj rejestrowanie diagnostyki dla aplikacji logiki przy użyciu [dzienników Azure monitor](../azure-monitor/overview.md). Ta usługa platformy Azure ułatwia monitorowanie środowisk w chmurze i lokalnych, dzięki czemu można łatwiej zachować swoją dostępność i wydajność. Następnie można znaleźć i wyświetlić zdarzenia, takie jak zdarzenia wyzwalania, zdarzenia uruchamiania i zdarzenia akcji. Przechowując te informacje w [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md), można utworzyć [zapytania dziennika](../azure-monitor/log-query/log-query-overview.md) , które ułatwiają znalezienie i przeanalizowanie tych informacji. Możesz również używać tych danych diagnostycznych z innymi usługami platformy Azure, takimi jak Azure Storage i Azure Event Hubs. Aby uzyskać więcej informacji, zobacz [monitorowanie aplikacji logiki przy użyciu Azure monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Jeśli aplikacje logiki działają w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) , które zostało utworzone w celu korzystania z [wewnętrznego punktu końcowego dostępu](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjść z historii uruchamiania aplikacji logiki *tylko z poziomu sieci wirtualnej*. Upewnij się, że masz połączenie sieciowe między prywatnymi punktami końcowymi i komputerem, z którego chcesz uzyskać dostęp do historii uruchamiania. Komputer kliencki może na przykład znajdować się w sieci wirtualnej ISE lub wewnątrz sieci wirtualnej, która jest połączona z siecią wirtualną ISE, na przykład za pomocą komunikacji równorzędnej lub wirtualnej sieci prywatnej. Aby uzyskać więcej informacji, zobacz [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -50,7 +51,7 @@ Za każdym razem, gdy wyzwalacz jest wyzwalany dla elementu lub zdarzenia, apara
    | **Anulowano** | Przepływ pracy został uruchomiony, ale Otrzymano żądanie anulowania |
    | **Niepowodzenie** | Co najmniej jedna akcja nie powiodła się i nie skonfigurowano żadnych późniejszych akcji w przepływie pracy w celu obsługi niepowodzenia |
    | **Uruchomiono** | Przepływ pracy jest obecnie uruchomiony. <p>Ten stan może również występować w przypadku przepływów pracy z ograniczeniami lub z powodu bieżącego planu cenowego. Aby uzyskać więcej informacji, zobacz [limity akcji na stronie cennika](https://azure.microsoft.com/pricing/details/logic-apps/). W przypadku skonfigurowania [rejestrowania diagnostycznego](../logic-apps/monitor-logic-apps.md)można uzyskać informacje o wszelkich zdarzeniach związanych z ograniczeniami, które wystąpiły. |
-   | **Sukces** | Wszystkie akcje zostały wykonane pomyślnie. <p>**Uwaga**: Jeśli wystąpią jakiekolwiek błędy w określonej akcji, późniejsza akcja w przepływie pracy obsłuży ten błąd. |
+   | **Powiodło się** | Wszystkie akcje zostały wykonane pomyślnie. <p>**Uwaga**: Jeśli wystąpią jakiekolwiek błędy w określonej akcji, późniejsza akcja w przepływie pracy obsłuży ten błąd. |
    | **Oczekiwanie** | Przepływ pracy nie został uruchomiony lub został wstrzymany, na przykład ze względu na wcześniejszy przepływ pracy, który nadal działa. |
    |||
 
@@ -119,7 +120,7 @@ Każdy przebieg aplikacji logiki rozpoczyna się od wyzwalacza. Historia wyzwala
    |--------|-------------|
    | **Niepowodzenie** | Wystąpił błąd. Aby przejrzeć wszystkie wygenerowane komunikaty o błędach dla wyzwalacza, wybierz tę próbę, a następnie wybierz pozycję dane **wyjściowe**. Na przykład mogą znajdować się dane wejściowe, które nie są prawidłowe. |
    | **Pominięto** | Wyzwalacz sprawdzał punkt końcowy, ale nie znalazł danych. |
-   | **Sukces** | Wyzwalacz sprawdzał punkt końcowy i znalazł dostępne dane. Zwykle pojawia się również stan "uruchomił" obok tego stanu. W przeciwnym razie definicja wyzwalacza może mieć warunek lub `SplitOn` polecenie, które nie zostały spełnione. <p>Ten stan może dotyczyć wyzwalacza ręcznego, wyzwalacza cyklu lub wyzwalacza sondowania. Wyzwalacz może zostać uruchomiony pomyślnie, ale uruchomienie może zakończyć się niepowodzeniem, gdy akcje generują nieobsłużone błędy. |
+   | **Powiodło się** | Wyzwalacz sprawdzał punkt końcowy i znalazł dostępne dane. Zwykle pojawia się również stan "uruchomił" obok tego stanu. W przeciwnym razie definicja wyzwalacza może mieć warunek lub `SplitOn` polecenie, które nie zostały spełnione. <p>Ten stan może dotyczyć wyzwalacza ręcznego, wyzwalacza cyklu lub wyzwalacza sondowania. Wyzwalacz może zostać uruchomiony pomyślnie, ale uruchomienie może zakończyć się niepowodzeniem, gdy akcje generują nieobsłużone błędy. |
    |||
 
    > [!TIP]

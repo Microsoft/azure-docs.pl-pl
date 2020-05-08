@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 6baa83037d51e850a9f3535be3cc365e7c35e0a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131449"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735571"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -57,7 +57,7 @@ $ras.Count
 
 - Aby dowiedzieć się, jak utworzyć rolę niestandardową, zapoznaj się z samouczkami ról niestandardowych przy użyciu [Azure Portal](custom-roles-portal.md) (obecnie w wersji zapoznawczej), [Azure PowerShell](tutorial-custom-role-powershell.md)lub [interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
 - Jeśli nie można zaktualizować istniejącej roli niestandardowej, należy sprawdzić, czy użytkownik jest zalogowany przy użyciu przypisanej do roli `Microsoft.Authorization/roleDefinition/write` uprawnienia, takiej jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator).
-- Jeśli nie można usunąć roli niestandardowej i uzyskać komunikatu o błędzie "istnieją istniejące przypisania ról odwołujące się do roli (kod: RoleDefinitionHasAssignments)", a następnie istnieją przypisania ról nadal korzystające z roli niestandardowej. Usuń te przypisania ról i spróbuj ponownie usunąć rolę niestandardową.
+- Jeśli nie możesz usunąć niestandardowej roli i otrzymujesz komunikat o błędzie „Istnieją przypisania ról odwołujące się do roli (kod: RoleDefinitionHasAssignments)”, wówczas istnieją przypisania ról nadal używające roli niestandardowej. Usuń te przypisania ról i spróbuj ponownie usunąć rolę niestandardową.
 - Jeśli otrzymujesz komunikat o błędzie „Przekroczono limit definicji ról. Nie można utworzyć więcej definicji ról (kod: RoleDefinitionLimitExceeded) "podczas próby utworzenia nowej roli niestandardowej, Usuń wszystkie niestandardowe role, które nie są używane. Platforma Azure obsługuje do **5000** ról niestandardowych w katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2000 ról niestandardowych).
 - Jeśli zostanie wyświetlony komunikat o błędzie podobny do "klient ma uprawnienia do wykonania akcji" Microsoft. Authorization/roleDefinitions/Write "w zakresie"/subscriptions/{SubscriptionID} ", ale nie znaleziono połączonej subskrypcji" podczas próby zaktualizowania roli niestandardowej, sprawdź, czy w katalogu usunięto co najmniej jeden z [przypisanych zakresów](role-definitions.md#assignablescopes) . Jeśli zakres został usunięty, utwórz bilet pomocy technicznej, ponieważ w tej chwili nie jest dostępne żadne rozwiązanie samoobsługowe.
 
@@ -76,20 +76,29 @@ $ras.Count
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemy z administratorami usług lub współadministratorami
 
-- Jeśli masz problemy z administratorem usługi lub współadministratorem, zobacz [Dodaj lub Zmień administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) oraz [role administratora klasycznej subskrypcji, role platformy Azure i role administratorów usługi Azure AD](rbac-and-directory-admin-roles.md).
+- Jeśli masz problemy z administratorem usługi lub współadministratorem, zobacz [Dodawanie lub zmienianie administratorów subskrypcji platformy Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) i [ról administratora klasycznej subskrypcji, ról platformy Azure i ról usługi Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Odmowa dostępu lub błędy uprawnień
 
-- Jeśli zostanie wyświetlony komunikat o błędzie "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji względem zakresu (kod: AuthorizationFailed)" podczas próby utworzenia zasobu, należy sprawdzić, czy użytkownik jest zalogowany przy użyciu przypisanej do niego roli, która ma uprawnienia do zapisu dla zasobu w wybranym zakresie. Na przykład do zarządzania maszynami wirtualnymi w grupie zasobów musisz mieć rolę [Współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) w grupie zasobów (lub zakresie nadrzędnym). Aby uzyskać listę uprawnień dla każdej roli wbudowanej, zobacz [Role wbudowane dla zasobów platformy Azure](built-in-roles.md).
+- Jeśli otrzymujesz błąd przypisania „Klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji w zakresie (kod: AuthorizationFailed)” podczas próby utworzenia zasobu, upewnij się, że obecnie logujesz się jako użytkownik mający przypisaną rolę, która ma uprawnienia zapisu do zasobu w wybranym zakresie. Na przykład do zarządzania maszynami wirtualnymi w grupie zasobów musisz mieć rolę [Współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) w grupie zasobów (lub zakresie nadrzędnym). Listę uprawnień dla każdej roli wbudowanej można znaleźć [w temacie Role wbudowane platformy Azure](built-in-roles.md).
 - Jeśli zostanie wyświetlony komunikat o błędzie "nie masz uprawnień do utworzenia żądania pomocy technicznej" podczas próby utworzenia lub zaktualizowania biletu pomocy technicznej, sprawdź, czy jesteś zalogowanym użytkownikiem, do którego przypisano rolę z `Microsoft.Support/supportTickets/write` uprawnieniem, takim jak [współautor żądania pomocy technicznej](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Przypisania ról z nieznanym podmiotem zabezpieczeń
+## <a name="role-assignments-with-identity-not-found"></a>Nie znaleziono przypisań ról o tożsamości
 
-Jeśli przypiszesz rolę do podmiotu zabezpieczeń (użytkownik, Grupa, nazwa główna usługi lub tożsamość zarządzana), a następnie usuniesz ten podmiot zabezpieczeń bez usuwania przypisania roli, typ podmiotu zabezpieczeń dla przypisania roli będzie wyświetlany jako **nieznany**. Poniższy zrzut ekranu przedstawia przykład w witrynie Azure Portal. Nazwa podmiotu zabezpieczeń jest wyświetlana jako **tożsamość usunięta** i **tożsamość już nie istnieje**. 
+Na liście przypisań ról dla Azure Portal można zauważyć, że podmiot zabezpieczeń (użytkownika, Grupa, nazwa główna usługi lub tożsamość zarządzana) jest wymieniony jako **tożsamość nie została znaleziona** z **nieznanym** typem.
 
 ![Grupa zasobów aplikacji sieci Web](./media/troubleshooting/unknown-security-principal.png)
 
-Jeśli zostanie wyświetlone to przypisanie roli przy użyciu Azure PowerShell, zobaczysz pusty `DisplayName` i `ObjectType` zestaw nieznane. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących:
+Tożsamość może nie zostać znaleziona z dwóch powodów:
+
+- Ostatnio zaproszono użytkownika podczas tworzenia przypisania roli
+- Usunięto podmiot zabezpieczeń, który miał przypisanie roli
+
+Jeśli użytkownik ostatnio zaprosił użytkownika podczas tworzenia przypisania roli, ten podmiot zabezpieczeń może nadal znajdować się w procesie replikacji między regionami. Jeśli tak, poczekaj chwilę i Odśwież listę przypisań ról.
+
+Jeśli jednak ten podmiot zabezpieczeń nie jest ostatnio zaproszonym użytkownikiem, może być usuniętym podmiotem zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz ten podmiot zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń będzie wymieniony jako **tożsamość nie zostanie znaleziona** i **nieznany** typ.
+
+Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może `DisplayName` być widoczny `ObjectType` pusty i ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -103,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejsu wiersza polecenia platformy Azure, zostanie wyświetlony `principalName`pusty. Na przykład [AZ role list przypisywanie](/cli/azure/role/assignment#az-role-assignment-list) zwraca przypisanie roli, które jest podobne do następujących:
+Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejsu wiersza polecenia platformy Azure, może zostać `principalName`wyświetlony pusty. Na przykład [AZ role list przypisanie](/cli/azure/role/assignment#az-role-assignment-list) zwraca przypisanie roli, które jest podobne do następujących danych wyjściowych:
 
 ```
 {
@@ -119,9 +128,9 @@ Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejs
 }
 ```
 
-Nie ma problemu z tymi przypisaniami ról, ale można je usunąć za pomocą kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
+Nie jest to problem, aby opuścić te przypisania ról, w których podmiot zabezpieczeń został usunięty. Jeśli chcesz, możesz usunąć te przypisania ról, korzystając z kroków, które są podobne do innych przypisań ról. Informacje o sposobach usuwania przypisań ról można znaleźć w temacie [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)lub [interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
 
-W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniżej przedstawiono przykładowy komunikat o błędzie:
+W programie PowerShell, jeśli spróbujesz usunąć przypisania roli przy użyciu identyfikatora obiektu i nazwy definicji roli, a więcej niż jedno przypisanie roli jest zgodne z parametrami, zostanie wyświetlony komunikat o błędzie: "podane informacje nie są mapowane na przypisanie roli". Poniższe dane wyjściowe pokazują przykład komunikatu o błędzie:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -217,5 +226,5 @@ Czytelnik może kliknąć kartę **funkcje platformy** , a następnie kliknąć 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozwiązywanie problemów z użytkownikami-Gośćmi](role-assignments-external-users.md#troubleshoot)
-- [Zarządzanie dostępem do zasobów platformy Azure za pomocą kontroli dostępu opartej na rolach i witryny Azure Portal](role-assignments-portal.md)
-- [Wyświetlanie dzienników aktywności związanych ze zmianami RBAC w zasobach platformy Azure](change-history-report.md)
+- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
+- [Wyświetlanie dzienników aktywności dla zmian RBAC platformy Azure](change-history-report.md)

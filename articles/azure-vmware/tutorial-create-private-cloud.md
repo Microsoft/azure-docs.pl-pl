@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie klastra vSphere na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare (Automatyczna synchronizacja)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838805"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928554"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej automatycznej synchronizacji na platformie Azure
 
@@ -19,7 +19,7 @@ Ponieważ funkcja automatycznej synchronizacji nie pozwala na zarządzanie chmur
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz chmurę prywatną do automatycznej synchronizacji
+> * Tworzenie chmury prywatnej AVS
 > * Weryfikowanie wdrożenia chmury prywatnej
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -40,7 +40,7 @@ Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Tworzenie chmury prywatnej
 
@@ -58,7 +58,7 @@ Na karcie **podstawowe** wpisz wartości pól. W poniższej tabeli przedstawiono
 | **Grupa zasobów** | Grupa zasobów dla zasobów w chmurze prywatnej. |
 | **Lokalizacja** | Wybierz lokalizację, na przykład **Wschodnie stany USA**.|
 | **Nazwa zasobu** | Nazwa chmury prywatnej automatycznej synchronizacji. |
-| **Magazyn** | Wybierz odpowiednią jednostkę SKU, dostępne są następujące wartości: |
+| **Magazyn** | Wybierz wartość SKU wymienionych: AV36 |
 | **Pracując** | Jest to liczba hostów do dodania do klastra chmury prywatnej. Wartość domyślna to 3. Ta wartość może zostać podniesiona lub obniżona po wdrożeniu.  |
 | **hasło administratora vCenter** | Wprowadź hasło administratora chmury. |
 | **Hasło Menedżera NSX-T** | Wprowadź hasło administratora NSX-T. |
@@ -126,7 +126,7 @@ Aby to zrobić, przejdź do chmury prywatnej w Azure Portal i wybierz pozycję *
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Utwórz chmurę prywatną do automatycznej synchronizacji
+> * Tworzenie chmury prywatnej AVS
 > * Zweryfikowano wdrożenie chmury prywatnej
 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć sieć wirtualną do użycia z chmurą prywatną w ramach konfigurowania lokalnego zarządzania klastrami w chmurze prywatnej.
