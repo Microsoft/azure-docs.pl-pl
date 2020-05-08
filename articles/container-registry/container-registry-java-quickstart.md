@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: fa64ec526ab85e412b407da8566ac6f802ca2d20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 561c45bd13648f5f17273b478f320e9fd3d71331
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82195285"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857587"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Szybki Start: Tworzenie i wypychanie obrazów kontenera Java do Azure Container Registry
 
@@ -151,7 +151,7 @@ Na koniec zaktualizujesz konfigurację projektu i użyjesz wiersza polecenia, ab
 Gratulacje! Teraz masz wbudowaną kompilację aplikacji Java na platformie Azure obsługiwaną przez JDK do ACR. Teraz można testować obraz, wdrażając go do Azure App Service lub pobierając go do lokalnego z poleceniem (zastępując symbol zastępczy):
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## <a name="next-steps"></a>Następne kroki

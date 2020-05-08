@@ -37,6 +37,11 @@
       href: tutorial-security-incident.md
     - name: Zwiększanie zgodności z przepisami
       href: security-center-compliance-dashboard.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Wskaźnik bezpieczeństwa
@@ -107,7 +112,7 @@
           href: custom-security-policies.md
         - name: Zarządzanie zasadami przy użyciu interfejsu API REST usługi Azure Policy
           href: configure-security-policy-azure-policy.md
-    - name: Dodawanie dynamicznych pakietów zgodności
+    - name: Wybieranie standardów dla pulpitu nawigacyjnego zgodności
       href: update-regulatory-compliance-packages.md
     - name: Dostosowywanie zasad ochrony informacji
       href: security-center-info-protection-policy.md

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie maszyny wirtualnej platformy Azure przy użyciu przyspieszonej sieci — Azure PowerShell
+title: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu przyspieszonej sieci — Azure PowerShell
 description: Dowiedz się, jak utworzyć maszynę wirtualną z systemem Linux przy użyciu przyspieszonej sieci.
 services: virtual-network
 documentationcenter: ''
@@ -12,295 +12,348 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/04/2018
+ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 3807c1434e3758eafe299da7b30769b41d3ede87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106308"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871455"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
+# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
 
-W tym samouczku dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu przyspieszonej sieci. Aby utworzyć maszynę wirtualną z systemem Linux przy użyciu przyspieszonej sieci, zobacz [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu przyspieszonej sieci](create-vm-accelerated-networking-cli.md). Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki datapath, skracając czas opóźnienia, wahania i użycie procesora CPU w celu użycia z najbardziej wymagającymi obciążeniami sieci na obsługiwanych typach maszyn wirtualnych. Na poniższej ilustracji przedstawiono komunikację między dwiema maszynami wirtualnymi za pomocą i bez przyspieszonej sieci:
+W tym samouczku dowiesz się, jak utworzyć maszynę wirtualną z systemem Windows przy użyciu przyspieszonej sieci.
 
-![Porównanie](./media/create-vm-accelerated-networking/accelerated-networking.png)
+> [!NOTE]
+> Aby używać przyspieszonej sieci z maszyną wirtualną z systemem Linux, zobacz [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu przyspieszonej sieci](create-vm-accelerated-networking-cli.md).
 
-Bez przyspieszonej sieci cały ruch sieciowy z i do maszyny wirtualnej musi przechodzić przez hosta i przełącznik wirtualny. Przełącznik wirtualny zapewnia wszystkie wymuszanie zasad, takie jak sieciowe grupy zabezpieczeń, listy kontroli dostępu, izolacja i inne zwirtualizowane w sieci usługi do ruchu sieciowego. Aby dowiedzieć się więcej o przełącznikach wirtualnych, zobacz [Wirtualizacja sieci funkcji Hyper-V i przełącznik wirtualny](https://technet.microsoft.com/library/jj945275.aspx).
+Przyspieszona sieć umożliwia wirtualizację we/wy z jednym elementem głównym (SR-IOV) do maszyny wirtualnej, co znacznie zwiększa wydajność sieci. Ta ścieżka o wysokiej wydajności pomija hosta ze ścieżki danych, co zmniejsza opóźnienia, wahania i użycie procesora dla najbardziej wymagających obciążeń sieciowych na obsługiwanych typach maszyn wirtualnych. Na poniższym diagramie przedstawiono, jak dwie maszyny wirtualne komunikują się z usługą i bez przyspieszonej sieci:
 
-Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego maszyny wirtualnej, a następnie jest przekazywany do maszyny wirtualnej. Wszystkie zasady sieciowe stosowane przez przełącznik wirtualny są teraz odciążanie i stosowane do sprzętu. Zastosowanie zasad sprzętowych pozwala karcie sieciowej przekazywać ruch sieciowy bezpośrednio do maszyny wirtualnej, pomijając hosta i przełącznik wirtualny przy zachowaniu wszystkich zasad, które zostały zastosowane na hoście.
+![Komunikacja między maszynami wirtualnymi platformy Azure z usługą i bez przyspieszonej sieci](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
-Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której jest włączona. Aby uzyskać najlepsze wyniki, najlepszym rozwiązaniem jest włączenie tej funkcji na co najmniej dwóch maszynach wirtualnych podłączonych do tego samego Virtual Network platformy Azure. Podczas komunikacji między usługą sieci wirtualnych lub połączeniem lokalnym ta funkcja ma minimalny wpływ na ogólne opóźnienia.
+Bez przyspieszonej sieci cały ruch sieciowy z i do maszyny wirtualnej musi przechodzić przez hosta i przełącznik wirtualny. Przełącznik wirtualny zapewnia wszystkie wymuszanie zasad, takie jak sieciowe grupy zabezpieczeń, listy kontroli dostępu, izolacja i inne zwirtualizowane w sieci usługi do ruchu sieciowego.
+
+> [!NOTE]
+> Aby dowiedzieć się więcej o przełącznikach wirtualnych, zobacz [przełącznik wirtualny funkcji Hyper-V](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch).
+
+Dzięki przyspieszonej sieci ruch sieciowy dociera do interfejsu sieciowego maszyny wirtualnej, a następnie jest przekazywany do maszyny wirtualnej. Wszystkie zasady sieciowe stosowane przez przełącznik wirtualny są teraz odciążanie i stosowane do sprzętu. Ponieważ zasady są stosowane na sprzęcie, karta sieciowa może przekazywać ruch sieciowy bezpośrednio do maszyny wirtualnej. Karta sieciowa pomija hosta i przełącznika wirtualnego, podczas gdy zachowuje wszystkie zasady, które zostały zastosowane na hoście.
+
+Zalety przyspieszonej sieci mają zastosowanie tylko do maszyny wirtualnej, na której ta funkcja jest włączona. Aby uzyskać najlepsze wyniki, Włącz tę funkcję na co najmniej dwóch maszynach wirtualnych podłączonych do tej samej sieci wirtualnej platformy Azure. Podczas komunikowania się między sieciami wirtualnymi lub łączenia lokalnego ta funkcja ma minimalny wpływ na ogólne opóźnienia.
 
 ## <a name="benefits"></a>Korzyści
-* **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS):** Usunięcie przełącznika wirtualnego ze ścieżki datapath usuwa pakiety czasu spędzane przez hosta w celu przetworzenia zasad i zwiększa liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
-* **Ograniczone wahania:** Przetwarzanie przełącznika wirtualnego zależy od ilości zasad, które należy zastosować, oraz obciążenia procesora, które przetwarza. Odciążanie wymuszania zasad sprzętowo eliminuje te zmienności, dostarczając pakiety bezpośrednio do maszyny wirtualnej, usuwając hosta do komunikacji z maszyną wirtualną oraz wszystkie przerwy w oprogramowaniu i przełączenia kontekstu.
-* **Zmniejszone użycie procesora CPU:** Obejście przełącznika wirtualnego na hoście prowadzi do mniejszego użycia procesora CPU do przetwarzania ruchu sieciowego.
+
+- **Mniejsze opóźnienia/wyższe pakiety na sekundę (PPS)**: usunięcie przełącznika wirtualnego ze ścieżki danych powoduje usunięcie pakietów czasu poświęcanych przez hosta w celu przetworzenia zasad. Zwiększa również liczbę pakietów, które można przetworzyć w ramach maszyny wirtualnej.
+
+- **Ograniczone wahania**: przetwarzanie przełącznika wirtualnego zależy od ilości zasad, które należy zastosować. Zależy również od obciążenia procesora, który przetwarza przetwarzanie. Odciążanie wymuszania zasad sprzętowo eliminuje tę zmienność przez dostarczanie pakietów bezpośrednio do maszyny wirtualnej. Odciążanie powoduje również usunięcie komunikacji między hostami i MASZYNami wirtualnymi, wszystkich przerwań oprogramowania i wszystkich przełączników kontekstowych.
+
+- **Zmniejszone użycie procesora**: obejście przełącznika wirtualnego na hoście prowadzi do mniejszego użycia procesora CPU do przetwarzania ruchu sieciowego.
+
+## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
+
+Następujące dystrybucje są obsługiwane bezpośrednio z galerii platformy Azure:
+
+- **Windows Server 2019 Datacenter**
+- **Windows Server 2016 Datacenter** 
+- **Windows Server 2012 R2 Datacenter**
 
 ## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
 
-### <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
-Następujące dystrybucje są obsługiwane z poziomu galerii platformy Azure:
-* **Windows Server 2016 Datacenter** 
-* **Windows Server 2012 R2 Datacenter**
-* **Windows Server 2019 Datacenter**
-
 ### <a name="supported-vm-instances"></a>Obsługiwane wystąpienia maszyn wirtualnych
-Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych vCPU.  Obsługiwane są następujące serie: D/DSv2 i F/FS
 
-W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z 4 lub więcej procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
+Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o rozmiarach wystąpień zoptymalizowanych pod kątem obliczeń przy użyciu co najmniej dwóch procesorów wirtualnych (procesorów wirtualnych vCPU).  Obsługiwane są następujące serie: Dv2/DSv2 i F/FS.
 
-Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
+
+Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="regions"></a>Regiony
-Dostępne we wszystkich publicznych regionach świadczenia usługi Azure i w chmurze Azure Government.
+
+Przyspieszona sieć jest dostępna we wszystkich globalnych regionach platformy Azure i w chmurze Azure Government.
 
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Włączanie przyspieszonej sieci na uruchomionej maszynie wirtualnej
+
 W przypadku obsługiwanego rozmiaru maszyny wirtualnej bez przyspieszonej sieci można włączyć funkcję włączoną tylko wtedy, gdy została zatrzymana i cofnięta alokacja.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Wdrożenie za Azure Resource Manager
+
 Maszyn wirtualnych (klasycznych) nie można wdrożyć przy użyciu przyspieszonej sieci.
 
-## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Tworzenie maszyny wirtualnej z systemem Windows przy użyciu przyspieszonej sieci platformy Azure
-## <a name="portal-creation"></a>Tworzenie portalu
-Mimo że ten artykuł zawiera instrukcje tworzenia maszyny wirtualnej z przyspieszoną siecią przy użyciu programu Azure PowerShell, można także [utworzyć maszynę wirtualną z przyspieszoną siecią przy użyciu Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Podczas tworzenia maszyny wirtualnej w portalu w bloku **Utwórz maszynę wirtualną** wybierz kartę **Sieć** .  Na tej karcie jest dostępna opcja dla **przyspieszonej sieci**.  W przypadku wybrania [obsługiwanego systemu operacyjnego](#supported-operating-systems) i [rozmiaru maszyny wirtualnej](#supported-vm-instances)ta opcja spowoduje automatyczne wypełnienie do "włączone".  Jeśli nie, spowoduje to wypełnienie opcji "off" dla przyspieszonej sieci i nadanie użytkownikowi przyczyny, dlaczego nie jest on włączony.   
-* *Uwaga:* Tylko obsługiwane systemy operacyjne można włączyć za pomocą portalu.  Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, Utwórz maszynę wirtualną przy użyciu interfejsu wiersza polecenia lub programu PowerShell. 
+## <a name="vm-creation-using-the-portal"></a>Tworzenie maszyny wirtualnej przy użyciu portalu
 
-Po utworzeniu maszyny wirtualnej można potwierdzić, że przyspieszona sieć jest włączona, postępując zgodnie z instrukcjami w obszarze upewnij się, że włączona jest funkcja przyspieszonej sieci.
+Chociaż w tym artykule przedstawiono procedurę tworzenia maszyny wirtualnej z przyspieszoną siecią przy użyciu Azure PowerShell, można także [użyć Azure Portal do utworzenia maszyny wirtualnej](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , która umożliwia przyspieszenie sieci. Podczas tworzenia maszyny wirtualnej w portalu na stronie **Tworzenie maszyny wirtualnej** wybierz kartę **Sieć** . Ta karta zawiera opcję dla **przyspieszonej sieci**. W przypadku wybrania [obsługiwanego systemu operacyjnego](#supported-operating-systems) i [rozmiaru maszyny wirtualnej](#supported-vm-instances)ta opcja jest automatycznie ustawiana **na wartość włączone**. W przeciwnym razie opcja jest **wyłączona**, a platforma Azure wyświetli powód, dla którego nie można jej włączyć.
 
-## <a name="powershell-creation"></a>Tworzenie programu PowerShell
-## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
+> [!NOTE]
+> Tylko obsługiwane systemy operacyjne można włączyć za pomocą portalu. Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, Utwórz maszynę wirtualną przy użyciu interfejsu wiersza polecenia lub programu PowerShell. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Po utworzeniu maszyny wirtualnej można sprawdzić, czy jest włączona szybsza sieć. Wykonaj następujące instrukcje:
 
-Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, `Get-Module -ListAvailable Az`Uruchom polecenie. Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się na konto platformy Azure za pomocą polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarządzać maszynami wirtualnymi. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
+
+2. Na liście maszyn wirtualnych wybierz nową MASZYNę wirtualną.
+
+3. Na pasku menu maszyny wirtualnej wybierz pozycję **Sieć**.
+
+W oknie Informacje o interfejsie sieciowym obok skróconej etykiety **sieciowej** w portalu zostanie wyświetlona wartość **wyłączone** lub **włączone** dla przyspieszonego stanu sieci.
+
+## <a name="vm-creation-using-powershell"></a>Tworzenie maszyny wirtualnej przy użyciu programu PowerShell
+
+Przed kontynuowaniem Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, `Get-Module -ListAvailable Az`Uruchom polecenie. Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się do konta platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *myNic*i *myVM*.
 
-Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *centralnej* :
+### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-```powershell
-New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
-```
+1. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Następujące polecenie tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *centralnej* :
 
-Najpierw utwórz konfigurację podsieci przy użyciu polecenie [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). Poniższy przykład tworzy podsieć o nazwie Moja *podsieć*:
+    ```azurepowershell
+    New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
+    ```
 
-```powershell
-$subnet = New-AzVirtualNetworkSubnetConfig `
-    -Name "mySubnet" `
-    -AddressPrefix "192.168.1.0/24"
-```
+2. Utwórz konfigurację podsieci przy użyciu elementu [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). Następujące polecenie tworzy podsieć o nazwie Moja *podsieć*:
 
-Utwórz sieć wirtualną z poleceniem [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork)z *podsiecią* podsieci.
+    ```azurepowershell
+    $subnet = New-AzVirtualNetworkSubnetConfig `
+        -Name "mySubnet" `
+        -AddressPrefix "192.168.1.0/24"
+    ```
 
-```powershell
-$vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
-    -Location "centralus" `
-    -Name "myVnet" `
-    -AddressPrefix "192.168.0.0/16" `
-    -Subnet $Subnet
-```
+3. Utwórz sieć wirtualną z poleceniem [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork)z *podsiecią* podsieci.
 
-## <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
+    ```azurepowershell
+    $vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
+        -Location "centralus" `
+        -Name "myVnet" `
+        -AddressPrefix "192.168.0.0/16" `
+        -Subnet $Subnet
+    ```
 
-Najpierw utwórz regułę sieciowej grupy zabezpieczeń z poleceniem [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
+### <a name="create-a-network-security-group"></a>Tworzenie sieciowej grupy zabezpieczeń
 
-```powershell
-$rdp = New-AzNetworkSecurityRuleConfig `
-    -Name 'Allow-RDP-All' `
-    -Description 'Allow RDP' `
-    -Access Allow `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 100 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389
-```
+1. Utwórz regułę sieciowej grupy zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
-Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) i przypisz do niej regułę *Zezwalaj-RDP-All* . Oprócz reguły *Zezwalaj-RDP-All* , sieciowa Grupa zabezpieczeń zawiera kilka reguł domyślnych. Jedna reguła domyślna powoduje wyłączenie całego dostępu przychodzącego z Internetu, co oznacza, że reguła *Zezwalaj-RDP-All* jest przypisana do sieciowej grupy zabezpieczeń, dzięki czemu można zdalnie połączyć się z maszyną wirtualną po jej utworzeniu.
+    ```azurepowershell
+    $rdp = New-AzNetworkSecurityRuleConfig `
+        -Name 'Allow-RDP-All' `
+        -Description 'Allow RDP' `
+        -Access Allow `
+        -Protocol Tcp `
+        -Direction Inbound `
+        -Priority 100 `
+        -SourceAddressPrefix * `
+        -SourcePortRange * `
+        -DestinationAddressPrefix * `
+        -DestinationPortRange 3389
+    ```
 
-```powershell
-$nsg = New-AzNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroup `
-    -Location centralus `
-    -Name "myNsg" `
-    -SecurityRules $rdp
-```
+2. Utwórz sieciową grupę zabezpieczeń przy użyciu elementu [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) i przypisz do niej regułę *Zezwalaj-RDP-All* . Poza regułą *Zezwalaj-RDP-All* , sieciowa Grupa zabezpieczeń zawiera kilka reguł domyślnych. Jedna reguła domyślna powoduje wyłączenie całego dostępu przychodzącego z Internetu. Po jego utworzeniu zostanie przypisana reguła *Zezwalaj-RDP-All* do sieciowej grupy zabezpieczeń, aby można było zdalnie połączyć się z maszyną wirtualną.
 
-Skojarz sieciową grupę zabezpieczeń z *podsiecią* o [wartości Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). Reguła w sieciowej grupie zabezpieczeń jest skuteczna dla wszystkich zasobów wdrożonych w podsieci.
+    ```azurepowershell
+    $nsg = New-AzNetworkSecurityGroup `
+        -ResourceGroupName myResourceGroup `
+        -Location centralus `
+        -Name "myNsg" `
+        -SecurityRules $rdp
+    ```
 
-```powershell
-Set-AzVirtualNetworkSubnetConfig `
-    -VirtualNetwork $vnet `
-    -Name 'mySubnet' `
-    -AddressPrefix "192.168.1.0/24" `
-    -NetworkSecurityGroup $nsg
-```
+3. Skojarz sieciową grupę zabezpieczeń z *podsiecią* o [wartości Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). Reguła w sieciowej grupie zabezpieczeń jest skuteczna dla wszystkich zasobów wdrożonych w podsieci.
 
-## <a name="create-a-network-interface-with-accelerated-networking"></a>Tworzenie interfejsu sieciowego przy użyciu przyspieszonej sieci
-Utwórz publiczny adres IP przy użyciu polecenia [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). Publiczny adres IP nie jest wymagany, jeśli nie masz dostępu do maszyny wirtualnej z Internetu, ale do wykonania kroków opisanych w tym artykule jest to wymagane.
+    ```azurepowershell
+    Set-AzVirtualNetworkSubnetConfig `
+        -VirtualNetwork $vnet `
+        -Name 'mySubnet' `
+        -AddressPrefix "192.168.1.0/24" `
+        -NetworkSecurityGroup $nsg
+    ```
 
-```powershell
-$publicIp = New-AzPublicIpAddress `
-    -ResourceGroupName myResourceGroup `
-    -Name 'myPublicIp' `
-    -location centralus `
-    -AllocationMethod Dynamic
-```
+### <a name="create-a-network-interface-with-accelerated-networking"></a>Tworzenie interfejsu sieciowego przy użyciu przyspieszonej sieci
 
-Utwórz interfejs sieciowy z opcją [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) z włączoną obsługą przyspieszonej sieci i przypisz publiczny adres IP do interfejsu sieciowego. Poniższy przykład tworzy interfejs sieciowy o nazwie *myNic* w podsieci z *podsiecią* sieci wirtualnej *myVnet* i przypisuje do niego publiczny adres IP *myPublicIp* :
+1. Utwórz publiczny adres IP przy użyciu polecenia [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). Publiczny adres IP jest niezbędny, jeśli nie planujesz uzyskać dostępu do maszyny wirtualnej z Internetu. Jednak wymagane jest wykonanie kroków opisanych w tym artykule.
 
-```powershell
-$nic = New-AzNetworkInterface `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myNic" `
-    -Location "centralus" `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIp.Id `
-    -EnableAcceleratedNetworking
-```
+    ```azurepowershell
+    $publicIp = New-AzPublicIpAddress `
+        -ResourceGroupName myResourceGroup `
+        -Name 'myPublicIp' `
+        -location centralus `
+        -AllocationMethod Dynamic
+    ```
 
-## <a name="create-the-virtual-machine"></a>Tworzenie maszyny wirtualnej
+2. Utwórz interfejs sieciowy przy użyciu polecenie [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) z włączoną obsługą przyspieszonej sieci i przypisz publiczny adres IP do interfejsu sieciowego. Poniższy przykład tworzy interfejs sieciowy o nazwie *myNic* w podsieci z *podsiecią* sieci wirtualnej *myVnet* , przypisując do niego publiczny adres IP *myPublicIp* :
 
-Skonfiguruj poświadczenia maszyny wirtualnej w `$cred` zmiennej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
+    ```azurepowershell
+    $nic = New-AzNetworkInterface `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myNic" `
+        -Location "centralus" `
+        -SubnetId $vnet.Subnets[0].Id `
+        -PublicIpAddressId $publicIp.Id `
+        -EnableAcceleratedNetworking
+    ```
 
-```powershell
-$cred = Get-Credential
-```
+### <a name="create-a-vm-and-attach-the-network-interface"></a>Tworzenie maszyny wirtualnej i dołączanie interfejsu sieciowego
 
-Najpierw Zdefiniuj swoją maszynę wirtualną za pomocą polecenie [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). W poniższym przykładzie zdefiniowano maszynę wirtualną o nazwie *myVM* z ROZMIAREM maszyny wirtualnej, który obsługuje przyspieszone sieci (*Standard_DS4_v2*):
+1. Skonfiguruj poświadczenia maszyny wirtualnej w `$cred` zmiennej przy użyciu polecenia [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), które wyświetli komunikat z prośbą o zalogowanie się:
 
-```powershell
-$vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
-```
+    ```azurepowershell
+    $cred = Get-Credential
+    ```
 
-Aby uzyskać listę wszystkich rozmiarów maszyn wirtualnych i ich charakterystyk, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Zdefiniuj swoją maszynę wirtualną za pomocą [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). Następujące polecenie definiuje maszynę wirtualną o nazwie *myVM* z ROZMIAREM maszyny wirtualnej, który obsługuje przyspieszone sieci (*Standard_DS4_v2*):
 
-Utwórz resztę konfiguracji maszyny wirtualnej za pomocą [opcji Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) i [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). Poniższy przykład tworzy maszynę wirtualną z systemem Windows Server 2016:
+    ```azurepowershell
+    $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
+    ```
 
-```powershell
-$vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
-    -Windows `
-    -ComputerName "myVM" `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$vmConfig = Set-AzVMSourceImage -VM $vmConfig `
-    -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" `
-    -Skus "2016-Datacenter" `
-    -Version "latest"
-```
+    Aby uzyskać listę wszystkich rozmiarów maszyn wirtualnych i ich charakterystyk, zobacz [rozmiary maszyn wirtualnych z systemem Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Dołącz interfejs sieciowy, który został wcześniej utworzony przy użyciu [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
+3. Utwórz resztę konfiguracji maszyny wirtualnej za pomocą [opcji Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) i [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). Następujące polecenie tworzy maszynę wirtualną z systemem Windows Server 2016:
 
-```powershell
-$vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
-```
+    ```azurepowershell
+    $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
+        -Windows `
+        -ComputerName "myVM" `
+        -Credential $cred `
+        -ProvisionVMAgent `
+        -EnableAutoUpdate
+    $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
+        -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" `
+        -Skus "2016-Datacenter" `
+        -Version "latest"
+    ```
 
-Na koniec Utwórz maszynę wirtualną przy użyciu instrukcji [New-AzVM](/powershell/module/az.compute/new-azvm):
+4. Dołącz interfejs sieciowy, który został wcześniej utworzony przy użyciu [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
-```powershell
-New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
-```
+    ```azurepowershell
+    $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
+    ```
 
-## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Potwierdź, że sterownik jest zainstalowany w systemie operacyjnym
+5. Utwórz maszynę wirtualną przy użyciu [nowego AzVM](/powershell/module/az.compute/new-azvm).
 
-Po utworzeniu maszyny wirtualnej na platformie Azure Nawiąż połączenie z maszyną wirtualną i upewnij się, że sterownik jest zainstalowany w systemie Windows.
+    ```azurepowershell
+    New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
+    ```
 
-1. W przeglądarce internetowej Otwórz [Portal](https://portal.azure.com) Azure i zaloguj się przy użyciu konta platformy Azure.
-2. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *myVm*. Gdy **myVm** pojawia się w wynikach wyszukiwania, kliknij je. Jeśli **Tworzenie** jest widoczne pod przyciskiem **Połącz** , platforma Azure nie zakończyła jeszcze tworzenia maszyny wirtualnej. Kliknij przycisk **Połącz** w lewym górnym rogu przeglądu, gdy nie widzisz już pozycji **Tworzenie** w obszarze przycisk **Połącz** .
-3. Wprowadź nazwę użytkownika i hasło wprowadzone podczas [tworzenia maszyny wirtualnej](#create-the-virtual-machine). Jeśli nigdy nie nawiązano połączenia z maszyną wirtualną z systemem Windows na platformie Azure, zobacz [nawiązywanie połączenia z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
-4. Kliknij prawym przyciskiem myszy przycisk Start systemu Windows, a następnie kliknij przycisk **Menedżer urządzeń**. Rozwiń węzeł **karty sieciowe** . Upewnij się, że zostanie wyświetlona **karta Ethernet funkcji wirtualnej Mellanox ConnectX-3** , jak pokazano na poniższej ilustracji:
+### <a name="confirm-the-ethernet-controller-is-installed-in-the-windows-vm"></a>Potwierdź, że kontroler Ethernet jest zainstalowany na maszynie wirtualnej z systemem Windows
 
-    ![Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+Po utworzeniu maszyny wirtualnej na platformie Azure Nawiąż połączenie z maszyną wirtualną i upewnij się, że kontroler Ethernet jest zainstalowany w systemie Windows.
+
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby zarządzać maszynami wirtualnymi. Wyszukaj i wybierz pozycję **maszyny wirtualne**.
+
+2. Na liście maszyn wirtualnych wybierz nową MASZYNę wirtualną.
+
+3. Na stronie Przegląd maszyny wirtualnej, jeśli **stan** maszyny wirtualnej jest wyświetlany jako **Tworzenie**, zaczekaj na zakończenie tworzenia maszyny wirtualnej przez platformę Azure. **Stan** zostanie zmieniony na **uruchomiony** po zakończeniu tworzenia maszyny wirtualnej.
+
+4. Na pasku narzędzi przegląd maszyny wirtualnej wybierz pozycję **Połącz** > **RDP** > **Pobierz plik RDP**.
+
+5. Otwórz plik RDP, a następnie zaloguj się do maszyny wirtualnej przy użyciu poświadczeń wprowadzonych w sekcji [Tworzenie maszyny wirtualnej i dołączanie interfejsu sieciowego](#create-a-vm-and-attach-the-network-interface) . Jeśli nigdy nie nawiązano połączenia z maszyną wirtualną z systemem Windows na platformie Azure, zobacz [nawiązywanie połączenia z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+
+6. Gdy zostanie wyświetlona sesja pulpitu zdalnego dla maszyny wirtualnej, kliknij prawym przyciskiem myszy przycisk Start systemu Windows i wybierz **Menedżer urządzeń**.
+
+7. W oknie **Menedżer urządzeń** rozwiń węzeł **karty sieciowe** .
+
+8. Upewnij się, że zostanie wyświetlona **karta Ethernet funkcji wirtualnej Mellanox ConnectX-3** , jak pokazano na poniższej ilustracji:
+
+    ![Karta Ethernet Mellanox ConnectX-3 z funkcją wirtualną, Nowa karta sieciowa dla przyspieszonej sieci, Menedżer urządzeń](./media/create-vm-accelerated-networking/device-manager.png)
 
 Przyspieszona sieć jest teraz włączona dla maszyny wirtualnej.
 
+> [!NOTE]
+> Jeśli nie można uruchomić karty Mellanox, Otwórz monit administratora w sesji pulpitu zdalnego, a następnie wprowadź następujące polecenie:
+>
+> `netsh int tcp set global rss = enabled`
+
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Włączanie przyspieszonej sieci na istniejących maszynach wirtualnych
-Jeśli utworzono maszynę wirtualną bez przyspieszonej sieci, można włączyć tę funkcję na istniejącej maszynie wirtualnej.  Maszyna wirtualna musi obsługiwać przyspieszone sieci, spełniając poniższe wymagania wstępne, które zostały opisane powyżej:
 
-* Maszyna wirtualna musi być obsługiwanym rozmiarem dla przyspieszonej sieci
-* Maszyna wirtualna musi być obsługiwanym obrazem galerii platformy Azure (i wersją jądra dla systemu Linux)
-* Wszystkie maszyny wirtualne w zestawie dostępności lub VMSS muszą zostać zatrzymane/cofnięte alokacje przed włączeniem przyspieszonej sieci na dowolnej karcie sieciowej
+Jeśli maszyna wirtualna została utworzona bez przyspieszonej sieci, możesz ją włączyć na istniejącej maszynie wirtualnej. Maszyna wirtualna musi obsługiwać przyspieszone sieci, spełniając poniższe wymagania wstępne, które są również opisane powyżej:
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>Poszczególne maszyny wirtualne & maszyny wirtualne w zestawie dostępności
-Najpierw Zatrzymaj/Cofnij przydział maszyny wirtualnej lub, jeśli zestaw dostępności, wszystkie maszyny wirtualne w zestawie:
+* Maszyna wirtualna musi być obsługiwanym rozmiarem dla przyspieszonej sieci.
+* Maszyna wirtualna musi być obsługiwanym obrazem galerii platformy Azure (i wersją jądra dla systemu Linux).
+* Przed włączeniem przyspieszonej sieci na dowolnej karcie sieciowej należy zatrzymać lub cofnąć alokację wszystkich maszyn wirtualnych w zestawie dostępności lub w zestawie skalowania maszyn wirtualnych.
 
-```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
-    -Name "myVM"
-```
+### <a name="individual-vms-and-vms-in-an-availability-set"></a>Poszczególne maszyny wirtualne i maszyny wirtualne w zestawie dostępności
 
-Należy pamiętać, że jeśli maszyna wirtualna została utworzona osobno, bez zestawu dostępności, wystarczy zatrzymać/cofnąć alokację pojedynczej maszyny wirtualnej w celu włączenia przyspieszonej sieci.  Jeśli maszyna wirtualna została utworzona przy użyciu zestawu dostępności, wszystkie maszyny wirtualne znajdujące się w zestawie dostępności muszą zostać zatrzymane/cofnięte alokacje przed włączeniem przyspieszonej sieci na dowolnej z kart sieciowych. 
+1. Zatrzymaj lub Zwolnij maszynę wirtualną lub, jeśli zestaw dostępności, wszystkie maszyny wirtualne w zestawie:
 
-Po zatrzymaniu Włącz przyspieszone sieci na karcie sieciowej maszyny wirtualnej:
+    ```azurepowershell
+    Stop-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    ```
 
-```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Name "myNic"
+    > [!NOTE]
+    > Podczas tworzenia maszyny wirtualnej oddzielnie, bez zestawu dostępności, należy zatrzymać lub cofnąć alokację pojedynczej maszyny wirtualnej, aby umożliwić szybsze działanie sieci. Jeśli maszyna wirtualna została utworzona z zestawem dostępności, należy zatrzymać lub cofnąć alokację wszystkich maszyn wirtualnych zawartych w zestawie dostępności przed włączeniem przyspieszonej sieci na dowolnej z kart sieciowych, aby maszyny wirtualne kończyły się w klastrze obsługującym przyspieszone sieci. Wymaganie zatrzymania lub cofnięcia alokacji jest niepotrzebne w przypadku wyłączenia sieci przyspieszonej, ponieważ Klastry obsługujące przyspieszone sieci również pracują z kartami sieciowymi, które nie używają przyspieszonej łączności sieciowej.
 
-$nic.EnableAcceleratedNetworking = $true
+2. Włącz przyspieszone sieci na karcie sieciowej maszyny wirtualnej:
 
-$nic | Set-AzNetworkInterface
-```
+    ```azurepowershell
+    $nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+        -Name "myNic"
+    
+    $nic.EnableAcceleratedNetworking = $true
+    
+    $nic | Set-AzNetworkInterface
+    ```
 
-Uruchom ponownie maszynę wirtualną lub, jeśli znajduje się w zestawie dostępności, wszystkie maszyny wirtualne w zestawie i upewnij się, że włączona jest funkcja przyspieszonej sieci:
+3. Uruchom ponownie maszynę wirtualną lub, jeśli znajduje się w zestawie dostępności, wszystkie maszyny wirtualne w zestawie i upewnij się, że włączona jest funkcja przyspieszonej sieci:
 
-```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
-    -Name "myVM"
-```
+    ```azurepowershell
+    Start-AzVM -ResourceGroup "myResourceGroup" `
+        -Name "myVM"
+    ```
 
-### <a name="vmss"></a>Zestaw skalowania maszyn wirtualnych
-VMSS jest nieco inny, ale następuje po tym samym przepływie pracy.  Najpierw Zatrzymaj maszyny wirtualne:
+### <a name="virtual-machine-scale-set"></a>Zestaw skalowania maszyn wirtualnych
 
-```azurepowershell
-Stop-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
-```
+Zestaw skalowania maszyn wirtualnych jest nieco inny, ale znajduje się w tym samym przepływie pracy.
 
-Po zatrzymaniu maszyn wirtualnych zaktualizuj właściwość sieci przyspieszonej w interfejsie sieciowym:
+1. Zatrzymaj maszyny wirtualne:
 
-```azurepowershell
-$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
+    ```azurepowershell
+    Stop-AzVmss -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet"
+    ```
 
-$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+2. Zaktualizuj Właściwość "przyspieszone sieci" w interfejsie sieciowym:
 
-Update-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
+    ```azurepowershell
+    $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet"
+    
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+    
+    Update-AzVmss -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -VirtualMachineScaleSet $vmss
+    ```
 
-Należy pamiętać, że VMSS ma uaktualnienia maszyny wirtualnej, które stosują aktualizacje przy użyciu trzech różnych ustawień, automatycznych, stopniowych i ręcznych.  W tych instrukcjach zasada jest ustawiona na automatyczne, dzięki czemu VMSS będzie pobierać zmiany natychmiast po ponownym uruchomieniu.  Aby ustawić automatyczne pobieranie zmian, aby zmiany zostały wprowadzone:
+3. Ustaw stosowane aktualizacje automatycznie, aby zmiany zostały natychmiast pobrane:
 
-```azurepowershell
-$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    ```azurepowershell
+    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    
+    Update-AzVmss -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -VirtualMachineScaleSet $vmss
+    ```
 
-Update-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
+    > [!NOTE]
+    > Zestaw skalowania ma uaktualnienia maszyny wirtualnej, które stosują aktualizacje przy użyciu trzech różnych ustawień: automatycznych, stopniowanych i ręcznych. W tych instrukcjach zasady są ustawiane automatycznie, więc zestaw skalowania pobiera zmiany natychmiast po ponownym uruchomieniu.
 
-Na koniec Uruchom ponownie VMSS:
+4. Uruchom ponownie zestaw skalowania:
 
-```azurepowershell
-Start-AzVmss -ResourceGroupName "myResourceGroup" `
-    -VMScaleSetName "myScaleSet"
-```
+    ```azurepowershell
+    Start-AzVmss -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet"
+    ```
 
-Po ponownym uruchomieniu Zaczekaj na zakończenie uaktualnień, ale po jej zakończeniu zostanie wyświetlona w obrębie maszyny wirtualnej.  (Upewnij się, że korzystasz z obsługiwanego systemu operacyjnego i rozmiaru maszyny wirtualnej)
+Po ponownym uruchomieniu Zaczekaj na zakończenie uaktualniania. Po zakończeniu uaktualnień funkcja wirtualna (VF) zostanie wyświetlona wewnątrz maszyny wirtualnej. Upewnij się, że używasz obsługiwanego systemu operacyjnego i rozmiaru maszyny wirtualnej.
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>Zmienianie rozmiarów istniejących maszyn wirtualnych za pomocą przyspieszonej sieci
 
-Zmiany rozmiaru maszyn wirtualnych z włączoną przyspieszoną siecią można zmienić tylko na maszyny wirtualne, które obsługują przyspieszone sieci.  
+Jeśli maszyna wirtualna ma włączoną funkcję przyspieszonej sieci, można zmienić jej rozmiar na maszynę wirtualną, która obsługuje przyspieszone sieci.  
 
-Nie można zmienić rozmiaru maszyny wirtualnej z włączoną obsługą przyspieszonej sieci do wystąpienia maszyny wirtualnej, która nie obsługuje przyspieszonej sieci przy użyciu operacji zmiany rozmiaru.  Zamiast tego, aby zmienić rozmiar jednej z tych maszyn wirtualnych:
+Nie można zmienić rozmiaru maszyny wirtualnej z włączoną obsługą przyspieszonej sieci do wystąpienia maszyny wirtualnej, które nie obsługuje przyspieszonej sieci przy użyciu operacji zmiany rozmiaru. Zamiast tego, aby zmienić rozmiar jednej z tych maszyn wirtualnych:
 
-* Zatrzymaj/Cofnij przydział maszyny wirtualnej lub jeśli znajduje się w zestawie dostępności/VMSS, Zatrzymaj/Cofnij przydział wszystkich maszyn wirtualnych w zestawie/VMSS.
-* Przyspieszone sieci muszą być wyłączone na karcie sieciowej maszyny wirtualnej lub w zestawie dostępności/VMSS wszystkie maszyny wirtualne w zestawie/VMSS.
-* Po wyłączeniu przyspieszonej sieci można przenieść zestaw VM/Availability/VMSS do nowego rozmiaru, który nie obsługuje przyspieszonej sieci i ponownego uruchomienia.
+1. Zatrzymaj lub Cofnij przydział maszyny wirtualnej. W przypadku zestawu dostępności lub zestawu skalowania Zatrzymaj lub Zwolnij wszystkie maszyny wirtualne w zestawie dostępności lub w zestawie skalowania.
+
+2. Wyłączenie przyspieszonej sieci na karcie sieciowej maszyny wirtualnej. W przypadku zestawu dostępności lub zestawu skalowania należy wyłączyć przyspieszone sieci na kartach sieciowych wszystkich maszyn wirtualnych w zestawie dostępności lub w zestawie skalowania.
+
+3. Po wyłączeniu przyspieszonej sieci Przenieś maszynę wirtualną, zestaw dostępności lub zestaw skalowania do nowego rozmiaru, który nie obsługuje przyspieszonej sieci, a następnie uruchom je ponownie.

@@ -4,14 +4,14 @@ description: Wyjaśnia sposób konfigurowania dodatkowych ustawień pamięci pod
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195064"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871412"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 
@@ -42,13 +42,15 @@ Dowiedz się więcej o ustawieniach jednostki MTU w sieciach wirtualnych platfor
 ## <a name="configure-root-squash"></a>Konfigurowanie katalogu głównego squash
 <!-- linked from troubleshoot -->
 
-Ustawienie **Włącz root squash** steruje sposobem, w jaki pamięć podręczna Azure HPC zezwala na dostęp do katalogu głównego. Squash główny pomaga zapobiegać dostępowi na poziomie głównym z nieautoryzowanych klientów.
+Ustawienie **Włącz root squash** steruje sposobem, w jaki usługa Azure HPC cache traktuje żądania od użytkownika głównego na komputerach klienckich.
 
-To ustawienie umożliwia użytkownikom kontrolę dostępu do katalogu głównego na poziomie pamięci podręcznej, co może pomóc w ``no_root_squash`` zrekompensowaniu wymaganego ustawienia dla systemów nas używanych jako cele magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
+Po włączeniu elementu głównego squash użytkownicy root z klienta są automatycznie mapowana na użytkownika "nikt", gdy wysyłają żądania za pośrednictwem pamięci podręcznej platformy Azure HPC. Uniemożliwia ona również żądanie klienta z używania protokołu dostępu set-UID.
+
+Jeśli główny squash jest wyłączony, żądanie od użytkownika głównego klienta (UID 0) jest przenoszona do systemu magazynu w pamięci podręcznej systemu plików NFS jako element główny. Ta konfiguracja może umożliwić niewłaściwy dostęp do pliku.
+
+Ustawienie głównego squash w pamięci podręcznej może pomóc w zrekompensowaniu ``no_root_squash`` wymaganego ustawienia w systemach nas, które są używane jako obiekty docelowe magazynu. (Dowiedz się więcej o [wymaganiach wstępnych dotyczących magazynu NFS](hpc-cache-prereqs.md#nfs-storage-requirements)). Może również zwiększyć bezpieczeństwo, gdy jest używany z obiektami docelowymi usługi Azure Blob Storage.
 
 Ustawieniem domyślnym jest **tak**. (Pamięć podręczna utworzona przed 2020 kwietnia może mieć ustawienie domyślne **nie**.)
-
-Jeśli ta funkcja jest włączona, uniemożliwia używanie w żądaniach klientów dostępu do pamięci podręcznej protokołu uprawnień Set-UID.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Wyświetlanie migawek dla obiektów docelowych magazynu obiektów BLOB
 

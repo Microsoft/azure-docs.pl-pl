@@ -35,8 +35,9 @@
       href: powershell-samples.md
     - name: Szablony usługi Resource Manager
       href: template-samples.md
-    - name: Szablony zasad platformy Azure
-      href: policy-samples.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Ciągłość działalności biznesowej
@@ -390,7 +391,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /api/overview/azure/virtual-network
+      href: /dotnet/api/overview/azure/virtual-network
     - name: Java
       href: /java/api/
     - name: Node.js

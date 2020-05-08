@@ -4,14 +4,14 @@ description: Indeksuj dane przestrzenne za pomocą Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137907"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839213"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
 
@@ -28,11 +28,17 @@ W przypadku określenia zasad indeksowania, które zawierają indeks przestrzenn
 
 ## <a name="modifying-geospatial-data-type"></a>Modyfikowanie typu danych geoprzestrzennych
 
-W kontenerze `geospatialConfig` określa sposób indeksowania danych geoprzestrzennych. Należy określić jeden `geospatialConfig` dla każdego kontenera: Geografia lub geometria. Jeśli nie `geospatialConfig` zostanie określony, domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig`wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
+W kontenerze **Konfiguracja geoprzestrzenna** określa sposób indeksowania danych przestrzennych. Określ jedną **konfigurację geograficzną** dla kontenera: Geografia lub geometria.
 
-> [!NOTE]
-> Azure Cosmos DB obecnie obsługuje modyfikacje geospatialConfig w zestawie SDK platformy .NET tylko w wersji 3,6 i nowszych.
->
+Można przełączać między rodzajami przestrzennymi **geograficznymi** i **geometrycznymi** w Azure Portal. Ważne jest, aby przed przełączeniem na typ przestrzenny geometrii utworzyć [prawidłowe zasady indeksowania geometrii przestrzennej z ograniczonym polem](#geometry-data-indexing-examples) .
+
+Poniżej przedstawiono sposób ustawiania **konfiguracji geoprzestrzennej** w **Eksplorator danych** w Azure Portal:
+
+![Ustawianie konfiguracji geoprzestrzennej](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+Możesz również zmodyfikować `geospatialConfig` w zestawie SDK platformy .NET, aby dostosować **konfigurację geoprzestrzenną**:
+
+Jeśli nie `geospatialConfig` zostanie określony, domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig`wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
 
 Oto przykład modyfikacji typu danych geoprzestrzennych do `geometry` przez ustawienie `geospatialConfig` właściwości i dodanie elementu **boundingBox**:
 
@@ -112,7 +118,7 @@ Pole ograniczenia składa się z następujących właściwości:
 
 Pole ograniczenia jest wymagane, ponieważ dane geometryczne zajmuje płaszczyznę, która może być nieskończona. Indeksy przestrzenne, jednak wymagają skończonego miejsca. Dla typu danych **Geografia** Ziemia jest granicą i nie trzeba ustawiać pola ograniczenia.
 
-Należy utworzyć pole ograniczenia, które zawiera wszystkie (lub najwięcej) danych. Tylko operacje obliczane na obiektach, które znajdują się w całości wewnątrz pola ograniczenia, będą mogły korzystać z indeksu przestrzennego. Pole ograniczenia nie powinno być znacznie większe niż to konieczne, ponieważ może to negatywnie wpłynąć na wydajność zapytań.
+Utwórz pole ograniczenia, które zawiera wszystkie (lub najwięcej) danych. Tylko operacje obliczane na obiektach, które znajdują się w całości wewnątrz pola ograniczenia, będą mogły korzystać z indeksu przestrzennego. Nadanie pola powiązanego większym niż potrzeba będzie negatywnie wpływać na wydajność zapytań.
 
 Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **geospatialConfig** ustawioną `geometry`na:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75980296"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858754"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Ochrona serwera plików za pomocą usługi Azure Site Recovery 
 
@@ -30,7 +30,7 @@ Celem otwartego rozproszonego systemu udostępniania plików jest zapewnienie ś
 Replikacja DFSR używa algorytmu kompresji znanego jako zdalna kompresja różnicowa (RDC), który może służyć do wydajnej aktualizacji plików przy ograniczonej przepustowości sieci. Wykrywa ona wstawienia, usunięcia i zmiany uporządkowania danych w plikach. Replikacja DFSR jest włączona tylko dla replikacji zmienionych bloków pliku podczas aktualizacji plików. Istnieją również środowiska serwera plików, gdzie codzienne kopie zapasowe są wykonywane w godzinach poza szczytem, co odpowiada potrzebom awarii. Replikacja DFSR nie jest zaimplementowana.
 
 Na poniższym diagramie przedstawiono środowisko serwera plików z wdrożoną replikacją DFSR.
-                
+        
 ![Architektura replikacji DFSR](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 Na poprzednim diagramie wiele serwerów plików, nazywanych członkami, aktywnie uczestniczy w replikacji plików w grupie replikacji. Zawartość w zreplikowanym folderze jest dostępna dla wszystkich klientów, którzy wysyłają żądania do dowolnego członka nawet wtedy, gdy członek przejdzie w tryb offline.
@@ -57,19 +57,19 @@ Poniższy diagram ułatwia określenie, jakiej strategii użyć w swoim środowi
 |Środowisko  |Zalecenie  |Kwestie do rozważenia |
 |---------|---------|---------|
 |Środowisko serwera plików z replikacją DFSR lub bez niej|   [Używanie usługi Site Recovery do replikacji](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Usługa Site Recovery nie obsługuje klastrów z udostępnianym dyskiem ani urządzeniem magazynującym dołączonym do sieci (NAS). Jeśli środowisko korzysta z tych konfiguracji, użyj dowolnego innego podejścia zgodnie z potrzebami. <br> Usługa Site Recovery nie obsługuje protokołu SMB 3.0. Zreplikowana maszyna wirtualna zawiera zmiany tylko wtedy, gdy zmiany wprowadzone w plikach są aktualizowane w oryginalnej lokalizacji plików.<br>  Site Recovery zapewnia proces replikacji danych niemal synchronicznych, a tym samym w przypadku nieplanowanego scenariusza trybu failover może istnieć potencjalna utrata danych i może to spowodować problemy z niezgodnością numerów USN.
-|Środowisko serwera plików z replikacją DFSR     |  [Rozszerzenie replikacji DFSR na maszynie wirtualnej usługi IaaS platformy Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      Replikacja DFSR działa dobrze w środowiskach z bardzo podzieloną przepustowością. Takie podejście wymaga, aby maszyna wirtualna platformy Azure działała przez cały czas. Należy uwzględnić w planach koszt maszyny wirtualnej.         |
+|Środowisko serwera plików z replikacją DFSR     |  [Rozszerzenie replikacji DFSR na maszynie wirtualnej usługi IaaS platformy Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    Replikacja DFSR działa dobrze w środowiskach z bardzo podzieloną przepustowością. Takie podejście wymaga, aby maszyna wirtualna platformy Azure działała przez cały czas. Należy uwzględnić w planach koszt maszyny wirtualnej.         |
 |Maszyna wirtualna usługi IaaS platformy Azure     |     Usługa File Sync    |     Jeśli używasz usługi File Sync w scenariuszu odzyskiwania po awarii, w trybie failover musisz wykonać działania ręcznie, aby upewnić się, że udziały plików są dostępne na komputerze klienckim w sposób przezroczysty. Usługa File Sync wymaga, aby port 445 został otwarty z maszyny klienckiej.     |
 
 
 ### <a name="site-recovery-support"></a>Obsługa usługi Site Recovery
 Ponieważ replikacja usługi Site Recovery jest niezależna od aplikacji, te rekomendacje powinny pozostać prawdziwe w następujących scenariuszach.
 
-| Element źródłowy    |Do lokacji dodatkowej    |Na platformę Azure
+| Element źródłowy  |Do lokacji dodatkowej  |Na platformę Azure
 |---------|---------|---------|
-|Azure| -|Tak|
-|Funkcja Hyper-V|   Tak |Tak
-|VMware |Tak|   Tak
-|Serwer fizyczny|   Tak |Tak
+|Azure|  -|Tak|
+|Funkcja Hyper-V|  Tak  |Tak
+|VMware  |Tak|  Tak
+|Serwer fizyczny|  Tak  |Tak
  
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Usługi Azure Files można użyć w celu całkowitego zastąpienia lub uzupełni
 
 W poniższych krokach skrótowo opisano sposób używania usługi File Sync:
 
-1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli dla swoich kont magazynu wybierzesz magazyn geograficznie nadmiarowy z dostępem do odczytu, w razie awarii otrzymasz dostęp do odczytu do swoich danych z regionu pomocniczego. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i wymuszone przełączanie do trybu failover (wersja zapoznawcza) w usłudze Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli dla swoich kont magazynu wybierzesz magazyn geograficznie nadmiarowy z dostępem do odczytu, w razie awarii otrzymasz dostęp do odczytu do swoich danych z regionu pomocniczego. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i konto magazynu w trybie failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Utwórz udział plików](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Uruchom usługę File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) na swoim serwerze plików platformy Azure.
 4. Utwórz grupę synchronizacji. Punkty końcowe w ramach grupy synchronizacji są synchronizowane ze sobą. Grupa synchronizacji musi zawierać co najmniej jeden punkt końcowy w chmurze, który reprezentuje udział plików platformy Azure. Grupa synchronizacji musi również zawierać jeden punkt końcowy serwera, który reprezentuje ścieżkę na serwerze z systemem Windows.
@@ -146,7 +146,7 @@ Aby zintegrować usługę File Sync z usługą Site Recovery:
 
 Wykonaj następujące kroki, aby użyć usługi File Sync:
 
-1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli dla swoich kont magazynu wybierzesz magazyn geograficznie nadmiarowy z dostępem do odczytu (zalecany), w razie awarii masz dostęp do odczytu do swoich danych z regionu pomocniczego. Aby uzyskać więcej informacji, zobacz [odzyskiwanie po awarii i wymuszone przełączanie do trybu failover (wersja zapoznawcza) w usłudze Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Utwórz konto magazynu na platformie Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Jeśli dla swoich kont magazynu wybierzesz magazyn geograficznie nadmiarowy z dostępem do odczytu (zalecany), w razie awarii masz dostęp do odczytu do swoich danych z regionu pomocniczego. Aby uzyskać więcej informacji, zobacz [odzyskiwanie systemu po awarii i tryb failover dla konta magazynu](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Utwórz udział plików](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Wdróż usługę File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) na lokalnym serwerze plików.
 4. Utwórz grupę synchronizacji. Punkty końcowe w ramach grupy synchronizacji są synchronizowane ze sobą. Grupa synchronizacji musi zawierać co najmniej jeden punkt końcowy w chmurze, który reprezentuje udział plików platformy Azure. Grupa synchronizacji musi również zawierać jeden punkt końcowy serwera, który reprezentuje ścieżkę na lokalnym serwerze z systemem Windows.

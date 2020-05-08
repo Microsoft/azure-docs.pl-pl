@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426314"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598151"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Opracowywanie .NET Standard funkcji zdefiniowanych przez użytkownika dla zadań Azure Stream Analytics (wersja zapoznawcza)
 
@@ -42,17 +42,29 @@ Istnieją trzy sposoby implementowania funkcji zdefiniowanych przez użytkownika
 Format dowolnego pakietu UDF ma ścieżkę `/UserCustomCode/CLR/*`. Biblioteki dołączane dynamicznie (dll) i zasoby są kopiowane `/UserCustomCode/CLR/*` do folderu, co ułatwia izolowanie bibliotek DLL użytkowników z systemów i Azure Stream Analytics bibliotek DLL. Ta ścieżka pakietu jest używana dla wszystkich funkcji niezależnie od metody używanej do ich używania.
 
 ## <a name="supported-types-and-mapping"></a>Obsługiwane typy i mapowanie
+Aby wartości Azure Stream Analytics, które mają być używane w języku C#, muszą być organizowane z jednego środowiska do drugiego. Kierowanie odbywa się dla wszystkich parametrów wejściowych UDF. Każdy typ Azure Stream Analytics ma odpowiadający mu typ w języku C# przedstawionym w poniższej tabeli:
 
-|**UDF — typ (C#)**  |**Typ Azure Stream Analytics**  |
+|**Typ Azure Stream Analytics** |**Typ C#** |
+|---------|---------|
+|bigint | długi |
+|float | double |
+|nvarchar (max) | ciąg |
+|datetime | DateTime |
+|Rekord | Ciąg\<słownika,> obiektu |
+|Tablica | >\<obiektu tablicy |
+
+To samo jest prawdziwe, gdy dane muszą być organizowane z języka C# do Azure Stream Analytics, co odbywa się na wartości wyjściowej UDF. W poniższej tabeli pokazano, jakie typy są obsługiwane:
+
+|**Typ C#**  |**Typ Azure Stream Analytics**  |
 |---------|---------|
 |długi  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |ciąg  |  nvarchar (max)   |
-|Data i godzina  |  Data i godzina   |
-|struktura   |  IRecord   |
-|obiekt  |  IRecord   |
-|>\<obiektu tablicy  |  IArray   |
-|<słownika, ciąg>  |  IRecord   |
+|DateTime  |  Data i godzina   |
+|struktura   |  Rekord   |
+|obiekt  |  Rekord   |
+|>\<obiektu tablicy  |  Tablica   |
+|Ciąg\<słownika,> obiektu  |  Rekord   |
 
 ## <a name="codebehind"></a>CodeBehind
 Funkcje zdefiniowane przez użytkownika można napisać w **skrypcie. ASQL** Codebehind. Narzędzia programu Visual Studio automatycznie kompilują plik CodeBehind do pliku zestawu. Zestawy są spakowane jako plik zip i przekazywane do konta magazynu podczas przesyłania zadania do platformy Azure. Możesz dowiedzieć się, jak napisać UDF języka C# przy użyciu CodeBehind, postępując zgodnie z samouczkiem [UDF języka c# for Stream Analytics Edge](stream-analytics-edge-csharp-udf.md) . 

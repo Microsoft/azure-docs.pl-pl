@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282447"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872433"
 ---
 # <a name="what-is-azure-importexport-service"></a>Co to jest usługa Azure Import/Export?
 
@@ -41,7 +41,7 @@ Usługa Import/Export korzysta z następujących składników:
 * **Narzędzie WAImportExport**: jest to narzędzie wiersza polecenia, które wykonuje następujące czynności:
   * Przygotowuje stacje dysków, które są dostarczane do zaimportowania.
   * Ułatwia kopiowanie danych na dysk.
-  * Szyfruje dane na dysku przy użyciu algorytmu AES 128-bit funkcji BitLocker. Aby chronić klucz funkcji BitLocker, można użyć funkcji ochrony klucza zewnętrznego.
+  * Szyfruje dane na dysku przy użyciu algorytmu AES 256-bit funkcji BitLocker. Aby chronić klucz funkcji BitLocker, można użyć funkcji ochrony klucza zewnętrznego.
   * Generuje pliki dziennika dysku używane podczas tworzenia importu.
   * Pomaga identyfikować liczbę dysków wymaganych do eksportowania zadań.
 
@@ -129,9 +129,9 @@ Usługa Azure Import/Export obsługuje kopiowanie danych do i ze wszystkich kont
 |Południowo-środkowe stany USA     | Japonia Zachodnia        |Korea Środkowa         | Niemcy Środkowe        |
 |Zachodnio-środkowe stany USA     |  Japonia Wschodnia       | US Gov Wirginia        | Niemcy Północno-Wschodnie        |
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
-Dane na dysku są szyfrowane przy użyciu algorytmu AES 128-bit szyfrowanie dysków funkcją BitLocker. To szyfrowanie chroni dane podczas przesyłania.
+Dane na dysku są szyfrowane przy użyciu algorytmu AES 256-bit szyfrowanie dysków funkcją BitLocker. To szyfrowanie chroni dane podczas przesyłania.
 
 W przypadku zadań importowania dyski są szyfrowane na dwa sposoby.  
 

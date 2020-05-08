@@ -1,22 +1,22 @@
 ---
-title: Oferty prywatne | Portal Azure Marketplace
-description: Prywatne oferty w witrynie Azure Marketplace dla wydawców aplikacji i usług.
+title: Oferty prywatne w witrynie Microsoft Commercial Marketplace
+description: Prywatne oferty w komercyjnej witrynie Microsoft Marketplace dla wydawców aplikacji i usług.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
-ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e449f65ca65a679aa6c6823938fa561b84e38368
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681428"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872377"
 ---
-# <a name="private-offers"></a>Oferty prywatne
+# <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Oferty prywatne w portalu komercyjnym firmy Microsoft
 
-Oferty prywatne na [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) umożliwiają wydawcom tworzenie jednostek SKU, które są widoczne tylko dla klientów skierowanych do określonych.
+Oferty prywatne w [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) umożliwiają wydawcom tworzenie planów, które są widoczne tylko dla klientów skierowanych do określonych. Ten artykuł zawiera informacje na temat opcji i korzyści związanych z ofertami prywatnymi.
 
 ## <a name="unlock-enterprise-deals-with-private-offers"></a>Odblokuj transakcje przedsiębiorstwa z ofertami prywatnymi
 

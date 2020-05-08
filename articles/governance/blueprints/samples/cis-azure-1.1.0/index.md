@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii CIS Microsoft Azure Foundations Benchmark
 description: Omówienie przykładu strategii CIS Microsoft Azure Foundations Benchmark. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli.
-ms.date: 08/09/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cc2d2e31ddf71ad5cebf21bc8f23e20331b24617
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74544576"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864151"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Omówienie przykładu strategii CIS Microsoft Azure Foundations Benchmark
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411429"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864253"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optymalizowanie zapytań dzienników w Azure Monitor
 Dzienniki Azure Monitor korzystają z [usługi Azure Eksplorator danych (ADX)](/azure/data-explorer/) do przechowywania danych dziennika i uruchamiania zapytań w celu analizowania tych danych. Tworzy, zarządza i obsługuje klastry ADX oraz optymalizuje je do obciążeń analizy dzienników. Po uruchomieniu zapytania jest on zoptymalizowany i kierowany do odpowiedniego klastra ADX, który przechowuje dane obszaru roboczego. Zarówno dzienniki Azure Monitor, jak i Azure Eksplorator danych korzystają z wielu automatycznych mechanizmów optymalizacji zapytań. Chociaż Optymalizacja automatyczna zapewnia znaczący wzrost, w niektórych przypadkach można znacznie poprawić wydajność zapytań. W tym artykule opisano zagadnienia dotyczące wydajności i kilka technik rozwiązywania tych problemów.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Użyj efektywnych poleceń agregacji i dimmentions w podsumowaniu i przyłączeniu
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Użyj efektywnych poleceń agregacji i wymiarów w podsumowaniu i przyłączaniu
 
 Chociaż niektóre polecenia agregujące, takie jak [Max ()](/azure/kusto/query/max-aggfunction), [sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)i [AVG ()](/azure/kusto/query/avg-aggfunction) mają niski wpływ na procesor CPU ze względu na ich logikę, inne są bardziej skomplikowane i obejmują algorytmy heurystyczne i oszacowania, które umożliwiają ich wydajne wykonywanie. Na przykład, [DCount ()](/azure/kusto/query/dcount-aggfunction) używa algorytmu HyperLogLog, aby zapewnić ścisłe oszacowanie do odrębnej liczby dużych zestawów danych bez faktycznego zliczania każdej wartości; funkcje percentylu są podobne do przybliżania przy użyciu najbliższego algorytmu percentylu rangi. Kilka poleceń zawiera opcjonalne parametry w celu zmniejszenia ich wpływu. Na przykład funkcja [MakeSet ()](/azure/kusto/query/makeset-aggfunction) ma opcjonalny parametr definiujący maksymalny rozmiar zestawu, który znacząco wpływa na procesor i pamięć.
 

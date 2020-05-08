@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania usługi CIS Microsoft Azure przykłady planów testów porównawczych
 description: Kroki wdrażania dla przykładowych planów testów usługi CIS Microsoft Azure, w tym szczegóły parametrów artefaktu.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544521"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864474"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Wdróż przykład planu testów usług CIS Microsoft Azure
 
@@ -93,8 +93,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja\]zapoznawcza: Przeprowadź inspekcję usługi CIS Microsoft Azure fundacje testów porównawczych i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
-|\[Wersja\]zapoznawcza: Przeprowadź inspekcję usługi CIS Microsoft Azure fundacje testów porównawczych i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
+|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista regionów, w których należy włączyć Network Watcher|Rozdzielana średnikami lista regionów. Aby wyświetlić pełną listę regionów, Użyj Get-AzLocation. Np.: wschód; eastus2|
+|Inspekcja wykrytych usług CIS Microsoft Azure testów porównawczych 1.1.0 i wdrażanie określonych rozszerzeń obsługi maszyn wirtualnych|Przypisywanie zasad|Lista rozszerzeń maszyn wirtualnych, które są zatwierdzone do użycia|Rozdzielana średnikami lista rozszerzeń. Aby wyświetlić pełną listę rozszerzeń maszyn wirtualnych, użyj polecenie Get-AzVMExtensionImage. Np.: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Następne kroki
 
