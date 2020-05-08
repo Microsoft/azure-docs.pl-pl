@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 476a2d910b916ea29132b108478d06f756454813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75463285"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793078"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Uaktualnianie konfiguracji klastra na platformie Azure 
 
@@ -53,4 +53,4 @@ Ustawienia klastra można również dostosować w jeden z następujących Azure 
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [ustawieniach klastra Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Dowiedz się [, jak skalować klaster w programie i na zewnątrz](service-fabric-cluster-scale-up-down.md).
+* Dowiedz się [, jak skalować klaster w programie i na zewnątrz](service-fabric-cluster-scale-in-out.md).

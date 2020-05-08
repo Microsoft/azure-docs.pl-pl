@@ -4,12 +4,12 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397971"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855041"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -26,7 +26,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki statycznej progu:
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: statyczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. Agregacje obsługiwanego czasu to min, Max, średnia, suma, liczba): Średnia
+- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#changing-aggregation) to min, Max, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż
@@ -43,7 +43,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki dynamicznej wartości 
 - Zasób docelowy (zasób platformy Azure, który chcesz monitorować): myVM
 - Metryka: procentowy procesor CPU
 - Typ warunku: dynamiczny
-- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. Agregacje obsługiwanego czasu to min, Max, średnia, suma, liczba): Średnia
+- Agregacja czasu (statystyka, która jest uruchamiana za pośrednictwem wartości metryk nieprzetworzonych. [Agregacje obsługiwanego czasu](metrics-charts.md#changing-aggregation) to min, Max, średnia, suma, liczba): Średnia
 - Okres (wyszukanie okna, nad którym są sprawdzane wartości metryk): w ciągu ostatnich 5 minut
 - Częstotliwość (częstotliwość, z jaką alert dotyczący metryki sprawdza, czy warunki są spełnione): 1 min
 - Operator: większe niż

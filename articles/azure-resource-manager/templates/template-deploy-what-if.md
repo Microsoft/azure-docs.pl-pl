@@ -3,14 +3,14 @@ title: Template deployment co zrobić (wersja zapoznawcza)
 description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509588"
+ms.locfileid: "82581200"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
 
@@ -106,7 +106,7 @@ Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, Dodaj `-Whatif` para
 * `New-AzResourceGroupDeployment -Whatif`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Whatif`i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
 
-Można też użyć parametru `-Confirm` Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
+Możesz użyć parametru `-Confirm` Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
 * `New-AzResourceGroupDeployment -Confirm`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Confirm`i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
@@ -123,10 +123,10 @@ Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, `what-if` Użyj pole
 * `az deployment group what-if`dla wdrożeń grup zasobów
 * `az deployment sub what-if`w przypadku wdrożeń na poziomie subskrypcji
 
-Można też użyć `--confirm-with-what-if` parametru, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
+Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c`), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
-* `az deployment group create --confirm-with-what-if`dla wdrożeń grup zasobów
-* `az deployment sub create --confirm-with-what-if`w przypadku wdrożeń na poziomie subskrypcji
+* `az deployment group create --confirm-with-what-if`lub `-c` dla wdrożeń grup zasobów
+* `az deployment sub create --confirm-with-what-if`lub `-c` w przypadku wdrożeń na poziomie subskrypcji
 
 Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt JSON, który można programowo sprawdzić pod kątem zmian, użyj:
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 Operacja działania warunkowego obsługuje używanie [trybu wdrożenia](deployment-modes.md). Po ustawieniu na tryb kompletny zasoby, które nie znajdują się w szablonie, są usuwane. W poniższym przykładzie wdrożono [szablon, który nie zawiera żadnych zasobów zdefiniowanych](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) w trybie kompletnym.
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj `-Confirm` parametru Switch z poleceniem Deployment. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj polecenia Confirm Switch z poleceniem Deployment. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

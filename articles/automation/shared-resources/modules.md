@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie modułami w usłudze Azure Automation
-description: W tym artykule opisano sposób zarządzania modułami w Azure Automation.
+description: Azure Automation umożliwia zaimportowanie modułów programu PowerShell w celu włączenia poleceń cmdlet w elementach Runbook i zasobach DSC w konfiguracjach DSC.
 services: automation
 ms.service: automation
 author: mgoedtel
@@ -8,39 +8,39 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 84fdb5a9cf3c22048473cd00ee6f8e7ac36c9097
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508959"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864304"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Zarządzanie modułami w usłudze Azure Automation
 
 Azure Automation umożliwia zaimportowanie modułów programu PowerShell w celu włączenia poleceń cmdlet w elementach Runbook i zasobach DSC w konfiguracjach DSC. Moduły używane w Azure Automation obejmują:
 
-* [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
-* [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Inne moduły programu PowerShell
-* Moduł `Orchestrator.AssetManagement.Cmdlets` wewnętrzny
-* Moduły Python 2
-* Niestandardowe moduły, które tworzysz 
+* [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+* [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0).
+* Inne moduły programu PowerShell.
+* Moduł `Orchestrator.AssetManagement.Cmdlets` wewnętrzny.
+* Moduły Python 2.
+* Niestandardowe moduły, które tworzysz.
 
 Podczas tworzenia konta usługi Automation Azure Automation domyślnie importowane są pewne moduły. Zobacz [moduły domyślne](#default-modules).
 
-Gdy Azure Automation wykonuje zadania kompilacji elementów Runbook i DSC, ładuje moduły do piaskownic, w których można uruchomić elementy Runbook, a konfiguracje DSC mogą być kompilowane. Automatyzacja automatycznie umieszcza wszystkie zasoby DSC w modułach na serwerze ściągania DSC. Maszyny mogą ściągnąć zasoby, gdy stosują konfiguracje DSC.
+Gdy Automatyzacja wykonuje zadania kompilacji elementów Runbook i DSC, ładuje moduły do piaskownic, w których można uruchomić elementy Runbook, a konfiguracje DSC mogą być kompilowane. Automatyzacja automatycznie umieszcza wszystkie zasoby DSC w modułach na serwerze ściągania DSC. Maszyny mogą ściągnąć zasoby, gdy stosują konfiguracje DSC.
 
 >[!NOTE]
->Pamiętaj, aby zaimportować tylko te moduły, których rzeczywiście potrzebują elementy Runbook i konfiguracje DSC. Nie zalecamy importowania głównego elementu AZ module, ponieważ zawiera on wiele innych modułów, które mogą nie być potrzebne, co może powodować problemy z wydajnością. Zaimportuj poszczególne moduły, takie jak AZ. COMPUTE, zamiast.
+>Pamiętaj, aby zaimportować tylko te moduły, których rzeczywiście potrzebują elementy Runbook i konfiguracje DSC. Nie zalecamy importowania głównego elementu AZ module. Obejmuje to wiele innych modułów, które mogą nie być potrzebne, co może powodować problemy z wydajnością. Zaimportuj poszczególne moduły, takie jak AZ. COMPUTE, zamiast.
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+>W tym artykule jest wykorzystywany Azure PowerShell AZ module. Nadal możesz użyć modułu AzureRM. Aby dowiedzieć się więcej na temat zgodności AZ module i AzureRM, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="default-modules"></a>Moduły domyślne
 
 W poniższej tabeli wymieniono moduły, które domyślnie Azure Automation Importy podczas tworzenia konta usługi Automation. Automatyzacja może zaimportować nowsze wersje tych modułów. Nie można jednak usunąć oryginalnej wersji z konta usługi Automation, nawet jeśli usuniesz nowszą wersję. Należy pamiętać, że te moduły domyślne obejmują kilka modułów AzureRM. 
 
-Azure Automation nie importuje automatycznie głównego elementu AZ module do żadnych nowych lub istniejących kont usługi Automation. Aby uzyskać więcej informacji na temat pracy z tymi modułami, zobacz [Migrowanie do AZ modules](#migrating-to-az-modules).
+Automatyzacja nie powoduje automatycznego importowania głównego elementu AZ module do żadnych nowych lub istniejących kont usługi Automation. Aby uzyskać więcej informacji na temat pracy z tymi modułami, zobacz [Migrowanie do AZ modules](#migrating-to-az-modules).
 
 > [!NOTE]
 > Nie zaleca się modyfikowania modułów i elementów Runbook na kontach usługi Automation, które zawierają [Start/Stop VMS during off-hours rozwiązanie w Azure Automation](../automation-solution-vm-management.md).
@@ -72,13 +72,13 @@ Azure Automation nie importuje automatycznie głównego elementu AZ module do ż
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## <a name="az-module-cmdlets"></a>Polecenia AZ module
+## <a name="az-modules"></a>AZ modules
 
-W przypadku AZ. Automation większość poleceń cmdlet ma takie same nazwy jak dla modułów AzureRM, z tą różnicą, że prefiks AzureRm został zmieniony na AZ. Aby zapoznać się z listą elementów AZ module, które nie są zgodne z tą konwencją nazewnictwa, zobacz [Lista wyjątków](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+W przypadku AZ. Automation większość poleceń cmdlet ma takie same nazwy jak te, które są używane dla modułów AzureRM, z tą różnicą, że prefiks *AzureRM* został zmieniony na *AZ*. Aby zapoznać się z listą takich modułów, które nie przestrzegają tej konwencji nazewnictwa, zobacz [listę wyjątków](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## <a name="internal-cmdlets"></a>Wewnętrzne polecenia cmdlet
 
-W poniższej tabeli zdefiniowano wewnętrzne polecenia cmdlet obsługiwane przez `Orchestrator.AssetManagement.Cmdlets` moduł. Za pomocą tych poleceń cmdlet w elementach Runbook i konfiguracjach DSC można korzystać z zasobów platformy Azure w ramach konta usługi Automation. Polecenia cmdlet są przeznaczone do użycia zamiast poleceń cmdlet Azure PowerShell do pobierania wpisów tajnych z szyfrowanych zmiennych, poświadczeń i szyfrowanych połączeń. 
+Azure Automation obsługuje moduł wewnętrzny `Orchestrator.AssetManagement.Cmdlets` dla agenta log Analytics dla systemu Windows, który jest instalowany domyślnie. W poniższej tabeli przedstawiono definicje wewnętrznych poleceń cmdlet. Te polecenia cmdlet są przeznaczone do użycia zamiast Azure PowerShell poleceń cmdlet do współpracy z zasobami udostępnionymi. Mogą pobrać wpisy tajne z szyfrowanych zmiennych, poświadczeń i szyfrowanych połączeń.
 
 >[!NOTE]
 >Wewnętrzne polecenia cmdlet są dostępne tylko w przypadku wykonywania elementów Runbook w środowisku piaskownicy platformy Azure lub w hybrydowym procesie roboczym elementu Runbook systemu Windows. 
@@ -93,80 +93,84 @@ W poniższej tabeli zdefiniowano wewnętrzne polecenia cmdlet obsługiwane przez
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Oczekiwanie — AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-Należy pamiętać, że wewnętrzne polecenia cmdlet różnią się nazwami poleceń cmdlet AZ i AzureRM. Wewnętrzne nazwy poleceń cmdlet nie zawierają słów, takich jak "Azure" lub "AZ" w rzeczowniku, ale używają słowa "Automation". Zalecamy korzystanie z poleceń cmdlet AZ lub AzureRM podczas wykonywania elementu Runbook w piaskownicy platformy Azure lub w hybrydowym procesie roboczym systemu Windows. Wymagają one mniej parametrów i są uruchamiane w kontekście już wykonywanego zadania.
+Należy pamiętać, że wewnętrzne polecenia cmdlet różnią się nazwami poleceń cmdlet AZ i AzureRM. Wewnętrzne nazwy poleceń cmdlet nie zawierają słów, takich jak "Azure" lub "AZ", przy użyciu *automatyzacji*programu Word. Zalecamy korzystanie z poleceń cmdlet AZ lub AzureRM podczas wykonywania elementu Runbook w piaskownicy platformy Azure lub w hybrydowym procesie roboczym elementu Runbook systemu Windows. Wymagają one mniej parametrów i są uruchamiane w kontekście zadania, które jest już uruchomione.
 
-Zalecamy używanie poleceń cmdlet AZ lub AzureRM do manipulowania zasobami Azure Automationymi poza kontekstem elementu Runbook. 
-
-## <a name="orchestratorassetmanagementcmdlets-module"></a>Orchestrator. AssetManagement. cmdlet — moduł
-
-Azure Automation obsługuje moduł wewnętrzny `Orchestrator.AssetManagement.Cmdlets` dla agenta log Analytics dla systemu Windows, który jest instalowany domyślnie. `Get-AutomationPSCredential` Polecenie cmdlet w tym module jest często używane w elementach Runbook do pobierania `PSCredential` obiektu, który jest oczekiwany przez większość poleceń cmdlet programu PowerShell, które działają z poświadczeniami. Aby dowiedzieć się więcej o korzystaniu z poświadczeń w Azure Automation, zobacz [zasoby poświadczeń w programie Azure Automation](credentials.md).
+Użyj poleceń cmdlet AZ lub AzureRM do manipulowania zasobami usługi Automation poza kontekstem elementu Runbook. 
 
 ## <a name="python-modules"></a>Moduły języka Python
 
 W Azure Automation można tworzyć elementy Runbook języka Python 2. Aby uzyskać informacje o module języka Python, zobacz [Zarządzanie pakietami Python 2 w Azure Automation](../python-packages.md).
 
+## <a name="custom-modules"></a>Moduły niestandardowe
+
+Azure Automation obsługuje niestandardowe moduły programu PowerShell, które są tworzone do użycia z elementami Runbook i konfiguracjami DSC. Jeden z typów modułu niestandardowego to moduł integracji, który opcjonalnie zawiera plik metadanych służący do definiowania niestandardowej funkcji poleceń cmdlet modułu. Przykład użycia modułu integracji znajduje się w obszarze [Dodaj typ połączenia](../automation-connections.md#add-a-connection-type).
+
+Azure Automation można zaimportować niestandardowego modułu w celu udostępnienia jego poleceń cmdlet. W tle przechowuje moduł i używa go w piaskownicach platformy Azure, podobnie jak w przypadku innych modułów.
+
 ## <a name="migrating-to-az-modules"></a>Migrowanie do AZ modules
 
 ### <a name="migration-considerations"></a>Zagadnienia dotyczące migracji
 
-Ta sekcja zawiera zagadnienia, które należy wziąć pod uwagę podczas migrowania do modułu AZ modules w Azure Automation. Zobacz również [migrowanie Azure PowerShell z AzureRM do AZ](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
+Ta sekcja zawiera zagadnienia, które należy wziąć pod uwagę podczas migrowania do modułu AZ modules w usłudze Automation. Aby uzyskać więcej informacji, zobacz [migrowanie Azure PowerShell z AzureRM do AZ](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
 
 #### <a name="use-of-azurerm-modules-and-az-modules-in-the-same-automation-account"></a>Używanie modułów AzureRM i AZ modules na tym samym koncie usługi Automation
 
- Nie zalecamy uruchamiania modułów AzureRM i AZ modules na tym samym koncie usługi Automation. Jeśli na pewno chcesz przeprowadzić migrację z AzureRM do AZ, najlepiej jest w pełni zatwierdzić do kompletnej migracji. Najważniejszym powodem jest to, że Azure Automation często ponownie używa piaskownic w ramach konta usługi Automation, aby zaoszczędzić czas uruchamiania. Jeśli nie przetworzysz pełnej migracji modułu, możesz uruchomić zadanie przy użyciu tylko modułów AzureRM, a następnie uruchomić inne zadanie, używając tylko polecenia AZ modules. Piaskownica zostanie wkrótce przestanie działać i wystąpi błąd krytyczny informujący, że moduły nie są zgodne. W tej sytuacji powstaje losowe awarie dla danego elementu Runbook lub konfiguracji. 
+ Nie zalecamy uruchamiania modułów AzureRM i AZ modules na tym samym koncie usługi Automation. Jeśli na pewno chcesz przeprowadzić migrację z AzureRM do AZ, najlepiej jest w pełni zatwierdzić do kompletnej migracji. Automatyzacja często ponownie używa piaskownic w ramach konta usługi Automation, aby zaoszczędzić czas uruchamiania. Jeśli nie przetworzysz pełnej migracji modułu, możesz uruchomić zadanie, które używa tylko modułów AzureRM, a następnie uruchomić inne zadanie, które używa tylko AZ module. Piaskownica zostanie wkrótce przestanie działać i zostanie wyświetlony komunikat o błędzie informujący, że moduły nie są zgodne. Ta sytuacja powoduje losowe awarie dla każdego określonego elementu Runbook lub konfiguracji. 
 
-#### <a name="import-of-az-modules-into-the-powershell-session"></a>Importowanie poleceń AZ modułów do sesji programu PowerShell
+#### <a name="importing-az-modules-into-the-powershell-session"></a>Importowanie AZ modułów do sesji programu PowerShell
 
 Importowanie modułu AZ module do konta usługi Automation nie powoduje automatycznego importowania modułu do sesji programu PowerShell używanej przez elementy Runbook. Moduły są importowane do sesji programu PowerShell w następujących sytuacjach:
 
-* Gdy element Runbook wywołuje polecenie cmdlet z modułu
-* Gdy element Runbook importuje moduł jawnie za pomocą polecenia cmdlet [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
-* Gdy element Runbook importuje inny moduł zależny
+* Gdy element Runbook wywołuje polecenie cmdlet z modułu.
+* Gdy element Runbook importuje moduł jawnie za pomocą polecenia cmdlet [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) .
+* Gdy element Runbook importuje inny moduł zależny.
 
-#### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Testowanie elementów Runbook i konfiguracji DSC przed migracją modułu
+#### <a name="testing-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Testowanie elementów Runbook i konfiguracji DSC przed migracją modułu
 
-Pamiętaj, aby dokładnie przetestować wszystkie elementy Runbook i konfiguracje DSC na osobnym koncie usługi Automation przed migracją do modułu AZ modules. 
+Należy uważnie przetestować wszystkie elementy Runbook i konfiguracje DSC w osobnym koncie usługi Automation przed migracją do modułu AZ modules. 
 
 #### <a name="updates-for-tutorial-runbooks"></a>Aktualizacje elementów Runbook samouczka 
 
-Podczas tworzenia nowego konta usługi Automation, nawet po migracji do programu AZ modules, Azure Automation domyślnie instaluje moduły AzureRM. Można nadal aktualizować elementy Runbook samouczka za pomocą poleceń cmdlet AzureRM. Nie należy jednak uruchamiać tych elementów Runbook.
+Podczas tworzenia nowego konta usługi Automation, nawet po migracji do programu AZ modules, Automatyzacja domyślnie instaluje moduły AzureRM. Można nadal aktualizować elementy Runbook samouczka za pomocą poleceń cmdlet AzureRM. Nie należy jednak uruchamiać tych elementów Runbook.
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Zatrzymywanie i nieplanowanie wszystkich elementów Runbook, które korzystają z modułów AzureRM
 
-Aby upewnić się, że nie uruchomiono żadnych istniejących elementów Runbook lub konfiguracji DSC, które używają modułów AzureRM, należy zatrzymać i anulować planowanie wszystkich elementów Runbook i konfiguracji, których dotyczy. Najpierw należy sprawdzić, czy każdy element Runbook lub Konfiguracja DSC i jego harmonogramy zostały oddzielnie zaplanowana w celu zapewnienia, że w razie potrzeby można ponownie zaplanować element w przyszłości. 
+Aby upewnić się, że nie uruchomiono żadnych istniejących elementów Runbook lub konfiguracji DSC, które używają modułów AzureRM, należy zatrzymać i anulować planowanie wszystkich elementów Runbook i konfiguracji, których dotyczy. Najpierw upewnij się, że każdy element Runbook lub Konfiguracja DSC i jego harmonogramy zostały oddzielnie, aby upewnić się, że w razie potrzeby można ponownie zaplanować element w przyszłości. 
 
-Gdy wszystko będzie gotowe do usunięcia harmonogramów, możesz użyć Azure Portal lub polecenia cmdlet [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) . Zobacz [Usuwanie harmonogramu](schedules.md#removing-a-schedule).
+Gdy wszystko będzie gotowe do usunięcia harmonogramów, możesz użyć Azure Portal lub polecenia cmdlet [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) . Zobacz [Usuwanie harmonogramu](schedules.md#remove-a-schedule).
 
 ### <a name="remove-the-azurerm-modules"></a>Usuń moduły AzureRM
 
-Przed zaimportowaniem modułów AzureRM można usunąć te moduły. Jednak usunięcie modułów AzureRM może przerwać synchronizację kontroli źródła i spowodować niepowodzenie wszystkich skryptów, które nadal zaplanowano. Jeśli zdecydujesz się usunąć moduły, zobacz [Odinstalowywanie AzureRM](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
+Przed zaimportowaniem modułów AzureRM można je usunąć. Jeśli jednak to zrobisz, możesz przerwać synchronizację kontroli źródła i spowodować, że wszystkie skrypty, które są nadal zaplanowane, zakończą się niepowodzeniem. Jeśli zdecydujesz się usunąć moduły, zobacz [Odinstalowywanie AzureRM](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
 
 ### <a name="import-the-az-modules"></a>Zaimportuj AZ modules
 
-Ta sekcja zawiera informacje na temat importowania modułów AZ w Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie cały moduł AZ. Automation. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.
+Można zaimportować moduły AZ w Azure Portal. Pamiętaj, aby zaimportować tylko te moduły AZ, które są potrzebne, a nie cały moduł AZ. Automation. Ponieważ [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) jest zależnością dla innych modułów AZ module, pamiętaj o zaimportowaniu tego modułu przed innymi.
 
-1. Z poziomu konta usługi Automation wybierz pozycję **moduły** w obszarze **zasoby udostępnione**. 
-2. Kliknij pozycję **Przeglądaj Galerię** , aby otworzyć stronę Przeglądaj galerię.  
-3. Na pasku wyszukiwania wprowadź nazwę modułu, na przykład `Az.Accounts`. 
-4. Na stronie moduł programu PowerShell kliknij przycisk **Importuj** , aby zaimportować moduł do konta usługi Automation.
+1. Na koncie usługi Automation w obszarze **udostępnione zasoby**wybierz pozycję **moduły**. 
+2. Wybierz pozycję **Przeglądaj Galerię**.  
+3. Na pasku wyszukiwania wprowadź nazwę modułu (na przykład `Az.Accounts`). 
+4. Na stronie **moduł programu PowerShell** wybierz pozycję **Importuj** , aby zaimportować moduł do konta usługi Automation.
 
-    ![Importuj moduły do konta usługi Automation](../media/modules/import-module.png)
+    ![Zrzut ekranu przedstawiający importowanie modułów do konta usługi Automation](../media/modules/import-module.png)
 
-Ten proces importowania można wykonać za pomocą [Galeria programu PowerShell](https://www.powershellgallery.com) , wyszukując moduł do zaimportowania. Po znalezieniu modułu zaznacz go, wybierz kartę **Azure Automation** , a następnie kliknij pozycję **Wdróż do Azure Automation**.
+Ten import można również wykonać za pomocą [Galeria programu PowerShell](https://www.powershellgallery.com), wyszukując moduł do zaimportowania. Po znalezieniu modułu zaznacz go, a następnie wybierz kartę **Azure Automation** . Wybierz pozycję **wdróż, aby Azure Automation**.
 
-![Importuj moduły bezpośrednio z galerii](../media/modules/import-gallery.png)
+![Zrzut ekranu przedstawiający importowanie modułów bezpośrednio z Galeria programu PowerShell](../media/modules/import-gallery.png)
 
 ### <a name="test-your-runbooks"></a>Testowanie elementów Runbook
 
-Po zaimportowaniu modułu AZ modules do konta usługi Automation możesz rozpocząć edytowanie elementów Runbook i konfiguracji DSC, aby użyć nowych modułów. Jednym ze sposobów na przetestowanie modyfikacji elementu Runbook w celu użycia nowych poleceń cmdlet jest użycie `Enable-AzureRmAlias -Scope Process` na początku elementu Runbook. Po dodaniu tego polecenia do elementu Runbook skrypt może być uruchamiany bez zmian. 
+Po zaimportowaniu modułu AZ modules do konta usługi Automation możesz rozpocząć edytowanie elementów Runbook i konfiguracji DSC, aby użyć nowych modułów. Jednym ze sposobów na przetestowanie modyfikacji elementu Runbook w celu użycia nowych poleceń cmdlet jest użycie `Enable-AzureRmAlias -Scope Process` polecenia na początku elementu Runbook. Po dodaniu tego polecenia do elementu Runbook skrypt może być uruchamiany bez zmian. 
 
-## <a name="authoring-modules"></a>Tworzenie modułów
+## <a name="author-modules"></a>Tworzenie modułów
 
-Zalecamy przestrzeganie zagadnień z tej sekcji podczas tworzenia modułu programu PowerShell do użycia w Azure Automation.
+Zalecamy przestrzeganie zagadnień z tej sekcji podczas tworzenia niestandardowego modułu programu PowerShell do użycia w programie Azure Automation. Aby przygotować moduł do zaimportowania, należy utworzyć co najmniej plik **dll** modułu psd1, Psm1 lub PowerShell o takiej samej nazwie jak folder modułu. Następnie można zakodować folder modułu, aby Azure Automation mógł go zaimportować jako pojedynczy plik. Pakiet **zip** powinien mieć taką samą nazwę jak folder zawartego modułu. 
+
+Aby dowiedzieć się więcej na temat tworzenia modułu programu PowerShell, zobacz [jak napisać moduł skryptu programu PowerShell](https://docs.microsoft.com/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
 
 ### <a name="version-folder"></a>Folder wersji
 
-NIE dołączaj folderu wersji w pakiecie **. zip** modułu.  Ten problem jest mniej istotny dla elementów Runbook, ale powoduje problem z usługą konfiguracji stanu (DSC). Azure Automation automatycznie tworzy folder wersji, gdy moduł jest dystrybuowany do węzłów zarządzanych przez DSC. Jeśli folder wersji istnieje, możesz zakończyć z dwoma wystąpieniami. Oto przykładowa struktura folderów dla modułu DSC:
+NIE dołączaj folderu wersji w pakiecie **. zip** modułu. Ten problem jest mniej istotny dla elementów Runbook, ale powoduje problem z usługą konfiguracji stanu (DSC). Azure Automation automatycznie tworzy folder wersji, gdy moduł jest dystrybuowany do węzłów zarządzanych przez konfigurację stanu. Jeśli folder wersji istnieje, możesz zakończyć z dwoma wystąpieniami. Oto przykładowa struktura folderów dla modułu DSC:
 
 ```powershell
 myModule
@@ -221,11 +225,15 @@ Uwzględnij streszczenie, opis i identyfikator URI pomocy dla każdego polecenia
 
   Podanie tych informacji powoduje wyświetlenie tekstu pomocy `Get-Help` za pośrednictwem polecenia cmdlet w konsoli programu PowerShell. Ten tekst jest również wyświetlany w Azure Portal.
 
-  ![Pomoc modułu integracji](../media/modules/module-activity-description.png)
+  ![Zrzut ekranu przedstawiający pomoc modułu integracji](../media/modules/module-activity-description.png)
 
 ### <a name="connection-type"></a>Typ połączenia
 
-Jeśli moduł nawiązuje połączenie z usługą zewnętrzną, zdefiniuj [Typ połączenia](#adding-a-connection-type-to-your-module). Każde polecenie cmdlet w module powinno akceptować obiekt połączenia (wystąpienie tego typu połączenia) jako parametr. Użytkownicy mapują parametry zasobu połączenia do odpowiednich parametrów polecenia cmdlet za każdym razem, gdy wywołuje polecenie cmdlet. Poniższy przykład elementu Runbook, na podstawie przykładu w poprzedniej sekcji, używa zasobu połączenia contoso o nazwie `ContosoConnection` , aby uzyskać dostęp do zasobów firmy Contoso i zwrócić dane z usługi zewnętrznej. W tym przykładzie pola są mapowane na właściwości `UserName` i `Password` `PSCredential` obiektu, a następnie przesyłane do polecenia cmdlet.
+Jeśli moduł nawiązuje połączenie z usługą zewnętrzną, zdefiniuj typ połączenia przy użyciu [niestandardowego modułu integracji](#custom-modules). Każde polecenie cmdlet w module powinno akceptować wystąpienie tego typu połączenia (obiektu połączenia) jako parametr. Użytkownicy mapują parametry zasobu połączenia do odpowiednich parametrów polecenia cmdlet za każdym razem, gdy wywołuje polecenie cmdlet. 
+
+![Użyj połączenia niestandardowego w Azure Portal](../media/modules/connection-create-new.png)
+
+Poniższy przykład elementu Runbook używa zasobu połączenia contoso o nazwie `ContosoConnection` , aby uzyskać dostęp do zasobów firmy Contoso i zwracać dane z usługi zewnętrznej. W tym przykładzie pola są mapowane na właściwości `UserName` i `Password` `PSCredential` obiektu, a następnie przesyłane do polecenia cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -235,7 +243,7 @@ Jeśli moduł nawiązuje połączenie z usługą zewnętrzną, zdefiniuj [Typ po
   }
   ```
 
-  Łatwiejszym i lepszym sposobem podejścia do tego zachowania jest bezpośrednie przekazanie obiektu połączenia do polecenia cmdlet:
+Łatwiejszym i lepszym sposobem podejścia do tego zachowania jest bezpośrednie przekazanie obiektu połączenia do polecenia cmdlet:
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -244,13 +252,13 @@ Jeśli moduł nawiązuje połączenie z usługą zewnętrzną, zdefiniuj [Typ po
   }
   ```
 
-  Można włączyć podobne zachowanie dla poleceń cmdlet, zezwalając im na akceptowanie obiektu połączenia bezpośrednio jako parametru, a nie tylko pól połączeń dla parametrów. Zazwyczaj potrzebny jest zestaw parametrów dla każdego, aby użytkownik nie korzystał Azure Automation może wywoływać polecenia cmdlet bez konstruowania obiektu Hashtable do działania jako obiekt połączenia. Zestaw `UserAccount` parametrów służy do przekazywania właściwości pola połączenia. `ConnectionObject`umożliwia bezpośrednie przekazywanie połączenia.
+Można włączyć podobne zachowanie dla poleceń cmdlet, zezwalając im na akceptowanie obiektu połączenia bezpośrednio jako parametru, a nie tylko pól połączeń dla parametrów. Zazwyczaj potrzebny jest zestaw parametrów dla każdego, aby użytkownik, który nie korzysta z automatyzacji, mógł wywołać polecenia cmdlet bez konstruowania obiektu Hashtable do działania jako obiekt połączenia. Zestaw `UserAccount` parametrów służy do przekazywania właściwości pola połączenia. `ConnectionObject`umożliwia bezpośrednie przekazywanie połączenia.
 
 ### <a name="output-type"></a>Typ danych wyjściowych
 
 Zdefiniuj typ danych wyjściowych dla wszystkich poleceń cmdlet w module. Zdefiniowanie typu danych wyjściowych polecenia cmdlet umożliwia funkcji IntelliSense w czasie projektowania, aby pomóc w ustaleniu właściwości danych wyjściowych polecenia cmdlet podczas tworzenia. Ta metoda jest szczególnie przydatna podczas tworzenia graficznego elementu Runbook, w którym wiedza czasu projektowania jest kluczem do łatwego środowiska użytkownika z Twoim modułem.
 
-Dodaj `[OutputType([<MyOutputType>])]` miejsce `MyOutputType` , gdzie jest prawidłowym typem. Aby dowiedzieć się `OutputType`więcej na temat, zobacz [Informacje o funkcjach OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Poniższy kod jest przykładem dodawania `OutputType` do polecenia cmdlet:
+Dodaj `[OutputType([<MyOutputType>])]`, gdzie `MyOutputType` jest prawidłowym typem. Aby dowiedzieć się `OutputType`więcej na temat, zobacz [Informacje o funkcjach OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Poniższy kod jest przykładem dodawania `OutputType` do polecenia cmdlet:
 
   ```powershell
   function Get-ContosoUser {
@@ -263,11 +271,11 @@ Dodaj `[OutputType([<MyOutputType>])]` miejsce `MyOutputType` , gdzie jest prawi
   }
   ```
 
-  ![Typ danych wyjściowych graficznego elementu Runbook](../media/modules/runbook-graphical-module-output-type.png)
+  ![Zrzut ekranu przedstawiający graficzny typ danych wyjściowych elementu Runbook](../media/modules/runbook-graphical-module-output-type.png)
 
-  To zachowanie jest podobne do funkcji "Type z wyprzedzeniem" w danych wyjściowych polecenia cmdlet w programie PowerShell ISE bez konieczności uruchamiania go.
+  To zachowanie jest podobne do funkcji "Type z wyprzedzeniem" w danych wyjściowych polecenia cmdlet w środowisku usługi integracji programu PowerShell, bez konieczności jego uruchamiania.
 
-  ![Funkcja IntelliSense programu POSH](../media/modules/automation-posh-ise-intellisense.png)
+  ![Zrzut ekranu funkcji IntelliSense POSH](../media/modules/automation-posh-ise-intellisense.png)
 
 ### <a name="cmdlet-state"></a>Stan polecenia cmdlet
 
@@ -291,31 +299,31 @@ Ustaw wszystkie polecenia cmdlet w module jako bezstanowe. Wiele zadań element�
 
 ### <a name="module-dependency"></a>Zależność modułu
 
-Upewnij się, że moduł jest w pełni zawarty w pakiecie, który można skopiować za pomocą polecenia xcopy. Moduły Azure Automation są dystrybuowane do piaskownic automatyzacji podczas wykonywania elementów Runbook. Moduły muszą działać niezależnie od hosta, na którym są uruchamiane. 
+Upewnij się, że moduł jest w pełni zawarty w pakiecie, który można skopiować za pomocą polecenia xcopy. Moduły automatyzacji są dystrybuowane do piaskownic automatyzacji podczas wykonywania elementów Runbook. Moduły muszą działać niezależnie od hosta, na którym są uruchamiane. 
 
-W przypadku zaimportowania go do środowiska programu PowerShell innego hosta należy mieć możliwość przechowywania i przenoszenia pakietu modułu. W tym celu należy się upewnić, że moduł nie jest zależny od żadnych plików poza folderem modułu, który jest zapakowany podczas importowania modułu do Azure Automation. 
+W przypadku zaimportowania go do środowiska programu PowerShell innego hosta należy mieć możliwość przechowywania i przenoszenia pakietu modułu. W tym celu należy się upewnić, że moduł nie jest zależny od żadnych plików poza folderem modułu, który jest zapakowany podczas importowania modułu do usługi Automation. 
 
 Moduł nie powinien zależeć od żadnych unikatowych ustawień rejestru na hoście. Przykłady to ustawienia wprowadzane podczas instalacji produktu. 
 
 ### <a name="module-file-paths"></a>Ścieżki pliku modułu
 
-Upewnij się, że wszystkie pliki w module mają ścieżki zawierające mniej niż 140 znaków. Wszystkie ścieżki o długości od 140 znaków powodują problemy z importowaniem elementów Runbook. Azure Automation nie może zaimportować pliku o rozmiarze ścieżki ponad 140 znaków do sesji programu PowerShell za `Import-Module`pomocą polecenia.
+Upewnij się, że wszystkie pliki w module mają ścieżki zawierające mniej niż 140 znaków. Wszystkie ścieżki o długości od 140 znaków powodują problemy z importowaniem elementów Runbook. Automatyzacja nie może zaimportować pliku o rozmiarze ścieżki ponad 140 znaków do sesji programu PowerShell `Import-Module`za pomocą polecenia.
 
-## <a name="importing-modules"></a>Importowanie modułów
+## <a name="import-modules"></a>Importowanie modułów
 
 W tej sekcji zdefiniowano kilka sposobów importowania modułu do konta usługi Automation. 
 
-### <a name="import-modules-in-azure-portal"></a>Importuj moduły w Azure Portal
+### <a name="import-modules-in-the-azure-portal"></a>Importuj moduły w Azure Portal
 
 Aby zaimportować moduł w Azure Portal:
 
 1. Przejdź do konta usługi Automation.
-2. Wybierz **moduły** w obszarze **zasoby udostępnione**.
-3. Kliknij przycisk **Dodaj moduł**. 
+2. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**.
+3. Wybierz pozycję **Dodaj moduł**. 
 4. Wybierz plik **zip** , który zawiera moduł.
-5. Kliknij przycisk **OK** , aby rozpocząć importowanie procesu.
+5. Wybierz **przycisk OK** , aby rozpocząć importowanie procesu.
 
-### <a name="import-modules-using-powershell"></a>Importowanie modułów przy użyciu programu PowerShell
+### <a name="import-modules-by-using-powershell"></a>Importowanie modułów przy użyciu programu PowerShell
 
 Aby zaimportować moduł do konta usługi Automation, można użyć polecenia cmdlet [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) . Polecenie cmdlet pobiera adres URL dla modułu module. zip.
 
@@ -331,74 +339,45 @@ $moduleVersion = <ModuleVersion>
 New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
-### <a name="import-modules-from-powershell-gallery"></a>Importuj moduły z Galeria programu PowerShell
+### <a name="import-modules-from-the-powershell-gallery"></a>Importuj moduły z Galeria programu PowerShell
 
 Moduły [Galeria programu PowerShell](https://www.powershellgallery.com) można importować bezpośrednio z galerii lub z konta usługi Automation.
 
 Aby zaimportować moduł bezpośrednio z Galeria programu PowerShell:
 
 1. Przejdź do https://www.powershellgallery.com i Wyszukaj moduł do zaimportowania.
-2. Kliknij przycisk **Wdróż, aby Azure Automation** na karcie **Azure Automation** w obszarze **Opcje instalacji**. Ta akcja powoduje otwarcie Azure Portal. 
-3. Na stronie Importowanie wybierz konto usługi Automation i kliknij przycisk **OK**.
+2. W obszarze **Opcje instalacji**na karcie **Azure Automation** wybierz pozycję **Wdróż do Azure Automation**. Ta akcja powoduje otwarcie Azure Portal. 
+3. Na stronie **Importowanie** wybierz konto usługi Automation, a następnie wybierz **przycisk OK**.
 
-![Galeria programu PowerShell Moduł importowania](../media/modules/powershell-gallery.png)
+![Zrzut ekranu modułu Galeria programu PowerShell import](../media/modules/powershell-gallery.png)
 
 Aby zaimportować moduł Galeria programu PowerShell bezpośrednio z konta usługi Automation:
 
-1. Wybierz **moduły** w obszarze **zasoby udostępnione**. 
-2. Na stronie moduły kliknij pozycję **Przeglądaj Galerię**, a następnie wyszukaj moduł w galerii. 
-3. Wybierz moduł do zaimportowania, a następnie kliknij przycisk **Importuj**. 
-4. Na stronie Import kliknij przycisk **OK** , aby rozpocząć proces importowania.
+1. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**. 
+2. Wybierz pozycję **Przeglądaj Galerię**, a następnie wyszukaj moduł w galerii. 
+3. Wybierz moduł do zaimportowania, a następnie wybierz pozycję **Importuj**. 
+4. Wybierz **przycisk OK** , aby rozpocząć proces importowania.
 
-![Galeria programu PowerShell zaimportować z Azure Portal](../media/modules/gallery-azure-portal.png)
+![Zrzut ekranu przedstawiający Importowanie modułu Galeria programu PowerShell z Azure Portal](../media/modules/gallery-azure-portal.png)
 
-## <a name="deleting-modules"></a>Usuwanie modułów
+## <a name="delete-modules"></a>Usuń moduły
 
 Jeśli masz problemy z modułem lub musisz przywrócić poprzednią wersję modułu, możesz usunąć go z konta usługi Automation. Nie można usunąć oryginalnych wersji [domyślnych modułów](#default-modules) , które są importowane podczas tworzenia konta usługi Automation. Jeśli moduł do usunięcia jest nowszą wersją jednego z [domyślnych modułów](#default-modules), zostanie przywrócony do wersji, która została zainstalowana z kontem usługi Automation. W przeciwnym razie wszystkie moduły, które usuniesz z konta usługi Automation, zostaną usunięte.
 
-### <a name="delete-modules-in-azure-portal"></a>Usuń moduły w Azure Portal
+### <a name="delete-modules-in-the-azure-portal"></a>Usuń moduły w Azure Portal
 
 Aby usunąć moduł w Azure Portal:
 
-1. Przejdź do konta usługi Automation i wybierz pozycję **moduły** w obszarze **zasoby udostępnione**. 
+1. Przejdź do konta usługi Automation. W obszarze **zasoby udostępnione**wybierz pozycję **moduły**. 
 2. Wybierz moduł, który chcesz usunąć. 
 3. Na stronie **moduł** wybierz pozycję **Usuń**. Jeśli ten moduł jest jednym z [domyślnych modułów](#default-modules), zostanie przywrócony do wersji, która istniała podczas tworzenia konta usługi Automation.
 
-### <a name="delete-modules-using-powershell"></a>Usuwanie modułów przy użyciu programu PowerShell
+### <a name="delete-modules-by-using-powershell"></a>Usuwanie modułów przy użyciu programu PowerShell
 
 Aby usunąć moduł za pomocą programu PowerShell, uruchom następujące polecenie:
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
-```
-
-## <a name="adding-a-connection-type-to-your-module"></a>Dodawanie typu połączenia do modułu
-
-Możesz podać niestandardowy [Typ połączenia](../automation-connections.md) do użycia na koncie usługi Automation, dodając opcjonalny plik metadanych do modułu. Ten plik określa Azure Automation typ połączenia, który ma być używany z poleceniami cmdlet modułu na koncie usługi Automation. Aby dowiedzieć się więcej na temat tworzenia modułu programu PowerShell, zobacz [jak napisać moduł skryptu programu PowerShell](https://docs.microsoft.com/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
-
-![Użyj połączenia niestandardowego w Azure Portal](../media/modules/connection-create-new.png)
-
-Plik określający właściwości typu połączenia nosi nazwę ** &lt;ModuleName&gt;-Automation. JSON** i znajduje się w folderze modułu skompresowanego pliku **zip** . Ten plik zawiera pola połączenia, które są wymagane do nawiązania połączenia z systemem lub usługą reprezentowaną przez moduł. Konfiguracja umożliwia utworzenie typu połączenia w Azure Automation. Przy użyciu tego pliku można ustawić nazwy pól, typy i określić, czy pola są szyfrowane, czy opcjonalne dla typu połączenia modułu. Poniższy przykład to szablon w formacie pliku **JSON** , który definiuje właściwości nazwy użytkownika i hasła:
-
-```json
-{
-   "ConnectionFields": [
-   {
-      "IsEncrypted":  false,
-      "IsOptional":  true,
-      "Name":  "Username",
-      "TypeName":  "System.String"
-   },
-   {
-      "IsEncrypted":  true,
-      "IsOptional":  false,
-      "Name":  "Password",
-      "TypeName":  "System.String"
-   }
-   ],
-   "ConnectionTypeName":  "MyModuleConnection",
-   "IntegrationModuleName":  "MyModule"
-}
 ```
 
 ## <a name="next-steps"></a>Następne kroki

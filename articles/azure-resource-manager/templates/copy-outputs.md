@@ -3,12 +3,12 @@ title: Zdefiniuj wiele wystąpień wartości wyjściowej
 description: Użyj operacji kopiowania w szablonie Azure Resource Manager, aby wykonać iterację wiele razy podczas zwracania wartości z wdrożenia.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617836"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583432"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteracja danych wyjściowych w szablonach ARM
 
@@ -16,7 +16,7 @@ W tym artykule pokazano, jak utworzyć więcej niż jedną wartość danych wyj�
 
 Można również użyć kopiowania z [zasobami](copy-resources.md), [właściwości w zasobie](copy-properties.md)i [zmiennych](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iteracja danych wyjściowych
+## <a name="syntax"></a>Składnia
 
 Element Copy ma następujący format ogólny:
 
@@ -30,6 +30,21 @@ Element Copy ma następujący format ogólny:
 Właściwość **Count** określa liczbę iteracji dla wartości wyjściowej.
 
 Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** . Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
+
+## <a name="copy-limits"></a>Limity kopiowania
+
+Liczba nie może przekraczać 800.
+
+Liczba nie może być liczbą ujemną. Może to być zero, jeśli szablon zostanie wdrożony przy użyciu najnowszej wersji interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. W tym celu należy użyć:
+
+* Azure PowerShell **2,6** lub nowszy
+* Interfejs wiersza polecenia platformy Azure **2.0.74** lub nowszy
+* Interfejs API REST w wersji **2019-05-10** lub nowszej
+* [Połączone wdrożenia](linked-templates.md) muszą używać interfejsu API w wersji **2019-05-10** lub nowszej dla typu zasobu wdrożenia
+
+We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
+
+## <a name="outputs-iteration"></a>Iteracja danych wyjściowych
 
 Poniższy przykład tworzy zmienną liczbę kont magazynu i zwraca punkt końcowy dla każdego konta magazynu:
 

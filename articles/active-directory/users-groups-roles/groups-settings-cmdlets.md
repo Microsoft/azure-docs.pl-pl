@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048155"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582796"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy
 
@@ -160,7 +160,7 @@ Oto ustawienia zdefiniowane w grupie. ujednolicone SettingsTemplate. O ile nie w
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: wartość logiczna<li>Wartość domyślna: FAŁSZ | Wartość logiczna wskazująca, czy użytkownik-Gość może być właścicielem grup. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Typ: wartość logiczna<li>Wartość domyślna: prawda | Wartość logiczna wskazująca, czy użytkownik-Gość może mieć dostęp do zawartości grup pakietu Office 365.  To ustawienie nie wymaga licencji na Azure Active Directory — wersja Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Typ: ciąg<li>Wartość domyślna: "" | Adres URL linku do wskazówek dotyczących użycia gościa. |
-|  <ul><li>AllowToAddGuests<li>Typ: wartość logiczna<li>Wartość domyślna: prawda | Wartość logiczna wskazująca, czy można dodawać Gości do tego katalogu. <br>To ustawienie może być zastąpione i stać się tylko do odczytu, jeśli *EnableMIPLabels* ma *wartość true* , a zasady gościa są skojarzone z etykietą czułości przypisaną do grupy.<br>Jeśli ustawienie AllowToAddGuests ma wartość false na poziomie dzierżawy, wszystkie ustawienia AllowToAddGuests na poziomie grupy zostaną zignorowane. Jeśli chcesz włączyć dostęp gościa tylko dla kilku grup, musisz ustawić AllowToAddGuests na wartość true na poziomie dzierżawy, a następnie selektywnie wyłączyć go dla określonych grup. |
+|  <ul><li>AllowToAddGuests<li>Typ: wartość logiczna<li>Wartość domyślna: prawda | Wartość logiczna wskazująca, czy można dodawać Gości do tego katalogu. <br>To ustawienie może być zastąpione i stać się tylko do odczytu, jeśli *EnableMIPLabels* ma *wartość true* , a zasady gościa są skojarzone z etykietą czułości przypisaną do grupy.<br>Jeśli ustawienie AllowToAddGuests ma wartość FAŁSZ na poziomie organizacji, wszystkie ustawienia AllowToAddGuests na poziomie grupy zostaną zignorowane. Jeśli chcesz włączyć dostęp gościa tylko dla kilku grup, musisz ustawić AllowToAddGuests na wartość true na poziomie organizacji, a następnie selektywnie wyłączyć go dla określonych grup. |
 |  <ul><li>ClassificationList<li>Typ: ciąg<li>Wartość domyślna: "" | Rozdzielana przecinkami lista prawidłowych wartości klasyfikacji, które mogą być stosowane do grup pakietu Office 365. <br>To ustawienie nie ma zastosowania, gdy EnableMIPLabels = = true.|
 |  <ul><li>EnableMIPLabels<li>Typ: wartość logiczna<li>Wartość domyślna: "false" |Flaga oznaczająca, czy etykiety czułości publikowane w centrum zgodności Microsoft 365 mogą być stosowane do grup pakietu Office 365. Aby uzyskać więcej informacji, zobacz [przypisywanie etykiet czułości dla grup Office 365](groups-assign-sensitivity-labels.md). |
 

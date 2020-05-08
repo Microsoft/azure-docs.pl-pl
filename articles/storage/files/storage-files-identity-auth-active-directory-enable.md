@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106558"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792988"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Włącz lokalne uwierzytelnianie Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 
@@ -54,13 +54,11 @@ Przed włączeniem AD DS uwierzytelniania dla udziałów plików platformy Azure
 
     Aby uzyskać dostęp do udziału plików przy użyciu poświadczeń usługi AD z komputera lub maszyny wirtualnej, urządzenie musi zostać przyłączone do domeny, aby AD DS. Aby uzyskać informacje o sposobie przyłączania do domeny, zapoznaj się z tematem aby [przyłączyć komputer do domeny](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
-- Wybierz lub Utwórz konto usługi Azure Storage w [obsługiwanym regionie](#regional-availability). 
+- Wybierz lub Utwórz konto usługi Azure Storage.  W celu uzyskania optymalnej wydajności zalecamy wdrożenie konta magazynu w tym samym regionie, w którym znajduje się maszyna wirtualna, z której ma być uzyskiwany dostęp do udziału.
 
     Upewnij się, że konto magazynu zawierające Twoje udziały plików nie zostało już skonfigurowane do uwierzytelniania za pomocą usługi Azure AD DS. Jeśli na koncie magazynu jest włączone uwierzytelnianie Azure Files Azure AD DS, należy je wyłączyć przed zmianą lokalnego AD DS. Oznacza to, że istniejące listy ACL skonfigurowane w środowisku usługi Azure AD DS należy ponownie skonfigurować do prawidłowego wymuszania uprawnień.
     
     Aby uzyskać informacje na temat tworzenia nowego udziału plików, zobacz [Tworzenie udziału plików w Azure Files](storage-how-to-create-file-share.md).
-    
-    W celu uzyskania optymalnej wydajności zalecamy wdrożenie konta magazynu w tym samym regionie, w którym znajduje się maszyna wirtualna, z której ma być uzyskiwany dostęp do udziału. 
 
 - Sprawdź łączność, instalując udziały plików platformy Azure przy użyciu klucza konta magazynu. 
 
@@ -70,23 +68,23 @@ Przed włączeniem AD DS uwierzytelniania dla udziałów plików platformy Azure
 
 Uwierzytelnianie Azure Files z AD DS (wersja zapoznawcza) jest dostępne we [wszystkich regionach publicznych i regionach usługi Azure gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## <a name="workflow-overview"></a>Omówienie przepływu pracy
-
-Przed włączeniem AD DS uwierzytelniania za pośrednictwem protokołu SMB dla udziałów plików platformy Azure zaleca się przeczytanie i zakończenie sekcji [wymagania wstępne](#prerequisites) . Wymagania wstępne sprawdzają, czy Twoje środowiska usługi AD, usługi Azure AD i usługi Azure Storage są prawidłowo skonfigurowane. 
+## <a name="overview"></a>Omówienie
 
 Jeśli planujesz włączyć każdą konfigurację sieciową w udziale plików, zalecamy ocenę [zagadnienia](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) dotyczącego sieci i zakończenie pokrewnej konfiguracji przed włączeniem AD DS uwierzytelniania.
 
-Następnie wykonaj poniższe kroki, aby skonfigurować Azure Files na potrzeby uwierzytelniania w usłudze AD: 
+Włączenie uwierzytelniania AD DS dla udziałów plików platformy Azure umożliwia uwierzytelnianie w udziałach plików platformy Azure przy użyciu poświadczeń usługi Premium AD DS. Ponadto umożliwia lepsze zarządzanie uprawnieniami w celu umożliwienia szczegółowej kontroli dostępu. Wymaga to synchronizacji tożsamości z Premium AD DS do usługi Azure AD z usługą AD Connect. Użytkownik kontroluje dostęp do poziomu udostępniania przy użyciu tożsamości zsynchronizowanych z usługą Azure AD podczas zarządzania dostępem na poziomie plików/udostępniania przy użyciu poświadczeń Premium AD DS.
 
-1. Włącz uwierzytelnianie Azure Files AD DS na koncie magazynu. 
+Następnie wykonaj poniższe kroki, aby skonfigurować Azure Files na potrzeby uwierzytelniania AD DS: 
 
-2. Przypisywanie uprawnień dostępu dla udziału do tożsamości usługi Azure AD (użytkownika, grupy lub nazwy głównej usługi), która jest zsynchronizowana z docelową tożsamością usługi AD. 
+1. [Włączanie uwierzytelniania AD DS Azure Files na koncie magazynu](#1-enable-ad-ds-authentication-for-your-account)
 
-3. Skonfiguruj listy ACL za pośrednictwem protokołu SMB dla katalogów i plików. 
+1. [Przypisywanie uprawnień dostępu dla udziału do tożsamości usługi Azure AD (użytkownika, grupy lub nazwy głównej usługi), która jest zsynchronizowana z docelową tożsamością usługi AD](#2-assign-access-permissions-to-an-identity)
+
+1. [Konfigurowanie list ACL za pośrednictwem protokołu SMB dla katalogów i plików](#3-configure-ntfs-permissions-over-smb)
  
-4. Zainstaluj udział plików platformy Azure na maszynie wirtualnej przyłączonej do AD DS. 
+1. [Zainstaluj udział plików platformy Azure na maszynie wirtualnej przyłączonej do AD DS](#4-mount-a-file-share-from-a-domain-joined-vm)
 
-5. Zaktualizuj hasło tożsamości konta magazynu w AD DS.
+1. [Zaktualizuj hasło tożsamości konta magazynu w AD DS](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)
 
 Na poniższym diagramie przedstawiono kompleksowy przepływ pracy służący do włączania uwierzytelniania usługi Azure AD za pośrednictwem protokołu SMB dla udziałów plików platformy Azure. 
 
@@ -95,9 +93,9 @@ Na poniższym diagramie przedstawiono kompleksowy przepływ pracy służący do 
 > [!NOTE]
 > Uwierzytelnianie AD DS za pośrednictwem protokołu SMB dla udziałów plików platformy Azure jest obsługiwane tylko na maszynach lub maszynach wirtualnych działających w systemach operacyjnych starszych niż Windows 7 lub Windows Server 2008 R2. 
 
-## <a name="1-enable-ad-authentication-for-your-account"></a>1. Włącz uwierzytelnianie usługi AD dla Twojego konta 
+## <a name="1-enable-ad-ds-authentication-for-your-account"></a>1 Włącz uwierzytelnianie AD DS dla Twojego konta 
 
-Aby włączyć uwierzytelnianie AD DS za pośrednictwem protokołu SMB dla udziałów plików platformy Azure, należy najpierw zarejestrować konto magazynu za pomocą AD DS a następnie ustawić wymagane właściwości domeny na koncie magazynu. Gdy ta funkcja jest włączona na koncie magazynu, ma zastosowanie do wszystkich nowych i istniejących udziałów plików na koncie. Użyj `join-AzStorageAccountForAuth` , aby włączyć tę funkcję. Szczegółowy opis przepływu pracy typu end-to-end można znaleźć w skrypcie w tej sekcji. 
+Aby włączyć uwierzytelnianie AD DS za pośrednictwem protokołu SMB dla udziałów plików platformy Azure, należy najpierw zarejestrować konto magazynu za pomocą AD DS a następnie ustawić wymagane właściwości domeny na koncie magazynu. Gdy ta funkcja jest włączona na koncie magazynu, ma zastosowanie do wszystkich nowych i istniejących udziałów plików na koncie. Pobierz moduł AzFilesHybrid PowerShell i użyj polecenia `join-AzStorageAccountForAuth` , aby włączyć tę funkcję. Szczegółowy opis przepływu pracy typu end-to-end można znaleźć w skrypcie w tej sekcji. 
 
 > [!IMPORTANT]
 > `Join-AzStorageAccountForAuth` Polecenie cmdlet wprowadzi modyfikacje w środowisku usługi AD. Przeczytaj poniższe wyjaśnienie, aby lepiej zrozumieć, co robi, aby upewnić się, że masz odpowiednie uprawnienia do wykonywania polecenia i czy zastosowane zmiany są dostosowane do zasad zgodności i zabezpieczeń. 
@@ -118,7 +116,7 @@ Za pomocą następującego skryptu można przeprowadzić rejestrację i włączy
 Pamiętaj, aby zastąpić wartości symboli zastępczych własnymi parametrami, przed wykonaniem polecenia w programie PowerShell.
 > [!IMPORTANT]
 > Polecenie cmdlet Join do domeny utworzy konto usługi AD reprezentujące konto magazynu (udział plików) w usłudze AD. Możesz zarejestrować się jako konto komputera lub konto logowania do usługi, aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) . W przypadku kont komputerów istnieje domyślny okres ważności hasła ustawiony w usłudze AD w ciągu 30 dni. Podobnie konto logowania do usługi może mieć ustawiony domyślny okres ważności hasła dla domeny usługi AD lub jednostki organizacyjnej (OU).
-> W przypadku obu typów kont zdecydowanie zalecamy sprawdzenie wieku ważności hasła skonfigurowanego w środowisku usługi AD i zaplanowanie [aktualizacji hasła tożsamości konta magazynu w usłudze AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) poniższego konta usługi AD przed maksymalnym okresem ważności hasła. Niepowodzenie aktualizacji hasła konta usługi AD spowoduje błędy uwierzytelniania podczas uzyskiwania dostępu do udziałów plików platformy Azure. Można rozważyć [utworzenie nowej jednostki organizacyjnej (OU) usługi AD w usłudze AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) i wyłączenie zasad wygasania haseł na [kontach komputerów](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) lub kontach logowania do usługi. 
+> W przypadku obu typów kont zdecydowanie zalecamy sprawdzenie wieku ważności hasła skonfigurowanego w środowisku usługi AD i zaplanowanie [aktualizacji hasła tożsamości konta magazynu w usłudze AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) poniższego konta usługi AD przed maksymalnym okresem ważności hasła. Można rozważyć [utworzenie nowej jednostki organizacyjnej (OU) usługi AD w usłudze AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) i wyłączenie zasad wygasania haseł na [kontach komputerów](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) lub kontach logowania do usługi. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -144,12 +142,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.

@@ -1,22 +1,22 @@
 ---
-title: Pulpit nawigacyjny usługi Marketplace Insights w komercyjnej analizie Marketplace w centrum partnerskim
-description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketplace, dzięki któremu wydawcy mogą mierzyć zaangażowanie klientów w AppSource i witryny Azure Marketplace.
+title: Szczegółowe informacje o portalu Marketplace — Microsoft Commercial Marketplace
+description: Uzyskaj dostęp do podsumowania analizy sieci Web w portalu Marketplace, co pozwala mierzyć zaangażowanie klientów w Microsoft AppSource i Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251711"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857909"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny usługi Marketplace Insights w komercyjnej analizie Marketplace
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim
 
-Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie analizy sieci Web w portalu Marketplace, dzięki czemu wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony szczegółów produktów wymienione w witrynie witryny Marketplace: AppSource i Azure Marketplace.
+Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego usługi Marketplace Insights w centrum partnerskim. Ten pulpit nawigacyjny zawiera podsumowanie analizy sieci Web w portalu Marketplace, dzięki czemu wydawcy mogą mierzyć zaangażowanie klientów na odpowiednie strony szczegółów produktów wymienione w witrynie witryny Marketplace: Microsoft AppSource i Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Pulpit nawigacyjny Szczegółowe informacje na temat platformy handlowej
 

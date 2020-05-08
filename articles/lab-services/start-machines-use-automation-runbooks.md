@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166311"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580588"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Uruchamianie maszyn wirtualnych w laboratorium w kolejności przy użyciu Azure Automation elementów Runbook
 Funkcja [Autostart](devtest-lab-set-lab-policy.md#set-autostart) programu DevTest Labs umożliwia skonfigurowanie maszyn wirtualnych do automatycznego uruchamiania w określonym czasie. Jednak ta funkcja nie obsługuje maszyn do uruchomienia w określonej kolejności. Istnieje kilka scenariuszy, w których ten typ automatyzacji będzie przydatny.  Jeden scenariusz polega na tym, że przed innymi maszynami wirtualnymi serwera przesiadkowego maszynę wirtualną w środowisku laboratoryjnym, jako punkt dostępu do innych maszyn wirtualnych.  W tym artykule opisano sposób konfigurowania konta Azure Automation za pomocą elementu Runbook programu PowerShell, który wykonuje skrypt. Skrypt używa tagów na maszynach wirtualnych w laboratorium, aby umożliwić sterowanie kolejnością uruchamiania bez konieczności zmiany skryptu.
@@ -133,7 +133,7 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Tworzenie harmonogramu
-Aby ten skrypt był wykonywany codziennie, należy [utworzyć harmonogram](../automation/shared-resources/schedules.md#creating-a-schedule) na koncie usługi Automation. Po utworzeniu harmonogramu [Połącz go z elementem Runbook](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Aby ten skrypt był wykonywany codziennie, należy [utworzyć harmonogram](../automation/shared-resources/schedules.md#create-a-schedule) na koncie usługi Automation. Po utworzeniu harmonogramu [Połącz go z elementem Runbook](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
 
 W sytuacji dużej skali, w której istnieje wiele subskrypcji z wieloma laboratoriami, Zapisz informacje o parametrach w pliku dla różnych laboratoriów i Przekaż plik do skryptu zamiast poszczególnych parametrów. Należy zmodyfikować skrypt, ale jego wykonanie będzie takie samo. Chociaż w tym przykładzie użyto Azure Automation do wykonania skryptu programu PowerShell, dostępne są inne opcje, takie jak użycie zadania w potoku kompilacji/wydania.
 

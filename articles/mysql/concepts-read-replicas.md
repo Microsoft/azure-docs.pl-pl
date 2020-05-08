@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 47f686f810f62fe03a9b0217677c436f3b91782b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/4/2020
+ms.openlocfilehash: cb82b3223d50c66b4d6c176a274d5ccf8d510911
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767891"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792109"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -56,7 +56,6 @@ Istnieją jednak ograniczenia, które należy wziąć pod uwagę:
     
 * Pary jednokierunkowe: niektóre regiony platformy Azure są sparowane tylko w jednym kierunku. Regiony te obejmują Indie Zachodnie, Brazylia Południowa i US Gov Wirginia. 
    Oznacza to, że serwer główny w regionie zachodnie Indie może utworzyć replikę w Indiach Południowej. Jednak główny serwer nie może utworzyć repliki w Indiach zachodnim. Jest to spowodowane tym, że region pomocniczy w zachodniej Indiach to Indie Południowe, ale region pomocniczy w Republice Południowej Indie nie jest Indie Zachodnie.
-
 
 ## <a name="create-a-replica"></a>Tworzenie repliki
 
@@ -146,6 +145,8 @@ Następujące parametry serwera są blokowane na serwerach głównych i repliki:
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) Parametr jest zablokowany na serwerach repliki. 
+
+Aby zaktualizować jeden z powyższych parametrów na serwerze głównym, należy usunąć serwer repliki, zaktualizować wartość parametru na wzorcu i ponownie utworzyć repliki.
 
 ### <a name="other"></a>Inne
 

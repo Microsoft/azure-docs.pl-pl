@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
@@ -47,7 +47,7 @@ W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena 
 
 | Funkcja | Limity |
 | --- | ---|
-| Przepustowość |  20 jednostek |
+| Szerokość pasma |  20 jednostek |
 | Namespaces | 50 na CU |
 | Event Hubs |  1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Dołączono |

@@ -2,13 +2,13 @@
 title: Wdróż wiele wystąpień zasobów
 description: Użyj operacji kopiowania i tablic w szablonie Azure Resource Manager, aby wdrożyć wiele razy typ zasobu.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153322"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583384"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteracja zasobów w szablonach ARM
 
@@ -18,7 +18,7 @@ Można również użyć kopiowania z [właściwościami](copy-properties.md), [z
 
 Jeśli musisz określić, czy zasób został wdrożony w ogóle, zobacz [warunek elementu](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Iteracja zasobu
+## <a name="syntax"></a>Składnia
 
 Element Copy ma następujący format ogólny:
 
@@ -34,6 +34,23 @@ Element Copy ma następujący format ogólny:
 Właściwość **name** jest dowolną wartością, która identyfikuje pętlę. Właściwość **Count** określa liczbę iteracji dla typu zasobu.
 
 Użyj właściwości **mode** i **BatchSize** , aby określić, czy zasoby są wdrażane równolegle czy w kolejności. Te właściwości są opisane w [numerach seryjnych lub równoległych](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Limity kopiowania
+
+Liczba nie może przekraczać 800.
+
+Liczba nie może być liczbą ujemną. Może to być zero, jeśli szablon zostanie wdrożony przy użyciu najnowszej wersji interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. W tym celu należy użyć:
+
+* Azure PowerShell **2,6** lub nowszy
+* Interfejs wiersza polecenia platformy Azure **2.0.74** lub nowszy
+* Interfejs API REST w wersji **2019-05-10** lub nowszej
+* [Połączone wdrożenia](linked-templates.md) muszą używać interfejsu API w wersji **2019-05-10** lub nowszej dla typu zasobu wdrożenia
+
+We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
+
+Należy zachować ostrożność przy użyciu [wdrożenia trybu kompletnego](deployment-modes.md) z kopią. W przypadku ponownego wdrożenia z trybem kompletnym do grupy zasobów wszystkie zasoby, które nie są określone w szablonie po usunięciu pętli kopiowania, zostaną usunięte.
+
+## <a name="resource-iteration"></a>Iteracja zasobu
 
 Poniższy przykład tworzy liczbę kont magazynu określonych w parametrze **storageCount** .
 
@@ -257,14 +274,6 @@ W poniższym przykładzie przedstawiono implementację:
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>Limity kopiowania
-
-Liczba nie może przekraczać 800.
-
-Liczba nie może być liczbą ujemną. Jeśli szablon jest wdrażany z Azure PowerShell 2,6 lub nowszym, interfejs wiersza polecenia platformy Azure 2.0.74 lub nowszy albo interfejs API REST w wersji **2019-05-10** lub nowszej, można ustawić liczbę na zero. We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
-
-Należy zachować ostrożność przy użyciu [wdrożenia trybu kompletnego](deployment-modes.md) z kopią. W przypadku ponownego wdrożenia z trybem kompletnym do grupy zasobów wszystkie zasoby, które nie są określone w szablonie po usunięciu pętli kopiowania, zostaną usunięte.
 
 ## <a name="example-templates"></a>Przykładowe szablony
 

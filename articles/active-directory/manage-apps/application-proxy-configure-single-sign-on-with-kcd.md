@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253457"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583143"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Ograniczone delegowanie protokołu Kerberos na potrzeby logowania jednokrotnego do aplikacji przy użyciu serwera proxy aplikacji
 
@@ -100,11 +100,13 @@ Konfiguracja Active Directory różni się w zależności od tego, czy łącznik
 
 ## <a name="sso-for-non-windows-apps"></a>Logowanie jednokrotne dla aplikacji innych niż systemu Windows
 
-Przepływ delegowania protokołu Kerberos w usłudze Azure serwer proxy aplikacji usługi Azure AD jest uruchamiany, gdy usługa Azure AD uwierzytelnia użytkownika w chmurze. Gdy żądanie zostanie odebrane lokalnie, łącznik usługi Azure serwer proxy aplikacji usługi Azure AD wystawia bilet protokołu Kerberos w imieniu użytkownika, współpracując z lokalnym Active Directory. Ten proces jest określany jako ograniczone delegowanie protokołu Kerberos (KCD). W następnej fazie żądanie jest wysyłane do aplikacji zaplecza przy użyciu tego biletu Kerberos. 
+Przepływ delegowania protokołu Kerberos w usłudze Azure serwer proxy aplikacji usługi Azure AD jest uruchamiany, gdy usługa Azure AD uwierzytelnia użytkownika w chmurze. Gdy żądanie zostanie odebrane lokalnie, łącznik usługi Azure serwer proxy aplikacji usługi Azure AD wystawia bilet protokołu Kerberos w imieniu użytkownika, współpracując z lokalnym Active Directory. Ten proces jest określany jako ograniczone delegowanie protokołu Kerberos (KCD). 
 
-Istnieje kilka protokołów, które definiują sposób wysyłania takich żądań. Większość serwerów spoza systemu Windows oczekuje na negocjowanie z SPNEGO. Ten protokół jest obsługiwany przez usługę Azure serwer proxy aplikacji usługi Azure AD, ale jest domyślnie wyłączony. Serwer można skonfigurować pod kątem SPNEGO lub standardowej KCD, ale nie obu.
+W następnej fazie żądanie jest wysyłane do aplikacji zaplecza przy użyciu tego biletu Kerberos. 
 
-W przypadku skonfigurowania maszyny łącznika dla SPNEGO upewnij się, że wszystkie inne łączniki w tej grupie łączników zostały również skonfigurowane z SPNEGO. Aplikacje oczekujejące standardowego KCD powinny być kierowane przez inne łączniki, które nie są skonfigurowane dla SPNEGO.
+Istnieje kilka mechanizmów, które definiują sposób wysyłania biletu protokołu Kerberos w takich żądaniach. Większość serwerów spoza systemu Windows oczekuje, że otrzymuje je w postaci tokenu SPNEGO. Ten mechanizm jest obsługiwany przez usługę Azure serwer proxy aplikacji usługi Azure AD, ale jest domyślnie wyłączony. Łącznik można skonfigurować dla SPNEGO lub standardowego tokenu Kerberos, ale nie obu.
+
+W przypadku skonfigurowania maszyny łącznika dla SPNEGO upewnij się, że wszystkie inne łączniki w tej grupie łączników zostały również skonfigurowane z SPNEGO. Aplikacje oczekujejące standardowego tokenu Kerberos powinny być kierowane przez inne łączniki, które nie są skonfigurowane dla SPNEGO.
  
 
 Aby włączyć SPNEGO:

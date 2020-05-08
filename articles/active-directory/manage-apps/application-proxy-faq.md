@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990909"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583088"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -95,6 +95,10 @@ Jeśli serwery łączników i konta usługi aplikacji sieci Web znajdują się w
 
 Jeśli serwery łączników i konta usługi aplikacji sieci Web znajdują się w różnych domenach, używane jest delegowanie oparte na zasobach. Uprawnienia delegowania są konfigurowane na docelowym serwerze sieci Web i na koncie usługi aplikacji sieci Web. Ta metoda delegowania ograniczonego jest stosunkowo nowa. Metoda została wprowadzona w systemie Windows Server 2012, która obsługuje delegowanie między domenami przez umożliwienie właścicielowi zasobu (usługi sieci Web) kontroli nad tym, którym maszynom i kontom usług mogą delegować. Nie ma interfejsu użytkownika umożliwiającego korzystanie z tej konfiguracji, dlatego należy użyć programu PowerShell.
 Aby uzyskać więcej informacji, zobacz oficjalny dokument dotyczący [ograniczonego delegowania protokołu Kerberos z serwerem proxy aplikacji](https://aka.ms/kcdpaper).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>Czy uwierzytelnianie NTLM działa z usługą Azure serwer proxy aplikacji usługi Azure AD?
+
+Nie można użyć uwierzytelniania NTLM jako metody wstępnego uwierzytelniania lub logowania jednokrotnego. Uwierzytelniania NTLM można używać tylko wtedy, gdy może być negocjowane bezpośrednio między klientem a opublikowaną aplikacją sieci Web. Użycie uwierzytelniania NTLM zwykle powoduje wyświetlenie monitu logowania w przeglądarce.
 
 ## <a name="pass-through-authentication"></a>Uwierzytelnianie przekazywane
 

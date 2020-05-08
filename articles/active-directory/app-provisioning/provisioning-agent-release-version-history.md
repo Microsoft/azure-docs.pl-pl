@@ -2,28 +2,24 @@
 title: 'Azure AD Connect agenta aprowizacji: historia wersji | Microsoft Docs'
 description: W tym artykule wymieniono wszystkie wersje agenta aprowizacji Azure AD Connect i opisano nowe funkcje oraz naprawione problemy
 services: active-directory
-documentationcenter: ''
 author: cmmdesai
-manager: daveba
-editor: ''
-ms.assetid: ''
+manager: CelesteDG
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/26/2020
 ms.subservice: app-provisioning
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: 9a756d276b194aa8d1acb0297a7b4909a8082a84
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183248"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593252"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect agenta aprowizacji: historia wersji
+
 W tym artykule wymieniono wersje i funkcje agenta aprowizacji Azure Active Directory Connect, który został wystawiony. Zespół usługi Azure AD regularnie aktualizuje agenta aprowizacji za pomocą nowych funkcji i funkcjonalności. Agent aprowizacji jest automatycznie aktualizowany po wydaniu nowej wersji. 
 
 Firma Microsoft zapewnia bezpośrednią pomoc techniczną dotyczącą najnowszej wersji agenta i jednej wersji.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311861"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855875"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
@@ -28,6 +28,10 @@ Application Gateway obsługuje zakończenie protokołu TLS w bramie, po którym 
 - **Zarządzanie certyfikatami** — certyfikaty muszą być zakupione i zainstalowane tylko w bramie aplikacji, a nie na wszystkich serwerach zaplecza. Pozwala to zaoszczędzić czas i pieniądze.
 
 Aby skonfigurować zakończenie protokołu TLS, do odbiornika musi zostać dodany certyfikat protokołu TLS/SSL, aby umożliwić bramie aplikacji uzyskanie klucza symetrycznego zgodnie ze specyfikacją protokołu TLS/SSL. Klucz symetryczny jest następnie używany do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. Certyfikat TLS/SSL musi być w formacie wymiany informacji osobistych (PFX). Ten format pliku umożliwia wyeksportowanie klucza prywatnego wymaganego przez bramę aplikacji w celu przeprowadzenia szyfrowania i odszyfrowywania ruchu.
+
+> [!IMPORTANT] 
+> Należy pamiętać, że certyfikat w odbiorniku wymaga przeładowania całego łańcucha certyfikatów. 
+
 
 > [!NOTE] 
 >

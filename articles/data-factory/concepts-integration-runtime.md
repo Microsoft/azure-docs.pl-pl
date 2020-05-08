@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418390"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890738"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -128,6 +128,10 @@ Lokalizacja IR definiuje lokalizację zaplecza obliczeniowego i w praktyce lokal
 
 ### <a name="azure-ir-location"></a>Lokalizacja środowiska IR Azure
 
+Można ustawić określoną lokalizację Azure IR, w którym wystąpiło wykonanie działania lub wysyłka w tym konkretnym regionie.
+
+W przypadku wybrania opcji używania Azure IR automatycznie Rozwiązuj, która jest wartością domyślną,
+
 - W przypadku działania kopiowania funkcja ADF będzie najlepszym rozwiązaniem w celu automatycznego wykrycia lokalizacji magazynu danych ujścia, a następnie użycia środowiska IR w tym samym regionie, jeśli jest dostępny, lub najbliżej siebie w tej samej lokalizacji geograficznej. Jeśli nie można wykryć regionu magazynu danych ujścia, w regionie fabryki danych jest używane środowisko IR jako alternatywa.
 
   Na przykład Twoja fabryka została utworzona w regionie Wschodnie stany USA, 
@@ -135,7 +139,8 @@ Lokalizacja IR definiuje lokalizację zaplecza obliczeniowego i w praktyce lokal
   - W przypadku kopiowania danych do usługi Azure BLOB w regionie zachodnie stany USA, jeśli usługa ADF pomyślnie wykryła, że obiekt BLOB znajduje się w regionie zachodnie stany USA, działanie Copy jest wykonywane w środowisku IR w regionie zachodnie w przypadku niepowodzenia wykrywania regionu działanie Copy jest wykonywane w środowisku IR w regionie Wschodnie stany USA.
   - Podczas kopiowania danych do usługi Salesforce, do której nie można wykryć regionu, działanie Copy jest wykonywane w środowisku IR w regionie Wschodnie stany USA.
 
-- W przypadku działania kopiowania funkcja ADF pozwala na automatyczne wykrywanie ujścia i magazynu danych źródłowych w celu wybrania najlepszej lokalizacji, w tym samym regionie (jeśli jest dostępny) lub najbliższej jednej w tym samym obszarze geograficznej, lub jeśli nie zostanie wykrywalny do używania regionu fabryki danych jako alternatywy.
+  >[!TIP] 
+  >Jeśli obowiązują rygorystyczne wymagania dotyczące zgodności danych i konieczne jest zapewnienie, że dane nie opuszczą konkretnego obszaru geograficznego, można jawnie utworzyć środowisko IR Azure w konkretnym regionie i wskazać to środowisko IR dla połączonej usługi przy użyciu właściwości ConnectVia. Jeśli na przykład chcesz skopiować dane z obiektu Blob z regionu Południowe Zjednoczone Królestwo do magazynu danych SQL w tym samym regionie i chcesz mieć pewność, że dane nie opuszczą Zjednoczonego Królestwa, utwórz środowisko IR Azure w regionie Południowe Zjednoczone Królestwo i połącz obie połączone usługi z tym środowiskiem IR.
 
 - W przypadku wyszukiwania/GetMetadata/usuwania działania (znanych także jako działania potoku), wysyłania działań transformacji (znanych także jako działania zewnętrzne) i operacji tworzenia (połączenie testowe, lista folderów przeglądania i lista tabel, Podgląd danych), ADF używa środowiska IR w regionie usługi Data Factory.
 

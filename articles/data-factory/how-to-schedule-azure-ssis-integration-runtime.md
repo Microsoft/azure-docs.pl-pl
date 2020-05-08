@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606071"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584023"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>How to start and stop Azure-SSIS Integration Runtime on a schedule (Jak uruchamiać i zatrzymywać środowisko Azure-SSIS Integration Runtime według harmonogramu)
 
@@ -353,7 +353,7 @@ W poniższej sekcji przedstawiono procedurę tworzenia elementu Runbook programu
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Utwórz harmonogramy dla elementu Runbook, aby uruchomić/zatrzymać Azure-SSIS IR
 
-W poprzedniej sekcji utworzono Azure Automation element Runbook, który może uruchamiać lub zatrzymywać Azure-SSIS IR. W tej sekcji utworzysz dwa harmonogramy dla elementu Runbook. Podczas konfigurowania pierwszego harmonogramu należy określić pozycję **Rozpocznij** dla **operacji**. Podobnie podczas konfigurowania drugiego należy określić wartość **Zatrzymaj** dla **operacji**. Aby uzyskać szczegółowe instrukcje dotyczące tworzenia harmonogramów, zobacz artykuł [Tworzenie harmonogramu](../automation/shared-resources/schedules.md#creating-a-schedule) .
+W poprzedniej sekcji utworzono Azure Automation element Runbook, który może uruchamiać lub zatrzymywać Azure-SSIS IR. W tej sekcji utworzysz dwa harmonogramy dla elementu Runbook. Podczas konfigurowania pierwszego harmonogramu należy określić pozycję **Rozpocznij** dla **operacji**. Podobnie podczas konfigurowania drugiego należy określić wartość **Zatrzymaj** dla **operacji**. Aby uzyskać szczegółowe instrukcje dotyczące tworzenia harmonogramów, zobacz artykuł [Tworzenie harmonogramu](../automation/shared-resources/schedules.md#create-a-schedule) .
 
 1. W oknie **Runbook** wybierz pozycję **harmonogramy**, a następnie wybierz pozycję **+ Dodaj harmonogram** na pasku narzędzi. 
 

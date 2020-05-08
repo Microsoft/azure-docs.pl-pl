@@ -15,7 +15,7 @@ ms.locfileid: "74224358"
 | --- | --- | --- | --- |
 | Wywołania interfejsu API |500 000 |1 500 000 na jednostkę |15 000 000 na jednostkę |
 | Aktywne urządzenia |500 |Nieograniczona liczba |Nieograniczona liczba |
-| Skalowanie |Nie dotyczy |Do 6 jednostek |Nieograniczona liczba jednostek |
+| Skalowanie |Brak |Do 6 jednostek |Nieograniczona liczba jednostek |
 | Powiadomienia wypychane |Dostępna bezpłatna warstwa platformy Azure Notification Hubs, do 1 000 000 wypychania |Dołączona warstwa podstawowa Notification Hubs, do 10 000 000 wypychania |Dołączona Notification Hubs warstwy Standardowa, do 10 000 000 wypychania |
 | Obsługa komunikatów w czasie rzeczywistym/<br/>Gniazda sieci Web |Ograniczone |350 za usługę mobilną |Nieograniczona liczba |
 | Synchronizacje w trybie offline |Ograniczone |Dołączono |Dołączono |

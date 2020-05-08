@@ -1,29 +1,29 @@
 ---
-title: Utwórz zasób techniczny maszyny wirtualnej platformy Azure
-description: W tym artykule opisano kroki i wymagania dotyczące konfigurowania oferty kontenera w witrynie Azure Marketplace.
+title: Koncepcje techniczne dotyczące ofert kontenerów platformy Azure — Microsoft Commercial Marketplace
+description: Zasoby techniczne i wytyczne pomocne w konfigurowaniu oferty kontenera w witrynie Azure Marketplace.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730639"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791888"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Utwórz zasób techniczny maszyny wirtualnej platformy Azure
+# <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
 > [!IMPORTANT]
 > Przenosimy zarządzanie ofertami kontenerów platformy Azure z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zawartymi w temacie [przygotowanie zasobów technicznych kontenera](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) do Portal Cloud partner, aby zarządzać ofertami.
 
-W tym artykule opisano kroki i wymagania dotyczące konfigurowania oferty kontenera w witrynie Azure Marketplace.
+W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzenie oferty kontenera w witrynie Azure Marketplace.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [Azure Container Instances](https://docs.microsoft.com/azure/container-instances).
+Aby zapoznać się z przewodnikami Szybki Start, samouczkami i przykładami, zobacz [dokumentację Azure Container Instances](https://docs.microsoft.com/azure/container-instances).
 
 ## <a name="fundamental-technical-knowledge"></a>Podstawowa wiedza techniczna
 
@@ -61,6 +61,6 @@ Aby uzyskać więcej informacji, zobacz następujące samouczki:
 - [Samouczek: Tworzenie obrazu kontenera na potrzeby wdrożenia Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [Samouczek: kompilowanie i wdrażanie obrazów kontenerów w chmurze za pomocą Azure Container Registryych zadań](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
 
-## <a name="next-step"></a>Następny krok
+## <a name="next-steps"></a>Następne kroki
 
 - [Utwórz ofertę kontenera](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).

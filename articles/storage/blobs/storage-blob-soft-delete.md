@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 389dea74f5002cb09d7683947356d236ea8d338b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234293"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858694"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Soft delete for Azure Storage blobs (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)
 
@@ -148,7 +148,7 @@ Aby uzyskać więcej szczegółowych informacji na temat cen usługi Azure Blob 
 
 Po wstępnym włączeniu usuwania nietrwałego zalecamy użycie małego okresu przechowywania, aby lepiej zrozumieć, jak ta funkcja wpłynie na rachunek.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Poniższe kroki pokazują, jak rozpocząć pracę z usuwaniem nietrwałym.
 
@@ -192,7 +192,7 @@ Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwy�
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -310,7 +310,7 @@ blockBlob.StartCopy(copySource);
 
 Jeśli istnieje prawdopodobieństwo, że dane są przypadkowo modyfikowane lub usuwane przez aplikację lub innego użytkownika konta magazynu, zaleca się włączenie usuwania nietrwałego. Włączenie usuwania nietrwałego dla często zamienionych danych może spowodować zwiększenie opłat za pojemność magazynu i zwiększenie opóźnień podczas tworzenia listy obiektów BLOB. Aby wyeliminować ten dodatkowy koszt i czas oczekiwania, można przechowywać często zastąpione dane na osobnym koncie magazynu, w którym jest wyłączone usuwanie nietrwałe. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Dla których usług magazynu można korzystać z usuwania nietrwałego?
 
@@ -371,5 +371,5 @@ Można korzystać z usuwania nietrwałego niezależnie od używanej wersji inter
 * [Przykładowy kod platformy .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [Interfejs API REST usługi Blob Service](/rest/api/storageservices/blob-service-rest-api)
 * [Replikacja usługi Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Projektowanie aplikacji o wysokiej dostępności przy użyciu usługi RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Odzyskiwanie po awarii i tryb failover konta magazynu (wersja zapoznawcza) w usłudze Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej](../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Odzyskiwanie po awarii i tryb failover konta magazynu](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

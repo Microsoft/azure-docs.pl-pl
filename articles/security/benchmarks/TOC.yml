@@ -33,6 +33,8 @@
   items:
     - name: Omówienie punktów odniesienia zabezpieczeń dla platformy Azure
       href: security-baselines-overview.md
+    - name: Punkt odniesienia zabezpieczeń usługi API Management
+      href: ../../api-management/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Backup
@@ -45,8 +47,12 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń eksploratora danych
       href: /azure/data-explorer/security-baseline
+    - name: Punkt odniesienia zabezpieczeń usługi Databricks
+      href: ../../azure-databricks/security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Functions
+      href: ../../azure-functions/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Key Vault

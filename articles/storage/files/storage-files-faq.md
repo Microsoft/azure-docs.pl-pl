@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856275"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888821"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -170,7 +170,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
     - Sygnatury dostępu współdzielonego (SAS) mogą być używane do generowania tokenów z określonymi uprawnieniami, które są prawidłowe przez określony przedział czasu. Na przykład można wygenerować token z dostępem tylko do odczytu do określonego pliku o 10-minutowym wygaśnięciu. Każda osoba, która posiada token, gdy token jest ważny, ma dostęp tylko do odczytu do tego pliku przez 10 minut. Klucze sygnatury dostępu współdzielonego są obsługiwane tylko za pośrednictwem interfejsu API REST lub bibliotek klienckich. Udział plików platformy Azure należy zainstalować za pośrednictwem protokołu SMB przy użyciu kluczy konta magazynu.
 
-    - Azure File Sync zachowuje i replikuje wszystkie poufne listy kontroli dostępu lub listy DACL (niezależnie od tego, czy Active Directory lub lokalne) wszystkie punkty końcowe serwera, do których jest synchronizowana. Ponieważ system Windows Server może już być uwierzytelniany przy użyciu Active Directory, Azure File Sync jest efektywną opcją zatrzymania, dopóki nie zostanie wypełniona pełna obsługa uwierzytelniania opartego na Active Directory i obsługi list ACL.
+    - Azure File Sync zachowuje i replikuje wszystkie poufne listy kontroli dostępu lub listy DACL (niezależnie od tego, czy Active Directory lub lokalne) wszystkie punkty końcowe serwera, do których jest synchronizowana. 
     
     Aby uzyskać kompleksową reprezentację wszystkich protokołów obsługiwanych przez usługi Azure Storage, można przyjrzeć się do [autoryzacji dostępu do usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) . 
 

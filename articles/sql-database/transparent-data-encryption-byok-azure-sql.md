@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131164"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792041"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Usługa Azure SQL Transparent Data Encryption z kluczem zarządzanym przez klienta
 
@@ -93,7 +93,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 ### <a name="recommendations-when-configuring-akv"></a>Zalecenia dotyczące konfigurowania AKV
 
-- Skojarz maksymalnie 500 Ogólnego przeznaczenia lub Krytyczne dla działania firmy 200 bazy danych w sumie z magazynem kluczy w ramach jednej subskrypcji, aby zapewnić wysoką dostępność, gdy serwer uzyskuje dostęp do funkcji ochrony TDE w magazynie kluczy. Te dane są oparte na doświadczeniu i udokumentowane w [limitach usługi magazynu kluczy](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). Zamiarem tego problemu jest zapobieganie problemom po przejściu serwera w tryb failover, ponieważ spowoduje to wyzwolenie tylu operacji na magazyn, ponieważ na tym serwerze znajdują się bazy danych.
+- Skojarz maksymalnie 500 Ogólnego przeznaczenia lub Krytyczne dla działania firmy 200 bazy danych w sumie z magazynem kluczy w ramach jednej subskrypcji, aby zapewnić wysoką dostępność, gdy serwer uzyskuje dostęp do funkcji ochrony TDE w magazynie kluczy. Te dane są oparte na doświadczeniu i udokumentowane w [limitach usługi magazynu kluczy](https://docs.microsoft.com/azure/key-vault/general/service-limits). Zamiarem tego problemu jest zapobieganie problemom po przejściu serwera w tryb failover, ponieważ spowoduje to wyzwolenie tylu operacji na magazyn, ponieważ na tym serwerze znajdują się bazy danych.
 
 - Ustaw blokadę zasobów w magazynie kluczy, aby kontrolować, kto może usunąć ten zasób krytyczny i zapobiegać przypadkowemu lub nieautoryzowanemu usunięciu. Dowiedz się więcej o [blokadach zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 

@@ -1,27 +1,27 @@
 ---
-title: Tworzenie oferty usługi konsultingowej w centrum partnerskim — Azure Marketplace
-description: Dowiedz się, jak opublikować ofertę usługi konsultingowej w witrynie Azure Marketplace lub AppSource przy użyciu Centrum partnerskiego.
+title: Tworzenie oferty usługi konsultingowej — Microsoft Commercial Marketplace
+description: Dowiedz się, jak opublikować ofertę usługi konsultingowej w Microsoft AppSource lub witrynie Azure Marketplace przy użyciu Centrum partnerskiego.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869795"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791905"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
 > [!IMPORTANT]
 > Przenosimy zarządzanie ofertami usług konsultingowych z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zamieszczonymi w temacie [Azure and Dynamics 365 Consulting Service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) , aby Portal Cloud partner zarządzać ofertami.
 
-W tym artykule opisano sposób publikowania oferty usługi konsultingowej w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/) lub [AppSource](https://appsource.microsoft.com/). Utwórz listę ofert usługi konsultingowej opartych na systemie Microsoft [Dynamics 365](https://dynamics.microsoft.com/) i platformie AppSource. Wystaw oferty usługi konsultingowej na podstawie Microsoft Azure w witrynie Azure Marketplace.
+W tym artykule opisano sposób publikowania oferty usługi konsultingowej w [Microsoft AppSource](https://appsource.microsoft.com/) lub [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Utwórz listę ofert usługi konsultingowej opartych na systemie Microsoft [Dynamics 365](https://dynamics.microsoft.com/) i platformie AppSource. Wystaw oferty usługi konsultingowej na podstawie Microsoft Azure w witrynie Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-Aby utworzyć ofertę usługi konsultingowej w witrynie Azure Marketplace lub AppSource Consulting Services, musisz najpierw [mieć konto wydawcy w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), a Twoje konto musi być zarejestrowane w komercyjnym programie Marketplace. Przed utworzeniem oferty zapoznaj się z wymaganiami wstępnymi dotyczącymi [wymagań wstępnych dotyczących usługi konsultingowej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
+Przed utworzeniem oferty zapoznaj się z wymaganiami wstępnymi dotyczącymi [wymagań wstępnych dotyczących usługi konsultingowej](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
 
 ## <a name="publishing-benefits"></a>Korzyści z publikowania
 
@@ -34,33 +34,31 @@ Zalety publikowania na komercyjnej witrynie Marketplace:
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
-Po spełnieniu opisanych powyżej wymagań wykonaj następujące kroki, aby utworzyć ofertę usługi konsultingowej.
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa** > **Usługa konsultingowa**oferty.
 
-1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com), a następnie wybierz pozycję **pulpit nawigacyjny** z górnego menu.
-2. Na pasku nawigacyjnym po lewej stronie wybierz pozycję **komercyjna witryna Marketplace**, a następnie wybierz pozycję **Przegląd**.
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-consulting-service.png)
 
-    :::image type="content" source="media/cs-menu-overview.png" alt-text="Ilustruje menu dla komercyjnego portalu Marketplace":::
+>[!NOTE]
+>Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
 
-3. Wybierz pozycję **+ Nowa oferta**, a następnie wybierz pozycję **Usługa doradcza**.
+## <a name="new-offer"></a>Nowa oferta
 
-    :::image type="content" source="media/cs-menu-newoffer.png" alt-text="Ilustruje przycisk tworzenia nowej oferty.":::
+Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
-4. Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+- Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla oferty portalu Marketplace.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-    - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla oferty portalu Marketplace.
-    - Używaj tylko małych liter, cyfr, kresek i podkreśleń, ale bez spacji. Długość jest ograniczona do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres URL oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-    - Identyfikator oferty może&#39;t zmienić po wybraniu pozycji **Utwórz**.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
-5. Wprowadź **alias oferty**. Jest to nazwa używana do odwoływania się do oferty w centrum partnerskim.
+- Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
+- Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
 
-    - Ta nazwa jest&#39;t użyta w portalu Marketplace. &#39;s różni się od nazwy oferty i innych wartości, które są widoczne dla klientów. To pole służy do przypisywania nazwy do oferty, która jest bardziej przydatna w przypadku identyfikacji oferty wewnętrznie. nie jest on pokazywany klientom.
-    - Alias oferty&#39;t można zmienić po wybraniu pozycji **Utwórz**.
-
-Po wprowadzeniu tych dwóch wartości wybierz pozycję **Utwórz** , aby przejść do strony **Konfiguracja oferty** .
+Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
-
-Po wprowadzeniu identyfikatora oferty i aliasu oferty w centrum partnerskim zostanie utworzona oferta robocza i zostanie wyświetlona strona **Konfiguracja oferty** . Wykonaj następujące kroki, aby skonfigurować ofertę.
 
 ### <a name="connect-lead-management"></a>Zarządzanie potencjalnymi klientami
 
@@ -73,20 +71,20 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
     - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Jeśli system CRM jest&#39;wymieniony powyżej, użyj [usługi Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
+    > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
-3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim&#39;wszystkie poprawność połączenia i wysłanie potencjalnego klienta testowego. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
-4. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta zostało zaktualizowane, aby nie&#39;t utracić żadnych potencjalnych klientów.
+3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta jest skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
+4. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta zostało zaktualizowane, więc nie utracisz żadnych potencjalnych klientów.
 
 Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym liderem:
 
 - [Omówienie zarządzania potencjalnymi klientami](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Zarządzanie potencjalnymi klientami — często zadawane pytania](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, właściwości.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="properties"></a>Właściwości
 
@@ -95,25 +93,25 @@ Na tej stronie można ustawić podstawowy produkt, z którym usługa doradcza of
 1. Wybierz **podstawowy produkt** z listy rozwijanej.
 2. Z listy rozwijanej wybierz **Typ usługi konsultingowej** :
 
-    - **Ocena** : ocena klienta&#39;środowiska w celu określenia możliwości zastosowania rozwiązania oraz oszacowania kosztów i chronometrażu.
-    - **Krótki** opis: wprowadzenie do rozwiązania lub usługi konsultingowej w celu narysowania zainteresowania klienta przy użyciu struktur, pokazów i przykładów klientów.
-    - **Implementacja** : Pełna instalacja, która powoduje w pełni robocze rozwiązanie. Ogranicz do rozwiązań, które mogą być implementowane w co najmniej dwóch tygodniach.
-    - **Weryfikacja koncepcji** : implementacja ograniczonego zakresu, aby określić, czy rozwiązanie spełnia wymagania klientów.
-    - **Warsztat** : interaktywne zaangażowanie przeprowadzone na kliencie&#39;. Może to dotyczyć szkoleń, wyliczeń, ocen lub pokazów utworzonych na klientach&#39;danych lub środowiska.
+    - **Ocena**: Ocena środowiska klienta w celu określenia możliwości zastosowania rozwiązania oraz oszacowania kosztów i chronometrażu.
+    - **Krótki**opis: wprowadzenie do rozwiązania lub usługi konsultingowej w celu narysowania zainteresowania klienta przy użyciu struktur, pokazów i przykładów klientów.
+    - **Implementacja**: Pełna instalacja, która powoduje w pełni robocze rozwiązanie. Ogranicz do rozwiązań, które mogą być implementowane w co najmniej dwóch tygodniach.
+    - **Weryfikacja koncepcji**: implementacja ograniczonego zakresu, aby określić, czy rozwiązanie spełnia wymagania klientów.
+    - **Warsztat**: Interaktywna zaangażowanie w siedzibie klienta. Może to dotyczyć szkoleń, krótkich, ocen lub pokazów utworzonych na danych lub środowisku klienta.
 
-1. Jeśli wybrano podstawowy produkt **platformy Azure**, wybierz maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli są niezgodne&#39;t Wybierz platformę Azure, Pomiń ten krok.
+1. Jeśli wybrano podstawowy produkt **platformy Azure**, wybierz maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
 2. Jeśli wybrano podstawowy produkt _inny_ niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Wybierz maksymalnie sześć **branż** , do których odnosi się oferta. Ułatwi to klientom znalezienie oferty.
-4. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencja z wyjątkiem tego, że dla programu MSP platformy Azure&#39;s i MSP usługi Azure Networking&#39;s.
+4. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencje z wyjątkiem usług Azure ekspercki MSP i Azure Network msp.
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, na liście oferty.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="offer-listing"></a>Lista oferty
 
-Tutaj&#39;szystkie definiują szczegóły oferty, które są wyświetlane w portalu Marketplace. Obejmuje to nazwę oferty, opis, obrazy i tak dalej. Podczas konfigurowania tej oferty Pamiętaj, aby postępować zgodnie z zasadami szczegółowymi na [stronie zasady&#39;s firmy Microsoft](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) .
+W tym miejscu zdefiniujesz szczegóły oferty, które są wyświetlane w portalu Marketplace. Obejmuje to nazwę oferty, opis, obrazy i tak dalej. Podczas konfigurowania tej oferty Pamiętaj, aby zgodnie z zasadami szczegółowymi na [stronie komercyjne zasady certyfikacji witryny Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) .
 
 > [!NOTE]
-> Szczegóły oferty nie znajdują&#39;t musi być w języku angielskim, jeśli opis oferty rozpoczyna się od frazy &quot;, aplikacja jest dostępna tylko w języku [język inny niż angielski]. &quot;&#39;s również mieć możliwość udostępnienia przydatnego linku do oferowania zawartości w języku, który&#39;s różni się od użytych w szczegółach dotyczących oferty.
+> Szczegóły oferty nie muszą znajdować się w języku angielskim, jeśli opis oferty zaczyna się od &quot;frazy, ta aplikacja jest dostępna tylko w języku [język inny niż angielski]. &quot; Istnieje również możliwość udostępnienia przydatnego linku do oferowania zawartości w języku innym niż ten, który jest używany w szczegółach dotyczących oferty.
 
 ### <a name="name"></a>Nazwa
 
@@ -122,8 +120,8 @@ Wprowadzona nazwa zostanie wyświetlona jako tytuł oferty. To pole jest wstępn
 Nazwa:
 
 - Mogą być znakami towarowymi (i może zawierać znaki towarowe lub autorskie).
-- &#39;t może być dłuższa niż 50 znaków.
-- Może&#39;t include emojis.
+- Długość nie może przekraczać 50 znaków.
+- Nie może zawierać znaków emoji.
 
 ### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
@@ -147,12 +145,16 @@ Oto kilka porad dotyczących pisania opisu:
   - Typ użytkownika, który przynosi korzyści z oferty.
   - Klienci potrzebują lub wystawiają adresy oferty.
 - Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-- Nie&#39;t polegać na funkcjach i funkcjach do sprzedawania produktu. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
+- Nie opieraj się na funkcjach i funkcjach, aby sprzedawać swój produkt. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
 - Spróbuj użyć tekstów specyficznych dla branżowych lub opartych na korzyściach.
 
-Aby Twój opis był bardziej atrakcyjny, użyj edytora tekstu sformatowanego do formatowania opisu. Edytor tekstu sformatowanego pozwala dodawać numery, punktory, pogrubienie, kursywę i wcięcia, aby zwiększyć czytelność opisu.
+Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
 
-:::image type="content" source="media/cs-rich-text-editor.png" alt-text="Ilustruje Edytor tekstu sformatowanego w celu zapisania opisu oferty." border="false":::
+![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
+
+| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
+| --- | --- | --- |
+| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
 
 ### <a name="keywords"></a>Słowa kluczowe
 
@@ -164,7 +166,7 @@ Ustaw oczekiwany czas trwania tego zaangażowania z klientem.
 
 ### <a name="contact-information"></a>Informacje kontaktowe
 
-Musisz podać nazwę, adres e-mail i numer telefonu dla kontaktu **głównego** i **pomocniczego**. Te informacje jest&#39;t widoczne dla klientów. Jest ona dostępna dla firmy Microsoft i może być świadczona partnerom dostawcy rozwiązań w chmurze (CSP).
+Musisz podać nazwę, adres e-mail i numer telefonu dla kontaktu **głównego** i **pomocniczego**. Te informacje nie są widoczne dla klientów. Jest ona dostępna dla firmy Microsoft i może być świadczona partnerom dostawcy rozwiązań w chmurze (CSP).
 
 ### <a name="supporting-documents"></a>Dokumenty pomocnicze
 
@@ -179,7 +181,7 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Udostępniaj pliki. png oferty&#39;s logo w każdym z następujących rozmiarów pikseli:
+Podaj pliki PNG logo oferty w każdym z następujących rozmiarów pikseli:
 
 - **Mały (48 x 48)**
 - **Duże (216 x 216)**
@@ -192,9 +194,9 @@ Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja of
 
 #### <a name="videos-optional"></a>Wideo (opcjonalnie)
 
-Dodaj do czterech filmów wideo, które przedstawiają Twoją ofertę. Wprowadź nazwę wideo&#39;, jego adres sieci Web (URL) i obraz miniatury PNG wideo o rozmiarze 1280 x 720 pikseli.
+Dodaj do czterech filmów wideo, które przedstawiają Twoją ofertę. Wprowadź nazwę filmu wideo, jego adres internetowy (URL) i miniaturowy obraz PNG wideo o rozmiarze 1280 x 720 pikseli.
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, cennika i dostępności.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="pricing-and-availability"></a>Cennik i dostępność
 
@@ -209,7 +211,7 @@ W tym miejscu zdefiniujesz elementy, takie jak Cennik, rynek i klucz prywatny.
     > Oferty usługi konsultingowej są przeznaczone tylko dla aukcji. Wszystkie transakcje będą wykonywane bezpośrednio poza komercyjnym rynkiem Marketplace.
 
 4. W przypadku płatnej oferty Określ **cenę i walutę** oraz czy cena jest **stała** czy **Szacowana**. W przypadku oszacowania należy określić, jakie czynniki mają wpływ na cenę.
-5. Wybierz pozycję **Zapisz wersję roboczą**.
+5. Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="review-and-publish"></a>Przejrzyj i Opublikuj
 

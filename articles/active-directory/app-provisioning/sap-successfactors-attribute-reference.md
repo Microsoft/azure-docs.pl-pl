@@ -1,33 +1,37 @@
 ---
-title: Odwołanie do atrybutu SAP SuccessFactors | Microsoft Docs
+title: Odwołanie do atrybutu SAP SuccessFactors
 description: Dowiedz się, jakie atrybuty z SuccessFactors są obsługiwane przez inicjowanie obsługi SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522360"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593188"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Odwołanie do atrybutu SAP SuccessFactors
 
+W tym artykule znajdziesz informacje na temat:
+
+- [Obsługiwane jednostki i atrybuty SuccessFactors](#supported-successfactors-entities-and-attributes)
+- [Domyślne mapowanie atrybutów](#default-attribute-mapping)
+
 ## <a name="supported-successfactors-entities-and-attributes"></a>Obsługiwane jednostki i atrybuty SuccessFactors
 
-W poniższej tabeli przechwycono listę atrybutów SuccessFactors obsługiwanych przez następujące dwie aplikacje aprowizacji: 
-* [SuccessFactors Active Directory aprowizacji użytkowników](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [SuccessFactors do aprowizacji użytkowników usługi Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+W poniższej tabeli przechwycono listę atrybutów SuccessFactors obsługiwanych przez następujące dwie aplikacje aprowizacji:
+
+- [SuccessFactors Active Directory aprowizacji użytkowników](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [SuccessFactors do aprowizacji użytkowników usługi Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | Jednostka SuccessFactors                  | SuccessFactors — atrybut     | Typ operacji |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ W poniższej tabeli przechwycono listę atrybutów SuccessFactors obsługiwanych
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Odczyt           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Odczyt           |
 
-
 ## <a name="default-attribute-mapping"></a>Domyślne mapowanie atrybutów
 
 Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi wymienionymi powyżej i atrybutami AD/Azure AD. W bloku "mapowanie" aplikacji aprowizacji usługi Azure AD można zmodyfikować to mapowanie domyślne w celu uwzględnienia atrybutów z powyższej listy. 
@@ -138,4 +141,3 @@ Poniższa tabela zawiera domyślne mapowanie atrybutów między SuccessFactorsmi
 | 18 | Lokalizacja\.EmpJob                       | officeLocationAddress    | streetAddress                           | Nie dotyczy                                                                                           |
 | 19 | Lokalizacja\.EmpJob                       | officeLocationZipCode    | Pocztowy                              | Nie dotyczy                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Jeśli activeEmploymentsCount = 0, wyłącz account\.                                           |
-

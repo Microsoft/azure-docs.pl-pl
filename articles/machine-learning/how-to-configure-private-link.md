@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411199"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891364"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurowanie prywatnego linku platformy Azure dla obszaru roboczego Azure Machine Learning (wersja zapoznawcza)
 
@@ -118,7 +118,7 @@ Aby uzyskać informacje dotyczące umieszczania konta magazynu w sieci wirtualne
 
 Aby zabezpieczyć Azure Key Vault używany przez obszar roboczy, możesz go umieścić w sieci wirtualnej lub włączyć dla niego link prywatny.
 
-Aby uzyskać informacje dotyczące umieszczania magazynu kluczy w sieci wirtualnej, zobacz [Korzystanie z wystąpienia magazynu kluczy z obszarem roboczym](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Aby uzyskać informacje dotyczące umieszczania magazynu kluczy w sieci wirtualnej, zobacz [Korzystanie z wystąpienia magazynu kluczy z obszarem roboczym](how-to-enable-virtual-network.md#key-vault-instance).
 
 Aby uzyskać informacje na temat włączania prywatnego linku do magazynu kluczy, zobacz [integrowanie Key Vault z prywatnym łączem platformy Azure](/azure/key-vault/private-link-service).
 
@@ -131,7 +131,7 @@ Aby zabezpieczyć usługi Azure Kubernetes używane przez obszar roboczy, umieś
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-Aby uzyskać informacje na temat zabezpieczania Azure Container Registry wewnątrz sieci wirtualnej, zobacz [Korzystanie z Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+Aby uzyskać informacje na temat zabezpieczania Azure Container Registry wewnątrz sieci wirtualnej, zobacz [Korzystanie z Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > Jeśli używasz prywatnego linku do obszaru roboczego Azure Machine Learning i umieścisz Azure Container Registry dla obszaru roboczego w sieci wirtualnej, musisz również zastosować następujący szablon Azure Resource Manager. Ten szablon umożliwia obszarowi roboczemu komunikowanie się z ACR za pośrednictwem prywatnego linku.

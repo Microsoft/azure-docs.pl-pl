@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397308"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559976"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Wyświetlanie i pobieranie zdarzeń dziennika aktywności platformy Azure
 
@@ -71,7 +71,7 @@ Aby dowiedzieć się więcej na temat historii zmian, zobacz [pobieranie zmian z
 Użyj polecenia cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) , aby pobrać dziennik aktywności z programu PowerShell. Poniżej przedstawiono kilka typowych przykładów.
 
 > [!NOTE]
-> `Get-AzLog`zawiera tylko 15 dni historii. Użyj parametru **-MaxEvents** , aby wykonać zapytanie o ostatnie N zdarzeń poza 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, należy użyć interfejsu API REST lub zestawu SDK. Jeśli nie dołączysz wartości **StartTime**, wartość domyślna to **Endtime** minus jedna godzina. Jeśli nie dołączysz **Endtime**, wartość domyślna to bieżąca godzina. Wszystkie czasy są w formacie UTC.
+> `Get-AzLog`zawiera tylko 15 dni historii. Użyj parametru **-MaxRecord** , aby wykonać zapytanie o ostatnie N zdarzeń poza 15 dni. Aby uzyskać dostęp do zdarzeń starszych niż 15 dni, należy użyć interfejsu API REST lub zestawu SDK. Jeśli nie dołączysz wartości **StartTime**, wartość domyślna to **Endtime** minus jedna godzina. Jeśli nie dołączysz **Endtime**, wartość domyślna to bieżąca godzina. Wszystkie czasy są w formacie UTC.
 
 
 Pobierz wpisy dziennika utworzone po upływie określonego czasu:
@@ -107,7 +107,7 @@ Get-AzLog -Caller 'myname@company.com'
 Pobierz ostatnie zdarzenia 1000:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 1000
 ```
 
 

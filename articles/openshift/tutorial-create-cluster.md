@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: d9b02c11c055b4b072c5f8a1ff47e44001ec4580
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 78ec45f5e6c354644e4303db53f276343225eff9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509724"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858838"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -66,11 +66,17 @@ aro                                1.0.0
 
 Klucz tajny w systemie Red Hat umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat oraz dodatkową zawartość. Ten krok jest opcjonalny, ale zalecany.
 
-Aby uzyskać klucz tajny, przejdź do https://cloud.redhat.com/openshift/install/azure/aro-provisioned węzła i kliknij pozycję *Pobierz klucz tajny*.
+1. **[Przejdź do portalu Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) i zaloguj się.**
 
-Musisz zalogować się do swojego konta Red Hat lub utworzyć nowe konto Red Hat przy użyciu firmowej poczty e-mail i zaakceptować warunki i postanowienia.
+   Musisz zalogować się do swojego konta Red Hat lub utworzyć nowe konto Red Hat przy użyciu firmowej poczty e-mail i zaakceptować warunki i postanowienia.
+
+2. **Kliknij pozycję Pobierz klucz tajny ściągania.**
 
 Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu — będzie on używany podczas tworzenia klastra.
+
+Po uruchomieniu `az aro create` polecenia można odwoływać się `--pull-secret @pull-secret.txt` do klucza tajnego ściągnięcia przy użyciu parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie `@pull-secret.txt` Zamień `@<path-to-my-pull-secret-file>`na.
+
+Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Tworzenie sieci wirtualnej zawierającej dwie puste podsieci
 
@@ -174,7 +180,10 @@ Następnie utworzysz sieć wirtualną zawierającą dwie puste podsieci.
 
 ## <a name="create-the-cluster"></a>Tworzenie klastra
 
-Uruchom następujące polecenie, aby utworzyć klaster. Opcjonalnie można przekazać klucz tajny ściągania, który umożliwia klastrowi dostęp do rejestrów kontenera Red Hat oraz dodatkową zawartość. Uzyskaj dostęp do hasła ściągnięcia, przechodząc do [Menedżera klastra Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) , a następnie klikając pozycję **Kopiuj ściągnięcie klucza tajnego**.
+Uruchom następujące polecenie, aby utworzyć klaster. Opcjonalnie możesz [przekazać swoje hasło w systemie Red Hat](#get-a-red-hat-pull-secret-optional) , które umożliwia klastrowi dostęp do rejestrów kontenerów Red Hat oraz dodatkowej zawartości.
+
+>[!NOTE]
+> Jeśli kopiujesz/wklejasz polecenia i używasz jednego z parametrów opcjonalnych, pamiętaj o usunięciu początkowych hasztagów i końcowym tekście komentarza. Ponadto Zamknij argument w poprzednim wierszu polecenia z końcowym ukośnikiem odwrotnym.
 
 ```azurecli-interactive
 az aro create \
@@ -184,10 +193,10 @@ az aro create \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
   # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret '$(< pull-secret.txt)' # [OPTIONAL]
+  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
->[!NOTE]
-> Utworzenie klastra zwykle trwa około 35 minut.
+
+Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
 
 >[!IMPORTANT]
 > Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com`, a nie wbudowaną domeną. `https://console-openshift-console.apps.<random>.<location>.aroapp.io`
