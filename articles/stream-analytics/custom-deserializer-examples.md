@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4f4cc5cefe8090e9e95f80b8b74bf15591cb7887
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133075"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612065"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Odczytaj dane wejściowe w dowolnym formacie przy użyciu niestandardowych deserializacji platformy .NET
 
@@ -247,6 +247,10 @@ Ta funkcja nie jest obsługiwana. Jeśli potrzebujesz tej możliwości, możesz 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>Czy mogę udostępnić moją implementację deserializacji ze społecznością, tak aby inni mogli skorzystać?
 
 Po zaimplementowaniu deserializacji można ułatwić innym użytkownikom udostępnianie go społeczności. Prześlij swój kod do [Azure Stream Analytics repozytorium GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Jakie są inne ograniczenia dotyczące używania deserializatorów niestandardowych w Stream Analytics?
+
+Jeśli dane wejściowe mają format protobuf ze schematem zawierającym typ MapField, nie będzie można zaimplementować niestandardowego deserializacji. Pracujemy nad tym, aby obsłużyć ten typ do przodu.
 
 ## <a name="next-steps"></a>Następne kroki
 

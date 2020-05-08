@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209047"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611963"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -203,7 +203,7 @@ Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do kon
 
 Teraz, gdy masz obraz, możesz utworzyć lub zaktualizować pule hostów. Aby dowiedzieć się więcej na temat tworzenia i aktualizowania pul hostów, zobacz następujące artykuły:
 
-- [Tworzenie puli hostów za pomocą szablonu usługi Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tworzenie puli hostów za pomocą szablonu usługi Azure Resource Manager](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Samouczek: Tworzenie puli hostów za pomocą witryny Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md)
 - [Tworzenie kontenera profilu dla puli hostów za pomocą udziału plików](create-host-pools-user-profile.md)

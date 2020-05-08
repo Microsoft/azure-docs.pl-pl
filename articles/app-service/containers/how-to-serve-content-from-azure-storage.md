@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a5a38ea32d927f50fb9ddbebe3e1c3533e6fcc0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79297921"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625327"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Obsługuj zawartość z usługi Azure Storage w App Service w systemie Linux
 
@@ -45,7 +45,7 @@ W tym przewodniku przedstawiono sposób dołączania usługi Azure Storage do Ap
 
 Po utworzeniu [konta usługi Azure Storage, udziału plików i katalogu](#prerequisites)można teraz skonfigurować swoją aplikację w usłudze Azure Storage.
 
-Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci.
+Aby zainstalować konto magazynu w katalogu w aplikacji App Service, użyj [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) polecenia. Typem magazynu może być AzureBlob lub migracji pamięci. W tym przykładzie jest używana migracji pamięci. Ustawienie ścieżka instalacji odnosi się do folderu, który ma zostać zainstalowany z usługi Azure Storage. Ustawienie opcji "/" powoduje zainstalowanie całego magazynu platformy Azure.
 
 
 > [!CAUTION]
