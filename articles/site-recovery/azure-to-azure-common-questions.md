@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738052"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983282"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -100,6 +100,10 @@ Nie, Site Recovery nie wymaga łączności z Internetem. Jednak wymaga dostępu 
 Tak, można replikować aplikację i zachować konfigurację odzyskiwania po awarii w osobnej grupie zasobów.
 
 Jeśli na przykład aplikacja ma aplikację, bazę danych i sieć Web każdej warstwy, należy wybrać [Kreatora replikacji](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) trzy razy, aby chronić wszystkie warstwy. Site Recovery będą replikować te trzy warstwy do trzech różnych grup zasobów.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Czy mogę przenieść konta magazynu między grupami zasobów?
+
+Nie, ten scenariusz jest nieobsługiwany. Jeśli jednak przypadkowo przeniesiesz konta magazynu do innej grupy zasobów i usuniesz pierwotną grupę zasobów, możesz utworzyć nową grupę zasobów o takiej samej nazwie jak stara Grupa zasobów, a następnie przenieść konto magazynu do tej grupy zasobów.
 
 ## <a name="replication-policy"></a>Zasady replikacji
 

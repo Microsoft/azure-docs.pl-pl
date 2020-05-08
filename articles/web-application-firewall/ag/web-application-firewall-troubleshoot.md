@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131253"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983078"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Rozwiązywanie problemów z zaporą aplikacji sieci Web (WAF) dla platformy Azure Application Gateway
 
 Istnieje kilka rzeczy, które można wykonać, jeśli żądania, które powinny zostać przekazane przez zaporę aplikacji sieci Web (WAF), są blokowane.
 
 Najpierw upewnij się, że zapoznaj się z [omówieniem WAF](ag-overview.md) i dokumentami [konfiguracyjnymi WAF](application-gateway-waf-configuration.md) . Upewnij się również, że włączono [monitorowanie WAF](../../application-gateway/application-gateway-diagnostics.md) w tym artykule wyjaśniono, jak działają funkcje WAF, jak działa zestaw reguł WAF oraz jak uzyskiwać dostęp do dzienników WAF.
+
+Zestaw reguł OWASP został zaprojektowany tak, aby był bardzo rygorystyczny i mógł zostać dostosowany do określonych potrzeb aplikacji lub organizacji przy użyciu WAF. Jest ona całkowicie normalna i faktycznie oczekiwana w wielu przypadkach, aby utworzyć wykluczenia, reguły niestandardowe, a nawet wyłączyć reguły, które mogą powodować problemy lub fałszywie dodatnie. Zasady dla poszczególnych witryn i identyfikatorów URI umożliwiają wprowadzanie tych zmian tylko do określonych witryn/identyfikatorów URI, dlatego wszelkie zmiany nie powinny mieć wpływu na inne lokacje, które mogą nie działać w tych samych problemach. 
 
 ## <a name="understanding-waf-logs"></a>Omówienie dzienników WAF
 

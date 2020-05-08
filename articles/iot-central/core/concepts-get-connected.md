@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872423"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930492"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Połącz z usługą Azure IoT Central
 
@@ -146,11 +146,11 @@ Przepływ jest nieco różny w zależności od tego, czy urządzenia używają t
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Łączenie urządzeń korzystających z certyfikatów X. 509 bez rejestrowania
 
-1. [Dodaj i Sprawdź główny lub pośredni certyfikat X. 509](#connect-devices-using-x509-certificates) do aplikacji IoT Central. (#connect-Devices-using-x509-Certificates)
+1. [Dodaj i Sprawdź główny lub pośredni certyfikat X. 509](#connect-devices-using-x509-certificates) do aplikacji IoT Central.
 
 1. Wygeneruj certyfikaty liści dla urządzeń przy użyciu certyfikatu głównego lub pośredniego dodanego do aplikacji IoT Central. `CNAME` W przypadku certyfikatów liścia należy używać identyfikatorów urządzeń z małymi literami.
 
-1. Producent OEM przebłyskuje każde urządzenie przy użyciu identyfikatora urządzenia, a następnie wygenerowała pozostały certyfikat X. 509 i wartość **zakresu identyfikatora** aplikacji.
+1. Producent OEM błyskuje każde urządzenie przy użyciu identyfikatora urządzenia, wygenerowanego certyfikatu X. 509 liścia oraz wartości **zakresu identyfikatora** aplikacji.
 
 1. Po przełączeniu na urządzenie najpierw nawiązuje połączenie z usługą DPS w celu pobrania informacji o rejestracji IoT Central.
 

@@ -1,24 +1,23 @@
 ---
-title: Automatyczne skalowanie w maszynach wirtualnych, Cloud Services i Web Apps
-description: Skalowanie automatyczne w Microsoft Azure. Dotyczy Virtual Machines, zestawów skalowania maszyn wirtualnych, Cloud Services i Web Apps.
+title: Skalowanie automatyczne w Microsoft Azure
+description: Skalowanie automatyczne w Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b39fce046ea9dee02ddf6ffe34971b81c3b5b7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114135"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928707"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Omówienie funkcji Skalowanie automatyczne na maszynach wirtualnych platformy Microsoft Azure oraz w usługach Cloud Services i Web Apps
+# <a name="overview-of-autoscale-in-microsoft-azure"></a>Omówienie automatycznego skalowania w Microsoft Azure
 W tym artykule opisano, co Microsoft Azure automatyczne skalowanie, jego zalety oraz jak rozpocząć korzystanie z niego.  
 
-Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/)i [usług API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Automatyczne skalowanie Azure Monitor ma zastosowanie tylko do [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service-Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management usług](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)i [klastrów Eksplorator danych platformy Azure](https://docs.microsoft.com/azure/data-explorer/).
 
 > [!NOTE]
 > Platforma Azure ma dwie metody skalowania automatycznego. Starsza wersja automatycznego skalowania ma zastosowanie do Virtual Machines (zbiory dostępności). Ta funkcja ma ograniczoną obsługę i zalecamy Migrowanie do zestawów skalowania maszyn wirtualnych w celu szybszego i bardziej niezawodnego wsparcia automatycznego skalowania. W tym artykule znajduje się link dotyczący sposobu korzystania ze starszej technologii.  
->
 >
 
 ## <a name="what-is-autoscale"></a>Co to jest automatyczne skalowanie?
@@ -87,26 +86,27 @@ Skalowanie automatyczne jest skalowane w poziomie, co zwiększa się ("out") lub
 
 Natomiast skalowanie w pionie jest inne. Zachowuje tę samą liczbę maszyn wirtualnych, ale sprawia, że maszyny wirtualne są bardziej wydajne ("w górę") lub mniej ("w dół"). Moc jest mierzona w pamięci, szybkości procesora, ilości miejsca na dysku itp.  Skalowanie w pionie ma więcej ograniczeń. Jest ona zależna od dostępności większego sprzętu, który szybko trafi górny limit i może różnić się w zależności od regionu. Skalowanie w pionie wymaga również, aby maszyna wirtualna została zatrzymana i ponownie uruchomiona.
 
-
 ## <a name="methods-of-access"></a>Metody dostępu
 Można skonfigurować Skalowanie automatyczne za pomocą
 
 * [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
-* [Narzędzia](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [Program PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Międzyplatformowy interfejs wiersza polecenia (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Interfejs API REST usługi Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Obsługiwane usługi skalowania automatycznego
 | Usługa | Dokumentacja & schematu |
 | --- | --- |
-| Aplikacje internetowe |[Skalowanie Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
+| Web Apps |[Skalowanie Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
 | Cloud Services |[Automatyczne skalowanie usługi w chmurze](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: klasyczny |[Skalowanie klasycznych zestawów dostępności maszyn wirtualnych](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: zestawy skalowania systemu Windows |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: zestawy skalowania systemu Linux |[Skalowanie zestawów skalowania maszyn wirtualnych w systemie Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: przykład systemu Windows |[Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Usługa API Management|[Automatyczne skalowanie wystąpienia usługi Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-
+| Klastry usługi Azure Eksplorator danych|[Zarządzaj skalowaniem klastrów Eksplorator danych platformy Azure w celu uwzględnienia zmiany popytu](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Skalowanie aplikacji w górę w usłudze Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| Logic Apps |[Dodawanie pojemności usługi Integration Service Environment (ISE)](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat automatycznego skalowania, użyj wymienionych wcześniej przewodników skalowania automatycznego lub zapoznaj się z następującymi zasobami:
 

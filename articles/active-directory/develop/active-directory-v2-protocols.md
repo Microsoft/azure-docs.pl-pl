@@ -2,7 +2,7 @@
 title: Protokoły OAuth 2,0 i OpenID Connect Connect — platforma tożsamości firmy Microsoft | Azure
 description: Przewodnik dotyczący protokołów uwierzytelniania OAuth 2,0 i OpenID Connect, które są obsługiwane przez punkt końcowy platformy tożsamości firmy Microsoft.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 80b93efb58d225c53a64fa044f51145b392460d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680090"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690261"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protokoły uwierzytelniania OAuth 2,0 i OpenID Connect na platformie tożsamości firmy Microsoft
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7591f22286f9ac451a15dd926adab0212adb190e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77589321"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691284"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurowanie galerii obrazów udostępnionych w usłudze Azure DevTest Labs
 DevTest Labs obsługuje teraz funkcję [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) . Umożliwia użytkownikom laboratorium dostęp do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych. Ułatwia ona również tworzenie struktury i organizacji na podstawie niestandardowych zarządzanych obrazów maszyn wirtualnych. Funkcja galerii obrazów udostępnionych obsługuje:
@@ -91,9 +91,21 @@ Jeśli używasz szablonu Azure Resource Manager do dołączania udostępnionej g
 
 Aby zapoznać się z kompletnym przykładem szablonu Menedżer zasobów, zobacz następujące przykłady szablonów Menedżer zasobów w naszym publicznym repozytorium GitHub: [Konfigurowanie galerii obrazów udostępnionych podczas tworzenia laboratorium](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-## <a name="use-api"></a>Korzystanie z interfejsu API
+## <a name="use-rest-api"></a>Korzystanie z interfejsu API REST
 
-### <a name="shared-image-galleries---create-or-update"></a>Udostępnione Galerie obrazów — Tworzenie lub aktualizowanie
+### <a name="get-a-list-of-labs"></a>Pobierz listę laboratoriów 
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs?api-version= 2018-10-15-preview
+```
+
+### <a name="get-the-list-of-shared-image-galleries-associated-with-a-lab"></a>Pobierz listę udostępnionych galerii obrazów skojarzonych z laboratorium
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries?api-version= 2018-10-15-preview
+   ```
+
+### <a name="create-or-update-shared-image-gallery"></a>Utwórz lub zaktualizuj galerię obrazów udostępnionych
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
@@ -107,12 +119,11 @@ Body:
 
 ```
 
-### <a name="shared-image-galleries-images---list"></a>Obrazy udostępnionych galerii obrazów — lista 
+### <a name="list-images-in-a-shared-image-gallery"></a>Wyświetlanie listy obrazów w galerii obrazów udostępnionych
 
 ```rest
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
 ```
-
 
 
 

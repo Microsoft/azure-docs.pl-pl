@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399689"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929251"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Rozwiązywanie problemów Azure Machine Learning usługi Azure Kubernetes i wdrożenia Azure Container Instances
 
@@ -24,12 +24,12 @@ Dowiedz się, jak obejść typowe błędy wdrażania platformy Docker i rozwiąz
 
 W przypadku wdrażania modelu w Azure Machine Learning system wykonuje wiele zadań.
 
-Zalecane i najbardziej aktualne podejście do wdrażania modelu polega za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) przy użyciu obiektu [środowiska](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) jako parametru wejściowego. W takim przypadku Nasza usługa utworzy podstawowy obraz platformy Docker na etapie wdrażania i zainstaluje wymagane modele wszystkie w jednym wywołaniu. Podstawowe zadania wdrażania są następujące:
+Zalecane i najbardziej aktualne podejście do wdrażania modelu polega za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) przy użyciu obiektu [środowiska](how-to-use-environments.md) jako parametru wejściowego. W takim przypadku Nasza usługa utworzy podstawowy obraz platformy Docker na etapie wdrażania i zainstaluje wymagane modele wszystkie w jednym wywołaniu. Podstawowe zadania wdrażania są następujące:
 
 1. Zarejestruj model w rejestrze modelu obszaru roboczego.
 
 2. Zdefiniuj konfigurację wnioskowania:
-    1. Utwórz obiekt [środowiska](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) na podstawie zależności określonych w pliku YAML środowiska lub użyj jednego z naszych środowisk.
+    1. Utwórz obiekt [środowiska](how-to-use-environments.md) na podstawie zależności określonych w pliku YAML środowiska lub użyj jednego z naszych środowisk.
     2. Utwórz konfigurację wnioskowania (obiekt InferenceConfig) w oparciu o środowisko i skrypt oceniania.
 
 3. Wdróż model w usłudze Azure Container Instance (ACI) lub w usłudze Azure Kubernetes Service (AKS).
@@ -50,7 +50,7 @@ Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-mana
 
 W przypadku wystąpienia dowolnego problemu najpierw należy podzielić zadanie wdrożenia (opisane wcześniej) na poszczególne kroki, aby wyizolować problem.
 
-Przy założeniu, że używasz nowej/zalecanej metody wdrażania za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) z obiektem [środowiska](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) jako parametrem wejściowym, kod może być podzielony na trzy główne kroki:
+Przy założeniu, że używasz nowej/zalecanej metody wdrażania za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) z obiektem [środowiska](how-to-use-environments.md) jako parametrem wejściowym, kod może być podzielony na trzy główne kroki:
 
 1. Zarejestrowanie modelu. Oto przykładowy kod:
 

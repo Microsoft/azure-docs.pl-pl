@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684712"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983571"
 ---
 # <a name="execute-r-script"></a>Wykonywanie skryptu języka R
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> Jeśli potok zawiera wiele modułów wykonywania skryptów języka R i potrzebujesz tych samych pakietów, które nie znajdują się na liście wstępnie zainstalowanych, zainstaluj pakiety w każdym module odpowiednio. 
 
 ## <a name="installing-r-packages"></a>Instalowanie pakietów języka R
 Aby zainstalować dodatkowe pakiety języka R, użyj `install.packages()` metody. Pakiety są instalowane dla każdego modułu **wykonywania skryptu języka r** i nie są współużytkowane przez inne moduły **wykonywania skryptów języka r** .
@@ -140,7 +142,7 @@ Zestawy danych przechowywane w projektancie są automatycznie konwertowane na ra
 1. W polu tekstowym **skrypt języka r** wpisz lub wklej prawidłowy skrypt języka r.
 
     > [!NOTE]
-    > Należy zachować ostrożność podczas pisania skryptu i upewnić się, że nie występuje błąd składniowy, na przykład użycie niezadeklarowanej zmiennej lub zaimportowanego modułu lub funkcji. Zwróć również uwagę na wstępnie zainstalowaną listę pakietów na końcu tego dokumentu. Aby użyć pakietów, które nie są wymienione na liście, należy je zainstalować w skrypcie, np.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Należy zachować ostrożność podczas pisania skryptu i upewnić się, że nie występuje błąd składniowy, taki jak użycie niezadeklarowanych zmiennych lub zaimportowanych modułów lub funkcji. Należy również zwrócić szczególną uwagę na wstępnie zainstalowaną listę pakietów na końcu tego dokumentu. Aby użyć pakietów, które nie są wymienione na liście, należy je zainstalować w skrypcie, np.`install.packages("zoo",repos = "http://cran.us.r-project.org")`
     
     > [!NOTE]
     > Funkcje zależne od biblioteki X11, takie jak "View", nie są obsługiwane, ponieważ biblioteka X11 nie jest wstępnie zainstalowana.

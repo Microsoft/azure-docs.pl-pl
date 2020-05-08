@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/01/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443503"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691813"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
 Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
@@ -57,6 +57,9 @@ Zobacz [zakresy adresów IP i Tagi usług platformy Azure — chmura publiczna](
 ### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Dlaczego jako twórca laboratorium nie można włączyć dodatkowych opcji obrazu na liście rozwijanej obrazy maszyn wirtualnych podczas tworzenia nowego laboratorium?
 
 Gdy administrator doda Cię jako twórcę laboratorium do konta laboratorium, otrzymujesz uprawnienia do tworzenia laboratoriów. Ale nie masz uprawnień do edytowania żadnych ustawień w ramach konta laboratorium, w tym listy włączonych obrazów maszyn wirtualnych. Aby włączyć dodatkowe obrazy, skontaktuj się z administratorem konta laboratorium, aby to zrobić, lub poproś administratora o dodanie Cię jako roli współautor do konta laboratorium. Rola współautor udzieli uprawnień do edytowania listy obrazów maszyn wirtualnych na koncie laboratorium.
+
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Czy mogę dołączyć dodatkowe dyski do maszyny wirtualnej?
+Nie. nie jest możliwe dołączenie dodatkowych dysków do maszyny wirtualnej w laboratorium z klasą. 
 
 ## <a name="users"></a>Użytkownicy
 

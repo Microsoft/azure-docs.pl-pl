@@ -1,6 +1,6 @@
 ---
-title: Role niestandardowe dla zasobów platformy Azure | Microsoft Docs
-description: Dowiedz się, jak tworzyć role niestandardowe z kontrolą dostępu opartą na rolach (RBAC), aby uzyskać szczegółowe zarządzanie dostępem do zasobów platformy Azure.
+title: Role niestandardowe platformy Azure — RBAC na platformie Azure
+description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure przy użyciu kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby precyzyjnego zarządzania dostępem do zasobów platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062168"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734794"
 ---
-# <a name="custom-roles-for-azure-resources"></a>Niestandardowe role dla zasobów platformy Azure
+# <a name="azure-custom-roles"></a>Role niestandardowe platformy Azure
 
 > [!IMPORTANT]
 > Dodawanie grupy zarządzania do `AssignableScopes` programu jest obecnie w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Jeśli [wbudowane role dla zasobów platformy Azure](built-in-roles.md) nie spełniają potrzeb Twojej organizacji, możesz tworzyć własne role niestandardowe. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach grupy zarządzania, subskrypcji i zakresów grup zasobów.
+Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach grupy zarządzania, subskrypcji i zakresów grup zasobów.
 
-Role niestandardowe mogą być współużytkowane przez subskrypcje, które ufają temu samemu katalogowi usługi Azure AD. Obowiązuje limit **5 000** ról niestandardowych dla katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2 000 ról niestandardowych). Role niestandardowe można tworzyć przy użyciu Azure Portal (wersja zapoznawcza), Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
+Role niestandardowe mogą być współużytkowane przez subskrypcje, które ufają temu samemu katalogowi usługi Azure AD. Obowiązuje limit **5 000** ról niestandardowych dla katalogu. (W przypadku platformy Azure (Niemcy i Azure Chiny 21Vianet limit wynosi 2 000 ról niestandardowych). Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST.
 
 ## <a name="custom-role-example"></a>Przykład roli niestandardowej
 
@@ -75,7 +75,7 @@ Gdy tworzysz rolę niestandardową, zostanie ona wyświetlona w Azure Portal z p
 
 1. Zdecyduj, w jaki sposób chcesz utworzyć rolę niestandardową
 
-    Role niestandardowe można tworzyć przy użyciu [Azure Portal](custom-roles-portal.md) (wersja zapoznawcza), [Azure PowerShell](custom-roles-powershell.md), interfejsu [wiersza polecenia platformy Azure](custom-roles-cli.md)lub [interfejs API REST](custom-roles-rest.md).
+    Role niestandardowe można tworzyć przy użyciu [Azure Portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), interfejsu [wiersza polecenia platformy Azure](custom-roles-cli.md)lub [interfejsu API REST](custom-roles-rest.md).
 
 1. Ustalanie potrzebnych uprawnień
 
@@ -89,7 +89,7 @@ Gdy tworzysz rolę niestandardową, zostanie ona wyświetlona w Azure Portal z p
 
     Gdy masz rolę niestandardową, musisz ją przetestować, aby upewnić się, że działa zgodnie z oczekiwaniami. Aby później wprowadzić zmiany, możesz zaktualizować rolę niestandardową.
 
-Aby zapoznać się z samouczkiem krok po kroku na temat tworzenia roli niestandardowej, zobacz [Samouczek: tworzenie roli niestandardowej przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md) lub [Samouczek: tworzenie roli niestandardowej przy użyciu interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
+Aby zapoznać się z samouczkiem krok po kroku na temat tworzenia roli niestandardowej, zobacz [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md) lub [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Właściwości roli niestandardowej
 
@@ -131,6 +131,6 @@ Na poniższej liście opisano limity ról niestandardowych.
 Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal (wersja zapoznawcza)](custom-roles-portal.md)
-- [Opis definicji ról dla zasobów platformy Azure](role-definitions.md)
-- [Rozwiązywanie problemów z funkcją RBAC dla zasobów platformy Azure](troubleshooting.md)
+- [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal](custom-roles-portal.md)
+- [Informacje o definicjach ról platformy Azure](role-definitions.md)
+- [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)

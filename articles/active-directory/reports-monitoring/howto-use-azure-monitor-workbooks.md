@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014376"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690627"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Jak używać Azure Monitor skoroszytów dla raportów Azure Active Directory
 
@@ -42,7 +42,7 @@ Czy chcesz:
 
 - Uzyskaj dokładniejsze informacje o zapytaniach dziennika logowania, w tym skoroszycie przedstawiono liczbę użytkowników, którym udzielono lub odmówiono dostępu, a także liczbę użytkowników, których zasady dostępu warunkowego zostały pominięte podczas uzyskiwania dostępu do zasobów.
 
-- Aby ułatwić rozwiązanie tych pytań, Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
+- Aby ułatwić rozwiązanie tych pytań, Azure Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
 
 
 
@@ -58,7 +58,7 @@ W tym artykule:
 
 Aby używać skoroszytów monitorowania, potrzebne są:
 
-- Dzierżawa Active Directory z licencją premium (P1 lub P2). Dowiedz się [, jak uzyskać licencję Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Dzierżawa Azure Active Directory z licencją premium (P1 lub P2). Dowiedz się [, jak uzyskać licencję Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - [Obszar roboczy log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -225,7 +225,7 @@ Aby uzyskać dostęp do skoroszytu w celu logowania przez [przyznanie kontroli](
 
 Ten skoroszyt zawiera następujące wyłączane trendy dotyczące logowania:
 
-- Wymaganie usługi MFA
+- Wymaganie uwierzytelniania wieloskładnikowego
  
 - Wymaganie warunków użytkowania
 

@@ -1,6 +1,6 @@
 ---
-title: Wizualizuj dane przy użyciu pulpitów nawigacyjnych opartych na Azure Monitor skoroszytach na platformie Azure — wskaźnikowa | Microsoft Docs
-description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak wizualizować dane przy użyciu pulpitów nawigacyjnych opartych na skoroszytach na platformie Azure.
+title: Wizualizuj dane przy użyciu skoroszytów Azure Monitor na platformie Azure — wskaźnikowa | Microsoft Docs
+description: Skorzystaj z tego samouczka, aby dowiedzieć się, jak wizualizować dane przy użyciu skoroszytów na platformie Azure — wskaźnik.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585224"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739164"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Samouczek: wizualizowanie i monitorowanie danych
 
 
 
-Po [nawiązaniu połączenia ze źródłami](quickstart-onboard.md) danych z platformą Azure — wskaźnikiem możliwości można wizualizować i monitorować dane przy użyciu systemu Azure wskaźnikowego wdrażania Azure monitor skoroszytów, które zapewniają wszechstronność tworzenia niestandardowych pulpitów nawigacyjnych. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
+Po [nawiązaniu połączenia ze źródłami](quickstart-onboard.md) danych z platformą Azure — wskaźnikiem możliwości można wizualizować i monitorować dane przy użyciu systemu Azure wskaźnikowego wdrażania Azure monitor skoroszytów, które zapewniają uniwersalność tworzenia niestandardowych pulpitów nawigacyjnych. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
 
 
 Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikiem.

@@ -1,6 +1,6 @@
 ---
-title: Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal
-description: Dowiedz się, jak określić, które zasoby użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane są dostępne do korzystania z kontroli dostępu opartej na rolach (RBAC) na platformie Azure i Azure Portal.
+title: Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal — RBAC
+description: Dowiedz się, jak określić zasoby, których użytkownicy, grupy, nazwy główne usług lub tożsamości zarządzane mają dostęp do usługi przy użyciu Azure Portal i kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062238"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735729"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]W tym artykule opisano sposób wyświetlania listy przypisań ról przy użyciu Azure Portal.
 
@@ -138,5 +138,5 @@ Jeśli zbliżasz się do maksymalnej liczby i podjęto próbę dodania kolejnych
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i Azure Portal](role-assignments-portal.md)
-- [Rozwiązywanie problemów z funkcją RBAC dla zasobów platformy Azure](troubleshooting.md)
+- [Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md)
+- [Rozwiązywanie problemów z usługą Azure RBAC](troubleshooting.md)

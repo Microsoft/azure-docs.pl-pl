@@ -1,23 +1,17 @@
 ---
-title: Porównanie Azure Data Lake Storage Gen1 z Azure Storage Blob | Microsoft Docs
-description: Porównanie Azure Data Lake Storage Gen1 z Azure Storage Blob
-services: data-lake-store
-documentationcenter: ''
+title: Porównanie Azure Data Lake Storage Gen1 z usługą BLOB Storage
+description: Zawiera podsumowanie różnic między Azure Data Lake Storage Gen1 i magazynem obiektów blob platformy Azure.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438719"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691721"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Porównanie Azure Data Lake Storage Gen1 i platformy Azure Blob Storage
 
@@ -39,11 +33,11 @@ W tabeli w tym artykule zestawiono różnice między Azure Data Lake Storage Gen
 | Operacje na danych — autoryzacja |Listy Access Control POSIX (ACL).  Listy ACL oparte na tożsamościach Azure Active Directory można ustawić na poziomie plików i folderów. |W przypadku autoryzacji na poziomie konta — Użyj [kluczy dostępu do konta](../storage/common/storage-account-keys-manage.md)<br>Dla konta, kontenera lub autoryzacji obiektów BLOB — Użyj [kluczy sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operacje na danych — Inspekcja |Udostępnione. Aby [uzyskać więcej informacji](data-lake-store-diagnostic-logs.md) , zobacz. |Dostępne |
 | Szyfrowanie danych w spoczynku |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w usłudze Azure Keys</li></ul></ul> |<ul><li>Przezroczysty, po stronie serwera</li> <ul><li>Z kluczami zarządzanymi przez usługę</li><li>Z kluczami zarządzanymi przez klienta w magazynie kluczy platformy Azure (wersja zapoznawcza)</li></ul><li>Szyfrowania po stronie klienta</li></ul> |
-| Operacje zarządzania (np. Tworzenie konta) |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |
+| Operacje zarządzania (na przykład tworzenie konta) |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |[Kontrola dostępu oparta na rolach](../role-based-access-control/overview.md) (RBAC) udostępniana przez platformę Azure do zarządzania kontami |
 | Zestawy SDK dla deweloperów |.NET, Java, Python, Node. js |.NET, Java, Python, Node. js, C++, Ruby, PHP, go, Android, iOS |
 | Wydajność obciążeń analitycznych |Zoptymalizowana wydajność dla obciążeń równoległych analizy. Wysoka przepływność i operacje we/wy. |Zoptymalizowana wydajność dla obciążeń równoległych analizy. |
 | Limity rozmiaru |Brak limitów rozmiarów kont, rozmiarów plików ani liczby plików |Aby uzyskać określone limity, zobacz [elementy docelowe skalowalności dla standardowych kont magazynu](../storage/common/scalability-targets-standard-account.md) i [skalowalności oraz docelowych wydajności dla usługi BLOB Storage](../storage/blobs/scalability-targets.md). Większe limity konta dostępne przez skontaktowanie się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/faq/) |
-| Nadmiarowość geograficzna |Lokalnie nadmiarowy (wiele kopii danych w jednym regionie świadczenia usługi Azure) |Lokalnie nadmiarowy (LRS), strefy nadmiarowe (ZRS), globalnie nadmiarowy (GRS), dostęp do odczytu globalnie nadmiarowy (RA-GRS). Aby uzyskać więcej informacji, zobacz [tutaj](../storage/common/storage-redundancy.md) . |
+| Nadmiarowość geograficzna |Lokalnie nadmiarowy (wiele kopii danych w jednym regionie platformy Azure) |Lokalnie nadmiarowy (LRS), strefy nadmiarowe (ZRS), globalnie nadmiarowy (GRS), dostęp do odczytu globalnie nadmiarowy (RA-GRS). Aby uzyskać więcej informacji, zobacz [tutaj](../storage/common/storage-redundancy.md) . |
 | Stan usługi |Ogólnie dostępne |Ogólnie dostępne |
 | Dostępność regionalna |Zobacz [tutaj](https://azure.microsoft.com/regions/#services) |Dostępne we wszystkich regionach świadczenia usługi Azure |
 | Price |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/data-lake-store/) |Zobacz [Cennik](https://azure.microsoft.com/pricing/details/storage/) |

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 66d7228e78f03196da0b26249e7f1f86e79d79fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159017"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734726"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Przedpłata za Azure Database for PostgreSQL zasoby obliczeniowe z zarezerwowaną pojemnością
 
@@ -22,7 +22,7 @@ Nie trzeba przypisywać rezerwacji do określonych serwerów Azure Database for 
 > [!IMPORTANT]
 > Ceny zarezerwowanej pojemności są dostępne tylko dla wdrożenia Azure Database for PostgreSQL [jednego serwera](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) , a nie dla wdrożenia [Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
 
-W [Azure Portal](https://portal.azure.com/)można kupić Azure Database for PostgreSQL zarezerwowaną pojemność. Aby kupić zarezerwowaną pojemność:
+W [Azure Portal](https://portal.azure.com/)można kupić Azure Database for PostgreSQL zarezerwowaną pojemność. Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](../cost-management-billing/reservations/monthly-payments-reservations.md). Aby kupić zarezerwowaną pojemność:
 
 * Musisz być w roli właściciela dla co najmniej jednej subskrypcji przedsiębiorstwa lub indywidualnej, która ma stawki płatność zgodnie z rzeczywistym użyciem.
 * W przypadku subskrypcji Enterprise w witrynie [EA Portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA w subskrypcji.
@@ -41,7 +41,7 @@ Załóżmy na przykład, że korzystasz z jednego ogólnego celu, 5 rdzeń – 3
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Kupowanie Azure Database for PostgreSQL zarezerwowanej pojemności
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **wszystkie** > **rezerwacje**usług.
+2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz pozycję **Dodaj** , a następnie w okienku rezerwacje zakupu wybierz pozycję **Azure Database for PostgreSQL** , aby zakupić nową rezerwację dla baz danych PostgreSQL.
 4. Wypełnij pola wymagane. Istniejące lub nowe bazy danych zgodne z wybranymi atrybutami kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba serwerów Azure Database for PostgreSQL, które pobierają rabat, zależą od wybranego zakresu i ilości.
 
@@ -63,7 +63,7 @@ W poniższej tabeli opisano wymagane pola.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="vcore-size-flexibility"></a>elastyczność rozmiaru rdzeń wirtualny
 

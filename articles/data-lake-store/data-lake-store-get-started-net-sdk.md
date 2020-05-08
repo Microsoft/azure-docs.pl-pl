@@ -1,23 +1,17 @@
 ---
-title: 'Zestaw SDK platformy .NET: operacje zarządzania kontem na Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Użyj Azure Data Lake Storage Gen1 .NET SDK do wykonywania operacji zarządzania kontami w Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Zarządzanie kontem Azure Data Lake Storage Gen1 przy użyciu platformy .NET
+description: Dowiedz się, jak używać zestawu SDK .NET dla Azure Data Lake Storage Gen1 operacji zarządzania kontami.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7ea2b7fffc4edff6cae895e08b955d2e21ff5f2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65900882"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692114"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -93,7 +87,7 @@ Aby uzyskać instrukcje dotyczące wykonywania operacji zarządzania danymi na D
 
 Z pozostałych akapitów tego artykułu możesz dowiedzieć się, w jaki sposób używać dostępnych metod .NET w celu wykonywania operacji, takich jak uwierzytelnianie, przekazywanie plików itp.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 * W przypadku uwierzytelniania użytkowników końcowych w aplikacji zobacz [uwierzytelnianie użytkowników końcowych za pomocą Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Aby przeprowadzić uwierzytelnianie między usługami dla aplikacji, zobacz Uwierzytelnianie między usługami i [Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -135,7 +129,7 @@ Poniższy fragment kodu usuwa utworzone wcześniej konto Data Lake Storage Gen1.
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Operacje systemu plików na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-data-operations-net-sdk.md)
 * [Dokumentacja zestawu SDK platformy .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

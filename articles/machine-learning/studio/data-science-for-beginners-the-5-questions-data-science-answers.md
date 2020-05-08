@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204447"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930152"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Wideo 1: analiza danych dla początkujących — 5 pytań, na które analiza danych daje odpowiedzi
 Zapoznaj się z szybkim wprowadzeniem do nauki danych z *nauki danych dla początkujących* w pięciu krótkich klipach wideo od najlepszych analityków danych. Te filmy wideo są podstawowe, ale użyteczne, niezależnie od tego, czy interesują Cię dane, czy pracujesz z analitykami danych.
@@ -136,4 +136,4 @@ W ten sposób można odpowiedzieć na 5 pytań dotyczących danych.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wypróbuj pierwszy eksperyment nauki o danych z Machine Learning Studio (klasyczny)](create-experiment.md)
-* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Zapoznaj się z wprowadzeniem do Machine Learning na Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

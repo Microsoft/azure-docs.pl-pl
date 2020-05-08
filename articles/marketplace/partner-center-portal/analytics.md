@@ -1,20 +1,20 @@
 ---
-title: Analiza komercyjnego portalu Marketplace w centrum partnerskim
-description: Omówienie uzyskiwania dostępu do raportów analitycznych w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu Marketplace.
+title: Analiza portalu komercyjnego firmy Microsoft w centrum partnerskim
+description: Dowiedz się, jak uzyskiwać dostęp do raportów analitycznych w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu Marketplace w centrum partnerskim firmy Microsoft.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262285"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744904"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analiza komercyjnego portalu Marketplace w centrum partnerskim
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Dostęp do raportów analitycznych dla komercyjnego portalu Marketplace w centrum partnerskim
 
 Dowiedz się, jak uzyskiwać dostęp do raportów analitycznych w centrum partnerskim firmy Microsoft w celu monitorowania sprzedaży, oceny wydajności i optymalizowania ofert w portalu Marketplace. Jako partner możesz monitorować swoje oferty za pomocą wizualizacji danych i grafów szczegółowych obsługiwanych przez centrum partnerskie oraz znaleźć sposoby maksymalizowania sprzedaży. Udoskonalone narzędzia analityczne umożliwiają wykonywanie działań na wynikach wydajności i obsługę lepszych relacji z klientami i odsprzedawcami.
 

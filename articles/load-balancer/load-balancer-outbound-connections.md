@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393104"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930577"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
@@ -119,7 +119,7 @@ W przypadku korzystania [z usługa Load Balancer w warstwie Standardowa z strefy
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Przymaskowany port do podszywającego się
 
-Gdy publiczny zasób Load Balancer jest skojarzony z wystąpieniami maszyn wirtualnych, każde źródło połączenia wychodzącego jest ponownie zapisywane. Źródło jest ponownie zapisywane z prywatnej przestrzeni adresowej IP sieci wirtualnej na publiczny adres IP frontonu modułu równoważenia obciążenia. W publicznej przestrzeni adresowej IP, 5-krotka przepływu (źródłowy adres IP, port źródłowy, protokół transportu IP, docelowy adres IP, port docelowy) musi być unikatowa.  Za pomocą protokołów TCP lub UDP można używać adresów IP maskujących port.
+Gdy publiczny zasób Load Balancer jest skojarzony z wystąpieniami maszyn wirtualnych, które nie mają dedykowanych publicznych adresów IP, wszystkie źródła połączenia wychodzącego zostaną ponownie napisana. Źródło jest ponownie zapisywane z prywatnej przestrzeni adresowej IP sieci wirtualnej na publiczny adres IP frontonu modułu równoważenia obciążenia. W publicznej przestrzeni adresowej IP, 5-krotka przepływu (źródłowy adres IP, port źródłowy, protokół transportu IP, docelowy adres IP, port docelowy) musi być unikatowa. Za pomocą protokołów TCP lub UDP można używać adresów IP maskujących port.
 
 Porty tymczasowe (porty IP) są używane do osiągnięcia tego po zapisaniu prywatnego źródłowego adresu IP, ponieważ wiele przepływów pochodzi z jednego publicznego adresu IP. Algorytm podrzędnego podszywającego się portu przydziela porty protokołu podrzędnego inaczej dla połączeń UDP i TCP.
 
@@ -147,7 +147,7 @@ Aby uzyskać wzorce ograniczające warunki, które zwykle prowadzą do wyczerpan
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Wstępne przydzielanie portów tymczasowych dla podszywającego się portu
 
-Platforma Azure używa algorytmu do określenia liczby wstępnie przyalokowanych portów przydziałów adresów sieciowych, które są dostępne na podstawie rozmiaru puli zaplecza przy użyciu[PAT](#pat)podzestawu adresów sieciowych z zamaskowanem portem. Porty IP to tymczasowe porty dostępne dla określonego publicznego adresu IP.
+Platforma Azure używa algorytmu do określenia liczby wstępnie przyalokowanych portów przydziałów adresów sieciowych, które są dostępne na podstawie rozmiaru puli zaplecza przy użyciu[PAT](#pat)podzestawu adresów sieciowych z zamaskowanem portem. Porty IP to tymczasowe porty dostępne dla określonego publicznego adresu IP. Dla każdego publicznego adresu IP skojarzonego z modułem równoważenia obciążenia dostępne są 64 000 portów jako porty dla każdego protokołu transportu IP.
 
 Ta sama liczba portów przydziałów adresów sieciowych jest wstępnie przypisana odpowiednio do protokołów UDP i TCP i zużywana niezależnie na protokół transportowy IP.  Niemniej jednak w zależności od tego, czy przepływ ma wartość UDP czy TCP, jest różne użycie portów.
 
@@ -193,11 +193,14 @@ Alokacje portów przydziałów adresów IP są zależne od protokołu NNTP (TCP 
 Ta sekcja ma pomóc w ograniczeniu wyczerpania ruchu w zabezpieczeniach i może wystąpić w przypadku połączeń wychodzących na platformie Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Zarządzanie wyczerpaniem portów (z)
-[Porty](#preallocatedports) tymczasowe [używane do](#pat) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](#defaultsnat) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](#lb). Możesz monitorować korzystanie z portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko lub potwierdzić exhuastiony w ramach [tego](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) przewodnika.
+[Porty](#preallocatedports) tymczasowe [używane do](#pat) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](#defaultsnat) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](#lb). Możesz monitorować użycie portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko dla lub potwierdzić wyczerpanie adresów w [tym](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) przewodniku.
 
 Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące są zakończone niepowodzeniem lub są zalecane w przypadku wyczerpania [portów przydzielonego](#preallocatedports) [dostępu do danych](#pat)wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem.
 
 Jeśli masz problemy z zrozumieniem zachowania połączenia wychodzącego, możesz użyć statystyk stosu IP (netstat). Może być również pomocne w obserwowanie zachowań połączenia za pomocą przechwytywania pakietów. Można wykonać te przechwycenia pakietu w systemie operacyjnym gościa wystąpienia lub użyć [Network Watcher do przechwytywania pakietów](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Ręcznie Przydziel porty podrzędnego TRANSLATORa adresów sieciowych na maszynę wirtualną
+Zgodnie z definicją w wstępnie [przydzielone porty](#preallocatedports)moduł równoważenia obciążenia automatycznie przydzieli porty na podstawie liczby maszyn wirtualnych w zapleczu. Domyślnie jest to wykonywane ostrożnie w celu zapewnienia skalowalności. Jeśli znasz maksymalną liczbę maszyn wirtualnych, które będą znajdować się w zapleczu, możesz ręcznie przydzielić porty przystawek w ramach każdej reguły ruchu wychodzącego. Na przykład, Jeśli wiesz, że masz maksymalnie 10 maszyn wirtualnych, możesz przydzielić 6 400 porty na maszynę wirtualną, a nie domyślną 1 024. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modyfikowanie aplikacji w celu ponownego użycia połączeń 
 Można zmniejszyć zapotrzebowanie na porty tymczasowe, które są używane w przypadku usługi reportcy, przez ponowną obsługę połączeń w aplikacji. Jest to szczególnie prawdziwe w przypadku protokołów takich jak HTTP/1.1, w przypadku których użycie połączenia jest domyślne. Inne protokoły używające protokołu HTTP jako transportu (na przykład REST) mogą korzystać z tej usługi. 

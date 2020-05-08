@@ -15,6 +15,11 @@
       href: quick-create-portal.md
     - name: Python
       href: quick-create-python.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Samouczki
   items:
     - name: Importowanie certyfikatu

@@ -1,20 +1,20 @@
 ---
-title: Interfejs API do dołączania aplikacji platformy Azure w komercyjnej witrynie Marketplace
-description: Wymagania wstępne dotyczące interfejsu API dla aplikacji platformy Azure w komercyjnej witrynie Marketplace w centrum partnerskim firmy Microsoft.
+title: Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w portalu komercyjnym firmy Microsoft
+description: Zapoznaj się z wymaganiami wstępnymi dotyczącymi korzystania z interfejsu API przekazywania Centrum partnerskiego dla aplikacji platformy Azure w komercyjnej witrynie Marketplace w witrynie Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279763"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744899"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>Interfejs API do dołączania aplikacji platformy Azure w centrum partnerskim
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w centrum partnerskim
 
 Użyj *interfejsu API przesyłania Centrum partnerskiego* , aby programowo wykonywać zapytania, tworzyć zgłoszenia do i publikować oferty platformy Azure.  Ten interfejs API jest przydatny, jeśli Twoje konto zarządza wieloma ofertami i chcesz zautomatyzować i zoptymalizować proces tworzenia tych ofert.
 
@@ -70,3 +70,8 @@ Dla wartości *tenant_id* w parametrach `POST URI` i *client_id* i *client_secre
 Po uzyskaniu tokenu dostępu usługi Azure AD możesz wywoływać metody w interfejsie API przekazywania Centrum partnerskiego. W celu utworzenia lub zaktualizowania przesyłanych jest zwykle wiele metod w interfejsie API przesyłania Centrum partnerskiego w określonej kolejności. Aby uzyskać informacje o każdym scenariuszu i składni każdej z tych metod, zobacz temat Swagger API pozyskiwania.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Następne kroki
+
+* Dowiedz się, jak utworzyć [zasób techniczny dla maszyny wirtualnej platformy Azure](create-azure-container-technical-assets.md)
+* Naucz się Hoe do tworzenia [oferty kontenera platformy Azure](create-azure-container-offer.md)
