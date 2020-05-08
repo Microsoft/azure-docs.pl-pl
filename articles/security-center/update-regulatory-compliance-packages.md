@@ -13,70 +13,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fa5027ed285456247891c84e559b74a14237f553
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537784"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889961"
 ---
-# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Aktualizowanie dynamicznych pakietów zgodności na pulpicie nawigacyjnym zgodności z przepisami
+# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
 Azure Security Center ciągle porównuje konfigurację zasobów z wymaganiami dotyczącymi standardów branżowych, regulacji i testów porównawczych. **Pulpit nawigacyjny zgodności z przepisami** zapewnia wgląd w stan zgodności w zależności od tego, jak spełniasz określone wymagania kontroli zgodności.
 
-Jednym standardem, dla którego można śledzić stan zgodności, jest [usługa Azure CIS 1.1.0](https://www.cisecurity.org/benchmark/azure/) (bardziej formalnie — wersja testowa "CIS Microsoft Azure w wersji próbnej"). 
 
-Reprezentacja usługi Azure CIS, która początkowo pojawia się na pulpicie nawigacyjnym zgodności, bazuje na statycznym zestawie reguł, które są zawarte w Security Center.
+## <a name="overview-of-compliance-packages"></a>Przegląd pakietów zgodności
 
-Przy użyciu funkcji **dynamicznych pakietów zgodności** Security Center automatycznie ulepsza jej pokrycie standardów branżowych w miarę upływu czasu. Pakiety zgodności są zasadniczo inicjatywami zdefiniowanymi w Azure Policy. Mogą być przypisane do wybranego zakresu (subskrypcja, Grupa zarządzania itd.). Aby wyświetlić dane zgodności mapowane jako oceny na pulpicie nawigacyjnym, Dodaj pakiet zgodności do grupy zarządzania lub subskrypcji z poziomu zasad zabezpieczeń. Dodanie pakietu zgodności skutecznie przypisuje inicjatywę zgodności z przepisami do wybranego zakresu. W ten sposób można śledzić nowo opublikowane inicjatywy prawne jako standardy zgodności na pulpicie nawigacyjnym. Gdy firma Microsoft wystawia nową zawartość dla inicjatywy (nowe zasady, które mapują do większej liczby kontrolek w standardzie), dodatkowa zawartość zostanie automatycznie wyświetlona na pulpicie nawigacyjnym.
+Standardy branżowe, standardy prawne i testy porównawcze są reprezentowane w Security Center jako *pakiety zgodności*.  Każdy pakiet jest inicjatywą zdefiniowaną w Azure Policy. Aby wyświetlić dane zgodności mapowane jako oceny na pulpicie nawigacyjnym, Dodaj pakiet zgodności do grupy zarządzania lub subskrypcji z poziomu strony **zasady zabezpieczeń** . (Dowiedz się więcej na temat Azure Policy i inicjatyw w [pracy z zasadami zabezpieczeń](tutorial-security-policy.md)).
 
-Dynamiczny pakiet zgodności dla usługi Azure CIS dla testów porównawczych, **Azure CIS 1.1.0 (NOWOŚĆ)**, usprawnia w pierwotnej wersji *statycznej* przez:
+Po dodaniu standardowego lub testu porównawczego do wybranego zakresu Standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami ze wszystkimi skojarzonymi danymi zgodności mapowanymi jako oceny. Można również pobrać raporty podsumowujące dla dowolnych ze standardów, które zostały dołączone.
 
-* Uwzględnienie więcej zasad
-* Automatyczne aktualizowanie o nowe pokrycie po jego dodaniu 
+Firma Microsoft śledzi również same standardy prawne i automatycznie ulepsza jego pokrycie w niektórych pakietach z upływem czasu. Gdy firma Microsoft wystawia nową zawartość dla inicjatywy (nowe zasady, które mapują do większej liczby kontrolek w standardzie), dodatkowa zawartość zostanie automatycznie wyświetlona na pulpicie nawigacyjnym.
 
-Zaktualizuj do nowego pakietu dynamicznego zgodnie z poniższym opisem.
+> [!TIP]
+> Jednym standardem, który zwiększa się w miarę upływu czasu, ponieważ wersja firmy Microsoft jest nowością **usługi Azure CIS 1.1.0 (nowość** [Microsoft Azure](https://www.cisecurity.org/benchmark/azure/)) Musisz dodać to do pulpitu nawigacyjnego obok "Azure CIS 1.1.0", reprezentację usługi Azure CIS, która jest domyślnie konfigurowana w każdym środowisku Security Center. Ten pakiet opiera się na statycznym zestawie reguł. Nowszy pakiet zawiera więcej zasad i zostanie automatycznie zaktualizowany w miarę upływu czasu. Zaktualizuj do nowego pakietu dynamicznego zgodnie z poniższym opisem.
 
-## <a name="adding-a-dynamic-compliance-package"></a>Dodawanie pakietu zgodności dynamicznej
 
-Poniższe kroki wyjaśniają, jak dodać pakiet dynamiczny do monitorowania zgodności z usługą Azure CIS test porównawczy 1.1.0.   
+## <a name="available-packages"></a>Dostępne pakiety
 
-### <a name="update-to-the-azure-cis-110-new-dynamic-compliance-package"></a>Aktualizacja pakietu zgodności dynamicznej usługi Azure CIS 1.1.0 (nowy) 
+Możesz dodać standardy, takie jak NIST SP 800-53 R4, SWIFT CSP CSCF-V2020, Zjednoczone Królestwo brytyjskie i Zjednoczone Królestwo, NHS, Kanada Federal PBMM i Azure CIS 1.1.0 (NOWOŚĆ) — dokładniejszą reprezentację usługi Azure CIS 1.1.0. 
 
-1. Otwórz stronę **zasady zabezpieczeń** . Ta strona zawiera liczbę grup zarządzania, subskrypcji, obszarów roboczych i struktury grupy zarządzania.
+Ponadto możesz dodać **test wydajności Azure Security**, opracowane przez firmę Microsoft, wytyczne dotyczące zabezpieczeń i zgodności w oparciu o typowe struktury zgodności. ([Dowiedz się więcej o teście zabezpieczeń Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction)).
 
-1. Wybierz subskrypcję lub grupę zarządzania, dla której chcesz zarządzać stan zgodności z przepisami. Zalecamy wybranie najwyższego zakresu, dla którego stosuje się standard, aby dane zgodności były agregowane i śledzone dla wszystkich zasobów zagnieżdżonych. 
+Dodatkowe standardy będą obsługiwane na pulpicie nawigacyjnym, gdy staną się dostępne. 
 
-1. W sekcji dotyczącej branżowych & standardów prawnych zobaczysz, że usługi Azure CIS 1.1.0 można zaktualizować pod kątem nowej zawartości. Kliknij przycisk **Aktualizuj teraz**. 
 
-1. Opcjonalnie kliknij pozycję **Dodaj więcej standardów** , aby otworzyć stronę **Dodaj standardy zgodności z przepisami** . W tym miejscu możesz wyszukiwać ręcznie **usługi Azure CIS 1.1.0 (nowe)** i pakiety dynamiczne dla innych standardów zgodności, takich jak **NIST SP 800-53 R4**, **SWIFT CSP CSCF-V2020**, **uko i brytyjski NHS**i **Kanada PBMM**.
-    
+## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Dodawanie standardu regulowanego do pulpitu nawigacyjnego
+
+Poniższe kroki wyjaśniają, jak dodać pakiet do monitorowania zgodności z jednym z obsługiwanych standardów prawnych.
+
+> [!NOTE]
+> Tylko użytkownicy, którzy są właścicielami lub współautorem zasad, mają uprawnienia niezbędne do dodawania standardów zgodności. 
+
+1. Na pasku bocznym Security Center wybierz pozycję **zgodność z przepisami** , aby otworzyć pulpit nawigacyjny zgodności z przepisami. W tym miejscu możesz zobaczyć standardy zgodności aktualnie przypisane do aktualnie wybranych subskrypcji.   
+
+1. W górnej części strony wybierz pozycję **Zarządzaj zasadami zgodności**. Zostanie wyświetlona strona Zarządzanie zasadami.
+
+1. Wybierz subskrypcję lub grupę zarządzania, dla której chcesz zarządzać stan zgodności z przepisami. 
+
     > [!TIP]
-    > Tylko użytkownicy, którzy są właścicielami lub współautorem zasad, mają uprawnienia niezbędne do dodawania standardów zgodności. 
+    > Zalecamy wybranie najwyższego zakresu, dla którego stosuje się standard, aby dane zgodności były agregowane i śledzone dla wszystkich zasobów zagnieżdżonych. 
 
-    ![Dodawanie pakietów wykonawczych do pulpitu nawigacyjnego zgodności z przepisami Azure Security Center](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
+1. Aby dodać standardy odpowiednie dla organizacji, kliknij pozycję **Dodaj więcej standardów**. 
 
+1. Na stronie **Dodaj standardy zgodności z przepisami** można wyszukać pakiety dla dowolnych dostępnych standardów. Dostępne są następujące standardy:
 
-1. Na pasku bocznym Security Center wybierz pozycję **zgodność z przepisami** , aby otworzyć pulpit nawigacyjny zgodności z przepisami. 
-    * Usługa Azure CIS 1.1.0 (Nowa) jest teraz wyświetlana na liście standardów branżowych &. 
-    * Oryginalny widok *statyczny* zgodności usługi Azure CIS 1.1.0 również pozostanie obok niego. Może zostać automatycznie usunięta w przyszłości.
+    - **Test porównawczy zabezpieczeń platformy Azure**
+    - **NIST SP 800-53 R4**
+    - **SWIFT CSP CSCF-V2020**
+    - **UKO i Wielka Brytania NHS**
+    - **Kanada PBMM**
+    
+    ![Dodawanie pakietów wykonawczych do pulpitu nawigacyjnego zgodności z przepisami Azure Security Center](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Na pasku bocznym Security Center wybierz ponownie **zgodność z przepisami** , aby wrócić do pulpitu nawigacyjnego zgodności z przepisami.
+    * Twój nowy standard zostanie wyświetlony na liście branżowych & standardów prawnych. 
+    * Po dodaniu **usługi Azure CIS 1.1.0 (NOWOŚĆ)** oryginalny widok *statyczny* zgodności z usługą Azure CIS 1.1.0 również będzie nadal używany razem z nim. Może zostać automatycznie usunięta w przyszłości.
 
     > [!NOTE]
     > Dodanie nowego standardu do pulpitu nawigacyjnego zgodności może potrwać kilka godzin.
 
-
-    [![Pulpit nawigacyjny zgodności z przepisami zawierający stare i nowe usługi Azure CIS](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png)](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png#lightbox)
-
+    [![Pulpit nawigacyjny zgodności z przepisami zawierający stare i nowe usługi Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono następujące informacje:
-
-* Jak **uaktualnić standardy** widoczne na pulpicie nawigacyjnym zgodności z przepisami na nowe pakiety *dynamiczne*
-* Jak **dodać pakiety zgodności** w celu monitorowania zgodności z dodatkowymi standardami. 
+W tym artykule opisano sposób **dodawania pakietów zgodności** w celu monitorowania zgodności z dodatkowymi standardami. 
 
 Inne powiązane materiały można znaleźć w następujących artykułach: 
 
+- [Test porównawczy zabezpieczeń platformy Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction)
 - [Pulpit nawigacyjny zgodności z przepisami Centrum zabezpieczeń](security-center-compliance-dashboard.md)
 - [Praca z zasadami zabezpieczeń](tutorial-security-policy.md)
-- [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Azure Security Center](security-center-recommendations.md) — Dowiedz się, jak używać zaleceń w programie Azure Security Center, aby pomóc w ochronie zasobów platformy Azure.

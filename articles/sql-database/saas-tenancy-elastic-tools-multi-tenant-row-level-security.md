@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398338"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890945"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplikacje z wieloma dzierżawcami z narzędziami Elastic Database i zabezpieczeniami na poziomie wierszy
 
@@ -341,7 +341,7 @@ GO
 ### <a name="maintenance"></a>Konserwacja
 
 - **Dodawanie nowego fragmentów**: Wykonaj skrypt T-SQL, aby włączyć zabezpieczenia na poziomie wiersza na dowolnym nowym fragmentów, w przeciwnym razie zapytania dotyczące tych fragmentów nie są filtrowane.
-- **Dodawanie nowych tabel**: Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w temacie [stosuj zabezpieczenia na poziomie wiersza automatycznie do nowo utworzonych tabel (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Dodawanie nowych tabel**: Dodaj predykat Filter i Block do zasad zabezpieczeń na wszystkich fragmentów za każdym razem, gdy zostanie utworzona nowa tabela. W przeciwnym razie zapytania w nowej tabeli nie są filtrowane. To dodanie może być zautomatyzowane przy użyciu wyzwalacza DDL, zgodnie z opisem w temacie [stosuj zabezpieczenia na poziomie wiersza automatycznie do nowo utworzonych tabel (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Podsumowanie
 

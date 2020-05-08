@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280055"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891055"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -614,7 +614,7 @@ Widzisz, jak program Visual Studio ułatwia Wyświetlanie dzienników utworzonyc
 Aby uzyskać więcej informacji na temat rozwiązywania problemów z aplikacjami w Azure App Service, zobacz następujące zasoby:
 
 * [Jak monitorować aplikacje](web-sites-monitor.md)
-* [Badanie przecieków pamięci w Azure App Service z Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Wpis w blogu firmy Microsoft ALM na temat funkcji programu Visual Studio na potrzeby analizowania problemów z pamięcią zarządzaną.
+* [Badanie przecieków pamięci w Azure App Service z Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Wpis w blogu firmy Microsoft ALM na temat funkcji programu Visual Studio na potrzeby analizowania problemów z pamięcią zarządzaną.
 * [Azure App Service narzędzia online, których należy wiedzieć](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Wpis w blogu według Amit firmy Apple.
 
 Aby uzyskać pomoc dotyczącą określonego pytania dotyczącego rozwiązywania problemów, uruchom wątek na jednym z następujących forów:
@@ -678,7 +678,7 @@ Aby uzyskać więcej informacji na temat analizowania dzienników serwera sieci 
   Narzędzie do wyświetlania danych w dziennikach serwera sieci Web (pliki *. log* ).
 * [Rozwiązywanie problemów z wydajnością lub błędami aplikacji usługi IIS za pomocą LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Wprowadzenie do narzędzia Analizator dzienników, którego można użyć do analizowania dzienników serwera sieci Web.
-* [Wpisy w blogu przez Robert McMurraya na korzystanie z usługi LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Wpisy w blogu przez Robert McMurraya na korzystanie z usługi LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [Kod stanu HTTP w usługach IIS 7,0, IIS 7,5 i IIS 8,0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analizowanie dzienników śledzenia nieudanych żądań

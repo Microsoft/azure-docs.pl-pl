@@ -5,38 +5,43 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 02/07/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b9dfb2ee7e74f94bfc3e6d2c679cb7da3d6bc66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127402"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612507"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Rozwiązywania problemów — omówienie, opinie i obsługa techniczna
 
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Ten artykuł zawiera omówienie problemów, które mogą wystąpić podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows i zapewnia sposoby rozwiązania problemów.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="report-issues-during-public-preview"></a>Zgłoś problemy w trakcie publicznej wersji zapoznawczej
 
-Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
+Aby zgłosić problemy lub zasugerować funkcje w publicznej wersji zapoznawczej dla wersji 2020 ze sprężyną, odwiedź [społeczność Tech. systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Możesz użyć społeczności technicznej do omówienia najlepszych praktyk lub zasugerować i zagłosować nowe funkcje. W przypadku zgłaszania problemu związanego z publiczną wersją zapoznawczą upewnij się, że typ problemu jest oznaczony jako **Wiosenna aktualizacja 2020 (wersja zapoznawcza)**.
+
+Po wprowadzeniu monitu z prośbą o pomoc lub zaproponowania nowej funkcji upewnij się, że opiszesz swój temat w jak największej szczegółowości. Szczegółowe informacje mogą pomóc innym użytkownikom odpowiedzieć na pytanie lub poznać funkcję, której dotyczy głos.
 
 ## <a name="escalation-tracks"></a>Śledzenie eskalacji
 
-Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, które mogą wystąpić podczas konfigurowania środowiska dzierżawy przy użyciu Pulpit zdalny klienta. Po skonfigurowaniu dzierżawy możesz użyć naszej nowej [usługi diagnostycznej](diagnostics-role-service.md) , aby zidentyfikować problemy dla typowych scenariuszy.
+Przed wykonaniem jakichkolwiek innych czynności upewnij się, że Sprawdź [stronę stanu platformy Azure](https://status.azure.com/status) i [Azure Service Health](https://azure.microsoft.com/features/service-health/) , aby upewnić się, że usługa platformy Azure działa prawidłowo.
 
->[!NOTE]
-> Mamy forum społeczności Tech., które można odwiedzić, aby omówić Twoje problemy z zespołem produktu i aktywnymi członkami społeczności. Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby rozpocząć dyskusję.
+Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, które mogą wystąpić podczas konfigurowania środowiska dzierżawy przy użyciu Pulpit zdalny klienta. Po skonfigurowaniu dzierżawy możesz użyć naszej nowej [usługi diagnostycznej](diagnostics-role-service.md) , aby zidentyfikować problemy dla typowych scenariuszy.
 
 | **Problem**                                                            | **Sugerowane rozwiązanie**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Tworzenie dzierżawy pulpitu wirtualnego systemu Windows                                                    | Jeśli wystąpi awaria platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/). w przeciwnym razie [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), wybierz pozycję **pulpit wirtualny systemu Windows** dla usługi, wybierz pozycję **wdrożenie** dla typu problemu, a następnie wybierz pozycję **problemy z tworzeniem dzierżawy pulpitu wirtualnego systemu Windows** dla tego typu problemu.|
-| Uzyskiwanie dostępu do szablonów witryny Marketplace w Azure Portal       | Jeśli wystąpi awaria platformy Azure, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Szablony pulpitów wirtualnych systemu Windows w portalu Azure Marketplace są dostępne bezpłatnie.|
-| Uzyskiwanie dostępu do szablonów Azure Resource Manager z usługi GitHub                                  | Zapoznaj się z sekcją [Tworzenie maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows](troubleshoot-set-up-issues.md#creating-windows-virtual-desktop-session-host-vms) dla [dzierżawy i puli hostów](troubleshoot-set-up-issues.md). Jeśli problem nadal występuje, skontaktuj się z [zespołem pomocy technicznej usługi GitHub](https://github.com/contact). <br> <br> Jeśli błąd wystąpi po uzyskaniu dostępu do szablonu w usłudze GitHub, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/create-ticket/).|
+| Uzyskiwanie dostępu do szablonów witryny Marketplace w Azure Portal       | Szablony pulpitów wirtualnych systemu Windows w portalu Azure Marketplace są dostępne bezpłatnie.|
 | Ustawienia puli hostów sesji Azure Virtual Network (VNET) i usługi Express Route               | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), a następnie wybierz odpowiednią usługę (w obszarze Kategoria sieci). |
-| Tworzenie maszyny wirtualnej puli hostów sesji, gdy Azure Resource Manager szablony udostępniane z pulpitem wirtualnym systemu Windows nie są używane | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), a następnie wybierz **maszynę wirtualną z systemem Windows** dla usługi. <br> <br> Problemy z szablonami Azure Resource Manager dostarczanymi z pulpitem wirtualnym systemu Windows można znaleźć w sekcji Tworzenie dzierżawy pulpitu wirtualnego systemu Windows w ramach [tworzenia dzierżawy i puli hostów](troubleshoot-set-up-issues.md). |
+| Tworzenie maszyny wirtualnej puli hostów sesji, gdy Azure Resource Manager szablony udostępniane z pulpitem wirtualnym systemu Windows nie są używane | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), a następnie wybierz **maszynę wirtualną z systemem Windows** dla usługi. <br> <br> W przypadku problemów z szablonami Azure Resource Manager, które są dostarczane z pulpitem wirtualnym systemu Windows, zobacz temat Tworzenie dzierżawy pulpitu wirtualnego systemu Windows w temacie Tworzenie [środowiska i puli hostów](troubleshoot-set-up-issues.md). |
 | Zarządzanie środowiskiem hosta sesji usług pulpitu wirtualnego systemu Windows z Azure Portal    | [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> W przypadku problemów z zarządzaniem przy użyciu programu PowerShell Usługi pulpitu zdalnego/Windows Virtual Desktop, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) lub [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), wybierz pozycję **pulpit wirtualny systemu Windows** dla usługi, wybierz pozycję **Konfiguracja i zarządzanie** dla typu problemu, a następnie wybierz pozycję **problemy Konfigurowanie dzierżawcy przy użyciu programu PowerShell** dla typu problemu. |
 | Zarządzanie konfiguracją pulpitu wirtualnego systemu Windows powiązane z pulami hostów i grupami aplikacji (grupami aplikacji)      | Zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)lub [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), wybierz pozycję **pulpit wirtualny systemu Windows** dla usługi, a następnie wybierz odpowiedni typ problemu.|
 | Wdrażanie kontenerów profilów FSLogix i zarządzanie nimi | Zobacz [Przewodnik rozwiązywania problemów dotyczących produktów FSLogix](/fslogix/fslogix-trouble-shooting-ht/) i jeśli nie rozwiąże to problemu, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/), wybierz pozycję **pulpit wirtualny systemu Windows** dla usługi, wybierz pozycję **FSLogix** dla typu problemu, a następnie wybierz odpowiedni podtyp problemu. |
@@ -46,11 +51,12 @@ Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, któ
 | Łączenie klientów                                                                    | Zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md) , a jeśli to nie rozwiąże problemu, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md). |
 | Czas odpowiedzi aplikacji zdalnych lub pulpitu                                      | Jeśli problemy są powiązane z konkretną aplikacją lub produktem, skontaktuj się z zespołem odpowiedzialnym za ten produkt. |
 | Komunikaty lub błędy licencjonowania                                                          | Jeśli problemy są powiązane z konkretną aplikacją lub produktem, skontaktuj się z zespołem odpowiedzialnym za ten produkt. |
-| Problemy związane z korzystaniem z narzędzi pulpitu wirtualnego systemu Windows w witrynie GitHub (Azure Resource Manager szablonów, narzędzi diagnostycznych, narzędziu do zarządzania) | Aby zgłosić problemy, zobacz [usługi pulpitu zdalnego szablony Azure Resource Manager](https://github.com/Azure/RDS-Templates/blob/master/README.md) . |
+| Problemy z metodami uwierzytelniania innych firm | Sprawdź, czy dostawca innej firmy obsługuje scenariusze pulpitów wirtualnych systemu Windows i podejścia do nich w odniesieniu do znanych problemów. |
+| Problemy z używaniem Log Analytics dla pulpitu wirtualnego systemu Windows | Aby uzyskać problemy ze schematem diagnostyki, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>W przypadku zapytań, wizualizacji lub innych problemów w Log Analytics wybierz odpowiedni typ problemu w obszarze Log Analytics. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozwiązać problemy podczas tworzenia dzierżawy i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie dzierżawy i puli hostów](troubleshoot-set-up-issues.md).
+- Aby rozwiązać problemy podczas tworzenia puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
 - Aby rozwiązać problemy z połączeniami klienta pulpitu wirtualnego systemu Windows, zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md).
 - Aby rozwiązać problemy z Pulpit zdalny klientami, zobacz [Rozwiązywanie problemów z klientem pulpit zdalny](troubleshoot-client.md)

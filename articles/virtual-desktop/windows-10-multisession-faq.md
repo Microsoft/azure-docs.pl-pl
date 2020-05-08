@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637101"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611997"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
@@ -104,4 +104,4 @@ Aby dowiedzieć się więcej o wielu sesjach systemu Windows Virtual Desktop i W
 
 - Przeczytaj [dokumentację dotyczącą systemu Windows Virtual Desktop w wersji zapoznawczej](overview.md)
 - Odwiedź naszą [TechCommunity pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Konfigurowanie wdrożenia pulpitu wirtualnego systemu Windows przy użyciu [samouczków pulpitu wirtualnego systemu Windows](tenant-setup-azure-active-directory.md)
+- Konfigurowanie wdrożenia pulpitu wirtualnego systemu Windows przy użyciu [samouczków pulpitu wirtualnego systemu Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

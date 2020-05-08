@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528213"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891170"
 ---
 # <a name="in-memory-sample"></a>Przykład w pamięci
 
@@ -182,7 +182,7 @@ Na maszynie wirtualnej lub na dowolnym z wybranych hostów Zainstaluj narzędzia
 Aby uzyskać więcej informacji, zobacz:
 - Dyskusja ostress. exe w [przykładowej bazie danych dla przetwarzania OLTP w pamięci](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Przykładowa baza danych dla przetwarzania OLTP w pamięci](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Blog dotyczący instalowania programu ostress. exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- [Blog dotyczący instalowania programu ostress. exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 

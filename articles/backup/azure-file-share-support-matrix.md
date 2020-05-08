@@ -2,13 +2,13 @@
 title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
-ms.date: 1/26/2020
-ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 5/07/2020
+ms.openlocfilehash: 4da17bb591e94a0eaf26f95210a3e841ad17973b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838573"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890718"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -24,7 +24,7 @@ Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następuj
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
-| Szczegóły konta magazynu | Obsługa                                                      |
+| Szczegóły konta magazynu | Pomoc techniczna                                                      |
 | ------------------------ | ------------------------------------------------------------ |
 | Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, w wersji 2 i w przypadku typów magazynu plików |
 | Wydajność              | Azure Backup obsługuje udziały plików zarówno na kontach standardowych, jak i Premium Storage |
@@ -32,7 +32,7 @@ Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następuj
 
 ## <a name="supported-file-shares"></a>Obsługiwane udziały plików
 
-| Typ udziału plików                                   | Obsługa   |
+| Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
 | Standardowa                                           | Obsługiwane |
 | Large                                              | Obsługiwane |

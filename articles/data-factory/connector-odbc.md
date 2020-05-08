@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: da5c53f8953960c382070be658add2877fff3f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71b05d8607c174dbe9298a1c02f4927ed2218374
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416894"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891417"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiowanie danych z i do magazynów danych ODBC przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -35,7 +35,7 @@ Ten łącznik ODBC jest obsługiwany dla następujących działań:
 
 Możesz skopiować dane ze źródła ODBC do dowolnego obsługiwanego magazynu danych ujścia lub skopiować z dowolnego obsługiwanego źródłowego magazynu danych do ujścia ODBC. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Ten łącznik ODBC obsługuje kopiowanie danych z/do **wszelkich magazynów danych zgodnych z ODBC** przy użyciu uwierzytelniania **podstawowego** lub **anonimowego** . Wymagany jest **64-bitowy sterownik ODBC** .
+Ten łącznik ODBC obsługuje kopiowanie danych z/do **wszelkich magazynów danych zgodnych z ODBC** przy użyciu uwierzytelniania **podstawowego** lub **anonimowego** . Wymagany jest **64-bitowy sterownik ODBC** . W przypadku ujścia ODBC moduł ADF obsługuje standard ODBC w wersji 2,0.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -236,48 +236,9 @@ Aby skopiować dane do magazynu danych zgodnego ze standardem ODBC, ustaw typ uj
 ]
 ```
 
-## <a name="sap-hana-sink"></a>SAP HANA ujścia
-
->[!NOTE]
->Aby skopiować dane z SAP HANA magazynu danych, zapoznaj się z łącznikiem macierzystym [SAP HANA](connector-sap-hana.md). Aby skopiować dane do SAP HANA, wykonaj następującą instrukcję, aby użyć łącznika ODBC. Zwróć uwagę, że połączone usługi dla łącznika SAP HANA i łącznika ODBC są z różnymi rodzajami, więc nie mogą być ponownie używane.
->
-
-Dane można kopiować do SAP HANA bazy danych przy użyciu uniwersalnego łącznika ODBC.
-
-Skonfiguruj własne Integration Runtime na komputerze z dostępem do magazynu danych. Aby nawiązać połączenie z magazynem danych, Integration Runtime używa sterownika ODBC dla SAP HANA. W związku z tym Zainstaluj sterownik, jeśli nie został jeszcze zainstalowany na tym samym komputerze. Szczegółowe informacje znajdują się w sekcji [wymagania wstępne](#prerequisites) .
-
-Przed użyciem ujścia SAP HANA w rozwiązaniu Data Factory Sprawdź, czy Integration Runtime może nawiązać połączenie z magazynem danych, korzystając z instrukcji w sekcji [Rozwiązywanie problemów z łącznością](#troubleshoot-connectivity-issues) .
-
-Utwórz połączoną usługę ODBC, aby połączyć SAP HANA magazyn danych z usługą Azure Data Factory, jak pokazano w następującym przykładzie:
-
-```json
-{
-    "name": "SAPHANAViaODBCLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Zapoznaj się z artykułem od początku, aby zapoznać się z szczegółowym omówieniem używania magazynów danych ODBC jako magazynów danych źródłowych/ujścia w operacji kopiowania.
-
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 
 Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (wyszukiwanie](control-flow-lookup-activity.md)).
-
 
 ## <a name="troubleshoot-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 

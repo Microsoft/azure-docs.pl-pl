@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 0a8864555798d3b64d675c70728ab97d191be81f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729135"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891390"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Zmień transformację wierszy w mapowaniu przepływu danych
 
@@ -24,6 +24,8 @@ Użyj przekształcenia ALTER Row, aby ustawić zasady wstawiania, usuwania, aktu
 ![Zmień ustawienia wiersza](media/data-flow/alter-row1.png "Zmień ustawienia wiersza")
 
 Przekształcenia ALTER Row będą działać tylko dla bazy danych lub ujścia CosmosDB w przepływie danych. Akcje przypisane do wierszy (INSERT, Update, DELETE, upsert) nie będą występować podczas sesji debugowania. Uruchamianie działania wykonywania przepływu danych w potoku w celu przeprowadzenia zasad ALTER Row w tabelach bazy danych.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## <a name="specify-a-default-row-policy"></a>Określanie domyślnych zasad wiersza
 
@@ -54,6 +56,18 @@ Domyślne zachowanie zezwala tylko na operacje wstawiania. Aby zezwolić na aktu
 > Jeśli Wstaw, aktualizacje lub upserts modyfikują schemat tabeli docelowej w ujścia, przepływ danych zakończy się niepowodzeniem. Aby zmodyfikować schemat docelowy w bazie danych, wybierz polecenie **Utwórz ponownie tabelę** jako akcję tabeli. Spowoduje to usunięcie i ponowne utworzenie tabeli przy użyciu nowej definicji schematu.
 
 Transformacja ujścia wymaga jednego klucza lub szeregu kluczy dla unikatowej identyfikacji wiersza w docelowej bazie danych. W przypadku ujścia SQL Ustaw klucze na karcie Ustawienia ujścia. W przypadku CosmosDB należy ustawić klucz partycji w ustawieniach, a także ustawić pole systemowe CosmosDB w mapowaniu ujścia. W przypadku CosmosDB wymagane jest uwzględnienie kolumny systemowej "ID" dla aktualizacji, upserts i usunięć.
+
+## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Scalanie i upserts z Azure SQL Database i Synapse
+
+Przepływy danych ADF obsługują scalanie względem puli baz danych Azure SQL Database i Synapse (hurtowni danych) z opcją upsert.
+
+Można jednak uruchamiać scenariusze, w których docelowy schemat bazy danych wykorzystuje właściwość Identity kolumn klucza. ADF wymaga zidentyfikowania kluczy, które będą używane w celu dopasowania do wartości wierszy dla aktualizacji i upserts. Ale jeśli kolumna Target ma ustawioną właściwość Identity i używasz zasad Upsert, docelowa baza danych nie umożliwi zapisu w kolumnie.
+
+Dostępne są dwie opcje:
+
+1. Użyj opcji SQL przed przetwarzaniem transformacji ujścia: ```SET IDENTITY_INSERT tbl_content ON```. Następnie wyłącz go przy użyciu właściwości SQL po przetworzeniu: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+2. Zamiast używać Upsert, przełącz logikę, aby oddzielić warunki aktualizacji z warunków wstawiania przy użyciu transformacji podziału warunkowego. W ten sposób można ustawić mapowanie dla ścieżki aktualizacji, aby zignorować mapowanie kolumny klucza.
 
 ## <a name="data-flow-script"></a>Skrypt przepływu danych
 

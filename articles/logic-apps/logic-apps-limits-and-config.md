@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/17/2020
-ms.openlocfilehash: c650cfcbfeddaa83d8bf3127024ac77b93456a57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 807949d7ed0c68edd44fba95109f118e97c59b5a
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683144"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901245"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -37,7 +37,6 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 | Długość`description` | 256 znaków | |
 | Długość`parameters` | 50 | |
 | Długość`outputs` | 10 | |
-||||
 
 <a name="run-duration-retention-limits"></a>
 
@@ -154,8 +153,8 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
-| Rozmiar komunikatu | 100 MB | 200 MB | Łączniki ISE z oznaczeniem używają limitu ISE, a nie limitów łączników innych niż ISE. <p><p>Aby obejść ten limit, zobacz [Obsługa dużych komunikatów przy użyciu fragmentów](../logic-apps/logic-apps-handle-large-messages.md). Jednak niektóre łączniki i interfejsy API mogą nie obsługiwać fragmentacji lub nawet domyślnego limitu. |
-| Rozmiar komunikatu z fragmentem | 1 GB | 5 GB | Ten limit ma zastosowanie do akcji, które w sposób natywny obsługują fragmenty lub umożliwiają włączenie fragmentu w konfiguracji środowiska uruchomieniowego. <p><p>W przypadku środowiska usługi integracji aparat Logic Apps obsługuje ten limit, ale łączniki mają własne ograniczenia dotyczące limitu aparatu, na przykład informacje o [interfejsie API łącznika usługi Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Aby uzyskać więcej informacji o fragmentacji, zobacz [Obsługa dużych komunikatów przy użyciu fragmentów](../logic-apps/logic-apps-handle-large-messages.md). |
+| Rozmiar komunikatu | 100 MB | 200 MB | Aby obejść ten limit, zobacz [Obsługa dużych komunikatów przy użyciu fragmentów](../logic-apps/logic-apps-handle-large-messages.md). Jednak niektóre łączniki i interfejsy API mogą nie obsługiwać fragmentacji lub nawet domyślnego limitu. <p><p>Łączniki takie jak AS2, X12 i EDIFACT mają własne [limity komunikatów B2B](#b2b-protocol-limits). <br>Łączniki ISE używają limitu ISE, a nie limitów łączników innych niż ISE. |
+| Rozmiar komunikatu z fragmentem | 1 GB | 5 GB | Ten limit ma zastosowanie do akcji, które w sposób natywny obsługują fragmenty lub umożliwiają włączenie fragmentu w konfiguracji środowiska uruchomieniowego. <p><p>Jeśli używasz ISE, aparat Logic Apps obsługuje ten limit, ale łączniki mają swoje własne ograniczenia dotyczące limitu aparatu, na przykład zobacz [Informacje o interfejsie API łącznika usługi Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/). Aby uzyskać więcej informacji o fragmentacji, zobacz [Obsługa dużych komunikatów przy użyciu fragmentów](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||
 
 #### <a name="character-limits"></a>Limity znaków
@@ -175,6 +174,18 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 | Liczba ponownych prób | 90 | Wartość domyślna to 4. Aby zmienić wartość domyślną, użyj [parametru zasady ponawiania](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Maksymalna opóźnienie ponowienia próby | 1 dzień | Aby zmienić wartość domyślną, użyj [parametru zasady ponawiania](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Minimalne opóźnienie ponowienia próby | 5 sekund | Aby zmienić wartość domyślną, użyj [parametru zasady ponawiania](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+||||
+
+<a name="authentication-limits"></a>
+
+### <a name="authentication-limits"></a>Limity uwierzytelniania
+
+Poniżej przedstawiono limity dla aplikacji logiki, która rozpoczyna się od wyzwalacza żądania i umożliwia [Azure Active Directory otwierania uwierzytelniania](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) do autoryzacji wywołań przychodzących do wyzwalacza żądania:
+
+| Nazwa | Limit | Uwagi |
+| ---- | ----- | ----- |
+| Zasady autoryzacji usługi Azure AD | 5 | |
+| Oświadczenia według zasad autoryzacji | 10 | |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -233,7 +244,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 |----------|------|-------|----------|
 | Umowy handlowe EDI | 10 | 1 | 1000 |
 | Partnerzy handlowi EDI | 25 | 2 | 1000 |
-| Maps | 25 | 500 | 1000 |
+| Mapy | 25 | 500 | 1000 |
 | Schematy | 25 | 500 | 1000 |
 | Zestawy | 10 | 25 | 1000 |
 | Certyfikaty | 25 | 2 | 1000 |
@@ -350,7 +361,7 @@ Ta sekcja zawiera listę adresów IP ruchu przychodzącego tylko dla usługi Azu
 | Południowe Zjednoczone Królestwo | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Zachodnie Zjednoczone Królestwo | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Zachodnio-środkowe stany USA | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
-| Europa Zachodnia | 13.95.155.53, 52.174.54.218, 52.174.49.6, 52.174.49.6 |
+| Europa Zachodnia | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
 | Indie Zachodnie | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | Zachodnie stany USA | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | Zachodnie stany USA 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |

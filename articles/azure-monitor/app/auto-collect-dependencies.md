@@ -2,16 +2,15 @@
 title: Funkcja autokolekcje Application Insights platformy Azure | Microsoft Docs
 description: Application Insights automatycznie zbierać i wizualizować zależności
 ms.topic: reference
-author: nikmd23
-ms.author: nimolnar
-ms.date: 04/29/2019
-ms.reviewer: mbullwin
-ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/06/2020
+ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665820"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891609"
 ---
 # <a name="dependency-auto-collection"></a>Automatyczne zbieranie zależności
 
@@ -28,10 +27,15 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 | <b>Biblioteki komunikacji</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5 +, .NET Core 1.1 + |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0 +, NuGet 4.3.0 |
+| [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 — Najnowsza stabilna wersja. (Zobacz uwagi poniżej).
 | [Zestaw SDK klienta EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [Zestaw SDK klienta ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Klienci magazynu</b>|  |
 | ADO.NET | 4.5 + |
+
+> [!NOTE]
+> Istnieje [znany problem](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) ze starszymi wersjami programu Microsoft. Data. SqlClient. Zalecamy użycie usługi 1.1.0 lub nowszej w celu ograniczenia tego problemu. Entity Framework Core nie musi być dostarczany z najnowszą stabilną wersją firmy Microsoft. Data. SqlClient, dlatego zalecamy potwierdzenie, że masz co najmniej 1.1.0, aby uniknąć tego problemu.   
+
 
 ## <a name="java"></a>Java
 | Serwery aplikacji | Wersje |
@@ -80,7 +84,7 @@ Poniżej znajduje się obecnie obsługiwana Lista wywołań zależności, które
 
 | Biblioteki komunikacji | Wersje |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszystkie |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Wszyscy |
 
 ## <a name="next-steps"></a>Następne kroki
 

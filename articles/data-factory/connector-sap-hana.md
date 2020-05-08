@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/22/2020
+ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417241"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890616"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z SAP HANA przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -46,7 +46,7 @@ W SAP HANA ten łącznik obsługuje:
 - Równoległe kopiowanie ze źródła SAP HANA. Aby uzyskać szczegółowe informacje, zobacz sekcję [Kopiowanie równoległe z SAP HANA](#parallel-copy-from-sap-hana) .
 
 > [!TIP]
-> Aby skopiować dane **do** SAP HANA magazynu danych, użyj ogólnego łącznika ODBC. Aby uzyskać szczegółowe informacje, zobacz [SAP HANA sink](connector-odbc.md#sap-hana-sink) . Zwróć uwagę, że połączone usługi dla łącznika SAP HANA i łącznika ODBC są z różnymi rodzajami, więc nie mogą być ponownie używane.
+> Aby skopiować dane **do** SAP HANA magazynu danych, użyj ogólnego łącznika ODBC. Aby uzyskać szczegółowe informacje, zobacz sekcję [SAP HANA sink](#sap-hana-sink) . Zwróć uwagę, że połączone usługi dla łącznika SAP HANA i łącznika ODBC są z różnymi rodzajami, więc nie mogą być ponownie używane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -189,8 +189,8 @@ Aby skopiować dane z SAP HANA, w sekcji **Źródło** działania kopiowania są
 |:--- |:--- |:--- |
 | type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapHanaSource** | Tak |
 | query | Określa zapytanie SQL do odczytu danych z wystąpienia SAP HANA. | Tak |
-| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none** (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable`mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie `None`jest), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Fałsz |
-| partitionSettings | Określ grupę ustawień partycjonowania danych.<br>Zastosuj, gdy opcja partycji `SapHanaDynamicRange`jest. | Fałsz |
+| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none** (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable`mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie `None`jest), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | False |
+| partitionSettings | Określ grupę ustawień partycjonowania danych.<br>Zastosuj, gdy opcja partycji `SapHanaDynamicRange`jest. | False |
 | partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `SapHanaDynamicRange`. Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfHanaDynamicRangePartitionCondition` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z SAP HANA](#parallel-copy-from-sap-hana) . | Tak, gdy `SapHanaDynamicRange` jest używana partycja. |
 | packetSize | Określa rozmiar pakietu sieciowego (w kilobajtach), aby podzielić dane na wiele bloków. Jeśli masz dużą ilość danych do skopiowania, zwiększenie rozmiaru pakietu może zwiększyć szybkość odczytywania SAP HANA w większości przypadków. Podczas dopasowywania rozmiaru pakietu zaleca się testowanie wydajności. | Nie.<br>Wartość domyślna to 2048 (2 MB). |
 
@@ -298,6 +298,34 @@ Podczas kopiowania danych z SAP HANA następujące mapowania są używane z SAP 
 | VARCHAR            | String                         |
 | ZNACZNIK czasu          | DateTime                       |
 | LICZBY          | Byte []                         |
+
+### <a name="sap-hana-sink"></a>SAP HANA ujścia
+
+Obecnie łącznik SAP HANA nie jest obsługiwany jako obiekt ujścia, podczas gdy można używać uniwersalnego łącznika ODBC z sterownikiem SAP HANA do zapisywania danych w SAP HANA. 
+
+Postępuj zgodnie z [wymaganiami wstępnymi](#prerequisites) , aby skonfigurować samoobsługowe Integration Runtime i zainstalować najpierw SAP HANA sterownik ODBC. Utwórz połączoną usługę ODBC, aby nawiązać połączenie z magazynem danych SAP HANA, jak pokazano w poniższym przykładzie, a następnie Utwórz zestaw danych i ujścia działania kopiowania z typem ODBC. Dowiedz się więcej z artykułu [łącznika ODBC](connector-odbc.md) .
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

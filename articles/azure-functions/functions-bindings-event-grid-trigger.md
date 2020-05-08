@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277728"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891276"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Wyzwalacz Azure Event Grid dla Azure Functions
 
@@ -303,7 +303,7 @@ Adnotacja [EventGridTrigger](https://github.com/Azure/azure-functions-java-libra
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* . Brak parametrów lub właściwości konstruktora do ustawienia w `EventGridTrigger` atrybucie.
 
@@ -570,4 +570,4 @@ Funkcja wyzwalacza Event Grid wykonuje i pokazuje dzienniki podobne do poniższe
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wysyłanie zdarzenia Event Grid](./functions-bindings-event-grid-trigger.md)
+* [Wysyłanie zdarzenia Event Grid](./functions-bindings-event-grid-output.md)

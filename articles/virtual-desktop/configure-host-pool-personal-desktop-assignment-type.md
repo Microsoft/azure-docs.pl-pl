@@ -5,22 +5,32 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 41b24a94d36b21fe5d5f539e056abb535bda433a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8451dc14a7ed42aa92f9adbd5ad050936949e302
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128291"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612422"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Można skonfigurować typ przypisania puli hostów osobistych, aby dostosować środowisko pulpitu wirtualnego systemu Windows w celu lepszego dopasowania do Twoich potrzeb. W tym temacie pokazano, jak skonfigurować automatyczne lub bezpośrednie przypisanie dla użytkowników.
 
 >[!NOTE]
 > Instrukcje zawarte w tym artykule dotyczą tylko pul hostów osobistych, a nie pul hostów w puli, ponieważ użytkownicy w puli hostów z pulą nie są przypisani do określonych hostów sesji.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+W tym artykule przyjęto założenie, że został już pobrany i zainstalowany moduł PowerShell pulpitu wirtualnego systemu Windows. Jeśli nie, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie modułu programu PowerShell](powershell-module.md).
 
 ## <a name="configure-automatic-assignment"></a>Konfigurowanie automatycznego przypisywania
 
@@ -28,27 +38,16 @@ Automatyczne przypisywanie jest domyślnym typem przypisania dla nowych pul host
 
 Aby automatycznie przypisywać użytkowników, należy najpierw przypisać je do puli hostów osobistych, aby mogli zobaczyć pulpit w ich kanale informacyjnym. Gdy przypisany użytkownik uruchamia pulpit w ich kanale informacyjnym, będzie przejąć dostępnego hosta sesji, jeśli nie został jeszcze połączony z pulą hostów, co kończy proces przypisywania.
 
-Przed rozpoczęciem [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , jeśli jeszcze tego nie zrobiono. 
-
-> [!NOTE]
-> Upewnij się, że zainstalowano moduł PowerShell programu Windows Virtual Desktop w wersji 1.0.1534.2001 lub nowszej przed wykonaniem tych instrukcji.
-
-Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 Aby skonfigurować pulę hostów do automatycznego przypisywania użytkowników do maszyn wirtualnych, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Automatic
 ```
 
 Aby przypisać użytkownika do puli hostów osobistych, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 ## <a name="configure-direct-assignment"></a>Skonfiguruj przypisanie bezpośrednie
@@ -58,19 +57,19 @@ W przeciwieństwie do automatycznego przypisywania, w przypadku używania przypi
 Aby skonfigurować pulę hostów do żądania bezpośredniego przypisywania użytkowników do hostów sesji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Direct
 ```
 
 Aby przypisać użytkownika do puli hostów osobistych, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Aby przypisać użytkownika do określonego hosta sesji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
+Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
 ## <a name="next-steps"></a>Następne kroki
@@ -79,3 +78,6 @@ Teraz, po skonfigurowaniu typu przypisania pulpitu osobistego, można zalogować
 
 - [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-and-10.md)
 - [Łączenie się z klientem internetowym](connect-web.md)
+- [Łączenie się z klientem systemu Android](connect-android.md)
+- [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)
+- [Nawiązywanie połączenia z klientem systemu macOS](connect-macos.md)
