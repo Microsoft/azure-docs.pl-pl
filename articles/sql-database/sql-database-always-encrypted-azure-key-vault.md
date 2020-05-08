@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451673"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888976"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Ochrona danych poufnych i przechowywanie kluczy szyfrowania w programie Azure Key Vault
 
@@ -57,7 +57,7 @@ Teraz, gdy aplikacja kliencka jest skonfigurowana i masz identyfikator aplikacji
 
 Możesz szybko utworzyć magazyn kluczy, uruchamiając Poniższy skrypt. Aby uzyskać szczegółowy opis tych poleceń i więcej informacji na temat tworzenia i konfigurowania magazynu kluczy, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md).
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > Moduł programu PowerShell Azure Resource Manager (RM) jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. Moduł AzureRM będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020.  Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Aby uzyskać więcej informacji o zgodności, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](/powershell/azure/new-azureps-module-az).
@@ -621,4 +621,4 @@ Po utworzeniu bazy danych korzystającej z Always Encrypted można wykonać nast
 - [Przezroczyste szyfrowanie danych](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Szyfrowanie SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Kreator Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog Always Encrypted](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Blog Always Encrypted](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

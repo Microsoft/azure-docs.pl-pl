@@ -8,22 +8,26 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 24a295d220cfaa7efe2fdc0d4eee53bb5c409708
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 961fadfff0147d8c5258fa5acf31d8b0649ea12a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128088"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612898"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników usługi Windows Virtual Desktop
 
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Możesz dostosować źródło danych, tak aby zasoby usługi RemoteApp i pulpitu zdalnego pojawiały się w rozpoznawanym sposobie dla użytkowników.
 
-Najpierw [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
+## <a name="prerequisites"></a>Wymagania wstępne
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+W tym artykule przyjęto założenie, że został już pobrany i zainstalowany moduł PowerShell pulpitu wirtualnego systemu Windows. Jeśli nie, postępuj zgodnie z instrukcjami podanymi w temacie [Konfigurowanie modułu programu PowerShell](powershell-module.md).
 
 ## <a name="customize-the-display-name-for-a-remoteapp"></a>Dostosowywanie nazwy wyświetlanej dla usługi RemoteApp
 
@@ -32,16 +36,55 @@ Można zmienić nazwę wyświetlaną opublikowanych programów RemoteApp, ustawi
 Aby pobrać listę opublikowanych programów RemoteApp dla grupy aplikacji, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
 ```
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](media/get-rdsremoteapp.png)
 
-Aby przypisać przyjazną nazwę do usługi RemoteApp, uruchom następujące polecenie cmdlet programu PowerShell:
+Aby przypisać przyjazną nazwę do usługi RemoteApp, uruchom następujące polecenie cmdlet z wymaganymi parametrami:
 
 ```powershell
-Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
+Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Zrzut ekranu poleceń cmdlet programu PowerShell Set-RDSRemoteApp o nazwie i nowej FriendlyName wyróżniony.](media/set-rdsremoteapp.png)
+
+Załóżmy na przykład, że pobrano bieżące aplikacje za pomocą następującego przykładowego polecenia cmdlet:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list
+```
+
+Dane wyjściowe będą wyglądać następująco:
+
+```powershell
+CommandLineArgument : 
+CommandLineSetting  : DoNotAllow 
+Description         : 
+FilePath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+FriendlyName        : Microsoft Word 
+IconContent         : {0, 0, 1, 0…} 
+IconHash            : --iom0PS6XLu-EMMlHWVW3F7LLsNt63Zz2K10RE0_64 
+IconIndex           : 0 
+IconPath            : C:\Program Files\Windows NT\Accessories\wordpad.exe 
+Id                  : /subscriptions/<subid>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/applications/Microsoft Word 
+Name                : 0301RAG/Microsoft Word 
+ShowInPortal        : False 
+Type                : Microsoft.DesktopVirtualization/applicationgroups/applications 
+```
+Aby zaktualizować przyjazną nazwę, uruchom następujące polecenie cmdlet:
+
+```powershell
+Update-AzWvdApplication -GroupName 0301RAG -Name "Microsoft Word" -FriendlyName "WordUpdate" -ResourceGroupName 0301RG -IconIndex 0 -IconPath "C:\Program Files\Windows NT\Accessories\wordpad.exe" -ShowInPortal:$true -CommandLineSetting DoNotallow -FilePath "C:\Program Files\Windows NT\Accessories\wordpad.exe" 
+```
+
+Aby upewnić się, że pomyślnie Zaktualizowano przyjazną nazwę, Uruchom to polecenie cmdlet:
+
+```powershell
+Get-AzWvdApplication -ResourceGroupName 0301RG -ApplicationGroupName 0301RAG | format-list FriendlyName 
+```
+
+Polecenie cmdlet powinno dać następujące dane wyjściowe:
+
+```powershell
+FriendlyName        : WordUpdate
+```
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Dostosuj nazwę wyświetlaną dla Pulpit zdalny
 
@@ -50,20 +93,39 @@ Można zmienić nazwę wyświetlaną opublikowanego pulpitu zdalnego, ustawiają
 Aby pobrać zasób pulpitu zdalnego, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname>
 ```
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](media/get-rdsremotedesktop.png)
 
 Aby przypisać przyjazną nazwę do zasobu pulpitu zdalnego, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
+Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
 ```
-![Zrzut ekranu poleceń cmdlet programu PowerShell Set-RDSRemoteApp o nazwie i nowej FriendlyName wyróżniony.](media/set-rdsremotedesktop.png)
+
+## <a name="customize-a-display-name-in-azure-portal"></a>Dostosuj nazwę wyświetlaną w Azure Portal
+
+Można zmienić nazwę wyświetlaną opublikowanego pulpitu zdalnego, ustawiając przyjazną nazwę przy użyciu Azure Portal. 
+
+1. Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com>. 
+
+2. Wyszukaj **pulpit wirtualny systemu Windows**.
+
+3. W obszarze usługi wybierz pozycję **pulpit wirtualny systemu Windows**. 
+
+4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **grupy aplikacji** po lewej stronie ekranu, a następnie wybierz nazwę grupy aplikacji, którą chcesz edytować. 
+
+5. Wybierz pozycję **aplikacje** w menu po lewej stronie ekranu.
+
+6. Wybierz aplikację, którą chcesz zaktualizować, a następnie wprowadź nową **nazwę wyświetlaną**. 
+
+7. Wybierz pozycję **Zapisz**. Edytowana aplikacja powinna teraz wyświetlić zaktualizowaną nazwę.
 
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, po dostosowaniu źródła danych dla użytkowników, możesz zalogować się do klienta pulpitu wirtualnego systemu Windows w celu przetestowania go. Aby to zrobić, przejdź do programu Windows Virtual Desktop how-Toss:
     
- * [Łączenie z systemu Windows 10 lub Windows 7](connect-windows-7-and-10.md)
- * [Łączenie z przeglądarki internetowej](connect-web.md) 
+ * [Nawiązywanie połączenia z systemem Windows 10 lub Windows 7](connect-windows-7-and-10.md)
+ * [Łączenie się z klientem internetowym](connect-web.md) 
+ * [Łączenie się z klientem systemu Android](connect-android.md)
+ * [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)
+ * [Nawiązywanie połączenia z klientem systemu macOS](connect-macos.md)

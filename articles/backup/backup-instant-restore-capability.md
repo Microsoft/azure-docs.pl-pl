@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705432"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597658"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -24,7 +24,7 @@ Nowy model do natychmiastowego przywracania zapewnia następujące udoskonalenia
 * Obsługuje rozmiary dysków do 32 TB. Nie zaleca się zmiany rozmiarów dysków Azure Backup.
 * Program obsługuje dyski SSD w warstwie Standardowa razem z dyskami HDD w warstwie Standardowa i dyskami SSD w warstwie Premium.
 * Możliwość korzystania z niezarządzanych maszyn wirtualnych (na dysku) podczas przywracania. Ta możliwość istnieje nawet wtedy, gdy maszyna wirtualna zawiera dyski rozproszone na kontach magazynu. Przyspiesza operacje przywracania w różnych konfiguracjach maszyn wirtualnych.
-* W przypadku tworzenia kopii zapasowych maszyn wirtualnych korzystających z usługi Premium Storage z natychmiastowym przywróceniem zaleca się alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej.
+* W przypadku tworzenia kopii zapasowych maszyn wirtualnych, które używają niezarządzanych dysków Premium na kontach magazynu, z natychmiastowym przywróceniem zaleca się alokowanie *50%* wolnego miejsca w łącznym przydzielonym miejscu do magazynowania, które jest wymagane **tylko** dla pierwszej kopii zapasowej. Ilość wolnego miejsca na 50% nie jest wymagana w przypadku kopii zapasowych po wykonaniu pierwszej kopii zapasowej.
 
 ## <a name="whats-new-in-this-feature"></a>Co nowego w tej funkcji
 

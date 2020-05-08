@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331770"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611317"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów z przyłączonymi urządzeniami hybrydowymi Azure Active Directory 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Rozwiązywanie problemów z przyłączonymi urządzeniami hybrydowymi Azure Active Directory
 
 Zawartość tego artykułu dotyczy urządzeń z systemem Windows 10 lub Windows Server 2016.
 
@@ -30,13 +31,13 @@ W tym artykule przyjęto założenie, że [skonfigurowano urządzenia hybrydowe 
 - [Roaming ustawień przedsiębiorstwa](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
-Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów. 
+Ten dokument zawiera wskazówki dotyczące rozwiązywania problemów w celu rozwiązania potencjalnych problemów.
 
 W przypadku systemów Windows 10 i Windows Server 2016 sprzężenie hybrydowe Azure Active Directory obsługuje aktualizację systemu Windows 10 listopad 2015 lub nowszą.
 
 ## <a name="troubleshoot-join-failures"></a>Rozwiązywanie problemów z błędami sprzężeń
 
-### <a name="step-1-retrieve-the-join-status"></a>Krok 1. Pobieranie stanu sprzężenia 
+### <a name="step-1-retrieve-the-join-status"></a>Krok 1. Pobieranie stanu sprzężenia
 
 **Aby pobrać stan sprzężenia:**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Krok 2. oszacowanie stanu sprzężenia 
+### <a name="step-2-evaluate-the-join-status"></a>Krok 2. oszacowanie stanu sprzężenia
 
 Przejrzyj poniższe pola i upewnij się, że mają one oczekiwane wartości:
 
-#### <a name="domainjoined--yes"></a>DomainJoined: tak  
+#### <a name="domainjoined--yes"></a>DomainJoined: tak
 
-To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directory, czy nie. Jeśli wartość **nie**jest równa, urządzenie nie może wykonać sprzężenia hybrydowego usługi Azure AD.  
+To pole wskazuje, czy urządzenie jest przyłączone do lokalnego Active Directory, czy nie. Jeśli wartość **nie**jest równa, urządzenie nie może wykonać sprzężenia hybrydowego usługi Azure AD.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined: nie  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined: nie
 
 To pole wskazuje, czy urządzenie jest zarejestrowane w usłudze Azure AD jako urządzenie osobiste (oznaczone jako *dołączone do miejsca pracy*). Ta wartość powinna być **nie** dla komputera przyłączonego do domeny, który jest również przyłączony do hybrydowej usługi Azure AD. Jeśli wartość to **tak**, konto służbowe zostało dodane przed ukończeniem hybrydowego sprzężenia usługi Azure AD. W takim przypadku konto jest ignorowane w przypadku korzystania z aktualizacji z rocznicą systemu Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined: tak  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined: tak
 
 To pole wskazuje, czy urządzenie jest przyłączone. Ta wartość będzie równa **tak** , jeśli urządzenie jest przyłączone do usługi Azure AD lub do hybrydowego urządzenia dołączonego do usługi Azure AD.
-Jeśli wartość **nie**jest, przyłączenie do usługi Azure AD nie zostało jeszcze ukończone. 
+Jeśli wartość **nie**jest, przyłączenie do usługi Azure AD nie zostało jeszcze ukończone.
 
 Przejdź do następnych kroków w celu dalszego rozwiązywania problemów.
 
@@ -155,7 +156,7 @@ Możliwe przyczyny niepowodzenia:
    - Wymagany jest prawidłowy obiekt SCP w lesie usługi AD, do którego należy urządzenie, wskazujący na zweryfikowaną nazwę domeny w usłudze Azure AD.
    - Szczegółowe informacje znajdują się w sekcji [konfigurowanie punktu połączenia z usługą](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Nie można nawiązać połączenia i pobrać metadanych odnajdywania z punktu końcowego odnajdywania.
-   - Urządzenie powinno mieć dostęp `https://enterpriseregistration.windows.net`w kontekście systemu w celu odnajdywania punktów końcowych rejestracji i autoryzacji. 
+   - Urządzenie powinno mieć dostęp `https://enterpriseregistration.windows.net`w kontekście systemu w celu odnajdywania punktów końcowych rejestracji i autoryzacji.
    - Jeśli środowisko lokalne wymaga serwera proxy wychodzącego, administrator IT musi upewnić się, że konto komputera urządzenia może odnajdywać i dyskretnie uwierzytelniać się na wychodzącym serwerze proxy.
 - Nie można połączyć się z punktem końcowym obszaru użytkownika i przeprowadzić odnajdywanie obszaru. (Tylko system Windows 10 w wersji 1809 lub nowszej)
    - Urządzenie powinno mieć dostęp `https://login.microsoftonline.com`w kontekście systemu, aby przeprowadzić odnajdywanie obszarów dla zweryfikowanej domeny i określić typ domeny (zarządzany/federacyjny).
@@ -173,7 +174,7 @@ Możliwe przyczyny niepowodzenia:
    - Przyczyna: upłynął limit czasu operacji podczas odnajdywania.
    - Rozwiązanie: Upewnij się `https://enterpriseregistration.windows.net` , że jest dostępny w kontekście systemu. Aby uzyskać więcej informacji, zapoznaj się z sekcją [wymagania dotyczące łączności sieciowej](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Przyczyna: Ogólna awaria odnajdywania obszaru. Nie można określić typu domeny (zarządzane/federacyjne) z usługi STS. 
+   - Przyczyna: Ogólna awaria odnajdywania obszaru. Nie można określić typu domeny (zarządzane/federacyjne) z usługi STS.
    - Rozwiązanie: Znajdź poniżej Poniższy błąd, aby dokładniej zbadać.
 
 **Popularne kody błędów:**
@@ -260,7 +261,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Przyczyna: protokół uwierzytelniania nie jest protokołem WS-Trust.
-   - Rozwiązanie: lokalny dostawca tożsamości musi obsługiwać usługę WS-Trust 
+   - Rozwiązanie: lokalny dostawca tożsamości musi obsługiwać usługę WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Przyczyna: lokalna usługa federacyjna nie zwróciła odpowiedzi XML.
    - Rozwiązanie: Upewnij się, że punkt końcowy MEX zwraca prawidłowy kod XML. Upewnij się, że serwer proxy nie zakłóca i nie zwraca odpowiedzi z nieprawidłowym kodem XML.
@@ -278,7 +279,7 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
    - Rozwiązanie: spróbuj ponownie za jakiś czas lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
    - Przyczyna: nie można sprawdzić poprawności Transport Layer Security (TLS), wcześniej znanego jako SSL (SSL) certyfikatu wysłanego przez serwer.
-   - Rozwiązanie: Sprawdź pochylenie czasu klienta. Ponów próbę po upływie pewnego czasu lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową. 
+   - Rozwiązanie: Sprawdź pochylenie czasu klienta. Ponów próbę po upływie pewnego czasu lub spróbuj połączyć się z alternatywną stabilną lokalizacją sieciową.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Przyczyna: próba nawiązania połączenia `https://login.microsoftonline.com` nie powiodła się.
    - Rozwiązanie: Sprawdź połączenie sieciowe `https://login.microsoftonline.com`.
@@ -293,11 +294,11 @@ Użyj dzienników Podgląd zdarzeń, aby znaleźć kod błędu, kod błędu, kod
    - Rozwiązanie: Sprawdź ustawienia serwera federacyjnego. Wyszukaj kod błędu serwera w dziennikach uwierzytelniania.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Przyczyna: Wystąpił błąd podczas próby pobrania tokenu dostępu z punktu końcowego tokenu.
-   - Rozwiązanie: poszukaj podstawowego błędu w dzienniku ADAL. 
+   - Rozwiązanie: poszukaj podstawowego błędu w dzienniku ADAL.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Przyczyna: ogólny błąd biblioteki ADAL
    - Rozwiązanie: Wyszukaj kod błędu lub kod błędu serwera z dzienników uwierzytelniania.
-    
+
 #### <a name="join-phase"></a>Faza sprzężenia
 
 Przyczyny niepowodzenia:
@@ -337,7 +338,7 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
    - Przyczyna: odebrano odpowiedź o błędzie z DRS z ErrorCode: "DirectoryError"
    - Rozwiązanie: Zapoznaj się z kodem błędu serwera, aby zapoznać się z możliwymi przyczynami i rozwiązaniami.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Przyczyna: odebrano odpowiedź o błędzie z DRS z ErrorCode: "AuthenticationError" i ErrorSubCode nie jest "DeviceNotFound". 
+   - Przyczyna: odebrano odpowiedź o błędzie z DRS z ErrorCode: "AuthenticationError" i ErrorSubCode nie jest "DeviceNotFound".
    - Rozwiązanie: Zapoznaj się z kodem błędu serwera, aby zapoznać się z możliwymi przyczynami i rozwiązaniami.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Przyczyna: odebrano odpowiedź o błędzie z DRS z ErrorCode: "DirectoryError"
@@ -349,7 +350,7 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
    - Przyczyna: nie można wykonać operacji modułu TPM lub jest ona nieprawidłowa
    - Rozwiązanie: prawdopodobnie z powodu złego obrazu programu Sysprep. Upewnij się, że maszyna, z której utworzono obraz programu Sysprep, nie jest przyłączona do usługi Azure AD, dołączona do hybrydowej usługi Azure AD lub zarejestrowana usługa Azure AD.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Przyczyna: ogólny błąd modułu TPM. 
+   - Przyczyna: ogólny błąd modułu TPM.
    - Rozwiązanie: Wyłącz moduł TPM na urządzeniach z tym błędem. System Windows 10 w wersji 1809 lub nowszej automatycznie wykrywa błędy modułu TPM i wykonuje sprzężenie hybrydowe usługi Azure AD bez użycia modułu TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Przyczyna: moduł TPM w trybie FIPS nie jest obecnie obsługiwany.
@@ -386,28 +387,32 @@ Użyj dzienników Podgląd zdarzeń, aby zlokalizować fazę i kod błędu dla b
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Krok 5. zbieranie dzienników i pomoc techniczna firmy Microsoft kontaktów
 
-Pobierz skrypty publiczne tutaj: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Pobierz plik auth. zip z[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Otwórz wiersz polecenia administratora i uruchom `start_ngc_tracing_public.cmd`polecenie.
-2. Wykonaj kroki, aby odtworzyć problem.
-3. Zatrzymaj uruchamianie skryptu rejestrowania przez wykonanie `stop_ngc_tracing_public.cmd`.
-4. Pliki `%SYSTEMDRIVE%\TraceDJPP\*` zip i Wyślij do analizy.
+1. Rozpakuj pliki i Zmień nazwy dołączonych plików **Start-auth. txt** i **stop-auth. txt** na **Start-auth. cmd** i **stop-auth. cmd**.
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **Start-auth. cmd**.
+1. Użyj konta przełącznika, aby przełączyć się do innej sesji z użytkownikiem problemu.
+1. Odtwórz problem.
+1. Użyj opcji Przełącz konto, aby przełączyć się z powrotem do sesji administracyjnej z uruchomionym śledzeniem.
+1. W wierszu polecenia z podwyższonym poziomem uprawnień uruchom program **stop-auth. cmd**.
+1. Zip i Wyślij folder **Authlogs** z folderu, z którego zostały wykonane skrypty.
 
 ## <a name="troubleshoot-post-join-issues"></a>Rozwiązywanie problemów z przyłączaniem
 
-### <a name="retrieve-the-join-status"></a>Pobieranie stanu sprzężenia 
+### <a name="retrieve-the-join-status"></a>Pobieranie stanu sprzężenia
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: tak i AzureADPrt: tak
-  
-Te pola wskazują, czy użytkownik pomyślnie uwierzytelnił się w usłudze Azure AD podczas logowania się do urządzenia. Jeśli wartości **nie**są, może to być spowodowane:
+
+Te pola wskazują, czy użytkownik pomyślnie uwierzytelnił się w usłudze Azure AD podczas logowania się do urządzenia.
+Jeśli wartości **nie**są, może to być spowodowane:
 
 - Zły klucz magazynu w module TPM skojarzonym z urządzeniem po rejestracji (Sprawdź KeySignTest, gdy działa podwyższony poziom).
 - Alternatywny identyfikator logowania
 - Nie znaleziono serwera proxy HTTP
 
 ## <a name="known-issues"></a>Znane problemy
-- W obszarze Ustawienia — konta > — > dostęp do miejsca pracy lub szkoły, urządzenia dołączone do hybrydowej usługi Azure AD mogą wyświetlać dwa różne konta, jedno dla usługi Azure AD i jeden dla lokalnej usługi AD, połączone z hotspotami mobilnymi lub zewnętrznymi sieciami Wi-Fi. Jest to tylko problem z interfejsem użytkownika i nie ma żadnego wpływu na funkcjonalność. 
- 
+- W obszarze Ustawienia — konta > — > dostęp do miejsca pracy lub szkoły, urządzenia dołączone do hybrydowej usługi Azure AD mogą wyświetlać dwa różne konta, jedno dla usługi Azure AD i jeden dla lokalnej usługi AD, połączone z hotspotami mobilnymi lub zewnętrznymi sieciami Wi-Fi. Jest to tylko problem z interfejsem użytkownika i nie ma żadnego wpływu na funkcjonalność.
+
 ## <a name="next-steps"></a>Następne kroki
 
 Kontynuuj [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](troubleshoot-device-dsregcmd.md)

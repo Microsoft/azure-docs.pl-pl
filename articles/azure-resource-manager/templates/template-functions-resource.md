@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 4038d95942805ae26b5e82d5b766a80a92ae11bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 508933cbea3e21fdec63907cef73102866732bb1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231309"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891003"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -168,9 +168,9 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/domeny | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
 | Microsoft. EventGrid/tematy | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
-| Microsoft. EventHub/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
-| Microsoft. EventHub/przestrzenie nazw/disasterRecoveryConfigs/reguł autoryzacji | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
-| Microsoft. EventHub/przestrzenie nazw/eventhubs/reguł autoryzacji | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft. EventHub/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
+| Microsoft. EventHub/przestrzenie nazw/disasterRecoveryConfigs/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
+| Microsoft. EventHub/przestrzenie nazw/eventhubs/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
 | Microsoft. ImportExport/zadania | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft. Kusto/klastry/bazy danych | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
 | Microsoft. LabServices/użytkownicy | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
