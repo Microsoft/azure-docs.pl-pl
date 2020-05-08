@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16b4fca475f91a8cb5b7f9a20ea5aa74b6b674a3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683916"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612864"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Dostęp delegowany w usłudze Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pulpit wirtualny systemu Windows ma model dostępu delegowanego, który umożliwia zdefiniowanie dostępu określonego użytkownika przez przypisanie ich do roli. Przypisanie roli ma trzy składniki: podmiot zabezpieczeń, definicja roli i zakres. Model dostępu delegowanego pulpitu wirtualnego systemu Windows jest oparty na modelu RBAC platformy Azure. Aby dowiedzieć się więcej o konkretnych przypisaniach ról i ich składnikach, zobacz [Omówienie kontroli dostępu opartej na rolach na platformie Azure](../role-based-access-control/built-in-roles.md).
 
@@ -23,48 +29,38 @@ Dostęp delegowany pulpitu wirtualnego systemu Windows obsługuje następujące 
 
 * Podmiot zabezpieczeń
     * Użytkownicy
+    * Grupy użytkowników
     * Jednostki usług
 * Definicja roli
     * Wbudowane role
+    * Role niestandardowe
 * Zakres
-    * Grupy dzierżaw
-    * Dzierżawy
     * Pule hostów
     * Grupy aplikacji
-
-## <a name="built-in-roles"></a>Wbudowane role
-
-Delegowany dostęp w programie Virtual Desktop systemu Windows ma kilka wbudowanych definicji ról, które można przypisać do użytkowników i jednostek usługi.
-
-* Właściciel pulpitu zdalnego może zarządzać wszystkimi, w tym dostępem do zasobów.
-* Współautor usług pulpitu zdalnego może zarządzać wszystko, ale nie może uzyskać dostępu do zasobów.
-* Czytnik usług pulpitu zdalnego może wyświetlać wszystko, ale nie może wprowadzać żadnych zmian.
-* Operator RDS może wyświetlać działania diagnostyczne.
+    * Obszary robocze
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Polecenia cmdlet programu PowerShell dla przypisań ról
 
-Poniższe polecenia cmdlet umożliwiają tworzenie, wyświetlanie i usuwanie przypisań ról:
+Przed rozpoczęciem upewnij się, że postępuj zgodnie z instrukcjami w temacie [Konfigurowanie modułu programu PowerShell](powershell-module.md) w celu skonfigurowania modułu programu PowerShell dla pulpitu wirtualnego systemu Windows, jeśli jeszcze tego nie zrobiono.
 
-* **Get-RdsRoleAssignment** wyświetla listę przypisań ról.
-* **New-RdsRoleAssignment** tworzy nowe przypisanie roli.
-* **Remove-RdsRoleAssignment** usuwa przypisania ról.
+Pulpit wirtualny systemu Windows korzysta z kontroli dostępu opartej na rolach (RBAC) na platformie Azure podczas publikowania grup aplikacji dla użytkowników lub grup użytkowników. Rola użytkownika wirtualizacji pulpitu jest przypisana do grupy użytkowników lub użytkowników, a zakres jest grupą aplikacji. Ta rola daje użytkownikowi specjalny dostęp do danych w grupie aplikacji.  
 
-### <a name="accepted-parameters"></a>Akceptowane parametry
+Uruchom następujące polecenie cmdlet, aby dodać Azure Active Directory użytkowników do grupy aplikacji:
 
-Można modyfikować podstawowe trzy polecenia cmdlet o następujących parametrach:
+```powershell
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+```
 
-* **AadTenantId**: Określa identyfikator dzierżawy Azure Active Directory, z której jest członkiem jednostki usługi.
-* **AppGroupName**: Nazwa grupy aplikacji Pulpit zdalny.
-* **Diagnostyka**: wskazuje zakres diagnostyki. (Musi być sparowany z parametrami **infrastruktury** lub **dzierżawy** ).
-* **HostPoolName**: Nazwa puli hostów pulpit zdalny.
-* **Infrastruktura**: wskazuje zakres infrastruktury.
-* **RoleDefinitionName**: Nazwa roli kontroli dostępu opartej na rolach usługi pulpitu zdalnego przypisanej do użytkownika, grupy lub aplikacji. (Na przykład Usługi pulpitu zdalnego Owner, Usługi pulpitu zdalnego Reader itd.)
-* **ServerPrincipleName**: nazwa aplikacji Azure Active Directory.
-* **SignInName**: adres e-mail użytkownika lub główna nazwa użytkownika.
-* **Dzierżawca**: Nazwa dzierżawy pulpit zdalny.
+Uruchom następujące polecenie cmdlet, aby dodać Azure Active Directory grupę użytkowników do grupy aplikacji:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z bardziej kompletną listą poleceń cmdlet programu PowerShell, które mogą być używane przez poszczególne role, zobacz [informacje dotyczące programu PowerShell](/powershell/windows-virtual-desktop/overview).
+
+Pełną listę ról obsługiwanych przez usługę Azure RBAC można znaleźć w temacie [role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md).
 
 Aby uzyskać wskazówki dotyczące sposobu konfigurowania środowiska pulpitu wirtualnego systemu Windows, zobacz [Środowisko pulpitu wirtualnego systemu Windows](environment-setup.md).

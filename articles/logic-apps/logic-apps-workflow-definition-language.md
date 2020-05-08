@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ff2267c2d03076d3abc44d0bd1dddc64577cc7f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9eefc40f7bca3f0bc21510a2d8a3d3fe76711b0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283864"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611419"
 ---
 # <a name="schema-reference-guide-for-the-workflow-definition-language-in-azure-logic-apps"></a>Przewodnik odwołujący się do schematu definicji przepływu pracy w Azure Logic Apps
 
@@ -178,7 +178,7 @@ Za pomocą formatu JSON można mieć wartości literałów, które istnieją w c
 "rainbowColorsCount": 7
 ```
 
-Można także mieć wartości, które nie istnieją do czasu uruchomienia. Aby przedstawić te wartości, można użyć *wyrażeń*, które są oceniane w czasie wykonywania. Wyrażenie jest sekwencją, która może zawierać jedną lub więcej [funkcji](#functions), [operatorów](#operators), zmiennych, wartości jawnych lub stałych. W definicji przepływu pracy można użyć wyrażenia w dowolnym miejscu w wartości ciągu JSON przez dodanie prefiksu wyrażenia do znaku (\@). Podczas oceniania wyrażenia, które reprezentuje wartość JSON, treść wyrażenia jest wyodrębniana przez usunięcie \@ znaku i zawsze daje w wyniku inną wartość JSON.
+Można także mieć wartości, które nie istnieją do czasu uruchomienia. Aby przedstawić te wartości, można użyć *wyrażeń*, które są oceniane w czasie wykonywania. Wyrażenie jest sekwencją, która może zawierać jedną lub więcej [funkcji](#functions), [operatorów](#operators), [zmiennych](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), wartości jawnych lub stałych. W definicji przepływu pracy można użyć wyrażenia w dowolnym miejscu w wartości ciągu JSON przez dodanie prefiksu wyrażenia do znaku (\@). Podczas oceniania wyrażenia, które reprezentuje wartość JSON, treść wyrażenia jest wyodrębniana przez usunięcie \@ znaku i zawsze daje w wyniku inną wartość JSON.
 
 Na przykład dla właściwości poprzednio zdefiniowanej `customerName` można uzyskać wartość właściwości przy użyciu funkcji [Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) w wyrażeniu i przypisać tę wartość do `accountName` właściwości:
 

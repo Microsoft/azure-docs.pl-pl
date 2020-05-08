@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428019"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983299"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Przyznawanie uprawnień do tożsamości zarządzanej przez obszar roboczy (wersja zapoznawcza)
 
-W tym artykule opisano sposób udzielania uprawnień zarządzanej tożsamości w obszarze roboczym usługi Azure Synapse. Z kolei uprawnienia zezwalają na dostęp do pul SQL w obszarze roboczym i ADLS konto magazynu Gen2 za pomocą Azure Portal.
+W tym artykule opisano sposób udzielania uprawnień zarządzanej tożsamości w obszarze roboczym usługi Azure Synapse. Uprawnienia z kolei umożliwiają dostęp do pul SQL w obszarze roboczym i ADLS Gen2 konta magazynu za pomocą Azure Portal.
 
 >[!NOTE]
 >Ta tożsamość zarządzana w obszarze roboczym będzie określana jako tożsamość zarządzana w pozostałej części tego dokumentu.
@@ -29,7 +29,7 @@ Wybierz pozycję **zabezpieczenia i sieć** podczas tworzenia obszaru roboczego 
 
 ![Uprawnienia KONTROLki dla pul SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
-## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Przyznaj zarządzane uprawnienia tożsamości do konta magazynu ADLS Gen2
+## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Przyznawanie uprawnień tożsamości zarządzanej do ADLS Gen2 konta magazynu
 
 Do utworzenia obszaru roboczego usługi Azure Synapse wymagane jest konto magazynu ADLS Gen2. Aby pomyślnie uruchomić pule platformy Spark w obszarze roboczym usługi Azure Synapse, tożsamość zarządzana Azure Synapse musi mieć rolę *współautor danych obiektów blob magazynu* na tym koncie magazynu. Ta rola ma również zalety aranżacji potoku w usłudze Azure Synapse.
 
@@ -41,7 +41,7 @@ Usługa Azure Synapse podejmie próbę przyznania roli współautor danych obiek
 
 Wybierz konto magazynu ADLS Gen2 i system plików w polu **nazwa konta** i **Nazwa systemu plików**.
 
-![Udostępnianie szczegółów konta magazynu ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![Podawanie szczegółowych informacji o koncie magazynu ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
 Jeśli twórca obszaru roboczego jest również **właścicielem** konta magazynu ADLS Gen2, usługa Azure Synapse przypisze rolę *współautor danych obiektów blob magazynu* do tożsamości zarządzanej. Zostanie wyświetlony następujący komunikat poniżej wprowadzonych szczegółów konta magazynu.
 
@@ -55,12 +55,12 @@ Jako komunikat Stany nie można tworzyć pul platformy Spark, chyba że *współ
 
 ### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Udziel uprawnień do tożsamości zarządzanej po utworzeniu obszaru roboczego
 
-Jeśli *współautor danych obiektów blob magazynu* nie zostanie przypisany do tożsamości zarządzanej, podczas tworzenia obszaru roboczego, **właściciel** konta magazynu ADLS Gen2 ręcznie przypisze tę rolę do tożsamości. Poniższe kroki pomogą Ci wykonać przypisanie ręczne.
+Jeśli podczas tworzenia obszaru roboczego nie przypiszesz *współautora danych obiektu blob magazynu* do tożsamości zarządzanej, **właściciel** konta magazynu ADLS Gen2 ręcznie przypisze tę rolę do tożsamości. Poniższe kroki pomogą Ci wykonać przypisanie ręczne.
 
-#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Krok 1. Przejdź do konta magazynu ADLS Gen2 w Azure Portal
+#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Krok 1: Przejdź do konta magazynu ADLS Gen2 w programie Azure Portal
 
 W Azure Portal Otwórz konto magazynu ADLS Gen2 i wybierz pozycję **Przegląd** na lewym pasku nawigacyjnym. Wystarczy przypisać rolę *współautor danych obiektów blob magazynu* na poziomie kontenera lub systemu plików. Wybierz **kontenery**.  
-![ADLS Gen2 — Omówienie konta magazynu](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
+![ADLS Gen2 konta magazynu — Omówienie](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>Krok 2. Wybieranie kontenera
 
@@ -69,7 +69,7 @@ Tożsamość zarządzana powinna mieć dostęp do danych kontenera (systemu plik
 
 
 Wybierz ten sam kontener lub system plików, aby przyznać roli *współautor danych obiektów blob magazynu* dla tożsamości zarządzanej.
-![Wybór kontenera konta magazynu ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![ADLS Gen2 wybór kontenera konta magazynu](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Krok 3. przechodzenie do kontroli dostępu
 
@@ -114,7 +114,7 @@ Wybierz pozycję **Access Control (IAM)** , a następnie wybierz pozycję **przy
 ![Weryfikuj przypisanie roli](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
 Tożsamość zarządzana powinna zostać wyświetlona w sekcji **współautor danych obiektów blob magazynu** z przypisaną rolą *współautor danych obiektów blob magazynu* . 
-![Wybór kontenera konta magazynu ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+![ADLS Gen2 wybór kontenera konta magazynu](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

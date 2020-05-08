@@ -1,30 +1,30 @@
 ---
 title: Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki
-description: Konfigurowanie punktów końcowych HTTP do wywoływania, wyzwalania lub zagnieżdżania przepływów pracy aplikacji logiki w Azure Logic Apps
+description: Konfigurowanie punktów końcowych HTTPS do wywoływania, wyzwalania lub zagnieżdżania przepływów pracy aplikacji logiki w Azure Logic Apps
 services: logic-apps
 ms.workload: integration
-ms.reviewer: klam, jehollan, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2019
-ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191332"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983804"
 ---
-# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTP w Azure Logic Apps
+# <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
-Aby umożliwić aplikacji logiki wywoływanie za pośrednictwem adresu URL, dzięki czemu aplikacja logiki może odbierać przychodzące żądania z innych usług, można natywnie uwidocznić synchroniczny punkt końcowy HTTP jako wyzwalacz w tej aplikacji logiki. Po skonfigurowaniu tej funkcji można także zagnieżdżać aplikację logiki wewnątrz innych aplikacji logiki, co umożliwia tworzenie wzorców wywoływanych punktów końcowych.
+Aby umożliwić aplikacji logiki wywoływanie za pośrednictwem adresu URL, dzięki czemu aplikacja logiki może odbierać przychodzące żądania z innych usług, można natywnie uwidocznić synchroniczny punkt końcowy HTTPS jako wyzwalacz w tej aplikacji logiki. Po skonfigurowaniu tej funkcji można także zagnieżdżać aplikację logiki wewnątrz innych aplikacji logiki, co umożliwia tworzenie wzorców wywoływanych punktów końcowych.
 
-Aby skonfigurować punkt końcowy HTTP, można użyć dowolnego z tych typów wyzwalaczy, które umożliwiają aplikacjom logiki Odbieranie przychodzących żądań:
+Aby skonfigurować możliwy do nadania punkt końcowy, można użyć dowolnego z tych typów wyzwalaczy, które umożliwiają aplikacjom logiki Odbieranie przychodzących żądań:
 
-* [Request](../connectors/connectors-native-reqres.md)
+* [Żądanie](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
-* Wyzwalacze łączników zarządzanych, które mają [Typ ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać przychodzące żądania http
+* Wyzwalacze łączników zarządzanych, które mają [Typ ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) i mogą odbierać przychodzące żądania https
 
 > [!NOTE]
-> W tych przykładach użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza opartego na żądaniach HTTP, który znajduje się na poprzedniej liście. Wszystkie zasady identycznie stosują się do tych innych typów wyzwalacza.
+> W tych przykładach użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza opartego na żądaniach HTTPS, który znajduje się na poprzedniej liście. Wszystkie zasady identycznie stosują się do tych innych typów wyzwalacza.
 
 Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zobacz [co to jest Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -32,13 +32,13 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zobacz [co to jest Azure Log
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* Aplikacja logiki, w której chcesz skonfigurować punkt końcowy HTTP jako wyzwalacz. Możesz zacząć od pustej aplikacji logiki lub istniejącej aplikacji logiki, w której chcesz zastąpić bieżący wyzwalacz. Ten przykład rozpoczyna się od pustej aplikacji logiki.
+* Aplikacja logiki, w której ma zostać użyty wyzwalacz do utworzenia możliwego do przetworzenia punktu końcowego. Możesz zacząć od pustej aplikacji logiki lub istniejącej aplikacji logiki, w której chcesz zastąpić bieżący wyzwalacz. Ten przykład rozpoczyna się od pustej aplikacji logiki.
 
 ## <a name="create-a-callable-endpoint"></a>Utwórz możliwy do nawoływać punkt końcowy
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz i Otwórz pustą aplikację logiki w Projektancie aplikacji logiki.
 
-   W tym przykładzie użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza, który może odbierać przychodzące żądania HTTP. Wszystkie zasady identycznie stosują te wyzwalacze. Aby uzyskać więcej informacji na temat wyzwalacza żądania, zobacz [Odbieranie i odpowiadanie na przychodzące wywołania HTTPS przy użyciu Azure Logic Apps](../connectors/connectors-native-reqres.md).
+   W tym przykładzie użyto wyzwalacza żądania, ale można użyć dowolnego wyzwalacza, który może odbierać przychodzące żądania HTTPS. Wszystkie zasady identycznie stosują te wyzwalacze. Aby uzyskać więcej informacji na temat wyzwalacza żądania, zobacz [Odbieranie i odpowiadanie na przychodzące wywołania HTTPS przy użyciu Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. W polu wyszukiwania wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `request` jako filtr. Z listy Wyzwalacze wybierz opcję **po odebraniu żądania HTTP**.
 
@@ -100,91 +100,165 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zobacz [co to jest Azure Log
 
 1. Zapisz aplikację logiki.
 
-   **Wpis http post do tego adresu URL** zawiera teraz wygenerowany adres URL wywołania zwrotnego, który może być używany przez inne usługi do wywoływania i wyzwalania aplikacji logiki. Ten adres URL zawiera klucz sygnatury dostępu współdzielonego, który jest używany do uwierzytelniania w parametrach zapytania, na przykład:
+   W polu **adres URL post protokołu HTTP** jest teraz wyświetlany wygenerowany adres URL wywołania zwrotnego, który może być używany przez inne usługi do wywoływania i wyzwalania aplikacji logiki. Ten adres URL zawiera parametry zapytania, które określają klucz sygnatury dostępu współdzielonego, który jest używany do uwierzytelniania.
 
    ![Wygenerowany adres URL wywołania zwrotnego dla punktu końcowego](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   Możesz również uzyskać adres URL punktu końcowego HTTP z okienka **Przegląd** aplikacji logiki.
+1. Aby skopiować adres URL wywołania zwrotnego, dostępne są następujące opcje:
 
-   1. W menu aplikacji logiki wybierz pozycję **Przegląd**.
+   * W polu **adres URL post protokołu HTTP** wybierz pozycję **Kopiuj adres URL** (ikona Kopiuj pliki).
 
-   1. W sekcji **Podsumowanie** wybierz pozycję **Zobacz historię wyzwalacza**.
+   * Oznacz to połączenie:
 
-      ![Pobierz adres URL punktu końcowego HTTP z Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
-   1. W polu **adres URL wywołania zwrotnego [Post]** Skopiuj adres URL:
+   * Skopiuj adres URL wywołania zwrotnego z okienka **Przegląd** aplikacji logiki.
 
-      ![Kopiuj adres URL punktu końcowego HTTP z Azure Portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
+     1. W menu aplikacji logiki wybierz pozycję **Przegląd**.
 
-      Możesz też uzyskać adres URL, wykonując następujące wywołanie:
+     1. W sekcji **Podsumowanie** wybierz pozycję **Zobacz historię wyzwalacza**.
 
-      ```http
-      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
-      ```
+        ![Pobierz adres URL punktu końcowego z Azure Portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-<a name="set-method"></a>
+     1. W polu **adres URL wywołania zwrotnego [Post]** Skopiuj adres URL:
 
-## <a name="set-expected-http-method"></a>Ustaw oczekiwaną metodę HTTP
+        ![Kopiuj adres URL punktu końcowego z Azure Portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
-Domyślnie wyzwalacz żądania oczekuje na żądanie HTTP POST. Można jednak określić inną metodę, która będzie oczekiwać, ale tylko jedną metodę.
+<a name="select-method"></a>
+
+## <a name="select-expected-request-method"></a>Wybierz oczekiwaną metodę żądania
+
+Domyślnie wyzwalacz żądania oczekuje na żądanie POST. Można określić inną metodę, która będzie oczekiwać, ale tylko jedną metodę.
 
 1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** , a następnie wybierz **metodę**, która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "Method" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. Z listy **Metoda** wybierz inną metodę, która będzie oczekiwać wyzwalacza. Lub można określić metodę niestandardową.
+1. Z listy **Metoda** wybierz metodę, której wyzwalacz powinien oczekiwać. Lub można określić metodę niestandardową.
 
-   Na przykład wybierz metodę **Get** , aby można było przetestować adres URL punktu końcowego http później.
+   Na przykład wybierz metodę **Get** , aby można było przetestować adres URL punktu końcowego później.
 
-   ![Wybierz metodę HTTP, która ma być używana dla wyzwalacza](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Wybierz metodę żądania oczekiwaną przez wyzwalacz](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-in-endpoint-url"></a>Zaakceptuj parametry w adresie URL punktu końcowego
 
-Jeśli chcesz, aby adres URL punktu końcowego akceptował parametry, określ ścieżkę względną w wyzwalaczu. Należy również jawnie [ustawić metodę](#set-method) , której oczekuje żądanie HTTP.
+Jeśli chcesz, aby adres URL punktu końcowego akceptował wartości parametrów za pomocą adresu URL punktu końcowego, dostępne są następujące opcje:
+
+* [Akceptuj wartości za poorednictwem parametrów pobierania](#get-parameters) lub parametrów adresu URL.
+
+  Te wartości są przesyłane jako pary nazwa-wartość podczas wysyłania żądania do adresu URL punktu końcowego. W przypadku tej opcji należy użyć metody GET w wyzwalaczu żądania. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza przy użyciu `triggerOutputs()` funkcji w wyrażeniu.
+
+* [Akceptuj wartości za pomocą ścieżki względnej](#relative-path) dla parametrów w wyzwalaczu żądania.
+
+  Te wartości są przesyłane podczas wysyłania żądania do adresu URL punktu końcowego. Należy również jawnie [wybrać metodę](#select-method) oczekiwaną przez wyzwalacz. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza, odwołując się bezpośrednio do tych danych wyjściowych.
+
+<a name="get-parameters"></a>
+
+### <a name="accept-values-through-get-parameters"></a>Akceptuj wartości za poorednictwem parametrów GET
+
+1. W wyzwalaczu żądania Otwórz **listę Dodaj nowy parametr**, Dodaj właściwość **metody** do wyzwalacza i wybierz metodę **Get** .
+
+   Aby uzyskać więcej informacji, zobacz [Wybierz oczekiwaną metodę żądania](#select-method).
+
+1. W obszarze wyzwalacza żądania Dodaj akcję, w której chcesz użyć wartości parametru. Na potrzeby tego przykładu Dodaj akcję **odpowiedź** .
+
+   1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok** > **Dodaj akcję**.
+   
+   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
+
+1. Aby skompilować `triggerOutputs()` wyrażenie pobierające wartość parametru, wykonaj następujące kroki:
+
+   1. Kliknij wewnątrz właściwości **treści** akcji odpowiedzi, aby wyświetlić listę zawartości dynamicznej, a następnie wybierz pozycję **wyrażenie**.
+
+   1. W polu **wyrażenie** wprowadź następujące wyrażenie, zastępując `parameter-name` je nazwą parametru, a następnie wybierz **przycisk OK**.
+
+      `triggerOutputs()['queries']['parameter-name']`
+
+      ![Dodaj wyrażenie "triggerOutputs ()" do wyzwolenia](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+      We właściwości **Body** wyrażenie jest rozpoznawane jako `triggerOutputs()` token.
+
+      ![Rozwiązano wyrażenie "triggerOutputs ()"](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
+
+      Jeśli zapiszesz aplikację logiki, opuścisz projektanta i wrócisz do projektanta, w polu token zostanie wyświetlona określona nazwa parametru, na przykład:
+
+      ![Rozpoznane wyrażenie dla nazwy parametru](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+
+      W widoku kodu Właściwość **Body** jest wyświetlana w definicji akcji odpowiedzi w następujący sposób:
+
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
+
+      Załóżmy na przykład, że chcesz przekazać wartość dla parametru o nazwie `postalCode`. Właściwość **Body** określa ciąg, `Postal Code: ` z końcowym miejscem, po którym następuje odpowiednie wyrażenie:
+
+      ![Dodaj przykładowe wyrażenie "triggerOutputs ()", które ma zostać wyzwolone](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj adres URL wywołania zwrotnego z wyzwalacza żądania, a następnie wklej adres URL do innego okna przeglądarki. W adresie URL Dodaj nazwę parametru i wartość po znaku zapytania (`?`) do adresu URL w następującym formacie, a następnie naciśnij klawisz ENTER.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
+
+   ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. Aby umieścić nazwę i wartość parametru w innej pozycji w adresie URL, upewnij się, że używasz znaku handlowego "`&`i" () jako prefiksu, na przykład:
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   Ten przykład pokazuje adres URL wywołania zwrotnego z przykładową nazwą parametru `postalCode=123456` i wartością w różnych pozycjach w adresie URL:
+
+   * Pozycja 1:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+   * drugie położenie:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+<a name="relative-path"></a>
+
+### <a name="accept-values-through-a-relative-path"></a>Akceptowanie wartości za pomocą ścieżki względnej
 
 1. W wyzwalaczu żądania Otwórz listę **Dodaj nowy parametr** i wybierz pozycję **ścieżka względna**, która dodaje tę właściwość do wyzwalacza.
 
    ![Dodaj właściwość "ścieżka względna" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. We właściwości **ścieżka względna** określ ścieżkę względną dla parametru w SCHEMAcie JSON, który ma być akceptowany przez adres URL, na przykład `address/{postalCode}`.
+1. We właściwości **ścieżka względna** określ ścieżkę względną dla parametru w SCHEMAcie JSON, który ma być akceptowany przez adres URL, na przykład `/address/{postalCode}`.
 
    ![Określ ścieżkę względną dla parametru](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-1. Aby użyć parametru, Znajdź i Dodaj akcję **odpowiedzi** do aplikacji logiki.
+1. W obszarze wyzwalacza żądania Dodaj akcję, w której chcesz użyć wartości parametru. Na potrzeby tego przykładu Dodaj akcję **odpowiedź** .
 
    1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok** > **Dodaj akcję**.
 
-   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr.
-
-   1. Z listy Akcje wybierz akcję **odpowiedź** .
+   1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. We właściwości **treści** akcji odpowiedzi Dołącz token, który reprezentuje parametr określony w ścieżce względnej wyzwalacza.
 
    Załóżmy na przykład, że akcja odpowiedzi powinna zostać zwrócona `Postal Code: {postalCode}`.
 
-   We właściwości **Body** wprowadź `Postal Code: ` spację końcową. Z wyświetlonej listy zawartości dynamicznej wybierz token **KodPocztowy** .
+   1. We właściwości **Body** wprowadź `Postal Code: ` spację końcową. Pozostaw kursor wewnątrz pola edycji, aby lista zawartości dynamicznej pozostała otwarta.
 
-   ![Dodaj określony parametr do treści odpowiedzi](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   1. Z listy zawartość dynamiczna z sekcji **po odebraniu żądania HTTP** wybierz token **KodPocztowy** .
 
-   Właściwość **Body** zawiera teraz wybrany parametr:
+      ![Dodaj określony parametr do treści odpowiedzi](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
-   ![Przykładowa treść odpowiedzi z parametrem](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+      Właściwość **Body** zawiera teraz wybrany parametr:
+
+      ![Przykładowa treść odpowiedzi z parametrem](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 1. Zapisz aplikację logiki.
 
-    Adres URL punktu końcowego protokołu HTTP zawiera teraz ścieżkę względną, na przykład:
+   W wyzwalaczu żądania adres URL wywołania zwrotnego jest aktualizowany i teraz zawiera ścieżkę względną, na przykład:
 
-    ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
-    ```
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Aby przetestować punkt końcowy HTTP, skopiuj i wklej zaktualizowany adres URL do innego okna przeglądarki, ale Zamień `{postalCode}` na `123456`, a następnie naciśnij klawisz ENTER.
+1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj zaktualizowany adres URL wywołania zwrotnego z wyzwalacza żądania, wklej adres URL `{postalCode}` do innego okna przeglądarki `123456`, ZAstąp ciąg w adresie URL, a następnie naciśnij klawisz ENTER.
 
-   Przeglądarka wyświetla ten tekst:`Postal Code: 123456`
+   Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
 
-## <a name="call-logic-app-through-http-endpoint"></a>Wywoływanie aplikacji logiki za pośrednictwem punktu końcowego HTTP
+   ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-Po utworzeniu punktu końcowego HTTP można wyzwolić aplikację logiki, wysyłając żądanie HTTP `POST` do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
+## <a name="call-logic-app-through-endpoint-url"></a>Wywoływanie aplikacji logiki przy użyciu adresu URL punktu końcowego
+
+Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając żądanie HTTPS `POST` do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
 
 <a name="generated-tokens"></a>
 
@@ -261,7 +335,7 @@ Aby uzyskać dostęp do `body` właściwości, można użyć [ `@triggerBody()` 
 
 ## <a name="respond-to-requests"></a>Odpowiadanie na żądania
 
-Czasami chcesz odpowiedzieć na określone żądania wyzwalające aplikację logiki, zwracając zawartość do obiektu wywołującego. Aby skonstruować kod stanu, nagłówek i treść odpowiedzi, użyj akcji odpowiedzi. Ta akcja może pojawić się w dowolnym miejscu w aplikacji logiki, a nie tylko na końcu przepływu pracy. Jeśli aplikacja logiki nie zawiera akcji odpowiedzi, punkt końcowy HTTP odpowie *natychmiast* po **zaakceptowanym stanie 202** .
+Czasami chcesz odpowiedzieć na określone żądania wyzwalające aplikację logiki, zwracając zawartość do obiektu wywołującego. Aby skonstruować kod stanu, nagłówek i treść odpowiedzi, użyj akcji odpowiedzi. Ta akcja może pojawić się w dowolnym miejscu w aplikacji logiki, a nie tylko na końcu przepływu pracy. Jeśli aplikacja logiki nie zawiera akcji odpowiedzi, punkt końcowy odpowie *natychmiast* po **zaakceptowanym stanie 202** .
 
 Aby oryginalny obiekt wywołujący pomyślnie przetworzył odpowiedź, wszystkie wymagane kroki dla odpowiedzi muszą zakończyć się w limicie [limitu czasu żądania](./logic-apps-limits-and-config.md) , chyba że wyzwolona aplikacja logiki jest wywoływana jako zagnieżdżona aplikacja logiki. Jeśli w tym limicie nie zostanie zwrócona odpowiedź, żądanie przychodzące **przekroczy limit czasu** i otrzyma odpowiedź 408.
 
@@ -271,14 +345,14 @@ W przypadku zagnieżdżonych aplikacji logiki nadrzędna aplikacja logiki kontyn
 
 W treści odpowiedzi można uwzględnić wiele nagłówków i zawartość dowolnego typu. Na przykład nagłówek tej odpowiedzi określa, że typ zawartości odpowiedzi to `application/json` i że treść zawiera wartości właściwości `town` i `postalCode` , w oparciu o schemat JSON opisany wcześniej w tym temacie dla wyzwalacza żądania.
 
-![Podaj zawartość odpowiedzi dla akcji odpowiedzi HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
+![Podaj zawartość odpowiedzi dla akcji odpowiedzi HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Odpowiedzi mają następujące właściwości:
 
 | Właściwość (Display) | Właściwość (JSON) | Opis |
 |--------------------|-----------------|-------------|
-| **Kod stanu** | `statusCode` | Kod stanu HTTP, który ma być używany w odpowiedzi dla żądania przychodzącego. Ten kod może być dowolnym prawidłowym kodem stanu zaczynającym się od 2xx, 4xx lub 5xx. Jednak kody stanu 3xx są niedozwolone. |
-| **Nagłówki** | `headers` | Co najmniej jeden nagłówek do uwzględnienia w odpowiedzi |
+| **Kod stanu** | `statusCode` | Kod stanu protokołu HTTPS, który ma być używany w odpowiedzi dla żądania przychodzącego. Ten kod może być dowolnym prawidłowym kodem stanu zaczynającym się od 2xx, 4xx lub 5xx. Jednak kody stanu 3xx są niedozwolone. |
+| **Nagłówka** | `headers` | Co najmniej jeden nagłówek do uwzględnienia w odpowiedzi |
 | **Treść** | `body` | Obiekt treści, który może być ciągiem, obiektem JSON lub parzystą zawartością binarną, do której odwołuje się poprzedni krok |
 ||||
 
@@ -314,9 +388,9 @@ Odp **.: usługa**Azure bezpiecznie generuje adresy URL wywołania zwrotnego apl
 > * Klucz dostępu współdzielonego zostanie wyświetlony w adresie URL.
 > * Nie można zarządzać zasadami zawartości zabezpieczeń ze względu na domeny udostępnione w ramach klientów Azure Logic Apps.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Czy można już skonfigurować punkty końcowe HTTP?
+#### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Czy można kontynuować konfigurowanie wywoływanych punktów końcowych?
 
-Odp **.: tak**, punkty końcowe http obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
+Odp **.: tak**, punkty końcowe HTTPS obsługują bardziej zaawansowaną konfigurację za pośrednictwem [usługi Azure API Management](../api-management/api-management-key-concepts.md). Ta usługa oferuje również możliwość spójnego zarządzania wszystkimi interfejsami API, w tym aplikacjami logiki, Konfigurowanie niestandardowych nazw domen, korzystanie z większej liczby metod uwierzytelniania i inne, na przykład:
 
 * [Zmień metodę żądania](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Zmiana segmentów adresu URL żądania](../api-management/api-management-transformation-policies.md#RewriteURL)

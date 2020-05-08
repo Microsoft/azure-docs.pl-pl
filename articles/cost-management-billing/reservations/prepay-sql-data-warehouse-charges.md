@@ -1,46 +1,46 @@
 ---
-title: Oszczędzanie na opłatach za usługę SQL Data Warehouse dzięki zarezerwowanej pojemności platformy Azure
-description: Dowiedz się, w jaki sposób zaoszczędzić na opłatach za usługę SQL Data Warehouse w ramach pojemności zarezerwowanej.
+title: Oszczędź na opłatach za usługę Azure Synapse Analytics dzięki pojemności zarezerwowanej platformy Azure
+description: Dowiedz się, w jaki sposób zaoszczędzić na opłatach za usługę Azure Synapse Analytics w ramach pojemności zarezerwowanej.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: c428472d5564393e9f9fcdc3103bb1506dc50936
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3706493f0132cd4cc57af589e0d2935c31d6657e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200371"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629154"
 ---
-# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Zmniejszenie opłat za usługę SQL Data Warehouse dzięki zarezerwowanej pojemności
+# <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Oszczędź na opłatach za usługę Azure Synapse Analytics dzięki pojemności zarezerwowanej
 
-Możesz oszczędzać pieniądze na usłudze Azure SQL Data Warehouse, zobowiązując się do użycia zarezerwowanych jednostek cDWU przez okres roku lub trzech lat. Aby kupić zarezerwowaną pojemność usługi SQL Data Warehouse, musisz wybrać region świadczenia usługi Azure oraz okres. Następnie trzeba dodać do koszyka jednostkę SKU usługi SQL Data Warehouse i wybrać liczbę jednostek cDWU do kupienia.
+Możesz oszczędzać pieniądze na usłudze Azure Synapse Analytics, zobowiązując się do użycia zarezerwowanych jednostek cDWU przez okres roku lub trzech lat. Aby kupić zarezerwowaną pojemność usługi Azure Synapse Analytics, musisz wybrać region świadczenia usługi Azure oraz okres. Następnie trzeba dodać do koszyka jednostkę SKU usługi Azure Synapse Analytics i wybrać liczbę jednostek cDWU do kupienia.
 
-Gdy wykupisz rezerwację, za użycie usługi SQL Data Warehouse zgodne z atrybutami rezerwacji nie będą naliczane opłaty po stawkach płatności zgodnie z rzeczywistym użyciem.
+Gdy wykupisz rezerwację, za użycie usługi Azure Synapse Analytics zgodne z atrybutami rezerwacji nie będą naliczane opłaty po stawkach płatności zgodnie z rzeczywistym użyciem.
 
-Rezerwacja nie pokrywa kosztów magazynu i sieci wynikających z użycia usługi SQL Data Warehouse.
+Rezerwacja nie pokrywa kosztów magazynu i sieci wynikających z użycia usługi Azure Synapse Analytics.
 
-Gdy zarezerwowana pojemność wygaśnie, wystąpienia usługi SQL Data Warehouse dalej będą działać, ale będą za nie naliczane opłaty po stawkach płatności zgodnie z rzeczywistym użyciem. Rezerwacje nie są automatycznie odnawiane.
+Gdy zarezerwowana pojemność wygaśnie, wystąpienia usługi Azure Synapse Analytics dalej będą działać, ale będą za nie naliczane opłaty po stawkach płatności zgodnie z rzeczywistym użyciem. Rezerwacje nie są odnawiane automatycznie.
 
-Aby uzyskać informacje o cenach, zobacz [ofertę dotyczącą zarezerwowanej pojemności usługi SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
+Aby uzyskać informacje o cenach, zobacz [ofertę dotyczącą zarezerwowanej pojemności usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-Zarezerwowaną pojemność usługi Azure SQL Data Warehouse można kupić w witrynie [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](monthly-payments-reservations.md). Aby kupić pojemność zarezerwowaną:
+Zarezerwowaną pojemność usługi Azure Synapse Analytics można kupić w witrynie [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](monthly-payments-reservations.md). Aby kupić pojemność zarezerwowaną:
 
 - Musisz mieć rolę właściciela dla co najmniej jednej subskrypcji Enterprise lub z opcją płatności zgodnie z rzeczywistym użyciem.
 - W przypadku subskrypcji Enterprise w witrynie [EA portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA.
-- W przypadku programu Cloud Solution Provider (CSP) zarezerwowaną pojemność SQL Data Warehouse mogą zakupić tylko agenci administracyjni lub agenci sprzedaży.
+- W przypadku programu Cloud Solution Provider (CSP) wydajność rezerwową usługi Azure Synapse Analytics mogą kupić tylko agenci administracyjni lub agenci sprzedaży.
 
 Aby uzyskać więcej informacji na temat sposobu, w jaki klienci korzystający z umowy Enterprise i klienci z opcją płatności zgodnie z rzeczywistym użyciem są obciążani za zakupy rezerwacji, zobacz [opis użycia rezerwacji platformy Azure w przypadku rejestracji Enterprise](understand-reserved-instance-usage-ea.md) i [opis użycia rezerwacji platformy Azure w przypadku subskrypcji z opcją płatności zgodnie z rzeczywistym użyciem](understand-reserved-instance-usage.md).
 
 ## <a name="choose-the-right-size-before-purchase"></a>Wybieranie odpowiedniego rozmiaru przed zakupem
 
-Rozmiar rezerwacji usługi SQL Data Warehouse powinien opierać się na całkowitej liczbie zużywanych obliczeniowych jednostek magazynu danych (cDWU). Kupuje się wielokrotność ilości 100 cDWU.
+Rozmiar rezerwacji usługi Azure Synapse Analytics powinien opierać się na całkowitej liczbie zużywanych obliczeniowych jednostek magazynu danych (cDWU). Kupuje się wielokrotność ilości 100 cDWU.
 
-Załóżmy na przykład, że całkowite zużycie usługi SQL Data Warehouse jest na poziomie DW3000c. Chcesz zakupić zarezerwowaną pojemność dla całego zużycia. W związku z tym należy zakupić 30 jednostek zarezerwowanej pojemności cDWU.
+Załóżmy na przykład, że całkowite zużycie usługi Azure Synapse Analytics jest na poziomie DW3000c. Chcesz zakupić zarezerwowaną pojemność dla całego zużycia. W związku z tym należy zakupić 30 jednostek zarezerwowanej pojemności cDWU.
 
-## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Kupowanie zarezerwowanej pojemności usługi SQL Data Warehouse
+## <a name="buy-azure-synapse-analytics-reserved-capacity"></a>Kupowanie pojemności zarezerwowanej usługi Azure Synapse Analytics
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
@@ -56,7 +56,7 @@ Załóżmy na przykład, że całkowite zużycie usługi SQL Data Warehouse jest
 5. Wybierz region, aby wskazać region świadczenia usługi Azure, którego ma dotyczyć zarezerwowana pojemność.
 6. Wybierz ilość. Wprowadź liczbę wskazującą wielokrotność 100 jednostek magazynu danych (cDWU), którą chcesz kupić.    
    Na przykład liczba 30 zapewni pojemność zarezerwowaną wynoszącą 3000 jednostek cDWU w każdej godzinie.
-7. Zapoznaj się z kosztem rezerwacji zarezerwowanej pojemności usługi SQL Data Warehouse w sekcji **Koszty**.
+7. Zapoznaj się z kosztem rezerwacji zarezerwowanej pojemności usługi Azure Synapse Analytics w sekcji **Koszty**.
 8. Wybierz pozycję **Kup**.
 9. Wybierz pozycję **Wyświetl tę rezerwację**, aby wyświetlić stan zakupu.
 
@@ -64,7 +64,7 @@ Załóżmy na przykład, że całkowite zużycie usługi SQL Data Warehouse jest
 
 Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
-Rabat na rezerwację jest automatycznie stosowany do tych wystąpień usługi SQL Data Warehouse, które pasują do zakresu i regionu zarezerwowanej pojemności usługi SQL Data Warehouse. Zakres zarezerwowanej pojemności usługi SQL Data Warehouse można zaktualizować za pomocą witryny [Azure Portal](https://portal.azure.com/), programu PowerShell, interfejsu wiersza polecenia lub interfejsu API.
+Rabat na rezerwację jest automatycznie stosowany do tych wystąpień usługi Azure Synapse Analytics, które pasują do zakresu i regionu zarezerwowanej pojemności usługi Azure Synapse Analytics. Zakres zarezerwowanej pojemności usługi Azure Synapse Analytics można zaktualizować za pomocą witryny [Azure Portal](https://portal.azure.com/), programu PowerShell, interfejsu wiersza polecenia lub interfejsu API.
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami
 
@@ -72,9 +72,9 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się więcej na temat sposobu stosowania rabatów na rezerwację do usługi Azure SQL Data Warehouse, zobacz artykuł [Stosowanie rabatów na rezerwacje usługi Azure SQL Data Warehouse](prepay-sql-data-warehouse-charges.md).
+- Aby dowiedzieć się więcej na temat sposobu stosowania rabatów na rezerwację do usługi Azure Synapse Analytics, zobacz artykuł [Stosowanie rabatów na rezerwacje usługi Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md).
 
-- Aby dowiedzieć się więcej na temat rezerwacji na platformie Azure, zobacz następujące artykuły:
+- Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
   - [Co to jest Azure Reservations?](save-compute-costs-reservations.md)
   - [Zarządzanie usługą Azure Reservations](manage-reserved-vm-instance.md)
   - [Informacje na temat rabatu na rezerwacje platformy Azure](understand-reservation-charges.md)

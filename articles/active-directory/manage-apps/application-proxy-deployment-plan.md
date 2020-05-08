@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
-ms.reviewer: ''
-ms.openlocfilehash: edd607c4d708df9fcfd3cbd5fdb71f0a7652d6c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: a293bd33d3a25f26e5374184da42db335041284d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330908"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610143"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -28,11 +28,11 @@ Serwer proxy aplikacji usługi Azure Active Directory (Azure AD) to bezpieczne i
 
 Serwer proxy aplikacji jest zalecany do zapewniania użytkownikom zdalnym dostępu do zasobów wewnętrznych. Serwer proxy aplikacji zastępuje potrzebę sieci VPN lub zwrotnego serwera proxy dla tych przypadków użycia dostępu zdalnego. Nie jest ona przeznaczona dla użytkowników, którzy znajdują się w sieci firmowej. Ci użytkownicy, którzy korzystają z serwera proxy aplikacji w celu dostępu do sieci intranet, mogą napotkać niepożądane problemy z wydajnością.
 
-Ten artykuł zawiera zasoby potrzebne do planowania i obsługi serwer proxy aplikacji usługi Azure AD platformy Azure oraz zarządzania nimi. 
+Ten artykuł zawiera zasoby potrzebne do planowania i obsługi serwer proxy aplikacji usługi Azure AD platformy Azure oraz zarządzania nimi.
 
 ## <a name="plan-your-implementation"></a>Planowanie implementacji
 
-Poniższa sekcja zawiera szeroki widok najważniejszych elementów planowania, które spowodują skonfigurowanie wydajnego środowiska wdrażania. 
+Poniższa sekcja zawiera szeroki widok najważniejszych elementów planowania, które spowodują skonfigurowanie wydajnego środowiska wdrażania.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -50,7 +50,7 @@ Przed rozpoczęciem wdrażania należy spełnić następujące wymagania wstępn
      * Jeśli to możliwe, wdróż łączniki w [tej samej sieci](application-proxy-network-topology.md) i segmencie co serwery aplikacji sieci Web zaplecza. Najlepszym rozwiązaniem jest wdrożenie łączników po zakończeniu odnajdywania aplikacji.
      * Zalecamy, aby każda grupa łączników miała co najmniej dwa łączniki zapewniające wysoką dostępność i skalowanie. W przypadku, gdy trzy łączniki są optymalne na wypadek, może być konieczne obsługę komputera w dowolnym momencie. Przejrzyj [tabelę pojemności łącznika](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) , aby pomóc w wyborze typu maszyny, na której mają zostać zainstalowane łączniki. Im większa jest pojemność bufora i wykonanie łącznika.
 
-* **Ustawienia dostępu do sieci**: Łączniki usługi Azure serwer proxy aplikacji usługi Azure AD [nawiązują połączenie z platformą Azure za pośrednictwem protokołu HTTPS (port TCP 443) i http (port TCP 80)](application-proxy-add-on-premises-application.md). 
+* **Ustawienia dostępu do sieci**: Łączniki usługi Azure serwer proxy aplikacji usługi Azure AD [nawiązują połączenie z platformą Azure za pośrednictwem protokołu HTTPS (port TCP 443) i http (port TCP 80)](application-proxy-add-on-premises-application.md).
 
    * Przerwanie ruchu TLS łącznik nie jest obsługiwane i uniemożliwi łącznikom nawiązywanie bezpiecznego kanału z odpowiednimi punktami końcowymi serwera proxy aplikacji platformy Azure.
 
@@ -64,7 +64,7 @@ Następujące podstawowe wymagania muszą zostać spełnione, aby można było s
 
 *  **Azure**— dołączanie: przed wdrożeniem serwera proxy aplikacji tożsamości użytkowników muszą być synchronizowane z katalogu lokalnego lub tworzone bezpośrednio w dzierżawach usługi Azure AD. Synchronizacja tożsamości umożliwia usłudze Azure AD wstępne uwierzytelnienie użytkowników przed udzieleniem im dostępu do opublikowanych aplikacji serwera proxy aplikacji i posiadanie informacji o identyfikatorze użytkownika w celu przeprowadzenia rejestracji jednokrotnej (SSO).
 
-* **Wymagania dotyczące dostępu warunkowego**: nie zaleca się używania serwera proxy aplikacji do dostępu do intranetu, ponieważ powoduje to dodanie opóźnień, które mają wpływ na użytkowników. Zalecamy używanie serwera proxy aplikacji z zasadami wstępnego uwierzytelniania i dostępu warunkowego dla dostępu zdalnego z Internetu.  Podejście do zapewnienia dostępu warunkowego do użytku w intranecie polega na modernizacji aplikacji, aby mogły one być bezpośrednio uwierzytelniane za pomocą usługi AAD. Aby uzyskać więcej informacji, zapoznaj się z [zasobami dotyczącymi migrowania aplikacji do usługi AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) . 
+* **Wymagania dotyczące dostępu warunkowego**: nie zaleca się używania serwera proxy aplikacji do dostępu do intranetu, ponieważ powoduje to dodanie opóźnień, które mają wpływ na użytkowników. Zalecamy używanie serwera proxy aplikacji z zasadami wstępnego uwierzytelniania i dostępu warunkowego dla dostępu zdalnego z Internetu.  Podejście do zapewnienia dostępu warunkowego do użytku w intranecie polega na modernizacji aplikacji, aby mogły one być bezpośrednio uwierzytelniane za pomocą usługi AAD. Aby uzyskać więcej informacji, zapoznaj się z [zasobami dotyczącymi migrowania aplikacji do usługi AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) .
 
 * **Limity usługi**: aby chronić przed zużyciem zasobów przez poszczególne dzierżawy, istnieją limity ograniczania ustawione na aplikację i dzierżawcę. Aby sprawdzić te limity, odnoszą się do [limitów i ograniczeń usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Te limity ograniczania są oparte na teście porównawczym znacznie powyżej typowego woluminu użycia i zapewniają szeroki bufor dla większości wdrożeń.
 
@@ -81,11 +81,11 @@ Aby uzyskać szczegółowe informacje na temat tego tematu, zobacz [KCD for Sing
 
 * **Prawa i role administracyjne**
 
-   * **Instalacja łącznika** wymaga uprawnień administratora lokalnego dla systemu Windows Server, na którym jest instalowany. Wymaga również co najmniej roli *administratora aplikacji* do uwierzytelniania i rejestrowania wystąpienia łącznika w dzierżawie usługi Azure AD. 
+   * **Instalacja łącznika** wymaga uprawnień administratora lokalnego dla systemu Windows Server, na którym jest instalowany. Wymaga również co najmniej roli *administratora aplikacji* do uwierzytelniania i rejestrowania wystąpienia łącznika w dzierżawie usługi Azure AD.
 
    * **Publikowanie i administrowanie aplikacjami** wymaga roli *administratora aplikacji* . Administratorzy aplikacji mogą zarządzać wszystkimi aplikacjami w katalogu, takimi jak rejestracje, ustawienia rejestracji jednokrotnej, przypisania użytkowników i grup oraz Licencjonowanie, ustawienia serwera proxy aplikacji i zgodę. Nie przyznaje możliwości zarządzania dostępem warunkowym. Rola *administrator aplikacji w chmurze* ma wszystkie możliwości administratora aplikacji, z tą różnicą, że nie zezwala na zarządzanie ustawieniami serwera proxy aplikacji.
 
-* **Licencjonowanie**: serwer proxy aplikacji jest dostępny w ramach subskrypcji Azure AD — wersja Premium. Zapoznaj się z pełną listą opcji licencjonowania i funkcji na [stronie z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .  
+* **Licencjonowanie**: serwer proxy aplikacji jest dostępny w ramach subskrypcji Azure AD — wersja Premium. Zapoznaj się z pełną listą opcji licencjonowania i funkcji na [stronie z cennikiem Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="application-discovery"></a>Odnajdywanie aplikacji
 
@@ -117,7 +117,7 @@ Poniżej znajdują się obszary, dla których należy zdefiniować wymagania biz
 
 * Użytkownicy zdalni z zatwierdzonymi urządzeniami osobistymi mogą bezpiecznie uzyskiwać dostęp do opublikowanych aplikacji, pod warunkiem, że są one zarejestrowane w usłudze MFA i zarejestrowali aplikację Microsoft Authenticator na swoim telefonie komórkowym jako metoda uwierzytelniania.
 
-**Nadzór** 
+**Nadzór**
 
 * Administratorzy mogą definiować i monitorować cykl życia przypisań użytkowników do aplikacji publikowanych za pomocą serwera proxy aplikacji.
 
@@ -141,9 +141,9 @@ Poniżej znajdują się obszary, dla których należy zdefiniować wymagania biz
 
 Określ ilość czasu i nakładów pracy wymaganych do pełnego zgłoszenia pojedynczej aplikacji do dostępu zdalnego przy użyciu logowania jednokrotnego (SSO). Należy to zrobić, uruchamiając pilotaż, który uważa, że początkowe odnajdywanie, publikowanie i testowanie ogólne. Korzystanie z prostej aplikacji sieci Web opartej na usługach IIS, która jest już wstępnie skonfigurowana na potrzeby zintegrowanego uwierzytelniania systemu Windows (IWA), pomaga ustalić linię bazową, ponieważ ta konfiguracja wymaga minimalnego wysiłku do pomyślnego pilotażowego dostępu zdalnego i logowania jednokrotnego.
 
-Następujące elementy projektu powinny zwiększyć sukces implementacji pilotażowej bezpośrednio w dzierżawie produkcyjnej.  
+Następujące elementy projektu powinny zwiększyć sukces implementacji pilotażowej bezpośrednio w dzierżawie produkcyjnej.
 
-**Zarządzanie łącznikami**:  
+**Zarządzanie łącznikami**:
 
 * Łączniki odgrywają kluczową rolę w dostarczaniu lokalnych danych do aplikacji. Użycie **domyślnej** grupy łączników jest wystarczające do wstępnego testowania pilotażowego opublikowanych aplikacji przed ich wprowadzeniem do środowiska produkcyjnego. Pomyślnie przetestowane aplikacje można przenieść do grup łączników produkcyjnych.
 
@@ -157,7 +157,8 @@ Następujące elementy projektu powinny zwiększyć sukces implementacji pilota�
 
 **Protokół TLS między hostem łącznika a aplikacją docelową**: zabezpieczenia są najważniejsze, dlatego protokół TLS między hostem łącznika a aplikacją docelową powinien być zawsze używany. Szczególnie jeśli aplikacja sieci Web jest skonfigurowana do uwierzytelniania opartego na formularzach (FBA), w miarę jak poświadczenia użytkownika są efektywnie przesyłane w postaci zwykłego tekstu.
 
-**Zaimplementuj przyrostowo i przetestuj każdy krok**. Przeprowadzaj podstawowe testy funkcjonalne po opublikowaniu aplikacji, aby upewnić się, że wszystkie wymagania użytkownika i biznesowe zostały spełnione, postępując zgodnie z poniższymi instrukcjami:
+**Zaimplementuj przyrostowo i przetestuj każdy krok**.
+Przeprowadzaj podstawowe testy funkcjonalne po opublikowaniu aplikacji, aby upewnić się, że wszystkie wymagania użytkownika i biznesowe zostały spełnione, postępując zgodnie z poniższymi instrukcjami:
 
 1. Przetestuj i Zweryfikuj ogólny dostęp do aplikacji sieci Web z wyłączonym uwierzytelnianiem wstępnym.
 2. W przypadku pomyślnego włączenia uwierzytelniania wstępnego i przypisania użytkowników i grup. Testowanie i weryfikowanie dostępu.
@@ -231,7 +232,7 @@ Po opublikowaniu aplikacji powinna ona być dostępna, wpisując jej zewnętrzny
 
 ### <a name="enable-pre-authentication"></a>Włącz uwierzytelnianie wstępne
 
-Sprawdź, czy aplikacja jest dostępna za pośrednictwem serwera proxy aplikacji, do którego uzyskuje dostęp za pośrednictwem zewnętrznego adresu URL. 
+Sprawdź, czy aplikacja jest dostępna za pośrednictwem serwera proxy aplikacji, do którego uzyskuje dostęp za pośrednictwem zewnętrznego adresu URL.
 
 1. Przejdź do **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** i wybierz aplikację, którą chcesz zarządzać.
 
@@ -243,7 +244,7 @@ Po włączeniu wstępnego uwierzytelniania usługa Azure AD będzie najpierw spr
 
 ### <a name="enable-single-sign-on"></a>Włącz logowanie jednokrotne
 
-Logowanie jednokrotne zapewnia najlepszą możliwą obsługę i bezpieczeństwo, ponieważ użytkownicy muszą logować się tylko raz podczas uzyskiwania dostępu do usługi Azure AD. Po wstępnym uwierzytelnieniu użytkownika Logowanie jednokrotne jest wykonywane przez łącznik serwera proxy aplikacji uwierzytelniany w aplikacji lokalnej w imieniu użytkownika. Aplikacja zaplecza przetwarza identyfikator logowania, tak jakby był on użytkownikiem. 
+Logowanie jednokrotne zapewnia najlepszą możliwą obsługę i bezpieczeństwo, ponieważ użytkownicy muszą logować się tylko raz podczas uzyskiwania dostępu do usługi Azure AD. Po wstępnym uwierzytelnieniu użytkownika Logowanie jednokrotne jest wykonywane przez łącznik serwera proxy aplikacji uwierzytelniany w aplikacji lokalnej w imieniu użytkownika. Aplikacja zaplecza przetwarza identyfikator logowania, tak jakby był on użytkownikiem.
 
 Wybranie opcji **przekazywania** pozwala użytkownikom na dostęp do opublikowanej aplikacji bez konieczności uwierzytelniania w usłudze Azure AD.
 
@@ -286,8 +287,8 @@ Firma Microsoft zaleca, aby udzielić najmniejszego możliwego uprawnienia do wy
 | Właściciel aplikacji| Twórz wszystkie aspekty aplikacji przedsiębiorstwa, rejestracji aplikacji i ustawień serwera proxy aplikacji oraz zarządzaj nimi.| Administrator aplikacji |
 | Administrator infrastruktury | Właściciel przerzucania certyfikatu | Administrator aplikacji |
 
-Zminimalizowanie liczby osób, które mają dostęp do zabezpieczanych informacji lub zasobów, może pomóc w zmniejszeniu prawdopodobieństwa uzyskania nieautoryzowanego dostępu lub autoryzowanemu użytkownikowi przypadkowo wpływającemu na poufne zasoby. 
- 
+Zminimalizowanie liczby osób, które mają dostęp do zabezpieczanych informacji lub zasobów, może pomóc w zmniejszeniu prawdopodobieństwa uzyskania nieautoryzowanego dostępu lub autoryzowanemu użytkownikowi przypadkowo wpływającemu na poufne zasoby.
+
 Jednak użytkownicy nadal muszą wykonać codzienne operacje uprzywilejowane, aby wymusić [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) zasady oparte na czasie just-in-Time (JIT), aby zapewnić uprzywilejowany dostęp na żądanie do zasobów platformy Azure, a usługa Azure AD to zalecane podejście do efektywnego zarządzania dostępem administracyjnym i inspekcją.
 
 ### <a name="reporting-and-monitoring"></a>Raportowanie i monitorowanie
@@ -310,9 +311,9 @@ Te dzienniki zawierają szczegółowe informacje dotyczące logowań do aplikacj
 
 ### <a name="troubleshooting-guide-and-steps"></a>Przewodnik rozwiązywania problemów i kroki
 
-Dowiedz się więcej o typowych problemach i sposobach ich rozwiązywania w celu [rozwiązywania problemów](application-proxy-troubleshoot.md) z komunikatami o błędach. 
+Dowiedz się więcej o typowych problemach i sposobach ich rozwiązywania w celu [rozwiązywania problemów](application-proxy-troubleshoot.md) z komunikatami o błędach.
 
-W poniższych artykułach omówiono typowe scenariusze, które mogą być również używane do tworzenia przewodników związanych z rozwiązywaniem problemów w organizacji pomocy technicznej. 
+W poniższych artykułach omówiono typowe scenariusze, które mogą być również używane do tworzenia przewodników związanych z rozwiązywaniem problemów w organizacji pomocy technicznej.
 
 * [Problem z wyświetlaniem strony aplikacji](application-proxy-page-appearance-broken-problem.md)
 * [Ładowanie aplikacji trwa zbyt długo](application-proxy-page-load-speed-problem.md)

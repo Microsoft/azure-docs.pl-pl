@@ -1,6 +1,6 @@
 ---
-title: Tworzenie puli hostów dzierżawy usług pulpitu wirtualnego systemu Windows — Azure
-description: Jak rozwiązywać problemy z dzierżawą i pulą hostów podczas instalacji środowiska dzierżawy pulpitu wirtualnego systemu Windows.
+title: Tworzenie puli hostów środowiska pulpitu wirtualnego systemu Windows — Azure
+description: Rozwiązywanie problemów i rozwiązywanie problemów z pulą dzierżaw i hostów podczas instalacji środowiska pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,20 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371600"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612593"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Tworzenie dzierżawy i puli hosta
+# <a name="host-pool-creation"></a>Tworzenie puli hostów
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 
@@ -25,92 +31,27 @@ Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://tech
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Uzyskiwanie obrazu wielosesyjnego dla systemu Windows 10 Enterprise
 
-Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie** > **Microsoft Windows 10** > i [Windows 10 Enterprise dla pulpitów wirtualnych w wersji 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie** > **Microsoft Windows 10** > i [wielosesyjne Windows 10 Enterprise, wersja 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![Zrzut ekranu przedstawiający wybór systemu Windows 10 Enterprise dla pulpitów wirtualnych, wersja 1809.](media/AzureMarketPlace.png)
+## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemy z używaniem Azure Portal do tworzenia pul hostów
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Tworzenie dzierżawy pulpitu wirtualnego systemu Windows
+### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Błąd: "utwórz bezpłatne konto" pojawia się podczas uzyskiwania dostępu do usługi
 
-W tej sekcji omówiono potencjalne problemy podczas tworzenia dzierżawy pulpitu wirtualnego systemu Windows.
+![Obraz przedstawiający Azure Portal wyświetlania komunikatu "Tworzenie bezpłatnego konta"](media/create-new-account.png)
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
+**Przyczyna**: nie ma aktywnych subskrypcji na koncie, które zostało zalogowane na platformie Azure za pomocą usługi, lub że konto nie ma uprawnień do wyświetlania subskrypcji. 
 
-![Zrzut ekranu okna programu PowerShell, w którym użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania.](media/UserNotAuthorizedNewTenant.png)
+**Poprawka**: Zaloguj się do subskrypcji, w której zostaną wdrożone maszyny wirtualne hosta sesji przy użyciu konta, które ma co najmniej dostęp na poziomie współautora.
 
-Przykład nieprzetworzonego błędu:
+### <a name="error-exceeding-quota-limit"></a>Błąd: "przekraczanie limitu przydziału"
 
-```Error
-   New-RdsTenant : User isn't authorized to query the management service.
-   ActivityId: ad604c3a-85c6-4b41-9b81-5138162e5559
-   Powershell commands to diagnose the failure:
-   Get-RdsDiagnosticActivities -ActivityId ad604c3a-85c6-4b41-9b81-5138162e5559
-   At line:1 char:1
-   + New-RdsTenant -Name "testDesktopTenant" -AadTenantId "01234567-89ab-c ...
-   + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       + CategoryInfo          : FromStdErr: (Microsoft.RDInf...nt.NewRdsTenant:NewRdsTenant) [New-RdsTenant], RdsPowerSh
-      ellException
-       + FullyQualifiedErrorId : UnauthorizedAccess,Microsoft.RDInfra.RDPowershell.Tenant.NewRdsTenant
-```
+Jeśli operacja przekracza limit przydziału, można wykonać jedną z następujących czynności: 
 
-**Przyczyna:** Zalogowany użytkownik nie ma przypisanej roli TenantCreator w Azure Active Directory.
+- Utwórz nową pulę hostów z takimi samymi parametrami, ale mniejszą liczbę rdzeni maszyn wirtualnych i maszyn wirtualnych.
 
-**Poprawka:** Postępuj zgodnie z instrukcjami w temacie [Przypisywanie roli aplikacji TenantCreator do użytkownika w dzierżawie Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Po wykonaniu instrukcji uzyskasz użytkownikowi przypisaną rolę TenantCreator.
+- Otwórz link widoczny w polu statusMessage w przeglądarce, aby przesłać żądanie zwiększenia przydziału subskrypcji platformy Azure dla określonej jednostki SKU maszyny wirtualnej.
 
-![Zrzut ekranu przedstawiający przypisaną rolę TenantCreator.](media/TenantCreatorRoleAssigned.png)
-
-## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Tworzenie maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows
-
-Maszyny wirtualne hosta sesji można tworzyć na kilka sposobów, ale zespół pulpitów wirtualnych systemu Windows obsługuje tylko problemy z obsługą maszyn wirtualnych powiązane z ofertą [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/) . Aby uzyskać więcej informacji, zobacz [problemy z używaniem pulpitu wirtualnego systemu Windows — Inicjowanie obsługi puli hostów Azure Marketplace oferta](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
-
-## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problemy z używaniem pulpitu wirtualnego systemu Windows — Inicjowanie obsługi puli hostów Azure Marketplace oferta
-
-Pulpit wirtualny systemu Windows — Inicjowanie obsługi administracyjnej szablonu puli hostów jest dostępny w portalu Azure Marketplace.
-
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Błąd: w przypadku korzystania z linku z usługi GitHub zostanie wyświetlony komunikat "Tworzenie bezpłatnego konta"
-
-![Zrzut ekranu, aby utworzyć bezpłatne konto.](media/be615904ace9832754f0669de28abd94.png)
-
-**Przyczyna 1:** W ramach konta użytego do zalogowania się na platformie Azure nie ma aktywnych subskrypcji lub użyte konto nie ma uprawnień do wyświetlania subskrypcji.
-
-**Poprawka 1:** Zaloguj się przy użyciu konta, które ma dostęp współautora (co najmniej) do subskrypcji, w której zostaną wdrożone maszyny wirtualne hosta sesji.
-
-**Przyczyna 2:** Używana subskrypcja jest częścią dzierżawy dostawcy usług Microsoft Cloud.
-
-**Poprawka 2:** Przejdź do lokalizacji usługi GitHub, aby **utworzyć nową pulę hostów usług pulpitu wirtualnego systemu Windows i udostępnić** ją, a następnie wykonaj następujące instrukcje:
-
-1. Kliknij prawym przyciskiem myszy pozycję **Wdróż na platformie Azure** i wybierz pozycję **Kopiuj adres łącza**.
-2. Otwórz **Notatnik** i wklej link.
-3. Przed znakiem # Wstaw nazwę dzierżawcy klienta końcowego dostawcy CSP.
-4. Otwórz nowy link w przeglądarce, a Azure Portal załaduje szablon.
-
-    ```Example
-    Example: https://portal.azure.com/<CSP end customer tenant name>
-    #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
-    2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
-    ```
-
-### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Błąd: Wystąpił błąd "wdrożenie szablonu jest nieprawidłowe"
-
-![Zrzut ekranu przedstawiający "Wdrażanie szablonu... nieprawidłowy "błąd"](media/troubleshooting-marketplace-validation-error-generic.png)
-
-Przed podjęciem określonego działania należy sprawdzić dziennik aktywności, aby zobaczyć szczegółowy błąd sprawdzania poprawności wdrożenia zakończonego niepowodzeniem.
-
-Aby wyświetlić błąd w dzienniku aktywności:
-
-1. Wyjdź z bieżącej oferty wdrażania w portalu Azure Marketplace.
-2. Na górnym pasku wyszukiwania Wyszukaj i wybierz pozycję **Dziennik aktywności**.
-3. Znajdź działanie o nazwie **Weryfikuj wdrożenie** o stanie **Niepowodzenie** i wybierz działanie.
-   ![Zrzut ekranu przedstawiający działanie pojedynczego * * Weryfikuj wdrożenie * * aktywności z * * niepowodzeniem * * status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
-
-4. Wybierz pozycję JSON, a następnie przewiń w dół do dolnej części ekranu, dopóki nie zobaczysz pola "statusMessage".
-   ![Zrzut ekranu działania zakończonego niepowodzeniem z czerwonym prostokątem wokół właściwości statusMessage tekstu JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
-
-Jeśli szablon operacji przekracza limit przydziału, możesz wykonać jedną z następujących czynności, aby rozwiązać ten problem:
-
- - Uruchom witrynę Azure Marketplace z parametrami, które zostały użyte po raz pierwszy, ale ten czas wykorzystuje mniej maszyn wirtualnych i rdzeni maszyn wirtualnych.
- - Otwórz link widoczny w polu **statusMessage** w przeglądarce, aby przesłać żądanie zwiększenia przydziału subskrypcji platformy Azure dla określonej jednostki SKU maszyny wirtualnej.
-
-## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Azure Resource Manager szablonu i błędów konfiguracji żądanego stanu (DSC) programu PowerShell
+## <a name="azure-resource-manager-template-errors"></a>Błędy szablonu Azure Resource Manager
 
 Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepowodzeniem wdrożenia szablonów Azure Resource Manager i DSC programu PowerShell.
 
@@ -121,7 +62,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepo
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się..\<.. nazwa hosta>/JoinDomain
 
-![Zrzut ekranu wdrożenia nie powiódł się.](media/e72df4d5c05d390620e07f0d7328d50f.png)
+![Zrzut ekranu wdrożenia nie powiódł się.](media/failure-joindomain.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -145,7 +86,7 @@ Przykład nieprzetworzonego błędu:
 
 Aby rozwiązać ten problem, wykonaj następujące czynności:
 
-1. Otwórz witrynę Azure Portal i przejdź do karty **sieci wirtualne** .
+1. Otwórz Azure Portal i przejdź do karty **sieci wirtualne** .
 2. Znajdź sieć wirtualną, a następnie wybierz pozycję **serwery DNS**.
 3. Menu serwery DNS powinno pojawić się po prawej stronie ekranu. W tym menu wybierz pozycję **niestandardowy**.
 4. Upewnij się, że serwery DNS wymienione w obszarze niestandardowe są zgodne z kontrolerem domeny lub Active Directory domeny. Jeśli nie widzisz serwera DNS, możesz go dodać, wprowadzając jego wartość w polu **Dodaj serwer DNS** .
@@ -162,7 +103,7 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Błąd: VMExtensionProvisioningError
 
-![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](media/7aaf15615309c18a984673be73ac969a.png)
+![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](media/failure-vmextensionprovisioning.png)
 
 **Przyczyna 1:** Błąd przejściowy ze środowiskiem pulpitu wirtualnego systemu Windows.
 
@@ -172,17 +113,15 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Błąd: określona nazwa użytkownika administratora jest niedozwolona
 
-![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](media/failure-username.png)
 
 Przykład nieprzetworzonego błędu:
 
 ```Error
- { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostDesktop/providers/Microsoft.
-  Resources/deployments/vmCreation-linkedTemplate/operations/EXAMPLE", "operationId": "EXAMPLE", "properties": { "provisioningOperation":
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
- "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/EXAMPLE
- /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demo", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demo" } }}
+ { …{ "provisioningOperation": 
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
 **Przyczyna:** Podane hasło zawiera zabronione podciągi (administrator, administrator, root).
@@ -191,24 +130,17 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Błąd: maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia
 
-![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](media/49c4a1836a55d91cd65125cf227f411f.png)
+![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](media/failure-processing.png)
 
 Przykład nieprzetworzonego błędu:
 
 ```Error
-{ "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
- rds.wvd-provision-host-pool-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
- { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
- "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
- "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
+{ … "code": "ResourceDeploymentFailure", "message":
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
- One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource":
- { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.
- Compute/virtualMachines/desktop-1/extensions/dscextension",
- "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
 **Przyczyna:** Rozszerzenie DSC programu PowerShell nie mogło uzyskać dostępu administratora na maszynie wirtualnej.
@@ -217,7 +149,7 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Błąd: DeploymentFailed — Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami
 
-![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](media/64870370bcbe1286906f34cf0a8646ab.png)
+![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](media/failure-dsc.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -319,58 +251,6 @@ the VM.\\\"
 **Przyczyna:** Ten błąd jest spowodowany trasą statyczną, regułą zapory lub sieciowej grupy zabezpieczeń, która blokuje pobieranie pliku zip powiązanego z szablonem Azure Resource Manager.
 
 **Poprawka:** Usuń blokowanie trasy statycznej, reguły zapory lub sieciowej grupy zabezpieczeń. Opcjonalnie możesz otworzyć plik JSON szablonu Azure Resource Manager w edytorze tekstów, pobrać link do pliku zip i pobrać zasób do dozwolonej lokalizacji.
-
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
-
-Przykład nieprzetworzonego błędu:
-
-```Error
-"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00",
-"status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing
-extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s).
-Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource
- functionality with error message: User is not authorized to query the management service.
-\nActivityId: 1b4f2b37-59e9-411e-9d95-4f7ccd481233\nPowershell commands to diagnose the failure:
-\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n
-The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
-```
-
-**Przyczyna:** Określony Administrator dzierżawy pulpitu wirtualnego systemu Windows nie ma prawidłowego przypisania roli.
-
-**Poprawka:** Użytkownik, który utworzył dzierżawcę pulpitów wirtualnych systemu Windows, musi zalogować się do programu PowerShell Virtual Desktop systemu Windows i przypisać użytkownikowi, który podjął próbę przypisania roli. Jeśli uruchamiasz parametry szablonu Azure Resource Manager GitHub, postępuj zgodnie z tymi instrukcjami przy użyciu poleceń programu PowerShell:
-
-```PowerShell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
-```
-
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Błąd: użytkownik wymaga platformy Azure Multi-Factor Authentication (MFA)
-
-![Zrzut ekranu wdrożenia nie powiódł się z powodu braku Multi-Factor Authentication (MFA)](media/MFARequiredError.png)
-
-Przykład nieprzetworzonego błędu:
-
-```Error
-"message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
-```
-
-**Przyczyna:** Określony Administrator dzierżawy usług pulpitu wirtualnego systemu Windows wymaga zalogowania się do usługi Azure Multi-Factor Authentication (MFA).
-
-**Poprawka:** Utwórz jednostkę usługi i przypisz ją do swojej dzierżawy pulpitu wirtualnego systemu Windows, wykonując kroki opisane w [samouczku: tworzenie jednostek usługi i przypisań ról przy użyciu programu PowerShell](create-service-principal-role-powershell.md). Po sprawdzeniu, czy możesz zalogować się do pulpitu wirtualnego systemu Windows przy użyciu nazwy głównej usługi, uruchom ponownie ofertę witryny Azure Marketplace lub szablon Azure Resource Manager GitHub, w zależności od używanej metody. Postępuj zgodnie z poniższymi instrukcjami, aby wprowadzić poprawne parametry dla metody.
-
-W przypadku korzystania z oferty portalu Azure Marketplace podaj wartości następujących parametrów, aby prawidłowo uwierzytelniać się na pulpicie wirtualnym systemu Windows:
-
-- Windows Virtual Desktop dzierżawca RDS właściciel: główna usługi
-- Identyfikator aplikacji: Identyfikacja aplikacji nowo utworzonej jednostki usługi
-- Hasło/Potwierdź hasło: klucz tajny hasła wygenerowany dla jednostki usługi
-- Identyfikator dzierżawy usługi Azure AD: Identyfikator dzierżawy usługi Azure AD, który został utworzony
-
-Jeśli uruchamiasz szablon Azure Resource Manager GitHub, podaj wartości następujących parametrów, aby prawidłowo uwierzytelniać się na pulpicie wirtualnym systemu Windows:
-
-- Główna nazwa użytkownika (UPN) administratora dzierżawy lub identyfikator aplikacji: Identyfikator aplikacji utworzonej nowej jednostki usługi
-- Hasło administratora dzierżawy: hasło wygenerowane dla jednostki usługi
-- IsServicePrincipal: **true**
-- AadTenantId: Identyfikator dzierżawy usługi Azure AD, która została utworzona przez użytkownika
 
 ## <a name="next-steps"></a>Następne kroki
 

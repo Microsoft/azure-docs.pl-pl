@@ -5,27 +5,31 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4a0f193437353bac1f5998b50b9d7b4d43bedefa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 66b76fcdd9729b2a92ea2d561c740dbe148e0bbe
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128068"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611555"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
 
-Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania i przekierowania audio, zapewnia optymalne środowisko dla użytkowników zgodnie z ich potrzebami. Właściwości protokołu RDP można dostosować na pulpicie wirtualnym systemu Windows przy użyciu parametru **-CustomRdpProperty** w poleceniu cmdlet **Set-RdsHostPool** .
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania i przekierowania audio, zapewnia optymalne środowisko dla użytkowników zgodnie z ich potrzebami. Właściwości protokołu RDP można dostosować na pulpicie wirtualnym systemu Windows przy użyciu Azure Portal lub za pomocą parametru *-CustomRdpProperty* w poleceniu cmdlet **Update-AzWvdHostPool** .
 
 Zobacz [obsługiwane ustawienia plików RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) , aby uzyskać pełną listę obsługiwanych właściwości i ich wartości domyślne.
 
-Najpierw [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
+## <a name="prerequisites"></a>Wymagania wstępne
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Przed rozpoczęciem postępuj zgodnie z instrukcjami w temacie [Konfigurowanie modułu PowerShell pulpitu wirtualnego systemu Windows](powershell-module.md) w celu skonfigurowania modułu programu PowerShell i zalogowania się na platformie Azure.
 
 ## <a name="default-rdp-properties"></a>Domyślne właściwości protokołu RDP
 
@@ -33,46 +37,103 @@ Domyślnie publikowane pliki RDP zawierają następujące właściwości:
 
 |Właściwości RDP | Komputery stacjonarne | Aplikacje usługi RemoteApp |
 |---|---| --- |
-| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Nie dotyczy |
+| Tryb z obsługą kilku monitorów | Enabled (Włączony) | Brak |
 | Przekierowania dysków włączone | Dyski, schowek, drukarki, porty COM, urządzenia USB i karty inteligentne| Dyski, schowek i drukarki |
 | Tryb zdalny audio | Odtwórz lokalnie | Odtwórz lokalnie |
 
 Wszystkie właściwości niestandardowe zdefiniowane dla puli hostów przesłonią te wartości domyślne.
+
+## <a name="configure-rdp-properties-in-the-azure-portal"></a>Konfigurowanie właściwości RDP w Azure Portal
+
+Aby skonfigurować właściwości RDP w Azure Portal:
+
+1. Zaloguj się do platformy Azure <https://portal.azure.com>pod adresem.
+2. Na pasku wyszukiwania wprowadź **pulpit wirtualny systemu Windows** .
+3. W obszarze usługi wybierz pozycję **pulpit wirtualny systemu Windows**.
+4. Na stronie pulpit wirtualny systemu Windows wybierz pozycję **Pule hostów** w menu po lewej stronie ekranu.
+5. Wybierz **nazwę puli hostów** , którą chcesz zaktualizować.
+6. Wybierz pozycję **Właściwości** w menu po lewej stronie ekranu.
+7. Wybierz pozycję **Ustawienia RDP** , aby rozpocząć edycję właściwości RDP.
+8. Gdy skończysz, wybierz pozycję **Zapisz** , aby zapisać zmiany.
+
+Jeśli istnieje ustawienie, które chcesz edytować, aby nie było widoczne w menu Ustawienia RDP, trzeba będzie je edytować ręcznie, uruchamiając polecenia cmdlet w programie PowerShell. W następnych sekcjach opisano, jak ręcznie edytować niestandardowe właściwości protokołu RDP w programie PowerShell.
 
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Dodaj lub Edytuj pojedynczą niestandardową Właściwość RDP
 
 Aby dodać lub edytować pojedynczą niestandardową Właściwość RDP, uruchom następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty <property>
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](media/singlecustomrdpproperty.png)
+Aby sprawdzić, czy polecenie cmdlet właśnie uruchomiło aktualizację, Uruchom to polecenie cmdlet:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+
+Name              : <hostpoolname>
+CustomRdpProperty : <customRDPpropertystring>
+```
+
+Jeśli na przykład sprawdzisz Właściwość "audiocapturemode" w puli hostów o nazwie 0301HP, wprowadzisz następujące polecenie cmdlet:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty
+
+Name              : 0301HP
+CustomRdpProperty : audiocapturemode:i:1;
+```
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Dodawanie lub Edytowanie wielu niestandardowych właściwości RDP
 
 Aby dodać lub edytować wiele niestandardowych właściwości RDP, uruchom następujące polecenia cmdlet programu PowerShell, dostarczając niestandardowe właściwości protokołu RDP jako ciąg rozdzielony średnikami:
 
 ```powershell
-$properties="<property1>;<property2>;<property3>"
-Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
+$properties="<property1>;<property2>;<property3>" 
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty $properties 
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](media/multiplecustomrdpproperty.png)
+Aby upewnić się, że Właściwość RDP została dodana, możesz uruchomić następujące polecenie cmdlet:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+
+Name              : <hostpoolname>
+CustomRdpProperty : <customRDPpropertystring>
+```
+
+W zależności od wcześniejszego przykładu poleceń cmdlet w przypadku skonfigurowania wielu właściwości RDP w puli hostów 0301HP polecenie cmdlet będzie wyglądać następująco:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName 0301rg -Name 0301hp | format-list Name, CustomRdpProperty 
+
+Name              : 0301HP 
+CustomRdpProperty : audiocapturemode:i:1;audiomode:i:0;
+```
 
 ## <a name="reset-all-custom-rdp-properties"></a>Zresetuj wszystkie niestandardowe właściwości RDP
 
 Możesz zresetować pojedyncze niestandardowe właściwości protokołu RDP do wartości domyślnych, postępując zgodnie z instrukcjami w temacie [Dodawanie lub edytowanie pojedynczej niestandardowej właściwości RDP](#add-or-edit-a-single-custom-rdp-property), albo Zresetuj wszystkie niestandardowe właściwości protokołu RDP dla puli hostów, uruchamiając następujące polecenie cmdlet programu PowerShell:
 
 ```powershell
-Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![Zrzut ekranu poleceń cmdlet programu PowerShell Get-RDSRemoteApp z wyróżnioną nazwą i przyjaznymi nazwami.](media/resetcustomrdpproperty.png)
+Aby upewnić się, że to ustawienie zostało pomyślnie usunięte, wprowadź następujące polecenie cmdlet:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty 
+
+Name              : <hostpoolname> 
+CustomRdpProperty : <CustomRDPpropertystring>
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, po dostosowaniu właściwości RDP dla danej puli hostów, można zalogować się do klienta pulpitu wirtualnego systemu Windows, aby przetestować je w ramach sesji użytkownika. Te następne dwie porady informują Cię, jak nawiązać połączenie z sesją przy użyciu wybranego przez siebie klienta:
+Teraz, po dostosowaniu właściwości RDP dla danej puli hostów, można zalogować się do klienta pulpitu wirtualnego systemu Windows, aby przetestować je w ramach sesji użytkownika. W poniższych następnych przewodnikach przedstawiono sposób nawiązywania połączenia z sesją przy użyciu wybranego przez siebie klienta:
 
 - [Łączenie się z klientem klasycznym systemu Windows](connect-windows-7-and-10.md)
 - [Łączenie się z klientem internetowym](connect-web.md)
+- [Łączenie się z klientem systemu Android](connect-android.md)
+- [Nawiązywanie połączenia z klientem systemu macOS](connect-macos.md)
+- [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)

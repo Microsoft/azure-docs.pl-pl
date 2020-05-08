@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870215"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611402"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -45,11 +45,13 @@ Utwórz i Przechwyć obraz maszyny wirtualnej, a następnie użyj go jako źród
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Jeśli zmniejszę pojemność zestawu skalowania z 20 do 15, które maszyny wirtualne zostaną usunięte?
 
-W celu zapewnienia maksymalnej dostępności maszyny wirtualne są usuwane z zestawu skalowania równomiernie w domenach błędów i domenach aktualizacji. Najpierw są usuwane maszyny wirtualne o najwyższym identyfikatorze.
+Domyślnie maszyny wirtualne są usuwane z zestawu skalowania równomiernie w różnych strefach dostępności (Jeśli zestaw skalowania jest wdrażany w konfiguracji stref) i domen błędów w celu maksymalizacji dostępności. Najpierw są usuwane maszyny wirtualne o najwyższym identyfikatorze.
+
+Kolejność usuwania maszyn wirtualnych można zmienić, określając [zasady skalowania](virtual-machine-scale-sets-scale-in-policy.md) dla zestawu skalowania.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Co się stanie, jeśli następnie zwiększę pojemność z 15 do 18?
 
-Zwiększenie pojemności do 18 spowoduje utworzenie 3 nowych maszyn wirtualnych. Za każdym razem następuje zwiększenie identyfikatora wystąpienia maszyny wirtualnej względem poprzedniej najwyższej wartości (na przykład 20, 21, 22). Maszyny wirtualne są równoważone w domenach błędów i domenach aktualizacji.
+Zwiększenie pojemności do 18 spowoduje utworzenie 3 nowych maszyn wirtualnych. Za każdym razem następuje zwiększenie identyfikatora wystąpienia maszyny wirtualnej względem poprzedniej najwyższej wartości (na przykład 20, 21, 22). Maszyny wirtualne są zrównoważone w domenach błędów.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Czy mogę wymusić sekwencję wykonywania w przypadku korzystania z wielu rozszerzeń w zestawie skalowania?
 
@@ -335,13 +337,13 @@ Aby uzyskać więcej informacji, zobacz [Centrum zaufania firmy Microsoft](https
 
 Tak. Możesz zobaczyć przykładowe szablony MSI w szablonach szybkiego startu platformy Azure dla [systemów](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) i Windows.
 
-## <a name="deleting"></a>Usunąć 
+## <a name="deleting"></a>Usunąć
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Czy po usunięciu wystąpień będą przestrzegane blokady ustawione w miejscu dla wystąpień zestawu skalowania maszyn wirtualnych?
 
-W witrynie Azure Portal można usunąć pojedyncze wystąpienie lub usuwanie zbiorcze, zaznaczając wiele wystąpień. Jeśli podjęto próbę usunięcia pojedynczego wystąpienia, które ma zablokowaną blokadę, blokada jest przestrzegana i nie będzie można usunąć wystąpienia. Jeśli jednak zbiorczo wybierzesz wiele wystąpień, a dowolne z tych wystąpień ma blokadę, blokady nie będą przestrzegane, a wszystkie wybrane wystąpienia zostaną usunięte. 
- 
-W interfejsie wiersza polecenia platformy Azure można tylko usunąć pojedyncze wystąpienie. Jeśli podjęto próbę usunięcia pojedynczego wystąpienia, które ma zablokowaną blokadę, blokada jest przestrzegana i nie będzie można usunąć tego wystąpienia. 
+W witrynie Azure Portal można usunąć pojedyncze wystąpienie lub usuwanie zbiorcze, zaznaczając wiele wystąpień. Jeśli podjęto próbę usunięcia pojedynczego wystąpienia, które ma zablokowaną blokadę, blokada jest przestrzegana i nie będzie można usunąć wystąpienia. Jeśli jednak zbiorczo wybierzesz wiele wystąpień, a dowolne z tych wystąpień ma blokadę, blokady nie będą przestrzegane, a wszystkie wybrane wystąpienia zostaną usunięte.
+
+W interfejsie wiersza polecenia platformy Azure można tylko usunąć pojedyncze wystąpienie. Jeśli podjęto próbę usunięcia pojedynczego wystąpienia, które ma zablokowaną blokadę, blokada jest przestrzegana i nie będzie można usunąć tego wystąpienia.
 
 ## <a name="extensions"></a>Rozszerzenia
 

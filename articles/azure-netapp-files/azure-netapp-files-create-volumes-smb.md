@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667998"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625549"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -45,7 +45,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     |    Usługi sieci Web AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    Ruch             |    Nie dotyczy       |    Odpowiedź echa    |
+    |    Ruch             |    Brak       |    Odpowiedź echa    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -222,6 +222,23 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
     Utworzony wolumin zostanie wyświetlony na stronie woluminy. 
  
     Wolumin dziedziczy atrybuty Subskrypcja, Grupa zasobów i Lokalizacja z puli pojemności. Stan wdrożenia woluminu możesz monitorować na karcie Powiadomienia.
+
+## <a name="control-access-to-an-smb-volume"></a>Kontrola dostępu do woluminu SMB  
+
+Dostęp do woluminu SMB jest zarządzany przez uprawnienia.  
+
+### <a name="share-permissions"></a>Uprawnienia do udostępniania  
+
+Domyślnie nowy wolumin ma uprawnienia **Wszyscy/Pełna kontrola** . Członkowie grupy Administratorzy domeny mogą zmieniać uprawnienia udziału za pomocą przystawki Zarządzanie komputerem na koncie komputera, które jest używane dla woluminu Azure NetApp Files.
+
+![Ścieżka](../media/azure-netapp-files/smb-mount-path.png) 
+![instalacji SMB Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>Uprawnienia plików i folderów systemu plików NTFS  
+
+Uprawnienia do pliku lub folderu można ustawić przy użyciu karty **zabezpieczenia** we właściwościach obiektu w kliencie SMB systemu Windows.
+ 
+![Ustawianie uprawnień do plików i folderów](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Następne kroki  
 

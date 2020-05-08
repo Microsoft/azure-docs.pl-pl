@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254237"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612456"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Zastosuj licencję systemu Windows na maszyny wirtualne hosta sesji
 
@@ -23,7 +23,7 @@ Licencjonowanie usług pulpitu wirtualnego systemu Windows umożliwia zastosowan
 
 Istnieje kilka sposobów używania licencji pulpitu wirtualnego systemu Windows:
 - Można utworzyć pulę hostów i jej maszyny wirtualne hosta sesji za pomocą [oferty portalu Azure Marketplace](./create-host-pools-azure-marketplace.md). Maszyny wirtualne utworzone w ten sposób automatycznie mają zastosowana licencję.
-- Pulę hostów i jej maszyny wirtualne hosta sesji można utworzyć przy użyciu [szablonu Azure Resource Manager GitHub](./create-host-pools-arm-template.md). Maszyny wirtualne utworzone w ten sposób automatycznie mają zastosowana licencję.
+- Pulę hostów i jej maszyny wirtualne hosta sesji można utworzyć przy użyciu [szablonu Azure Resource Manager GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). Maszyny wirtualne utworzone w ten sposób automatycznie mają zastosowana licencję.
 - Możesz zastosować licencję do istniejącej maszyny wirtualnej hosta sesji. Aby to zrobić, najpierw postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](./create-host-pools-powershell.md) , aby utworzyć pulę hostów i skojarzone maszyny wirtualne, a następnie wróć do tego artykułu, aby dowiedzieć się, jak zastosować licencję.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Stosowanie licencji systemu Windows na maszynę wirtualną hosta sesji

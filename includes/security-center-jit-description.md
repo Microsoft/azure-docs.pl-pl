@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597948"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82616124"
 ---
 ## <a name="attack-scenario"></a>Scenariusz ataku
 
@@ -29,9 +29,16 @@ Gdy użytkownik zażąda dostępu do maszyny wirtualnej, Security Center sprawdz
  > Jeśli żądanie dostępu JIT zostanie zatwierdzone dla maszyny wirtualnej za zaporą platformy Azure, Security Center automatycznie zmieni reguły zasad sieciowej grupy zabezpieczeń i zapory. Przez określony czas, reguły zezwalają na ruch przychodzący do wybranych portów i żądanych źródłowych adresów IP lub zakresów. Po upływie tego czasu program Security Center przywraca poprzednie Stany zapory i reguły sieciowej grupy zabezpieczeń.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>Role, które mogą odczytywać zasady JIT
+
+Role **Reader** i **SecurityReader** mogą odczytywać zasady.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>Uprawnienia wymagające konfigurowania i używania JIT
+
+Jeśli chcesz utworzyć role niestandardowe, które mogą współpracować z JIT, potrzebne są następujące szczegóły:
 
 | Aby umożliwić użytkownikowi: | Uprawnienia do ustawienia|
 | --- | --- |
 | Konfigurowanie lub edytowanie zasad JIT dla maszyny wirtualnej | *Przypisz następujące akcje do roli:*  <ul><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> W zakresie subskrypcji lub grupy zasobów maszyny wirtualnej: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Zażądaj dostępu JIT do maszyny wirtualnej | *Przypisz następujące akcje do użytkownika:*  <ul><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>W zakresie subskrypcji lub grupy zasobów skojarzonej z maszyną wirtualną:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  W zakresie subskrypcji lub grupy zasobów lub maszyny wirtualnej:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  W zakresie subskrypcji lub grupy zasobów lub maszyny wirtualnej:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Odczyt zasad JIT| *Przypisz następujące akcje do użytkownika:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

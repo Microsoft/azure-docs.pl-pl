@@ -16,12 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 690cb37df4a5d195bfce6ee792f7565a6f7f1768
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686806"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612779"
 ---
 # <a name="develop-a-secure-web-app"></a>Tworzenie bezpiecznej aplikacji internetowej
 
@@ -104,7 +105,7 @@ Używana aplikacja:
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) do wdrożenia.
 - [Centrum platformy Docker](https://hub.docker.com/) jako rejestr kontenerów.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 ### <a name="network"></a>Sieć
 

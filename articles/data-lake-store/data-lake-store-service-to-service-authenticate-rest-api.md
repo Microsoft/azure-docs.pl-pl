@@ -1,17 +1,17 @@
 ---
-title: Uwierzytelnianie między usługami — Data Lake Storage Gen1 — interfejs API REST
+title: Uwierzytelnianie REST-Service-to-Service — Data Lake Storage Gen1 na platformie Azure
 description: Dowiedz się, jak uzyskać uwierzytelnianie między usługami Azure Data Lake Storage Gen1 i Azure Active Directory przy użyciu interfejsu API REST.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 59d0bf20b16beda47d76e6a9940ac9fa4436da3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7d0ec39e9f0f294324eb18337f4234ddaa63e2c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73904528"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688136"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]

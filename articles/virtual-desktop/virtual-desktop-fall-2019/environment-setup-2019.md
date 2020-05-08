@@ -5,25 +5,26 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.openlocfilehash: d666f7e3e43b5429423a5356aa00e074ed020869
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612371"
+ms.locfileid: "82615333"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Środowisko usługi Windows Virtual Desktop
 
 >[!IMPORTANT]
->Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/environment-setup-2019.md).
->
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../environment-setup.md).
 
 Windows Virtual Desktop to usługa zapewniająca użytkownikom łatwy i bezpieczny dostęp do swoich zwirtualizowanych pulpitów i programów RemoteApp. W tym temacie przedstawiono nieco więcej informacji na temat ogólnej struktury środowiska pulpitu wirtualnego systemu Windows.
+
+## <a name="tenants"></a>Dzierżawy
+
+Dzierżawa pulpitu wirtualnego systemu Windows to podstawowy interfejs do zarządzania środowiskiem pulpitu wirtualnego systemu Windows. Każda dzierżawa pulpitu wirtualnego systemu Windows musi być skojarzona z Azure Active Directoryą zawierającą użytkowników, którzy będą logować się do środowiska. Z poziomu dzierżawy pulpitu wirtualnego systemu Windows można rozpocząć tworzenie pul hostów w celu uruchamiania obciążeń użytkowników.
 
 ## <a name="host-pools"></a>Pule hostów
 
@@ -47,12 +48,12 @@ Domyślnie grupa aplikacji klasycznych (o nazwie "aplikacja klasyczna") jest two
 
 Aby opublikować zasoby dla użytkowników, należy przypisać je do grup aplikacji. Podczas przypisywania użytkowników do grup aplikacji należy wziąć pod uwagę następujące kwestie:
 
-- Użytkownika można przypisać do grupy aplikacji klasycznych i grupy aplikacji RemoteApp w tej samej puli hostów. Jednak użytkownicy mogą uruchamiać tylko jeden typ grupy aplikacji na sesję. Użytkownicy nie mogą jednocześnie uruchamiać obu typów grup aplikacji w ramach jednej sesji.
+- Nie można przypisać użytkownika do grupy aplikacji pulpitu i grupy aplikacji RemoteApp w tej samej puli hostów.
 - Użytkownik może być przypisany do wielu grup aplikacji w ramach tej samej puli hostów, a ich źródło danych to nagromadzenie obu grup aplikacji.
 
-## <a name="workspaces"></a>Obszary robocze
+## <a name="tenant-groups"></a>Grupy dzierżaw
 
-Obszar roboczy to logiczna Grupa grup aplikacji w systemie Windows Virtual Desktop. Każda grupa aplikacji klasycznych systemu Windows musi być skojarzona z obszarem roboczym, aby użytkownicy mogli widzieć aplikacje zdalne i pulpity opublikowane na nich.  
+W systemie Windows Virtual Desktop dzierżawca usług pulpitu wirtualnego systemu Windows to miejsce, w którym występuje większość instalacji i konfiguracji. Dzierżawa pulpitu wirtualnego systemu Windows zawiera pule hostów, grupy aplikacji i przypisania użytkowników grupy aplikacji. Mogą jednak wystąpić sytuacje, w których konieczne jest zarządzanie wieloma dzierżawcami pulpitów wirtualnych systemu Windows jednocześnie, szczególnie jeśli jesteś dostawcą usług w chmurze (CSP) lub partnerem hostingu. W takich sytuacjach można użyć niestandardowej grupy dzierżawców pulpitów wirtualnych systemu Windows, aby umieścić każdą dzierżawę pulpitów wirtualnych systemu Windows dla klientów i centralnie zarządzać dostępem. Jeśli jednak zarządzasz tylko jedną dzierżawą usług pulpitu wirtualnego systemu Windows, pojęcie grupy dzierżawców nie ma zastosowania i możesz nadal korzystać z dzierżawy, która istnieje w domyślnej grupie dzierżawców i zarządzać nią.
 
 ## <a name="end-users"></a>Użytkownicy końcowi
 
@@ -60,14 +61,11 @@ Po przypisaniu użytkowników do grup aplikacji mogą oni łączyć się z wdro�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o dostępie delegowanym oraz o sposobach przypisywania ról użytkownikom z [dostępem delegowanym na pulpicie wirtualnym systemu Windows](delegated-access-virtual-desktop.md).
+Dowiedz się więcej o dostępie delegowanym oraz o sposobach przypisywania ról użytkownikom z [dostępem delegowanym na pulpicie wirtualnym systemu Windows](delegated-access-virtual-desktop-2019.md).
 
-Aby dowiedzieć się, jak skonfigurować pulę hostów pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli hostów za pomocą Azure Portal](create-host-pools-azure-marketplace.md).
+Aby dowiedzieć się, jak skonfigurować dzierżawcę pulpitów wirtualnych systemu Windows, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 Aby dowiedzieć się, jak nawiązać połączenie z pulpitem wirtualnym systemu Windows, zobacz jeden z następujących artykułów:
 
-- [Nawiązywanie połączenia z systemem Windows 10 lub Windows 7](connect-windows-7-and-10.md)
-- [Nawiązywanie połączenia za pomocą przeglądarki sieci Web](connect-web.md)
-- [Łączenie się z klientem systemu Android](connect-android.md)
-- [Nawiązywanie połączenia z klientem systemu macOS](connect-macos.md)
-- [Nawiązywanie połączenia z klientem systemu iOS](connect-ios.md)
+- [Łączenie z systemu Windows 10 lub Windows 7](../connect-windows-7-and-10.md)
+- [Łączenie z przeglądarki internetowej](connect-web-2019.md)

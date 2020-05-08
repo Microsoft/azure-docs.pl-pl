@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296969"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983248"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitoruj uruchomienia eksperymentów i metryki usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Następujące metryki można dodać do przebiegu podczas uczenia eksperymentu. A
 |Listy|Funkcyjn<br>`run.log_list(name, value, description='')`<br><br>Przykład:<br>Uruchom polecenie. log_list ("dokładności", [0,6, 0,7, 0,87]) | Rejestruj listę wartości do uruchomienia o podanej nazwie.|
 |Wiersz|Funkcyjn<br>`run.log_row(name, description=None, **kwargs)`<br>Przykład:<br>Uruchom polecenie. log_row ("t over X", X = 1, Y = 0.4) | Za pomocą *log_row* tworzy metrykę z wieloma kolumnami, zgodnie z opisem w kwargs. Każdy nazwany parametr generuje kolumnę o określonej wartości.  *log_row* można wywołać raz, aby zarejestrować dowolną krotkę lub wiele razy w pętli, aby wygenerować kompletną tabelę.|
 |Tabela|Funkcyjn<br>`run.log_table(name, value, description='')`<br><br>Przykład:<br>Uruchom polecenie. log_table ("t over X", {"X": [1, 2, 3], "t": [0,6, 0,7, 0,89]}) | Rejestruj obiekt słownika do uruchomienia o podaną nazwę. |
-|Obrazy|Funkcyjn<br>`run.log_image(name, path=None, plot=None)`<br><br>Przykład:<br>`run.log_image("ROC", plot=plt)` | Rejestruj obraz do rekordu uruchomienia. Użyj log_image, aby zarejestrować plik obrazu lub wykres matplotlib do uruchomienia.  Te obrazy będą widoczne i porównywalne w rekordzie uruchomienia.|
+|Obrazy|Funkcyjn<br>`run.log_image(name, path=None, plot=None)`<br><br>Przykład:<br>`run.log_image("ROC", plot=plt)` | Rejestruj obraz do rekordu uruchomienia. Użyj log_image, aby zarejestrować. Plik obrazu PNG lub wykres matplotlib do uruchomienia.  Te obrazy będą widoczne i porównywalne w rekordzie uruchomienia.|
 |Oznacz przebieg|Funkcyjn<br>`run.tag(key, value=None)`<br><br>Przykład:<br>Run. tag ("selected", "yes") | Oznacz przebieg z kluczem ciągu i opcjonalną wartością ciągu.|
 |Przekaż plik lub katalog|Funkcyjn<br>`run.upload_file(name, path_or_stream)`<br> <br> Przykład:<br>Uruchom polecenie. upload_file ("best_model. PKL", "./model.PKL") | Przekaż plik do rekordu uruchomienia. Uruchamia Automatyczne przechwytywanie pliku w określonym katalogu wyjściowym, który domyślnie przyjmuje wartość "./Outputs" dla większości typów uruchomienia.  Użyj upload_file tylko wtedy, gdy trzeba przekazać dodatkowe pliki lub nie określono katalogu wyjściowego. Zalecamy dodanie `outputs` do nazwy, aby została przekazana do katalogu danych wyjściowych. Wszystkie pliki, które są skojarzone z tym rekordem uruchamiania, można wyświetlić według nazwy`run.get_file_names()`|
 

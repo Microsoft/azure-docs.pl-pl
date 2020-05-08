@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546350"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598474"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrowanie do szczegółowego dostępu opartego na rolach w przypadku konfiguracji klastrów
 
@@ -28,10 +28,10 @@ Wprowadzamy również nową rolę [operatora klastra usługi HDInsight](https://
 
 | Rola                                  | Poprzedniej                                                                                       | Przechodzenie do przodu       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Czytelnik                                | — Dostęp do odczytu, w tym wpisy tajne                                                                   | — Dostęp do odczytu, **z wyłączeniem** wpisów tajnych |           |   |   |
-| Operator klastra usługi HDInsight<br>(Nowa rola) | Nie dotyczy                                                                                              | — Dostęp do odczytu/zapisu, w tym wpisy tajne         |   |   |
-| Współautor                           | — Dostęp do odczytu/zapisu, w tym wpisy tajne<br>— Tworzenie wszystkich typów zasobów platformy Azure i zarządzanie nimi.     | Bez zmian |
-| Właściciel                                 | — Dostęp do odczytu/zapisu, w tym wpisy tajne<br>-Pełny dostęp do wszystkich zasobów<br>-Deleguj dostęp do innych osób | Bez zmian |
+| Czytelnik                                | — Dostęp do odczytu, w tym wpisy tajne.                                                                   | — Dostęp do odczytu, **z wyłączeniem** wpisów tajnych |           |   |   |
+| Operator klastra usługi HDInsight<br>(Nowa rola) | Brak                                                                                              | — Dostęp do odczytu/zapisu, w tym wpisy tajne         |   |   |
+| Współautor                           | — Dostęp do odczytu/zapisu, w tym wpisy tajne.<br>— Tworzenie wszystkich typów zasobów platformy Azure i zarządzanie nimi.<br>— Wykonaj akcje skryptu.     | Bez zmian |
+| Właściciel                                 | — Dostęp do odczytu/zapisu, w tym wpisy tajne.<br>-Pełny dostęp do wszystkich zasobów<br>-Deleguj dostęp do innych osób.<br>— Wykonaj akcje skryptu. | Bez zmian |
 
 Aby uzyskać informacje na temat dodawania przypisania roli operatora klastra usługi HDInsight do użytkownika w celu udzielenia im dostępu do odczytu/zapisu do wpisów tajnych klastra, zapoznaj się z sekcją poniżej i [Dodaj przypisanie roli operatora klastra usługi HDInsight do użytkownika](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 
@@ -185,7 +185,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 Możesz również użyć Azure Portal, aby dodać przypisanie roli operatora klastra usługi HDInsight do użytkownika. Zobacz dokumentację, [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i Azure Portal — Dodaj przypisanie roli](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Dlaczego widzę odpowiedź 403 (Zabronione) po zaktualizowaniu żądań interfejsu API i/lub narzędzia?
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337443"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610524"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Rozwiązywanie problemów z logowaniem przy użyciu dostępu warunkowego
 
@@ -55,8 +55,11 @@ Aby dowiedzieć się, które zasady dostępu warunkowego lub zasady są stosowan
    1. Informacje na karcie **Rozwiązywanie problemów i pomoc techniczna** mogą stanowić wyraźny powód, dla którego logowanie nie powiodło się, takie jak urządzenie, które nie spełnia wymagań dotyczących zgodności.
    1. Aby dowiedzieć się więcej, przejdź do szczegółów konfiguracji zasad, klikając **nazwę zasad**. Kliknięcie **nazwy zasad** spowoduje wyświetlenie interfejsu użytkownika konfiguracji zasad dla wybranych zasad na potrzeby przeglądania i edytowania.
    1. **Szczegóły dotyczące** **użytkownika** i urządzenia, które były używane na potrzeby oceny zasad dostępu warunkowego, są również dostępne na kartach **podstawowe informacje**, **Lokalizacja**, **Informacje o urządzeniu**, **szczegóły uwierzytelniania**i **dodatkowe szczegóły** dotyczące zdarzenia logowania.
+   1. Wybranie wielokropka po prawej stronie zasad powoduje wyświetlenie szczegółów zasad. Dzięki temu administratorzy mogą dowiedzieć się więcej o tym, dlaczego zasady zostały pomyślnie zastosowane.
 
    ![Karta dostęp warunkowy zdarzenia logowania](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Szczegóły zasad (wersja zapoznawcza)](./media/troubleshoot-conditional-access/policy-details.png)
 
 Jeśli informacje w zdarzeniu nie są wystarczające, aby zrozumieć wyniki logowania lub dostosować zasady w celu uzyskania pożądanych wyników, można otworzyć zdarzenie obsługi. Przejdź do karty **Rozwiązywanie problemów i pomoc techniczna** dla tego zdarzenia logowania, a następnie wybierz pozycję **Utwórz nowe żądanie obsługi**.
 

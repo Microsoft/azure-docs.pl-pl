@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128320"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612473"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
 > [!IMPORTANT]
 > Dołączenie do aplikacji MSIX jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym temacie opisano sposób konfigurowania dołączania aplikacji MSIX w środowisku pulpitu wirtualnego systemu Windows.
 
@@ -28,7 +28,7 @@ W tym temacie opisano sposób konfigurowania dołączania aplikacji MSIX w środ
 Przed rozpoczęciem należy wykonać następujące czynności w celu skonfigurowania dołączania aplikacji MSIX:
 
 - Dostęp do portalu niejawnego testera systemu Windows w celu uzyskania wersji systemu Windows 10 z obsługą interfejsów API dołączania aplikacji MSIX.
-- Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby uzyskać więcej informacji, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby uzyskać więcej informacji, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - Narzędzie MSIX pakowanie
 - Udział sieciowy w wdrożeniu pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX
 

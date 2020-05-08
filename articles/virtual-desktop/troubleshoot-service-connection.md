@@ -8,14 +8,20 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127446"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612643"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ten artykuł służy do rozwiązywania problemów z połączeniami klienta pulpitu wirtualnego systemu Windows.
 
@@ -30,7 +36,7 @@ Użytkownik może uruchomić Pulpit zdalny klientów i może się uwierzytelnić
 Upewnij się, że użytkownik zgłaszał problemy, został przypisany do grup aplikacji przy użyciu tego wiersza polecenia:
 
 ```PowerShell
-Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
+Get-AzRoleAssignment -SignInName <userupn>
 ```
 
 Upewnij się, że użytkownik loguje się przy użyciu poprawnych poświadczeń.
@@ -44,19 +50,21 @@ Jeśli maszyna wirtualna nie jest w stanie reakcji i nie możesz uzyskać do nie
 Aby sprawdzić stan hosta, uruchom następujące polecenie cmdlet:
 
 ```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
+Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
 ```
 
 Jeśli stan hosta to `NoHeartBeat`, oznacza to, że maszyna wirtualna nie odpowiada, a agent nie może komunikować się z usługą pulpitu wirtualnego systemu Windows.
 
 ```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+Name            : 0301HP/win10pd-0.contoso.com 
+LastHeartBeat   : 4/8/2020 1:48:35 AM 
+AllowNewSession : True 
+Status          : Available 
+
+Name            : 0301HP/win10pd-1.contoso.com 
+LastHeartBeat   : 4/8/2020 1:45:44 AM 
+AllowNewSession : True 
+Status          : NoHeartBeat
 ```
 
 Istnieje kilka rzeczy, które można zrobić, aby naprawić stan nopuls.
@@ -65,21 +73,10 @@ Istnieje kilka rzeczy, które można zrobić, aby naprawić stan nopuls.
 
 Jeśli FSLogix nie jest aktualna, szczególnie jeśli jest to wersja 2.9.7205.27375 frxdrvvt. sys, może to spowodować zakleszczenie. Upewnij się [, że Zaktualizowano FSLogix do najnowszej wersji](https://go.microsoft.com/fwlink/?linkid=2084562).
 
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Wyłącz BgTaskRegistrationMaintenanceTask
-
-Jeśli aktualizacja FSLogix nie działa, problem może polegać na tym, że składnik BiSrv powoduje wyczerpanie zasobów systemowych podczas cotygodniowych zadań konserwacyjnych. Tymczasowo wyłącz zadanie obsługi, wyłączając BgTaskRegistrationMaintenanceTask przy użyciu jednej z następujących dwóch metod:
-
-- Przejdź do menu Start i Wyszukaj **harmonogram zadań**. Przejdź do **biblioteki** > **harmonogram zadań Microsoft** > **Windows** > **BrokerInfrastructure**. Poszukaj zadania o nazwie **BgTaskRegistrationMaintenanceTask**. Po znalezieniu go kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Wyłącz** z menu rozwijanego.
-- Otwórz menu wiersza polecenia jako administrator i uruchom następujące polecenie:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
-- Aby rozwiązać problemy podczas tworzenia dzierżawy i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie dzierżawy i puli hostów](troubleshoot-set-up-issues.md).
+- Aby rozwiązać problemy podczas tworzenia środowiska pulpitu wirtualnego systemu Windows i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
 - Aby rozwiązać problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows, zobacz [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Aby przejść przez samouczek dotyczący rozwiązywania problemów, zobacz [Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów Menedżer zasobów](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
