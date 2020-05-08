@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182739"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791769"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -138,9 +138,9 @@ Cosmos DB używa algorytmu HMAC do autoryzacji. Możesz użyć klucza głównego
 
 Cosmos DB obsługuje wykonywanie wyzwalaczy podczas operacji zapisu. Usługa obsługuje maksymalnie jednego wyzwalacza wstępnego i jednego wyzwalacza końcowego dla operacji zapisu. 
 
-## <a name="autoscale-mode-limits"></a>Limity trybu skalowania automatycznego
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Limity przepływności aprowizacji automatycznego skalowania
 
-Zobacz artykuł [Skalowanie automatyczne](provision-throughput-autoscale.md#autoscale-limits) dla limitów przepływności i magazynowania w trybie skalowania automatycznego.
+Zapoznaj się z artykułem [skalowania automatycznego](provision-throughput-autoscale.md#autoscale-limits) dla limitów przepływności i magazynowania przy użyciu funkcji automatycznego skalowania.
 
 ## <a name="sql-query-limits"></a>Limity zapytań SQL
 

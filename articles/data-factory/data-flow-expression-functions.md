@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: d0669a89527cabd23b81a0948e8cf9962dcd1e9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232057"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580682"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych
 
@@ -26,10 +26,10 @@ W Data Factory Użyj języka wyrażeń funkcji mapowanie przepływu danych, aby 
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Wartość bezwzględna liczby.
+Wartość bezwzględna liczby.  
 * ``abs(-20) -> 20``  
 * ``abs(10) -> 10``  
-___
+___   
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Oblicza wartość cosinusa odwrotnego* ``acos(1) -> 0.0``  
@@ -116,7 +116,7 @@ Zbiera wszystkie wartości wyrażenia w agregowanej grupie do tablicy. Struktury
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Pobiera wszystkie kolumny wyjściowe dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.
+Pobiera wszystkie kolumny wyjściowe dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
 ___
@@ -156,8 +156,8 @@ Oblicza wartość skrótu CRC32 zestawu kolumn o różnych typach danych pierwot
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Pobiera bieżącą datę, kiedy to zadanie zostanie uruchomione. Można przekazać opcjonalną strefę czasową w postaci "GMT", "PST", "UTC", "Ameryka/Kajmany". Lokalna strefa czasowa jest używana domyślnie. Odwołaj się do SimpleDateFormat języka Java, aby uzyskać dostęp do dostępnych formatów. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-* ``currentDate() == toDate('2250-12-31') -> false`` * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
+Pobiera bieżącą datę, kiedy to zadanie zostanie uruchomione. Można przekazać opcjonalną strefę czasową w postaci "GMT", "PST", "UTC", "Ameryka/Kajmany". Lokalna strefa czasowa jest używana domyślnie. Odwołaj się do SimpleDateFormat języka Java, aby uzyskać dostęp do dostępnych formatów. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``  
+* ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
 ___
 ### <code>currentTimestamp</code>
@@ -278,9 +278,11 @@ W oparciu o warunek stosuje jedną wartość lub drugą. Jeśli inne nie określ
 ___
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Sprawdza, czy wartość nie jest RÓWNa NULL, i zwraca alternatywę. Sprawdza wszystkie dane wejściowe do momentu znalezienia pierwszej wartości innej niż null* ``iifNull(10, 20) -> 10``  
+Sprawdza, czy pierwszy parametr ma wartość null. Jeśli wartość nie jest równa null, zwracany jest pierwszy parametr. Jeśli wartość jest równa null, zwracany jest drugi parametr. Jeśli określono trzy parametry, zachowanie jest takie samo jak IIf (isNull (wartość1), wartość2, Wartość3) i trzeci parametr jest zwracany, jeśli pierwsza wartość nie jest równa null.  
+* ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('bojjus', 'bo', 'dumbo') -> 'dumbo'``  
+* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -373,7 +375,7 @@ ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 Wzorzec jest ciągiem, który jest dopasowany dosłownie. Wyjątki są następujące specjalne symbole: _ dopasowuje dowolny znak w danych wejściowych (podobny do. w wyrażeniach regularnych POSIX)% dopasowuje zero lub więcej znaków w danych wejściowych (podobnie jak. * w wyrażeniach regularnych POSIX).
-Znak ucieczki to "". Jeśli znak ucieczki poprzedza symbol specjalny lub inny znak ucieczki, poniższy znak jest dopasowany dosłownie. Nie można użyć żadnego znaku ucieczki.
+Znak ucieczki to "". Jeśli znak ucieczki poprzedza symbol specjalny lub inny znak ucieczki, poniższy znak jest dopasowany dosłownie. Nie można użyć żadnego znaku ucieczki.  
 * ``like('icecream', 'ice%') -> true``  
 ___
 ### <code>locate</code>
@@ -504,7 +506,7 @@ Operator logiczny OR. Analogicznie jak | |* ``or(true, false) -> true``
 ___
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Dodatnia para par liczb.
+Dodatnia para par liczb.  
 * ``pmod(-20, 8) -> 4``  
 ___
 ### <code>partitionId</code>
@@ -944,7 +946,7 @@ Na podstawie kryteriów pobiera wariancję nieobciążonej kolumny* ``varianceSa
 ##Funkcje okna następujące funkcje są dostępne tylko w przekształceniach okna___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-Funkcja CumeDist oblicza pozycję wartości względem wszystkich wartości w partycji. Wynik jest liczbą wierszy poprzedzających lub równych bieżącemu wierszowi w kolejności partycji podzieloną przez łączną liczbę wierszy w partycji okna. Wszystkie wartości równe w kolejności będą oceniane do tego samego położenia.
+Funkcja CumeDist oblicza pozycję wartości względem wszystkich wartości w partycji. Wynik jest liczbą wierszy poprzedzających lub równych bieżącemu wierszowi w kolejności partycji podzieloną przez łączną liczbę wierszy w partycji okna. Wszystkie wartości równe w kolejności będą oceniane do tego samego położenia.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
@@ -963,7 +965,7 @@ Pobiera wartość pierwszego parametru oceniane n wierszy po bieżącym wierszu.
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-Funkcja NTile dzieli wiersze dla każdej partycji okna na `n` Zasobniki z zakresu od 1 do maksymalnie. `n` Wartości zasobnika różnią się o co najwyżej 1. Jeśli liczba wierszy w partycji nie jest równo podzielona na liczbę przedziałów, pozostałe wartości są dystrybuowane jeden na przedział, rozpoczynając od pierwszego przedziału. Funkcja NTile jest przydatna do obliczania wartości tertiles, kwartyls, deciles i innych typowych statystyk podsumowujących. Funkcja oblicza dwie zmienne podczas inicjalizacji: rozmiar regularnego zasobnika będzie mieć jeden dodatkowy wiersz. Obie zmienne są zależne od rozmiaru bieżącej partycji. Podczas obliczeń funkcja śledzi bieżący numer wiersza, bieżący zasobnik i numer wiersza, w którym zostanie zmieniony zasobnik (bucketThreshold). Gdy bieżąca liczba wierszy osiągnie próg zasobnika, wartość przedziału jest zwiększana o jeden, a próg jest zwiększany o rozmiar zasobnika (plus jeden dodatkowy, jeśli bieżący zasobnik jest uzupełniony).
+Funkcja NTile dzieli wiersze dla każdej partycji okna na `n` Zasobniki z zakresu od 1 do maksymalnie. `n` Wartości zasobnika różnią się o co najwyżej 1. Jeśli liczba wierszy w partycji nie jest równo podzielona na liczbę przedziałów, pozostałe wartości są dystrybuowane jeden na przedział, rozpoczynając od pierwszego przedziału. Funkcja NTile jest przydatna do obliczania wartości tertiles, kwartyls, deciles i innych typowych statystyk podsumowujących. Funkcja oblicza dwie zmienne podczas inicjalizacji: rozmiar regularnego zasobnika będzie mieć jeden dodatkowy wiersz. Obie zmienne są zależne od rozmiaru bieżącej partycji. Podczas obliczeń funkcja śledzi bieżący numer wiersza, bieżący zasobnik i numer wiersza, w którym zostanie zmieniony zasobnik (bucketThreshold). Gdy bieżąca liczba wierszy osiągnie próg zasobnika, wartość przedziału jest zwiększana o jeden, a próg jest zwiększany o rozmiar zasobnika (plus jeden dodatkowy, jeśli bieżący zasobnik jest uzupełniony).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

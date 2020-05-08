@@ -6,52 +6,48 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76988179"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791735"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB migracji NoSQL i partnerów programistycznych aplikacji
 
 Od NoSQL migracji do tworzenia aplikacji możesz wybrać spośród wielu doświadczonych partnerów i narzędzi integratora systemów, aby obsłużyć rozwiązania Azure Cosmos DB. 
 
-## <a name="migration-tools"></a>Narzędzia migracji
-
-|**Partner**  |**Możliwości & środowiska**  |**Obsługiwane kraje/regiony**  |**Proś**  |
-|---------|---------|---------|---------|
-|![Striim][2]    |  [Przenoszenie danych w czasie rzeczywistym do Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) z wielu różnych źródeł danych. <br/> Striim upraszcza gromadzenie i przenoszenie danych w czasie rzeczywistym z różnych źródeł lokalnych, takich jak dokument przedsiębiorstwa i relacyjne bazy danych, czujniki i pliki dzienników w Azure Cosmos DB. |   Stany Zjednoczone   |  [witryna sieci web](https://www.striim.com/)       |
-
 ## <a name="systems-integrator-partners"></a>Partnerzy integratora systemów
 
-|**Partner**  |**Możliwości & środowiska**  |**Obsługiwane kraje/regiony**  |**Proś**  |
-|---------|---------|---------|---------|
-| ![10thMagnitude][13] | Migracja NoSQL; Tworzenie nowej aplikacji | Stany Zjednoczone | [witryna sieci web](https://www.10thmagnitude.com/)|
-|![Altoros Development LLC][3]    |  Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji |   USA, Norwegia, Finlandia, Białoruś, Argentyna |  [witryna sieci web](https://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji      |    Stany Zjednoczone     |  [witryna sieci web](https://www.attunix.com/)       |
-| ![Avanade][26] | Tworzenie nowej aplikacji, <br/> Innowacje aplikacji (istniejące aplikacje) | Austria, Niemcy, Szwajcaria, Włochy, Norwegia, Hiszpania, Zjednoczone Królestwo | [witryna sieci web](https://www.avanade.com/)
-|![BlueMetal architektów][5]     |  Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji       |    Ameryka Północna, Azja i Pacyfik     |  [witryna sieci web](https://www.bluemetal.com/)       |
-|![Capax Global LLC][6]     |  Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji       |    Stany Zjednoczone     |  [witryna sieci web](https://www.capaxglobal.com/)       |
-| ![Capgemini][14] | Migracja NoSQL; Innowacje aplikacji (istniejące aplikacje); Tworzenie nowej aplikacji | USA, Francja, Zjednoczone Królestwo, Holandia, Finlandia  | [witryna sieci web](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji |    Zjednoczone Królestwo     |  [witryna sieci web](https://www.coeo.com/)       |
-| ![Firma Cognizant][15] | Migracja NoSQL |Stany Zjednoczone, Kanada, Wielka Brytania, Dania, Holandia, Szwajcaria, Australia, Japonia | [witryna sieci web](https://www.cognizant.com/)|
-|![Infosys][8]     |  Migracja NoSQL       |    Globalny     |  [witryna sieci web](https://www.infosys.com/)       |
-| ![Lagash][16] | Migracja NoSQL, <br/> Tworzenie nowej aplikacji | Argentyna, Chile, Kolumbia, Meksyk| [witryna sieci web](https://www.lagash.com/)|
-| ![Lambda3 informatyką][17] | Migracja NoSQL, <br/> Tworzenie nowej aplikacji | Brazylia| [witryna sieci web](https://www.lambda3.com.br/)|
-|![Analiza Neala][9]     |     Tworzenie aplikacji (nowe aplikacje)    |    Stany Zjednoczone     |  [witryna sieci web](https://www.nealanalytics.com/)       |
-|![Pragmatic Works Software Inc][10]    |   Migracja NoSQL      |   Stany Zjednoczone      |  [witryna sieci web](https://www.pragmaticworks.com/)       |
-| ![Globalne Ricoh][18] | Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje)| Zjednoczone Królestwo  | [witryna sieci web](https://www.ricoh.com/)|
-| ![Technologie SNP][19] | Migracja NoSQL| USA | [witryna sieci web](https://www.snp.com/)|
-| ![Odpowiedź Solidsoft][20] | Migracja NoSQL | Chorwacja, Szwecja, Dania, Irlandia, Bułgaria, Słowenia, Cypr, Malta, Litwa, Czechy, Islandia i Szwajcaria oraz Liechtenstein| [witryna sieci web](https://www.reply.com/solidsoft-reply/)|
-| ![Technologie języka hiszpańskiego][21] | Migracja NoSQL| Irlandia| [witryna sieci web](https://www.spanishpoint.ie/)|
-| ![Syone][22] | Migracja NoSQL| Portugalia| [witryna sieci web](https://www.syone.com/)|
-|![Tallan][11]    |  Migracja NoSQL, <br/> Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji       |    Stany Zjednoczone     |  [witryna sieci web](https://www.tallan.com/)       |
-| ![SKT][23] | Innowacje aplikacji (istniejące aplikacje), <br/> Tworzenie nowej aplikacji | Stany Zjednoczone, Zjednoczone Królestwo, Francja, Malezja, Dania, Norwegia, Szwecja| [witryna sieci web](https://www.tcs.com/)|
-|![VTeamLabs][12]    | Migracja NoSQL       |  Stany Zjednoczone      | [witryna sieci web](https://www.vteamlabs.com/)       |
-| ![Biała kaczka][24] |Migracja NoSQL, <br/> Tworzenie nowej aplikacji | Niemcy | [witryna sieci web](https://whiteducksoftware.com/)|
-| ![Rozwiń go][25] | Tworzenie nowej aplikacji | Portugalia, Zjednoczone Królestwo| [witryna sieci web](https://www.xpand-it.com/)|
-
+|**Partner**  |**Możliwości & środowiska**  |**Obsługiwane kraje/regiony**  |
+|---------|---------|---------|
+|[Striim](https://www.striim.com/)    |  Ciągły, przemieszczenie danych w czasie rzeczywistym, migracja danych|   Stany Zjednoczone   |
+| [10thMagnitude](https://www.10thmagnitude.com/) | IoT, sprzedaż detaliczna (spis), analiza operacyjna (Spark), architektura bezserwerowa, opracowywanie aplikacji | Stany Zjednoczone |
+|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, sprzedaż detaliczna (spis), architektury bezserwerowe NoSQL migracji, opracowywanie aplikacji|   Stany Zjednoczone |
+|[Avanade](https://www.avanade.com/) | IoT, sprzedaż detaliczna (spis), architektura bezserwerowa, opracowywanie aplikacji | Austria, Niemcy, Szwajcaria, Włochy, Norwegia, Hiszpania, Zjednoczone Królestwo, Kanada |
+|[Accenture](https://www.accenture.com/) | IoT, sprzedaż detaliczna (spis), architektura bezserwerowa, opracowywanie aplikacji |Globalny|
+|[BlueMetal](https://www.bluemetal.com/)     |  Rzeczy, Personalizacja detaliczna (spis), analiza operacyjna dla przedsiębiorstwa & SMC, adnotacja obrazu AI, kontrola zasobów, migracja NoSQL, programowanie aplikacji     |    Ameryka Północna, Azja i Pacyfik     |
+|[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), architektura bezserwerowa, opracowywanie aplikacji|    Stany Zjednoczone     |  
+| [Capgemini](https://www.capgemini.com/) | Handel detaliczny, IoT, analiza operacyjna (Spark), programowanie aplikacji | USA, Francja, Zjednoczone Królestwo, Holandia, Finlandia  |
+| [Firma Cognizant](https://www.cognizant.com/) | IoT, Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), programowanie aplikacji |USA, Kanada, Zjednoczone Królestwo, Dania, Holandia, Szwajcaria, Australia, Japonia |
+|[Infosys](https://www.infosys.com/)     | Opracowywanie aplikacji      |    Stany Zjednoczone    |  
+| [Systemy Lagash](https://www.lagash.com/) | IoT, architektura bezserwerowa, opracowywanie aplikacji | Argentyna, Chile, Kolumbia, Meksyk|
+| [Lambda3 informatyką](https://www.lambda3.com.br/) | Personalizacja w czasie rzeczywistym, magazyn detaliczny i programowanie aplikacji | Brazylia|
+|[Analiza Neala](https://www.nealanalytics.com/)    |     Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), programowanie aplikacji  |    Stany Zjednoczone     |  
+|[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   Migracja NoSQL      |   Stany Zjednoczone      |
+| [Usługi Ricoh Digital Services](https://www.ricoh.com/) | IoT, Personalizacja w czasie rzeczywistym, magazyn detaliczny, migracja NoSQL | Zjednoczone Królestwo  |
+|[Technologie SNP](https://www.snp.com/) | Migracja NoSQL| Stany Zjednoczone |
+| [Odpowiedź Solidsoft](https://www.reply.com/solidsoft-reply/) | Migracja NoSQL | Chorwacja, Szwecja, Dania, Irlandia, Bułgaria, Słowenia, Cypr, Malta, Litwa, Czechy, Islandia i Szwajcaria oraz Liechtenstein|
+| [Technologie języka hiszpańskiego](https://www.spanishpoint.ie/) | Migracja NoSQL| Irlandia|
+| [Syone](https://www.syone.com/) | Migracja NoSQL| Portugalia|
+|[Tallan](https://www.tallan.com/)    |  Opracowywanie aplikacji      |    Stany Zjednoczone     |
+| [SKT](https://www.tcs.com/) | Opracowywanie aplikacji | USA, Zjednoczone Królestwo, Francja, Malezja, Dania, Norwegia, Szwecja|
+|[VTeamLabs](https://www.vteamlabs.com/)    | Personalizacja, sprzedaż detaliczna (spis), IoT, gry, analiza operacyjna (Spark), architektura bezserwerowa, migracja NoSQL, opracowywanie aplikacji       |  Stany Zjednoczone      |  
+| [Biała Kaczia GmbH](https://whiteducksoftware.com/) |Tworzenie nowej aplikacji, zaplecze aplikacji, magazyn dla danych opartych na dokumentach| Niemcy |
+| [Rozwiń go](https://www.xpand-it.com/) | Tworzenie nowej aplikacji | Portugalia, Zjednoczone Królestwo|
+| [Hanu](https://hanu.com/) | IoT, opracowywanie aplikacji | Stany Zjednoczone|
+| [Oprogramowanie niecykliczne](https://www.incyclesoftware.com/) | Migracja NoSQL, architektura bezserwerowa, opracowywanie aplikacji| Stany Zjednoczone|
+| [Orion](https://www.orioninc.com/) | Personalizacja, sprzedaż detaliczna (spis), analiza operacyjna (Spark), IoT, opracowywanie aplikacji| USA, Kanada|
 
 ## <a name="next-steps"></a>Następne kroki
 

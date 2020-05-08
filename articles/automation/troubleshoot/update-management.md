@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678919"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790834"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>Rozwiązywanie problemów z rozwiązaniem Update Management
 
@@ -49,13 +49,13 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Uruchom narzędzie do rozwiązywania problemów dla [systemu Windows](update-agent-issues.md#troubleshoot-offline) lub [Linux](update-agent-issues-linux.md#troubleshoot-offline), w zależności od systemu operacyjnego.
 
-* Przejdź do pozycji [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning) , aby dowiedzieć się, które adresy i porty muszą być dozwolone, aby Update Management działały.  
+* Przejdź do pozycji [Konfiguracja sieci](../automation-hybrid-runbook-worker.md#network-planning) , aby dowiedzieć się, które adresy i porty muszą być dozwolone, aby Update Management działały.  
 
-* Przejdź do pozycji [Planowanie sieci](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) , aby dowiedzieć się, które adresy i porty muszą być dozwolone do działania agenta log Analytics.
+* Przejdź do pozycji [Konfiguracja sieci](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) , aby dowiedzieć się, które adresy i porty muszą być dozwolone do działania agenta log Analytics.
 
 * Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-onboard-solutions-from-automation-account.md#scope-configuration) określa, które maszyny mają zostać skonfigurowane dla rozwiązania. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie znajduje się w portalu * * Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz sekcję dołączanie [maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Usuń konfigurację procesu roboczego, wykonując czynności opisane w sekcji [usuwanie hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Usuń konfigurację procesu roboczego, wykonując czynności opisane w sekcji [usuwanie hybrydowego procesu roboczego elementu Runbook systemu Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) lub [usuwanie hybrydowego procesu roboczego elementu Runbook z systemem Linux](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenariusz: zastąpiona aktualizacja wskazana jako brakująca w Update Management
 
@@ -448,7 +448,7 @@ Maszyna została już dołączona do innego obszaru roboczego dla Update Managem
 ### <a name="resolution"></a>Rozwiązanie
 
 1. Wykonaj kroki opisane w sekcji [maszyny nie są wyświetlane w portalu w obszarze Update Management](#nologs) , aby upewnić się, że komputer jest raportowany do prawidłowego obszaru roboczego.
-2. Wyczyść artefakty na maszynie, [usuwając grupę hybrydowych elementów Runbook](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), a następnie spróbuj ponownie.
+2. Wyczyść artefakty na maszynie, [usuwając grupę hybrydowych elementów Runbook](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group), a następnie spróbuj ponownie.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Scenariusz: maszyna nie może komunikować się z usługą
 

@@ -1,31 +1,31 @@
 ---
-title: Pulpit nawigacyjny użycia w komercyjnej analizie Marketplace w centrum partnerskim
-description: Dowiedz się, jak uzyskać dostęp do wszystkich maszyn wirtualnych, w których są dostępne metryki dotyczące rozliczeń.
+title: Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
+description: Dowiedz się, jak uzyskać dostęp do wszystkich maszyn wirtualnych, w których są dostępne metryki dotyczące rozliczeń. Przejdź do pulpitu nawigacyjnego użycie w centrum partnerskim w obszarze komercyjne witryny Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262183"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793010"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia w komercyjnej analizie Marketplace
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Pulpit nawigacyjny użycia na platformie Microsoft Commercial Marketplace Analytics
 
 Ten artykuł zawiera informacje na temat pulpitu nawigacyjnego użycie w centrum partnerskim. Ten pulpit nawigacyjny wyświetla wszystkie maszyny wirtualne, które oferuje metryki użycia i naliczanych rozliczeń na dwóch oddzielnych kartach: użycie maszyn wirtualnych i zliczanie opłat.
 
-Aby uzyskać dostęp do pulpitu nawigacyjnego użycie, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze komercyjny Portal Marketplace.
+Aby uzyskać dostęp do pulpitu nawigacyjnego użycie, Otwórz pulpit nawigacyjny **[Analizuj](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** w obszarze **komercyjny Portal Marketplace**.
 
 >[!NOTE]
 > Aby uzyskać szczegółowe definicje terminologii dotyczącej analizy, zobacz [często zadawane pytania i terminologię dotyczącą komercyjnej analizy portalu Marketplace](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Pulpit nawigacyjny Użycie
 
-Pulpit nawigacyjny użycia przedstawia metryki dla całej maszyny wirtualnej (VM), które zapewniają użycie i pomiarowe użycie rozliczeń. Znajdują się one na dwóch oddzielnych kartach: użycie maszyn wirtualnych i obciążenie taryfowe.
+Pulpit nawigacyjny użycia przedstawia metryki dla całej maszyny wirtualnej (VM), które zapewniają użycie i pomiarowe użycie rozliczeń. Te metryki znajdują się na dwóch oddzielnych kartach: użycie maszyn wirtualnych i obciążenie taryfowe.
 
 Na karcie użycie maszyny wirtualnej znajdują się graficzne reprezentacje następujących elementów:
 
@@ -46,7 +46,7 @@ Na karcie użycie maszyny wirtualnej znajdują się graficzne reprezentacje nast
 W tabeli Podsumowanie użycia są wyświetlane godziny użycia klientów dla wszystkich zakupionych ofert.
 
 - Znormalizowane godziny użycia są definiowane jako godziny użycia znormalizowane w celu uwzględnienia liczby rdzeni maszyn wirtualnych ([liczba rdzeni maszyn wirtualnych] x [godz. użycia pierwotnego]). Maszyny wirtualne oznaczone jako "SHAREDCORE" wykorzystują 1/6 (lub 0,1666) jako mnożnik [liczba rdzeni maszyn wirtualnych].
-- Godziny użycia pierwotnego są definiowane jako czas działania maszyn wirtualnych w godzinach.
+- Surowe godziny użycia są definiowane jako czas działania maszyn wirtualnych w godzinach.
 - Wartość procentowa reprezentuje zmianę wzrostu zużycia dla wybranego zakresu dat ([ostatnie użycie miesiąca – pierwsze użycie miesiąca])/użycie pierwszego miesiąca).
 - Zielone Trójkąty wskazujące zmianę wzrostu.
 - Czerwony trójkąt skierowany w dół wskazuje negatywną zmianę wzrostu względem poprzedniego miesiąca.
@@ -58,13 +58,13 @@ W tabeli Podsumowanie użycia są wyświetlane godziny użycia klientów dla wsz
 
 ### <a name="usage-by-offers"></a>Użycie przez oferty
 
-- Wykres kołowy **znormalizowane użycie przez oferty** przedstawia podział znormalizowanych godzin użycia według ofert zgodnie z wybranym zakresem dat. 5 najważniejszych ofert są wyświetlane w grafie, podczas gdy reszta jest zgrupowana w kategorii "REST All".
+- Wykres kołowy **znormalizowane użycie przez oferty** przedstawia podział znormalizowanych godzin użycia według ofert zgodnie z wybranym zakresem dat. Pięć najważniejszych ofert jest wyświetlanych w grafie, a reszta jest zgrupowana w kategorii **rest** .
 - Wykres słupkowy przedstawia trend wzrostu miesiąc po miesiącu dla wybranego zakresu dat. Kolumny miesiąc przedstawiają godziny użycia z ofert o największej godzinie użycia dla danego miesiąca. Wykres liniowy przedstawia trend procentu wzrostu wykreślony na pomocniczej osi Y.
 - Użyj suwaka u góry wykresu, aby przewinąć w prawo do lewej wzdłuż osi x i/lub skupić się na określonych punktach danych.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Trend użycia według ofert i jednostek SKU
 
-Ten wykres przedstawia trend znormalizowanych użycia dla wybranych jednostek SKU oferty. Oferta rankingów zawiera najpopularniejsze oferty 50 o największym użyciu i są posortowane według godzin użycia. Rankingów SKU zawiera listę głównych jednostek SKU 50 o największym użyciu dla wybranej oferty.
+Ten wykres przedstawia trend znormalizowanych użycia dla wybranych jednostek SKU oferty. Oferta rankingów zawiera najpopularniejsze oferty 50 o największym użyciu, posortowane według godzin użycia. Rankingów SKU zawiera listę głównych jednostek SKU 50 o największym użyciu dla wybranej oferty.
 
 ### <a name="usage-by-offer-type"></a>Użycie według typu oferty
 
@@ -91,7 +91,7 @@ W **tabeli Szczegóły użycia** zostanie wyświetlona lista numerowana pierwszy
 
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku CSV, jeśli liczba rekordów jest mniejsza niż 1000.
-- Jeśli liczba rekordów przekracza 1000, dane eksportu będą asynchroniczne umieszczane na stronie pobierania, która będzie dostępna w ciągu następnych 30 dni.
+- Jeśli liczba rekordów przekracza 1000, dane eksportu będą asynchroniczne umieszczane na stronie pobierania, które będą dostępne w ciągu następnych 30 dni.
 - Filtry można zastosować do **szczegółowych danych użycia** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju, kanału sprzedaży, typu licencji Marketplace, typu użycia, nazwy oferty, typu oferty, bezpłatnych wersji próbnych, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
 
 > [!NOTE]
@@ -101,7 +101,7 @@ W **tabeli Szczegóły użycia** zostanie wyświetlona lista numerowana pierwszy
 
 - **Typy ofert** i **nazwy ofert** są wyświetlane tylko dla ofert, które zostały nabyte w wybranym zakresie dat. Nazwy ofert na liście są wyświetlane dla typów ofert wybranych z listy.
 - Wybór domyślny to "All" dla każdej opcji filtru, z wyjątkiem **typu użycia**. Domyślny wybór dla **typu użycia** to znormalizowane użycie. Aby wyświetlić surowe użycie na wykresach, wybierz pozycję "użycie pierwotne".
-- Zastosowane filtry pokazują wybrane opcje liczby dla wybranych opcji filtrowania. Zastosowane filtry nie są wyświetlane dla opcji domyślnych.
+- Zastosowane filtry wyświetlają liczbę wybranych opcji filtrowania. Zastosowane filtry nie są wyświetlane dla opcji domyślnych.
 
 > [!NOTE]
 > Szczegółowa definicja każdego z pól w siatce "szczegółowe dane zamówienia", filtry stron i wszystkie możliwe wybory są zdefiniowane w sekcji słownik danych artykułu [często zadawane pytania i terminologia](link needed) .
@@ -123,5 +123,5 @@ Karta **taryfowe użycie rozliczeń** przedstawia informacje o użyciu dla typó
 - Aby uzyskać informacje o zamówieniach w formacie graficznym i do pobrania, zobacz temat [Zamówienie pulpitu nawigacyjnego w portalu komercyjnej analizy Marketplace](./orders-dashboard.md).
 - Aby uzyskać szczegółowe informacje na temat klientów, w tym trendów wzrostu, zobacz [pulpit nawigacyjny klienta w komercyjnej analizie portalu Marketplace](./customer-dashboard.md).
 - Aby uzyskać listę żądań pobierania w ciągu ostatnich 30 dni, zobacz [pulpit nawigacyjny w portalu komercyjnej analizy Marketplace](./downloads-dashboard.md).
-- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert w witrynie Azure Marketplace i AppSource, zobacz [pulpit nawigacyjny oceny i przeglądów w portalu komercyjnej analizy Marketplace](./ratings-reviews.md).
+- Aby wyświetlić skonsolidowany widok opinii klientów na temat ofert dotyczących Microsoft AppSource i portalu Azure Marketplace, zobacz [pulpit nawigacyjny oceny i przeglądów w komercyjnej analizie portalu Marketplace](./ratings-reviews.md).
 - Często zadawane pytania dotyczące analizy komercyjnej portalu Marketplace i kompleksowego słownika warunków dotyczących danych można znaleźć [w temacie często zadawane pytania i terminologia dotyczące komercyjnej analizy w portalu Marketplace](./faq-terminology.md).

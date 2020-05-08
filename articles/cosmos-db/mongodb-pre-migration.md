@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183317"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791752"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -30,7 +30,7 @@ Jeśli zostały już wykonane powyższe wymagania wstępne dotyczące migracji, 
 
 Poniżej przedstawiono konkretne charakterystyki dotyczące interfejsu API Azure Cosmos DB MongoDB:
 
-- **Model pojemności**: wydajność bazy danych na Azure Cosmos DB jest oparta na modelu przepływności. Ten model jest oparty na [jednostkach żądań na sekundę](request-units.md), które są jednostką, która reprezentuje liczbę operacji bazy danych, które mogą być wykonywane w odniesieniu do kolekcji na sekundę. Tę pojemność można przydzielić na [poziomie bazy danych lub kolekcji](set-throughput.md)i można ją zainicjować przy użyciu modelu alokacji lub [modelu skalowania automatycznego](provision-throughput-autoscale.md).
+- **Model pojemności**: wydajność bazy danych na Azure Cosmos DB jest oparta na modelu przepływności. Ten model jest oparty na [jednostkach żądań na sekundę](request-units.md), które są jednostką, która reprezentuje liczbę operacji bazy danych, które mogą być wykonywane w odniesieniu do kolekcji na sekundę. Tę pojemność można przydzielić na [poziomie bazy danych lub kolekcji](set-throughput.md)i można ją zainicjować w modelu alokacji lub przy użyciu [alokowanej przepływności skalowania automatycznego](provision-throughput-autoscale.md).
 
 - **Jednostki żądania**: Każda operacja bazy danych ma koszt powiązanych jednostek żądań (jednostek ru) w Azure Cosmos DB. Po wykonaniu ta wartość jest odejmowana od dostępnego poziomu jednostki żądania w danej sekundzie. Jeśli żądanie wymaga więcej jednostek ru niż aktualnie przydzielono RU/s, dostępne są dwie opcje rozwiązania problemu — zwiększenie ilości jednostek ru lub poczekanie na następną sekundę, a następnie ponów próbę wykonania operacji.
 

@@ -1,23 +1,22 @@
 ---
-title: Rejestrowanie aplikacji SaaS | Portal Azure Marketplace
-description: Wyjaśnia, jak zarejestrować aplikację SaaS przy użyciu Azure Portal.
+title: Rejestrowanie aplikacji SaaS — Azure Marketplace
+description: Dowiedz się, jak za pomocą Azure Portal zarejestrować aplikację SaaS i odebrać Azure Active Directory token zabezpieczający.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c20d25917d66cba8ae3d811eddaa6455b87722
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275717"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792959"
 ---
 # <a name="register-a-saas-application"></a>Rejestrowanie aplikacji SaaS
 
 W tym artykule wyjaśniono, jak zarejestrować aplikację SaaS przy użyciu [Azure Portal](https://portal.azure.com/)firmy Microsoft.  Po pomyślnej rejestracji otrzymasz token zabezpieczający Azure Active Directory (Azure AD), za pomocą którego można uzyskać dostęp do interfejsów API realizacji SaaS.  Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [co to jest uwierzytelnianie?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
-
 
 ## <a name="service-to-service-authentication-flow"></a>Przepływ uwierzytelniania między usługami
 
@@ -26,7 +25,6 @@ Na poniższym diagramie przedstawiono przepływ subskrypcji nowego klienta i uż
 ![Przepływ interfejsu API oferty SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
 Platforma Azure nie nakłada żadnych ograniczeń dotyczących uwierzytelniania, które usługa SaaS ujawnia użytkownikom końcowym. Uwierzytelnianie za pomocą interfejsów API realizacji SaaS jest jednak realizowane przy użyciu tokenu zabezpieczającego usługi Azure AD, który zwykle jest uzyskiwany przez zarejestrowanie aplikacji SaaS za pomocą Azure Portal. 
-
 
 ## <a name="register-an-azure-ad-secured-app"></a>Rejestrowanie aplikacji zabezpieczonej przy użyciu usługi Azure AD
 
@@ -56,7 +54,6 @@ Każda aplikacja, która ma korzystać z funkcji usługi Azure AD, musi najpierw
 >[!Note]
 >Domyślnie nowo zarejestrowana aplikacja jest skonfigurowana tak, aby zezwalać na logowanie się do aplikacji tylko użytkownikom z tej samej dzierżawy.
 
-
 ## <a name="using-the-azure-ad-security-token"></a>Korzystanie z tokenu zabezpieczeń usługi Azure AD
 
 Po zarejestrowaniu aplikacji można programowo zażądać tokenu zabezpieczeń usługi Azure AD.  Wydawca powinien używać tego tokenu i wysłać żądanie rozwiązania problemu.  W przypadku korzystania z różnych interfejsów API realizacji, parametr zapytania tokenu znajduje się w adresie URL, gdy użytkownik zostanie przekierowany do witryny internetowej SaaS z platformy Azure.  Ten token jest prawidłowy tylko przez jedną godzinę.  Ponadto należy zdekodować wartość tokenu z przeglądarki przed jej użyciem.
@@ -78,7 +75,7 @@ Metoda HTTP
 
 |  **Nazwa parametru**  | **Wymagane**  | **Opis**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | Prawda          | Identyfikator dzierżawy zarejestrowanej aplikacji usługi AAD   |
+| tenantId             | True          | Identyfikator dzierżawy zarejestrowanej aplikacji usługi AAD   |
 |  |  |  |
 
 
@@ -86,7 +83,7 @@ Metoda HTTP
 
 |  **Nazwa nagłówka**  | **Wymagane** |  **Opis**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | Prawda         | Typ zawartości skojarzony z żądaniem. Wartością domyślną jest `application/x-www-form-urlencoded`.  |
+|  Content-Type     | True         | Typ zawartości skojarzony z żądaniem. Wartość domyślna to `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -94,10 +91,10 @@ Metoda HTTP
 
 | **Nazwa właściwości**   | **Wymagane** |  **Opis**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | Prawda         | Typ udzielania. Wartością domyślną jest `client_credentials`.                    |
-|  Client_id          | Prawda         |  Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.                  |
-|  client_secret      | Prawda         |  Hasło skojarzone z aplikacją usługi Azure AD.                               |
-|  Zasób           | Prawda         |  Zasób docelowy, dla którego zażądano tokenu. Wartością domyślną jest `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Grant_type         | True         | Typ udzielania. Wartość domyślna to `client_credentials`.                    |
+|  Client_id          | True         |  Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.                  |
+|  client_secret      | True         |  Hasło skojarzone z aplikacją usługi Azure AD.                               |
+|  Zasób           | True         |  Zasób docelowy, dla którego zażądano tokenu. Wartość domyślna to `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -123,7 +120,6 @@ Przykładowy token odpowiedzi:
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
-
 
 ## <a name="next-steps"></a>Następne kroki
 

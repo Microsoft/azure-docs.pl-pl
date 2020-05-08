@@ -24,15 +24,15 @@ ms.locfileid: "79117142"
 | Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
 | Przepustowość przekazywania<sup>2</sup> MB/s | 10 | 20 | 50 |
 | Elementy webhook | 2 | 10 | 500 |
-| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwane][geo-replication] |
-| Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwane][content-trust] |
-| Dostęp do sieci wirtualnej | Nie dotyczy | Nie dotyczy | [Przeglądania][vnet] |
-| Integracja z linkiem prywatnym | Nie dotyczy | Nie dotyczy | [Przeglądania][plink] |
-| Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Przeglądania][cmk] |
-| Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Przeglądania][token]|
-| &bull;Żeton | Nie dotyczy | Nie dotyczy | 20 000 |
-| &bull;Mapy zakresu | Nie dotyczy | Nie dotyczy | 20 000 |
-| &bull;Repozytoria na mapę zakresu | Nie dotyczy | Nie dotyczy | 500 |
+| Replikacja geograficzna | Brak | Brak | [Obsługiwane][geo-replication] |
+| Zaufanie do zawartości | Brak | Brak | [Obsługiwane][content-trust] |
+| Dostęp do sieci wirtualnej | Brak | Brak | [Wersja zapoznawcza][vnet] |
+| Integracja z linkiem prywatnym | Brak | Brak | [Wersja zapoznawcza][plink] |
+| Klucze zarządzane przez klienta | Brak | Brak | [Wersja zapoznawcza][cmk] |
+| Uprawnienia w zakresie repozytorium | Brak | Brak | [Wersja zapoznawcza][token]|
+| &bull;Żeton | Brak | Brak | 20 000 |
+| &bull;Mapy zakresu | Brak | Brak | 20 000 |
+| &bull;Repozytoria na mapę zakresu | Brak | Brak | 500 |
 
 
 <sup>1</sup> Określone limity magazynu to ilość *dołączonego* magazynu dla każdej warstwy. Opłata jest naliczana za dodatkową dzienną stawkę za GiB dla magazynu obrazów powyżej tych limitów. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].

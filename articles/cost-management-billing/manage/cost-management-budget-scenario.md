@@ -6,14 +6,14 @@ ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: a9e1d838e7d3322ddf218c5cbec40b652709b5d7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586379"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791684"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Zarządzanie kosztami przy użyciu budżetów platformy Azure
 
@@ -273,7 +273,7 @@ Następnie skonfigurujesz rozwiązanie **Postman** w celu utworzenia budżetu, w
 1. Ustaw **wartość** na token, który został utworzony przy użyciu projektu ArmClient na końcu ostatniej sekcji.
 1. Wybierz kartę **Body** (Treść) w narzędziu Postman.
 1. Wybierz opcję przycisku **raw**.
-1. W polu tekstowym wklej poniższą przykładową definicję budżetu. Musisz zastąpić parametry **subscriptionID**, **budgetname** i **actiongroupname** identyfikatorem subskrypcji, unikatową nazwą budżetu i nazwą grupy akcji, które zostały utworzone zarówno w adresie URL, jak i w treści żądania:
+1. W polu tekstowym wklej poniższą przykładową definicję budżetu. Musisz zastąpić parametry `subscriptionID`, `resourcegroupname` i `actiongroupname` identyfikatorem subskrypcji, unikatową nazwą grupy zasobów i nazwą grupy akcji, które zostały utworzone zarówno w adresie URL, jak i w treści żądania:
 
     ```
         {

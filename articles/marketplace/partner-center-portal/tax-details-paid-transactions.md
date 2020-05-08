@@ -1,17 +1,17 @@
 ---
+title: Szczegóły podatku dla portalu komercyjnego firmy Microsoft
 Description: Aby zrozumieć kwestie podatkowe dotyczące wyboru cen, implikacji wypłaty i odpowiedzialności podatkowej, zobacz kraje/regiony dystrybucji w poniższych tabelach.
-title: Szczegóły podatkowe | Portal Azure Marketplace
-ms.date: 2/13/2020
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285167"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793027"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Szczegóły podatkowe dla komercyjnych wydawców portalu Marketplace
 
@@ -23,10 +23,6 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 > [!IMPORTANT]
 > Odpowiedzialność za podatek w odniesieniu do krajów/regionów i okoliczności (jak opisano [poniżej](#reseller-countriesregions)) jest objęta [umową wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), niezależnie od informacji podanych w poniższej tabeli.
 > Zwróć uwagę, że kolumna **implikacje wypłaty** ma zastosowanie tylko do wydawców. Stawki podatku zanotowane w tej kolumnie mogą ulec zmianie w dowolnym momencie, a firma Microsoft nie gwarantuje, że stawki w tabelach poniżej będą zawsze dokładne.
-
-
-
- 
 
 | Kraj/region                   | Opłata podatkowa za wybór cen                                                                                                             | Implikacje wypłaty                    | Obowiązek podatkowy |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
@@ -262,19 +258,18 @@ Aby zrozumieć kwestie podatkowe dotyczące wyboru cen i odpowiedzialności za p
 | Zambia                           | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Wydawca          |
 | Zimbabwe                         | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki.                                                                   | Cena pomniejszona o sklep                 | Wydawca          |
 
-Poniższe kwestie dotyczą tylko wydawców portalu Azure Marketplace, niezależnie od tego, co zostało opisane powyżej: 
+Poniższe kwestie dotyczą tylko wydawców portalu Azure Marketplace, niezależnie od tego, co zostało opisane powyżej:
 
-| Kraj/region                   | Opłata podatkowa za wybór cen                                                                                                             | Zarządzanie podatkiem                    | 
+| Kraj/region                   | Opłata podatkowa za wybór cen                                                                                                             | Zarządzanie podatkiem                    |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Australia (w przypadku zakupów dokonywanych przez wszystkie scenariusze zakupu klientów z wyjątkiem Umowa Enterprise) | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Microsoft |
 | Australia (tylko w przypadku zakupów dokonywanych za pomocą scenariusza zakupu Umowa Enterprise klienta) | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca |
-| Brazylia | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca **(patrz kraje/regiony odsprzedawcy)** |
-| Meksyk | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca **(patrz kraje/regiony odsprzedawcy)** |
+| Brazylia | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca (**patrz kraje/regiony odsprzedawcy**) |
+| Meksyk | Cena jest wybierana za ostateczną cenę sprzedaży i obejmuje wszelkie stosowane podatki. | Wydawca (**patrz kraje/regiony odsprzedawcy**) |
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>/Regiony przekazów mieszanych dla wydawców
 
-
-Niektórzy partnerzy rozliczeń firmy Microsoft mogą zbierać i przywiązywać podatki dotyczące sprzedaży, użycia, towarów i usług, wartości dodanej lub podobnej (jeśli istnieją), które dotyczą pozyskiwania przez klientów aplikacji lub produktów w aplikacji w sklepie w krajach/regionach wymienionych poniżej. [Raporty](payout-summary.md#transaction-history-download-export) udostępniane przez firmę Microsoft będą identyfikować transakcje, dla których Partner rozliczeń otrzymał dane dotyczące sprzedaży, użycia, towarów i usług, wartości dodane lub podobne podatki mające zastosowanie do pozyskiwania aplikacji lub produktów w aplikacji za pomocą magazynu. Z wyjątkiem transakcji opisanych w takich raportach firma Microsoft ani jej dostawcy usług rozliczeń nie będą w pełni korzystać z sprzedaży, użycia, towarów i usług, a także innych podobnych podatków w związku z pozyskiwaniem przez klientów aplikacji lub produktów w aplikacji w tych krajach. Użytkownik jest odpowiedzialny za przeglądanie udostępnianych przez Ciebie raportów i określanie i przestrzeganie zobowiązań (jeśli takie istnieją) do rejestrowania, zbierania i przekazywania podatków w ramach transakcji obejmujących aplikacje lub produkty w aplikacji.
+Niektórzy partnerzy rozliczeń firmy Microsoft mogą zbierać i przywiązywać podatki dotyczące sprzedaży, użycia, towarów i usług, wartości dodanej lub podobnej (jeśli istnieją), które dotyczą pozyskiwania przez klientów aplikacji lub produktów w aplikacji w sklepie w krajach/regionach wymienionych poniżej. [Raporty](payout-summary-overview.md#transaction-history-download-export) udostępniane przez firmę Microsoft będą identyfikować transakcje, dla których Partner rozliczeń otrzymał dane dotyczące sprzedaży, użycia, towarów i usług, wartości dodane lub podobne podatki mające zastosowanie do pozyskiwania aplikacji lub produktów w aplikacji za pomocą magazynu. Z wyjątkiem transakcji opisanych w takich raportach firma Microsoft ani jej dostawcy usług rozliczeń nie będą w pełni korzystać z sprzedaży, użycia, towarów i usług, a także innych podobnych podatków w związku z pozyskiwaniem przez klientów aplikacji lub produktów w aplikacji w tych krajach. Użytkownik jest odpowiedzialny za przeglądanie udostępnianych przez Ciebie raportów i określanie i przestrzeganie zobowiązań (jeśli takie istnieją) do rejestrowania, zbierania i przekazywania podatków w ramach transakcji obejmujących aplikacje lub produkty w aplikacji.
 
 | Kraje/regiony przekazów mieszanych |
 |------------------------------------|
@@ -285,16 +280,13 @@ Niektórzy partnerzy rozliczeń firmy Microsoft mogą zbierać i przywiązywać 
 
 W niektórych krajach/regionach firma Microsoft pełni rolę odsprzedawcy, a nie agenta, podczas tworzenia aplikacji i produktów w aplikacji dostępnych w sklepie. Aby uzyskać więcej informacji na temat warunków i postanowień dotyczących krajów/regionów odsprzedawców, zobacz [umowę wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-Poniższe zasady dotyczą tylko wydawców portalu Azure Marketplace: 
+Poniższe zasady dotyczą tylko wydawców portalu Azure Marketplace:
 
 |                    Kraje/regiony odsprzedawcy                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brazylia (w przypadku zakupów dokonywanych przez wszystkie scenariusze zakupu klientów z wyjątkiem dostawcy CSP) |
 | Meksyk (tylko w przypadku zakupów dokonywanych za pomocą scenariusza zakupu Umowa Enterprise klienta) |
 
+## <a name="next-steps"></a>Następne kroki
 
- 
-
-
-
-
+[Konfigurowanie konta do wypłaty i formularzy podatkowych](set-up-your-payout-account-tax-forms.md)

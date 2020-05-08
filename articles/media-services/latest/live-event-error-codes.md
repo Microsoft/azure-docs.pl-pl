@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services kodów błędów zdarzeń na żywo | Microsoft Docs
 description: W tym artykule wymieniono kody błędów zdarzeń na żywo.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654583"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791055"
 ---
 # <a name="media-services-live-event-error-codes"></a>Kody błędów zdarzeń na żywo Media Services
 
@@ -40,6 +40,7 @@ Po zasubskrybowaniu zdarzeń [Event Grid](https://docs.microsoft.com/azure/event
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Sygnatura czasowa dla FLVTag wideo lub audio jest nieprawidłowa z kodera RTMP. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | Przychodzące strumienie dla koderów przychodzących z szybkością klatek przekraczają maksymalną dozwoloną liczbę 30fps na potrzeby kodowania na żywo zdarzeń/kanałów.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Przychodzące strumienie przekazywanego kodera przekraczają następujące dozwolone rozwiązania: 1920x1088 do kodowania na żywo zdarzeń/kanałów i 4096 x 2160 dla zdarzeń przesyłanych/kanałów na żywo.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | Wydarzenie na żywo otrzymało dużą ilość danych audio jednocześnie lub dużą ilość danych wideo bez klatek kluczowych. Koder został rozłączony w celu uzyskania możliwości ponowienia próby z prawidłowymi danymi. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -53,7 +54,7 @@ Może zostać wyświetlony jeden z następujących błędów ze zdarzenia [LiveE
 |Nieznane kody błędów|Te kody błędów mogą należeć do zakresu od błędu pamięci do zduplikowanych wpisów w mapie skrótów.|
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 [Kody błędów punktu końcowego przesyłania strumieniowego (Źródło)](streaming-endpoint-error-codes.md)
 

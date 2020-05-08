@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188811"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791259"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Elastyczne skalowanie Azure Cosmos DB interfejs API Cassandra konta
 
@@ -58,9 +58,9 @@ Można dynamicznie skalować system przy użyciu kodu, wykonując [polecenia CQL
 
 Zaletą tego podejścia jest to, że pozwala to na dynamiczne reagowanie na potrzeby skalowania i w sposób niestandardowy, który jest przeznaczony dla aplikacji. Korzystając z tej metody, można nadal korzystać ze standardowych stawek za RU/s. Jeśli wymagania dotyczące skalowania systemu są w większości przewidywalne (około 70% lub więcej), korzystanie z zestawu SDK z CQL może być bardziej opłacalną metodą automatycznego skalowania, niż przy użyciu funkcji automatyczne skalowanie. Wadą tego podejścia jest to, że może być dość skomplikowane do wdrożenia ponownych prób, podczas gdy ograniczenie szybkości może zwiększyć opóźnienia.
 
-## <a name="use-autoscale"></a><a id="use-autoscale"></a>Korzystanie ze skalowania automatycznego
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Użyj elastycznie obsługiwanej przepływności
 
-Oprócz ręcznych i programistycznych metod aprowizacji można także skonfigurować kontenery usługi Azure Cosmos w trybie skalowania automatycznego. Tryb skalowania automatycznego będzie automatycznie i natychmiast skalowany na potrzeby użycia w określonych zakresach RU bez naruszenia umowy SLA. Aby dowiedzieć się więcej, zobacz artykuł [Tworzenie kontenerów i baz danych usługi Azure Cosmos w trybie skalowania automatycznego](provision-throughput-autoscale.md) .
+Oprócz standardowego (ręcznego) lub programowego sposobu aprowizacji przepływności można także skonfigurować kontenery usługi Azure Cosmos w przepływności z obsługą skalowania automatycznego. Skalowanie automatyczne będzie automatycznie i natychmiast skalowane do potrzeb użycia w określonych zakresach RU bez naruszenia umowy SLA. Aby dowiedzieć się więcej, zobacz artykuł [Tworzenie kontenerów i baz danych usługi Azure Cosmos w artykule Skalowanie automatyczne](provision-throughput-autoscale.md) .
 
 Zaletą tego podejścia jest najprostszy sposób zarządzania potrzebami skalowania w systemie. Gwarantuje to, że nie ma zastosowania ograniczenia stawki **w skonfigurowanych zakresach ru**. Wadą jest to, że jeśli wymagania dotyczące skalowania w systemie są przewidywalne, Skalowanie automatyczne może być tańszym sposobem obsługi wymagań dotyczących skalowania, niż przy użyciu Bespoke płaszczyzny kontroli lub poziomów zestawu SDK wymienionych powyżej.
 

@@ -24,7 +24,7 @@ Obrazy niestandardowe są podobne do obrazów z platformy handlowej, ale tworzy 
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie maszyny wirtualnej na podstawie obrazu 
 > * Udostępnianie galerii obrazów
 
@@ -189,7 +189,7 @@ W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym
 > [!div class="checklist"]
 > * Tworzenie galerii obrazów udostępnionych
 > * Tworzenie definicji obrazu
-> * Utwórz wersję obrazu
+> * Tworzenie wersji obrazu
 > * Tworzenie maszyny wirtualnej na podstawie obrazu 
 > * Udostępnianie galerii obrazów
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat skalowania klastrów usługi Azure Se
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258696"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793180"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skalowanie klastrów Service Fabric platformy Azure
 Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Klastry mogą zawierać potencjalnie tysiące węzłów. Po utworzeniu klastra Service Fabric można skalować klaster w poziomie (zmienić liczbę węzłów) lub w pionie (zmienić zasoby węzłów).  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -29,13 +29,13 @@ Podczas skalowania klastra platformy Azure należy pamiętać o następujących 
 - typy węzłów innych niż podstawowe działające stanowe obciążenia produkcyjne powinny mieć zawsze pięć lub więcej węzłów.
 - typy węzłów innych niż podstawowe, które działają bezstanowe obciążenia produkcyjne, powinny zawsze mieć co najmniej dwa węzły.
 - Każdy typ węzła [poziomu trwałości](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Gold lub Silver powinien mieć zawsze pięć lub więcej węzłów.
-- Nie usuwaj losowych wystąpień maszyn wirtualnych/węzłów z typu węzła, zawsze używaj funkcji skalowania w dół zestawu skalowania maszyn wirtualnych. Usunięcie losowych wystąpień maszyn wirtualnych może niekorzystnie wpłynąć na zdolność systemu do prawidłowego równoważenia obciążenia.
+- Nie usuwaj losowych wystąpień maszyn wirtualnych/węzłów z typu węzła, zawsze używaj funkcji skalowania zestawu skalowania maszyn wirtualnych. Usunięcie losowych wystąpień maszyn wirtualnych może niekorzystnie wpłynąć na zdolność systemu do prawidłowego równoważenia obciążenia.
 - W przypadku używania reguł skalowania automatycznego Ustaw reguły tak, aby skalowanie w poziomie (usuwanie wystąpień maszyn wirtualnych) było wykonywane po jednym węźle w danym momencie. Skalowanie w dół więcej niż jedno wystąpienie w czasie jest niebezpieczne.
 
-Ponieważ typy węzłów Service Fabric w klastrze składają się z zestawów skalowania maszyn wirtualnych w zapleczu, można [skonfigurować reguły skalowania automatycznego lub ręcznie skalować](service-fabric-cluster-scale-up-down.md) każdy typ węzła/zestaw skalowania maszyn wirtualnych.
+Ponieważ typy węzłów Service Fabric w klastrze składają się z zestawów skalowania maszyn wirtualnych w zapleczu, można [skonfigurować reguły skalowania automatycznego lub ręcznie skalować](service-fabric-cluster-scale-in-out.md) każdy typ węzła/zestaw skalowania maszyn wirtualnych.
 
 ### <a name="programmatic-scaling"></a>Skalowanie programistyczne
-W wielu scenariuszach [skalowanie klastra odbywa się ręcznie lub przy użyciu reguł skalowania automatycznego](service-fabric-cluster-scale-up-down.md) . W przypadku bardziej zaawansowanych scenariuszy może to nie być odpowiednie dopasowanie. Potencjalne wady do tych podejścia obejmują:
+W wielu scenariuszach [skalowanie klastra odbywa się ręcznie lub przy użyciu reguł skalowania automatycznego](service-fabric-cluster-scale-in-out.md) . W przypadku bardziej zaawansowanych scenariuszy może to nie być odpowiednie dopasowanie. Potencjalne wady do tych podejścia obejmują:
 
 - Ręczne skalowanie wymaga, aby zalogować się i jawnie zażądać operacji skalowania. Jeśli operacje skalowania są wymagane często lub w nieprzewidywalnym czasie, to podejście może nie być dobrym rozwiązaniem.
 - Gdy reguły automatycznego skalowania usuwają wystąpienie z zestawu skalowania maszyn wirtualnych, nie usuwają automatycznie informacji o tym węźle z skojarzonego klastra Service Fabric, chyba że typ węzła ma poziom trwałości Silver lub Gold. Ponieważ reguły automatycznego skalowania działają na poziomie zestawu skalowania (a nie na poziomie Service Fabric), reguły skalowania automatycznego mogą usuwać węzły Service Fabric bez ich bezpiecznego zamykania. Usunięcie węzła prosta spowoduje pozostawienie "Ghost" Service Fabric stanu węzła po operacji skalowania w poziomie. Osoba (lub usługa) musi okresowo czyścić stan usuniętych węzłów w klastrze Service Fabric.

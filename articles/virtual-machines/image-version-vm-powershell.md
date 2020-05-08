@@ -97,7 +97,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-an-image-version"></a>Utwórz wersję obrazu
+## <a name="create-an-image-version"></a>Tworzenie wersji obrazu
 
 Utwórz wersję obrazu przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 

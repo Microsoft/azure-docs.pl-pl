@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274577"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792007"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
 
@@ -164,8 +164,8 @@ Aby skorzystać z tej umiejętności w potoku Wyszukiwanie poznawcze, musisz dod
 
 W tym przewodniku utworzono niestandardową umiejętność z usługi rozpoznawania formularzy platformy Azure. Aby dowiedzieć się więcej o umiejętnościach niestandardowych, zobacz następujące zasoby. 
 
-* [Azure Search umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search umiejętności dotyczące oszczędzania mocy: repozytorium umiejętności niestandardowych](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Dodaj niestandardową umiejętność do potoku wzbogacania AI](cognitive-search-custom-skill-interface.md)
 * [Definiowanie zestawu umiejętności](cognitive-search-defining-skillset.md)
-* [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Utwórz zestawu umiejętności (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Mapuj wzbogacone pola](cognitive-search-output-field-mapping.md)

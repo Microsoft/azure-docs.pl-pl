@@ -1,17 +1,17 @@
 ---
-Description: Aby otrzymać pieniądze z oferty sprzedaży oferowanej w komercyjnej witrynie Marketplace, musisz skonfigurować konto wypłaty i uzupełnić niezbędne formularze podatkowe.
-title: Konfigurowanie konta wypłaty i formularzy podatkowych | Portal Azure Marketplace
+title: Konfigurowanie konta wypłaty & form podatkowych — komercyjne witryny Marketplace firmy Microsoft
+Description: Aby otrzymać pieniądze z oferty sprzedaży oferowanej w komercyjnej witrynie Marketplace, Dowiedz się, jak skonfigurować konto wypłaty i uzupełnić niezbędne formularze podatkowe.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281310"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792891"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurowanie konta do wypłaty i formularzy podatkowych
 
@@ -32,7 +32,7 @@ Po skonfigurowaniu konta należy wykonać dwie czynności, aby móc sprzedawać 
 
 ## <a name="tax-forms"></a>Formularze podatkowe
 
-### <a name="filling-out-your-tax-forms"></a>Wypełnianie formularzy podatkowych
+### <a name="fill-out-your-tax-forms"></a>Wypełnij formularze podatkowe
 
 Najpierw należy utworzyć profil podatkowy i przypisać go do programów, które uczestniczą w programie. Możesz utworzyć swój *profil podatkowy* dla komercyjnego portalu Marketplace, wykonując następujące czynności:
 
@@ -45,18 +45,21 @@ W centrum partnerskim można dokończyć i przesyłać formularze podatkowe elek
 > Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których oferta została sprzedawana. Zapoznaj się z [umową wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) , aby dowiedzieć się, w jakich krajach firma Microsoft przekazuje sprzedaż i korzystać z podatku w Twoim imieniu. W innych krajach, w zależności od tego, gdzie się rejestrujesz, może być konieczne przekazanie sprzedaży i użycie podatku za oferowaną sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto przychody sprzedaży aplikacji mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dotyczących komercyjnych działań w portalu Marketplace.
 
 1. W [centrum partnerskim](https://partner.microsoft.com/dashboard)wybierz ikonę **Ustawienia konta** w prawym górnym rogu, a następnie wybierz pozycję **Ustawienia dewelopera**.
+
 2. W menu nawigacji po lewej stronie wybierz pozycję **wypłata i podatek**, a następnie wybierz pozycję **wypłata i przydziały podatkowe**.
 
 3. Wybierz kombinację programu i identyfikatora sprzedającego, dla którego chcesz skonfigurować informacje podatkowe.
 
 4. Jeśli chcesz użyć istniejącego profilu podatkowego, wybierz go z listy rozwijanej. W przeciwnym razie wybierz pozycję **Utwórz nowy profil** i naciśnij przycisk **Prześlij**. Nastąpi przekierowanie do strony profilów podatkowych.
+
 5. Kliknij przycisk **Edytuj** , aby edytować informacje podatkowe.
+
 6. Wybierz odpowiedni przycisk radiowy, a następnie wybierz swój kraj, jeśli zostanie wyświetlony monit. Ten krok określa jednostkę biznesową firmy Microsoft, która będzie używana do wypłat na Twoje konto.
 
 7. W zależności od wyboru w kroku 6 zostanie wyświetlony monit o podanie informacji podatkowych wymaganych dla Twojego kraju.
 
-> [!NOTE]
-> Niezależnie od kraju zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedawać dowolne oferty lub dodatki za pomocą komercyjnej witryny Marketplace. Wydawcy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca do zamieszkania, muszą wypełnić formularz urzędu skarbowego W trybie. Inni wydawcy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
+   > [!NOTE]
+   > Niezależnie od kraju zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedawać dowolne oferty lub dodatki za pomocą komercyjnej witryny Marketplace. Wydawcy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca do zamieszkania, muszą wypełnić formularz urzędu skarbowego W trybie. Inni wydawcy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
 
 ### <a name="withholding-rates"></a>Stawki za potrącenie
 
@@ -108,8 +111,8 @@ Jeśli wybrano opcję korzystania z konta bankowego w celu otrzymywania wypłat,
 
 6. Kliknij pozycję Prześlij, aby zapisać zmiany.
 
-> [!NOTE]
-> Zweryfikowanie informacji w Twoim profilu może potrwać do 48 godzin. Gdy ten proces zostanie ukończony *verification status* , zostanie wyświetlony stan **ukończono**
+   > [!NOTE]
+   > Zweryfikowanie informacji w Twoim profilu może potrwać do 48 godzin. Gdy ten proces zostanie ukończony *verification status* , zostanie wyświetlony stan **ukończono**
 
 Aby zapewnić pomyślne wypłaty, upewnij się, że:
 
@@ -122,7 +125,9 @@ Aby zapewnić pomyślne wypłaty, upewnij się, że:
 Istniejące profile płatności można edytować, jeśli konieczne jest wprowadzenie zmian lub poprawienie nieprawidłowych informacji.
 
 1. W [centrum partnerskim](https://partner.microsoft.com/dashboard)wybierz ikonę **Ustawienia** koła zębatego w prawym górnym rogu, a następnie wybierz pozycję **Ustawienia dewelopera**.
+
 2. Pod nagłówkiem *wypłata i podatek* wybierz pozycję **wypłaty i profile podatkowe**.
+
 3. Twoje profile płatności zostaną wyświetlone wraz z ich stanami. Znajdź profil, który chcesz edytować, a następnie kliknij pozycję **Edytuj** po prawej stronie
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ W obszarze Wybieranie krajów i regionów możesz utworzyć konto płatności, w
 Często zadawane pytania dotyczące korzystania z systemu PayPal jako formy płatności:
 
 - **Jakie ustawienia systemu PayPal muszę mieć w celu otrzymywania płatności?** Upewnij się, że Twoje konto systemu PayPal nie blokuje płatności eCheck. To ustawienie jest zarządzane na stronie preferencji otrzymywania płatności w systemie PayPal. Aby uzyskać więcej informacji, zobacz [stronę konfiguracji konta w systemie PayPal](https://go.microsoft.com/fwlink/p/?linkid=513139) .
+
 - **Czy mój kraj/region jest obsługiwany?** Zobacz [progi płatności, metody i przedziały czasu](payment-thresholds-methods-timeframes.md) , aby dowiedzieć się, gdzie w systemie PayPal jest obsługiwana forma płatności.
+
 - **Czy moje konto w systemie PayPal musi być zarejestrowane w tym samym kraju/regionie co konto Centrum partnerskiego?** Nie. Po skonfigurowaniu konta w systemie PayPal można zaakceptować konfigurację domyślną. Nie ma żadnych problemów z innymi krajami/regionami i walutami, chyba że zablokujesz płatności w niektórych walutach. To ustawienie jest zarządzane na stronie preferencji otrzymywania płatności w systemie PayPal.
+
 - **Czy muszę akceptować płatności PayPal ręcznie?** Nie. Konta systemu PayPal są domyślnie ustawione, aby wymagać od użytkowników ręcznej akceptacji płatności, co oznacza, że w ciągu 30 dni nie zostanie zaakceptowana płatność. To ustawienie można zmienić, wyłączając "pytaj mnie" na stronie więcej ustawień w systemie PayPal.
+
 - **Jakie waluty obsługuje system PayPal?** Zobacz [stronę pomocy technicznej w systemie PayPal](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) dla bieżącej listy
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Określone wymagania dotyczące niektórych krajów/regionów
@@ -193,3 +202,7 @@ Jeśli wybrano opcję korzystania z konta bankowego w celu otrzymywania wypłat,
 4. Na stronie *Przypisanie profilu* Wybierz walutę, która ma być używana w przypadku wystawiania wypłat.
 5. Musisz wybrać profil płatności dla każdego programu, który należy do Ciebie uczestniczyć, ale możesz użyć tego samego profilu dla wielu programów.
 6. Kliknij pozycję Prześlij, aby zapisać zmiany.
+
+## <a name="next-steps"></a>Następne kroki
+
+[Rozliczenia komercyjnej platformy handlowej](billing-details.md)

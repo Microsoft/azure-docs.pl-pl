@@ -3,12 +3,12 @@ title: Definiowanie wielu wystąpień zmiennej
 description: Użyj operacji copy w szablonie Azure Resource Manager, aby wykonać iterację wielokrotnie podczas tworzenia zmiennej.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153305"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583371"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteracja zmiennej w szablonach ARM
 
@@ -16,7 +16,7 @@ W tym artykule pokazano, jak utworzyć więcej niż jedną wartość zmiennej w 
 
 Można również użyć kopiowania z [zasobami](copy-resources.md), [właściwości w zasobów](copy-properties.md)i danych [wyjściowych](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Iteracja zmiennej
+## <a name="syntax"></a>Składnia
 
 Element Copy ma następujący format ogólny:
 
@@ -33,6 +33,21 @@ Element Copy ma następujący format ogólny:
 Właściwość **name** jest dowolną wartością, która identyfikuje pętlę. Właściwość **Count** określa liczbę iteracji dla zmiennej.
 
 Właściwość **Input** określa właściwości, które mają być powtarzane. Tworzysz tablicę elementów skonstruowanych na podstawie wartości we właściwości **wejściowej** . Może to być pojedyncza Właściwość (na przykład ciąg) lub obiekt z kilkoma właściwościami.
+
+## <a name="copy-limits"></a>Limity kopiowania
+
+Liczba nie może przekraczać 800.
+
+Liczba nie może być liczbą ujemną. Może to być zero, jeśli szablon zostanie wdrożony przy użyciu najnowszej wersji interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. W tym celu należy użyć:
+
+* Azure PowerShell **2,6** lub nowszy
+* Interfejs wiersza polecenia platformy Azure **2.0.74** lub nowszy
+* Interfejs API REST w wersji **2019-05-10** lub nowszej
+* [Połączone wdrożenia](linked-templates.md) muszą używać interfejsu API w wersji **2019-05-10** lub nowszej dla typu zasobu wdrożenia
+
+We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
+
+## <a name="variable-iteration"></a>Iteracja zmiennej
 
 Poniższy przykład pokazuje, jak utworzyć tablicę wartości ciągów:
 
@@ -294,12 +309,6 @@ W następnym przykładzie pokazano różne sposoby używania kopiowania z zmienn
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limity kopiowania
-
-Liczba nie może przekraczać 800.
-
-Liczba nie może być liczbą ujemną. Jeśli szablon jest wdrażany z Azure PowerShell 2,6 lub nowszym, interfejs wiersza polecenia platformy Azure 2.0.74 lub nowszy albo interfejs API REST w wersji **2019-05-10** lub nowszej, można ustawić liczbę na zero. We wcześniejszych wersjach programu PowerShell, interfejsu wiersza polecenia i interfejsie API REST nie są obsługiwane wartości zerowe.
 
 ## <a name="example-templates"></a>Przykładowe szablony
 

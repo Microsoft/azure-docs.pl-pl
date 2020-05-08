@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587179"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744762"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Uprawnienia na platformie Azure — wskaźnik
 
@@ -44,7 +44,7 @@ Oprócz ról RBAC opartych na platformie Azure, istnieją role RBAC platformy Az
 > Role Log Analytics zapewniają również dostęp do odczytu dla wszystkich zasobów platformy Azure, ale tylko uprawnienia do zapisu do zasobów Log Analytics.
 
 
-Na przykład użytkownik przypisany za pomocą **czytnika wskaźnikowego platformy Azure** i **Współautorzy platformy** Azure (nie **współautor wskaźnikowego platformy Azure**) będzie mógł edytować dane na platformie Azure, chociaż mają tylko uprawnienia **czytelnika** . W związku z tym, jeśli chcesz udzielić uprawnień tylko do platformy Azure, należy uważnie usunąć wcześniejsze uprawnienia tego użytkownika, upewniając się, że nie wszystkie wymagane role uprawnień dla innego zasobu.
+Na przykład użytkownik przypisany za pomocą **czytnika wskaźnikowego platformy Azure** i **Współautorzy platformy** Azure (nie **współautor wskaźnikowego platformy Azure**) będzie mógł edytować dane na platformie Azure, chociaż mają tylko uprawnienia **czytelnika** . W związku z tym, jeśli chcesz udzielić uprawnień użytkownikowi tylko w wskaźniku kontrolnym platformy Azure, należy uważnie usunąć wcześniejsze uprawnienia tego użytkownika, upewniając się, że nie wszystkie wymagane role uprawnień dla innego zasobu.
 
 > [!NOTE]
 >- Wskaźnik platformy Azure używa elementy PlayBook do automatycznej reakcji na zagrożenia. Elementy PlayBook wykorzystać Azure Logic Apps i są osobnym zasobem platformy Azure. Możesz chcieć przypisać określonych członków zespołu operacji zabezpieczeń, korzystając z opcji Logic Apps na potrzeby operacji aranżacji zabezpieczeń, automatyzacji i odpowiedzi (o). Rola [współautor aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-contributor) lub rola [operatora aplikacji logiki](../role-based-access-control/built-in-roles.md#logic-app-operator) służy do przypisywania jawnego uprawnienia do korzystania z elementy PlayBook.

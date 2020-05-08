@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 900398a701659bff593df042db16890792e5cffd
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919536"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744745"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Monitorowanie zabezpieczeń kontenerów
 
@@ -131,7 +131,9 @@ Aby wyświetlić zalecenia dotyczące zabezpieczeń Azure Security Center dla ho
 
     [![Akcja Log Analytics](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Dostosuj parametry zapytania i wybierz pozycję **Uruchom** , gdy wszystko jest gotowe do Twojego hosta. 
+1. Dostosowywanie parametrów zapytania w razie potrzeby.
+
+1. Jeśli masz pewność, że polecenie jest odpowiednie i gotowe dla hosta, wybierz pozycję **Uruchom**.
 
 
 

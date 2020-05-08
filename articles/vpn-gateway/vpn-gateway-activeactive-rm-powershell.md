@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 436428c8f4a30706ab16ddace2d491287e620646
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244643"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559840"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurowanie aktywnych i aktywnych połączeń sieci VPN S2S z bramami sieci VPN platformy Azure
 
@@ -36,9 +36,7 @@ Jeśli masz już bramę sieci VPN, możesz:
 Można połączyć je razem w celu utworzenia bardziej złożonej topologii sieci o wysokiej dostępności, która spełnia Twoje potrzeby.
 
 > [!IMPORTANT]
-> Tryb aktywny-aktywny używa tylko następujących jednostek SKU: 
->   * VpnGw1, VpnGw2, VpnGw3
->   * HighPerformance (dla starych starszych wersji SKU)
+> Tryb aktywny-aktywny jest dostępny dla wszystkich jednostek SKU z wyjątkiem warstwy Podstawowa.
 
 ## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Część 1 — Tworzenie i Konfigurowanie bram sieci VPN aktywnych-aktywnych
 Poniższe kroki spowodują skonfigurowanie bramy sieci VPN platformy Azure w trybie aktywny-aktywny. Kluczowe różnice między bramami Active-Active i Active-Standby:
