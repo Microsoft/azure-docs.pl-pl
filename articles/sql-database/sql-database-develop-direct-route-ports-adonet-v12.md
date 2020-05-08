@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34e9b40b0b6989edacd72eb23d357e2a84b6f8d8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73828057"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891079"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porty wyższe niż 1433 dla platformy ADO.NET 4.5
 
@@ -72,9 +72,9 @@ W tej części objaśniono monikery odwołujące się do wersji produktu. Zawier
 
 ## <a name="related-links"></a>Powiązane linki
 
-* ADO.NET 4,6 został opublikowany 20 lipca 2015. Ogłoszenie w blogu z zespołu .NET jest dostępne [tutaj](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4,5 został opublikowany 15 sierpnia 2012. Ogłoszenie w blogu z zespołu .NET jest dostępne [tutaj](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Wpis w blogu dotyczący ADO.NET 4.5.1 jest dostępny [tutaj](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4,6 został opublikowany 20 lipca 2015. Ogłoszenie w blogu z zespołu .NET jest dostępne [tutaj](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/).
+* ADO.NET 4,5 został opublikowany 15 sierpnia 2012. Ogłoszenie w blogu z zespołu .NET jest dostępne [tutaj](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
+  * Wpis w blogu dotyczący ADO.NET 4.5.1 jest dostępny [tutaj](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
 * Microsoft® ODBC Driver 17 dla SQL Server® — Windows, Linux, & macOShttps://www.microsoft.com/download/details.aspx?id=56567
 

@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313623"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792585"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
 
 
-Azure Disk Encryption dla maszyn wirtualnych z systemem Linux używa funkcji DM-Crypt systemu Linux, aby zapewnić pełne szyfrowanie dysków w systemie operacyjnym i dyskach z danymi. Ponadto zapewnia szyfrowanie dysku zasobów tymczasowych podczas korzystania z funkcji EncryptFormatAll.
+Azure Disk Encryption dla maszyn wirtualnych z systemem Linux używa funkcji DM-Crypt systemu Linux, aby zapewnić pełne szyfrowanie dysków w systemie operacyjnym i dyskach z danymi. Ponadto zapewnia szyfrowanie dysku tymczasowego przy użyciu funkcji EncryptFormatAll.
 
 Azure Disk Encryption jest [zintegrowana z Azure Key Vault](disk-encryption-key-vault.md) , aby pomóc Ci kontrolować klucze szyfrowania dysków i wpisy tajne oraz zarządzać nimi. Aby zapoznać się z omówieniem usługi, zobacz [Azure Disk Encryption dla maszyn wirtualnych z systemem Linux](disk-encryption-overview.md).
 
@@ -209,9 +209,9 @@ Aby uzyskać więcej informacji o konfigurowaniu szablonu szyfrowania dysku masz
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Korzystanie z funkcji EncryptFormatAll w przypadku dysków z danymi na maszynach wirtualnych z systemem Linux
 
-**EncryptFormatAll** parametr skraca czas szyfrowania dysków danych systemu Linux. Partycje spełniające określone kryteria zostaną sformatowane (z bieżącym systemem plików), a następnie ponownie zainstalowane do miejsca, w którym było przed wykonaniem polecenia. Jeśli chcesz wykluczyć dysk danych spełniający kryteria, możesz go odinstalować przed uruchomieniem polecenia.
+**EncryptFormatAll** parametr skraca czas szyfrowania dysków danych systemu Linux. Partycje spełniające określone kryteria zostaną sformatowane wraz z ich bieżącymi systemami plików, a następnie ponownie zainstalowane w miejscu, w którym były przed wykonaniem polecenia. Jeśli chcesz wykluczyć dysk danych spełniający kryteria, możesz go odinstalować przed uruchomieniem polecenia.
 
- Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski zostaną sformatowane, a warstwa szyfrowania zostanie uruchomiona na pustym dysku. Po wybraniu tej opcji dysk zasobów tymczasowych dołączony do maszyny wirtualnej również będzie szyfrowany. Jeśli dysk tymczasowych jest resetowany, zostanie on zmieniony w formacie i ponownie zaszyfrowany dla maszyny wirtualnej przez rozwiązanie Azure Disk Encryption w następnej okazji. Po zaszyfrowaniu dysku zasobów [Agent Microsoft Azure systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nie będzie w stanie zarządzać dyskiem zasobów i włączać pliku wymiany, ale można ręcznie skonfigurować plik wymiany.
+ Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski zostaną sformatowane, a warstwa szyfrowania zostanie uruchomiona na pustym dysku. Po wybraniu tej opcji dysk tymczasowy dołączony do maszyny wirtualnej również będzie szyfrowany. Jeśli dysk tymczasowy jest resetowany, zostanie on zmieniony w formacie i ponownie zaszyfrowany dla maszyny wirtualnej przez rozwiązanie Azure Disk Encryption w następnej okazji. Po zaszyfrowaniu dysku zasobów [Agent Microsoft Azure systemu Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) nie będzie w stanie zarządzać dyskiem zasobów i włączać pliku wymiany, ale można ręcznie skonfigurować plik wymiany.
 
 >[!WARNING]
 > EncryptFormatAll nie należy używać w przypadku danych na woluminach danych maszyny wirtualnej. Dyski można wykluczać z szyfrowania, odinstalując je. Najpierw należy wypróbować EncryptFormatAll najpierw na testowej maszynie wirtualnej, zrozumieć parametr funkcji i jej implikacje przed podjęciem próby na produkcyjną maszynę wirtualną. Opcja EncryptFormatAll formatuje dysk danych i wszystkie jego dane zostaną utracone. Przed kontynuowaniem upewnij się, że dyski, które chcesz wykluczyć, zostały prawidłowo odinstalowane. </br></br>
@@ -408,9 +408,10 @@ Azure Disk Encryption nie działa w następujących scenariuszach, funkcjach i t
 - Szyfrowanie współużytkowanych/rozproszonych systemów plików, takich jak (ale nie ograniczone do): DFS, GFS, DRDB i CephFS.
 - Przeniesienie zaszyfrowanej maszyny wirtualnej do innej subskrypcji.
 - Zrzut awaryjny jądra (kdump).
-- Oracle ACFS (system plików klastra ASM)
-- Maszyny wirtualne Gen2 (patrz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Maszyny wirtualne serii Lsv2 (patrz: [Lsv2-Series](../lsv2-series.md))
+- Oracle ACFS (system plików klastra ASM).
+- Maszyny wirtualne Gen2 (zobacz: [Obsługa maszyn wirtualnych 2. generacji na platformie Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- Maszyny wirtualne serii Lsv2 (zobacz: [Lsv2-Series](../lsv2-series.md)).
+- Maszyna wirtualna z "zagnieżdżonych punktów instalacji"; oznacza to, że wiele punktów instalacji w jednej ścieżce (na przykład "/1stmountpoint/Data/2stmountpoint").
 
 ## <a name="next-steps"></a>Następne kroki
 

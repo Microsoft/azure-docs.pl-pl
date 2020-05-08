@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7da8905adfbddd7241aff84e4b55917ddbdb6d1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73822040"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888951"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: Ochrona danych poufnych i przechowywanie kluczy szyfrowania w magazynie certyfikatów systemu Windows
 
@@ -543,4 +543,4 @@ Po utworzeniu bazy danych korzystającej z Always Encrypted można wykonać nast
 * [Niewidoczne szyfrowanie danych](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Szyfrowanie SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Kreator Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog Always Encrypted](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog Always Encrypted](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)
