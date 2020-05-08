@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127588"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607252"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 
@@ -77,7 +83,7 @@ Postępuj zgodnie z tymi instrukcjami, jeśli masz problemy z przyłączaniem ma
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Nie zainstalowano programu Windows Virtual Desktop Agent i modułu ładującego rozruchu pulpitu wirtualnego systemu Windows
 
-Zalecanym sposobem aprowizacji maszyn wirtualnych jest użycie szablonu **puli hostów usług pulpitu wirtualnego systemu Windows Azure Resource Manager tworzenie i udostępnianie** . Szablon automatycznie instaluje agenta pulpitu wirtualnego systemu Windows i moduł ładujący rozruchu agenta pulpitu wirtualnego systemu Windows.
+Zalecanym sposobem aprowizacji maszyn wirtualnych jest użycie szablonu tworzenia Azure Portal. Szablon automatycznie instaluje agenta pulpitu wirtualnego systemu Windows i moduł ładujący rozruchu agenta pulpitu wirtualnego systemu Windows.
 
 Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zainstalowane i sprawdź komunikaty o błędach.
 
@@ -96,8 +102,8 @@ Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zai
 **Poprawka 2:** Potwierdź elementy z poniższej listy.
 
 - Upewnij się, że konto nie ma usługi MFA.
-- Upewnij się, że nazwa dzierżawy jest dokładna, a dzierżawca istnieje na pulpicie wirtualnym systemu Windows.
-- Upewnij się, że konto ma co najmniej uprawnienia współautora pulpitu zdalnego.
+- Upewnij się, że Nazwa puli hostów jest dokładna, a pula hostów istnieje na pulpicie wirtualnym systemu Windows.
+- Potwierdź, że konto ma co najmniej uprawnienia współautora w ramach subskrypcji lub grupy zasobów platformy Azure.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Błąd: uwierzytelnianie nie powiodło się, błąd w C:\Windows\Temp\ScriptLog.log
 
@@ -106,16 +112,16 @@ Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zai
 **Poprawka:** Potwierdź elementy z poniższej listy.
 
 - Ręcznie Zarejestruj maszyny wirtualne za pomocą usługi pulpitu wirtualnego systemu Windows.
-- Potwierdź, że konto używane do nawiązywania połączenia z pulpitem wirtualnym systemu Windows ma uprawnienia do tworzenia pul hostów w dzierżawie.
+- Potwierdzenie konta używanego do nawiązywania połączenia z pulpitem wirtualnym systemu Windows ma uprawnienia do tworzenia pul hostów w ramach subskrypcji platformy Azure lub grupy zasobów.
 - Potwierdzenie konta nie ma uwierzytelniania MFA.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Agent pulpitu wirtualnego systemu Windows nie jest rejestrowany w usłudze pulpitu wirtualnego systemu Windows
 
-Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy na maszynach wirtualnych hosta sesji (ręcznie lub za pośrednictwem szablonu Azure Resource Manager i programu PowerShell DSC), udostępnia token rejestracji. W poniższej sekcji omówiono problemy związane z rozwiązywaniem problemów dotyczących agenta usług pulpitu wirtualnego systemu Windows i tokenu.
+Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy na maszynach wirtualnych hosta sesji (ręcznie lub za pośrednictwem szablonu Azure Resource Manager i programu PowerShell DSC), udostępnia token rejestracji. W poniższej sekcji omówiono Rozwiązywanie problemów związanych z agentem pulpitu wirtualnego systemu Windows i tokenem.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-RdsSessionHost pokazuje stan jako niedostępny
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-AzWvdSessionHost pokazuje stan jako niedostępny
 
-![Polecenie cmdlet Get-RdsSessionHost wyświetla stan jako niedostępny.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Polecenie cmdlet Get-AzWvdSessionHost wyświetla stan jako niedostępny.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Przyczyna:** Agent nie może zaktualizować się do nowej wersji.
 
@@ -128,17 +134,17 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 5. Ukończ pracę Kreatora instalacji.
 6. Otwórz Menedżera zadań i uruchom usługę RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Błąd: wpis rejestru agenta usług pulpitu wirtualnego systemu Windows zawiera wartość 0
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Błąd: wpis rejestru agenta usług pulpitu wirtualnego systemu Windows zawiera wartość 0
 
 **Przyczyna:** Token rejestracji wygasł lub został wygenerowany z wartością wygaśnięcia wynoszącą 999999.
 
 **Poprawka:** Postępuj zgodnie z tymi instrukcjami, aby naprawić błąd rejestru agenta.
 
-1. Jeśli istnieje już token rejestracji, usuń go z poleceniem Remove-RDSRegistrationInfo.
-2. Generuj nowy token przy użyciu programu RDS-NewRegistrationInfo.
-3. Upewnij się, że parametr-ExpriationHours jest ustawiony na 72 (wartość maksymalna to 99999).
+1. Jeśli istnieje już token rejestracji, usuń go z poleceniem Remove-AzWvdRegistrationInfo. 
+2. Uruchom polecenie cmdlet **New-AzWvdRegistrationInfo** , aby wygenerować nowy token. 
+3. Upewnij się, że parametr *-ExpriationTime* jest ustawiony na 3 dni.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Błąd: Agent pulpitu wirtualnego systemu Windows nie zgłasza pulsu podczas uruchamiania Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Błąd: Agent pulpitu wirtualnego systemu Windows nie zgłasza pulsu podczas uruchamiania Get-AzWvdSessionHost
 
 **Przyczyna 1:** Usługa RDAgentBootLoader została zatrzymana.
 
@@ -180,7 +186,7 @@ Stos równoległy pulpitu wirtualnego systemu Windows jest automatycznie instalo
 
 Istnieją trzy główne sposoby, w których stos równoległy jest instalowany lub włączony na maszynach wirtualnych puli hostów sesji:
 
-- Za pomocą Azure Resource Manager **tworzenia i udostępniania nowego szablonu puli hostów wirtualnego systemu Windows**
+- Z szablonem tworzenia Azure Portal
 - Przez dołączenie i włączenie na obrazie głównym
 - Ręcznie zainstalowane lub włączone dla każdej maszyny wirtualnej (lub z rozszerzeniami/programem PowerShell)
 
@@ -209,13 +215,7 @@ Sprawdź wpisy rejestru wymienione poniżej i upewnij się, że ich wartości pa
 **Poprawka:** Postępuj zgodnie z tymi instrukcjami, aby zainstalować stos równoległy na maszynie wirtualnej hosta sesji.
 
 1. Użyj Remote Desktop Protocol (RDP), aby przejść bezpośrednio do maszyny wirtualnej hosta sesji jako administrator lokalny.
-2. Pobierz i zaimportuj [moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono, Uruchom to polecenie cmdlet, aby zalogować się do konta:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Zainstaluj stos równoległy przy użyciu polecenia [Utwórz pulę hostów za pomocą programu PowerShell](create-host-pools-powershell.md).
+2. Zainstaluj stos równoległy przy użyciu polecenia [Utwórz pulę hostów za pomocą programu PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Jak naprawić stos równoległy pulpitu wirtualnego systemu Windows, który działa nieprawidłowo
 
@@ -339,7 +339,7 @@ Wdróż ponownie system operacyjny hosta z najnowszą wersją obrazu systemu Win
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
-- Aby rozwiązać problemy podczas tworzenia dzierżawy i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie dzierżawy i puli hostów](troubleshoot-set-up-issues.md).
+- Aby rozwiązać problemy podczas tworzenia puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
 - Aby rozwiązać problemy z połączeniami klienta pulpitu wirtualnego systemu Windows, zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md).
 - Aby rozwiązać problemy z Pulpit zdalny klientami, zobacz [Rozwiązywanie problemów z klientem pulpit zdalny](troubleshoot-client.md)

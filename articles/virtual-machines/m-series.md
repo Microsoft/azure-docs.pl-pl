@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0e7d61516b0b7fb9bab9aa0444a123ac932aaa56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509180"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744683"
 ---
 # <a name="m-series"></a>Seria M
 
-Seria M oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i dużą ilość pamięci (do 3,8 TiB). Jest on również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci. Rozmiary serii M są obsługiwane zarówno w procesorze Intel&reg; Xeon&reg; E7-8890 v3 o godzinie 3 GHz, jak i&reg; na&reg; Intel Xeon Platinum 8280M 2,7 GHz (Kaskada Lake).
+Seria M oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i dużą ilość pamięci (do 3,8 TiB). Jest on również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci. Rozmiary serii M są obsługiwane zarówno w procesorach Intel&reg; Xeon&reg; , E7-8890 v3, jak i w technologii Intel&reg; Xeon&reg; Platinum 8280M (Kaskada Lake).
 
 Funkcja maszyny wirtualnej serii M z technologią Intel&reg; Hyper-Threading.
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064023"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625412"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ Możesz wyświetlić wszystkie ostatnie działania związane z logowaniem do kon
 
 ## <a name="view-your-recent-sign-in-activity"></a>Wyświetlanie ostatniej aktywności logowania
 
-1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myprofile.microsoft.com/ strony.
+1. Zaloguj się do swojego konta służbowego, a następnie przejdź do https://myaccount.microsoft.com/ strony.
 
 2. Wybierz pozycję **Moje logowania (wersja zapoznawcza)** w okienku nawigacji po lewej stronie lub wybierz link **Przejrzyj ostatnie działanie** z bloku **Moje logowania (wersja zapoznawcza)** .
 

@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380804"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612286"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Uwierzytelnianie i autoryzacja na potrzeby interfejsu API usługi Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Na **krok 3**oddzielenie poświadczeń aplikacji i użytkownika pozwala:
 
    1. Token można następnie przesłać do `Authorization` nagłówka, gdy aplikacja wywoła interfejs API Time Series Insights.
 
-* Alternatywnie deweloperzy mogą zdecydować się na uwierzytelnianie za pomocą MSAL. Zapoznaj się z artykułem [Migrowanie do MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) i Zobacz nasze [dane referencyjne zarządzania dla środowiska Azure Time Series Insights za pomocą języka C#](time-series-insights-manage-reference-data-csharp.md) , aby dowiedzieć się więcej. 
+* Alternatywnie deweloperzy mogą zdecydować się na uwierzytelnianie za pomocą MSAL. Zapoznaj się z artykułem [Migrowanie do MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) i Zobacz nasze [dane referencyjne zarządzania dla środowiska Azure Time Series Insights za pomocą języka C#](time-series-insights-manage-reference-data-csharp.md) , aby dowiedzieć się więcej.
 
 ## <a name="common-headers-and-parameters"></a>Wspólne nagłówki i parametry
 
@@ -102,9 +102,9 @@ W tej sekcji opisano typowe nagłówki i parametry żądań HTTP służące do w
 > [!TIP]
 > Przeczytaj informacje o [interfejsie API REST platformy Azure](https://docs.microsoft.com/rest/api/azure/) , aby dowiedzieć się więcej na temat korzystania z interfejsów API REST, wykonywania żądań HTTP i obsługi odpowiedzi HTTP.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
-Aby wykonać uwierzytelnione zapytania dotyczące [Time Series Insights interfejsów API REST](https://docs.microsoft.com/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#). 
+Aby wykonać uwierzytelnione zapytania dotyczące [Time Series Insights interfejsów API REST](https://docs.microsoft.com/rest/api/time-series-insights/), należy przesłać prawidłowy token okaziciela OAuth 2,0 w [nagłówku autoryzacji](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) za pomocą wybranego przez siebie klienta REST (Poster, JavaScript, C#).
 
 > [!TIP]
 > Zapoznaj się z [przykładową wizualizacją zestawu SDK klienta](https://tsiclientsample.azurewebsites.net/) hostowanego Azure Time Series Insights, aby dowiedzieć się, jak uwierzytelniać się za pomocą interfejsu API Time Series Insights programowo przy użyciu [zestawu SDK klienta JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) oraz wykresów i grafów
@@ -115,7 +115,7 @@ Wymagane nagłówki żądań są opisane poniżej.
 
 | Wymagany nagłówek żądania | Opis |
 | --- | --- |
-| Autoryzacja | Aby uwierzytelnić się za pomocą Time Series Insights, należy przesłać prawidłowy token okaziciela OAuth 2,0 w nagłówku **autoryzacji** . | 
+| Autoryzacja | Aby uwierzytelnić się za pomocą Time Series Insights, należy przesłać prawidłowy token okaziciela OAuth 2,0 w nagłówku **autoryzacji** . |
 
 > [!IMPORTANT]
 > Token musi być wystawiony dokładnie dla `https://api.timeseries.azure.com/` zasobu (znanego również jako "odbiorcy" tokenu).

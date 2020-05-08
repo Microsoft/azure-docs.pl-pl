@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79136f86c647c0453d600fe2601be56571ee6fed
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062476"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625888"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Zarządzaj połączonymi organizacjami ze strony organizacji
 
@@ -34,7 +34,7 @@ Strona **organizacje** w portalu **My Account** ułatwia zarządzanie organizacj
 
 ## <a name="view-your-organizations"></a>Wyświetlanie organizacji
 
-1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** (https://myprofile.microsoft.com/) strona.
+1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** (https://myaccount.microsoft.com/) strona.
 
 2. W okienku nawigacji po lewej stronie wybierz pozycję **organizacje** lub wybierz łącze **Zarządzaj organizacjami** w bloku **organizacje** .
 

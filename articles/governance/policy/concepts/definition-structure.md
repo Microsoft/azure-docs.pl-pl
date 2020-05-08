@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187770"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613306"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -73,14 +73,14 @@ Wszystkie przykłady Azure Policy znajdują się na [Azure Policy próbkach](../
 
 **Tryb** określa, które typy zasobów będą oceniane dla zasad. Obsługiwane są następujące tryby:
 
-- `all`: Oceń grupy zasobów i wszystkie typy zasobów
+- `all`: Oceń grupy zasobów, subskrypcje i wszystkie typy zasobów
 - `indexed`: Szacuj tylko typy zasobów obsługujące Tagi i lokalizację
 
 Na przykład zasób `Microsoft.Network/routeTables` obsługuje znaczniki i lokalizację i jest oceniany w obu trybach. Nie można jednak `Microsoft.Network/routeTables/routes` oznaczyć zasobu i nie jest on oceniany w `Indexed` trybie.
 
 Zaleca się, aby `all` w większości przypadków ustawić **tryb** . Wszystkie definicje zasad utworzone za pomocą portalu używają `all` trybu. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz określić parametr **mode** ręcznie. Jeśli definicja zasad nie zawiera wartości **trybu** , jest ona domyślnie ustawiona `all` w Azure PowerShell i `null` w interfejsie wiersza polecenia platformy Azure. `null` Tryb jest taki sam jak w przypadku `indexed` korzystania z programu w celu zapewnienia zgodności z poprzednimi wersjami.
 
-`indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów**. Zasady, które wymuszają lokalizację lub Tagi w grupie zasobów, **mode** powinny ustawiać `all` tryb na i jawnie `Microsoft.Resources/subscriptions/resourceGroups` wskazywać typ. Aby zapoznać się z przykładem, zobacz [Wymuszaj Tagi grupy zasobów](../samples/enforce-tag-rg.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Zasady, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, **mode** powinny ustawiać `all` tryb na i przeznaczony `Microsoft.Resources/subscriptions/resourceGroups` dla `Microsoft.Resources/subscriptions` tego typu. Aby zapoznać się z przykładem, zobacz [Wymuszaj Tagi grupy zasobów](../samples/enforce-tag-rg.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Tryby dostawcy zasobów (wersja zapoznawcza)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f6384c1e9e14e38b4c44c5ac79a674839b43b4ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436163"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612830"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Często zadawane pytania dotyczące klientów korzystających już z dzienników Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -42,7 +42,7 @@ Gdy Security Center określa, że maszyna wirtualna jest już połączona z utwo
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Mam już obszary robocze w moim środowisku, czy mogę ich używać do zbierania danych zabezpieczeń?
 Jeśli na maszynie wirtualnej jest już zainstalowany agent Log Analytics jako rozszerzenie platformy Azure, Security Center używa istniejącego połączonego obszaru roboczego. Rozwiązanie Security Center jest zainstalowane w obszarze roboczym, jeśli nie istnieje, a rozwiązanie jest stosowane tylko do odpowiednich maszyn wirtualnych za pośrednictwem [określania celu rozwiązania](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-Gdy Security Center zainstaluje agenta Log Analytics na maszynach wirtualnych, użyje domyślnych obszarów roboczych utworzonych przez Security Center.
+Gdy Security Center instaluje agenta Log Analytics na maszynach wirtualnych, używa domyślnych obszarów roboczych utworzonych przez Security Center, jeśli Security Center nie zostanie wskazany istniejącym obszarem roboczym.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Mam już rozwiązanie zabezpieczeń w obszarze Moje obszary robocze. Jakie są implikacje rozliczeń?
 Rozwiązanie Security & Audit służy do włączania Security Center funkcji warstwy standardowej dla maszyn wirtualnych platformy Azure. Jeśli rozwiązanie Security & Audit jest już zainstalowane w obszarze roboczym, Security Center używa istniejącego rozwiązania. Nie wprowadzono zmian w rozliczeniach.
