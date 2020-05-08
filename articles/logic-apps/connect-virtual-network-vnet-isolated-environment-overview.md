@@ -3,15 +3,15 @@ title: Dostęp do sieci wirtualnych platformy Azure
 description: Omówienie sposobu, w jaki środowiska usług Integration Service (ISEs) ułatwiają aplikacjom logiki dostęp do sieci wirtualnych platformy Azure (sieci wirtualnych)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127250"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734924"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
@@ -111,16 +111,18 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 
 ## <a name="ise-endpoint-access"></a>Dostęp do punktu końcowego ISE
 
-Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcowych dostępu. Wybór określa, czy wyzwalacze żądania lub elementu webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej.
-
-Te punkty końcowe wpływają również na sposób, w jaki można uzyskać dostęp do danych wejściowych i wyjściowych w historii uruchamiania aplikacji logiki.
-
-* **Wewnętrzne**: prywatne punkty końcowe zezwalające na wywołania aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych aplikacji logiki w ramach historii uruchamiania *tylko z poziomu sieci wirtualnej*
-
-* **Zewnętrzne**: publiczne punkty końcowe, które umożliwiają wywoływanie usługi Logic Apps w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych aplikacji logiki w historii uruchamiania *spoza sieci wirtualnej*. Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), upewnij się, że są one skonfigurowane przy użyciu reguł ruchu przychodzącego, aby zezwolić na dostęp do danych wejściowych i wyjściowych historii uruchamiania. Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Po utworzeniu ISE można użyć wewnętrznych lub zewnętrznych punktów końcowych dostępu. Wybór określa, czy wyzwalacze żądania lub elementu webhook w usłudze Logic Apps w ISE mogą odbierać wywołania spoza sieci wirtualnej. Te punkty końcowe wpływają również na sposób dostępu do danych wejściowych i wyjściowych z historii uruchamiania aplikacji logiki.
 
 > [!IMPORTANT]
-> Opcja punktu końcowego dostępu jest dostępna tylko podczas tworzenia ISE i nie można jej później zmienić.
+> Punkt końcowy dostępu można wybrać tylko podczas tworzenia ISE i nie można zmienić tej opcji później.
+
+* **Wewnętrzne**: prywatne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania usługi Logic Apps *tylko z wewnątrz sieci wirtualnej*. Upewnij się, że masz połączenie sieciowe między prywatnymi punktami końcowymi i komputerem, z którego chcesz uzyskać dostęp do historii uruchamiania. Komputer kliencki może na przykład znajdować się w sieci wirtualnej ISE lub wewnątrz sieci wirtualnej, która jest połączona z siecią wirtualną ISE, na przykład za pomocą komunikacji równorzędnej lub wirtualnej sieci prywatnej.
+
+* **Zewnętrzne**: publiczne punkty końcowe umożliwiają wywoływanie aplikacji LOGIKI w ISE, w którym można wyświetlać i uzyskiwać dostęp do danych wejściowych i wyjściowych z historii uruchamiania aplikacji logiki *z spoza sieci wirtualnej*. Jeśli używasz sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), upewnij się, że są one skonfigurowane przy użyciu reguł ruchu przychodzącego, aby zezwolić na dostęp do danych wejściowych i wyjściowych historii uruchamiania. Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Aby określić, czy ISE używa wewnętrznego lub zewnętrznego punktu końcowego dostępu, w menu ISE w obszarze **Ustawienia**wybierz pozycję **Właściwości**i Znajdź właściwość **punkt końcowy dostępu** :
+
+![Znajdź punkt końcowy dostępu ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

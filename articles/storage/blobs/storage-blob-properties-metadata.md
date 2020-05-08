@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137666"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692462"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Zarządzanie właściwościami i metadanymi obiektów BLOB przy użyciu platformy .NET
 
@@ -24,6 +24,11 @@ Poza danymi, które zawierają, obiekty blob obsługują właściwości systemu 
 - **Właściwości systemu**: właściwości systemu istnieją w każdym zasobie magazynu obiektów BLOB. Niektóre z nich mogą być odczytywane lub ustawiane, a inne są tylko do odczytu. W obszarze okładek niektóre właściwości systemu odpowiadają określonym standardowym nagłówkom HTTP. Biblioteka klienta usługi Azure Storage dla platformy .NET zachowuje te właściwości.
 
 - **Metadane zdefiniowane przez użytkownika**: metadane zdefiniowane przez użytkownika składają się z co najmniej jednej pary nazwa-wartość określonej dla zasobu usługi BLOB Storage. Możesz użyć metadanych do przechowywania dodatkowych wartości z zasobem. Wartości metadanych są tylko do celów własnych i nie mają wpływu na sposób zachowania zasobu.
+
+> [!NOTE]
+> Tagi indeksu obiektów BLOB zapewniają również możliwość przechowywania dowolnych atrybutów klucza/wartości zdefiniowanych przez użytkownika wraz z zasobem magazynu obiektów BLOB. Podobnie jak w przypadku metadanych, tylko Tagi indeksu obiektów BLOB są automatycznie indeksowane i Queryable przez natywną usługę BLOB Service. Metadane nie mogą być indeksowane natywnie i zapytania, chyba że zostanie wykorzystana oddzielna usługa, taka jak Azure Search.
+>
+> Aby dowiedzieć się więcej na temat tej funkcji, zobacz temat [Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 Pobieranie metadanych i wartości właściwości dla zasobu usługi BLOB Storage jest procesem dwuetapowym. Aby można było odczytać te wartości, należy je jawnie pobrać poprzez wywołanie metody `FetchAttributes` lub. `FetchAttributesAsync` Wyjątkiem od tej zasady jest, że metody `Exists` i `ExistsAsync` wywołują odpowiednią `FetchAttributes` metodę w ramach okładek. Po wywołaniu jednej z tych metod nie trzeba również wywoływać `FetchAttributes`.
 
@@ -158,7 +163,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Operacja ustawiania właściwości obiektu BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operacja pobierania właściwości obiektu BLOB](/rest/api/storageservices/get-blob-properties)

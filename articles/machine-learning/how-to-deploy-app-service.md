@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282821"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651928"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Wdróż model uczenia maszynowego w Azure App Service (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package:<imagename>`. Na przykład `myml08024f78fd10.azurecr.io/package:20190827151241`.
+Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Na przykład `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Zapisz informacje o lokalizacji, ponieważ są używane podczas wdrażania obrazu.
 
 ## <a name="deploy-image-as-a-web-app"></a>Wdrażanie obrazu jako aplikacji sieci Web
 
-1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień `<acrinstance>` na wartość e zwracaną wcześniej z `package.location`:
+1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień `<acrinstance>` na wartość zwróconą wcześniej z `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -162,7 +162,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
 1. Aby utworzyć aplikację sieci Web, użyj następującego polecenia. Zamień `<app-name>` na nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej:
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     To polecenie zwraca informacje podobne do następującego dokumentu JSON:
@@ -191,7 +191,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
 1. Aby zapewnić aplikacji sieci Web poświadczenia potrzebne do uzyskania dostępu do rejestru kontenerów, użyj następującego polecenia. Zamień `<app-name>` na nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej. Zamień `<username>` i `<password>` na pobrane wcześniej informacje logowania ACR:
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     To polecenie zwraca informacje podobne do następującego dokumentu JSON:
@@ -220,7 +220,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```

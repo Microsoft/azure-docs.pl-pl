@@ -1,23 +1,17 @@
 ---
-title: 'Python: operacje zarządzania kontem na Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Dowiedz się, jak używać zestawu SDK języka Python do pracy z Azure Data Lake Storage Gen1 operacji zarządzania kontami.
-services: data-lake-store
-documentationcenter: ''
+title: Zarządzanie kontem Azure Data Lake Storage Gen1 przy użyciu języka Python
+description: Dowiedz się, jak używać zestawu SDK języka Python do Azure Data Lake Storage Gen1 operacji zarządzania kontami.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0c27c4b6d906a0892735697a8e90f87da6edf9c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76290618"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692100"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -86,7 +80,7 @@ pip install azure-datalake-store
 
 3. Zapisz zmiany w aplikacji mysample.py.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 W tej sekcji omówione zostaną różne sposoby uwierzytelniania w usłudze Azure AD. Dostępne opcje:
 
@@ -133,7 +127,7 @@ Poniższy fragment kodu tworzy najpierw klienta konta Data Lake Storage Gen1. U�
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje systemu plików na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-data-operations-python.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Azure-datalake — Dokumentacja języka Python (system plików)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

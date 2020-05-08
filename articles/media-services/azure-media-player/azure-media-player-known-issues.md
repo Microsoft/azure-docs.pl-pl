@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727218"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692261"
 ---
 # <a name="known-issues"></a>Znane problemy #
 
@@ -46,9 +46,10 @@ W bieżącej wersji znajdują się następujące znane problemy:
 
 - W oknie DVR zawartości na żywo, gdy zawartość zostanie zakończona, nadal rośnie, dopóki nie przejdziesz do obszaru lub osiągniesz koniec prezentacji.
 - Prezentacje na żywo w programie Firefox z włączoną funkcją MSE zawierają pewne problemy
-- Zasoby, które są tylko audio lub wideo, nie będą odtwarzane z powrotem za pośrednictwem AzureHtml5JS Tech.
-  - Jeśli chcesz odtwarzać zasoby bez audio lub wideo, możesz to zrobić, wstawiając puste audio lub wideo za pomocą [narzędzia Azure Media Services Explorer](https://aka.ms/amse)
-    - Instrukcje dotyczące sposobu wstawiania dyskretnego dźwięku można znaleźć [tutaj](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Zasoby, które są tylko audio, nie będą odtwarzane za pośrednictwem AzureHtml5JS Tech.
+  - Jeśli chcesz odtworzyć zasoby bez audio, możesz to zrobić, wstawiając puste audio przy użyciu [narzędzia Azure Media Services Explorer](https://aka.ms/amse)
+  - Instrukcje dotyczące sposobu wstawiania dyskretnego dźwięku można znaleźć [tutaj](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Flash ##
 
@@ -91,7 +92,7 @@ W bieżącej wersji znajdują się następujące znane problemy:
 ## <a name="apple"></a>Apple ##
 
 - Przeglądarka Safari na komputerze Mac często domyślnie włącza tryb oszczędzania zasilania z ustawieniem "Zatrzymaj wtyczki, aby zaoszczędzić moc", która blokuje wtyczki, takie jak Flash i Silverlight, gdy sądzi, że nie jest to użytkownik. Ten blok nie blokuje istniejącej wtyczki, tylko możliwości. Z uwzględnieniem domyślnej techOrder, może to spowodować problemy podczas próby odtworzenia
-  - Środki zaradcze 1: Jeśli odtwarzacz wideo jest "wierzchem" i "(w granicy 3000 x 3000 pikseli, zaczynając od górnego lewego rogu dokumentu), powinien być nadal odtwarzany.
+  - Środki zaradcze 1: Jeśli odtwarzacz wideo to "przód i środek" (w granicy 3000 x 3000 pikseli, zaczynając od lewego górnego rogu dokumentu), powinien być nadal odtwarzany.
   - Środki zaradcze 2: zmiana techOrder w przeglądarce Safari na wartość ["azureHtml5JS", "HTML5"]. To ograniczenie jest skutkiem nieuzyskania wszystkich funkcji, które są dostępne w błysku technicznym.
 - Zawartość oprogramowania PlayReady za pośrednictwem programu Silverlight może mieć problemy z odtwarzaniem w przeglądarce Safari.
 - Zawartość AES i token z ograniczeniami nie są odtwarzane przy użyciu systemu iOS i starszych urządzeń z systemem Android.

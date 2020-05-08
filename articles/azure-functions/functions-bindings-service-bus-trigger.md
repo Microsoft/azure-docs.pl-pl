@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273565"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690707"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Wyzwalacz Azure Service Bus dla Azure Functions
 
-Użyj wyzwalacza Service Bus, aby odpowiedzieć na komunikaty z kolejki Service Bus lub tematu.
+Użyj wyzwalacza Service Bus, aby odpowiedzieć na komunikaty z kolejki Service Bus lub tematu. Począwszy od rozszerzenia wersja 3.1.0, można wyzwolić w kolejce lub temacie z włączoną obsługą sesji.
 
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](functions-bindings-service-bus-output.md).
 
@@ -222,7 +222,7 @@ W [bibliotekach klas języka C#](functions-dotnet-class-library.md)Użyj następ
   }
   ```
 
-  Można ustawić `Connection` właściwość, aby określić nazwę ustawienia aplikacji, która zawiera Service Bus parametry połączenia do użycia, jak pokazano w poniższym przykładzie:
+  Ponieważ `Connection` właściwość nie jest zdefiniowana, funkcja szuka ustawienia aplikacji o nazwie `AzureWebJobsServiceBus`, która jest domyślną nazwą parametrów połączenia Service Bus. Możesz również ustawić `Connection` właściwość, aby określić nazwę ustawienia aplikacji, która zawiera Service Bus parametry połączenia do użycia, jak pokazano w poniższym przykładzie:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -284,7 +284,7 @@ Zobacz [przykład](#example) wyzwalacza, aby uzyskać więcej szczegółów.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `ServiceBusTrigger` atrybucie.
 
@@ -354,21 +354,24 @@ Można `maxAutoRenewDuration` go skonfigurować w pliku *host. JSON*, który jes
 
 ## <a name="message-metadata"></a>Metadane komunikatów
 
-Wyzwalacz Service Bus zawiera kilka [właściwości metadanych](./functions-bindings-expressions-patterns.md#trigger-metadata). Te właściwości mogą służyć jako część wyrażeń powiązań w innych powiązaniach lub jako parametry w kodzie. Te właściwości są elementami członkowskimi klasy [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) .
+Wyzwalacz Service Bus zawiera kilka [właściwości metadanych](./functions-bindings-expressions-patterns.md#trigger-metadata). Te właściwości mogą służyć jako część wyrażeń powiązań w innych powiązaniach lub jako parametry w kodzie. Te właściwości są członkami klasy [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
 |Właściwość|Typ|Opis|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Liczba dostaw.|
-|`DeadLetterSource`|`string`|Źródło utraconych wiadomości.|
-|`ExpiresAtUtc`|`DateTime`|Czas wygaśnięcia w formacie UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|Czas w kolejce w formacie UTC.|
-|`MessageId`|`string`|Wartość zdefiniowana przez użytkownika, która Service Bus może służyć do identyfikowania zduplikowanych komunikatów, jeśli jest włączona.|
 |`ContentType`|`string`|Identyfikator typu zawartości używany przez nadawcę i odbiorcę dla logiki specyficznej dla aplikacji.|
-|`ReplyTo`|`string`|Odpowiedź na adres kolejki.|
-|`SequenceNumber`|`Int64`|Unikatowy numer przypisany do komunikatu przez Service Bus.|
-|`To`|`string`|Adres do wysłania.|
-|`Label`|`string`|Etykieta specyficzna dla aplikacji.|
 |`CorrelationId`|`string`|Identyfikator korelacji.|
+|`DeadLetterSource`|`string`|Źródło utraconych wiadomości.|
+|`DeliveryCount`|`Int32`|Liczba dostaw.|
+|`EnqueuedTimeUtc`|`DateTime`|Czas w kolejce w formacie UTC.|
+|`ExpiresAtUtc`|`DateTime`|Czas wygaśnięcia w formacie UTC.|
+|`Label`|`string`|Etykieta specyficzna dla aplikacji.|
+|`MessageId`|`string`|Wartość zdefiniowana przez użytkownika, która Service Bus może służyć do identyfikowania zduplikowanych komunikatów, jeśli jest włączona.|
+|`MessageReceiver`|`MessageReceiver`|Service Bus odbiorca wiadomości. Może służyć do porzucania, kończenia lub utraconia wiadomości.|
+|`MessageSession`|`MessageSession`|Odbiorca wiadomości przeznaczony dla kolejek i tematów z włączoną obsługą sesji.|
+|`ReplyTo`|`string`|Odpowiedź na adres kolejki.|
+|`SequenceNumber`|`long`|Unikatowy numer przypisany do komunikatu przez Service Bus.|
+|`To`|`string`|Adres do wysłania.|
+|`UserProperties`|`IDictionary<string, object>`|Właściwości ustawione przez nadawcę.|
 
 Zobacz [przykłady kodu](#example) , które używają tych właściwości wcześniej w tym artykule.
 

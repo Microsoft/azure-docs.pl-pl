@@ -5,20 +5,20 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/01/2020
 ms.author: banders
-ms.openlocfilehash: 10f1052f9acf9bf91c1d7fb0b64a1d3285487cf3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200731"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692322"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Uzyskiwanie własności rozliczeń subskrypcji platformy Azure z innych kont
 
 Możesz zdecydować się przejąć własność subskrypcji platformy Azure, jeśli istniejący właściciel rozliczeń opuszcza organizację lub jeśli chcesz uregulować płatność za subskrypcje za pośrednictwem konta rozliczeniowego. Przejęcie własności przenosi obowiązki dotyczące rozliczeń subskrypcji na konto.
 
-Ten artykuł dotyczy konta rozliczeniowego w ramach Umowy klienta firmy Microsoft. [Sprawdź, czy masz dostęp do Umowy klienta firmy Microsoft](#check-for-access).
+Ten artykuł dotyczy konta rozliczeniowego w ramach umowy klienta firmy Microsoft. [Sprawdź, czy masz dostęp do Umowy klienta firmy Microsoft](#check-for-access).
 
 Aby zażądać własności rozliczeń, musisz być **właścicielem sekcji faktury** lub **współautorem sekcji faktury**. Aby dowiedzieć się więcej zobacz sekcję dotyczącą [zadań ról sekcji faktury](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -72,7 +72,7 @@ Aby zażądać własności rozliczeń, musisz być **właścicielem sekcji faktu
 
 ## <a name="check-the-transfer-request-status"></a>Sprawdzanie stanu żądania przeniesienia
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 2. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 
@@ -177,7 +177,7 @@ Produkty z witryny Azure Marketplace są przenoszone wraz z odpowiednimi subskry
 
 ### <a name="azure-reservations-transfer"></a>Przenoszenie rezerwacji platformy Azure
 
-Rezerwacje platformy Azure nie są automatycznie przenoszone wraz z subskrypcjami. [Skontaktuj się z działem pomocy technicznej platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), aby przenieść rezerwacje.
+Jeśli przenosisz subskrypcje umów Enterprise Agreement (EA), rezerwacje platformy Azure nie są automatycznie przenoszone z subskrypcjami. [Skontaktuj się z działem pomocy technicznej platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), aby przenieść rezerwacje.
 
 ### <a name="access-to-azure-services"></a>Dostęp do usług platformy Azure
 

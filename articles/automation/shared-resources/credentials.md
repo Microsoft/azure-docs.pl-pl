@@ -9,28 +9,28 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4226a625918be378b14e14c55fe4dd4ca5c398d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16b92108bcb4e5185a1990b0ed8f1278bfe44921
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136689"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652833"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
 
 Zasób poświadczenia usługi Automation zawiera obiekt zawierający poświadczenia zabezpieczeń, takie jak nazwa użytkownika i hasło. Elementy Runbook i konfiguracje DSC używają poleceń cmdlet, które akceptują obiekt [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) na potrzeby uwierzytelniania. Alternatywnie mogą wyodrębnić nazwę użytkownika i hasło `PSCredential` obiektu, aby zapewnić niektórym aplikacji lub usłudze wymaganie uwierzytelniania. 
 
-> [!NOTE]
-> Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w Azure Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Ten klucz jest przechowywany w Key Vault. Przed zapisaniem bezpiecznego elementu zawartości klucz jest ładowany z Key Vault a następnie używany do szyfrowania elementu zawartości.
+>[!NOTE]
+>Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w Azure Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Azure Automation przechowuje klucz w Key Vault zarządzanych przez system. Przed zapisaniem bezpiecznego elementu zawartości Usługa Automation ładuje klucz z Key Vault a następnie używa go do zaszyfrowania elementu zawartości. 
 
 >[!NOTE]
 >Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="azure-powershell-az-cmdlets-used-for-credential-assets"></a>Azure PowerShell AZ poleceń cmdlet używanych na potrzeby zasobów poświadczeń
+## <a name="powershell-cmdlets-used-to-access-credentials"></a>Polecenia cmdlet programu PowerShell służące do uzyskiwania dostępu do poświadczeń
 
-W ramach Azure PowerShell AZ module polecenia cmdlet w poniższej tabeli służą do tworzenia zasobów poświadczeń usługi Automation i zarządzania nimi za pomocą programu Windows PowerShell. Są one dostarczane w [module AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), który jest dostępny do użycia w elementach Runbook usługi Automation i konfiguracjach DSC. Zobacz [AZ module Support in Azure Automation](https://docs.microsoft.com/azure/automation/az-modules).
+Polecenia cmdlet w poniższej tabeli tworzą i zarządzają poświadczeniami usługi Automation przy użyciu programu PowerShell. Są one dostarczane jako część [AZ modules](modules.md#az-modules).
 
 | Polecenie cmdlet | Opis |
 |:--- |:--- |
@@ -39,15 +39,15 @@ W ramach Azure PowerShell AZ module polecenia cmdlet w poniższej tabeli służ�
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Usuwa poświadczenia usługi Automation. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Ustawia właściwości dla istniejącego poświadczenia usługi Automation. |
 
-## <a name="activities-used-to-access-credentials"></a>Działania używane do uzyskiwania dostępu do poświadczeń
+## <a name="other-cmdlets-used-to-access-credentials"></a>Inne polecenia cmdlet służące do uzyskiwania dostępu do poświadczeń
 
-Działania w poniższej tabeli służą do uzyskiwania dostępu do poświadczeń w graficznych elementach Runbook i konfiguracjach DSC. Przykłady użycia działań można znaleźć [w temacie Tworzenie graficzne w Azure Automation](../automation-graphical-authoring-intro.md#activities).
+Polecenia cmdlet w poniższej tabeli służą do uzyskiwania dostępu do poświadczeń w elementach Runbook i konfiguracjach DSC. 
 
-| Działanie | Opis |
+| Polecenie cmdlet | Opis |
 |:--- |:--- |
-| `Get-AutomationPSCredential` |Pobiera `PSCredential` obiekt do użycia w konfiguracji elementu RUNBOOK lub DSC. Najczęściej należy używać tego działania zamiast `Get-AzAutomationCredential` polecenia cmdlet, ponieważ to drugie pobiera tylko informacje o poświadczeniach. Te informacje nie są zwykle pomocne do przekazania do innego polecenia cmdlet. |
-| [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Pobiera poświadczenie z monitem o podanie nazwy użytkownika i hasła. |
-| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Tworzy zasób poświadczenia. |
+| `Get-AutomationPSCredential` |Pobiera `PSCredential` obiekt do użycia w konfiguracji elementu RUNBOOK lub DSC. Najczęściej należy używać tego [wewnętrznego polecenia cmdlet](modules.md#internal-cmdlets) zamiast `Get-AzAutomationCredential` polecenia cmdlet, ponieważ to drugie pobiera tylko informacje o poświadczeniach. Te informacje nie są zwykle pomocne do przekazania do innego polecenia cmdlet. |
+| [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Pobiera poświadczenie z monitem o podanie nazwy użytkownika i hasła. To polecenie cmdlet jest częścią domyślnego modułu Microsoft. PowerShell. Security. Zobacz [moduły domyślne](modules.md#default-modules).|
+| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Tworzy zasób poświadczenia. To polecenie cmdlet jest częścią domyślnego modułu platformy Azure. Zobacz [moduły domyślne](modules.md#default-modules).|
 
 Aby pobrać `PSCredential` obiekty w kodzie, należy zaimportować `Orchestrator.AssetManagement.Cmdlets` moduł. Aby uzyskać więcej informacji, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
 
@@ -69,7 +69,7 @@ Funkcja w poniższej tabeli służy do uzyskiwania dostępu do poświadczeń w e
 > [!NOTE]
 > Zaimportuj `automationassets` moduł w górnej części elementu Runbook języka Python, aby uzyskać dostęp do funkcji zasobów.
 
-## <a name="creating-a-new-credential-asset"></a>Tworzenie nowego zasobu poświadczeń
+## <a name="create-a-new-credential-asset"></a>Utwórz nowy zasób poświadczeń
 
 Nowy zasób poświadczeń można utworzyć przy użyciu Azure Portal lub programu Windows PowerShell.
 
@@ -100,12 +100,14 @@ $cred = New-Object –TypeName System.Management.Automation.PSCredential –Argu
 New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 ```
 
-## <a name="using-a-powershell-credential"></a>Korzystanie z poświadczeń programu PowerShell
+## <a name="get-a-credential-asset"></a>Pobierz zasób poświadczeń
 
-Element Runbook lub Konfiguracja DSC pobiera zasób poświadczeń z `Get-AutomationPSCredential` działaniem. To działanie pobiera `PSCredential` obiekt, którego można użyć w przypadku działania lub polecenia cmdlet, które wymaga podania poświadczeń. Możesz również pobrać właściwości obiektu Credential, aby użyć go pojedynczo. Obiekt ma właściwości dla nazwy użytkownika i bezpiecznego hasła. Alternatywnie można użyć metody [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) , aby pobrać obiekt [NetworkCredential](/dotnet/api/system.net.networkcredential) , który reprezentuje niezabezpieczoną wersję hasła.
+Element Runbook lub Konfiguracja DSC pobiera zasób poświadczeń z wewnętrznym `Get-AutomationPSCredential` poleceniem cmdlet. To polecenie cmdlet pobiera `PSCredential` obiekt, którego można użyć z poleceniem cmdlet, które wymaga podania poświadczeń. Możesz również pobrać właściwości obiektu Credential, aby użyć go pojedynczo. Obiekt ma właściwości dla nazwy użytkownika i bezpiecznego hasła. 
 
 > [!NOTE]
-> `Get-AzAutomationCredential`Program nie pobiera `PSCredential` obiektu, który może być używany do uwierzytelniania. Zawiera on tylko informacje o poświadczeniu. Jeśli musisz użyć poświadczeń w elemencie Runbook, musisz pobrać go jako `PSCredential` Obiekt przy użyciu. `Get-AutomationPSCredential`
+> `Get-AzAutomationCredential` Polecenie cmdlet nie pobiera `PSCredential` obiektu, który może być używany do uwierzytelniania. Zawiera on tylko informacje o poświadczeniu. Jeśli musisz użyć poświadczeń w elemencie Runbook, musisz pobrać go jako `PSCredential` Obiekt przy użyciu. `Get-AutomationPSCredential`
+
+Alternatywnie można użyć metody [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) , aby pobrać obiekt [NetworkCredential](/dotnet/api/system.net.networkcredential) , który reprezentuje niezabezpieczoną wersję hasła.
 
 ### <a name="textual-runbook-example"></a>Przykład tekstowego elementu Runbook
 
@@ -135,7 +137,7 @@ Connect-AzAccount -Credential $myPsCred
 
 ### <a name="graphical-runbook-example"></a>Przykład graficzny elementu Runbook
 
-`Get-AutomationPSCredential` Działanie można dodać do graficznego elementu Runbook, klikając prawym przyciskiem myszy poświadczenie w okienku Biblioteka w edytorze graficznym i wybierając pozycję **Dodaj do kanwy**.
+Możesz dodać działanie dla wewnętrznego `Get-AutomationPSCredential` polecenia cmdlet do graficznego elementu Runbook, klikając prawym przyciskiem myszy poświadczenie w okienku Biblioteka w edytorze graficznym i wybierając pozycję **Dodaj do kanwy**.
 
 ![Dodaj poświadczenie do kanwy](../media/credentials/credential-add-canvas.png)
 
@@ -143,11 +145,11 @@ Na poniższej ilustracji przedstawiono przykład użycia poświadczeń w graficz
 
 ![Dodaj poświadczenie do kanwy](../media/credentials/get-credential.png)
 
-## <a name="using-credentials-in-a-dsc-configuration"></a>Korzystanie z poświadczeń w konfiguracji DSC
+## <a name="use-credentials-in-a-dsc-configuration"></a>Używanie poświadczeń w konfiguracji DSC
 
 Konfiguracje DSC w Azure Automation mogą współpracować z zasobami poświadczeń przy użyciu `Get-AutomationPSCredential`programu, ale mogą również przekazywać zasoby poświadczeń za pośrednictwem parametrów. Aby uzyskać więcej informacji, zobacz [Kompilowanie konfiguracji w Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
 
-## <a name="using-credentials-in-python-2"></a>Używanie poświadczeń w języku Python 2
+## <a name="use-credentials-in-a-python-2-runbook"></a>Używanie poświadczeń w elemencie Runbook języka Python 2
 
 Poniższy przykład przedstawia przykład uzyskiwania dostępu do poświadczeń w elementach Runbook języka Python 2.
 
@@ -164,8 +166,6 @@ print cred["password"]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat linków w tworzeniu grafiki, zobacz [linki w temacie Tworzenie graficzne](../automation-graphical-authoring-intro.md#links-and-workflow).
-* Aby poznać różne metody uwierzytelniania dla automatyzacji, zobacz [Azure Automation zabezpieczenia](../automation-security-overview.md).
-* Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz [mój pierwszy graficzny element Runbook](../automation-first-runbook-graphical.md).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz [mój pierwszy element Runbook przepływu pracy programu PowerShell](../automation-first-runbook-textual.md).
-* Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [pierwszy element Runbook w języku Python 2](../automation-first-runbook-textual-python2.md). 
+* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do poświadczeń, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
+* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
+* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu — przegląd](../automation-dsc-overview.md).

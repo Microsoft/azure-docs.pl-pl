@@ -1,23 +1,17 @@
 ---
-title: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen1 burzy | Microsoft Docs
-description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Storage Gen1 burzy
-services: data-lake-store
-documentationcenter: ''
+title: Dostrajanie wydajności — burza Azure Data Lake Storage Gen1
+description: Informacje na temat wskazówek dotyczących dostrajania wydajności dla klastra burzy na Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61436481"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691640"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -42,7 +36,7 @@ Może być możliwe zwiększenie wydajności przez zwiększenie współbieżnoś
 
 Na przykład w klastrze z 4 maszynami wirtualnymi i 4 procesami roboczymi 32, elementu Spout wykonawcy i 32 elementu Spout zadania i 256ją zadania 512 i elementy wykonujące testy, należy wziąć pod uwagę następujące kwestie:
 
-Każdy kierownik, który jest węzłem procesu roboczego, ma jeden proces roboczy maszyny wirtualnej Java (JVM). Ten proces JVM służy do zarządzania 4 wątkami elementu Spout i 64 wątków. W każdym wątku zadania są uruchamiane sekwencyjnie. W powyższej konfiguracji każdy wątek elementu Spout ma 1 zadanie, a każdy wątek pioruna ma 2 zadania.
+Każdy kierownik, który jest węzłem procesu roboczego, ma jeden proces roboczy maszyny wirtualnej Java (JVM). Ten proces JVM służy do zarządzania 4 wątkami elementu Spout i 64 wątków. W każdym wątku zadania są uruchamiane sekwencyjnie. W powyższej konfiguracji każdy wątek elementu Spout ma jedno zadanie, a każdy wątek pioruna ma dwa zadania.
 
 W obszarze burzy są dostępne różne składniki oraz ich wpływ na poziom równoległości:
 * Węzeł główny (o nazwie Nimbus w obszarze burza) służy do przesyłania zadań i zarządzania nimi. Te węzły nie mają wpływu na stopień równoległości.
@@ -59,15 +53,15 @@ Podczas pracy z Data Lake Storage Gen1 można uzyskać najlepszą wydajność, j
 
 ### <a name="example-topology"></a>Przykładowa topologia
 
-Załóżmy, że masz 8-węzłowy klaster roboczy z maszyną wirtualną platformy Azure D13v2. Ta maszyna wirtualna ma 8 rdzeni, więc między 8 węzłami roboczymi jest 64 całkowitej liczby rdzeni.
+Załóżmy, że masz osiem klastrów węzłów procesu roboczego z maszyną wirtualną platformy Azure D13v2. Ta maszyna wirtualna ma osiem rdzeni, więc między osiem węzłów procesu roboczego masz 64 łączną liczbę rdzeni.
 
-Załóżmy, że 8 wątków piorunów na rdzeń. Podano 64 rdzeni, co oznacza, że chcemy 512 łączne wystąpienia modułu wykonującego (czyli wątki). W tym przypadku Załóżmy, że zaczynamy od jednego JVM na maszynę wirtualną, a głównie używają współbieżności wątków w JVM, aby osiągnąć współbieżność. Oznacza to, że potrzebujemy 8 zadań roboczych (jednej na maszynę wirtualną na platformie Azure) i modułów wykonujących 512. Zgodnie z tą konfiguracją, burza próbuje równomiernie rozpowszechnić pracowników w węzłach procesu roboczego (nazywanych również węzłami nadzorującymi), dając każdy węzeł procesu roboczego 1 JVM. Teraz w ramach nadzorcy, burza próbuje rozpowszechnić wykonawców jednocześnie między osobami nadzorującymi, zapewniając każdemu opiekunowi (czyli JVM) 8 wątków każdego z nich.
+Załóżmy, że mamy osiem wątków piorunów na rdzeń. Podano 64 rdzeni, co oznacza, że chcemy 512 łączne wystąpienia modułu wykonującego (czyli wątki). W tym przypadku Załóżmy, że zaczynamy od jednego JVM na maszynę wirtualną, a głównie używają współbieżności wątków w JVM, aby osiągnąć współbieżność. Oznacza to, że potrzebujemy ośmiu zadań roboczych (jednej na maszynę wirtualną platformy Azure) i modułów wykonujących 512. Zgodnie z tą konfiguracją, burza próbuje równomiernie rozpowszechnić pracowników w węzłach procesu roboczego (nazywanych również węzłami nadzoru), co daje każdemu węzłowi procesu roboczego jeden JVM. Teraz w ramach nadzorcy, burza próbuje rozpowszechnić wykonawców jednocześnie między osobami nadzorującymi, zapewniając każdemu opiekunowi (czyli JVM) osiem wątków każdego z nich.
 
 ## <a name="tune-additional-parameters"></a>Dostosuj dodatkowe parametry
 Po utworzeniu topologii podstawowej można rozważyć, czy chcesz dostosować dowolny z parametrów:
 * **Liczba JVMs na węzeł procesu roboczego.** Jeśli masz dużą strukturę danych (na przykład tabelę odnośników), która jest hostowana w pamięci, każda JVM wymaga oddzielnej kopii. Alternatywnie możesz użyć struktury danych w wielu wątkach, jeśli masz mniej JVMs. W przypadku operacji we/wy pioruna liczba JVMs nie jest tak duża jak liczba wątków dodanych w ramach tych JVMs. Dla uproszczenia dobrym pomysłem jest posiadanie jednego JVM na proces roboczy. W zależności od tego, co działa lub jakie jest wymagane przetwarzanie aplikacji, może być konieczna zmiana tej liczby.
 * **Liczba modułów wykonujących elementu Spout.** Ponieważ w powyższym przykładzie są wykorzystywane pioruny do zapisu w Data Lake Storage Gen1, liczba elementy Spout nie jest bezpośrednio istotna dla wydajności obiektu. Jednakże, w zależności od ilości przetwarzania lub operacji we/wy w elementu Spout, dobrym pomysłem jest dostrojenie elementy Spout w celu uzyskania najlepszej wydajności. Upewnij się, że masz wystarczająco dużo elementy Spout, aby zapewnić, że pioruny są zajęte. Stawki danych wyjściowych elementy Spout powinny odpowiadać przepływności piorunów. Rzeczywista konfiguracja zależy od elementu Spout.
-* **Liczba zadań.** Każdy obiekt piorun działa jako pojedynczy wątek. Dodatkowe zadania na piorun nie zapewniają żadnych dodatkowych współbieżności. Jedyną zaletą jest to, że proces potwierdzania spójnej kolekcji zajmuje dużą część czasu wykonywania obiektu. Dobrym pomysłem jest pogrupowanie wielu spójnych kolekcji przed wysłaniem potwierdzenia z pioruna. Dlatego w większości przypadków wiele zadań nie zapewnia dodatkowej korzyści.
+* **Liczba zadań.** Każdy obiekt piorun działa jako pojedynczy wątek. Dodatkowe zadania na piorun nie zapewniają żadnych dodatkowych współbieżności. Jedyną zaletą jest to, że proces potwierdzania spójnej kolekcji zajmuje dużą część czasu wykonywania obiektu. Dobrym pomysłem jest Grupowanie wielu spójnych kolekcji przed wysłaniem potwierdzenia z pioruna. Dlatego w większości przypadków wiele zadań nie zapewnia dodatkowej korzyści.
 * **Grupowanie lokalne lub losowe.** Gdy to ustawienie jest włączone, krotki są wysyłane do piorunów w ramach tego samego procesu roboczego. Powoduje to zmniejszenie komunikacji między procesami i połączenia sieciowe. Jest to zalecane w przypadku większości topologii.
 
 Ten podstawowy scenariusz jest dobrym punktem początkowym. Przetestuj swoje własne dane, aby dostosować poprzednie parametry w celu uzyskania optymalnej wydajności.
@@ -85,7 +79,7 @@ Możesz zmodyfikować następujące ustawienia, aby dostroić elementu Spout.
   Dobrym obliczeniem jest oszacowanie rozmiaru poszczególnych krotek. Następnie ustal, ile pamięci ma jeden wątek elementu Spout. Łączna ilość pamięci przydzielonej do wątku, podzielona przez tę wartość, powinna stanowić górną granicę dla maksymalnego parametru oczekującego elementu Spout.
 
 ## <a name="tune-the-bolt"></a>Dostrajanie pioruna
-Gdy zapisujesz do Data Lake Storage Gen1, ustaw zasady synchronizacji rozmiaru (bufor po stronie klienta) na 4 MB. Wartość operacji opróżniania lub hsync () jest wykonywana tylko wtedy, gdy rozmiar buforu jest na tej wartości. Sterownik Data Lake Storage Gen1 na maszynie wirtualnej procesu roboczego automatycznie wykonuje buforowanie, chyba że jawnie przeprowadzisz hsync ().
+Gdy zapisujesz do Data Lake Storage Gen1, ustaw zasady synchronizacji rozmiaru (bufor po stronie klienta) na 4 MB. Wartość operacji opróżniania lub hsync () jest wykonywana tylko wtedy, gdy rozmiar buforu jest w tej wartości. Sterownik Data Lake Storage Gen1 na maszynie wirtualnej procesu roboczego automatycznie wykonuje buforowanie, chyba że jawnie przeprowadzisz hsync ().
 
 Domyślny Data Lake Storage Gen1 burzy, który ma parametr zasad synchronizacji rozmiaru (fileBufferSize), który może służyć do dostrajania tego parametru.
 
@@ -104,14 +98,14 @@ Jeśli stawka przychodząca krotek nie jest wysoka, więc wypełnianie buforu 4 
 * Zmniejszenie liczby piorunów, aby wypełnić więcej buforów.
 * Posiadanie zasad opartych na czasie lub liczbie, gdzie hflush () jest wyzwalane każde opróżnianie x lub co t milisekundy, a zebrane kolekcje są potwierdzane z powrotem.
 
-Należy pamiętać, że przepływność w tym przypadku jest niższa, ale z powolnej szybkością zdarzeń, maksymalna przepływność nie jest mimo tego największa. Te środki zaradcze pozwalają skrócić całkowity czas potrzebny na przekazanie krotki do sklepu. Może to mieć znaczenie, jeśli chcesz, aby potok w czasie rzeczywistym był nawet z niską częstotliwością zdarzeń. Należy również pamiętać, że jeśli liczba przychodzących krotek ma niską wartość, należy dostosować parametr Topology. Message. timeout_secs, dzięki czemu krotki nie przekroczą limitu czasu, gdy są one buforowane lub przetwarzane.
+Przepływność w tym przypadku jest niższa, ale z niską częstotliwością zdarzeń, maksymalna przepływność nie jest jeszcze największym celem. Te środki zaradcze pozwalają skrócić całkowity czas potrzebny na przekazanie krotki do sklepu. Może to mieć znaczenie, jeśli chcesz, aby potok w czasie rzeczywistym był nawet z niską częstotliwością zdarzeń. Należy również pamiętać, że jeśli liczba przychodzących krotek ma niską wartość, należy dostosować parametr Topology. Message. timeout_secs, dzięki czemu krotki nie przekroczą limitu czasu, gdy są one buforowane lub przetwarzane.
 
 ## <a name="monitor-your-topology-in-storm"></a>Monitorowanie topologii w burzach  
 Gdy topologia jest uruchomiona, można monitorować ją w interfejsie użytkownika burzy. Oto główne parametry do przeszukiwania:
 
 * **Całkowite opóźnienie wykonania procesu.** Jest to średni czas, przez który jedna krotka będzie emitować przez elementu Spout, przetworzona przez pioruna i potwierdzona.
 
-* **Całkowite opóźnienie procesu pioruna.** Jest to średni czas spędzony przez krotkę na piorunie do momentu otrzymania potwierdzenia.
+* **Całkowite opóźnienie procesu pioruna.** Jest to średni czas spędzony przez krotkę w piorunze do momentu otrzymania potwierdzenia.
 
 * **Całkowite opóźnienie wykonania pioruna.** Jest to średni czas spędzony przez piorun w metodzie Execute.
 

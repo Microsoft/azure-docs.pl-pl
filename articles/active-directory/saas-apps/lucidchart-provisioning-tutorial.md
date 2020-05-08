@@ -1,10 +1,11 @@
 ---
-title: 'Samouczek: Inicjowanie obsługi użytkowników dla LucidChart — Azure AD'
-description: Dowiedz się, jak skonfigurować Azure Active Directory w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników w usłudze LucidChart.
+title: 'Samouczek: Konfigurowanie Lucidchart dla automatycznej aprowizacji użytkowników przy użyciu Azure Active Directory | Microsoft Docs'
+description: Dowiedz się, jak automatycznie udostępniać i cofać obsługę administracyjną kont użytkowników z usługi Azure AD do Lucidchart.
 services: active-directory
 documentationcenter: ''
-author: ArvindHarinder1
-manager: CelesteDG
+author: zchia
+writer: zchia
+manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -12,88 +13,161 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d946c6e257c7676178f9bc3c234f66ba6fe622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 01/13/2020
+ms.author: Zhchia
+ms.openlocfilehash: 0c7c1f5f633554a88b74694ed2aeafcd30c13a89
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77057332"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690604"
 ---
-# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie LucidChart na potrzeby automatycznego aprowizacji użytkowników
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie Lucidchart na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest przedstawienie czynności, które należy wykonać w LucidChart i usłudze Azure AD w celu automatycznego aprowizacji i cofania aprowizacji kont użytkowników z usługi Azure AD do LucidChart. 
+W tym samouczku opisano kroki, które należy wykonać w programie Lucidchart i Azure Active Directory (Azure AD) w celu skonfigurowania automatycznego aprowizacji użytkowników. Po skonfigurowaniu usługa Azure AD automatycznie inicjuje obsługę administracyjną użytkowników i grup [Lucidchart](https://www.lucidchart.com/user/117598685#/subscriptionLevel) przy użyciu usługi Azure AD Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## <a name="capabilities-supported"></a>Obsługiwane możliwości
+> [!div class="checklist"]
+> * Tworzenie użytkowników w Lucidchart
+> * Usuń użytkowników w Lucidchart, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i Lucidchart
+> * Udostępnianie grup i członkostwa w grupach w Lucidchart
+> * [Logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/lucidchart-tutorial) jednokrotne do Lucidchart (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz opisany w tym samouczku założono, że masz już następujące elementy:
+Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
-* Dzierżawa usługi Azure Active Directory
-* Dzierżawa LucidChart z [planem Enterprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) lub lepsza
-* Konto użytkownika w LucidChart z uprawnieniami administratora
+* [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. Administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
+* Dzierżawa LucidChart z [planem Enterprise](https://www.lucidchart.com/user/117598685#/subscriptionLevel) lub lepsza.
+* Konto użytkownika w LucidChart z uprawnieniami administratora.
 
-## <a name="assigning-users-to-lucidchart"></a>Przypisywanie użytkowników do LucidChart
+## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
+1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługą Azure AD i Lucidchart](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory używa koncepcji o nazwie "przydziały", aby określić, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznego inicjowania obsługi kont użytkowników są synchronizowane tylko użytkownicy i grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
+## <a name="step-2-configure-lucidchart-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie Lucidchart w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-Przed skonfigurowaniem i włączeniem usługi aprowizacji należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji LucidChart. Po ustaleniu tych użytkowników możesz przypisać je do aplikacji LucidChart, postępując zgodnie z poniższymi instrukcjami:
+1. Zaloguj się do [konsoli administracyjnej Lucidchart](https://www.lucidchart.com). Przejdź do narzędzia **Team > App Integration**.
 
-[Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
+      ![Lucidchart Standard scim](./media/lucidchart-provisioning-tutorial/team1.png)
 
-### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Ważne wskazówki dotyczące przypisywania użytkowników do LucidChart
+2. Przejdź do **Standard scim**.
 
-* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do LucidChart w celu przetestowania konfiguracji aprowizacji. Dodatkowych użytkowników i/lub grupy można przypisywać później.
+      ![Lucidchart Standard scim](./media/lucidchart-provisioning-tutorial/scim.png)
 
-* Podczas przypisywania użytkownika do LucidChart należy wybrać rolę **użytkownika** lub inną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. **Domyślna rola dostępu** nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijani.
+3. Przewiń w dół, aby zobaczyć **token okaziciela** i **podstawowy adres URL Lucidchart**. Skopiuj i Zapisz **token okaziciela**. Ta wartość zostanie wprowadzona w polu **Secret token** * na karcie aprowizacji aplikacji LucidChart w Azure Portal. 
 
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Konfigurowanie aprowizacji użytkowników do LucidChart
+      ![Token Lucidchart](./media/lucidchart-provisioning-tutorial/token.png)
 
-Ta sekcja przeprowadzi Cię przez proces łączenia się z interfejsem API aprowizacji usługi Azure AD do konta użytkownika LucidChart, a następnie Konfigurując usługę aprowizacji do tworzenia, aktualizowania i wyłączania przypisanych kont użytkowników w usłudze LucidChart na podstawie przypisywania użytkowników i grup w usłudze Azure AD.
+## <a name="step-3-add-lucidchart-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie Lucidchart z galerii aplikacji usługi Azure AD
 
-> [!TIP]
-> Możesz również włączyć funkcję logowania jednokrotnego opartego na protokole SAML dla LucidChart, postępując zgodnie z instrukcjami podanymi w [Azure Portal](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji, chociaż te dwie funkcje napadają nawzajem.
+Dodaj Lucidchart z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie aprowizacjim do Lucidchart. Jeśli wcześniej skonfigurowano Lucidchart do logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Konfigurowanie automatycznego inicjowania obsługi konta użytkownika w usłudze Azure AD LucidChart
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do sekcji **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje** .
+Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Jeśli już skonfigurowano LucidChart do logowania jednokrotnego, Wyszukaj wystąpienie elementu LucidChart przy użyciu pola wyszukiwania. W przeciwnym razie wybierz pozycję **Dodaj** i Wyszukaj **Lucidchart** w galerii aplikacji. Wybierz pozycję LucidChart z wyników wyszukiwania, a następnie dodaj ją do listy aplikacji.
+* Podczas przypisywania użytkowników i grup do Lucidchart należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
 
-3. Wybierz wystąpienie elementu LucidChart, a następnie wybierz kartę **Inicjowanie obsługi** .
+* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+
+
+## <a name="step-5-configure-automatic-user-provisioning-to-lucidchart"></a>Krok 5. Konfigurowanie automatycznej aprowizacji użytkowników do Lucidchart 
+
+Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w programie TestApp na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
+
+### <a name="to-configure-automatic-user-provisioning-for-lucidchart-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla Lucidchart w usłudze Azure AD:
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+
+    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
+
+2. Na liście Aplikacje wybierz pozycję **Lucidchart**.
+
+    ![Link Lucidchart na liście aplikacji](common/all-applications.png)
+
+3. Wybierz kartę **aprowizacji** .
+
+    ![Karta aprowizacji](common/provisioning.png)
 
 4. Ustaw **tryb aprowizacji** na **automatyczny**.
 
-    ![Inicjowanie obsługi LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
+    ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji **poświadczenia administratora** wprowadź **klucz tajny** wygenerowany przez konto Lucidchart (możesz znaleźć token w ramach swojego konta: **Team** > **App Integration** > **Standard scim**).
+5. W sekcji **poświadczenia administratora** wprowadź wartość **tokenu okaziciela** , która została pobrana wcześniej w polu **token tajny** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może się połączyć z usługą Lucidchart. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi Lucidchart ma uprawnienia administratora, a następnie spróbuj ponownie.
 
-    ![Inicjowanie obsługi LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
+      ![aprowizacji](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
-6. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Lucidchart. Jeśli połączenie nie powiedzie się, upewnij się, że konto usługi LucidChart ma uprawnienia administratora, a następnie spróbuj ponownie wykonać krok 5.
+6. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, a następnie zaznacz pole wyboru **Wyślij powiadomienie e-mail po wystąpieniu błędu** .
 
-7. Wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach dotyczących aprowizacji w polu **E-mail powiadomienia** , i zaznacz pole wyboru "Wyślij powiadomienie e-mail, gdy wystąpi błąd".
+    ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+7. Wybierz pozycję **Zapisz**.
 
-9. W sekcji mapowania wybierz pozycję **synchronizuj Azure Active Directory użytkowników do Lucidchart**.
+8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkowników do Lucidchart**.
 
-10. W sekcji **mapowania atrybutów** Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do Lucidchart. Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Lucidchart for Updates. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
+9. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD, do Lucidchart w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania kont użytkowników w programie Lucidchart for Updates. Jeśli zdecydujesz się zmienić [pasujący atrybut docelowy](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), należy się upewnić, że interfejs API Lucidchart obsługuje filtrowanie użytkowników na podstawie tego atrybutu. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-11. Aby włączyć usługę Azure AD Provisioning dla usługi LucidChart, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+   |Atrybut|Typ|
+   |---|---|
+   |userName|String|
+   |wiadomości e-mail [Type EQ "Work"]. Value|String|
+   |aktywne|Boolean|
+   |Nazwa. imię|String|
+   |Nazwa. rodzina|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Department|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: dzielenie|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: costCenter|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Organization|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|String|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager|Dokumentacja|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Lucidchart: 1.0: użytkownik: wyedytuj|Boolean|
 
-12. Kliknij przycisk **Zapisz**.
+10. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory do Lucidchart**.
 
-Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup przypisanych do LucidChart w sekcji Użytkownicy i grupy. Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa jest uruchomiona. Za pomocą sekcji **szczegóły synchronizacji** można monitorować postęp i wykonywać linki do dzienników aktywności aprowizacji, które opisują wszystkie akcje wykonywane przez usługę aprowizacji.
+11. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD, do Lucidchart w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania do grup w Lucidchart dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
+      |Atrybut|Typ|
+      |---|---|
+      |displayName|String|
+      |elementy członkowskie|Dokumentacja|
+
+12. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Aby włączyć usługę Azure AD Provisioning dla Lucidchart, Zmień **stan aprowizacji** na **włączone** w sekcji **Ustawienia** .
+
+    ![Stan aprowizacji jest przełączany](common/provisioning-toggle-on.png)
+
+14. Zdefiniuj użytkowników i/lub grupy, które chcesz udostępnić Lucidchart, wybierając odpowiednie wartości w **zakresie** w sekcji **Ustawienia** .
+
+    ![Zakres aprowizacji](common/provisioning-scope.png)
+
+15. Gdy wszystko będzie gotowe do udostępnienia, kliknij przycisk **Zapisz**.
+
+    ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
+
+Ta operacja uruchamia początkowy cykl synchronizacji wszystkich użytkowników i grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Cykl początkowy trwa dłużej niż kolejne cykle, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. 
+
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
+
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## <a name="change-log"></a>Dziennik zmian
+
+* 04/30/2020 — dodano obsługę atrybutu rozszerzenia przedsiębiorstwa i atrybutu niestandardowego "Edytuj" dla użytkowników.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../app-provisioning/check-status-user-account-provisioning.md)
+* [Dowiedz się, jak przeglądać dzienniki i uzyskiwać raporty dotyczące aktywności aprowizacji](../manage-apps/check-status-user-account-provisioning.md)

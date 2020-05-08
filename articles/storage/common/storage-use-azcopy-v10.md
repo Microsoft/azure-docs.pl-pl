@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756033"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780882"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -65,7 +65,7 @@ Użyj tej tabeli jako przewodnika:
 
 | Typ magazynu | Obecnie obsługiwana metoda autoryzacji |
 |--|--|
-|**Blob Storage** | Usługa Azure AD & SAS |
+|**BLOB Storage** | Usługa Azure AD & SAS |
 |**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD & SAS |
 |**Magazyn plików** | Tylko SAS |
 
@@ -84,7 +84,7 @@ Jeśli chcesz tylko pobrać pliki, sprawdź, czy [czytnik danych BLOB magazynu](
 
 Jeśli chcesz przekazać pliki, sprawdź, czy jedna z tych ról została przypisana do podmiotu zabezpieczeń:
 
-- [Współautor danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Współautor danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Właściciel danych obiektów blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 Role te można przypisać do podmiotu zabezpieczeń w dowolnym z następujących zakresów:
@@ -273,8 +273,8 @@ Aby uzyskać link, uruchom następujące polecenie:
 
 | System operacyjny  | Polecenie |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > `--strip-components=1` W przypadku systemu Linux `tar` polecenie usuwa folder najwyższego poziomu, który zawiera nazwę wersji, a zamiast tego wyodrębnia plik binarny bezpośrednio do bieżącego folderu. Umożliwia to zaktualizowanie skryptu przy użyciu nowej wersji programu `azcopy` przez zaktualizowanie `wget` adresu URL.

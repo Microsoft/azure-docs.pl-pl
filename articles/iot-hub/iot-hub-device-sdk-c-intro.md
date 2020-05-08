@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731319"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629358"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Zestaw SDK urządzeń Azure IoT dla języka C
 
@@ -88,7 +88,7 @@ Narzędzie Eksplorator urządzeń używa bibliotek usługi Azure IoT do wykonywa
 
 Jeśli nie masz doświadczenia z narzędziem Eksplorator urządzeń, Poniższa procedura opisuje sposób użycia go w celu dodania urządzenia i uzyskania parametrów połączenia urządzenia.
 
-1. Aby zainstalować narzędzie Eksplorator urządzeń, zobacz [jak używać Device Explorer dla IoT Hub urządzeń](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+1. Aby zainstalować narzędzie Eksplorator urządzeń, zobacz [jak używać Device Explorer dla IoT Hub urządzeń](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
 
 1. Po uruchomieniu programu zostanie wyświetlony następujący interfejs:
 

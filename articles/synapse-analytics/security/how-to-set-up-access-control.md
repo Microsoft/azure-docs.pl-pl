@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606008"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692630"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -165,9 +165,22 @@ Program Synapse Studio będzie zachowywać się inaczej w zależności od ról u
 | Zarządzanie centrami/połączonymi usługami | TAK | TAK | TAK |
 | Zarządzanie centrami/Access Control (przypisywanie użytkowników do ról obszaru roboczego Synapse) | TAK | NO | NO |
 | Zarządzanie centrami/środowiskami Integration Runtime | TAK | TAK | TAK |
+| Korzystanie z centrum monitora | TAK | TAK | TAK |
+| Monitoruj uruchomienia centrów/aranżacji/potoku  | TAK | NO | NO |
+| Monitorowanie uruchomień centrum/aranżacji/wyzwalacza  | TAK | NO | NO |
+| Monitorowanie centrów/aranżacji/środowisk Integration Runtime  | TAK | TAK | TAK |
+| Monitoruj centra/działania/aplikacje platformy Spark | TAK | TAK | NO  |
+| Monitoruj centra/działania/żądania SQL | TAK | NO | TAK |
+| Monitoruj centrum/działania/pule platformy Spark | TAK | TAK | NO  |
+| Monitoruj centrum/wyzwalacze | TAK | NO | NO |
+| Zarządzanie centrami/połączonymi usługami | TAK | TAK | TAK |
+| Zarządzanie centrami/Access Control (przypisywanie użytkowników do ról obszaru roboczego Synapse) | TAK | NO | NO |
+| Zarządzanie centrami/środowiskami Integration Runtime | TAK | TAK | TAK |
+
 
 > [!NOTE]
-> [1] dostęp do danych w kontenerach zależy od kontroli dostępu w ADLSGen2 [2] tabele SQL OD i tabele platformy Spark przechowują swoje dane w ADLSGen2, a dostęp wymaga odpowiednich uprawnień w usłudze ADLSGen2.
+> [1] dostęp do danych w kontenerach zależy od kontroli dostępu w ADLSGen2. </br>
+> [2] tabele SQL OD i tabele platformy Spark przechowują swoje dane w ADLSGen2, a dostęp wymaga odpowiednich uprawnień do ADLSGen2.
 
 ## <a name="next-steps"></a>Następne kroki
 

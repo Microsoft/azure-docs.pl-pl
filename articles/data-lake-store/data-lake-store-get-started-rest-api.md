@@ -1,23 +1,17 @@
 ---
-title: 'Interfejs API REST: operacje zarządzania kontem na Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Używanie Azure Data Lake Storage Gen1 i interfejsu API REST WebHDFS w celu wykonywania operacji zarządzania kontami na koncie Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Zarządzanie kontem Azure Data Lake Storage Gen1 przy użyciu interfejsu REST
+description: Użyj interfejsu API REST WebHDFS w celu wykonania operacji zarządzania kontami na koncie Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a106b55fb90f320b90c81216a205dd10a9bf934
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60877110"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692089"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu interfejsu API REST
 > [!div class="op_single_selector"]
@@ -74,7 +68,7 @@ Powinny pojawić się dane wyjściowe podobne do następującego fragmentu kodu:
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje systemu plików na Data Lake Storage Gen1 przy użyciu interfejsu API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Dokumentacja interfejsu API REST Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

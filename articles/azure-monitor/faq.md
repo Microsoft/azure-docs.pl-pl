@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637770"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732040"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -212,7 +212,7 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Cloud Services na platformie Azure](app/cloudservices.md)
 * [Serwery aplikacji działające w programie Docker](app/docker.md)
 * [Jednostronicowe aplikacje sieci Web](app/javascript.md)
-* [SharePoint](app/sharepoint.md)
+* [Sharepoint](app/sharepoint.md)
 * [Aplikacja klasyczna systemu Windows](app/windows-desktop.md)
 * [Inne platformy](app/platforms.md)
 
@@ -254,6 +254,10 @@ Zapoznaj się z [informacjami o wersji](app/release-notes.md) zestawu SDK, któr
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Jak mogę zmienić zasób platformy Azure, do którego mój projekt wysyła dane?
 W Eksplorator rozwiązań kliknij prawym przyciskiem `ApplicationInsights.config` myszy i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w pliku ApplicationInsights. config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
+
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Czy można użyć `providers('Microsoft.Insights', 'components').apiVersions[0]` w ramach wdrożeń Azure Resource Manager?
+
+Nie zalecamy korzystania z tej metody wypełniania wersji interfejsu API. Najnowsza wersja może reprezentować wersje wersji zapoznawczej, które mogą zawierać istotne zmiany. Nawet w przypadku nowszych wersji w wersji zapoznawczej wersje interfejsu API nie zawsze są wstecznie zgodne z istniejącymi szablonami lub w niektórych przypadkach wersja interfejsu API może być niedostępna dla wszystkich subskrypcji.
 
 ### <a name="what-is-status-monitor"></a>Co to jest monitor stanu?
 
@@ -412,7 +416,7 @@ Nie zależy to od lokalizacji zasobów Application Insights. Zależy to tylko od
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Czy mogę wysłać dane telemetryczne do portalu Application Insights?
 
-Zalecamy używanie naszych zestawów SDK i korzystanie z [interfejsu API zestawu SDK](app/api-custom-events-metrics.md). Istnieje wiele wariantów zestawu SDK dla różnych [platform](app/platforms.md). Te zestawy SDK obsługują buforowanie, kompresję, ograniczanie, ponawianie prób i tak dalej. Jednak [schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) pozyskiwania i [Protokół punktu końcowego](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
+Zalecamy używanie naszych zestawów SDK i korzystanie z [interfejsu API zestawu SDK](app/api-custom-events-metrics.md). Istnieje wiele wariantów zestawu SDK dla różnych [platform](app/platforms.md). Te zestawy SDK obsługują buforowanie, kompresję, ograniczanie, ponawianie prób i tak dalej. Jednak [schemat](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) pozyskiwania i [Protokół punktu końcowego](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) są publiczne.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Czy mogę monitorować intranetowy serwer sieci Web?
 

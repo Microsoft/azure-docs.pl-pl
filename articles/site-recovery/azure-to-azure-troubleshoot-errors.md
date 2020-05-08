@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390376"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738120"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Rozwiązywanie problemów z replikacją maszyny wirtualnej z platformy Azure do platformy Azure
 
@@ -172,8 +172,6 @@ Ponieważ system SUSE Linux używa linków symbolicznych lub linków symboliczny
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>Wychodzące adresy URL lub zakresy adresów IP (kod błędu 151037 lub 151072)
 
 Aby replikacja Site Recovery działała, z poziomu maszyny wirtualnej wymagane jest połączenie wychodzące z określonymi adresami URL. Jeśli maszyna wirtualna znajduje się za zaporą lub używa reguł sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń) do kontrolowania łączności wychodzącej, może to być przyczyną jednego z tych problemów. Mimo że nadal obsługujemy dostęp wychodzący za pośrednictwem adresów URL, korzystanie z listy dozwolonych zakresów adresów IP nie jest już obsługiwane.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problem 1: nie można zarejestrować maszyny wirtualnej platformy Azure w Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Możliwe przyczyny
 

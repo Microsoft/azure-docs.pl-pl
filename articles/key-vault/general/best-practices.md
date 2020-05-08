@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617911"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653193"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Najlepsze rozwiązania w zakresie używania Key Vault
 
 ## <a name="control-access-to-your-vault"></a>Kontrola dostępu do magazynu
 
-Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła. Ponieważ te dane są poufne i krytyczne dla działania firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko na autoryzowane aplikacje i użytkowników. Ten [artykuł](secure-your-key-vault.md)zawiera omówienie modelu dostępu Key Vault. W tym artykule wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do magazynów kluczy.
+Azure Key Vault to usługa w chmurze, która chroni klucze szyfrowania i wpisy tajne, takie jak certyfikaty, ciągi połączeń i hasła. Ponieważ te dane są poufne i krytyczne dla działania firmy, należy zabezpieczyć dostęp do magazynów kluczy, zezwalając tylko na autoryzowane aplikacje i użytkowników. Ten [artykuł](secure-your-key-vault.md) zawiera omówienie modelu dostępu Key Vault. W tym artykule wyjaśniono uwierzytelnianie i autoryzację oraz opisano sposób zabezpieczania dostępu do magazynów kluczy.
 
 Sugestie dotyczące kontroli dostępu do magazynu są następujące:
 1. Zablokuj dostęp do subskrypcji, grupy zasobów i magazynów kluczy (RBAC)
@@ -39,7 +39,7 @@ Zadbaj o to, aby regularnie korzystać z [magazynu](https://blogs.technet.micros
 
 ## <a name="turn-on-logging"></a>Włącz rejestrowanie
 
-[Włącz rejestrowanie](logging.md) dla Twojego magazynu. Skonfiguruj również alerty.
+[Włącz rejestrowanie](logging.md) dla swojego magazynu. Skonfiguruj również alerty.
 
 ## <a name="turn-on-recovery-options"></a>Włącz opcje odzyskiwania
 

@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899284"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629511"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autoryzowanie dostępu do zasobów Event Grid
 Azure Event Grid umożliwia kontrolowanie poziomu dostępu nadawanego różnym użytkownikom w celu wykonywania różnych operacji zarządzania, takich jak subskrypcje zdarzeń listy, tworzenie nowych i generowanie kluczy. Event Grid używa kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+
 
 ## <a name="operation-types"></a>Typy operacji
 
@@ -182,6 +183,23 @@ Role niestandardowe można tworzyć przy użyciu [programu PowerShell](../role-b
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku
 
 Wszystkie zdarzenia lub dane zapisywane na dysku przez usługę Event Grid są szyfrowane przez klucz zarządzany przez firmę Microsoft, dzięki czemu są szyfrowane w stanie spoczynku. Ponadto maksymalny okres czasu, przez jaki zdarzenia lub dane są przechowywane, wynosi 24 godziny zgodnie z [zasadami ponowienia Event Grid](delivery-and-retry.md). Event Grid automatycznie usunie wszystkie zdarzenia lub dane po 24 godzinach lub czas wygaśnięcia zdarzenia na żywo, w zależności od tego, która wartość jest mniejsza.
+
+## <a name="permissions-for-event-subscriptions"></a>Uprawnienia dla subskrypcji zdarzeń
+Jeśli używasz procedury obsługi zdarzeń, która nie jest elementem webhook (takim jak centrum zdarzeń lub magazyn kolejki), musisz mieć dostęp do zapisu do tego zasobu. To sprawdzenie uprawnień uniemożliwia wysyłanie zdarzeń do zasobu przez nieautoryzowanego użytkownika.
+
+Użytkownik musi mieć uprawnienie **Microsoft. EventGrid/EventSubscriptions/Write** do zasobu, który jest źródłem zdarzenia. To uprawnienie jest wymagane, ponieważ piszesz nową subskrypcję w zakresie zasobu. Wymagany zasób różni się w zależności od tego, czy subskrybujesz temat systemowy czy temat niestandardowy. Oba typy zostały opisane w tej sekcji.
+
+### <a name="system-topics-azure-service-publishers"></a>Tematy systemowe (wydawcy usług platformy Azure)
+W przypadku tematów systemowych należy mieć uprawnienia do napisania nowej subskrypcji zdarzeń w zakresie zasobu, który publikuje zdarzenie. Format zasobu:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+Na przykład w celu subskrybowania zdarzenia na koncie magazynu o nazwie Moja **ACCT**wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### <a name="custom-topics"></a>Tematy niestandardowe
+W przypadku niestandardowych tematów należy mieć uprawnienia do zapisywania nowej subskrypcji zdarzeń w zakresie tematu usługi Event Grid. Format zasobu:`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+Na przykład w celu subskrybowania niestandardowego tematu o nazwie Moja **tematu**wymagane jest uprawnienie Microsoft. EventGrid/EventSubscriptions/Write dotyczące:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 
