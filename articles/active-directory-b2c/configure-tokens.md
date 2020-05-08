@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2b9cc0c69f0c559c9561a02de4192974ee7f521
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189621"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926191"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurowanie tokenów w Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ W tym artykule dowiesz się, jak skonfigurować [okres istnienia i zgodność to
 
 [Utwórz przepływ użytkownika](tutorial-create-user-flows.md) , aby umożliwić użytkownikom rejestrowanie się w aplikacji i logowanie się do niej.
 
-## <a name="configure-token-lifetime"></a>Skonfiguruj okres istnienia tokenu
+## <a name="configure-jwt-token-lifetime"></a>Skonfiguruj okres istnienia tokenu JWT
 
 Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika.
 
@@ -41,7 +41,7 @@ Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika
 
 8. Kliknij przycisk **Zapisz**.
 
-## <a name="configure-token-compatibility"></a>Konfigurowanie zgodności tokenu
+## <a name="configure-jwt-token-compatibility"></a>Konfigurowanie zgodności tokenów JWT
 
 1. Wybierz pozycję **przepływy użytkownika (zasady)**.
 2. Otwórz wcześniej utworzony przepływ użytkownika.

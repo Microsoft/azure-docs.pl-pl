@@ -3,13 +3,13 @@ title: Koncepcje — zabezpieczenia w usłudze Azure Kubernetes Services (AKS)
 description: Dowiedz się więcej o zabezpieczeniach w usłudze Azure Kubernetes Service (AKS), w tym o komunikacji głównej i węzłach, zasadach sieciowych i wpisach tajnych Kubernetes.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206633"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981395"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Pojęcia dotyczące zabezpieczeń aplikacji i klastrów w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,14 +20,16 @@ W tym artykule przedstawiono podstawowe koncepcje zabezpieczania aplikacji w pro
 - [Zabezpieczenia składników głównych](#master-security)
 - [Zabezpieczenia węzła](#node-security)
 - [Uaktualnienia klastra](#cluster-upgrades)
-- [Bezpieczeństwo sieci](#network-security)
+- [Zabezpieczenia sieci](#network-security)
 - [Wpisy tajne usługi Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Zabezpieczenia główne
 
 W programie AKS główne składniki programu Kubernetes są częścią usługi zarządzanej zapewnianej przez firmę Microsoft. Każdy klaster AKS ma własny, dedykowany główny Kubernetes, który zapewnia serwer interfejsu API, harmonogram itd. Ten główny serwer jest zarządzany i konserwowany przez firmę Microsoft.
 
-Domyślnie serwer interfejsu API Kubernetes używa publicznego adresu IP i w pełni kwalifikowanej nazwy domeny (FQDN). Dostęp do serwera interfejsu API można kontrolować za pomocą kontroli dostępu opartej na rolach Kubernetes i Azure Active Directory. Aby uzyskać więcej informacji, zobacz [integracja z usługą Azure AD za pomocą AKS][aks-aad].
+Domyślnie serwer interfejsu API Kubernetes używa publicznego adresu IP i w pełni kwalifikowanej nazwy domeny (FQDN). Dostęp do punktu końcowego serwera interfejsu API można ograniczyć za pomocą [autoryzowanych zakresów adresów IP][authorized-ip-ranges]. Można również utworzyć w pełni [prywatny klaster][private-clusters] , aby ograniczyć dostęp serwera API do sieci wirtualnej.
+
+Dostęp do serwera interfejsu API można kontrolować za pomocą kontroli dostępu opartej na rolach Kubernetes i Azure Active Directory. Aby uzyskać więcej informacji, zobacz [integracja z usługą Azure AD za pomocą AKS][aks-aad].
 
 ## <a name="node-security"></a>Zabezpieczenia węzła
 
@@ -65,6 +67,10 @@ W przypadku połączeń i zabezpieczeń z sieciami lokalnymi można wdrożyć kl
 ### <a name="azure-network-security-groups"></a>Sieciowe grupy zabezpieczeń platformy Azure
 
 Aby odfiltrować przepływ ruchu w sieciach wirtualnych, na platformie Azure są stosowane reguły sieciowej grupy zabezpieczeń. Te reguły definiują źródłowe i docelowe zakresy adresów IP, porty i protokoły, które są dozwolone lub odrzucane przez dostęp do zasobów. Tworzone są reguły domyślne, które zezwalają na ruch TLS do serwera interfejsu API Kubernetes. Podczas tworzenia usług przy użyciu modułów równoważenia obciążenia, mapowania portów lub tras transferu danych przychodzących program AKS automatycznie modyfikuje sieciowe grupy zabezpieczeń, aby ruch był odpowiednio przepływ.
+
+### <a name="kubernetes-network-policy"></a>Zasady sieci Kubernetes
+
+Aby ograniczyć ruch sieciowy między zasobnikami w klastrze, AKS oferuje obsługę [zasad sieciowych Kubernetes][network-policy]. Przy użyciu zasad sieciowych można wybrać opcję zezwalania lub odrzucania określonych ścieżek sieciowych w klastrze na podstawie obszarów nazw i selektorów etykiet.
 
 ## <a name="kubernetes-secrets"></a>Wpisy tajne usługi Kubernetes
 
@@ -104,3 +110,6 @@ Aby uzyskać dodatkowe informacje na temat podstawowych pojęć związanych z Ku
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[authorized-ip-ranges]: api-server-authorized-ip-ranges.md
+[private-clusters]: private-clusters.md
+[network-policy]: use-network-policies.md

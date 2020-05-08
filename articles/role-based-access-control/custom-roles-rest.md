@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizowanie ról niestandardowych dla zasobów platformy Azure za pomocą interfejsu API REST
-description: Dowiedz się, jak wyświetlać, tworzyć, aktualizować i usuwać role niestandardowe z kontrolą dostępu opartą na rolach (RBAC) dla zasobów platformy Azure przy użyciu interfejsu API REST.
+title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu API REST — Azure RBAC
+description: Dowiedz się, jak wyświetlać, tworzyć, aktualizować i usuwać role niestandardowe platformy Azure przy użyciu interfejsu API REST i kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062185"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734097"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Tworzenie lub aktualizowanie ról niestandardowych dla zasobów platformy Azure przy użyciu interfejsu API REST
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu API REST
 
 > [!IMPORTANT]
 > Dodawanie grupy zarządzania do `AssignableScopes` programu jest obecnie w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Jeśli [wbudowane role dla zasobów platformy Azure](built-in-roles.md) nie spełniają potrzeb Twojej organizacji, możesz tworzyć własne role niestandardowe. W tym artykule opisano sposób wyświetlania, tworzenia, aktualizowania lub usuwania ról niestandardowych przy użyciu interfejsu API REST.
+Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe. W tym artykule opisano sposób wyświetlania, tworzenia, aktualizowania lub usuwania ról niestandardowych przy użyciu interfejsu API REST.
 
 ## <a name="list-custom-roles"></a>Wyświetlanie ról niestandardowych
 
@@ -189,7 +189,7 @@ Aby utworzyć rolę niestandardową, użyj [definicji roli — interfejsu API RE
 
 1. We `notActions` właściwości Dodaj operacje, które są wykluczone z dozwolonej `actions`.
 
-1. We `roleName` właściwościach `description` i Określ unikatową nazwę roli i opis. Aby uzyskać więcej informacji na temat właściwości, zobacz [role niestandardowe](custom-roles.md).
+1. We `roleName` właściwościach `description` i Określ unikatową nazwę roli i opis. Aby uzyskać więcej informacji na temat właściwości, zobacz [role niestandardowe platformy Azure](custom-roles.md).
 
     Poniżej przedstawiono przykład treści żądania:
 
@@ -340,6 +340,6 @@ Aby usunąć rolę niestandardową, użyj [definicji roli — Usuń](/rest/api/a
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Niestandardowe role dla zasobów platformy Azure](custom-roles.md)
-- [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu API REST](role-assignments-rest.md)
+- [Role niestandardowe platformy Azure](custom-roles.md)
+- [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-rest.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)

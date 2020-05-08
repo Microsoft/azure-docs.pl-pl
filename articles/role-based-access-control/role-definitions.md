@@ -1,6 +1,6 @@
 ---
-title: Informacje o definicjach ról w ramach RBAC dla zasobów platformy Azure | Microsoft Docs
-description: Dowiedz się więcej na temat definicji ról w kontroli dostępu opartej na rolach (RBAC), aby uzyskać szczegółowe zarządzanie dostępem do zasobów platformy Azure.
+title: Informacje o definicjach ról platformy Azure — Azure RBAC
+description: Dowiedz się więcej na temat definicji ról platformy Azure w kontroli dostępu opartej na rolach (Azure RBAC) na potrzeby precyzyjnego zarządzania dostępem do zasobów platformy Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641377"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735542"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Opis definicji ról dla zasobów platformy Azure
+# <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
 
-Jeśli próbujesz zrozumieć, jak działa rola, lub jeśli tworzysz własną [rolę niestandardową dla zasobów platformy Azure](custom-roles.md), warto zrozumieć, w jaki sposób role są definiowane. W tym artykule opisano szczegóły definicji ról i przedstawiono kilka przykładów.
+Jeśli próbujesz zrozumieć, jak działa rola platformy Azure, lub jeśli tworzysz własną [rolę niestandardową platformy Azure](custom-roles.md), warto zrozumieć, w jaki sposób role są definiowane. W tym artykule opisano szczegóły definicji ról i przedstawiono kilka przykładów.
 
 ## <a name="role-definition"></a>Definicja roli
 
@@ -170,7 +170,7 @@ Uprawnienia Roberta są ograniczone tylko `Actions` do `DataActions` określonyc
 
 Aby uzyskać więcej informacji na temat zarządzania i zabezpieczeń płaszczyzny danych dla magazynu, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](../storage/blobs/security-recommendations.md).
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>Jakie narzędzia obsługują korzystanie z funkcji RBAC dla operacji na danych?
+### <a name="what-tools-support-using-azure-roles-for-data-operations"></a>Jakie narzędzia są obsługiwane przy użyciu ról platformy Azure dla operacji na danych?
 
 Aby wyświetlać operacje na danych i korzystać z nich, należy dysponować prawidłowymi wersjami narzędzi lub zestawów SDK:
 
@@ -245,10 +245,10 @@ Wbudowane role mają `AssignableScopes` ustawiony zakres główny (`"/"`). Zakre
 > | Grupa zarządzania i subskrypcja | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | Wszystkie zakresy (dotyczy tylko ról wbudowanych) | `"/"` |
 
-Informacje o `AssignableScopes` rolach niestandardowych można znaleźć w temacie [role niestandardowe dla zasobów platformy Azure](custom-roles.md).
+Informacje o `AssignableScopes` rolach niestandardowych można znaleźć w temacie [role niestandardowe platformy Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wbudowane role dla zasobów platformy Azure](built-in-roles.md)
-* [Niestandardowe role dla zasobów platformy Azure](custom-roles.md)
+* [Wbudowane role platformy Azure](built-in-roles.md)
+* [Role niestandardowe platformy Azure](custom-roles.md)
 * [Operacje dostawcy zasobów Azure Resource Manager](resource-provider-operations.md)

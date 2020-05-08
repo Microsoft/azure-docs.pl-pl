@@ -3,12 +3,12 @@ title: Odnajdywanie aplikacji, ról i funkcji na serwerach lokalnych przy użyci
 description: Informacje na temat odnajdywania aplikacji, ról i funkcji na serwerach lokalnych przy użyciu narzędzia do oceny Azure Migrate Server.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79453586"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744614"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Odkryj aplikacje maszynowe, role i funkcje
 
@@ -30,17 +30,47 @@ Odnajdywanie aplikacji przy użyciu Azure Migrate: Ocena serwera jest bez wykorz
 5. Sprawdź [wymagania](migrate-appliance.md) dotyczące wdrażania urządzenia Azure Migrate.
 6. [Sprawdź pomoc techniczną i wymagania](migrate-support-matrix-vmware.md#application-discovery) dotyczące odnajdywania aplikacji.
 
-## <a name="prepare-for-app-discovery"></a>Przygotowanie do odnajdywania aplikacji
 
-1. [Przygotowanie do wdrożenia urządzenia](tutorial-prepare-vmware.md). Przygotowanie obejmuje sprawdzenie ustawień urządzenia oraz skonfigurowanie konta, które będzie używane przez urządzenie w celu uzyskania dostępu do vCenter Server.
-2. Upewnij się, że masz konto użytkownika (jeden z nich dla serwerów z systemem Windows i Linux) z uprawnieniami administratora dla maszyn, na których mają być odnajdywane aplikacje, role i funkcje.
-3. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia urządzenia jako maszyny wirtualnej VMware. Należy skonfigurować urządzenie, a następnie zarejestrować je w Azure Migrate.
-2. Podczas wdrażania urządzenia w celu rozpoczęcia wykrywania ciągłego należy określić następujące elementy:
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Wdróż urządzenie Azure Migrate
+
+1. [Zapoznaj](migrate-appliance.md#appliance---vmware) się z wymaganiami dotyczącymi wdrażania urządzenia Azure Migrate.
+2. Przejrzyj adresy URL platformy Azure, do których urządzenie będzie musiało uzyskać [public](migrate-appliance.md#public-cloud-urls) dostęp w [chmurach publicznych i rządowych](migrate-appliance.md#government-cloud-urls).
+3. [Przejrzyj dane](migrate-appliance.md#collected-data---vmware) zbierane przez urządzenie podczas odnajdywania i oceny.
+4. [Zwróć uwagę](migrate-support-matrix-vmware.md#port-access) na wymagania dotyczące dostępu do portów dla urządzenia.
+5. [Wdróż urządzenie Azure Migrate,](how-to-set-up-appliance-vmware.md) aby rozpocząć odnajdywanie. Aby wdrożyć urządzenie, należy pobrać i zaimportować szablon komórki jajowe do programu VMware w celu utworzenia urządzenia jako maszyny wirtualnej VMware. Należy skonfigurować urządzenie, a następnie zarejestrować je w Azure Migrate.
+6. Podczas wdrażania urządzenia w celu rozpoczęcia wykrywania ciągłego należy określić następujące elementy:
     - Nazwa vCenter Server, z którą chcesz nawiązać połączenie.
     - Poświadczenia utworzone dla urządzenia w celu nawiązania połączenia z vCenter Server.
     - Poświadczenia konta utworzone dla urządzenia w celu nawiązania połączenia z maszynami wirtualnymi z systemem Windows/Linux.
 
 Po wdrożeniu urządzenia i uzyskaniu poświadczeń urządzenie uruchamia ciągłe wykrywanie metadanych maszyn wirtualnych i danych wydajności oraz odnajdywanie aplikacji, funkcji i ról.  Czas odnajdowania aplikacji zależy od liczby posiadanych maszyn wirtualnych. Funkcja odnajdywania aplikacji na maszynach wirtualnych 500 zazwyczaj trwa godzinę.
+
+## <a name="prepare-a-user-account"></a>Przygotowywanie konta użytkownika
+
+Utwórz konto do użycia na potrzeby odnajdywania i Dodaj je do urządzenia.
+
+### <a name="create-a-user-account-for-discovery"></a>Tworzenie konta użytkownika na potrzeby odnajdywania
+
+Skonfiguruj konto użytkownika, aby Ocena serwera mogła uzyskać dostęp do maszyny wirtualnej w celu odnajdywania. [Dowiedz się więcej](migrate-support-matrix-vmware.md#application-discovery) o wymaganiach dotyczących konta.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Dodaj konto użytkownika do urządzenia
+
+Dodaj konto użytkownika do urządzenia.
+
+1. Otwórz aplikację zarządzanie urządzeniami. 
+2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
+3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
+3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i**hasło** w polu **Nazwa użytkownika**/
+6. Kliknij przycisk **Zapisz**.
+7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
+
+    ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Przeglądanie i eksportowanie spisu
 

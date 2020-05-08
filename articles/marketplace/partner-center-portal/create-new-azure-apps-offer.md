@@ -1,63 +1,45 @@
 ---
-title: Tworzenie nowej oferty usługi Azure Apps w komercyjnym rynku
-description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center.
-author: dsindona
+title: Tworzenie oferty aplikacji platformy Azure — Microsoft Commercial Marketplace
+description: Zapoznaj się z instrukcjami i zagadnieniami dotyczącymi tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnej witryny Marketplace w centrum partnerskim. Możesz wyświetlić lub sprzedać swoją ofertę aplikacji platformy Azure w portalu Azure Marketplace lub za pomocą programu Cloud Solution Provider (CSP).
+author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 516ebce176f53a0495ea493f5327658162e7ea9e
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/03/2020
+ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867280"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790691"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
-Kroki publikowania oferty aplikacji platformy Azure w komercyjnym portalu marketplace przedstawiono tutaj.
+W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnym. Przed utworzeniem nowej oferty aplikacji platformy Azure należy zapoznać się z tymi koncepcjami. 
 
-## <a name="azure-application-offer-type"></a>Typ oferty aplikacji platformy Azure
+Przed opublikowaniem nowej oferty aplikacji platformy Azure [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
-W tym temacie opisano podstawy dotyczące ofert aplikacji platformy Azure.  Należy zapoznać się z tych pojęć przed rozpoczęciem procesu publikowania nowej oferty aplikacji platformy Azure w portalu Marketplace.
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-### <a name="publishing-overview"></a>Omówienie publikowania
+Projektowanie, kompilowanie i testowanie ofert aplikacji platformy Azure wymaga znajomości technicznej platformy Azure i technologii używanych do tworzenia oferty. Zespół inżynieryjny powinien znać następujące technologie firmy Microsoft:
 
-Wideo [Szablony rozwiązań do tworzenia i aplikacje zarządzane dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) jest wprowadzeniem do typu oferty aplikacji platformy Azure:
+* Podstawowe informacje na temat [usług platformy Azure](https://azure.microsoft.com/services/).
+* [Projektowanie i tworzenie architektury aplikacji platformy Azure](https://azure.microsoft.com/solutions/architecture/).
+* Wiedza praktyczna [Virtual Machines platformy](https://azure.microsoft.com/services/virtual-machines/)Azure, [usługi Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i [sieci platformy Azure](https://azure.microsoft.com/services/?filter=networking#networking).
+* Wiedza [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/).
+* Praktyczna wiedza o formacie [JSON](https://www.json.org/).
 
-* Jakie typy ofert są dostępne;
-* Jakie zasoby techniczne są wymagane;
-* Jak zasiewać szablon usługi Azure Resource Manager;
-* Tworzenie i testowanie interfejsu użytkownika aplikacji;
-* Jak opublikować ofertę aplikacji;
-* Proces przeglądu aplikacji.
+### <a name="technical-documentation-and-resources"></a>Dokumentacja techniczna i zasoby
 
-### <a name="types-of-azure-application-plans"></a>Typy planów aplikacji platformy Azure
+Zapoznaj się z poniższymi zasobami podczas przygotowywania oferty aplikacji platformy Azure dla komercyjnej witryny Marketplace.
 
-Istnieją dwa rodzaje planów aplikacji platformy Azure, zarządzanych aplikacji i szablonów rozwiązań.
+* [Informacje o szablonach Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 
-* **Szablon rozwiązania** jest jednym z głównych sposobów publikowania rozwiązania w portalu Marketplace. Ten typ planu jest używany, gdy rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza jedną maszyną wirtualną (maszynę wirtualną).  Za pomocą szablonu rozwiązania można zautomatyzować dostarczanie więcej niż jednego zasobu, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania IaaS.  Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz dokumentację [usługi Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-
-* **Aplikacja zarządzana** jest podobna do szablonów rozwiązań, z jedną kluczową różnicą. Najważniejsza różnica między nimi polega na tym, że w aplikacji zarządzanej zasoby są wdrażane w grupie zasobów zarządzanej przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów. Wydawca określa koszt bieżącej obsługi rozwiązania. Aplikacje zarządzane umożliwia łatwe tworzenie i dostarczanie klientom w pełni zarządzanych aplikacji "pod klucz".  Aby uzyskać więcej informacji na temat zalet i typów aplikacji zarządzanych, zobacz [omówienie aplikacji zarządzanych platformy Azure](https://docs.microsoft.com/azure/managed-applications/overview).
-
-Wszystkie aplikacje platformy Azure zawierają co najmniej `.zip` dwa pliki w folderze głównym archiwum:
-
-* Plik szablonu Menedżera zasobów o nazwie [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Jest to szablon, który definiuje zasoby do wdrożenia w subskrypcji platformy Azure klienta.  Przykłady szablonów Usługi Resource Manager można znaleźć w [galerii Szablonów szybki start platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiednim usłudze GitHub: Repozytorium [szablonów szybkiego startu usługi Azure Resource Manager.](https://github.com/azure/azure-quickstart-templates)
-
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
-
-Wszystkie nowe oferty aplikacji platformy Azure muszą zawierać [identyfikator GUID atrybucji użycia klienta platformy Azure.](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)
-
-### <a name="before-you-begin"></a>Przed rozpoczęciem
-
-Zapoznaj się z następującą dokumentacją aplikacji platformy Azure, która zawiera przewodniki Szybki start, samouczki i przykłady.
-
-* [Opis szablonów usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * Przewodniki Szybki start:
 
-    * [Szablony szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
-    * [Szablony przewodnika Szybki start platformy GitHub](https://github.com/azure/azure-quickstart-templates)
+    * [Szablony przewodników Szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Szablony szybkiego startu platformy Azure w witrynie GitHub](https://github.com/azure/azure-quickstart-templates)
     * [Publikowanie definicji aplikacji](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Wdrażanie aplikacji katalogu usług](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
@@ -66,470 +48,521 @@ Zapoznaj się z następującą dokumentacją aplikacji platformy Azure, która z
     * [Tworzenie plików definicji](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publikowanie aplikacji na platformie handlowej](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-* Próbki:
+* Badan
 
     * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Rozwiązania aplikacji zarządzanych](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
-### <a name="fundamentals-in-technical-knowledge"></a>Podstawy wiedzy technicznej
+[Tworzenie szablonów rozwiązań wideo i aplikacji zarządzanych dla portalu Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) zapewnia kompleksowe wprowadzenie do typu oferty aplikacji platformy Azure:
 
-Projektowanie, tworzenie i testowanie tych zasobów wymaga czasu i wymaga wiedzy technicznej zarówno platformy Azure, jak i technologii używanych do tworzenia oferty.
-
-Zespół inżynierów powinien posiadać wiedzę na temat następujących technologii firmy Microsoft:
-
-* Podstawowa wiedza o [usługach platformy Azure](https://azure.microsoft.com/services/).
-* Jak [projektować i projektować aplikacje platformy Azure.](https://azure.microsoft.com/solutions/architecture/)
-* Wiedza robocza na temat [maszyn wirtualnych platformy Azure,](https://azure.microsoft.com/services/virtual-machines/) [usługi Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)i sieci [azure.](https://azure.microsoft.com/services/?filter=networking#networking)
-* Wiedza robocza na temat [usługi Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/).
-* Wiedza robocza [json](https://www.json.org/).
+* Jakie typy ofert są dostępne;
+* Jakie zasoby techniczne są wymagane;
+* Jak utworzyć szablon Azure Resource Manager;
+* Tworzenie i testowanie interfejsu użytkownika aplikacji;
+* Jak opublikować ofertę aplikacji;
+* Proces przeglądu aplikacji.
 
 ### <a name="suggested-tools"></a>Sugerowane narzędzia
 
-Wybierz jedno lub oba z następujących środowisk skryptów, aby ułatwić zarządzanie aplikacją platformy Azure:
+Wybierz co najmniej jedno z następujących środowisk skryptów, aby ułatwić zarządzanie aplikacją platformy Azure:
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure)
 
-Zalecamy dodanie następujących narzędzi do środowiska programistycznego:
+Zalecamy dodanie następujących narzędzi do środowiska deweloperskiego:
 
 * [Eksplorator usługi Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
-* [Kod programu Visual Studio](https://code.visualstudio.com/) z następującymi rozszerzeniami:
-    * Rozszerzenie: [narzędzia usługi Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    * Rozszerzenie: [Upiększyć](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    * Rozszerzenie: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+* [Visual Studio Code](https://code.visualstudio.com/) z następującymi rozszerzeniami:
+    * Rozszerzenie: [narzędzia Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    * Rozszerzenie: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    * Rozszerzenie: [PRETTIFY JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
-Możesz przejrzeć dostępne narzędzia na stronie [Narzędzia deweloperskie platformy Azure.](https://azure.microsoft.com/tools/)  Również w przypadku korzystania z programu Visual Studio, [visual studio marketplace](https://marketplace.visualstudio.com/).
+Dostępne narzędzia można sprawdzić na stronie [Narzędzia deweloperskie platformy Azure](https://azure.microsoft.com/tools/) . Ponadto, jeśli używasz programu Visual Studio, [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-## <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
+## <a name="types-of-azure-application-plans"></a>Typy planów aplikacji platformy Azure
 
-Przed utworzeniem oferty aplikacji platformy Azure należy najpierw [utworzyć konto Centrum partnerów](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i otworzyć [pulpit nawigacyjny komercyjnego portalu marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)z wybraną kartą **Przegląd.**
+Istnieją dwa rodzaje planów aplikacji platformy Azure: szablony rozwiązań i zarządzane aplikacje.
 
->[!Note]
->Po opublikowaniu oferty zmiany w ofercie złożonej w Centrum partnerów zostaną zaktualizowane tylko w systemie i witrynach sklepowych po ponownym opublikowaniu.  Po dokonaniu zmian należy przesłać ofertę do publikacji.
+* **Szablon rozwiązania** jest jednym z głównych sposobów publikowania rozwiązania w portalu Marketplace. Użyj tego typu planu, jeśli rozwiązanie wymaga dodatkowego wdrożenia i automatyzacji konfiguracji poza pojedynczą maszyną wirtualną. Szablon rozwiązania umożliwia Automatyzowanie udostępniania więcej niż jednego zasobu, w tym maszyn wirtualnych, sieci i zasobów magazynu, aby zapewnić złożone rozwiązania IaaS.  Aby uzyskać więcej informacji na temat tworzenia szablonów rozwiązań, zobacz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-### <a name="create-a-new-offer"></a>Tworzenie nowej oferty
+* **Aplikacja zarządzana** jest podobna do szablonów rozwiązań z jedną różnicą kluczową. Najważniejsza różnica między nimi polega na tym, że w aplikacji zarządzanej zasoby są wdrażane w grupie zasobów zarządzanej przez wydawcę aplikacji. Grupa zasobów znajduje się w subskrypcji klienta, ale tożsamość w dzierżawie wydawcy ma dostęp do tej grupy zasobów. Wydawca określa koszt bieżącej obsługi rozwiązania. Korzystaj z zarządzanych aplikacji, aby łatwo tworzyć i dostarczać klientom w pełni zarządzane aplikacje gotowe.  Aby uzyskać więcej informacji o zaletach i typach zarządzanych aplikacji, zobacz [Omówienie usługi Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/overview).
 
-Wybierz przycisk **+ Nowa oferta,** a następnie wybierz element menu **aplikacji platformy Azure.** Zostanie wyświetlone okno dialogowe **Nowa oferta.**
+## <a name="technical-requirements"></a>Wymagania techniczne
 
-### <a name="offer-id-and-alias"></a>Identyfikator oferty i alias
+Wszystkie aplikacje platformy Azure obejmują co najmniej dwa pliki w folderze głównym `.zip` archiwum:
 
-* **Identyfikator oferty:** unikatowy identyfikator dla każdej oferty na twoim koncie. Ten identyfikator będzie widoczny dla klientów w adresie URL oferty portalu Marketplace i szablonach usługi Azure Resource Manager (jeśli dotyczy). <br> <br> Identyfikator oferty musi być małe litery alfanumeryczne znaki (w tym łączniki i podkreślenia, ale nie odstępy). Jest ograniczona do 50 znaków i nie można go zmienić po wybraniu opcji Utwórz. <br> <br> Na przykład, jeśli `test-offer-1` wpiszesz tutaj, `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`adres URL oferty będzie . 
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
 
-* **Alias oferty**: Nazwa używana do odwoływania się do oferty w Centrum partnerów. Ta nazwa nie będzie używana w portalu marketplace i różni się od nazwy oferty i innych wartości, które będą wyświetlane klientom. Tej wartości nie można zmienić po wybraniu opcji **Utwórz**.
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition. JSON](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
 
-Po wprowadzeniu identyfikatora **oferty** i **aliasu oferty**wybierz pozycję **Utwórz**. Będziesz wtedy mógł pracować nad wszystkimi innymi częściami oferty.
+Wszystkie nowe oferty aplikacji platformy Azure muszą obejmować [Identyfikator GUID autorstwa klienta na platformie Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
+
+Aby dowiedzieć się więcej o wymaganiach dotyczących publikowania dla każdego planu aplikacji, zobacz Wymagania dotyczące [publikowania szablonów rozwiązań](../marketplace-solution-templates.md) i [aplikacji zarządzanych](../marketplace-managed-apps.md).
+
+## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
+
+>[!NOTE]
+>Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim nie będą wyświetlane w sklepie do momentu ponownego opublikowania oferty. Pamiętaj, aby zawsze ponownie opublikować ofertę po wprowadzeniu zmian.
+
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+
+1. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+
+1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **aplikacji platformy Azure**.
+
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-app.png)
+
+1. Na stronie **Nowa oferta** wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
+
+     * Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
+     * Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
+
+1. Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
+
+     * Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
+     * Aliasu oferty nie można zmienić po wybraniu pozycji **Utwórz**.
+
+1. Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-setup"></a>Konfiguracja oferty
 
-Strona **Ustawienia oferty** prosi o następujące informacje. Pamiętaj, aby wybrać **pozycję Zapisz** po zakończeniu tych pól.
+Na stronie **Konfiguracja oferty** można skonfigurować test i zarządzanie potencjalnymi klientami dla oferty. 
 
-### <a name="test-drive"></a>Jazda próbna
+### <a name="test-drive"></a>Wersja testowa
 
-Jazda próbna to świetny sposób na zaprezentowanie oferty potencjalnym klientom, dając im możliwość "wypróbuj przed zakupem", co skutkuje zwiększoną konwersją i generowaniem wysoko wykwalifikowanych potencjalnych klientów. [Dowiedz się więcej o dyskach testowych.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Test jest doskonałym sposobem na pokazanie oferty potencjalnym klientom, dając im możliwość "Wypróbuj przed zakupem", co spowodowało zwiększenie konwersji i generowanie wysoce wykwalifikowanych potencjalnych klientów. [Dowiedz się więcej o testowaniu dysków](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Aby włączyć jazdę próbną, zaznacz pole **Włącz napęd testowy.** Następnie należy skonfigurować środowisko demonstracyjne w [konfiguracji technicznej dysku testowego](#types-of-azure-application-plans) skonfigurować, aby umożliwić klientom wypróbowanie oferty przez określony czas. 
+Aby włączyć dysk testowy przez stały okres czasu, zaznacz pole wyboru **Włącz dysk testowy** . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru. Skonfigurowanie środowiska testowego w sekcji [konfiguracja techniczna na dysku testowym](#test-drive-technical-configuration) w dalszej części tego tematu.
+
+Aby uzyskać dodatkowe informacje, zobacz [testowanie oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive). Możesz również przeczytać o [najlepszych rozwiązaniach dotyczących dysków testowych](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) i pobrać [plik PDF z omówieniem dysków testowych](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
 >[!Note]
->Ponieważ wszystkie aplikacje platformy Azure są implementowane przy użyciu szablonu Usługi Azure Resource Manager, jedynym typem dysku testowego, który można skonfigurować dla aplikacji platformy Azure, jest [dysk testowy oparty na usłudze Azure Resource Manager.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)
+>Ze względu na to, że wszystkie aplikacje platformy Azure są implementowane przy użyciu szablonu Azure Resource Manager, jedynym typem dysku testowego dostępnym dla aplikacji platformy Azure jest [dysk testowy oparty na Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-#### <a name="additional-test-drive-resources"></a>Dodatkowe zasoby dysku próbne
-
-- [Najlepsze praktyki techniczne dotyczące jazdy próbkowej](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Sprawdzone praktyki marketingowe na dysku testowym](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Przegląd dysku testowego One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
-
-## <a name="connect-lead-management"></a>Łączenie zarządzania potencjalnymi klientami
+## <a name="lead-management"></a>Zarządzanie potencjalnymi klientami
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Aby uzyskać więcej informacji, zobacz [Omówienie zarządzania potencjalnymi klientami](./commercial-marketplace-get-customer-leads.md).
+Aby uzyskać więcej informacji, zobacz temat [Zarządzanie potencjalnymi klientami — Omówienie](./commercial-marketplace-get-customer-leads.md).
 
-Pamiętaj, aby **zapisać** przed przejściem do następnej sekcji!
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="properties"></a>Właściwości
 
-Strona **Właściwości** umożliwia zdefiniowanie kategorii i branż używanych do grupowania oferty w portalu Marketplace, wersji aplikacji i umów prawnych wspierających ofertę. Wybierz **pozycję Zapisz** po zakończeniu tej strony.
+Na stronie **Właściwości** można zdefiniować kategorie i branże używane do grupowania oferty w witrynie Marketplace, wersji aplikacji oraz umów prawnych wspierających Twoją ofertę.
 
-### <a name="category"></a>Kategoria
+Wybierz co najmniej jedną i maksymalnie trzy kategorie, aby umieścić ofertę w odpowiednich obszarach wyszukiwania w portalu Marketplace. Pamiętaj, aby opisać, w jaki sposób oferta obsługuje te kategorie w opisie oferty.
 
-Wybierz co najmniej jedną i maksymalnie trzy kategorie, które zostaną wykorzystane do umieszczenia oferty w odpowiednich obszarach wyszukiwania w rynku. Pamiętaj, aby sprawdzić, w jaki sposób Twoja oferta obsługuje te kategorie w opisie oferty. 
-
-### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Umowa standardowa dla komercyjnego rynku firmy Microsoft
+### <a name="legal"></a>Informacje prawne
 
 [!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
-## <a name="offer-listing"></a>Oferta aukcji
+## <a name="offer-listing"></a>Lista oferty
 
-Na stronie Oferta wyświetlana jest liczba języków, w których oferta będzie wyświetlana. Obecnie jedyną dostępną opcją jest **angielski (Stany Zjednoczone).**
+Na tej stronie można zarządzać kopią i obrazami oferty komercyjnej witryny Marketplace. 
 
-Musisz zdefiniować szczegóły rynku (nazwa oferty, opis, obrazy itp.) dla każdego języka / rynku. Wybierz język/nazwę rynku, aby podać te informacje.
+### <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
 > [!NOTE]
-> Zawartość aukcji oferty (taka jak opis, dokumenty, zrzuty ekranu, warunki użytkowania itp.) nie musi być w języku angielskim, o ile opis oferty zaczyna się od wyrażenia" Ta aplikacja jest dostępna tylko w języku [nieanglojęzycznym]". Dopuszczalne jest również podanie *użytecznego adresu URL linku,* aby oferować treści w języku innym niż ten używany w treści aukcji Oferty.
+> Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
-### <a name="name"></a>Nazwa
+#### <a name="name"></a>Nazwa
 
-Nazwa, którą wpiszesz w tym miejscu, będzie wyświetlana klientom jako tytuł twojej oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu Oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Nazwa ta może być znakiem towarowym (i możesz zawierać znaki towarowe lub symbole praw autorskich). Nazwa nie może zawierać więcej niż 50 znaków i nie może zawierać żadnych emotikonów.
+Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełniane tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
 
-### <a name="summary"></a>Podsumowanie
+#### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
-Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania w marketplace.
+Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania.
 
-### <a name="long-summary"></a>Długie podsumowanie
+#### <a name="long-summary"></a>Długie podsumowanie
 
-Podaj dłuższy opis swojej oferty (do 256 znaków). Opis może być używany w wynikach wyszukiwania w portalu Marketplace.
+Podaj dłuższy opis oferty (do 256 znaków). Ten opis może być używany w wynikach wyszukiwania.
 
-### <a name="description"></a>Opis
+#### <a name="description"></a>Opis
 
-Podaj dłuższy opis swojej oferty (do 3000 znaków). Ten opis będzie wyświetlany klientom w przeglądzie aukcji w portalu marketplace. Dołącz propozycję wartości oferty, kluczowe korzyści, kategorie i/lub stowarzyszenia branżowe, możliwości zakupu w aplikacji i wszelkie wymagane informacje. 
+Podaj dłuższy opis oferty (do 3 000 znaków). Ten opis będzie wyświetlany klientom w przeglądzie wyświetlania. Uwzględnij swoją propozycję oferty, najważniejsze zalety, kategorie i/lub branżowe skojarzenia, szanse zakupu w aplikacji oraz wszelkie wymagane informacje.
 
-Kilka wskazówek dotyczących pisania opisu:  
+SHere są wskazówkami dotyczącymi pisania opisu:
 
-- Wyraźnie opisz propozycję wartości swojej oferty w pierwszych kilku zdaniach opisu. Dołącz do swojej propozycji wartości następujące elementy:
-  - Opis produktu
-  - Typ użytkownika, który korzysta z produktu
-  - Klient potrzebuje lub bólu, który produkt adresuje
-- Pamiętaj, że kilka pierwszych zdań może być wyświetlanych w wynikach wyszukiwania.  
-- Nie polegaj na funkcjach i funkcjach sprzedaży produktu. Zamiast tego skup się na wartości, którą dostarczasz.  
-- W miarę możliwości używaj słownictwa branżowego lub opartego na korzyściach. 
-- Rozważ użycie tagów HTML do sformatuj opisu i zwiększenie jego atrakcyjność.
+* Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
+  * Opis oferty.
+  * Typ użytkownika, który korzysta z oferty.
+  * Wymagania klientów lub problemy z ofertą.
+* Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
+* Nie należy polegać na funkcjach i funkcjach, które umożliwiają sprzedawanie oferty. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
+* Używaj słów specyficznych dla branży lub korzyści.
+* Rozważ użycie tagów HTML, aby sformatować swój opis, aby zwiększyć jego atrakcyjność.
 
-### <a name="search-keywords"></a>Szukaj słów kluczowych
+#### <a name="search-keywords"></a>Słowa kluczowe wyszukiwania
 
-Opcjonalnie możesz wprowadzić maksymalnie trzy słowa kluczowe wyszukiwania, aby pomóc klientom znaleźć twoją ofertę w marketplace. Aby uzyskać najlepsze wyniki, spróbuj użyć tych słów kluczowych w opisie.
+Opcjonalnie możesz wprowadzić do trzech słów kluczowych wyszukiwania, aby pomóc klientom w znalezieniu oferty w portalu Marketplace. Aby uzyskać najlepsze wyniki, należy również użyć tych słów kluczowych w opisie.
 
-### <a name="support-urls"></a>Obsługa adresów URL
+#### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
-W tej sekcji znajdziesz łącza ułatwiające klientom zapoznanie się z ofertą.
+Wprowadź adres URL zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz w celu zapewnienia prawidłowych zasad zachowania poufności informacji.
 
-#### <a name="privacy-policy-url"></a>Adres URL polityki prywatności
+### <a name="useful-links"></a>Przydatne łącza
 
-Wprowadź adres URL do zasad ochrony prywatności organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i regulacjami dotyczącymi prywatności oraz za zapewnienie ważnej polityki prywatności.
+Dodaj linki do opcjonalnych dodatkowych dokumentów online dotyczących rozwiązania, wybierając pozycję **+ Dodaj link**.
 
-#### <a name="useful-links"></a>Przydatne łącza
+### <a name="contact-information"></a>Informacje kontaktowe
 
-Podaj opcjonalne dodatkowe dokumenty online dotyczące rozwiązania.  Dodaj dodatkowe przydatne łącza, klikając **+ Dodaj łącze**.
+Podaj nazwę, adres e-mail i numer telefonu dla kontaktu **z pomocą techniczną**, **kontaktu inżynieryjnego**i **programu CSP**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP. Niektóre kontakty mogą wymagać dodatkowych informacji.
 
-### <a name="contacts"></a>Kontakty
+### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
 
-W tej sekcji należy podać nazwę, adres e-mail i numer telefonu dla **kontaktu pomocy technicznej** i kontaktu **inżyniera.** Te informacje nie są wyświetlane klientom, ale będą dostępne dla firmy Microsoft i mogą być dostarczane partnerom CSP.
-
-W sekcji **Kontakt pomocy technicznej** należy również podać adres URL pomocy **technicznej,** w którym partnerzy CSP mogą znaleźć pomoc techniczną dla Twojej oferty.
-
-### <a name="marketplace-images"></a>Obrazy z Marketplace
-
-W tej sekcji możesz podać logo i obrazy, które będą używane podczas wyświetlania oferty klientowi. Wszystkie obrazy muszą być w formacie png.
+Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
 >[!Note]
->Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się https://upload.xboxlive.com , że sieć lokalna nie blokuje usługi używanej przez centrum partnerskie.
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Podaj logo swojej oferty w trzech rozmiarach: **Mały (48 x 48),** **Średni (90 X 90)** i **Duży (216 x 216)**.
+Podaj pliki PNG logo oferty w następujących trzech rozmiarach:
 
-#### <a name="hero"></a>Bohater
+- **Mały** (48 x 48)
+- **Średni** (90 x 90)
+- **Duże** (216 x 216)
+- **Szeroki** (255 x 115)
 
-Obraz bohatera jest opcjonalny. Jeśli go podasz, musi mierzyć 815 x 290 pikseli.
+Wszystkie trzy logo są wymagane i są używane w różnych miejscach na liście.
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 
-Dodaj zrzuty ekranu, które pokazują, jak działa Twoja oferta. Możesz dodać maksymalnie pięć zrzutów ekranu. Wszystkie zrzuty ekranu muszą mieć rozmiary 1280 x 720 pikseli.
+Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja oferta. Każdy zrzut ekranu musi mieć 1280 x 720 pikseli w rozmiarze i formacie PNG. Każdy zrzut ekranu musi zawierać podpis.
 
 #### <a name="videos"></a>Filmy wideo
 
-Opcjonalnie możesz dodać maksymalnie pięć filmów, które zademonstrują Twoją ofertę. Te filmy powinny być hostowane na YouTube i / lub Vimeo. Dla każdego z nich wprowadź nazwę filmu, jego adres URL i miniaturę filmu (1280 x 720 pikseli).
+Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Powinny one być hostowane w zewnętrznej usłudze wideo. Wprowadź nazwę, adres sieci Web i obraz miniatury PNG wideo o godzinie 1280 x 720 pikseli.
 
-#### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące aukcji w portalu marketplace
+#### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 
-- [Najważniejsze wskazówki dotyczące ofert w marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Najlepsze rozwiązania dotyczące aukcji z ofertą Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-## <a name="preview"></a>Wersja zapoznawcza
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Karta **Podgląd** umożliwia zdefiniowanie ograniczonej **grupy odbiorców w wersji zapoznawczej** w celu zweryfikowania oferty przed opublikowaniem oferty na żywo szerszej grupy odbiorców w marketplace.
+## <a name="preview-audience"></a>Podgląd odbiorców
+
+Na karcie Podgląd Wybierz ograniczony **odbiorcę w wersji zapoznawczej** , aby sprawdzić poprawność oferty przed opublikowaniem jej na żywo w szerszej grupie odbiorców w portalu Marketplace.
 
 > [!IMPORTANT]
-> Musisz wybrać **Opcję Przejdź na żywo,** zanim twoja oferta zostanie opublikowana na żywo w publicznej publiczności marketplace po sprawdzeniu oferty w wersji zapoznawczej.
+> Po sprawdzeniu oferty w wersji zapoznawczej wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę do komercyjnych odbiorców w portalu Marketplace.
 
-Grupa odbiorców w wersji zapoznawczej jest identyfikowana za pomocą identyfikatorów GUID subskrypcji platformy Azure w połączeniu z opcjonalnym opisem dla każdego z nich.  Żadne z tych pól nie są widoczne dla klientów.
+Odbiorca w wersji zapoznawczej jest identyfikowany przez identyfikatory GUID subskrypcji platformy Azure, a także opcjonalny opis dla każdej z nich. Żadne z tych pól nie może być widoczne dla klientów. Identyfikator subskrypcji platformy Azure można znaleźć na stronie **subskrypcje** w Azure Portal.
 
-Dodaj maksymalnie 10 identyfikatorów subskrypcji platformy Azure ręcznie lub do 100 w przypadku przekazywania pliku CSV.  Dodając te subskrypcje, definiujesz grupę odbiorców, która będzie mogła uzyskać dostęp w wersji zapoznawczej do oferty, zanim zostanie w pełni opublikowana.  Jeśli twoja oferta jest już dostępna, możesz zdefiniować grupę odbiorców w wersji zapoznawczej, aby przetestować wszelkie zmiany lub aktualizacje oferty.
+Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure — pojedynczo (do 10) lub przekazując plik CSV (do 100). Dodając te identyfikatory subskrypcji, można zdefiniować, kto może wyświetlać podgląd oferty przed opublikowaniem jej na żywo. Jeśli Twoja oferta jest już aktywna, możesz nadal zdefiniować odbiorcę w wersji zapoznawczej w celu przetestowania zmian lub aktualizacji oferty.
+
+> [!NOTE]
+> Odbiorca w wersji zapoznawczej różni się od odbiorców prywatnych. Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo na rynku. Mogą oni wyświetlać i sprawdzać wszystkie plany, w tym te, które będą dostępne tylko dla odbiorców prywatnych po opublikowaniu oferty w portalu Marketplace. Prywatni odbiorcy (zdefiniowani na karcie **ceny i dostępność** ) mają wyłączny dostęp do konkretnego planu.
+
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
+## <a name="technical-configuration"></a>Konfiguracja techniczna
+
+Wypełnij tę sekcję tylko wtedy, gdy oferta obejmuje zarządzaną aplikację, która będzie emitować zdarzenia pomiaru przy użyciu interfejsu API usługi pomiaru Marketplace. Wprowadź **Identyfikator dzierżawy Azure Active Directory** i **Identyfikator aplikacji Azure Active Directory** , która będzie używana przez usługę podczas emitowania zdarzeń pomiaru.
+
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
+
+## <a name="technical-configuration-offer-level"></a>Konfiguracja techniczna (poziom oferty)
 
 >[!Note]
->Grupa odbiorców podglądu różni się od grupy prywatnej. Grupa odbiorców w wersji zapoznawczej ma dostęp do twojej oferty *przed* opublikowaniem na żywo na rynku. Możesz też utworzyć plan i udostępnić go tylko odbiorcom prywatnym (na karcie Dostępność planu).  Odbiorcy wersji zapoznawczej będą mogli zobaczyć i zweryfikować wszystkie plany, w tym plany, które będą dostępne tylko dla odbiorców prywatnych po pełnym opublikowaniu oferty na rynku.
+>Szczegóły techniczne na poziomie oferty są opcjonalne.  Te szczegóły trzeba skonfigurować tylko w przypadku publikowania aplikacji zarządzanej przy użyciu zliczania taryfowego i posiadania usługi, która będzie uwierzytelniana za pomocą tokenu zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, zobacz [strategie uwierzytelniania](./marketplace-metering-service-authentication.md) w różnych opcjach uwierzytelniania.
 
-## <a name="plan-overview"></a>Omówienie planu
+Konfiguracja techniczna definiuje szczegóły (identyfikator dzierżawy i identyfikator aplikacji) używane do identyfikacji usługi, która będzie emitować zdarzenia pomiaru dla aplikacji zarządzanej przy użyciu [interfejsów API usługi pomiaru Marketplace](./marketplace-metering-service-apis.md).  Wprowadź tożsamość, która będzie używana przez usługę podczas emitowania zdarzeń pomiarowych.
 
-Karta **Przegląd planu** umożliwia udostępnienie różnych opcji planu w ramach tej samej oferty. Te plany (nazywane jednostkami SKU w portalu cloud partnerów) mogą się różnić pod względem typu planu (szablon rozwiązania a aplikacja zarządzana), zarabiania lub odbiorców.  Skonfiguruj co najmniej jeden plan, aby wyświetlić ofertę w portalu Marketplace.
+* **Identyfikator dzierżawy usługi Azure AD** (wymagany): wewnątrz Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+* **Identyfikator aplikacji usługi Azure AD** (wymagane): wymagany jest również [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i klucz uwierzytelniania. Aby uzyskać te wartości, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze**. Należy podać opis i czas trwania, a następnie podać wartość liczbową.
 
-Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (publiczne lub prywatne), bieżący stan publikowania i wszystkie dostępne akcje na tej karcie.
+>[!Note]
+>Identyfikator aplikacji platformy Azure zostanie skojarzony z IDENTYFIKATORem wydawcy i może być ponownie używany w ramach tego konta wydawcy.
 
-**Działania** dostępne w **przeglądzie planu** różnią się w zależności od aktualnego stanu planu i mogą obejmować:
+>[!Note]
+>Ta konfiguracja jest wymagana, jeśli chcesz użyć [zdarzenia użycia](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event)w usłudze Batch.  Jeśli chcesz przesłać [zdarzenie użycia](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event), możesz również użyć [usługi metadanych wystąpienia](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) , aby uzyskać [token okaziciela sieci Web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app).
 
-* Jeśli stan planu to **Wersja robocza** — usuwanie wersji roboczej.
-* Jeśli stan planu to **Live** – Stop sell plan lub Sync private audience.
+## <a name="plan-overview"></a>Przegląd planu
 
-### <a name="create-new-plan"></a>Tworzenie nowego planu
+Na tej karcie można podać różne opcje planu w ramach tej samej oferty. Plany te (określane jako jednostki SKU w portal Cloud Partner) mogą różnić się w zależności od typu planu (szablonu rozwiązania a aplikacji zarządzanej), zysków lub odbiorców.  Skonfiguruj co najmniej jeden plan w celu wyświetlenia oferty w portalu Marketplace.
 
-***Identyfikator planu*** — utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, kresek lub podkreśleń. Dla tego identyfikatora planu dozwolony jest maksymalnie 50 znaków. Ten identyfikator nie może być modyfikowany po wybraniu create.
+Po utworzeniu zobaczysz nazwy planu, identyfikatory, typ planu, dostępność (Public lub private), bieżący stan publikowania i wszystkie dostępne akcje na tej karcie.
 
-***Nazwa planu*** — klienci zobaczą tę nazwę przy podejmowaniu decyzji, który plan wybrać w ramach oferty. Utwórz unikatową nazwę oferty dla każdego planu w tej ofercie. Nazwa planu służy do rozróżniania planów oprogramowania, które mogą być częścią tej samej oferty (np. Nazwa oferty: Windows Server; plany: Windows Server 2016, Windows Server 2019).
+**Akcje** dostępne w **przeglądzie planu** różnią się w zależności od bieżącego stanu planu i mogą obejmować:
 
-### <a name="plan-setup"></a>Konfiguracja planu
+* Jeśli plan ma stan **wersja robocza** — Usuń wersję roboczą.
+* Jeśli plan ma stan **Live** — Zatrzymaj sprzedawanie lub zsynchronizuj prywatnych odbiorców.
 
-Karta **Ustawienia planu** umożliwia ustawienie konfiguracji wysokiego poziomu dla typu planu, czy ponownie wykorzystuje pakiety z innego planu i jakie chmury plan powinien być dostępny.  Odpowiedzi na tej karcie będą miały wpływ na pola wyświetlane na innych kartach dla tego samego planu.
+### <a name="create-new-plan"></a>Utwórz nowy plan
+
+***Identyfikator planu*** — Utwórz unikatowy identyfikator planu dla każdego planu w tej ofercie. Ten identyfikator będzie widoczny dla klientów w adresie URL produktu.  Używaj tylko małych liter, znaków alfanumerycznych, łączników lub podkreśleń. Dla tego identyfikatora planu można używać maksymalnie 50 znaków. Tego identyfikatora nie można zmienić po wybraniu pozycji Utwórz.
+
+***Nazwa planu*** — klienci będą widzieli tę nazwę podczas wybierania planu do wyboru w ramach oferty. Utwórz unikatową nazwę oferty dla każdego planu w tej ofercie. Nazwa planu służy do rozróżniania planów oprogramowania, które mogą być częścią tej samej oferty (na przykład nazwa oferty: system Windows Server; plany: Windows Server 2016, Windows Server 2019).
+
+### <a name="plan-setup"></a>Konfigurowanie planu
+
+Na tej karcie można ustawić konfigurację wysokiego poziomu dla typu planu, bez względu na to, czy będzie ona używać pakietów z innego planu, a także jakie chmure ma być dostępny w programie. Odpowiedzi na tej karcie wpłyną na to, które pola są wyświetlane na innych kartach dla tego samego planu.
 
 #### <a name="plan-type"></a>Typ planu
+Wybierz typ planu dla oferty. Plan **szablonu rozwiązania** jest zarządzany całkowicie przez klienta. Plan **aplikacji zarządzanej** umożliwia wydawcom zarządzanie aplikacją w imieniu klienta. Aby uzyskać szczegółowe informacje, zobacz [typy planów aplikacji platformy Azure](#types-of-azure-application-plans).
 
-Jak opisano w [typach planów aplikacji platformy Azure,](#types-of-azure-application-plans)wybierz, czy twój plan będzie zawierał szablon rozwiązania, czy aplikację zarządzaną.
+#### <a name="re-use-technical-configuration"></a>Ponowne używanie konfiguracji technicznej
 
-#### <a name="this-plan-reuses-packages"></a>Ten plan ponownie wykorzystuje pakiety
-
-Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie wykorzystuje pakiety z innego planu**.  Po wybraniu tej opcji będzie można wybrać jeden z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów. 
-
->[!Note]
->Po ponownym użyciu pakietów z innego planu, cała karta konfiguracji technicznej zniknie z tego planu.  Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje, które zostaną zainstalowane w przyszłości, będą również używane dla tego planu. <br> <br> Ponadto nie można zmienić tego ustawienia po opublikowaniu tego planu.
-
-#### <a name="cloud-availability"></a>Dostępność chmury
-
-Ten plan musi być dostępny w co najmniej jednej chmurze. 
-
-Wybierz opcję **Platformy Public Azure,** aby twoje rozwiązanie można wdrożyć dla klientów we wszystkich publicznych regionach platformy Azure, które mają integrację z marketplace.  Dowiedz się więcej o [dostępności geograficznej](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
-
-Wybierz opcję **Azure Government Cloud,** aby twoje rozwiązanie było możliwe do wdrożenia w [usłudze Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)— chmurze dla instytucji rządowych z kontrolowanym dostępem dla klientów z usług federalnych, stanowych, lokalnych lub plemiennych stanów USA oraz partnerów uprawnionych do obsługi tych jednostek.  Użytkownik, jako wydawca, jest odpowiedzialny za wszelkie mechanizmy kontroli zgodności, środki zabezpieczeń i najlepsze rozwiązania służące tej społeczności w chmurze.  Platforma Azure Government używa fizycznie odizolowanych centrów danych i sieci (zlokalizowanych tylko w Stanach Zjednoczonych).  Przed opublikowaniem na [platformie Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)firma Microsoft zaleca przetestowanie i sprawdzenie poprawności rozwiązania w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby zaaslić i przetestować rozwiązanie, poproś o konto próbne z tego [linku](https://azure.microsoft.com/global-infrastructure/government/request/).
+Jeśli masz więcej niż jeden plan tego samego typu, a pakiety są identyczne między nimi, możesz wybrać **ten plan ponownie używa pakietów z innego planu**.  Po wybraniu tej opcji będziesz mieć możliwość wybrania jednego z innych planów tego samego typu dla tej oferty, aby ponownie użyć pakietów z programu. 
 
 >[!Note]
->Po opublikowaniu planu jako dostępnego w określonej chmurze nie można usunąć tej chmury.
+>Po ponownym użyciu pakietów z innego planu cała karta konfiguracja techniczna zostanie usunięta z tego planu. Szczegóły konfiguracji technicznej z innego planu, w tym wszelkie aktualizacje wprowadzone w przyszłości, zostaną użyte również dla tego planu.<br><br>Tego ustawienia nie można zmienić po opublikowaniu tego planu.
 
-**Certyfikaty azure dla instytucji rządowych w chmurze**
+#### <a name="azure-regions-cloud"></a>Regiony platformy Azure (chmura)
 
-Ta opcja jest widoczna tylko wtedy, gdy w obszarze **Dostępność chmury wybrano**usługę **Azure Government Cloud** .
+Plan musi być dostępny w co najmniej jednym regionie świadczenia usługi Azure.
 
-Usługi azure dla instytucji rządowych obsługują dane podlegające określonym przepisom i wymaganiom rządowym, takim jak FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 i CJIS.  Aby zwiększyć świadomość certyfikatów dla tych programów, możesz podać maksymalnie 100 linków opisujących certyfikaty.  Linki te mogą być albo linki do aukcji w programie bezpośrednio, lub linki do opisów zgodności z nimi na własnych stronach internetowych.  Te łącza będą widoczne tylko dla klientów usługi Azure Government Cloud.
+Wybierz opcję **globalną platformy Azure** , aby udostępnić plan klientom we wszystkich regionach globalnych platformy Azure, które mają komercyjną integrację z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-## <a name="plan-listing"></a>Lista planu
+Wybierz opcję **Azure Government** , aby udostępnić plan w regionie [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) . Ten region zapewnia klientom kontrolowany dostęp do jednostek federalnych, stanowych, lokalnych i plemienne, a także partnerów uprawnionych do ich świadczenia. Ponieważ Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych).
 
-Na karcie **Lista planów** są wyświetlane informacje o aukcji specyficzne dla planu, które mogą się różnić między różnymi planami dla tej samej oferty.
+Przed opublikowaniem w celu [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)Przetestuj i zweryfikuj swój plan w środowisku, ponieważ niektóre punkty końcowe mogą się różnić. Aby skonfigurować i przetestować plan, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
-### <a name="name"></a>Nazwa
+>[!NOTE]
+>Po opublikowaniu planu i udostępnieniu go w określonym regionie świadczenia usługi Azure nie można usunąć tego regionu.
 
-Wstępnie wypełnione na podstawie nazwy przypisanej planu podczas jego tworzenia.  Ta nazwa pojawi się jako tytuł tego "planu oprogramowania" wyświetlanego na rynku.  Może zawierać maksymalnie 100 znaków.
+#### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-### <a name="summary"></a>Podsumowanie
+Ta opcja jest widoczna tylko w przypadku wybrania **Azure Government**.
 
-Podaj krótkie podsumowanie planu oprogramowania.  Może zawierać maksymalnie 100 znaków.
+Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków, które je opisują. Mogą to być albo linki do swojej aukcji bezpośrednio w programie, jak i linki do opisów zgodności z ich własnymi witrynami sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
-### <a name="description"></a>Opis
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Ten opis jest okazją do wyjaśnienia, co sprawia, że ten plan oprogramowania jest wyjątkowy i jakie są różnice w stosunku do innych planów oprogramowania w ramach oferty. Może zawierać do 2000 znaków.
+### <a name="plan-listing"></a>Zaplanuj listę
 
-Wybierz **pozycję Zapisz** po wypełnieniu tych pól.
+Jest to miejsce, w którym można skonfigurować szczegóły listy dla planu. Na tej karcie są wyświetlane określone informacje, które mogą się różnić w zależności od planów w ramach tej samej oferty.
 
-## <a name="availability"></a>Dostępność
+#### <a name="plan-name"></a>Nazwa planu
 
-Karta **Dostępność** jest widoczna tylko dla planów szablonów rozwiązania.  Plan można uwidocznić dla wszystkich, tylko dla określonych klientów (grupy odbiorców prywatnych) i czy plan ma być ukryty tylko przez inny szablon rozwiązania lub aplikacje zarządzane.
+Jest to wstępnie wypełnione nazwą, która została nadana przez Ciebie podczas jego tworzenia. Ta nazwa jest wyświetlana w portalu Marketplace jako tytuł tego planu i jest ograniczona do 100 znaków.
 
-### <a name="plan-audience"></a>Zaplanuj grupę odbiorców
+#### <a name="plan-summary"></a>Podsumowanie planu
 
-Możesz skonfigurować każdy plan tak, aby był widoczny dla wszystkich lub dla wybranych przez Ciebie odbiorców. Członkostwo w tej ograniczonej grupy odbiorców można przypisać przy użyciu identyfikatorów subskrypcji platformy Azure.
+Podaj krótkie podsumowanie planu (nie oferty). To podsumowanie jest ograniczone do 100 znaków.
 
-**Prywatność / To jest prywatny plan** (opcjonalne pole wyboru) - Zaznacz to pole wyboru, aby twój plan był prywatny i widoczny tylko dla wybranych odbiorców. Po opublikowaniu planu prywatnego możesz zaktualizować odbiorców lub udostępnić plan wszystkim. Gdy plan zostanie opublikowany jako widoczny dla wszystkich, musi pozostać widoczny dla wszystkich. (Planu nie można ponownie skonfigurować jako planu prywatnego).
+#### <a name="plan-description"></a>Opis planu
 
-**Ograniczona liczba odbiorców (identyfikatory subskrypcji platformy Azure)** — przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego. Program Access jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją do uwzględnienia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. W przypadku importowania pliku arkusza kalkulacyjnego csv można dodać maksymalnie 10 identyfikatorów subskrypcji lub 20 000 identyfikatorów subskrypcji.  Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a litery muszą być małe litery.
+Opisz, co sprawia, że ten plan oprogramowania jest unikatowy, a także różnice między planami w ramach oferty. Nie opisz oferty, tylko plan. Opis planu może zawierać maksymalnie 2 000 znaków.
 
->[!Note]
->Grupa odbiorców prywatnych (lub grupa odbiorców z ograniczeniami) różni się od grupy odbiorców w wersji zapoznawczej zdefiniowanej na karcie [**Podgląd.**](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#preview)  Grupa odbiorców w wersji zapoznawczej ma dostęp do twojej oferty *przed* opublikowaniem oferty na żywo na rynku. Podczas gdy oznaczenie odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlać wszystkie plany (prywatne lub nie) do celów weryfikacji.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-### <a name="hide-plan"></a>Ukryj plan
+### <a name="availability-solution-template-plans-only"></a>Dostępność (tylko plany szablonów rozwiązań)
 
-Jeśli szablon rozwiązania jest przeznaczony do wdrożenia tylko pośrednio, gdy odwołuje się do innego szablonu rozwiązania lub aplikacji zarządzanej, zaznacz to pole, aby opublikować szablon rozwiązania, ale ukryć go przed klientami wyszukującymi i przeglądającymi go bezpośrednio.
+Można sprawić, aby plan był widoczny dla wszystkich, tylko dla określonych klientów (odbiorców prywatnych) i zdecydować, czy plan ma być ukryty do użytku przez inny szablon rozwiązania, czy tylko aplikacje zarządzane.
 
-## <a name="pricing-and-availability"></a>Cennik i dostępność
+#### <a name="plan-visibility"></a>Widoczność planu
 
-Karta **Ceny i dostępność** jest widoczna tylko dla zarządzanych planów aplikacji.  Można skonfigurować rynki, na których ten plan będzie dostępny, cenę za miesiąc zarządzania rozwiązaniem oraz to, czy plan będzie widoczny dla wszystkich, czy tylko dla konkretnych klientów (prywatna grupa odbiorców).
+Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów subskrypcji platformy Azure.
 
-### <a name="markets"></a>Rynków
+Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostać widoczny dla wszystkich; nie można jej ponownie skonfigurować jako planu prywatnego.
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla dowolnej lokalizacji rynku, w której chcesz udostępnić ten plan. Pole wyszukiwania i przycisk wyboru krajów "Umorzenie podatków", w których firma Microsoft przekazuje podatek od sprzedaży i korzystać z niego w twoim imieniu, są dołączone do pomocy.
-
-Jeśli masz już ustawione ceny planu w dolarach amerykańskich (USD) i dodasz inną lokalizację rynkową, cena nowego rynku zostanie obliczona zgodnie z aktualnymi kursami wymiany. Zawsze sprawdzaj cenę dla każdego rynku przed opublikowaniem. Ceny można przeglądać za pomocą linku "Ceny eksportowe (xlsx)" po zapisaniu zmian.
-
-### <a name="pricing"></a>Cennik
-
-Podaj cenę miesięczną dla tego planu.  Ta cena jest dodatkiem do dowolnej infrastruktury platformy Azure lub kosztów oprogramowania zgodnie z rzeczywistym użyciem poniesionych przez zasoby wdrożone przez to rozwiązanie.
-
-Ceny ustalone w USD (USD = Dolar amerykański) są przeliczane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany po zapisaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny cen i przeglądając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na poszczególnych rynkach, zmodyfikuj i zaimportuj arkusz kalkulacyjny cen. 
+W przypadku wybrania zakładu prywatnego należy wprowadzić **identyfikatory subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
 
 >[!Note]
->Aby włączyć eksport danych cenowych, należy najpierw zapisać zmiany cen.
+>Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w portalu Marketplace. Gdy wybór odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany (prywatne lub nie) do celów weryfikacji.
 
-Przejrzyj uważnie ceny przed opublikowaniem, ponieważ istnieją pewne ograniczenia dotyczące tego, co może się zmienić po opublikowaniu planu.  
+#### <a name="hide-plan"></a>Ukryj plan
 
->[!Note]
->Po opublikowaniu ceny na rynku w planie nie można jej później zmienić.
+Jeśli szablon rozwiązania jest przeznaczony do wdrożenia tylko pośrednio, gdy istnieje odwołanie do innego szablonu rozwiązania lub aplikacji zarządzanej, zaznacz to pole wyboru, aby opublikować szablon rozwiązania, ale ukryć go od klientów wyszukiwania bezpośrednio i przeglądania.
 
-### <a name="plan-audience"></a>Zaplanuj grupę odbiorców
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Możesz skonfigurować każdy plan tak, aby był widoczny dla wszystkich lub dla wybranych przez Ciebie odbiorców. Członkostwo w tej ograniczonej grupy odbiorców można przypisać przy użyciu identyfikatorów subskrypcji platformy Azure.
+### <a name="pricing-and-availability-managed-application-plans-only"></a>Cennik i dostępność (tylko zarządzane plany aplikacji)
 
-**Prywatność / To jest prywatny plan** (opcjonalne pole wyboru) - Zaznacz to pole wyboru, aby twój plan był prywatny i widoczny tylko dla wybranych odbiorców. Po opublikowaniu planu prywatnego możesz zaktualizować odbiorców lub udostępnić plan wszystkim. Gdy plan zostanie opublikowany jako widoczny dla wszystkich, musi pozostać widoczny dla wszystkich. (Planu nie można ponownie skonfigurować jako planu prywatnego).
+Służy do konfigurowania **rynków** , w których ten plan będzie dostępny w programie, **cen** za miesiąc zarządzania rozwiązaniem oraz **widoczności planu** , jeśli tylko określeni klienci powinni go zobaczyć (prywatni odbiorcy).
 
-**Ograniczona liczba odbiorców (identyfikatory subskrypcji platformy Azure)** — przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego. Program Access jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją do uwzględnienia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. W przypadku importowania pliku arkusza kalkulacyjnego csv można dodać maksymalnie 10 identyfikatorów subskrypcji lub 20 000 identyfikatorów subskrypcji.  Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a litery muszą być małe litery.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
->[!Note]
->Grupa odbiorców prywatnych (lub grupa odbiorców z ograniczeniami) różni się od grupy odbiorców w wersji zapoznawczej zdefiniowanej na karcie [**Podgląd.**](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#preview)  Grupa odbiorców w wersji zapoznawczej ma dostęp do twojej oferty *przed* opublikowaniem oferty na żywo na rynku. Podczas gdy oznaczenie odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlać wszystkie plany (prywatne lub nie) do celów weryfikacji.
+#### <a name="markets"></a>Wprowadza
 
-## <a name="technical-configuration"></a>Konfiguracja techniczna 
+Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Pole wyszukiwania i przycisk służący do wybierania krajów "z przekazaniem podatku", w których firma Microsoft dokonuje zakupu sprzedaży i używania podatków w Twoim imieniu, są dołączane do pomocy.
 
-Karta **konfiguracji technicznej** umożliwia przekazanie pakietu wdrażania, który umożliwi klientom wdrożenie planu.
+Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Zawsze sprawdzaj ceny poszczególnych rynków przed opublikowaniem. Cennik można przejrzeć przy użyciu linku "Eksport cen (xlsx)" po zapisaniu zmian.
 
->[!Note]
->Ta karta nie będzie widoczna, jeśli skonfigurowano ten plan do ponownego użycia pakietów z innego planu na karcie **Ustawienia planu.**
+#### <a name="pricing"></a>Cennik
 
-### <a name="package-details"></a>Szczegóły pakietu
+Podaj cenę za miesiąc dla tego planu.  Ta cena jest uzupełnieniem usługi Azure Infrastructure lub kosztów związanych z płatność zgodnie z rzeczywistym użyciem w przypadku zasobów wdrożonych w ramach tego rozwiązania.
 
-Podasada **Szczegóły pakietu** umożliwia edycję wersji roboczej konfiguracji technicznej.
+Oprócz ceny za miesiąc można także ustawić ceny za użycie jednostek niestandardowych przy użyciu [rozliczeń naliczanych](./azure-app-metered-billing.md).  Cena za miesiąc można ustawić na zero, a opłaty za korzystanie wyłącznie z naliczanych opłat. 
 
-***Wersja*** — przypisz bieżącą wersję konfiguracji technicznej.  Przyrost tej wersji za każdym razem, gdy publikujesz zmianę na tej stronie. Wersja musi być `{integer}.{integer}.{integer}`w formacie .
-
-***Plik*** pakietu`.zip`( ) - Ten pakiet zawiera wszystkie pliki szablonów potrzebne do tego `.zip` planu, a także wszelkie dodatkowe zasoby, spakowane jako plik.
-
-Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać `.zip` te dwa pliki w folderze głównym archiwum:
-
-* Plik szablonu Menedżera zasobów o nazwie [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Ten szablon automatyzuje wdrażanie zasobów do subskrypcji platformy Azure klientów.  Przykłady szablonów Usługi Resource Manager można znaleźć w [galerii Szablonów szybki start platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiednim usłudze GitHub: Repozytorium [szablonów szybkiego startu usługi Azure Resource Manager.](https://github.com/azure/azure-quickstart-templates)
-
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
-
-Maksymalne obsługiwane rozmiary plików to:
-
-* Do 1 Gb w `.zip` łącznej skompresowanej wielkości archiwum
-
-* Do 1 Gb dla każdego nieskompresowanego pliku w archiwum `.zip`  
-
-Wszystkie nowe oferty aplikacji platformy Azure muszą również zawierać identyfikator GUID [atrybucji klienta partnera platformy Azure.](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution)
+Ceny ustawione w USD (USD = Stany Zjednoczone dolara) są konwertowane na walutę lokalną wszystkich wybranych rynków przy użyciu bieżących kursów wymiany przy zapisywaniu. Sprawdź te ceny przed opublikowaniem, eksportując arkusz kalkulacyjny z cennikiem i sprawdzając cenę na każdym rynku. Jeśli chcesz ustawić ceny niestandardowe na indywidualnym rynku, zmodyfikuj i zaimportuj arkusz cen. 
 
 >[!Note]
->Jeśli masz problem z przekazywaniem plików, upewnij się, https://upload.xboxlive.com że sieć lokalna nie blokuje usługi używanej przez Centrum partnerów.
+>Najpierw musisz zapisać zmiany cen, aby włączyć eksportowanie danych cen.
 
-### <a name="previously-published-packages"></a>Wcześniej opublikowane pakiety 
-
-Podasada **Wcześniej opublikowane pakiety** umożliwia wyświetlanie wszystkich opublikowanych wersji konfiguracji technicznej.
-
-## <a name="technical-configuration-managed-application-plans-only"></a>Konfiguracja techniczna (tylko plany aplikacji zarządzanych)
-
-Plany aplikacji zarządzanych mają dodatkową złożoność na karcie **Konfiguracja techniczna** poza opisanymi powyżej polami pliku **Wersja** i **Pakiet.** 
-
-### <a name="enable-just-in-time-jit-access"></a>Włącz dostęp just-in-time (JIT)
-
-Wybierz tę opcję, aby włączyć dostęp just-in-time (JIT) dla tego planu.  Dostęp JIT umożliwia żądanie podwyższonego dostępu do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.  Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just-in-time dla aplikacji zarządzanych platformy Azure](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  Aby wymagać, aby konsumenci aplikacji zarządzanej udzielili stałego dostępu do konta, pozostaw tę opcję niezaznaczoną.
+Uważnie Przejrzyj ceny przed opublikowaniem, ponieważ istnieją pewne ograniczenia dotyczące tego, co można zmienić po opublikowaniu planu.  
 
 >[!Note]
->Pamiętaj, aby `createUiDefinition.json` zaktualizować plik, aby obsługiwać tę funkcję.  
+>Po opublikowaniu ceny na rynku planu nie można jej później zmienić.
 
-### <a name="deployment-mode"></a>Tryb wdrażania
+#### <a name="plan-visibility"></a>Widoczność planu
 
-Wybierz, czy podczas wdrażania tego planu należy skonfigurować tryb wdrażania **complete,** **czy przyrostowy:** 
+Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów subskrypcji platformy Azure.
 
-* W **trybie kompletnym**ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli `mainTemplate.json`zasoby nie zostaną zdefiniowane w pliku . 
+Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostać widoczny dla wszystkich; nie można jej ponownie skonfigurować jako planu prywatnego.
+
+W przypadku wybrania zakładu prywatnego należy wprowadzić **identyfikatory subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
+
+>[!Note]
+>Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w portalu Marketplace. Gdy wybór odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany (prywatne lub nie) do celów weryfikacji.
+
+### <a name="technical-configuration"></a>Konfiguracja techniczna 
+
+Na tej karcie można przekazać pakiet wdrożeniowy, który umożliwi klientom wdrożenie planu.
+
+>[!Note]
+>Ta karta nie będzie widoczna, jeśli ten plan został skonfigurowany tak, aby ponownie używał pakietów z innego planu na karcie **Konfiguracja planu** .
+
+#### <a name="package-details"></a>Szczegóły pakietu
+
+Na tej karcie można edytować wersję roboczą konfiguracji technicznej.
+
+**Wersja** — Przypisz bieżącą wersję konfiguracji technicznej.  Zwiększ tę wersję przy każdej publikacji zmiany na tej stronie. Wersja musi mieć format `{integer}.{integer}.{integer}`.
+
+**Plik pakietu** (zip) — ten pakiet zawiera wszystkie pliki szablonów potrzebne dla tego planu, a także dodatkowe zasoby, spakowane jako `.zip` plik.
+
+Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać te dwa pliki w folderze głównym `.zip` archiwum:
+
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Ten szablon automatyzuje wdrażanie zasobów w subskrypcji platformy Azure dla klientów.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition. JSON](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+
+Maksymalne obsługiwane rozmiary plików:
+
+* Do 1 GB w łącznym rozmiarze `.zip` skompresowanego Archiwum
+* Do 1 GB dla dowolnego nieskompresowanego pliku w `.zip` Archiwum  
+
+Wszystkie nowe oferty aplikacji platformy Azure muszą również obejmować identyfikator GUID [przypisywania użycia klienta przez partnera platformy Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) .
+
+>[!Note]
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
+
+Plany aplikacji zarządzanych wymagają dodatkowych informacji na tej karcie.
+
+#### <a name="previously-published-packages"></a>Poprzednio opublikowane pakiety
+
+Podkarta **poprzednio opublikowanych pakietów** umożliwia wyświetlenie wszystkich opublikowanych wersji konfiguracji technicznej.
+
+#### <a name="enable-just-in-time-jit-access"></a>Włącz dostęp just-in-Time (JIT)
+
+Wybierz tę opcję, aby włączyć dostęp just-in-Time (JIT) dla tego planu.  Dostęp JIT umożliwia żądanie dostępu z podwyższonym poziomem uprawnień do zasobów aplikacji zarządzanej w celu rozwiązywania problemów lub konserwacji. Zawsze masz dostęp tylko do odczytu do zasobów, ale przez określony okres możesz mieć większy dostęp.  Aby uzyskać więcej informacji, zobacz [Włączanie i żądanie dostępu just in Time do Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  Aby wymagać, aby klienci aplikacji zarządzanej mogli udzielić stałego dostępu do konta, pozostaw tę opcję niezaznaczone.
+
+>[!Note]
+>Pamiętaj, aby zaktualizować `createUiDefinition.json` plik w celu obsługi tej funkcji.  
+
+#### <a name="deployment-mode"></a>Tryb wdrożenia
+
+Wybierz, czy podczas wdrażania tego planu ma zostać skonfigurowany **pełny** , czy **przyrostowy tryb wdrażania** : 
+
+* W **trybie kompletnym**ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w `mainTemplate.json`. 
 * W **trybie przyrostowym**ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
 
-Aby dowiedzieć się więcej o trybach wdrażania, zobacz [Tryby wdrażania usługi Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
+Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
 
-### <a name="notification-endpoint-url"></a>Adres URL punktu końcowego powiadomień
+#### <a name="notification-endpoint-url"></a>Adres URL punktu końcowego powiadomienia
 
-Określ punkt końcowy elementu końcowego https webhook, aby otrzymywać powiadomienia o wszystkich operacjach CRUD w wystąpieniach aplikacji zarządzanych tej wersji planu.
+Określ punkt końcowy elementu webhook HTTPS, aby otrzymywać powiadomienia o wszystkich operacjach CRUD na wystąpieniach aplikacji zarządzanej tej wersji planu.
 
-### <a name="customize-allowed-customer-actions"></a>Dostosowywanie dozwolonych akcji klienta
+#### <a name="customize-allowed-customer-actions"></a>Dostosuj dozwolone akcje klienta
 
-Wybierz tę opcję, aby określić, które akcje, które`*/read`klienci mogą wykonywać na zarządzanych zasobach, oprócz akcji " ", które są domyślnie dostępne. 
+Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji "`*/read`", które są dostępne domyślnie. 
 
-Wymień dodatkowe akcje, które chcesz umożliwić klientowi wykonywanie tutaj, oddzielone średnikami.  Aby uzyskać więcej informacji, zobacz [Opis odmów przydziałów dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Aby uzyskać dostępne akcje, zobacz [Operacje dostawcy zasobów usługi Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Na przykład, aby umożliwić konsumentom ponowne `Microsoft.Compute/virtualMachines/restart/action` uruchomienie maszyn wirtualnych, dodaj do dozwolonych akcji.
+Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, `Microsoft.Compute/virtualMachines/restart/action` Dodaj do dozwolonych akcji.
 
-### <a name="global-azure--azure-government-cloud"></a>Globalna platforma Azure / chmura azure dla instytucji rządowych
+#### <a name="global-azure--azure-government-cloud"></a>Globalna Chmura platformy Azure/Azure Government
 
-Wskazać, kto powinien mieć dostęp do zarządzania do tej zarządzanej aplikacji w każdej obsługiwanej chmurze.  Użytkownicy, grupy lub aplikacje, którym chcesz uzyskać uprawnienia do zarządzanej grupy zasobów, są identyfikowane przy użyciu tożsamości usługi Azure Active Directory (AAD).
+Wskaż, kto powinien mieć dostęp do aplikacji zarządzanej w każdej obsługiwanej chmurze. Użytkownicy, grupy lub aplikacje, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów, są identyfikowane przy użyciu tożsamości usługi Azure Active Directory (AAD).
 
-***Identyfikator dzierżawy usługi Azure Active Directory*** — identyfikator dzierżawy usługi AAD (znany również jako identyfikator katalogu) zawierający tożsamości użytkowników, grup lub aplikacji, którym chcesz udzielić uprawnień.  Identyfikator dzierżawy usługi AAD można znaleźć w witrynie Azure portal w [aplikacji Properties for Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+**Azure Active Directory identyfikator dzierżawy** — identyfikator dzierżawy usługi AAD (znany również jako identyfikator katalogu) zawierający tożsamości użytkowników, grup lub aplikacji, do których chcesz udzielić uprawnień. Identyfikator dzierżawy usługi AAD można znaleźć na Azure Portal w obszarze [właściwości Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
-***Autoryzacje*** — dodaj identyfikator obiektu usługi Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz uzyskać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według ich identyfikatora głównego, który można znaleźć w [bloku użytkowników usługi Azure Active Directory w witrynie Azure portal.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
+**Autoryzacje** — Dodaj identyfikator obiektu Azure Active Directory użytkownika, grupy lub aplikacji, którym chcesz nadać uprawnienia do zarządzanej grupy zasobów. Zidentyfikuj użytkownika według identyfikatora podmiotu zabezpieczeń, który można znaleźć w [bloku Azure Active Directory użytkownicy na Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (Właściciel lub Współautor). Wybrana rola opisze uprawnienia podmiotu zabezpieczeń do zasobów w subskrypcji klienta. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Wprowadzenie do rbac w witrynie Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Dla każdego podmiotu zabezpieczeń wybierz jedną z wbudowanych ról usługi Azure AD z listy (właściciela lub współautora). Wybrana rola zostanie opisywana przez podmiot zabezpieczeń do zasobów w ramach subskrypcji klienta. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Aby uzyskać więcej informacji na temat kontroli dostępu opartej na rolach (RBAC), zobacz [Rozpoczynanie pracy z funkcją RBAC w Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
->Chociaż można dodać maksymalnie 100 autoryzacji na chmurę, zazwyczaj łatwiej jest utworzyć grupę użytkowników usługi Active Directory i określić jej identyfikator w "Identyfikatorze głównym".  Umożliwi to dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie konieczności aktualizowania planu tylko po to, aby dodać więcej autoryzacji.
+>Mimo że użytkownik może dodać do 100 autoryzacji na chmurę, łatwiej jest utworzyć Active Directory grupę użytkowników i określić jej identyfikator w "Identyfikator podmiotu zabezpieczeń". Pozwoli to na dodanie większej liczby użytkowników do grupy zarządzania po wdrożeniu planu i zmniejszenie potrzeb aktualizacji planu tylko w celu dodania większej liczby autoryzacji.
 
-### <a name="policy-settings"></a>Ustawienia zasad
+#### <a name="policy-settings"></a>Ustawienia zasad
 
-Zastosuj [zasady platformy Azure](https://docs.microsoft.com/azure/governance/policy/overview) do aplikacji zarządzanej, aby określić wymagania dotyczące zgodności wdrożonego rozwiązania.  Definicje zasad i format wartości parametrów podano w artykule [Przykłady dla usługi Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/index).  Można skonfigurować maksymalnie pięć zasad i tylko jedno wystąpienie każdej opcji Zasady.  Niektóre zasady wymagają dodatkowych parametrów.  Standardowa jednostka SKU jest wymagana dla zasad inspekcji.  Nazwa zasad jest ograniczona do 50 znaków.
+Zastosuj [Zasady platformy Azure](https://docs.microsoft.com/azure/governance/policy/overview) do aplikacji zarządzanej, aby określić wymagania dotyczące zgodności dla wdrożonego rozwiązania. Definicje zasad i format wartości parametrów podano w artykule [Przykłady dla usługi Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/index). Można skonfigurować maksymalnie pięć zasad i tylko jedno wystąpienie poszczególnych zasad. Niektóre zasady wymagają dodatkowych parametrów. Dla zasad inspekcji wymagana jest standardowa jednostka SKU. Nazwa zasad jest ograniczona do 50 znaków.
 
-## <a name="co-sell"></a>Wspólna sprzedaż
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Podanie informacji na karcie Cosell jest całkowicie opcjonalne do publikowania oferty. Jest to wymagane do osiągnięcia co-sell Ready i IP Co-sell Ready status. Podane informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej o rozwiązaniu podczas oceny jego dopasowania do potrzeb klienta. Nie jest dostępny bezpośrednio dla klientów.
+## <a name="co-sell-with-microsoft"></a>Wspólna sprzedaż z firmą Microsoft
 
-Aby uzyskać więcej informacji na temat uzupełniania tej karty, zobacz [Opcja współsprzedaj w Centrum partnerów](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell).
+Podanie informacji na karcie co do sprzedaży jest całkowicie opcjonalne w przypadku publikowania oferty. Jest to wymagane do osiągnięcia gotowej do rozsprzedażu i gotowego do zakupu stanu do współdziałania. Te informacje będą używane przez zespoły sprzedaży firmy Microsoft, aby dowiedzieć się więcej na temat rozwiązania podczas oceny jego dopasowania do potrzeb klientów. Nie jest on dostępny bezpośrednio dla klientów.
 
-## <a name="test-drive"></a>Jazda próbna
+Aby uzyskać szczegółowe informacje na ten temat, zobacz [sprzedawanie opcji w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell).
 
-Karta **Dysk testowy** umożliwia skonfigurowanie demonstracji (lub "jazdy testowej"), która umożliwi klientom wypróbowanie oferty przed jej zakupem. Dowiedz się więcej w artykule [Co to jest jazda testna?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)  Jeśli nie chcesz już dostarczać dysku testowego dla swojej oferty, wróć do strony **Ustawienia oferty** i wyjdź ze strony **Włącz jazdę próbną**.
+## <a name="resell-through-csps"></a>Odsprzedaż za poorednictwem dostawców CSP
 
-### <a name="technical-configuration"></a>Konfiguracja techniczna
+Rozszerz zasięg oferty, udostępniając ją partnerom w programie [dostawcy rozwiązań w chmurze](https://azure.microsoft.com/offers/ms-azr-0145p/) (CSP). Dzięki temu Odsprzedawcy mogą sprzedawać swoją ofertę klientom i tworzyć powiązane rozwiązania.
 
-Aplikacje platformy Azure z natury używają typu dysku testowego usługi Azure Resource Manager.  Aby uzyskać więcej informacji, [zobacz Konfiguracja techniczna dla dysku testowego usługi Azure Resource Manager.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer#technical-configuration-for-azure-resource-manager-test-drive)
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-### <a name="deployment-subscription-details"></a>Szczegóły subskrypcji wdrożenia
+## <a name="test-drive"></a>Wersja testowa
 
-Aby wdrożyć jazdę testową w Twoim imieniu, utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure. (Nie jest wymagane w przypadku dysków testowych usługi Power BI).
+Skonfiguruj demonstrację (Test Drive), która umożliwia klientom wypróbowanie oferty przed jej zakupem. Aby utworzyć środowisko demonstracyjne, które umożliwia klientom wypróbowanie oferty przez ustalony okres, zobacz temat [testowanie oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
-- **Identyfikator subskrypcji platformy Azure** (wymagany dla usługi Azure Resource Manager i aplikacje logiki): wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure w celu raportowania użycia zasobów i rozliczeń. Zaleca się, aby rozważyć [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) do użycia w przypadku jazdy testowych, jeśli nie masz jeszcze. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [witryny Azure portal](https://portal.azure.com/) i przechodząc do karty **Subskrypcje** menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np.
+Aby włączyć stację testową, zaznacz pole wyboru **Włącz dysk testowy** na karcie [Konfiguracja oferty](#test-drive) . Aby usunąć dysk testowy z oferty, wyczyść to pole wyboru.
 
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany): wprowadź identyfikator [dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [portalu Azure](https://portal.azure.com/), wybierz kartę Usługi Active Directory w menu po lewej stronie, wybierz **Właściwości, a następnie poszukaj numeru **identyfikatora katalogu** na liście (np. 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy organizacji przy użyciu [https://www.whatismytenantid.com](https://www.whatismytenantid.com)adresu URL nazwy domeny pod adresem: .
+### <a name="test-drive-technical-configuration"></a>Testuj konfigurację techniczną
 
-- **Nazwa dzierżawy usługi Azure AD** (wymagana dla usługi Dynamic 365): wprowadź nazwę usługi Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [witryny Azure portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona pod nazwą konta.
+- **Identyfikator aplikacji usługi Azure AD** (wymagane): wprowadź [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Identyfikator aplikacji usługi Azure AD** (wymagany): wprowadź identyfikator aplikacji usługi Azure Active Directory (AD). [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Aby znaleźć ten identyfikator, zaloguj się do [portalu Azure](https://portal.azure.com/), wybierz kartę Usługi Active Directory w menu po lewej stronie, wybierz **pozycję Rejestracje aplikacji**, a następnie poszukaj numeru **identyfikatora aplikacji** na liście (np. 50c464d3-4930-494c-963c-1e951d15360e).
+#### <a name="deployment-subscription-details"></a>Szczegóły subskrypcji wdrożenia
 
-- **Klucz tajny klienta aplikacji usługi Azure AD** (wymagany): wprowadź klucz tajny [klienta](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)aplikacji usługi Azure AD . Aby znaleźć tę wartość, zaloguj się do [witryny Azure portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **Rejestracje aplikacji**, a następnie wybierz aplikację dysku testowego. Następnie wybierz **pozycję Certyfikaty i wpisy tajne**, wybierz pozycję Nowy klucz tajny **klienta**, wprowadź opis, wybierz pozycję **Nigdy w** obszarze **Wygasa**, a następnie wybierz pozycję **Dodaj**. Pamiętaj, aby skopiować wartość. (Nie odchodź od strony przed skopiowaniem wartości, w przeciwnym razie nie będziesz mieć dostępu do tej wartości).
+Aby zezwolić na wdrożenie dysku testowego w Twoim imieniu, Utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure (niewymaganą dla Power BI dysków testowych).
 
-Pamiętaj, aby **zapisać** przed przejściem do następnej sekcji!
+* **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np. "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w [https://www.whatismytenantid.com](https://www.whatismytenantid.com):.
+* **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
+* **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure Active Directory klucz tajny klienta aplikacji** (wymagane) — wprowadź [klucz tajny klienta](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Pamiętaj o skopiowaniu wartości przed opuszczeniem tej strony.
 
-### <a name="test-drive-listings-optional"></a>Lista dysków testowych (opcjonalnie)
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
-Opcja **Aukcje na dysku testowym znajdująca** się na karcie **Dysk testowy** wyświetla języki (i rynki), w których jest dostępna jazda próbna, obecnie dostępna jest w języku angielskim (Stany Zjednoczone). Ponadto na tej stronie jest wyświetlany stan listy specyficznej dla języka oraz data/godzina dodania. Musisz zdefiniować szczegóły jazdy próbnej (opis, instrukcja obsługi, filmy itp.) dla każdego języka / rynku.
+### <a name="marketplace-listing-optional"></a>Lista Marketplace (opcjonalnie)
 
-- **Opis** (wymagane): Opisz jazdę próbną, co zostanie zademonstrowane, cele, z jakim użytkownik może eksperymentować, funkcje do zbadania i wszelkie istotne informacje, które pomogą użytkownikowi ustalić, czy chcesz uzyskać ofertę. W tym polu można wprowadzić maksymalnie 3000 znaków tekstu. 
+Opisz środowisko testowe.
 
-- **Informacje o dostępie** (wymagane dla usług Azure Resource Manager i logic dysków testowych): Wyjaśnij, co klient musi wiedzieć, aby uzyskać dostęp do tej dysku testowego i korzystać z niego. Zapoznaj się ze scenariuszem korzystania z oferty i dokładnie tym, co klient powinien wiedzieć, aby uzyskać dostęp do funkcji podczas jazdy próbnego. W tym polu można wprowadzić maksymalnie 10 000 znaków tekstu.
+<!-- The **Test Drive listings** option found under the **Test drive** tab displays the languages (and markets) where your test drive is available (currently English (United States) is the only location available). Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market. -->
 
-- **Instrukcja obsługi** (wymagana): szczegółowy przewodnik po doświadczeniu jazdy próbnej. Instrukcja obsługi powinna obejmować dokładnie to, co chcesz, aby klient uzyskał z powodu wystąpienia jazdy próbnej i służyć jako punkt odniesienia dla wszelkich pytań, które mogą mieć. Plik musi być w formacie PDF i być nazwany (maks. 255 znaków) po przesłaniu.
+* **Opis** (wymagany) — opisz swój dysk testowy, co zostanie udowodnione, czy chcesz, aby użytkownik mógł eksperymentować z programem, funkcje do eksplorowania i wszelkie istotne informacje, które ułatwią użytkownikowi określenie, czy uzyskać ofertę. W tym polu można wprowadzić do 3 000 znaków tekstu. 
+* **Informacje o dostępie** (wymagane dla Azure Resource Manager i logicznych dysków testowych) — Wyjaśnij, co musi znać klient, aby uzyskać dostęp do tego dysku testowego i korzystać z niego. Zapoznaj się z scenariuszem dotyczącym korzystania z oferty i dokładnie tego, co klient powinien znać, aby uzyskać dostęp do funkcji na całym dysku testowym. W tym polu można wprowadzić do 10 000 znaków tekstu.
+* **Podręcznik użytkownika** (wymagane) — szczegółowy przewodnik po środowisku testowym. Podręcznik użytkownika powinien obejmować dokładnie te informacje, które klient ma uzyskać, z dysku testowego i służy jako odwołanie do wszelkich pytań, które mogą mieć. Plik musi być w formacie PDF i mieć nazwę (maksymalnie 255 znaków) po przekazaniu.
+* **Wideo: Dodaj filmy** wideo (opcjonalnie) — wideo można przekazać do usługi YouTube lub Vimeo i przywoływane w tym miejscu za pomocą linku i miniatury (533 x 324 pikseli), aby klient mógł wyświetlić szczegółowe informacje ułatwiające lepsze zrozumienie dysku testowego, w tym sposób pomyślnego użycia funkcji oferty i zrozumienie scenariuszy, które wyróżnią korzyści.
+  * **Nazwa** (wymagana)
+  * **Adres** (tylko w serwisie YouTube lub Vimeo; wymagane)
+  * **Miniatura** (plik obrazu musi być w formacie PNG i 533 x 324 pikseli).
 
-- **Filmy: dodaj filmy** (opcjonalnie): filmy można przesyłać do YouTube lub Vimeo i odwoływać się tutaj za pomocą linku i obrazu miniatur (533 x 324 piksele), aby klient mógł wyświetlić informacje, które pomogą mu lepiej zrozumieć jazdę próbną, w tym jak skutecznie korzystać z funkcji oferty i zrozumieć scenariusze, które podkreślają ich zalety.
-  - **Nazwa** (wymagana)
-  - **Adres URL (tylko YouTube lub Vimeo)** (wymagany)
-  - **Miniatura (533 x 324 px):** Plik obrazu musi być w formacie PNG.
-
-Wybierz **pozycję Zapisz** po wypełnieniu tych pól.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="publish"></a>Publikowanie
 
-### <a name="submit-offer-to-preview"></a>Prześlij ofertę do wersji zapoznawczej
+Po zakończeniu wszystkich wymaganych sekcji oferty wybierz pozycję **Przejrzyj i Opublikuj** w prawym górnym rogu portalu.
 
-Po wypełnieniu wszystkich wymaganych sekcji oferty wybierz **pozycję publikuj** w prawym górnym rogu portalu. Zostaniesz przekierowany do strony **Recenzja i publikowanie.** 
+Przejrzyj stan ukończenia dla każdej sekcji oferty.
+    - *Nie uruchomiono* — oznacza, że sekcja nie została dotknięcia i należy ją ukończyć.
+    - *Niekompletne* — oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Wróć do sekcji i zaktualizuj ją.
+    - *Gotowe* — oznacza, że sekcja została ukończona, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
 
-Jeśli po raz pierwszy publikujesz tę ofertę, możesz:
+Jeśli ta oferta jest publikowana po raz pierwszy, możesz dostarczyć instrukcje dotyczące testowania do zespołu certyfikacji, aby upewnić się, że aplikacja zostanie prawidłowo przetestowana, a także dowolnych dodatkowych notatek przydatnych w zrozumieniu aplikacji.
 
-- Zobacz stan ukończenia każdej sekcji oferty.
-    - *Nie rozpoczęto* - oznacza, że sekcja nie została dotknięta i musi zostać ukończona.
-    - *Niekompletne* - oznacza, że sekcja zawiera błędy, które muszą zostać naprawione lub wymaga więcej informacji, które mają być dostarczone. Wróć do sekcji i zaktualizuj ją.
-    - *Complete* - oznacza, że sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie ma żadnych błędów. Wszystkie sekcje oferty muszą być w pełnym stanie, zanim będzie można złożyć ofertę.
-- Przekaż zespołowi certyfikacyjne instrukcje testowania, aby upewnić się, że aplikacja jest poprawnie testowana, oprócz wszelkich dodatkowych notatek przydatnych do zrozumienia aplikacji.
-- Prześlij ofertę do publikacji, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z powiadomieniem, kiedy wersja zapoznawcza oferty będzie dostępna do przejrzenia i zatwierdzenia. Wróć do Centrum partnerskiego i wybierz **opcję Przejdź na żywo,** aby oferta opublikowała ofertę publicznie (lub prywatną ofertę dla odbiorców prywatnych).
+Wybierz pozycję **Prześlij** , aby przesłać ofertę na potrzeby publikowania. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić.
 
-### <a name="errors-and-review-feedback"></a>Błędy i opinie
+Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
 
-Krok **ręcznego sprawdzania poprawności** w procesie publikowania reprezentuje obszerny przegląd oferty i skojarzonych z nią zasobów technicznych (zwłaszcza szablonu usługi Azure Resource Manager), problemy są zazwyczaj przedstawiane jako łącza żądania ściągnięcia (PR). Szczegółowe informacje na temat wyświetlania tych analiz danych i reagowania na nie można znaleźć w części [Obsługa opinii dotyczących recenzji.](./azure-apps-review-feedback.md)
+### <a name="errors-and-review-feedback"></a>Błędy i przejrzyj opinię
 
-Jeśli napotkano błędy w co najmniej jednym z kroków publikowania, należy je poprawić i ponownie opublikować ofertę.
+Krok **ręcznego walidacji** w procesie publikowania reprezentuje obszerny przegląd oferty i skojarzonych z nią zasobów technicznych (szczególnie Azure Resource Manager szablon), jednak problemy są zwykle przedstawiane jako linki żądania ściągnięcia. Informacje na temat sposobu wyświetlania tych żądań ściągnięcia i reagowania na nie można znaleźć w temacie [Obsługa informacji zwrotnych](./azure-apps-review-feedback.md).
+
+Jeśli występują błędy w co najmniej jednym z kroków publikowania, popraw je przed ponownym opublikowaniem oferty.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](./update-existing-offer.md)
+* [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](./update-existing-offer.md)

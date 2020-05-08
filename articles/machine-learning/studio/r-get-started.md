@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209506"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982194"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Ten samouczek ułatwia rozpoczęcie rozszerzania Azure Machine Learning Studio (klasycznego) przy użyciu języka programowania R. Postępuj zgodnie z tym samouczkiem programowania w języku R, aby utworzyć, przetestować i wykonać kod R w programie Studio (klasyczny). Podczas pracy z samouczkiem utworzysz kompletne rozwiązanie do prognozowania przy użyciu języka R w programie Studio (klasycznego).  
+W ramach tego samouczka nauczysz się używać ML Studio (klasycznego) do tworzenia, testowania i wykonywania kodu w języku R. Na końcu będziesz mieć kompleksowe rozwiązanie do prognozowania.  
 
-Azure Machine Learning Studio (klasyczny) zawiera wiele zaawansowanych modułów uczenia maszynowego i manipulowania danymi. Zaawansowany język R został opisany jako lingua franca analizy. Happily, analiza i manipulowanie danymi w programie Studio (klasyczne) można rozszerzyć przy użyciu języka R. Ta kombinacja zapewnia skalowalność i łatwość wdrażania programu Studio (klasycznego) z elastyczną i głęboką analizą języka R.
+> [!div class="checklist"]
+> * Utwórz kod służący do czyszczenia i przekształcania danych.
+> * Analizuj korelacje między kilkoma zmiennymi w naszym zestawie danych.
+> * Utwórz model prognozowania szeregów czasowych dla produkcji mleka.
 
-### <a name="forecasting-and-the-dataset"></a>Prognozowanie i zestaw danych
 
-Prognozowanie jest szeroko zaangażowaną i całkiem użyteczną metodą analityczną. Typowym zastosowaniem jest zakres od przewidywania sprzedaży elementów sezonowych, co pozwala ustalić optymalne poziomy spisu do przewidywania zmiennych makroekonomicznych. Prognozowanie jest zwykle wykonywane z użyciem modeli szeregów czasowych.
+Azure Machine Learning Studio (klasyczny) zawiera wiele zaawansowanych modułów uczenia maszynowego i manipulowania danymi. W języku programowania R, ta kombinacja zapewnia skalowalność i łatwość wdrażania programu Studio (klasycznego) z elastyczną i dogłębną analizą języka R.
 
-Dane szeregów czasowych to dane, w których wartości mają indeks czasu. Indeks czasu może być regularny, np. co miesiąc lub co minutę, lub nieregularnym. Model szeregów czasowych jest oparty na danych szeregów czasowych. Język programowania R zawiera elastyczną platformę i rozbudowaną analizę dla danych szeregów czasowych.
+Prognozowanie jest szeroko zaangażowaną i całkiem użyteczną metodą analityczną. Typowym zastosowaniem jest zakres od przewidywania sprzedaży elementów sezonowych, co pozwala ustalić optymalne poziomy spisu do przewidywania zmiennych makroekonomicznych. Prognozowanie jest zwykle wykonywane z użyciem modeli szeregów czasowych. Dane szeregów czasowych to dane, w których wartości mają indeks czasu. Indeks czasu może być regularny, np. co miesiąc lub co minutę, lub nieregularnym. Model szeregów czasowych jest oparty na danych szeregów czasowych. Język programowania R zawiera elastyczną platformę i rozbudowaną analizę dla danych szeregów czasowych.
 
-W tym przewodniku będziemy pracować z danymi o produkcji i cenach mlecznych. Te dane obejmują miesięczne informacje o produkcji kilku produktów mleczarskich i cenie tłuszczu mlekowego, giełdzie testów porównawczych.
+## <a name="get-the-data"></a>Pobieranie danych
+
+W tym samouczku należy użyć danych dotyczących produkcji i cennika mleczarni, która obejmuje comiesięczne informacje o produkcji kilku produktów mleczarskich i cenie tłuszczu mlekowego, giełdzie testów porównawczych.
 
 Dane używane w tym artykule wraz ze skryptami języka R można pobrać z [MachineLearningSamples-notesów/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Dane w pliku `cadairydata.csv` zostały pierwotnie przeszkolene z informacji dostępnych na Uniwersytecie Wisconsin o [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organizacja
 
-Będziemy postępować zgodnie z kilkoma krokami, aby dowiedzieć się, jak tworzyć, testować i wykonywać kod R analizy i manipulowania danymi w środowisku Azure Machine Learning Studio (klasycznym).  
-
-* Najpierw będziemy poznać podstawy korzystania z języka R w środowisku Azure Machine Learning Studio (klasycznym).
-* Następnie będziemy postępować zgodnie z omówieniem różnych aspektów we/wy dla danych, kodu R i grafiki w środowisku Azure Machine Learning Studio (klasycznym).
-* Następnie utworzymy pierwszą część naszego rozwiązania do prognozowania, tworząc kod służący do czyszczenia i przekształcania danych.
-* Po przygotowaniu danych wykonamy analizę korelacji między kilkoma zmiennymi w naszym zestawie danych.
-* Na koniec utworzymy model prognozowania szeregów czasowych dla produkcji mleka.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Korzystanie z języka R w Machine Learning Studio (klasyczny)
 
@@ -143,7 +139,7 @@ W tej sekcji omówiono sposób pobierania danych do modułu [skryptu wykonywania
 
 Pełny kod dla tej sekcji znajduje się w [MachineLearningSamples — notesy/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Załaduj i sprawdź dane w Machine Learning Studio (klasyczne)
+### <a name="load-and-check-data"></a>Załaduj i sprawdź dane 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Załaduj zestaw danych
 

@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160549"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789848"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Zarządzanie potencjalnymi klientami w portalu komercyjnym
 
-
 Klienci są centrum wszelkich dobrych firm. W przypadku przekształcania nabytych produktów dzisiejszych, rynki muszą skupić się bezpośrednio na łączeniu się z klientami i utworzyć relację. Dlatego generowanie wysokiej jakości potencjalnych klientów jest istotnym narzędziem dla cyklu sprzedaży. Po wystawieniu oferty w [centrum partnerskim](https://partner.microsoft.com/)dostępne są narzędzia umożliwiające programowe otrzymywanie informacji kontaktowych klienta bezpośrednio po wprowadzeniu zainteresowania przez klienta lub wdrożeniu produktu w portalu Marketplace. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Co to są potencjalni klienci w portalu Marketplace?
 
 Potencjalni klienci pochodzą od klientów zainteresowanych lub wdrażających produkty z portalu Marketplace. Niezależnie od tego, czy Twój produkt jest wymieniony w witrynie Azure Marketplace, czy AppSource, będziesz mieć możliwość otrzymywania potencjalnych klientów po ich poprawnym skonfigurowaniu z poziomu programu CRM do Twoich aukcji w centrum partnerskim. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Jak połączyć system CRM z centrum partnerskim
 
@@ -48,7 +44,7 @@ Po poprawnym skonfigurowaniu miejsca docelowego potencjalnego klienta i wybraniu
 
 Po zakończeniu instalacji technicznej należy uwzględnić te potencjalną pracę w bieżącej sprzedaży & strategii marketingowej i procesów operacyjnych. Chcielibyśmy lepiej zrozumieć swój ogólny proces sprzedaży i chcemy ściśle współpracować z udostępnianiem wysokiej jakości potencjalnych klientów i wystarczającej ilości danych, aby zapewnić pomyślne działanie. Będziemy nam poznamy Twoją opinię na temat sposobu, w jaki możemy zoptymalizować i zwiększyć liczbę potencjalnych klientów, którzy wyślą Ci dodatkowe dane w celu pomyślnego przeprowadzenia tych klientów. Daj nam znać, Jeśli interesuje Cię przekazywanie opinii i sugestii, aby umożliwić zespołowi sprzedaży lepsze pomyślną pracę z potencjalnymi klientami portalu Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Typowe błędy konfiguracji potencjalnych klientów podczas publikowania w centrum partnerskim
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Typowe błędy konfiguracji potencjalnych klientów podczas publikowania w centrum partnerskim
 
 **Nie można zapisać potencjalnego klienta w programie Dynamics CRM. Sprawdź ustawienia konta programu Dynamics CRM. LastCRMError: nie można zalogować się do programu Dynamics CRM, LastCRMException:** 
 

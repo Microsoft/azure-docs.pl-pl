@@ -1,6 +1,6 @@
 ---
-title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal (wersja zapoznawcza) — RBAC
-description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure na potrzeby kontroli dostępu opartej na rolach (RBAC) na platformie Azure przy użyciu Azure Portal. Obejmuje to wyświetlanie, tworzenie, aktualizowanie i usuwanie ról niestandardowych.
+title: Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal — RBAC
+description: Dowiedz się, jak tworzyć role niestandardowe platformy Azure przy użyciu Azure Portal i kontroli dostępu opartej na rolach (RBAC) na platformie Azure. Obejmuje to wyświetlanie, tworzenie, aktualizowanie i usuwanie ról niestandardowych.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77674872"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734183"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal (wersja zapoznawcza)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure Portal
 
-> [!IMPORTANT]
-> Role niestandardowe platformy Azure korzystające z Azure Portal są obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe platformy Azure. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach subskrypcji i zakresów grup zasobów. Role niestandardowe są przechowywane w katalogu Azure Active Directory (Azure AD) i mogą być współużytkowane przez subskrypcje. Każdy katalog może mieć maksymalnie 5000 ról niestandardowych. Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. W tym artykule opisano sposób tworzenia ról niestandardowych przy użyciu Azure Portal (obecnie w wersji zapoznawczej).
+Jeśli [wbudowane role platformy Azure](built-in-roles.md) nie są zgodne z konkretnymi potrzebami organizacji, możesz utworzyć własne role niestandardowe platformy Azure. Podobnie jak wbudowane role można przypisywać niestandardowe role do użytkowników, grup i jednostek usługi w ramach subskrypcji i zakresów grup zasobów. Role niestandardowe są przechowywane w katalogu Azure Active Directory (Azure AD) i mogą być współużytkowane przez subskrypcje. Każdy katalog może mieć maksymalnie 5000 ról niestandardowych. Role niestandardowe można tworzyć przy użyciu Azure Portal, Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub API REST. W tym artykule opisano sposób tworzenia ról niestandardowych przy użyciu Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -77,7 +72,7 @@ Jeśli wolisz, możesz wykonać następujące kroki, aby uruchomić rolę niesta
 
 1. W Azure Portal Otwórz subskrypcję lub grupę zasobów, w której chcesz przypisać rolę niestandardową, a następnie otwórz pozycję **Kontrola dostępu (IAM)**.
 
-1. Kliknij przycisk **Dodaj** , a następnie kliknij pozycję **Dodaj rolę niestandardową (wersja zapoznawcza)**.
+1. Kliknij przycisk **Dodaj** , a następnie kliknij pozycję **Dodaj rolę niestandardową**.
 
     ![Dodawanie niestandardowego menu roli](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Jeśli wolisz, możesz określić większość niestandardowych wartości ról w
     }
     ```
 
-1. W pliku JSON Określ wartości dla różnych właściwości. Oto przykład z dodanymi wartościami. Informacje o różnych właściwościach znajdują się w temacie [Omówienie definicji ról](role-definitions.md).
+1. W pliku JSON Określ wartości dla różnych właściwości. Oto przykład z dodanymi wartościami. Aby uzyskać informacje o różnych właściwościach, zobacz [Omówienie ról platformy Azure](role-definitions.md).
 
     ```json
     {
@@ -141,7 +136,7 @@ Jeśli wolisz, możesz określić większość niestandardowych wartości ról w
     
 1. W Azure Portal Otwórz stronę **Kontrola dostępu (IAM)** .
 
-1. Kliknij przycisk **Dodaj** , a następnie kliknij pozycję **Dodaj rolę niestandardową (wersja zapoznawcza)**.
+1. Kliknij przycisk **Dodaj** , a następnie kliknij pozycję **Dodaj rolę niestandardową**.
 
     ![Dodawanie niestandardowego menu roli](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Po wykluczeniu uprawnienia zostanie ono dodane jako `NotActions` lub. `NotDataAc
 
 ## <a name="step-5-assignable-scopes"></a>Krok 5. zakresy, które można przypisać
 
-Na karcie **zakresy** możliwe do przypisania Określ lokalizację, w której rola niestandardowa ma być dostępna do przypisania, na przykład subskrypcja lub Grupa zasobów. W zależności od wybranej opcji Rozpocznij na tej karcie można wyświetlić listę zakresów, w których otwarto stronę kontroli dostępu (IAM). Ustawienie zakresu możliwego do przypisania do zakresu głównego ("/") nie jest obsługiwane. W tej wersji zapoznawczej nie można dodać grupy zarządzania jako zakresu możliwego do przypisania.
+Na karcie **zakresy** możliwe do przypisania Określ lokalizację, w której rola niestandardowa ma być dostępna do przypisania, na przykład subskrypcja lub Grupa zasobów. W zależności od wybranej opcji Rozpocznij na tej karcie można wyświetlić listę zakresów, w których otwarto stronę kontroli dostępu (IAM). Ustawienie zakresu możliwego do przypisania do zakresu głównego ("/") nie jest obsługiwane. Obecnie nie można dodać grupy zarządzania jako zakresu możliwego do przypisania.
 
 1. Kliknij pozycję **Dodaj zakresy** , które można przypisać, aby otworzyć okienko Dodaj zakresy z możliwością przypisania.
 
@@ -352,6 +347,6 @@ Wykonaj następujące kroki, aby wyświetlić role niestandardowe.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Samouczek: tworzenie roli niestandardowej przy użyciu programu Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Role niestandardowe na platformie Azure](custom-roles.md)
+- [Samouczek: tworzenie roli niestandardowej platformy Azure przy użyciu Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Role niestandardowe platformy Azure](custom-roles.md)
 - [Operacje dostawcy zasobów Azure Resource Manager](resource-provider-operations.md)

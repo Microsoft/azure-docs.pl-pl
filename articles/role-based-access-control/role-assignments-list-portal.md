@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735729"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983027"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -32,7 +32,9 @@ ms.locfileid: "82735729"
 
 Najprostszym sposobem wyświetlenia ról przypisanych do użytkownika lub grupy w ramach subskrypcji jest użycie okienka **zasoby platformy Azure** .
 
-1. W Azure Portal kliknij pozycję **wszystkie usługi** , a następnie wybierz pozycję **Użytkownicy** lub **grupy**.
+1. W Azure Portal wybierz pozycję **wszystkie usługi** z menu Azure Portal.
+
+1. Wybierz pozycję **Azure Active Directory** a następnie wybierz pozycję **Użytkownicy** lub **grupy**.
 
 1. Kliknij użytkownika lub grupę, dla której chcesz wyświetlić listę przypisań ról.
 

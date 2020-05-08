@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39d2bf0e527d43e2a5fb9437720f249e54b4dff3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769804"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983639"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Korzystanie z pakietu do interpretacji w celu wyjaśnienia modeli ML & prognoz w języku Python
 
@@ -238,10 +238,10 @@ Poniższy przykład pokazuje, jak można użyć klasy, `ExplanationClient` aby w
 * Użyj `ExplanationClient` w zdalnym przebiegu do przekazania kontekstu interpretacji.
 * Pobierz kontekst później w środowisku lokalnym.
 
-1. Zainstaluj `azureml-interpret` pakiety `azureml-interpret-contrib` i.
+1. Zainstaluj `azureml-interpret` pakiety `azureml-contrib-interpret` i.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 1. Utwórz skrypt szkoleniowy w lokalnym notesie Jupyter. Na przykład `train_explain.py`.
 

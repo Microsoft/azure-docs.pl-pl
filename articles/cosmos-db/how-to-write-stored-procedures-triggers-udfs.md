@@ -1,17 +1,17 @@
 ---
 title: Zapisuj procedury składowane, wyzwalacze i UDF w Azure Cosmos DB
 description: Dowiedz się, jak definiować procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441732"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982296"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
 
@@ -21,15 +21,12 @@ Aby wywołać procedurę składowaną, wyzwalacz i funkcję zdefiniowaną przez 
 
 > [!NOTE]
 > W przypadku kontenerów podzielonych na partycje podczas wykonywania procedury składowanej w opcjach żądania należy podać wartość klucza partycji. Procedury składowane są zawsze ograniczone do klucza partycji. Elementy, które mają inną wartość klucza partycji, nie będą widoczne dla procedury składowanej. Ma to również zastosowanie do wyzwalaczy.
-
 > [!Tip]
 > Program Cosmos obsługuje wdrażanie kontenerów za pomocą procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji [, zobacz Tworzenie kontenera Azure Cosmos dB przy użyciu funkcji po stronie serwera.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Jak pisać procedury składowane
 
 Procedury składowane pisze się przy użyciu języka JavaScript. Mogą one tworzyć, aktualizować, odczytywać i usuwać elementy w kontenerze usługi Azure Cosmos oraz wysyłać względem nich zapytania. Procedury składowane są rejestrowane w danej kolekcji i mogą operować na dowolnych dokumentach lub załącznikach znajdujących się w tej kolekcji.
-
-**Przykład**
 
 Poniżej przedstawiono prostą procedurę składowaną, która zwraca odpowiedź „Hello World”.
 
@@ -51,7 +48,7 @@ Po napisaniu procedurę składowaną należy zarejestrować w kolekcji. Aby dowi
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Tworzenie elementu za pomocą procedury składowanej
 
-Po utworzeniu elementu przy użyciu procedury składowanej, element zostanie wstawiony do kontenera usługi Azure Cosmos i zostanie zwrócony identyfikator nowo utworzonego elementu. Tworzenie elementu jest operacją asynchroniczną i zależy od funkcji wywołania zwrotnego języka JavaScript. Funkcja wywołania zwrotnego ma dwa parametry — jeden dla obiektu błędu na wypadek, gdyby operacja zakończyła się niepowodzeniem, a drugi dla wartości zwracanej, czyli w tym przypadku dla utworzonego obiektu. Wewnątrz wywołania zwrotnego można obsłużyć wyjątek lub zgłosić błąd. W przypadku, gdy wywołanie zwrotne nie zostanie podane i wystąpi błąd, środowisko uruchomieniowe usługi Azure Cosmos DB zgłosi błąd. 
+Po utworzeniu elementu przy użyciu procedury składowanej, element zostanie wstawiony do kontenera usługi Azure Cosmos i zostanie zwrócony identyfikator nowo utworzonego elementu. Tworzenie elementu jest operacją asynchroniczną i zależy od funkcji wywołania zwrotnego języka JavaScript. Funkcja wywołania zwrotnego ma dwa parametry — jeden dla obiektu błędu na wypadek, gdyby operacja zakończyła się niepowodzeniem, a drugi dla wartości zwracanej, czyli w tym przypadku dla utworzonego obiektu. Wewnątrz wywołania zwrotnego można obsłużyć wyjątek lub zgłosić błąd. W przypadku, gdy wywołanie zwrotne nie zostanie podane i wystąpi błąd, środowisko uruchomieniowe usługi Azure Cosmos DB zgłosi błąd.
 
 Procedura składowana obejmuje również parametr umożliwiający ustawienie opisu — jest to wartość logiczna. Jeśli dla tego parametru zostanie ustawiona wartość „true”, a opisu nie będzie, procedura składowana zgłosi wyjątek. W przeciwnym razie pozostała część procedury składowanej zostanie wykonana.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Tablice jako parametry wejściowe dla procedur składowanych 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Tablice jako parametry wejściowe dla procedur składowanych
 
 Podczas definiowania procedury składowanej w witrynie Azure Portal parametry wejściowe są zawsze wysyłane do tej procedury składowanej jako ciąg. Nawet jeśli jako dane wejściowe przekażesz tablicę ciągów, tablica jest konwertowana na ciąg i wysyłana do procedury składowanej. Aby to obejść, można zdefiniować funkcję w swojej procedurze składowanej, aby przeanalizować ciąg jako tablicę. Poniższy kod pokazuje, jak można przeanalizować parametr wejściowy ciągu jako tablicę:
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>Asynchroniczne oczekiwania z procedurami składowanymi
+
+Poniżej znajduje się przykład procedury składowanej, która używa operacji Async-await z niesie obietnice zwiększenia przy użyciu funkcji pomocnika. Procedura składowana wykonuje zapytania dotyczące elementu i zastępuje go.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

@@ -3,12 +3,12 @@ title: Szybkie uruchamianie zadań z szablonem
 description: Zakolejkowanie uruchomienia zadania ACR w celu skompilowania obrazu przy użyciu szablonu Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196532"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927772"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Uruchamianie zadań ACR przy użyciu szablonów Menedżer zasobów
 
@@ -139,7 +139,7 @@ W celach demonstracyjnych Utwórz oddzielny rejestr kontenerów jako rejestr pod
 
 ### <a name="create-new-dockerfile"></a>Utwórz nowy pliku dockerfile
 
-Utwórz element pliku dockerfile, który pobiera podstawowy obraz z rejestru podstawowego. Wykonaj następujące kroki w lokalnym rozwidleniu repozytorium GitHub, na przykład https://github.com/myGitHubID/acr-build-helloworld-node.git*.
+Utwórz element pliku dockerfile, który pobiera podstawowy obraz z rejestru podstawowego. Wykonaj następujące kroki w lokalnym rozwidleniu repozytorium GitHub, na przykład `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Utwórz nowy plik**.
 1. Nazwij plik *pliku dockerfile-test* i wklej poniższą zawartość. Zastąp nazwę rejestru *mybaseregistry*.

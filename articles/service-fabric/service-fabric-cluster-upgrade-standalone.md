@@ -3,12 +3,12 @@ title: Uaktualnianie autonomicznego klastra platformy Azure Service Fabric
 description: Dowiedz się więcej o uaktualnianiu wersji lub konfiguracji autonomicznego klastra platformy Azure Service Fabric.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451824"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790647"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uaktualnianie i aktualizowanie Service Fabric autonomicznego klastra
 
@@ -38,7 +38,7 @@ Aplikacja aranżacji patch (POA) jest aplikacją Service Fabric, która automaty
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak dostosować niektóre [Ustawienia sieci szkieletowej klastra usługi Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Dowiedz się [, jak skalować klaster w i na zewnątrz](service-fabric-cluster-scale-up-down.md)
+* Dowiedz się [, jak skalować klaster w i na zewnątrz](service-fabric-cluster-scale-in-out.md)
 * Informacje o [uaktualnieniach aplikacji](service-fabric-application-upgrade.md)
 
 <!--Image references-->

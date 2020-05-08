@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 6d0d05f13f592fc981d3df52d107b385bdbbb21e
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515289"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927908"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
@@ -20,7 +20,7 @@ Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metod
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric a GetMetric
 
-`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ `TrackMetric(item)` każdy przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W `TrackMetric()`przeciwieństwie `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
+`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ `TrackMetric(item)` każdy przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W `TrackMetric()`przeciwieństwie `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
 W Application Insights metryki niestandardowe zebrane za `TrackMetric()` pośrednictwem i `GetMetric()` nie podlegają [pobieraniu próbek](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
 
@@ -186,23 +186,11 @@ Należy jednak zauważyć, że nie można podzielić metryki według nowego wymi
 
 ![Obsługa dzielenia](./media/get-metric/splitting-support.png)
 
-Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są włączane w Application Insights zasobów. Aby włączyć to zachowanie, przejdź do karty użycie i szacowany koszt, zaznaczając [opcję "Włącz alerty w niestandardowych wymiarach metryk"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Jak używać metricIdentifier, gdy istnieje więcej niż trzy wymiary
-
-Obecnie 10 wymiarów jest obsługiwanych, ale więcej niż trzy wymiary wymagają użytkownika `metricIdentifier`:
-
-```csharp
-// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
-MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
-Metric computersSold  = _telemetryClient.GetMetric(id);
-computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
-```
+Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są włączane w Application Insights zasobów.
 
 ### <a name="enable-multi-dimensional-metrics"></a>Włącz metryki wielowymiarowe
 
-Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty** > **. metryki** > niestandardowe**umożliwiają powiadamianie o niestandardowych wymiarach** > metryk.**OK**
+Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty** > **. metryki** > niestandardowe**umożliwiają powiadamianie o niestandardowych wymiarach** > metryk.**OK** Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć możliwość **zastosowania dzielenia**.
 
@@ -214,6 +202,18 @@ Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć
 I Wyświetl agregacje metryk dla każdego wymiaru _FormFactor_ :
 
 ![Czynniki postaci](./media/get-metric/formfactor.png)
+
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Jak używać MetricIdentifier, gdy istnieje więcej niż trzy wymiary
+
+Obecnie 10 wymiarów jest obsługiwanych, ale więcej niż trzy wymiary wymagają użycia `MetricIdentifier`:
+
+```csharp
+// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
+MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
+Metric computersSold  = _telemetryClient.GetMetric(id);
+computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
+```
 
 ## <a name="custom-metric-configuration"></a>Konfiguracja metryki niestandardowej
 
