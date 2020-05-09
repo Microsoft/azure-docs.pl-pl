@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804371"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778978"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Ochrona interfejsu API przy użyciu protokołu OAuth 2.0 za pomocą usługi Azure Active Directory i usługi API Management
 
@@ -79,7 +79,7 @@ Każda aplikacja kliencka, która wywołuje interfejs API, musi zostać zarejest
     - W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład *klient-aplikacja*. 
     - W sekcji **obsługiwane typy kont** wybierz pozycję **konta w dowolnym katalogu organizacji (dowolny katalog usługi Azure AD — wielodostępny)**. 
 
-1. W sekcji **Identyfikator URI przekierowania** wybierz `Web` i wprowadź adres URL `https://contoso5.portal.azure-api.net/signin`.
+1. W sekcji **Identyfikator URI przekierowania** wybierz `Web` i pozostaw pole adres URL puste.
 
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację. 
 
@@ -149,9 +149,9 @@ W tym przykładzie Konsola dewelopera jest aplikacją Client-App. W poniższych 
 
 1. Wybierz przycisk **Utwórz**.
 
-1. Wróć do aplikacji klienckiej i wybierz pozycję **uwierzytelnianie**.
+1. Wróć do rejestracji aplikacji klienta w Azure Active Directory i wybierz pozycję **uwierzytelnianie**.
 
-1. W obszarze **identyfikatory URI przekierowania**wybierz typ jako **Web**, wklej **redirect_url** w obszarze **Identyfikator URI przekierowania**, a następnie Zapisz.
+1. W obszarze **Konfiguracja platformy** kliknij pozycję **Dodaj platformę**, a następnie wybierz typ jako **Web**, wklej **redirect_url** w obszarze **Identyfikator URI przekierowania**, a następnie kliknij przycisk **Konfiguruj** , aby zapisać.
 
 Po skonfigurowaniu serwera autoryzacji uwierzytelniania OAuth 2,0 Konsola dewelopera może uzyskać tokeny dostępu z usługi Azure AD. 
 

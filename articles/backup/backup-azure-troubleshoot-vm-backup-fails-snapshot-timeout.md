@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4f87f2de3747f55562d3f683e1738595624940dd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854633"
+ms.locfileid: "82864406"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Rozwiązywanie problemów z błędem Azure Backup: problemy z agentem lub rozszerzeniem
 
@@ -44,6 +44,8 @@ Po zarejestrowaniu i zaplanowaniu maszyny wirtualnej dla usługi Azure Backup Ba
 **Przyczyna 3: [nie można pobrać stanu migawki lub nie można wykonać migawki](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Przyczyna 4: [nie ustawiono opcji konfiguracji agenta maszyny wirtualnej (dla maszyn wirtualnych z systemem Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**Przyczyna 5: [rozwiązanie do sterowania aplikacjami blokuje IaaSBcdrExtension. exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed — stan aprowizacji maszyny wirtualnej to niepowodzenie
 
@@ -202,6 +204,14 @@ Jeśli potrzebujesz pełnego rejestrowania dla programu waagent, wykonaj następ
 
 Plik konfiguracji (/etc/waagent.conf) kontroluje akcje waagent. Rozszerzenia opcji pliku konfiguracji **. wartość Enable** powinna być równa **y** i **aprowizacji.** aby tworzenie kopii zapasowej działało, Agent musi być **ustawiony na wartość** Auto.
 Aby uzyskać pełną listę opcji pliku konfiguracji agenta maszyny wirtualnej, zobacz<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Rozwiązanie do sterowania aplikacjami blokuje IaaSBcdrExtension. exe
+
+Jeśli używasz [funkcji AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (lub innego rozwiązania do sterowania aplikacjami), a reguły są oparte na wydawcy lub ścieżce, mogą blokować uruchamianie pliku wykonywalnego **IaaSBcdrExtension. exe** .
+
+#### <a name="solution"></a>Rozwiązanie
+
+Wyklucz `/var/lib` ścieżkę lub plik wykonywalny **IaaSBcdrExtension. exe** z funkcji AppLocker (lub innego oprogramowania do sterowania aplikacjami).
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Nie można pobrać stanu migawki lub nie można wykonać migawki
 

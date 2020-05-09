@@ -3,12 +3,12 @@ title: Wyklucz dyski z replikacji za pomocą Azure Site Recovery
 description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281849"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900282"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
 
@@ -26,7 +26,7 @@ Dyski można wykluczać z replikacji, co zostało podsumowane w tabeli.
 
 **Azure–Azure** | **Z programu VMware do platformy Azure** | **Z funkcji Hyper-V do platformy Azure** 
 --- | --- | ---
-Tak (przy użyciu programu PowerShell) | Tak | Tak 
+Tak | Tak | Tak 
 
 ## <a name="exclude-limitations"></a>Wyklucz ograniczenia
 
@@ -35,7 +35,7 @@ Tak (przy użyciu programu PowerShell) | Tak | Tak
 **Typy dysków** | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. Dyski tymczasowe są domyślnie wykluczone. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie można wykluczać dysków systemu operacyjnego ani dysków dynamicznych. | Dyski podstawowe można wykluczyć z replikacji.<br/><br/> Nie możesz wykluczać dysków systemu operacyjnego. Nie zalecamy wykluczania dysków dynamicznych. Site Recovery nie może zidentyfikować, która VHS jest podstawowa lub dynamiczna na maszynie wirtualnej gościa. Jeśli wszystkie zależne dyski woluminu dynamicznego nie zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku są niedostępne.
 **Replikowanie dysku** | Nie można wykluczyć dysku, który jest replikowany.<br/><br/> Wyłącz i ponownie Włącz replikację maszyny wirtualnej. |  Nie można wykluczyć dysku, który jest replikowany. |  Nie można wykluczyć dysku, który jest replikowany.
 **Usługa mobilności (VMware)** | Nie dotyczy | Dyski można wykluczać tylko na maszynach wirtualnych, na których zainstalowano usługę mobilności.<br/><br/> Oznacza to, że trzeba ręcznie zainstalować usługę mobilności na maszynach wirtualnych, dla których mają zostać wykluczone dyski. Nie można użyć mechanizmu instalacji wypychanej, ponieważ instaluje on usługę mobilności tylko po włączeniu replikacji. | Nie dotyczy.
-**Dodaj/Usuń** | Możesz dodawać i usuwać dyski na maszynach wirtualnych platformy Azure z dyskami zarządzanymi. | Po włączeniu replikacji nie można dodać ani usunąć dysków. Wyłącz i ponownie Włącz replikację, aby dodać dysk. | Po włączeniu replikacji nie można dodać ani usunąć dysków. Wyłącz i ponownie Włącz replikację.
+**Dodaj/Usuń** | Dyski zarządzane można dodać na maszynach wirtualnych platformy Azure z włączoną replikacją z dyskami zarządzanymi. Nie można usunąć dysków na maszynach wirtualnych platformy Azure z włączoną replikacją. | Po włączeniu replikacji nie można dodać ani usunąć dysków. Wyłącz i ponownie Włącz replikację, aby dodać dysk. | Po włączeniu replikacji nie można dodać ani usunąć dysków. Wyłącz i ponownie Włącz replikację.
 **Tryb failover** | Jeśli aplikacja wymaga wykluczonego dysku, po przejściu w tryb failover musisz ręcznie utworzyć dysk, aby można było uruchomić zreplikowaną aplikację.<br/><br/> Alternatywnie można utworzyć dysk podczas pracy w trybie failover maszyny wirtualnej, integrując usługę Azure Automation z planem odzyskiwania. | Jeśli wykluczasz dysk, którego potrzebuje aplikacja, utwórz go ręcznie na platformie Azure po przejściu w tryb failover. | Jeśli wykluczasz dysk, którego potrzebuje aplikacja, utwórz go ręcznie na platformie Azure po przejściu w tryb failover.
 **Lokalne powrotu po awarii — dyski tworzone ręcznie** | Nie dotyczy | **Maszyny wirtualne z systemem Windows**: dyski utworzone ręcznie na platformie Azure nie są wycofywane z powrotem. Jeśli na przykład przeniesiesz trzy dyski do trybu failover i utworzysz dwa dyski bezpośrednio na maszynie wirtualnej platformy Azure, zostaną przywrócone wszystkie trzy dyski, które przechodzą w tryb failover.<br/><br/> **Maszyny wirtualne z systemem Linux**: dyski utworzone ręcznie na platformie Azure nie powiodły się. Jeśli na przykład przejdziesz do trybu failover trzy dyski i utworzysz dwa dyski na maszynie wirtualnej platformy Azure, wszystkie pięć zakończą się niepowodzeniem. Dysków utworzonych ręcznie nie możesz wykluczyć z powrotu po awarii. | Dyski utworzone ręcznie na platformie Azure nie mają powrotu po awarii. Jeśli na przykład przejdziesz do trybu failover trzy dyski i utworzysz dwa dyski bezpośrednio na maszynie wirtualnej platformy Azure, tylko trzy dyski, które przechodzą w tryb failover, zakończą się niepowodzeniem.
 **Lokalne powrotu po awarii — dyski wykluczone** | Nie dotyczy | W przypadku powrotu po awarii do oryginalnej maszyny Konfiguracja dysku maszyny wirtualnej powrotu po awarii nie obejmuje wykluczonych dysków. Dyski wykluczone z replikacji z programu VMware do platformy Azure nie są dostępne na maszynie wirtualnej powrotu po awarii. | W przypadku powrotu po awarii do oryginalnej lokalizacji funkcji Hyper-V Konfiguracja dysku maszyny wirtualnej powrotu po awarii pozostaje taka sama jak w przypadku oryginalnego źródłowego dysku maszyny wirtualnej. Dyski wykluczone z lokacji funkcji Hyper-V do replikacji platformy Azure są dostępne na maszynie wirtualnej powrotu po awarii.

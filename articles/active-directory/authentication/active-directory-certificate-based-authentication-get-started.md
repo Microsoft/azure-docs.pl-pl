@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654354"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610653"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Wprowadzenie do uwierzytelniania opartego na certyfikacie w usłudze Azure Active Directory
 
@@ -45,7 +46,7 @@ Aby skonfigurować uwierzytelnianie oparte na certyfikatach, należy wykonać na
 - Certyfikat klienta na potrzeby uwierzytelniania klienta musi zostać wystawiony dla klienta.
 
 >[!IMPORTANT]
->Maksymalny rozmiar listy CRL dla Azure Active Directory do pomyślnego pobrania i pamięci podręcznej to baza, a czas wymagany do pobrania listy CRL nie może przekroczyć 10 sekund.  Jeśli Azure Active Directory nie może pobrać listy CRL, uwierzytelnianie oparte na certyfikatach używające certyfikatów wystawionych przez odpowiedni urząd certyfikacji zakończy się niepowodzeniem. Najlepsze rozwiązania mające na celu zagwarantowanie, że w ramach ograniczeń rozmiaru pliki list CRL mają na celu zachowanie okresów ważności certyfikatów w ramach rozsądnych limitów i oczyszczenie wygasłych certyfikatów. 
+>Maksymalny rozmiar listy CRL dla Azure Active Directory do pomyślnego pobrania i pamięci podręcznej to baza, a czas wymagany do pobrania listy CRL nie może przekroczyć 10 sekund.  Jeśli Azure Active Directory nie może pobrać listy CRL, uwierzytelnianie oparte na certyfikatach używające certyfikatów wystawionych przez odpowiedni urząd certyfikacji zakończy się niepowodzeniem. Najlepsze rozwiązania mające na celu zagwarantowanie, że w ramach ograniczeń rozmiaru pliki list CRL mają na celu zachowanie okresów ważności certyfikatów w ramach rozsądnych limitów i oczyszczenie wygasłych certyfikatów.
 
 ## <a name="step-1-select-your-device-platform"></a>Krok 1. Wybieranie platformy urządzenia
 
@@ -122,7 +123,7 @@ Aby utworzyć zaufany urząd certyfikacji, użyj polecenia cmdlet [New-AzureADTr
     $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-### <a name="remove"></a>Remove
+### <a name="remove"></a>Usuń
 
 Aby usunąć zaufany urząd certyfikacji, użyj polecenia cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) :
 

@@ -1,6 +1,6 @@
 ---
-title: Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu funkcji kontroli dostępu opartej na rolach (RBAC) i interfejsu wiersza polecenia platformy Azure.
+title: Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure — RBAC
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu interfejsu wiersza polecenia platformy Azure i kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245670"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735780"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Dodawanie lub usuwanie przypisań ról przy użyciu usług Azure RBAC i interfejsu wiersza polecenia platformy Azure
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu interfejsu wiersza polecenia platformy Azure.
 
@@ -62,7 +62,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
-W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli.
+W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli.
 
 ### <a name="user-at-a-resource-group-scope"></a>Użytkownik w zakresie grupy zasobów
 
@@ -97,7 +97,7 @@ Aby dodać przypisanie roli przy użyciu unikatowego identyfikatora roli zamiast
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do użytkownika *patlong\@contoso.com* w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć polecenie [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) lub zobaczyć [wbudowane role dla zasobów platformy Azure](built-in-roles.md).
+Poniższy przykład przypisuje rolę [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) do użytkownika *patlong\@contoso.com* w zakresie grupy zasobów *Pharma-Sales* . Aby uzyskać unikatowy identyfikator roli, można użyć funkcji [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list) lub zobaczyć [wbudowane role platformy Azure](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -187,7 +187,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
 
-Aby usunąć dostęp w ramach RBAC, usuń przypisanie roli za pomocą polecenia [AZ role przypisanie Delete](/cli/azure/role/assignment#az-role-assignment-delete):
+W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli za pomocą polecenia [AZ role przypisanie Delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
@@ -213,5 +213,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](role-assignments-list-cli.md)
+- [Lista przypisań ról platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure](role-assignments-list-cli.md)
 - [Zarządzanie zasobami i grupami zasobów platformy Azure za pomocą interfejsu wiersza polecenia platformy Azure](../azure-resource-manager/cli-azure-resource-manager.md)

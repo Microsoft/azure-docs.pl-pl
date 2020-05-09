@@ -1,5 +1,5 @@
 ---
-title: Pulpit nawigacyjny klienta w komercyjnej analizie Marketplace w centrum partnerskim
+title: Pulpit nawigacyjny klienta w usłudze Microsoft Commercial Marketplace Analytics w centrum partnerskim
 description: Dowiedz się, jak uzyskać dostęp do informacji o klientach, w tym trendów wzrostu, przy użyciu pulpitu nawigacyjnego klienta w komercyjnej analizie portalu Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a8379ed883311d219bb6eeb56bd4424dfb470bc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251643"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732771"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klienta w komercyjnej analizie Marketplace
 

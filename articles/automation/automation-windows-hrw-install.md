@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 163650a05bf47e6cb8a8832bb85477740d88b0cd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617337"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787379"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -51,15 +51,15 @@ Minimalne wymagania dla hybrydowego procesu roboczego elementu Runbook systemu W
 
 Aby uzyskać więcej wymagań sieci dla hybrydowego procesu roboczego elementu Runbook, zobacz [Konfigurowanie sieci](automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="server-onboarding-for-management-with-automation-dsc"></a>Dołączanie serwera do zarządzania przy użyciu Automation DSC
+### <a name="server-onboarding-for-management-with-state-configuration-dsc"></a>Dołączanie serwera do zarządzania z konfiguracją stanu (DSC)
 
-Aby uzyskać informacje na temat dołączania serwerów do zarządzania za pomocą DSC, zobacz [dołączanie maszyn w celu zarządzania przez Azure Automation DSC](automation-dsc-onboarding.md).
+Aby uzyskać informacje na temat dołączania serwerów do zarządzania przy użyciu konfiguracji stanu (DSC), zobacz sekcję dołączanie [maszyn w celu zarządzania według konfiguracji stanu (DSC)](automation-dsc-onboarding.md).
 
-Włączenie [rozwiązania Update Management](../operations-management-suite/oms-solution-update-management.md) powoduje automatyczne skonfigurowanie każdego komputera z systemem Windows połączonego z obszarem roboczym log Analytics jako hybrydowego procesu roboczego elementu Runbook w celu obsługi elementów Runbook uwzględnionych w rozwiązaniu. Jednak ten proces roboczy nie jest zarejestrowany w żadnych grup hybrydowych procesów roboczych elementu Runbook zdefiniowanych już na koncie usługi Automation.
+Włączenie [Update Management](automation-update-management.md) powoduje automatyczne skonfigurowanie dowolnego komputera z systemem Windows połączonego z obszarem roboczym log Analytics jako hybrydowego procesu roboczego elementu Runbook w celu obsługi aktualizacji elementu Runbook. Jednak ten proces roboczy nie jest zarejestrowany w żadnych grup hybrydowych procesów roboczych elementu Runbook zdefiniowanych już na koncie usługi Automation.
 
 ### <a name="addition-of-the-computer-to-a-hybrid-runbook-worker-group"></a>Dodawanie komputera do grupy hybrydowych procesów roboczych elementu Runbook
 
-Komputer roboczy można dodać do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation. Należy pamiętać, że musisz obsługiwać elementy Runbook usługi Automation, o ile używasz tego samego konta zarówno dla tego rozwiązania, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
+Komputer roboczy można dodać do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation. Należy pamiętać, że musisz obsługiwać elementy Runbook usługi Automation, o ile używasz tego samego konta zarówno dla funkcji Azure Automation, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcjonalność została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
 ## <a name="automated-deployment"></a>Wdrożenie automatyczne
 
@@ -81,7 +81,7 @@ Pobierz skrypt **New-OnPremiseHybridWorker. ps1** z [Galeria programu PowerShell
 | `WorkspaceName` | Optional | Nazwa obszaru roboczego Log Analytics. Jeśli nie masz obszaru roboczego Log Analytics, skrypt tworzy i konfiguruje go. |
 
 > [!NOTE]
-> Podczas włączania rozwiązań Azure Automation obsługuje tylko niektóre regiony do łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](how-to/region-mappings.md).
+> Podczas włączania funkcji Program Azure Automation obsługuje tylko niektóre regiony do łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Krok 2. Otwieranie powłoki wiersza polecenia programu Windows PowerShell
 
@@ -115,9 +115,9 @@ Na maszynie docelowej wykonaj dwa pierwsze kroki w środowisku automatyzacji. Na
 
 Jeśli nie masz jeszcze obszaru roboczego Log Analytics, zapoznaj się ze [wskazówkami dotyczącymi projektu dziennika Azure monitor](../azure-monitor/platform/design-logs-deployment.md) przed utworzeniem obszaru roboczego.
 
-### <a name="step-2---add-the-automation-solution-to-the-log-analytics-workspace"></a>Krok 2. Dodawanie rozwiązania automatyzacji do obszaru roboczego Log Analytics
+### <a name="step-2---add-an-azure-automation-feature-to-the-log-analytics-workspace"></a>Krok 2. Dodawanie funkcji Azure Automation do obszaru roboczego Log Analytics
 
-Rozwiązanie Automation dodaje funkcjonalność dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po dodaniu rozwiązania do obszaru roboczego Log Analytics automatycznie wypychane do komputera agenta składniki procesu roboczego, które zostały zainstalowane, zgodnie z opisem w następnym kroku.
+Funkcja automatyzacji dodaje funkcjonalność dla Azure Automation, w tym obsługę hybrydowego procesu roboczego elementu Runbook. Po dodaniu rozwiązania do obszaru roboczego Log Analytics automatycznie wypychane do komputera agenta składniki procesu roboczego, które zostały zainstalowane, zgodnie z opisem w następnym kroku.
 
 Aby dodać rozwiązanie automatyzacji do obszaru roboczego, uruchom następujące polecenie cmdlet programu PowerShell.
 
@@ -177,13 +177,38 @@ Informacje wymagane dla tego polecenia cmdlet można uzyskać ze strony Zarządz
 
 Elementy Runbook mogą korzystać z dowolnych działań i poleceń cmdlet zdefiniowanych w modułach zainstalowanych w środowisku Azure Automation. Ponieważ te moduły nie są automatycznie wdrażane na komputerach lokalnych, należy je zainstalować ręcznie. Wyjątek jest modułem platformy Azure. Ten moduł jest instalowany domyślnie i zapewnia dostęp do poleceń cmdlet dla wszystkich usług i działań platformy Azure dla Azure Automation.
 
-Ponieważ głównym celem funkcji hybrydowego procesu roboczego elementu Runbook jest zarządzanie zasobami lokalnymi, najprawdopodobniej trzeba zainstalować moduły obsługujące te zasoby, w szczególności `PowerShellGet` moduł. Aby uzyskać informacje na temat instalowania modułów programu Windows PowerShell, zobacz [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Ponieważ głównym celem hybrydowego procesu roboczego elementu Runbook jest zarządzanie zasobami lokalnymi, najprawdopodobniej trzeba zainstalować moduły obsługujące te zasoby, w szczególności `PowerShellGet` moduł. Aby uzyskać informacje na temat instalowania modułów programu Windows PowerShell, zobacz [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
 
 Zainstalowane moduły muszą znajdować się w lokalizacji, do której odwołuje się zmienna `PSModulePath` środowiskowa, dzięki czemu hybrydowy proces roboczy może je automatycznie zaimportować. Aby uzyskać więcej informacji, zobacz [Install modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+
+## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-computer"></a><a name="remove-windows-hybrid-runbook-worker"></a>Usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera z systemem Windows
+
+1. W Azure Portal przejdź do konta usługi Automation.
+2. W obszarze **Ustawienia konta**wybierz pozycję **klucze** i zanotuj wartości **adresu URL** i **podstawowego klucza dostępu**.
+
+3. Otwórz sesję programu PowerShell w trybie administratora i uruchom następujące polecenie przy użyciu adresu URL i podstawowych wartości klucza dostępu. Użyj parametru `Verbose` , aby zapoznać się ze szczegółowym dziennikiem procesu usuwania. Aby usunąć przestarzałe maszyny z grupy hybrydowych procesów roboczych, użyj `machineName` opcjonalnego parametru.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
+```
+
+## <a name="remove-a-hybrid-worker-group"></a>Remove a Hybrid Worker group (Usuwanie grupy hybrydowego procesu roboczego)
+
+Aby usunąć grupę hybrydowych procesów roboczych elementu Runbook, należy najpierw usunąć hybrydowy proces roboczy elementu Runbook z każdego komputera, który jest członkiem grupy. Następnie wykonaj następujące kroki, aby usunąć grupę:
+
+1. Otwórz konto usługi Automation w Azure Portal.
+2. Wybierz **grupy hybrydowych procesów roboczych** w obszarze **Automatyzacja procesów**. Wybierz grupę, którą chcesz usunąć. Zostanie wyświetlona strona właściwości dla tej grupy.
+
+   ![Strona właściwości](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
+
+3. Na stronie właściwości wybranej grupy wybierz pozycję **Usuń**. Zostanie wyświetlony komunikat z prośbą o potwierdzenie tej akcji. Wybierz opcję **tak** , jeśli na pewno chcesz kontynuować.
+
+   ![Komunikat z potwierdzeniem](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
+
+   Ukończenie tego procesu może potrwać kilka sekund. Postęp możesz śledzić w sekcji **Powiadomienia** z poziomu menu.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się, jak skonfigurować elementy Runbook do automatyzowania procesów w lokalnym centrum danych lub w innym środowisku chmury, zobacz [Uruchamianie elementów Runbook w hybrydowym procesie roboczym elementu Runbook](automation-hrw-run-runbooks.md).
-* Aby uzyskać instrukcje dotyczące usuwania hybrydowych procesów roboczych elementów Runbook, zobacz [usuwanie Azure Automation hybrydowych procesów roboczych elementów Runbook](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
 * Aby dowiedzieć się, jak rozwiązywać problemy dotyczące hybrydowych procesów roboczych elementów Runbook, zobacz [Rozwiązywanie problemów hybrydowych procesów roboczych systemu Windows](troubleshoot/hybrid-runbook-worker.md#windows)
-* Aby uzyskać dodatkowe kroki rozwiązywania problemów z zarządzaniem aktualizacjami, zobacz [Update Management: Rozwiązywanie problemów](troubleshoot/update-management.md).
+

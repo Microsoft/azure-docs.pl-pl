@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak rozwiązywać problemy z instalacj
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421272"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598015"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Rozwiązywanie problemów z agentem Microsoft Azure Recovery Services (MARS)
 
@@ -24,6 +24,7 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 - Upewnij się, że Usługa MARS jest uruchomiona (w konsoli usługi). Jeśli chcesz, uruchom ponownie, a następnie spróbuj ponownie wykonać operację.
 - [Zapewnij 5% do 10% wolnego miejsca na woluminie w lokalizacji folderu](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
 - [Sprawdź, czy inny proces lub oprogramowanie antywirusowe przeszkadza w Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- Jeśli zadanie tworzenia kopii zapasowej zostało ukończone z ostrzeżeniami, zobacz [zadania tworzenia kopii zapasowej zakończone z ostrzeżeniem](#backup-jobs-completed-with-warning)
 - Jeśli zaplanowane tworzenie kopii zapasowej zakończy się niepowodzeniem, ale ręczne wykonywanie kopii zapasowych, zobacz [kopie zapasowe nie są uruchamiane według harmonogramu](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule)
 - Upewnij się, że system operacyjny ma najnowsze aktualizacje.
 - [Upewnij się, że nieobsługiwane dyski i pliki z nieobsługiwanymi atrybutami są wyłączone z kopii zapasowej](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
@@ -42,7 +43,7 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 | Przyczyna | Zalecane akcje |
 | ---     | ---    |
 | **Poświadczenia magazynu są nieprawidłowe** <br/> <br/> Pliki poświadczeń magazynu mogą być uszkodzone lub mogły wygasnąć. (Na przykład mogły zostać pobrane ponad 48 godzin przed upływem czasu rejestracji).| Pobierz nowe poświadczenia z magazynu Recovery Services w Azure Portal. (Zobacz krok 6 w sekcji [pobieranie agenta Mars](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) ). Następnie wykonaj następujące kroki: <ul><li> Jeśli zainstalowano już i zarejestrowano usługę MARS, Otwórz konsolę MMC agent Microsoft Azure Backup, a następnie wybierz pozycję **zarejestruj serwer** w okienku **Akcje** , aby zakończyć rejestrację przy użyciu nowych poświadczeń. <br/> <li> Jeśli nowa instalacja nie powiedzie się, spróbuj zainstalować ją ponownie przy użyciu nowych poświadczeń.</ul> **Uwaga**: Jeśli pobrano wiele plików poświadczeń magazynu, tylko najnowszy plik jest ważny przez następne 48 godzin. Zalecamy pobranie nowego pliku poświadczeń magazynu.
-| **Serwer proxy/zapora blokuje rejestrację** <br/>lub <br/>**Brak łączności z Internetem** <br/><br/> Jeśli komputer lub serwer proxy ma ograniczoną łączność z Internetem i nie masz dostępu do wymaganych adresów URL, rejestracja zakończy się niepowodzeniem.| Wykonaj następujące kroki:<br/> <ul><li> Pracuj z zespołem IT, aby upewnić się, że system ma łączność z Internetem.<li> Jeśli nie masz serwera proxy, upewnij się, że opcja proxy nie jest zaznaczona podczas rejestrowania agenta. [Sprawdź ustawienia serwera proxy](#verifying-proxy-settings-for-windows).<li> Jeśli masz zaporę/serwer proxy, skontaktuj się z zespołem sieci, aby upewnić się, że te adresy URL i adresy IP mają dostęp:<br/> <br> **Adresy URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresy IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Spróbuj zarejestrować się ponownie po wykonaniu powyższych kroków rozwiązywania problemów.<br></br> Jeśli nawiązano połączenie za pośrednictwem usługi Azure ExpressRoute, upewnij się, że ustawienia zostały skonfigurowane zgodnie z opisem w [pomocy technicznej usługi Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **Serwer proxy/zapora blokuje rejestrację** <br/>lub <br/>**Brak łączności z Internetem** <br/><br/> Jeśli komputer lub serwer proxy ma ograniczoną łączność z Internetem i nie masz dostępu do wymaganych adresów URL, rejestracja zakończy się niepowodzeniem.| Wykonaj następujące kroki:<br/> <ul><li> Pracuj z zespołem IT, aby upewnić się, że system ma łączność z Internetem.<li> Jeśli nie masz serwera proxy, upewnij się, że opcja proxy nie jest zaznaczona podczas rejestrowania agenta. [Sprawdź ustawienia serwera proxy](#verifying-proxy-settings-for-windows).<li> Jeśli masz zaporę/serwer proxy, skontaktuj się z zespołem sieci, aby upewnić się, że te adresy URL i adresy IP mają dostęp:<br/> <br> **Adresy URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresy IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Spróbuj zarejestrować się ponownie po wykonaniu powyższych kroków rozwiązywania problemów.<br></br> Jeśli połączenie jest realizowane za pośrednictwem usługi Azure ExpressRoute, upewnij się, że ustawienia zostały skonfigurowane zgodnie z opisem w [pomocy technicznej usługi Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Oprogramowanie antywirusowe blokuje rejestrację** | Jeśli na serwerze jest zainstalowane oprogramowanie antywirusowe, należy dodać niezbędne reguły wykluczania do skanowania oprogramowania antywirusowego dla tych plików i folderów: <br/><ul> <li> Pliku cbengine. exe <li> CSC. exe<li> Folder tymczasowy. Domyślna lokalizacja to C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Folder bin w katalogu C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Zalecenia dodatkowe
@@ -74,6 +75,32 @@ Zalecamy sprawdzenie następujących danych przed rozpoczęciem rozwiązywania p
 | Error  | Możliwa przyczyna | Zalecane akcje |
 | ---     | ---     | ---    |
 | <br /><ul><li>Agent usługi odzyskiwania Microsoft Azure nie mógł nawiązać połączenia z Microsoft Azure Backup. (IDENTYFIKATOR: 100050) Sprawdź ustawienia sieci i upewnij się, że możesz nawiązać połączenie z Internetem.<li>(407) wymagane jest uwierzytelnianie serwera proxy. |Serwer proxy blokuje połączenie. |  <ul><li>W programie Internet Explorer przejdź do pozycji **Narzędzia** > **Opcje** > internetowe**zabezpieczenia** > **internetowe Internet**. Wybierz pozycję **Poziom niestandardowy** i przewiń w dół do sekcji **Pobieranie pliku** . Wybierz pozycję **Włącz**.<p>Może być również konieczne dodanie adresów [URL i adresów IP](install-mars-agent.md#verify-internet-access) do zaufanych witryn w programie Internet Explorer.<li>Zmień ustawienia tak, aby korzystały z serwera proxy. Następnie podaj szczegóły serwera proxy.<li> Jeśli maszyna ma ograniczony dostęp do Internetu, upewnij się, że ustawienia zapory na komputerze lub serwerze proxy zezwalają na te [adresy URL i adresy IP](install-mars-agent.md#verify-internet-access). <li>Jeśli na serwerze jest zainstalowane oprogramowanie antywirusowe, Wyklucz te pliki ze skanowania antywirusowego: <ul><li>Pliku cbengine. exe (zamiast DPMRA. exe).<li>CSC. exe (powiązane z .NET Framework). Dla każdej wersji .NET Framework zainstalowanej na serwerze istnieje plik CSC. exe. Wyklucz pliki CSC. exe dla wszystkich wersji .NET Framework na serwerze, którego to dotyczy. <li>Folder tymczasowy lub lokalizacja pamięci podręcznej. <br>Domyślna lokalizacja folderu tymczasowego lub ścieżki pamięci podręcznej to C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Folder bin w katalogu C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="backup-jobs-completed-with-warning"></a>Zadania tworzenia kopii zapasowej zakończone z ostrzeżeniem
+
+- Gdy Agent MARS wykonuje iterację plików i folderów podczas tworzenia kopii zapasowej, może wystąpić różne warunki, które mogą spowodować, że kopia zapasowa ma być oznaczona jako ukończona z ostrzeżeniami. W tych warunkach zadanie pokazuje jako zakończone z ostrzeżeniami. Jest to dokładne, ale oznacza to, że nie można utworzyć kopii zapasowej co najmniej jednego pliku. Oznacza to, że zadanie pominął ten plik, ale utworzono kopię zapasową wszystkich innych plików w źródle danych.
+
+  ![Zadanie tworzenia kopii zapasowej zostało ukończone z ostrzeżeniami](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
+
+- Warunki, które mogą spowodować, że kopie zapasowe pomijają pliki:
+  - Nieobsługiwane atrybuty plików (na przykład: w folderze usługi OneDrive, skompresowanym strumieniu punktów ponownej analizy). Aby uzyskać pełną listę, zapoznaj się z [matrycą pomocy technicznej](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - Problem z systemem plików
+  - Inny proces zakłóca działanie (na przykład: oprogramowanie antywirusowe, które obsługuje pliki, może uniemożliwić uzyskiwanie dostępu do plików przez agenta MARS)
+  - Pliki zablokowane przez aplikację  
+
+- Usługa Backup oznaczy te pliki jako nieudane w pliku dziennika, z następującą konwencją nazewnictwa: *LastBackupFailedFilesxxxx. txt* w folderze *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* .
+- Aby rozwiązać ten problem, przejrzyj plik dziennika, aby poznać jego charakter:
+
+  | Kod błędu             | Powodów                                             | Zalecenia                                              |
+  | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+  | 0x80070570             | Plik lub katalog jest uszkodzony i nie można go odczytać. | Uruchom **program CHKDSK** na woluminie źródłowym.                             |
+  | 0x80070002, 0x80070003 | System nie może znaleźć określonego pliku.         | [Upewnij się, że folder tymczasowy nie jest pełny](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Sprawdź, czy wolumin, na którym jest skonfigurowane miejsce na pliki tymczasowe, istnieje (nie został usunięty)  <br><br>   [Upewnij się, że Agent MARS jest wykluczony z programu antywirusowego zainstalowanego na komputerze](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | Odmowa dostępu                                    | [Sprawdź, czy program antywirusowy lub inne oprogramowanie innych firm blokuje dostęp](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x8007018b             | Odmowa dostępu do pliku w chmurze.                | Pliki usługi OneDrive, pliki Git lub inne pliki, które mogą znajdować się w stanie offline na komputerze |
+
+- Do [istniejących zasad można użyć dodawania reguł wykluczeń](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) w celu wykluczenia nieobsługiwanych, brakujących lub usuniętych plików z zasad tworzenia kopii zapasowych, aby zapewnić pomyślne tworzenie kopii zapasowych.
+
+- Należy unikać usuwania i ponownego tworzenia chronionych folderów o tych samych nazwach w folderze najwyższego poziomu. Wykonanie tej operacji może spowodować ukończenie tworzenia kopii zapasowej z ostrzeżeniami z błędem *, ponieważ wykryto krytyczną niespójność, dlatego zmiany nie mogą być replikowane.*  Jeśli konieczne jest usunięcie i ponowne utworzenie folderów, należy rozważyć wykonanie tej operacji w podfolderach w chronionym folderze najwyższego poziomu.
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Nie można ustawić klucza szyfrowania na potrzeby bezpiecznych kopii zapasowych
 
@@ -121,7 +148,7 @@ Jeśli zaplanowane kopie zapasowe nie są wyzwalane automatycznie, ale ręczne k
  Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
-```
+ ```
 
 - Upewnij się, że nie brakuje plików MSOnlineBackup modułu programu PowerShell lub nie są one uszkodzone. W przypadku brakujących lub uszkodzonych plików wykonaj następujące kroki:
 
@@ -138,7 +165,6 @@ Set-ExecutionPolicy Unrestricted
 Error | Możliwe przyczyny | Zalecane akcje
 --- | --- | ---
 Bieżąca operacja nie powiodła się z powodu wewnętrznego błędu usługi "zasób nie został zainicjowany w sygnaturze usługi". Spróbuj ponownie wykonać operację po pewnym czasie. (IDENTYFIKATOR: 230006) | Zmieniono nazwę chronionego serwera. | <li> Zmień nazwę serwera z powrotem na oryginalną nazwę zarejestrowanego w magazynie. <br> <li> Zarejestruj ponownie serwer w magazynie przy użyciu nowej nazwy.
-
 
 ## <a name="troubleshoot-restore-problems"></a>Rozwiązywanie problemów z przywracaniem
 
@@ -206,25 +232,25 @@ W tej sekcji opisano typowe błędy występujące podczas korzystania z agenta M
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-Komunikat o błędzie | Zalecana akcja |
+Komunikat o błędzie | Zalecana akcja
 -- | --
 Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do sumy kontrolnej kopii zapasowej przechowywanej w lokalizacji tymczasowej | Aby rozwiązać ten problem, wykonaj poniższe czynności i ponownie uruchom serwer <br/> - [Sprawdź, czy istnieje program antywirusowy lub inne procesy blokujące pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-Komunikat o błędzie | Zalecana akcja |
+Komunikat o błędzie | Zalecana akcja
 -- | --
 Agent usługi Microsoft Azure Recovery Services nie mógł uzyskać dostępu do lokalizacji tymczasowej w celu zainicjowania wirtualnego dysku twardego | Aby rozwiązać ten problem, wykonaj poniższe czynności i ponownie uruchom serwer <br/> - [Sprawdź, czy istnieje program antywirusowy lub inne procesy blokujące pliki lokalizacji tymczasowej](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Sprawdź, czy lokalizacja tymczasowa jest prawidłowa i dostępna dla agenta Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-Komunikat o błędzie | Zalecana akcja |
+Komunikat o błędzie | Zalecana akcja
 -- | --
 Tworzenie kopii zapasowej nie powiodło się z powodu niewystarczającej ilości miejsca w magazynie, w której znajduje się folder | Aby rozwiązać ten problem, sprawdź poniższe kroki i spróbuj ponownie wykonać operację:<br/>- [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-Komunikat o błędzie | Zalecana akcja |
+Komunikat o błędzie | Zalecana akcja
 -- | --
 Nie można odnaleźć zmian w pliku. Taka sytuacja może mieć różne przyczyny. Ponów próbę wykonania operacji | Aby rozwiązać ten problem, sprawdź poniższe kroki i spróbuj ponownie wykonać operację:<br/> - [Upewnij się, że Agent MARS jest najnowszy](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Weryfikowanie i rozwiązywanie problemów z magazynem, które wpływają na miejsce na kopie zapasowe](#prerequisites)
 

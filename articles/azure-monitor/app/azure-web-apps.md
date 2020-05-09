@@ -3,13 +3,12 @@ title: Monitorowanie wydajności usługi Azure App Services | Microsoft Docs
 description: Monitorowanie wydajności aplikacji dla usług Azure App Services. Załaduj wykres i czas odpowiedzi, informacje o zależnościach i ustaw alerty wydajności.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729805"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733468"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorowanie wydajności usługi Azure App Service
 
@@ -71,7 +70,7 @@ Istnieją dwa sposoby włączania monitorowania aplikacji na platformie Azure Ap
 
     * Na przykład aby zmienić procent początkowej próbki, można utworzyć ustawienie aplikacji: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` i wartość. `100`
 
-    * Aby zapoznać się z listą obsługiwanych ustawień procesora telemetrii do próbkowania, możesz zajrzeć do [kodu](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) i [powiązanej dokumentacji](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Aby zapoznać się z listą obsługiwanych ustawień procesora telemetrii do próbkowania, możesz zajrzeć do [kodu](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) i [powiązanej dokumentacji](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Aby uzyskać najnowsze informacje na temat Application Insights agenta/rozszerze
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP i WordPress nie są obsługiwane
 
-Witryny PHP i WordPress nie są obsługiwane. Obecnie nie ma oficjalnie obsługiwanego zestawu SDK/agenta dla monitorowania po stronie serwera tych obciążeń. Jednak ręczne Instrumentacja transakcji po stronie klienta w środowisku PHP lub witrynie WordPress przez dodanie kodu JavaScript po stronie klienta do stron sieci Web można wykonać przy użyciu [zestawu SDK języka JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+Witryny PHP i WordPress nie są obsługiwane. Obecnie nie ma oficjalnie obsługiwanego zestawu SDK/agenta dla monitorowania po stronie serwera tych obciążeń. Jednak ręczne Instrumentacja transakcji po stronie klienta w środowisku PHP lub witrynie WordPress przez dodanie kodu JavaScript po stronie klienta do stron sieci Web można wykonać przy użyciu [zestawu SDK języka JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Parametry połączenia i klucz Instrumentacji
+
+Gdy jest używane monitorowanie bez kodu, wymagane są tylko parametry połączenia. Mimo że nadal zalecamy ustawienie klucza Instrumentacji w celu zachowania zgodności z poprzednimi wersjami w przypadku wykonywania Instrumentacji ręcznej.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Uruchom profilera aplikacji na żywo](../app/profiler.md).

@@ -4,12 +4,12 @@ description: Objaśnienie krok po kroku dotyczące przywracania stanu systemu Wi
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602471"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610789"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Przywróć stan systemu do systemu Windows Server
 
@@ -124,7 +124,7 @@ Po odzyskaniu stanu systemu jako plików przy użyciu usługi Azure Recovery Ser
 
 2. Po ponownym uruchomieniu Otwórz przystawkę Kopia zapasowa systemu Windows Server. Jeśli nie wiesz, gdzie zainstalowano przystawkę, przeszukaj komputer lub serwer pod kątem **kopia zapasowa systemu Windows Server**.
 
-    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania.
+    Aplikacja klasyczna zostanie wyświetlona w wynikach wyszukiwania. Jeśli nie jest wyświetlany lub wystąpią błędy podczas otwierania aplikacji, należy zainstalować **funkcje kopia zapasowa systemu Windows Server**i składniki zależne znajdujące się poniżej, które są dostępne w **Kreatorze dodawania funkcji** w programie **Menedżer serwera**.
 
 3. W przystawce wybierz pozycję **lokalna kopia zapasowa**.
 

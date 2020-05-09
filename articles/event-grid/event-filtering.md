@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509656"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888782"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Opis filtrowania zdarzeń dla subskrypcji Event Grid
 
@@ -158,6 +158,7 @@ Filtrowanie zaawansowane ma następujące ograniczenia:
 * Pięć zaawansowanych filtrów na subskrypcję usługi Event Grid
 * 512 znaków na wartość ciągu
 * Pięć wartości dla operatora **in** i **Not in**
+* Klucze ze ** `.` znakiem (kropką)** . Na przykład: `http://schemas.microsoft.com/claims/authnclassreference` lub `john.doe@contoso.com`. Obecnie nie ma obsługi znaków ucieczki w kluczach. 
 
 Ten sam klucz może być używany w więcej niż jednym filtrze.
 

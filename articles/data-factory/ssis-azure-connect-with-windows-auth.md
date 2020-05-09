@@ -10,14 +10,16 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 0c4cdc3481fb58efd8eaa4cd83e1d6167f203a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81760188"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629392"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Uzyskiwanie dostępu do magazynów danych i udziałów plików za pomocą uwierzytelniania systemu Windows z poziomu pakietów SSIS na platformie Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Możesz użyć uwierzytelniania systemu Windows, aby uzyskać dostęp do magazynów danych, takich jak serwery SQL, udziały plików, Azure Files itd., z pakietów SSIS działających na Azure-SSIS Integration Runtime (IR) w Azure Data Factory (ADF). Magazyny danych mogą znajdować się lokalnie, hostowane w usłudze Azure Virtual Machines (maszyny wirtualne) lub działać na platformie Azure jako usługi zarządzane. Jeśli są one lokalne, należy przyłączyć Azure-SSIS IR do Virtual Network (Microsoft Azure Virtual Network) podłączonych do sieci lokalnej, a następnie [Przyłączyć Azure-SSIS IR do Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Istnieją cztery metody uzyskiwania dostępu do magazynów danych z uwierzytelnianiem systemu Windows z pakietów SSIS uruchomionych na Azure-SSIS IR:
 
