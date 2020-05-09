@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366326"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608919"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Poprawianie systemu operacyjnego Windows w klastrze Service Fabric
 
@@ -165,7 +165,7 @@ Zachowanie POA można skonfigurować w celu spełnienia Twoich potrzeb. Zastąp 
 | WUOperationTimeOutInMinutes | int <br>(Domyślnie: *90*)                   | Określa limit czasu dla każdej operacji Windows Update (Wyszukaj lub Pobierz lub zainstaluj). Jeśli operacja nie zostanie zakończona w określonym limicie czasu, zostanie przerwana.       |
 | WURescheduleCount     | int <br> (Domyślnie: *5*)                  | Maksymalna liczba przypadków, w których usługa ponownie planuje aktualizację systemu Windows, jeśli operacja nie powiedzie się.          |
 | WURescheduleTimeInMinutes | int <br>(Wartość domyślna: *30*) | Interwał, w którym usługa ponownie planuje aktualizacje systemu Windows, jeśli błąd będzie nadal występował. |
-| WUFrequency           | Ciąg rozdzielony przecinkami (wartość domyślna: *Weekly, środa, 7:00:00*)     | Częstotliwość instalowania aktualizacji systemu Windows. Format i możliwe wartości to: <br>&nbsp;&nbsp;-Miesięcznie: DD, gg: MM: SS (na przykład *miesięcznie, 5, 12:22:32*)<br>Dozwolone wartości pola DD (Day) to liczby od 1 do 28 i "Last". <br> &nbsp;&nbsp;-Weekly, dzień, gg: MM: SS (na przykład: *Weekly, wtorek, 12:22:32*)  <br> &nbsp;&nbsp;-Codziennie, gg: MM: SS (na przykład *dziennie, 12:22:32*)  <br> &nbsp;&nbsp;-  *Brak* wskazuje, że aktualizacje systemu Windows nie należy wykonywać.  <br><br> Czasy są w formacie UTC.|
+| WUFrequency           | Ciąg rozdzielony przecinkami (wartość domyślna: *Weekly, środa, 7:00:00*)     | Częstotliwość instalowania aktualizacji systemu Windows. Format i możliwe wartości to: <br>-Miesięcznie, DD, gg: MM: SS (przykład: *Monthly, 5, 12:22:32*). Dozwolone wartości pola _DD_ (Day) to liczby od 1 do 28 i _ostatnie_. <br>-Tydzień, dzień, gg: MM: SS (przykład: *Weekly, wtorek, 12:22:32*)  <br>-Codziennie, gg: MM: SS (przykład: *Daily, 12:22:32*)  <br>-Tydzień, dzień, gg: MM: SS (przykład: *2, piątek, 21:00:00* wskazuje 9:00 PM UTC w piątek tygodnia każdego miesiąca) <br>- *Brak* wskazuje, że aktualizacje systemu Windows nie należy wykonywać.  <br><br> Czasy są w formacie UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Wartość domyślna: *true*) | Ustawiając tę flagę, aplikacja akceptuje umowę licencyjną użytkownika końcowego dla Windows Update w imieniu właściciela maszyny.              |
 
 > [!TIP]

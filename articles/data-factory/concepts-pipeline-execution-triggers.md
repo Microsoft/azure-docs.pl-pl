@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418358"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562206"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 
@@ -281,7 +281,7 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 
 ### <a name="schema-defaults-limits-and-examples"></a>Wartości domyślne, limity i przykłady harmonogramów
 
-| Właściwość JSON | Typ | Wymagany | Wartość domyślna | Prawidłowe wartości | Przykład |
+| Właściwość JSON | Typ | Wymagane | Wartość domyślna | Prawidłowe wartości | Przykład |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | ciąg | Tak | Brak | Daty i godziny ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **wystąpieniu** | obiekt | Tak | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -326,6 +326,9 @@ W poniższej tabeli opisano szczegółowo elementy właściwości **schedule**:
 Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach.
 
 Aby uzyskać więcej informacji na temat wyzwalaczy okna wirowania i dla przykładów, zobacz [Tworzenie wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md).
+
+> [!NOTE]
+> Uruchomienie wyzwalacza okna wirowaniaa *czeka na zakończenie wyzwalanego uruchomienia potoku* . Jego stan przebiegu odzwierciedla stan wyzwalanego uruchomienia potoku. Na przykład jeśli wyzwolone uruchomienie potoku zostanie anulowane, odpowiadające mu uruchomienie wyzwalacza okna wirowania zostanie oznaczone jako anulowane. Różni się to od zachowania "pożar i zapomnij" wyzwalacza harmonogramu, który jest oznaczony jako zakończony powodzeniem, o ile uruchomiono uruchomienie potoku.
 
 ## <a name="event-based-trigger"></a>Wyzwalacz oparty na zdarzeniach
 

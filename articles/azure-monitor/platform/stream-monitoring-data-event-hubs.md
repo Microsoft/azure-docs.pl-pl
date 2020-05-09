@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733098"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854622"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Przesyłanie strumieniowe danych monitorowania platformy Azure do centrum zdarzeń
 Azure Monitor zapewnia pełne rozwiązanie do monitorowania stosu dla aplikacji i usług na platformie Azure, w innych chmurach i lokalnie. Oprócz Azure Monitor do analizowania danych i korzystania z nich w różnych scenariuszach monitorowania może być konieczne wysłanie ich do innych narzędzi do monitorowania w środowisku. Najbardziej efektywną metodą przesyłania strumieniowego danych monitorowania do zewnętrznych narzędzi w większości przypadków jest użycie [usługi Azure Event Hubs](/azure/event-hubs/). Ten artykuł zawiera krótki opis sposobu przesyłania strumieniowego danych monitorowania z różnych źródeł do centrum zdarzeń oraz linki do szczegółowych wskazówek.
@@ -23,7 +23,7 @@ Azure Monitor zapewnia pełne rozwiązanie do monitorowania stosu dla aplikacji 
 Przed skonfigurowaniem przesyłania strumieniowego dla dowolnego źródła danych należy [utworzyć Event Hubs przestrzeni nazw i centrum zdarzeń](../../event-hubs/event-hubs-create.md). Ta przestrzeń nazw i centrum zdarzeń to miejsce docelowe dla wszystkich danych monitorowania. Przestrzeń nazw Event Hubs to logiczna Grupa centrów zdarzeń, które współużytkują te same zasady dostępu, podobnie jak konto magazynu ma poszczególne obiekty blob w ramach tego konta magazynu. Należy wziąć pod uwagę następujące szczegóły dotyczące przestrzeni nazw centrów zdarzeń i centrów zdarzeń, które są używane do przesyłania strumieniowego danych monitorowania:
 
 * Liczba jednostek przepływności pozwala zwiększyć skalę przepływności dla centrów zdarzeń. Zwykle konieczna jest tylko jedna jednostka przepływności. Jeśli konieczne jest skalowanie w górę w miarę wzrostu użycia dzienników, można ręcznie zwiększyć liczbę jednostek przepływności dla przestrzeni nazw lub włączyć automatyczne inflację.
-* Liczba partycji pozwala zrównoleglanie użycie wielu odbiorców. Pojedyncza partycja może obsługiwać do 20MBps lub około 20 000 komunikatów na sekundę. W zależności od narzędzia, które korzysta z danych, może być nieobsługiwane w przypadku używania wielu partycji. Jeśli nie masz pewności o liczbie partycji do ustawienia, możesz rozpocząć cztery partycje.
+* Liczba partycji pozwala zrównoleglanie użycie wielu odbiorców. Pojedyncza partycja może obsługiwać do 20MBps lub około 20 000 komunikatów na sekundę. W zależności od narzędzia, które korzysta z danych, może być nieobsługiwane w przypadku używania wielu partycji. Jeśli nie masz pewności o liczbie partycji do ustawienia, możesz zacząć od czterech partycji.
 * Należy ustawić przechowywanie komunikatów w centrum zdarzeń na co najmniej 7 dni. Jeśli narzędzie do konsumowania działa przez więcej niż jeden dzień, zapewnia to, że narzędzie może zostać wznowione w miejscu, w którym wyłączono do 7 dni.
 * Należy użyć domyślnej grupy odbiorców dla centrum zdarzeń. Nie ma potrzeby tworzenia innych grup konsumenckich ani używania oddzielnej grupy odbiorców, chyba że planujesz, aby dwa różne narzędzia korzystały z tych samych danych z tego samego centrum zdarzeń.
 * W przypadku dziennika aktywności platformy Azure można wybrać Event Hubs przestrzeń nazw, a Azure Monitor tworzy centrum zdarzeń w tej przestrzeni nazw o nazwie _Insights-Logs-Logs-Logs_. W przypadku innych typów dzienników można wybrać istniejące centrum zdarzeń lub Azure Monitor utworzyć centrum zdarzeń dla każdej kategorii dziennika.

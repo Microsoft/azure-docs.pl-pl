@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461399"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626160"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Przegląd możliwości zabezpieczeń Azure SQL Database
 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database zapewnia usługi relacyjnej bazy danych dla aplikac
 
 ### <a name="ip-firewall-rules"></a>Reguły zapory adresów IP
 
-Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źródłowego adresu IP każdego żądania. Aby uzyskać więcej informacji, zobacz [Omówienie reguł zapory Azure SQL Database i SQL Data Warehouse](sql-database-firewall-configure.md).
+Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źródłowego adresu IP każdego żądania. Aby uzyskać więcej informacji, zobacz [Omówienie reguł zapory Azure SQL Database i usługi Azure Synapse Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Reguły zapory sieci wirtualnej
 
@@ -46,7 +46,7 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami baz danych na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database obsługuje dwa typy uwierzytelniania:
 
@@ -56,7 +56,7 @@ Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Da
 
 - **Uwierzytelnianie Azure Active Directory**:
 
-    Azure Active Directory uwierzytelnianiem jest mechanizm łączenia się z [Azure SQL Database](sql-database-technical-overview.md) i [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) przy użyciu tożsamości w usłudze Azure Active Directory (Azure AD). Uwierzytelnianie usługi Azure AD pozwala administratorom centralnie zarządzać tożsamościami i uprawnieniami użytkowników baz danych wraz z innymi usługami firmy Microsoft w jednej centralnej lokalizacji. Obejmuje to minimalizowanie magazynu haseł i umożliwia scentralizowane zasady rotacji haseł.
+    Uwierzytelnianie Azure Active Directory to mechanizm łączenia się z usługami [Azure SQL Database](sql-database-technical-overview.md) i [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) przy użyciu tożsamości w Azure Active Directory (Azure AD). Uwierzytelnianie usługi Azure AD pozwala administratorom centralnie zarządzać tożsamościami i uprawnieniami użytkowników baz danych wraz z innymi usługami firmy Microsoft w jednej centralnej lokalizacji. Obejmuje to minimalizowanie magazynu haseł i umożliwia scentralizowane zasady rotacji haseł.
 
      Administrator serwera o nazwie **administrator Active Directory** musi zostać utworzony w celu korzystania z uwierzytelniania usługi Azure AD z SQL Database. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z SQL Database przy użyciu uwierzytelniania Azure Active Directory](sql-database-aad-authentication.md). Uwierzytelnianie usługi Azure AD obsługuje konta zarządzane i federacyjne. Konta federacyjne obsługują użytkowników i grupy systemu Windows dla domeny klienta federacyjnego z usługą Azure AD.
 
@@ -97,7 +97,7 @@ Zaawansowana ochrona przed zagrożeniami analizuje dzienniki SQL Server, aby wyk
 
 SQL Database zabezpiecza dane klientów przez szyfrowanie danych w ruchu z [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-Program SQL Server wymusza szyfrowanie (SSL/TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
+Program SQL Server wymusza szyfrowanie (TLS) przez cały czas dla wszystkich połączeń. Gwarantuje to, że wszystkie dane są szyfrowane "podczas przesyłania" między klientem i serwerem niezależnie od ustawienia **szyfrowania** lub **TrustServerCertificate** w parametrach połączenia.
 
 Najlepszym rozwiązaniem jest zalecanie, aby w parametrach połączenia aplikacji określić zaszyfrowane połączenie i _**nie**_ ufać certyfikatowi serwera. Oznacza to, że aplikacja weryfikuje certyfikat serwera i w związku z tym uniemożliwia aplikacji atak na ataki typu średniego.
 

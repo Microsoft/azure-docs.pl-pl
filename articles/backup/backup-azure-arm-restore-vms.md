@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 687406676320f93bab22e34ca95951035187718d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a170755673c05448d1bb86af993cad929664949
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182892"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597777"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -190,7 +190,7 @@ Istnieje kilka typowych scenariuszy, w których może być konieczne przywrócen
 **Przywracanie bez systemu operacyjnego** | Główna różnica między maszynami wirtualnymi platformy Azure i lokalnymi funkcjami hypervisor polega na tym, że żadna konsola maszyny wirtualnej nie jest dostępna na platformie Azure. Konsola programu jest wymagana w niektórych scenariuszach, takich jak odzyskiwanie przy użyciu odzyskiwania bez systemu operacyjnego (BMR). Jednak przywracanie maszyny wirtualnej z magazynu jest pełnym zamiennikiem BMR.
 **Przywracanie maszyn wirtualnych ze specjalnymi konfiguracjami sieci** | Specjalne konfiguracje sieci obejmują maszyny wirtualne korzystające z wewnętrznego lub zewnętrznego równoważenia obciążenia, przy użyciu wielu kart sieciowych lub wielu zarezerwowanych adresów IP. Te maszyny wirtualne można przywrócić przy użyciu [opcji Przywróć dysk](#restore-disks). Ta opcja powoduje utworzenie kopii dysków VHD na określonym koncie magazynu, a następnie można utworzyć maszynę wirtualną z [wewnętrznym](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) lub [zewnętrznym](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) modułem równoważenia obciążenia, [wieloma](../virtual-machines/windows/multiple-nics.md)kartami sieciowymi lub [wieloma zastrzeżonymi adresami IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), zgodnie z konfiguracją.
 **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej/podsieci** | Kopia zapasowa maszyny wirtualnej platformy Azure obsługuje tworzenie kopii zapasowych i przywracanie informacji sieciowej grupy zabezpieczeń na poziomie sieci wirtualnej, podsieci i karty sieciowej.
-**Przypięte strefy maszyny wirtualne** | Azure Backup obsługuje wykonywanie kopii zapasowych i przywracanie przypiętych do strefy maszyn wirtualnych. [Dowiedz się więcej](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Przypięte strefy maszyny wirtualne** | W przypadku tworzenia kopii zapasowej maszyny wirtualnej platformy Azure, która jest przypięta do strefy (z Azure Backup), można przywrócić ją w tej samej strefie, w której został przypięty. [Dowiedz się więcej](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
 ## <a name="track-the-restore-operation"></a>Śledzenie operacji przywracania
 
@@ -218,7 +218,7 @@ Po przywróceniu maszyny wirtualnej można pamiętać o kilku kwestiach:
 - Jeśli kopia zapasowa maszyny wirtualnej ma statyczny adres IP, przywrócona maszyna wirtualna będzie mieć dynamiczny adres IP, aby uniknąć konfliktu. [Do przywróconej maszyny wirtualnej można dodać statyczny adres IP](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description).
 - Przywrócona maszyna wirtualna nie ma zestawu dostępności. Jeśli używasz opcji Przywróć dysk, możesz [określić zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny wirtualnej na podstawie dysku przy użyciu podanego szablonu lub programu PowerShell.
 - Jeśli używasz dystrybucji systemu Linux opartej na chmurze, takiej jak Ubuntu, ze względów bezpieczeństwa hasło jest blokowane po przywróceniu. Aby [zresetować hasło](../virtual-machines/linux/reset-password.md), użyj rozszerzenia VMAccess na PRZYWRÓCONEJ maszynie wirtualnej. Zalecamy używanie kluczy SSH w tych dystrybucjach, więc nie trzeba resetować hasła po przywróceniu.
-- Jeśli nie możesz uzyskać dostępu do maszyny wirtualnej po przywróceniu z powodu nieprzerwanej relacji z kontrolerem domeny, wykonaj poniższe kroki, aby wyświetlić maszynę wirtualną:
+- Jeśli po przywróceniu nie można uzyskać dostępu do maszyny wirtualnej, ponieważ maszyna wirtualna ma naruszoną relację z kontrolerem domeny, wykonaj poniższe kroki, aby wyświetlić maszynę wirtualną:
   - Dołącz dysk systemu operacyjnego jako dysk danych do odzyskiwanej maszyny wirtualnej.
   - Ręcznie Zainstaluj agenta maszyny wirtualnej, jeśli usługa Azure Agent nie odpowiada, wykonując ten [link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
   - Włącz dostęp do konsoli szeregowej na maszynie wirtualnej, aby zezwolić na dostęp z wiersza polecenia do maszyny wirtualnej
