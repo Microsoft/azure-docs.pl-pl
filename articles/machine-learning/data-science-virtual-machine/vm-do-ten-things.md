@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204223"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929285"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dziesięć rzeczy, które możesz wykonać w Data Science Virtual Machine systemu Windows
 
@@ -68,7 +68,7 @@ Jupyter Notebook udostępnia środowisko IDE oparte na przeglądarce do eksplora
 
 Aby uruchomić Jupyter Notebook, wybierz ikonę **Jupyter Notebook** w menu **Start** lub na pulpicie. W wierszu polecenia DSVM można także uruchomić polecenie ```jupyter notebook``` z katalogu, w którym znajdują się już notesy, lub w którym chcesz utworzyć nowe notesy.  
 
-Po rozpoczęciu Jupyter powinien zostać wyświetlony katalog zawierający kilka przykładowych notesów, które są wstępnie spakowane w DSVM. Co możesz teraz zrobić:
+Po rozpoczęciu Jupyter przejdź do `/notebooks` katalogu, w którym znajdują się przykładowe notesy, które są wstępnie SPAKOWANE do DSVM. Co możesz teraz zrobić:
 
 * Wybierz Notes, aby wyświetlić kod.
 * Uruchom każdą komórkę, wybierając SHIFT + ENTER.
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>Tworzenie i operacjonalizować modeli R
-Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto konkretne kroki:
+Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto kroki do wykonania:
 
 1. Utwórz plik Settings. JSON, aby podać identyfikator obszaru roboczego i token uwierzytelniania. 
 2. Napisz otokę dla funkcji przewidywania modelu.
@@ -142,7 +142,7 @@ Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub 
 
 Użyj poniższej procedury i fragmentów kodu, aby skonfigurować, skompilować, opublikować i korzystać z modelu jako usługi sieci Web w Azure Machine Learning.
 
-#### <a name="set-up"></a>Konfiguruj
+#### <a name="set-up"></a>Konfigurowanie
 
 Utwórz plik Settings. JSON w katalogu o nazwie ```.azureml``` w katalogu macierzystym. Wprowadź parametry w obszarze roboczym Azure Machine Learning.
 

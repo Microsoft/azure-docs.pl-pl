@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176128"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801320"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego protokołu, który jest dostępny w systemie Windows Server, aby uzyskać dostęp do danych lokalnie, w tym SMB, NFS i FTPS. Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -213,7 +213,7 @@ Punkt końcowy serwera może nie rejestrować aktywności synchronizacji przez k
 > [!Note]  
 > Jeśli stan serwera w bloku zarejestrowane serwery jest "pojawia się w trybie offline", wykonaj kroki opisane w [punkcie końcowym serwera ma stan kondycji "brak działania" lub "oczekiwanie", a stan serwera w bloku zarejestrowane serwery to "pojawia się w trybie offline"](#server-endpoint-noactivity) .
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synchronizuj
 <a id="afs-change-detection"></a>**Jeśli plik został utworzony bezpośrednio w udziale plików platformy Azure za pośrednictwem protokołu SMB lub za pośrednictwem portalu, jak długo trwa synchronizacja pliku z serwerami w grupie synchronizacji?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -807,12 +807,9 @@ Ten błąd występuje z powodu wewnętrznego problemu z bazą danych synchroniza
 | **Ciąg błędu** | ECS_E_INVALID_AAD_TENANT |
 | **Wymagana korekta** | Tak |
 
-Ten błąd występuje, ponieważ obecnie usługa Azure File Sync nie obsługuje przenoszenia subskrypcji do innej dzierżawy usługi Azure Active Directory.
+Upewnij się, że masz najnowszą Azure File Sync agenta. W przypadku agenta v10 Azure File Sync obsługuje przeniesienie subskrypcji do innej dzierżawy Azure Active Directoryowej.
  
-Aby rozwiązać ten problem, wykonaj jedną z następujących czynności:
-
-- **Opcja 1 (zalecana)**: przeniesienie subskrypcji z powrotem do oryginalnej dzierżawy Azure Active Directory
-- **Opcja 2**: usunięcie i ponowne utworzenie bieżącej grupy synchronizacji. Jeśli włączono obsługę warstw w chmurze w punkcie końcowym serwera, usuń grupę synchronizacji, a następnie wykonaj czynności opisane w [sekcji obsługi warstw w chmurze]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint), aby usunąć oddzielone pliki warstwowe przed ponownym utworzeniem grup synchronizacji. 
+Gdy masz najnowszą wersję agenta, musisz nadać aplikacji Microsoft. StorageSync dostęp do konta magazynu (Sprawdź, [czy Azure File Sync ma dostęp do konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**Synchronizacja nie powiodła się z powodu nieskonfigurowania wyjątku zapory i sieci wirtualnej**  
 
@@ -998,7 +995,7 @@ if ($fileShare -eq $null) {
 
     Jeśli na liście nie ma **programu Microsoft. StorageSync** lub **hybrydowej usługi File Sync** , wykonaj następujące czynności:
 
-    - Kliknij pozycję **Add** (Dodaj).
+    - Kliknij pozycję **Dodaj**.
     - W polu **rola** wybierz pozycję **czytnik i dostęp do danych**.
     - W polu **Wybierz** wpisz **Microsoft. StorageSync**, wybierz rolę, a następnie kliknij przycisk **Zapisz**.
 
@@ -1248,7 +1245,25 @@ Jeśli wystąpią problemy z Azure File Sync na serwerze, należy najpierw wykon
 3. Sprawdź, czy sterowniki filtrów Azure File Sync (StorageSync. sys i StorageSyncGuard. sys) są uruchomione:
     - W wierszu polecenia z podwyższonym poziomem `fltmc`uprawnień uruchom polecenie. Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
 
-Jeśli problem nie zostanie rozwiązany, uruchom narzędzie AFSDiag:
+Jeśli problem nie zostanie rozwiązany, uruchom narzędzie AFSDiag i Wyślij plik. zip do inżyniera pomocy technicznej przypisanego do Twojego przypadku w celu przeprowadzenia dalszej diagnostyki.
+
+W przypadku agenta w wersji v11 lub nowszej:
+
+1. Otwórz okno programu PowerShell z podwyższonym poziomem uprawnień, a następnie uruchom następujące polecenia (naciśnij klawisz Enter po każdym poleceniu):
+
+    > [!NOTE]
+    >AFSDiag utworzy katalog wyjściowy i folder Temp w nim przed zbieraniem dzienników i spowoduje usunięcie folderu tymczasowego po wykonaniu. Określ lokalizację wyjściową, która nie zawiera danych.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Odtwórz problem. Po zakończeniu wprowadź **D**.
+3. Plik. zip zawierający pliki dzienników i plików śledzenia jest zapisywany w katalogu wyjściowym, który został określony. 
+
+W przypadku agenta w wersji V10 i starszych:
 1. Utwórz katalog, w którym zostaną zapisane dane wyjściowe AFSDiag (na przykład C:\Output).
     > [!NOTE]
     >AFSDiag usunie całą zawartość z katalogu wyjściowego przed zbieraniem dzienników. Określ lokalizację wyjściową, która nie zawiera danych.

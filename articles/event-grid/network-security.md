@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300156"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857044"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
@@ -61,7 +61,7 @@ W przypadku rozwiązywania tematu lub adresu URL punktu końcowego domeny spoza 
 | Nazwa                                          | Typ      | Wartość                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<profil usługi Azure Traffic Manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profil usługi Azure Traffic Manager\>
 
 Możesz odmówić dostępu do klienta lub kontrolować go poza siecią wirtualną za pośrednictwem publicznego punktu końcowego za pomocą [zapory IP](#ip-firewall). 
 
@@ -92,10 +92,9 @@ W poniższej tabeli opisano różne stany połączenia prywatnego punktu końcow
 Aby publikowanie zakończyło się pomyślnie, stan połączenia prywatnego punktu końcowego powinien zostać **zatwierdzony**. Jeśli połączenie zostanie odrzucone, nie można go zatwierdzić przy użyciu Azure Portal. Jedyną możliwością jest usunięcie połączenia i utworzenie nowego.
 
 ## <a name="pricing-and-quotas"></a>Cennik i przydziały
-**Prywatne punkty końcowe** są dostępne tylko w przypadku tematów i domen w warstwie Premium. Event Grid umożliwia tworzenie do 64 połączeń prywatnych punktów końcowych na temat lub domenę. Aby przeprowadzić uaktualnienie z warstwy Podstawowa do warstwy Premium, zobacz artykuł dotyczący [aktualizacji warstwy cenowej](update-tier.md) .
+**Prywatne punkty końcowe** są dostępne zarówno w warstwach Podstawowa, jak i Premium Event Grid. Event Grid umożliwia tworzenie do 64 połączeń prywatnych punktów końcowych na temat lub domenę. 
 
 Funkcja **Zapora IP** jest dostępna w warstwach Podstawowa i Premium Event Grid. Zezwalamy na tworzenie do 16 reguł zapory IP dla tematu lub domeny.
-
 
 ## <a name="next-steps"></a>Następne kroki
 Można skonfigurować zaporę IP dla zasobu Event Grid, aby ograniczyć dostęp za pośrednictwem publicznej sieci Internet tylko z poziomu wybranych adresów IP lub zakresów adresów IP. Aby uzyskać instrukcje krok po kroku, zobacz [Konfigurowanie zapory IP](configure-firewall.md).

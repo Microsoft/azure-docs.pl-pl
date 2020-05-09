@@ -5,153 +5,51 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cffc6393ef6f5c1a33be615d9d5d4b8729ab711f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254263"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611861"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identyfikowanie i diagnozowanie problemów
 
-Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Role pulpitu wirtualnego systemu Windows rejestrują aktywność diagnostyczną za każdym razem, gdy użytkownik współdziała z systemem. Każdy dziennik zawiera istotne informacje, takie jak role pulpitu wirtualnego systemu Windows związane z transakcjami, komunikatami o błędach, informacjami o dzierżawie i informacjami o użytkowniku. Działania diagnostyczne są tworzone przez działania wykonywane zarówno przez użytkownika końcowego, jak i administracyjne. można je podzielić na trzy główne zasobniki:
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Działania dotyczące subskrypcji kanału informacyjnego: użytkownik końcowy wyzwala te działania przy każdej próbie połączenia się ze źródłem danych za pomocą aplikacji Pulpit zdalny Microsoft.
-* Działania połączenia: użytkownik końcowy wyzwala te działania przy każdej próbie połączenia się z pulpitem lub funkcją RemoteApp za pomocą aplikacji Pulpit zdalny Microsoft.
-* Działania związane z zarządzaniem: Administrator wyzwala te działania za każdym razem, gdy wykonują operacje zarządzania w systemie, takie jak tworzenie pul hostów, przypisywanie użytkowników do grup aplikacji i tworzenie przypisań ról.
+Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Aby dowiedzieć się więcej o możliwościach diagnostycznych pulpitu wirtualnego systemu Windows, zobacz [używanie log Analytics do funkcji diagnostyki](diagnostics-log-analytics.md).
   
 Połączenia, które nie docierają do pulpitu wirtualnego systemu Windows, nie będą wyświetlane w wynikach diagnostyki, ponieważ sama usługa roli diagnostyki jest częścią pulpitu wirtualnego systemu Windows. Problemy z połączeniem pulpitu wirtualnego systemu Windows mogą wystąpić, gdy użytkownik końcowy napotyka problemy z łącznością sieciową.
-
-Aby rozpocząć, [Pobierz i zaimportuj moduł programu PowerShell dla pulpitu wirtualnego systemu Windows](/powershell/windows-virtual-desktop/overview/) , który ma być używany w sesji programu PowerShell, jeśli jeszcze tego nie zrobiono. Następnie uruchom następujące polecenie cmdlet, aby zalogować się do konta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-## <a name="diagnose-issues-with-powershell"></a>Diagnozowanie problemów przy użyciu programu PowerShell
-
-Diagnostyka pulpitu wirtualnego systemu Windows używa tylko jednego polecenia cmdlet programu PowerShell, ale zawiera wiele opcjonalnych parametrów, aby pomóc w zawężaniu i izolowaniu problemów. Poniższe sekcje zawierają listę poleceń cmdlet, które można uruchomić w celu zdiagnozowania problemów. Większość filtrów można zastosować razem. Wartości wymienione w nawiasach, takie `<tenantName>`jak, powinny być zastępowane wartościami, które dotyczą danej sytuacji.
-
->[!IMPORTANT]
->Funkcja diagnostyki służy do rozwiązywania problemów z jednym użytkownikiem. Wszystkie zapytania przy użyciu programu PowerShell muszą zawierać parametry *-username* lub *-ActivityId* . Aby uzyskać możliwości monitorowania, użyj Log Analytics. Aby uzyskać więcej informacji o sposobach wysyłania danych diagnostycznych do obszaru roboczego [, zobacz używanie log Analytics dla funkcji diagnostyki](diagnostics-log-analytics.md) . 
-
-### <a name="filter-diagnostic-activities-by-user"></a>Filtruj działania diagnostyczne według użytkownika
-
-Parametr **-username** zwraca listę działań diagnostycznych zainicjowanych przez określonego użytkownika, jak pokazano w poniższym przykładowym poleceniu cmdlet.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-Parametr **-username** może być również połączony z innymi opcjonalnymi parametrami filtrowania.
-
-### <a name="filter-diagnostic-activities-by-time"></a>Filtrowanie działań diagnostycznych według czasu
-
-Można filtrować listę zwróconych działań diagnostycznych za pomocą parametrów **-StartTime** i **-Endtime** . Parametr **-StartTime** zwróci listę działań diagnostycznych, zaczynając od określonej daty, jak pokazano w poniższym przykładzie.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
-```
-
-Parametr **-Endtime** można dodać do polecenia cmdlet z parametrem **-StartTime** , aby określić określony okres, dla którego mają być odbierane wyniki. Poniższe przykładowe polecenie cmdlet zwróci listę działań diagnostycznych z zakresu od 1 sierpnia do 10 sierpnia.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-Parametry **-StartTime** i **-Endtime** można także łączyć z innymi opcjonalnymi parametrami filtrowania.
-
-### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtruj działania diagnostyczne według typu działania
-
-Działania diagnostyczne można również filtrować według typu działania z parametrem **-ActivityType** . Następujące polecenie cmdlet zwróci listę połączeń użytkowników końcowych:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
-```
-
-Następujące polecenie cmdlet zwróci listę zadań zarządzania administratorami:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-Polecenie cmdlet **Get-RdsDiagnosticActivities** nie obsługuje obecnie określania kanału informacyjnego jako działaniatype.
-
-### <a name="filter-diagnostic-activities-by-outcome"></a>Filtruj działania diagnostyczne według wyniku
-
-Zwracaną listę działań diagnostycznych można filtrować według wyniku z parametrem **wyniku** . Poniższe przykładowe polecenie cmdlet zwróci listę pomyślnych działań diagnostycznych.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
-```
-
-Poniższe przykładowe polecenie cmdlet zwróci listę zakończonych niepowodzeniem działań diagnostycznych.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-Parametr **-wyniku** można także połączyć z innymi opcjonalnymi parametrami filtrowania.
-
-### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Pobierz określoną aktywność diagnostyczną według identyfikatora działania
-
-Parametr **-ActivityId** zwraca określone działanie diagnostyczne, jeśli istnieje, jak pokazano w poniższym przykładowym poleceniu cmdlet.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
-```
-
-### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Wyświetl komunikaty o błędach dla działania zakończonego niepowodzeniem według identyfikatora działania
-
-Aby wyświetlić komunikaty o błędach dla działania zakończonego niepowodzeniem, należy uruchomić polecenie cmdlet z parametrem **--szczegółowym** . Listę błędów można wyświetlić, uruchamiając polecenie cmdlet **Select-Object** .
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
-```
-
-### <a name="retrieve-detailed-diagnostic-activities"></a>Pobierz szczegółowe działania diagnostyczne
-
-**-Szczegółowy** parametr zawiera dodatkowe szczegóły dla każdej zwróconego działania diagnostycznego. Format każdego działania różni się w zależności od typu działania. Parametr **-Details** można dodać do dowolnego zapytania **Get-RdsDiagnosticActivities** , jak pokazano w poniższym przykładzie.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
-```
 
 ## <a name="common-error-scenarios"></a>Typowe scenariusze błędów
 
 Scenariusze błędów są kategoryzowane w wewnętrznej usłudze i na pulpicie wirtualnym systemu Windows.
 
-* Problem wewnętrzny: określa scenariusze, które nie mogą zostać skorygowane przez administratora dzierżawy i muszą zostać rozwiązane jako problem z pomocą techniczną. Przekazując informacje zwrotne za pomocą [społeczności technicznej pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), należy uwzględnić identyfikator działania i przybliżony przedział czasu, w którym wystąpił problem.
-* Problem zewnętrzny: odnosi się do scenariuszy, które mogą zostać skorygowane przez administratora systemu. Są one zewnętrzne dla pulpitu wirtualnego systemu Windows.
+* Problem wewnętrzny: określa scenariusze, które nie mogą zostać skorygowane przez klienta i muszą zostać rozwiązane jako problem z pomocą techniczną. Przekazując informacje zwrotne za pomocą [społeczności technicznej pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), należy uwzględnić identyfikator korelacji i przybliżony czas, w którym wystąpił problem.
+* Problem zewnętrzny: odnosi się do scenariuszy, które mogą zostać skorygowane przez klienta. Są one zewnętrzne dla pulpitu wirtualnego systemu Windows.
 
 W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą pracować.
 
 >[!NOTE]
 >Ta lista zawiera najczęstsze błędy i jest aktualizowana regularnie erze. Aby mieć pewność, że masz najnowsze informacje, pamiętaj o tym, aby ponownie zaewidencjonować ten artykuł co najmniej raz w miesiącu.
 
-### <a name="external-management-error-codes"></a>Kody błędów zarządzania zewnętrznego
+## <a name="management-errors"></a>Błędy zarządzania
 
-|Kod liczbowy|Kod błędu|Sugerowane rozwiązanie|
-|---|---|---|
-|3|UnauthorizedAccess|Użytkownik, który próbował uruchomić administracyjne polecenie cmdlet programu PowerShell, nie ma uprawnień do wykonania tej operacji lub niewpisanej nazwy użytkownika.|
-|1000|TenantNotFound|Wprowadzona nazwa dzierżawy nie jest zgodna z żadną z istniejących dzierżawców. Przejrzyj nazwę dzierżawy pod kątem pisowni i spróbuj ponownie.|
-|1006|TenantCannotBeRemovedHasSessionHostPools|Dzierżawy nie można usunąć, dopóki nie zawiera ona obiektów. Najpierw usuń pule hostów sesji, a następnie spróbuj ponownie.|
-|2000|HostPoolNotFound|Wprowadzona nazwa puli hostów nie jest zgodna z żadną istniejącą pulą hostów. Przejrzyj nazwę puli hostów pod kątem pisowni i spróbuj ponownie.|
-|2005|HostPoolCannotBeRemovedHasApplicationGroups|Nie można usunąć puli hostów, o ile zawiera ona obiekty. Najpierw usuń wszystkie grupy aplikacji w puli hostów.|
-|2004|HostPoolCannotBeRemovedHasSessionHosts|Przed usunięciem puli hostów sesji Usuń wszystkie hosty sesji.|
-|5001|SessionHostNotFound|Poszukiwany Host sesji może być w trybie offline. Sprawdź stan puli hostów.|
-|5008|SessionHostUserSessionsExist |Musisz wylogować wszystkich użytkowników na hoście sesji przed wykonaniem zamierzonego działania zarządzania.|
-|6000|AppGroupNotFound|Wprowadzona nazwa grupy aplikacji nie jest zgodna z żadną z istniejących grup aplikacji. Przejrzyj nazwę grupy aplikacji pod kątem pisowni i spróbuj ponownie.|
-|6022|RemoteAppNotFound|Wprowadzona nazwa usługi RemoteApp nie jest zgodna z żadną usługą RemoteApp. Przejrzyj nazwę usługi RemoteApp pod kątem literówek i spróbuj ponownie.|
-|6010|PublishedItemsExist|Nazwa zasobu, który próbujesz opublikować, jest taka sama jak w przypadku zasobu, który już istnieje. Zmień nazwę zasobu i spróbuj ponownie.|
-|7002|NameNotValidWhiteSpace|Nie używaj odstępu w nazwie.|
-|8000|InvalidAuthorizationRoleScope|Wprowadzona nazwa roli nie jest zgodna z żadną z istniejących nazw ról. Przejrzyj nazwę roli pod kątem pisowni i spróbuj ponownie. |
-|8001|UserNotFound |Wprowadzona nazwa użytkownika nie jest zgodna z żadną z istniejących nazw użytkowników. Sprawdź nazwę literówków i spróbuj ponownie.|
-|8005|UserNotFoundInAAD |Wprowadzona nazwa użytkownika nie jest zgodna z żadną z istniejących nazw użytkowników. Sprawdź nazwę literówków i spróbuj ponownie.|
-|8008|TenantConsentRequired|Postępuj zgodnie z instrukcjami w [tym miejscu](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) , aby wyrazić zgodę na dzierżawę.|
+|Komunikat o błędzie|Sugerowane rozwiązanie|
+|---|---|
+|Nie można utworzyć klucza rejestracji |Nie można utworzyć tokenu rejestracji. Spróbuj utworzyć go ponownie przy krótszym czasie wygaśnięcia (od 1 godziny do 1 miesiąca). |
+|Nie można usunąć klucza rejestracji|Nie można usunąć tokenu rejestracji. Spróbuj usunąć go ponownie. Jeśli nadal nie działa, użyj programu PowerShell, aby sprawdzić, czy token nadal istnieje. Jeśli tak jest, usuń ją za pomocą programu PowerShell.|
+|Nie można zmienić trybu opróżniania hosta sesji |Nie można zmienić trybu opróżniania na maszynie wirtualnej. Sprawdź stan maszyny wirtualnej. Jeśli maszyna wirtualna jest niedostępna, nie można zmienić trybu opróżniania.|
+|Nie można rozłączyć sesji użytkownika |Nie można rozłączyć użytkownika z maszyny wirtualnej. Sprawdź stan maszyny wirtualnej. Jeśli maszyna wirtualna jest niedostępna, sesja użytkownika nie może zostać odłączona. Jeśli maszyna wirtualna jest dostępna, sprawdź stan sesji użytkownika, aby sprawdzić, czy jest ona rozłączona. |
+|Nie można wylogować wszystkich użytkowników w ramach hosta sesji |Nie można wylogować użytkowników z maszyny wirtualnej. Sprawdź stan maszyny wirtualnej. Jeśli nie jest dostępny, nie można wylogować użytkowników. Sprawdź stan sesji użytkownika, aby sprawdzić, czy są już wylogowane. Możesz wymusić wylogowanie za pomocą programu PowerShell. |
+|Nie można anulować przypisania użytkownika z grupy aplikacji|Nie można anulować publikacji grupy aplikacji dla użytkownika. Sprawdź, czy użytkownik jest dostępny w usłudze Azure AD. Sprawdź, czy użytkownik jest członkiem grupy użytkowników, w której jest publikowana Grupa aplikacji. |
+|Wystąpił błąd podczas pobierania dostępnych lokalizacji |Sprawdź lokalizację maszyny wirtualnej używaną w Kreatorze tworzenia puli hostów. Jeśli obraz nie jest dostępny w tej lokalizacji, Dodaj do niej obraz lub wybierz inną lokalizację maszyny wirtualnej. |
 
 ### <a name="external-connection-error-codes"></a>Kody błędów połączenia zewnętrznego
 
@@ -162,7 +60,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 |-2146233088|ConnectionFailedClientDisconnect|Jeśli ten błąd występuje często, upewnij się, że komputer użytkownika jest połączony z siecią.|
 |-2146233088|ConnectionFailedNoHealthyRdshAvailable|Sesja, z którą użytkownik hosta próbował się połączyć, nie jest w dobrej kondycji. Debuguj maszynę wirtualną.|
 |-2146233088|ConnectionFailedUserNotAuthorized|Użytkownik nie ma uprawnień dostępu do opublikowanej aplikacji lub pulpitu. Ten błąd może pojawić się po usunięciu opublikowanych zasobów przez administratora. Poproszenie użytkownika o odświeżenie źródła danych w aplikacji Pulpit zdalny.|
-|2|FileNotFound|Aplikacja, do której próbowano uzyskać dostęp, jest nieprawidłowo zainstalowana lub ustawiona na niepoprawną ścieżkę.|
+|2|FileNotFound|Aplikacja, do której próbowano uzyskać dostęp, jest nieprawidłowo zainstalowana lub ustawiona na niepoprawną ścieżkę.<br><br>Podczas publikowania nowych aplikacji, gdy użytkownik ma aktywną sesję, użytkownik nie będzie mógł uzyskać dostępu do tej aplikacji. Aby użytkownik mógł uzyskać dostęp do aplikacji, należy zamknąć i ponownie uruchomić sesję. |
 |3|InvalidCredentials|Wprowadzona nazwa użytkownika lub hasło nie są zgodne z istniejącymi nazwami użytkowników ani hasłami. Przejrzyj poświadczenia pod kątem pisowni i spróbuj ponownie.|
 |8|ConnectionBroken|Połączenie między klientem a bramą lub serwerem zostało usunięte. Nie trzeba wykonywać żadnych czynności, chyba że wystąpi nieoczekiwany.|
 |14|UnexpectedNetworkDisconnect|Połączenie z siecią zostało usunięte. Poproszenie użytkownika o ponowne nawiązanie połączenia.|

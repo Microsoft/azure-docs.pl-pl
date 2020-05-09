@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79209485"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801811"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Tworzenie alertów dla Azure SQL Database i baz danych usługi Azure Synapse Analytics przy użyciu Azure Portal
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209485"
 
 W tym artykule opisano sposób konfigurowania alertów dla baz danych z pojedynczym, pulą i magazynem danych w Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) przy użyciu Azure Portal. Alerty mogą wysyłać wiadomość e-mail lub wywoływać element webhook, gdy pewna Metryka (na przykład rozmiar bazy danych lub użycie procesora) osiągnie wartość progową. W tym artykule przedstawiono również najlepsze rozwiązania dotyczące ustawiania okresów alertów.
 
-> [!IMPORTANT]
-> Ta funkcja nie jest jeszcze dostępna w wystąpieniu zarządzanym. Alternatywnie można użyć programu SQL Agent do wysyłania alertów e-mail dotyczących niektórych metryk w oparciu o [dynamiczne widoki zarządzania](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Aby uzyskać szczegółowe instrukcje dotyczące wystąpienia zarządzanego przez usługę SQL, zobacz temat [tworzenie alertów dotyczących wystąpienia zarządzanego Azure SQL](sql-database-managed-instance-alerts.md).
 
 Możesz otrzymywać alerty na podstawie metryk monitorowania dla usługi lub zdarzeń w usłudze Azure.
 
@@ -41,7 +41,7 @@ Można skonfigurować alert, aby wykonać następujące czynności podczas wyzwa
 Można skonfigurować i uzyskać informacje o regułach alertów za pomocą
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [Narzędzia](../azure-monitor/platform/alerts-classic-portal.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfejs wiersza polecenia (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfejs API REST usługi Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 

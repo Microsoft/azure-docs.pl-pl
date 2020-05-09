@@ -14,8 +14,13 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie Python
           href: tutorial-python-windows-virtual-machine.md
-    - name: Korzystanie z usługi Azure Key Vault w aplikacji internetowej platformy Azure na platformie .NET
+    - name: Łączenie usługi Key Vault z aplikacją internetową przy użyciu tożsamości zarządzanej i platformy .NET
       href: tutorial-net-create-vault-azure-web-app.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Pojęcia
   items:
     - name: Podstawowe pojęcia
@@ -96,6 +101,10 @@
           href: soft-delete-powershell.md
     - name: Przenoszenie magazynu kluczy
       items:
+        - name: Przenoszenie magazynu kluczy do innej grupy zasobów
+          href: keyvault-moveresourcegroup.md
+        - name: Przenoszenie magazynu kluczy do innej subskrypcji
+          href: keyvault-move-subscription.md
         - name: Przenoszenie magazynu kluczy do innego regionu
           href: keyvault-moveregion.md
     - name: Rozwiązywanie problemów
