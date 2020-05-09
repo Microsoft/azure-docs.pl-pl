@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868074"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793044"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Zoptymalizuj chmurę prywatną CloudSimple na potrzeby instalacji programu Oracle RAC
 
@@ -244,7 +244,7 @@ Powtórz kroki od 2 do 7 dla wszystkich nowych dysków wymaganych dla plików ba
 Reguły koligacji z MASZYNami wirtualnymi zapewniają, że maszyna wirtualna jest uruchamiana na żądanym hoście.  Można zdefiniować reguły w programie vCenter, aby upewnić się, że maszyna wirtualna Oracle działa na hoście z odpowiednimi zasobami i spełnia wymagania dotyczące konkretnych licencji.
 
 1. W portalu CloudSimple należy [eskalować uprawnienia](escalate-private-cloud-privileges.md) użytkownika cloudowner.
-2. [Zaloguj się do klienta vSphere](https://docs.azure.cloudsimple.com/vsphere-access) w chmurze prywatnej.
+2. Zaloguj się do klienta vSphere w chmurze prywatnej.
 3. W kliencie vSphere wybierz klaster, w którym są wdrożone maszyny wirtualne Oracle, a następnie kliknij przycisk **Konfiguruj**.
 4. W obszarze Konfiguracja wybierz pozycję **VM/grupy hostów**.
 5. Kliknij **+** pozycję.
@@ -259,7 +259,7 @@ Reguły koligacji z MASZYNami wirtualnymi zapewniają, że maszyna wirtualna jes
 13. Wybierz utworzoną grupę hostów.
 14. Kliknij przycisk **OK**, aby utworzyć regułę.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Informacje o zasadach sieci vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
 * [Atrybut wieloskładnikowego programu VMware dla udostępnionych dysków VMDK](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

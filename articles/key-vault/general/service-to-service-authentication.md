@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686189"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857083"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Uwierzytelnianie między usługami Azure Key Vault przy użyciu platformy .NET
 
@@ -272,7 +272,7 @@ Korzystając z interfejsu wiersza polecenia platformy Azure, Ustaw domyślną su
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Nieautoryzowany dostęp, odmowa dostępu, dostęp zabroniony lub podobny błąd
 
-Używany podmiot zabezpieczeń nie ma dostępu do zasobu, do którego próbuje uzyskać dostęp. Przyznaj kontu użytkownika lub użytkownikowi "Współautor" App Service, aby uzyskać dostęp do zasobu. Który z nich zależy od tego, czy używasz przykładu na komputerze lokalnym, czy też wdrożonego na platformie Azure do App Service. Niektóre zasoby, takie jak magazyny kluczy, również mają własne [zasady dostępu](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) , które umożliwiają udzielanie dostępu do podmiotów zabezpieczeń, takich jak użytkownicy, aplikacje i grupy.
+Używany podmiot zabezpieczeń nie ma dostępu do zasobu, do którego próbuje uzyskać dostęp. Przyznaj kontu użytkownika lub użytkownikowi "Współautor" App Service, aby uzyskać dostęp do zasobu. Który z nich zależy od tego, czy używasz przykładu na komputerze lokalnym, czy też wdrożonego na platformie Azure do App Service. Niektóre zasoby, takie jak magazyny kluczy, również mają własne [zasady dostępu](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) , które umożliwiają udzielanie dostępu do podmiotów zabezpieczeń, takich jak użytkownicy, aplikacje i grupy.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Typowe problemy występujące podczas wdrażania programu w celu Azure App Service
 

@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295111"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690373"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Konfigurowanie zasad dostępu warunkowego w trybie tylko do raportowania (wersja zapoznawcza)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurowanie zasad dostępu warunkowego w trybie tylko do raportowania
 
 Aby skonfigurować zasady dostępu warunkowego w trybie tylko do raportowania:
 
@@ -42,7 +42,7 @@ Aby wyświetlić wynik zasad dotyczących tylko raportów dotyczących określon
 1. Zaloguj się do **Azure Portal** jako czytelnik raportów, czytelnik zabezpieczeń, administrator zabezpieczeń lub Administrator globalny.
 1. Przejdź do **Azure Active Directory** > **logowania**.
 1. Wybierz pozycję Zaloguj lub Dodaj filtry, aby zawęzić wyniki.
-1. W szufladzie **szczegółów** wybierz kartę **tylko raport (wersja zapoznawcza)** , aby wyświetlić zasady oceniane podczas logowania.
+1. W szufladzie **szczegółów** wybierz kartę **tylko raport** , aby wyświetlić zasady oceniane podczas logowania.
 
 > [!NOTE]
 > Podczas pobierania dzienników logowania wybierz format JSON, aby dołączyć raport dostępu warunkowego — tylko dane wynikowe.
@@ -62,7 +62,7 @@ Po zintegrowaniu dzienników usługi Azure AD z Azure Monitor można monitorowa�
 
 1. Zaloguj się do **Azure Portal** jako administrator zabezpieczeń lub Administrator globalny.
 1. Przejdź do **Azure Active Directory** > **skoroszytów**.
-1. Wybierz pozycję **dostęp warunkowy szczegółowe dane (wersja zapoznawcza)**.
+1. Wybierz pozycję **dostęp warunkowy szczegółowe informacje**.
 1. Wybierz co najmniej jedną zasadę z listy rozwijanej **zasady dostępu warunkowego** . Wszystkie włączone zasady są domyślnie zaznaczone.
 1. Wybierz zakres czasu (Jeśli zakres czasu przekracza dostęp do dostępnego zestawu danych, raport będzie zawierać wszystkie dostępne dane). Po ustawieniu **zasad dostępu warunkowego** i parametrów **zakresu czasu** raport zostanie załadowany.
    1. Opcjonalnie można wyszukać poszczególnych **użytkowników** lub **aplikacje** , aby zawęzić zakres raportu.

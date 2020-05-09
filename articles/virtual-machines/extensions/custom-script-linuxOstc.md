@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535412"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594716"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Korzystanie z rozszerzenia niestandardowego skryptu platformy Azure w wersji 1 z maszynami wirtualnymi z systemem Linux
 
@@ -120,11 +120,11 @@ Te elementy powinny być traktowane jako dane poufne i określone w konfiguracji
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | publisher | Microsoft. OSTCExtensions | ciąg |
 | type | CustomScriptForLinux | ciąg |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (np.) | https://github.com/MyProject/Archive/MyPythonScript.py | tablica |
+| fileUris (np.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | tablica |
 | Sekcji commandtoexecute (np.) | Python MyPythonScript.py \<my-param1\> | ciąg |
 | enableInternalDNSCheck | true | wartość logiczna |
 | storageAccountName (np.) | examplestorageacct | ciąg |

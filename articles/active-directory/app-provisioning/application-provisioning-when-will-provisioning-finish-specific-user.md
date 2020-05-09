@@ -2,26 +2,21 @@
 title: Dowiedz się, kiedy określony użytkownik będzie mógł uzyskać dostęp do aplikacji
 description: Jak dowiedzieć się, kiedy krytycznie ważny jest dostęp do aplikacji skonfigurowanej do aprowizacji użytkowników w usłudze Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264143"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593917"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Sprawdź stan aprowizacji użytkowników
 
@@ -35,7 +30,7 @@ Podczas pierwszej konfiguracji automatycznej aprowizacji, **Bieżąca sekcja sta
 - Typ cyklu aprowizacji (początkowy lub przyrostowy), który jest aktualnie uruchomiony lub ostatnio zakończony.
 - **Pasek postępu** przedstawiający procent cyklu aprowizacji, który został ukończony. Wartość procentowa odzwierciedla liczbę zainicjowanych stron. Należy pamiętać, że każda strona może zawierać wielu użytkowników lub grup, więc wartość procentowa nie jest bezpośrednio skorelowana z liczbą użytkowników, grup lub ról, które są obsługiwane.
 - Przycisk **odświeżania** , którego można użyć, aby zachować zaktualizowany widok.
-- Liczba **użytkowników** i **grup** w magazynie danych łącznika. Liczba rośnie wszędzie po dodaniu obiektu do zakresu aprowizacji. Ta liczba nie zostanie wyłączona, jeśli użytkownik zostanie usunięty lub usunięty trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Liczba zostanie recaculated pierwszej synchronizacji po [zresetowaniu](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) dysków CD 
+- Liczba **użytkowników** i **grup** w magazynie danych łącznika. Liczba rośnie wszędzie po dodaniu obiektu do zakresu aprowizacji. Ta liczba nie zostanie wyłączona, jeśli użytkownik zostanie usunięty lub usunięty trwale, ponieważ nie spowoduje to usunięcia obiektu z magazynu danych łącznika. Liczba zostanie ponownie obliczona po pierwszej synchronizacji po [zresetowaniu](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) dysków CD 
 - Łącze **Wyświetl dzienniki inspekcji** , które otwiera dzienniki aprowizacji usługi Azure AD, aby uzyskać szczegółowe informacje o wszystkich operacjach wykonywanych przez usługę aprowizacji użytkowników, w tym o stanie aprowizacji poszczególnych użytkowników (zobacz sekcję korzystanie z [dzienników aprowizacji](#use-provisioning-logs-to-check-a-users-provisioning-status) poniżej).
 
 Po zakończeniu cyklu aprowizacji sekcja **statystyki do daty** pokazuje skumulowaną liczbę użytkowników i grup, których zainicjowano na dzień, wraz z datą ukończenia i czasem trwania ostatniego cyklu. **Identyfikator działania** jednoznacznie identyfikuje najnowszy cykl aprowizacji. **Identyfikator zadania** jest unikatowym identyfikatorem zadania aprowizacji i jest specyficzny dla aplikacji w dzierżawie.

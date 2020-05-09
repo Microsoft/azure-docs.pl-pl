@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189108"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734828"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>PRZESTARZAŁE Mikrousługi wersji Kanaryjskich z pomocą systemu Vamp na klastrze DC/OS Azure Container Service
 
@@ -129,11 +129,11 @@ Teraz, gdy pomocą systemu Vamp jest uruchomiona, wdróż usługę z planu.
 
 W najprostszej postaci [pomocą systemu Vamp plan](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) opisuje punkty końcowe (bramy), klastry i usługi do wdrożenia. Pomocą systemu Vamp używa klastrów do grupowania różnych wariantów tej samej usługi w grupy logiczne dla testowania wydawania i/B.  
 
-W tym scenariuszu jest stosowana Przykładowa aplikacja monolityczna o nazwie [**Sava**](https://github.com/magneticio/sava), która jest w wersji 1,0. Monolitu znajduje się w kontenerze platformy Docker, który znajduje się w usłudze Docker Hub w obszarze magneticio/Sava: 1.0.0. Aplikacja normalnie działa na porcie 8080, ale w tym przypadku chcesz ją uwidocznić w porcie 9050. Wdróż aplikację za pośrednictwem usługi pomocą systemu Vamp przy użyciu prostego planu.
+W tym scenariuszu jest stosowana Przykładowa aplikacja monolityczna o nazwie [**Sava**](https://github.com/magneticio/sava-product), która jest w wersji 1,0. Monolitu znajduje się w kontenerze platformy Docker, który znajduje się w usłudze Docker Hub w obszarze magneticio/Sava: 1.0.0. Aplikacja normalnie działa na porcie 8080, ale w tym przypadku chcesz ją uwidocznić w porcie 9050. Wdróż aplikację za pośrednictwem usługi pomocą systemu Vamp przy użyciu prostego planu.
 
 1. Przejdź do pozycji **wdrożenia**.
 
-2. Kliknij pozycję **Add** (Dodaj).
+2. Kliknij pozycję **Dodaj**.
 
 3. Wklej w poniższej strategii YAML. Ten plan zawiera jeden klaster z tylko jedną odmianą usługi, która została zmieniona w kolejnym kroku:
 

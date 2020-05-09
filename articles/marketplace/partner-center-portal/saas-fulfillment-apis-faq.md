@@ -1,26 +1,26 @@
 ---
-title: Interfejsy API realizacji SaaS — często zadawane pytania | Portal Azure Marketplace
-description: Funkcje odnajdywania i kupowania oferowane przez klientów oferty SaaS w portalu Azure Marketplace.
+title: Interfejs API realizacji SaaS — często zadawane pytania — komercyjne witryny Marketplace firmy Microsoft
+description: Poznaj kilka wymagań dotyczących integracji dla komercyjnej witryny Marketplace firmy Microsoft, aby umożliwić klientom platformy Azure subskrybowanie ofert SaaS.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 6d3a84341d5221950da20f39456461dafc5d2e75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a1ba6f393eba257fcbe2757b8b4bced00bef8fe
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275700"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792908"
 ---
-# <a name="saas-fulfillment-apis---faq"></a>Interfejsy API realizacji SaaS — często zadawane pytania
+# <a name="common-questions-about-saas-fulfillment-apis"></a>Często zadawane pytania dotyczące interfejsów API realizacji SaaS
 
-Wymagania dotyczące integracji z portalem Azure Marketplace umożliwiają klientom platformy Azure subskrybowanie oferty SaaS.
+W tym artykule opisano kilka wymagań dotyczących integracji dla komercyjnej witryny Marketplace firmy Microsoft, aby umożliwić klientom platformy Azure subskrybowanie ofert SaaS.
 
 ## <a name="discovery-experience"></a>Środowisko odnajdywania
 
-Po opublikowaniu oferty Użytkownicy platformy Azure będą mogli odnaleźć ofertę SaaS w portalu Azure Marketplace. Klienci będą mogli filtrować oferty na podstawie typu produktu (SaaS) i odnajdywania interesujących Cię usług SaaS.
+Po opublikowaniu oferty SaaS Użytkownicy platformy Azure będą mogli ją odnaleźć w witrynie Azure Marketplace. Klienci mogą filtrować oferty w oparciu o typ produktu (SaaS) i odkrywać interesujące Cię usługi SaaS.
 
 ## <a name="purchase-experience"></a>Zakup — środowisko
 
@@ -30,7 +30,7 @@ Gdy użytkownik interesuje konkretną usługę SaaS, użytkownik może subskrybo
 
 Oznacza to, że użytkownik może wyświetlić warunki użytkowania i zasady zachowania poufności informacji powiązane z usługą SaaS, a następnie wyrazić zgodę na płatność zgodnie z warunkami rozliczeniowymi ustawionymi przez użytkownika, wydawcy oferty SaaS na fakturze firmy Microsoft. Użytkownicy mogą korzystać z istniejącego profilu płatności na platformie Azure, aby zapłacić za użycie usługi SaaS.
 
-Jest to korzystne z wielu powodów. Klienci mogą teraz odkrywać i subskrybować jedno miejsce przy użyciu Microsoft Cloud platformy jako zaufanego źródła, bez konieczności Zweryfikuj każdego oprogramowania niezależnego od dostawcy. Ponadto klienci mogą korzystać z istniejącego profilu płatniczego bez konieczności jawnego płacenia każdego oprogramowania niezależnego od dostawcy.
+Ta możliwość jest korzystna na kilka sposobów. Klienci mogą teraz odkrywać i subskrybować jedno miejsce przy użyciu Microsoft Cloud platformy jako zaufanego źródła, bez konieczności Zweryfikuj każdego oprogramowania niezależnego od dostawcy. Ponadto klienci mogą korzystać z istniejącego profilu płatniczego bez konieczności jawnego płacenia każdego oprogramowania niezależnego od dostawcy.
 
 ### <a name="is-the-user-charged-automatically-when-the-offer-is-subscribed"></a>Czy użytkownik jest obciążany automatycznie po zasubskrybowaniu oferty?
 
@@ -38,15 +38,15 @@ Podczas subskrybowania oferty SaaS użytkownik wyraził zgodę na płatność za
 
 ### <a name="how-are-you-notified-when-a-user-subscribes-to-your-saas-offer"></a>Jak otrzymasz powiadomienie, gdy użytkownik zasubskrybuje ofertę usługi SaaS?
 
-Po zasubskrybowaniu oferty użytkownik platformy Azure może odnaleźć wszystkie oferty na platformie Azure i zarządzać nimi. Domyślnie stan nowo zasubskrybowanej oferty SaaS to **"Provisioning, oczekiwanie na realizację"**. W tym stanie użytkownikowi systemu Azure zostanie wyświetlony monit z akcją **"Skonfiguruj konto"**, aby przejść do środowiska zarządzania subskrypcją usługi SaaS w Azure Portal.
+Po zasubskrybowaniu oferty użytkownik platformy Azure może odnaleźć wszystkie oferty na platformie Azure i zarządzać nimi. Domyślnie stan nowo zasubskrybowanej oferty SaaS jest pokazywany jako **Inicjowanie obsługi administracyjnej**. W tym stanie użytkownik platformy Azure zostanie monitowany z akcją w celu **skonfigurowania konta**, aby przejść do środowiska zarządzania subskrypcją usługi SaaS w Azure Portal.
 
-Gdy użytkownik kliknie przycisk **"Konfiguruj konto"**, zostanie przekierowany do witryny sieci Web usługi SaaS. Adres URL, do którego się odnosi, jest dostarczany przez wydawcę w momencie opublikowania oferty. Ta strona jest nazywana stroną docelową wydawcy. Użytkownicy platformy Azure powinni mieć możliwość zalogowania się na SaaS stronie docelowej na podstawie istniejących poświadczeń usługi AAD na platformie Azure.
+Gdy użytkownik wybierze opcję **Skonfiguruj konto**, zostanie przekierowany do witryny sieci Web usługi SaaS. Wydawca skonfigurował adres URL w momencie opublikowania oferty. Ta strona jest nazywana stroną docelową wydawcy. Użytkownicy platformy Azure logują się na stronie docelowej SaaS na podstawie istniejących poświadczeń usługi AAD na platformie Azure.
 
-Gdy użytkownik platformy Azure zostanie przekierowany do strony docelowej, zostanie dodany token do adresu URL zapytania. Token ten jest krótko i ważny przez okres 24 godzin. Następnie możesz wykryć obecność tego tokenu i wywoływać interfejs API firmy Microsoft, aby uzyskać więcej kontekstu skojarzonego z tokenem.
+Gdy użytkownik platformy Azure zostanie przekierowany do strony docelowej, zostanie dodany token do adresu URL zapytania. Token ten jest krótkoterminowy i ważny przez 24 godziny. Następnie możesz wykryć obecność tego tokenu i wywoływać interfejs API firmy Microsoft, aby uzyskać więcej kontekstu skojarzonego z tokenem.
 
 ![Przepływ subskrypcji klienta](media/saas-metering-service-integration-flow-a.png)
 
-Zobacz dokument [interfejsu API realizacji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) , aby uzyskać więcej informacji na temat kontraktu interfejsu API na potrzeby obsługi scenariuszy Transact w cyklu życia oferty SaaS.
+Aby uzyskać więcej informacji na temat kontraktu interfejsu API do obsługi scenariuszy Transact w cyklu życia oferty SaaS, zobacz [SaaS API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>Jak poznać ofertę SaaS, do której użytkownik subskrybuje platformę Azure?
 
@@ -56,7 +56,7 @@ Odpowiedź do `Resolve` interfejsu API zawiera informacje o ofercie i planie pow
 
 * Użytkownik platformy Azure może zmienić plan skojarzony z subskrypcją SaaS bezpośrednio w środowisku SaaS lub za pomocą platformy firmy Microsoft.
 
-* Konwersje można wykonać w dowolnym momencie w cyklu rozliczeniowym. Musisz potwierdzić każdą konwersję, która zacznie obowiązywać po potwierdzeniu.
+* Konwersje można wykonać w dowolnym momencie w cyklu rozliczeniowym. Zostanie wyświetlony monit o potwierdzenie konwersji, która zacznie obowiązywać po potwierdzeniu.
 
 * Stawki za plan przedpłaty (**miesięczny** lub **roczny**) są oceniane proporcjonalnie. Wszelkie nadwyżki wyemitowane do czasu konwersji zostaną rozliczone na następnej fakturze. Nowe nadwyżki będą emitowane na podstawie nowego planu.
 
@@ -85,4 +85,4 @@ Sekwencja poniżej przechwytuje przepływ, gdy użytkownik platformy Azure anulu
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji, zobacz [interfejsy API usługi pomiaru witryny Marketplace](./marketplace-metering-service-apis.md) .
+[Interfejsy API usługi pomiaru w witrynie Marketplace](./marketplace-metering-service-apis.md)

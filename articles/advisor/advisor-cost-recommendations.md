@@ -1,69 +1,72 @@
 ---
-title: Obniż koszty usług za pomocą usługi Azure Advisor
-description: Użyj usługi Azure Advisor, aby zoptymalizować koszt wdrożeń platformy Azure.
+title: Zmniejsz koszty usługi przy użyciu Azure Advisor
+description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259697"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788097"
 ---
-# <a name="reduce-service-costs-using-azure-advisor"></a>Obniż koszty usług za pomocą usługi Azure Advisor
+# <a name="reduce-service-costs-using-azure-advisor"></a>Zmniejsz koszty usługi przy użyciu Azure Advisor
 
-Doradca pomaga zoptymalizować i zmniejszyć ogólne wydatki na platformę Azure, identyfikując bezczynne i niedostatecznie użyczane zasoby.Rekomendacje dotyczące kosztów można uzyskać na karcie **Koszt** na pulpicie nawigacyjnym klasyfikatora.
+Usługa Advisor pomaga zoptymalizować i obniżyć ogólne wydatki na platformę Azure, identyfikując bezczynne i niedostateczne zasoby.Możesz uzyskać zalecenia dotyczące kosztów na karcie **koszt** na pulpicie nawigacyjnym usługi Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Zoptymalizuj wydatki na maszyny wirtualne przez zmianę rozmiaru lub zamknięcie nie w pełni wykorzystywanych wystąpień 
 
-Chociaż niektóre scenariusze aplikacji może spowodować niskie wykorzystanie przez projekt, często można zaoszczędzić pieniądze, zarządzając rozmiar i liczbę maszyn wirtualnych. Zaawansowane modele oceny advisor uwzględnia maszyny wirtualne do zamykania, gdy P95th maksymalnej wartości maksymalnego wykorzystania procesora CPU jest mniejsza niż 3%, a wykorzystanie sieci jest mniejsze niż 2% w okresie 7 dni. Maszyny wirtualne są uważane za odpowiedni rozmiar, gdy jest możliwe, aby dopasować bieżące obciążenie w mniejszej jednostki SKU (w tej samej rodzinie jednostek SKU) lub mniejszą liczbę # wystąpienia, takie, że bieżące obciążenie nie przekracza 80% wykorzystania, gdy nie-użytkownik stoi obciążeń i nie powyżej 40% w przypadku obciążenia użytkownika. W tym miejscu typ obciążenia jest określany przez analizowanie charakterystyk wykorzystania procesora CPU obciążenia.
+Chociaż niektóre scenariusze aplikacji mogą powodować niskie użycie w projekcie, często możesz zaoszczędzić pieniądze, zarządzając rozmiarem i liczbą maszyn wirtualnych. Zaawansowane modele oceny usługi Advisor uwzględniają maszyny wirtualne do zamknięcia, gdy P95th maksymalnej maksymalnej wartości użycia procesora CPU wynosi mniej niż 3%, a wykorzystanie sieci jest mniejsze niż 2% w okresie 7 dni. Maszyny wirtualne są uważane za odpowiedni rozmiar, gdy można dopasować bieżące obciążenie do mniejszej jednostki SKU (w ramach tej samej rodziny SKU) lub mniejszej liczby wystąpień w taki sposób, aby bieżące obciążenie nie przeszedł do 80% w przypadku obciążeń niezwiązanych z użytkownikiem, a nie powyżej 40% w przypadku obciążenia związanego z użytkownikiem. W tym miejscu typ obciążenia jest określany przez analizowanie charakterystyki użycia procesora CPU.
 
-Zalecane akcje są zamykane lub zmienić rozmiar, specyficzne dla zasobu zalecane dla. Doradca pokazuje szacowane oszczędności kosztów dla zalecanych działań — zmienić rozmiar lub zamknąć. Ponadto w celu zmiany rozmiaru zalecanej akcji, Doradca udostępnia bieżące i docelowe informacje o jednostce SKU. 
+Zalecane akcje są zamykane lub zmieniane, w odniesieniu do zasobów zalecanych dla. Program Advisor pokazuje szacowane oszczędności kosztów dla zalecanych akcji — zmiana rozmiaru lub zamknięcie. Ponadto w przypadku akcji zalecanej do zmiany rozmiaru klasyfikator udostępnia bieżące i docelowe informacje o jednostce SKU. 
 
-Jeśli chcesz być bardziej agresywny w identyfikowaniu niedostatecznie wykorzystanych maszyn wirtualnych, możesz dostosować regułę wykorzystania procesora CPU na podstawie subskrypcji.
+Jeśli chcesz bardziej agresywnie identyfikować nieużywane maszyny wirtualne, możesz dostosować regułę użycia procesora CPU dla każdej subskrypcji.
 
-## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Redukcja kosztów dzięki wyeliminowaniu nieobjętych do obsługi administracyjnej obwodów usługi ExpressRoute
+## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Zmniejsz koszty, eliminując niezainicjowane obwody usługi ExpressRoute
 
-Doradca identyfikuje obwody usługi ExpressRoute, które były w stanie dostawcy *Nie aprowizowana* przez więcej niż jeden miesiąc, i zaleca usunięcie obwodu, jeśli nie planujesz aprowizować obwodu z dostawcą łączności.
+Program Advisor identyfikuje obwody usługi ExpressRoute, które były w stanie dostawcy *nieobsługiwanym przez więcej* niż jeden miesiąc, i zaleca usunięcie obwodu, jeśli nie planujesz zainicjowania obsługi obwodu u usługodawcy.
 
 ## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Zmniejsz koszty, usuwając lub ponownie konfigurując bezczynne bramy sieci wirtualnej
 
-Doradca identyfikuje bramy sieci wirtualnej, które były bezczynne przez ponad 90 dni. Ponieważ te bramy są rozliczane co godzinę, należy rozważyć ponowne skonfigurowanie lub usunięcie ich, jeśli nie zamierzasz ich już używać. 
+Doradca identyfikuje bramy sieci wirtualnej, które są bezczynne przez ponad 90 dni. Ponieważ bramy są rozliczane co godzinę, należy rozważyć ponowne skonfigurowanie lub usunięcie ich, jeśli nie zamierzasz ich używać. 
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Kup wystąpienia zarezerwowane maszyn wirtualnych w celu zaoszczędzenia pieniędzy w porównaniu z płatnością zgodnie z rzeczywistym użyciem
 
-Doradca przejrzy użycie maszyny wirtualnej w ciągu ostatnich 30 dni i określi, czy można zaoszczędzić pieniądze, kupując rezerwację platformy Azure. Doradca pokaże Ci regiony i rozmiary, w których potencjalnie masz najwięcej oszczędności i pokaże ci szacunkowe oszczędności z zakupu rezerwacji. Za pomocą rezerwacji platformy Azure można zakupić w przedsprzedaży koszty podstawowe dla maszyn wirtualnych. Rabaty będą automatycznie stosowane do nowych lub istniejących maszyn wirtualnych, które mają taki sam rozmiar i region jak rezerwacje. [Dowiedz się więcej o wystąpieniach zarezerwowanych maszyn wirtualnych platformy Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+Usługa Advisor sprawdzi użycie maszyny wirtualnej w ciągu ostatnich 30 dni i określi, czy możesz zaoszczędzić pieniądze, kupując rezerwację na platformie Azure. W usłudze Advisor zostaną wyświetlone regiony i rozmiary, w których można było korzystać z najbardziej oszczędności i będą widoczne szacowane oszczędności wynikające z kupowania rezerwacji. Dzięki rezerwacji na platformie Azure można wstępnie zakupić podstawowe koszty dla maszyn wirtualnych. Rabaty będą automatycznie stosowane do nowych lub istniejących maszyn wirtualnych o tym samym rozmiarze i regionie co rezerwacje. [Dowiedz się więcej o Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Doradca powiadomi cię również o wystąpieniach zarezerwowanych, które wygasną w ciągu najbliższych 30 dni. Zaleca się zakup nowych zarezerwowanych wystąpień, aby uniknąć płacenia cen płatności zgodnie z rzeczywistym użyciem.
+Program Advisor powiadamia również użytkownika o wystąpieniach zarezerwowanych, które wygaśnie w ciągu następnych 30 dni. Zalecamy zakupienie nowych wystąpień zarezerwowanych, aby uniknąć płacenia cen płatności zgodnie z rzeczywistym użyciem.
 
-## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Usuń nieskoczywiczone publiczne adresy IP, aby zaoszczędzić pieniądze
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Usuń nieskojarzone publiczne adresy IP, aby zaoszczędzić pieniądze
 
-Doradca identyfikuje publiczne adresy IP, które nie są obecnie skojarzone z zasobami platformy Azure, takimi jak moduły równoważenia obciążenia lub maszyny wirtualne. Te publiczne adresy IP są pobierane z opłatą nominalną. Jeśli nie zamierzasz ich używać, ich usunięcie może spowodować oszczędności.
+Usługa Advisor identyfikuje publiczne adresy IP, które nie są obecnie skojarzone z zasobami platformy Azure, takimi jak moduły równoważenia obciążenia lub maszyny wirtualne. Te publiczne adresy IP są naliczane przy użyciu stawki nominalnej. Jeśli nie planujesz ich używania, usunięcie ich może spowodować zmniejszenie kosztów.
 
 ## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Usuń potoki usługi Azure Data Factory, które kończą się niepowodzeniem
 
-Usługa Azure Advisor wykryje potoki usługi Azure Data Factory, które wielokrotnie nie powiodą się, i zaleci rozwiązanie problemów lub usunięcie nieudanych potoków, jeśli nie są już potrzebne. Będą naliczane na te potoki, nawet jeśli nie służą ci, gdy nie. 
+Azure Advisor wykryje Azure Data Factory potoki, które wielokrotnie kończą się niepowodzeniem i zalecamy rozwiązanie problemów lub usunięcie potoków zakończonych niepowodzeniem, jeśli nie są już potrzebne. Za te potoki będą naliczane opłaty nawet wtedy, gdy nie są one obsługiwane w przypadku awarii. 
 
-## <a name="use-standard-snapshots-for-managed-disks"></a>Używanie standardowych migawek dla dysków zarządzanych
-Aby obniżyć koszt o 60%, zalecamy przechowywanie migawek w usłudze Standard Storage niezależnie od typu magazynu na dysku nadrzędnym. Ta opcja jest domyślną opcją dla migawek dysków zarządzanych. Usługa Azure Advisor zidentyfikuje migawki, które są przechowywane w magazynie w wersji Premium i zaleci migrację migawki z usługi Premium do magazynu standardowego. [Dowiedz się więcej o cenach dysków zarządzanych](https://aka.ms/aa_manageddisksnapshot_learnmore)
+## <a name="use-standard-snapshots-for-managed-disks"></a>Użyj standardowych migawek dla Managed Disks
+Aby obniżyć koszt o 60%, zalecamy przechowywanie migawek w usłudze Standard Storage niezależnie od typu magazynu na dysku nadrzędnym. Ta opcja jest opcją domyślną dla migawek Managed Disks. Azure Advisor zidentyfikuje migawki, które są przechowywane Premium Storage i zaleca Migrowanie migawki z magazynu w warstwie Premium do warstwy Standardowa. [Dowiedz się więcej o cenach dysku zarządzanego](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="utilize-lifecycle-management"></a>Korzystanie z zarządzania cyklem życia
-Azure Advisor will utilize intelligence regarding your Azure blob storage object count, total size, and transactions to detect if one or more of your storage accounts would be best suited to enable lifecycle management to tier data. Zostanie wyświetlony monit o utworzenie reguł zarządzania cyklem życia, aby automatycznie warstwy danych do cool lub archiwum w celu optymalizacji kosztów magazynu przy jednoczesnym zachowaniu danych w magazynie obiektów blob platformy Azure dla zgodności aplikacji.
+Azure Advisor będzie używać analizy dotyczącej liczby obiektów usługi Azure Blob Storage, łącznego rozmiaru i transakcji w celu wykrycia, czy co najmniej jedno konto magazynu najlepiej nadaje się do włączenia zarządzania cyklem życia do danych warstwy. Spowoduje to wyświetlenie monitu o utworzenie reguł zarządzania cyklem życia w celu automatycznego przechowania danych w celu zoptymalizowania lub archiwizacji, aby zoptymalizować koszty magazynowania podczas zachowywania danych w usłudze Azure Blob Storage w celu zapewnienia zgodności aplikacji.
 
-## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących kosztów w usłudze Azure Advisor
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Tworzenie zalecenia dotyczącego dysku z systemem operacyjnym
+Dzięki tymczasowemu [dyskowi systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)klienci uzyskują następujące korzyści: oszczędności związane z magazynowaniem dysku systemu operacyjnego. Uzyskaj mniejsze opóźnienie odczytu/zapisu na dysku systemu operacyjnego. Szybsza operacja odtworzenia obrazu maszyny wirtualnej przez zresetowanie systemu operacyjnego (i dysku tymczasowego) do jego oryginalnego stanu. Jest to bardziej wstępne przekazanie do korzystania z tymczasowych dysków systemu operacyjnego na krótkoterminowych maszynach wirtualnych IaaS lub maszynach wirtualnych z obciążeniami bezstanowymi. Doradca ma rekomendacje dotyczące zasobów, które mogą posłużyć do korzystania z tymczasowych dysków systemu operacyjnego. 
+
+## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących kosztów w Azure Advisor
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Wyszukaj i wybierz [**Doradcę**](https://aka.ms/azureadvisordashboard) z dowolnej strony.
+1. Wyszukaj i wybierz opcję [**Advisor**](https://aka.ms/azureadvisordashboard) z dowolnej strony.
 
-1. Na pulpicie nawigacyjnym **klasyfikatora** wybierz kartę **Koszt.**
+1. Na pulpicie nawigacyjnym usługi **Advisor** wybierz kartę **koszt** .
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o zaleceniach doradcy, zobacz:
-* [Wprowadzenie do doradcy](advisor-overview.md)
-* [Rozpocząć](advisor-get-started.md)
-* [Zalecenia dotyczące wydajności doradcy](advisor-performance-recommendations.md)
-* [Zalecenia dotyczące wysokiej dostępności advisor](advisor-high-availability-recommendations.md)
-* [Zalecenia dotyczące zabezpieczeń doradcy](advisor-security-recommendations.md)
-* [Zalecenia dotyczące doskonałości operacyjnej doradcy](advisor-operational-excellence-recommendations.md)
+Aby dowiedzieć się więcej na temat zaleceń klasyfikatora, zobacz:
+* [Wprowadzenie do usługi Advisor](advisor-overview.md)
+* [Wprowadzenie](advisor-get-started.md)
+* [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)
+* [Zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md)
+* [Zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md)
+* [Zalecenia dotyczące doskonałości operacyjnej klasyfikatora](advisor-operational-excellence-recommendations.md)
