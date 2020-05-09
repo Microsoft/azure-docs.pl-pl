@@ -4,12 +4,12 @@ description: Instrukcje dotyczące przenoszenia magazynu usług Recovery Service
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804422"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597998"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -37,7 +37,7 @@ Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US
 - Aby przenieść maszynę wirtualną z dyskami zarządzanymi, zobacz ten [artykuł](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - Opcje przeniesienia zasobów wdrożonych za pomocą modelu klasycznego różnią się w zależności od tego, czy przenosisz zasoby w ramach subskrypcji, czy na nową subskrypcję. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Zasady tworzenia kopii zapasowych zdefiniowane dla magazynu są zachowywane po przejściu magazynu między subskrypcjami lub nową grupą zasobów.
-- Przeniesienie magazynów z użyciem Azure Files, Azure File Sync lub SQL na maszynach wirtualnych IaaS w ramach subskrypcji i grup zasobów nie jest obsługiwane.
+- Magazyn można przenieść tylko wtedy, gdy maszyny wirtualne platformy Azure są jedynymi elementami kopii zapasowych w magazynie.
 - W przypadku przenoszenia magazynu zawierającego dane kopii zapasowej maszyny wirtualnej między subskrypcjami należy przenieść maszyny wirtualne do tej samej subskrypcji i użyć tej samej nazwy docelowej grupy zasobów maszyny wirtualnej (ponieważ była w starej subskrypcji) w celu kontynuowania wykonywania kopii zapasowych.
 
 > [!NOTE]

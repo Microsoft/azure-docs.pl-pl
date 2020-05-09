@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430342"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583758"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. 
@@ -137,7 +137,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -198,9 +198,10 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Dostęp do serwera SQL Database prywatnie z poziomu maszyny wirtualnej
 
 1. W Pulpit zdalny myVM Otwórz program PowerShell.
-2. Wprowadź polecenie `nslookup myserver.database.windows.net`. 
+2. Wprowadź polecenie `nslookup myserver.database.windows.net`. Pamiętaj, aby `myserver` zamienić na nazwę programu SQL Server.
 
     Zostanie wyświetlony komunikat podobny do tego:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -209,14 +210,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Zainstaluj SQL Server Management Studio
-4. W obszarze Połącz z serwerem wprowadź lub wybierz następujące informacje: Ustawianie typu serwera wartości wybierz aparat bazy danych.
-      Nazwa serwera wybierz pozycję myserver.database.windows.net Nazwa użytkownika wprowadź nazwę użytkownika podaną podczas tworzenia.
-      Hasło wprowadź hasło podane podczas tworzenia.
-      Pamiętaj hasło wybierz opcję tak.
-5. Wybierz przycisk Połącz.
-6. Przeglądaj bazy danych z menu po lewej stronie. 
-7. Zdefiniować Utwórz lub zapytaj informacje z bazy danych
+    
+3. Zainstaluj SQL Server Management Studio.
+4. W obszarze **Połącz z serwerem**wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | --- | --- |
+    | Typ serwera | Aparat bazy danych |
+    | Nazwa serwera | myserver.database.windows.net |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika podaną podczas tworzenia |
+    | Hasło | Wprowadź hasło podane podczas tworzenia |
+    | Zapamiętaj hasło | Tak |
+    
+5. Wybierz przycisk **Połącz**.
+6. Przeglądaj **bazy danych** z menu po lewej stronie. 
+7. Zdefiniować Utwórz lub zapytaj informacje z bazy danych.
 8. Zamknij połączenie pulpitu zdalnego z *myVM*. 
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów 

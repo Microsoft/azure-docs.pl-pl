@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692630"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983214"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -145,7 +145,7 @@ Program Synapse Studio będzie zachowywać się inaczej w zależności od ról u
 | Otwórz Synapse Studio | TAK | TAK | TAK |
 | Wyświetlanie centrum macierzystego | TAK | TAK | TAK |
 | Wyświetlanie centrum danych | TAK | TAK | TAK |
-| Centrum danych/zobacz połączone konta ADLSGen2 i kontenery | TAK [1] | TAK [1] | TAK [1] |
+| Centrum danych/zobacz połączone ADLS Gen2 konta i kontenery | TAK [1] | TAK [1] | TAK [1] |
 | Centrum danych/Wyświetlanie baz danych | TAK | TAK | TAK |
 | Centrum danych/wyświetlanie obiektów w bazach danych | TAK | TAK | TAK |
 | Centra danych/dostęp do danych w puli baz danych SQL | TAK   | NO   | TAK   |
@@ -179,8 +179,8 @@ Program Synapse Studio będzie zachowywać się inaczej w zależności od ról u
 
 
 > [!NOTE]
-> [1] dostęp do danych w kontenerach zależy od kontroli dostępu w ADLSGen2. </br>
-> [2] tabele SQL OD i tabele platformy Spark przechowują swoje dane w ADLSGen2, a dostęp wymaga odpowiednich uprawnień do ADLSGen2.
+> [1] dostęp do danych w kontenerach zależy od kontroli dostępu w ADLS Gen2. </br>
+> [2] tabele SQL OD i tabele platformy Spark przechowują swoje dane w ADLS Gen2 i dostęp wymaga odpowiednich uprawnień do ADLS Gen2.
 
 ## <a name="next-steps"></a>Następne kroki
 
