@@ -3,17 +3,17 @@ title: Optymalizowanie inwestycji w chmurę za pomocą usługi Azure Cost Manage
 description: Ten artykuł pomaga zmaksymalizować korzyści z inwestycji w chmurę, ograniczyć koszty i ocenić, na co wydawane są pieniądze.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874589"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791616"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Jak zoptymalizować inwestycję w chmurę za pomocą usługi Azure Cost Management
 
@@ -104,6 +104,12 @@ Aby dowiedzieć się więcej o różnych opcjach, odwiedź stronę [Kupowanie pl
 
 - Możliwości w zakresie zobowiązań pieniężnych z góry
 - Dostęp do niższych cen platformy Azure
+
+#### <a name="azure-in-csp"></a>[Platforma Azure w programie CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- Partnerzy programu CSP są pierwszym punktem kontaktu dla klientów oraz stanowią centrum relacji z klientami
+- Partnerzy programu CSP aprowizują nowych klientów, zamawiają subskrypcje, zarządzają subskrypcjami i wykonują zadania administracyjne w imieniu swoich klientów
+- Partnerzy programu CSP tworzą pakiet usług z unikatowymi rozwiązaniami lub odsprzedają platformę Azure przy zachowaniu kontroli nad cenami, warunkami i rozliczeniami
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Szacowanie kosztów rozwiązania
 

@@ -1,5 +1,5 @@
 ---
-title: Rozwiązywanie problemów z kontem usługi Automation
+title: Rozwiązywanie problemów z Azure Automation konta
 description: Dowiedz się, jak rozwiązywać problemy z kontem platformy Azure.
 services: automation
 author: mgoedtel
@@ -8,16 +8,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7b5e7171ac679384966e9dce79425cd1fa881c53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a7defdaa9b4b0f0b3580a3ac6b1a0487434a97c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864134"
 ---
-# <a name="troubleshoot-the-automation-account"></a>Rozwiązywanie problemów z kontem usługi Automation
+# <a name="troubleshoot-an-azure-automation-account"></a>Rozwiązywanie problemów z kontem Azure Automation
 
-W tym artykule omówiono rozwiązania problemów, które mogą wystąpić podczas korzystania z konta usługi Automation. W poniższych sekcjach wyróżniono określone komunikaty o błędach i możliwe rozwiązania dla każdego z nich. Aby uzyskać ogólne informacje o kontach usługi Automation, zobacz [Tworzenie konta na platformie Azure](../automation-quickstart-create-account.md).
+W tym artykule omówiono rozwiązania problemów, które mogą wystąpić podczas korzystania z konta Azure Automation. Aby uzyskać ogólne informacje o kontach usługi Automation, zobacz [Tworzenie konta na platformie Azure](../automation-quickstart-create-account.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Scenariusz: nie można zarejestrować dostawcy zasobów usługi Automation dla subskrypcji
 
@@ -39,7 +39,7 @@ Aby zarejestrować dostawcę zasobów usługi Automation, wykonaj następujące 
 
 1. W przeglądarce przejdź do [Azure Portal](https://portal.azure.com).
 
-2. Przejdź do **subskrypcji** i wybierz subskrypcję na stronie Subskrypcje.   
+2. Przejdź do pozycji **subskrypcje**i wybierz swoją subskrypcję.   
 
 3. W obszarze **Ustawienia**wybierz pozycję **dostawcy zasobów**.
 
@@ -49,8 +49,8 @@ Aby zarejestrować dostawcę zasobów usługi Automation, wykonaj następujące 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz Twojego problemu powyżej lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
+Jeśli ten artykuł nie rozwiąże problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
+* Połącz się [@AzureSupport](https://twitter.com/azuresupport)z. To oficjalne konto Microsoft Azure do łączenia społeczności platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

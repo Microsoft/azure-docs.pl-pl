@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188399"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891316"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -44,7 +44,7 @@ Azure Machine Learning obsługuje dwie formy uwierzytelniania dla usług sieci W
 
 |Metoda uwierzytelniania|Opis|Azure Container Instances|AKS|
 |---|---|---|---|
-|Key|Klucze są statyczne i nie muszą być odświeżane. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
+|Klucz|Klucze są statyczne i nie muszą być odświeżane. Klucze można generować ponownie ręcznie.|Domyślnie wyłączone| Domyślnie włączone|
 |Token|Tokeny wygasają po upływie określonego czasu i wymagają odświeżenia.| Niedostępne| Domyślnie wyłączone |
 
 Aby zapoznać się z przykładami kodu, zobacz [sekcję uwierzytelnianie usługi sieci Web](how-to-setup-authentication.md#web-service-authentication).
@@ -105,29 +105,9 @@ Azure Machine Learning tworzy dodatkową aplikację (nazwa rozpoczyna się od `a
 
 Azure Machine Learning opiera się na innych usługach platformy Azure dla zasobów obliczeniowych. Zasoby obliczeniowe (cele obliczeniowe) są używane do uczenia i wdrażania modeli. Te obiekty docelowe obliczeń można utworzyć w sieci wirtualnej. Na przykład możesz użyć usługi Azure Data Science Virtual Machine, aby szkolić model, a następnie wdrożyć model w AKS.  
 
-Aby uzyskać więcej informacji, zobacz [jak uruchamiać eksperymenty i wnioskowania w sieci wirtualnej](how-to-enable-virtual-network.md).
+Aby uzyskać więcej informacji, zobacz [jak bezpiecznie uruchamiać eksperymenty i wnioskować w izolowanej sieci wirtualnej](how-to-enable-virtual-network.md).
 
 Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszaru roboczego. Link prywatny umożliwia ograniczenie komunikacji z obszarem roboczym z poziomu usługi Azure Virtual Network. Aby uzyskać więcej informacji, zobacz [jak skonfigurować link prywatny](how-to-configure-private-link.md).
-
-> [!TIP]
-> Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
->
-> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
-> | ----- |:-----:|:-----:| 
-> | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
-> | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
-> | Obszar roboczy bez linku prywatnego. Inne zasoby z linkiem prywatnym | ✔ | |
-> | Obszar roboczy z linkiem prywatnym. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
-> | Obszar roboczy i wszystkie inne zasoby z linkiem prywatnym | ✔ | |
-> | Obszar roboczy z linkiem prywatnym. Inne zasoby bez linku prywatnego lub sieci wirtualnej | ✔ | ✔ |
-> | Azure Container Registry w sieci wirtualnej | ✔ | |
-> | Klucze zarządzane przez klienta dla obszaru roboczego | ✔ | |
-> 
-
-> [!WARNING]
-> Azure Machine Learning wystąpienia obliczeniowe w wersji zapoznawczej nie są obsługiwane w obszarze roboczym, w którym włączono link prywatny.
-> 
-> Azure Machine Learning nie obsługuje korzystania z usługi Azure Kubernetes, która ma włączone łącze prywatne. Zamiast tego można użyć usługi Azure Kubernetes w sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie eksperymentów i zadań wnioskowania usługi Azure ml w ramach Virtual Network platformy Azure](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Szyfrowanie danych
 
@@ -265,7 +245,7 @@ Każdy obszar roboczy ma skojarzoną w systemie tożsamość zarządzaną, któr
 
 Firma Microsoft może zbierać informacje o tożsamościach nienależących do użytkownika, takie jak nazwy zasobów (np. Nazwa zestawu danych lub nazwa eksperymentu usługi Machine Learning) lub zmienne środowiskowe zadań dla celów diagnostycznych. Wszystkie takie dane są przechowywane przy użyciu kluczy zarządzanych przez firmę Microsoft w magazynie hostowanym w subskrypcjach firmy Microsoft i zgodne ze [standardowymi zasadami ochrony prywatności firmy Microsoft i standardami obsługi danych](https://privacy.microsoft.com/privacystatement).
 
-Firma Microsoft zaleca również, aby nie przechowywać poufnych informacji (takich jak wpisy tajne klucza konta) w zmiennych środowiskowych. Zmienne środowiskowe są rejestrowane, szyfrowane i przechowywane przez nas. Podobnie podczas nadawania nazwy [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py)należy unikać uwzględniania poufnych informacji, takich jak nazwy użytkowników lub nazwy projektów tajnych. Te informacje mogą pojawić się w dziennikach telemetrii dostępnych dla pomoc techniczna firmy Microsoft inżynierów.
+Firma Microsoft zaleca również, aby nie przechowywać poufnych informacji (takich jak wpisy tajne klucza konta) w zmiennych środowiskowych. Zmienne środowiskowe są rejestrowane, szyfrowane i przechowywane przez nas. Podobnie podczas nazewnictwa [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py)należy unikać uwzględniania poufnych informacji, takich jak nazwy użytkowników lub nazwy projektów tajnych. Te informacje mogą pojawić się w dziennikach telemetrii dostępnych dla pomoc techniczna firmy Microsoft inżynierów.
 
 Możesz zrezygnować z zbierania danych diagnostycznych, ustawiając `hbi_workspace` parametr na `TRUE` czas inicjowania obsługi obszaru roboczego. Ta funkcja jest obsługiwana w przypadku korzystania z zestawu SDK środowiska Azure Python, interfejsu wiersza polecenia, interfejsów API REST lub Azure Resource Manager szablonów.
 

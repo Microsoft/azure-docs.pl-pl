@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189385"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863437"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurowanie wychodzącego ruchu sieciowego dla klastrów usługi Azure HDInsight przy użyciu zapory
 
@@ -188,61 +188,7 @@ Po pomyślnym skonfigurowaniu zapory można użyć wewnętrznego punktu końcowe
 
 Aby móc używać publicznego punktu końcowego`https://CLUSTERNAME.azurehdinsight.net`() lub punktu końcowego`CLUSTERNAME-ssh.azurehdinsight.net`SSH (), upewnij się, że masz odpowiednie trasy w tabeli tras i reguły sieciowej grupy zabezpieczeń, aby uniknąć problemu z routingiem asymetrycznym w [tym miejscu](../firewall/integrate-lb.md). W tym przypadku należy zezwolić na adres IP klienta w regułach sieciowej grupy zabezpieczeń dla ruchu przychodzącego, a także dodać go do tabeli tras zdefiniowanych przez użytkownika z następnym przeskokiem ustawionym `internet`jako. Jeśli Routing nie jest prawidłowo skonfigurowany, zobaczysz błąd limitu czasu.
 
-## <a name="configure-another-network-virtual-appliance"></a>Konfigurowanie innego sieciowego urządzenia wirtualnego
-
-> [!Important]
-> Poniższe informacje są wymagane **tylko** wtedy, gdy chcesz skonfigurować wirtualne urządzenie sieciowe (urządzenie WUS) inne niż Zapora platformy Azure.
-
-Poprzednie instrukcje ułatwiają skonfigurowanie zapory platformy Azure pod kątem ograniczenia ruchu wychodzącego z klastra usługi HDInsight. Zapora platformy Azure jest automatycznie konfigurowana w taki sposób, aby zezwalała na ruch dla wielu typowych scenariuszy. Użycie innego sieciowego urządzenia wirtualnego wymaga skonfigurowania szeregu dodatkowych funkcji. Podczas konfigurowania wirtualnego urządzenia sieciowego należy wziąć pod uwagę następujące czynniki:
-
-* Usługi obsługujące punkt końcowy usługi należy skonfigurować za pomocą punktów końcowych usługi.
-* Zależności adresów IP są związane z ruchem innym niż HTTP/S (ruchem TCP i UDP).
-* Punkty końcowe HTTP/HTTPS w nazwie FQDN można umieścić na urządzeniu urządzenie WUS.
-* Symbole wieloznaczne protokołu HTTP/HTTPS są zależnościami, które mogą się różnić w zależności od liczby kwalifikatorów.
-* Przypisz tabelę tras utworzoną w podsieci usługi HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Zależności obsługujące punkt końcowy usługi
-
-| **Punktu końcowego** |
-|---|
-| Azure SQL |
-| Azure Storage |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Zależności adresów IP
-
-| **Punktu końcowego** | **Szczegóły** |
-|---|---|
-| \*: 123 | Sprawdzanie zegara NTP. Ruch jest sprawdzany w wielu punktach końcowych na porcie 123 |
-| Adresy IP opublikowane w [tym miejscu](hdinsight-management-ip-addresses.md) | Te adresy IP to Usługa HDInsight |
-| AAD — prywatne adresy IP DS dla klastrów ESP |
-| \*: 16800 dla aktywacji usługi KMS systemu Windows |
-| \*12000 dla Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Zależności HTTP/HTTPS w nazwie FQDN
-
-> [!Important]
-> Poniższa lista zawiera tylko kilka najważniejszych nazw FQDN. Aby skonfigurować urządzenie WUS [w tym pliku](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json), można uzyskać dodatkowe nazwy FQDN (głównie Magazyn Azure i Azure Service Bus).
-
-| **Punktu końcowego**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Następne kroki
 
 * [Architektura sieci wirtualnej usługi Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Konfigurowanie sieciowego urządzenia wirtualnego](./network-virtual-appliance.md)

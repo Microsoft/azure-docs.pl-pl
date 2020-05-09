@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430567"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982704"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Pozyskiwanie danych w puli SQL
 
@@ -39,7 +39,7 @@ W usłudze Azure Synapse Analytics, połączona Usługa polega na definiowaniu i
 
 ## <a name="create-pipeline"></a>Tworzenie potoku
 
-Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pobiera dane z ADLS Gen 2 do puli SQL.
+Potok zawiera przepływ logiczny dla wykonywania zestawu działań. W tej sekcji utworzysz potok zawierający działanie kopiowania, które pozyskuje dane z ADLS Gen2 w puli SQL.
 
 1. Przejdź do karty **aranżacja** . Kliknij ikonę plus obok nagłówka potoki i wybierz pozycję **potok**.
 1. W obszarze **Przenieś i Przekształć** w okienku działania przeciągnij pozycję **Kopiuj dane** na kanwę potoku.

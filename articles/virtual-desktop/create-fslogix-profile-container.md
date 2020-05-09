@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270897"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607388"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files
 
@@ -23,7 +23,7 @@ Kontenery profilu FSLogix można tworzyć przy użyciu [Azure NetApp Files](http
 
 W tym przewodniku pokazano, jak skonfigurować konto Azure NetApp Files i utworzyć kontenery profilu FSLogix w systemie Windows Virtual Desktop.
 
-W tym artykule przyjęto założenie, że [Pule hostów](create-host-pools-azure-marketplace.md) zostały skonfigurowane i pogrupowane w co najmniej jednej dzierżawie w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak skonfigurować dzierżawców, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](tenant-setup-azure-active-directory.md) i [nasz wpis na blogu społeczności Tech](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+W tym artykule przyjęto założenie, że [Pule hostów](create-host-pools-azure-marketplace.md) zostały skonfigurowane i pogrupowane w co najmniej jednej dzierżawie w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak skonfigurować dzierżawców, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) i [nasz wpis na blogu społeczności Tech](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 Instrukcje przedstawione w tym przewodniku są przeznaczone dla użytkowników pulpitu wirtualnego systemu Windows. Jeśli szukasz bardziej ogólnych wskazówek dotyczących sposobu konfigurowania Azure NetApp Files i tworzenia kontenerów profilów FSLogix poza pulpitem wirtualnym systemu Windows, zapoznaj się z tematem [konfigurowanie Azure NetApp Files i Tworzenie woluminu systemu plików NFS — szybki start](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -210,7 +210,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Upewnij się, że użytkownicy mogą uzyskiwać dostęp do udziału plików usługi Azure NetApp
 
-1. Otwórz przeglądarkę internetową i przejdź do <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Otwórz przeglądarkę internetową i przejdź do <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Zaloguj się przy użyciu poświadczeń użytkownika przypisanych do grupy Pulpit zdalny.
 

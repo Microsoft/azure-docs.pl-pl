@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262154"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734743"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Dodaj niestandardową nazwę domeny przy użyciu portalu Azure Active Directory
 
@@ -37,7 +37,7 @@ Utwórz nowy katalog, wykonując kroki opisane w temacie [Tworzenie nowej dzier�
 >[!IMPORTANT]
 >Osoba, która tworzy dzierżawcę, jest automatycznie administratorem globalnym dla tej dzierżawy. Administrator globalny może dodać dodatkowych administratorów do dzierżawy.
 
-Aby uzyskać więcej informacji na temat ról subskrypcji, zobacz [role RBAC platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+Aby uzyskać więcej informacji na temat ról subskrypcji, zobacz [role platformy Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > Jeśli planujesz sfederować lokalnego systemu Windows Server za pomocą usługi Azure AD, musisz wybrać opcję **planuję skonfigurować tę domenę na potrzeby logowania jednokrotnego przy użyciu Active Directory lokalnej** po uruchomieniu narzędzia Azure AD Connect w celu zsynchronizowania katalogów.

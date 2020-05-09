@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246125"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594886"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure
 
@@ -452,7 +452,7 @@ Aby uprościć wdrażanie i konfigurację, w tym artykule używamy szablonów Me
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Wymagany
 Przed rozpoczęciem upewnij się, że spełniasz wymagania wstępne opisane w poniższych sekcjach. Upewnij się również, że wszystkie zasoby wymienione w sekcji [resources][sap-ha-guide-2] są zaznaczone.
 
-W tym artykule używamy szablonów Azure Resource Manager dla [trzech warstw SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). Aby zapoznać się z przydatnym omówieniem szablonów, zobacz [szablony Azure Resource Manager SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+W tym artykule używamy szablonów Azure Resource Manager dla [trzech warstw SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/). Aby zapoznać się z przydatnym omówieniem szablonów, zobacz [szablony Azure Resource Manager SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Produkcyjnych
 Te artykuły obejmują wdrożenia oprogramowania SAP na platformie Azure:
@@ -677,8 +677,8 @@ Szablony trzech warstw w Azure Resource Manager obsługują również scenariusz
 
 Oto, gdzie można uzyskać Azure Resource Manager szablonów dla przykładowego scenariusza opisywanego w tym artykule:
 
-* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/)
 
 Aby przygotować infrastrukturę dla szablonu architektury 1:
 
@@ -768,8 +768,8 @@ Za pomocą tego szablonu Azure Resource Manager dla oprogramowania SAP można up
 
 Oto, gdzie można uzyskać Azure Resource Manager szablonów dla tego scenariusza wdrażania:
 
-* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
+* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Przygotowywanie infrastruktury dla szablonu architektury 3

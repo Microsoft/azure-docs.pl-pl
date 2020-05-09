@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254124"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890141"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Podobieństwo i ocenianie na platformie Azure Wyszukiwanie poznawcze
 
@@ -59,18 +59,11 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje dwa różne algorytmy klasyfikac
 
 Na razie możesz określić algorytm klasyfikacji podobieństwa, którego chcesz użyć. Aby uzyskać więcej informacji, zobacz [algorytm klasyfikacji](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Obejrzyj ten film wideo
+Poniższy segment wideo szybko przekazuje do wyjaśnień dotyczących algorytmów klasyfikacji używanych w usłudze Azure Wyszukiwanie poznawcze. Możesz obejrzeć pełny film wideo, aby uzyskać więcej informacji.
 
-W tym 16-minutowym filmie wideo, inżynier oprogramowania Raouf Merouche objaśnia proces indeksowania, wykonywania zapytań i tworzenia profilów oceniania. Daje to dobry pomysł na to, co się dzieje na podstawie okapu, gdy dokumenty są indeksowane i pobierane.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 minut — indeksowanie: przetwarzanie tekstu i analiza leksykalna.
-+ 3-4 minut: indeksowanie.
-+ 4-6 minut obejmuje zapytania: pobieranie i klasyfikowanie.
-+ 7-16 minut obejmuje profile oceniania.
-
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/) [profilów oceniania](index-add-scoring-profiles.md)   
  [Interfejs API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents)   

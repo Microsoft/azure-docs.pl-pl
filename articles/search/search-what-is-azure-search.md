@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77580655"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891551"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Co to jest wyszukiwanie poznawcze na platformie Azure?
 
@@ -154,11 +154,6 @@ Możesz też [aktywować korzyści subskrybenta MSDN](https://azure.microsoft.co
 
 Wyszukiwarki to podstawowe instrumenty do pobierania informacji w internecie, aplikacjach mobilnych i firmowych magazynach danych. Usługa Azure Wyszukiwanie poznawcze udostępnia narzędzia do tworzenia środowiska wyszukiwania podobnego do tych w dużych komercyjnych witrynach sieci Web.
 
-W tym 9-minutowym filmie wideo menedżer programu Liam Cavanagh przedstawia korzyści związane z integracją wyszukiwarki z aplikacją. Krótkie pokazy obejmują kluczowe funkcje platformy Azure Wyszukiwanie poznawcze i wygląd typowego przepływu pracy. 
+W tym 15-minutowym filmie wideo Menedżer programów Luis Cabrera wprowadza platformę Azure Wyszukiwanie poznawcze. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0–3 minuta — omówienie kluczowych funkcji i przypadków użycia.
-+ 3–4 minuta — omówienie aprowizowania usługi. 
-+ 4–6 minuta — omówienie kreatora importowania danych używanego do utworzenia indeksu na podstawie wbudowanego zestawu danych dotyczących nieruchomości.
-+ 6–9 minuta — omówienie eksploratora wyszukiwania i różnych zapytań.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

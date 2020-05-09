@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129318"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744403"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -35,7 +35,7 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje
 Poniżej przedstawiono niektóre kluczowe szczegóły dotyczące prywatnych punktów końcowych: 
 - Prywatny punkt końcowy umożliwia łączność między konsumentami z tej samej sieci wirtualnej, z regionalnie równorzędną sieci wirtualnych, globalnie równorzędną sieci wirtualnych i lokalnie przy użyciu [sieci VPN](https://azure.microsoft.com/services/vpn-gateway/) lub [Express Route](https://azure.microsoft.com/services/expressroute/) i usługi obsługiwane przez link prywatny.
  
-- Podczas tworzenia prywatnego punktu końcowego interfejs sieciowy jest również tworzony dla cyklu życia zasobu. Do interfejsu jest przypisany prywatny adres IP z podsieci, która jest mapowana na usługę łącza prywatnego.
+- Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Do interfejsu jest przypisany prywatny adres IP z podsieci, która jest mapowana na zasób łącza prywatnego.
  
 - Prywatny punkt końcowy musi być wdrożony w tym samym regionie, w którym znajduje się sieć wirtualna. 
  
@@ -55,8 +55,8 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | puste |
 |**Azure SQL Database** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        | 
-|**Usługa Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
-|**Usługa Azure Data Lake Storage 2. generacji**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)       |
+|**Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
+|**Azure Data Lake Storage Gen2**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts    | SQL, MongoDB, Cassandra, Gremlin, tabela|
 |**Azure Database for PostgreSQL — pojedynczy serwer** | Microsoft. DBforPostgreSQL/serwery    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/serwery    | Mójserwersql |
