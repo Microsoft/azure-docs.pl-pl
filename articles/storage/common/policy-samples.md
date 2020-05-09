@@ -1,24 +1,24 @@
 ---
-title: Lista wbudowanych definicji zasad usługi Azure Storage
-description: Zawiera listę wbudowanych definicji zasad Azure Policy usługi Azure Storage. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+title: Wbudowane definicje zasad usługi Azure Storage
+description: Zawiera listę wbudowanych definicji zasad Azure Policy usługi Azure Storage. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 04/30/2020
 ms.topic: sample
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-samples
-ms.openlocfilehash: abf03bcb27a22cd09ee7ac8214eb1dd26c752ccf
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 76ba59301d0719f298f98f189d76ffb33aa3a80b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966512"
+ms.locfileid: "82982925"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-storage"></a>Azure Policy wbudowane definicje zasad usługi Azure Storage
 
 Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad usługi Azure Storage. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

@@ -1,24 +1,24 @@
 ---
-title: Lista wbudowanych definicji zasad dla Azure Database for MySQL
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MySQL. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+title: Wbudowane definicje zasad dla Azure Database for MySQL
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MySQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 05/01/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 59d39a4a10d310c1c4b028aad25c6e3d39f204e5
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 9ea67e236f2ecfe906202e375e89bfb586865ab3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966358"
+ms.locfileid: "82982857"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mysql"></a>Azure Policy wbudowane definicje zasad dla Azure Database for MySQL
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Database for MySQL. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 

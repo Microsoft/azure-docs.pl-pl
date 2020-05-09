@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691813"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983911"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
 Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
@@ -67,7 +67,7 @@ Nie. nie jest możliwe dołączenie dodatkowych dysków do maszyny wirtualnej w 
 Do laboratorium zajęć można dodać maksymalnie 400 użytkowników. 
 
 ## <a name="blog-post"></a>Wpis w blogu
-Zasubskrybuj [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Zasubskrybuj [blog Azure Lab Services](https://aka.ms/azlabs-blog).
 
 ## <a name="update-notifications"></a>Powiadomienia o aktualizacjach
 Zasubskrybuj [Aktualizacje usług Lab Services](https://azure.microsoft.com/updates/?product=lab-services) , aby otrzymywać informacje o nowych funkcjach usługi Lab Services.
