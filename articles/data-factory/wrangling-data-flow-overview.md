@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408978"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626875"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Co to są przepływy danych przetwarzanie?
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Organizacje muszą wykonywać przygotowanie i przetwarzanie danych w celu uzyskania dokładnej analizy złożonych danych, które w dalszym ciągu rosną. Przygotowanie danych jest wymagane, aby organizacje mogły korzystać z danych w różnych procesach firmowych i skrócić czas do wartości.
 
@@ -44,9 +44,9 @@ Wizualnie Skanuj dane w sposób niezależny od kodu, aby usunąć wszelkie eleme
 
 | Łącznik | Format danych | Typ uwierzytelniania |
 | -- | -- | --|
-| [Blob Storage platformy Azure](connector-azure-blob-storage.md) | CSV, Parquet | Klucz konta |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Klucz konta |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | CSV | Jednostka usługi |
-| [Usługa Azure Data Lake Storage 2. generacji](connector-azure-data-lake-storage.md) | CSV, Parquet | Klucz konta, nazwa główna usługi |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Klucz konta, nazwa główna usługi |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | Uwierzytelnianie SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Uwierzytelnianie SQL |
 

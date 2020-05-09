@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 73a878d791997169b0823bb949e78bdced77cae6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 5d36ba05d2138a06ebb2ef4e49aadb6032b62b92
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509690"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627045"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU
 
-Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecjalizowanymi maszynami wirtualnymi z jednym lub wieloma procesorami GPU firmy NVIDIA. Te rozmiary są przeznaczone do obciążeń intensywnie korzystających z operacji obliczeniowych, intensywnie korzystających z grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbie i typie procesorów GPU, procesorów wirtualnych vCPU, dysków danych i kart interfejsu sieciowego. Przepustowość magazynu i przepustowość sieci są również uwzględniane dla każdego rozmiaru w ramach grupowania.
+Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecjalizowanymi maszynami wirtualnymi z pojedynczym, wieloma lub ułamkowymi procesorami GPU. Te rozmiary są przeznaczone do obciążeń intensywnie korzystających z operacji obliczeniowych, intensywnie korzystających z grafiki i wizualizacji. Ten artykuł zawiera informacje o liczbie i typie procesorów GPU, procesorów wirtualnych vCPU, dysków danych i kart interfejsu sieciowego. Przepustowość magazynu i przepustowość sieci są również uwzględniane dla każdego rozmiaru w ramach grupowania.
 
 - Rozmiary serii [NC](nc-series.md), [NCv2](ncv2-series.md), [Seria NCV3](ncv3-series.md) są zoptymalizowane pod kątem intensywnych obliczeń i aplikacji intensywnie korzystających z sieci i algorytmów. Przykładami są aplikacje i symulacje oparte na CUDA i OpenCL, a następnie w programie AI i uczeniu głębokiego. Seria Seria NCV3 koncentruje się na obciążeniach obliczeniowych o wysokiej wydajności, które obejmują procesor GPU Tesla V100 firmy NVIDIA. W serii NC jest używany procesor Intel Xeon E5-2690 v3 2.60 GHz v3 (Haswell), a maszyny wirtualne serii NCv2 i seria NCV3 używają procesora Intel Xeon E5-2690 v4 (Broadwell).
 
@@ -37,11 +37,11 @@ Rozmiary maszyn wirtualnych zoptymalizowane pod kątem procesora GPU są wyspecj
 
 Aby skorzystać z możliwości procesora GPU maszyn wirtualnych z serii N, należy zainstalować sterowniki NVIDIA lub AMD GPU.
 
-[Rozszerzenie sterownika NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](/azure/virtual-machines/extensions/overview).
+- W przypadku maszyn wirtualnych, które są obsługiwane przez graficzne procesory NVIDIA, [rozszerzenie sterownika NVIDIA GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instaluje odpowiednie sterowniki NVIDIA CUDA lub siatki. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika graficznego procesora NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla obsługiwanych systemów operacyjnych i kroków wdrażania. Aby uzyskać ogólne informacje o rozszerzeniach maszyn wirtualnych, zobacz [rozszerzenia i funkcje maszyny wirtualnej platformy Azure](/azure/virtual-machines/extensions/overview).
 
-W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU firmy NVIDIA należy zapoznać się z tematem Konfiguracja [sterownika procesora GPU dla systemu Windows](/azure/virtual-machines/windows/n-series-driver-setup) lub [n-Series](/azure/virtual-machines/linux/n-series-driver-setup) w systemie Linux dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
+   Alternatywnie możesz zainstalować sterowniki NVIDIA GPU ręcznie. Zobacz [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Windows](/azure/virtual-machines/windows/n-series-driver-setup) lub [Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii n z systemem Linux](/azure/virtual-machines/linux/n-series-driver-setup) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacji.
 
-Aby ręcznie zainstalować sterowniki procesora GPU AMD, zobacz [Konfiguracja sterowników procesora GPU AMD dla systemu Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) w przypadku obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
+- W przypadku maszyn wirtualnych, które są obsługiwane przez procesory GPU AMD, zobacz [Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) dla obsługiwanych systemów operacyjnych, sterowników, instalacji i kroków weryfikacyjnych.
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 

@@ -1,28 +1,27 @@
 ---
 title: Reguły zapory adresów IP
-description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych SQL lub SQL Data Warehouse zapory. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla jednej lub puli baz danych.
+description: Skonfiguruj reguły zapory adresów IP na poziomie serwera dla bazy danych SQL lub zapory usługi Azure Synapse Analytics. Zarządzanie dostępem i konfigurowanie reguł zapory adresów IP na poziomie bazy danych dla jednej lub puli baz danych.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606089"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629239"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reguły zapory Azure SQL Database i Azure SQL Data Warehouse IP
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Reguły zapory adresów IP Azure SQL Database i usługi Azure Synapse Analytics
 
 > [!NOTE]
-> Ten artykuł ma zastosowanie do serwerów usługi Azure SQL oraz do baz danych Azure SQL Database i Azure SQL Data Warehouse na serwerze SQL platformy Azure. Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i SQL Data Warehouse.
+> Ten artykuł ma zastosowanie do serwerów usługi Azure SQL oraz Azure SQL Database do baz danych usługi Azure Synapse Analytics na serwerze SQL platformy Azure. Dla uproszczenia *SQL Database* jest używany do odwoływania się do SQL Database i usługi Azure Synapse.
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy *Azure SQL Database wystąpienia zarządzanego*. Aby uzyskać informacje o konfiguracji sieci, zobacz [łączenie aplikacji z wystąpieniem zarządzanym Azure SQL Database](sql-database-managed-instance-connect-app.md).
@@ -30,7 +29,7 @@ ms.locfileid: "81606089"
 Podczas tworzenia nowego serwera SQL Azure *o nazwie MySQLServer.Database.Windows.NET*, Zapora SQL Database blokuje dostęp do publicznego punktu końcowego dla serwera (jest dostępny w *mysqlserver.database.windows.net*).
 
 > [!IMPORTANT]
-> SQL Data Warehouse obsługuje tylko reguły zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych.
+> Usługa Azure Synapse obsługuje tylko reguły zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych.
 
 ## <a name="how-the-firewall-works"></a>Jak działa Zapora
 Próby połączenia z Internetu i platformy Azure muszą przejść przez zaporę, zanim dotrą do programu SQL Server lub bazy danych SQL, jak pokazano na poniższym diagramie.
@@ -152,8 +151,8 @@ Zostanie otwarta strona przegląd dla Twojego serwera. Pokazuje w pełni kwalifi
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serwer |Wyświetla bieżące reguły zapory adresów IP na poziomie serwera |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serwer |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie serwera |
 | [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Serwer |Usuwa reguły zapory adresów IP na poziomie serwera |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
 | [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bazy danych |Usuwa reguły zapory adresów IP na poziomie bazy danych |
 
 Poniższy przykład przegląda istniejące reguły, włącza zakres adresów IP na serwerze *contoso*i usuwa regułę zapory IP:
@@ -253,7 +252,7 @@ Gdy dostęp do usługi SQL Database nie będzie działać zgodnie z oczekiwaniam
 
 - **Logowanie nie jest autoryzowane lub użyto nieprawidłowego hasła:**
 
-  Jeśli logowanie nie ma uprawnień na serwerze SQL Database lub hasło jest nieprawidłowe, nastąpiło odmowa połączenia z serwerem. Utworzenie ustawienia *zapory umożliwia klientom podjęcie próby* nawiązania połączenia z serwerem. Klient musi nadal podawać wymagane poświadczenia zabezpieczeń. Aby uzyskać więcej informacji na temat przygotowywania nazw logowania, zobacz [kontrolowanie i udzielanie dostępu do bazy danych do SQL Database i SQL Data Warehouse](sql-database-manage-logins.md).
+  Jeśli logowanie nie ma uprawnień na serwerze SQL Database lub hasło jest nieprawidłowe, nastąpiło odmowa połączenia z serwerem. Utworzenie ustawienia *zapory umożliwia klientom podjęcie próby* nawiązania połączenia z serwerem. Klient musi nadal podawać wymagane poświadczenia zabezpieczeń. Aby uzyskać więcej informacji na temat przygotowywania nazw logowania, zobacz [kontrolowanie i udzielanie dostępu do bazy danych do SQL Database i Azure Synapse](sql-database-manage-logins.md).
 
 - **Dynamiczny adres IP:**
 

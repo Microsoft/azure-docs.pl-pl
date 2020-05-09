@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368950"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627691"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
 
-Użyj powiązania danych wyjściowych Event Grid do zapisywania zdarzeń w temacie niestandardowym. Musisz mieć prawidłowy [klucz dostępu dla tematu niestandardowego](../event-grid/security-authentication.md#custom-topic-publishing).
+Użyj powiązania danych wyjściowych Event Grid do zapisywania zdarzeń w temacie niestandardowym. Musisz mieć prawidłowy [klucz dostępu dla tematu niestandardowego](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
 Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zobacz [Omówienie](./functions-bindings-event-grid.md).
 
@@ -207,7 +207,7 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `EventGrid` atrybucie.
 

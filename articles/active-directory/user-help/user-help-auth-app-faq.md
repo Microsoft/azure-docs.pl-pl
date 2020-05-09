@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: c56db99b056d4b1e9b7dd75bc2f21bf582ee2ab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d039a7e21ac1ef6415cc363201c9754b47503add
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756842"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627776"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Często zadawane pytania dotyczące aplikacji Microsoft Authenticator
 
@@ -27,8 +27,9 @@ Aplikacja Microsoft Authenticator została zastąpiona aplikacją Azure Authenti
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 
-| Pytanie | Rozwiązanie |
-| -------- | -------- |
+| Pytanie | Odpowiedź |
+| -------- | ------ |
+| Czy zarejestrowanie urządzenia w celu udzielenia firmie lub usłudze dostępu do mojego urządzenia? | Zarejestrowanie urządzenia zapewnia dostęp do usług organizacji i nie zezwala na dostęp organizacji do Twojego urządzenia. |
 | Czy mogę zrobić zrzuty ekranu z kodami OTP w Microsoft Authenticator systemu Android? | W przypadku Microsoft Authenticator systemu Android w wersji 6.2003.1704 domyślnie, gdy zostanie pobrany zrzut ekranu wystawcy uwierzytelnienia, wszystkie kody OTP są ukryte, aby lepiej chronić naszych użytkowników. Jeśli użytkownik chce zobaczyć swoje kody OTP na zrzutach ekranu lub zezwolić innym aplikacjom na przechwycenie ekranu wystawcy uwierzytelnienia, może to zrobić, włączając ustawienie "przechwytywanie ekranu" w aplikacji uwierzytelniania, a następnie uruchamiając ponownie aplikację. |
 | Jakie dane są przechowywane w moim imieniu przez wystawcę uwierzytelniania i jak można je usunąć? | Aplikacja Microsoft Authenticator zbiera trzy typy informacji:<ul><li>Informacje o koncie, które należy podać po dodaniu konta. Te dane można usunąć, usuwając Twoje konto.</li><li>Dane dziennika diagnostycznego, które pozostają tylko w aplikacji, do momentu wybrania opcji **Wyślij dzienniki** menu **Pomoc** aplikacji, aby wysłać dzienniki do firmy Microsoft. Te pliki dziennika zawierają dane osobowe, takie jak adresy e-mail (np alain@contoso.com.), adresy serwera lub IP oraz dane urządzeń (takie jak nazwa urządzenia i wersja systemu operacyjnego), z danymi osobowymi ograniczonymi do informacji niezbędnych do rozwiązywania problemów z aplikacjami. Te pliki dzienników można wyświetlić w aplikacji w dowolnym momencie, aby zobaczyć zebrane informacje. W przypadku wysłania plików dziennika inżynierowie aplikacji uwierzytelniania mogą używać jej do rozwiązywania problemów zgłoszonych przez klientów.</li><li>Dane użycia nieidentyfikowalnego przez użytkownika, takie jak "uruchomiono Dodawanie przepływu konta/pomyślnie dodano konto" lub "powiadomienie zostało zatwierdzone". Te dane są integralną częścią naszych decyzji inżynieryjnych i pomagają nam w ustaleniu, jakie funkcje są dla Ciebie ważne, oraz o tym, gdzie należy wprowadzić ulepszenia w formie aktualizacji aplikacji. Użytkownik, jako użytkownik aplikacji, widzi powiadomienie o tej kolekcji danych podczas pierwszego uruchomienia aplikacji i informuje o tym, że można ją wyłączyć na stronie **ustawień** aplikacji. To ustawienie można włączyć lub wyłączyć w dowolnym momencie.</li></ul> |
 | Jakie są kody w aplikacji? | Po otwarciu aplikacji Microsoft Authenticator zobaczysz dodane konta jako kafelki.<li>Na urządzeniu z systemem iOS Twoje konta służbowe i osobiste konta Microsoft będą widoczne w widoku pełny ekran konta (dostępne przez naciśnięcie kafelka konta).<br><br>![Ekran kont w aplikacji](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>W przypadku innych kont na urządzeniu z systemem iOS i wszystkich kont na urządzeniu z systemem Android na stronie konta w aplikacji zobaczysz sześć-lub osiem cyfr. Te kody będą używane jako sprawdzenie, czy jesteś w stanie Ciebie. Po zalogowaniu się przy użyciu nazwy użytkownika i hasła wpisz kod weryfikacyjny, który jest skojarzony z tym kontem. Na przykład jeśli Katy się na koncie firmy Contoso i używasz urządzenia z systemem iOS, dotknijsz kafelka konta, a następnie użyjesz kodu weryfikacyjnego, aby zweryfikować Twoją tożsamość. Jeśli logujesz się do konta programu Outlook, wykonaj te same czynności.<br><br>![po naciśnięciu kafelka konta w aplikacji](./media/user-help-auth-app-faq/katy-signin.png)<br><br>Po naciśnięciu kafelka konta Contoso Katy zobaczy kod weryfikacyjny w widoku pełny ekran i wprowadzi 895823, aby zakończyć logowanie.<br><br>![ekran kodu weryfikacyjnego w aplikacji](./media/user-help-auth-app-faq/verification-code.png) |

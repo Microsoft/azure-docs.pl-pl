@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414843"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629086"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Kopiowanie masowe z bazy danych za pomocą tabeli formantów
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Aby skopiować dane z magazynu danych programu Oracle Server, Netezza, Teradata lub SQL Server do Azure SQL Data Warehouse, należy załadować ogromne ilości danych z wielu tabel. Zwykle dane należy podzielić na partycje w każdej tabeli, aby można było załadować wiersze z wieloma wątkami równolegle z pojedynczej tabeli. W tym artykule opisano szablon, który ma być używany w tych scenariuszach.
 

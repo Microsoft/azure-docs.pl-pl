@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 309e467f5831961b6bc5a94ad2ce05fd3b991794
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927908"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629273"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Niestandardowa kolekcja metryk w oprogramowaniu .NET i .NET Core
 
@@ -20,7 +20,7 @@ Azure Monitor Application Insights .NET i .NET Core SDK mają dwie różne metod
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric a GetMetric
 
-`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ `TrackMetric(item)` każdy przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W `TrackMetric()`przeciwieństwie `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
+`TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`wysyła pierwotne dane telemetryczne oznaczające metrykę. Wysłanie pojedynczego elementu telemetrii dla każdej wartości jest nieefektywne. `TrackMetric()`jest również nieefektywna pod względem wydajności, ponieważ `TrackMetric(item)` każdy przechodzi przez pełny zestaw SDK dla inicjatorów i procesorów telemetrycznych. W `TrackMetric()`przeciwieństwie `GetMetric()` do, obsługuje lokalną wstępną agregację dla Ciebie, a następnie przesyła tylko zagregowaną metrykę podsumowania w stałym interwale wynoszącym 1 minutę. Dlatego jeśli trzeba dokładnie monitorować pewną niestandardową metrykę na sekundę lub nawet w milisekundach, można to zrobić, jednocześnie tylko koszt ruchu magazynu i sieci jest monitorowany co minutę. Znacznie zmniejsza to ryzyko związane z ograniczaniem wydajności, ponieważ łączna liczba elementów telemetrycznych, które muszą zostać przesłane dla zagregowanej metryki, jest znacznie ograniczona.
 
 W Application Insights metryki niestandardowe zebrane za `TrackMetric()` pośrednictwem i `GetMetric()` nie podlegają [pobieraniu próbek](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Próbkowanie ważnych metryk może prowadzić do scenariuszy, w których można było utworzyć alerty dotyczące tych metryk. Nigdy nie próbkuje metryk niestandardowych, zazwyczaj można mieć pewność, że w przypadku naruszenia progów alertów zostanie uruchomiony alert.  Jednak ze względu na to, że metryki niestandardowe nie są próbkowane, istnieją pewne potencjalne problemy.
 
@@ -186,22 +186,7 @@ Należy jednak zauważyć, że nie można podzielić metryki według nowego wymi
 
 ![Obsługa dzielenia](./media/get-metric/splitting-support.png)
 
-Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są włączane w Application Insights zasobów.
-
-### <a name="enable-multi-dimensional-metrics"></a>Włącz metryki wielowymiarowe
-
-Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty** > **. metryki** > niestandardowe**umożliwiają powiadamianie o niestandardowych wymiarach** > metryk.**OK** Więcej informacji na ten temat można znaleźć [tutaj](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć możliwość **zastosowania dzielenia**.
-
-> [!NOTE]
-> Tylko nowo wysłane metryki po włączeniu funkcji w portalu będą miały zapisane wymiary.
-
-![Zastosuj podział](./media/get-metric/apply-splitting.png)
-
-I Wyświetl agregacje metryk dla każdego wymiaru _FormFactor_ :
-
-![Czynniki postaci](./media/get-metric/formfactor.png)
+Domyślnie metryki wielowymiarowe w środowisku Eksploratora metryk nie są włączane w Application Insights zasobów. Aby włączyć to zachowanie, przejdź do karty użycie i szacowany koszt, zaznaczając [opcję "Włącz alerty w niestandardowych wymiarach metryk"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Jak używać MetricIdentifier, gdy istnieje więcej niż trzy wymiary
 
@@ -214,6 +199,21 @@ MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 ```
+
+### <a name="enable-multi-dimensional-metrics"></a>Włącz metryki wielowymiarowe
+
+Aby włączyć metryki wielowymiarowe dla zasobu Application Insights, wybierz pozycję **użycie i szacowane koszty** > **. metryki** > niestandardowe**umożliwiają powiadamianie o niestandardowych wymiarach** > metryk.**OK**
+
+Po dokonaniu zmiany i wysłaniu nowej wielowymiarowej telemetrii będziesz mieć możliwość **zastosowania dzielenia**.
+
+> [!NOTE]
+> Tylko nowo wysłane metryki po włączeniu funkcji w portalu będą miały zapisane wymiary.
+
+![Zastosuj podział](./media/get-metric/apply-splitting.png)
+
+I Wyświetl agregacje metryk dla każdego wymiaru _FormFactor_ :
+
+![Czynniki postaci](./media/get-metric/formfactor.png)
 
 ## <a name="custom-metric-configuration"></a>Konfiguracja metryki niestandardowej
 

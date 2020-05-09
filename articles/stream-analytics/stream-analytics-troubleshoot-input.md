@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133257"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628746"
 ---
 # <a name="troubleshoot-input-connections"></a>Rozwiązywanie problemów z połączeniami wejściowymi
 
@@ -51,9 +51,18 @@ W przypadkach, gdy ładunek wiadomości jest większy niż 32 KB lub jest w form
 
 Najlepszym rozwiązaniem w przypadku korzystania z Event Hubs jest użycie wielu grup konsumenckich na potrzeby skalowalności zadań. Liczba czytników w Stream Analytics zadania dla określonych danych wejściowych ma wpływ na liczbę czytników w pojedynczej grupie odbiorców. Dokładna liczba odbiorników opiera się na wewnętrznych szczegółach implementacji logiki topologii skalowania i nie jest ujawniana zewnętrznie. Liczba czytników, które mogą ulec zmianie, gdy zadanie zostanie rozpoczęte lub podczas uaktualniania zadań.
 
-Błąd wyświetlany w przypadku przekroczenia maksymalnej liczby odbiorników to: 
+Następujące komunikaty o błędach są wyświetlane, gdy liczba odbiorników przekracza wartość maksymalną. Komunikat o błędzie zawiera listę istniejących połączeń z centrum zdarzeń w ramach grupy odbiorców. Tag `AzureStreamAnalytics` wskazuje, że połączenia pochodzą z usługi przesyłania strumieniowego Azure.
 
-`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+```
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+
+The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
+```
 
 > [!NOTE]
 > Gdy liczba czytelników ulegnie zmianie podczas uaktualniania zadania, w dziennikach inspekcji są zapisywane ostrzeżenia przejściowe. Stream Analytics zadania są automatycznie odzyskiwane po tych problemach przejściowych.
@@ -62,7 +71,7 @@ Błąd wyświetlany w przypadku przekroczenia maksymalnej liczby odbiorników to
 
 Aby dodać nową grupę odbiorców w wystąpieniu Event Hubs, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Znajdź centrum zdarzeń.
 

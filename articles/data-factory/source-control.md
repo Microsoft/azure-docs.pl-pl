@@ -10,35 +10,40 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/09/2019
-ms.openlocfilehash: 3007865c15ceb03b104282c29179ec59a8196b38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: f327844be57d7f8e177f3bf72b1e3b56c5147e00
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604600"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629341"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Kontrola źródła w Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Środowisko interfejsu użytkownika Azure Data Factory (UX) ma dwa środowiska dostępne dla tworzenia wizualnego:
+Domyślnie autorzy interfejsu użytkownika Azure Data Factory środowiska (UX) bezpośrednio w usłudze Data Factory. To środowisko ma następujące ograniczenia:
 
-- Twórz bezpośrednio z usługą Data Factory
-- Tworzenie za pomocą Azure Repos Git lub integracji z usługą GitHub
+- Usługa Data Factory nie zawiera repozytorium do przechowywania obiektów JSON dla zmian. Jedynym sposobem zapisania zmian jest kliknięcie przycisku **Publikuj wszystko** , a wszystkie zmiany są publikowane bezpośrednio w usłudze Data Factory.
+- Usługa Data Factory nie jest zoptymalizowana pod kątem współpracy i kontroli wersji.
+
+Aby zapewnić lepszą obsługę tworzenia, Azure Data Factory umożliwia skonfigurowanie repozytorium git przy użyciu Azure Repos lub GitHub. Git to system kontroli wersji, który umożliwia łatwiejsze śledzenie zmian i współpracę. W tym samouczku przedstawiono sposób konfigurowania i pracy w repozytorium Git oraz wyróżniania najlepszych rozwiązań i przewodnika rozwiązywania problemów.
 
 > [!NOTE]
-> W chmurze Azure Government jest obsługiwana tylko bezpośrednie tworzenie z usługą Data Factory.
+> Integracja narzędzia Git usługi Azure Data Factory nie jest dostępna w chmurze Azure Government.
 
-## <a name="author-directly-with-the-data-factory-service"></a>Twórz bezpośrednio z usługą Data Factory
+## <a name="advantages-of-git-integration"></a>Korzyści wynikające z integracji z usługą Git
 
-Podczas tworzenia bezpośrednio w usłudze Data Factory jedynym sposobem zapisania zmian jest kliknięcie przycisku **Publikuj wszystko** . Po kliknięciu wszystkie wprowadzone zmiany są publikowane bezpośrednio w usłudze Data Factory. 
+Poniżej znajduje się lista zalet integracji usługi git zapewnia środowisko tworzenia oprogramowania:
 
-![Tryb publikowania](media/author-visually/data-factory-publish.png)
-
-Tworzenie bezpośrednio z usługą Data Factory ma następujące ograniczenia:
-
-- Usługa Data Factory nie zawiera repozytorium do przechowywania obiektów JSON dla zmian.
-- Usługa Data Factory nie jest zoptymalizowana pod kątem współpracy lub kontroli wersji.
+-   **Kontrola źródła:** Ponieważ obciążenia usługi Fabryka danych stają się kluczowe, warto zintegrować fabrykę z usługą git, aby korzystać z kilku korzyści z kontroli źródła, takich jak następujące:
+    -   Możliwość śledzenia i inspekcji zmian.
+    -   Możliwość odwracania zmian, które wprowadziły błędy.
+-   **Zapisywanie częściowe:** Podczas tworzenia względem usługi Data Factory nie można zapisywać zmian jako wersji roboczej, a wszystkie publikowanie muszą przekazywać sprawdzanie poprawności fabryki danych. Bez względu na to, czy potoki nie zakończyły się, czy po prostu nie chcesz utracić zmian w przypadku awarii komputera, integracja z usługą Git umożliwia przyrostowe zmiany zasobów usługi Data Factory niezależnie od tego, jaki stan się znajdują. Skonfigurowanie repozytorium Git umożliwia zapisanie zmian, co pozwala na publikowanie tylko w przypadku przetestowania zmian.
+-   **Współpraca i kontrola:** Jeśli masz wielu członków zespołu, którzy współpracują z tą samą fabryką, możesz chcieć zezwolić członkom zespołu wspólnie ze sobą za pośrednictwem procesu przeglądu kodu. Możesz również skonfigurować fabrykę, tak aby nie każdy współautor miał równe uprawnienia. Niektórzy członkowie zespołu mogą wprowadzać zmiany tylko za pośrednictwem usługi git, a tylko niektóre osoby w zespole mogą publikować zmiany w fabryce.
+-   **Lepsza** ciągłej integracji/ciągłego wdrażania:  W przypadku wdrażania w wielu środowiskach przy użyciu [procesu ciągłego dostarczania](continuous-integration-deployment.md)integracja z usługą git sprawia, że niektóre akcje są łatwiejsze. Oto niektóre z tych akcji:
+    -   Skonfiguruj potok wydania do automatycznego wyzwalania po wprowadzeniu zmian w fabryce "dev".
+    -   Dostosuj właściwości w fabryce, które są dostępne jako parametry w szablonie Menedżer zasobów. Może być przydatne, aby zachować tylko wymagany zestaw właściwości jako parametry i mieć całkowicie zakodowane wszystko.
+-   **Lepsza wydajność:** Średnia Fabryka z integracją narzędzia Git ładuje się 10 razy szybciej niż w przypadku tworzenia do usługi Data Factory. To ulepszenie wydajności wynika z tego, że zasoby są pobierane za pośrednictwem usługi git.
 
 > [!NOTE]
 > Tworzenie bezpośrednio przy użyciu usługi Data Factory jest wyłączone w Azure Data Factory środowisku użytkownika podczas konfigurowania repozytorium git. Zmiany mogą być wprowadzane bezpośrednio do usługi za pośrednictwem programu PowerShell lub zestawu SDK.
@@ -78,7 +83,7 @@ W okienku Konfiguracja są wyświetlane następujące Azure Repos ustawienia rep
 | **Organizacja Azure Repos** | Nazwa organizacji Azure Repos. Nazwę organizacji Azure Repos można znaleźć pod adresem `https://{organization name}.visualstudio.com`. Możesz [zalogować się do organizacji Azure Repos](https://www.visualstudio.com/team-services/git/) , aby uzyskać dostęp do profilu programu Visual Studio i zobaczyć repozytoria i projekty. | `<your organization name>` |
 | **ProjectName** | Nazwa projektu Azure Repos. Nazwę projektu Azure Repos można znaleźć pod adresem `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **Nr repozytorium** | Nazwa repozytorium kodu Azure Repos. Projekty Azure Repos zawierają repozytoria Git umożliwiające zarządzanie kodem źródłowym w miarę rozwoju projektu. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już istnieje w projekcie. | `<your Azure Repos code repository name>` |
-| **Rozgałęzienie współpracy** | Gałąź współpracy Azure Repos, która jest używana do publikowania. Domyślnie jest `master`to. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch name>` |
+| **Rozgałęzienie współpracy** | Gałąź współpracy Azure Repos, która jest używana do publikowania. Domyślnie jego `master`. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch name>` |
 | **Folder główny** | Folder główny w gałęzi współpracy Azure Repos. | `<your root folder name>` |
 | **Importuj istniejące zasoby Data Factory do repozytorium** | Określa, czy zaimportować istniejące zasoby usługi Fabryka danych z **kanwy tworzenia** środowiska użytkownika do Azure Repos repozytorium git. Zaznacz pole, aby zaimportować zasoby usługi Fabryka danych do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje poszczególne zasoby pojedynczo (to oznacza, że połączone usługi i zestawy danych są eksportowane do oddzielnych notacji JSON). Gdy to pole nie zostanie zaznaczone, istniejące zasoby nie zostaną zaimportowane. | Wybrane (domyślnie) |
 | **Gałąź, do której ma zostać zaimportowany zasób** | Określa, w którym rozgałęzieniu są importowane zasoby usługi Fabryka danych (potoki, zestawy danych, połączone usługi itp.). Zasoby można importować do jednej z następujących gałęzi: a. Współpraca b. Utwórz nowy c. Użyj istniejącej |  |
@@ -88,7 +93,7 @@ W okienku Konfiguracja są wyświetlane następujące Azure Repos ustawienia rep
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Korzystanie z innej dzierżawy Azure Active Directory
 
-Repozytorium Git usługi Azure Repos możesz utworzyć w innej dzierżawie usługi Azure Active Directory. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure.
+Repozytorium git Azure Repos może znajdować się w innej dzierżawie Azure Active Directory. Aby określić inną dzierżawę usługi Azure AD, musisz mieć uprawnienia administratora w używanej subskrypcji platformy Azure.
 
 ### <a name="use-your-personal-microsoft-account"></a>Korzystanie z konto Microsoft osobistych
 
@@ -138,14 +143,14 @@ Obie metody otwierają okienko Konfiguracja ustawień repozytorium.
 
 W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium GitHub:
 
-| **Ustawienie** | **Opis**  | **Wartościami**  |
+| **Ustawienie** | **Opis**  | **Wartość**  |
 |:--- |:--- |:--- |
 | **Typ repozytorium** | Typ repozytorium kodu Azure Repos. | GitHub |
 | **Korzystanie z usługi GitHub Enterprise** | Zaznacz pole wyboru usługi GitHub Enterprise | niezaznaczony (domyślnie) |
-| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Na przykład: https://github.mydomain.com. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
+| **Adres URL przedsiębiorstwa usługi GitHub** | Główny adres URL przedsiębiorstwa usługi GitHub (musi być adresem HTTPS dla lokalnego serwera usługi GitHub Enterprise). Na przykład: `https://github.mydomain.com`. Wymagane tylko wtedy, gdy wybrano korzystanie z usługi **GitHub Enterprise** | `<your GitHub enterprise url>` |                                                           
 | **Konto usługi GitHub** | Nazwa konta usługi GitHub. Tę nazwę można znaleźć z protokołu https:\//GitHub.com/{account name}/{Repository Name}. Przechodzenie na stronę z prośbą o wprowadzenie poświadczeń OAuth usługi GitHub na Twoje konto w usłudze GitHub. | `<your GitHub account name>` |
 | **Nazwa repozytorium**  | Nazwa repozytorium kodu usługi GitHub. Konta usługi GitHub zawierają repozytoria Git do zarządzania kodem źródłowym. Można utworzyć nowe repozytorium lub użyć istniejącego repozytorium, które już znajduje się na Twoim koncie. | `<your repository name>` |
-| **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jest to główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
+| **Rozgałęzienie współpracy** | Gałąź współpracy GitHub, która jest używana do publikowania. Domyślnie jego główna. Zmień to ustawienie, jeśli chcesz opublikować zasoby z innej gałęzi. | `<your collaboration branch>` |
 | **Folder główny** | Twój folder główny w gałęzi współpracy usługi GitHub. |`<your root folder name>` |
 | **Importuj istniejące zasoby Data Factory do repozytorium** | Określa, czy zaimportować istniejące zasoby usługi Fabryka danych z kanwy tworzenia środowiska użytkownika do repozytorium GitHub. Zaznacz pole, aby zaimportować zasoby usługi Fabryka danych do skojarzonego repozytorium Git w formacie JSON. Ta akcja eksportuje poszczególne zasoby pojedynczo (to oznacza, że połączone usługi i zestawy danych są eksportowane do oddzielnych notacji JSON). Gdy to pole nie zostanie zaznaczone, istniejące zasoby nie zostaną zaimportowane. | Wybrane (domyślnie) |
 | **Gałąź, do której ma zostać zaimportowany zasób** | Określa, w którym rozgałęzieniu są importowane zasoby usługi Fabryka danych (potoki, zestawy danych, połączone usługi itp.). Zasoby można importować do jednej z następujących gałęzi: a. Współpraca b. Utwórz nowy c. Użyj istniejącej |  |
@@ -159,18 +164,6 @@ W okienku Konfiguracja są wyświetlane następujące ustawienia repozytorium Gi
 - Integracja usługi GitHub z Data Factory narzędziami autorskimi programu działa tylko w ogólnie dostępnej wersji programu Data Factory.
 
 - Z pojedynczej gałęzi GitHub można pobrać maksymalnie 1 000 jednostek dla każdego typu zasobu (na przykład potoków i zestawów danych). Jeśli ten limit zostanie osiągnięty, sugerowane jest podzielenie zasobów na osobne fabryki. To ograniczenie nie jest dostępne w usłudze Azure DevOps git.
-
-## <a name="switch-to-a-different-git-repo"></a>Przełącz na inne repozytorium git
-
-Aby przełączyć się na inne repozytorium git, kliknij ikonę **Ustawienia repozytorium git** w prawym górnym rogu strony Przegląd Data Factory. Jeśli nie widzisz ikony, wyczyść pamięć podręczną przeglądarki lokalnej. Wybierz ikonę, aby usunąć skojarzenie z bieżącym repozytorium.
-
-![Ikona git](media/author-visually/remove-repo.png)
-
-Po wyświetleniu okienka ustawienia repozytorium wybierz pozycję **Usuń git**. Wprowadź nazwę fabryki danych i kliknij przycisk **Potwierdź** , aby usunąć repozytorium git skojarzone z fabryką danych.
-
-![Usuń skojarzenie z bieżącym repozytorium git](media/author-visually/remove-repo2.png)
-
-Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawienia Git w taki sposób, aby korzystało z innego repozytorium, a następnie zaimportować istniejące zasoby Data Factory do nowego repozytorium. 
 
 ## <a name="version-control"></a>Kontrola wersji
 
@@ -188,7 +181,7 @@ Gdy wszystko będzie gotowe do scalenia zmian z gałęzi funkcji z gałęzią ws
 
 ### <a name="configure-publishing-settings"></a>Konfigurowanie ustawień publikowania
 
-Aby skonfigurować gałąź Publikuj, czyli gałąź, w której zapisano Menedżer zasobów szablony — Dodaj `publish_config.json` plik do folderu głównego w gałęzi współpracy. Data Factory odczytuje ten plik, szuka pola `publishBranch`i tworzy nową gałąź (jeśli jeszcze nie istnieje) z podaną wartością. Następnie zapisuje wszystkie szablony Menedżer zasobów w określonej lokalizacji. Przykład:
+Domyślnie Fabryka danych generuje szablony Menedżer zasobów opublikowanej fabryki i zapisuje je w gałęzi o nazwie `adf_public`. Aby skonfigurować niestandardową gałąź publikowania, Dodaj `publish_config.json` plik do folderu głównego w gałęzi współpracy. Podczas publikowania, ADF odczytuje ten plik, szuka pola `publishBranch`i zapisuje wszystkie szablony Menedżer zasobów w określonej lokalizacji. Jeśli gałąź nie istnieje, Fabryka danych utworzy ją automatycznie. Przykład tego, jak wygląda następujący plik:
 
 ```json
 {
@@ -196,7 +189,7 @@ Aby skonfigurować gałąź Publikuj, czyli gałąź, w której zapisano Menedż
 }
 ```
 
-Po określeniu nowej gałęzi publikowania Data Factory nie usuwa poprzedniej gałęzi publikacji. Jeśli chcesz usunąć poprzednią gałąź publikowania, usuń ją ręcznie.
+Azure Data Factory może mieć tylko jedną gałąź publikowania w danym momencie. Po określeniu nowej gałęzi publikowania Data Factory nie usuwa poprzedniej gałęzi publikacji. Jeśli chcesz usunąć poprzednią gałąź publikowania, usuń ją ręcznie.
 
 > [!NOTE]
 > Data Factory odczytuje tylko `publish_config.json` plik podczas ładowania fabryki. Jeśli w portalu masz już załadowane fabryki, Odśwież przeglądarkę, aby zmiany zaczęły obowiązywać.
@@ -214,17 +207,6 @@ Zostanie otwarte okienko boczne, w którym można potwierdzić, że gałąź pub
 > [!IMPORTANT]
 > Gałąź główna nie jest reprezentatywna dla zawartości wdrożonej w usłudze Data Factory. Gałąź główna *musi* być opublikowana ręcznie w usłudze Data Factory.
 
-## <a name="advantages-of-git-integration"></a>Korzyści wynikające z integracji z usługą Git
-
--   **Kontrola źródła**. Ponieważ obciążenia usługi Fabryka danych stają się kluczowe, warto zintegrować fabrykę z usługą git, aby korzystać z kilku korzyści z kontroli źródła, takich jak następujące:
-    -   Możliwość śledzenia i inspekcji zmian.
-    -   Możliwość odwracania zmian, które wprowadziły błędy.
--   **Zapisywanie częściowe**. W miarę wprowadzania wielu zmian w fabryce należy pamiętać, że w zwykłym trybie na żywo nie można zapisać zmian jako wersji roboczej, ponieważ nie są one gotowe lub nie chcesz utracić zmian w przypadku awarii komputera. Dzięki integracji z usługą git można nadal zapisywać zmiany przyrostowo i publikować w fabryce tylko wtedy, gdy wszystko będzie gotowe. Git działa jako miejsce przejściowe dla swojej pracy, dopóki nie przetestowano zmian w zadowoleniu.
--   **Współpraca i kontrola**. Jeśli masz wielu członków zespołu uczestniczących w tej samej fabryce, możesz pozwolić, aby współpracownicy współpracują ze sobą za pośrednictwem procesu przeglądu kodu. Możesz również skonfigurować fabrykę, tak aby nie każdy współautor do fabryki miał uprawnienia do wdrożenia w fabryce. Członkowie zespołu mogą po prostu zezwolić na wprowadzanie zmian za pośrednictwem usługi git, ale tylko niektóre osoby w zespole mogą publikować zmiany w fabryce.
--   **Wyświetlanie różnic**. W trybie git można zobaczyć całkiem rozdzielny ładunek, który ma zostać opublikowany w fabryce. Ten różnica pokazuje wszystkie zasoby/jednostki, które zostały zmodyfikowane/dodane/usunięte od czasu ostatniego opublikowania w fabryce. Na podstawie tego porównania można kontynuować publikowanie lub wrócić i sprawdzić wprowadzone zmiany, a następnie wrócić później.
--   **Lepsza**ciągłej integracji/ciągłego dostarczania. W przypadku korzystania z trybu git można skonfigurować potok wydania do automatycznego wyzwalania po wprowadzeniu zmian w fabryce dev. Możesz również dostosować właściwości w fabryce, które są dostępne jako parametry w szablonie Menedżer zasobów. Może być przydatne, aby zachować tylko wymagany zestaw właściwości jako parametry i mieć całkowicie zakodowane wszystko.
--   **Lepsza wydajność**. Średnia fabryka ładuje się o dziesięć razy szybciej w trybie git niż w przypadku zwykłego trybu na żywo, ponieważ zasoby są pobierane za pośrednictwem usługi git.
-
 ## <a name="best-practices-for-git-integration"></a>Najlepsze rozwiązania związane z integracją z usługą git
 
 ### <a name="permissions"></a>Uprawnienia
@@ -238,9 +220,9 @@ Zaleca się, aby nie zezwalać na bezpośrednie ewidencjonowanie gałęzi wspó�
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Korzystanie z haseł z Azure Key Vault
 
-Zalecane jest używanie Azure Key Vault do przechowywania wszelkich parametrów połączenia lub haseł dla Data Factory połączonych usług. Ze względów bezpieczeństwa nie przechowujemy takich informacji tajnych w systemie Git, dlatego wszelkie zmiany w połączonych usługach są publikowane natychmiast w usłudze Azure Data Factory.
+Zalecane jest używanie Azure Key Vault do przechowywania wszelkich parametrów połączenia lub haseł lub uwierzytelniania tożsamości zarządzanej dla Data Factory połączonych usług. Ze względów bezpieczeństwa Fabryka danych nie przechowuje wpisów tajnych w usłudze git. Wszelkie zmiany w połączonych usługach zawierające wpisy tajne, takie jak hasła, są natychmiast publikowane w usłudze Azure Data Factory.
 
-Korzystanie z Key Vault powoduje także uproszczenie ciągłej integracji i wdrażania, ponieważ nie trzeba podawać tych kluczy tajnych podczas wdrażania szablonu Menedżer zasobów.
+Korzystanie z uwierzytelniania Key Vault lub MSI upraszcza również ciągłą integrację i wdrażanie, ponieważ nie trzeba podawać tych kluczy tajnych podczas wdrażania szablonu Menedżer zasobów.
 
 ## <a name="troubleshooting-git-integration"></a>Rozwiązywanie problemów z integracją narzędzia Git
 
@@ -253,15 +235,25 @@ Jeśli gałąź publikowania nie jest zsynchronizowana z gałęzią główną i 
 1. Utwórz żądanie ściągnięcia, aby scalić zmiany w gałęzi współpracy 
 
 Poniżej przedstawiono przykładowe sytuacje, które mogą spowodować nieodświeżoną gałąź publikowania:
-- Użytkownik ma wiele rozgałęzień. W jednej gałęzi funkcji zostały usunięte połączone usługi, która nie jest skojarzona z AKV (AKV połączone usługi są publikowane bezpośrednio, niezależnie od tego, czy znajdują się w usłudze git, czy nie), a nigdy nie zostały scalone z gałęzią funkcji w brnach współpracy.
+- Użytkownik ma wiele rozgałęzień. W jednej gałęzi funkcji zostały usunięte połączone usługi, która nie jest AKV skojarzona (połączone usługi inne niż AKV są publikowane natychmiast niezależnie od tego, czy znajdują się w usłudze git, czy nie), i nigdy nie zostały scalone z gałęzią współpracy.
 - Użytkownik zmodyfikował fabrykę danych przy użyciu zestawu SDK lub programu PowerShell
 - Użytkownik przeniósł wszystkie zasoby do nowej gałęzi i próbował przeprowadzić publikowanie po raz pierwszy. Połączone usługi należy tworzyć ręcznie podczas importowania zasobów.
 - Użytkownik przekazuje ręcznie AKV połączonej usługi lub Integration Runtime JSON. Odwołują się do tego zasobu z innego zasobu, np. zestawu danych, połączonej usługi lub potoku. Połączona usługa nieAKVa utworzona za pomocą środowiska użytkownika jest publikowana natychmiast, ponieważ poświadczenia muszą być szyfrowane. W przypadku przekazania zestawu danych, który odwołuje się do połączonej usługi i próby opublikowania, środowisko użytkownika zezwoli na to, ponieważ istnieje w środowisku usługi git. Zostanie on odrzucony w czasie publikowania, ponieważ nie istnieje w usłudze Data Factory.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
-Wybierz **opinię** , aby skomentować informacje o funkcjach lub powiadomić firmę Microsoft o problemach z narzędziem:
+## <a name="switch-to-a-different-git-repository"></a>Przechodzenie do innego repozytorium git
 
-![Opinia](media/author-visually/provide-feedback.png)
+Aby przełączyć się do innego repozytorium git, kliknij ikonę **Ustawienia repozytorium git** w prawym górnym rogu strony Przegląd Data Factory. Jeśli nie widzisz ikony, wyczyść pamięć podręczną przeglądarki lokalnej. Wybierz ikonę, aby usunąć skojarzenie z bieżącym repozytorium.
+
+![Ikona git](media/author-visually/remove-repo.png)
+
+Po wyświetleniu okienka ustawienia repozytorium wybierz pozycję **Usuń git**. Wprowadź nazwę fabryki danych i kliknij przycisk **Potwierdź** , aby usunąć repozytorium git skojarzone z fabryką danych.
+
+![Usuń skojarzenie z bieżącym repozytorium git](media/author-visually/remove-repo2.png)
+
+Po usunięciu skojarzenia z bieżącym repozytorium można skonfigurować ustawienia Git w taki sposób, aby korzystało z innego repozytorium, a następnie zaimportować istniejące zasoby Data Factory do nowego repozytorium.
+
+> [!IMPORTANT]
+> Usunięcie konfiguracji usługi git z fabryki danych nie powoduje usunięcia żadnych elementów z repozytorium. Fabryka będzie zawierać wszystkie opublikowane zasoby. Możesz kontynuować edytowanie fabryki bezpośrednio do usługi.
 
 ## <a name="next-steps"></a>Następne kroki
 

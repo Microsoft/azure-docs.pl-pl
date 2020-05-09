@@ -3,12 +3,12 @@ title: Zasoby, role i kontrola dostępu na platformie Azure Application Insights
 description: Właściciele, współautorzy i czytelnicy w sprawie wglądu w dane organizacji.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473136"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628243"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Zasoby, role i kontrola dostępu w Application Insights
 
@@ -40,11 +40,6 @@ Najpierw niektóre definicje:
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a>Kontrola dostępu w grupie zasobów
 
 Ważne jest, aby zrozumieć, że oprócz zasobu utworzonego dla aplikacji istnieją również oddzielne zasoby dla alertów i testów sieci Web. Są one dołączone do tej samej [grupy zasobów](#resource-group) co zasób Application Insights. W tym miejscu mogą być również umieszczone inne usługi platformy Azure, takie jak witryny sieci Web lub magazyn.
-
-W celu kontrolowania dostępu do tych zasobów zaleca się:
-
-* Kontroluj dostęp na poziomie **grupy zasobów lub subskrypcji** .
-* Przypisz rolę **współautora składnika Application Insights** do użytkowników. Dzięki temu można edytować testy sieci Web, alerty i zasoby Application Insights, bez zapewniania dostępu do innych usług w grupie.
 
 ## <a name="to-provide-access-to-another-user"></a>Aby zapewnić dostęp innemu użytkownikowi
 

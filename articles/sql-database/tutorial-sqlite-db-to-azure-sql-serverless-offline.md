@@ -9,12 +9,12 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2aed3a66f70864b3445418a51b0e79280e6884bd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780511"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629205"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Jak przeprowadzić migrację bazy danych programu SQLite do Azure SQL Database bezserwerowego
 W przypadku wielu osób oprogramowanie SQLite zapewnia swoje pierwsze środowisko baz danych i programowanie SQL. W wielu systemach operacyjnych i popularnych aplikacjach aplikacja SQLite jest jednym z najpopularniejszych aparatów baz danych wdrożonych i używanych na świecie. Z tego powodu prawdopodobnie pierwszy aparat bazy danych jest używany przez wiele osób, ale często może się zakończyć jako centralna część projektów lub aplikacji. W takich przypadkach, gdy projekt lub aplikacja rozszerzają początkową implementację oprogramowania SQLite, deweloperzy mogą potrzebować migracji swoich danych do niezawodnego, scentralizowanego magazynu danych.
