@@ -3,12 +3,12 @@ title: Application Insights API dla niestandardowych zdarzeń i metryk | Microso
 description: Wstaw kilka wierszy kodu z urządzenia lub aplikacji klasycznej, strony sieci Web lub usługi, aby śledzić użycie i diagnozować problemy.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509291"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927942"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Interfejs API usługi Application Insights dla niestandardowych zdarzeń i metryk
 
@@ -79,7 +79,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.js*
+*Node. js*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -137,7 +137,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -193,7 +193,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.js*
+*Node. js*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -399,7 +399,7 @@ catch (ex)
 }
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 try
@@ -470,7 +470,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 telemetry.trackTrace({
@@ -570,7 +570,7 @@ finally {
 }
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 var success = false;
@@ -637,7 +637,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 telemetry.flush();
@@ -649,7 +649,7 @@ Najlepiej używać metody Flush () w działaniu zamykania aplikacji.
 
 ## <a name="authenticated-users"></a>Uwierzytelnieni użytkownicy
 
-W aplikacji sieci Web użytkownicy są (domyślnie) identyfikowane przez pliki cookie. Użytkownik może być liczony więcej niż raz, jeśli uzyskuje dostęp do aplikacji z innej maszyny lub przeglądarki lub usunie pliki cookie.
+W aplikacji sieci Web użytkownicy są (domyślnie) [identyfikowane przez pliki cookie](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). Użytkownik może być liczony więcej niż raz, jeśli uzyskuje dostęp do aplikacji z innej maszyny lub przeglądarki lub usunie pliki cookie.
 
 Jeśli użytkownicy logują się do aplikacji, można uzyskać dokładniejszą liczbę, ustawiając identyfikator użytkownika uwierzytelnionego w kodzie przeglądarki:
 
@@ -740,7 +740,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -906,7 +906,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.js*
+*Node. js*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -953,7 +953,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 Aby *wyłączyć wybrane standardowe moduły zbierające*— na przykład liczniki wydajności, żądania HTTP lub zależności — Usuń lub Dodaj komentarz do odpowiednich wierszy w [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Możesz to zrobić na przykład, jeśli chcesz wysłać własne dane TrackRequest.
 
-*Node.js*
+*Node. js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -989,7 +989,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.js*
+*Node. js*
 
 W przypadku środowiska Node. js można włączyć tryb dewelopera, włączając rejestrowanie wewnętrzne `setInternalLogging` przy użyciu `maxBatchSize` i ustawiając wartość 0, co powoduje wysyłanie danych telemetrycznych zaraz po ich zebraniu.
 

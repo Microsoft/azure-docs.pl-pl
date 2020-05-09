@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232431"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612796"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uaktualnij do warstwy Standardowa w celu uzyskania zwiększonych zabezpieczeń
 
@@ -49,9 +49,12 @@ Aby uzyskać warstwę standardową:
 [![Cennik Security Center](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Aby włączyć wszystkie funkcje Security Center w tym zaawansowane możliwości ochrony przed zagrożeniami, należy zastosować warstwę cenową standardowa do subskrypcji zawierającej odpowiednie obciążenia. Konfigurowanie cen dla obszaru roboczego nie umożliwia dostępu just in Time do maszyny wirtualnej, adaptacyjnych kontroli aplikacji i wykrywania sieci dla zasobów platformy Azure. 
+> Aby włączyć wszystkie funkcje Security Center w tym funkcje ochrony przed zagrożeniami, należy zastosować warstwę cenową standardowa do subskrypcji zawierającej odpowiednie obciążenia. Konfigurowanie cen dla obszaru roboczego nie umożliwia dostępu just in Time do maszyny wirtualnej, adaptacyjnych kontroli aplikacji i wykrywania sieci dla zasobów platformy Azure. 
 >
-> Security Center ochrony przed zagrożeniami dla kont magazynu i serwerów SQL/MySQL/PG są obecnie jedynymi obciążeniami, które można włączyć na poziomie zasobów, aby chronić poszczególne obciążenia magazynu/usługi SQL.
+> Ochronę przed zagrożeniami dla **kont usługi Azure Storage** można włączyć na poziomie subskrypcji lub na poziomie zasobu.
+> Ochronę przed zagrożeniami dla **Azure SQL Database serwerów SQL** można włączyć na poziomie subskrypcji lub na poziomie zasobu.
+> Ochronę przed zagrożeniami dla **Azure Database for MariaDB/MySQL/PostgreSQL** można włączyć tylko na poziomie zasobów.
+
 
 ## <a name="why-upgrade-to-standard"></a>Dlaczego warto przeprowadzić uaktualnienie do wersji Standard?
 Security Center oferuje zwiększone zabezpieczenia i ochronę przed zagrożeniami dla obciążeń chmury hybrydowej, w tym:
