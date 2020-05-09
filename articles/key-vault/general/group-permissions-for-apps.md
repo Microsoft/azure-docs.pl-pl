@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 9ba568f3a6b6e85ce90db7d6b4d72c2c0d958da1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901263"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982738"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -60,7 +60,7 @@ Identyfikator objectId aplikacji odpowiada skojarzonej z nią jednostce usługi.
 
 Istnieją dwa sposoby uzyskania identyfikatora objectId dla aplikacji.  Pierwszy polega na zarejestrowaniu aplikacji w Azure Active Directory. Aby to zrobić, wykonaj kroki opisane w sekcji Szybki Start [zarejestruj aplikację na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md). Po zakończeniu rejestracji identyfikator objectID zostanie wyświetlony jako "Identyfikator aplikacji".
 
-Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http://<my-Unique-Service-Name>".
+Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http://&lt;my-Unique-Service-Name&gt;".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"

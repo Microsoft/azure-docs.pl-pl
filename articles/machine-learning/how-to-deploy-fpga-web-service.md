@@ -11,17 +11,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8569f4751c54d7b37aa15737a9b3f7f394c7e26e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257185"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983588"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ten artykuł zawiera wprowadzenie do wielopolowych tablic bram (FPGA) oraz sposób wdrażania modeli przy użyciu Azure Machine Learning na platformie Azure FPGA.
+Ten artykuł zawiera wprowadzenie do wielopolowych tablic bram (FPGA) oraz sposób wdrażania modeli przy użyciu [Azure Machine Learning](overview-what-is-azure-ml.md) na platformie Azure FPGA.
 
 Układy FPGA zawierają tablicę programowalnych bloków logicznych i hierarchię możliwych do ponownego skonfigurowania wzajemnych połączeń. Połączenia międzyłączne umożliwiają skonfigurowanie tych bloków na różne sposoby po zakończeniu produkcji. W porównaniu z innymi mikroukładami FPGA zapewniają kombinację programowania i wydajności.
 
@@ -81,9 +81,9 @@ Następujące scenariusze używają FPGA:
 
 + [Mapowanie okładki gruntowej](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-## <a name="example-deploy-models-on-fpgas"></a>Przykład: Wdróż modele w FPGA
+## <a name="deploy-models-on-fpgas"></a>Wdróż modele na FPGA
 
-Model można wdrożyć jako usługę sieci Web na FPGA z Modele z przyspieszaniem sprzętowym Azure Machine Learning. Korzystanie z usługi FPGA zapewnia bardzo małe ilości opóźnienia, nawet w przypadku pojedynczego rozmiaru partii. Wnioskowanie lub ocenianie modelu to faza, w której wdrożony model jest używany do prognozowania, najczęściej dotyczący danych produkcyjnych.
+Model można wdrożyć jako usługę sieci Web na FPGA z [Modele z przyspieszaniem sprzętowym Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). Korzystanie z usługi FPGA zapewnia bardzo małe ilości opóźnienia, nawet w przypadku pojedynczego rozmiaru partii. Wnioskowanie lub ocenianie modelu to faza, w której wdrożony model jest używany do prognozowania, najczęściej dotyczący danych produkcyjnych.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -118,7 +118,7 @@ Model można wdrożyć jako usługę sieci Web na FPGA z Modele z przyspieszanie
     pip install --upgrade azureml-accel-models[cpu]
     ```
 
-## <a name="1-create-and-containerize-models"></a>1. Utwórz i konteneryzowanie modele
+### <a name="1-create-and-containerize-models"></a>1. Utwórz i konteneryzowanie modele
 
 W tym dokumencie opisano sposób tworzenia grafu TensorFlow w celu wstępnego przetworzenia obrazu wejściowego, przeprowadzenia featurized przy użyciu ResNet 50 na FPGA, a następnie uruchomienia funkcji za pomocą klasyfikatora przeszkolonego na zestawie danych ImageNet.
 
@@ -132,189 +132,170 @@ Postępuj zgodnie z instrukcjami, aby:
 
 Użyj [zestawu SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) , aby utworzyć definicję usługi. Definicja usługi jest plikiem opisującym potok grafów (Input, featurized i klasyfikator) oparty na TensorFlow. Polecenie wdrożenia automatycznie kompresuje definicje i wykresy do pliku ZIP i przekazuje je do usługi Azure Blob Storage. DNN jest już wdrożony do uruchamiania na FPGA.
 
-### <a name="load-azure-machine-learning-workspace"></a>Załaduj obszar roboczy Azure Machine Learning
+1. Załaduj obszar roboczy Azure Machine Learning
 
-Załaduj obszar roboczy Azure Machine Learning.
+   ```python
+   import os
+   import tensorflow as tf
+   
+   from azureml.core import Workspace
+  
+   ws = Workspace.from_config()
+   print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
+   ```
 
-```python
-import os
-import tensorflow as tf
+2. Obraz wstępnie przetworzony. Wejście do usługi sieci Web jest obrazem JPEG.  Pierwszym krokiem jest Dekodowanie obrazu JPEG i jego wstępne przetworzenie.  Obrazy JPEG są traktowane jako ciągi, a wynikiem są dwuplikowe dane wejściowe modelu ResNet 50.
 
-from azureml.core import Workspace
+   ```python
+   # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+   import azureml.accel.models.utils as utils
+   tf.reset_default_graph()
+   
+   in_images = tf.placeholder(tf.string)
+   image_tensors = utils.preprocess_array(in_images)
+   print(image_tensors.shape)
+   ```
 
-ws = Workspace.from_config()
-print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
-```
+1. Ładuj featurized. Zainicjuj model i Pobierz punkt kontrolny TensorFlow wersji ResNet50, który będzie używany jako featurized.  W poniższym fragmencie kodu można zastąpić "QuantizedResnet50", importując inne sieci głębokiej neuronowych:
 
-### <a name="preprocess-image"></a>Obraz procesu wstępnego
+   - QuantizedResnet152
+   - QuantizedVgg16
+   - Densenet121
 
-Wejście do usługi sieci Web jest obrazem JPEG.  Pierwszym krokiem jest Dekodowanie obrazu JPEG i jego wstępne przetworzenie.  Obrazy JPEG są traktowane jako ciągi, a wynikiem są dwuplikowe dane wejściowe modelu ResNet 50.
+   ```python
+   from azureml.accel.models import QuantizedResnet50
+   save_path = os.path.expanduser('~/models')
+   model_graph = QuantizedResnet50(save_path, is_frozen=True)
+   feature_tensor = model_graph.import_graph_def(image_tensors)
+   print(model_graph.version)
+   print(feature_tensor.name)
+   print(feature_tensor.shape)
+   ```
 
-```python
-# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
-import azureml.accel.models.utils as utils
-tf.reset_default_graph()
+1. Dodaj klasyfikator. Ten klasyfikator został przeszkolony na zestawie danych ImageNet.  Przykłady dotyczące uczenia i szkolenia z zakresu przenoszenia są dostępne w zestawie [przykładowych notesów](https://aka.ms/aml-notebooks).
 
-in_images = tf.placeholder(tf.string)
-image_tensors = utils.preprocess_array(in_images)
-print(image_tensors.shape)
-```
+   ```python
+   classifier_output = model_graph.get_default_classifier(feature_tensor)
+   print(classifier_output)
+   ```
 
-### <a name="load-featurizer"></a>Ładuj featurized
+1. Zapisz model. Teraz, gdy preprocesor, ResNet 50 featurized i klasyfikator został załadowany, Zapisz wykres i skojarzone zmienne jako model.
 
-Zainicjuj model i Pobierz punkt kontrolny TensorFlow wersji ResNet50, który będzie używany jako featurized.  W poniższym fragmencie kodu można zastąpić "QuantizedResnet50", importując inne sieci głębokiej neuronowych:
+   ```python
+   model_name = "resnet50"
+   model_save_path = os.path.join(save_path, model_name)
+   print("Saving model in {}".format(model_save_path))
+   
+   with tf.Session() as sess:
+       model_graph.restore_weights(sess)
+       tf.saved_model.simple_save(sess, model_save_path,
+                                  inputs={'images': in_images},
+                                  outputs={'output_alias': classifier_output})
+   ```
 
-- QuantizedResnet152
-- QuantizedVgg16
-- Densenet121
+1. Zapisz natężenia wejścia i wyjścia. W przypadku konwersji modelu i wnioskowania będą wymagane dwuetapy wejściowe i wyjściowe, które zostały utworzone podczas procesu przetwarzania wstępnego i klasyfikatora.
 
-```python
-from azureml.accel.models import QuantizedResnet50
-save_path = os.path.expanduser('~/models')
-model_graph = QuantizedResnet50(save_path, is_frozen=True)
-feature_tensor = model_graph.import_graph_def(image_tensors)
-print(model_graph.version)
-print(feature_tensor.name)
-print(feature_tensor.shape)
-```
+   ```python
+   input_tensors = in_images.name
+   output_tensors = classifier_output.name
 
-### <a name="add-classifier"></a>Dodaj klasyfikator
+   print(input_tensors)
+   print(output_tensors)
+   ```
 
-Ten klasyfikator został przeszkolony na zestawie danych ImageNet.  Przykłady dotyczące uczenia i szkolenia z zakresu przenoszenia są dostępne w zestawie [przykładowych notesów](https://aka.ms/aml-notebooks).
+   > [!IMPORTANT]
+   > Zapisz natężenia wejścia i wyjścia, ponieważ będą potrzebne do konwersji modeli i żądań wnioskowania.
 
-```python
-classifier_output = model_graph.get_default_classifier(feature_tensor)
-print(classifier_output)
-```
+   Dostępne są następujące modele i odpowiednie rozdzielacze domyślne klasyfikatora, które są używane do wnioskowania, jeśli użyto klasyfikatora domyślnego.
 
-### <a name="save-the-model"></a>Zapisywanie modelu
+   + Resnet50, QuantizedResnet50
+     ```python
+     output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+     ```
+   + Resnet152, QuantizedResnet152
+     ```python
+     output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+     ```
+   + Densenet121, QuantizedDensenet121
+     ```python
+     output_tensors = "classifier/densenet121/predictions/Softmax:0"
+     ```
+   + Vgg16, QuantizedVgg16
+     ```python
+     output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+     ```
+   + SsdVgg, QuantizedSsdVgg
+     ```python
+     output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+     ```
 
-Teraz, gdy preprocesor, ResNet 50 featurized i klasyfikator został załadowany, Zapisz wykres i skojarzone zmienne jako model.
+1. [Zarejestruj](concept-model-management-and-deployment.md) model przy użyciu zestawu SDK z plikiem zip w usłudze Azure Blob Storage. Dodawanie tagów i innych metadanych dotyczących modelu ułatwia śledzenie przeszkolonych modeli.
 
-```python
-model_name = "resnet50"
-model_save_path = os.path.join(save_path, model_name)
-print("Saving model in {}".format(model_save_path))
+   ```python
+   from azureml.core.model import Model
 
-with tf.Session() as sess:
-    model_graph.restore_weights(sess)
-    tf.saved_model.simple_save(sess, model_save_path,
-                               inputs={'images': in_images},
-                               outputs={'output_alias': classifier_output})
-```
+   registered_model = Model.register(workspace=ws,
+                                     model_path=model_save_path,
+                                     model_name=model_name)
 
-### <a name="save-input-and-output-tensors"></a>Zapisz natężenia wejścia i wyjścia
-W przypadku konwersji modelu i wnioskowania będą wymagane dwuetapy wejściowe i wyjściowe, które zostały utworzone podczas procesu przetwarzania wstępnego i klasyfikatora.
+   print("Successfully registered: ", registered_model.name,
+         registered_model.description, registered_model.version, sep='\t')
+   ```
 
-```python
-input_tensors = in_images.name
-output_tensors = classifier_output.name
+   Jeśli model został już zarejestrowany i chcesz go załadować, możesz go pobrać.
 
-print(input_tensors)
-print(output_tensors)
-```
+   ```python
+   from azureml.core.model import Model
+   model_name = "resnet50"
+   # By default, the latest version is retrieved. You can specify the version, i.e. version=1
+   registered_model = Model(ws, name="resnet50")
+   print(registered_model.name, registered_model.description,
+         registered_model.version, sep='\t')
+   ```
 
-> [!IMPORTANT]
-> Zapisz natężenia wejścia i wyjścia, ponieważ będą potrzebne do konwersji modeli i żądań wnioskowania.
+1. Przekonwertuj wykres TensorFlow na format Open neuronowych Network Exchange ([ONNX](https://onnx.ai/)).  Należy podać nazwy natężeń wejściowych i wyjściowych, a te nazwy będą używane przez klienta podczas korzystania z usługi sieci Web.
 
-Dostępne są następujące modele i odpowiednie rozdzielacze domyślne klasyfikatora, które są używane do wnioskowania, jeśli użyto klasyfikatora domyślnego.
+   ```python
+   from azureml.accel import AccelOnnxConverter
 
-+ Resnet50, QuantizedResnet50
-  ```python
-  output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
-  ```
-+ Resnet152, QuantizedResnet152
-  ```python
-  output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
-  ```
-+ Densenet121, QuantizedDensenet121
-  ```python
-  output_tensors = "classifier/densenet121/predictions/Softmax:0"
-  ```
-+ Vgg16, QuantizedVgg16
-  ```python
-  output_tensors = "classifier/vgg_16/fc8/squeezed:0"
-  ```
-+ SsdVgg, QuantizedSsdVgg
-  ```python
-  output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
-  ```
+   convert_request = AccelOnnxConverter.convert_tf_model(
+       ws, registered_model, input_tensors, output_tensors)
 
-### <a name="register-model"></a>Rejestrowanie modelu
+   # If it fails, you can run wait_for_completion again with show_output=True.
+   convert_request.wait_for_completion(show_output=False)
 
-[Zarejestruj](concept-model-management-and-deployment.md) model przy użyciu zestawu SDK z plikiem zip w usłudze Azure Blob Storage. Dodawanie tagów i innych metadanych dotyczących modelu ułatwia śledzenie przeszkolonych modeli.
+   # If the above call succeeded, get the converted model
+   converted_model = convert_request.result
+   print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
+         converted_model.id, converted_model.created_time, '\n')
+   ```
 
-```python
-from azureml.core.model import Model
+1. Utwórz obraz platformy Docker z konwertowanego modelu i wszystkich zależności.  Ten obraz platformy Docker można następnie wdrożyć i utworzyć jego wystąpienie.  Obsługiwane cele wdrożenia obejmują AKS w chmurze lub urządzenie brzegowe, takie jak [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Możesz również dodać tagi i opisy dla zarejestrowanego obrazu platformy Docker.
 
-registered_model = Model.register(workspace=ws,
-                                  model_path=model_save_path,
-                                  model_name=model_name)
+   ```python
+   from azureml.core.image import Image
+   from azureml.accel import AccelContainerImage
 
-print("Successfully registered: ", registered_model.name,
-      registered_model.description, registered_model.version, sep='\t')
-```
+   image_config = AccelContainerImage.image_configuration()
+   # Image name must be lowercase
+   image_name = "{}-image".format(model_name)
 
-Jeśli model został już zarejestrowany i chcesz go załadować, możesz go pobrać.
+   image = Image.create(name=image_name,
+                        models=[converted_model],
+                        image_config=image_config,
+                        workspace=ws)
+   image.wait_for_creation(show_output=False)
+   ```
 
-```python
-from azureml.core.model import Model
-model_name = "resnet50"
-# By default, the latest version is retrieved. You can specify the version, i.e. version=1
-registered_model = Model(ws, name="resnet50")
-print(registered_model.name, registered_model.description,
-      registered_model.version, sep='\t')
-```
+   Wyświetl listę obrazów według tagów i uzyskaj szczegółowe dzienniki dla dowolnego debugowania.
 
-### <a name="convert-model"></a>Konwertuj model
+   ```python
+   for i in Image.list(workspace=ws):
+       print('{}(v.{} [{}]) stored at {} with build log {}'.format(
+           i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
+   ```
 
-Przekonwertuj wykres TensorFlow na format Open neuronowych Network Exchange ([ONNX](https://onnx.ai/)).  Należy podać nazwy natężeń wejściowych i wyjściowych, a te nazwy będą używane przez klienta podczas korzystania z usługi sieci Web.
-
-```python
-from azureml.accel import AccelOnnxConverter
-
-convert_request = AccelOnnxConverter.convert_tf_model(
-    ws, registered_model, input_tensors, output_tensors)
-
-# If it fails, you can run wait_for_completion again with show_output=True.
-convert_request.wait_for_completion(show_output=False)
-
-# If the above call succeeded, get the converted model
-converted_model = convert_request.result
-print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version,
-      converted_model.id, converted_model.created_time, '\n')
-```
-
-### <a name="create-docker-image"></a>Tworzenie obrazu platformy Docker
-
-Przekonwertowany model i wszystkie zależności są dodawane do obrazu platformy Docker.  Ten obraz platformy Docker można następnie wdrożyć i utworzyć jego wystąpienie.  Obsługiwane cele wdrożenia obejmują AKS w chmurze lub urządzenie brzegowe, takie jak [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Możesz również dodać tagi i opisy dla zarejestrowanego obrazu platformy Docker.
-
-```python
-from azureml.core.image import Image
-from azureml.accel import AccelContainerImage
-
-image_config = AccelContainerImage.image_configuration()
-# Image name must be lowercase
-image_name = "{}-image".format(model_name)
-
-image = Image.create(name=image_name,
-                     models=[converted_model],
-                     image_config=image_config,
-                     workspace=ws)
-image.wait_for_creation(show_output=False)
-```
-
-Wyświetl listę obrazów według tagów i uzyskaj szczegółowe dzienniki dla dowolnego debugowania.
-
-```python
-for i in Image.list(workspace=ws):
-    print('{}(v.{} [{}]) stored at {} with build log {}'.format(
-        i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
-```
-
-## <a name="2-deploy-to-cloud-or-edge"></a>2. Wdróż w chmurze lub w usłudze Edge
-
-### <a name="deploy-to-the-cloud"></a>Wdrażanie w chmurze
+### <a name="2-deploy-to-cloud-or-edge"></a>2. Wdróż w chmurze lub w usłudze Edge
 
 Aby wdrożyć model jako usługę sieci Web o dużej skali produkcyjnej, Użyj usługi Azure Kubernetes Service (AKS). Nowy element można utworzyć przy użyciu zestawu SDK Azure Machine Learning, interfejsu wiersza polecenia lub [Azure Machine Learning Studio](https://ml.azure.com).
 

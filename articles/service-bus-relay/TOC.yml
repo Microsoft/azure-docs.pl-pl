@@ -38,6 +38,8 @@
           href: relay-authentication-and-authorization.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: service-bus-relay-security-controls.md
+        - name: Bezpieczeństwo sieci
+          href: network-security.md
     - name: Protokół połączeń hybrydowych
       href: relay-hybrid-connections-protocol.md
 - name: Instrukcje
@@ -59,6 +61,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Węzeł
               href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Bezpieczeństwo
+      items:
+        - name: Konfigurowanie zapory IP (wersja zapoznawcza)
+          href: ip-firewall-virtual-networks.md
+        - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
+          href: private-link-service.md
     - name: Zarządzanie i monitorowanie
       items:
         - name: Monitorowanie usługi Azure Relay przy użyciu funkcji monitorowania platformy Azure

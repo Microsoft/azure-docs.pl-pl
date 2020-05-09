@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 37debf076fcaa4f4b62af93dbdb667fb699b0568
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 056dc7bbe29c3c963818ee2fca626be4e2be9645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901364"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983486"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla platformy .NET (SDK v3)
 
@@ -101,12 +101,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . 
 
-W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://<my-Unique-Service-Name>".
+W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://&lt;my-Unique-Service-Name&gt;".
 
 Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Ta operacja zwróci serię par klucz/wartość. 
