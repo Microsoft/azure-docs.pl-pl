@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7f927d230efba580cff163d31c6f572a10d0b4aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e225d4d37f6bdb3d50b32f6464456e4f7fa0036
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991147"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853962"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Szybki Start: Dodawanie logowania do platformy tożsamości firmy Microsoft do aplikacji sieci Web ASP.NET
 W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób aplikacja sieci Web ASP.NET może logować się do kont osobistych (hotmail.com, outlook.com, inne) oraz kont służbowych z dowolnego Azure Active Directory (Azure AD).  (Zobacz [, jak działa przykład](#how-the-sample-works) dla ilustracji).
@@ -43,7 +43,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > 1. Wybierz pozycję **Nowa rejestracja**.
 > 1. Po wyświetleniu strony **Rejestrowanie aplikacji** podaj informacje dotyczące rejestracji aplikacji:
 >      - W sekcji **Nazwa** podaj znaczącą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji, na przykład `ASPNET-Quickstart`.
->      - Dodaj `http://localhost:44368/` w obszarze **URI przekierowania**, a następnie kliknij pozycję **zarejestruj**.
+>      - Dodaj `https://localhost:44368/` w obszarze **URI przekierowania**, a następnie kliknij pozycję **zarejestruj**.
 >      - W okienku nawigacji po lewej stronie w sekcji Zarządzanie wybierz pozycję **uwierzytelnianie** .
 >          - W podsekcji **niejawna** stawka wybierz pozycję **identyfikatory tokenów**.
 >          - A następnie wybierz pozycję **Zapisz**.

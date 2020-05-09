@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050876"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926990"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 |     |
@@ -31,7 +31,7 @@ Po skonfigurowaniu bezpośredniej Federacji z dostawcy tożsamości partnera now
 > Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na `https://myapps.microsoft.com/?tenantid=<tenant id>` przykład `https://portal.azure.com/<tenant id>`lub w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com`, `https://portal.azure.com`, lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Kiedy jest uwierzytelniany przez użytkownika-gościa za pomocą Federacji bezpośredniej?
-Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaproszeni użytkownicy-Goście będą uwierzytelniani za pomocą Federacji bezpośredniej. Należy pamiętać, że skonfigurowanie Federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-Gości, którzy już wykorzystali zaproszenie. Oto kilka przykładów:
+Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaproszeni użytkownicy-Goście będą uwierzytelniani za pomocą Federacji bezpośredniej. Należy pamiętać, że skonfigurowanie Federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-Gości, którzy już wykorzystali zaproszenie. Poniżej przedstawiono kilka przykładów:
  - Jeśli użytkownicy-Goście już wykorzystali zaproszenia z Ciebie, a następnie skonfigurujesz bezpośrednią Federacji z organizacją, Ci użytkownicy będą nadal używać tej samej metody uwierzytelniania, która została użyta przed skonfigurowaniem Federacji bezpośredniej.
  - Jeśli skonfigurujesz bezpośrednią Federacji z organizacją partnera i zapraszasz użytkowników-Gości, a następnie organizacja partnera później przejdzie do usługi Azure AD, użytkownicy-Goście, którzy już wykorzystali zaproszenia, będą nadal korzystać z Federacji bezpośredniej, o ile istnieją bezpośrednie zasady Federacji w dzierżawie.
  - W przypadku usunięcia bezpośredniej Federacji z organizacją partnera wszyscy użytkownicy-Goście korzystający obecnie z Federacji bezpośredniej nie będą mogli się zalogować.
@@ -50,10 +50,13 @@ Domena, której chcesz sfederować, ***nie*** może być zweryfikowana przez sys
 
 ### <a name="authentication-url"></a>Adres URL uwierzytelniania
 Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domena adresu URL uwierzytelniania jest zgodna z domeną docelową lub jeśli adres URL uwierzytelniania jest jednym z tych dozwolonych dostawców tożsamości (Ta lista może ulec zmianie):
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com

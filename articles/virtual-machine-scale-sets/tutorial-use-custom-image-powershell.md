@@ -4,171 +4,269 @@ description: Dowiedz się, jak za pomocą programu Azure PowerShell utworzyć ni
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 05/04/2020
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: daef03b411a451fc3e5b73e46091672810b0f9bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: akjosh
+ms.openlocfilehash: 4b072991a86922fe2b4ba5be93b4c96841dc24af
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76278293"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792772"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Samouczek: tworzenie niestandardowego obrazu i używanie go dla zestawów skalowania maszyn wirtualnych za pośrednictwem programu Azure PowerShell
 
 Podczas tworzenia zestawu skalowania należy wskazać obraz używany do wdrożenia wystąpień maszyn wirtualnych. Aby zmniejszyć liczbę zadań wykonywanych po wdrożeniu wystąpień maszyn wirtualnych, można użyć niestandardowego obrazu maszyny wirtualnej. Niestandardowy obraz maszyny wirtualnej obejmuje wszystkie wymagane instalacje i konfiguracje aplikacji. Wszystkie wystąpienia maszyn wirtualnych utworzone w zestawie skalowania używają niestandardowego obrazu maszyny wirtualnej i są gotowe do obsługi ruchu aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie i dostosowywanie maszyny wirtualnej
-> * Anulowanie aprowizacji i uogólnianie maszyny wirtualnej
-> * Tworzenie niestandardowego obrazu maszyny wirtualnej ze źródłowej maszyny wirtualnej
-> * Wdrażanie zestawu skalowania, który używa niestandardowego obrazu maszyny wirtualnej
+> * Tworzenie galerii obrazów udostępnionych
+> * Tworzenie definicji obrazu
+> * Utwórz wersję obrazu
+> * Tworzenie zestawu skalowania z obrazu 
+> * Udostępnianie galerii obrazów
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
+## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+W poniższych krokach szczegółowo opisano sposób tworzenia istniejącej maszyny wirtualnej i przełączenia jej do obrazu niestandardowego, którego można użyć do utworzenia zestawu skalowania.
+
+Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniejąca maszyna wirtualna. W razie potrzeby można zobaczyć [Przewodnik Szybki Start dla programu PowerShell](quick-create-powershell.md) , aby utworzyć maszynę wirtualną do użycia w tym samouczku. Podczas pracy z samouczkiem Zastąp nazwy zasobów, w razie konieczności.
+
+## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
+
+Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
+
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 
-## <a name="create-and-configure-a-source-vm"></a>Tworzenie i konfigurowanie źródłowej maszyny wirtualnej
+## <a name="get-the-vm"></a>Pobierz maszynę wirtualną
 
->[!NOTE]
-> Ten samouczek zawiera opis kroków procesu tworzenia i używania obrazu uogólnionej maszyny wirtualnej. Tworzenie zestawu skalowania na podstawie wyspecjalizowanego wirtualnego dysku twardego nie jest obsługiwane.
-
-Najpierw utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), a następnie utwórz maszynę wirtualną za pomocą polecenia [New-AzVM](/powershell/module/az.compute/new-azvm). Ta maszyna wirtualna będzie używana jako źródło dla niestandardowego obrazu maszyny wirtualnej. Poniższy przykład obejmuje tworzenie maszyny wirtualnej *myCustomVM* w grupie zasobów *myResourceGroup*. Po wyświetleniu monitu wprowadź nazwę użytkownika i hasło, które będą używane jako poświadczenia logowania dla maszyny wirtualnej:
-
-```azurepowershell-interactive
-# Create a resource a group
-New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
-
-# Create a Windows Server 2016 Datacenter VM
-New-AzVm `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myCustomVM" `
-  -ImageName "Win2016Datacenter" `
-  -OpenPorts 3389
-```
-
-Aby nawiązać połączenie z maszyną wirtualną, wyświetl publiczny adres IP za pomocą polecenia [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) w następujący sposób:
+Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, możesz użyć `Get-AzVM` jej ponownie, aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$VM*. 
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+$sourceVM = Get-AzVM `
+   -Name sourceVM `
+   -ResourceGroupName myResourceGroup
 ```
+## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz połączenie zdalne z maszyną wirtualną. Jeśli korzystasz z usługi Azure Cloud Shell, wykonaj ten krok przy użyciu wiersza polecenia lokalnego programu PowerShell lub klienta pulpitu zdalnego. Podaj własny adres IP z poprzedniego polecenia. Po wyświetleniu monitu wprowadź poświadczenia użyte podczas tworzenia maszyny wirtualnej w pierwszym kroku:
+Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
 
-```powershell
-mstsc /v:<IpAddress>
-```
-
-Aby dostosować maszynę wirtualną, należy zainstalować podstawowy serwer internetowy. Dzięki temu wdrożona maszyna wirtualna będzie miała wszystkie pakiety wymagane do uruchamiania aplikacji internetowej. Otwórz wiersz polecenia lokalnego programu PowerShell na maszynie wirtualnej i zainstaluj serwer internetowy IIS za pomocą polecenia [Install-WindowsFeature](/powershell/module/servermanager/install-windowsfeature) w następujący sposób:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-Ostatnim krokiem jest uogólnienie maszyny wirtualnej w celu przygotowania jej do użycia jako obraz niestandardowy. Program Sysprep usuwa wszystkie informacje i konfiguracje osobiste oraz resetuje maszynę wirtualną do czystego stanu przeznaczonego do przyszłych wdrożeń. Aby uzyskać więcej informacji, zobacz [How to Use Sysprep: An Introduction (Używanie programu Sysprep: wprowadzenie)](https://technet.microsoft.com/library/bb457073.aspx).
-
-Aby uogólnić maszynę wirtualną, uruchom program Sysprep i ustaw maszynę wirtualną jako gotową do użycia. Po zakończeniu zamknij maszynę wirtualną za pomocą programu Sysprep:
-
-```powershell
-C:\Windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown
-```
-
-Gdy program Sysprep zakończy proces i zamknie maszynę wirtualną, połączenie zdalne z maszyną wirtualną zostanie zamknięte automatycznie.
-
-
-## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Tworzenie niestandardowego obrazu maszyny wirtualnej ze źródłowej maszyny wirtualnej
-Źródłowa maszyna wirtualna została dostosowana przez zainstalowanie serwera internetowego IIS. Utworzymy niestandardowy obraz maszyny wirtualnej, który będzie używany z zestawem skalowania.
-
-Aby można było utworzyć obraz, należy cofnąć przydział maszyny wirtualnej. Cofnij przydział maszyny wirtualnej za pomocą polecenia [Stop-AzVm](/powershell/module/az.compute/stop-azvm). Następnie ustaw dla maszyny wirtualnej stan uogólniony za pomocą polecenia [Set-AzVm](/powershell/module/az.compute/set-azvm), aby poinformować platformę Azure, że maszyna wirtualna jest gotowa do użycia jako obraz niestandardowy. Obraz można utworzyć tylko za pomocą uogólnionej maszyny wirtualnej:
+Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. W poniższym przykładzie grupa zasobów o nazwie *myGalleryRG* jest tworzona w regionie *wschodnim* :
 
 ```azurepowershell-interactive
-Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
-Set-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
+$resourceGroup = New-AzResourceGroup `
+   -Name 'myGalleryRG' `
+   -Location 'EastUS'
 ```
 
-Cofanie przydziału i uogólnianie maszyny wirtualnej może potrwać kilka minut.
+## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów 
 
-Utwórz obraz maszyny wirtualnej za pomocą poleceń [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) i [New-AzImage](/powershell/module/az.compute/new-azimage). W poniższym przykładzie utworzono obraz o nazwie *myImage* za pomocą maszyny wirtualnej:
+Galeria obrazów jest podstawowym zasobem używanym do włączania udostępniania obrazu. Dozwolone znaki w nazwie galerii to wielkie lub małe litery, cyfry, kropki i kropki. Nazwa galerii nie może zawierać kresek. Nazwy galerii muszą być unikatowe w ramach subskrypcji. 
+
+Utwórz galerię obrazów przy użyciu polecenia [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). Poniższy przykład tworzy galerię o nazwie Moja *Gallery* w grupie zasobów *myGalleryRG* .
 
 ```azurepowershell-interactive
-# Get VM object
-$vm = Get-AzVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
-
-# Create the VM image configuration based on the source VM
-$image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
-
-# Create the custom VM image
-New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
+$gallery = New-AzGallery `
+   -GalleryName 'myGallery' `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $resourceGroup.Location `
+   -Description 'Shared Image Gallery for my organization'  
 ```
 
-## <a name="configure-the-network-security-group-rules"></a>Skonfiguruj reguły sieciowej grupy zabezpieczeń
-Przed utworzeniem zestawu skalowania należy skonfigurować reguły kojarzenia sieciowych grup zabezpieczeń, aby zezwolić na dostęp do protokołu HTTP, RDP i komunikacji zdalnej. 
+
+## <a name="create-an-image-definition"></a>Tworzenie definicji obrazu 
+
+Definicje obrazów tworzą logiczne grupowanie dla obrazów. Są one używane do zarządzania informacjami o wersjach obrazu, które są w nich tworzone. Nazwy definicji obrazów mogą składać się z wielkich lub małych liter, cyfr, kropek, kresek i kropek. Aby uzyskać więcej informacji na temat wartości, które można określić dla definicji obrazu, zobacz [definicje obrazu](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Utwórz definicję obrazu przy użyciu polecenia [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). W tym przykładzie obraz galerii ma nazwę *myGalleryImage* i jest tworzony dla obrazu specjalistycznego. 
 
 ```azurepowershell-interactive
-$rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
-
-$rule2 = New-AzNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
-
-$rule3 = New-AzNetworkSecurityRuleConfig -Name remoting-rule -Description "Allow PS Remoting" -Access Allow -Protocol Tcp -Direction Inbound -Priority 120 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 5985
-
-New-AzNetworkSecurityGroup -Name "myNSG" -ResourceGroupName "myResourceGroup" -Location "EastUS" -SecurityRules $rule1,$rule2,$rule3
+$galleryImage = New-AzGalleryImageDefinition `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $gallery.Location `
+   -Name 'myImageDefinition' `
+   -OsState specialized `
+   -OsType Windows `
+   -Publisher 'myPublisher' `
+   -Offer 'myOffer' `
+   -Sku 'mySKU'
 ```
 
-## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Tworzenie zestawu skalowania z niestandardowego obrazu maszyny wirtualnej
+
+## <a name="create-an-image-version"></a>Utwórz wersję obrazu
+
+Utwórz wersję obrazu z maszyny wirtualnej przy użyciu polecenia [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakresu 32-bitowej liczby całkowitej. Format: *MajorVersion*. *MinorVersion*. *Poprawka*.
+
+W tym przykładzie wersja obrazu to *1.0.0* i jest replikowana zarówno do centrów danych *Wschodnie stany USA* , jak i *Południowo-środkowe stany USA* . Podczas wybierania regionów docelowych na potrzeby replikacji należy uwzględnić region *źródłowy* jako element docelowy dla replikacji.
+
+Aby utworzyć wersję obrazu z maszyny wirtualnej, użyj `$vm.Id.ToString()` dla. `-Source`
+
+```azurepowershell-interactive
+$region1 = @{Name='South Central US';ReplicaCount=1}
+$region2 = @{Name='East US';ReplicaCount=2}
+$targetRegions = @($region1,$region2)
+
+New-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name`
+   -GalleryImageVersionName '1.0.0' `
+   -GalleryName $gallery.Name `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $resourceGroup.Location `
+   -TargetRegion $targetRegions  `
+   -Source $vm.Id.ToString() `
+   -PublishingProfileEndOfLifeDate '2020-12-01'
+```
+
+Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać.
+
+## <a name="create-a-scale-set-from-the-image"></a>Tworzenie zestawu skalowania na podstawie obrazu
 Utwórz zestaw skalowania za pomocą polecenia [New-AzVmss](/powershell/module/az.compute/new-azvmss) z parametrem `-ImageName` umożliwiającym zdefiniowanie niestandardowego obrazu maszyny wirtualnej utworzonego w poprzednim kroku. Musisz również utworzyć moduł równoważenia obciążenia, który umożliwia kierowanie ruchu do poszczególnych wystąpień maszyn wirtualnych. Moduł równoważenia obciążenia zawiera reguły, które pozwalają kierować ruchem na porcie TCP 80 oraz korzystać z ruchu pulpitu zdalnego na porcie TCP 3389 i komunikacji zdalnej programu PowerShell na porcie TCP 5985. Po wyświetleniu monitu podaj własne odpowiednie poświadczenia administracyjne dla wystąpień maszyn wirtualnych w zestawie skalowania:
 
 ```azurepowershell-interactive
+# Define variables for the scale set
+$resourceGroupName = "myVMSSRG3"
+$scaleSetName = "myScaleSet3"
+$location = "East US"
+
+# Create a resource group
+New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
+
+# Create a networking pieces
+$subnet = New-AzVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+$vnet = New-AzVirtualNetwork `
+  -ResourceGroupName $resourceGroupName `
+  -Name "myVnet" `
+  -Location $location `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+$publicIP = New-AzPublicIpAddress `
+  -ResourceGroupName $resourceGroupName `
+  -Location $location `
+  -AllocationMethod Static `
+  -Name "myPublicIP"
+$frontendIP = New-AzLoadBalancerFrontendIpConfig `
+  -Name "myFrontEndPool" `
+  -PublicIpAddress $publicIP
+$backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+$inboundNATPool = New-AzLoadBalancerInboundNatPoolConfig `
+  -Name "myRDPRule" `
+  -FrontendIpConfigurationId $frontendIP.Id `
+  -Protocol TCP `
+  -FrontendPortRangeStart 50001 `
+  -FrontendPortRangeEnd 50010 `
+  -BackendPort 3389
+# Create the load balancer and health probe
+$lb = New-AzLoadBalancer `
+  -ResourceGroupName $resourceGroupName `
+  -Name "myLoadBalancer" `
+  -Location $location `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool `
+  -InboundNatPool $inboundNATPool
+Add-AzLoadBalancerProbeConfig -Name "myHealthProbe" `
+  -LoadBalancer $lb `
+  -Protocol TCP `
+  -Port 80 `
+  -IntervalInSeconds 15 `
+  -ProbeCount 2
+Add-AzLoadBalancerRuleConfig `
+  -Name "myLoadBalancerRule" `
+  -LoadBalancer $lb `
+  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
+  -BackendAddressPool $lb.BackendAddressPools[0] `
+  -Protocol TCP `
+  -FrontendPort 80 `
+  -BackendPort 80 `
+  -Probe (Get-AzLoadBalancerProbeConfig -Name "myHealthProbe" -LoadBalancer $lb)
+Set-AzLoadBalancer -LoadBalancer $lb
+
+# Create IP address configurations
+$ipConfig = New-AzVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
+
+# Create a configuration 
+$vmssConfig = New-AzVmssConfig `
+    -Location $location `
+    -SkuCapacity 2 `
+    -SkuName "Standard_DS2" `
+    -UpgradePolicyMode "Automatic"
+
+# Reference the image version
+Set-AzVmssStorageProfile $vmssConfig `
+  -OsDiskCreateOption "FromImage" `
+  -ImageReferenceId $galleryImage.Id
+
+# Complete the configuration
+ 
+Add-AzVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name "network-config" `
+  -Primary $true `
+  -IPConfiguration $ipConfig 
+
+# Create the scale set 
 New-AzVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -VMScaleSetName "myScaleSet" `
-  -VirtualNetworkName "myVnet" `
-  -SubnetName "mySubnet" `
-  -SecurityGroupName "myNSG"
-  -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic" `
-  -ImageName "myImage"
+  -ResourceGroupName $resourceGroupName `
+  -Name $scaleSetName `
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
 Utworzenie i skonfigurowanie wszystkich zasobów zestawu skalowania i maszyn wirtualnych trwa kilka minut.
 
 
-## <a name="test-your-scale-set"></a>Testowanie zestawu skalowania
-Aby zobaczyć, jak działa zestaw skalowania, uzyskaj publiczny adres IP modułu równoważenia obciążenia za pomocą polecenia [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) w następujący sposób:
+## <a name="share-the-gallery"></a>Udostępnianie galerii
 
+Zalecamy Udostępnianie dostępu na poziomie galerii obrazów. Użyj adresu e-mail i polecenia cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) , aby uzyskać identyfikator obiektu dla użytkownika, a następnie użyj polecenie [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) w celu uzyskania dostępu do galerii. Zastąp przykładową wiadomość alinne_montes@contoso.com e-mail, w tym przykładzie, własnymi informacjami.
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myPublicIPAddress" | Select IpAddress
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
 ```
-
-Wprowadź publiczny adres IP w przeglądarce internetowej. Zostanie wyświetlona domyślna strona serwera IIS, jak pokazano w poniższym przykładzie:
-
-![Serwer IIS uruchomiony za pomocą niestandardowego obrazu maszyny wirtualnej](media/tutorial-use-custom-image-powershell/default-iis-website.png)
-
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-Aby pozbyć się zestawu skalowania i dodatkowych zasobów, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Parametr `-Force` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu. Parametr `-AsJob` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji.
+
+Gdy grupa zasobów i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) .
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
+# Delete the gallery 
+Remove-AzResourceGroup -Name myGalleryRG
+
+# Delete the scale set resource group
+Remove-AzResourceGroup -Name myResoureceGroup
 ```
 
+## <a name="azure-image-builder"></a>Konstruktor obrazów platformy Azure
+
+Platforma Azure oferuje również usługę, która jest oparta na pakiecie [Konstruktor obrazów maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Wystarczy opisać dostosowania w szablonie i obsłużyć Tworzenie obrazu. 
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku omówiono tworzenie niestandardowego obrazu maszyny wirtualnej i używanie go z zestawami skalowania za pośrednictwem programu Azure PowerShell:
 
 > [!div class="checklist"]
-> * Tworzenie i dostosowywanie maszyny wirtualnej
-> * Anulowanie aprowizacji i uogólnianie maszyny wirtualnej
-> * Tworzenie niestandardowego obrazu maszyny wirtualnej
-> * Wdrażanie zestawu skalowania, który używa niestandardowego obrazu maszyny wirtualnej
+> * Tworzenie galerii obrazów udostępnionych
+> * Tworzenie definicji obrazu
+> * Utwórz wersję obrazu
+> * Tworzenie zestawu skalowania z obrazu 
+> * Udostępnianie galerii obrazów
 
 Przejdź do następnego samouczka, aby dowiedzieć się, jak wdrożyć aplikacje w zestawie skalowania.
 

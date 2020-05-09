@@ -1,16 +1,14 @@
 ---
 title: Zarządzanie wpisami tajnymi aplikacji platformy Azure Service Fabric
 description: Dowiedz się, jak zabezpieczyć wartości tajne w aplikacji Service Fabric (platform-niezależny od).
-author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: vturecek
-ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18090dd3e4046da2069e3035be4edb4d2f979204
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414509"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583239"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Zarządzanie zaszyfrowanymi wpisami tajnymi w aplikacjach Service Fabric
 Ten przewodnik przeprowadzi Cię przez kroki związane z zarządzaniem wpisami tajnymi w aplikacji Service Fabric. Wpisy tajne mogą być dowolnymi informacjami poufnymi, takimi jak parametry połączenia magazynu, hasła lub inne wartości, które nie powinny być obsługiwane w postaci zwykłego tekstu.

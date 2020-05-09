@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 84846e642fa102045b89eb12dbc85b0995867a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a13b860e01e7ef295df629d79dfa44700b5f0d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061595"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691593"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skalowanie zasobów pojedynczej bazy danych w Azure SQL Database
 
@@ -48,13 +48,27 @@ Zmiana warstwy usług lub rozmiaru obliczeniowego głównie obejmuje usługę wy
 
 ## <a name="latency"></a>Opóźnienie 
 
-Szacowane opóźnienie zmiany warstwy usług lub ponowne skalowanie wielkości obliczeniowej pojedynczej bazy danych lub puli elastycznej jest opisane w następujący sposób:
+Szacowane opóźnienie zmiany warstwy usług, skalowanie wielkości obliczeniowej pojedynczej bazy danych lub puli elastycznej, przenoszenie bazy danych do puli elastycznej lub przenoszenie bazy danych między pulami elastycznymi jest opisane w następujący sposób:
 
 |Warstwa usług|Podstawowa pojedyncza baza danych,</br>Standard (S0-S1)|Podstawowa Pula elastyczna,</br>Standardowa (S2-S12), </br>Hiperskali </br>Ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej|Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną|
 |:---|:---|:---|:---|
 |**Podstawowa pojedyncza baza</br> danych, Standard (S0-S1)**|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Podstawowa Pula elastyczna </br>, standardowa (S2-S12) </br>, skalowanie </br>ogólnego przeznaczenia pojedynczej bazy danych lub puli elastycznej**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Stałe opóźnienie czasu niezależne od użytego miejsca</br>&bull;&nbsp;Zwykle, mniej niż 5 minut|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
 |**Premium lub Krytyczne dla działania firmy pojedynczą bazę danych lub pulę elastyczną**|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|&bull;&nbsp;Opóźnienie proporcjonalne do miejsca bazy danych używane z powodu kopiowania danych</br>&bull;&nbsp;Zwykle jest to mniej niż 1 minuta na GB zajętego miejsca|
+
+> [!NOTE]
+> Ponadto w przypadku warstwy Standardowa (S2-S12) i Ogólnego przeznaczenia bazy danych opóźnienie przeniesienia bazy danych z puli elastycznej lub między pulami elastycznymi będzie proporcjonalne do rozmiaru bazy danych, jeśli baza danych korzysta z magazynu Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)).
+>
+> Aby określić, czy baza danych korzysta z magazynu PFS, wykonaj następujące zapytanie w kontekście bazy danych. Jeśli wartość w kolumnie AccountType to `PremiumFileStorage`, baza danych korzysta z magazynu PFS.
+ 
+```sql
+SELECT s.file_id,
+       s.type_desc,
+       s.name,
+       FILEPROPERTYEX(s.name, 'AccountType') AS AccountType
+FROM sys.database_files AS s
+WHERE s.type_desc IN ('ROWS', 'LOG');
+```
 
 > [!TIP]
 > Aby monitorować operacje w toku, zobacz: [Zarządzanie operacjami przy użyciu interfejsu API REST usługi SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Zarządzanie operacjami przy użyciu wiersza polecenia](/cli/azure/sql/db/op), [monitorowanie operacji przy użyciu języka T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) i tych dwóch poleceń programu PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) i [stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).

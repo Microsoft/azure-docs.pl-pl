@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 62546fc98429c3a28217b1992f803aa40ce615c8
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790970"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982347"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark dla pul Spark (wersja zapoznawcza) za pomocą Azure Toolkit for IntelliJ
 
@@ -143,7 +143,7 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
     |Nazwa klasy głównej|Wartością domyślną jest główna Klasa z wybranego pliku. Możesz zmienić klasę, wybierając wielokropek (**...**) i wybierając inną klasę.|
     |Konfiguracje zadań|Można zmienić domyślny klucz i wartości. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Apache usługi Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumenty wiersza polecenia|W razie potrzeby można wprowadzać argumenty rozdzielone spacją dla klasy głównej.|
-    |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko klaster ADLS generacji 2. Aby uzyskać więcej informacji: [Apache Spark konfiguracja](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Apache Spark konfiguracja](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Magazyn przekazywania zadań|Rozwiń, aby wyświetlić dodatkowe opcje.|
     |Typ magazynu|Wybierz pozycję **Użyj obiektów blob platformy Azure do przekazania** z listy rozwijanej.|
     |Konto magazynu|Wprowadź konto magazynu.|

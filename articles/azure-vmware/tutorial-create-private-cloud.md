@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie klastra vSphere na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare (Automatyczna synchronizacja)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928554"
+ms.locfileid: "82977707"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej automatycznej synchronizacji na platformie Azure
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Aby można było korzystać z rozwiązania VMWare na platformie Azure, należy najpierw zarejestrować dostawcę zasobów. Poniższy przykład rejestruje dostawcę zasobów w ramach subskrypcji.
 
 ```azurecli-interactive
-az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](../azure-resource-manager/management/resource-providers-and-types.md).

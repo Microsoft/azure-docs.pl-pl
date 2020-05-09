@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3182b3f059bf586dce32d8a555ec0d15542c6afc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5765c2e7335183734c86f1ddd11e4fa61576740c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460362"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977553"
 ---
 # <a name="create-a-highly-available-vm"></a>Tworzenie maszyny wirtualnej o wysokiej dostępności
 
@@ -53,7 +53,7 @@ Ten skrypt zawiera następujące polecenia służące do tworzenia grupy zasobó
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Tworzy publiczny adres IP przy użyciu statycznego adresu IP i skojarzonej nazwy DNS. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Tworzy moduł Azure Network Load Balancer (NLB). |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Tworzy sondę równoważenia obciążenia sieciowego. Sonda równoważenia obciążenia sieciowego jest używana do monitorowania poszczególnych maszyn wirtualnych w zestawie równoważenia obciążenia sieciowego. Jeśli maszyna wirtualna stanie się niedostępna, ruch nie będzie do niej kierowany. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Tworzy regułę równoważenia obciążenia sieciowego. W tym przykładzie tworzona jest reguła dla portu 80. Ruch HTTP docierający do modułu równoważenia obciążenia sieciowego jest kierowany do portu 80 jednej z maszyn wirtualnych w module równoważenia obciążenia sieciowego. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Tworzy regułę równoważenia obciążenia sieciowego. W tym przykładzie tworzona jest reguła dla portu 80. Jako że ruch HTTP dociera do równoważenia obciążenia sieciowego, jest kierowany do portu 80 jednej z maszyn wirtualnych w zestawie NLB. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Tworzy regułę translatora adresów sieciowych modułu równoważenia obciążenia sieciowego.  Reguły translatora adresów sieciowych mapują port modułu równoważenia obciążenia sieciowego na port na maszynie wirtualnej. W tym przykładzie tworzona jest reguła translatora adresów sieciowych dla ruchu SSH do każdej maszyny wirtualnej w zestawie równoważenia obciążenia sieciowego.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Tworzy sieciową grupę zabezpieczeń, czyli granicę zabezpieczeń między Internetem i maszyną wirtualną. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Tworzy regułę sieciowej grupy zabezpieczeń zezwalającą na ruch przychodzący. W tym przykładzie port 22 jest otwierany dla ruchu protokołu SSH. |

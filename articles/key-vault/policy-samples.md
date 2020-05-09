@@ -1,24 +1,24 @@
 ---
-title: Lista wbudowanych definicji zasad dla Key Vault
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Key Vault. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+title: Wbudowane definicje zasad dla Key Vault
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Key Vault. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 04/30/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-samples
-ms.openlocfilehash: f78f8a28ef0ea37a5d9021dcd6a82c0303161b15
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 7304fe906a13da096f48dfc3fb8aa7ff4a6a5a08
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966449"
+ms.locfileid: "82983112"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-key-vault"></a>Azure Policy wbudowane definicje zasad dla Key Vault
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Key Vault. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="key-vault-service"></a>Key Vault (usługa)
 
