@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230849"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609089"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer w Azure Database for MySQL przy użyciu programu PowerShell
+# <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Jak utworzyć kopię zapasową i przywrócić serwer Azure Database for MySQL przy użyciu programu PowerShell
 
 Kopie zapasowe serwerów Azure Database for MySQL są podejmowane okresowo w celu włączenia funkcji przywracania. Korzystając z tej funkcji, można przywrócić serwer i wszystkie jego bazy danych do wcześniejszego punktu w czasie na nowym serwerze.
 
@@ -131,6 +131,5 @@ Nowy serwer utworzony podczas przywracania nie ma punktów końcowych usługi si
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [kopiach zapasowych](concepts-backup.md) usługi
-- Informacje o [replikach](concepts-read-replicas.md)
-- Dowiedz się więcej o opcjach [ciągłości biznesowej](concepts-business-continuity.md)
+> [!div class="nextstepaction"]
+> [Dostosowywanie parametrów serwera Azure Database for MySQL przy użyciu programu PowerShell](howto-configure-server-parameters-using-powershell.md)

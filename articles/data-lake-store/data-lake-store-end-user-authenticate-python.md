@@ -1,22 +1,18 @@
 ---
-title: 'Uwierzytelnianie użytkowników końcowych: Python z Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory | Microsoft Docs'
+title: Uwierzytelnianie użytkowników końcowych — Python z Data Lake Storage Gen1 platformy Azure
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu języka Python
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c69f6c1f587285c5c52280c4c49008764d5b20d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6d95e8bae428741c82de270507e41b49d23a3793
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265599"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691797"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -24,8 +20,8 @@ ms.locfileid: "79265599"
 > * [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Korzystanie z języka Python](data-lake-store-end-user-authenticate-python.md)
 > * [Korzystanie z interfejsu API REST](data-lake-store-end-user-authenticate-rest-api.md)
-> 
-> 
+>
+>
 
 Ten artykuł zawiera informacje na temat używania zestawu SDK języka Python do uwierzytelniania użytkowników końcowych przy użyciu Azure Data Lake Storage Gen1. Uwierzytelnianie użytkowników końcowych można podzielić na dwie kategorie:
 
@@ -98,7 +94,7 @@ Poniższy fragment kodu służy do uwierzytelniania w usłudze Azure AD na potrz
     client_id = 'FILL-IN-HERE'
     redirect = 'urn:ietf:wg:oauth:2.0:oob'
     RESOURCE = 'https://management.core.windows.net/'
-    
+
     context = adal.AuthenticationContext(authority_url)
     code = context.acquire_user_code(RESOURCE, client_id)
     print(code['message'])
@@ -114,10 +110,9 @@ Służy do uwierzytelniania za pomocą usługi Azure AD dla operacji systemu pli
 ## <a name="end-user-authentication-without-multi-factor-authentication"></a>Uwierzytelnianie użytkowników końcowych bez uwierzytelniania wieloskładnikowego
 
 Jest to przestarzałe. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie platformy Azure przy użyciu zestawu SDK języka Python](/azure/python/python-sdk-azure-authenticate).
-   
+
 ## <a name="next-steps"></a>Następne kroki
 W tym artykule przedstawiono sposób użycia uwierzytelniania użytkownika końcowego do uwierzytelniania za pomocą Azure Data Lake Storage Gen1 przy użyciu języka Python. Teraz możesz zapoznać się z następującymi artykułami, które mówią, jak używać języka Python do pracy z Azure Data Lake Storage Gen1.
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-get-started-python.md)
 * [Operacje na danych na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-data-operations-python.md)
-
