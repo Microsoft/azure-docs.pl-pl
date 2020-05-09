@@ -1,6 +1,6 @@
 ---
-title: Dodawanie lub usuwanie przypisań ról przy użyciu RBAC i interfejsu API REST
-description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure oraz interfejsu API REST.
+title: Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST — Azure RBAC
+description: Dowiedz się, jak udzielić dostępu do zasobów platformy Azure dla użytkowników, grup, nazw głównych usług lub tożsamości zarządzanych przy użyciu interfejsu API REST i kontroli dostępu opartej na rolach (RBAC) platformy Azure.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,17 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9beda6589c03f1b14fc9756af86a9ce0711894c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9a8b35b07a4149fa2d6b9f8e6698e41f3e6870c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063007"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891291"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Dodawanie lub usuwanie przypisań ról przy użyciu funkcji RBAC platformy Azure i interfejsu API REST
+# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu interfejsu API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]W tym artykule opisano sposób przypisywania ról przy użyciu interfejsu API REST.
 
@@ -34,7 +34,7 @@ Aby dodać lub usunąć przypisania ról, musisz mieć:
 
 ## <a name="add-a-role-assignment"></a>Dodaj przypisanie roli
 
-W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli. Aby dodać przypisanie roli, użyj [przypisań ról — tworzenie](/rest/api/authorization/roleassignments/create) interfejsu API REST i określanie podmiotu zabezpieczeń, definicji roli i zakresu. Aby wywołać ten interfejs API, musisz mieć dostęp do tej `Microsoft.Authorization/roleAssignments/write` operacji. W przypadku ról wbudowanych dostęp do tej operacji mają tylko [Administratorzy dostępu](built-in-roles.md#user-access-administrator) [właściciela](built-in-roles.md#owner) i użytkownika.
+W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli. Aby dodać przypisanie roli, użyj [przypisań ról — tworzenie](/rest/api/authorization/roleassignments/create) interfejsu API REST i określanie podmiotu zabezpieczeń, definicji roli i zakresu. Aby wywołać ten interfejs API, musisz mieć dostęp do tej `Microsoft.Authorization/roleAssignments/write` operacji. W przypadku ról wbudowanych dostęp do tej operacji mają tylko [Administratorzy dostępu](built-in-roles.md#user-access-administrator) [właściciela](built-in-roles.md#owner) i użytkownika.
 
 1. Aby uzyskać identyfikator definicji roli, która ma zostać przypisana, użyj sekcji [definicje ról-list](/rest/api/authorization/roledefinitions/list) API REST lub zobacz [wbudowane role](built-in-roles.md) .
 
@@ -43,7 +43,7 @@ W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli. Aby do
 1. Rozpocznij od następującego żądania i treści:
 
     ```http
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
     ```
 
     ```json
@@ -67,7 +67,7 @@ W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli. Aby do
 
     W poprzednim przykładzie firma Microsoft. Web jest dostawcą zasobów, który odwołuje się do wystąpienia App Service. Analogicznie, można użyć innych dostawców zasobów i określić zakres. Aby uzyskać więcej informacji, zobacz [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) oraz obsługiwane [Azure Resource Manager operacje dostawcy](resource-provider-operations.md)zasobów.  
 
-1. Zastąp ciąg *{roleAssignmentName}* identyfikatorem GUID przypisania roli.
+1. Zastąp ciąg *{roleAssignmentId}* identyfikatorem GUID przypisania roli.
 
 1. W treści żądania Zastąp wartość *{SCOPE}* zakresem przypisania roli.
 
@@ -83,16 +83,50 @@ W celu udzielenia dostępu w ramach RBAC należy dodać przypisanie roli. Aby do
 
 1. Zastąp ciąg *{principalId}* identyfikatorem obiektu użytkownika, grupy lub jednostki usługi, do której zostanie przypisana rola.
 
+Poniższe żądanie i treść przypisuje rolę [czytnika kopii zapasowych](built-in-roles.md#backup-reader) użytkownikowi w zakresie subskrypcji:
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+```
+
+```json
+{
+  "properties": {
+    "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+    "principalId": "{objectId1}"
+  }
+}
+```
+
+Poniżej przedstawiono przykład danych wyjściowych:
+
+```json
+{
+    "properties": {
+        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+        "principalId": "{objectId1}",
+        "scope": "/subscriptions/{subscriptionId1}",
+        "createdOn": "2020-05-06T23:55:23.7679147Z",
+        "updatedOn": "2020-05-06T23:55:23.7679147Z",
+        "createdBy": null,
+        "updatedBy": "{updatedByObjectId1}"
+    },
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "name": "{roleAssignmentId1}"
+}
+```
+
 ## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
 
-Aby usunąć dostęp za pomocą kontroli dostępu opartej na rolach, usuwa się przypisanie roli. Aby usunąć przypisanie roli, należy użyć [przypisań ról — Usuń](/rest/api/authorization/roleassignments/delete) interfejs API REST. Aby wywołać ten interfejs API, musisz mieć dostęp do tej `Microsoft.Authorization/roleAssignments/delete` operacji. W przypadku ról wbudowanych dostęp do tej operacji mają tylko [Administratorzy dostępu](built-in-roles.md#user-access-administrator) [właściciela](built-in-roles.md#owner) i użytkownika.
+W celu usunięcia dostępu w usłudze Azure RBAC należy usunąć przypisanie roli. Aby usunąć przypisanie roli, należy użyć [przypisań ról — Usuń](/rest/api/authorization/roleassignments/delete) interfejs API REST. Aby wywołać ten interfejs API, musisz mieć dostęp do tej `Microsoft.Authorization/roleAssignments/delete` operacji. W przypadku ról wbudowanych dostęp do tej operacji mają tylko [Administratorzy dostępu](built-in-roles.md#user-access-administrator) [właściciela](built-in-roles.md#owner) i użytkownika.
 
 1. Pobierz identyfikator przypisywania ról (GUID). Ten identyfikator jest zwracany podczas pierwszego tworzenia przypisania roli lub można go uzyskać, wyświetlając listę przypisań ról.
 
 1. Rozpocznij od następującego żądania:
 
     ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2015-07-01
+    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
     ```
 
 1. W identyfikatorze URI Zastąp wartość *{SCOPE}* zakresem, aby usunąć przypisanie roli.
@@ -105,11 +139,36 @@ Aby usunąć dostęp za pomocą kontroli dostępu opartej na rolach, usuwa się 
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupa zasobów |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Zasób |
 
-1. Zastąp ciąg *{roleAssignmentName}* identyfikatorem GUID przypisania roli.
+1. Zastąp ciąg *{roleAssignmentId}* identyfikatorem GUID przypisania roli.
+
+Poniższe żądanie usuwa określone przypisanie roli w zakresie subskrypcji:
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
+```
+
+Poniżej przedstawiono przykład danych wyjściowych:
+
+```json
+{
+    "properties": {
+        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
+        "principalId": "{objectId1}",
+        "scope": "/subscriptions/{subscriptionId1}",
+        "createdOn": "2020-05-06T23:55:24.5379478Z",
+        "updatedOn": "2020-05-06T23:55:24.5379478Z",
+        "createdBy": "{createdByObjectId1}",
+        "updatedBy": "{updatedByObjectId1}"
+    },
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+    "type": "Microsoft.Authorization/roleAssignments",
+    "name": "{roleAssignmentId1}"
+}
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wyświetlanie listy przypisań ról przy użyciu funkcji RBAC platformy Azure i interfejsu API REST](role-assignments-list-rest.md)
+- [Wyświetlanie listy przypisań ról platformy Azure przy użyciu interfejsu API REST](role-assignments-list-rest.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API (Wdrażanie zasobów za pomocą szablonów usługi Resource Manager i interfejsu API REST usługi Resource Manager)](../azure-resource-manager/templates/deploy-rest.md)
 - [Dokumentacja interfejsu API REST platformy Azure](/rest/api/azure/)
-- [Tworzenie ról niestandardowych dla zasobów platformy Azure przy użyciu interfejsu API REST](custom-roles-rest.md)
+- [Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu interfejsu API REST](custom-roles-rest.md)

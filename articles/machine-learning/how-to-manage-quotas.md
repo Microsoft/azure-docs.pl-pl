@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 03/05/2020
-ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.custom: contperfq4
+ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756606"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891517"
 ---
-# <a name="manage-and-request-quotas-for-azure-resources"></a>Zarządzaj przydziałami i Żądaj zasobów platformy Azure
+# <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Ten artykuł zawiera szczegółowe informacje dotyczące wstępnie skonfigurowanych limitów zasobów platformy Azure dla Twojej subskrypcji. Uwzględniono również instrukcje dotyczące sposobu żądania ulepszeń przydziału dla każdego typu zasobu. Te limity są stosowane w celu uniemożliwienia budżetowania zbytów z powodu oszustw oraz do przestrzegania ograniczeń pojemności platformy Azure.
+Ten artykuł [Azure Machine Learning](overview-what-is-azure-ml.md) zawiera szczegółowe informacje dotyczące wstępnie skonfigurowanych limitów zasobów platformy Azure dla Twojej subskrypcji. Uwzględniono również instrukcje dotyczące sposobu żądania ulepszeń przydziału dla każdego typu zasobu. Te limity są stosowane w celu uniemożliwienia budżetowania zbytów z powodu oszustw oraz do przestrzegania ograniczeń pojemności platformy Azure.
 
-Podobnie jak w przypadku innych usług platformy Azure, istnieją ograniczenia dotyczące niektórych zasobów skojarzonych z Azure Machine Learning. Te limity mieszczą się w zakresie od limitu liczby obszarów roboczych, które są ograniczone do rzeczywistego obliczenia bazowego, który jest używany do uczenia lub wnioskowania/oceny modelu. 
+Podobnie jak w przypadku innych usług platformy Azure, istnieją ograniczenia dotyczące niektórych zasobów skojarzonych z Azure Machine Learning. Te limity mieszczą się w zakresie od limitu liczby [obszarów roboczych](concept-workspace.md) , które są ograniczone do rzeczywistego obliczenia bazowego, który jest używany do uczenia lub wnioskowania/oceny modelu. 
 
 Podczas projektowania i skalowania zasobów Azure Machine Learning dla obciążeń produkcyjnych należy wziąć pod uwagę te limity. Na przykład jeśli klaster nie osiągnie docelowej liczby węzłów, być może osiągnięto limit liczby rdzeni obliczeniowych Azure Machine Learning dla subskrypcji. Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, Otwórz żądanie obsługi klienta online bez dodatkowych opłat. Limitów nie można zwiększyć powyżej wartości maksymalnego limitu pokazanej w poniższych tabelach ze względu na ograniczenia pojemności platformy Azure. Jeśli nie ma żadnej kolumny maksymalnego limitu, zasób nie ma dopuszczalnych limitów.
 
@@ -48,10 +49,10 @@ Rdzenie maszyn wirtualnych mają limit regionalny dla regionu i regionalny dla s
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-Aby zapoznać się z bardziej szczegółową i aktualną listą limitów przydziałów, [Zobacz artykuł](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)dotyczący limitu przydziału dla całej platformy Azure.
+Aby zapoznać się z bardziej szczegółową i aktualną listą limitów przydziału, zapoznaj się z [artykułem limit przydziału dla całej platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Środowisko obliczeniowe usługi Azure Machine Learning
-W przypadku Azure Machine Learning obliczeń istnieje domyślny limit przydziału dla liczby rdzeni i liczby unikatowych zasobów obliczeniowych dozwolonych na region w ramach subskrypcji. Ten limit przydziału jest oddzielony od powyżej limitu przydziału rdzeni maszyny wirtualnej, a podstawowe limity nie są współużytkowane przez dwa typy zasobów, ponieważ AmlCompute jest zarządzaną usługą, która wdraża zasoby w modelu hostowanym w imieniu.
+W przypadku [Azure Machine Learning obliczeń](concept-compute-target.md#azure-machine-learning-compute-managed)istnieje domyślny limit przydziału dla liczby rdzeni i liczby unikatowych zasobów obliczeniowych dozwolonych na region w ramach subskrypcji. Ten limit przydziału jest oddzielony od powyżej limitu przydziału rdzeni maszyny wirtualnej, a podstawowe limity nie są współużytkowane przez dwa typy zasobów, ponieważ AmlCompute jest zarządzaną usługą, która wdraża zasoby w modelu hostowanym w imieniu.
 
 Dostępne zasoby:
 + Dedykowane rdzenie na region mają domyślny limit 24-300 w zależności od typu oferty subskrypcji z wyższymi wartościami domyślnymi dla typów ofert EA i CSP.  Liczbę rdzeni dedykowanych na subskrypcję można zwiększyć i różnią się w zależności od rodziny maszyn wirtualnych. Niektóre wyspecjalizowane rodziny maszyn wirtualnych, takie jak NCv2, Seria NCV3 lub ND, zaczynają się domyślnie od zera. Skontaktuj się z pomocą techniczną platformy Azure, wywołując żądanie limitu przydziału w celu omówienia opcji wzrostu.
@@ -76,7 +77,7 @@ Dostępne zasoby:
 <sup>2</sup> zadania w węźle o niskim priorytecie można przewyższyć w dowolnym momencie, gdy istnieje ograniczenie pojemności. Zalecamy zaimplementowanie tworzenia punktów kontrolnych w zadaniu.
 
 ### <a name="azure-machine-learning-pipelines"></a>Potoki Azure Machine Learning
-W przypadku potoków Azure Machine Learning obowiązuje limit przydziału liczby kroków w potoku oraz liczby uruchomień opublikowanych potoków dla regionu w ramach subskrypcji.
+W przypadku [potoków Azure Machine Learning](concept-ml-pipelines.md)obowiązuje limit przydziału liczby kroków w potoku oraz liczby uruchomień opublikowanych potoków dla regionu w ramach subskrypcji.
 - Maksymalna liczba kroków dozwolona w potoku to 30 000
 - Maksymalna liczba przebiegów opartych na harmonogramie i ściągania obiektów BLOB dla harmonogramów opublikowanych potoków na subskrypcję na miesiąc wynosi 100 000
 
@@ -97,7 +98,7 @@ Istnieje limit liczby kont magazynu na region, jak również w danej subskrypcji
 
 ## <a name="workspace-level-quota"></a>Przydział poziomu obszaru roboczego
 
-Aby lepiej zarządzać alokacjami zasobów dla Amlcompute między różnymi obszarami roboczymi, wprowadziliśmy funkcję umożliwiającą dystrybuowanie przydziałów na poziomie subskrypcji (przez rodzinę maszyn wirtualnych) i konfigurowanie ich na poziomie obszaru roboczego. Domyślnym zachowaniem jest to, że wszystkie obszary robocze mają ten sam limit przydziału dla każdej rodziny maszyn wirtualnych. Jednak w miarę zwiększania się liczby obszarów roboczych i obciążeń o różnym priorytecie zaczynają współużytkować te same zasoby, użytkownicy chcą mieć możliwość lepszego udostępniania pojemności i uniknięcia problemów z rywalizacją o zasoby. Azure Machine Learning udostępnia rozwiązanie z zarządzaną ofertą obliczeniową przez umożliwienie użytkownikom ustawiania maksymalnego limitu przydziału dla określonej rodziny maszyn wirtualnych w każdym obszarze roboczym. Jest to analogiczne do dystrybucji pojemności między obszarami roboczymi, a użytkownicy mogą wybrać opcję przydzielenia w celu uzyskania maksymalnego użycia. 
+Aby lepiej zarządzać przydziałami zasobów dla Azure Machine Learning obliczeniowych obiektów docelowych (Amlcompute) między różnymi [obszarami roboczymi](concept-workspace.md), wprowadziliśmy funkcję umożliwiającą dystrybuowanie przydziałów na poziomie subskrypcji (przez rodzinę maszyn wirtualnych) i konfigurowanie ich na poziomie obszaru roboczego. Domyślnym zachowaniem jest to, że wszystkie obszary robocze mają ten sam limit przydziału dla każdej rodziny maszyn wirtualnych. Jednak w miarę zwiększania się liczby obszarów roboczych i obciążeń o różnym priorytecie zaczynają współużytkować te same zasoby, użytkownicy chcą mieć możliwość lepszego udostępniania pojemności i uniknięcia problemów z rywalizacją o zasoby. Azure Machine Learning udostępnia rozwiązanie z zarządzaną ofertą obliczeniową przez umożliwienie użytkownikom ustawiania maksymalnego limitu przydziału dla określonej rodziny maszyn wirtualnych w każdym obszarze roboczym. Jest to analogiczne do dystrybucji pojemności między obszarami roboczymi, a użytkownicy mogą wybrać opcję przydzielenia w celu uzyskania maksymalnego użycia. 
 
 Aby ustawić przydziały na poziomie obszaru roboczego, przejdź do dowolnego obszaru roboczego w ramach subskrypcji, a następnie kliknij pozycję **użycie + przydziały** w okienku po lewej stronie. Następnie wybierz kartę **Konfigurowanie przydziałów** , aby wyświetlić przydziały, rozwiń każdą rodzinę maszyn wirtualnych i ustawić limit przydziału dla każdego obszaru roboczego wymienionego w ramach tej rodziny maszyn wirtualnych. Należy pamiętać, że nie można ustawić wartości ujemnej ani wartości większej niż limit przydziału poziomu subskrypcji. Ponadto w miarę obserwowania wszystkie obszary robocze są przypisywane do całego przydziału subskrypcji, aby umożliwić pełne wykorzystanie przydzielonego limitu przydziału.
 
@@ -105,7 +106,7 @@ Aby ustawić przydziały na poziomie obszaru roboczego, przejdź do dowolnego ob
 
 
 > [!NOTE]
-> Jest to tylko funkcja w wersji Enterprise. Jeśli masz obszar roboczy Basic i Enterprise Edition w ramach subskrypcji, możesz użyć tego ustawienia, aby ustawić przydziały tylko dla obszarów roboczych przedsiębiorstwa. Twoje podstawowe obszary robocze będą nadal miały przydziały poziomu subskrypcji, które są zachowaniem domyślnym.
+> Jest to tylko funkcja w wersji Enterprise. Jeśli masz obszar roboczy [Basic i Enterprise Edition](overview-what-is-azure-ml.md#sku) w ramach subskrypcji, możesz użyć tego ustawienia, aby ustawić przydziały tylko dla obszarów roboczych przedsiębiorstwa. Twoje podstawowe obszary robocze będą nadal miały przydziały poziomu subskrypcji, które są zachowaniem domyślnym.
 >
 > Do ustawiania przydziału na poziomie obszaru roboczego wymagane są uprawnienia na poziomie subskrypcji. Jest to wymuszane w taki sposób, aby indywidualni właściciele obszaru roboczego nie edytowali ani nie zwiększają swoich przydziałów i nie encroaching się do zasobów ustawionych dla innego obszaru roboczego. W ten sposób administrator subskrypcji najlepiej przypisuje i dystrybuuje te przydziały w obszarach roboczych.
 
@@ -136,9 +137,17 @@ Wyświetlanie przydziału dla różnych zasobów, takich jak Virtual Machines, S
 
 Jeśli chcesz podnieść limit lub przydział powyżej domyślnego limitu, [Otwórz żądanie obsługi klienta online](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) bez dodatkowych opłat.
 
-Limitów nie można zwiększyć powyżej wartości maksymalnego limitu pokazanej w tabelach. W przypadku braku maksymalnego limitu zasób nie ma dopuszczalnych limitów. W [tym](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) artykule omówiono proces zwiększania limitu przydziału bardziej szczegółowo.
+Limitów nie można zwiększyć powyżej wartości maksymalnego limitu pokazanej w tabelach. W przypadku braku maksymalnego limitu zasób nie ma dopuszczalnych limitów. [Zobacz instrukcje krok po kroku dotyczące zwiększania limitu przydziału](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 Podczas żądania zwiększenia limitu przydziału należy wybrać usługę żądaną do podniesienia przydziału, która może być usługami, takimi jak przydział usługi Machine Learning, wystąpienia kontenerów lub przydział magazynu. Oprócz Azure Machine Learning obliczeń, można kliknąć przycisk **limitu przydziału** podczas wyświetlania przydziału, wykonując czynności opisane powyżej.
 
 > [!NOTE]
 > [Bezpłatne subskrypcje wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p) nie kwalifikują się do zwiększenia limitu przydziału. Jeśli masz [bezpłatną subskrypcję wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p), możesz przeprowadzić uaktualnienie do subskrypcji [płatnej zgodnie z rzeczywistym](https://azure.microsoft.com/offers/ms-azr-0003p/) użyciem. Aby uzyskać więcej informacji, zobacz [uaktualnianie bezpłatnej wersji próbnej platformy Azure do usługi płatność zgodnie z rzeczywistym](../billing/billing-upgrade-azure-subscription.md) użyciem i [subskrypcji bezpłatnej wersji próbnej](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej z następujących artykułów:
+
++ [Planowanie & zarządzanie kosztami Azure Machine Learning](concept-plan-manage-cost.md)
+
++ [Jak zwiększyć limit przydziału](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

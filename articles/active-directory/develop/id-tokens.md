@@ -1,5 +1,6 @@
 ---
-title: Informacje o tokenie identyfikatora platformy tożsamości firmy Microsoft
+title: Tokeny identyfikatora platformy tożsamości firmy Microsoft | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak używać id_tokens emitowanych przez punkty końcowe usługi Azure AD v 1.0 i Microsoft Identity platform (v 2.0).
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690178"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926718"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokeny identyfikatora platformy tożsamości firmy Microsoft
 
-`id_tokens`są wysyłane do aplikacji klienckiej w ramach przepływu [połączenia OpenID Connect](v2-protocols-oidc.md) . Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika.
+`id_tokens`są wysyłane do aplikacji klienckiej w ramach przepływu [OpenID Connect Connect](v2-protocols-oidc.md) (OIDC). Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika.
 
 ## <a name="using-the-id_token"></a>Korzystanie z id_token
 
@@ -30,7 +31,7 @@ Tokeny identyfikatora należy stosować do sprawdzania, czy użytkownik jest uż
 
 ## <a name="claims-in-an-id_token"></a>Oświadczenia w id_token
 
-`id_tokens`tożsamość firmy Microsoft to [JWTs](https://tools.ietf.org/html/rfc7519), co oznacza, że składają się z nagłówka, ładunku i części sygnatury. Możesz użyć nagłówka i podpisu do zweryfikowania autentyczności tokenu, natomiast ładunek zawiera informacje o użytkowniku żądanym przez klienta. Wszystkie oświadczenia wymienione w tym miejscu są wyświetlane zarówno w tokenach 1.0, jak i w wersji 2.0.
+`id_tokens`tożsamość firmy Microsoft to [JWTs](https://tools.ietf.org/html/rfc7519) (tokeny sieci Web JSON), co oznacza, że zawierają one nagłówek, ładunek i część podpisu. Możesz użyć nagłówka i podpisu do zweryfikowania autentyczności tokenu, natomiast ładunek zawiera informacje o użytkowniku żądanym przez klienta. Wszystkie oświadczenia JWT wymienione w tym miejscu są wyświetlane zarówno w tokenach w wersji 1.0, jak i 2.0.
 
 ### <a name="v10"></a>Wersja 1.0
 
@@ -52,14 +53,14 @@ Wyświetl Ten przykładowy token v 2.0 w [JWT.MS](https://jwt.ms/#id_token=eyJ0e
 
 |Claim | Format | Opis |
 |-----|--------|-------------|
-|`typ` | Ciąg — zawsze "JWT" | Wskazuje, że token jest JWT.|
+|`typ` | Ciąg — zawsze "JWT" | Wskazuje, że token jest tokenem JWT.|
 |`alg` | String | Wskazuje algorytm, który został użyty do podpisania tokenu. Przykład: "RS256" |
 |`kid` | String | Odcisk palca klucza publicznego służącego do podpisywania tego tokenu. Emitowane w wersji 1.0 i 2.0 `id_tokens`. |
 |`x5t` | String | Taka sama (w użyciu i wartość) jako `kid`. Jest to jednak starsze zgłoszenie wyemitowane tylko w wersji 1.0 `id_tokens` w celu zapewnienia zgodności. |
 
 ### <a name="payload-claims"></a>Oświadczenia ładunku
 
-Ta lista zawiera oświadczenia, które w większości id_tokens są domyślnie (z wyjątkiem sytuacji, w których zaznaczono).  Jednak aplikacja może używać [opcjonalnych oświadczeń](active-directory-optional-claims.md) do żądania dodatkowych oświadczeń w id_token.  Mogą one przedziały `groups` od roszczeń do informacji o nazwie użytkownika.
+Ta lista przedstawia oświadczenia JWT, które w większości id_tokens są domyślnie (z wyjątkiem sytuacji, w których zaznaczono).  Aplikacja może jednak używać [opcjonalnych oświadczeń](active-directory-optional-claims.md) do żądania dodatkowych oświadczeń JWT w id_token.  Mogą one przedziały `groups` od roszczeń do informacji o nazwie użytkownika.
 
 |Claim | Format | Opis |
 |-----|--------|-------------|
@@ -85,23 +86,23 @@ Ta lista zawiera oświadczenia, które w większości id_tokens są domyślnie (
 |`uti` | Ciąg nieprzezroczysty | Wyjątek wewnętrzny używany przez platformę Azure do weryfikacji tokenów. Powinien być ignorowany. |
 |`ver` | Ciąg, 1,0 lub 2,0 | Wskazuje wersję id_token. |
 
-
 > [!NOTE]
-> Id_token V1 i v2 mają różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja zasadniczo określa punkt końcowy platformy usługi Azure AD, z którego został wystawiony. [Implementacja protokołu OAuth usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) została rozwijająca się w latach. Obecnie mamy dwa różne punkty końcowe uwierzytelniania oAuth dla aplikacji AzureAD. Można użyć dowolnego z nowych punktów końcowych, które są klasyfikowane jako wersja 2 lub stary, który ma wartość v1. Punkty końcowe uwierzytelniania OAuth dla obu nich są różne. Punkt końcowy V2 to nowszy, w którym próbujemy migrować wszystkie funkcje punktu końcowego w wersji 1 i zalecać nowym deweloperom korzystanie z punktu końcowego v2. 
+> Id_token V1 i v2 mają różnice w ilości informacji, które będą się znajdować na podstawie powyższych przykładów. Wersja zasadniczo określa punkt końcowy platformy usługi Azure AD, z którego został wystawiony. [Implementacja protokołu OAuth usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) została rozwijająca się w latach. Obecnie mamy dwa różne punkty końcowe uwierzytelniania oAuth dla aplikacji AzureAD. Można użyć dowolnego z nowych punktów końcowych, które są klasyfikowane jako wersja 2 lub stary, który ma wartość v1. Punkty końcowe uwierzytelniania OAuth dla obu nich są różne. Punkt końcowy V2 to nowszy, w którym próbujemy migrować wszystkie funkcje punktu końcowego w wersji 1 i zalecać nowym deweloperom korzystanie z punktu końcowego v2.
+>
 > - V1: Azure Active Directory punkty końcowe:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: punkty końcowe platformy tożsamości firmy Microsoft:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Sprawdzanie poprawności id_token
 
-Walidacja `id_token` jest podobna do pierwszego kroku [sprawdzania poprawności tokenu dostępu](access-tokens.md#validating-tokens) — klient powinien sprawdzić, czy prawidłowy wystawca przesłał token i nie został naruszony. Ze `id_tokens` względu na to, że zawsze jest używany token JWT, wiele bibliotek istnieje, aby sprawdzić poprawność tego tokenu — zalecamy użycie jednego z nich zamiast samodzielnie.
+Walidacja `id_token` jest podobna do pierwszego kroku [sprawdzania poprawności tokenu dostępu](access-tokens.md#validating-tokens) — klient powinien sprawdzić, czy prawidłowy wystawca przesłał token i nie został naruszony. Ponieważ `id_tokens` zawsze są tokeny JWT, wiele bibliotek istnieje do zweryfikowania tych tokenów — zalecamy użycie jednego z nich zamiast samodzielnie.
 
-Aby ręcznie zweryfikować token, zapoznaj się ze szczegółami dotyczącymi kroków związanych z [walidacją tokenu dostępu](access-tokens.md#validating-tokens). Po sprawdzeniu podpisu w tokenie należy sprawdzić poprawność następujących oświadczeń w id_token (mogą być również wykonywane przez bibliotekę sprawdzania poprawności tokenu):
+Aby ręcznie zweryfikować token, zapoznaj się ze szczegółami dotyczącymi kroków związanych z [walidacją tokenu dostępu](access-tokens.md#validating-tokens). Po sprawdzeniu podpisu w tokenie należy zweryfikować następujące oświadczenia JWT w id_token (mogą to być również w bibliotece walidacji tokenu):
 
-* Sygnatury czasowe `iat`: `nbf`,, `exp` i sygnatury czasowe powinny przypadać przed lub po bieżącym czasie, zgodnie z potrzebami. 
+* Sygnatury czasowe `iat`: `nbf`,, `exp` i sygnatury czasowe powinny przypadać przed lub po bieżącym czasie, zgodnie z potrzebami.
 * Odbiorcy: wartość `aud` tego żądania powinna być zgodna z identyfikatorem aplikacji dla aplikacji.
 * Identyfikator jednorazowy `nonce` : żądanie w ładunku musi być zgodne z parametrem nonce przekazaną do punktu końcowego/Authorize podczas początkowego żądania.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Informacje o [tokenach dostępu](access-tokens.md)
-* Dostosuj oświadczenia w id_token przy użyciu [opcjonalnych oświadczeń](active-directory-optional-claims.md).
+* Dostosuj oświadczenia JWT w id_token przy użyciu [opcjonalnych oświadczeń](active-directory-optional-claims.md).

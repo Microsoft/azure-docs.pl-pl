@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b54e1d22712ac41534b67206e6d6931bcc9b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbadfb63b9f575053feca87bda2c3ad2e64e91eb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229701"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926038"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny dla wystawcy token JWT w zasadach niestandardowych Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ W poniższym przykładzie przedstawiono profil techniczny dla `JwtIssuer`:
 ```XML
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="None" />
+  <Protocol Name="OpenIdConnect" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -56,7 +56,7 @@ Elementy **InputClaims**, **OutputClaims**i **PersistClaims** są puste lub nie 
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| issuer_refresh_token_user_identity_claim_type | Tak | Żądanie, które ma być używane jako żądanie tożsamości użytkownika w ramach kodów autoryzacji OAuth2 i odświeżanie tokenów. Domyślnie należy ją ustawić na `objectId`wartość, chyba że określono inny typ SubjectNamingInfo. |
+| issuer_refresh_token_user_identity_claim_type | Yes | Żądanie, które ma być używane jako żądanie tożsamości użytkownika w ramach kodów autoryzacji OAuth2 i odświeżanie tokenów. Domyślnie należy ją ustawić na `objectId`wartość, chyba że określono inny typ SubjectNamingInfo. |
 | SendTokenResponseBodyWithJsonNumbers | Nie | Zawsze ustawiaj `true`na. W przypadku starszego formatu, gdzie wartości liczbowe są podawane jako ciągi zamiast liczb JSON, `false`ustaw wartość. Ten atrybut jest wymagany w przypadku klientów, którzy korzystali z zależności od wcześniejszej implementacji, która zwróciła takie właściwości jako ciągi. |
 | token_lifetime_secs | Nie | Okresy istnienia tokenu dostępu. Okres istnienia tokenu okaziciela OAuth 2,0, który służy do uzyskiwania dostępu do chronionego zasobu. Wartość domyślna to 3 600 sekund (1 godzina). Minimalna (włącznie) to 300 sekund (5 minut). Wartość maksymalna (włącznie) to 86 400 sekund (24 godziny). |
 | id_token_lifetime_secs | Nie | Okresy istnienia tokenów identyfikatorów. Wartość domyślna to 3 600 sekund (1 godzina). Minimalna (włącznie) to 300 sekund (5 minut). Wartość maksymalna (włącznie) jest sekund 86 400 (24 godziny). |
@@ -73,8 +73,8 @@ Element CryptographicKeys zawiera następujące atrybuty:
 
 | Atrybut | Wymagany | Opis |
 | --------- | -------- | ----------- |
-| issuer_secret | Tak | Certyfikat x509 (zestaw kluczy RSA) służący do podpisywania tokenu JWT. Jest to `B2C_1A_TokenSigningKeyContainer` klucz skonfigurowany w temacie Wprowadzenie [do zasad niestandardowych](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Tak | Certyfikat x509 (zestaw kluczy RSA) służący do szyfrowania tokenu odświeżania. `B2C_1A_TokenEncryptionKeyContainer` Klucz został skonfigurowany w temacie [wprowadzenie do zasad niestandardowych](custom-policy-get-started.md) |
+| issuer_secret | Yes | Certyfikat x509 (zestaw kluczy RSA) służący do podpisywania tokenu JWT. Jest to `B2C_1A_TokenSigningKeyContainer` klucz skonfigurowany w temacie Wprowadzenie [do zasad niestandardowych](custom-policy-get-started.md). |
+| issuer_refresh_token_key | Yes | Certyfikat x509 (zestaw kluczy RSA) służący do szyfrowania tokenu odświeżania. `B2C_1A_TokenEncryptionKeyContainer` Klucz został skonfigurowany w temacie [wprowadzenie do zasad niestandardowych](custom-policy-get-started.md) |
 
 ## <a name="session-management"></a>Zarządzanie sesjami
 
