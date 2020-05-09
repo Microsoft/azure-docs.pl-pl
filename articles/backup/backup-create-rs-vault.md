@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak utworzyć magazyny Recovery Servic
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672844"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744939"
 ---
 # <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -121,7 +121,7 @@ Zdecydowanie zalecamy przejrzenie ustawień domyślnych dla **typu replikacji ma
 
 - Domyślnie **Typ replikacji magazynu** jest ustawiony jako **Geograficznie nadmiarowy**. Po skonfigurowaniu kopii zapasowej opcja Modyfikuj jest wyłączona. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) , aby przejrzeć i zmodyfikować ustawienia.
 
-- Funkcja **usuwania nietrwałego** jest **włączana** domyślnie dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) , aby przejrzeć i zmodyfikować ustawienia.
+- Funkcja **usuwania nietrwałego** jest **włączana** domyślnie dla nowo utworzonych magazynów w celu ochrony danych kopii zapasowej przed przypadkowym lub złośliwym usunięciem. Wykonaj następujące [kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) , aby przejrzeć i zmodyfikować ustawienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

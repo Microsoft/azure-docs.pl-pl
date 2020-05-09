@@ -3,12 +3,12 @@ title: Przewinięcie certyfikatu klastra Service Fabric platformy Azure
 description: Dowiedz się, jak przetworzyć certyfikat klastra Service Fabric identyfikowany przy użyciu nazwy pospolitej certyfikatu.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a5fe2a7f2a05295605ef0e1d5db321a83b96712
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451959"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611912"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Ręczne przewinięcie certyfikatu klastra Service Fabric
 Gdy certyfikat klastra Service Fabric jest bliski wygaśnięcia, należy zaktualizować certyfikat.  Przerzucanie certyfikatów jest proste, Jeśli klaster został [skonfigurowany do używania certyfikatów na podstawie nazwy pospolitej](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (zamiast odcisku palca).  Pobierz nowy certyfikat z urzędu certyfikacji z nową datą wygaśnięcia.  Certyfikaty z podpisem własnym nie obsługują klastrów Service Fabric produkcyjnych w celu uwzględnienia certyfikatów wygenerowanych podczas przepływu pracy tworzenia klastra Azure Portal. Nowy certyfikat musi mieć taką samą nazwę pospolitą jak certyfikat starszej wersji. 
@@ -64,7 +64,7 @@ $certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -
 $vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
 # Update the VM scale set 
 Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose

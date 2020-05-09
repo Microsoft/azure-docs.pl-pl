@@ -1,7 +1,6 @@
 ---
-title: Co to są potoki ML
-titleSuffix: Azure Machine Learning
-description: W tym artykule poznasz zalety potoków uczenia maszynowego (ML), które można skompilować za pomocą zestawu Azure Machine Learning SDK dla języka Python. Potoki uczenia maszynowego są używane przez analityków danych do kompilowania i optymalizowania przepływów pracy uczenia maszynowego oraz zarządzania nimi.
+title: Co to są Azure Machine Learning potoki
+description: Dowiedz się, jak potoki uczenia maszynowego (ML) ułatwiają tworzenie i optymalizowanie przepływów pracy uczenia maszynowego oraz zarządzanie nimi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878582"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983452"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
-Potoki Azure Machine Learning umożliwiają tworzenie przepływów pracy w projektach uczenia maszynowego. Te przepływy pracy mają różne zalety: 
+W tym artykule można dowiedzieć się, jak potoki Azure Machine Learning ułatwiają tworzenie i optymalizowanie przepływów pracy uczenia maszynowego oraz zarządzanie nimi. Te przepływy pracy mają różne zalety: 
 
 + Zapewni
 + Szybkość
@@ -45,7 +44,6 @@ Chmura systemu Azure udostępnia kilka innych potoków, z których każdy ma inn
 | Aranżacja modelu (Uczenie maszynowe) | Analityk danych | Potoki Azure Machine Learning | Potoki Kubeflow | Model > danych | Dystrybucja, buforowanie, kod — pierwsze, ponowne użycie | 
 | Aranżacja danych (przygotowanie danych) | Inżynier danych | [Potoki usługi Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Przepływ dla oprogramowania Apache | Dane > danych | Przemieszczenie silnie wpisane. Działania zorientowane na dane. |
 | Aranżacja aplikacji kodu & (CI/CD) | Deweloper aplikacji/Ops | [Potoki usługi Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model — > App/Service | Większość otwartych i elastycznych obsługi działań, kolejek zatwierdzania, faz z kontroli | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Do czego służą potoki Azure ML?
 

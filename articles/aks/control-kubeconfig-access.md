@@ -3,13 +3,13 @@ title: Ograniczanie dostępu do kubeconfig w usłudze Azure Kubernetes Service (
 description: Dowiedz się, jak kontrolować dostęp do pliku Kubernetes Configuration (kubeconfig) dla administratorów klastrów i użytkowników klastrów
 services: container-service
 ms.topic: article
-ms.date: 01/28/2020
-ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259554"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890895"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Użycie kontroli dostępu opartej na rolach na platformie Azure w celu zdefiniowania dostępu do pliku konfiguracji Kubernetes w usłudze Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,8 @@ Dwie wbudowane role to:
 
 Te role RBAC można zastosować do użytkownika lub grupy Azure Active Directory (AD).
 
-> ! KORYGUJĄC W klastrach korzystających z usługi Azure AD użytkownicy z rolą *clusterUser* mają pusty plik *kubeconfig* , który będzie monitował o logowanie. Po zalogowaniu użytkownicy będą mieli dostęp na podstawie ustawień użytkownika lub grupy usługi Azure AD. Użytkownicy z rolą *clusterAdmin* mają dostęp administratora.
+> [!NOTE]
+> W klastrach korzystających z usługi Azure AD użytkownicy z rolą *clusterUser* mają pusty plik *kubeconfig* , który będzie monitował o logowanie. Po zalogowaniu użytkownicy będą mieli dostęp na podstawie ustawień użytkownika lub grupy usługi Azure AD. Użytkownicy z rolą *clusterAdmin* mają dostęp administratora.
 >
 > W klastrach, które nie korzystają z usługi Azure AD, należy używać tylko roli *clusterAdmin* .
 

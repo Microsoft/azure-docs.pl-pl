@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655348"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926973"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Często zadawane pytania
 
 Ta strona zawiera odpowiedzi na często zadawane pytania dotyczące Azure Active Directory Domain Services.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 * [Czy mogę utworzyć wiele domen zarządzanych dla jednego katalogu usługi Azure AD?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [Czy mogę włączyć Azure AD Domain Services w klasycznej sieci wirtualnej?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -91,6 +91,7 @@ Tak. Każda Azure AD Domain Services domeny zarządzanej zawiera dwa kontrolery 
 * [Czy mogę modyfikować lub dodawać rekordy DNS w mojej domenie zarządzanej?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Jakie są zasady okresu istnienia hasła w domenie zarządzanej?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Czy Azure AD Domain Services zapewnić ochronę blokady konta usługi AD?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Czy można skonfigurować rozproszony system plików (DFS) i replikację w ramach Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Czy można połączyć się z kontrolerem domeny dla mojej domeny zarządzanej przy użyciu Pulpit zdalny?
 Nie. Nie masz uprawnień do łączenia się z kontrolerami domeny dla domeny zarządzanej przy użyciu Pulpit zdalny. Członkowie grupy *Administratorzy domeny usługi AAD* mogą administrować zarządzaną domeną przy użyciu narzędzi administracyjnych usług AD, takich jak Active Directory Administration Center (usługach ADAC) lub AD PowerShell. Te narzędzia są instalowane przy użyciu funkcji *Narzędzia administracji zdalnej serwera* na serwerze z systemem Windows przyłączonym do domeny zarządzanej. Aby uzyskać więcej informacji, zobacz [Tworzenie maszyny wirtualnej zarządzania w celu skonfigurowania i administrowania Azure AD Domain Services domeną zarządzaną](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ Domyślny okres istnienia hasła w domenie zarządzanej Azure AD Domain Services
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Czy Azure AD Domain Services zapewnić ochronę blokady konta usługi AD?
 Tak. Pięć nieudanych prób wprowadzenia hasła w ciągu 2 minut w domenie zarządzanej powoduje, że konto użytkownika zostanie zablokowane przez 30 minut. Po 30 minutach konto użytkownika zostanie automatycznie odblokowane. Nieprawidłowe próby hasła w domenie zarządzanej nie Zablokuj konta użytkownika w usłudze Azure AD. Konto użytkownika jest blokowane tylko w ramach domeny zarządzanej Azure AD Domain Services. Aby uzyskać więcej informacji, zobacz [zasady blokowania haseł i kont w domenach zarządzanych](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Czy można skonfigurować rozproszony system plików i replikację w ramach Azure AD Domain Services?
+Nie. Rozproszony system plików (DFS) i replikacja nie są dostępne podczas korzystania z Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Rozliczenia i dostępność
 

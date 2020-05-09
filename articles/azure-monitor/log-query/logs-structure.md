@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662080"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738086"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktura dzienników Azure Monitor
 Możliwość szybkiego uzyskiwania wglądu w dane przy użyciu [zapytania dziennika](log-query-overview.md) jest zaawansowaną funkcją Azure monitor. Aby tworzyć wydajne i użyteczne zapytania, należy zapoznać się z podstawowymi pojęciami, takimi jak miejsce, w którym znajdują się dane i jak są one strukturalne. Ten artykuł zawiera podstawowe pojęcia, które należy wykonać, aby rozpocząć pracę.
@@ -54,16 +54,17 @@ W przeciwieństwie do obszaru roboczego Log Analytics, aplikacja Application Ins
 
 | Tabela | Opis | 
 |:---|:---|
-| availabilityResults | Dane podsumowujące z testów dostępności. |
-| browserTimings      | Dane dotyczące wydajności klienta, takie jak czas przetwarzania danych przychodzących. |
-| customEvents        | Zdarzenia niestandardowe utworzone przez aplikację. |
-| customMetrics       | Metryki niestandardowe utworzone przez aplikację. |
-| zależności        | Wywołania z aplikacji do składników zewnętrznych. |
-| wyłączenia          | Wyjątki zgłoszone przez środowisko uruchomieniowe aplikacji. |
-| pageViews           | Dane o każdym widoku witryny sieci Web z informacjami o przeglądarce. |
-| Liczniki wydajności | Pomiary wydajności z zasobów obliczeniowych obsługujących aplikację. |
-| żądań            | Szczegóły każdego żądania aplikacji.  |
-| ścieżki              | Wyniki z rozproszonego śledzenia. |
+| availabilityResults   | Dane podsumowujące z testów dostępności.
+| browserTimings      |     Dane dotyczące wydajności klienta, takie jak czas przetwarzania danych przychodzących.
+| customEvents        | Zdarzenia niestandardowe utworzone przez aplikację.
+| customMetrics       | Metryki niestandardowe utworzone przez aplikację.
+| zależności        | Wywołania z aplikacji do innych składników (w tym składników zewnętrznych) zarejestrowanych przez TrackDependency () — na przykład wywołania interfejsu API REST, bazy danych lub systemu plików. 
+| wyłączenia            | Wyjątki zgłoszone przez środowisko uruchomieniowe aplikacji, przechwytuje zarówno wyjątki po stronie serwera, jak i klienta (przeglądarki).
+| pageViews           | Dane o każdym widoku witryny sieci Web z informacjami o przeglądarce.
+| Liczniki wydajności   | Pomiary wydajności z zasobów obliczeniowych obsługujących aplikację, na przykład liczniki wydajności systemu Windows.
+| żądań            | Żądania odebrane przez aplikację. Na przykład oddzielny rekord żądania jest rejestrowany dla każdego żądania HTTP, które otrzymuje aplikacja sieci Web. 
+| ścieżki                | Szczegółowe dzienniki (ślady) emitowane za pośrednictwem kodu aplikacji/platform rejestrowania zarejestrowanych za pośrednictwem TrackTrace ().
+
 
 Możesz wyświetlić schemat dla każdej tabeli na karcie **schemat** w log Analytics aplikacji.
 

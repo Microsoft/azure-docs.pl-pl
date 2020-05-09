@@ -1,5 +1,6 @@
 ---
-title: OpenID Connect Connect Protocol — Microsoft Identity platform | Azure
+title: Microsoft Identity platform i OpenID Connect Connect Protocol | Azure
+titleSuffix: Microsoft identity platform
 description: Tworzenie aplikacji sieci Web przy użyciu implementacji platformy tożsamości firmy Microsoft w ramach protokołu uwierzytelniania OpenID Connect Connect.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be24c4cfd255b33a38acc1e62763350d3d7e989b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 88f647bbb72c92db194407b677e533a867261ce4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688225"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926497"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity platform i OpenID Connect Connect Protocol
 
-OpenID Connect Connect to protokół uwierzytelniania oparty na protokole OAuth 2,0, którego można użyć do bezpiecznego logowania użytkownika do aplikacji sieci Web. W przypadku korzystania z programu OpenID Connect Connect dla punktu końcowego platformy tożsamości firmy Microsoft można dodać funkcję logowania i dostęp do interfejsu API do aplikacji sieci Web. W tym artykule pokazano, jak wykonać ten niezależny język oraz jak wysyłać i odbierać komunikaty HTTP bez używania bibliotek typu open source firmy Microsoft.
+OpenID Connect Connect (OIDC) to protokół uwierzytelniania oparty na protokole OAuth 2,0, którego można użyć do bezpiecznego logowania użytkownika do aplikacji sieci Web. W przypadku korzystania z programu OpenID Connect Connect dla punktu końcowego platformy tożsamości firmy Microsoft można dodać funkcję logowania i dostęp do interfejsu API do aplikacji sieci Web. W tym artykule pokazano, jak wykonać ten niezależny język oraz jak wysyłać i odbierać komunikaty HTTP bez używania bibliotek typu open source firmy Microsoft.
 
 [OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół *autoryzacji* OAuth 2,0 do użycia jako protokół *uwierzytelniania* , dzięki czemu można przeprowadzić Logowanie jednokrotne przy użyciu protokołu OAuth. OpenID Connect Connect wprowadza koncepcję *tokenu identyfikatora*, który jest tokenem zabezpieczającym umożliwiającym klientowi zweryfikowanie tożsamości użytkownika. Token identyfikatora pobiera również podstawowe informacje o profilu użytkownika. Ponieważ OpenID Connect Connect rozszerza uwierzytelnianie OAuth 2,0, aplikacje mogą bezpiecznie uzyskać *tokeny dostępu*, które mogą być używane w celu uzyskania dostępu do zasobów zabezpieczonych przez [serwer autoryzacji](active-directory-v2-protocols.md#the-basics). Punkt końcowy platformy tożsamości firmy Microsoft umożliwia także aplikacjom innych firm, które są zarejestrowane w usłudze Azure AD, aby wystawiać tokeny dostępu dla zabezpieczonych zasobów, takich jak interfejsy API sieci Web. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji w celu wystawiania tokenów dostępu, zobacz [jak zarejestrować aplikację w punkcie końcowym platformy tożsamości firmy Microsoft](quickstart-register-app.md). Zalecamy korzystanie z programu OpenID Connect Connect, jeśli tworzysz [aplikację sieci Web](v2-app-types.md#web-apps) , która jest hostowana na serwerze i jest dostępna za pośrednictwem przeglądarki.
 

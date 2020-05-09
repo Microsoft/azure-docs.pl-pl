@@ -92,6 +92,8 @@
       href: create-manage-projects.md
     - name: Dodawanie narzędzia po raz pierwszy
       href: how-to-add-tool-first-time.md
+    - name: Przygotowywanie do pracy z narzędziami niezależnych dostawców oprogramowania / platformą Movere
+      href: prepare-isv-movere.md
     - name: Dodawanie narzędzi oceny
       href: how-to-assess.md
     - name: Wdrażanie urządzenia usługi Azure Migrate

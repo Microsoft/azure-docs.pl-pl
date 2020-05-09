@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować się do oceny/migracji serwerów fiz
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535285"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901424"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Przygotowanie do oceny i migracji serwerów fizycznych na platformę Azure
 
@@ -105,10 +105,9 @@ Przygotuj platformę Azure do migracji serwerów fizycznych przy użyciu migracj
 ### <a name="assign-azure-account-permissions"></a>Przypisywanie uprawnień konta platformy Azure
 
 Przypisz rolę współautora maszyny wirtualnej do konta platformy Azure. Zapewnia to następujące uprawnienia:
-
-    - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
-    - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
-    - Zapisz na dysku zarządzanym platformy Azure. 
+  - Tworzenie maszyny wirtualnej w wybranej grupie zasobów.
+  - Tworzenie maszyny wirtualnej w wybranej sieci wirtualnej.
+  - Zapisz na dysku zarządzanym platformy Azure. 
 
 ### <a name="create-an-azure-network"></a>Tworzenie sieci platformy Azure
 

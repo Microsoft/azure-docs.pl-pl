@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0db91f3c661ebd3087a4389f4112a7214c992227
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801726"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925953"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Rozwiązywanie problemów z usługą Azure Load Balancer
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Zacznij</a></span><span class="has-padding-small">szybko rozwiązywać problemy, korzystając z naszego agenta wirtualnego do uruchamiania <b>zautomatyzowanej diagnostyki.</b> </span> Zasady zachowania <sub>poufności informacji</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
@@ -132,11 +132,15 @@ Jeśli wewnętrzny Load Balancer jest skonfigurowany wewnątrz sieci wirtualnej,
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Przyczyna: nie można zmodyfikować portu zaplecza dla reguły równoważenia obciążenia używanej przez sondę kondycji dla modułu równoważenia obciążenia, do którego odwołuje się zestaw skalowania maszyn wirtualnych.
 **Rozwiązanie** Aby zmienić port, można usunąć sondę kondycji, aktualizując zestaw skalowania maszyn wirtualnych, zaktualizować port, a następnie ponownie skonfigurować sondę kondycji.
 
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Objaw: po usunięciu maszyn wirtualnych z puli zaplecza modułu równoważenia obciążenia usługa równoważenia obciążenia nadal jest w dalszym ciągu realizowana. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Przyczyna: maszyny wirtualne usunięte z puli zaplecza nie powinny już odbierać ruchu. Niewielka ilość ruchu sieciowego może być związana z magazynem, systemem DNS i innymi funkcjami w ramach platformy Azure. 
+Aby sprawdzić, można przeprowadzić śledzenie sieci. Nazwa FQDN używana dla kont usługi BLOB Storage jest wyświetlana we właściwościach poszczególnych kont magazynu.  Z poziomu maszyny wirtualnej w ramach subskrypcji platformy Azure możesz wykonać polecenie nslookup, aby określić adres IP platformy Azure przypisany do tego konta magazynu.
+
 ## <a name="additional-network-captures"></a>Dodatkowe przechwycenia sieci
 Jeśli zdecydujesz się otworzyć zgłoszenie do pomocy technicznej, Zbierz poniższe informacje w celu szybszego rozwiązania problemu. Wybierz pojedynczą maszynę wirtualną zaplecza, aby wykonać następujące testy:
 - Użyj Psping z jednej z maszyn wirtualnych zaplecza w sieci wirtualnej, aby przetestować odpowiedź portu sondy (przykład: Psping 10.0.0.4:3389) i zapisać wyniki. 
 - Jeśli nie otrzymasz odpowiedzi w tych testach ping, uruchom jednoczesne śledzenie netsh na maszynie wirtualnej zaplecza i testowej maszynie wirtualnej podczas uruchamiania PsPing, a następnie Zatrzymaj śledzenie netsh. 
-  
+ 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli powyższe kroki nie rozwiążą problemu, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/options/).
