@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652792"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855093"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Rozwiązywanie problemów z błędami elementów Runbook
 
@@ -49,7 +49,7 @@ Po otrzymaniu błędów podczas wykonywania elementu Runbook w Azure Automation 
     * [Odnów element webhook,](../automation-webhooks.md#renew-a-webhook) Jeśli próbujesz użyć wygasłego elementu webhook, aby uruchomić element Runbook.
     * [Sprawdź stan zadania](../automation-runbook-execution.md#job-statuses) , aby określić bieżące Stany elementu Runbook i niektóre możliwe przyczyny problemu.
     * [Dodaj dodatkowe dane wyjściowe](../automation-runbook-output-and-messages.md#message-streams) do elementu Runbook, aby określić, co się dzieje przed wstrzymaniem elementu Runbook.
-    * [Obsługa wszelkich wyjątków](../automation-runbook-execution.md#handling-exceptions) zgłaszanych przez zadanie.
+    * [Obsługa wszelkich wyjątków](../automation-runbook-execution.md#exceptions) zgłaszanych przez zadanie.
 
 1. Wykonaj ten krok, jeśli zadanie elementu Runbook lub środowisko w hybrydowym procesie roboczym elementu Runbook nie odpowiada.
 
@@ -234,7 +234,7 @@ Element Runbook nie używa poprawnego kontekstu podczas uruchamiania.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Kontekst subskrypcji może zostać utracony, gdy element Runbook wywoła wiele elementów Runbook. Aby zapewnić, że kontekst subskrypcji zostanie przekazany do elementów Runbook, element Runbook klienta przekazuje kontekst do `Start-AzureRmAutomationRunbook` polecenia cmdlet w `AzureRmContext` parametrze. Użyj `Disable-AzureRmContextAutosave` polecenia cmdlet z `Scope` parametrem ustawionym `Process` na, aby upewnić się, że określone poświadczenia są używane tylko dla bieżącego elementu Runbook. Aby uzyskać więcej informacji, zobacz [Praca z wieloma subskrypcjami](../automation-runbook-execution.md#working-with-multiple-subscriptions).
+Kontekst subskrypcji może zostać utracony, gdy element Runbook wywoła wiele elementów Runbook. Aby zapewnić, że kontekst subskrypcji zostanie przekazany do elementów Runbook, element Runbook klienta przekazuje kontekst do `Start-AzureRmAutomationRunbook` polecenia cmdlet w `AzureRmContext` parametrze. Użyj `Disable-AzureRmContextAutosave` polecenia cmdlet z `Scope` parametrem ustawionym `Process` na, aby upewnić się, że określone poświadczenia są używane tylko dla bieżącego elementu Runbook. Aby uzyskać więcej informacji, zobacz [subskrypcje](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -634,7 +634,7 @@ Ten problem może wystąpić, ponieważ Piaskownice platformy Azure uniemożliwi
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby uzyskać szczegółowe informacje na temat korzystania z piaskownic platformy Azure, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md#where-to-run-your-runbooks).
+Aby uzyskać szczegółowe informacje na temat korzystania z piaskownic platformy Azure, zobacz [środowisko wykonywania elementu Runbook](../automation-runbook-execution.md#runbook-execution-environment).
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>Scenariusz: nieprawidłowy kod stanu zabroniona podczas korzystania z Key Vault wewnątrz elementu Runbook
 

@@ -3,16 +3,16 @@ title: Edytowanie aplikacji logiki i zarządzanie nimi przy użyciu programu Vis
 description: Edytowanie, aktualizowanie, zarządzanie, dodawanie do kontroli źródła i wdrażanie aplikacji logiki przy użyciu programu Visual Studio z programem Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
-ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803194"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598440"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Zarządzanie aplikacjami logiki w programie Visual Studio
 
@@ -259,7 +259,11 @@ Aby usunąć aplikację logiki z Azure Portal, w programie Cloud Explorer otwór
 ![Usuń aplikację logiki z Azure Portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
-> Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów. Wszystkie trwające i oczekujące przebiegi zostają anulowane. Anulowanie kilku tysięcy przebiegów może zająć dużo czasu. 
+> Po usunięciu aplikacji logiki nie są tworzone wystąpienia nowych przebiegów. Wszystkie trwające i oczekujące przebiegi zostają anulowane. Anulowanie kilku tysięcy przebiegów może zająć dużo czasu.
+
+> [!NOTE]
+> Jeśli usuniesz i utworzysz ponownie podrzędną aplikację logiki, musisz ponownie zapisać nadrzędną aplikację logiki. Ponownie utworzona aplikacja podrzędna będzie miała inne metadane.
+> Jeśli nie zapiszesz ponownie nadrzędnej aplikacji logiki po ponownym utworzeniu elementu podrzędnego, Twoje wywołania podrzędnej aplikacji logiki zakończą się niepowodzeniem z błędem "Brak autoryzacji". To zachowanie dotyczy aplikacji logiki nadrzędny-podrzędny, na przykład tych, które używają artefaktów na kontach integracji lub wywołują usługi Azure Functions.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

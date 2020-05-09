@@ -655,7 +655,7 @@
             - name: Skalowanie
               items:
                 - name: Ręczne skalowanie w poziomie
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Programowe skalowanie w poziomie
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Skalowanie typu węzła podstawowego w górę

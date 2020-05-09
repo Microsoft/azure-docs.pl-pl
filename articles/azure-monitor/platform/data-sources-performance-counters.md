@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274764"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739368"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Źródła danych wydajności systemów Windows i Linux w Azure Monitor
 Liczniki wydajności w systemach Windows i Linux zapewniają wgląd w wydajność składników sprzętowych, systemów operacyjnych i aplikacji.  Azure Monitor może zbierać liczniki wydajności w częstych odstępach czasu dla analizy prawie w czasie rzeczywistym (NRT), a także do agregowania danych dotyczących wydajności na potrzeby analizy i raportowania w dłuższym okresie.
@@ -175,7 +175,7 @@ Poniżej przedstawiono domyślną konfigurację metryk wydajności.
     </source>
 
 ## <a name="data-collection"></a>Zbieranie danych
-Azure Monitor zbiera wszystkie określone liczniki wydajności w określonym interwale próbkowania na wszystkich agentach, na których zainstalowano ten licznik.  Dane nie są agregowane i dane pierwotne są dostępne we wszystkich widokach zapytania dziennika przez czas określony przez subskrypcję.
+Azure Monitor zbiera wszystkie określone liczniki wydajności w określonym interwale próbkowania na wszystkich agentach, na których zainstalowano ten licznik.  Dane nie są agregowane i dane pierwotne są dostępne we wszystkich widokach zapytania dziennika przez czas trwania określony przez obszar roboczy usługi log Analytics.
 
 ## <a name="performance-record-properties"></a>Właściwości rekordu wydajności
 Rekordy wydajności mają typ **wydajności** i mają właściwości opisane w poniższej tabeli.
