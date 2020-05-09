@@ -1,20 +1,20 @@
 ---
-title: Jak wykonywać zapytania dotyczące dzienników z uruchamiania/zatrzymywania maszyn wirtualnych
-description: W tym artykule opisano sposób wykonywania zapytań dotyczących danych dzienników generowanych przez rozwiązanie uruchamiania/zatrzymywania maszyn wirtualnych z Azure Monitor.
+title: Jak wykonywać zapytania dotyczące dzienników z Start/Stop VMs during off-hours
+description: W tym artykule opisano sposób wykonywania zapytań dotyczących danych dzienników generowanych przez Start/Stop VMs during off-hours rozwiązanie z Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604722"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864236"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Jak wykonywać zapytania dotyczące dzienników z uruchamiania/zatrzymywania maszyn wirtualnych
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Jak wykonywać zapytania dotyczące dzienników z Start/Stop VMs during off-hours
 
-Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics obszaru roboczego: dzienniki zadań i strumienie zadań. Te dane są dostępne dla [zapytań](../azure-monitor/log-query/log-query-overview.md) w Azure monitor.
+Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics obszaru roboczego: dzienniki zadań i strumienie zadań. Ten artykuł przegląda dane dostępne dla [zapytania](../azure-monitor/log-query/log-query-overview.md) w Azure monitor.
 
 ## <a name="job-logs"></a>Dzienniki zadań
 

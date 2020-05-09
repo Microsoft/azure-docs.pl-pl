@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ec81ef69f21fc74864e437a3c6de46550a70c18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547796"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891659"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager
 
@@ -185,8 +185,8 @@ Aby uzyskać listę argumentów dostępnych dla domyślnego skryptu konfiguracji
 | Settings. Configuration. Function |ciąg |Określa nazwę konfiguracji DSC. Konfiguracja o nazwie musi być uwzględniona w skrypcie, który definiuje wartość **Settings. Configuration. Script** . Ta właściwość jest wymagana, jeśli są zdefiniowane **Ustawienia. Configuration. URL** lub **Settings. Configuration. Function** . Jeśli nie podano wartości dla tych właściwości, rozszerzenie wywołuje domyślny skrypt konfiguracji w celu ustawienia metadanych LCM i należy podać argumenty. |
 | Settings. configurationArguments |Collection |Definiuje wszystkie parametry, które mają zostać przekazane do konfiguracji DSC. Ta właściwość nie jest zaszyfrowana. |
 | Settings. configurationData. URL |ciąg |Określa adres URL, z którego należy pobrać plik danych konfiguracji (psd1), który ma być używany jako dane wejściowe dla konfiguracji DSC. Jeśli podany adres URL wymaga tokenu sygnatury dostępu współdzielonego, ustaw właściwość **protectedSettings. configurationDataUrlSasToken** na wartość tokenu SAS. |
-| Settings. privacy. DataCollection |ciąg |Włącza lub wyłącza zbieranie danych telemetrycznych. Jedyne możliwe wartości tej właściwości to **enable**, **disable**, **""** lub **$null**. Pozostawienie tej właściwości pustej lub wartości null włącza telemetrię. Wartość domyślna to **""**. Aby uzyskać więcej informacji, zobacz [zbieranie danych rozszerzenia DSC platformy Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| Settings. advancedOptions. downloadMappings |Collection |Definiuje alternatywne lokalizacje, z których ma zostać pobrane WMF. Aby uzyskać więcej informacji, zobacz [rozszerzenie Azure DSC 2,8 i sposób mapowania pobierania zależności rozszerzeń do własnej lokalizacji](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| Settings. privacy. DataCollection |ciąg |Włącza lub wyłącza zbieranie danych telemetrycznych. Jedyne możliwe wartości tej właściwości to **enable**, **disable**, **""** lub **$null**. Pozostawienie tej właściwości pustej lub wartości null włącza telemetrię. Wartość domyślna to **""**. Aby uzyskać więcej informacji, zobacz [zbieranie danych rozszerzenia DSC platformy Azure](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/). |
+| Settings. advancedOptions. downloadMappings |Collection |Definiuje alternatywne lokalizacje, z których ma zostać pobrane WMF. Aby uzyskać więcej informacji, zobacz [rozszerzenie Azure DSC 2,8 i sposób mapowania pobierania zależności rozszerzeń do własnej lokalizacji](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Collection |Definiuje wszystkie parametry, które mają zostać przekazane do konfiguracji DSC. Ta właściwość jest zaszyfrowana. |
 | protectedSettings.configurationUrlSasToken |ciąg |Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL, który jest używany przez **Ustawienia. Configuration. URL** definiuje. Ta właściwość jest zaszyfrowana. |
 | protectedSettings.configurationDataUrlSasToken |ciąg |Określa token sygnatury dostępu współdzielonego, aby uzyskać dostęp do adresu URL, który definiuje wartość **Settings. configurationData. URL** . Ta właściwość jest zaszyfrowana. |

@@ -52,6 +52,8 @@
       href: language-support.md
     - name: Przesunięcia tekstu
       href: concepts/text-offsets.md
+    - name: Limity danych
+      href: concepts/data-limits.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wywoływanie interfejsu API usługi Text Analytics
@@ -116,7 +118,7 @@
       href: text-analytics-resource-external-community.md
     - name: Często zadawane pytania
       href: text-analytics-resource-faq.md
-    - name: Cennik
+    - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192837"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608255"
 ---
-# <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra dla Azure Cosmos DB
+# <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API Cassandra w programie Azure Cosmos DB
 
-## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Jakie są kluczowe różnice między programem Apache Cassandra a interfejs API Cassandra?
+W tym artykule opisano różnice między funkcjami programu Apache Cassandra i interfejs API Cassandra w programie Azure Cosmos DB. Zawiera także odpowiedzi na często zadawane pytania dotyczące interfejs API Cassandra w Azure Cosmos DB.
+
+## <a name="key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Kluczowe różnice między programem Apache Cassandra i interfejs API Cassandra
 
 - W przypadku systemu Apache Cassandra zaleca się limit 100 MB klucza partycji. Interfejs API Cassandra dla Azure Cosmos DB umożliwia do 20 GB na partycję.
 - Apache Cassandra umożliwia wyłączenie trwałych zatwierdzeń. Możesz pominąć zapisywanie w dzienniku zatwierdzeń i przejść bezpośrednio do memtables. Może to prowadzić do utraty danych, jeśli węzeł ulegnie awarii przed opróżnieniem memtables do SSTables na dysku. Azure Cosmos DB zawsze zapewnia trwałe zatwierdzenia, aby zapobiec utracie danych.

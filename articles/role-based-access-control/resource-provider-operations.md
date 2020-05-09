@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133154"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839100"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów Azure Resource Manager
 
@@ -52,7 +52,7 @@ Usługa platformy Azure: [Azure Active Directory Domain Services](../active-dire
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
-Szczegółowe informacje o monitorowaniu firmy Microsoft
+Usługa Azure Active Directory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -67,6 +67,23 @@ Szczegółowe informacje o monitorowaniu firmy Microsoft
 > | Akcja | Microsoft. aadiam/metricDefinitions/odczyt | Odczytywanie definicji metryk na poziomie dzierżawy |
 > |  | **Pomiar** |  |
 > | Akcja | Microsoft. aadiam/Metrics/Read | Odczytywanie metryk na poziomie dzierżawy |
+> |  | **privateLinkForAzureAD** |  |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/odczyt | Odczytaj definicję zasad prywatnego linku |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/Write | Tworzenie i aktualizowanie definicji zasad prywatnego linku |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/Delete | Usuń definicję zasad prywatnego linku |
+> |  | **privateLinkForAzureAD/privateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Read | Odczytaj prywatne serwery proxy |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Write | Tworzenie i aktualizowanie prywatnych serwerów proxy linków |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Delete | Usuwanie prywatnych serwerów proxy |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Validate/akcja | Weryfikowanie prywatnych serwerów proxy |
+> |  | **privateLinkForAzureAD/privateEndpointConnections** |  |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnections/Read | Odczytaj PrivateEndpointConnections |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnections/Write | Utwórz i zaktualizuj PrivateEndpointConnections |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnections/Delete | Usuń PrivateEndpointConnections |
+> |  | **privateLinkForAzureAD/privateLinkResources** |  |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateLinkResources/Read | Odczytaj PrivateLinkResources |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateLinkResources/Write | Utwórz i zaktualizuj PrivateLinkResources |
+> | Akcja | Microsoft. aadiam/privateLinkForAzureAD/privateLinkResources/Delete | Usuń PrivateLinkResources |
 
 ## <a name="microsoftaddons"></a>Microsoft. Dodatki
 
@@ -173,6 +190,11 @@ Usługa platformy Azure: [Azure Active Directory](../active-directory/index.yml)
 > | Akcja | Microsoft. ADHybridHealthService/Services/exportstatus/Read | Pobiera stan eksportu dla danej usługi. |
 > |  | **usługi/opinia/opinia** |  |
 > | Akcja | Microsoft. ADHybridHealthService/Services/opinia/opinia/odczyt | Pobiera informacje zwrotne o alertach dla danej usługi i serwera. |
+> |  | **usługi/ipAddressAggregates** |  |
+> | Akcja | Microsoft. ADHybridHealthService/Services/ipAddressAggregates/Read | Odczytuje nieprawidłowe adresy IP, które próbowały uzyskać dostęp do usługi. |
+> |  | **usługi/ipAddressAggregateSettings** |  |
+> | Akcja | Microsoft. ADHybridHealthService/Services/ipAddressAggregateSettings/Read | Odczytuje progi alarmowe dla nieprawidłowych adresów IP. |
+> | Akcja | Microsoft. ADHybridHealthService/Services/ipAddressAggregateSettings/Write | Zapisuje progi alarmowe dla nieprawidłowych adresów IP. |
 > |  | **usługi/metricmetadata** |  |
 > | Akcja | Microsoft. ADHybridHealthService/Services/metricmetadata/Read | Pobiera listę obsługiwanych metryk dla danej usługi.<br>Na przykład blokada konta ekstranetu, Łączna liczba żądań zakończonych niepowodzeniem, zaległe żądania tokenów (proxy), żądania tokenów (/s) dla usługi AD FS.<br>Uwierzytelnianie NTLM/s, pomyślne powiązania LDAP/s, czas powiązania LDAP, aktywne wątki LDAP, uwierzytelnienia Kerberos/s, wątki ATQ i łącznie z ADDomainService.<br>Opóźnij uruchamianie profilu, ustanowione połączenia TCP, prywatne bajty agentów, Eksportuj statystyki do usługi Azure AD dla ADSync. |
 > |  | **usługi/metryki/grupy** |  |
@@ -648,10 +670,6 @@ Usługa platformy Azure: rdzeń
 > | Akcja | Microsoft. AppConfiguration/configurationStores/Providers/Microsoft. Insights/diagnosticSettings/Write | Zapisz/Zastąp ustawienia diagnostyczne dla konfiguracji aplikacji firmy Microsoft. |
 > |  | **configurationStores/Providers/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. AppConfiguration/configurationStores/Providers/Microsoft. Insights/metricDefinitions/Read | Pobierz wszystkie definicje metryk dla konfiguracji aplikacji firmy Microsoft. |
-> |  | **configurationStores/syncTasks** |  |
-> | Akcja | Microsoft. AppConfiguration/configurationStores/syncTasks/Read | Pobiera właściwości określonego zadania synchronizacji magazynu konfiguracji lub wyświetla wszystkie zadania synchronizacji magazynu konfiguracji w ramach określonego magazynu konfiguracji. |
-> | Akcja | Microsoft. AppConfiguration/configurationStores/syncTasks/Write | Utwórz lub zaktualizuj zadanie synchronizacji magazynu konfiguracji z określonymi parametrami. |
-> | Akcja | Microsoft. AppConfiguration/configurationStores/syncTasks/Delete | Usuwa zadanie synchronizacji magazynu konfiguracji. |
 > |  | **Lokalizacje/operationsStatus** |  |
 > | Akcja | Microsoft. AppConfiguration/Locations/operationsStatus/Read | Pobierz stan operacji. |
 > |  | **składowa** |  |
@@ -687,7 +705,7 @@ Usługa platformy Azure: [Azure Resource Manager](../azure-resource-manager/inde
 > | Akcja | Microsoft. Authorization/Operations/Read | Pobiera listę operacji |
 > |  | **uprawnienia** |  |
 > | Akcja | Microsoft. Autoryzacja/uprawnienia/Odczyt | Wyświetla wszystkie uprawnienia, które obiekt wywołujący ma w danym zakresie. |
-> |  | **policies** |  |
+> |  | **jazd** |  |
 > | Akcja | Microsoft. Autoryzacja/zasady/Inspekcja/akcja | Działanie podejmowane w wyniku oceny Azure Policy z efektem "inspekcja" |
 > | Akcja | Microsoft. authorization/policies/auditIfNotExists/Action | Działanie podejmowane w wyniku oceny Azure Policy z efektem "auditIfNotExists" |
 > | Akcja | Microsoft. Autoryzacja/zasady/odmowa/akcja | Działanie podejmowane w wyniku oceny Azure Policy z efektem "odmowa" |
@@ -1073,6 +1091,8 @@ Usługa platformy Azure: [Cost Management i rozliczanie](../cost-management-bill
 > | Akcja | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
 > | Akcja | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
 > | Akcja | Microsoft. rozliczenia/faktury/odczyt |  |
+> |  | **składowa** |  |
+> | Akcja | Microsoft. rozliczenia/operacje/odczyt |  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft. BingMaps
 
@@ -1776,12 +1796,23 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Akcja | Microsoft. CognitiveServices/Register/Action | Rejestruje subskrypcję dla Cognitive Services |
 > | Akcja | Microsoft. CognitiveServices/checkDomainAvailability/Action | Odczytuje dostępne jednostki SKU dla subskrypcji. |
 > | Akcja | Microsoft. CognitiveServices/Register/Action | Rejestruje subskrypcję dla Cognitive Services |
-> |  | **Konta** |  |
+> |  | **Rachunkowość** |  |
 > | Akcja | Microsoft. CognitiveServices/accounts/Read | Odczytuje konta interfejsu API. |
 > | Akcja | Microsoft. CognitiveServices/accounts/Write | Zapisuje konta interfejsu API. |
 > | Akcja | Microsoft. CognitiveServices/accounts/Delete | Usuwa konta interfejsu API |
 > | Akcja | Microsoft. CognitiveServices/accounts/listKeys/Action | Klucze list |
 > | Akcja | Microsoft. CognitiveServices/accounts/regenerateKey/Action | Wygeneruj ponownie klucz |
+> |  | **konta/privateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnectionProxies/Read | Odczytuje połączenia prywatnych punktów końcowych. |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnectionProxies/Write | Zapisuje połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnectionProxies/Delete | Usuwa połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnectionProxies/Validate/Action | Sprawdzanie poprawności połączeń prywatnych punktów końcowych. |
+> |  | **konta/privateEndpointConnections** |  |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnections/Read | Odczytuje połączenia prywatnych punktów końcowych. |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnections/Write | Zapisuje połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateEndpointConnections/Delete | Usuwa połączenia prywatnego punktu końcowego. |
+> |  | **konta/privateLinkResources** |  |
+> | Akcja | Microsoft. CognitiveServices/accounts/privateLinkResources/Read | Odczytuje prywatne zasoby linków dla konta. |
 > |  | **konta/jednostki SKU** |  |
 > | Akcja | Microsoft. CognitiveServices/accounts/SKU/Read | Odczytuje dostępne jednostki SKU dla istniejącego zasobu. |
 > |  | **konta/użycia** |  |
@@ -2147,6 +2178,18 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Akcja | Microsoft. COMPUTE/availabilitySets/Delete | Usuwa zestaw dostępności |
 > |  | **availabilitySets/vmSizes** |  |
 > | Akcja | Microsoft. COMPUTE/availabilitySets/vmSizes/odczyt | Wyświetl dostępne rozmiary dla tworzenia lub aktualizowania maszyny wirtualnej w zestawie dostępności |
+> |  | **diskAccesses** |  |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/Read | Pobierz właściwości zasobu DiskAccess |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/Write | Utwórz nowy zasób DiskAccess lub zaktualizuj istniejący |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/Delete | Usuwanie zasobu DiskAccess |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnectionsApproval/akcja | Zatwierdź połączenie prywatnego punktu końcowego |
+> |  | **diskAccesses/privateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnectionProxies/odczyt | Pobierz właściwości serwera proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnectionProxies/Write | Utwórz nowy serwer proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnectionProxies/Delete | Usuwanie serwera proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnectionProxies/Validate/akcja | Weryfikowanie obiektu serwera proxy połączenia prywatnego punktu końcowego |
+> |  | **diskAccesses/privateEndpointConnections** |  |
+> | Akcja | Microsoft. COMPUTE/diskAccesses/privateEndpointConnections/Delete | Usuwanie połączenia prywatnego punktu końcowego |
 > |  | **diskEncryptionSets** |  |
 > | Akcja | Microsoft. COMPUTE/diskEncryptionSets/Read | Pobierz właściwości zestawu szyfrowania dysków |
 > | Akcja | Microsoft. COMPUTE/diskEncryptionSets/Write | Utwórz nowy zestaw szyfrowania dysków lub zaktualizuj istniejący |
@@ -2342,6 +2385,10 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/redeploy/Action | Ponownie wdraża wystąpienie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/performMaintenance/Action | Przeprowadza planowaną konserwację na wystąpieniu maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/UruchomPolecenie/Action | Wykonuje wstępnie zdefiniowany skrypt w wystąpieniu maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
+> |  | **virtualMachineScaleSets/virtualMachines/rozszerzenia** |  |
+> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/rozszerzenia/odczyt | Pobierz właściwości rozszerzenia maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
+> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/Extensions/Write | Tworzy nowe rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych lub aktualizuje istniejące |
+> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/rozszerzenia/Usuń | Usuwa rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > |  | **virtualMachineScaleSets/virtualMachines/instanceView** |  |
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/instanceView/Read | Pobiera widok wystąpienia maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
 > |  | **virtualMachineScaleSets/virtualMachines/networkInterfaces** |  |
@@ -2352,10 +2399,6 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/networkInterfaces/Ipconfiguration/adresów publicipaddress/Read | Pobierz właściwości publicznego adresu IP utworzonego przy użyciu zestawu skalowania maszyn wirtualnych. Zestaw skalowania maszyn wirtualnych może utworzyć maksymalnie jeden publiczny adres IP na element ipconfiguration (prywatny adres IP) |
 > |  | **virtualMachineScaleSets/vmSizes** |  |
 > | Akcja | Microsoft. COMPUTE/virtualMachineScaleSets/vmSizes/odczyt | Wyświetl dostępne rozmiary dla tworzenia lub aktualizowania maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
-> |  | **virtualMachineScaleSetVirtualMachines/rozszerzenia** |  |
-> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSetVirtualMachines/Extensions/Read | Pobierz właściwości rozszerzenia maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
-> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSetVirtualMachines/Extensions/Write | Tworzy nowe rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych lub aktualizuje istniejące |
-> | Akcja | Microsoft. COMPUTE/virtualMachineScaleSetVirtualMachines/Extensions/Delete | Usuwa rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > |  | **virtualMachines** |  |
 > | Akcja dataaction | Microsoft. COMPUTE/virtualMachines/login/akcja | Zaloguj się do maszyny wirtualnej jako zwykły użytkownik |
 > | Akcja dataaction | Microsoft. COMPUTE/virtualMachines/loginAsAdmin/akcja | Logowanie się do maszyny wirtualnej przy użyciu uprawnień administratora systemu Windows lub użytkownika root w systemie Linux |
@@ -2439,8 +2482,6 @@ Usługa platformy Azure: [Container Instances](../container-instances/index.yml)
 > | Akcja | Microsoft. ContainerInstance/containerGroups/Containers/buildlogs/Read | Pobierz dzienniki kompilacji dla określonego kontenera. |
 > |  | **containerGroups/kontenery/dzienniki** |  |
 > | Akcja | Microsoft. ContainerInstance/containerGroups/Containers/Logs/odczyt | Pobierz dzienniki dla określonego kontenera. |
-> |  | **containerGroups/operationResults** |  |
-> | Akcja | Microsoft. ContainerInstance/containerGroups/operationResults/Read | Pobierz wynik operacji asynchronicznej |
 > |  | **containerGroups/Providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Akcja | Microsoft. ContainerInstance/containerGroups/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla grupy kontenerów. |
 > | Akcja | Microsoft. ContainerInstance/containerGroups/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla grupy kontenerów. |
@@ -2452,6 +2493,8 @@ Usługa platformy Azure: [Container Instances](../container-instances/index.yml)
 > | Akcja | Microsoft. ContainerInstance/Locations/cachedImages/Read | Pobiera buforowane obrazy dla subskrypcji w regionie. |
 > |  | **Lokalizacje/możliwości** |  |
 > | Akcja | Microsoft. ContainerInstance/lokalizacje/możliwości/odczyt | Uzyskaj możliwości dla regionu. |
+> |  | **Lokalizacje/operationResults** |  |
+> | Akcja | Microsoft. ContainerInstance/Locations/operationResults/Read | Pobierz wynik operacji asynchronicznej |
 > |  | **Lokalizacje/operacje** |  |
 > | Akcja | Microsoft. ContainerInstance/Locations/Operations/Read | Wyświetl listę operacji usługi wystąpienia kontenera platformy Azure. |
 > |  | **Lokalizacje/użycia** |  |
@@ -2734,7 +2777,7 @@ Usługa platformy Azure: [Azure Data Box](../databox-family/index.md)
 
 ## <a name="microsoftdataboxedge"></a>Microsoft. DataBoxEdge
 
-Usługa platformy Azure: [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+Usługa platformy Azure: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -3076,7 +3119,7 @@ Usługa platformy Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. DataLakeAnalytics/Register/Action | Zarejestruj subskrypcję usługi DataLakeAnalytics. |
-> |  | **Konta** |  |
+> |  | **Rachunkowość** |  |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Read | Pobierz informacje o istniejącym koncie DataLakeAnalytics. |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Write | Utwórz lub zaktualizuj konto DataLakeAnalytics. |
 > | Akcja | Microsoft. DataLakeAnalytics/accounts/Delete | Usuń konto DataLakeAnalytics. |
@@ -3126,7 +3169,7 @@ Usługa platformy Azure: [Azure Data Lake Store](../storage/blobs/data-lake-stor
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. kontach datalakestore/Register/Action | Zarejestruj subskrypcję usługi kontach datalakestore. |
-> |  | **Konta** |  |
+> |  | **Rachunkowość** |  |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Read | Pobierz informacje o istniejącym koncie kontach datalakestore. |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Write | Utwórz lub zaktualizuj konto kontach datalakestore. |
 > | Akcja | Microsoft. kontach datalakestore/accounts/Delete | Usuń konto kontach datalakestore. |
@@ -3698,7 +3741,7 @@ Usługa platformy Azure: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provis
 > |  | **iotHubs/privateEndpointConnectionProxies/operationResults** |  |
 > | Akcja | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/operationResults/Read | Pobierz wynik operacji asynchronicznej na prywatnym serwerze proxy połączenia punktu końcowego |
 > |  | **iotHubs/privateEndpointConnections** |  |
-> | Akcja | Microsoft. Devices/iotHubs/privateEndpointConnections/odczyt | Pobiera właściwości określonego połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. Devices/iotHubs/privateEndpointConnections/odczyt | Pobiera wszystkie połączenia prywatnego punktu końcowego dla określonego Centrum IoT Hub |
 > | Akcja | Microsoft. Devices/iotHubs/privateEndpointConnections/Delete | Usuwa istniejące połączenie prywatnego punktu końcowego |
 > | Akcja | Microsoft. Devices/iotHubs/privateEndpointConnections/Write | Tworzy lub aktualizuje połączenie prywatnego punktu końcowego |
 > |  | **iotHubs/privateEndpointConnections/operationResults** |  |
@@ -3948,6 +3991,7 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Akcja | Microsoft. DocumentDB/databaseAccounts/onlineRegion/akcja | Online region konta bazy danych. |
 > | Akcja | Microsoft. DocumentDB/databaseAccounts/Delete | Usuwa konta bazy danych. |
 > | Akcja | Microsoft. DocumentDB/databaseAccounts/getBackupPolicy/akcja | Pobieranie zasad tworzenia kopii zapasowej konta bazy danych |
+> | Akcja | Microsoft. DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/akcja | Zarządzanie połączeniem prywatnego punktu końcowego konta bazy danych |
 > | Akcja | Microsoft. DocumentDB/databaseAccounts/Restore/Action | Prześlij żądanie przywrócenia |
 > | Akcja | Microsoft. DocumentDB/databaseAccounts/kopia zapasowa/akcja | Prześlij żądanie skonfigurowania kopii zapasowej |
 > |  | **databaseAccounts/interfejsy API/bazy danych** |  |
@@ -4284,7 +4328,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > |  | **domeny/privateLinkResources** |  |
 > | Akcja | Microsoft. EventGrid/domens/privateLinkResources/Read | Pobierz lub Wyświetl listę PrivateLinkResources dla domen |
 > |  | **domeny/dostawcy/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
+> | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
 > |  | **domeny/dostawcy/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/domeny/dostawcy/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla domen |
 > |  | **domeny/tematy** |  |
@@ -4352,7 +4396,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla tematów systemowych |
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla tematów systemowych |
 > |  | **systemTopics/Providers/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
+> | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
 > |  | **systemTopics/Providers/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla tematów systemowych |
 > |  | **opisano** |  |
@@ -4376,7 +4420,7 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla tematów |
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla tematów |
 > |  | **Tematy/dostawcy/Microsoft. Insights/logDefinitions** |  |
-> | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników zasobów |
+> | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
 > |  | **Tematy/dostawcy/Microsoft. Insights/metricDefinitions** |  |
 > | Akcja | Microsoft. EventGrid/tematy/dostawcy/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla tematów |
 > |  | **topictypes** |  |
@@ -5402,7 +5446,7 @@ Usługa platformy Azure: [Azure Lab Services](../lab-services/index.yml)
 > | Akcja | Microsoft. LabServices/labAccounts/sharedImages/Write | Dodaj lub zmodyfikuj Sharedimages. |
 > |  | **Lokalizacje/operacje** |  |
 > | Akcja | Microsoft. LabServices/Locations/Operations/Read | Operacje odczytu. |
-> |  | **users** |  |
+> |  | **użytkownikowi** |  |
 > | Akcja | Microsoft. LabServices/users/rejestr/akcja | Rejestrowanie użytkownika w zarządzanym laboratorium |
 > | Akcja | Microsoft. LabServices/users/ListAllEnvironments/akcja | Wyświetl listę wszystkich środowisk dla użytkownika |
 > | Akcja | Microsoft. LabServices/users/StartEnvironment/akcja | Uruchamia środowisko przez uruchomienie wszystkich zasobów w środowisku. |
@@ -5715,6 +5759,16 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > |  | **obszary robocze/moduły** |  |
 > | Akcja | Microsoft. MachineLearningServices/obszary robocze/moduły/odczyt | Pobiera moduły w Machine Learning Services obszarach roboczych |
 > | Akcja | Microsoft. MachineLearningServices/obszary robocze/moduły/zapis | Tworzy lub aktualizuje moduł w obszarze roboczym Machine Learning Services |
+> |  | **obszary robocze/notesy/przykłady** |  |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/przykłady/odczyt | Pobiera przykładowe notesy |
+> |  | **obszary robocze/notesy/magazyn** |  |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/magazyn/odczyt | Pobiera pliki notesu dla obszaru roboczego |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/magazyn/zapis | Zapisuje pliki do magazynu obszaru roboczego |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/magazyn/usuwanie | Usuwa pliki z magazynu obszaru roboczego |
+> |  | **obszary robocze/notesy/maszyna wirtualna** |  |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/maszyna wirtualna/odczyt | Pobiera maszyny wirtualne notesu dla określonego obszaru roboczego |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/maszyna wirtualna/zapis | Zmień stan maszyny wirtualnej notesu |
+> | Akcja | Microsoft. MachineLearningServices/obszary robocze/notesy/maszyna wirtualna/usuwanie | Usuwa maszynę wirtualną notesu |
 > |  | **obszary robocze/pipelinedrafts** |  |
 > | Akcja | Microsoft. MachineLearningServices/Workspaces/pipelinedrafts/Read | Pobiera wersje robocze potoku w Machine Learning Services obszarach roboczych |
 > | Akcja | Microsoft. MachineLearningServices/Workspaces/pipelinedrafts/Write | Tworzy lub aktualizuje wersje robocze potoku w Machine Learning Services obszarach roboczych |
@@ -5816,7 +5870,7 @@ Usługa platformy Azure: [Azure Maps](../azure-maps/index.yml)
 > | Typ akcji | Operacja | Opis |
 > | --- | --- | --- |
 > | Akcja | Microsoft. Maps/Zarejestruj/akcja | Rejestrowanie dostawcy |
-> |  | **Konta** |  |
+> |  | **Rachunkowość** |  |
 > | Akcja | Microsoft. Maps/accounts/Write | Utwórz lub zaktualizuj konto Maps. |
 > | Akcja | Microsoft. Maps/konta/odczyt | Pobierz konto Maps. |
 > | Akcja | Microsoft. Maps/accounts/Delete | Usuń konto Maps. |
@@ -5905,11 +5959,16 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Akcja | Microsoft. Media/Register/Action | Rejestruje subskrypcję dostawcy zasobów Media Services i umożliwia tworzenie kont Media Services |
 > | Akcja | Microsoft. Media/Unregister/Action | Wyrejestrowuje subskrypcję dla dostawcy zasobów Media Services |
 > | Akcja | Microsoft. Media/checknameavailability/Action | Sprawdza, czy nazwa konta Media Services jest dostępna |
+> |  | **miejsce** |  |
+> | Akcja | Microsoft. Media/Locations/checkNameAvailability/Action | Sprawdza, czy nazwa konta Media Services jest dostępna |
 > |  | **MediaServices** |  |
 > | Akcja | Microsoft. Media/MediaServices/Read | Odczytaj dowolne konto Media Services |
 > | Akcja | Microsoft. Media/MediaServices/Write | Utwórz lub zaktualizuj dowolne konto Media Services |
 > | Akcja | Microsoft. Media/MediaServices/Delete | Usuń dowolne konto Media Services |
+> | Akcja | Microsoft. Media/MediaServices/regenerateKey/Action | Wygeneruj ponownie klucz usługi Media Services ACS |
+> | Akcja | Microsoft. Media/MediaServices/listKeys/Action | Wyświetl listę kluczy usług ACS dla konta Media Services |
 > | Akcja | Microsoft. Media/MediaServices/syncStorageKeys/Action | Synchronizuj klucze magazynu dla dołączonego konta usługi Azure Storage |
+> | Akcja | Microsoft. Media/MediaServices/listEdgePolicies/Action | Wyświetl listę zasad dla urządzenia brzegowego. |
 > |  | **MediaServices/accountfilters** |  |
 > | Akcja | Microsoft. Media/MediaServices/accountfilters/Read | Odczytaj dowolny filtr konta |
 > | Akcja | Microsoft. Media/MediaServices/accountfilters/Write | Utwórz lub zaktualizuj dowolny filtr konta |
@@ -5936,6 +5995,17 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Akcja | Microsoft. Media/MediaServices/eventGridFilters/Delete | Usuń dowolny filtr Event Grid |
 > |  | **MediaServices/liveEventOperations** |  |
 > | Akcja | Microsoft. Media/MediaServices/liveEventOperations/Read | Odczytaj wszystkie operacje na żywo dotyczące zdarzeń |
+> |  | **MediaServices/liveEventPrivateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Validate/akcja | Sprawdź poprawność serwera proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> |  | **MediaServices/liveEventPrivateEndpointConnections** |  |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Read | Odczytaj każde połączenie na żywo prywatnego punktu końcowego |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Write | Utwórz połączenie z prywatnym punktem końcowym zdarzenia na żywo |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego zdarzenia na żywo |
+> |  | **MediaServices/liveEventPrivateLinkResources** |  |
+> | Akcja | Microsoft. Media/MediaServices/liveEventPrivateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku zdarzenia na żywo |
 > |  | **MediaServices/liveEvents** |  |
 > | Akcja | Microsoft. Media/MediaServices/liveEvents/Read | Odczytaj dowolne wydarzenie na żywo |
 > | Akcja | Microsoft. Media/MediaServices/liveEvents/Write | Utwórz lub zaktualizuj dowolne wydarzenie na żywo |
@@ -5949,6 +6019,23 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Akcja | Microsoft. Media/MediaServices/liveEvents/liveOutputs/Delete | Usuń wszystkie dane wyjściowe na żywo |
 > |  | **MediaServices/liveOutputOperations** |  |
 > | Akcja | Microsoft. Media/MediaServices/liveOutputOperations/Read | Odczytaj wszystkie operacje wyjścia na żywo |
+> |  | **MediaServices/mediaGraphs** |  |
+> | Akcja | Microsoft. Media/MediaServices/mediaGraphs/Read | Odczytaj dowolny Graf multimedialny |
+> | Akcja | Microsoft. Media/MediaServices/mediaGraphs/Write | Utwórz lub zaktualizuj dowolny Graf multimedialny |
+> | Akcja | Microsoft. Media/MediaServices/mediaGraphs/Delete | Usuń dowolny Graf multimedialny |
+> | Akcja | Microsoft. Media/MediaServices/mediaGraphs/Start/akcja | Rozpocznij wszelką operację grafu multimediów |
+> | Akcja | Microsoft. Media/MediaServices/mediaGraphs/akcja | Zatrzymaj wszystkie operacje grafu multimediów |
+> |  | **MediaServices/privateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnectionProxies/Write | Utwórz prywatny serwer proxy połączenia |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnectionProxies/Validate/akcja | Weryfikuj serwer proxy połączenia prywatnego punktu końcowego |
+> |  | **MediaServices/privateEndpointConnections** |  |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnections/Read | Odczytaj dowolne połączenie prywatnego punktu końcowego |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnections/Write | Utwórz połączenie prywatnego punktu końcowego |
+> | Akcja | Microsoft. Media/MediaServices/privateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego |
+> |  | **MediaServices/privateLinkResources** |  |
+> | Akcja | Microsoft. Media/MediaServices/privateLinkResources/Read | Odczytaj dowolny zasób łącza prywatnego |
 > |  | **MediaServices/streamingEndpointOperations** |  |
 > | Akcja | Microsoft. Media/MediaServices/streamingEndpointOperations/Read | Odczytaj wszystkie operacje punktu końcowego przesyłania strumieniowego |
 > |  | **MediaServices/streamingEndpoints** |  |
@@ -5958,6 +6045,17 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/Start/akcja | Uruchom wszystkie operacje punktu końcowego przesyłania strumieniowego |
 > | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/akcja | Zatrzymaj wszystkie operacje punktu końcowego przesyłania strumieniowego |
 > | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/Skala/akcja | Skaluj wszystkie operacje punktu końcowego przesyłania strumieniowego |
+> |  | **MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Validate/Action | Weryfikuj serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> |  | **MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections** |  |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Read | Odczytaj każde połączenie prywatnego punktu końcowego punktu końcowego przesyłania strumieniowego |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Write | Utwórz połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> |  | **MediaServices/streamingEndpoints/streamngEndpointPrivateLinkResources** |  |
+> | Akcja | Microsoft. Media/MediaServices/streamingEndpoints/streamngEndpointPrivateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku do przesyłania strumieniowego |
 > |  | **MediaServices/streamingLocators** |  |
 > | Akcja | Microsoft. Media/MediaServices/streamingLocators/Read | Odczytaj każdy lokalizator przesyłania strumieniowego |
 > | Akcja | Microsoft. Media/MediaServices/streamingLocators/Write | Utwórz lub zaktualizuj lokalizator przesyłania strumieniowego |
@@ -5968,6 +6066,10 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Akcja | Microsoft. Media/MediaServices/streamingPolicies/Read | Odczytaj wszystkie zasady przesyłania strumieniowego |
 > | Akcja | Microsoft. Media/MediaServices/streamingPolicies/Write | Tworzenie lub aktualizowanie wszelkich zasad przesyłania strumieniowego |
 > | Akcja | Microsoft. Media/MediaServices/streamingPolicies/Delete | Usuń wszystkie zasady przesyłania strumieniowego |
+> |  | **MediaServices/streamingPrivateEndpointConnectionOperations** |  |
+> | Akcja | Microsoft. Media/MediaServices/streamingPrivateEndpointConnectionOperations/Read | Odczytaj wszystkie operacje połączenia prywatnego punktu końcowego dla przesyłania strumieniowego |
+> |  | **MediaServices/streamingPrivateEndpointConnectionProxyOperations** |  |
+> | Akcja | Microsoft. Media/MediaServices/streamingPrivateEndpointConnectionProxyOperations/Read | Odczytaj wszystkie operacje serwera proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
 > |  | **MediaServices/transformacje** |  |
 > | Akcja | Microsoft. Media/MediaServices/transformacje/odczyt | Odczytaj dowolne przekształcenia |
 > | Akcja | Microsoft. Media/MediaServices/transformacje/zapis | Utwórz lub zaktualizuj dowolne przekształcenie |
@@ -6156,6 +6258,7 @@ Usługa platformy Azure: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/Revert/Action | Przywróć wolumin do określonej migawki |
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/BreakReplication/Action | Relacje replikacji woluminu Break |
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ReplicationStatus/Action | Odczytuje stan replikacji woluminu. |
+> | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ReInitializeReplication/Action |  |
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/AuthorizeReplication/Action | Autoryzuj replikację woluminu źródłowego |
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ResyncReplication/Action | Ponownie zsynchronizuj replikację na woluminie docelowym |
 > | Akcja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/DeleteReplication/Action | Usuń replikację na woluminie docelowym |
@@ -6214,6 +6317,13 @@ Usługa platformy Azure [: Virtual Network](../virtual-network/index.yml), [Load
 > | Akcja | Microsoft. Network/applicationGateways/Stop/akcja | Kończy działanie bramy aplikacji |
 > |  | **applicationGateways/backendAddressPools** |  |
 > | Akcja | Microsoft. Network/applicationGateways/backendAddressPools/Join/Action | Sprzęga pulę adresów zaplecza bramy aplikacji. Brak alertów. |
+> |  | **applicationGateways/privateEndpointConnections** |  |
+> | Akcja | Microsoft. Network/applicationGateways/privateEndpointConnections/odczyt | Pobiera Application Gateway połączeń PrivateEndpoint |
+> | Akcja | Microsoft. Network/applicationGateways/privateEndpointConnections/Write | Aktualizacje Application Gateway połączenia PrivateEndpoint |
+> | Akcja | Microsoft. Network/applicationGateways/privateEndpointConnections/Delete | Usuwa połączenie Application Gateway PrivateEndpoint |
+> |  | **applicationGateways/privateLinkResources** |  |
+> | Akcja | Microsoft. Network/applicationGateways/privateLinkResources/odczyt | Pobiera zasoby elementu applicationgateway PrivateLink |
+> | Akcja | Microsoft. Network/applicationGateways/privateLinkResources/resolvePrivateLinkServiceId/Action | Pobiera prywatny identyfikator łącza dla zasobu prywatnego linku bramy aplikacji |
 > |  | **ApplicationGatewayWebApplicationFirewallPolicies** |  |
 > | Akcja | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/odczyt | Pobiera zasady WAF Application Gateway |
 > | Akcja | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Write | Application Gateway tworzy zasady WAFymi lub aktualizuje zasady Application Gateway WAF |
@@ -6244,6 +6354,7 @@ Usługa platformy Azure [: Virtual Network](../virtual-network/index.yml), [Load
 > | Akcja | Microsoft. Network/bastionHosts/getShareableLinks/akcja | Zwraca adresy URL możliwe do udostępniania dla określonych maszyn wirtualnych w podsieci bastionu pod warunkiem, że ich adresy URL są tworzone |
 > | Akcja | Microsoft. Network/bastionHosts/createShareableLinks/akcja | Tworzy adresy URL możliwe do udostępniania dla maszyn wirtualnych w ramach bastionu i zwraca adresy URL |
 > | Akcja | Microsoft. Network/bastionHosts/deleteShareableLinks/akcja | Usuwa adresy URL możliwe do udostępnienia dla podanych maszyn wirtualnych w ramach bastionu |
+> | Akcja | Microsoft. Network/bastionHosts/deleteShareableLinksByToken/akcja | Usuwa adresy URL możliwe do udostępnienia dla podanych tokenów w ramach bastionu |
 > |  | **bgpServiceCommunities** |  |
 > | Akcja | Microsoft. Network/bgpServiceCommunities/odczyt | Pobierz społeczności usługi BGP |
 > |  | **Licznik** |  |
@@ -6415,6 +6526,10 @@ Usługa platformy Azure [: Virtual Network](../virtual-network/index.yml), [Load
 > | Akcja | Microsoft. Network/usługi frontdoor/routingRules/odczyt | Pobiera regułę routingu |
 > | Akcja | Microsoft. Network/usługi frontdoor/routingRules/Write | Tworzy lub aktualizuje regułę routingu |
 > | Akcja | Microsoft. Network/usługi frontdoor/routingRules/Delete | Usuwa regułę routingu |
+> |  | **Usługi frontdoor/rulesEngines** |  |
+> | Akcja | Microsoft. Network/usługi frontdoor/rulesEngines/odczyt | Pobiera aparat reguł |
+> | Akcja | Microsoft. Network/usługi frontdoor/rulesEngines/Write | Tworzy lub aktualizuje aparat reguł |
+> | Akcja | Microsoft. Network/usługi frontdoor/rulesEngines/Delete | Usuwa aparat reguł |
 > |  | **frontDoorWebApplicationFirewallManagedRuleSets** |  |
 > | Akcja | Microsoft. Network/frontDoorWebApplicationFirewallManagedRuleSets/odczyt | Pobiera zestawy reguł zarządzane przez zaporę aplikacji sieci Web |
 > |  | **frontDoorWebApplicationFirewallPolicies** |  |
@@ -6470,7 +6585,6 @@ Usługa platformy Azure [: Virtual Network](../virtual-network/index.yml), [Load
 > | Akcja | Microsoft. Network/localnetworkgateways/Delete | Usuwa LocalNetworkGateway |
 > |  | **miejsce** |  |
 > | Akcja | Microsoft. Network/Locations/checkAcceleratedNetworkingSupport/Action | Sprawdza obsługę przyspieszonej sieci |
-> | Akcja | Microsoft. Network/Locations/batchNotifyPrivateEndpointsForResourceMove/Action | Powiadamia o prywatnym punkcie końcowym w partiach na potrzeby przenoszenia zasobów. |
 > | Akcja | Microsoft. Network/Locations/checkPrivateLinkServiceVisibility/Action | Sprawdza widoczność usługi link prywatny |
 > | Akcja | Microsoft. Network/Locations/bareMetalTenants/Action | Przydziela lub sprawdza poprawność dzierżawy systemu operacyjnego |
 > |  | **Lokalizacje/autoApprovedPrivateLinkServices** |  |
@@ -6665,10 +6779,12 @@ Usługa platformy Azure [: Virtual Network](../virtual-network/index.yml), [Load
 > | Akcja | Microsoft. Network/privateEndpointRedirectMaps/odczyt | Pobiera prywatny punkt końcowy RedirectMap |
 > | Akcja | Microsoft. Network/privateEndpointRedirectMaps/Write | Tworzy prywatny punkt końcowy RedirectMap lub aktualizuje istniejący prywatny punkt końcowy RedirectMap |
 > |  | **privateEndpoints** |  |
-> | Akcja | Microsoft. Network/privateEndpoints/pushPropertiesToResource/akcja | Operacja wypychania aktualizacji właściwości prywatnego punktu końcowego z klienta NRP |
 > | Akcja | Microsoft. Network/privateEndpoints/odczyt | Pobiera prywatny zasób punktu końcowego. |
 > | Akcja | Microsoft. Network/privateEndpoints/Write | Tworzy nowy prywatny punkt końcowy lub aktualizuje istniejący prywatny punkt końcowy. |
 > | Akcja | Microsoft. Network/privateEndpoints/Delete | Usuwa prywatny zasób punktu końcowego. |
+> |  | **privateEndpoints/privateDnsZoneGroups** |  |
+> | Akcja | Microsoft. Network/privateEndpoints/privateDnsZoneGroups/odczyt | Pobiera Prywatna strefa DNS grupę stref |
+> | Akcja | Microsoft. Network/privateEndpoints/privateDnsZoneGroups/Write | Umieszcza Prywatna strefa DNS grupę stref |
 > |  | **privateLinkServices** |  |
 > | Akcja | Microsoft. Network/privateLinkServices/odczyt | Pobiera zasób usługi linku prywatnego. |
 > | Akcja | Microsoft. Network/privateLinkServices/Write | Tworzy nową usługę linku prywatnego lub aktualizuje istniejącą usługę linku prywatnego. |
@@ -7379,6 +7495,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > |  | **obszary robocze/zapytania/AzureDevOpsAuditing** |  |
 > | Akcja | Microsoft. OperationalInsights/Workspaces/Query/AzureDevOpsAuditing/Read | Odczytaj dane z tabeli AzureDevOpsAuditing |
 > |  | **obszary robocze/zapytania/AzureDiagnostics** |  |
+> | Akcja | Microsoft. OperationalInsights/Workspaces/Query/AzureDiagnostics/Read | Odczytaj dane z tabeli AzureDiagnostics |
 > | Akcja | Microsoft. OperationalInsights/Workspaces/Query/AzureDiagnostics/Read | Odczytaj dane z tabeli AzureDiagnostics |
 > |  | **obszary robocze/zapytania/AzureMetrics** |  |
 > | Akcja | Microsoft. OperationalInsights/Workspaces/Query/AzureMetrics/Read | Odczytaj dane z tabeli AzureMetrics |
@@ -8529,14 +8646,34 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > |  | **oceny** |  |
 > | Akcja | Microsoft. Security/Assessments/Read | Uzyskaj oceny zabezpieczeń w ramach subskrypcji |
 > | Akcja | Microsoft. Security/Assessments/Write | Utwórz lub zaktualizuj oceny zabezpieczeń w ramach subskrypcji |
+> |  | **automatyzacji** |  |
+> | Akcja | Microsoft. Security/automations/Read | Pobiera usługi Automation dla zakresu |
+> | Akcja | Microsoft. Security/automations/Write | Tworzy lub aktualizuje automatyzację zakresu |
+> | Akcja | Microsoft. Security/automations/Delete | Usuwa automatyzację zakresu |
+> | Akcja | Microsoft. Security/automations/Validate/Action | Sprawdza poprawność modelu automatyzacji dla zakresu |
 > |  | **autoProvisioningSettings** |  |
 > | Akcja | Microsoft. Security/autoProvisioningSettings/Read | Pobierz ustawienie autoaprowizacji zabezpieczeń dla subskrypcji |
 > | Akcja | Microsoft. Security/autoProvisioningSettings/Write | Utwórz lub zaktualizuj ustawienie autoaprowizacji zabezpieczeń dla subskrypcji |
 > |  | **complianceResults** |  |
 > | Akcja | Microsoft. Security/complianceResults/Read | Pobiera wyniki zgodności dla zasobu |
+> |  | **deviceSecurityGroups** |  |
+> | Akcja | Microsoft. Security/deviceSecurityGroups/Write | Tworzy lub aktualizuje grupy zabezpieczeń urządzeń IoT |
+> | Akcja | Microsoft. Security/deviceSecurityGroups/Delete | Usuwa grupy zabezpieczeń urządzeń IoT |
+> | Akcja | Microsoft. Security/deviceSecurityGroups/Read | Pobiera grupy zabezpieczeń urządzeń IoT |
 > |  | **informationProtectionPolicies** |  |
 > | Akcja | Microsoft. Security/informationProtectionPolicies/Read | Pobiera zasady usługi Information Protection dla zasobu |
 > | Akcja | Microsoft. Security/informationProtectionPolicies/Write | Aktualizuje zasady usługi Information Protection dla zasobu |
+> |  | **iotSecuritySolutions** |  |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/Write | Tworzy lub aktualizuje rozwiązania do ochrony IoT |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/Delete | Usuwa rozwiązania z zakresu zabezpieczeń IoT |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/Read | Pobiera rozwiązania z zakresu zabezpieczeń IoT |
+> |  | **iotSecuritySolutions/analyticsModels** |  |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/analyticsModels/Read | Pobiera model analizy zabezpieczeń IoT |
+> |  | **iotSecuritySolutions/analyticsModels/aggregatedAlerts** |  |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/Read | Pobiera zagregowane alerty IoT |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/Odrzuć/akcja | Odrzuca zagregowane alerty IoT |
+> |  | **iotSecuritySolutions/analyticsModels/aggregatedRecommendations** |  |
+> | Akcja | Microsoft. Security/iotSecuritySolutions/analyticsModels/aggregatedRecommendations/Read | Pobiera rekomendacje zagregowane IoT |
 > |  | **miejsce** |  |
 > | Akcja | Microsoft. Security/Locations/Read | Pobiera lokalizację danych zabezpieczeń |
 > |  | **Lokalizacje/alerty** |  |
@@ -8554,7 +8691,7 @@ Usługa platformy Azure: [Security Center](../security-center/index.yml)
 > | Akcja | Microsoft. zabezpieczenia/lokalizacje/zadania/Rozwiązywanie/akcja | Rozwiązywanie zalecenia dotyczącego zabezpieczeń |
 > | Akcja | Microsoft. Security/Locations/Tasks/Activate/Action | Aktywuj zalecenie dotyczące zabezpieczeń |
 > | Akcja | Microsoft. zabezpieczenia/lokalizacje/zadania/Odrzuć/akcja | Odrzuć zalecenie dotyczące zabezpieczeń |
-> |  | **policies** |  |
+> |  | **jazd** |  |
 > | Akcja | Microsoft. Security/Policies/Read | Pobiera zasady zabezpieczeń |
 > | Akcja | Microsoft. Security/Policies/Write | Aktualizuje zasady zabezpieczeń |
 > |  | **cen** |  |
@@ -8657,6 +8794,14 @@ Usługa platformy Azure: [wskaźnik na platformie Azure](../sentinel/index.yml)
 > |  | **ustawienia** |  |
 > | Akcja | Microsoft. SecurityInsights/Settings/Read | Pobiera ustawienia |
 > | Akcja | Microsoft. SecurityInsights/Settings/Write | Ustawienia aktualizacji |
+> |  | **threatintelligence** |  |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/odczyt | Pobiera analizę zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/Write | Aktualizuje analizę zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/Delete | Usuwa analizę zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/kwerenda/akcja | Kwerenda analizy zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/Metrics/Action | Zbieranie metryk analizy zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/bulkDelete/akcja | Zbiorcze usuwanie zagrożeń |
+> | Akcja | Microsoft. SecurityInsights/threatintelligence/bulkTag/akcja | Analiza zagrożeń tagów zbiorczych |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -8872,6 +9017,11 @@ Usługa platformy Azure: [usługa Azure sygnalizująca](../azure-signalr/index.y
 > | Akcja | Microsoft. SignalRService/Signaler/privateEndpointConnections/odczyt | Odczytaj połączenie prywatnego punktu końcowego |
 > |  | **Sygnalizujący/privateLinkResources** |  |
 > | Akcja | Microsoft. SignalRService/Signaler/privateLinkResources/odczyt | Wyświetl listę wszystkich prywatnych zasobów linku sygnalizującego |
+> |  | **Sygnalizujący/serverConnection** |  |
+> | Akcja dataaction | Microsoft. SignalRService/Signaler/serverConnection/Write | Rozpocznij połączenie z serwerem. |
+> |  | **Sygnał/usługa** |  |
+> | Akcja dataaction | Microsoft. SignalRService/sygnalizujący/Service/accessKey/Action | Pobierz tymczasowy AccessKey do podpisywania ClientTokens. |
+> | Akcja dataaction | Microsoft. SignalRService/sygnalizujący/Service/clientToken/Action | Pobierz ClientToken do uruchomienia połączenia z klientem. |
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
@@ -9003,12 +9153,22 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > | Akcja | Microsoft. SQL/Locations/managedInstanceLongTermRetentionPolicyAzureAsyncOperation/Read | Pobiera stan długotrwałej operacji zasad przechowywania dla zarządzanej bazy danych |
 > |  | **Lokalizacje/managedInstanceLongTermRetentionPolicyOperationResults** |  |
 > | Akcja | Microsoft. SQL/Locations/managedInstanceLongTermRetentionPolicyOperationResults/Read | Pobiera stan długotrwałej operacji zasad przechowywania dla zarządzanej bazy danych |
+> |  | **Lokalizacje/managedInstancePrivateEndpointConnectionAzureAsyncOperation** |  |
+> | Akcja | Microsoft. SQL/Locations/managedInstancePrivateEndpointConnectionAzureAsyncOperation/Read | Pobiera wynik operacji połączenia prywatnego punktu końcowego |
+> |  | **Lokalizacje/managedInstancePrivateEndpointConnectionOperationResults** |  |
+> | Akcja | Microsoft. SQL/Locations/managedInstancePrivateEndpointConnectionOperationResults/Read | Pobiera wynik operacji połączenia prywatnego punktu końcowego |
+> |  | **Lokalizacje/managedInstancePrivateEndpointConnectionProxyAzureAsyncOperation** |  |
+> | Akcja | Microsoft. SQL/Locations/managedInstancePrivateEndpointConnectionProxyAzureAsyncOperation/Read | Pobiera wynik operacji serwera proxy połączenia prywatnego punktu końcowego |
+> |  | **Lokalizacje/managedInstancePrivateEndpointConnectionProxyOperationResults** |  |
+> | Akcja | Microsoft. SQL/Locations/managedInstancePrivateEndpointConnectionProxyOperationResults/Read | Pobiera wynik operacji serwera proxy połączenia prywatnego punktu końcowego |
 > |  | **Lokalizacje/managedShortTermRetentionPolicyOperationResults** |  |
 > | Akcja | Microsoft. SQL/Locations/managedShortTermRetentionPolicyOperationResults/Read | Pobiera stan krótkoterminowej operacji zasad przechowywania |
 > |  | **Lokalizacje/managedTransparentDataEncryptionAzureAsyncOperation** |  |
 > | Akcja | Microsoft. SQL/Locations/managedTransparentDataEncryptionAzureAsyncOperation/Read | Pobiera operacje w toku dotyczące przezroczystego szyfrowania danych zarządzanej bazy danych |
 > |  | **Lokalizacje/managedTransparentDataEncryptionOperationResults** |  |
 > | Akcja | Microsoft. SQL/Locations/managedTransparentDataEncryptionOperationResults/Read | Pobiera operacje w toku dotyczące przezroczystego szyfrowania danych zarządzanej bazy danych |
+> |  | **Lokalizacje/operationsHealth** |  |
+> | Akcja | Microsoft. SQL/Locations/operationsHealth/Read | Pobiera stan kondycji operacji usługi w lokalizacji |
 > |  | **Lokalizacje/privateEndpointConnectionAzureAsyncOperation** |  |
 > | Akcja | Microsoft. SQL/Locations/privateEndpointConnectionAzureAsyncOperation/Read | Pobiera wynik operacji połączenia prywatnego punktu końcowego |
 > |  | **Lokalizacje/privateEndpointConnectionOperationResults** |  |
@@ -9077,6 +9237,10 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > | Akcja | Microsoft. SQL/managedInstances/Databases/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla zasobu |
 > |  | **managedInstances/Databases/Providers/Microsoft. Insights/logDefinitions** |  |
 > | Akcja | Microsoft. SQL/managedInstances/Databases/Providers/Microsoft. Insights/logDefinitions/Read | Pobiera dostępne dzienniki dla baz danych wystąpienia zarządzanego |
+> |  | **managedInstances/bazy danych/zapytania** |  |
+> | Akcja | Microsoft. SQL/managedInstances/bazy danych/zapytania/odczyt | Pobierz tekst zapytania według identyfikatora zapytania |
+> |  | **managedInstances/bazy danych/zapytania/Statystyka** |  |
+> | Akcja | Microsoft. SQL/managedInstances/bazy danych/zapytania/statystyki/odczyt | Pobierz statystyki wykonywania zapytania według identyfikatora zapytania |
 > |  | **managedInstances/Databases/recommendedSensitivityLabels** |  |
 > | Akcja | Microsoft. SQL/managedInstances/Databases/recommendedSensitivityLabels/Read | Wyświetl etykiety czułości danej bazy danych |
 > | Akcja | Microsoft. SQL/managedInstances/Databases/recommendedSensitivityLabels/Write | Etykiety czułości zalecanych aktualizacji wsadowych |
@@ -9133,6 +9297,17 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > |  | **managedInstances/operacje** |  |
 > | Akcja | Microsoft. SQL/managedInstances/Operations/Read | Pobierz operacje wystąpienia zarządzanego |
 > | Akcja | Microsoft. SQL/managedInstances/Operations/Cancel/Action | Anuluje wystąpienie zarządzane usługi Azure SQL oczekujące na operację asynchroniczną, która nie została jeszcze zakończona. |
+> |  | **managedInstances/privateEndpointConnectionProxies** |  |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnectionProxies/odczyt | Zwraca listę proxy połączeń prywatnych punktów końcowych lub pobiera właściwości dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnectionProxies/Write | Tworzy prywatny serwer proxy połączenia z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera proxy połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnectionProxies/Delete | Usuwa istniejący serwer proxy połączenia prywatnego punktu końcowego |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnectionProxies/Validate/akcja | Sprawdza poprawność wywołania połączenia z prywatnym punktem końcowym po stronie NRP |
+> |  | **managedInstances/privateEndpointConnections** |  |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnections/odczyt | Zwraca listę połączeń prywatnych punktów końcowych lub pobiera właściwości dla określonego połączenia prywatnego punktu końcowego. |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnections/Delete | Usuwa istniejące połączenie prywatnego punktu końcowego |
+> | Akcja | Microsoft. SQL/managedInstances/privateEndpointConnections/Write | Zatwierdza lub odrzuca istniejące połączenie prywatnego punktu końcowego |
+> |  | **managedInstances/privateLinkResources** |  |
+> | Akcja | Microsoft. SQL/managedInstances/privateLinkResources/odczyt | Pobierz zasoby linku prywatnego dla odpowiedniego programu SQL Server |
 > |  | **managedInstances/Providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Akcja | Microsoft. SQL/managedInstances/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla zasobu |
 > | Akcja | Microsoft. SQL/managedInstances/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla zasobu |
@@ -9150,6 +9325,8 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > |  | **managedInstances/securityAlertPolicies** |  |
 > | Akcja | Microsoft. SQL/managedInstances/securityAlertPolicies/Write | Zmień zasady wykrywania zagrożeń serwera zarządzanego dla danego serwera zarządzanego |
 > | Akcja | Microsoft. SQL/managedInstances/securityAlertPolicies/odczyt | Pobieranie listy zasad wykrywania zagrożeń serwera zarządzanego skonfigurowanych dla danego serwera |
+> |  | **managedInstances/topqueries** |  |
+> | Akcja | Microsoft. SQL/managedInstances/topqueries/odczyt | Pobierz najpopularniejsze zapytania zużywające zasoby wystąpienia zarządzanego |
 > |  | **managedInstances/vulnerabilityAssessments** |  |
 > | Akcja | Microsoft. SQL/managedInstances/vulnerabilityAssessments/Write | Zmiana oceny luk w zabezpieczeniach dla danego wystąpienia zarządzanego |
 > | Akcja | Microsoft. SQL/managedInstances/vulnerabilityAssessments/Delete | Usuń ocenę luk w zabezpieczeniach dla danego wystąpienia zarządzanego |
@@ -9648,6 +9825,7 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnectionProxies/Delete | Usuwanie prywatnych serwerów proxy połączeń punktu końcowego |
 > | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnectionProxies/Write | Umieść proxy połączeń prywatnych punktów końcowych |
 > |  | **storageAccounts/privateEndpointConnections** |  |
+> | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnections/odczyt | Wyświetlanie listy prywatnych połączeń punktów końcowych |
 > | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego |
 > | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnections/odczyt | Pobierz połączenie prywatnego punktu końcowego |
 > | Akcja | Microsoft. Storage/storageAccounts/privateEndpointConnections/Write | Umieść połączenie prywatnego punktu końcowego |
