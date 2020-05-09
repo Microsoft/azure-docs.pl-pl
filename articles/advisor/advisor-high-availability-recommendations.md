@@ -3,12 +3,12 @@ title: Zwiększ dostępność aplikacji dzięki Azure Advisor
 description: Użyj Azure Advisor, aby zwiększyć wysoką dostępność wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443110"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788029"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Zwiększ dostępność aplikacji dzięki Azure Advisor
 
@@ -28,6 +28,10 @@ Aby zapewnić nadmiarowość aplikacji, zalecamy grupowanie co najmniej dwóch m
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Korzystanie z funkcji Dyski zarządzane w celu zwiększania niezawodności danych
 
 Maszyny wirtualne, które znajdują się w zestawie dostępności z dyskami, które korzystają z kont magazynu lub jednostek skalowania magazynu, nie są odporne na awarie pojedynczej jednostki skalowania magazynu podczas przestoju. Usługa Advisor zidentyfikuje te zestawy dostępności i zaleca migrację do usługi Azure Managed Disks. Dzięki temu dyski różnych maszyn wirtualnych w zestawie dostępności są wystarczająco izolowane, aby uniknąć single point of failure. 
+
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Znany problem dotyczący wersji obrazu wirtualnego urządzenia sieciowego testowego
+
+Doradca może określić, czy na maszynie wirtualnej może być uruchomiona wersja obrazu programu Check Point, która została uznana za utratę łączności sieciowej w przypadku operacji obsługi platformy. Zalecenie doradcy pomoże Ci uaktualnić do nowszej wersji obrazu, który rozwiązuje ten problem. Zapewni to ciągłość działania dzięki lepszej łączności sieciowej.
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Upewnij się, że Tolerancja błędów w usłudze Application Gateway
 
@@ -83,7 +87,7 @@ Azure Advisor zidentyfikuje konta Azure Cosmos DB, które używają starych wers
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uaktualnianie zestawu Java SDK dla usługi Azure Cosmos DB do najnowszej wersji z programu Maven
 
-Azure Advisor będzie identyfikować konta Azure Cosmos DB, które używają starych wersji zestawu Java SDK i zalecać uaktualnienie do najnowszej wersji z Maven dla najnowszych poprawek, ulepszeń wydajności i nowych funkcji. [Dowiedz się więcej na temat Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor będzie identyfikować konta Azure Cosmos DB, które używają starych wersji zestawu Java SDK i zalecać uaktualnienie do najnowszej wersji z Maven dla najnowszych poprawek, ulepszeń wydajności i nowych funkcji. [Dowiedz się więcej na temat Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uaktualnianie łącznika platformy Spark dla usługi Azure Cosmos DB do najnowszej wersji z programu Maven
 
