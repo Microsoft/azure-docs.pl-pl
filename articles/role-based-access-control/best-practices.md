@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726776"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735338"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Najlepsze rozwiązania dotyczące usługi Azure RBAC
 
@@ -26,13 +26,13 @@ W tym artykule opisano niektóre najlepsze rozwiązania dotyczące korzystania z
 
 ## <a name="only-grant-the-access-users-need"></a>Udzielaj tylko użytkownikom dostępu
 
-Korzystając z funkcji RBAC systemu Azure, można oddzielić cła w obrębie zespołu i przyznać dostęp tylko do użytkowników, których potrzebują do wykonywania swoich zadań. Zamiast przydzielać wszystkim użytkownikom nieograniczone uprawnienia do subskrypcji lub zasobów platformy Azure możesz zezwolić na wykonywanie w określonym zakresie tylko wybranych czynności.
+Przy użyciu kontroli RBAC na platformie Azure można przeprowadzać segregowanie zadań w ramach zespołu i nadawać użytkownikom tylko takie uprawnienia dostępu, które są im niezbędne do wykonywania zadań. Zamiast przydzielać wszystkim użytkownikom nieograniczone uprawnienia do subskrypcji lub zasobów platformy Azure możesz zezwolić na wykonywanie w określonym zakresie tylko wybranych czynności.
 
-Najlepszym rozwiązaniem podczas planowania strategii kontroli dostępu jest przyznanie użytkownikom najniższego uprawnienia, które muszą mieć, aby wykonać swoją pracę. Na poniższym diagramie przedstawiono sugerowany wzorzec korzystania z funkcji RBAC.
+Najlepszym rozwiązaniem podczas planowania strategii kontroli dostępu jest przyznanie użytkownikom najniższego uprawnienia, które muszą mieć, aby wykonać swoją pracę. Na poniższym diagramie przedstawiono sugerowany wzorzec używania funkcji RBAC platformy Azure.
 
-![RBAC i najniższe uprawnienie](./media/best-practices/rbac-least-privilege.png)
+![Kontrola RBAC i najniższych uprawnień platformy Azure](./media/best-practices/rbac-least-privilege.png)
 
-Informacje o sposobach dodawania przypisań ról można znaleźć w temacie [Dodawanie lub usuwanie przypisań ról](role-assignments-portal.md).
+Informacje o sposobach dodawania przypisań ról znajdują się w temacie [Dodawanie lub usuwanie przypisań ról platformy Azure przy użyciu Azure Portal](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Ogranicz liczbę właścicieli subskrypcji
 

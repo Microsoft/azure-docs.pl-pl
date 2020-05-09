@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 664178c058265961b4d660874359c1b238b100ab
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929336"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901325"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Korzystanie z zewnętrznych magazynów metadanych w usłudze Azure HDInsight
 
@@ -98,8 +98,6 @@ Możesz wskazać klaster do wcześniej utworzonego Azure SQL Database w dowolnym
 * W przypadku udostępniania magazynu metadanych w wielu klastrach upewnij się, że wszystkie klastry są w tej samej wersji usługi HDInsight. Różne wersje programu Hive używają różnych schematów bazy danych magazynu metadanych. Nie można na przykład udostępnić magazynu metadanych w ramach klastrów Hive 2,1 i Hive 3,1
 
 * W usłudze HDInsight 4,0, Spark i Hive używają niezależnych wykazów do uzyskiwania dostępu do tabel SparkSQL lub Hive. Tabela utworzona przez platformę Spark w katalogu Spark. Tabela utworzona przez program Hive znajduje się w katalogu Hive. To zachowanie różni się od usługi HDInsight 3,6, w której znajduje się gałąź Hive i wspólny katalog usługi Spark. Integracja Hive i Spark w usłudze HDInsight 4,0 opiera się na łączniku magazynu Hive (obsługiwane). OBSŁUGIWANE działa jako Most między platformami Spark i Hive. [Dowiedz się więcej o łączniku magazynu Hive](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
-
-* W usłudze HDInsight 4,0, jeśli chcesz udostępnić magazyn metadanych między platformami Hive i Spark, możesz to zrobić, zmieniając wartość właściwości magazynu metadanych. Catalog. default na Hive w klastrze Spark. Tę właściwość można znaleźć w Ambari Advanced spark2-Hive-site-override. Ważne jest, aby zrozumieć, że udostępnianie magazynu metadanych działa tylko w przypadku zewnętrznych tabel programu Hive, nie będzie to działać, jeśli istnieją wewnętrzne/zarządzane tabele lub tabele w środowisku Hive.  
 
 ## <a name="apache-oozie-metastore"></a>Magazyn metadanych Apache Oozie
 

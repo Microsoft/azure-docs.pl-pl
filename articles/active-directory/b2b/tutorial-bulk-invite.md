@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603415"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926929"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Samouczek: zbiorcze zapraszanie użytkowników współpracy w usłudze Azure AD B2B
 
@@ -29,6 +29,27 @@ Jeśli używasz funkcji współpracy B2B w usłudze Azure Active Directory (Azur
 
 Jeśli nie masz Azure Active Directory, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
+## <a name="understand-the-csv-template"></a>Zrozumienie szablonu CSV
+
+Pobierz i wypełnij szablon CSV przekazywanie zbiorcze, aby ułatwić pomyślne Zapraszanie użytkowników-Gości usługi Azure AD. Pobrany szablon CSV może wyglądać podobnie do tego przykładu:
+
+![Arkusz kalkulacyjny do przekazywania i wywoływać wywołajeń objaśniających przeznaczenie i wartości dla każdego wiersza i kolumny](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>Struktura szablonu CSV
+
+Wiersze pobranego szablonu CSV są następujące:
+
+- **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
+- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Email address to invite [inviteeEmail] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
+
+### <a name="additional-guidance"></a>Dodatkowe wskazówki
+
+- Pierwsze dwa wiersze szablonu przekazywania nie mogą być usuwane ani modyfikowane lub nie można przetworzyć przekazywania.
+- Wymagane kolumny są wyświetlane jako pierwsze.
+- Nie zalecamy dodawania nowych kolumn do szablonu. Wszelkie dodatkowe dodawane kolumny są ignorowane i nie są przetwarzane.
+- Zalecamy pobranie najnowszej wersji szablonu CSV tak często, jak to możliwe.
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Potrzebujesz co najmniej dwóch testowych kont e-mail, na które będzie można wysłać zaproszenia. Konta muszą być spoza Twojej organizacji. Możesz użyć dowolnego typu konta, w tym kont społecznościowych z adresem w domenie gmail.com lub outlook.com.
@@ -38,11 +59,11 @@ Potrzebujesz co najmniej dwóch testowych kont e-mail, na które będzie można 
 1. Zaloguj się do Azure Portal przy użyciu konta, które jest administratorem użytkownika w organizacji.
 2. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
 3. W obszarze **Zarządzanie**wybierz pozycję **Użytkownicy** > **zaproszeni zbiorczy**.
-4. Na stronie **Zapraszanie użytkowników w trybie zbiorczym** wybierz pozycję **Pobierz** , aby pobrać prawidłowy plik CSV z właściwościami zaproszenia.
+4. Na stronie **Zapraszanie użytkowników w trybie zbiorczym** wybierz pozycję **Pobierz** , aby pobrać prawidłowy szablon. CSV z właściwościami zaproszenia.
 
     ![Przycisk pobierania zaproszeń zbiorczych](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Otwórz plik CSV i Dodaj wiersz dla każdego użytkownika-gościa. Wymagane wartości to:
+5. Otwórz szablon. csv i Dodaj wiersz dla każdego użytkownika-gościa. Wymagane wartości to:
 
    * **Adres e-mail do zaproszenia** — użytkownik, który otrzyma zaproszenie
 
