@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617503"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743695"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Zakończenie protokołu TLS z certyfikatami Key Vault
 
@@ -50,7 +50,21 @@ Integracja Application Gateway z Key Vault wymaga procesu konfiguracji z trzema 
    Następnie można zaimportować istniejący certyfikat lub utworzyć nowy w magazynie kluczy. Certyfikat będzie używany przez aplikacje uruchamiane za pomocą bramy aplikacji. W tym kroku można także użyć klucza tajnego magazynu kluczy, który jest przechowywany jako plik PFX o postaci mniejszej niż 64. Zalecamy używanie typu certyfikatu z powodu możliwości autoodnawiania, która jest dostępna z obiektami typu certyfikat w magazynie kluczy. Po utworzeniu certyfikatu lub wpisu tajnego należy zdefiniować zasady dostępu w magazynie kluczy, aby *umożliwić udzielenie tożsamości* dostępu do klucza tajnego.
    
    > [!NOTE]
-   > W przypadku wdrożenia bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell albo za pośrednictwem aplikacji platformy Azure wdrożonej z Azure Portal certyfikat SSL przechowywany w magazynie kluczy jako plik PFX z algorytmem Base-64 **musi mieć hasła**. Ponadto przed wdrożeniem należy wykonać kroki opisane w temacie [używanie Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Szczególnie ważne jest, aby ustawić `enabledForTemplateDeployment` wartość `true`.
+   > W przypadku wdrożenia bramy aplikacji za pomocą szablonu ARM przy użyciu interfejsu wiersza polecenia platformy Azure lub programu PowerShell lub za pomocą aplikacji platformy Azure wdrożonej z Azure Portal certyfikat SSL jest przechowywany w magazynie kluczy jako plik PFX szyfrowany algorytmem Base64. Przed rozpoczęciem wdrażania należy wykonać kroki opisane w temacie [używanie Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). 
+   >
+   > Szczególnie ważne jest, aby ustawić `enabledForTemplateDeployment` wartość `true`. Certyfikat może być bez hasła lub może mieć hasło. W przypadku certyfikatu z hasłem Poniższy przykład pokazuje możliwe konfiguracje dla `sslCertificates` wpisu w `properties` konfiguracji szablonu usługi ARM dla bramy aplikacji. Wartości `appGatewaySSLCertificateData` i `appGatewaySSLCertificatePassword` są wyszukiwane z magazynu kluczy, zgodnie z opisem w sekcji wpisy [tajne informacji o identyfikatorze dynamicznym](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Postępuj zgodnie z poprzednimi odwołaniami, `parameters('secretName')` aby zobaczyć, jak działa wyszukiwanie. Jeśli certyfikat nie jest bez hasła, Pomiń ten `password` wpis.
+   >   
+   > ```
+   > "sslCertificates": [
+   >     {
+   >         "name": "appGwSslCertificate",
+   >         "properties": {
+   >             "data": "[parameters('appGatewaySSLCertificateData')]",
+   >             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+   >         }
+   >     }
+   > ]
+   > ```
 
 1. **Konfigurowanie bramy aplikacji**
 

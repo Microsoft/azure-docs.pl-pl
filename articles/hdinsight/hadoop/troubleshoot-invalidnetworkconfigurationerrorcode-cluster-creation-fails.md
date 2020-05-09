@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720388"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780440"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Tworzenie klastra kończy się niepowodzeniem z InvalidNetworkConfigurationErrorCode w usłudze Azure HDInsight
 
@@ -54,7 +54,7 @@ Opis błędu zawiera komunikat "nie można nawiązać połączenia z kontem usł
 
 ### <a name="cause"></a>Przyczyna
 
-Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwolić na połączenia wychodzące ze wszystkimi adresami-IP, aby zezwolić na dostęp do tych usług. Dokładne kroki rozwiązania zależą od tego, czy skonfigurowano sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), czy reguły zdefiniowane przez użytkownika (UDR). Szczegółowe informacje o tych konfiguracjach można znaleźć w sekcji Sprawdzanie [ruchu sieciowego za pomocą usługi HDInsight z grupami zabezpieczeń sieci i trasami zdefiniowanymi przez użytkownika](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) .
+Usługi Azure Storage i SQL nie mają stałych adresów IP, dlatego musimy zezwolić na połączenia wychodzące ze wszystkimi adresami-IP, aby zezwolić na dostęp do tych usług. Dokładne kroki rozwiązania zależą od tego, czy skonfigurowano sieciową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), czy reguły zdefiniowane przez użytkownika (UDR). Szczegółowe informacje o tych konfiguracjach można znaleźć w sekcji Sprawdzanie [ruchu sieciowego za pomocą usługi HDInsight z grupami zabezpieczeń sieci i trasami zdefiniowanymi przez użytkownika](../control-network-traffic.md) .
 
 ### <a name="resolution"></a>Rozwiązanie
 
