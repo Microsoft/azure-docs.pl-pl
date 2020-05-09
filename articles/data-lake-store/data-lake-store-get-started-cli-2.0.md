@@ -1,23 +1,19 @@
 ---
-title: Użyj interfejsu wiersza polecenia platformy Azure, aby rozpocząć pracę z usługą Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Tworzenie konta Data Lake Storage Gen1 i wykonywanie podstawowych operacji przy użyciu interfejsu wiersza polecenia platformy Azure
-services: data-lake-store
-documentationcenter: ''
+title: Zarządzanie kontem Azure Data Lake Storage Gen1 — interfejs wiersza polecenia platformy Azure
+description: Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć konto Data Lake Storage Gen1 i wykonać podstawowe operacje.
 author: twooley
-manager: mtillman
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e278981ce7647a53d2e80c5b835c8ed666db541
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60885350"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688166"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Wprowadzenie do Azure Data Lake Store przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
@@ -40,7 +36,7 @@ Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dy
 
 * **Interfejs wiersza polecenia platformy Azure** — zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) , aby uzyskać instrukcje.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 W tym artykule jest stosowane prostsze podejście uwierzytelniania z Data Lake Storage Gen1, w którym logujesz się jako użytkownik końcowy. Poziom dostępu do konta Data Lake Storage Gen1 i systemu plików podlega następnie poziom dostępu zalogowanego użytkownika. Istnieją jednak również inne podejścia do uwierzytelniania za pomocą Data Lake Storage Gen1, które są **uwierzytelnianiem użytkowników końcowych** lub **uwierzytelnianiem**między usługami. Instrukcje i dodatkowe informacje na temat uwierzytelniania można znaleźć w następujących artykułach: [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Uwierzytelnianie użytkowników końcowych) lub [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Uwierzytelnianie między usługami).
 

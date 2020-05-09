@@ -1,19 +1,20 @@
 ---
-title: Otrzymywanie na komercyjnej platformie Marketplace | Portal Azure Marketplace
-description: Dowiedz się więcej na temat otrzymywania płatności na potrzeby zarobków w portalu komercyjnym.
+title: Uzyskiwanie płatności na rynku komercyjnym firmy Microsoft
+description: Dowiedz się więcej o otrzymywaniu płatności za zyski w komercyjnym portalu Microsoft Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275836"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780501"
 ---
-# <a name="getting-paid"></a>Uzyskiwanie zapłaty
+# <a name="getting-paid-in-commercial-marketplace"></a>Otrzymywanie na komercyjnej platformie Marketplace
+
 Poniżej przedstawiono niektóre ważne informacje dotyczące otrzymywania płatności za oferty, dodatki i dochody reklamowe.
 
 > [!IMPORTANT]
@@ -40,18 +41,17 @@ Każda warstwa cenowa ma odpowiednią wartość w każdej z walut oferowanych pr
 
 Dostępna jest również opcja wprowadzenia bezpłatnej ceny za wybór w walucie lokalnej określonego rynku. Po wykonaniu tej czynności cena nie zostanie skorygowana (nawet w przypadku zmiany szybkości konwersji), chyba że zostanie przesłana Aktualizacja z nową ceną. 
 
-Należy pamiętać, że wybrana cena może obejmować podatek sprzedaży lub wartości dodanej, które muszą zostać uregulowane przez klientów. Aby uzyskać więcej informacji, zobacz [szczegóły podatku dla płatnej oferty](tax-details-paid-transactions.md) .
+Należy pamiętać, że wybrana cena może obejmować podatek sprzedaży lub wartości dodanej, które muszą zostać uregulowane przez klientów. Aby uzyskać szczegółowe informacje, zobacz [szczegóły podatkowe dla płatnej oferty](tax-details-paid-transactions.md).
 
 
 ## <a name="payout-reporting"></a>Raportowanie wypłaty
 
-Możesz uzyskać dostęp do szczegółowych informacji o płatności i pobrać raporty ze **skróconej wypłaty** [Centrum partnerskiego](https://partner.microsoft.com/dashboard). Aby uzyskać więcej informacji na temat informacji podanych w tym miejscu oraz o kategoryzacji zdobywanych pieniędzy, zobacz [Podsumowanie wypłat](payout-summary.md).
+Możesz uzyskać dostęp do szczegółowych informacji o płatności i pobrać raporty ze **skróconej wypłaty** [Centrum partnerskiego](https://partner.microsoft.com/dashboard). Aby uzyskać szczegółowe informacje na temat informacji wyświetlanych w tym miejscu oraz o kategoryzacji zdobywanych pieniędzy, zobacz [Omówienie podsumowania wypłat](payout-summary-overview.md).
 
 
-## <a name="payout-timeframe"></a>Okres wypłaty
+## <a name="payout-time-frame"></a>Przedział czasu wypłaty
 
-Płatności są dokonywane miesięcznie (pod warunkiem, że zostało spełnione odpowiednie progi płatności i nie zostało to jeszcze zrobione, zgodnie z poniższym opisem). Zazwyczaj wyślemy płatność należną w danym miesiącu do 15 dnia danego miesiąca. Należy pamiętać, że płatności zazwyczaj trwają od 3 do 10 dodatkowych dni roboczych w celu uzyskania dostępu do konta wypłaty. Aby uzyskać więcej informacji, zobacz [progi płatności, metody i przedziały czasu](payment-thresholds-methods-timeframes.md).
-
+Płatności są dokonywane miesięcznie (pod warunkiem, że zostało spełnione odpowiednie progi płatności i nie zostało to jeszcze zrobione, zgodnie z poniższym opisem). Zazwyczaj wyślemy płatność należną w danym miesiącu do 15 dnia danego miesiąca. Należy pamiętać, że płatności zazwyczaj trwają od 3 do 10 dodatkowych dni roboczych w celu uzyskania dostępu do konta wypłaty. Aby uzyskać szczegółowe informacje, zobacz [progi płatności, metody i klatki czasowe](payment-thresholds-methods-timeframes.md).
 
 ##  <a name="payout-hold-status"></a>Stan wstrzymania
 
@@ -63,12 +63,3 @@ Po ustawieniu **na**wartość wypłaty stan Wstrzymaj wszystkie wypłaty dla teg
 
 > [!NOTE]
 > **Status wypłaty** ma zastosowanie do każdego programu osobno (Microsoft Store, reklamy, Azure Marketplace itp.). Jeśli chcesz przetrzymać płatności na wszystkie programy, musisz zawiesić płatności osobno dla każdego programu.
-
-
- 
-
- 
-
-
-
-

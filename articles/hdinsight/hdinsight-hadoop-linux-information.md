@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272463"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594101"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -95,13 +95,13 @@ Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hado
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage i Data Lake Storage
 
-W większości dystrybucji usługi Hadoop dane są przechowywane w systemie plików HDFS, który jest objęty magazynem lokalnym na maszynach w klastrze. Korzystanie z magazynu lokalnego może być kosztowne dla rozwiązania opartego na chmurze, w którym opłata jest naliczana co godzinę lub za minutę w przypadku zasobów obliczeniowych.
+W większości dystrybucji usługi Hadoop dane są przechowywane w systemie plików HDFS. System plików HDFS jest objęty magazynem lokalnym na maszynach w klastrze. Korzystanie z magazynu lokalnego może być kosztowne dla rozwiązania opartego na chmurze, w którym opłata jest naliczana co godzinę lub za minutę w przypadku zasobów obliczeniowych.
 
-W przypadku korzystania z usługi HDInsight pliki danych są przechowywane w sposób skalowalny i odporny w chmurze przy użyciu Blob Storage platformy Azure i opcjonalnie Azure Data Lake Storage. Te usługi zapewniają następujące korzyści:
+W przypadku korzystania z usługi HDInsight pliki danych są przechowywane w sposób dostosowywalny i odporny w chmurze przy użyciu Blob Storage platformy Azure i opcjonalnie Azure Data Lake Storage. Te usługi zapewniają następujące korzyści:
 
 * Tanie przechowywanie długoterminowe.
 * Ułatwienia dostępu z usług zewnętrznych, takich jak witryny sieci Web, narzędzia do przekazywania/pobierania plików, różne zestawy SDK języka i przeglądarki sieci Web.
-* Duże pojemności plików i duże skalowalność magazynu.
+* Duża pojemność pliku i duża możliwość dostosowania magazynu.
 
 Aby uzyskać więcej informacji, zobacz [Omówienie obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
@@ -109,7 +109,7 @@ W przypadku korzystania z usługi Azure Storage lub Data Lake Storage nie trzeba
 
     hdfs dfs -ls /example/data
 
-W usłudze HDInsight zasoby magazynu danych (Azure Blob Storage i Azure Data Lake Storage) są rozłączone od zasobów obliczeniowych. W związku z tym można utworzyć klastry usługi HDInsight w celu wykonywania obliczeń w miarę potrzeb, a następnie usunąć klaster po zakończeniu pracy, co pozwala bezpiecznie zachować pliki danych w magazynie w chmurze.
+W usłudze HDInsight zasoby magazynu danych (Azure Blob Storage i Azure Data Lake Storage) są rozłączone od zasobów obliczeniowych. Można utworzyć klastry usługi HDInsight w celu wykonywania obliczeń w miarę potrzeb, a następnie usunąć klaster po zakończeniu pracy. W ten sposób pliki danych są bezpiecznie przechowywane w magazynie w chmurze, o ile jest to konieczne.
 
 ### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>Identyfikator URI i schemat
 
@@ -210,42 +210,7 @@ Jeśli używasz __Azure Data Lake Storage__, zobacz następujące linki, aby poz
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>Skalowanie klastra
 
-Funkcja skalowania klastra umożliwia dynamiczną zmianę liczby węzłów danych używanych przez klaster. Można wykonywać operacje skalowania, podczas gdy inne zadania lub procesy działają w klastrze.  Zobacz również [skalowanie klastrów usługi HDInsight](./hdinsight-scaling-best-practices.md)
-
-W przypadku różnych typów klastrów ma wpływ skalowanie w następujący sposób:
-
-* **Hadoop**: skalowanie w dół liczby węzłów w klastrze powoduje ponowne uruchomienie niektórych usług w klastrze. Operacje skalowania mogą spowodować niepowodzenie zadań lub oczekiwanie na zakończenie operacji skalowania. Po zakończeniu operacji można ponownie przesłać zadania.
-* **HBase**: serwery regionalne są automatycznie równoważone w ciągu kilku minut, po zakończeniu operacji skalowania. Aby ręcznie zrównoważyć serwery regionalne, wykonaj następujące czynności:
-
-    1. Połącz się z klastrem usługi HDInsight przy użyciu protokołu SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    2. Aby uruchomić powłokę HBase, użyj następującego programu:
-
-            hbase shell
-
-    3. Po załadowaniu powłoki HBase należy użyć poniższej usługi, aby ręcznie zrównoważyć serwery regionalne:
-
-            balancer
-
-* **Burza**: należy ponownie zrównoważyć uruchomione topologie burzy po wykonaniu operacji skalowania. Ponowne równoważenie umożliwia topologii dopasowanie ustawień równoległości na podstawie nowej liczby węzłów w klastrze. Aby ponownie zrównoważyć uruchomione topologie, użyj jednej z następujących opcji:
-
-    * **SSH**: Nawiąż połączenie z serwerem i użyj następującego polecenia, aby ponownie zrównoważyć topologię:
-
-            storm rebalance TOPOLOGYNAME
-
-        Można także określić parametry, aby zastąpić wskazówki równoległości początkowo dostarczone przez topologię. Na przykład `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` ponownie konfiguruje topologię do 5 procesów roboczych, 3 modułów wykonujących dla składnika Blue-elementu Spout i 10 programów wykonujących dla żółtego składnika.
-
-    * **Interfejs użytkownika burzy**: wykonaj następujące kroki, aby ponownie zrównoważyć topologię przy użyciu interfejsu użytkownika burzy.
-
-        1. Otwórz `https://CLUSTERNAME.azurehdinsight.net/stormui` w przeglądarce sieci Web, gdzie `CLUSTERNAME` to nazwa klastra burzy. Jeśli zostanie wyświetlony monit, wprowadź nazwę administratora klastra usługi HDInsight (administratora) i hasło określone podczas tworzenia klastra.
-        2. Wybierz topologię, którą chcesz ponownie zrównoważyć, a następnie wybierz przycisk **Zrównoważ** ponownie. Wprowadź opóźnienie przed wykonaniem operacji ponownego równoważenia.
-
-* **Kafka**: należy ponownie zrównoważyć repliki partycji po przeprowadzeniu operacji skalowania. Aby uzyskać więcej informacji, zobacz [wysoka dostępność danych w dokumencie Apache Kafka w usłudze HDInsight](./kafka/apache-kafka-high-availability.md) .
-
-Aby uzyskać szczegółowe informacje na temat skalowania klastra usługi HDInsight, zobacz:
-
-* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Zarządzanie klastrami Apache Hadoop w usłudze HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md#scale-clusters)
+Funkcja skalowania klastra umożliwia dynamiczną zmianę liczby węzłów danych używanych przez klaster. Można wykonywać operacje skalowania, podczas gdy inne zadania lub procesy działają w klastrze.  Zobacz [skalowanie klastrów usługi HDInsight](./hdinsight-scaling-best-practices.md)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Jak mogę instalacji odcienia (lub innego składnika usługi Hadoop)?
 
@@ -258,7 +223,7 @@ Akcje skryptu są skryptami bash. Skrypty są uruchamiane podczas tworzenia klas
 
 ### <a name="jar-files"></a>Pliki JAR
 
-Niektóre technologie Hadoop są dostępne w samodzielnych plikach jar, które zawierają funkcje używane jako część zadania MapReduce lub z wewnątrz świni lub Hive. Często nie wymagają one żadnej konfiguracji i mogą być przekazywane do klastra po utworzeniu i użyciu bezpośrednio. Jeśli chcesz upewnić się, że składnik zapełnił odtwarzanie klastra, możesz przechowywać plik JAR w domyślnym magazynie dla klastra (WASB lub ADL).
+Niektóre technologie Hadoop zapewniają własne pliki jar. Te pliki zawierają funkcje używane jako część zadania MapReduce lub z wewnątrz świni lub Hive. Często nie wymagają one żadnej konfiguracji i mogą być przekazywane do klastra po utworzeniu i użyciu bezpośrednio. Jeśli chcesz upewnić się, że składnik zapełnił odtwarzanie klastra, Zapisz plik JAR w domyślnym magazynie klastra.
 
 Jeśli na przykład chcesz użyć najnowszej wersji programu [Apache korzystanie funkcji datafu](https://datafu.incubator.apache.org/), możesz pobrać plik JAR zawierający projekt i przekazać go do klastra usługi HDInsight. Następnie postępuj zgodnie z dokumentacją korzystanie funkcji datafu, jak z niej korzystać z trzody chlewnej lub Hive.
 

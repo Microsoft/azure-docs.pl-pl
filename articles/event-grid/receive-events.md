@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60803756"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629596"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
 
-W tym artykule opisano sposób [sprawdzania poprawności punktu końcowego http](security-authentication.md#webhook-event-delivery) w celu odbierania zdarzeń z subskrypcji zdarzeń, a następnie odbierania i deserializacji zdarzeń. W tym artykule jest wykorzystywana funkcja platformy Azure w celach demonstracyjnych, jednak te same koncepcje są stosowane niezależnie od lokalizacji, w której aplikacja jest hostowana.
+W tym artykule opisano sposób [sprawdzania poprawności punktu końcowego http](webhook-event-delivery.md) w celu odbierania zdarzeń z subskrypcji zdarzeń, a następnie odbierania i deserializacji zdarzeń. W tym artykule jest wykorzystywana funkcja platformy Azure w celach demonstracyjnych, jednak te same koncepcje są stosowane niezależnie od lokalizacji, w której aplikacja jest hostowana.
 
 > [!NOTE]
 > **Zdecydowanie** zaleca się użycie [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid.md) podczas wyzwalania funkcji platformy Azure z Event Grid. Korzystanie z ogólnego wyzwalacza elementu webhook znajduje się tutaj.
@@ -50,7 +50,7 @@ Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w port
 
 ## <a name="endpoint-validation"></a>Walidacja punktu końcowego
 
-W pierwszej kolejności są obsługiwane `Microsoft.EventGrid.SubscriptionValidationEvent` zdarzenia. Za każdym razem, gdy ktoś subskrybuje zdarzenie, Event Grid wysyła zdarzenie weryfikacji do punktu końcowego z `validationCode` ładunkiem danych. Punkt końcowy jest wymagany do wyechania z powrotem w treści odpowiedzi, aby [potwierdzić, że punkt końcowy jest prawidłowy i należy do użytkownika](security-authentication.md#webhook-event-delivery). Jeśli używasz [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid.md) zamiast funkcji wyzwalanej przez element webhook, sprawdzanie poprawności punktu końcowego jest obsługiwane. Jeśli używasz usługi API innej firmy (na przykład [zapier](https://zapier.com) lub [IFTTT](https://ifttt.com/)), możesz nie być w stanie programowo echo kodu weryfikacyjnego. W przypadku tych usług można ręcznie zweryfikować subskrypcję przy użyciu adresu URL walidacji, który jest wysyłany w ramach zdarzenia walidacji subskrypcji. Skopiuj ten adres URL we `validationUrl` właściwości i Wyślij żądanie Get za pomocą klienta REST lub przeglądarki sieci Web.
+W pierwszej kolejności są obsługiwane `Microsoft.EventGrid.SubscriptionValidationEvent` zdarzenia. Za każdym razem, gdy ktoś subskrybuje zdarzenie, Event Grid wysyła zdarzenie weryfikacji do punktu końcowego z `validationCode` ładunkiem danych. Punkt końcowy jest wymagany do wyechania z powrotem w treści odpowiedzi, aby [potwierdzić, że punkt końcowy jest prawidłowy i należy do użytkownika](webhook-event-delivery.md). Jeśli używasz [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid.md) zamiast funkcji wyzwalanej przez element webhook, sprawdzanie poprawności punktu końcowego jest obsługiwane. Jeśli używasz usługi API innej firmy (na przykład [zapier](https://zapier.com) lub [IFTTT](https://ifttt.com/)), możesz nie być w stanie programowo echo kodu weryfikacyjnego. W przypadku tych usług można ręcznie zweryfikować subskrypcję przy użyciu adresu URL walidacji, który jest wysyłany w ramach zdarzenia walidacji subskrypcji. Skopiuj ten adres URL we `validationUrl` właściwości i Wyślij żądanie Get za pomocą klienta REST lub przeglądarki sieci Web.
 
 W języku C# `DeserializeEventGridEvents()` funkcja deserializacji zdarzeń Event Grid. Deserializacji dane zdarzenia do odpowiedniego typu, takiego jak StorageBlobCreatedEventData. Użyj `Microsoft.Azure.EventGrid.EventTypes` klasy, aby pobrać obsługiwane typy i nazwy zdarzeń.
 

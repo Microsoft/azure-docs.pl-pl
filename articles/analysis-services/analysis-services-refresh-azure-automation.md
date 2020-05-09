@@ -4,14 +4,14 @@ description: W tym artykule opisano sposób odświeżenia modelu kodu dla Azure 
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: bbbc2863e06b4602a4175d46bbe21414041583ba
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871320"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926565"
 ---
 # <a name="refresh-with-azure-automation"></a>Odświeżanie za pomocą usługi Azure Automation
 
@@ -60,7 +60,7 @@ Utworzona jednostka usługi musi mieć uprawnienia administratora serwera na ser
 
     ![Utwórz poświadczenie](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Wprowadź szczegóły poświadczenia.  W polu **Nazwa użytkownika wprowadź nazwę** **SPN ClientId**dla **hasła**, wprowadź **klucz tajny SPN**.
+2. Wprowadź szczegóły poświadczenia. W polu **Nazwa użytkownika**wprowadź identyfikator aplikacji głównej usługi (AppID), a następnie w polu **hasło**wprowadź klucz tajny jednostki usługi.
 
     ![Utwórz poświadczenie](./media/analysis-services-refresh-azure-automation/7.png)
 

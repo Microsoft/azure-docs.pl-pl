@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137420"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872557"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Źródło zmian w interfejsie API Azure Cosmos DB dla Cassandra
 
@@ -21,6 +21,8 @@ Obsługa [kanału informacyjnego zmian](change-feed.md) w interfejsie API Azure 
 Poniższy przykład pokazuje, jak uzyskać Źródło zmian dla wszystkich wierszy w interfejs API Cassandra tabeli przestrzeni kluczy przy użyciu platformy .NET. Predykat COSMOS_CHANGEFEED_START_TIME () jest używany bezpośrednio w CQL do wykonywania zapytań o elementy ze źródła zmian od określonego czasu rozpoczęcia (w tym przypadku Current DateTime). Możesz pobrać pełny przykład dla języka C# [tutaj](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) i dla środowiska Java [tutaj](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy użyciu stanu stronicowania. W obszarze kluczy można zobaczyć ciągły strumień nowych zmian w tabeli. Zobaczymy zmiany w wierszach, które są wstawiane lub aktualizowane. Obserwowanie operacji usuwania przy użyciu źródła zmian w interfejs API Cassandra nie jest obecnie obsługiwane.
+
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,6 +72,9 @@ W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy
     }
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
         Session cassandraSession = utils.getSession();
 
@@ -104,7 +109,11 @@ W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy
         }
 
 ```
+---
+
 Aby uzyskać zmiany w pojedynczym wierszu według klucza podstawowego, można dodać klucz podstawowy w zapytaniu. Poniższy przykład pokazuje, jak śledzić zmiany w wierszu, w którym "user_id = 1"
+
+# <a name="c"></a>[S #](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -112,11 +121,15 @@ Aby uzyskać zmiany w pojedynczym wierszu według klucza podstawowego, można do
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
                     + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
+---
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
 W przypadku korzystania z kanału informacyjnego zmian z interfejs API Cassandra są stosowane następujące ograniczenia:

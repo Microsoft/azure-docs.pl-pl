@@ -26,6 +26,10 @@
           href: quickstart-create-apache-spark-pool.md
         - name: Tworzenie puli SQL
           href: quickstart-create-sql-pool.md
+    - name: Ładowanie danych przy użyciu pul SQL
+      items:
+        - name: Instrukcja COPY
+          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Korzystanie z bazy danych SQL na żądanie
       href: quickstart-sql-on-demand.md
 - name: Samouczki

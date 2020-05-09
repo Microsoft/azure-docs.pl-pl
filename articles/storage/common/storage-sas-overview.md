@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a5967f52a187fe289c6fb1ca72af2d5fd17f010
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 680c1b036b9b41edb1115f478fd5dc8f63ea1d02
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255238"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688043"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -115,7 +115,7 @@ Poniższe zalecenia dotyczące korzystania z sygnatur dostępu współdzielonego
 - **Należy pamiętać, że konto będzie rozliczane za użycie, w tym za pośrednictwem sygnatury dostępu współdzielonego.** W przypadku zapewnienia dostępu do zapisu do obiektu BLOB użytkownik może zdecydować się na przekazanie obiektu BLOB 200 GB. Jeśli przyznano im dostęp do odczytu, może to potrwać pobranie 10 razy, co naliczane jest 2 TB kosztów ruchu wychodzącego. Ponownie Udostępnij ograniczone uprawnienia, aby pomóc w ograniczeniu potencjalnych działań złośliwych użytkowników. Użyj krótkich sygnatur dostępu współdzielonego, aby zmniejszyć to zagrożenie (ale jest to świadome przesunięcia zegara w czasie zakończenia).
 - **Sprawdzanie poprawności danych pisanych przy użyciu sygnatury dostępu współdzielonego.** Gdy aplikacja kliencka zapisuje dane na koncie magazynu, należy pamiętać, że mogą wystąpić problemy z tymi danymi. Jeśli aplikacja wymaga zweryfikowania lub autoryzacji danych przed gotowością do użycia, należy przeprowadzić tę weryfikację po zapisaniu danych i wcześniejszym wykorzystaniu jej przez aplikację. Ta metoda zapewnia również ochronę przed uszkodzonymi lub złośliwymi danymi, które są zapisywane na koncie, przez użytkownika, który prawidłowo nabył sygnaturę dostępu współdzielonego, lub przez użytkownika korzystającego z przecieków SAS.
 - **Informacje o tym, kiedy nie należy używać sygnatury dostępu współdzielonego.** Czasami ryzyko związane z konkretną operacją w odniesieniu do konta magazynu ma większe korzyści wynikające z użycia sygnatury dostępu współdzielonego. W przypadku takich operacji Utwórz usługę warstwy środkowej, która zapisuje dane na koncie magazynu po przeprowadzeniu weryfikacji reguły biznesowej, uwierzytelniania i inspekcji. Ponadto czasami łatwiej jest zarządzać dostępem w inny sposób. Na przykład jeśli chcesz, aby wszystkie obiekty blob w kontenerze były dostępne publicznie, możesz utworzyć kontener jako publiczny, a nie dostarczając sygnatury dostępu współdzielonego do każdego klienta, aby uzyskać dostęp.
-- **Użyj Azure Monitor i dzienników usługi Azure Storage do monitorowania aplikacji.** Za pomocą rejestrowania Azure Monitor i usługi Storage Analytics można sprawdzić, czy nie występują błędy autoryzacji z powodu przestoju w usłudze dostawcy SAS lub przypadkowego usunięcia przechowywanych zasad dostępu. Aby uzyskać więcej informacji, zobacz [metryki usługi Azure Storage w Azure monitor](storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) i [analityka magazynu platformy Azure rejestrowania](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Użyj Azure Monitor i dzienników usługi Azure Storage do monitorowania aplikacji.** Za pomocą rejestrowania Azure Monitor i usługi Storage Analytics można sprawdzić, czy nie występują błędy autoryzacji z powodu przestoju w usłudze dostawcy SAS lub przypadkowego usunięcia przechowywanych zasad dostępu. Aby uzyskać więcej informacji, zobacz [metryki usługi Azure Storage w Azure monitor](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) i [analityka magazynu platformy Azure rejestrowania](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="get-started-with-sas"></a>Wprowadzenie do SAS
 

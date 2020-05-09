@@ -1,20 +1,20 @@
 ---
-title: Azure Automation skonfigurować rozwiązanie do uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami
+title: Azure Automation skonfigurować rozwiązanie Start/Stop VMs during off-hours
 description: W tym artykule opisano sposób konfigurowania rozwiązania Start/Stop VMs during off-hours w celu obsługi różnych przypadków użycia lub scenariuszy.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604757"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864270"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Jak skonfigurować rozwiązanie do uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Jak skonfigurować rozwiązanie Start/Stop VMs during off-hours
 
-Dzięki rozwiązaniu do **uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami** możesz:
+Rozwiązanie **Start/Stop VMS during off-hours** pozwala:
 
 - [Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych](#schedule).
 - Zaplanuj uruchamianie i zatrzymywanie maszyn wirtualnych w porządku rosnącym przy [użyciu tagów platformy Azure](#tags) (nieobsługiwanych w przypadku klasycznych maszyn wirtualnych).
@@ -125,7 +125,7 @@ Po uruchomieniu **AutoStop_CreateAlert_Parent** elementu Runbook sprawdza, czy i
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Aby przekierować akcję autozatrzymania do listy maszyn wirtualnych
 
-1. Utwórz nowy [harmonogram](shared-resources/schedules.md#creating-a-schedule) i podłącz go do **AutoStop_CreateAlert_Parent** elementu Runbook, dodając rozdzieloną PRZECINKAMI listę nazw maszyn wirtualnych do `VMList` parametru.
+1. Utwórz nowy [harmonogram](shared-resources/schedules.md#create-a-schedule) i podłącz go do **AutoStop_CreateAlert_Parent** elementu Runbook, dodając rozdzieloną PRZECINKAMI listę nazw maszyn wirtualnych do `VMList` parametru.
 
 2. Opcjonalnie, jeśli chcesz wykluczyć niektóre maszyny wirtualne z automatycznego zamykania, możesz dodać do `External_ExcludeVMNames` zmiennej listę nazw maszyn wirtualnych rozdzieloną przecinkami.
 
@@ -180,7 +180,7 @@ Obsługiwane jest tylko skonfigurowanie rozwiązania do zatrzymywania maszyn wir
 
 4. Wybierz **Parametry i Uruchom ustawienia** , a następnie ustaw wartość pola **Akcja** na **Zatrzymaj**.
 
-5. Aby zapisać zmiany, wybierz pozycję **OK**.
+5. Wybierz przycisk **OK**, aby zapisać zmiany.
 
 ## <a name="next-steps"></a>Następne kroki
 

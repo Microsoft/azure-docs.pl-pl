@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 609076cd204457bb7c952c91cd249b1aece58022
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 63feea2cf672c197e51c1c8a2195076f456f4f66
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81425014"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901521"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla środowiska Node. js (v4)
 
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Najprostszym sposobem uwierzytelniania aplikacji opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . W celu uproszczenia tego przewodnika Szybki Start tworzy aplikację konsolową. Uwierzytelnianie aplikacji klasycznej przy użyciu platformy Azure wymaga użycia nazwy głównej usługi i zasad kontroli dostępu.
+Najprostszym sposobem uwierzytelniania aplikacji opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) .
+
+W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://<my-Unique-Service-Name>".
 
 Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
 ```
 
 Ta operacja zwróci serię par klucz/wartość. 

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Omówienie
   href: v1-overview.md
-- name: Przykłady
+- name: Samples
   href: sample-v1-code.md
 - name: Pojęcia
   items:
@@ -22,7 +22,7 @@
           href: native-app.md
         - name: Aplikacja demona lub serwera
           href: service-to-service.md
-    - name: Uwierzytelnianie
+    - name: Authentication
       items:
         - name: Podstawowe informacje o uwierzytelnianiu
           href: v1-authentication-scenarios.md
@@ -83,7 +83,7 @@
       href: ../develop/authentication-national-cloud.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 - name: Przewodniki z instrukcjami
   items:
-    - name: Uwierzytelnianie
+    - name: Authentication
       items:
         - name: Konfigurowanie logowania jednokrotnego
           displayName: SSO
@@ -112,7 +112,7 @@
       items:
         - name: Konwertowanie aplikacji z jedną dzierżawą na aplikację z wieloma dzierżawami
           href: ../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-        - name: Tworzenie jednostki usługi
+        - name: Tworzenie nazwy głównej usługi
           items:
             - name: Korzystanie z programu Azure PowerShell
               href: ../develop/howto-authenticate-service-principal-powershell.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
@@ -158,7 +158,7 @@
     - name: Korzystanie z interfejsu API programu Microsoft Graph
       href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Usługi AD FS dla deweloperów
-      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
+      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview'
 - name: Dokumentacja
   items:
     - name: Biblioteki uwierzytelniania
