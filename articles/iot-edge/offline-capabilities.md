@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80236062"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780797"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Informacje o rozszerzonych możliwościach trybu offline dla urządzeń IoT Edge, modułów i urządzeń podrzędnych
 
@@ -108,7 +108,7 @@ Jednym ze sposobów tworzenia tej relacji zaufania jest szczegółowo opisany w 
 
 ## <a name="specify-dns-servers"></a>Określ serwery DNS
 
-W celu zwiększenia niezawodności należy określić adresy serwerów DNS używane w danym środowisku. Aby ustawić serwer DNS dla IoT Edge, zobacz rozwiązanie dla agenta programu [Edge stale raportuje pusty plik konfiguracji i nie uruchamia żadnych modułów na urządzeniu w artykule dotyczącym](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) rozwiązywania problemów.
+W celu zwiększenia niezawodności należy określić adresy serwerów DNS używane w danym środowisku. Aby ustawić serwer DNS dla IoT Edge, zobacz rozwiązanie dla agenta programu [Edge stale raportuje pusty plik konfiguracji i nie uruchamia żadnych modułów na urządzeniu w artykule dotyczącym](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) rozwiązywania problemów.
 
 ## <a name="optional-offline-settings"></a>Opcjonalne ustawienia trybu offline
 

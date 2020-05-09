@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244812"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791990"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące sieci wirtualnych platformy Azure
 
@@ -44,7 +44,7 @@ Tak. Możesz użyć sieci wirtualnej bez łączenia jej z Twoim lokalem. Można 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Czy mogę przeprowadzić optymalizację sieci WAN między sieci wirtualnychą a siecią wirtualną i lokalnym centrum danych?
 Tak. [Wirtualne urządzenie sieciowe optymalizacji sieci WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/?term=wan%20optimization) można wdrożyć od kilku dostawców za pośrednictwem portalu Azure Marketplace.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Jakie narzędzia są używane do tworzenia sieci wirtualnej?
 Aby utworzyć lub skonfigurować sieć wirtualną, można użyć następujących narzędzi:
@@ -88,7 +88,7 @@ Tak. Można utworzyć tabelę tras i skojarzyć ją z podsiecią. Aby uzyskać w
 Nie. Multiemisja i emisja nie są obsługiwane.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Jakich protokołów mogę używać w ramach sieci wirtualnych?
-W programie sieci wirtualnych można używać protokołów TCP, UDP i ICMP protokołu TCP/IP. Emisja pojedyncza jest obsługiwana w ramach sieci wirtualnych, z wyjątkiem Dynamic Host Configuration Protocol (DHCP) za pośrednictwem emisji pojedynczej (port źródłowy UDP/68/port docelowy UDP/67). Pakiety multiemisji, emisji, pakiety IP w IP hermetyzowane i pakietów GRE (Generic Routing Encapsulation) są blokowane w ramach sieci wirtualnych. 
+W programie sieci wirtualnych można używać protokołów TCP, UDP i ICMP protokołu TCP/IP. Emisja pojedyncza jest obsługiwana w sieci wirtualnych, z wyjątkiem Dynamic Host Configuration Protocol (DHCP) za pośrednictwem emisji pojedynczej (port źródłowy UDP/68/port docelowy UDP/67) i portu źródłowego UDP 65330, który jest zarezerwowany dla hosta. Pakiety multiemisji, emisji, pakiety IP w IP hermetyzowane i pakietów GRE (Generic Routing Encapsulation) są blokowane w ramach sieci wirtualnych. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Czy mogę wysłać polecenie ping do moich domyślnych routerów w sieci wirtualnej?
 Nie.

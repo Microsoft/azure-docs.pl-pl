@@ -9,16 +9,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944553"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628196"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
-Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych serii N platformy Azure z systemem Linux, należy zainstalować sterowniki graficznego procesora NVIDIA. [Rozszerzenie sterownika NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim za pomocą Azure Portal lub narzędzi, takich jak szablony Azure Resource Manager interfejsu wiersza polecenia platformy Azure. Zapoznaj się z [dokumentacją rozszerzenia sterownika procesora GPU firmy NVIDIA](../extensions/hpccompute-gpu-linux.md) , aby poznać obsługiwane dystrybucje i kroki wdrażania.
+Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych serii N platformy Azure, które są obsługiwane przez procesory GPU firmy NVIDIA, należy zainstalować sterowniki procesora GPU NVIDIA. [Rozszerzenie sterownika NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) instaluje odpowiednie sterowniki NVIDIA CUDA lub Grid na maszynie wirtualnej z serii N. Zainstaluj rozszerzenie lub Zarządzaj nim za pomocą Azure Portal lub narzędzi, takich jak szablony Azure Resource Manager interfejsu wiersza polecenia platformy Azure. Zapoznaj się z [dokumentacją rozszerzenia sterownika procesora GPU firmy NVIDIA](../extensions/hpccompute-gpu-linux.md) , aby poznać obsługiwane dystrybucje i kroki wdrażania.
 
 W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU w tym artykule przedstawiono obsługiwane dystrybucje, sterowniki oraz kroki instalacji i weryfikacji. Informacje o ręcznej instalacji sterownika są również dostępne dla [maszyn wirtualnych z systemem Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -151,7 +151,7 @@ Jeśli sterownik jest zainstalowany, zostaną wyświetlone dane wyjściowe podob
 
 ## <a name="rdma-network-connectivity"></a>Łączność sieciowa RDMA
 
-Łączność sieciową RDMA można włączyć na maszynach wirtualnych z serii N obsługujących funkcję RDMA, takich jak NC24r wdrożone w tym samym zestawie dostępności lub w pojedynczej grupie umieszczania w zestawie skalowania maszyn wirtualnych. Sieć RDMA obsługuje ruch MPI (Message Passing Interface) dla aplikacji uruchamianych z technologią Intel MPI 5. x lub nowszą. Dodatkowe wymagania są następujące:
+Łączność sieciową RDMA można włączyć na maszynach wirtualnych z serii N obsługujących funkcję RDMA, takich jak NC24r wdrożone w tym samym zestawie dostępności lub w pojedynczej grupie umieszczania w wirtualnym zestawie skalowania machiine (VM). Sieć RDMA obsługuje ruch MPI (Message Passing Interface) dla aplikacji uruchamianych z technologią Intel MPI 5. x lub nowszą. Dodatkowe wymagania są następujące:
 
 ### <a name="distributions"></a>Dystrybucji
 
@@ -356,7 +356,7 @@ Następnie utwórz wpis dla skryptu aktualizacji w programie `/etc/rc.d/rc3.d` ,
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * Można ustawić tryb trwałości przy użyciu `nvidia-smi` , aby dane wyjściowe polecenia były szybsze, gdy zachodzi potrzeba zazapytania o karty. Aby ustawić tryb trwałości, wykonaj `nvidia-smi -pm 1`. Należy pamiętać, że jeśli maszyna wirtualna jest ponownie uruchamiana, ustawienie Tryb zostanie wysunięte. Zawsze możesz wykonać skrypty dla ustawienia Tryb, które ma być wykonywane po uruchomieniu.
-* Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i znajdowanie connectivcity RDMA nie działa, należy [ponownie zainstalować sterowniki RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) w celu reistablish łączności. 
+* Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i wyszukiwanie łączności RDMA nie działa dłużej, należy [ponownie zainstalować sterowniki RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) w celu ponownego nawiązania połączenia. 
 
 ## <a name="next-steps"></a>Następne kroki
 

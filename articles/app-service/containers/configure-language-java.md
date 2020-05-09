@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffc7c289fd675a68c8b02af1777fea3d4530e17a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457896"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889493"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Linux dla usługi Azure App Service
 
@@ -25,7 +25,7 @@ Ten przewodnik zawiera najważniejsze pojęcia i instrukcje dla deweloperów ję
 
 ## <a name="deploying-your-app"></a>Wdrażanie aplikacji
 
-Aby Azure App Service wdrożyć pliki jar i War, można użyć [wtyczki Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . Wdrożenie ze popularną środowisk IDE jest również obsługiwane w przypadku [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) lub [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Aby Azure App Service wdrożyć pliki jar i War, można użyć [wtyczki Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . Wdrożenie ze popularną środowisk IDE jest również obsługiwane w przypadku [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) lub [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 W przeciwnym razie metoda wdrażania będzie zależeć od typu archiwum:
 
@@ -324,7 +324,7 @@ App Service system Linux kieruje żądania przychodzące do portu 80, dlatego ap
 
 Te instrukcje dotyczą wszystkich połączeń z bazą danych. Musisz wypełnić symbole zastępcze nazwą klasy sterownika wybranej bazy danych i plikiem JAR. Dostarczono tabelę z nazwami klas i pobraniami sterowników dla wspólnych baz danych.
 
-| baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
+| Baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Pobierz](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Pobierz](https://dev.mysql.com/downloads/connector/j/) (wybierz pozycję "Platforma niezależna") |
@@ -561,21 +561,25 @@ Aby użyć Tomcat z Redis, musisz skonfigurować aplikację tak, aby korzystała
 
 8. Zaktualizuj `azure-webapp-maven-plugin` konfigurację w pliku *pliku pom. XML* aplikacji, aby odwołać się do informacji o koncie Redis. Ten plik korzysta ze zmiennych środowiskowych ustawionych wcześniej w celu zachowania informacji o koncie z plików źródłowych.
 
-    W razie potrzeby zmień `1.7.0` na bieżącą wersję [wtyczki Maven dla usługi Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    W razie potrzeby zmień `1.9.1` na bieżącą wersję [wtyczki Maven dla usługi Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-
+        <version>1.9.1</version>
+        <configuration>            
             <!-- Web App information -->
+            <schemaVersion>v2</schemaVersion>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
             <appName>${WEBAPP_NAME}-${REGION}</appName>
-            <region>${REGION}</region>
-            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            <region>${REGION}</region>            
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
 
             <appSettings>
                 <property>

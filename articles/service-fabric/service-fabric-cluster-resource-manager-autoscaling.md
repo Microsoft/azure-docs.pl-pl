@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984541"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793095"
 ---
 # <a name="introduction-to-auto-scaling"></a>Wprowadzenie do automatycznego skalowania
 Skalowanie automatyczne to dodatkowa funkcja Service Fabric do dynamicznego skalowania usług na podstawie obciążenia, które usługi są raportowane lub na podstawie ich użycia. Skalowanie automatyczne zapewnia doskonałą elastyczność i umożliwia obsługę dodatkowych wystąpień lub partycji usługi na żądanie. Cały proces skalowania automatycznego jest zautomatyzowany i przejrzysty, a po skonfigurowaniu zasad w ramach usługi nie ma potrzeby ręcznego skalowania operacji na poziomie usługi. Skalowanie automatyczne może być włączane podczas tworzenia usługi lub w dowolnym momencie przez aktualizację usługi.
@@ -130,7 +130,7 @@ Analogicznie jak w przypadku mechanizmu, który używa skalowania poprzez dodawa
 * _Minimalna liczba wystąpień_ definiuje dolny limit skalowania. Jeśli liczba partycji usługi osiągnie ten limit, wówczas usługa nie będzie skalowana w przypadku, gdy jest to możliwe.
 
 > [!WARNING] 
-> Gdy AddRemoveIncrementalNamedPartitionScalingMechanism jest używany z usługami stanowymi, Service Fabric doda lub usunie partycje **bez powiadomienia lub ostrzeżenia**. Ponowne Partycjonowanie danych nie zostanie wykonane, gdy zostanie wyzwolony mechanizm skalowania. W przypadku operacji skalowania w górę nowe partycje będą puste i w przypadku operacji skalowania w dół **partycja zostanie usunięta wraz ze wszystkimi danymi, które zawiera**.
+> Gdy AddRemoveIncrementalNamedPartitionScalingMechanism jest używany z usługami stanowymi, Service Fabric doda lub usunie partycje **bez powiadomienia lub ostrzeżenia**. Ponowne Partycjonowanie danych nie zostanie wykonane, gdy zostanie wyzwolony mechanizm skalowania. W przypadku operacji skalowania w poziomie nowe partycje będą puste i w przypadku operacji skalowania **partycja zostanie usunięta wraz ze wszystkimi danymi, które zawiera**.
 
 ## <a name="setting-auto-scaling-policy"></a>Ustawianie zasad automatycznego skalowania
 

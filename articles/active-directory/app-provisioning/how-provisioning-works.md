@@ -2,31 +2,27 @@
 title: Informacje o sposobie działania aprowizacji usługi Azure AD | Microsoft Docs
 description: Informacje o działaniu aprowizacji usługi Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884889"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593730"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
 Automatyczne Inicjowanie obsługi odnosi się do tworzenia tożsamości i ról użytkowników w aplikacjach w chmurze, do których użytkownicy potrzebują dostępu. Oprócz tworzenia tożsamości użytkowników automatyczne Inicjowanie obsługi obejmuje konserwację i usuwanie tożsamości użytkowników jako zmiany stanu lub ról. Przed rozpoczęciem wdrażania możesz przejrzeć ten artykuł, aby dowiedzieć się, jak działa usługa Azure AD i uzyskać zalecenia dotyczące konfiguracji. 
 
-**Usługa Azure AD Provisioning** udostępnia użytkownikom SaaS aplikacje i inne systemy, łącząc się z systemem dla punktu końcowego interfejsu API zarządzania tożsamościami w wielu domenach (standard scim) 2,0 przez dostawcę aplikacji. Ten punkt końcowy Standard scim umożliwia usłudze Azure AD Programistyczne tworzenie, aktualizowanie i usuwanie użytkowników. W przypadku wybranych aplikacji usługa aprowizacji może również tworzyć, aktualizować i usuwać dodatkowe obiekty powiązane z tożsamościami, takie jak grupy i role. Kanał używany do aprowizacji między usługą Azure AD a aplikacją jest szyfrowany przy użyciu szyfrowania HTTPS TLS.
+**Usługa Azure AD Provisioning** udostępnia użytkownikom SaaS aplikacje i inne systemy, łącząc się z systemem dla punktu końcowego interfejsu API zarządzania tożsamościami w wielu domenach (standard scim) 2,0 przez dostawcę aplikacji. Ten punkt końcowy Standard scim umożliwia usłudze Azure AD Programistyczne tworzenie, aktualizowanie i usuwanie użytkowników. W przypadku wybranych aplikacji usługa aprowizacji może również tworzyć, aktualizować i usuwać dodatkowe obiekty powiązane z tożsamościami, takie jak grupy i role. Kanał używany do aprowizacji między usługą Azure AD a aplikacją jest szyfrowany przy użyciu szyfrowania HTTPS TLS 1,2.
 
 
 ![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)

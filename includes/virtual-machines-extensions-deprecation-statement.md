@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux

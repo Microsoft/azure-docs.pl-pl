@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778485"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981777"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Co to są zależności usługi w Azure Active Directory dostęp warunkowy? 
 
 Za pomocą zasad dostępu warunkowego można określić wymagania dostępu do witryn sieci Web i usług. Na przykład wymagania dostępu mogą obejmować wymaganie uwierzytelniania wieloskładnikowego (MFA) lub [urządzeń zarządzanych](require-managed-devices.md). 
 
 W przypadku bezpośredniego dostępu do witryny lub usługi, wpływ powiązanych zasad jest zwykle łatwy do oceny. Jeśli na przykład masz zasady, które wymagają uwierzytelniania wieloskładnikowego (MFA) dla usługi SharePoint Online, uwierzytelnianie wieloskładnikowe jest wymuszane dla każdego logowania do portalu sieci Web programu SharePoint. Nie zawsze jest to jednak proste, aby ocenić wpływ zasad, ponieważ istnieją aplikacje w chmurze z zależnościami od innych aplikacji w chmurze. Na przykład firma Microsoft Teams może zapewnić dostęp do zasobów w usłudze SharePoint Online. W związku z tym podczas uzyskiwania dostępu do programu Microsoft Teams w naszym bieżącym scenariuszu podlegają one również zasadom MFA programu SharePoint. 
+
+> [!TIP]
+> Użycie aplikacji [office 365 (wersja zapoznawcza)](concept-conditional-access-cloud-apps.md#office-365-preview) umożliwi wszystkim aplikacjom pakietu Office uniknięcie problemów z zależnościami między usługą w stosie pakietu Office.
 
 ## <a name="policy-enforcement"></a>Wymuszanie zasad 
 

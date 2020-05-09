@@ -206,7 +206,11 @@
         - name: Wtyczka usługi IoT Edge dla usługi Jenkins
           href: how-to-devops-plugins.md
     - name: Rozwiązywanie problemów
-      href: troubleshoot.md
+      items:
+        - name: Standardowe kroki diagnostyki
+          href: troubleshoot.md
+        - name: Rozwiązania typowych błędów
+          href: troubleshoot-common-errors.md
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy
