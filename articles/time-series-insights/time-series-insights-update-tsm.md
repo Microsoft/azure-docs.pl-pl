@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476658"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580604"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Model szeregów czasowych w wersji zapoznawczej Azure Time Series Insights
 
 W tym artykule opisano model szeregów czasowych, możliwości i sposób rozpoczynania kompilowania i aktualizowania własnych modeli w środowisku Azure Time Series Insights w wersji zapoznawczej.
 
 > [!TIP]
->  * Zapoznaj się z przykładem środowiska [demonstracyjnego farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) w przypadku modelu na żywo.
+>
+> * Zapoznaj się z przykładem środowiska [demonstracyjnego farmy wiatrów firmy Contoso](https://insights.timeseries.azure.com/preview/samples) w przypadku modelu na żywo.
 > * Przeczytaj informacje o [Azure Time Series Insights Eksploratorze wersji zapoznawczej](time-series-insights-update-explorer.md) , aby dowiedzieć się, jak NAWIGOWAĆ po interfejsie użytkownika modelu szeregów czasowych.
 > * Dowiedz się, [jak korzystać z modelu szeregów czasowych](time-series-insights-update-how-to-tsm.md) przy użyciu programu Time Series Insights Web Explorer.
 
@@ -51,9 +52,9 @@ Te ograniczenia ujawniły znaczenie narzędzi do agregowania i wizualizacji dany
 
 [![Przykład grafu inteligentnego dla modelu szeregów czasowych](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Model szeregów czasowych odgrywa istotną rolę w zapytaniach i nawigacji, ponieważ contextualizes dane przez umożliwienie porównań między zakresami czasu i między rodzajami czujników i urządzeń. (**A**) 
+* Model szeregów czasowych odgrywa istotną rolę w zapytaniach i nawigacji, ponieważ contextualizes dane przez umożliwienie porównań między zakresami czasu i między rodzajami czujników i urządzeń. (**A**)
 * Dane są dodatkowo zaewidencjonowania, ponieważ dane utrwalane w modelu szeregów czasowych są zachowywane jako zmienne i są ponownie stosowane w czasie zapytania.
-* Model szeregów czasowych organizuje i agreguje dane w celu zwiększenia możliwości wizualizacji i zarządzania. (**B**) 
+* Model szeregów czasowych organizuje i agreguje dane w celu zwiększenia możliwości wizualizacji i zarządzania. (**B**)
 
 ### <a name="key-capabilities"></a>Najważniejsze możliwości
 
@@ -290,7 +291,7 @@ Typy Time Series Insights mogą mieć wiele zmiennych, które określają reguł
 
 Każda zmienna może być jednym z trzech *rodzajów*: *liczbowej*, *kategorii*i *agregacji*.
 
-* Rodzaje **liczbowe** pracują z ciągłymi wartościami. 
+* Rodzaje **liczbowe** pracują z ciągłymi wartościami.
 * Rodzaje **kategorii** działają ze zdefiniowanym zestawem wartości dyskretnych.
 * **Zagregowane** wartości łączą wiele zmiennych pojedynczego rodzaju (wszystkie liczbowe lub wszystkie kategorii).
 

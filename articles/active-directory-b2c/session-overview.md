@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230914"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927041"
 ---
 # <a name="azure-ad-b2c-session"></a>Sesja Azure AD B2C
 
@@ -99,22 +99,20 @@ W przypadku żądania wylogowania Azure AD B2C:
    - SAML — Jeśli metadane dostawcy tożsamości zawierają `SingleLogoutService` lokalizację.
 1. Opcjonalnie możesz wylogować się z innych aplikacji. Aby uzyskać więcej informacji, zobacz sekcję [Logowanie](#single-sign-out) jednokrotne.
 
-> [!NOTE]
-> Wylogowanie powoduje wyczyszczenie stanu logowania jednokrotnego użytkownika przy użyciu Azure AD B2C, ale może nie podpisać użytkownika z sesji dostawcy tożsamości społecznościowej. Jeśli użytkownik wybierze tego samego dostawcę tożsamości podczas kolejnego logowania, może ponownie uwierzytelnić się bez wprowadzania poświadczeń. Jeśli użytkownik chce wylogować się z aplikacji, nie musi to oznaczać, że chce się wylogować z konta w serwisie Facebook. Jeśli jednak są używane konta lokalne, sesja użytkownika zostanie zakończona prawidłowo.
+Wylogowanie powoduje wyczyszczenie stanu logowania jednokrotnego użytkownika przy użyciu Azure AD B2C, ale może nie podpisać użytkownika z sesji dostawcy tożsamości społecznościowej. Jeśli użytkownik wybierze tego samego dostawcę tożsamości podczas kolejnego logowania, może ponownie uwierzytelnić się bez wprowadzania poświadczeń. Jeśli użytkownik chce wylogować się z aplikacji, nie musi to oznaczać, że chce się wylogować z konta w serwisie Facebook. Jeśli jednak są używane konta lokalne, sesja użytkownika zostanie zakończona prawidłowo.
 
-### <a name="single-sign-out"></a>Wylogowanie jednokrotne
+### <a name="single-sign-out"></a>Wylogowanie jednokrotne 
+
+
+> [!NOTE]
+> Ta funkcja jest ograniczona do [zasad niestandardowych](custom-policy-overview.md).
 
 Po przekierowaniu użytkownika do punktu końcowego wylogowania Azure AD B2C (dla protokołów OAuth2 i SAML) Azure AD B2C czyści sesję użytkownika z przeglądarki. Jednak użytkownik może nadal być zalogowany do innych aplikacji, które używają Azure AD B2C do uwierzytelniania. Aby umożliwić tym aplikacjom jednokrotne podpisywanie użytkownika, Azure AD B2C wysyła żądanie HTTP GET do zarejestrowanych `LogoutUrl` wszystkich aplikacji, do których użytkownik jest aktualnie zalogowany.
 
-Aplikacje muszą odpowiedzieć na to żądanie przez wyczyszczenie każdej sesji identyfikującej użytkownika i zwracającej `200` odpowiedź. Jeśli chcesz obsługiwać Logowanie jednokrotne w aplikacji, musisz zaimplementować `LogoutUrl` w kodzie aplikacji. Można ustawić na `LogoutUrl` podstawie Azure Portal:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Wybierz swój aktywny katalog usługi B2C, klikając swoje konto w prawym górnym rogu strony.
-1. W panelu nawigacyjnym po lewej stronie wybierz opcję **Azure AD B2C**, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację.
-1. Wybierz pozycję **Ustawienia**, wybierz pozycję **Właściwości**, a następnie znajdź pole tekstowe **adres URL wylogowywania** . 
-
+Aplikacje muszą odpowiedzieć na to żądanie przez wyczyszczenie każdej sesji identyfikującej użytkownika i zwracającej `200` odpowiedź. Jeśli chcesz obsługiwać Logowanie jednokrotne w aplikacji, musisz zaimplementować `LogoutUrl` w kodzie aplikacji. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się, jak [skonfigurować zachowanie sesji w przepływie użytkownika](session-behavior.md).
-- Dowiedz się, jak [skonfigurować zachowanie sesji w zasadach niestandardowych](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Dowiedz się, jak [skonfigurować zachowanie sesji w zasadach niestandardowych](session-behavior-custom-policy.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76156781"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872494"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Szybki Start: Nawiązywanie połączenia z aplikacją poleceń niestandardowych za pomocą zestawu Speech SDK (wersja zapoznawcza)
 
@@ -24,19 +24,20 @@ Po utworzeniu hostowanej aplikacji poleceń niestandardowych można zacząć mó
 W tym artykule przedstawiono następujące:
 
 - Publikowanie aplikacji poleceń niestandardowych i Pobieranie identyfikatora aplikacji (Identyfikator aplikacji)
-- Tworzenie aplikacji klienckiej przy użyciu zestawu Speech SDK, aby umożliwić rozmowę z aplikacją poleceń niestandardowych
+- Tworzenie aplikacji klienckiej platforma uniwersalna systemu Windows (platformy UWP) przy użyciu zestawu Speech SDK, aby umożliwić rozmowę z aplikacją poleceń niestandardowych
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania tego artykułu jest wymagana aplikacja poleceń niestandardowych. Jeśli jeszcze nie utworzono aplikacji poleceń niestandardowych, można to zrobić w następujących wcześniejszych przewodnikach szybki start:
-
-- [Szybki Start: Tworzenie polecenia niestandardowego (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md)
-- [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class = "checklist"]
+> * [Szybki Start: Tworzenie polecenia niestandardowego (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md)
+> * [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
 
 Wymagane są również:
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
+> * [Włącz Programowanie na urządzeniu](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="optional-get-started-fast"></a>Opcjonalne: szybkie rozpoczynanie pracy
 
@@ -44,12 +45,13 @@ W tym przewodniku szybki start opisano krok po kroku, jak umożliwić aplikacji 
 
 ## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
 
-1. Otwórz [wcześniej utworzone aplikacje niestandardowe poleceń](./quickstart-custom-speech-commands-create-new.md) i wybierz pozycję **Publikuj** .
+1. Otwórz [wcześniej utworzone aplikacje poleceń niestandardowych (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md) i wybierz pozycję **Publikuj** .
 
    > [!div class="mx-imgBorder"]
    > ![Publikowanie aplikacji](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Skopiuj identyfikator aplikacji z powiadomienia o opublikowaniu do późniejszego użycia
+1. Skopiuj klucz zasobu mowy do późniejszego użycia
 
 ## <a name="step-2-create-a-visual-studio-project"></a>Krok 2. Tworzenie projektu programu Visual Studio
 
@@ -129,7 +131,7 @@ Dodaj źródło związane z kodem w następujący sposób:
 
 1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs` źródłowy związany z kodem (pogrupowany pod `MainPage.xaml`).
 
-1. Zastąp zawartość pliku następującym kodem:
+1. Zastąp zawartość pliku następującym kodem: 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -298,6 +300,11 @@ Dodaj źródło związane z kodem w następujący sposób:
        }
    }
    ```
+    > [!NOTE]
+    > Jeśli widzisz błąd: "typ obiektu" jest zdefiniowany w zestawie, do którego nie istnieje odwołanie
+    > 1. Klient z odpowiednim rozwiązaniem.
+    > 1. Wybierz opcję **Zarządzaj pakietami NuGet dla rozwiązania**, wybierz pozycję **aktualizacje** 
+    > 1. Jeśli na liście aktualizacji jest wyświetlany **pakiet Microsoft. WebCore. UniversalWindowsPlatform** , zaktualizuj **pakiet Microsoft. WebCore. UniversalWindowsPlatform** do najnowszej wersji
 
 1. Dodaj następujący kod do treści metody`InitializeDialogServiceConnector`
 
@@ -419,3 +426,6 @@ Dodaj źródło związane z kodem w następujący sposób:
 > [!div class="nextstepaction"]
 > [Instrukcje: wykonywanie poleceń na kliencie przy użyciu zestawu Speech SDK (wersja zapoznawcza)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-validations.md)
+
+## <a name="sample-source-code"></a>Przykładowy kod źródłowy
+Zapoznaj się z przykładowymi kodami klientów w witrynie [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

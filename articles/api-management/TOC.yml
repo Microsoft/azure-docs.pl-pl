@@ -53,6 +53,8 @@
           href: api-management-policies.md
     - name: Zabezpieczenia
       items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
         - name: Wbudowane mechanizmy zabezpieczeń
           href: api-management-security-controls.md
     - name: Subskrypcje
