@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: b00dd226306ed639757666cc4f826b0d7a0e5711
 ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/01/2020
 ms.locfileid: "82651824"

@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928282"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786975"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -114,15 +114,6 @@ Zdalna ścieżka użytkownika do gałęzi umożliwia użytkownikom zdalnym, któ
 
 Tranzyt między sieciami wirtualnymi umożliwia sieci wirtualnych łączenie się ze sobą w celu łączenia aplikacji wielowarstwowych wdrożonych w wielu sieci wirtualnychach. Opcjonalnie można połączyć sieci wirtualnych ze sobą za pośrednictwem komunikacji równorzędnej sieci wirtualnych, co może być odpowiednie w przypadku niektórych scenariuszy, w których przesyłanie za pośrednictwem centrum VWAN nie jest konieczne.
 
-
-## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Wymuszanie tunelowania i trasy domyślnej w wirtualnej sieci WAN platformy Azure
-
-Tunelowanie wymuszone może być włączane przez skonfigurowanie domyślnej trasy dla połączenia sieci VPN, ExpressRoute lub Virtual Network w wirtualnej sieci WAN.
-
-Koncentrator wirtualny propaguje domyślną trasę do sieci wirtualnej lub połączenia sieci VPN typu lokacja-lokacja/ExpressRoute, jeśli w ramach tego ustawienia włączono flagę domyślną. 
-
-Ta flaga jest widoczna, gdy użytkownik edytuje połączenie sieci wirtualnej, połączenie sieci VPN lub połączenie ExpressRoute. Domyślnie ta flaga jest wyłączona, gdy lokacja lub obwód ExpressRoute jest podłączony do centrum. Jest ona domyślnie włączona po dodaniu połączenia sieci wirtualnej w celu podłączenia sieci wirtualnej do koncentratora wirtualnego. Trasa domyślna nie pochodzi z wirtualnego koncentratora sieci WAN; Trasa domyślna jest propagowana, jeśli jest już wykorzystana przez koncentrator wirtualnych sieci WAN w wyniku wdrożenia zapory w centrum lub jeśli w innej połączonej lokacji włączono tunelowanie wymuszone.
-
 ## <a name="security-and-policy-control"></a><a name="security"></a>Zabezpieczenia i kontrola zasad
 
 Wirtualne centra sieci wirtualnej platformy Azure łączą wszystkie punkty końcowe sieci w sieci hybrydowej i potencjalnie widzą cały ruch w sieci tranzytowej. Wirtualne centra sieci WAN można przekonwertować na zabezpieczone centra wirtualne, wdrażając zaporę platformy Azure wewnątrz centrów VWAN w celu włączenia zabezpieczeń, dostępu i kontroli zasad opartych na chmurze. Aranżacja zapór platformy Azure w wirtualnych centrach sieci WAN może być wykonywana przez Menedżera zapory platformy Azure.
@@ -149,24 +140,6 @@ Połączenie między sieciami wirtualnymi a transportem zewnętrznym umożliwia 
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Odgałęzienie do Internetu lub usługa zabezpieczeń innych firm (j)
 Odgałęzienie do Internetu lub zabezpieczone tranzyt innych firm umożliwia rozgałęzienia do łączenia się z Internetem lub obsługiwanych usług zabezpieczeń innych firm za pośrednictwem zapory platformy Azure w wirtualnym koncentratorze sieci WAN.
-
-### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Jak mogę włączyć trasy domyślnej (0.0.0.0/0) w zabezpieczonym koncentratorze wirtualnym
-
-Zaporę platformy Azure wdrożoną w wirtualnym Centrum sieci WAN (Secure Hub) można skonfigurować jako router domyślny dla Internetu lub zaufanego dostawcy zabezpieczeń dla wszystkich gałęzi (połączonych przez sieć VPN lub Express Route), szprych sieci wirtualnych i użytkowników (połączonych za pośrednictwem sieci VPN P2S). Tę konfigurację należy wykonać przy użyciu Menedżera zapory platformy Azure.  Zobacz kierowanie ruchu do centrum, aby skonfigurować cały ruch z gałęzi (w tym użytkowników), a także sieci wirtualnych do Internetu za pośrednictwem zapory platformy Azure. 
-
-Jest to dwuetapowa konfiguracja:
-
-1. Skonfiguruj Routing ruchu internetowego przy użyciu menu Ustawienia bezpiecznego routingu koncentratora wirtualnego. Skonfiguruj sieci wirtualnych i gałęzie, które mogą wysyłać ruch do Internetu za pośrednictwem zapory.
-
-2. Skonfiguruj, które połączenia (Sieć wirtualna i gałąź) mogą kierować ruchem do Internetu (0.0.0.0/0) za pośrednictwem usługi Azure PD w centrum lub zaufanym dostawcy zabezpieczeń. Ten krok zapewnia, że trasa domyślna jest propagowana do wybranych gałęzi i sieci wirtualnych podłączonych do wirtualnego koncentratora sieci WAN za pośrednictwem połączeń. 
-
-### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Wymuszanie tunelowania ruchu do zapory lokalnej w zabezpieczonym koncentratorze wirtualnym
-
-Jeśli jest już poznania trasy domyślnej (za pośrednictwem protokołu BGP) przez koncentrator wirtualny z jednej z gałęzi (sieci VPN lub ER), ta trasa domyślna jest zastępowana przez domyślną trasę podaną na podstawie ustawienia Menedżera zapory platformy Azure. W takim przypadku cały ruch, który przechodzi do centrum z sieci wirtualnych i rozgałęzień do Internetu, będzie kierowany do zapory platformy Azure lub zaufanego dostawcy zabezpieczeń.
-
-> [!NOTE]
-> Obecnie nie ma możliwości wyboru opcji Zapora lokalna lub Zapora platformy Azure (i zaufany dostawca zabezpieczeń) dla ruchu związanego z Internetem pochodzącego z sieci wirtualnych, gałęzi lub użytkowników. Trasa domyślna zapoznaj się z ustawieniem Menedżera zapory platformy Azure jest zawsze preferowana dla trasy domyślnej uzyskanej z jednej z gałęzi.
-
 
 ## <a name="next-steps"></a>Następne kroki
 
