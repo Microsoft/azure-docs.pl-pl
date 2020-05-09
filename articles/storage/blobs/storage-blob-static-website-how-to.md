@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247014"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839168"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
@@ -74,7 +74,7 @@ Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejs
 
    * Zastąp `<index-document-name>` symbol zastępczy nazwą dokumentu indeksu. Ten dokument jest często "index. html".
 
-### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell" />
 
@@ -159,8 +159,11 @@ Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 W tym przykładzie przyjęto założenie, że używasz poleceń z sesji Azure Cloud Shell.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
 ```
+
+> [!NOTE] 
+> Jeśli przeglądarka poprosi użytkowników o pobranie pliku zamiast renderowania zawartości, można dołączyć `--content-type 'text/html; charset=utf-8'` do polecenia. 
 
 * Zastąp wartość symbolu zastępczego `<storage-account-name>` nazwą konta magazynu.
 
@@ -171,18 +174,20 @@ az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-a
 >
 > Jeśli używasz Azure Cloud Shell, musisz odwołać się do udziału plików, który jest widoczny dla Cloud Shell. Ta lokalizacja może być udziałem plików w udziale w chmurze lub istniejącym udziałem plików, który można zainstalować z Cloud Shell. Aby dowiedzieć się, jak to zrobić, zobacz [utrwalanie plików w Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
-### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx
 ```
+
+> [!NOTE] 
+> Jeśli przeglądarka poprosi użytkowników o pobranie pliku zamiast renderowania zawartości, można dołączyć `-Properties @{ ContentType = "text/html; charset=utf-8";}` do polecenia.
 
 * Zastąp `<path-to-file>` wartość symbolu zastępczego w pełni kwalifikowaną ścieżką do pliku, który chcesz przekazać (na przykład: `C:\temp\index.html`).
 
@@ -216,7 +221,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 * Zastąp `<resource-group-name>` wartość symbolu zastępczego nazwą grupy zasobów.
 
-### <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 <a id="powershell-find-url" />
 

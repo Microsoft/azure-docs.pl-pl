@@ -13,16 +13,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535701"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629103"
 ---
 # <a name="azure-compute-unit-acu"></a>Jednostka obliczeniowa platformy Azure (ACU)
 
-Koncepcja jednostki obliczeniowej platformy Azure (ACU) zapewnia sposób porównywania wydajności obliczeniowej (CPU) w ramach jednostek SKU platformy Azure. Ten parametr pomoże łatwo zidentyfikować jednostkę SKU, która najprawdopodobniej spełni określone potrzeby związane z wydajnością. Jednostka ACU jest obecnie standaryzowana na małej maszynie wirtualnej (Standardowa_A1) jako równa 100, a wszystkie pozostałe jednostki SKU reprezentują w przybliżeniu, o ile szybciej dana jednostka SKU może uruchomić standardowy test porównawczy.
+Koncepcja jednostki obliczeniowej platformy Azure (ACU) zapewnia sposób porównywania wydajności obliczeniowej (CPU) w ramach jednostek SKU platformy Azure. Ten parametr pomoże łatwo zidentyfikować jednostkę SKU, która najprawdopodobniej spełni określone potrzeby związane z wydajnością. ACU jest obecnie ustandaryzowana na niewielkich maszynach wirtualnych (Standard_A1) o 100, a wszystkie inne jednostki SKU reprezentują znacznie większą szybkość działania jednostki SKU w ramach standardowego testu porównawczego
+
+* ACUs z technologią Intel® Turbo, aby zwiększyć częstotliwość procesora CPU i zwiększyć wydajność.  Stopień wzrostu wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
+
+* * ACUs korzystaj z technologii AMD® zwiększać częstotliwość procesora CPU i zwiększyć wydajność.  Stopień wzrostu wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
+
+Funkcja Hyper-Threading i możliwość uruchamiania wirtualizacji zagnieżdżonej
 
 > [!IMPORTANT]
 > Wartość ACU jest tylko wskazówką. Wyniki dla konkretnego obciążenia mogą się różnić.
@@ -49,16 +55,12 @@ Koncepcja jednostki obliczeniowej platformy Azure (ACU) zapewnia sposób porówn
 | [F1s — F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [G1-G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 — GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [C](h-series.md) |290 - 300* | 1:1 |
+| [H](h-series.md) |290 - 300* | 1:1 |
 | [HB](hb-series.md) |199 – 216 * * | 1:1 |
 | [WĘGLOWODOR](hc-series.md) |297 – 315 * | 1:1 |
 | [L4s — L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 — L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
 | [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
-
-* ACUs z technologią Intel® Turbo, aby zwiększyć częstotliwość procesora CPU i zwiększyć wydajność.  Stopień wzrostu wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
-* * ACUs korzystaj z technologii AMD® zwiększać częstotliwość procesora CPU i zwiększyć wydajność.  Stopień wzrostu wydajności może się różnić w zależności od rozmiaru maszyny wirtualnej, obciążenia i innych obciążeń uruchomionych na tym samym hoście.
-Funkcja Hyper-Threading i możliwość uruchamiania wirtualizacji zagnieżdżonej
 
 Poniżej znajdują się linki do dodatkowych informacji o różnych rozmiarach:
 

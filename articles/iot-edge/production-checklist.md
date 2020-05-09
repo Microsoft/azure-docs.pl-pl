@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204206"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780746"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Przygotowanie do wdrożenia rozwiązania IoT Edge w środowisku produkcyjnym
 
@@ -107,7 +107,7 @@ Centrum IoT Edge jest zoptymalizowane pod kątem wydajności domyślnie, dlatego
 
 Gdy **OptimizeForPerformance** ma **wartość true**, kierownik protokołu MQTT używa PooledByteBufferAllocator, co zapewnia lepszą wydajność, ale przydziela więcej pamięci. Program przydzielający nie działa poprawnie z 32-bitowymi systemami operacyjnymi ani na urządzeniach z małą ilością pamięci. Ponadto w przypadku optymalizacji pod kątem wydajności program RocksDb przydziela więcej pamięci dla roli jako dostawcy magazynu lokalnego.
 
-Aby uzyskać więcej informacji, zobacz [problemy ze stabilnością urządzeń z ograniczoną](troubleshoot.md#stability-issues-on-resource-constrained-devices)ilością zasobów.
+Aby uzyskać więcej informacji, zobacz [problemy ze stabilnością na mniejszych urządzeniach](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Wyłącz nieużywane protokoły
 
@@ -200,7 +200,7 @@ Następnie należy zaktualizować odwołania do obrazu w pliku Deployment. Templ
 
 ### <a name="review-outboundinbound-configuration"></a>Przejrzyj konfigurację wychodzącą/przychodzącą
 
-Kanały komunikacyjne między usługą Azure IoT Hub i IoT Edge są zawsze skonfigurowane jako wychodzące. W przypadku większości scenariuszy IoT Edge niezbędne są tylko trzy połączenia. Aparat kontenerów musi nawiązać połączenie z rejestrem kontenerów (rejestrem) zawierającym obrazy modułu. Środowisko uruchomieniowe IoT Edge musi nawiązać połączenie z usługą IoT Hub w celu pobrania informacji o konfiguracji urządzenia oraz wysyłania komunikatów i danych telemetrycznych. Jeśli używasz automatycznej aprowizacji, Demon IoT Edge musi nawiązać połączenie z usługą Device Provisioning. Aby uzyskać więcej informacji, zobacz [reguły konfiguracji zapory i portów](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Kanały komunikacyjne między usługą Azure IoT Hub i IoT Edge są zawsze skonfigurowane jako wychodzące. W przypadku większości scenariuszy IoT Edge niezbędne są tylko trzy połączenia. Aparat kontenerów musi nawiązać połączenie z rejestrem kontenerów (rejestrem) zawierającym obrazy modułu. Środowisko uruchomieniowe IoT Edge musi nawiązać połączenie z usługą IoT Hub w celu pobrania informacji o konfiguracji urządzenia oraz wysyłania komunikatów i danych telemetrycznych. Jeśli używasz automatycznej aprowizacji, Demon IoT Edge musi nawiązać połączenie z usługą Device Provisioning. Aby uzyskać więcej informacji, zobacz [reguły konfiguracji zapory i portów](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Zezwalaj na połączenia z urządzeń IoT Edge
 

@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460718"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891230"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
 *Analizator* jest składnikiem [aparatu wyszukiwania pełnotekstowego](search-lucene-query-architecture.md) odpowiedzialnego za przetwarzanie tekstu w ciągach zapytań i indeksowanych dokumentach. Różne analizatory manipulują tekstem na różne sposoby w zależności od scenariusza. Analizatory języka przetwarzają tekst przy użyciu reguł lingwistycznych, aby zwiększyć jakość wyszukiwania, podczas gdy inne analizatory wykonują bardziej podstawowe zadania, takie jak konwertowanie znaków na małe litery, na przykład. 
+
+Poniższy segment wideo szybko przekazuje do wyjaśnień, jak przetwarzanie tekstu działa w usłudze Azure Wyszukiwanie poznawcze.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Analizatory języka są najczęściej używane, a do każdego pola możliwego do przeszukania w indeksie Wyszukiwanie poznawcze platformy Azure jest przypisany default Language Analyzer. Podczas analizy tekstu typowe są następujące przekształcenia języka:
 
@@ -347,7 +352,7 @@ Utwórz obiekt [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Skonfiguruj Niestandardowe analizatory](index-add-custom-analyzers.md) dla minimalnego przetwarzania lub wyspecjalizowanego przetwarzania dla poszczególnych pól.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

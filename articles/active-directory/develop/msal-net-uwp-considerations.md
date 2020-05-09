@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeec28569cf31af4542d6cd7aca1fb27d77b1e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132528"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652691"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Zagadnienia dotyczące korzystania z platforma uniwersalna systemu Windows z MSAL.NET
 Deweloperzy aplikacji korzystających z platforma uniwersalna systemu Windows (platformy UWP) z MSAL.NET powinni wziąć pod uwagę Koncepcje opisane w tym artykule.
@@ -64,5 +63,5 @@ Poniższe przykłady zawierają więcej informacji.
 
 Przykład | Platforma | Opis 
 |------ | -------- | -----------|
-|[Active-Directory-dotnet-Native-platformy UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | Platforma UWP | Aplikacja kliencka platformy UWP, która korzysta z MSAL.NET. Uzyskuje dostęp do Microsoft Graph dla użytkownika, który uwierzytelnia się za pomocą punktu końcowego usługi Azure AD 2,0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-dotnet-Native-platformy UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Aplikacja kliencka platformy UWP, która korzysta z MSAL.NET. Uzyskuje dostęp do Microsoft Graph dla użytkownika, który uwierzytelnia się za pomocą punktu końcowego usługi Azure AD 2,0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[Active-Directory-Xamarin-Native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, platformy UWP | Prosta aplikacja Xamarin Forms, która pokazuje, jak używać MSAL do uwierzytelniania kont osobistych firmy Microsoft i usługi Azure AD za pośrednictwem punktu końcowego usługi Azure AD 2,0. Pokazano w nim także, jak uzyskać dostęp do Microsoft Graph i wyświetlić otrzymany token. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

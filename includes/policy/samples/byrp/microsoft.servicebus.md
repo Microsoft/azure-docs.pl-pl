@@ -1,0 +1,21 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 05/05/2020
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: 19386e9f3d576b796274f01a8b8abd5adbdfa90d
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82966085"
+---
+|Nazwa |Opis |Efekt (s) |Wersja |GitHub |
+|---|---|---|---|---|
+|[Wszystkie reguły autoryzacji z wyjątkiem RootManageSharedAccessKey powinny zostać usunięte z przestrzeni nazw Service Bus](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1817ec0-a368-432a-8057-8371e17ac6ee) |Klienci Service Bus nie powinni używać zasad dostępu na poziomie przestrzeni nazw, które zapewniają dostęp do wszystkich kolejek i tematów w przestrzeni nazw. Aby dostosować model zabezpieczeń najniższych uprawnień, należy utworzyć zasady dostępu na poziomie jednostki dla kolejek i tematów, aby zapewnić dostęp tylko do określonej jednostki. |Inspekcja, Odmów, wyłączone |1.0.1 |[Łącze](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditNamespaceAccessRules_Audit.json) |
+|[Wdróż ustawienia diagnostyczne dla Service Bus w centrum zdarzeń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |Wdraża ustawienia diagnostyczne dla Service Bus w celu przesyłania strumieniowego do regionalnego centrum zdarzeń, gdy jest tworzony lub aktualizowany dowolny Service Bus, dla którego brakuje tych ustawień diagnostycznych. |DeployIfNotExists, wyłączone |2.0.0 |[Łącze](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |
+|[Wdróż ustawienia diagnostyczne dla Service Bus do Log Analytics obszaru roboczego](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04d53d87-841c-4f23-8a5b-21564380b55e) |Wdraża ustawienia diagnostyczne dla Service Bus w celu przesyłania strumieniowego do obszaru roboczego Log Analytics regionalnej, gdy dowolna Service Bus, w której brakuje tych ustawień diagnostycznych, zostanie utworzona lub zaktualizowana. |DeployIfNotExists, wyłączone |1.0.0 |[Łącze](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
+|[Dzienniki diagnostyczne w Service Bus powinny być włączone](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff8d36e2f-389b-4ee4-898d-21aeb69a0f45) |Inspekcja włączenia dzienników diagnostycznych. Pozwala to na ponowne utworzenie śladów aktywności do użycia w celach dochodzeniowych; gdy wystąpi zdarzenie związane z bezpieczeństwem lub w przypadku naruszenia bezpieczeństwa sieci |AuditIfNotExists, wyłączone |2.0.0 |[Łącze](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Service%20Bus/ServiceBus_AuditDiagnosticLog_Audit.json) |
+|[Service Bus powinien używać punktu końcowego usługi sieci wirtualnej](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F235359c5-7c52-4b82-9055-01c75cf9f60e) |Ta zasada przeprowadza inspekcję wszelkich Service Bus nieskonfigurowanych do korzystania z punktu końcowego usługi sieci wirtualnej. |AuditIfNotExists, wyłączone |1.0.0 |[Łącze](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ServiceBus_AuditIfNotExists.json) |

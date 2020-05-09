@@ -2,19 +2,19 @@
 title: Application Insights platformy Azure dla aplikacji ASP.NET Core | Microsoft Docs
 description: Monitoruj ASP.NET Core aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145258"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652768"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights aplikacji ASP.NET Core
 
 W tym artykule opisano sposób włączania Application Insights dla aplikacji [ASP.NET Core](https://docs.microsoft.com/aspnet/core) . Po wykonaniu instrukcji przedstawionych w tym artykule Application Insights będzie zbierać żądania, zależności, wyjątki, liczniki wydajności, pulsy i dzienniki z aplikacji ASP.NET Core.
 
-Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) , której `netcoreapp2.2`dotyczy. Te instrukcje można zastosować do wszystkich aplikacji ASP.NET Core.
+Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) , której `netcoreapp3.0`dotyczy. Te instrukcje można zastosować do wszystkich aplikacji ASP.NET Core.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
@@ -28,7 +28,7 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](https://docs.mic
 * **IDE**: Visual Studio, vs Code lub wiersz polecenia.
 
 > [!NOTE]
-> Jeśli używasz ASP.NET Core 3. X wraz z Application Insights, użyj wersji [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) lub nowszej. Jest to jedyna wersja, która obsługuje ASP.NET Core 3. X.
+> ASP.NET Core 3. X wymaga [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) lub nowszego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -109,7 +109,9 @@ Przykład będziemy używać tutaj, gdy jest to [aplikacja MVC](https://docs.mic
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Zazwyczaj `APPINSIGHTS_INSTRUMENTATIONKEY` określa klucz Instrumentacji dla aplikacji wdrożonych na platformie Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY`jest zwykle używany w [usłudze Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), ale może być również używany we wszystkich miejscach, w których ten zestaw SDK jest obsługiwany. (Jeśli wykonujesz monitorowanie aplikacji sieci Web bez kodu, ten format jest wymagany, jeśli nie korzystasz z parametrów połączenia).
+
+    Zamiast ustawiania kluczy instrumentacji, można teraz również używać [parametrów połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net).
 
     > [!NOTE]
     > Klucz Instrumentacji określony w kodzie usługi WINS przez zmienną `APPINSIGHTS_INSTRUMENTATIONKEY`środowiskową, która jest usługą WINS w porównaniu z innymi opcjami.
@@ -209,7 +211,7 @@ Pełna lista ustawień w programie`ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Włącz/Wyłącz`AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Włącz/Wyłącz funkcję LiveMetrics | true
 |EnableAdaptiveSampling | Włącz/Wyłącz próbkowanie adaptacyjne | true
-|EnableHeartbeat | Funkcja włączania/wyłączania pulsu, która okresowo (domyślnie 15-minutowa) wysyła metrykę niestandardową o nazwie "HeartBeatState" z informacjami o środowisku uruchomieniowym, takim jak wersja platformy .NET, informacje dotyczące środowiska platformy Azure, jeśli ma to zastosowanie itd. | true
+|EnableHeartbeat | Funkcja włączania/wyłączania pulsu, która okresowo (domyślnie 15-minutowa) wysyła metrykę niestandardową o nazwie "HeartbeatState" z informacjami o środowisku uruchomieniowym, takim jak wersja platformy .NET, informacje dotyczące środowiska platformy Azure, jeśli ma to zastosowanie itd. | true
 |AddAutoCollectedMetricExtractor | Włącz/Wyłącz Ekstraktor AutoCollectedMetrics, który jest TelemetryProcessor, który wysyła wstępnie zagregowane metryki dotyczące żądań/zależności przed pobraniem próbek. | true
 |RequestCollectionOptions.TrackExceptions | Włącz/Wyłącz raportowanie nieobsłużonego śledzenia wyjątków przez moduł kolekcji żądań. | wartość false w programie STANDARDowym 2.0 (ponieważ wyjątki są śledzone za pomocą ApplicationInsightsLoggerProvider), true w przeciwnym razie.
 

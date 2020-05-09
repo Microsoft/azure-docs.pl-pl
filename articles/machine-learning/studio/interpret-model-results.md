@@ -8,21 +8,18 @@ ms.subservice: studio
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a201ef63a9a1a6bb5bd078867ccc1200893049
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218066"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982024"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretowanie wyników modelu w Azure Machine Learning Studio (klasyczny)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 W tym temacie wyjaśniono, jak wizualizować i interpretować wyniki prognozowania w Azure Machine Learning Studio (klasyczny). Po przeprowadzeniu szkolenia modelu i zakończeniu przewidywania względem niego ("Ocena modelu") należy zrozumieć i zinterpretować wynik przewidywania.
-
-
 
 Istnieją cztery główne rodzaje modeli uczenia maszynowego w Azure Machine Learning Studio (klasyczny):
 
@@ -37,11 +34,11 @@ Moduły używane do przewidywania w oparciu o te modele są następujące:
 * [Przypisywanie do modułu klastrów][assign-to-clusters] na potrzeby klastrowania
 * Zalecenie [Matchbox oceny][score-matchbox-recommender] dla systemów rekomendacji
 
-W tym dokumencie wyjaśniono, jak interpretować wyniki prognoz dla każdego z tych modułów. Aby zapoznać się z omówieniem tych modułów, zobacz [jak wybrać parametry w celu optymalizacji algorytmów w Azure Machine Learning Studio (klasyczny)](algorithm-parameters-optimize.md).
+Dowiedz się, jak [wybierać parametry w celu optymalizacji algorytmów w ml Studio (klasyczny)](algorithm-parameters-optimize.md).
 
-Ten temat dotyczy interpretacji przewidywania, ale nie oceny modelu. Aby uzyskać więcej informacji o sposobach oceny modelu, zobacz [jak oszacować wydajność modelu w Azure Machine Learning Studio (klasyczny)](evaluate-model-performance.md).
+Aby dowiedzieć się, jak oszacować modele, zobacz [jak oszacować wydajność modelu](evaluate-model-performance.md).
 
-Jeśli jesteś nowym do Azure Machine Learning Studio (klasyczny) i potrzebujesz pomocy przy tworzeniu prostego eksperymentu, aby rozpocząć pracę, zobacz [Tworzenie prostego eksperymentu w Azure Machine Learning Studio (klasyczny)](create-experiment.md).
+Jeśli jesteś nowym do ML Studio (klasyczny), [Dowiedz się, jak utworzyć prosty eksperyment](create-experiment.md).
 
 ## <a name="classification"></a>Klasyfikacja
 Istnieją dwie podkategorie problemów klasyfikacji:

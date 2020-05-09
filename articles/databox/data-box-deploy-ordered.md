@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb4d2faafacf8ba4d8bbe519d92c950cd56e32fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81398663"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857058"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Samouczek: Zamawianie urządzenia Azure Data Box
 
@@ -88,7 +88,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa Data Box przekazuje wirtualne dyski twarde jako stronicowe obiekty blob do przejściowego konta magazynu przed przekonwertowaniem ich na dyski zarządzane i przeniesieniem do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. W obszarze **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie. Kliknij przycisk **Dalej**.
+7. W obszarze **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie. Klienci korzystający z usługi w Japonii, Singapur, Korea i Europa Zachodnia mogą wybrać samozarządzaną wysyłkę podczas umieszczania zamówienia. Po pomyślnym złożeniu zamówienia otrzymasz wiadomość e-mail z instrukcjami dotyczącymi wybierania urządzenia z wystawionego centrum danych platformy Azure. Po pomyślnym sprawdzeniu szczegółów wysyłki kliknij przycisk **dalej** .
 
 8. W obszarze **Szczegóły powiadomienia** podaj adresy e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
 

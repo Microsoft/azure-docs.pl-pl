@@ -5,17 +5,17 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 05/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273736"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864372"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Używanie rozszerzenia kondycji aplikacji z zestawami skalowania maszyn wirtualnych
-Monitorowanie kondycji aplikacji jest ważnym sygnałem do zarządzania wdrożeniem i uaktualniania go. Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają obsługę [uaktualnień stopniowych](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , takich jak [automatyczne uaktualnienia obrazu systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md), które polegają na monitorowaniu kondycji poszczególnych wystąpień w celu uaktualnienia wdrożenia.
+Monitorowanie kondycji aplikacji jest ważnym sygnałem do zarządzania wdrożeniem i uaktualniania go. Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają obsługę [uaktualnień stopniowych](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , takich jak [automatyczne uaktualnienia obrazu systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md), które polegają na monitorowaniu kondycji poszczególnych wystąpień w celu uaktualnienia wdrożenia. Można również użyć rozszerzenia kondycji do monitorowania kondycji aplikacji każdego wystąpienia w zestawie skalowania i wykonywania napraw wystąpień przy użyciu [automatycznych napraw wystąpień](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 W tym artykule opisano, jak można użyć rozszerzenia kondycja aplikacji do monitorowania kondycji aplikacji wdrożonych w ramach zestawów skalowania maszyn wirtualnych.
 
@@ -31,7 +31,7 @@ Ponieważ rozszerzenie raportuje kondycję z maszyny wirtualnej, rozszerzenie mo
 
 ## <a name="extension-schema"></a>Schemat rozszerzenia
 
-Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerzenie wymaga co najmniej jednego żądania "TCP" lub "http" ze skojarzonym portem lub ścieżką żądania.
+Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerzenie wymaga co najmniej jednego żądania "TCP", "http" lub "https" ze skojarzonym portem lub ścieżką żądania.
 
 ```json
 {
@@ -57,7 +57,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerz
 
 | Nazwa | Wartość/przykład | Typ danych
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | date |
+| apiVersion | `2018-10-01` | data |
 | publisher | `Microsoft.ManagedServices` | ciąg |
 | type | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (system Windows) | ciąg |
 | typeHandlerVersion | `1.0` | int |
@@ -66,9 +66,9 @@ Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerz
 
 | Nazwa | Wartość/przykład | Typ danych
 | ---- | ---- | ----
-| protokol | `http` lub `tcp` | ciąg |
-| port | Opcjonalne, gdy protokół `http`jest, obowiązkowy, gdy protokół jest`tcp` | int |
-| requestPath | Obowiązkowe, gdy protokół `http`jest, niedozwolony, gdy protokół jest`tcp` | ciąg |
+| protokol | `http`lub `https` lub`tcp` | ciąg |
+| port | Opcjonalne, gdy protokół `http` jest `https`lub, obowiązkowy, gdy protokół jest`tcp` | int |
+| requestPath | Obowiązkowe, gdy protokół `http` jest `https`lub, nie jest dozwolony, gdy protokół jest`tcp` | ciąg |
 
 ## <a name="deploy-the-application-health-extension"></a>Wdróż rozszerzenie kondycji aplikacji
 Istnieje wiele sposobów wdrażania rozszerzenia kondycji aplikacji w zestawach skalowania, jak opisano w poniższych przykładach.
