@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392293"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995792"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
-W tym artykule opisano sposób tworzenia konta Azure Automation w Azure Portal. Korzystając z konta usługi Automation w portalu, można oszacować i poznać automatyzację bez używania dodatkowych rozwiązań do zarządzania ani integracji z dziennikami Azure Monitor. Możesz dodać te rozwiązania do zarządzania lub zintegrować je z dziennikami Azure Monitor w celu zaawansowanego monitorowania zadań elementu Runbook w dowolnym momencie w przyszłości.
+W tym artykule opisano sposób tworzenia konta Azure Automation w Azure Portal. Możesz użyć konta usługi Automation w portalu, aby oszacować i poznać automatyzację bez używania dodatkowych funkcji zarządzania ani integrowania z dziennikami Azure Monitor. Możesz dodać funkcje zarządzania lub zintegrować je z dziennikami Azure Monitor w celu zaawansowanego monitorowania zadań elementu Runbook w dowolnym momencie w przyszłości.
 
 Za pomocą konta usługi Automation można uwierzytelniać elementy Runbook przez zarządzanie zasobami w ramach jednego Azure Resource Manager lub klasycznego modelu wdrażania. Jedno konto usługi Automation może zarządzać zasobami we wszystkich regionach i subskrypcjach dla danej dzierżawy.
 

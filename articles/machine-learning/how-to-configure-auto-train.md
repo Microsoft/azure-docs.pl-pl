@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7b268f3efa64c2f1ae78794056fdfda2b27434e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c917912e50c864f49abd5afcd28df4633702f0f
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186933"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993711"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ W przypadku wykonywania zdalnego dane szkoleniowe muszą być dostępne ze zdaln
 * łatwo Transferuj dane ze źródeł plików statycznych lub adresów URL do obszaru roboczego
 * Udostępnij swoje dane dla skryptów szkoleniowych w przypadku korzystania z zasobów obliczeniowych w chmurze
 
-Zobacz [instrukcje](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) dotyczące przykładu użycia `Dataset` klasy do instalowania danych w celu obliczenia.
+Zobacz [instrukcje](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) dotyczące przykładu użycia `Dataset` klasy do instalowania danych w celu obliczenia.
 
 ## <a name="train-and-validation-data"></a>Dane dotyczące uczenia i walidacji
 

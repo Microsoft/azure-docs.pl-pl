@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927925"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994745"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -68,7 +68,7 @@ Elementy Runbook muszą zawierać logikę do obsługi [zasobów](https://docs.mi
 
 ## <a name="security"></a>Zabezpieczenia
 
-Azure Automation używa [Azure Security Center (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) w celu zapewnienia bezpieczeństwa zasobów i wykrywania kompromisów w systemach Linux. Zabezpieczenia są udostępniane w ramach obciążeń, niezależnie od tego, czy zasoby znajdują się na platformie Azure, czy nie. Zapoznaj [się z artykułem wprowadzenie do uwierzytelniania w Azure Automation](automation-security-overview.md).
+Azure Automation używa [Azure Security Center (ASC)](../security-center/security-center-intro.md) w celu zapewnienia bezpieczeństwa zasobów i wykrywania kompromisów w systemach Linux. Zabezpieczenia są udostępniane w ramach obciążeń, niezależnie od tego, czy zasoby znajdują się na platformie Azure, czy nie. Zapoznaj [się z artykułem wprowadzenie do uwierzytelniania w Azure Automation](automation-security-overview.md).
 
 Wartość ASC umieszcza ograniczenia dla użytkowników, którzy mogą uruchamiać dowolne skrypty, podpisane lub niepodpisane na maszynie wirtualnej. Jeśli jesteś użytkownikiem z dostępem głównym do maszyny wirtualnej, musisz jawnie skonfigurować maszynę z podpisem cyfrowym lub wyłączyć ją. W przeciwnym razie można uruchomić skrypt, aby zastosować aktualizacje systemu operacyjnego po utworzeniu konta usługi Automation i włączeniu odpowiedniej funkcji.
 

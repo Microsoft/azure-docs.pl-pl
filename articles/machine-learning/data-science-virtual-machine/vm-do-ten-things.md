@@ -5,16 +5,16 @@ description: Wykonuj zadania eksploracji i modelowania danych w Data Science Vir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.date: 05/08/2020
+ms.openlocfilehash: a2eba958ca2d4a90cb3706839d726fdd0a48ed4f
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929285"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994087"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dziesięć rzeczy, które możesz wykonać w Data Science Virtual Machine systemu Windows
 
@@ -30,7 +30,7 @@ W tym artykule dowiesz się, jak używać DSVM do wykonywania zadań analizy dan
 - Administruj zasobami platformy Azure przy użyciu Azure Portal lub programu PowerShell.
 - Zwiększ ilość miejsca w magazynie i Udostępnij zestawy danych o dużej skali/kod w całym zespole, tworząc Azure Files udział jako instalowalny dysk w DSVM.
 - Udostępnianie kodu zespołowi za pomocą usługi GitHub. Uzyskaj dostęp do repozytorium przy użyciu wstępnie zainstalowanych klientów git: narzędzia Git bash i interfejsu GUI systemu Git.
-- Uzyskuj dostęp do usług Azure Data and Analytics, takich jak Azure Blob Storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse i Azure SQL Database.
+- Uzyskuj dostęp do usług Azure Data and Analytics, takich jak Azure Blob Storage, Azure Data Lake, Azure Cosmos DB, Azure SQL Data Warehouse i Azure SQL Database.
 - Twórz raporty i pulpit nawigacyjny przy użyciu wystąpienia Power BI Desktop, które jest wstępnie zainstalowane w DSVM i wdrażaj je w chmurze.
 - Dynamiczne skalowanie DSVM, aby spełniały potrzeby Twojego projektu.
 - Zainstaluj dodatkowe narzędzia na maszynie wirtualnej.   
@@ -127,11 +127,6 @@ pass
 
 IrisPredictor(3,2,3,4)
 ```
-
-> [!NOTE]
-> Obecnie Biblioteka Azure Machine Learning jest obsługiwana tylko w języku Python 2,7.   
-> 
-> 
 
 ### <a name="build-and-operationalize-r-models"></a>Tworzenie i operacjonalizować modeli R
 Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto kroki do wykonania:
@@ -269,7 +264,7 @@ Magazyn obiektów blob platformy Azure to niezawodna, ekonomiczna usługa magazy
 
 * Utwórz konto usługi Azure Blob Storage na podstawie [Azure Portal](https://portal.azure.com).
 
-   ![Zrzut ekranu procesu tworzenia konta magazynu w Azure Portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+   ![Zrzut ekranu procesu tworzenia konta magazynu w Azure Portal](./media/vm-do-ten-things/create-azure-blob.png)
 
 * Upewnij się, że narzędzie wiersza polecenia AzCopy jest wstępnie zainstalowane: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Katalog zawierający plik AzCopy. exe znajduje się już w zmiennej środowiskowej PATH, dlatego można uniknąć wpisywania pełnej ścieżki polecenia podczas uruchamiania tego narzędzia. Więcej informacji o narzędziu AzCopy można znaleźć w [dokumentacji AzCopy](../../storage/common/storage-use-azcopy.md).
 * Uruchom narzędzie Eksplorator usługi Azure Storage. Można go pobrać z [witryny sieci web Eksplorator usługi Storage](https://storageexplorer.com/). 
@@ -371,7 +366,7 @@ Azure Data Lake Storage to repozytorium do skalowania danych Big Data, które je
 
 * Utwórz wystąpienie Azure Data Lake Analytics w [Azure Portal](https://portal.azure.com).
 
-   ![Zrzut ekranu przedstawiający tworzenie wystąpienia Data Lake Analytics z Azure Portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+   ![Zrzut ekranu przedstawiający tworzenie wystąpienia Data Lake Analytics z Azure Portal](./media/vm-do-ten-things/azure-data-lake-create-v3.png)
 
 * [Narzędzia Azure Data Lake i Stream Analytics Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504) są już zainstalowane w programie Visual Studio Community Edition na maszynie wirtualnej. Po uruchomieniu programu Visual Studio i zalogowaniu się do subskrypcji platformy Azure powinno być widoczne Twoje konto i magazyn usługi Azure Data Analytics w lewym panelu programu Visual Studio.
 
@@ -448,361 +443,6 @@ Po przesłaniu zapytania do serwera tripdata_summary. Plik CSV jest wyświetlany
 Zostaną wyświetlone informacje o pliku:
 
 ![Zrzut ekranu przedstawiający informacje podsumowujące pliku](./media/vm-do-ten-things/USQL_tripdata_summary.png)
-
-### <a name="hdinsight-hadoop-clusters"></a>Klastry usługi HDInsight Hadoop
-Azure HDInsight to zarządzana usługa Apache Hadoop, Spark, HBase i burza w chmurze. Możesz łatwo współpracować z klastrami usługi Azure HDInsight z poziomu Data Science Virtual Machine.
-
-#### <a name="prerequisites"></a>Wymagania wstępne
-
-* Utwórz konto usługi Azure Blob Storage na podstawie [Azure Portal](https://portal.azure.com). To konto magazynu jest używane do przechowywania danych dla klastrów usługi HDInsight.
-
-   ![Zrzut ekranu przedstawiający tworzenie konta magazynu na podstawie Azure Portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
-
-* Dostosuj klastry Azure HDInsight Hadoop z [Azure Portal](../team-data-science-process/customize-hadoop-cluster.md).
-  
-   Połącz konto magazynu utworzone przy użyciu klastra usługi HDInsight podczas jego tworzenia. To konto magazynu służy do uzyskiwania dostępu do danych, które mogą być przetwarzane w klastrze.
-
-   ![Wybory dotyczące łączenia konta magazynu utworzonego za pomocą klastra usługi HDInsight](./media/vm-do-ten-things/Create_HDI_v4.PNG)
-
-* Włącz Pulpit zdalny dostęp do węzła głównego klastra po jego utworzeniu. Zapamiętaj poświadczenia dostępu zdalnego określone w tym miejscu, ponieważ będą one potrzebne w dalszej procedurze.
-
-   ![Przycisk Pulpit zdalny na potrzeby włączania dostępu zdalnego do klastra usługi HDInsight](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
-
-* Utwórz obszar roboczy Azure Machine Learning. Eksperymenty Machine Learning są przechowywane w tym Machine Learning obszarze roboczym. Wybierz wyróżnione opcje w portalu, jak pokazano na poniższym zrzucie ekranu:
-
-   ![Tworzenie obszaru roboczego Azure Machine Learning](./media/vm-do-ten-things/Create_ML_Space.PNG)
-
-* Wprowadź parametry dla obszaru roboczego.
-
-   ![Wprowadź Machine Learning parametry obszaru roboczego](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
-
-* Przekazywanie danych za pomocą notesu IPython. Zaimportuj wymagane pakiety, podłącz poświadczenia, Utwórz bazę danych na koncie magazynu, a następnie Załaduj dane do klastrów HDI.
-
-```python
-# Import required packages
-import pyodbc
-import time as time
-import json
-import os
-import urllib
-import urllib2
-import warnings
-import re
-import pandas as pd
-import matplotlib.pyplot as plt
-from azure.storage.blob import BlobService
-warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
-
-
-# Create the connection to Hive by using ODBC
-SERVER_NAME = 'xxx.azurehdinsight.net'
-DATABASE_NAME = 'nyctaxidb'
-USERID = 'xxx'
-PASSWORD = 'xxxx'
-DB_DRIVER = 'Microsoft Hive ODBC Driver'
-driver = 'DRIVER={' + DB_DRIVER + '}'
-server = 'Host=' + SERVER_NAME + ';Port=443'
-database = 'Schema=' + DATABASE_NAME
-hiveserv = 'HiveServerType=2'
-auth = 'AuthMech=6'
-uid = 'UID=' + USERID
-pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join(
-    [driver, server, database, hiveserv, auth, uid, pwd])
-connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor = connection.cursor()
-
-
-# Create the Hive database and tables
-queryString = "create database if not exists nyctaxidb;"
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.trip
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    rate_code string,
-                    store_and_fwd_flag string,
-                    pickup_datetime string,
-                    dropoff_datetime string,
-                    passenger_count int,
-                    trip_time_in_secs double,
-                    trip_distance double,
-                    pickup_longitude double,
-                    pickup_latitude double,
-                    dropoff_longitude double,
-                    dropoff_latitude double)  
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.fare
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    pickup_datetime string,
-                    payment_type string,
-                    fare_amount double,
-                    surcharge double,
-                    mta_tax double,
-                    tip_amount double,
-                    tolls_amount double,
-                    total_amount double)
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-
-# Upload data from Blob storage to an HDI cluster
-for i in range(1, 13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-```
-
-Możesz również wykonać czynności opisane w [tym instruktażu](../team-data-science-process/hive-walkthrough.md) , aby przekazać dane dotyczące NYC z taksówkami do klastra HDI. Główne kroki obejmują:
-  
-* Użyj AzCopy, aby pobrać spakowane CSV z publicznego obiektu BLOB do folderu lokalnego.
-* Użyj AzCopy, aby przekazać niespakowane CSV z folderu lokalnego do klastra HDI.
-* Zaloguj się do węzła głównego klastra usługi Hadoop i przygotuj się do analizy danych w postaci poznawczej.
-
-Po załadowaniu danych do klastra HDI można sprawdzić dane w Eksplorator usługi Azure Storage. I baza danych nyctaxidb została utworzona w klastrze HDI.
-
-#### <a name="data-exploration-hive-queries-in-python"></a>Eksploracja danych: zapytania programu Hive w języku Python
-
-Ponieważ dane są w klastrze usługi Hadoop, można użyć pakietu moduł pyodbc do łączenia się z klastrami Hadoop i bazami danych zapytań za pomocą programu Hive w celu eksplorowania i tworzenia funkcji. Można wyświetlić istniejące tabele utworzone w kroku wymagań wstępnych.
-
-```python
-queryString = """
-    show tables in nyctaxidb2;
-    """
-pd.read_sql(queryString, connection)
-```
-
-![Wyświetl istniejące tabele](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
-
-Przyjrzyjmy się liczbie rekordów w każdym miesiącu i częstotliwościach przerzucanych lub nieznajdujących się w tabeli podróży:
-
-```python
-queryString = """
-    select month, count(*) from nyctaxidb.trip group by month;
-    """
-results = pd.read_sql(queryString,connection)
-
-%matplotlib inline
-
-results.columns = ['month', 'trip_count']
-df = results.copy()
-df.index = df['month']
-df['trip_count'].plot(kind='bar')
-```
-
-![Wykres liczby rekordów w każdym miesiącu](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
-
-```python
-queryString = """
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tipped;
-    """
-results = pd.read_sql(queryString, connection)
-
-results.columns = ['tipped', 'trip_count']
-df = results.copy()
-df.index = df['tipped']
-df['trip_count'].plot(kind='bar')
-```
-
-![Wykres częstotliwości etykiet](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
-
-Możesz również obliczyć odległość między lokalizacją odbioru i lokalizacją docelową, a następnie porównać ją z odległością podróży.
-
-```python
-queryString = """
-                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                    from nyctaxidb.trip
-                    where month=1
-                        and pickup_longitude between -90 and -30
-                        and pickup_latitude between 30 and 90
-                        and dropoff_longitude between -90 and -30
-                        and dropoff_latitude between 30 and 90;
-            """
-results = pd.read_sql(queryString, connection)
-results.head(5)
-```
-
-![Najważniejsze wiersze tabeli pobrania i listy rozwijanej](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
-
-```python
-results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance'] <= 100]  # remove outliers
-df = df.loc[df['direct_distance'] <= 100]  # remove outliers
-plt.scatter(df['direct_distance'], df['trip_distance'])
-```
-
-![Wykres odległości odbioru/upuszczania do drogi podróży](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
-
-Teraz Przygotujmy przepróbkowany (1 procent) zestaw danych do modelowania. Możesz użyć tych danych w module czytnika Machine Learning.
-
-```python
-queryString = """
-create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-medallion string,
-hack_license string,
-vendor_id string,
-rate_code string,
-store_and_fwd_flag string,
-pickup_datetime string,
-dropoff_datetime string,
-pickup_hour string,
-pickup_week string,
-weekday string,
-passenger_count int,
-trip_time_in_secs double,
-trip_distance double,
-pickup_longitude double,
-pickup_latitude double,
-dropoff_longitude double,
-dropoff_latitude double,
-direct_distance double,
-payment_type string,
-fare_amount double,
-surcharge double,
-mta_tax double,
-tip_amount double,
-tolls_amount double,
-total_amount double,
-tipped string,
-tip_class string
-)
-row format delimited fields terminated by ','
-lines terminated by '\\n'
-stored as textfile;
-"""
-cursor.execute(queryString)
-```
-
-Teraz Wstaw zawartość sprzężenia do poprzedniej tabeli wewnętrznej.
-
-```python
-queryString = """
-insert overwrite table nyctaxi_downsampled_dataset_testNEW
-select
-t.medallion,
-t.hack_license,
-t.vendor_id,
-t.rate_code,
-t.store_and_fwd_flag,
-t.pickup_datetime,
-t.dropoff_datetime,
-hour(t.pickup_datetime) as pickup_hour,
-weekofyear(t.pickup_datetime) as pickup_week,
-from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-t.passenger_count,
-t.trip_time_in_secs,
-t.trip_distance,
-t.pickup_longitude,
-t.pickup_latitude,
-t.dropoff_longitude,
-t.dropoff_latitude,
-t.direct_distance,
-f.payment_type,
-f.fare_amount,
-f.surcharge,
-f.mta_tax,
-f.tip_amount,
-f.tolls_amount,
-f.total_amount,
-if(tip_amount>0,1,0) as tipped,
-if(tip_amount=0,0,
-if(tip_amount>0 and tip_amount<=5,1,
-if(tip_amount>5 and tip_amount<=10,2,
-if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-from
-(
-select
-medallion,
-hack_license,
-vendor_id,
-rate_code,
-store_and_fwd_flag,
-pickup_datetime,
-dropoff_datetime,
-passenger_count,
-trip_time_in_secs,
-trip_distance,
-pickup_longitude,
-pickup_latitude,
-dropoff_longitude,
-dropoff_latitude,
-3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-+cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-rand() as sample_key
-
-from trip
-where pickup_latitude between 30 and 90
-    and pickup_longitude between -90 and -30
-    and dropoff_latitude between 30 and 90
-    and dropoff_longitude between -90 and -30
-)t
-join
-(
-select
-medallion,
-hack_license,
-vendor_id,
-pickup_datetime,
-payment_type,
-fare_amount,
-surcharge,
-mta_tax,
-tip_amount,
-tolls_amount,
-total_amount
-from fare
-)f
-on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-where t.sample_key<=0.01
-"""
-cursor.execute(queryString)
-```
-
-Po czasie możesz zobaczyć, że dane zostały załadowane w klastrach Hadoop:
-
-```python
-queryString = """
-    select * from nyctaxi_downsampled_dataset limit 10;
-    """
-cursor.execute(queryString)
-pd.read_sql(queryString, connection)
-```
-
-![Najważniejsze wiersze danych z tabeli](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Azure SQL Data Warehouse i bazy danych
 Azure SQL Data Warehouse to elastyczny magazyn danych jako usługa z obsługą SQL Server klasy korporacyjnej.

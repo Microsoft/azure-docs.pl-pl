@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74899793"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995818"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Korzystaj z przesunięć czasowych i danych wyjściowych, aby utworzyć odtwarzanie wideo na żądanie
 
-W Azure Media Services obiekt [danych wyjściowych na żywo](https://docs.microsoft.com/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobów](https://docs.microsoft.com/rest/api/media/assets) (kontener znajduje się na koncie usługi Azure Storage podłączonym do Twojego konta). Na żywo dane wyjściowe umożliwiają również kontrolowanie niektórych właściwości wychodzącego strumienia na żywo, takich jak część strumienia jest przechowywana w archiwum archiwalnym (na przykład pojemność DVR w chmurze) lub gdy przeglądający mogą zacząć oglądać strumień na żywo. Archiwum na dysku jest archiwum cykliczne "okno", które zawiera tylko ilość zawartości, która jest określona we właściwości **archiveWindowLength** na żywo danych wyjściowych. Zawartość spoza tego okna jest automatycznie odrzucana z kontenera magazynu i nie jest odzyskiwalna. Wartość archiveWindowLength reprezentuje czas trwania przedziału ISO 8601 (na przykład PTHH: MM: SS), który określa pojemność DVR. Wartość można ustawić z co najmniej trzech minut do maksymalnie 25 godzin.
+W Azure Media Services obiekt [danych wyjściowych na żywo](https://docs.microsoft.com/rest/api/media/liveoutputs) przypomina cyfrowy rejestrator wideo, który będzie przechwytywać i rejestrować strumień na żywo do zasobu na koncie Media Services. Zarejestrowana zawartość jest zachowywana w kontenerze zdefiniowanym [przez zasób zasobów](https://docs.microsoft.com/rest/api/media/assets) (kontener znajduje się na koncie usługi Azure Storage podłączonym do Twojego konta). Na żywo dane wyjściowe umożliwiają również kontrolowanie niektórych właściwości wychodzącego strumienia na żywo, takich jak część strumienia jest przechowywana w archiwum archiwalnym (na przykład pojemność DVR w chmurze) lub gdy przeglądający mogą zacząć oglądać strumień na żywo. Archiwum na dysku jest archiwum cykliczne "okno", które zawiera tylko ilość zawartości, która jest określona we właściwości **archiveWindowLength** na żywo danych wyjściowych. Zawartość spoza tego okna jest automatycznie odrzucana z kontenera magazynu i nie jest odzyskiwalna. Wartość archiveWindowLength reprezentuje czas trwania przedziału ISO 8601 (na przykład PTHH: MM: SS), który określa pojemność DVR. Wartość można ustawić z co najmniej jednej minuty do maksymalnie 25 godzin.
 
 Relacja między wydarzeniem działającym na żywo a jego wyjściem dynamicznym jest podobna do tradycyjnego rozgłaszania TV, ponieważ kanał (wydarzenie na żywo) reprezentuje stały strumień wideo, a nagrywanie (wyjście na żywo) jest ograniczone do określonego segmentu czasu (na przykład wiadomości wieczorem z 6:30 do 7:13:00). Gdy strumień przepływa do zdarzenia na żywo, możesz rozpocząć zdarzenie przesyłania strumieniowego, tworząc element zawartości, dane wyjściowe i lokalizator przesyłania strumieniowego. Na żywo wyjście będzie archiwizować strumień i udostępnić je osobom oglądającym za pomocą [punktu końcowego przesyłania strumieniowego](https://docs.microsoft.com/rest/api/media/streamingendpoints). Można utworzyć wiele danych wyjściowych na żywo (maksymalnie trzy) dla zdarzenia na żywo o różnych długościach i ustawieniach archiwum. Informacje o przepływie pracy przesyłania strumieniowego na żywo znajdują się w sekcji [ogólnych kroków](live-streaming-overview.md#general-steps) .
 

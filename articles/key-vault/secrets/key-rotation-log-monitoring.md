@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430255"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995977"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji
 
@@ -85,23 +85,35 @@ Najpierw musisz zarejestrować aplikację w Azure Active Directory. Następnie p
 > [!NOTE]
 > Aplikacja musi zostać utworzona w tej samej dzierżawie Azure Active Directoryej co Magazyn kluczy.
 
-1. Otwórz **Azure Active Directory**.
-2. Wybierz pozycję **Rejestracje aplikacji**. 
-3. Wybierz pozycję **rejestracja nowej aplikacji** , aby dodać aplikację do Azure Active Directory.
+1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com) przy użyciu służbowego lub osobistego konta Microsoft.
+1. Jeśli Twoje konto zapewnia dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu. Skonfiguruj sesję portalu do dzierżawy usługi Azure AD, której chcesz użyć.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. Wybierz pozycję **Nowa rejestracja**.
+1. W obszarze **zarejestruj aplikację**wprowadź zrozumiałą nazwę aplikacji wyświetlaną dla użytkowników.
+1. Określ, kto może korzystać z aplikacji w następujący sposób:
 
-    ![Otwieranie aplikacji w Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Obsługiwane typy konta | Opis |
+    |-------------------------|-------------|
+    | **Konta tylko w tym katalogu organizacyjnym** | Wybierz tę opcję, jeśli kompilujesz aplikację biznesową. Ta opcja jest niedostępna, jeśli aplikacja nie jest rejestrowana w katalogu.<br><br>Ta opcja mapuje do usługi Azure AD tylko aplikację jednodostępną.<br><br>Ta opcja jest wartością domyślną, chyba że rejestrujesz aplikację poza katalogiem. W przypadkach, gdy aplikacja jest rejestrowana poza katalogiem, wartość domyślna to aplikacja wielodostępna usługi Azure AD i konta osobiste Microsoft. |
+    | **Konta w dowolnym katalogu organizacyjnym** | Wybierz tę opcję, jeśli aplikacja jest przeznaczona dla wszystkich klientów biznesowych i edukacyjnych.<br><br>Ta opcja mapuje do usługi Azure AD tylko aplikację wielodostępną.<br><br>Jeśli aplikacja została zarejestrowana jako jedyna dzierżawa usługi Azure AD, możesz ją zaktualizować do usługi Azure AD z wieloma dzierżawcami i z powrotem do jednej dzierżawy za pomocą strony **uwierzytelniania** . |
+    | **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft** | Wybierz tę opcję, aby przeznaczyć aplikację dla najszerszego możliwego grona klientów.<br><br>Ta opcja mapuje do usługi Azure AD aplikację wielodostępną i konta osobiste Microsoft.<br><br>Jeśli aplikacja została zarejestrowana jako usługa Azure AD z wieloma dzierżawcami i osobistymi kontami Microsoft, nie można zmienić tego ustawienia w interfejsie użytkownika. Zamiast tego musisz użyć edytora manifestu aplikacji, aby zmienić obsługiwane typy konta. |
 
-4. W obszarze **Utwórz**pozostaw typ aplikacji jako **aplikacja sieci Web/interfejs API** i nadaj aplikacji nazwę. Nadaj aplikacji **adres URL logowania**. Ten adres URL może być dowolny dla tej wersji demonstracyjnej.
+1. W obszarze **URI przekierowania (opcjonalnie)** wybierz typ aplikacji, którą tworzysz: klient **internetowy** lub **publiczny (Mobile & Desktop)**. Następnie wprowadź identyfikator URI przekierowania lub adres URL odpowiedzi dla aplikacji.
 
-    ![Utwórz rejestrację aplikacji](../media/keyvault-keyrotation/create-app.png)
+    * W przypadku aplikacji internetowej podaj podstawowy adres URL aplikacji. Na przykład ciąg `https://localhost:31544` może być adresem URL aplikacji internetowej uruchomionej na komputerze lokalnym. Użytkownicy mogą użyć tego adresu URL, aby zalogować się do aplikacji klienta internetowego.
+    * W przypadku publicznych aplikacji klienckich podaj identyfikator URI używany przez usługę Azure AD do zwracania odpowiedzi tokenu. Podaj wartość specyficzną dla Twojej aplikacji, np. `myapp://auth`.
 
-5. Po dodaniu aplikacji do Azure Active Directory zostanie otwarta strona aplikacji. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Właściwości**. Skopiuj wartość **identyfikatora aplikacji** . Będzie on potrzebny w kolejnych krokach.
+1. Po zakończeniu wybierz pozycję **Rejestruj**.
 
-Następnie Wygeneruj klucz dla aplikacji, aby umożliwić korzystanie z Azure Active Directory. Aby utworzyć klucz, wybierz pozycję **klucze** w obszarze **Ustawienia**. Zanotuj nowo wygenerowany klucz dla aplikacji Azure Active Directory. Będą one potrzebne w kolejnym kroku. Po opuszczeniu tej sekcji klucz nie będzie dostępny. 
+    ![Wyświetla ekran, aby zarejestrować nową aplikację w Azure Portal](../media/new-app-registration.png)
 
-![Klucze aplikacji Azure Active Directory](../media/keyvault-keyrotation/create-key.png)
+Usługa Azure AD przypisuje do aplikacji unikatową aplikację lub identyfikator klienta. W portalu zostanie otwarta strona **Przegląd** aplikacji. Zanotuj wartość **identyfikatora aplikacji (klienta)** .
 
-Przed nawiązaniem jakichkolwiek wywołań z aplikacji do magazynu kluczy należy poinformować Magazyn kluczy o aplikacji i jej uprawnieniach. Następujące polecenie używa nazwy magazynu i identyfikatora aplikacji z aplikacji Azure Active Directory, aby umożliwić aplikacji **uzyskanie** dostępu do magazynu kluczy.
+Aby dodać możliwości do aplikacji, możesz wybrać inne opcje konfiguracji, w tym znakowanie, certyfikaty i wpisy tajne, uprawnienia interfejsu API i inne.
+
+![Przykład strony przeglądu nowo zarejestrowanej aplikacji](../media//new-app-overview-page-expanded.png)
+
+Przed nawiązaniem jakichkolwiek wywołań z aplikacji do magazynu kluczy należy poinformować Magazyn kluczy o aplikacji i jej uprawnieniach. Następujące polecenie używa nazwy magazynu i **identyfikatora aplikacji (klienta)** z aplikacji Azure Active Directory, aby umożliwić aplikacji **uzyskanie** dostępu do magazynu kluczy.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

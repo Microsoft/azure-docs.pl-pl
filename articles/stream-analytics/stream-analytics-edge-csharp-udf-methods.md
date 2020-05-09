@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598151"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994484"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Opracowywanie .NET Standard funkcji zdefiniowanych przez użytkownika dla zadań Azure Stream Analytics (wersja zapoznawcza)
 
@@ -51,7 +51,7 @@ Aby wartości Azure Stream Analytics, które mają być używane w języku C#, m
 |nvarchar (max) | ciąg |
 |datetime | DateTime |
 |Rekord | Ciąg\<słownika,> obiektu |
-|Tablica | >\<obiektu tablicy |
+|Tablica | Obiekt [] |
 
 To samo jest prawdziwe, gdy dane muszą być organizowane z języka C# do Azure Stream Analytics, co odbywa się na wartości wyjściowej UDF. W poniższej tabeli pokazano, jakie typy są obsługiwane:
 
@@ -62,8 +62,8 @@ To samo jest prawdziwe, gdy dane muszą być organizowane z języka C# do Azure 
 |ciąg  |  nvarchar (max)   |
 |DateTime  |  Data i godzina   |
 |struktura   |  Rekord   |
-|obiekt  |  Rekord   |
-|>\<obiektu tablicy  |  Tablica   |
+|object  |  Rekord   |
+|Obiekt []  |  Tablica   |
 |Ciąg\<słownika,> obiektu  |  Rekord   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -140,6 +140,43 @@ Rozwiń sekcję **Konfiguracja kodu skonfigurowana przez użytkownika**, a nast�
    |Kontener ustawień niestandardowego magazynu kodu|< kontener magazynu >|
    |Źródło niestandardowego zestawu kodu|Istniejące pakiety zestawu z chmury|
    |Źródło niestandardowego zestawu kodu|UserCustomCode. zip|
+
+## <a name="user-logging"></a>Rejestrowanie użytkowników
+Mechanizm rejestrowania umożliwia przechwytywanie informacji niestandardowych, gdy zadanie jest uruchomione. Za pomocą danych dzienników można debugować lub oceniać poprawność niestandardowego kodu w czasie rzeczywistym.
+
+`StreamingContext` Klasa umożliwia publikowanie informacji diagnostycznych za pomocą `StreamingDiagnostics.WriteError` funkcji. Poniższy kod przedstawia interfejs uwidoczniony przez Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`jest przenoszona jako parametr wejściowy do metody UDF i może być używany w formacie UDF do publikowania informacji o dzienniku niestandardowym. W poniższym `MyUdfMethod` przykładzie definiuje **dane wejściowe,** które są dostarczane przez zapytanie oraz dane wejściowe **kontekstu** jako `StreamingContext`, dostarczone przez aparat środowiska uruchomieniowego. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+`StreamingContext` Wartość nie musi być przesyłana przez zapytanie SQL. Azure Stream Analytics udostępnia obiekt kontekstu automatycznie, jeśli parametr wejściowy jest obecny. Użycie `MyUdfMethod` nie zmienia się, jak pokazano w następującej kwerendzie:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Możesz uzyskać dostęp do dzienników [diagnostycznych](data-errors.md).
 
 ## <a name="limitations"></a>Ograniczenia
 Wersja zapoznawcza UDF ma obecnie następujące ograniczenia:

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735542"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996611"
 ---
 # <a name="understand-azure-role-definitions"></a>Informacje o definicjach ról platformy Azure
 
@@ -28,7 +28,9 @@ Jeśli próbujesz zrozumieć, jak działa rola platformy Azure, lub jeśli tworz
 
 ## <a name="role-definition"></a>Definicja roli
 
-*Definicja roli* to zbiór uprawnień. Czasami jest nazywana po prostu *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Może ona również zawierać listę operacji, których nie można wykonywać, lub operacji związanych z danymi źródłowymi. Definicja roli ma następujące właściwości:
+*Definicja roli* to zbiór uprawnień. Czasami jest nazywana po prostu *rolą*. Definicja roli określa dozwolone operacje, na przykład odczyt, zapis, czy usuwanie. Można również wyświetlić listę operacji, które są wykluczone z dozwolonych operacji lub operacji związanych z danymi źródłowymi.
+
+Poniżej przedstawiono przykład właściwości w definicji roli, które są wyświetlane przy użyciu Azure PowerShell:
 
 ```
 Name
@@ -42,17 +44,33 @@ NotDataActions []
 AssignableScopes []
 ```
 
+Poniżej przedstawiono przykład właściwości w definicji roli, które są wyświetlane przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub interfejsu API REST:
+
+```
+roleName
+name
+type
+description
+actions []
+notActions []
+dataActions []
+notDataActions []
+assignableScopes []
+```
+
+W poniższej tabeli opisano znaczenie właściwości roli.
+
 | Właściwość | Opis |
 | --- | --- |
-| `Name` | Nazwa wyświetlana roli. |
-| `Id` | Unikatowy identyfikator roli. |
-| `IsCustom` | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` dla ról niestandardowych. |
-| `Description` | Opis roli. |
-| `Actions` | Tablica ciągów, która określa operacje zarządzania, które mogą być wykonywane przez rolę. |
-| `NotActions` | Tablica ciągów, która określa operacje zarządzania, które są wykluczone z dozwolonej `Actions`wartości. |
-| `DataActions` | Tablica ciągów, która określa operacje na danych, które mogą być wykonywane na danych w tym obiekcie. |
-| `NotDataActions` | Tablica ciągów, która określa operacje na danych, które są wykluczone z dozwolonej `DataActions`wartości. |
-| `AssignableScopes` | Tablica ciągów, która określa zakresy, które rola jest dostępna do przypisania. |
+| `Name`</br>`roleName` | Nazwa wyświetlana roli. |
+| `Id`</br>`name` | Unikatowy identyfikator roli. |
+| `IsCustom`</br>`roleType` | Wskazuje, czy jest to rola niestandardowa. Ustaw na `true` lub `CustomRole` dla ról niestandardowych. Ustaw dla `false` ról `BuiltInRole` wbudowanych lub. |
+| `Description`</br>`description` | Opis roli. |
+| `Actions`</br>`actions` | Tablica ciągów, która określa operacje zarządzania, które mogą być wykonywane przez rolę. |
+| `NotActions`</br>`notActions` | Tablica ciągów, która określa operacje zarządzania, które są wykluczone z dozwolonej `Actions`wartości. |
+| `DataActions`</br>`dataActions` | Tablica ciągów, która określa operacje na danych, które mogą być wykonywane na danych w tym obiekcie. |
+| `NotDataActions`</br>`notDataActions` | Tablica ciągów, która określa operacje na danych, które są wykluczone z dozwolonej `DataActions`wartości. |
+| `AssignableScopes`</br>`assignableScopes` | Tablica ciągów, która określa zakresy, które rola jest dostępna do przypisania. |
 
 ### <a name="operations-format"></a>Format operacji
 
@@ -72,7 +90,9 @@ Operacje są określone za pomocą ciągów, które mają następujący format:
 
 ### <a name="role-definition-example"></a>Przykład definicji roli
 
-Oto definicja roli [współautor](built-in-roles.md#contributor) w formacie JSON. Symbol wieloznaczny (`*`) w obszarze `Actions` oznacza, że podmiot zabezpieczeń przypisany do tej roli może wykonywać wszystkie akcje, czyli może zarządzać wszystkim. Dotyczy to również akcji, które zostaną zdefiniowane, gdy do platformy Azure zostaną dodane nowe typy zasobów. Operacje w obszarze `NotActions` są odejmowane od zestawu operacji w obszarze `Actions`. W przypadku roli [Współautor](built-in-roles.md#contributor) zawartość właściwości `NotActions` uniemożliwia tej roli zarządzanie dostępem do zasobów oraz przypisywanie dostępu do zasobów.
+Oto definicja roli [współautor](built-in-roles.md#contributor) , która jest wyświetlana w Azure PowerShell i interfejs wiersza polecenia platformy Azure. Symbol wieloznaczny (`*`) w obszarze `Actions` oznacza, że podmiot zabezpieczeń przypisany do tej roli może wykonywać wszystkie akcje, czyli może zarządzać wszystkim. Dotyczy to również akcji, które zostaną zdefiniowane, gdy do platformy Azure zostaną dodane nowe typy zasobów. Operacje w obszarze `NotActions` są odejmowane od zestawu operacji w obszarze `Actions`. W przypadku roli [Współautor](built-in-roles.md#contributor) zawartość właściwości `NotActions` uniemożliwia tej roli zarządzanie dostępem do zasobów oraz przypisywanie dostępu do zasobów.
+
+Rola współautor wyświetlana w Azure PowerShell:
 
 ```json
 {
@@ -86,13 +106,47 @@ Oto definicja roli [współautor](built-in-roles.md#contributor) w formacie JSON
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Rola współautor wyświetlana w interfejsie wiersza polecenia platformy Azure:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything except access to resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.Blueprint/blueprintAssignments/write",
+        "Microsoft.Blueprint/blueprintAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -116,6 +170,8 @@ Aby obsługiwać operacje na danych, nowe właściwości danych zostały dodane 
 
 Oto definicja roli [czytnika danych obiektów blob magazynu](built-in-roles.md#storage-blob-data-reader) , która obejmuje operacje we właściwościach `Actions` i. `DataActions` Ta rola umożliwia odczytywanie kontenera obiektów blob, a także bazowe dane obiektów BLOB.
 
+Rola czytnika danych obiektów blob magazynu, która jest wyświetlana w Azure PowerShell:
+
 ```json
 {
   "Name": "Storage Blob Data Reader",
@@ -123,7 +179,8 @@ Oto definicja roli [czytnika danych obiektów blob magazynu](built-in-roles.md#s
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+    "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
   ],
   "NotActions": [],
   "DataActions": [
@@ -133,6 +190,35 @@ Oto definicja roli [czytnika danych obiektów blob magazynu](built-in-roles.md#s
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Rola czytnika danych obiektów blob magazynu, która jest wyświetlana w interfejsie wiersza polecenia platformy Azure:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage blob containers and data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Blob Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -159,9 +245,11 @@ Współautor danych obiektu blob magazynu
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Akcje dataactions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
 Ponieważ Alicja ma akcję symbol wieloznaczny (`*`) w zakresie subskrypcji, ich uprawnienia dziedziczą, aby umożliwić im wykonywanie wszystkich akcji zarządzania. Alicja może odczytywać, zapisywać i usuwać kontenery. Jednak Alicja nie może wykonywać operacji na danych bez podejmowania dodatkowych kroków. Na przykład domyślnie Alicja nie może odczytać obiektów BLOB w kontenerze. Aby odczytać obiekty blob, Alicja musiałaby pobrać klucze dostępu do magazynu i korzystać z nich w celu uzyskania dostępu do obiektów BLOB.

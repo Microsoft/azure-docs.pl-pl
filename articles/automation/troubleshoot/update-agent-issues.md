@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927891"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996434"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Rozwiązywanie problemów z usługą Windows Update Agent
 
@@ -27,21 +27,21 @@ Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
 
-W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). Narzędzie do rozwiązywania problemów zawiera teraz testy dotyczące Windows Server Update Services (WSUS) oraz kluczy autopobierania i instalacji.
+W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania problemów dla maszyn platformy Azure z Azure Portal i maszyn spoza platformy Azure w [scenariuszu w trybie offline](#troubleshoot-offline). 
 
 > [!NOTE]
-> Skrypt narzędzia do rozwiązywania problemów aktualnie nie kieruje ruchu przez serwer proxy, jeśli został skonfigurowany.
+> Skrypt narzędzia do rozwiązywania problemów zawiera teraz testy dotyczące Windows Server Update Services (WSUS) oraz kluczy autopobierania i instalacji. 
 
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
-W przypadku maszyn platformy Azure można uruchomić stronę **Rozwiązywanie problemów z agentem aktualizacji** , wybierając link **Rozwiązywanie problemów** w kolumnie **gotowość agenta aktualizacji** w portalu. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Zapoznaj się z [instrukcjami w trybie offline](#troubleshoot-offline) , aby rozwiązać problem z maszyną spoza platformy Azure.
+W przypadku maszyn platformy Azure można uruchomić stronę Rozwiązywanie problemów z agentem aktualizacji, wybierając link **Rozwiązywanie problemów** w kolumnie **gotowość agenta aktualizacji** w portalu. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Zapoznaj się z [instrukcjami w trybie offline](#troubleshoot-offline) , aby rozwiązać problem z maszyną spoza platformy Azure.
 
 ![Zrzut ekranu przedstawiający listę Update Management maszyn wirtualnych](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Aby sprawdzić kondycję hybrydowego procesu roboczego elementu Runbook, maszyna wirtualna musi być uruchomiona. Jeśli maszyna wirtualna nie jest uruchomiona, zostanie wyświetlony przycisk **Uruchom maszynę wirtualną** .
 
-Na stronie **Rozwiązywanie problemów z agentem aktualizacji** wybierz pozycję **Uruchom testy** , aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/windows/run-command.md) , aby uruchomić skrypt na maszynie, aby sprawdzić zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
+Na stronie Rozwiązywanie problemów z agentem aktualizacji wybierz pozycję **Uruchom testy** , aby uruchomić narzędzie do rozwiązywania problemów. Narzędzie do rozwiązywania problemów używa [polecenia Uruchom](../../virtual-machines/windows/run-command.md) , aby uruchomić skrypt na maszynie, aby sprawdzić zależności. Po zakończeniu narzędzia do rozwiązywania problemów zwraca wynik kontroli.
 
 ![Zrzut ekranu strony Rozwiązywanie problemów z aktualizacją agenta](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -53,7 +53,7 @@ Wyniki są wyświetlane na stronie, gdy są gotowe. Sekcje checks pokazują, co 
 
 ### <a name="operating-system"></a>System operacyjny
 
-Sprawdzenie systemu operacyjnego weryfikuje, czy hybrydowy proces roboczy elementu Runbook uruchamia jeden z następujących systemów operacyjnych:
+Sprawdzenie systemu operacyjnego weryfikuje, czy hybrydowy proces roboczy elementu Runbook uruchamia jeden z systemów operacyjnych przedstawionych w następnej tabeli.
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
@@ -61,11 +61,11 @@ Sprawdzenie systemu operacyjnego weryfikuje, czy hybrydowy proces roboczy elemen
 
 ### <a name="net-462"></a>4.6.2 .NET
 
-.NET Framework sprawdza, czy w systemie jest zainstalowany co najmniej [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) .
+.NET Framework sprawdza, czy system ma zainstalowaną [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) lub nowszą.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-Sprawdzanie plików WMF sprawdza, czy system ma wymaganą wersję programu Windows Management Framework (WMF): [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
+Sprawdzanie plików WMF sprawdza, czy system ma wymaganą wersję środowiska Windows Management Framework (WMF), która jest w systemie [Windows Management framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -77,13 +77,13 @@ Ta kontrola określa, czy używasz protokołu TLS 1,2 do szyfrowania komunikacji
 
 Ta kontrola określa, czy Agent może prawidłowo komunikować się z usługą agenta.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Punkt końcowy operacji
 
 Ta kontrola określa, czy Agent może prawidłowo komunikować się z usługą danych czasu wykonywania zadania.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="vm-service-health-checks"></a>Kontrole kondycji usługi maszyny wirtualnej
 
@@ -91,15 +91,18 @@ Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego proces
 
 Ta kontrola określa, czy Agent Log Analytics dla systemu Windows`healthservice`() jest uruchomiony na komputerze. Aby dowiedzieć się więcej o rozwiązywaniu problemów z usługą, zobacz [agent log Analytics dla systemu Windows nie jest uruchomiony](hybrid-runbook-worker.md#mma-not-running).
 
-Aby ponownie zainstalować agenta Log Analytics dla systemu Windows, zobacz [Instalowanie i konfigurowanie log Analytics agenta dla systemu Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Aby ponownie zainstalować agenta Log Analytics dla systemu Windows, zobacz [Instalowanie agenta dla systemu Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Monitorowanie zdarzeń usługi Agent
 
 To sprawdzenie decyduje o tym, czy jakiekolwiek zdarzenia 4502 pojawiają się w dzienniku Operations Manager platformy Azure na komputerze w ciągu ostatnich 24 godzin.
 
-Aby dowiedzieć się więcej o tym zdarzeniu, zobacz [Przewodnik rozwiązywania problemów](hybrid-runbook-worker.md#event-4502) dla tego zdarzenia.
+Aby dowiedzieć się więcej o tym zdarzeniu, zobacz [zdarzenie 4502 w dzienniku Operations Manager](hybrid-runbook-worker.md#event-4502) dla tego zdarzenia.
 
 ## <a name="access-permissions-checks"></a>Sprawdzanie uprawnień dostępu
+
+> [!NOTE]
+> Narzędzie do rozwiązywania problemów aktualnie nie kieruje ruchu przez serwer proxy, jeśli został skonfigurowany.
 
 ### <a name="crypto-folder-access"></a>Dostęp do folderu kryptograficznego
 
