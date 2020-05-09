@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176604"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792075"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -82,7 +82,7 @@ Należy pamiętać, że jeśli masz prywatne punkty końcowe dołączone do kont
 
 **Wskazówki**: Network Watcher przechwytywanie pakietów umożliwia tworzenie sesji przechwytywania w celu śledzenia ruchu między kontem magazynu a maszyną wirtualną. Filtry są udostępniane dla sesji przechwytywania, aby upewnić się, że przechwytywany jest tylko żądany ruch. Przechwytywanie pakietów pomaga zdiagnozować anomalie w sieci, zarówno w sposób aktywny, jak i aktywnie. Inne zastosowania obejmują gromadzenie statystyk sieci, uzyskiwanie informacji o atakach w sieci, debugowanie komunikacji klient-serwer i wiele innych. Możliwe jest zdalne wyzwalanie przechwytywania pakietów, co ułatwia nawiązanie ręcznego uruchamiania przechwycenia pakietu na odpowiedniej maszynie wirtualnej, co pozwala zaoszczędzić cenny czas. 
 
-- [Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -240,7 +240,7 @@ Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azu
 
 - [Jak ostrzec dane dziennika usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie usługi Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitorowanie Azure Security Center**: tak
 
@@ -428,7 +428,7 @@ Jednym z efektywnych sposobów zmniejszenia ryzyka niepodejrzanego dostępu do k
 
 Tworzenie ustawień diagnostycznych dla Azure Active Directory kont użytkowników, wysyłanie dzienników inspekcji i dzienników logowania do Log Analytics obszaru roboczego. Żądane alerty można skonfigurować w obszarze roboczym Log Analytics. Aby monitorować błędy uwierzytelniania na kontach usługi Azure Storage, można utworzyć alerty powiadamiające o osiągnięciu określonych progów dla metryk zasobów magazynu. Ponadto należy użyć Azure Monitor do alertu dotyczącego dostępu anonimowego dla kont magazynu przy użyciu warunku uwierzytelniania anonimowego.
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie usługi Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Jak zintegrować dzienniki aktywności platformy Azure z usługą Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -574,7 +574,7 @@ Ponadto za pomocą zasad punktu końcowego usługi sieci wirtualnej można filtr
 
 - [Jak utworzyć alerty dla zdarzeń dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Rejestrowanie analityki magazynu platformy Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Rejestrowanie usługi Azure Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Jak skonfigurować alerty metryk dla kont usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -887,7 +887,7 @@ Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia
 
 Ponadto należy często obrócić klucze konta magazynu, aby ograniczyć wpływ utraty lub ujawnienia kluczy konta magazynu.
 
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 - [Zarządzanie kluczami dostępu do konta magazynu](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 

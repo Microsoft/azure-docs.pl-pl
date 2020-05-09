@@ -1,7 +1,7 @@
 ---
-title: Używanie Azure Machine Learning za zaporą
+title: Korzystanie z zapory
 titleSuffix: Azure Machine Learning
-description: Bezpiecznie używaj Azure Machine Learning za zaporą platformy Azure. Dowiedz się więcej na temat hostów, na których należy zezwolić, aby Azure Machine Learning działać prawidłowo.
+description: Kontroluj dostęp do obszarów roboczych Azure Machine Learning przy użyciu zapór platformy Azure. Dowiedz się więcej na temat hostów, na których należy zezwolić, aby Azure Machine Learning działać prawidłowo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196324"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981969"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Używanie Azure Machine Learning obszaru roboczego za zaporą platformy Azure
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
 
-Ten artykuł zawiera informacje dotyczące konfigurowania zapory platformy Azure do użycia z programem Azure Machine Learning.
+W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure do użycia z obszarem roboczym Azure Machine Learning.
 
 Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego.
 

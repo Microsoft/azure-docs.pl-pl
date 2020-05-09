@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: fba762a53ec562bdbd52468716ce6e44eb717aaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73887188"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731682"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Narzędzia interfejsu wiersza polecenia i zestawy SDK usługi Azure NetApp Files
 
@@ -34,7 +34,7 @@ Poniższa tabela zawiera listę obsługiwanych zestawów SDK.  Szczegółowe inf
 |    .NET  |    [Azure/Azure — zestaw SDK dla sieci](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure — zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
 |    Przejdź    |    [Azure/Azure — zestaw SDK dla języka go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
-|    Java |     [Azure/Azure — zestaw SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
+|    Java |     [Azure/Azure — zestaw SDK dla języka Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
 |    JavaScript    |    [Azure/Azure-SDK-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure — zestaw SDK dla języka Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 

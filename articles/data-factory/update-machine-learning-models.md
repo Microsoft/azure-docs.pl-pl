@@ -11,33 +11,33 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409069"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927415"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aktualizowanie modeli usługi Azure Machine Learning za pomocą działania aktualizacji zasobów
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Aktualizowanie modeli ML Studio (klasycznych) w wersji v przy użyciu działania Update Resource
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Ten artykuł stanowi uzupełnienie głównego artykułu z integracją Azure Data Factory Azure Machine Learning: [Tworzenie potoków predykcyjnych za pomocą Azure Machine Learning i Azure Data Factory](transform-data-using-machine-learning.md). Jeśli jeszcze tego nie zrobiono, zapoznaj się z głównym artykułem przed przeczytaniem tego artykułu.
+Ten artykuł stanowi uzupełnienie głównego artykułu z integracją Azure Data Factory ML Studio (klasyczny): [Tworzenie potoków predykcyjnych za pomocą Azure Machine Learning i Azure Data Factory](transform-data-using-machine-learning.md). Jeśli jeszcze tego nie zrobiono, zapoznaj się z głównym artykułem przed przeczytaniem tego artykułu.
 
 ## <a name="overview"></a>Omówienie
-W ramach procesu operacjonalizowania modeli Azure Machine Learning model jest szkolony i zapisywany. Następnie należy użyć jej do utworzenia predykcyjnej usługi sieci Web. Usługę sieci Web można następnie wykorzystać w witrynach sieci Web, pulpitach nawigacyjnych i aplikacjach mobilnych.
+W ramach procesu modeli operacjonalizowania ML Studio (klasycznych) model jest przeszkolony i zapisywany. Następnie należy użyć jej do utworzenia predykcyjnej usługi sieci Web. Usługę sieci Web można następnie wykorzystać w witrynach sieci Web, pulpitach nawigacyjnych i aplikacjach mobilnych.
 
-Modele tworzone przy użyciu Machine Learning nie są zwykle statyczne. Ponieważ nowe dane staną się dostępne lub gdy użytkownik interfejsu API ma własne dane, należy ponownie przeszkolić model. Aby uzyskać szczegółowe informacje o tym, jak można ponownie przeprowadzić uczenie modelu w Azure Machine Learning, należy zapoznać się z [modelem Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) .
+Modele tworzone przy użyciu Machine Learning nie są zwykle statyczne. Ponieważ nowe dane staną się dostępne lub gdy użytkownik interfejsu API ma własne dane, należy ponownie przeszkolić model. 
 
 Przeszkolenie może odbywać się często. Za pomocą działania wykonywania wsadowego i aktualizowania aktywności zasobów można operacjonalizować model Azure Machine Learning przeszkolenie i aktualizację usługi sieci Web predykcyjnej przy użyciu Data Factory.
 
 Na poniższej ilustracji przedstawiono relacje między szkoleniem i predykcyjnymi usługami sieci Web.
 
-![Usługi sieci Web](./media/update-machine-learning-models/web-services.png)
+![usługi sieci Web](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning aktualizowania działania zasobu
+## <a name="ml-studio-classic-update-resource-activity"></a>Działanie aktualizacji zasobów ML Studio (klasycznej)
 
-Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Machine Learning.
+Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego ML Studio (klasycznego).
 
 ```json
 {
@@ -61,13 +61,13 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 
 | Właściwość                      | Opis                              | Wymagany |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nazwa działania w potoku     | Tak      |
+| name                          | Nazwa działania w potoku     | Yes      |
 | description                   | Tekst opisujący działanie działania.  | Nie       |
-| type                          | W przypadku działania dotyczącego Azure Machine Learning aktualizowania zasobów typem działania jest **AzureMLUpdateResource**. | Tak      |
-| linkedServiceName             | Azure Machine Learning połączona usługa, która zawiera właściwość właściwości updateresourceendpoint. | Tak      |
-| trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Tak      |
-| trainedModelLinkedServiceName | Nazwa połączonej usługi Azure Storage przechowująca plik ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
-| trainedModelFilePath          | Względna ścieżka pliku w trainedModelLinkedService do reprezentowania pliku ilearner, który jest przekazywany przez operację aktualizacji | Tak      |
+| type                          | W przypadku działania dotyczącego Azure Machine Learning aktualizowania zasobów typem działania jest **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Azure Machine Learning połączona usługa, która zawiera właściwość właściwości updateresourceendpoint. | Yes      |
+| trainedModelName              | Nazwa modułu przeszkolonego modelu w eksperymentie usługi sieci Web do zaktualizowania | Yes      |
+| trainedModelLinkedServiceName | Nazwa połączonej usługi Azure Storage przechowująca plik ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
+| trainedModelFilePath          | Względna ścieżka pliku w trainedModelLinkedService do reprezentowania pliku ilearner, który jest przekazywany przez operację aktualizacji | Yes      |
 
 ## <a name="end-to-end-workflow"></a>Kompletny przepływ pracy
 

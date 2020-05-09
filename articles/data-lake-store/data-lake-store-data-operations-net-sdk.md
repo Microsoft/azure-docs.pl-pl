@@ -1,17 +1,17 @@
 ---
-title: 'Zestaw SDK platformy .NET: operacje na systemie plików na Azure Data Lake Storage Gen1'
+title: .NET SDK — operacje na systemie plików na Data Lake Storage Gen1 — Azure
 description: Użyj zestawu SDK Azure Data Lake Storage Gen1 .NET dla systemu plików na Data Lake Storage Gen1, takich jak tworzenie folderów itp.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e52a3cb8d31b5fccc9a0b5a3a76d4e9b43de123
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638905"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690963"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operacje systemu plików na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 
@@ -83,7 +83,7 @@ Przykładowy kod dostępny [w usłudze GitHub](https://github.com/Azure-Samples/
 
 W pozostałych sekcjach artykułu można zobaczyć, jak używać dostępnych metod .NET do wykonywania operacji, takich jak uwierzytelnianie, przekazywanie plików itp.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 * W przypadku uwierzytelniania użytkowników końcowych w aplikacji zobacz [uwierzytelnianie użytkowników końcowych za pomocą Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Aby przeprowadzić uwierzytelnianie między usługami dla aplikacji, zobacz Uwierzytelnianie między usługami i [Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -198,7 +198,7 @@ Poniżej przedstawiono kilka przykładów, które pokazują, jak korzystać z ze
 * [Podstawowy przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Zaawansowany przykład w witrynie GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu zestawu .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Dokumentacja zestawu SDK platformy .NET Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)

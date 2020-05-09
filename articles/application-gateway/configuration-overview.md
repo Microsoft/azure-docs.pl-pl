@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632186"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856055"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -101,18 +101,18 @@ W tym scenariuszu należy użyć sieciowych grup zabezpieczeń w podsieci Applic
 
    Można utworzyć UDR do wysyłania ruchu 0.0.0.0/0 bezpośrednio do Internetu. 
 
-  **Scenariusz 3**: UDR dla usługi Azure Kubernetes Service korzystającą wtyczki kubenet
+  **Scenariusz 3**: UDR dla usługi Azure Kubernetes z usługą korzystającą wtyczki kubenet
 
-  Jeśli używasz korzystającą wtyczki kubenet z usługą Azure Kubernetes Service (AKS) i Application Gatewaym kontrolerem transferu danych przychodzących (AGIC), musisz skonfigurować tabelę tras, aby zezwolić na ruch wysyłany do tego samego węzła. Nie będzie to konieczne, jeśli używasz usługi Azure CNI. 
+  Jeśli używasz korzystającą wtyczki kubenet z usługą Azure Kubernetes Service (AKS) i Application Gatewaym kontrolerem transferu danych przychodzących (AGIC), będziesz potrzebować tabeli tras, aby zezwolić na ruch wysyłany do tych zasobników z Application Gateway do kierowania do poprawnego węzła. Nie będzie to konieczne, jeśli używasz usługi Azure CNI. 
 
-   Aby skonfigurować tabelę tras, aby zezwolić korzystającą wtyczki kubenet na działanie, wykonaj następujące czynności:
+  Aby użyć tabeli tras, aby zezwolić korzystającą wtyczki kubenet na działanie, wykonaj następujące czynności:
 
-  1. Utwórz zasób tabeli tras na platformie Azure. 
-  2. Po jego utworzeniu przejdź do strony **trasy** . 
-  3. Dodaj nową trasę:
+  1. Przejdź do grupy zasobów utworzonej przez AKS (nazwa grupy zasobów powinna zaczynać się od "MC_").
+  2. Znajdź tabelę tras utworzoną przez AKS w tej grupie zasobów. Tabelę tras należy wypełnić następującymi informacjami:
      - Prefiks adresu powinien być zakresem adresów IP, w którym chcesz dotrzeć do AKS. 
-     - Typ następnego przeskoku powinien być **urządzeniem wirtualnym**. 
-     - Adres następnego skoku powinien być adresem IP węzła hostującym zasobniki w zakresie adresów IP zdefiniowanym w polu prefiks adresu. 
+     - Typ następnego przeskoku powinien być urządzeniem wirtualnym. 
+     - Adres następnego przeskoku powinien być adresem IP węzła obsługującym zasobniki.
+  3. Skojarz tę tabelę tras z podsiecią Application Gatewayową. 
     
   **v2 nieobsługiwane scenariusze**
 

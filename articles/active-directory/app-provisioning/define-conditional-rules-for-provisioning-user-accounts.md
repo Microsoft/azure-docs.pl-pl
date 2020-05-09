@@ -2,25 +2,20 @@
 title: Inicjowanie obsługi aplikacji przy użyciu filtrów określania zakresu | Microsoft Docs
 description: Dowiedz się, jak używać filtrów zakresu, aby uniemożliwić obsługę administracyjną obiektów w aplikacjach obsługujących automatyczne Inicjowanie obsługi administracyjnej użytkowników, jeśli obiekt nie spełnia wymagań firmy.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138539"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593748"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inicjowanie obsługi aplikacji opartej na atrybutach przy użyciu filtrów zakresu
 Celem tego artykułu jest wyjaśnienie, jak używać filtrów zakresu do definiowania reguł opartych na atrybutach, które określają, którzy użytkownicy są obsługiwani do aplikacji.

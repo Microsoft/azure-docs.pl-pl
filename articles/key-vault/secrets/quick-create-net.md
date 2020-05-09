@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 5e62e8c3883ad8414d1fb550dd4221eb8b9e4056
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: be612c1e28c0d07228a0f9a183a82edd1ed70753
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81425035"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901536"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla platformy .NET (SDK v4)
 
@@ -31,7 +31,7 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Zestaw .NET Core 2,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/2.1).
+* [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/overview)
 
 W tym przewodniku Szybki Start `dotnet`założono, że korzystasz z systemu, [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)i poleceń systemu Windows w terminalu z systemem Windows (na przykład [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)lub [Azure Cloud Shell](https://shell.azure.com/)).
@@ -95,12 +95,14 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 ### <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET. Uwierzytelnianie aplikacji klasycznej przy użyciu platformy Azure wymaga użycia nazwy głównej usługi i zasad kontroli dostępu.
+Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . 
+
+W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://<my-Unique-Service-Name>".
 
 Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
 ```
 
 Ta operacja zwróci serię par klucz/wartość. 
@@ -123,7 +125,7 @@ Utwórz nazwę główną usługi przy użyciu polecenia Azure PowerShell [New-Az
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://mySP"
+$spn = New-AzADServicePrincipal -DisplayName "http://<my-unique-service-principle-name>"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id
