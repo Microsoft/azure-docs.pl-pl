@@ -23,23 +23,26 @@
   items:
     - name: Używanie buforowania z rankingami
       href: cache-web-app-cache-aside-leaderboard.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady usługi Azure Cache for Redis
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
     - name: Tryb failover i stosowanie poprawek
       href: cache-failover.md
-    - name: Najlepsze praktyki
+    - name: Najlepsze rozwiązania
       href: cache-best-practices.md
     - name: Najlepsze rozwiązania architektury dotyczące buforowania
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Klienci Redis
       href: 'https://redis.io/clients'
     - name: Polecenia Redis
@@ -141,11 +144,11 @@
       href: /azure/templates/microsoft.cache/allversions
 - name: Zasoby
   items:
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-redis-cache
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Azure Cache for Redis — często zadawane pytania
       href: cache-faq.md

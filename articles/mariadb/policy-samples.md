@@ -1,24 +1,24 @@
 ---
-title: Lista wbudowanych definicji zasad dla Azure Database for MariaDB
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MariaDB. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+title: Wbudowane definicje zasad dla Azure Database for MariaDB
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Database for MariaDB. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 04/30/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-samples
-ms.openlocfilehash: dfe33077ae4ec75c7312278242fdcc210c5b0f87
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 637904740fd54b529403f1af18b8bada25cfe5b3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966295"
+ms.locfileid: "82983435"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-mariadb"></a>Azure Policy wbudowane definicje zasad dla Azure Database for MariaDB
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Database for MariaDB. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-mariadb"></a>Azure Database for MariaDB
 

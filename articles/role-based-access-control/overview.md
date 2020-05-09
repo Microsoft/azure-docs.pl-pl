@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d186fd2182603709921f876d0bc212762cb8586b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735865"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996491"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Co to jest kontrola dostępu oparta na rolach (Azure RBAC)?
 
@@ -90,7 +90,7 @@ Na poniższym diagramie przedstawiono przykład przypisania roli. W tym przykła
 
 ![Przypisanie roli w celu kontroli dostępu](./media/overview/rbac-overview.png)
 
-Przypisania ról można tworzyć, korzystając z witryny Azure Portal, interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell, zestawów Azure SDK lub interfejsów API REST. W każdej grupie zarządzania można przyporządkować do **2000** ról w ramach każdej subskrypcji i przypisań ról **500** . Aby móc tworzyć i usuwać przypisania ról, potrzebne są uprawnienia `Microsoft.Authorization/roleAssignments/*`. Te uprawnienia można przyznać za pomocą ról [Właściciel](built-in-roles.md#owner) i [Administrator dostępu użytkowników](built-in-roles.md#user-access-administrator).
+Przypisania ról można tworzyć, korzystając z witryny Azure Portal, interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell, zestawów Azure SDK lub interfejsów API REST. W każdej subskrypcji można korzystać z maksymalnie **2000** przypisań ról. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. W każdej grupie zarządzania może istnieć maksymalnie **500** przypisań ról. Aby móc tworzyć i usuwać przypisania ról, potrzebne są uprawnienia `Microsoft.Authorization/roleAssignments/*`. Te uprawnienia można przyznać za pomocą ról [Właściciel](built-in-roles.md#owner) i [Administrator dostępu użytkowników](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Przypisania wielu ról
 

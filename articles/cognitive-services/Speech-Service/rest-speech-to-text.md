@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131299"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978624"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -52,7 +52,7 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 | Parametr | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `language` | Identyfikuje język mówiony, który jest rozpoznawany. Zobacz [obsługiwane języki](language-support.md#speech-to-text). | Wymagany |
-| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed`. Proste wyniki obejmują `RecognitionStatus`, `DisplayText`, `Offset`, i `Duration`. Szczegółowe odpowiedzi obejmują wiele wyników z wartościami ufności i czterema różnymi reprezentacjami. Ustawienie domyślne to `simple`. | Optional |
+| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed`. Proste wyniki obejmują `RecognitionStatus`, `DisplayText`, `Offset`, i `Duration`. Szczegółowe odpowiedzi obejmują cztery różne reprezentacje wyświetlanego tekstu. Ustawienie domyślne to `simple`. | Optional |
 | `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked`, które zastępują braki z gwiazdkami `removed`, które usuwają z wyniku wszystkie niezbyt wulgarne `raw`dane lub, które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Optional |
 | `pronunciationScoreParams` | Określa parametry przedstawiające wyniki wymowy w wynikach rozpoznawania, które oceniają jakość wymowy danych wejściowych mowy, ze wskaźnikami dokładności, Fluency, kompletności itp. Ten parametr jest zakodowanym w formacie base64 JSON zawierającym wiele parametrów szczegółowych. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten parametr. | Optional |
 | `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu parametru ciągu `cid` zapytania. | Optional |
@@ -74,10 +74,10 @@ Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zam
 
 Dźwięk jest wysyłany w treści żądania HTTP `POST` . Musi być w jednym z formatów w tej tabeli:
 
-| Format | Wymaga | Multimedia | Częstotliwość próbkowania  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16-bitowy  | 16 kHz, mono |
-| OGG    | OPUS  | 16-bitowy  | 16 kHz, mono |
+| Format | Wymaga | Szybkość transmisji bitów | Częstotliwość próbkowania  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 KB/s | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >Powyższe formaty są obsługiwane za pomocą interfejsu API REST i protokołu WebSocket w usłudze Speech. [Zestaw Speech SDK](speech-sdk.md) obecnie obsługuje format WAV z koderem-dekoder PCM oraz [innymi formatami](how-to-use-codec-compressed-audio-input-streams.md).
@@ -200,9 +200,10 @@ Wyniki są podane jako dane JSON. `simple` Format zawiera te pola najwyższego p
 > [!NOTE]
 > Jeśli dźwięk składa się tylko z niewulgarności, `profanity` a parametr zapytania jest ustawiony `remove`na, usługa nie zwraca wyniku mowy.
 
-`detailed` Format zawiera te same dane co `simple` format, wraz z `NBest`listą alternatywną interpretacji tego samego wyniku rozpoznawania. Te wyniki są uszeregowane od najbardziej najprawdopodobniej do najmniej najprawdopodobniej. Pierwszy wpis jest taki sam jak główny wynik rozpoznawania.  W przypadku korzystania `detailed` z formatu `DisplayText` , jest dostępny `Display` jako dla każdego wyniku na `NBest` liście.
+`detailed` Format zawiera dodatkowe formy rozpoznanych wyników.
+W przypadku korzystania `detailed` z formatu `DisplayText` , jest dostępny `Display` jako dla każdego wyniku na `NBest` liście.
 
-Każdy obiekt na `NBest` liście zawiera:
+Obiekt na `NBest` liście może obejmować:
 
 | Parametr | Opis |
 |-----------|-------------|
@@ -244,13 +245,6 @@ Typowa odpowiedź na `detailed` potrzeby rozpoznawania:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: ace701a6c19f4fe3af1c9ae6f5e63097dd59d405
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871694"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927925"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -86,7 +86,7 @@ Azure Automation używa [Azure monitor](https://docs.microsoft.com/azure/azure-m
 
 ### <a name="log-analytics-agent-for-windows"></a>Agent Log Analytics dla systemu Windows
 
-[Agent log Analytics dla systemu Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych. Należy skonfigurować agenta w celu raportowania do co najmniej jednego obszaru roboczego Log Analytics. 
+[Agent log Analytics dla systemu Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) współpracuje z usługą Azure monitor do zarządzania maszynami wirtualnymi z systemem Windows i komputerami fizycznymi. Maszyny mogą działać na platformie Azure lub w środowisku spoza platformy Azure, na przykład w lokalnym centrum danych. Należy skonfigurować agenta w celu raportowania do co najmniej jednego obszaru roboczego Log Analytics. 
 
 >[!NOTE]
 >Agent Log Analytics dla systemu Windows był wcześniej znany jako Microsoft Monitoring Agent (MMA).

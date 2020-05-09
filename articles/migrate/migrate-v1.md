@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77914385"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993802"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Pracuj z poprzednią wersją Azure Migrate
 
@@ -88,11 +88,11 @@ Nieznana gotowość | Azure Migrate nie może zidentyfikować gotowości platfor
 Gotowość uwzględnia wiele właściwości maszyn wirtualnych, aby określić, czy maszyna wirtualna może działać na platformie Azure.
 
 
-**Właściwość** | **Szczegóły** | **Gotowości**
+**Wartość** | **Szczegóły** | **Gotowości**
 --- | --- | ---
 **Typ rozruchu** | Obsługiwane przez system BIOS. Interfejs UEFI nie jest obsługiwany. | Warunkowo gotowe, jeśli typ rozruchu to UEFI.
 **Rdzenie** | Komputery Core <= Maksymalna liczba rdzeni (128) obsługiwana przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie.<br/>Jeśli czynnik komfortu jest określony w ustawieniach oceny, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni, bez zastosowania współczynnika komfortu. | Gotowe, jeśli jest mniejsze lub równe limitom.
-**Rozmiar** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m&nbsp;<sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
+**Memory (Pamięć)** | Rozmiar pamięci maszyny <= Maksymalna ilość pamięci (3892 GB na platformie Azure M Series Standard_M128m&nbsp;<sup>2</sup>) dla maszyny wirtualnej platformy Azure. [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uważa wykorzystanie pamięci.<br/><br/>W przypadku określenia współczynnika komfortu wykorzystanie pamięci jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii, przydzieloną pamięć jest używana, bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli w ramach limitów.
 **Dysk magazynu** | Przydzielony rozmiar dysku musi mieć wartość 4 TB (4096 GB) lub mniejszą.<br/><br/> Liczba dysków dołączonych do maszyny musi być 65 lub mniejsza, łącznie z dyskiem systemu operacyjnego. | Gotowe, jeśli w ramach limitów.
 **Networking** | Maszyna musi mieć dołączoną 32 lub mniej kart sieciowych. | Gotowe, jeśli w ramach limitów.
 
@@ -216,7 +216,7 @@ Po skonfigurowaniu obszaru roboczego należy pobrać i zainstalować agentów na
 4. Skopiuj identyfikator i klucz obszaru roboczego. Są one potrzebne po zainstalowaniu MMA na maszynie lokalnej.
 
 > [!NOTE]
-> Aby zautomatyzować instalację agentów, można użyć narzędzia do wdrażania, takiego jak Configuration Manager lub narzędzia partnerskiego, takiego jak [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), które zapewnia rozwiązanie do wdrażania agentów dla Azure Migrate.
+> Aby zautomatyzować instalację agentów, można użyć narzędzia do wdrażania, takiego jak Configuration Manager lub narzędzia partnerskiego, takiego jak [Intigua](https://www.intigua.com/intigua-for-azure-migration), które zapewnia rozwiązanie do wdrażania agentów dla Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalowanie agenta MMA na komputerze z systemem Windows

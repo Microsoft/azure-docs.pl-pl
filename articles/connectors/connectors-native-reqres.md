@@ -3,20 +3,20 @@ title: Odbieraj wywołania i odpowiadaj na nie przy użyciu protokołu HTTPS
 description: Obsługa przychodzących żądań HTTPS z usług zewnętrznych przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900960"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978573"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
-Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanego wyzwalacza żądań lub akcji odpowiedzi można tworzyć automatyczne zadania i przepływy pracy, które odbierają i reagują na przychodzące żądania HTTPS. Na przykład możesz mieć aplikację logiki:
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i wbudowanej akcji wyzwalacza żądania i odpowiedzi można tworzyć zautomatyzowane zadania i przepływy pracy, które odbierają i reagują na przychodzące żądania HTTPS. Na przykład możesz mieć aplikację logiki:
 
 * Odbieraj żądania HTTPS dotyczące danych i odpowiadaj na nie w lokalnej bazie danych.
 * Wyzwalanie przepływu pracy po wystąpieniu zewnętrznego zdarzenia elementu webhook.
@@ -49,11 +49,11 @@ Wyzwalacz żądania obsługuje [Azure Active Directory Otwórz uwierzytelnianie]
 
 ## <a name="add-request-trigger"></a>Dodaj wyzwalacz żądania
 
-Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcowy HTTPS, który może odbierać *tylko* przychodzące żądania HTTPS. Po wystąpieniu tego zdarzenia wyzwalacz uruchamia i uruchamia aplikację logiki.
+Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcowy HTTPS, który może odbierać *tylko* przychodzące żądania HTTPS. Po wystąpieniu tego zdarzenia wyzwalacz uruchamia i uruchamia aplikację logiki. Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi https w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Tworzenia pustej aplikacji logiki.
 
-1. Gdy zostanie otwarty projektant aplikacji logiki, w polu wyszukiwania wprowadź ciąg "żądanie HTTP" jako filtr. Z listy Wyzwalacze wybierz wyzwalacz **po odebraniu żądania HTTP** , który jest pierwszym krokiem w przepływie pracy aplikacji logiki.
+1. Gdy zostanie otwarty projektant aplikacji logiki, w polu wyszukiwania wprowadź `http request` jako filtr. Z listy Wyzwalacze wybierz wyzwalacz **po odebraniu żądania HTTP** , który jest pierwszym krokiem w przepływie pracy aplikacji logiki.
 
    ![Wybierz wyzwalacz żądania](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -63,7 +63,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagany | Opis |
    |---------------|--------------------|----------|-------------|
-   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Tak | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
+   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Yes | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
    | **Schemat JSON treści żądania** | `schema` | Nie | Schemat JSON, który opisuje właściwości i wartości w treści żądania przychodzącego |
    |||||
 
@@ -253,8 +253,8 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną mi
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagany | Opis |
    |---------------|--------------------|----------|-------------|
-   | **Kod stanu** | `statusCode` | Tak | Kod stanu do zwrócenia w odpowiedzi |
-   | **Nagłówki** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
+   | **Kod stanu** | `statusCode` | Yes | Kod stanu do zwrócenia w odpowiedzi |
+   | **Nagłówka** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
    | **Treść** | `body` | Nie | Treść odpowiedzi |
    |||||
 

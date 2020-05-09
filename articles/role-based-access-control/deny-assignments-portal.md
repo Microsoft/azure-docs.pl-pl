@@ -1,6 +1,6 @@
 ---
-title: Wyświetl listę odrzuconych przypisań zasobów platformy Azure za pomocą Azure Portal
-description: Dowiedz się, jak wyświetlić listę użytkowników, grup, nazw podmiotów usługi i zarządzanych tożsamości, dla których odmówiono dostępu do określonych akcji zasobów platformy Azure w określonych zakresach przy użyciu Azure Portal.
+title: Wyświetlanie listy przypisań Odmów platformy Azure przy użyciu Azure Portal — RBAC
+description: Dowiedz się, jak wyświetlić listę użytkowników, grup, nazw podmiotów usługi i zarządzanych tożsamości, dla których odmówiono dostępu do określonych akcji zasobów platformy Azure w określonych zakresach przy użyciu Azure Portal i kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137419"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734114"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Wyświetl listę odrzuconych przypisań zasobów platformy Azure przy użyciu Azure Portal
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure Portal
 
-[Odmowa przypisania](deny-assignments.md) uniemożliwia użytkownikom wykonywanie określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli przyznaje im dostęp. W tym artykule opisano sposób wyświetlania listy zablokowanych przypisań przy użyciu Azure Portal.
+[Przydziały Odmów na platformie Azure](deny-assignments.md) blokują użytkownikom możliwość wykonywania określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli udzielą im dostępu. W tym artykule opisano sposób wyświetlania listy zablokowanych przypisań przy użyciu Azure Portal.
 
 > [!NOTE]
-> Nie można bezpośrednio tworzyć własnych przypisań Odmów. Aby uzyskać informacje na temat sposobu tworzenia przypisań Odmów, zobacz [odmowa przypisań](deny-assignments.md).
+> Nie można bezpośrednio tworzyć własnych przypisań Odmów. Aby uzyskać informacje na temat sposobu tworzenia przypisań Odmów, zobacz [Azure Deny przypisań](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby uzyskać informacje o przypisaniu odmowy, należy dysponować:
 
-- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról dla zasobów platformy Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read`uprawnienie, które jest zawarte w większości [wbudowanych ról platformy Azure](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Lista przypisań odmowy
 
@@ -109,5 +109,5 @@ Wykonaj następujące kroki, aby wyświetlić listę dodatkowych informacji o pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Informacje o odmowie przypisań zasobów platformy Azure](deny-assignments.md)
-* [Wyświetl listę odrzuconych przypisań zasobów platformy Azure przy użyciu Azure PowerShell](deny-assignments-powershell.md)
+* [Informacje o przypisaniach Odmów na platformie Azure](deny-assignments.md)
+* [Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure PowerShell](deny-assignments-powershell.md)

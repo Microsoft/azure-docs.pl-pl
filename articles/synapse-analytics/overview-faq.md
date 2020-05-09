@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083bad1aa9abd2cb8efe3520b0acecc9ab00853c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770727"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983877"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) — często zadawane pytania
 
@@ -94,9 +94,9 @@ Odp.: przepływ danych umożliwia inżynierom danych Tworzenie logiki transforma
 
 Odp.: kompleksowe środowisko logowania jednokrotnego to ważny proces uwierzytelniania w Synapse Analytics. Zarządzanie tożsamościami i przekazywanie ich za pośrednictwem pełnej integracji usługi AAD jest konieczne.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Jak mogę uzyskać dostęp do plików i folderów w ADLSg2
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>P: Jak mogę uzyskać dostęp do plików i folderów w ADLS Gen2
 
-Odp.: dostęp do plików i folderów jest obecnie zarządzany za pomocą ADLSg2. Aby uzyskać więcej informacji, zobacz [Data Lake kontroli dostępu do magazynu](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Odp.: dostęp do plików i folderów jest obecnie zarządzany za pomocą ADLS Gen2. Aby uzyskać więcej informacji, zobacz [Data Lake kontroli dostępu do magazynu](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>P: Czy można używać narzędzi analizy biznesowej innych firm do uzyskiwania dostępu do usługi Azure Synapse Analytics
 

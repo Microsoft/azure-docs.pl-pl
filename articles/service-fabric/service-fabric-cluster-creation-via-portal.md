@@ -3,12 +3,12 @@ title: Tworzenie klastra usługi Service Fabric w witrynie Azure Portal
 description: Dowiedz się, jak skonfigurować bezpieczny klaster Service Fabric na platformie Azure przy użyciu Azure Portal i Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458321"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792483"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Tworzenie klastra Service Fabric na platformie Azure przy użyciu Azure Portal
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Skonfiguruj węzły klastra. Typy węzłów definiują rozmiary maszyn wirtualny
 2. Minimalny **rozmiar** maszyn wirtualnych dla typu węzła podstawowego jest uzależniony od **warstwy trwałości** wybranej dla klastra. Wartością domyślną dla warstwy trwałości jest brązowy. Aby uzyskać więcej informacji na temat trwałości, zobacz [jak wybrać Service Fabric trwałość klastra][service-fabric-cluster-durability].
 3. Wybierz **rozmiar maszyny wirtualnej**. Maszyny wirtualne z serii D mają dyski SSD i są zdecydowanie zalecane w przypadku aplikacji stanowych. Nie należy używać żadnej jednostki SKU maszyny wirtualnej, która ma częściowe rdzenie lub nie może być mniejsza niż 10 GB dostępnego miejsca na dysku. Zapoznaj się z [dokumentem uwagi dotyczące planowania klastrów usługi Service Fabric][service-fabric-cluster-capacity] , aby uzyskać pomoc w wyborze rozmiaru maszyny wirtualnej.
 4.  **Klaster z pojedynczym węzłem i trzy klastry węzłów** są przeznaczone tylko do użytku testowego. Nie są one obsługiwane w przypadku żadnych uruchomionych obciążeń produkcyjnych.
-5. Wybierz **początkową pojemność zestawu skalowania maszyn wirtualnych** dla typu węzła. Można skalować w górę lub w dół liczbę maszyn wirtualnych w typie węzła w późniejszym czasie, ale w przypadku podstawowego typu węzła minimalna wartość to pięć dla obciążeń produkcyjnych. Inne typy węzłów mogą mieć co najmniej jedną maszynę wirtualną. Minimalna **Liczba** maszyn wirtualnych dla typu węzła podstawowego jest **niezawodnością** klastra.  
+5. Wybierz **początkową pojemność zestawu skalowania maszyn wirtualnych** dla typu węzła. Możesz skalować w górę lub w dół liczbę maszyn wirtualnych w typie węzła w późniejszym czasie, ale na podstawowym typie węzła minimalnym jest pięć dla obciążeń produkcyjnych. Inne typy węzłów mogą mieć co najmniej jedną maszynę wirtualną. Minimalna **Liczba** maszyn wirtualnych dla typu węzła podstawowego jest **niezawodnością** klastra.  
 6. Skonfiguruj **niestandardowe punkty końcowe**. W tym polu można wprowadzić rozdzieloną przecinkami listę portów, które mają zostać ujawnione za pomocą Azure Load Balancer do publicznego Internetu dla aplikacji. Na przykład jeśli planujesz wdrożyć aplikację sieci Web w klastrze, wprowadź "80" tutaj, aby zezwolić na ruch na porcie 80 do klastra. Aby uzyskać więcej informacji na temat punktów końcowych, zobacz [komunikowanie się z aplikacjami][service-fabric-connect-and-communicate-with-services]
 7. **Włącz zwrotny serwer proxy**.  [Service Fabric odwrotny serwer proxy](service-fabric-reverseproxy.md) pomaga mikrousługi działające w klastrze Service Fabric odnajdywać i komunikować się z innymi usługami, które mają punkty końcowe http.
 8. Z powrotem w bloku **Konfiguracja klastra** w obszarze **+ Pokaż ustawienia opcjonalne**Skonfiguruj **diagnostykę**klastra. Domyślnie Diagnostyka jest włączona w klastrze, aby pomóc w rozwiązywaniu problemów. Jeśli chcesz wyłączyć diagnostykę, Zmień **stan** na **wyłączony**. Wyłączenie diagnostyki **nie** jest zalecane. Jeśli utworzono już projekt Application Insights, podaj jego klucz, aby ślady aplikacji były kierowane do niej.
