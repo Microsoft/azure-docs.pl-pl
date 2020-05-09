@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 016a09432499c5fd2be8fd488c7ef7a644c00bca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062340"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628337"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Skonfiguruj klucz zabezpieczeń jako metodę weryfikacji
 
@@ -63,7 +63,7 @@ Aby można było zarejestrować klucz zabezpieczeń, należy wykonać następuj�
 
 Przed zalogowaniem się do konta służbowego przy użyciu klucza należy utworzyć klucz zabezpieczeń i nadać mu unikatowy numer PIN. Być może zarejestrowano maksymalnie 10 kluczy na Twoim koncie. 
 
-1. Przejdź do strony **mój profil** w https://myprofile.microsoft.com obszarze i zaloguj się, jeśli jeszcze tego nie zrobiono.
+1. Przejdź do strony **mój profil** w https://myaccount.microsoft.com obszarze i zaloguj się, jeśli jeszcze tego nie zrobiono.
 
 2. Wybierz pozycję **Informacje o zabezpieczeniach**, wybierz pozycję **Dodaj metodę**, a następnie wybierz pozycję **klucz zabezpieczeń** z listy rozwijanej **Dodaj metodę** .
 

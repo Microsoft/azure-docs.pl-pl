@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393636"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927449"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołów SSH i Azure Logic Apps
 
@@ -34,7 +34,7 @@ Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem S
 * W przypadku akcji protokołu SFTP-SSH, które obsługują dzielenie może obsłużyć pliki o rozmiarze do 1 GB, natomiast akcje SFTP-SSH, które nie obsługują fragmentów [, mogą obsługiwać](../logic-apps/logic-apps-handle-large-messages.md) pliki do 50 MB. Mimo że domyślny rozmiar fragmentu to 15 MB, ten rozmiar można dynamicznie zmieniać, rozpoczynając od 5 MB i stopniowo zwiększając do 50 MB, na podstawie takich czynników, jak opóźnienie sieci, czas odpowiedzi serwera i tak dalej.
 
   > [!NOTE]
-  > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+  > W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE wymaga, aby w zamian używały [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
   Można zastąpić to zachowanie adaptacyjne w przypadku [określenia stałego rozmiaru fragmentu](#change-chunk-size) do użycia. Ten rozmiar może nawiązać od 5 MB do 50 MB. Załóżmy na przykład, że masz plik 45 MB i sieć, która może obsługiwać ten rozmiar plików bez opóźnień. Adaptacyjne rozdzielenie skutkuje wieloma wywołaniami, a tym samym wywołaniem. Aby zmniejszyć liczbę wywołań, można spróbować ustawić rozmiar fragmentu 50 MB. W innym scenariuszu, jeśli aplikacja logiki ma limit czasu, na przykład w przypadku używania fragmentów 15 MB można spróbować zmniejszyć rozmiar do 5 MB.
 
@@ -43,12 +43,12 @@ Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem S
   | Akcja | Obsługa fragmentów | Przesłoń obsługę rozmiaru fragmentu |
   |--------|------------------|-----------------------------|
   | **Kopiuj plik** | Nie | Nie dotyczy |
-  | **Utwórz plik** | Tak | Tak |
+  | **Utwórz plik** | Yes | Yes |
   | **Utwórz folder** | Nie dotyczy | Nie dotyczy |
   | **Usuń plik** | Nie dotyczy | Nie dotyczy |
   | **Wyodrębnij archiwum do folderu** | Nie dotyczy | Nie dotyczy |
-  | **Pobierz zawartość pliku** | Tak | Tak |
-  | **Pobierz zawartość pliku przy użyciu ścieżki** | Tak | Tak |
+  | **Pobierz zawartość pliku** | Yes | Yes |
+  | **Pobierz zawartość pliku przy użyciu ścieżki** | Yes | Yes |
   | **Pobierz metadane pliku** | Nie dotyczy | Nie dotyczy |
   | **Pobierz metadane pliku przy użyciu ścieżki** | Nie dotyczy | Nie dotyczy |
   | **Wyświetl listę plików w folderze** | Nie dotyczy | Nie dotyczy |
@@ -248,7 +248,7 @@ Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominą
 Aby uzyskać więcej szczegółowych informacji technicznych dotyczących tego łącznika, takich jak wyzwalacze, akcje i limity, zgodnie z opisem w pliku Swagger łącznika, zobacz [stronę odwołania łącznika](https://docs.microsoft.com/connectors/sftpwithssh/).
 
 > [!NOTE]
-> W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE w zamian używa [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> W przypadku aplikacji logiki w [środowisku usługi integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), wersja tego łącznika z oznaczeniem ISE, wymaga, aby fragmenty używały [limitów komunikatów ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
 
 ## <a name="next-steps"></a>Następne kroki
 

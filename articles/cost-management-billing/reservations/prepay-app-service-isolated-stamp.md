@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 21c4b7de0324abd2755644265bec61de5e16724f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6d91b455501e2deec4f5ea36e48fafd17144b2c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199419"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628150"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Oszczędzanie kosztów w przypadku podatku od czynności cywilnoprawnych za korzystanie z usługi Azure App Service w izolowanym środowisku za pomocą wydajności rezerwowej
 
@@ -41,7 +41,7 @@ Jeśli masz co najmniej jeden proces roboczy systemu Windows w sygnaturze, kup r
 Wydajność rezerwową izolowanej sygnatury można kupić w witrynie [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Płatność za rezerwację jest wnoszona [z góry lub w ratach miesięcznych](monthly-payments-reservations.md). Do zakupu wydajności rezerwowej potrzebna jest rola właściciela co najmniej w jednej subskrypcji Enterprise lub w subskrypcji indywidualnej z ratami płatności zgodnie z rzeczywistym użyciem.
 
 - W przypadku subskrypcji Enterprise w witrynie [EA portal](https://ea.azure.com/) musi być włączona opcja **Dodaj wystąpienia zarezerwowane**. Jeśli to ustawienie jest wyłączone, musisz być administratorem EA.
-- W przypadku programu Cloud Solution Provider (CSP) wydajność rezerwową usługi SQL Data Warehouse mogą kupić tylko agenci administracyjni lub agenci sprzedaży.
+- W przypadku programu Cloud Solution Provider (CSP) wydajność rezerwową usługi Azure Synapse Analytics mogą kupić tylko agenci administracyjni lub agenci sprzedaży.
 
 **Aby dokonać zakupu:**
 
