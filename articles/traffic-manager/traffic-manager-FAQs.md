@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254367"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731581"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager często zadawane pytania
 
@@ -29,7 +29,7 @@ Zgodnie z opisem w temacie [jak działa Traffic Manager](../traffic-manager/traf
 W związku z tym Traffic Manager nie zapewnia punktu końcowego ani adresu IP, z którym klienci mogą się połączyć. Jeśli chcesz mieć statyczny adres IP dla usługi, który musi być skonfigurowany w usłudze, a nie w Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Jakiego rodzaju ruch może być kierowany przy użyciu Traffic Manager?
-Zgodnie z opisem w temacie [jak działa Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), punkt końcowy Traffic Manager może być dowolną usługą internetową hostowaną w ramach platformy Azure lub poza nią. W związku z tym Traffic Manager może kierować ruch pochodzący z publicznej sieci Internet do zestawu punktów końcowych, które są również połączone z Internetem. Jeśli masz punkty końcowe, które znajdują się w sieci prywatnej (na przykład w wewnętrznej wersji programu [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) lub użytkownicy wprowadzają żądania DNS z takich sieci wewnętrznych, nie możesz użyć Traffic Manager do skierowania tego ruchu.
+Zgodnie z opisem w temacie [jak działa Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), punkt końcowy Traffic Manager może być dowolną usługą internetową hostowaną w ramach platformy Azure lub poza nią. W związku z tym Traffic Manager może kierować ruch pochodzący z publicznej sieci Internet do zestawu punktów końcowych, które są również połączone z Internetem. Jeśli masz punkty końcowe, które znajdują się w sieci prywatnej (na przykład w wewnętrznej wersji programu [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)) lub użytkownicy wprowadzają żądania DNS z takich sieci wewnętrznych, nie możesz użyć Traffic Manager do skierowania tego ruchu.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Czy Traffic Manager obsługuje sesje "Sticky"?
 
