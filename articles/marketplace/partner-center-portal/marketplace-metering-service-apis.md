@@ -1,18 +1,18 @@
 ---
-title: Interfejsy API usługi pomiaru Marketplace | Portal Azure Marketplace
-description: Zdarzenie użycia dla ofert SaaS w portalu Azure Marketplace.
+title: Interfejsy API usługi pomiaru — Microsoft Commercial Marketplace
+description: Interfejs API zdarzeń użycia umożliwia emitowanie zdarzeń użycia dla ofert SaaS w Microsoft AppSource i witrynie Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275751"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857872"
 ---
 # <a name="marketplace-metering-service-apis"></a>Interfejsy API usługi pomiaru w witrynie Marketplace
 

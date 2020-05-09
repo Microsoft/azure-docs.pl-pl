@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af68d733dfb0e0d1c257c8db03656112eec7381b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74872115"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871004"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiowanie unikatowych kluczy dla kontenera usługi Azure Cosmos
 
@@ -39,7 +39,9 @@ W tym artykule przedstawiono różne sposoby definiowania [unikatowych kluczy](u
 
 Aby utworzyć kontener z unikatowymi kluczami, zobacz [Tworzenie kontenera usługi Azure Cosmos z unikatowym kluczem i czasem wygaśnięcia](manage-with-powershell.md#create-container-unique-key-ttl)
 
-## <a name="use-the-net-sdk-v2"></a>Korzystanie z zestawu .NET SDK V2
+## <a name="use-the-net-sdk"></a>Korzystanie z zestawu SDK dla platformy .NET
+
+# <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
 Podczas tworzenia nowego kontenera przy użyciu [zestawu .NET SDK V2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `UniqueKeyPolicy` obiekt może służyć do definiowania unikatowych ograniczeń klucza.
 
@@ -59,7 +61,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Korzystanie z zestawu .NET SDK v3
+# <a name="net-sdk-v3"></a>[ZESTAW .NET SDK V3](#tab/dotnetv3)
 
 Podczas tworzenia nowego kontenera przy użyciu [zestawu .NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)Użyj interfejsu API Fluent zestawu SDK, aby zadeklarować unikatowe klucze w zwięzły i czytelny sposób.
 
@@ -75,6 +77,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## <a name="use-the-java-sdk"></a>Korzystanie z zestawu SDK języka Java
 

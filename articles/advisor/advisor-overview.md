@@ -3,12 +3,12 @@ title: Wprowadzenie do Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować wdrożenia platformy Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443096"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854433"
 ---
 # <a name="introduction-to-azure-advisor"></a>Wprowadzenie do Azure Advisor
 
@@ -24,7 +24,7 @@ Za pomocą usługi Advisor można:
 
 Dostęp do usługi Advisor można uzyskać za pomocą [Azure Portal](https://aka.ms/azureadvisordashboard). Zaloguj się do [portalu](https://portal.azure.com), Znajdź polecenie **Advisor** w menu nawigacji lub wyszukaj je w menu **wszystkie usługi** .
 
-Pulpit nawigacyjny klasyfikatora Wyświetla spersonalizowane zalecenia dotyczące wszystkich subskrypcji.  Filtry mogą być stosowane do wyświetlania zaleceń dotyczących określonych subskrypcji i typów zasobów.  Rekomendacje są podzielone na cztery kategorie: 
+Pulpit nawigacyjny klasyfikatora Wyświetla spersonalizowane zalecenia dotyczące wszystkich subskrypcji.  Filtry mogą być stosowane do wyświetlania zaleceń dotyczących określonych subskrypcji i typów zasobów.  Zalecenia są podzielone na pięć kategorii: 
 
 * **Wysoka dostępność**: aby zapewnić i poprawić ciągłość aplikacji o krytycznym znaczeniu dla firmy. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące wysokiej dostępności usługi Advisor](advisor-high-availability-recommendations.md).
 * **Zabezpieczenia**: aby wykrywać zagrożenia i luki w zabezpieczeniach, które mogą prowadzić do naruszeń zabezpieczeń. Aby uzyskać więcej informacji, zobacz [zalecenia dotyczące zabezpieczeń usługi Advisor](advisor-security-recommendations.md).

@@ -1,30 +1,30 @@
 ---
 title: Samouczek — Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 titleSuffix: Azure Storage
-description: Używanie magazynu geograficznie nadmiarowego do odczytu w celu uzyskania wysokiej dostępności danych aplikacji.
+description: Aby zapewnić wysoką dostępność danych aplikacji, użyj magazynu geograficznie nadmiarowego (RA-GZRS) z dostępem do odczytu.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606026"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856131"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB
 
 Niniejszy samouczek jest pierwszą częścią serii. Z tego samouczka dowiesz się, jak uzyskać wysoką dostępność danych aplikacji na platformie Azure.
 
-Po ukończeniu tego samouczka będziesz mieć aplikację konsolową, która przekazuje obiekt blob na konto magazynu [geograficznie nadmiarowego do odczytu](../common/storage-redundancy.md) (RA-GRS) i pobiera go z tego konta.
+Po ukończeniu tego samouczka będziesz mieć aplikację konsolową, która przekazuje i pobiera obiekt BLOB z konta magazynu [geograficznie nadmiarowego do odczytu](../common/storage-redundancy.md) (Ra-GZRS).
 
-Działanie magazynu RA-GRS polega na replikowaniu transakcji z regionu podstawowego do pomocniczego. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym ostatecznie uzyskają spójność. Aplikacja korzysta z wzorca [Wyłącznika](/azure/architecture/patterns/circuit-breaker) do określania punktu końcowego, z którym ma się połączyć, i automatycznego przełączania między punktami końcowymi podczas symulacji awarii i odzyskiwania.
+Nadmiarowość geograficzna w usłudze Azure Storage powoduje replikację transakcji asynchronicznie z regionu podstawowego do regionu pomocniczego, w którym znajduje się setki kilometrów. Ten proces replikacji gwarantuje, że dane w regionie pomocniczym ostatecznie uzyskają spójność. Aplikacja konsolowa używa wzorca [wyłącznika](/azure/architecture/patterns/circuit-breaker) , aby określić, z którym punktem końcowym nawiązać połączenie, automatycznie przełączać się między punktami końcowymi w miarę awarii, a operacje odzyskiwania są symulowane.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -58,31 +58,30 @@ W celu ukończenia tego samouczka:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
 Konto magazynu zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage.
 
-Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiarowego do odczytu:
+Wykonaj następujące kroki, aby utworzyć konto magazynu geograficznie nadmiarowego (RA-GZRS) do odczytu:
 
-1. Wybierz przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu witryny Azure Portal.
-2. Wybierz pozycję **Storage** na stronie **Nowe**.
-3. Wybierz pozycję **Konto usługi Storage — Blob, File, Table, Queue** w sekcji **Polecane**.
+1. Wybierz przycisk **Utwórz zasób** w Azure Portal.
+2. Wybierz pozycję **konto magazynu — obiekt BLOB, plik, tabela, kolejka** z **nowej** strony.
 4. Wypełnij formularz konta magazynu przy użyciu następujących informacji zgodnie z ilustracją i wybierz pozycję **Utwórz**:
 
-   | Ustawienie       | Sugerowana wartość | Opis |
+   | Ustawienie       | Wartość przykładowa | Opis |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nazwa** | mystorageaccount | Unikatowa wartość konta magazynu |
-   | **Model wdrażania** | Resource Manager  | Usługa Resource Manager oferuje najnowsze funkcje.|
-   | **Rodzaj konta** | StorageV2 | Aby uzyskać więcej informacji na temat typów kont, zobacz [Typy kont magazynu](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Wydajność** | Standardowa | Warstwa Standardowa jest wystarczająca na potrzeby przykładowego scenariusza. |
-   | **Replikacja**| Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS) | Jest to niezbędne do działania przykładu. |
-   |**Subskrypcja** | Twoja subskrypcja |Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
-   |**Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację. |
+   | **Subskrypcja** | *Moja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming) (Reguły i ograniczenia nazewnictwa). |
+   | **Nazwa** | *mystorageaccount* | Unikatowa nazwa konta magazynu. |
+   | **Lokalizacja** | *Wschodnie stany USA* | Wybierz lokalizację. |
+   | **Wydajność** | *Standardowa* | Standardowa wydajność jest dobrą opcją dla przykładowego scenariusza. |
+   | **Rodzaj konta** | *StorageV2* | Zalecane jest użycie konta magazynu ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji na temat typów kont usługi Azure Storage, zobacz [Omówienie konta magazynu](../common/storage-account-overview.md). |
+   | **Replikacja**| *Strefa geograficzna z dostępem do odczytu — magazyn nadmiarowy (RA-GZRS)* | Region podstawowy jest strefowo nadmiarowy i jest replikowany do regionu pomocniczego, z włączonym dostępem do odczytu do regionu pomocniczego. |
+   | **Warstwa dostępu**| *Gorąca* | Użyj warstwy gorąca dla często używanych danych. |
 
-![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![tworzenie konta magazynu](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Pobierz przykład
 
@@ -173,7 +172,7 @@ Zainstaluj wymagane zależności. Aby to zrobić, Otwórz wiersz polecenia, prze
 
 W programie Visual Studio naciśnij klawisz **F5** lub wybierz pozycję **Uruchom**, aby rozpocząć debugowanie aplikacji. Program Visual Studio automatycznie przywraca brakujące pakiety NuGet, jeśli zostały skonfigurowane. Więcej szczegółów można znaleźć w temacie [Installing and reinstalling packages with package restore (Instalowanie i ponowne instalowanie pakietów przy użyciu funkcji przywracania pakietów)](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
-Zostanie uruchomione okno konsoli i aplikacja zacznie działać. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
+Zostanie uruchomione okno konsoli i aplikacja zacznie działać. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został zreplikowany do pomocniczego punktu końcowego RA-GZRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
 
 ![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ W przykładowym kodzie zadanie `RunCircuitBreakerAsync` w pliku `Program.cs` jes
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uruchomić aplikację w terminalu lub wierszu polecenia, przejdź do katalogu **circuitbreaker.py** i wprowadź wartość `python circuitbreaker.py`. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został replikowany do pomocniczego punktu końcowego RA-GRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
+Aby uruchomić aplikację w terminalu lub wierszu polecenia, przejdź do katalogu **circuitbreaker.py** i wprowadź wartość `python circuitbreaker.py`. Aplikacja przekazuje obraz **HelloWorld.png** z rozwiązania na konto magazynu. Aplikacja sprawdza, czy obraz został zreplikowany do pomocniczego punktu końcowego RA-GZRS. Następnie rozpoczyna pobieranie obrazu maksymalnie 999 razy. Każdy odczyt jest reprezentowany przez **P** lub **S**. Gdzie **P** reprezentuje podstawowy punkt końcowy, a **S** reprezentuje pomocniczy punkt końcowy.
 
 ![Uruchomiona aplikacja konsolowa](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Następne kroki
 
-W pierwszej części serii omówiono czynności dotyczące uzyskiwania wysokiej dostępności aplikacji przy użyciu kont magazynu RA-GRS.
+W pierwszej części serii omówiono tworzenie aplikacji o wysokiej dostępności przy użyciu kont magazynu RA-GZRS.
 
-Przejdź do drugiej części serii, aby dowiedzieć się, jak symulować błąd i wymuszać użycie pomocniczego punktu końcowego RA-GRS w aplikacji.
+Przejdź do drugiej części serii, aby dowiedzieć się, jak symulować awarię i wymusić, aby aplikacja korzystała z pomocniczego punktu końcowego RA-GZRS.
 
 > [!div class="nextstepaction"]
-> [Symulowanie błędu podczas odczytywania z regionu podstawowego](storage-simulate-failure-ragrs-account-app.md)
+> [Symulowanie błędu podczas odczytywania z regionu podstawowego](simulate-primary-region-failure.md)

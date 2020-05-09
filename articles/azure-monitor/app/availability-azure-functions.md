@@ -2,15 +2,15 @@
 title: Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 description: Ten dokument zawiera informacje dotyczące sposobu tworzenia funkcji platformy Azure z TrackAvailability (), która będzie uruchamiana okresowo zgodnie z konfiguracją podaną w funkcji TimerTrigger. Wyniki tego testu zostaną wysłane do zasobu Application Insights, w którym będzie można wykonywać zapytania o dane dotyczące wyników dostępności i je otrzymywać. Dostosowane testy umożliwiają pisanie bardziej złożonych testów dostępności niż jest to możliwe za pomocą interfejsu użytkownika portalu, monitorowania aplikacji wewnątrz sieci wirtualnej platformy Azure, zmiany adresu punktu końcowego lub tworzenia testu dostępności, jeśli nie jest on dostępny w Twoim regionie.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665803"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791117"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Tworzenie i uruchamianie niestandardowych testów dostępności przy użyciu Azure Functions
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 Aby upewnić się, że wszystko działa, możesz przyjrzeć się grafowi na karcie dostępność zasobu Application Insights.
 
 > [!NOTE]
-> Jeśli zaimplementowano własną logikę biznesową w programie runAvailabilityTest. CSX, zobaczysz pomyślne wyniki podobne do poniższych zrzutów ekranu, jeśli nie zobaczysz, że wyniki nie zostaną wyświetlone.
+> Jeśli zaimplementowano własną logikę biznesową w programie runAvailabilityTest. CSX, zobaczysz pomyślne wyniki podobne do poniższych zrzutów ekranu, jeśli nie zobaczysz, że wyniki nie zostaną wyświetlone. Testy utworzone za `TrackAvailability()` pomocą będą wyświetlane z **niestandardowym** obok nazwy testu.
 
 >[!div class="mx-imgBorder"]
->![Karta dostępność z pomyślnymi wynikami](media/availability-azure-functions/availtab.png)
-
-Po skonfigurowaniu testu przy użyciu Azure Functions można zauważyć, że w przeciwieństwie do użycia **Dodaj test** na karcie dostępność nazwa testu nie zostanie wyświetlona i nie będzie można z nim korzystać. Wyniki są wizualizowane, ale można uzyskać widok podsumowania, a nie ten sam widok szczegółowy, który uzyskuje się podczas tworzenia testu dostępności za pośrednictwem portalu.
+>![Karta dostępność z pomyślnymi wynikami](media/availability-azure-functions/availability-custom.png)
 
 Aby wyświetlić szczegółowe informacje o transakcjach, wybierz pozycję **powodzenie** lub **Niepowodzenie** w obszarze drążenie do, a następnie wybierz przykład. Możesz również uzyskać szczegółowe informacje o transakcjach, wybierając punkt danych na wykresie.
 
