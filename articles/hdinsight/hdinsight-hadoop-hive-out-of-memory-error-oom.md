@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371c00fd63f7a89f4d50ce130e89f10e2a7a38bd
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74687766"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891086"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Naprawianie błędu braku pamięci Apache Hive w usłudze Azure HDInsight
 
@@ -101,7 +101,7 @@ Plik **Hive. Auto. Convert. Join. noconditionaltask** w pliku Hive-site. xml zos
 </property>
 ```
 
-Prawdopodobnie mapowanie jest przyczyną błędu braku pamięci sterty języka Java. Zgodnie z opisem w blogu [Ustawienia pamięci przędzy usługi Hadoop w usłudze HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), gdy używany jest aparat wykonywania tez, używany obszar sterty faktycznie należy do kontenera tez. Zapoznaj się z poniższym obrazem opisującym pamięć kontenera tez.
+Prawdopodobnie mapowanie jest przyczyną błędu braku pamięci sterty języka Java. Zgodnie z opisem w blogu [Ustawienia pamięci przędzy usługi Hadoop w usłudze HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), gdy używany jest aparat wykonywania tez, używany obszar sterty faktycznie należy do kontenera tez. Zapoznaj się z poniższym obrazem opisującym pamięć kontenera tez.
 
 ![Diagram pamięci kontenera tez: błąd gałęzi braku pamięci](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

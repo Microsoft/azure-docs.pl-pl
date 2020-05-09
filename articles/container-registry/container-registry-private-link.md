@@ -1,35 +1,32 @@
 ---
-title: Konfigurowanie łącza prywatnego
-description: Konfigurowanie prywatnego punktu końcowego w rejestrze kontenerów i włączanie łącza prywatnego w lokalnej sieci wirtualnej
+title: Konfigurowanie linku prywatnego
+description: Skonfiguruj prywatny punkt końcowy w rejestrze kontenerów i Włącz dostęp za pośrednictwem prywatnego linku w lokalnej sieci wirtualnej
 ms.topic: article
-ms.date: 03/10/2020
-ms.openlocfilehash: de8228d84497e71f24dba3dd4e6162cb6735a8c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 05/07/2020
+ms.openlocfilehash: 46ec816d85a528fd3208026ef76dff8470154767
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498915"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982451"
 ---
-# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurowanie łącza prywatnego platformy Azure dla rejestru kontenerów platformy Azure 
+# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurowanie prywatnego linku platformy Azure dla usługi Azure Container Registry 
 
-Można skonfigurować [prywatny punkt końcowy](../private-link/private-endpoint-overview.md) dla rejestru kontenerów platformy Azure, tak aby klienci w sieci wirtualnej platformy Azure bezpiecznie uzyskiwać dostęp do rejestru za pośrednictwem [łącza prywatnego.](../private-link/private-link-overview.md) Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla rejestru. Ruch sieciowy między klientami w sieci wirtualnej a rejestrem przechodzi przez sieć wirtualną i prywatne łącze w sieci szkieletowej firmy Microsoft, eliminując narażenie z publicznego Internetu.
+Ogranicz dostęp do rejestru przez przypisanie prywatnych adresów IP do punktów końcowych rejestru przy użyciu [linku prywatnego platformy Azure](../private-link/private-link-overview.md). Ruch sieciowy między klientami w sieci wirtualnej a rejestrem przechodzi przez sieć wirtualną i prywatny link do sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 
-Można [skonfigurować ustawienia DNS](../private-link/private-endpoint-overview.md#dns-configuration) dla prywatnego punktu końcowego, tak aby ustawienia były rozpoznawane na przydzielonym prywatnym adresie IP rejestru. Dzięki konfiguracji DNS klienci i usługi w sieci mogą nadal uzyskiwać dostęp do rejestru przy w pełni kwalifikowanej nazwie domeny rejestru, takiej jak *myregistry.azurecr.io*.
+[Ustawienia DNS](../private-link/private-endpoint-overview.md#dns-configuration) dla prywatnego punktu końcowego można skonfigurować tak, aby ustawienia były rozpoznawane jako prywatny adres IP przydzielony do rejestru. Dzięki konfiguracji DNS klienci i usługi w sieci mogą nadal uzyskiwać dostęp do rejestru w w pełni kwalifikowanej nazwie domeny, takiej jak *myregistry.azurecr.IO*.
 
-Ta funkcja jest dostępna w warstwie usługi rejestru kontenerów **premium.** Aby uzyskać informacje na temat warstw i limitów usług rejestru, zobacz [Jednostki SKU rejestru kontenerów platformy Azure](container-registry-skus.md).
+Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md).
 
-> [!IMPORTANT]
-> Ta funkcja jest obecnie w wersji zapoznawczej i obowiązują pewne [ograniczenia.](#preview-limitations) Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
+## <a name="things-to-know"></a>Co należy wiedzieć
 
-## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
-
-* Obecnie nie można skonfigurować łącza prywatnego z prywatnym punktem końcowym w [rejestrze replikowanym geograficznie](container-registry-geo-replication.md). 
+* Obecnie skanowanie obrazów przy użyciu Azure Security Center nie jest dostępne w rejestrze skonfigurowanym za pomocą prywatnego punktu końcowego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aby użyć kroki interfejsu wiersza polecenia platformy Azure w tym artykule, zaleca się interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub uruchom w [usłudze Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Jeśli nie masz jeszcze rejestru kontenerów, utwórz jeden (wymagana warstwa Premium) i wypchnij przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [witryny Azure portal][quickstart-portal] lub interfejsu [wiersza polecenia platformy Azure,][quickstart-cli] aby utworzyć rejestr.
-* Jeśli chcesz skonfigurować dostęp do rejestru przy użyciu łącza prywatnego w innej subskrypcji platformy Azure, musisz zarejestrować dostawcę zasobów dla rejestru kontenerów platformy Azure w tej subskrypcji. Przykład:
+* Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, zaleca się użycie interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub Uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i [zaimportuj](container-registry-import-images.md) przykładowy obraz, taki `hello-world` jak z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr.
+* Aby skonfigurować dostęp do rejestru przy użyciu prywatnego linku w innej subskrypcji platformy Azure, należy zarejestrować dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -37,290 +34,272 @@ Ta funkcja jest dostępna w warstwie usługi rejestru kontenerów **premium.** A
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
 
-Przykłady interfejsu wiersza polecenia platformy Azure w tym artykule używają następujących zmiennych środowiskowych. Zastąp wartości odpowiednie dla danego środowiska. Wszystkie przykłady są sformatowane dla powłoki Bash:
+Przykłady interfejsu wiersza polecenia platformy Azure w tym artykule używają następujących zmiennych środowiskowych. Zastąp wartości odpowiednie dla danego środowiska. Wszystkie przykłady są sformatowane dla powłoki bash:
 
 ```bash
-registryName=<container-registry-name>
-registryLocation=<container-registry-location> # Azure region such as westeurope where registry created
-resourceGroup=<resource-group-name>
-vmName=<virtual-machine-name>
+REGISTRY_NAME=<container-registry-name>
+REGISTRY_LOCATION=<container-registry-location> # Azure region such as westeurope where registry created
+RESOURCE_GROUP=<resource-group-name>
+VM_NAME=<virtual-machine-name>
 ```
 
-## <a name="create-a-docker-enabled-virtual-machine"></a>Tworzenie maszyny wirtualnej z obsługą platformy Docker
+[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
 
-Na potrzeby testów użyj maszyny Wirtualnej Ubuntu z włączoną funkcją platformy Docker, aby uzyskać dostęp do rejestru kontenerów platformy Azure. Aby użyć uwierzytelniania usługi Azure Active Directory do rejestru, należy również zainstalować [interfejsu wiersza polecenia platformy Azure][azure-cli] na maszynie Wirtualnej. Jeśli masz już maszynę wirtualną platformy Azure, pomiń ten krok tworzenia.
+## <a name="set-up-private-link---cli"></a>Konfigurowanie linku prywatnego — interfejs wiersza polecenia
 
-Można użyć tej samej grupy zasobów dla maszyny wirtualnej i rejestru kontenerów. Ta konfiguracja upraszcza oczyszczanie na końcu, ale nie jest wymagana. Jeśli zdecydujesz się utworzyć oddzielną grupę zasobów dla maszyny wirtualnej i sieci wirtualnej, uruchom [grupę AZ create:][az-group-create]
+### <a name="get-network-and-subnet-names"></a>Pobieranie nazw sieci i podsieci
+
+Jeśli ich nie masz, będziesz potrzebować nazw sieci wirtualnej i podsieci w celu skonfigurowania prywatnego linku. W tym przykładzie należy użyć tej samej podsieci dla maszyny wirtualnej i prywatnego punktu końcowego rejestru. Jednak w wielu scenariuszach można skonfigurować punkt końcowy w oddzielnej podsieci. 
+
+Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład jeśli nazwasz maszyny wirtualnej *myDockerVM*, domyślną nazwą sieci wirtualnej jest *myDockerVMVNET*, z podsiecią o nazwie *myDockerVMSubnet*. Ustaw te wartości w zmiennych środowiskowych, uruchamiając polecenie [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
-az group create --name $resourceGroup --location $registryLocation
-```
-
-Teraz wdrożyć domyślną maszynę wirtualną Platformy Azure Ubuntu z [az vm create][az-vm-create]. Poniższy przykład tworzy maszynę wirtualną o nazwie *myDockerVM*.
-
-```azurecli
-az vm create \
-  --resource-group $resourceGroup \
-  --name $vmName \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-Utworzenie maszyny wirtualnej może potrwać kilka minut. Po zakończeniu polecenia należy wziąć `publicIpAddress` pod uwagę wyświetlane przez interfejsu wiersza polecenia platformy Azure. Ten adres służy do nawiązywać połączenia SSH z maszyną wirtualną.
-
-### <a name="install-docker-on-the-vm"></a>Instalowanie platformy Docker na maszynie Wirtualnej
-
-Po uruchomieniu maszyny Wirtualnej nawiązać połączenie SSH z maszyną wirtualną. Zamień *publicIpAddress* na publiczny adres IP maszyny Wirtualnej.
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Uruchom następujące polecenia, aby zainstalować docker na maszynie wirtualnej Ubuntu:
-
-```bash
-sudo apt-get update
-sudo apt install docker.io -y
-```
-
-Po instalacji uruchom następujące polecenie, aby sprawdzić, czy docker działa poprawnie na maszynie Wirtualnej:
-
-```bash
-sudo docker run -it hello-world
-```
-
-Dane wyjściowe:
-
-```
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-[...]
-```
-
-### <a name="install-the-azure-cli"></a>Zainstaluj interfejs wiersza polecenia platformy Azure
-
-Wykonaj kroki opisane w [install Azure CLI z apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) zainstalować interfejs wiersza polecenia platformy Azure na maszynie wirtualnej Ubuntu. Przykład:
-
-```bash
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
-
-Wyjdź z połączenia SSH.
-
-## <a name="set-up-private-link---cli"></a>Konfigurowanie łącza prywatnego — cli
-
-### <a name="get-network-and-subnet-names"></a>Uzyskaj nazwy sieci i podsieci
-
-Jeśli nie masz ich jeszcze, do skonfigurowania łącza prywatnego potrzebne są nazwy sieci wirtualnej i podsieci. W tym przykładzie używasz tej samej podsieci dla maszyny Wirtualnej i prywatnego punktu końcowego rejestru. Jednak w wielu scenariuszach można skonfigurować punkt końcowy w oddzielnej podsieci. 
-
-Podczas tworzenia maszyny Wirtualnej platforma Azure domyślnie tworzy sieć wirtualną w tej samej grupie zasobów. Nazwa sieci wirtualnej jest oparta na nazwie maszyny wirtualnej. Na przykład, jeśli nazwa maszyny wirtualnej *myDockerVM*, domyślną nazwą sieci wirtualnej jest *myDockerVMVNET*, z podsieci o nazwie *myDockerVMSubnet*. Ustaw te wartości w zmiennych środowiskowych, uruchamiając polecenie [listy sieci wirtualnej az:][az-network-vnet-list]
-
-```azurecli
-networkName=$(az network vnet list \
-  --resource-group $resourceGroup \
+NETWORK_NAME=$(az network vnet list \
+  --resource-group $RESOURCE_GROUP \
   --query '[].{Name: name}' --output tsv)
 
-subnetName=$(az network vnet list \
-  --resource-group $resourceGroup \
+SUBNET_NAME=$(az network vnet list \
+  --resource-group $RESOURCE_GROUP \
   --query '[].{Subnet: subnets[0].name}' --output tsv)
 
-echo networkName=$networkName
-echo subnetName=$subnetName
+echo NETWORK_NAME=$NETWORK_NAME
+echo SUBNET_NAME=$SUBNET_NAME
 ```
 
 ### <a name="disable-network-policies-in-subnet"></a>Wyłączanie zasad sieciowych w podsieci
 
-[Wyłącz zasady sieci,](../private-link/disable-private-endpoint-network-policy.md) takie jak sieciowe grupy zabezpieczeń w podsieci dla prywatnego punktu końcowego. Aktualizowanie konfiguracji podsieci za pomocą [aktualizacji podsieci sieci az:][az-network-vnet-subnet-update]
+[Wyłącz zasady sieciowe](../private-link/disable-private-endpoint-network-policy.md) , takie jak sieciowe grupy zabezpieczeń w podsieci dla prywatnego punktu końcowego. Zaktualizuj konfigurację podsieci przy użyciu [AZ Network VNET Subnet Update][az-network-vnet-subnet-update]:
 
 ```azurecli
 az network vnet subnet update \
- --name $subnetName \
- --vnet-name $networkName \
- --resource-group $resourceGroup \
+ --name $SUBNET_NAME \
+ --vnet-name $NETWORK_NAME \
+ --resource-group $RESOURCE_GROUP \
  --disable-private-endpoint-network-policies
 ```
 
-### <a name="configure-the-private-dns-zone"></a>Konfigurowanie prywatnej strefy DNS
+### <a name="configure-the-private-dns-zone"></a>Skonfiguruj prywatną strefę DNS
 
-Utwórz prywatną strefę DNS dla domeny rejestru kontenerów platformy Azure. W późniejszych krokach należy utworzyć rekordy DNS dla domeny rejestru w tej strefie DNS.
+Utwórz prywatną strefę DNS dla domeny prywatnej usługi Azure Container Registry. W kolejnych krokach utworzysz rekordy DNS dla domeny rejestru w tej strefie DNS.
 
-Aby użyć strefy prywatnej do zastąpienia domyślnej rozdzielczości DNS dla rejestru kontenerów platformy Azure, strefa musi mieć nazwę **privatelink.azurecr.io**. Uruchom następujące polecenie [tworzenia strefy prywatnej dns az,][az-network-private-dns-zone-create] aby utworzyć strefę prywatną:
+Aby użyć strefy prywatnej do zastąpienia domyślnego rozpoznawania nazw DNS dla rejestru kontenerów platformy Azure, strefa musi mieć nazwę **privatelink.azurecr.IO**. Uruchom następujące polecenie [AZ Network Private-DNS Zone Create][az-network-private-dns-zone-create] , aby utworzyć strefę prywatną:
 
 ```azurecli
 az network private-dns zone create \
-  --resource-group $resourceGroup \
+  --resource-group $RESOURCE_GROUP \
   --name "privatelink.azurecr.io"
 ```
 
-### <a name="create-an-association-link"></a>Tworzenie łącza skojarzenia
+### <a name="create-an-association-link"></a>Tworzenie linku skojarzenia
 
-Uruchom [az sieci private-dns link vnet utworzyć,][az-network-private-dns-link-vnet-create] aby skojarzyć swoją strefę prywatną z siecią wirtualną. W tym przykładzie utworzy się łącze o nazwie *myDNSLink*.
+Uruchom [AZ Network Private-DNS link VNET Create][az-network-private-dns-link-vnet-create] , aby skojarzyć strefę prywatną z siecią wirtualną. Ten przykład tworzy łącze o nazwie *myDNSLink*.
 
 ```azurecli
 az network private-dns link vnet create \
-  --resource-group $resourceGroup \
+  --resource-group $RESOURCE_GROUP \
   --zone-name "privatelink.azurecr.io" \
   --name MyDNSLink \
-  --virtual-network $networkName \
+  --virtual-network $NETWORK_NAME \
   --registration-enabled false
 ```
 
 ### <a name="create-a-private-registry-endpoint"></a>Tworzenie prywatnego punktu końcowego rejestru
 
-W tej sekcji utwórz prywatny punkt końcowy rejestru w sieci wirtualnej. Najpierw uzyskaj identyfikator zasobu rejestru:
+W tej sekcji Utwórz prywatny punkt końcowy rejestru w sieci wirtualnej. Najpierw Pobierz identyfikator zasobu rejestru:
 
 ```azurecli
-registryID=$(az acr show --name $registryName \
+REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
   --query 'id' --output tsv)
 ```
 
-Uruchom polecenie [tworzenia prywatnego punktu końcowego az][az-network-private-endpoint-create] w celu utworzenia prywatnego punktu końcowego rejestru.
+Uruchom polecenie [AZ Network Private-Endpoint Create][az-network-private-endpoint-create] , aby utworzyć prywatny punkt końcowy rejestru.
 
-Poniższy przykład tworzy punkt końcowy *myPrivateEndpoint* i połączenie usługi *myConnection*. Aby określić zasób rejestru kontenerów dla punktu końcowego, przekaż: `--group-ids registry`
+Poniższy przykład tworzy *połączenie*punktów końcowych *myPrivateEndpoint* i połączenia z usługą. Aby określić zasób rejestru kontenerów dla punktu końcowego, należy `--group-ids registry`przekazać:
 
 ```azurecli
 az network private-endpoint create \
     --name myPrivateEndpoint \
-    --resource-group $resourceGroup \
-    --vnet-name $networkName \
-    --subnet $subnetName \
-    --private-connection-resource-id $registryID \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $NETWORK_NAME \
+    --subnet $SUBNET_NAME \
+    --private-connection-resource-id $REGISTRY_ID \
     --group-ids registry \
     --connection-name myConnection
 ```
 
-### <a name="get-private-ip-addresses"></a>Uzyskaj prywatne adresy IP
+### <a name="get-private-ip-addresses"></a>Pobierz prywatne adresy IP
 
-Uruchom [program AZ network private-endpoint show,][az-network-private-endpoint-show] aby zbadać punkt końcowy dla identyfikatora interfejsu sieciowego:
+Uruchom [AZ Network Private-Endpoint show][az-network-private-endpoint-show] , aby wysłać zapytanie do punktu końcowego dla identyfikatora interfejsu sieciowego:
 
 ```azurecli
-networkInterfaceID=$(az network private-endpoint show \
+NETWORK_INTERFACE_ID=$(az network private-endpoint show \
   --name myPrivateEndpoint \
-  --resource-group $resourceGroup \
+  --resource-group $RESOURCE_GROUP \
   --query 'networkInterfaces[0].id' \
   --output tsv)
 ```
 
-Skojarzone z interfejsem sieciowym są dwa prywatne adresy IP dla rejestru kontenerów: jeden dla samego rejestru i jeden dla punktu końcowego danych rejestru. Uruchom następujące polecenia [programu AZ Resource Show,][az-resource-show] aby uzyskać prywatne adresy IP rejestru kontenerów i punktu końcowego danych rejestru:
+Skojarzona z interfejsem sieciowym w tym przykładzie są dwa prywatne adresy IP dla rejestru kontenerów: jeden dla samego rejestru i jeden dla punktu końcowego danych rejestru. Następujące [AZ Resource show][az-resource-show] Commands Pobierz prywatne adresy IP dla rejestru kontenerów i punkt końcowy danych rejestru:
 
 ```azurecli
-privateIP=$(az resource show \
-  --ids $networkInterfaceID \
-  --api-version 2019-04-01 --query 'properties.ipConfigurations[1].properties.privateIPAddress' \
+PRIVATE_IP=$(az resource show \
+  --ids $NETWORK_INTERFACE_ID \
+  --api-version 2019-04-01 \
+  --query 'properties.ipConfigurations[1].properties.privateIPAddress' \
   --output tsv)
 
-dataEndpointPrivateIP=$(az resource show \
-  --ids $networkInterfaceID \
+DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
+  --ids $NETWORK_INTERFACE_ID \
   --api-version 2019-04-01 \
   --query 'properties.ipConfigurations[0].properties.privateIPAddress' \
   --output tsv)
 ```
 
+> [!NOTE]
+> Jeśli rejestr ma [replikację geograficzną](container-registry-geo-replication.md), należy wykonać zapytanie o dodatkowy punkt końcowy danych dla każdej repliki rejestru.
+
 ### <a name="create-dns-records-in-the-private-zone"></a>Tworzenie rekordów DNS w strefie prywatnej
 
-Poniższe polecenia tworzą rekordy DNS w strefie prywatnej dla punktu końcowego rejestru i jego punktu końcowego danych. Na przykład jeśli masz rejestr o nazwie *myregistry* w regionie *westeurope,* nazwy punktów końcowych są `myregistry.azurecr.io` i `myregistry.westeurope.data.azurecr.io`. 
+Następujące polecenia tworzą rekordy DNS w strefie prywatnej dla punktu końcowego rejestru i jego punktu końcowego danych. Na przykład jeśli w regionie *westeurope* istnieje rejestr o nazwie Moje `myregistry.azurecr.io` *rejestry* , nazwy punktów końcowych to i `myregistry.westeurope.data.azurecr.io`. 
 
-Najpierw uruchom [az network private-dns record-set a create to][az-network-private-dns-record-set-a-create] create empty A record sets for the registry endpoint and data endpoint:
+> [!NOTE]
+> Jeśli rejestr ma [replikację geograficzną](container-registry-geo-replication.md), Utwórz dodatkowe rekordy DNS dla każdego repliky adres IP punktu końcowego danych.
+
+Najpierw uruchom [AZ Network Private-DNS record-Set a Create][az-network-private-dns-record-set-a-create] , aby utworzyć puste zestawy rekordów dla punktu końcowego rejestru i punktu końcowego danych:
 
 ```azurecli
 az network private-dns record-set a create \
-  --name $registryName \
+  --name $REGISTRY_NAME \
   --zone-name privatelink.azurecr.io \
-  --resource-group $resourceGroup
+  --resource-group $RESOURCE_GROUP
 
 # Specify registry region in data endpoint name
 az network private-dns record-set a create \
-  --name ${registryName}.${registryLocation}.data \
+  --name ${REGISTRY_NAME}.${REGISTRY_LOCATION}.data \
   --zone-name privatelink.azurecr.io \
-  --resource-group $resourceGroup
+  --resource-group $RESOURCE_GROUP
 ```
 
-Uruchom polecenie [rekordu rekordu dodatkowego az network private-dns,][az-network-private-dns-record-set-a-add-record] aby utworzyć rekordy A dla punktu końcowego rejestru i punktu końcowego danych:
+Uruchom polecenie [AZ Network Private-DNS record-Set a Add-Record][az-network-private-dns-record-set-a-add-record] , aby utworzyć rekordy a dla punktu końcowego rejestru i punktu końcowego danych:
 
 ```azurecli
 az network private-dns record-set a add-record \
-  --record-set-name $registryName \
+  --record-set-name $REGISTRY_NAME \
   --zone-name privatelink.azurecr.io \
-  --resource-group $resourceGroup \
-  --ipv4-address $privateIP
+  --resource-group $RESOURCE_GROUP \
+  --ipv4-address $PRIVATE_IP
 
 # Specify registry region in data endpoint name
 az network private-dns record-set a add-record \
-  --record-set-name ${registryName}.${registryLocation}.data \
+  --record-set-name ${REGISTRY_NAME}.${REGISTRY_LOCATION}.data \
   --zone-name privatelink.azurecr.io \
-  --resource-group $resourceGroup \
-  --ipv4-address $dataEndpointPrivateIP
+  --resource-group $RESOURCE_GROUP \
+  --ipv4-address $DATA_ENDPOINT_PRIVATE_IP
 ```
 
-Łącze prywatne jest teraz skonfigurowane i gotowe do użycia.
+Link prywatny jest teraz skonfigurowany i gotowy do użycia.
 
-## <a name="set-up-private-link---portal"></a>Konfigurowanie łącza prywatnego — portal
+## <a name="set-up-private-link---portal"></a>Skonfiguruj prywatny link — Portal
 
-W poniższych krokach założono, że masz już sieć wirtualną i podsieć skonfigurowaną z maszyną wirtualną do testowania. Można również [utworzyć nową sieć wirtualną i podsieć](../virtual-network/quick-create-portal.md).
+Skonfiguruj prywatny link podczas tworzenia rejestru lub Dodaj prywatny link do istniejącego rejestru. W poniższych krokach założono, że masz już skonfigurowaną sieć wirtualną i podsieć z maszyną wirtualną do testowania. Możesz również [utworzyć nową sieć wirtualną i podsieć](../virtual-network/quick-create-portal.md).
 
-### <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
+### <a name="create-a-private-endpoint---new-registry"></a>Tworzenie prywatnego punktu końcowego — Nowy Rejestr
+
+1. Podczas tworzenia rejestru w portalu na karcie **podstawowe** w obszarze **jednostka SKU**wybierz pozycję **Premium**.
+1. Wybierz kartę **Sieć** .
+1. W obszarze **łączność sieciowa**wybierz pozycję **prywatny punkt końcowy** > **+ Dodaj**.
+1. Wprowadź lub wybierz następujące informacje:
+
+    | Ustawienie | Wartość |
+    | ------- | ----- |
+    | Subskrypcja | Wybierz subskrypcję. |
+    | Grupa zasobów | Wprowadź nazwę istniejącej grupy lub Utwórz nową.|
+    | Nazwa | Wprowadź unikatową nazwę. |
+    | Układ zasobów podrzędnych |Wybierz **Rejestr**|
+    | **Networking** | |
+    | Sieć wirtualna| Wybierz sieć wirtualną, w której wdrożono maszynę wirtualną, taką jak *myDockerVMVNET*. |
+    | Podsieć | Wybierz podsieć, na przykład *myDockerVMSubnet* , w której wdrożono maszynę wirtualną. |
+    |**Integracja Prywatna strefa DNS**||
+    |Integracja z prywatną strefą DNS |Wybierz pozycję **tak**. |
+    |Strefa Prywatna strefa DNS |Wybierz *(nowy) privatelink.azurecr.IO* |
+    |||
+1. Skonfiguruj pozostałe ustawienia rejestru, a następnie wybierz pozycję **Przegląd + Utwórz**.
+
+  ![Tworzenie rejestru przy użyciu prywatnego punktu końcowego](./media/container-registry-private-link/private-link-create-portal.png)
+
+### <a name="create-a-private-endpoint---existing-registry"></a>Tworzenie prywatnego punktu końcowego — istniejący rejestr
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **Ustawienia**wybierz pozycję **Prywatne połączenia punktów końcowych (Podgląd)**.
-1. Wybierz **+ Prywatny punkt końcowy**.
-1. Na karcie **Podstawy** wprowadź lub wybierz następujące informacje:
+1. W obszarze **Ustawienia**wybierz pozycję **Sieć**.
+1. Na karcie **prywatne punkty końcowe** wybierz pozycję **+ prywatny punkt końcowy**.
+1. Na karcie **podstawy** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     | **Szczegóły projektu** | |
     | Subskrypcja | Wybierz subskrypcję. |
-    | Grupa zasobów | Wprowadź nazwę istniejącej grupy lub utwórz nową.|
+    | Grupa zasobów | Wprowadź nazwę istniejącej grupy lub Utwórz nową.|
     | **Szczegóły wystąpienia** |  |
-    | Nazwa | Wprowadź unikatową nazwę. |
+    | Nazwa | Wprowadź nazwę. |
     |Region|Wybierz region.|
     |||
-5. Wybierz **dalej: Zasób**.
+5. Wybierz pozycję **Dalej: zasób**.
 6. Wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |Metoda połączenia  | Wybierz **pozycję Połącz z zasobem platformy Azure w moim katalogu**.|
+    |Metoda połączenia  | Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu**.|
     | Subskrypcja| Wybierz subskrypcję. |
-    | Typ zasobu | Wybierz **pozycję Microsoft.ContainerRegistry/registries**. |
-    | Zasób |Wybieranie nazwy rejestru|
-    |Podźródło docelowe |Wybierz **rejestr**|
+    | Typ zasobu | Wybierz pozycję **Microsoft. ContainerRegistry/rejestry**. |
+    | Zasób |Wybierz nazwę rejestru|
+    |Podzasób docelowy |Wybierz **Rejestr**|
     |||
-7. Wybierz **dalej: Konfiguracja**.
+7. Wybierz pozycję **Dalej: Konfiguracja**.
 8. Wprowadź lub wybierz informacje:
 
     | Ustawienie | Wartość |
     | ------- | ----- |
     |**Networking**| |
-    | Sieć wirtualna| Wybierz sieć wirtualną, w której jest wdrożona maszyna wirtualna, na przykład *myDockerVMVNET*. |
-    | Podsieć | Wybierz podsieć, taką jak *myDockerVMSubnet,* w której jest wdrażana maszyna wirtualna. |
-    |**Prywatna integracja z systemem DNS**||
-    |Integracja z prywatną strefą DNS |Wybierz **pozycję Tak**. |
-    |Prywatna strefa DNS |Wybierz *(nowy) privatelink.azurecr.io* |
+    | Sieć wirtualna| Wybierz sieć wirtualną, w której wdrożono maszynę wirtualną, taką jak *myDockerVMVNET*. |
+    | Podsieć | Wybierz podsieć, na przykład *myDockerVMSubnet* , w której wdrożono maszynę wirtualną. |
+    |**Integracja Prywatna strefa DNS**||
+    |Integracja z prywatną strefą DNS |Wybierz pozycję **tak**. |
+    |Strefa Prywatna strefa DNS |Wybierz *(nowy) privatelink.azurecr.IO* |
     |||
 
-1. Wybierz pozycję **Przegląd + utwórz**. Zostaniesz przesuń do **review + tworzenie** strony, gdzie platforma Azure sprawdza poprawność konfiguracji. 
-2. Po wyświetleniu komunikatu **O przekazaniu weryfikacji** wybierz pozycję **Utwórz**.
+1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
+2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**.
 
-Po utworzeniu prywatnego punktu końcowego ustawienia DNS w strefie prywatnej są wyświetlane na stronie **Przegląd** punktu końcowego.
+Po utworzeniu prywatnego punktu końcowego ustawienia DNS w strefie prywatnej są wyświetlane na stronie **prywatne punkty końcowe** w portalu:
 
-![Ustawienia DNS punktu końcowego](./media/container-registry-private-link/private-endpoint-overview.png)
+1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
+1. Na karcie **prywatne punkty końcowe** wybierz utworzony przez siebie prywatny punkt końcowy.
+1. Na stronie **Przegląd** przejrzyj ustawienia łączy i niestandardowe ustawienia DNS.
 
-Twoje prywatne łącze jest teraz skonfigurowane i gotowe do użycia.
+  ![Ustawienia DNS punktu końcowego](./media/container-registry-private-link/private-endpoint-overview.png)
 
-## <a name="validate-private-link-connection"></a>Sprawdzanie poprawności połączenia łącza prywatnego
+Link prywatny jest teraz skonfigurowany i gotowy do użycia.
 
-Należy sprawdzić, czy zasoby w podsieci prywatnego punktu końcowego łączą się z rejestrem za pośrednictwem prywatnego adresu IP i mają prawidłową integrację prywatnej strefy DNS.
+## <a name="disable-public-access"></a>Wyłącz dostęp publiczny
 
-Aby sprawdzić poprawność połączenia łącza prywatnego, SSH do maszyny wirtualnej skonfigurowane w sieci wirtualnej.
+W przypadku wielu scenariuszy należy wyłączyć dostęp do rejestru z sieci publicznych. Ta konfiguracja uniemożliwia klientom spoza sieci wirtualnej osiąganie punktów końcowych rejestru. Aby wyłączyć dostęp publiczny przy użyciu portalu:
 
-Uruchom `nslookup` polecenie, aby rozpoznać adres IP rejestru za pomocą łącza prywatnego:
+1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp publiczny**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
+
+## <a name="validate-private-link-connection"></a>Weryfikowanie połączenia prywatnego linku
+
+Należy sprawdzić, czy zasoby w podsieci prywatnego punktu końcowego łączą się z rejestrem za pośrednictwem prywatnego adresu IP i mają poprawną integrację prywatnej strefy DNS.
+
+Aby sprawdzić poprawność połączenia z linkiem prywatnym, Użyj protokołu SSH do maszyny wirtualnej skonfigurowanej w sieci wirtualnej.
+
+Uruchom polecenie `nslookup` , aby rozwiązać adres IP rejestru za pośrednictwem prywatnego linku:
 
 ```bash
-nslookup $registryName.azurecr.io
+nslookup $REGISTRY_NAME.azurecr.io
 ```
 
-Przykładowy wynik pokazuje adres IP rejestru w przestrzeni adresowej podsieci:
+Przykładowe dane wyjściowe przedstawiają adres IP rejestru w przestrzeni adresowej podsieci:
 
 ```console
 [...]
@@ -329,7 +308,7 @@ Name:   myregistry.privatelink.azurecr.io
 Address: 10.0.0.6
 ```
 
-Porównaj ten wynik z `nslookup` publicznym adresem IP w danych wyjściowych dla tego samego rejestru w publicznym punkcie końcowym:
+Porównaj ten wynik z publicznym adresem IP w `nslookup` danych wyjściowych dla tego samego rejestru przez publiczny punkt końcowy:
 
 ```console
 [...]
@@ -338,52 +317,57 @@ Name:   myregistry.westeurope.cloudapp.azure.com
 Address: 40.78.103.41
 ```
 
-### <a name="registry-operations-over-private-link"></a>Operacje rejestru za łączem prywatnym
+### <a name="registry-operations-over-private-link"></a>Operacje na rejestrze za pośrednictwem prywatnego linku
 
-Sprawdź również, czy można wykonywać operacje rejestru z maszyny wirtualnej w podsieci. Nawiązuj połączenie SSH z maszyną wirtualną i uruchom [az acr login,][az-acr-login] aby zalogować się do rejestru. W zależności od konfiguracji maszyny Wirtualnej może być konieczne `sudo`prefiks następujących poleceń za pomocą programu .
+Sprawdź również, czy można wykonywać operacje na rejestrze z maszyny wirtualnej w podsieci. Nawiąż połączenie SSH z maszyną wirtualną, a następnie uruchom polecenie [AZ ACR login][az-acr-login] , aby zalogować się do rejestru. W zależności od konfiguracji maszyny wirtualnej może być konieczne dodanie do nich prefiksów następujących poleceń `sudo`.
 
 ```bash
-az acr login --name $registryName
+az acr login --name $REGISTRY_NAME
 ```
 
-Wykonaj operacje rejestru, takie jak `docker pull` pobieranie przykładowego obrazu z rejestru. Zastąp `hello-world:v1` obrazem i tagiem odpowiednim dla rejestru, poprzedzony nazwą serwera logowania rejestru (wszystkie małe litery):
+Wykonywanie operacji rejestru, takich `docker pull` jak pobranie przykładowego obrazu z rejestru. Zamień `hello-world:v1` na obraz i tag odpowiedni dla rejestru, poprzedzony prefiksem nazwa serwera logowania rejestru (wszystkie małe litery):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
 ``` 
 
-Docker pomyślnie ściąga obraz do maszyny Wirtualnej.
+Platforma Docker pomyślnie ściąga obraz do maszyny wirtualnej.
 
-## <a name="manage-private-endpoint-connections"></a>Zarządzanie połączeniami prywatnych punktów końcowych
+## <a name="manage-private-endpoint-connections"></a>Zarządzanie połączeniami prywatnego punktu końcowego
 
-Zarządzanie połączeniami prywatnych punktów końcowych rejestru za pomocą portalu Azure lub za pomocą poleceń w grupie poleceń [az acr private-endpoint-connection.][az-acr-private-endpoint-connection] Operacje obejmują zatwierdzanie, usuwanie, listy, odrzucanie lub pokazywać szczegóły połączeń prywatnych punktów końcowych rejestru.
+Zarządzanie połączeniami prywatnego punktu końcowego rejestru przy użyciu Azure Portal lub za pomocą poleceń w grupie poleceń [AZ ACR Private-Endpoint-Connection][az-acr-private-endpoint-connection] . Operacje obejmują Zatwierdź, Usuń, Wyświetl, Odrzuć lub Pokaż szczegóły połączeń prywatnych punktów końcowych rejestru.
 
-Na przykład, aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [az acr private-endpoint-connection list.][az-acr-private-endpoint-connection-list] Przykład:
+Na przykład aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [AZ ACR Private-Endpoint-Connection list][az-acr-private-endpoint-connection-list] . Przykład:
 
 ```azurecli
 az acr private-endpoint-connection list \
-  --registry-name $registryName 
+  --registry-name $REGISTRY_NAME 
 ```
 
-Podczas konfigurowania połączenia prywatnego punktu końcowego przy użyciu kroków w tym artykule, rejestr automatycznie akceptuje połączenia z klientami i usługami, które mają uprawnienia RBAC w rejestrze. Punkt końcowy można skonfigurować tak, aby wymagał ręcznego zatwierdzania połączeń. Aby uzyskać informacje dotyczące zatwierdzania i odrzucania połączeń prywatnych punktów końcowych, zobacz [Zarządzanie połączeniem prywatnego punktu końcowego](../private-link/manage-private-endpoint.md).
+W przypadku skonfigurowania połączenia prywatnego punktu końcowego za pomocą kroków opisanych w tym artykule rejestr automatycznie akceptuje połączenia od klientów i usług z uprawnieniami RBAC w rejestrze. Można skonfigurować punkt końcowy, aby wymagał ręcznego zatwierdzania połączeń. Aby uzyskać informacje na temat zatwierdzania i odrzucania połączeń prywatnych punktów końcowych, zobacz [Zarządzanie połączeniem prywatnego punktu końcowego](../private-link/manage-private-endpoint.md).
+
+## <a name="add-zone-records-for-replicas"></a>Dodawanie rekordów strefy dla replik
+
+Jak pokazano w tym artykule, podczas dodawania prywatnego połączenia punktu końcowego z rejestrem rekordy DNS w `privatelink.azurecr.io` strefie są tworzone dla rejestru i jego punktów końcowych danych w regionach, w których rejestr jest [replikowany](container-registry-geo-replication.md). 
+
+Jeśli później dodasz nową replikę, musisz ręcznie dodać nowy rekord strefy dla punktu końcowego danych w tym regionie. Jeśli na przykład utworzysz replikę *rejestru* w lokalizacji *northeurope* , Dodaj rekord strefy dla `myregistry.northeurope.data.azurecr.io`. Aby uzyskać instrukcje, zobacz [tworzenie rekordów DNS w strefie prywatnej](#create-dns-records-in-the-private-zone) w tym artykule.
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli utworzono wszystkie zasoby platformy Azure w tej samej grupie zasobów i nie są już potrzebne, można opcjonalnie usunąć zasoby za pomocą jednego polecenia [az delete grupy:](/cli/azure/group)
+Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 
 ```azurecli
-az group delete --name $resourceGroup
+az group delete --name $RESOURCE_GROUP
 ```
 
-Aby wyczyścić zasoby w portalu, przejdź do grupy zasobów. Po załadowaniu grupy zasobów kliknij pozycję **Usuń grupę zasobów,** aby usunąć grupę zasobów i przechowywane tam zasoby.
+Aby wyczyścić zasoby w portalu, przejdź do grupy zasobów. Po załadowaniu grupy zasobów kliknij pozycję **Usuń grupę zasobów** , aby usunąć grupę zasobów i przechowywane w niej zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o łączu prywatnym, zobacz dokumentację [łącza prywatnego platformy Azure.](../private-link/private-link-overview.md)
-* Alternatywą dla łącza prywatnego jest skonfigurowanie reguł dostępu do sieci w celu ograniczenia dostępu do rejestru. Aby dowiedzieć się więcej, zobacz [Ograniczanie dostępu do rejestru kontenerów platformy Azure przy użyciu sieci wirtualnej platformy Azure lub reguł zapory.](container-registry-vnet.md)
+* Aby dowiedzieć się więcej na temat linku prywatnego, zapoznaj się z dokumentacją [prywatnego linku do platformy Azure](../private-link/private-link-overview.md) .
+* Jeśli konieczne jest skonfigurowanie reguł dostępu do rejestru za zaporą klienta, zobacz [Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą](container-registry-firewall-access-rules.md).
 
 <!-- LINKS - external -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -401,6 +385,7 @@ Aby wyczyścić zasoby w portalu, przejdź do grupy zasobów. Po załadowaniu gr
 [az-acr-private-endpoint-connection]: /cli/azure/acr/private-endpoint-connection
 [az-acr-private-endpoint-connection-list]: /cli/azure/acr/private-endpoint-connection#az-acr-private-endpoint-connection-list
 [az-acr-private-endpoint-connection-approve]: /cli/azure/acr/private-endpoint-connection#az-acr-private-endpoint-connection-approve
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-vm-create]: /cli/azure/vm#az-vm-create

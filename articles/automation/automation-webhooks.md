@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367027"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582436"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Uruchamianie elementu runbook usługi Azure Automation za pomocą elementu webhook
 
@@ -88,7 +88,7 @@ Można uwzględnić logikę w elemencie Runbook, aby określić, czy jest wywoł
 
 Inna strategia polega na tym, że element Runbook wykonuje weryfikację zewnętrznego warunku, gdy odbierze żądanie elementu webhook. Rozważmy na przykład element Runbook, który jest wywoływany przez witrynę GitHub w dowolnym momencie, gdy istnieje nowe zatwierdzenie do repozytorium GitHub. Element Runbook może połączyć się z usługą GitHub, aby zweryfikować, że nastąpiło nowe zatwierdzenie przed kontynuowaniem.
 
-## <a name="creating-a-webhook"></a>Tworzenie elementu webhook
+## <a name="create-a-webhook"></a>Tworzenie elementu webhook
 
 Poniższa procedura umożliwia utworzenie nowego elementu webhook połączonego z elementem Runbook w Azure Portal.
 
@@ -106,7 +106,7 @@ Poniższa procedura umożliwia utworzenie nowego elementu webhook połączonego 
 1. Kliknij pozycję **Parametry** , aby podać wartości parametrów elementu Runbook. Jeśli element Runbook ma obowiązkowe parametry, nie można utworzyć elementu webhook, chyba że podano wartości.
 1. Kliknij pozycję **Utwórz**, aby utworzyć element webhook.
 
-## <a name="using-a-webhook"></a>Używanie elementu webhook
+## <a name="use-a-webhook"></a>Używanie elementu webhook
 
 Aby można było użyć elementu webhook po jego utworzeniu, klient musi wydać żądanie HTTP `POST` z adresem URL elementu webhook. Składnia jest następująca:
 
@@ -131,7 +131,7 @@ Przy założeniu, że żądanie zakończy się pomyślnie, odpowiedź elementu w
 
 Klient nie może określić momentu zakończenia zadania elementu Runbook lub jego stanu ukończenia z elementu webhook. Informacje te można znaleźć za pomocą identyfikatora zadania innego mechanizmu, takiego jak [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) lub [interfejsu API Azure Automation](/rest/api/automation/job).
 
-## <a name="renewing-a-webhook"></a><a name="renew-webhook"></a>Odnawianie elementu webhook
+## <a name="renew-a-webhook"></a>Odnawianie elementu webhook
 
 Po utworzeniu elementu webhook obowiązuje okres ważności wynoszący dziesięć lat, po upływie którego zostanie automatycznie wygaśnie. Po wygaśnięciu elementu webhook nie można go uaktywnić ponownie. Można go usunąć, a następnie utworzyć ponownie. 
 
@@ -200,7 +200,7 @@ else {
 }
 ```
 
-## <a name="testing-the-sample"></a>Testowanie przykładu
+## <a name="test-the-sample"></a>Testowanie przykładu
 
 Poniższy przykład używa środowiska Windows PowerShell, aby uruchomić element Runbook za pomocą elementu webhook. Dowolny język, który może spowodować żądanie HTTP, może korzystać z elementu webhook. W przykładzie użyto programu Windows PowerShell.
 

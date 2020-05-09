@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294115"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983333"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architektura odzyskiwania po awarii z platformy Azure do platformy Azure
 
@@ -55,15 +55,14 @@ Po włączeniu replikacji dla maszyny wirtualnej Site Recovery zapewnia opcję a
 Zasobami docelowymi można zarządzać w następujący sposób:
 
 - Ustawienia docelowe można modyfikować podczas włączania replikacji.
-- Ustawienia docelowe można modyfikować po już działaniu replikacji. Wyjątek jest typem dostępności (pojedynczym wystąpieniem, zestawem lub strefą). Aby zmienić to ustawienie, należy wyłączyć replikację, zmodyfikować ustawienie, a następnie włączyć je ponownie.
-
+- Ustawienia docelowe można modyfikować po już działaniu replikacji. Należy pamiętać, że domyślna jednostka SKU dla maszyny wirtualnej region docelowy jest taka sama jak jednostka SKU źródłowej maszyny wirtualnej (lub Następna Najlepsza dostępna jednostka SKU w porównaniu do źródłowej jednostki SKU maszyny wirtualnej). Podobnie jak w przypadku innych zasobów, takich jak docelowa Grupa zasobów, nazwa obiektu docelowego i inne, jednostka SKU maszyny docelowej dla regionu docelowego można także zaktualizować po zakończeniu replikacji. Zasób, którego nie można zaktualizować, jest typem dostępności (pojedynczym wystąpieniem, zestawem lub strefą). Aby zmienić to ustawienie, należy wyłączyć replikację, zmodyfikować ustawienie, a następnie włączyć je ponownie. 
 
 
 ## <a name="replication-policy"></a>Zasady replikacji 
 
 Po włączeniu replikacji maszyny wirtualnej platformy Azure domyślnie Site Recovery tworzy nowe zasady replikacji z ustawieniami domyślnymi podsumowywanymi w tabeli.
 
-**Ustawienie zasad** | **Szczegóły** | **Domyślny**
+**Ustawienie zasad** | **Szczegóły** | **Wartooć**
 --- | --- | ---
 **Przechowywanie punktów odzyskiwania** | Określa, jak długo Site Recovery zachowuje punkty odzyskiwania | 24 godziny
 **Częstotliwość migawek spójnych na poziomie aplikacji** | Jak często Site Recovery pobiera migawkę spójną na poziomie aplikacji. | Co cztery godziny

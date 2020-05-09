@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801692"
+ms.locfileid: "82838488"
 ---
 # <a name="sql-database-release-notes"></a>Informacje o wersji SQL Database
 
@@ -93,12 +93,12 @@ W modelu wdrażania wystąpienia zarządzanego w H1 2019 są włączone następu
 |[@queryparametr nie jest obsługiwany w sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Kwi 2019|Brak obejścia| |
 |[Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Brak obejścia| |
 |[Tymczasowa baza danych jest używana podczas operacji przywracania](#temporary-database-is-used-during-restore-operation)||Ma obejście| |
-|[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)||Brak obejścia| |
-|[Przekraczanie miejsca do magazynowania z małymi plikami bazy danych](#exceeding-storage-space-with-small-database-files)||Ma obejście| |
-|[Wyświetlane wartości identyfikatora GUID zamiast nazw baz danych](#guid-values-shown-instead-of-database-names)||Ma obejście| |
+|[Struktura i zawartość bazy danych TEMPDB są odtwarzane](#tempdb-structure-and-content-is-re-created)| |Brak obejścia| |
+|[Przekraczanie miejsca do magazynowania z małymi plikami bazy danych](#exceeding-storage-space-with-small-database-files)| |Ma obejście| |
+|[Wyświetlane wartości identyfikatora GUID zamiast nazw baz danych](#guid-values-shown-instead-of-database-names) ||Ma obejście| |
 |[Dzienniki błędów nie są utrwalone](#error-logs-arent-persisted)||Brak obejścia| |
-|[Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Ma obejście|Mar 2020|
-|[Moduły CLR i połączone serwery czasami nie mogą odwoływać się do lokalnego adresu IP](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Ma obejście| |
+|[Moduły CLR i połączone serwery czasami nie mogą odwoływać się do lokalnego adresu IP](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Ma obejście| |
+|[Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Resolved|Mar 2020|
 |Nie sprawdzono spójności bazy danych przy użyciu polecenia DBCC CHECKDB po przywróceniu bazy danych z platformy Azure Blob Storage.| |Resolved|Lis 2019|
 |Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.| |Resolved|2019 października|
 |Funkcja Poczta bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia| |Resolved|2019 października|

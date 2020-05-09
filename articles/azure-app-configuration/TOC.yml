@@ -62,6 +62,9 @@
   items:
     - name: Interfejs wiersza polecenia platformy Azure
       href: cli-samples.md
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Magazyn wartości klucza

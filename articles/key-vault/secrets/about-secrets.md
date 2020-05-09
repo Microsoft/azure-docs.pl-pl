@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81685436"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930475"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informacje o kluczach tajnych Azure Key Vault
 
@@ -26,6 +26,10 @@ Z perspektywy deweloperów Key Vault interfejsy API akceptują i zwracają warto
 W przypadku wysoce poufnych danych klienci powinni rozważyć zastosowanie dodatkowych warstw ochrony danych. Jednym z przykładów jest szyfrowanie danych przy użyciu oddzielnego klucza ochrony w celu przechowywania ich w usłudze Key Vault.  
 
 Key Vault obsługuje również pole ContentType dla wpisów tajnych. Klienci mogą określić typ zawartości wpisu tajnego, aby pomóc w interpretacji danych tajnych podczas pobierania. Maksymalna długość tego pola to 255 znaków. Brak wstępnie zdefiniowanych wartości. Sugerowane użycie jest wskazówką dotyczącą interpretacji danych tajnych. Na przykład implementacja może przechowywać hasła i certyfikaty jako wpisy tajne, a następnie używać tego pola do rozróżniania. Brak wstępnie zdefiniowanych wartości.  
+
+## <a name="encryption"></a>Szyfrowanie
+
+Wszystkie wpisy tajne w Key Vault są przechowywane w postaci zaszyfrowanej. To szyfrowanie jest przezroczyste i nie wymaga żadnych działań od użytkownika. Usługa Azure Key Vault szyfruje wpisy tajne po ich dodaniu i odszyfrowuje je automatycznie podczas ich odczytywania. Klucz szyfrowania jest unikatowy dla każdego magazynu kluczy.
 
 ## <a name="secret-attributes"></a>Atrybuty wpisu tajnego
 

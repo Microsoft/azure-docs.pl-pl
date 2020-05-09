@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77659496"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731716"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -29,16 +29,17 @@ W ramach tej samej dzierżawy Azure Active Directory musi istnieć źródłowa i
 ```
 
 ## <a name="workspace-move-considerations"></a>Zagadnienia dotyczące przenoszenia obszaru roboczego
-Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. Ponieważ operacja przenoszenia wymaga, aby nie było żadnego linku z obszaru roboczego do żadnego konta usługi Automation, należy usunąć rozwiązania korzystające z tego linku.
+Rozwiązania zarządzane, które są zainstalowane w obszarze roboczym, zostaną przeniesione z Log Analytics operacji przenoszenia obszaru roboczego. Połączone agenci pozostaną połączone i będą wysyłać dane do obszaru roboczego po przeniesieniu. Ponieważ operacja przenoszenia wymaga, aby w obszarze roboczym nie było żadnych połączonych usług, należy usunąć rozwiązania, które korzystają z tego linku, aby umożliwić przeniesienie obszaru roboczego.
 
 Rozwiązania, które należy usunąć, aby można było odłączyć konto usługi Automation:
 
 - Zarządzanie aktualizacjami
 - Śledzenie zmian
 - Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
+- Azure Security Center
 
 
-### <a name="delete-in-azure-portal"></a>Usuwanie w witrynie Azure Portal
+### <a name="delete-solutions-in-azure-portal"></a>Usuwanie rozwiązań w Azure Portal
 Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności opisane w poniższej procedurze:
 
 1. Otwórz menu dla grupy zasobów, w której zainstalowano wszystkie rozwiązania.
@@ -57,8 +58,8 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### <a name="remove-alert-rules"></a>Usuń reguły alertów
-W przypadku rozwiązania do **uruchamiania/zatrzymywania maszyn wirtualnych** należy również usunąć reguły alertów utworzone przez rozwiązanie. Aby usunąć te reguły, należy wykonać poniższą procedurę w Azure Portal.
+### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Usuń reguły alertów dla rozwiązania do uruchamiania/zatrzymywania maszyn wirtualnych
+Aby usunąć rozwiązanie do **uruchamiania/zatrzymywania maszyn wirtualnych** , należy również usunąć reguły alertów utworzone przez rozwiązanie. Aby usunąć te reguły, należy wykonać poniższą procedurę w Azure Portal.
 
 1. Otwórz menu **monitor** , a następnie wybierz pozycję **alerty**.
 2. Kliknij pozycję **Zarządzaj regułami alertów**.
@@ -98,8 +99,6 @@ Aby przenieść obszar roboczy przy użyciu programu PowerShell, użyj polecenia
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
-
-
 
 > [!IMPORTANT]
 > Po zakończeniu operacji przenoszenia, usunięte rozwiązania i link do konta usługi Automation należy zmienić konfigurację, aby przywrócić obszar roboczy z powrotem do poprzedniego stanu.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 039879cb725c20af3c40698947ea9abe189d08ad
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76271132"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731767"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>PRZESTARZAŁE Używanie wersji roboczej z Azure Container Service i Azure Container Registry do kompilowania i wdrażania aplikacji w usłudze Kubernetes
 
@@ -102,7 +102,7 @@ Po utworzeniu klastra można zaimportować poświadczenia za pomocą polecenia [
 
 
 1. Pobierz wersję roboczą środowiska https://github.com/Azure/draft/releases i zainstaluj ją w ścieżce, aby można było użyć polecenia.
-2. Pobierz Helm dla swojego środowiska https://github.com/kubernetes/helm/releases i [Zainstaluj go w ścieżce, aby można było użyć polecenia](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+2. Pobierz Helm dla swojego środowiska https://github.com/kubernetes/helm/releases i [Zainstaluj go w ścieżce, aby można było użyć polecenia](https://helm.sh/docs/intro/quickstart#install-helm).
 3. Skonfiguruj narzędzie Draft do korzystania z Twojego rejestru i tworzenia poddomen dla każdego planu Helm, które to narzędzie utworzy. Aby skonfigurować narzędzie Draft, potrzebne są:
    - nazwa rejestru Azure Container Registry (w tym przykładzie: `draftacsdemo`);
    - klucz rejestru lub hasło z polecenia `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`;
