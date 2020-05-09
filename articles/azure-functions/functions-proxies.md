@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849194"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562070"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Pracuj z serwery proxy usługi Azure Functions
 
@@ -185,7 +185,7 @@ Obiekt requestOverrides definiuje zmiany wprowadzone w żądaniu w przypadku wyw
 
 * **zaplecze. Request. Method**: Metoda http, która jest używana do wywoływania zaplecza.
 * **zaplecze. Request. QueryString. \<: parametr ciągu zapytania, który można ustawić dla wywołania zaplecza.\>** Zastąp * \<parametrname\> * nazwą parametru, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
-* **zaplecze. Request. Heads. \<: nagłówek, który można ustawić dla wywołania zaplecza.\>** Zastąp * \<nagłówekname\> * nazwą nagłówka, który ma zostać ustawiony. W przypadku podania pustego ciągu nagłówek nie jest uwzględniany w żądaniu zaplecza.
+* **zaplecze. Request. Heads. \<: nagłówek, który można ustawić dla wywołania zaplecza.\>** Zastąp * \<nagłówekname\> * nazwą nagłówka, który ma zostać ustawiony. Należy pamiętać, że jeśli podano pusty ciąg, parametr nadal jest zawarty w żądaniu zaplecza.
 
 Wartości mogą odwoływać się do ustawień i parametrów aplikacji z oryginalnego żądania klienta.
 
