@@ -1,6 +1,6 @@
 ---
-title: Informacje o odmowie przypisań zasobów platformy Azure
-description: Informacje o odmowie przypisań w ramach kontroli dostępu opartej na rolach (RBAC) dla zasobów platformy Azure.
+title: Informacje o przypisaniach Odmów na platformie Azure — kontrola RBAC platformy Azure
+description: Dowiedz się więcej o przypisaniach Odmów na platformie Azure w kontroli dostępu opartej na rolach (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372483"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733777"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Informacje o odmowie przypisań zasobów platformy Azure
+# <a name="understand-azure-deny-assignments"></a>Informacje o przypisaniach Odmów na platformie Azure
 
 Podobnie jak przypisanie roli, *przypisanie odmowy* dołącza zestaw akcji Odmów do użytkownika, grupy lub jednostki usługi w określonym zakresie w celu odmowy dostępu. Odmowa przypisania uniemożliwia użytkownikom wykonywanie określonych akcji zasobów platformy Azure nawet wtedy, gdy przypisanie roli przyznaje im dostęp.
 
@@ -90,4 +90,4 @@ Wszystkie podmioty zabezpieczeń mogą być łączone z `ExcludePrincipals` , ab
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: Ochrona nowych zasobów przy użyciu blokad zasobów usługi Azure Plans](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Wyświetl listę odrzuconych przypisań zasobów platformy Azure przy użyciu Azure Portal](deny-assignments-portal.md)
+* [Wyświetl listę przypisań Odmów platformy Azure przy użyciu Azure Portal](deny-assignments-portal.md)

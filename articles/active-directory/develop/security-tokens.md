@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584287"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926582"
 ---
 # <a name="security-tokens"></a>Tokeny zabezpieczające
 
 Scentralizowany dostawca tożsamości jest szczególnie przydatny dla aplikacji, które znajdują się na całym świecie, niekoniecznie logują się z sieci przedsiębiorstwa. Platforma tożsamości firmy Microsoft uwierzytelnia użytkowników i udostępnia tokeny zabezpieczające, takie jak [token dostępu](developer-glossary.md#access-token), [token odświeżania](developer-glossary.md#refresh-token)i [token identyfikatora](developer-glossary.md#id-token), które umożliwiają [aplikacji klienckiej](developer-glossary.md#client-application) dostęp do chronionych zasobów na [serwerze zasobów](developer-glossary.md#resource-server).
 
-**Tokeny dostępu** to token zabezpieczający wystawiony przez [serwer autoryzacji](developer-glossary.md#authorization-server) w ramach przepływu [OAuth 2,0](active-directory-v2-protocols.md) . Zawiera informacje o użytkowniku i aplikacji, dla których jest przeznaczony token; służy do uzyskiwania dostępu do interfejsów API sieci Web i innych chronionych zasobów. Aby dowiedzieć się więcej o sposobie, w jaki oprogramowanie Microsoft Identity platform wystawia tokeny dostępu, zobacz [tokeny dostępu](access-tokens.md).
+**Token dostępu** jest tokenem zabezpieczającym wystawianym przez [serwer autoryzacji](developer-glossary.md#authorization-server) w ramach przepływu [OAuth 2,0](active-directory-v2-protocols.md) . Zawiera informacje o użytkowniku i aplikacji, dla których jest przeznaczony token; służy do uzyskiwania dostępu do interfejsów API sieci Web i innych chronionych zasobów. Aby dowiedzieć się więcej o sposobie, w jaki oprogramowanie Microsoft Identity platform wystawia tokeny dostępu, zobacz [tokeny dostępu](access-tokens.md).
 
-Tokeny dostępu są prawidłowe tylko przez krótki czas, więc serwery autoryzacji czasami wydają **tokeny odświeżania** w tym samym czasie, gdy token dostępu zostanie wystawiony. Aplikacja kliencka może następnie w razie potrzeby wymienić ten token odświeżania dla nowego tokenu dostępu. Aby dowiedzieć się więcej na temat sposobu odwoływania uprawnień przez platformę Microsoft Identity, zobacz [odwoływanie tokenu](access-tokens.md#token-revocation).
+Tokeny dostępu są prawidłowe tylko przez krótki czas, więc serwery autoryzacji czasami wydają **token odświeżenia** w tym samym czasie, gdy token dostępu zostanie wystawiony. Aplikacja kliencka może następnie w razie potrzeby wymienić ten token odświeżania dla nowego tokenu dostępu. Aby dowiedzieć się więcej na temat sposobu odwoływania uprawnień przez platformę Microsoft Identity, zobacz [odwoływanie tokenu](access-tokens.md#token-revocation).
 
 **Tokeny identyfikatorów** są wysyłane do aplikacji klienckiej w ramach przepływu [połączenia OpenID Connect](v2-protocols-oidc.md) . Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika. Aby dowiedzieć się więcej o tym, jak program Microsoft Identity platform generuje tokeny identyfikatorów, zobacz [identyfikatory tokenów](id-tokens.md).
+
+> [!NOTE]
+> W tym artykule omówiono tokeny zabezpieczające dla protokołów połączeń OAuth2 i OpenID Connect. Wiele aplikacji przedsiębiorstwa używa protokołu SAML do uwierzytelniania użytkowników. Aby uzyskać informacje na temat potwierdzeń SAML, zobacz [odwołanie do tokenu SAML usługi Azure AD](reference-saml-tokens.md) .
 
 ## <a name="validating-security-tokens"></a>Weryfikowanie tokenów zabezpieczających
 
@@ -45,7 +48,7 @@ Tokeny dostępu są przesyłane do internetowego interfejsu API jako token okazi
 
 Platforma tożsamości firmy Microsoft implementuje tokeny zabezpieczające jako **tokeny sieci Web JSON (JWTs)** , które zawierają **oświadczenia**.
 
-[Twierdzenie](developer-glossary.md#claim) zawiera potwierdzenia dotyczące jednej jednostki, takiej jak aplikacja kliencka lub [właściciel zasobu](developer-glossary.md#resource-owner), do innej jednostki, takiej jak serwer zasobów.
+[Twierdzenie](developer-glossary.md#claim) zawiera potwierdzenia dotyczące jednej jednostki, takiej jak aplikacja kliencka lub [właściciel zasobu](developer-glossary.md#resource-owner), do innej jednostki, takiej jak serwer zasobów. Można również odwołać się do żądania jako żądania tokenu JWT lub tokenu sieci Web JSON.
 
 Oświadczenia są parami nazw/wartości, które przekazują fakty dotyczące podmiotu tokenu. Na przykład zgłoszenie może zawierać fakty dotyczące podmiotu zabezpieczeń, który został uwierzytelniony przez serwer autoryzacji. Oświadczenia obecne w danym tokenie zależą od wielu elementów, w tym typu tokenu, typu poświadczenia używanego do uwierzytelniania podmiotu, konfiguracji aplikacji i tak dalej.
 

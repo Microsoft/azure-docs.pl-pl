@@ -1,33 +1,33 @@
 ---
-title: Tworzenie oferty kontenera platformy Azure w centrum partnerskim — Azure Marketplace
-description: W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace.
+title: Tworzenie oferty kontenera platformy Azure — Azure Marketplace
+description: W tym artykule wyjaśniono, jak utworzyć i opublikować ofertę kontenera w witrynie Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867362"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791939"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
 > [!IMPORTANT]
 > Przenosimy zarządzanie ofertami kontenerów platformy Azure z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Portal Cloud partner, aby zarządzać ofertami.
 
-W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
-1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home), a następnie z górnego menu wybierz pozycję **pulpit nawigacyjny**.
-2. W menu po lewej stronie wybierz opcję **komercyjny Marketing**, a następnie pozycję **Przegląd**.
-3. Na stronie **Przegląd** wybierz pozycję **+ Nowa oferta**, a następnie pozycję **Azure Container**. Zostanie wyświetlone okno dialogowe **Nowa oferta** .
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ nowy oferta** > **platformy Azure**.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Pokazano na stronie Przegląd w centrum partnerskim. Zostanie wyróżniony przycisk Nowa oferta i oferta usługi konsultingowej.":::
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
@@ -36,16 +36,16 @@ W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla por
 
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
-- Ten identyfikator może być widoczny dla klientów w adresie sieci Web dla oferty i szablonów Azure Resource Manager, jeśli ma zastosowanie.
+- Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-**Wprowadź** **alias oferty**. Jest to nazwa używana do odwoływania się do oferty w centrum partnerskim.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
 - Tego nie można zmienić po wybraniu opcji **Utwórz**.
 
-Wybierz pozycję **Utwórz** przed kontynuowaniem.
+Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-overview"></a>Przegląd oferty
 
@@ -64,7 +64,7 @@ Wykonaj następujące kroki, aby skonfigurować ofertę.
 
 ### <a name="connect-lead-management--optional"></a>Zarządzanie potencjalnymi klientami — opcjonalne
 
-Opublikowanie oferty w portalu Marketplace przy użyciu Centrum partnerskiego pozwala połączyć ją z systemem zarządzania relacjami z klientami (CRM). Pozwala to na otrzymywanie informacji kontaktowych klienta, gdy tylko ktoś wyrazi zainteresowanie lub skorzysta z produktu.
+Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim można połączyć ją z systemem zarządzania relacjami z klientami (CRM). Pozwala to na otrzymywanie informacji kontaktowych klienta, gdy tylko ktoś wyrazi zainteresowanie lub skorzysta z produktu.
 
 1. **Wybierz miejsce docelowe potencjalnego klienta, na którym chcesz wysłać klientów**. Centrum partnerskie obsługuje następujące systemy CRM:
 
@@ -83,10 +83,10 @@ Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym lide
 
 - [Omówienie zarządzania potencjalnymi klientami](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Zarządzanie potencjalnymi klientami — często zadawane pytania](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, właściwości.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="properties"></a>Właściwości
 
@@ -434,4 +434,4 @@ Aby opublikować ofertę dla publiczną (lub, jeśli publiczną, prywatną), prz
 
 ## <a name="next-step"></a>Następny krok
 
-- [Aktualizowanie istniejącej oferty w witrynie Marketplace dla zastosowań komercyjnych](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

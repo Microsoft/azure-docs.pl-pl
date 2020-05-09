@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266379"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582916"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Utwórz lub Zaktualizuj grupę dynamiczną w Azure Active Directory
 
@@ -46,7 +46,7 @@ Przykłady składni, obsługiwane właściwości, operatory i wartości dla regu
 
 ## <a name="to-create-a-group-membership-rule"></a>Aby utworzyć regułę członkostwa w grupie
 
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta należącego do roli Administrator globalny, administrator usługi Intune lub administrator użytkowników w dzierżawie.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta należącego do roli Administrator globalny, administrator usługi Intune lub administrator użytkowników w organizacji Azure AD.
 1. Wyszukaj i wybierz **grupy**.
 1. Wybierz pozycję **wszystkie grupy**, a następnie wybierz pozycję **Nowa grupa**.
 
@@ -66,7 +66,7 @@ Jeśli wprowadzona reguła jest nieprawidłowa, wyjaśnienie, dlaczego nie możn
 
 ## <a name="to-update-an-existing-rule"></a>Aby zaktualizować istniejącą regułę
 
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta należącego do roli Administrator globalny, administrator grupy, administrator usługi Intune lub administrator użytkowników w dzierżawie.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta należącego do roli Administrator globalny, administrator grupy, administrator usługi Intune lub administrator użytkowników w organizacji Azure AD.
 1. Wybierz kolejno pozycje **grupy** > **wszystkie grupy**.
 1. Wybierz grupę, aby otworzyć jej profil.
 1. Na stronie profil grupy wybierz pozycję **dynamiczne reguły członkostwa**. Konstruktor reguł obsługuje maksymalnie pięć wyrażeń. Aby dodać więcej niż pięć wyrażeń, należy użyć pola tekstowego.
@@ -102,7 +102,7 @@ W przypadku **ostatniej zaktualizowanego stanu członkostwa** można wyświetli�
 - **W toku**: aktualizacje są obecnie w toku.
 - **Nieznane**: nie można pobrać czasu ostatniego aktualizowania. Grupa może być nowa.
 
-Jeśli wystąpi błąd podczas przetwarzania reguły członkostwa dla określonej grupy, w górnej części **strony Przegląd** dla grupy zostanie wyświetlony alert. Jeśli nie można przetworzyć oczekujących aktualizacji dynamicznego członkostwa dla wszystkich grup w dzierżawie przez ponad 24 godziny, w górnej części **wszystkich grup**zostanie wyświetlony alert.
+Jeśli wystąpi błąd podczas przetwarzania reguły członkostwa dla określonej grupy, w górnej części **strony Przegląd** dla grupy zostanie wyświetlony alert. Jeśli nie można przetworzyć oczekujących aktualizacji dynamicznego członkostwa dla wszystkich grup w organizacji przez ponad 24 godziny, w górnej części **wszystkich grup**zostanie wyświetlony alert.
 
 ![przetwarzanie alertów komunikatów o błędach](./media/groups-create-rule/processing-error.png)
 

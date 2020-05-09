@@ -1,10 +1,10 @@
 ---
 title: Kontrola dostępu do sieci
-description: Omówienie kontroli dostępu do sieci dla Azure SQL Database i magazynu danych w celu zarządzania dostępem oraz konfigurowania jednej lub puli baz danych.
+description: Omówienie kontroli dostępu do sieci dla Azure SQL Database i usługi Azure Synapse Analytics w celu zarządzania dostępem oraz konfigurowania jednej lub puli baz danych.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414413"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629579"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci hurtowni danych
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics
 
 > [!NOTE]
-> Ten artykuł ma zastosowanie do programu Azure SQL Server oraz do baz danych SQL Database i SQL Data Warehouse utworzonych na serwerze SQL platformy Azure. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database.
+> Ten artykuł ma zastosowanie do programu Azure SQL Server oraz SQL Database do baz danych usługi Azure Synapse Analytics, które są tworzone na serwerze SQL platformy Azure. Dla uproszczenia SQL Database jest używany podczas odnoszących się do SQL Database i usługi Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy **Azure SQL Database wystąpienia zarządzanego**. Aby uzyskać więcej informacji na temat konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym](sql-database-managed-instance-connect-app.md) .
@@ -56,7 +56,7 @@ Możesz również zmienić to ustawienie za pośrednictwem okienka Zapora po utw
 
 Po ustawieniu opcji **na** platformie Azure SQL Server umożliwia komunikację ze wszystkich zasobów w ramach granicy platformy Azure, która może być niedostępna w ramach subskrypcji.
 
-W wielu przypadkach ustawienie **on** jest bardziej ograniczane niż to, czego chcą klienci. Mogą chcieć ustawić to ustawienie jako **wyłączone** i zamienić je na bardziej restrykcyjne reguły zapory IP lub Virtual Network reguły zapory. To ma wpływ na następujące funkcje, które są uruchamiane na maszynach wirtualnych platformy Azure, które nie są częścią sieci wirtualnej, a tym samym łączą się z bazą danych SQL za pośrednictwem adresu IP platformy Azure.
+W wielu przypadkach ustawienie **on** jest bardziej ograniczane niż to, czego chcą klienci. Mogą chcieć ustawić to ustawienie jako **wyłączone** i zamienić je na bardziej restrykcyjne reguły zapory IP lub Virtual Network reguły zapory. To działanie ma wpływ na następujące funkcje, które są uruchamiane na maszynach wirtualnych platformy Azure, które nie są częścią sieci wirtualnej, a tym samym łączą się z SQL Database za pomocą adresu IP platformy Azure.
 
 ### <a name="import-export-service"></a>Importuj usługę eksportu
 Usługa Import Export nie działa, gdy ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **wyłączone**. Można jednak obejść ten problem [, ręcznie uruchamiając program sqlpackage. exe z maszyny wirtualnej platformy Azure lub wykonując eksport](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) bezpośrednio w kodzie przy użyciu interfejsu API DACFx.
