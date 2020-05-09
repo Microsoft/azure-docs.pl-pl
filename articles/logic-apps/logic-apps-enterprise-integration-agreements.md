@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74790741"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612337"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Tworzenie umów partnerów handlowych w programie Azure Logic Apps i zarządzanie nimi
 
@@ -68,6 +68,14 @@ W głównym menu platformy Azure wybierz pozycję **wszystkie usługi**. W polu 
    | **Ustawienia odbierania** | Różna | Różna | Te właściwości określają, jak partner hosta odbiera wszystkie komunikaty przychodzące od partnera gościa w umowie. Aby uzyskać więcej informacji, zobacz odpowiedni typ umowy: <p>- [Ustawienia komunikatu AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Ustawienia komunikatu EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Ustawienia komunikatu X12](logic-apps-enterprise-integration-x12.md) |
    | **Ustawienia wysyłania** | Różna | Różna | Te właściwości określają, jak partner hosta wysyła wszystkie komunikaty wychodzące do partnera gościa w umowie. Aby uzyskać więcej informacji, zobacz odpowiedni typ umowy: <p>- [Ustawienia komunikatu AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Ustawienia komunikatu EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Ustawienia komunikatu X12](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > Rozwiązanie dla umowy zależy od pasujących do tych elementów, które są zdefiniowane w partnerze i w komunikacie przychodzącym:
+   >
+   > * Kwalifikator i identyfikator nadawcy
+   > * Kwalifikator i identyfikator odbiorcy
+   >
+   > Jeśli te wartości są zmieniane dla partnera, upewnij się, że Zaktualizowano również umowę.
 
 1. Po zakończeniu tworzenia umowy na stronie **Dodaj** wybierz pozycję **OK**, a następnie wróć do konta integracji.
 

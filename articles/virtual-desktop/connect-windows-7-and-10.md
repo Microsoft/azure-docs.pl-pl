@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b16818856ca8196b82eb8f618cf22b5fc1b6854
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154342"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612694"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Łączenie się z klientem klasycznym systemu Windows
 
 > Dotyczy: Windows 7, Windows 10 i Windows 10 IoT Enterprise
 
 Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows na urządzeniach z systemem Windows 7, Windows 10 i Windows 10 IoT Enterprise przy użyciu klienta klasycznego systemu Windows.
+
+>[!NOTE]
+>Klient systemu Windows automatycznie domyślnie przyjmowana jest wersja 2019 pulpitu wirtualnego systemu Windows. Jeśli jednak klient wykryje, że użytkownik ma także zasoby Azure Resource Manager, automatycznie doda zasoby lub powiadomi użytkownika, że są one dostępne. 
 
 > [!IMPORTANT]
 > Pulpit wirtualny systemu Windows nie obsługuje klienta połączenia programów RemoteApp i pulpitu (RADC) ani klienta Podłączanie pulpitu zdalnego (MSTSC).

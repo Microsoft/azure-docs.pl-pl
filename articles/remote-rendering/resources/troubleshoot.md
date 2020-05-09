@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681853"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792619"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -98,6 +98,10 @@ Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są o
 
 ### <a name="common-client-side-issues"></a>Typowe problemy po stronie klienta
 
+**Model przekracza limity wybranej maszyny wirtualnej, w tym maksymalną liczbę wielokątów:**
+
+Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
+
 **Model nie znajduje się w widoku frustum:**
 
 W wielu przypadkach model jest wyświetlany poprawnie, ale znajduje się poza kamerą frustum. Typowym powodem jest to, że model został wyeksportowany z daleko wyśrodkowanego przedziału. Pomaga w programistycznym zbadaniu pola powiązanego z modelem i wizualizowania pola z użyciem aparatu Unity jako pola wiersza lub drukowania jego wartości w dzienniku debugowania.
@@ -139,8 +143,20 @@ Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Kod Unity korzystający z interfejsu API renderowania zdalnego nie kompiluje
 
+### <a name="use-debug-when-compiling-for-unity-editor"></a>Użyj debugowania podczas kompilowania dla edytora Unity
+
 Zmień *typ kompilacji* rozwiązania Unity na **Debuguj**. Podczas testowania ARR w edytorze aparatu Unity definicja `UNITY_EDITOR` jest dostępna tylko w kompilacjach "debug". Należy zauważyć, że jest to niepowiązane z typem kompilacji używanym dla [wdrożonych aplikacji](../quickstarts/deploy-to-hololens.md), w którym należy preferować kompilacje "Release".
 
+### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Błędy kompilacji podczas kompilowania próbek aparatu Unity 2
+
+Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Unity (Szybki Start, ShowCaseApp,..) dla urządzenia HoloLens 2. Program Visual Studio nie może kopiować niektórych plików poza nimi. W przypadku wystąpienia tego problemu:
+* Usuń wszystkie pliki tymczasowe aparatu Unity z projektu i spróbuj ponownie.
+* Upewnij się, że projekty znajdują się w katalogu na dysku z odpowiednio krótką ścieżką, ponieważ krok kopiowania czasami wydaje się być przyczyną problemów z długimi nazwami plików.
+* Jeśli to nie pomoże, może to być, że usługa MS sens przeszkadza w kroku kopiowania. Aby skonfigurować wyjątek, Uruchom to polecenie rejestru z wiersza polecenia (wymaga uprawnień administratora):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## <a name="unstable-holograms"></a>Niestabilne hologramy
 
 W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.

@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944128"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610245"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurowanie niestandardowej nazwy domeny w Azure App Service z integracją Traffic Manager
 
@@ -66,12 +66,18 @@ Gdy aplikacja App Service jest w obsługiwanej warstwie cenowej, zostanie wyświ
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Chociaż poszczególne dostawcy domen różnią się od siebie, można mapować *z* niestandardowej nazwy domeny (takiej jak **contoso.com**) *na* nazwę domeny Traffic Manager (**contoso.trafficmanager.NET**), która jest zintegrowana z Twoją aplikacją.
+Poszczególne dostawcy domen różnią się w zależności *od* [nazwy domeny niestandardowej innej niż główna](#what-about-root-domains) **(takiej**jak **www.contoso.com** *Traffic Manager), która jest* zintegrowana z aplikacją. 
 
 > [!NOTE]
 > Jeśli rekord jest już używany i musisz zapobiegawczo powiązać z nim aplikacje, możesz utworzyć dodatkowy rekord CNAME. Aby na przykład zapobiegawczo powiązać **www\.contoso.com** z Twoją aplikacją, Utwórz rekord CNAME z **awverify. www** w **contoso.trafficmanager.NET**. Następnie można dodać "www\.contoso.com" do aplikacji bez konieczności zmiany rekordu CNAME "www". Aby uzyskać więcej informacji, zobacz [Migrowanie aktywnej nazwy DNS do Azure App Service](manage-custom-dns-migrate-domain.md).
 
 Po zakończeniu dodawania lub modyfikowania rekordów DNS u dostawcy domeny Zapisz zmiany.
+
+### <a name="what-about-root-domains"></a>Co z domenami głównymi?
+
+Ponieważ Traffic Manager obsługuje tylko niestandardowe mapowanie domen z rekordami CNAME i ponieważ standardy DNS nie obsługują rekordów CNAME do mapowania domen głównych (na przykład **contoso.com**), Traffic Manager nie obsługuje mapowania do domen głównych. Aby obejść ten problem, użyj adresu URL przekierowania z poziomu aplikacji. Na przykład w ASP.NET Core można użyć ponownego [zapisywania adresów URL](/aspnet/core/fundamentals/url-rewriting). Następnie użyj Traffic Manager do równoważenia obciążenia poddomeny (**www.contoso.com**).
+
+W przypadku scenariuszy wysokiej dostępności można zaimplementować konfigurację systemu DNS odporną na uszkodzenia bez Traffic Manager przez utworzenie wielu *rekordów a* , które wskazują na adres IP każdej z kopii aplikacji. Następnie [zamapuj tę samą domenę główną na wszystkie kopie aplikacji](app-service-web-tutorial-custom-domain.md#map-an-a-record). Ponieważ ta sama nazwa domeny nie może zostać zmapowana do dwóch różnych aplikacji w tym samym regionie, ta konfiguracja działa tylko wtedy, gdy kopie aplikacji znajdują się w różnych regionach.
 
 ## <a name="enable-custom-domain"></a>Włącz domenę niestandardową
 Po rozpropagowaniu rekordów dla nazwy domeny Użyj przeglądarki, aby sprawdzić, czy nazwa domeny niestandardowej jest rozpoznawana jako aplikacja App Service.

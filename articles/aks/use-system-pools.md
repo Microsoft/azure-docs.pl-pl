@@ -3,13 +3,13 @@ title: Korzystanie z pul węzłów systemu w usłudze Azure Kubernetes Service (
 description: Dowiedz się, jak tworzyć pule węzłów systemu i zarządzać nimi w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259072"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790562"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -29,6 +29,8 @@ Podczas tworzenia klastrów AKS obsługujących pule węzłów systemu i zarząd
 * Zobacz [limity przydziałów, ograniczenia rozmiaru maszyny wirtualnej i dostępność regionów w usłudze Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Klaster AKS musi być skompilowany przy użyciu zestawów skalowania maszyn wirtualnych jako typ maszyny wirtualnej.
 * Nazwa puli węzłów może zawierać tylko małe znaki alfanumeryczne i musi zaczynać się małą literą. W przypadku pul węzłów systemu Linux długość musi należeć do zakresu od 1 do 12 znaków. W przypadku pul węzłów systemu Windows długość musi należeć do zakresu od 1 do 6 znaków.
+* Aby ustawić tryb puli węzłów, należy użyć interfejsu API w wersji 2020-03-01 lub nowszej.
+* Tryb puli węzłów jest wymaganą właściwością i musi być jawnie ustawiony podczas korzystania z szablonów ARM lub bezpośrednich wywołań interfejsu API.
 
 ## <a name="system-and-user-node-pools"></a>Pule węzłów systemu i użytkownika
 
@@ -175,4 +177,4 @@ W tym artykule przedstawiono sposób tworzenia pul węzłów systemu i zarządza
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

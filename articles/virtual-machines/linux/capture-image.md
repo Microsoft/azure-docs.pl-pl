@@ -1,21 +1,25 @@
 ---
-title: Przechwytywanie obrazu maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
-description: Przechwytywanie obrazu maszyny wirtualnej platformy Azure do użycia w ramach wdrożeń masowych przy użyciu interfejsu wiersza polecenia platformy Azure.
+title: Przechwytywanie zarządzanego obrazu maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
+description: Przechwyć zarządzany obraz maszyny wirtualnej platformy Azure, który ma być używany na potrzeby wdrożeń masowych przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250402"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792687"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć obraz maszyny wirtualnej lub wirtualnego dysku twardego
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
-Aby utworzyć wiele kopii maszyny wirtualnej do użycia na platformie Azure, Przechwyć obraz maszyny wirtualnej lub wirtualnego dysku twardego systemu operacyjnego. Aby utworzyć obraz do wdrożenia, należy usunąć informacje o koncie osobistym. W poniższych krokach wycofasz obsługę istniejącej maszyny wirtualnej, zwolnisz ją i utworzysz obraz. Ten obraz służy do tworzenia maszyn wirtualnych w ramach dowolnej grupy zasobów w ramach subskrypcji.
+Aby utworzyć wiele kopii maszyny wirtualnej do użycia na platformie Azure na potrzeby tworzenia i testowania, Przechwyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego systemu operacyjnego. Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](../shared-images-cli.md).
+
+Aby utworzyć obraz zarządzany, należy usunąć informacje o koncie osobistym. W poniższych krokach wycofasz obsługę istniejącej maszyny wirtualnej, zwolnisz ją i utworzysz obraz. Ten obraz służy do tworzenia maszyn wirtualnych w ramach dowolnej grupy zasobów w ramach subskrypcji.
 
 Aby utworzyć kopię istniejącej maszyny wirtualnej z systemem Linux na potrzeby tworzenia kopii zapasowej lub debugowania albo przesłać wyspecjalizowany wirtualny dysk twardy z systemem Linux z lokalnej maszyny wirtualnej, zobacz temat [przekazywanie i Tworzenie maszyny wirtualnej z systemem Linux z niestandardowego obrazu dysku](upload-vhd.md).  
 
@@ -131,11 +135,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Można utworzyć wiele maszyn wirtualnych ze źródłowego obrazu maszyny wirtualnej. Aby wprowadzić zmiany w obrazie: 
-
-- Utwórz maszynę wirtualną na podstawie obrazu.
-- Wprowadź wszelkie aktualizacje lub zmiany konfiguracji.
-- Wykonaj ponownie kroki, aby anulować obsługę administracyjną, cofnąć przydział, uogólnić i utworzyć obraz.
-- Użyj tego nowego obrazu na potrzeby przyszłych wdrożeń. Oryginalny obraz może zostać usunięty.
-
-Aby uzyskać więcej informacji o zarządzaniu maszynami wirtualnymi za pomocą interfejsu wiersza polecenia, zobacz [interfejs wiersza polecenia platformy Azure](/cli/azure).
+Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](shared-images.md).
