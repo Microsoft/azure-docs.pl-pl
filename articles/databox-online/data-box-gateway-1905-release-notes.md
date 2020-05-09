@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67078614"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561858"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Informacje o wersji Azure Data Box Edge i Azure Data Box Gateway 1905
 
@@ -21,7 +21,7 @@ ms.locfileid: "67078614"
 
 Poniższe informacje o wersji dotyczą krytycznych problemów otwartych i rozwiązanych problemów dotyczących wydania 1905 dla Azure Data Box Edge i Azure Data Box Gateway.
 
-Informacje o wersji są stale aktualizowane i wykryto krytyczne problemy wymagające obejścia. Przed wdrożeniem Data Box Edge/Data Box Gateway należy uważnie zapoznać się z informacjami zawartymi w informacjach o wersji.
+Informacje o wersji są stale aktualizowane i wykryto krytyczne problemy wymagające obejścia. Przed wdrożeniem Data Box Edge/Data Box Gateway należy uważnie zapoznać się z informacjami zawartymi w informacjach o wersji. 
 
 Ta wersja jest zgodna z wersjami oprogramowania:
 
@@ -33,7 +33,7 @@ Ta wersja jest zgodna z wersjami oprogramowania:
 
 ## <a name="whats-new"></a>Co nowego
 
-- **Udoskonalenia rejestrowania w usłudze Field programowalnych tablic (FPGA)** — w tej wersji wprowadzono usprawnienia rejestrowania i alertów związane z FPGA. Jest to aktualizacja wymagana dla Data Box Edge, jeśli używasz funkcji obliczeniowej Edge z FPGA. Aby uzyskać więcej informacji, zobacz jak [przekształcić dane za pomocą obliczeń Edge na Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Udoskonalenia rejestrowania w usłudze Field programowalnych tablic (FPGA)** — w tej wersji wprowadzono usprawnienia rejestrowania i alertów związane z FPGA. Jest to aktualizacja wymagana dla Data Box Edge, jeśli używasz funkcji obliczeniowej Edge z FPGA. Aby uzyskać więcej informacji, zobacz jak [przekształcić dane za pomocą obliczeń Edge na Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Znane problemy w wersji GA
 
@@ -43,4 +43,4 @@ W tej wersji nie zaznaczono żadnych nowych problemów. Wszystkie problemy wymie
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przygotowywanie do wdrażania usługi Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Przygotowywanie do wdrażania usługi Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Przygotowywanie do wdrażania usługi Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

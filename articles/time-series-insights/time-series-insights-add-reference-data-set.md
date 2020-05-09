@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18~~~~
-ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77087247"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838522"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Utwórz zestaw danych referencyjnych dla środowiska Time Series Insights przy użyciu Azure Portal
 
@@ -34,7 +34,7 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
 ## <a name="add-a-reference-data-set"></a>Dodawanie zestawu danych referencyjnych
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 
 1. Znajdź istniejące środowisko Azure Time Series Insights. Wybierz pozycję **wszystkie zasoby** w menu po lewej stronie Azure Portal. Wybierz środowisko usługi Time Series Insights.
 
@@ -78,7 +78,7 @@ Dane referencyjne nie są przyłączone wstecz. W takim przypadku tylko bieżąc
 
    [![Wybierz typy danych w nagłówkach kolumn.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. W razie konieczności zmień nazwy nagłówków kolumn. Nazwa kolumny klucza jest konieczna do przyłączenia do odpowiedniej właściwości w źródle zdarzenia. 
+1. W razie konieczności zmień nazwy nagłówków kolumn. Nazwa kolumny klucza jest konieczna do przyłączenia do odpowiedniej właściwości w źródle zdarzenia.
 
    > [!IMPORTANT]
    > Upewnij się, że nazwy kolumn klucza danych referencyjnych są zgodne z nazwą zdarzenia do danych przychodzących, z uwzględnieniem wielkości liter. Nazwy kolumn niebędących kluczami służą do rozszerzania danych przychodzących z odpowiednimi wartościami danych referencyjnych.
