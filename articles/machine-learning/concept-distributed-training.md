@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385547"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995006"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Uczenie rozproszone z Azure Machine Learning
 
 Ten artykuł zawiera informacje na temat szkoleń rozproszonych i sposobu, w jaki usługa Azure Machine Learning ją obsługuje na potrzeby modeli uczenia głębokiego. 
 
-W przypadku szkoleń rozproszonych obciążenie związane z modelem są dzielone i współużytkowane przez wiele procesorów mini, nazywanych węzłami procesu roboczego. Te węzły procesu roboczego działają równolegle w celu przyspieszenia szkolenia modeli. Szkolenie rozproszone może być używane w przypadku tradycyjnych modeli ML, ale jest lepiej dostosowane do zadań obliczeniowych i intensywnie korzystających z czasu, takich jak [głębokie uczenie](concept-deep-learning-vs-machine-learning.md) się do szkoleń głębokiej sieci neuronowych.
+W przypadku szkoleń rozproszonych obciążenie związane z modelem są dzielone i współużytkowane przez wiele procesorów mini, nazywanych węzłami procesu roboczego. Te węzły procesu roboczego działają równolegle w celu przyspieszenia szkolenia modeli. Szkolenie rozproszone może być używane w przypadku tradycyjnych modeli ML, ale jest lepiej dostosowane do zadań obliczeniowych i intensywnie korzystających z czasu, takich jak [głębokie uczenie](concept-deep-learning-vs-machine-learning.md) się do szkoleń głębokiej sieci neuronowych. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Uczenie głębokie i szkolenia rozproszone 
 
@@ -36,7 +36,9 @@ W przypadku modeli ML, które nie wymagają szkolenia rozproszonego, zobacz tema
 
 Równoległość danych to najłatwiejsza implementacja dwóch rozwiązań szkolenia rozproszonego i jest wystarczająca dla większości przypadków użycia.
 
-W tym podejściu dane są podzielone na partycje, gdzie liczba partycji jest równa całkowitej liczbie dostępnych węzłów w klastrze obliczeniowym. Model jest kopiowany w każdym z tych węzłów procesu roboczego, a każdy proces roboczy działa na własnym podzbiorze danych. Należy pamiętać, że każdy węzeł musi mieć pojemność do obsługi modelu, który jest szkolony, czyli że model ma całkowicie pasować do każdego węzła.
+W tym podejściu dane są podzielone na partycje, gdzie liczba partycji jest równa całkowitej liczbie dostępnych węzłów w klastrze obliczeniowym. Model jest kopiowany w każdym z tych węzłów procesu roboczego, a każdy proces roboczy działa na własnym podzbiorze danych. Należy pamiętać, że każdy węzeł musi mieć pojemność do obsługi modelu, który jest szkolony, czyli że model ma całkowicie pasować do każdego węzła. Na poniższym diagramie przedstawiono wizualizację tego podejścia.
+
+![Równoległość danych — diagram koncepcji](./media/concept-distributed-training/distributed-training.svg)
 
 Każdy węzeł niezależnie oblicza błędy między przewidywaniami dla swoich przykładów szkoleniowych i oznaczonymi wynikami. Z kolei każdy węzeł aktualizuje model na podstawie błędów i musi przekazać wszystkie zmiany do innych węzłów w celu zaktualizowania odpowiednich modeli. Oznacza to, że węzły procesu roboczego muszą synchronizować parametry modelu lub gradienty na końcu obliczeń wsadowych, aby upewnić się, że są szkoleń spójnych modeli. 
 

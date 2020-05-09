@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652808"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995307"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Rozwiązywanie problemów z konfiguracją stanu Azure Automation
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Rozwiązywanie problemów z konfiguracją stanu Azure Automation
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów występujących podczas kompilowania lub wdrażania konfiguracji w Azure Automation konfiguracji stanu.
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation możesz zaktualizować moduły do najnowszej wersji, wykonując kroki opisane w temacie [jak zaktualizować moduły Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnozuj problem
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Przyczyna
 
-Ten problem jest spowodowany przez zły lub wygasły certyfikat. Zobacz [wygaśnięcie i rejestrację certyfikatu](../automation-dsc-onboarding.md#re-registering-a-node).
+Ten problem jest spowodowany przez zły lub wygasły certyfikat. Zobacz [Ponowne rejestrowanie węzła](../automation-dsc-onboarding.md#re-register-a-node).
 
 Przyczyną tego problemu może być również konfiguracja serwera proxy, która nie zezwala na dostęp do ***. Azure-Automation.NET**. Aby uzyskać więcej informacji, zobacz [Konfiguracja sieci prywatnych](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ W konfiguracji użyto poświadczeń, ale nie wprowadzono dla nich odpowiedniej `
 
 Upewnij się, `ConfigurationData` że w każdej konfiguracji węzła, `PSDscAllowPlainTextPassword` która jest wymieniona w konfiguracji, określono wartość true. Zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenariusz: "błąd przetwarzania rozszerzenia" podczas dołączania z rozszerzenia DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenariusz: "błąd przetwarzania rozszerzenia" podczas włączania maszyny z poziomu rozszerzenia DSC
 
 ### <a name="issue"></a>Problem
 
-Po dołączeniu przy użyciu rozszerzenia DSC wystąpi błąd, który zawiera błąd:
+Gdy komputer zostanie włączony przy użyciu rozszerzenia DSC, wystąpi błąd, który zawiera błąd:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Ten błąd występuje zazwyczaj, gdy do węzła jest przypisana nazwa konfigurac
 ### <a name="resolution"></a>Rozwiązanie
 
 * Upewnij się, że przypiszesz węzeł o nazwie, która dokładnie pasuje do nazwy w usłudze.
-* Można zrezygnować z dołączania nazwy konfiguracji węzła, która powoduje dołączenie węzła, ale nie przypisanie konfiguracji węzła.
+* Można zrezygnować z uwzględnienia nazwy konfiguracji węzła, co spowoduje włączenie węzła, ale nie przypisanie konfiguracji węzła.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenariusz: "wystąpił co najmniej jeden błąd" podczas rejestrowania węzła przy użyciu programu PowerShell
 
@@ -274,10 +271,10 @@ Ten błąd występuje podczas próby zarejestrowania węzła w oddzielnej subskr
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Traktuj węzeł między subskrypcjami, tak jakby został zdefiniowany dla oddzielnej chmury lub lokalnie. Zarejestruj węzeł przy użyciu jednej z następujących opcji dołączania:
+Traktuj węzeł między subskrypcjami, tak jakby został zdefiniowany dla oddzielnej chmury lub lokalnie. Zarejestruj węzeł przy użyciu jednej z następujących opcji włączania maszyn:
 
-* Windows: [fizyczne/wirtualne maszyny z systemem Windows lokalnie lub w chmurze innej niż Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [fizyczne/wirtualne maszyny z systemem Linux w środowisku lokalnym lub w chmurze innej niż Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [fizyczne/wirtualne maszyny z systemem Windows lokalnie lub w chmurze innej niż Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [fizyczne/wirtualne maszyny z systemem Linux w środowisku lokalnym lub w chmurze innej niż Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenariusz: komunikat o błędzie "Inicjowanie obsługi nie powiodło się"
 
