@@ -4,26 +4,26 @@ description: Wyjątki zapory serwera wymagane przez Application Insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/23/2020
-ms.openlocfilehash: 73147fe2e8c834fd4fc67c4c396bb095f616b6d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 05/01/2020
+ms.openlocfilehash: bd0ed9db9723af9015d15429d632712d63e249c1
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105849"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652744"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresy IP używane przez Application Insights i Log Analytics
 Usługa [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) używa wielu adresów IP. Może być konieczne poznanie tych adresów, jeśli monitorowana aplikacja jest hostowana za zaporą.
 
 > [!NOTE]
 > Chociaż te adresy są statyczne, istnieje możliwość, że będziemy musieli zmienić je od czasu do czasu. Cały ruch Application Insights reprezentuje ruch wychodzący z wyjątkiem monitorowania dostępności i elementów webhook, które wymagają reguł zapory dla ruchu przychodzącego.
-> 
-> 
 
 > [!TIP]
-> Zasubskrybuj Tę stronę jako źródło danych RSS, dodając https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom do ulubionego czytnika RSS/Atom, aby otrzymywać powiadomienia o najnowszych zmianach.
-> 
-> 
+> Za pomocą [tagów usługi sieciowej](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+) platformy Azure można zarządzać dostępem, jeśli są używane grupy zabezpieczeń sieci platformy Azure. Jeśli zarządzasz dostępem do zasobów hybrydowych/lokalnych, możesz pobrać równoważne listy adresów IP jako [pliki JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) , które są aktualizowane w każdym tygodniu:. Aby uwzględnić wszystkie wyjątki w tym artykule, należy użyć tagów usługi: "ActionName", "ApplicationInsightsAvailability", "AzureMonitor".
+
+Alternatywnie można subskrybować Tę stronę jako źródło danych RSS, dodając https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom do ulubionego czytnika RSS/Atom, aby otrzymywać powiadomienia o najnowszych zmianach.
+
 
 ## <a name="outgoing-ports"></a>Porty wychodzące
 Należy otworzyć niektóre porty wychodzące w zaporze serwera, aby zezwolić Application Insights SDK i/lub monitor stanu na wysyłanie danych do portalu:
@@ -43,13 +43,13 @@ Konfiguracja monitor stanu — wymagana tylko w przypadku wprowadzania zmian.
 
 | Przeznaczenie | Adres URL | Adres IP | Porty |
 | --- | --- | --- | --- |
-| Konfiguracja |`management.core.windows.net` | |`443` |
-| Konfiguracja |`management.azure.com` | |`443` |
-| Konfiguracja |`login.windows.net` | |`443` |
-| Konfiguracja |`login.microsoftonline.com` | |`443` |
-| Konfiguracja |`secure.aadcdn.microsoftonline-p.com` | |`443` |
-| Konfiguracja |`auth.gfx.ms` | |`443` |
-| Konfiguracja |`login.live.com` | |`443` |
+| Konfigurowanie |`management.core.windows.net` | |`443` |
+| Konfigurowanie |`management.azure.com` | |`443` |
+| Konfigurowanie |`login.windows.net` | |`443` |
+| Konfigurowanie |`login.microsoftonline.com` | |`443` |
+| Konfigurowanie |`secure.aadcdn.microsoftonline-p.com` | |`443` |
+| Konfigurowanie |`auth.gfx.ms` | |`443` |
+| Konfigurowanie |`login.live.com` | |`443` |
 | Instalacja | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Testy dostępności
@@ -178,6 +178,13 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
+Azure US Government (Not needed if you are an Azure Public cloud customer)
+
+20.140.48.160/27
+20.140.56.160/27
+20.140.64.160/27
+20.140.72.160/27
+52.127.49.96/27
 ```  
 
 ## <a name="application-insights--log-analytics-apis"></a>Application Insights & Log Analytics interfejsów API
@@ -220,11 +227,11 @@ Uwaga: domena loganalytics.io jest własnością zespołu Log Analytics.
 | Application Insights JS SDK sieci CDN | az416426.vo.msecnd.net | dynamiczna | 80 443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamiczna | 80 443 |
 
-## <a name="alert-webhooks"></a>Elementy webhook alertu
+## <a name="action-group-webhooks"></a>Elementy webhook grupy akcji
 
 | Przeznaczenie | Adres IP | Porty
 | --- | --- | --- |
-| Generowanie alertów | 23.96.11.4 | 443 |
+| Generowanie alertów | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
 
 ## <a name="profiler"></a>Profiler
 

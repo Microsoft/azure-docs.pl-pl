@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201690"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626194"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Korzystanie z standard scim i Microsoft Graph ze sobą w celu aprowizacji użytkowników i wzbogacania aplikacji o potrzebne dane
 
@@ -103,8 +103,8 @@ Moja aplikacja jest wbudowana w Microsoft Teams i opiera się na danych komunika
 Muszę mieć możliwość śledzenia zmian w zespołach i wiadomościach programu Outlook i reagowania na nie w czasie rzeczywistym. Jak można pobrać te zmiany do mojej aplikacji?
 
 **Zalecenie:** Microsoft Graph zapewnia [powiadomienia o zmianach](https://docs.microsoft.com/graph/webhooks) i [śledzenie zmian](https://docs.microsoft.com/graph/delta-query-overview) dla różnych zasobów. Należy pamiętać o następujących ograniczeniach dotyczących powiadomień o zmianach:
-- Jeśli odbiorca zdarzenia potwierdzi zdarzenie, ale nie będzie działać z jakiegokolwiek powodu, zdarzenie może zostać utracone
-- Jeśli odbiorca zdarzenia potwierdzi zdarzenie, ale nie będzie działać z jakiegokolwiek powodu, zdarzenie może zostać utracone
+- Jeśli odbiorca zdarzenia potwierdzi zdarzenie, ale nie będzie działać z jakiegokolwiek powodu, może to spowodować utratę zdarzenia.
+- Kolejność, w której zmiany są odbierane, nie gwarantuje, że jest to chronologiczne.
 - Powiadomienia o zmianach nie zawierają zawsze [danych zasobów](https://docs.microsoft.com/graph/webhooks-with-resource-data) dla powyższych powodów, deweloperzy często używają powiadomień o zmianach wraz ze śledzeniem zmian w scenariuszach synchronizacji. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Scenariusz 6. Udostępnianie użytkowników i grup w usłudze Azure AD

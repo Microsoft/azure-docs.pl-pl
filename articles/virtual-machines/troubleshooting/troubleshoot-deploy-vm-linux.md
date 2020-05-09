@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8fb383625ec2752264d6e5a70d8625f06689fc
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921440"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628303"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Rozwiązywanie problemów z wdrażaniem maszyny wirtualnej z systemem Linux na platformie Azure
 
@@ -56,13 +56,13 @@ Obecnie obsługa procesora GPU systemu Linux jest dostępna tylko na maszynach w
 
 ## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Brak moich sterowników dla maszyny wirtualnej z serii N systemu Linux
 
-Sterowniki maszyn wirtualnych opartych na systemie Linux znajdują się [tutaj](../linux/n-series-driver-setup.md). 
+Instrukcje dotyczące instalowania sterowników maszyn wirtualnych opartych na systemie Linux znajdują się [tutaj](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Nie mogę znaleźć wystąpienia procesora GPU w mojej maszynie wirtualnej z serii N
 
-Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych serii N z systemem Windows Server 2016 lub Windows Server 2012 R2, należy zainstalować sterowniki grafiki NVIDIA na każdej maszynie wirtualnej po wdrożeniu. Informacje na temat konfiguracji sterownika są dostępne dla maszyn [wirtualnych z systemem Windows](../windows/n-series-driver-setup.md) i [maszyn wirtualnych](../linux/n-series-driver-setup.md)z systemem Linux.
+Aby skorzystać z możliwości procesora GPU dla maszyn wirtualnych serii N platformy Azure, należy zainstalować sterowniki grafiki na każdej maszynie wirtualnej po wdrożeniu. Informacje o konfiguracji sterownika są dostępne [tutaj](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Czy maszyny wirtualne z serii N są dostępne w moim regionie?
+## <a name="are-n-series-vms-available-in-my-region"></a>Czy maszyny wirtualne z serii N są dostępne w moim regionie?
 
 Dostępność można sprawdzić w obszarze [produkty dostępne według regionów](https://azure.microsoft.com/regions/services) [i cenniku](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
