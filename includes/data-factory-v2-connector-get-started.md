@@ -21,6 +21,6 @@ Możesz użyć jednego z następujących narzędzi lub zestawów SDK, aby użyć
 - [Zestaw SDK .NET](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
 - [Zestaw SDK dla języka Python](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
-- [INTERFEJS API REST](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Szablon Azure Resource Manager](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
+- [Interfejs API REST](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
+- [Szablon usługi Azure Resource Manager](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 
