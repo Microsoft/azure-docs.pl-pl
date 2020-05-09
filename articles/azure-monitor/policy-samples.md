@@ -1,23 +1,23 @@
 ---
-title: Lista wbudowanych definicji zasad dla Azure Monitor
-description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Monitor. Te wbudowane usługi zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
+title: Wbudowane definicje zasad dla Azure Monitor
+description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Monitor. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
 ms.date: 04/30/2020
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-samples
-ms.openlocfilehash: eec29d12d167fa3eae9233095ccc5f38da77d9b1
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0434d2d1d532839ff18ea08a445f0b9ad50103a2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966288"
+ms.locfileid: "82982126"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-monitor"></a>Azure Policy wbudowane definicje zasad dla Azure Monitor
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure monitor. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

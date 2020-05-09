@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: c7ca630b4a6a1bedeab21feacc22cd27a1a3ee7e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82794154"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854095"
 ---
 # <a name="azure-load-balancer-skus"></a>Jednostki SKU Azure Load Balancer
 
@@ -49,6 +49,12 @@ Autonomiczne maszyny wirtualne, zestawy dostępności i zestawy skalowania maszy
 | Umowa SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Niedostępne | 
 
 Aby uzyskać więcej informacji, zobacz [limity usługi równoważenia obciążenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Szczegółowe informacje dotyczące modułu równoważenia obciążenia w warstwie Standardowa zawiera [przegląd](load-balancer-standard-overview.md), [cennik](https://aka.ms/lbpricing) i [umowa dotycząca poziomu usług](https://aka.ms/lbsla).
+
+## <a name="limitations"></a>Ograniczenia
+
+- Jednostki SKU nie są modyfikowalne. Nie można zmienić jednostki SKU istniejącego zasobu.
+- Zasób autonomicznej maszyny wirtualnej, zasób zestawu dostępności lub zasób zestawu skalowania maszyn wirtualnych może odwoływać się do jednej jednostki SKU, nigdy nie obu.
+- [Operacje przenoszenia subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md) nie są obsługiwane w przypadku zasobów usługa Load Balancer w warstwie Standardowa i standardowych adresów IP.
 
 ## <a name="next-steps"></a>Następne kroki
 

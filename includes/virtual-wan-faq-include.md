@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cde644b821b8c9233c9a79c2c5e9fe8478850a65
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204431"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82997655"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -49,7 +49,7 @@ Dostępne są dwie opcje dodawania serwerów DNS dla klientów P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>W przypadku sieci VPN użytkownika (punkt-lokacja) — ilu klientów jest obsługiwana?
 
-Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia, a każde wystąpienie obsługuje maksymalnie niektórych użytkowników jako jednostkę skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000 i w przypadku jednostek skalowania, które są obsługiwane przez 13-20. Na przykład, użytkownik wybiera 1 jednostkę skalowania. Każda jednostka skalowania będzie oznaczać, że wdrożono bramę Active-Active i każde wystąpienie (w tym przypadku 2) będzie obsługiwać maksymalnie 500 połączeń. Ponieważ można uzyskać 500 połączeń * 2 na bramę, nie oznacza to, że użytkownik planuje 1000 zamiast 500 dla tej jednostki skalowania, ponieważ wystąpienia mogą wymagać obsługi, podczas którego łączność z dodatkowymi usługami 500 może zostać przerwana w przypadku przekroczenia zalecanej liczby połączeń.
+Każda Brama sieci VPN P2S użytkownika ma dwa wystąpienia, a każde wystąpienie obsługuje maksymalnie niektórych użytkowników jako jednostkę skalowania. Jednostka skalowania 1-3 obsługuje połączenia 500, jednostka skalowania 4-6 obsługuje połączenia 1000, jednostka skalowania 7-12 obsługuje połączenia 5000 i w przypadku jednostek skalowania, które są obsługiwane przez 13-20. Na przykład, użytkownik wybiera 1 jednostkę skalowania. Każda jednostka skalowania będzie oznaczać, że wdrożono bramę Active-Active i każde wystąpienie (w tym przypadku 2) będzie obsługiwać maksymalnie 500 połączeń. Ponieważ można uzyskać 500 połączeń * 2 na bramę, nie oznacza to, że użytkownik planuje 1000 zamiast 500 dla tej jednostki skalowania, ponieważ wystąpienia mogą wymagać obsługi, podczas którego łączność z dodatkowymi usługami 500 może zostać przerwana w przypadku przekroczenia zalecanej liczby połączeń. Należy również zaplanować przestoje w przypadku podjęcia decyzji o skalowaniu w górę lub w dół w jednostce skalowania lub zmianie konfiguracji typu punkt-lokacja w bramie sieci VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Jaka jest różnica między bramą sieci wirtualnej platformy Azure (VPN Gateway) i bramą sieci VPN Azure Virtual WAN?
 

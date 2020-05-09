@@ -8,10 +8,10 @@
       href: cdn-features.md
 - name: Przewodniki Szybki start
   items:
-    - name: Tworzenie profilu i punktu końcowego
-      href: cdn-create-new-endpoint.md
     - name: Integrowanie konta magazynu
       href: cdn-create-a-storage-account-with-cdn.md
+    - name: Tworzenie profilu i punktu końcowego
+      href: cdn-create-new-endpoint.md
     - name: Tworzenie profilu za pomocą szablonu usługi Azure Resource Manager
       href: create-profile-resource-manager-template.md
 - name: Samouczki
@@ -28,7 +28,7 @@
       href: cdn-caching-rules-tutorial.md
     - name: Wymuszanie protokołu HTTPS za pomocą aparatu reguł standardowych
       href: cdn-standard-rules-engine.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
@@ -185,7 +185,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

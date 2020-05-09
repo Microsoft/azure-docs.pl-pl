@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583227"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996028"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -331,7 +331,7 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 | `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; Uniwersalny zestaw telefonu</li></ul><br>Alfabet ma zastosowanie tylko do elementu `phoneme` w elemencie.. | Optional |
 | `ph` | Ciąg zawierający telefony, które określają wymowę wyrazu w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa zamiany tekstu na mowę (TTS) odrzuci cały dokument SSML i nie wygeneruje żadnych danych wyjściowych mowy określonych w dokumencie. | Wymagany, jeśli jest używany fonemów. |
 
-**Pokazują**
+**Przykłady**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -359,7 +359,10 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Korzystanie z leksykonów niestandardowych w celu usprawnienia wymowy
 
-Czasami TTS nie może dokładnie wymawiać wyrazu, na przykład nazwy firmy lub obcej. Deweloperzy mogą definiować odczytywanie tych jednostek w SSML za pomocą `phoneme` i `sub` Tagi, lub definiować odczytywanie wielu jednostek, odwołując się do niestandardowego pliku leksykonu przy użyciu `lexicon` tag.
+Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. Na przykład nazwa firmy lub termin medyczny. Deweloperzy mogą definiować, jak pojedyncze jednostki są odczytywane w SSML `phoneme` przy `sub` użyciu tagów i. Jeśli jednak chcesz zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon przy użyciu `lexicon` znacznika.
+
+> [!NOTE]
+> Leksykon niestandardowy obecnie obsługuje kodowanie UTF-8. 
 
 **Obowiązuje**
 
@@ -375,14 +378,10 @@ Czasami TTS nie może dokładnie wymawiać wyrazu, na przykład nazwy firmy lub 
 
 **Wykorzystywani**
 
-Krok 1. Definiowanie słownika niestandardowego 
-
-Można zdefiniować odczytywanie jednostek przez listę niestandardowych elementów leksykonu przechowywanych jako plik XML lub innych obszarów roboczych.
-
-**Przyklad**
+Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon, który jest przechowywany jako plik XML lub innych obszarów roboczych. Poniżej znajduje się przykładowy plik XML.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,26 +399,46 @@ Można zdefiniować odczytywanie jednostek przez listę niestandardowych element
 </lexicon>
 ```
 
-Każdy `lexeme` element jest elementem leksykonu. `grapheme`zawiera tekst opisujący orthograph `lexeme`. Formularz odczytu można podać jako `alias`. Ciąg telefonu może być podany w `phoneme` elemencie.
+`lexicon` Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme`elementów `alias`,, `phoneme` i. `grapheme` Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. `alias` Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme` Element zawiera tekst opisujący sposób `lexeme` wymawiania.
 
-`lexicon` Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme`elementów `alais`,, `phoneme` i. `grapheme` Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. `alias` Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme` Element zawiera tekst opisujący sposób `lexeme` wymawiania.
+Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla elementu, najpierw podaj wartość `alias`, a następnie skojarz ją `phoneme` z. `alias` Przykład:
 
-Aby uzyskać więcej informacji na temat niestandardowego pliku leksykonu, zobacz [Specyfikacja leksykonu wymowy (innych obszarów roboczych) w wersji 1,0](https://www.w3.org/TR/pronunciation-lexicon/) w witrynie internetowej W3C.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Krok 2. przekazywanie niestandardowego pliku leksykonu utworzonego w kroku 1 online, można go przechowywać w dowolnym miejscu i sugerujemy przechowywanie go w Microsoft Azure, na przykład [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> W `phoneme` przypadku używania IPA element nie może zawierać białych znaków.
 
-Krok 3. odwoływanie się do niestandardowego pliku leksykonu w SSML
+Aby uzyskać więcej informacji na temat niestandardowego pliku leksykonu, zobacz [Specyfikacja leksykonu wymowy (innych obszarów roboczych) w wersji 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie mamy ograniczeń dotyczących lokalizacji tego pliku, zalecamy korzystanie z [usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Po opublikowaniu słownika niestandardowego można odwołać się do niego z SSML.
+
+> [!NOTE]
+> `lexicon` Element musi znajdować się wewnątrz `voice` elementu.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" zostanie odczytana jako "w sposób". "Benigni" zostanie odczytany przy użyciu podanej IPA "bɛ ˈ ni ː NJI".  
+
+W przypadku korzystania z tego słownika niestandardowego "BTW" zostanie odczytana jako "w sposób". "Benigni" zostanie odczytany przy użyciu podanej IPA "bɛ ˈ ni ː NJI".  
 
 **Ograniczenia**
 - Rozmiar pliku: niestandardowy limit rozmiaru pliku leksykonu to 100KB, jeśli ten rozmiar zostanie przekroczony, żądanie syntezy zakończy się niepowodzeniem.
@@ -427,12 +446,14 @@ Could you help leave a message to Robert Benigni for me?
 
 **Zestawy fonetyczne usługi mowy**
 
-W powyższym przykładzie używamy międzynarodowego alfabetu fonetycznego, nazywanego również numerem telefonu IPA. Sugerujemy, aby deweloperzy korzystali z IPA, ponieważ jest to standard międzynarodowy. Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla`en-US`siedmiu `fr-FR`języków `de-DE`( `es-ES`, `ja-JP`, `zh-CN`,, `zh-TW`, i).
+W powyższym przykładzie używamy międzynarodowego alfabetu fonetycznego, nazywanego również numerem telefonu IPA. Sugerujemy, aby deweloperzy korzystali z IPA, ponieważ jest to standard międzynarodowy. W przypadku niektórych znaków IPA mają one wersję "prekomponowad" i "dekomponowad", gdy jest reprezentowana przy użyciu standardu Unicode. Leksykon niestandardowy obsługuje tylko rozłożone znaki Unicode.
+
+Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla`en-US`siedmiu `fr-FR`języków `de-DE`( `es-ES`, `ja-JP`, `zh-CN`,, `zh-TW`, i).
 
 Można użyć `sapi` jako wartość dla `alphabet` atrybutu z niestandardowymi leksykonami, jak pokazano poniżej:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -650,7 +671,7 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagany w przypadku używania dźwięku w tle w dokumencie SSML. |
-| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartością domyślną jest `1`. | Optional |
+| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Optional |
 | `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0`, która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
 | `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0`, która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
 
