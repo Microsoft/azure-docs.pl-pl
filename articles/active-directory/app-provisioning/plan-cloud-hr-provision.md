@@ -4,20 +4,19 @@ description: W tym artykule opisano proces wdrażania integracji systemów kadr 
 services: active-directory
 author: martincoetzer
 manager: CelesteDG
-tags: azuread
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522436"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593305"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -53,11 +52,11 @@ Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w us�
 - Wymagaj synchronizacji, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w aplikacji w chmurze.
 - Użyj pakietu Office 365 do obsługi poczty e-mail.
 
-## <a name="learn"></a>Informacje
+## <a name="learn"></a>Learn
 
 Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami. Zwiększa ono jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
-### <a name="terms"></a>Warunki
+### <a name="terms"></a>Terminologia
 
 W tym artykule są stosowane następujące warunki:
 

@@ -1,22 +1,18 @@
 ---
-title: 'Uwierzytelnianie między usługami: Python z Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory | Microsoft Docs'
+title: Python — uwierzytelnianie między usługami — Data Lake Storage Gen1
 description: Dowiedz się, jak uzyskać uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu języka Python
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 449159f6857cb2120f4570a8c20cd82fd11016a2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260295"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688124"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -24,8 +20,8 @@ ms.locfileid: "79260295"
 > * [Korzystanie z zestawu SDK dla platformy .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Korzystanie z języka Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Korzystanie z interfejsu API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
-> 
->  
+>
+>
 
 Ten artykuł zawiera informacje na temat sposobu używania zestawu SDK języka Python do uwierzytelniania między usługami przy użyciu Azure Data Lake Storage Gen1. W przypadku uwierzytelniania użytkownika końcowego za pomocą Data Lake Storage Gen1 przy użyciu języka Python zobacz [uwierzytelnianie użytkowników końcowych za pomocą Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-end-user-authenticate-python.md).
 
@@ -92,7 +88,7 @@ Ten fragment kodu służy do uwierzytelniania za pomocą usługi Azure AD na pot
     RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-    
+
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
     armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
@@ -105,7 +101,7 @@ Poniższy fragment kodu służy do uwierzytelniania za pomocą usługi Azure AD 
     RESOURCE = 'https://datalake.azure.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-    
+
     adlCreds = lib.auth(tenant_id = tenant,
                     client_secret = client_secret,
                     client_id = client_id,
@@ -132,5 +128,3 @@ W tym artykule przedstawiono sposób użycia uwierzytelniania między usługami 
 
 * [Operacje zarządzania kontem na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-get-started-python.md)
 * [Operacje na danych na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-data-operations-python.md)
-
-

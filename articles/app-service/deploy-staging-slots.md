@@ -3,14 +3,14 @@ title: Konfigurowanie środowisk przejściowych
 description: Dowiedz się, jak wdrażać aplikacje w gnieździe nieprodukcyjnym i przełączać je do środowiska produkcyjnego. Zwiększ niezawodność i Usuń przestoje aplikacji z wdrożeń.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300875"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597924"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurowanie środowisk przejściowych w usłudze Azure App Service
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ Aplikacja musi być uruchomiona w warstwie **standardowa**, **Premium**lub **izo
    
     ![Tytuł miejsca wdrożenia](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Miejsce przejściowe ma stronę zarządzania, podobnie jak każda inna aplikacja App Service. Można zmienić konfigurację gniazda. Nazwa gniazda jest wyświetlana u góry strony, aby przypominać, że oglądasz miejsce wdrożenia.
+    Miejsce przejściowe ma stronę zarządzania, podobnie jak każda inna aplikacja App Service. Można zmienić konfigurację gniazda. Aby przypominać, że oglądasz miejsce wdrożenia, nazwa aplikacji jest wyświetlana jako ** \<nazwa aplikacji>/\<nazwa miejsca>**, a typ aplikacji to **App Service (gniazdo)**. Możesz również zobaczyć miejsce jako oddzielną aplikację w grupie zasobów, używając tych samych oznaczeń.
 
 6. Wybierz adres URL aplikacji na stronie zasobów gniazda. Miejsce wdrożenia ma własną nazwę hosta i jest również działającą aplikacją. Aby ograniczyć dostęp publiczny do miejsca wdrożenia, zobacz [Azure App Service ograniczenia adresów IP](app-service-ip-restrictions.md).
 
-Nowe miejsce wdrożenia nie ma zawartości, nawet w przypadku klonowania ustawień z innego gniazda. Na przykład możesz [publikować w tym gnieździe przy użyciu narzędzia Git](app-service-deploy-local-git.md). Można wdrożyć w gnieździe z innej gałęzi repozytorium lub innego repozytorium. 
+Nowe miejsce wdrożenia nie ma zawartości, nawet w przypadku klonowania ustawień z innego gniazda. Na przykład możesz [publikować w tym gnieździe przy użyciu narzędzia Git](app-service-deploy-local-git.md). Można wdrożyć w gnieździe z innej gałęzi repozytorium lub innego repozytorium.
 
 <a name="AboutConfiguration"></a>
 
@@ -210,7 +210,7 @@ Aby uzyskać więcej informacji na temat `applicationInitialization` dostosowywa
 
 Możesz również dostosować zachowanie rozgrzewania, korzystając z jednego lub obu następujących [ustawień aplikacji](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: Ścieżka do polecenia ping do rozgrzewania lokacji. Dodaj to ustawienie aplikacji, określając ścieżkę niestandardową rozpoczynającą się od ukośnika jako wartość. Może to być na przykład `/statuscheck`. Wartością domyślną jest `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: Ścieżka do polecenia ping do rozgrzewania lokacji. Dodaj to ustawienie aplikacji, określając ścieżkę niestandardową rozpoczynającą się od ukośnika jako wartość. Może to być na przykład `/statuscheck`. Wartość domyślna to `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Prawidłowe kody odpowiedzi HTTP dla operacji rozgrzewania. Dodaj to ustawienie aplikacji z rozdzieloną przecinkami listą kodów HTTP. Przykładem jest `200,202` . Jeśli zwrócony kod stanu nie znajduje się na liście, operacje rozgrzewania i swap są zatrzymane. Domyślnie wszystkie kody odpowiedzi są prawidłowe.
 
 > [!NOTE]
@@ -272,7 +272,7 @@ Domyślnie nowe gniazda otrzymują regułę `0%`routingu wyświetloną w kolorze
 
 ## <a name="delete-a-slot"></a>Usuń gniazdo
 
-Wyszukaj i wybierz aplikację. Wybierz **Deployment slots** >   >  **Overview***miejsce wdrożenia gniazda\<, aby usunąć>* przegląd. Na pasku poleceń wybierz pozycję **Usuń** .  
+Wyszukaj i wybierz aplikację. Wybierz **Deployment slots** >   >  **Overview***miejsce wdrożenia gniazda\<, aby usunąć>* przegląd. Typ aplikacji jest wyświetlany jako **App Service (gniazdo)** , aby przypominać, że oglądasz miejsce wdrożenia. Na pasku poleceń wybierz pozycję **Usuń** .  
 
 ![Usuń miejsce wdrożenia](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

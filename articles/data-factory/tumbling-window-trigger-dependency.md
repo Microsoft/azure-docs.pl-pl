@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418800"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870038"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Tworzenie zależności wyzwalacza okna wirowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418800"
 W tym artykule przedstawiono procedurę tworzenia zależności w wyzwalaczu okna wirowania. Aby uzyskać ogólne informacje na temat wyzwalaczy okna wirowania, zobacz [jak utworzyć wyzwalacz okna wirowania](how-to-create-tumbling-window-trigger.md).
 
 W celu utworzenia łańcucha zależności i upewnienia się, że wyzwalacz jest wykonywany tylko po pomyślnym wykonaniu innego wyzwalacza w fabryce danych, Użyj tej zaawansowanej funkcji, aby utworzyć zależność okna wirowania.
+
+Aby zapoznać się z prezentacją dotyczącą tworzenia potoków zależnych w Azure Data Factory przy użyciu wyzwalacza okna wirowania, Obejrzyj następujący film wideo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Tworzenie zależności w interfejsie użytkownika Data Factory
 
@@ -82,11 +86,14 @@ Poniższa tabela zawiera listę atrybutów wymaganych do zdefiniowania zależno�
 | size | Rozmiar okna wirowania zależności. Podaj dodatnią wartość TimeSpan. Ta właściwość jest opcjonalna. | Zakres czasu<br/>(hh: mm: SS) | Nie  |
 
 > [!NOTE]
-> Wyzwalacz okna wirowania może zależeć od maksymalnie dwóch innych wyzwalaczy.
+> Wyzwalacz okna wirowania może zależeć od maksymalnie pięciu innych wyzwalaczy.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Właściwości samoobsługowego okna wirowania
 
-W scenariuszach, w których wyzwalacz nie powinien przechodzić do następnego okna do momentu pomyślnego zakończenia poprzedniego okna, należy zbudować samodzielną zależność. Wyzwalacz samozależności, który jest zależny od sukcesu wcześniejszych przebiegów w ramach poprzedniego elementu HR, będzie miał następujące właściwości:
+W scenariuszach, w których wyzwalacz nie powinien przechodzić do następnego okna do momentu pomyślnego zakończenia poprzedniego okna, należy zbudować samodzielną zależność. Wyzwalacz samozależności, który zależy od sukcesu wcześniejszych przebiegów w ciągu poprzedniej godziny, będzie miał właściwości wskazane w poniższym kodzie.
+
+> [!NOTE]
+> Jeśli wyzwolony potok opiera się na danych wyjściowych potoków w wcześniej wyzwolonych oknach, zalecamy użycie tylko samoobsługowego wyzwalacza okna wirowania. Aby ograniczyć przebiegi wyzwalacza równoległego, ustaw współbieżność wyzwalacza maximimum.
 
 ```json
 {
@@ -147,10 +154,6 @@ Codzienne zadanie przetwarzania danych telemetrycznych w zależności od innego 
 Codzienne zadanie bez przerw w strumieniach wyjściowych zadania:
 
 ![Przykład samoobsługowy](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Przykład samoobsługowy")
-
-Aby zapoznać się z prezentacją dotyczącą tworzenia potoków zależnych w Azure Data Factory przy użyciu wyzwalacza okna wirowania, Obejrzyj następujący film wideo:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Monitorowanie zależności
 

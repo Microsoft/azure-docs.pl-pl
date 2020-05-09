@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/14/2020
+ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b3282dd88b62a6811031e95672638d67702215a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b025d98c230bc82b86a736785fb8e6581ec4519c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048460"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864457"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) przy użyciu łącznika usługi Google Cloud (G Suite)
 
@@ -140,8 +140,8 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     | |
     |--|
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
 
 
 1. Jeśli chcesz utworzyć konfigurację dla usług **Google Cloud Platform**, w sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące kroki:
@@ -161,8 +161,8 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     
     | |
     |--|
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Te wartości nie są prawdziwe. Zaktualizuj je, używając faktycznego adresu URL i identyfikatora logowania. Łącznik usługi Google Cloud (G Suite) nie udostępnia wartości identyfikatora/identyfikatora jednostki na potrzeby konfiguracji logowania jednokrotnego, więc po odpisaniu opcji **wystawcy specyficznego dla domeny** wartość identyfikatora będzie równa `google.com`. W przypadku zaznaczenia opcji **wystawcy specyficzny** dla domeny `google.com/a/<yourdomainname.com>`będzie to możliwe. Aby zaznaczyć/wyczyścić opcję **wystawcy specyficzną dla domeny** , należy przejść do sekcji **Konfigurowanie usługi SSO łącznika usługi Google Cloud (G Suite)** , która została omówiona w dalszej części tego samouczka. Aby uzyskać więcej informacji, skontaktuj się z [zespołem pomocy technicznej usługi Google Cloud (G Suite)](https://www.google.com/contact/).
@@ -258,7 +258,7 @@ W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure A
 
 Po kliknięciu kafelka łącznika Google Cloud (G Suite) w panelu dostępu należy automatycznie zalogować się do łącznika Google Cloud (G Suite), dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

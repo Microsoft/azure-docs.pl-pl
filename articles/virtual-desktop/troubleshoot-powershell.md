@@ -1,21 +1,27 @@
 ---
 title: Windows Virtual Desktop PowerShell — Azure
-description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska dzierżawy pulpitu wirtualnego systemu Windows.
+description: Jak rozwiązywać problemy z programem PowerShell podczas konfigurowania środowiska pulpitu wirtualnego systemu Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fb5436c2b5c30c5336385792d0597bdcea2b538
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127470"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612014"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Program PowerShell dla usługi Windows Virtual Desktop
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym artykule opisano błędy i problemy występujące podczas korzystania z programu PowerShell z pulpitem wirtualnym systemu Windows. Aby uzyskać więcej informacji na Usługi pulpitu zdalnego PowerShell, zobacz [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
@@ -27,71 +33,57 @@ Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://tech
 
 Ta sekcja zawiera listę poleceń programu PowerShell, które są zwykle używane podczas konfigurowania pulpitu wirtualnego systemu Windows i zapewnia sposoby rozwiązywania problemów, które mogą wystąpić podczas ich używania.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Błąd: polecenie Add-RdsAppGroupUser--określony element UserPrincipalName jest już przypisany do grupy aplikacji RemoteApp w określonej puli hostów
+### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Błąd: New-AzRoleAssignment: podane informacje nie są mapowane na identyfikator obiektu usługi AD.
 
-```Powershell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
+```powershell
+AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-**Przyczyna:** Użyta nazwa użytkownika została już przypisana do grupy aplikacji innego typu. Użytkownicy nie mogą być przypisani zarówno do pulpitu zdalnego, jak i zdalnej grupy aplikacji w ramach tej samej puli hostów sesji.
+**Przyczyna:** Nie można znaleźć użytkownika określonego przez parametr *-SignInName* w Azure Active Directory powiązanym ze środowiskiem pulpitu wirtualnego systemu Windows. 
 
-**Poprawka:** Jeśli użytkownik potrzebuje zarówno aplikacji zdalnych, jak i pulpitu zdalnego, należy utworzyć różne pule hostów lub udzielić użytkownikowi dostępu do pulpitu zdalnego, co pozwoli na korzystanie z dowolnej aplikacji na maszynie wirtualnej hosta sesji.
+**Poprawka:** Pamiętaj o następujących kwestiach.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Błąd: polecenie Add-RdsAppGroupUser--określony element UserPrincipalName nie istnieje w Azure Active Directory skojarzony z dzierżawą Pulpit zdalny
+- Użytkownik powinien zostać zsynchronizowany z Azure Active Directory.
+- Użytkownik nie powinien być powiązany z handlem typu "Business-to-Consumer" (B2C) ani "Business-to-Business" (B2B).
+- Środowisko pulpitu wirtualnego systemu Windows powinno być powiązane z poprawnym Azure Active Directory.
 
-```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
-```
+### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Błąd: New-AzRoleAssignment: "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji względem zakresu (kod: AuthorizationFailed)"
 
-**Przyczyna:** Nie można znaleźć użytkownika określonego przez-UserPrincipalName w Azure Active Directory powiązanym z dzierżawą pulpitu wirtualnego systemu Windows.
+**Przyczyna 1:** Używane konto nie ma uprawnień właściciela do subskrypcji. 
 
-**Poprawka:** Potwierdź elementy z poniższej listy.
+**Poprawka 1:** Użytkownik z uprawnieniami właściciela musi wykonać przypisanie roli. Alternatywnie użytkownik musi być przypisany do roli administratora dostępu użytkownika, aby przypisać użytkownika do grupy aplikacji.
 
-- Użytkownik jest zsynchronizowany do Azure Active Directory.
-- Użytkownik nie jest powiązany z handlem firmy z klientem (B2C) ani z firmą B2B (Business-to-Business).
-- Dzierżawa pulpitu wirtualnego systemu Windows jest powiązana z poprawnym Azure Active Directory.
-
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Błąd: Get-RdsDiagnosticActivities — użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
-
-```PowerShell
-Get-RdsDiagnosticActivities -ActivityId <ActivityId>
-```
-
-**Przyczyna:** -dzierżawca parametru
-
-**Poprawka:** Wydaj instrukcję Get-RdsDiagnosticActivities z-Dzierżawcname o \<dzierżawie>.
-
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: Get-RdsDiagnosticActivities — użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
-
-```PowerShell
-Get-RdsDiagnosticActivities -Deployment -username <username>
-```
-
-**Przyczyna:** Użycie przełącznika-Deployment.
-
-**Naprawa:** przełącznik wdrożenia może być używany tylko przez administratorów wdrożenia. Ci Administratorzy są zwykle członkami zespołu pulpitów wirtualnych Usługi pulpitu zdalnego/Windows. Zastąp przełącznik-Deploymentname \<dzierżawcą>.
-
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: New-RdsRoleAssignment--użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
-
-**Przyczyna 1:** Używane konto nie ma uprawnień właściciela Usługi pulpitu zdalnego w dzierżawie.
-
-**Poprawka 1:** Użytkownik z uprawnieniami Usługi pulpitu zdalnego właściciela musi wykonać przypisanie roli.
-
-**Przyczyna 2:** Używane konto ma Usługi pulpitu zdalnego uprawnienia właściciela, ale nie jest częścią Azure Active Directory dzierżawy lub nie ma uprawnień do wykonywania zapytań w Azure Active Directory, w którym znajduje się użytkownik.
+**Przyczyna 2:** Używane konto ma uprawnienia właściciela, ale nie jest częścią Azure Active Directory środowiska lub nie ma uprawnień do wykonywania zapytań dotyczących Azure Active Directory, w którym znajduje się użytkownik.
 
 **Poprawka 2:** Użytkownik z uprawnieniami Active Directory musi wykonać przypisanie roli.
 
->[!Note]
->New-RdsRoleAssignment nie może udzielić uprawnień użytkownikowi, który nie istnieje w Azure Active Directory (AD).
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Błąd: New-AzWvdHostPool--lokalizacja jest niedostępna dla typu zasobu
+
+```powershell
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+```
+
+Przyczyna: pulpit wirtualny systemu Windows obsługuje Wybieranie lokalizacji pul hostów, grup aplikacji i obszarów roboczych w celu przechowywania metadanych usługi w określonych lokalizacjach. Opcje są ograniczone do miejsca, w którym ta funkcja jest dostępna. Ten błąd oznacza, że funkcja nie jest dostępna w wybranej lokalizacji.
+
+Poprawka: w komunikacie o błędzie zostanie opublikowana Lista obsługiwanych regionów. Zamiast tego użyj jednego z obsługiwanych regionów.
+
+### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>Błąd: New-AzWvdApplicationGroup musi znajdować się w tej samej lokalizacji co Pula hostów
+
+```powershell
+New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
+```
+
+**Przyczyna:** Niezgodność lokalizacji. Wszystkie pule hostów, grupy aplikacji i obszary robocze mają lokalizację do przechowywania metadanych usługi. Wszystkie obiekty, które tworzysz, są skojarzone ze sobą, muszą znajdować się w tej samej lokalizacji. Na przykład, jeśli Pula hostów znajduje się w `eastus`programie, należy również utworzyć grupy aplikacji w programie `eastus`. Jeśli utworzysz obszar roboczy, aby zarejestrować te grupy aplikacji do, ten obszar roboczy musi być również `eastus` w tym obszarze.
+
+**Poprawka:** Pobierz lokalizację, w której utworzono pulę hostów, a następnie Przypisz grupę aplikacji, którą tworzysz, do tej samej lokalizacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem rozwiązywania problemów z pulpitem wirtualnym systemu Windows i ścieżkami eskalacji, zobacz [Omówienie rozwiązywania problemów, opinie i pomoc techniczna](troubleshoot-set-up-overview.md).
-- Aby rozwiązać problemy podczas tworzenia dzierżawy i puli hostów w środowisku pulpitu wirtualnego systemu Windows, zobacz [Tworzenie dzierżawy i puli hostów](troubleshoot-set-up-issues.md).
+- Aby rozwiązać problemy podczas konfigurowania środowiska pulpitu wirtualnego systemu Windows i pul hostów, zobacz [Tworzenie puli środowiska i hosta](troubleshoot-set-up-issues.md).
 - Aby rozwiązać problemy podczas konfigurowania maszyny wirtualnej w programie Virtual Desktop systemu Windows, zobacz [Konfiguracja maszyny wirtualnej hosta sesji](troubleshoot-vm-configuration.md).
 - Aby rozwiązać problemy z połączeniami klienta pulpitu wirtualnego systemu Windows, zobacz [połączenia usługi pulpitu wirtualnego systemu Windows](troubleshoot-service-connection.md).
 - Aby rozwiązać problemy z Pulpit zdalny klientami, zobacz [Rozwiązywanie problemów z klientem pulpit zdalny](troubleshoot-client.md)
 - Aby dowiedzieć się więcej na temat usługi, zobacz [Środowisko pulpitu wirtualnego systemu Windows](environment-setup.md).
-- Aby przejść przez samouczek dotyczący rozwiązywania problemów, zobacz [Samouczek: Rozwiązywanie problemów z wdrożeniami szablonów Menedżer zasobów](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Aby dowiedzieć się więcej o akcjach inspekcji, zobacz [Inspekcja operacji przy użyciu Menedżer zasobów](../azure-resource-manager/management/view-activity-logs.md).
 - Aby dowiedzieć się więcej o akcjach dotyczących określania błędów podczas wdrażania, zobacz [Wyświetlanie operacji wdrażania](../azure-resource-manager/templates/deployment-history.md).

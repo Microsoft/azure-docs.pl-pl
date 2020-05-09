@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414149"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891753"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Zachowywanie metadanych i list ACL przy użyciu działania kopiowania w Azure Data Factory
 
@@ -32,6 +32,8 @@ Działanie kopiowania obsługuje zachowywanie następujących atrybutów podczas
 
 - **Wszystkie metadane określone przez klienta** 
 - I pięć następujących **wbudowanych właściwości systemu magazynu danych**: `contentType` `contentLanguage` , (z wyjątkiem usługi Amazon S3 `contentEncoding`) `contentDisposition`,,,. `cacheControl`
+
+**Obsługa różnic w metadanych:** Usługi Amazon S3 i Azure Storage umożliwiają różne zestawy znaków w kluczach metadanych określonych przez klienta. Po wybraniu zachowywania metadanych przy użyciu funkcji Copy aktywności ADF automatycznie zastępuje nieprawidłowe znaki znakiem "_".
 
 W przypadku kopiowania plików jako-is z usługi Amazon S3/Azure Data Lake Storage Gen2/Azure BLOB do Azure Data Lake Storage Gen2/Azure Blob z formatem binarnym można znaleźć opcję **Zachowaj** na karcie**Ustawienia** **działania** > kopiowania dla tworzenia działań lub na stronie **Ustawienia** w narzędziu kopiowanie danych.
 
