@@ -2,13 +2,13 @@
 title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106386"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780338"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -42,6 +42,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 
 **Wymaganie** | **VMware** 
 --- | ---
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
 **Składniki urządzenia** | Urządzenie ma następujące składniki:<br/><br/> - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent oceny**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).<br/>- **Agent dra**: organizuje REPLIKACJĘ maszyny wirtualnej i koordynuje komunikację między replikowanymi maszynami i platformą Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.<br/>- **Brama**: wysyła zreplikowane dane na platformę Azure. Używane tylko w przypadku replikowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji bez wykorzystania agentów.
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną VMware przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż aplikację jako maszynę wirtualną VMware lub maszynę fizyczną przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
@@ -61,6 +62,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 
 **Wymaganie** | **Funkcja Hyper-V** 
 --- | ---
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
 **Składniki urządzenia** | Urządzenie ma następujące składniki:<br/><br/>- **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent oceny**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdróż aplikację jako maszynę wirtualną lub maszynę fizyczną z funkcją Hyper-V przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
@@ -77,12 +79,13 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 
 **Wymaganie** | **Fizyczne** 
 --- | ---
+**Uprawnienia** | Aby uzyskać dostęp do aplikacji sieci Web urządzenia lokalnie lub zdalnie, musisz być administratorem domeny lub administratorem lokalnym na komputerze urządzenia.
 **Składniki urządzenia** | Urządzenie ma następujące składniki: <br/><br/> - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent oceny**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).
 **Obsługiwane wdrożenie** | Wdróż jako dedykowaną maszynę fizyczną lub maszynę wirtualną przy użyciu skryptu instalacyjnego programu PowerShell. Skrypt jest dostępny do pobrania z portalu.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 250 serwerów fizycznych.
 **Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller. ps1) w folderze spakowanym z portalu. [Dowiedz się więcej](tutorial-assess-physical.md#set-up-the-appliance). Alternatywnie możesz [pobrać bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Rozmiar pobieranych plików to 59,7 MB.
-**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
+**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/> Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane.
 **Wartość skrótu** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
 
 ## <a name="url-access"></a>Dostęp do adresu URL
@@ -90,7 +93,8 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 Urządzenie Azure Migrate wymaga połączenia z Internetem.
 
 - Po wdrożeniu urządzenia Azure Migrate sprawdza łączność z wymaganymi adresami URL.
-- Jeśli używasz serwera proxy opartego na adresie URL do łączenia się z Internetem, musisz zezwolić na dostęp do tych adresów URL, aby upewnić się, że serwer proxy rozpoznaje wszystkie rekordy CNAME otrzymane podczas wyszukiwania adresów URL.
+- Musisz zezwolić na dostęp do wszystkich adresów URL na liście. Jeśli wykonujesz tylko ocenę, możesz pominąć adresy URL, które są oznaczone jako wymagane tylko dla migracji bez agenta.
+-  Jeśli używasz serwera proxy opartego na adresie URL do łączenia się z Internetem, upewnij się, że serwer proxy rozpoznaje wszystkie rekordy CNAME otrzymane podczas wyszukiwania adresów URL.
 
 ### <a name="public-cloud-urls"></a>Adresy URL chmury publicznej
 
@@ -100,7 +104,7 @@ Urządzenie Azure Migrate wymaga połączenia z Internetem.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Zaloguj się do subskrypcji platformy Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate.
 management.azure.com | Utwórz aplikacje usługi Azure AD dla urządzenia, aby komunikować się z usługą Azure Migrate.
-dc.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
+*.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
 *.vault.azure.net | Zarządzanie wpisami tajnymi w Azure Key Vault.
 aka.ms/* | Zezwalaj na dostęp do linków aliasów. Używany do Azure Migrate aktualizacji urządzenia.
 download.microsoft.com/download | Zezwalaj na pobieranie z usługi Microsoft Download.
@@ -257,7 +261,7 @@ Metadane wykryte przez urządzenie Azure Migrate ułatwiają ustalenie, czy masz
 
 Poniżej znajduje się pełna lista metadanych maszyn wirtualnych funkcji Hyper-V, które urządzenie zbiera i wysyła do platformy Azure.
 
-**DATA* | **KLASA WMI** | **WŁAŚCIWOŚĆ KLASY USŁUGI WMI**
+**DATA** | **KLASA WMI** | **WŁAŚCIWOŚĆ KLASY USŁUGI WMI**
 --- | --- | ---
 **Szczegóły maszyny** | 
 Numer seryjny BIOS _ Msvm_BIOSElement | BIOSSerialNumber
@@ -298,6 +302,84 @@ Karta Virtual Network funkcji Hyper-V | Bajty wysłane/s | Obliczanie rozmiaru m
 - Użycie procesora CPU jest sumą wszystkich zastosowań dla wszystkich procesorów wirtualnych podłączonych do maszyny wirtualnej.
 - Użycie pamięci to (bieżące ciśnienie * widoczna pamięć fizyczna gościa)/100.
 - Wartości wykorzystania dysku i sieci są zbierane z wymienionych liczników wydajności funkcji Hyper-V.
+
+
+## <a name="collected-data---physical"></a>Zebrane dane — fizyczne
+
+Urządzenie zbiera dane dotyczące metadanych, danych wydajności i analizy zależności (jeśli jest używana [analiza zależności](concepts-dependency-visualization.md) bez wykorzystania agentów).
+
+### <a name="windows-metadata"></a>Metadane systemu Windows
+
+Metadane wykryte przez urządzenie Azure Migrate ułatwiają ustalenie, czy maszyny i aplikacje są gotowe do migracji na platformę Azure, maszyny i aplikacje o odpowiednim rozmiarze, planuje koszty i analizuje zależności aplikacji. Firma Microsoft nie używa tych danych w żadnej inspekcji zgodności licencji.
+
+Poniżej znajduje się pełna lista metadanych systemu Windows Server, które urządzenie zbiera i wysyła do platformy Azure.
+
+**DATA** | **KLASA WMI** | **WŁAŚCIWOŚĆ KLASY USŁUGI WMI**
+--- | --- | ---
+Nazwa FQDN | Win32_ComputerSystem | Domena, nazwa, PartOfDomain
+Liczba rdzeni procesora | Win32_PRocessor | NumberOfCores
+Przydzielono pamięć | Win32_ComputerSystem | TotalPhysicalMemory
+Numer seryjny systemu BIOS | Win32_ComputerSystemProduct | Identyfikacyjnemu
+IDENTYFIKATOR GUID SYSTEMU BIOS | Win32_ComputerSystemProduct | INTERFEJSU
+Typ rozruchu | Win32_DiskPartition | Wyszukaj partycję z typem = **GPT: system** dla interfejsu EFI/BIOS
+Nazwa systemu operacyjnego | Win32_OperatingSystem | Caption
+Wersja systemu operacyjnego |Win32_OperatingSystem | Wersja
+Architektura systemu operacyjnego | Win32_OperatingSystem | OSArchitecture
+Liczba dysków | Win32_DiskDrive | Model, rozmiar, DeviceID, MediaType, nazwa
+Rozmiar dysku | Win32_DiskDrive | Rozmiar
+Lista kart sieciowych | Win32_NetworkAdapterConfiguration | Opis, indeks
+Adres IP karty sieciowej | Win32_NetworkAdapterConfiguration | IPAddress
+Adres MAC karty sieciowej | Win32_NetworkAdapterConfiguration | MACAddress
+
+### <a name="linux-metadata"></a>Metadane systemu Linux
+
+Oto pełna lista metadanych serwera z systemem Linux, które urządzenie zbiera i wysyła do platformy Azure.
+
+**DATA** | **System** 
+--- | --- 
+Nazwa FQDN | Kot/proc/sys/kernel/hostname, hostname-f
+Liczba rdzeni procesora |  /proc/cpuinfo \| AWK '/^ Procesor/{Print $3} ' \|
+Przydzielono pamięć | Kot/proc/meminfo \| grep MemTotal \| AWK "{printf"%. 0f ", $2/1024}"
+Numer seryjny systemu BIOS | lshw \| grep "serial:" \| szef-N1 \| AWK "{Print $2}" <br/> /usr/sbin/dmidecode-t 1 \| grep "serial" \| AWK "{$1 =" "; $2 =" "; Print}"
+IDENTYFIKATOR GUID SYSTEMU BIOS | /sys/Class/DMI/ID/Cat product_uuid
+Typ rozruchu | [-d/sys/Firmware/EFI]  && echo EFI \| \| echo BIOS
+Nazwa/wersja systemu operacyjnego | Uzyskujemy dostęp do tych plików dla wersji i nazwy systemu operacyjnego:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
+Architektura systemu operacyjnego | Uname — m
+Liczba dysków | Dysk fdisk- \| l egrep '. * b ' \| awk ' {Print $2} ' \| Wytnij-F1-d ': '
+Dysk rozruchowy | DF/Boot \| SED-n \| awk "{Print $1}"
+Rozmiar dysku | Dysk fdisk- \| l egrep '. * b ' \| egrep $Disk: \| AWK ' {Print $5} '
+Lista kart sieciowych | IP-o-4 addr show \| AWK "{Print $2}"
+Adres IP karty sieciowej | IP addr show $nic \| grep inet \| awk "{Print $2}" \| ciętych-F1-d "/" 
+Adres MAC karty sieciowej | adres IP Pokaż $nic \| eteru \| grep awk "{Print $2}"
+
+### <a name="windows-performance-data"></a>Dane wydajności systemu Windows
+
+Oto dane wydajności systemu Windows Server, które urządzenie zbiera i wysyła na platformę Azure.
+
+**Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
+--- | --- | ---
+Użycie procesora | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Użycie pamięci | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+Liczba kart sieciowych | Win32_PerfFormattedData_Tcpip_NetworkInterface | Pobierz liczbę urządzeń sieciowych.
+Odebrane dane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Dane przesyłane na kartę sieciową | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+Liczba dysków | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Liczba dysków
+Szczegóły dysku | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
+
+### <a name="linux-performance-data"></a>Dane wydajności systemu Linux
+
+Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządzenie zbiera i wysyła do platformy Azure.
+
+**Dane** | **Linux** 
+--- | --- 
+Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
+Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
+Liczba kart sieciowych | lshw — Klasa ETH \| grep [0-60] \| , Sieć 1
+Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes
+Dane przesyłane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/tx_bytes
+Liczba dysków | Dysk fdisk- \| l egrep '. * b ' \| awk ' {Print $2} ' \| Wytnij-F1-d ': '
+Szczegóły dysku | /proc/diskstats Cat
+
 
 ## <a name="appliance-upgrades"></a>Uaktualnienia urządzeń
 

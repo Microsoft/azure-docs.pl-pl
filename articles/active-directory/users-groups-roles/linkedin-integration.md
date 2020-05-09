@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755123"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582648"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integracja połączeń konta LinkedIn w Azure Active Directory
 
@@ -30,8 +30,8 @@ Możesz zezwolić użytkownikom w organizacji na dostęp do swoich połączeń L
 > Wyjątki:
 >
 > * To ustawienie nie jest dostępne dla klientów korzystających z Microsoft Cloud dla instytucji rządowych Stanów Zjednoczonych, Microsoft Cloud Niemczech lub platformy Azure i pakietu Office 365 obsługiwanego przez firmę 21Vianet w Chinach.
-> * Ustawienie jest domyślnie wyłączone dla dzierżawców w Niemczech. Należy pamiętać, że to ustawienie nie jest dostępne dla klientów korzystających Microsoft Cloud Niemiec.
-> * Ustawienie jest domyślnie wyłączone dla dzierżawców zainicjowanych we Francji.
+> * Ustawienie jest domyślnie wyłączone dla organizacji usługi Azure AD, które są obsługiwane w Niemczech. Należy pamiętać, że to ustawienie nie jest dostępne dla klientów korzystających Microsoft Cloud Niemiec.
+> * Ustawienie jest domyślnie wyłączone dla organizacji, które są obsługiwane we Francji.
 >
 > Po włączeniu połączeń konta LinkedIn dla Twojej organizacji połączenia z kontem działają po zalogowaniu się użytkowników do aplikacji uzyskujących dostęp do danych firmy w ich imieniu. Aby uzyskać informacje na temat ustawienia zgody użytkownika, zobacz [Jak usunąć dostęp użytkownika do aplikacji](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
@@ -72,7 +72,7 @@ Zamieniono opcję "selected", która określa listę użytkowników z opcją wyb
 1. Zaloguj się do Microsoft 365 przy użyciu konta administratora.
 1. Uruchom program PowerShell.
 1. Zainstaluj moduł usługi Azure AD, uruchamiając`Install-Module AzureAD`
-1. Uruchom następujący skrypt:
+1. Uruchom poniższy skrypt:
 
   ``` PowerShell
   $groupId = "GUID of the target group"
@@ -96,8 +96,8 @@ Aby użyć grupy z kroku dwa jako wybranej grupy w ustawieniach połączeń kont
   
    Stan | Efekt
    ------ | ------
-   **Dostępny** | Opcja **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w programie Office 2016 jest włączona. Użytkownicy w organizacji mogą korzystać z funkcji serwisu LinkedIn w aplikacjach pakietu Office 2016.
-   **Wyłączony** | Ustawienie **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w pakiecie Office 2016 jest wyłączone, a użytkownicy końcowi nie mogą zmieniać tego ustawienia. Użytkownicy w organizacji nie mogą korzystać z funkcji LinkedIn w swoich aplikacjach pakietu Office 2016.
+   **Włączone** | Opcja **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w programie Office 2016 jest włączona. Użytkownicy w organizacji mogą korzystać z funkcji serwisu LinkedIn w aplikacjach pakietu Office 2016.
+   **Wyłączone** | Ustawienie **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office** w pakiecie Office 2016 jest wyłączone, a użytkownicy końcowi nie mogą zmieniać tego ustawienia. Użytkownicy w organizacji nie mogą korzystać z funkcji LinkedIn w swoich aplikacjach pakietu Office 2016.
 
 Te zasady grupy mają wpływ tylko na aplikacje pakietu Office 2016 dla komputera lokalnego. Jeśli użytkownicy wyłączają serwis LinkedIn w swoich aplikacjach pakietu Office 2016, nadal będą mogli wyświetlać funkcje serwisu LinkedIn w pakiecie Office 365.
 

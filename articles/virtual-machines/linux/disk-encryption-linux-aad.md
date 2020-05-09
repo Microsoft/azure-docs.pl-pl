@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970604"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792602"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Włączanie Azure Disk Encryption z usługą Azure AD na maszynach wirtualnych z systemem Linux (poprzednia wersja)
 
@@ -158,7 +158,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Korzystanie z funkcji EncryptFormatAll w przypadku dysków z danymi na maszynach wirtualnych z systemem Linux IaaS
 EncryptFormatAll parametr skraca czas szyfrowania dysków danych systemu Linux. Partycje spełniające określone kryteria są formatowane (wraz z ich bieżącym systemem plików). Następnie są one ponownie instalowane w miejscu, w którym były przed wykonaniem polecenia. Jeśli chcesz wykluczyć dysk danych spełniający kryteria, możesz go odinstalować przed uruchomieniem polecenia.
 
- Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski są sformatowane. Następnie warstwa szyfrowania zaczyna się u góry pustego dysku. Po wybraniu tej opcji dysk zasobów tymczasowych dołączony do maszyny wirtualnej jest również szyfrowany. Jeśli dysk tymczasowych jest resetowany, zostanie on ponownie sformatowany i zaszyfrowany na potrzeby maszyny wirtualnej za pomocą rozwiązania Azure Disk Encryption w następnej okazji.
+ Po uruchomieniu tego polecenia wszystkie zainstalowane wcześniej dyski są sformatowane. Następnie warstwa szyfrowania zaczyna się u góry pustego dysku. Po wybraniu tej opcji dysk tymczasowy dołączony do maszyny wirtualnej jest również szyfrowany. Jeśli dysk tymczasowych jest resetowany, zostanie on ponownie sformatowany i zaszyfrowany na potrzeby maszyny wirtualnej za pomocą rozwiązania Azure Disk Encryption w następnej okazji.
 
 >[!WARNING]
 > EncryptFormatAll nie należy używać w przypadku danych na woluminach danych maszyny wirtualnej. Dyski można wykluczać z szyfrowania, odinstalując je. Wypróbuj najpierw parametr EncryptFormatAll na testowej maszynie wirtualnej, aby zrozumieć parametr funkcji i jej implikacje przed podjęciem próby na produkcyjną maszynę wirtualną. Opcja EncryptFormatAll powoduje sformatowanie dysku z danymi, dzięki czemu wszystkie dane na nim zostaną utracone. Przed kontynuowaniem sprawdź, czy wszystkie dyski, które chcesz wykluczyć, są prawidłowo odinstalowywane. </br></br>
