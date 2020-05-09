@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408406"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854159"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Konfigurowanie oświadczeń grup dla aplikacji z Azure Active Directory (publiczna wersja zapoznawcza)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurowanie oświadczeń grupy dla aplikacji z Azure Active Directory
 
 Azure Active Directory może zapewnić użytkownikom informacje o członkostwie w grupach, które mają być używane w aplikacjach.  Obsługiwane są dwa główne wzorce:
 
-- Grupy identyfikowane przez ich Azure Active Directory atrybut identyfikatora obiektu (OID) (ogólnie dostępny)
-- Grupy identyfikowane przez atrybuty sAMAccountName lub GroupSID dla grup i użytkowników zsynchronizowanych z usługą Active Directory (publiczna wersja zapoznawcza)
+- Grupy identyfikowane przez ich Azure Active Directory atrybut identyfikatora obiektu (OID)
+- Grupy identyfikowane przez atrybuty sAMAccountName lub GroupSID dla grup i użytkowników zsynchronizowanych z Active Directory (AD)
 
 > [!IMPORTANT]
-> Istnieją pewne zastrzeżenia dotyczące tej funkcji w wersji zapoznawczej:
+> Istnieją pewne zastrzeżenia dotyczące tej funkcji:
 >
 >- Obsługa używania atrybutów sAMAccountName i identyfikatora zabezpieczeń (SID) synchronizowanych ze środowiska lokalnego została zaprojektowana, aby umożliwić przeniesienie istniejących aplikacji z AD FS i innych dostawców tożsamości. Grupy zarządzane w usłudze Azure AD nie zawierają atrybutów niezbędnych do emisji tych oświadczeń.
 >- W dużych organizacjach liczba grup, do których należy użytkownik, może przekroczyć limit, który Azure Active Directory doda do tokenu. 150 grup dla tokenu SAML i 200 dla JWT. Może to prowadzić do nieprzewidzianych wyników. Jeśli użytkownicy mają dużą liczbę członkostw w grupach, zalecamy użycie opcji w celu ograniczenia grup emitowanych w oświadczeniach do odpowiednich grup dla aplikacji.  

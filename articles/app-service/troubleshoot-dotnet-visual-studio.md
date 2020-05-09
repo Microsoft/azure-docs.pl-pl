@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891055"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926854"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Rozwiązywanie problemów z aplikacją w Azure App Service przy użyciu programu Visual Studio
 ## <a name="overview"></a>Omówienie
@@ -634,7 +634,7 @@ Aby uzyskać więcej informacji na temat debugowania zdalnego dla aplikacji App 
 * [Wprowadzenie do zdalnego debugowania w Azure App Service część 3 — środowisko o wiele wystąpień i GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Debugowanie zadań WebJob (wideo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Jeśli aplikacja korzysta z internetowego interfejsu API platformy Azure lub Mobile Services zaplecza i musisz ją debugować, zobacz [debugowanie zaplecza platformy .NET w programie Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Jeśli aplikacja korzysta z internetowego interfejsu API platformy Azure lub Mobile Services zaplecza i musisz ją debugować, zobacz [debugowanie zaplecza platformy .NET w programie Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).
 
 ### <a name="tracing-in-aspnet-applications"></a>Śledzenie w aplikacjach ASP.NET
 Nie istnieją szczegółowe i aktualne wprowadzenie do śledzenia ASP.NET dostępnego w Internecie. Najlepszym rozwiązaniem jest rozpoczęcie pracy ze starymi materiałami wstępnymi napisanymi dla formularzy sieci Web, ponieważ MVC jeszcze nie istniały i uzupełnienie tego programu o nowsze wpisy w blogu, które koncentrują się na określonych problemach. Oto kilka dobrych miejsc do uruchomienia są następujące zasoby:
@@ -647,7 +647,7 @@ Nie istnieją szczegółowe i aktualne wprowadzenie do śledzenia ASP.NET dostę
   Informacje na temat detektorów śledzenia, ale nie wspominają [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Przewodnik: Integrowanie śledzenia ASP.NET z systemem. śledzenie diagnostyki](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Ten artykuł jest również stary, ale zawiera dodatkowe informacje, które nie obejmują artykułu wprowadzającego.
-* [Śledzenie w widokach Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Śledzenie w widokach Razor ASP.NET MVC](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Oprócz śledzenia w widokach Razor, wpis zawiera również opis sposobu tworzenia filtru błędów w celu rejestrowania wszystkich nieobsłużonych wyjątków w aplikacji MVC. Aby uzyskać informacje o tym, jak rejestrować wszystkie Nieobsłużone wyjątki w aplikacji formularzy sieci Web, zapoznaj się z przykładem Global. asax w [kompletnym przykładzie dla programów obsługi błędów](/previous-versions/bb397417(v=vs.140)) w witrynie MSDN. Jeśli chcesz rejestrować pewne wyjątki w programie MVC lub Web Forms, ale pozwól, aby domyślna obsługa platformy zaczęła obowiązywać, możesz przechwycić i ponownie zgłosić jak w poniższym przykładzie:
 
     ```csharp

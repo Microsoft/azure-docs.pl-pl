@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607202"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929217"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
@@ -58,7 +58,7 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 
 7. Wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne, a następnie wybierz region. Możesz wybrać bieżący region, który jest używany, lub nowy region.
    
-8. Wprowadź nową łączną liczbę hostów sesji na **liczbę maszyn wirtualnych**. Na przykład, jeśli rozszerzasz pulę hostów z pięciu sesji na osiem, wprowadź **8**. 
+8. Wprowadź liczbę hostów sesji, które chcesz dodać do puli hostów, do **liczby maszyn wirtualnych**. Na przykład jeśli rozszerzasz pulę hostów o pięć hostów, wprowadź **5**.
    
     >[!NOTE]
     >Nie można edytować rozmiaru ani obrazu maszyn wirtualnych, ponieważ ważne jest, aby upewnić się, że wszystkie maszyny wirtualne w puli hostów mają ten sam rozmiar.

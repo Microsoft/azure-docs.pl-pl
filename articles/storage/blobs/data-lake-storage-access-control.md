@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80992219"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793129"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Kontrola dostępu w usłudze Azure Data Lake Storage Gen2
 
@@ -287,7 +287,7 @@ Jeśli usługa HNS jest wyłączona, nadal obowiązują reguły autoryzacji usł
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Jaki jest najlepszy sposób stosowania list ACL?
 
-Zawsze używaj grup zabezpieczeń usługi Azure AD jako przypisanego podmiotu zabezpieczeń na listach ACL. Odporne na możliwość bezpośredniego przypisywania poszczególnych użytkowników lub podmiotów usługi. Użycie tej struktury umożliwi Dodawanie i usuwanie użytkowników lub jednostek usług bez konieczności ponownego stosowania list kontroli dostępu do całej struktury katalogów. ) Zamiast tego wystarczy dodać lub usunąć je z odpowiedniej grupy zabezpieczeń usługi Azure AD. Należy pamiętać, że listy ACL nie są dziedziczone i dlatego ponowne zastosowanie list kontroli dostępu wymaga aktualizacji listy ACL dla każdego pliku i podkatalogu. 
+Zawsze używaj grup zabezpieczeń usługi Azure AD jako przypisanego podmiotu zabezpieczeń na listach ACL. Odporne na możliwość bezpośredniego przypisywania poszczególnych użytkowników lub podmiotów usługi. Użycie tej struktury umożliwi Dodawanie i usuwanie użytkowników lub jednostek usług bez konieczności ponownego stosowania list kontroli dostępu do całej struktury katalogów. Zamiast tego wystarczy dodać lub usunąć je z odpowiedniej grupy zabezpieczeń usługi Azure AD. Należy pamiętać, że listy ACL nie są dziedziczone i dlatego ponowne zastosowanie list kontroli dostępu wymaga aktualizacji listy ACL dla każdego pliku i podkatalogu. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Które uprawnienia są wymagane do rekursywnego usunięcia katalogu i jego zawartości?
 
@@ -348,6 +348,6 @@ Listy ACL nie są dziedziczone. Jednak domyślne listy ACL mogą być używane d
 * [Listy ACL modelu POSIX w systemie Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Listy ACL korzystające z list kontroli dostępu w systemie Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Omówienie Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

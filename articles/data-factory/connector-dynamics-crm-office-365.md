@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417357"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891542"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,6 +60,10 @@ Ten łącznik systemu Dynamics jest oparty na [narzędziach programu Dynamics Xr
 
 >[!TIP]
 >Aby skopiować dane z systemu **dynamics 365 Finanse i operacje**, można użyć [łącznika programu Dynamics AX](connector-dynamics-ax.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Aby użyć tego łącznika z uwierzytelnianiem podstawowym usługi AAD, należy skonfigurować uwierzytelnianie serwer-serwer (S2S) w Common Data Service lub Dynamics. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) , aby uzyskać szczegółowe instrukcje.
 
 ## <a name="get-started"></a>Wprowadzenie
 

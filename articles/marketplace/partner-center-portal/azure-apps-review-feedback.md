@@ -1,20 +1,20 @@
 ---
-title: Obsługa opinii na temat przeglądu oferty Azure Apps w komercyjnej witrynie Marketplace
-description: Jak obsłużyć opinię na temat przeglądu oferty usługi Azure Apps w celu uzyskania listy lub sprzedaży w witrynie Azure Marketplace, AppSource lub za pośrednictwem programu Cloud Solution Provider (CSP) przy użyciu portalu Marketplace w witrynie Microsoft Partner Center.
+title: Obsługa opinii na temat przeglądu oferty Azure Apps w komercyjnej witrynie Microsoft Marketplace
+description: Jak obsłużyć opinię na temat przeglądu oferty usługi Azure Apps, aby wyświetlić listę lub sprzedawać w portalu Azure Marketplace, AppSource lub za pośrednictwem programu Cloud Solution Provider (CSP) w witrynie Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279797"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744868"
 ---
-# <a name="handling-review-feedback"></a>Obsługa opinii dla przeglądu
+# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Obsługa opinii na temat przeglądu oferty Azure Apps przed opublikowaniem w portalu Azure Marketplace
 
 W tym artykule wyjaśniono, jak uzyskać dostęp do środowiska Azure DevOps, które jest używane przez zespół przegląd Microsoft Azure Marketplace. Jeśli w ramach kroku **przeglądu firmy Microsoft** zostaną znalezione problemy krytyczne, możesz zalogować się do tego systemu, aby wyświetlić szczegółowe informacje o tych problemach (Przejrzyj informacje zwrotne). Po naprawieniu wszystkich tych problemów musisz ponownie przesłać swoją ofertę, aby nadal publikować ją w portalu Azure Marketplace. Na poniższym diagramie przedstawiono sposób, w jaki proces opinii odnosi się do procesu publikowania.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202434"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562240"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Zapisz ponownie nagłówki HTTP przy użyciu Application Gateway
 
@@ -157,6 +157,8 @@ Można oszacować żądanie HTTP lub nagłówek odpowiedzi dla obecności nagł�
 ## <a name="limitations"></a>Ograniczenia
 
 - Jeśli odpowiedź ma więcej niż jeden nagłówek o tej samej nazwie, wówczas zapisanie wartości jednego z tych nagłówków spowoduje porzucenie pozostałych nagłówków w odpowiedzi. Może to być spowodowane zwykle z nagłówkiem Set-cookie, ponieważ w odpowiedzi można mieć więcej niż jeden nagłówek Set-cookie. Taki scenariusz ma zastosowanie w przypadku korzystania z usługi App Service z bramą aplikacji i skonfigurowania koligacji sesji na podstawie plików cookie na bramie aplikacji. W takim przypadku odpowiedź będzie zawierać dwa nagłówki Set-Cookie: jeden używany przez usługę App Service, na przykład: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` i drugi dla koligacji bramy aplikacji, na przykład. `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` Ponowne zapisanie jednego z nagłówków zestawu plików cookie w tym scenariuszu może spowodować usunięcie innego nagłówka deplika cookie z odpowiedzi.
+
+- Ponowne zapisywanie nie jest obsługiwane, gdy Brama aplikacji jest skonfigurowana do przekierowywania żądań lub wyświetlania niestandardowej strony błędu.
 
 - Ponowne zapisywanie nagłówków połączenia, uaktualnienia i hosta nie jest obecnie obsługiwane.
 

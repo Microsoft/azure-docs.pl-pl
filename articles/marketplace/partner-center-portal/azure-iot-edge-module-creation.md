@@ -1,36 +1,30 @@
 ---
-title: Tworzenie oferty modułu Azure IoT Edge przy użyciu Centrum partnerskiego — Azure Marketplace
-description: Dowiedz się, jak utworzyć ofertę modułu IoT Edge w portalu Azure Marketplace przy użyciu Centrum partnerskiego
+title: Tworzenie oferty modułu Azure IoT Edge przy użyciu Centrum partnerskiego w portalu Azure Marketplace
+description: Dowiedz się, jak utworzyć, skonfigurować i opublikować ofertę modułu IoT Edge w portalu Azure Marketplace przy użyciu Centrum partnerskiego
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869151"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857657"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Tworzenie oferty modułu usługi IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Tworzenie, Konfigurowanie i publikowanie oferty modułu IoT Edge w portalu Azure Marketplace
 
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami IoT Edge z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zawartymi w temacie [IoT Edge module oferowanie publikowania omówienie](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) Portal Cloud partner, aby zarządzać ofertami.
-
-W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla Internet rzeczy (IoT) w witrynie Azure Marketplace.
-
-Aby można było utworzyć ofertę modułu IoT Edge, musisz mieć komercyjne konto w witrynie Marketplace w centrum partnerskim. Jeśli jeszcze tego nie zrobiono, zobacz [Tworzenie komercyjnego konta witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla Internet rzeczy (IoT) w witrynie Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
-1. Zaloguj się do Centrum partnerskiego.
-2. W menu nawigacji po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **IoT Edge module**.
 
-    ![Ilustruje menu nawigacji po lewej stronie.](./media/cs-menu-overview.png)
-
-3. Wybierz pozycję **+ Nowa oferta** > **IoT Edge module**. Zostanie wyświetlone okno dialogowe **Nowa oferta** .
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
@@ -41,14 +35,14 @@ Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej 
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
 - Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- Nie można zmienić identyfikatora oferty po wybraniu pozycji Utwórz.
+- Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
-Wprowadź **alias oferty**. Jest to nazwa używana do odwoływania się do oferty w centrum partnerskim.
+Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
 
 - Ta nazwa nie jest używana w portalu Marketplace i różni się od nazwy oferty i innych wartości widocznych dla klientów.
 - Tego nie można zmienić po wybraniu opcji **Utwórz**.
 
-Po wprowadzeniu tych dwóch wartości wybierz pozycję **Utwórz** przed przejściem do następnej strony — Omówienie oferty.
+Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 ## <a name="offer-overview"></a>Przegląd oferty
 
@@ -86,10 +80,10 @@ Poniżej przedstawiono kilka dodatkowych zasobów zarządzania potencjalnym lide
 
 - [Omówienie zarządzania potencjalnymi klientami](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Zarządzanie potencjalnymi klientami — często zadawane pytania](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Typowe błędy konfiguracji potencjalnych klientów](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Omówienie zarządzania potencjalnymi klientami](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Upewnij się, że blokowanie wyskakujących okienek jest wyłączone).
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, właściwości.
+Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="properties"></a>Właściwości
 
