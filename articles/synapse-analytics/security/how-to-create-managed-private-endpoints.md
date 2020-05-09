@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428903"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983231"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Utwórz zarządzany prywatny punkt końcowy ze źródłem danych (wersja zapoznawcza)
 
@@ -30,7 +30,7 @@ W usłudze Azure Synapse Studio wybierz kartę **Zarządzanie** na pasku nawigac
 
 ## <a name="step-3-select-the-data-source-type"></a>Krok 3. Wybierz typ źródła danych
 
-Wybierz typ źródła danych. W takim przypadku docelowym źródłem danych jest konto ADLS Gen2. Wybierz przycisk **Kontynuuj**.
+Wybierz typ źródła danych. W takim przypadku docelowym źródłem danych jest konto ADLS Gen2. Wybierz pozycję **Continue** (Kontynuuj).
 ![Wybierz docelowy typ źródła danych](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-3.png)
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Krok 4. Wprowadzanie informacji o źródle danych

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755033"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858709"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 i 8600 migracji do Azure File Sync
 
@@ -23,7 +23,7 @@ Seria StorSimple 8000 osiągnie [koniec cyklu życia](https://support.microsoft.
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> Firma Microsoft dokłada starań, aby pomóc klientom w migracji. Wyślij AzureFilesMigration@microsoft wiadomość e-mail. com dla niestandardowego planu migracji, a także pomoc podczas migracji.
+> Firma Microsoft dokłada starań, aby pomóc klientom w migracji. Wyślij AzureFiles@microsoft.com pocztą e-mail dostosowany plan migracji oraz pomoc podczas migracji.
 
 Azure File Sync jest usługą firmy Microsoft w chmurze opartą na dwóch głównych składnikach:
 

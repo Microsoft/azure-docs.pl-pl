@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78e01c854201e3c5253cd86aebcd85b62bf5568d
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481086"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629304"
 ---
 # <a name="vcore-model-overview"></a>Omówienie modelu rdzeni wirtualnych
 
@@ -102,7 +102,7 @@ Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żą
 |Obliczenia     |-Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 16 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 48 GB|
 |Seria Fsv2     |— Procesory Intel Xeon Platinum 8168 (SkyLake)<br>— Dzięki stałej szybkości taktu Turbo o częstotliwości 3,4 GHz i maksymalnej pojedynczej podstawowej prędkości zegarka Turbo o godz. 3,7 GHz.<br>-Inicjowanie obsługi administracyjnej 72 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-1,9 GB na rdzeń wirtualny<br>-Inicjowanie obsługi administracyjnej 136 GB|
-|Seria M     |-Procesory Intel Xeon E7-8890 v3 2,5 GHz<br>-Inicjowanie obsługi administracyjnej 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Inicjowanie obsługi administracyjnej 3,7 TB|
+|Seria M     |— Procesory Intel Xeon E7-8890 v3 2,5 GHz i Intel Xeon Platinum 8280M 2,7 GHz (Kaskada Lake)<br>-Inicjowanie obsługi administracyjnej 128 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|-29 GB na rdzeń wirtualny<br>— Inicjowanie obsługi administracyjnej 3,7 TB|
 
 \*W widoku dynamicznego zarządzania [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) generowanie sprzętu dla baz danych 5 rdzeń przy użyciu procesorów Intel SP-8160 (Skylake) pojawia się jako Gen6. Limity zasobów dla wszystkich baz danych 5 rdzeń są takie same, niezależnie od typu procesora (Broadwell lub Skylake).
 

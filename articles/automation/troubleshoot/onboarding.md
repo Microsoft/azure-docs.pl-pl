@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie problemów z dołączaniem rozwiązań do zarządzania Azure Automationmi
-description: Dowiedz się, jak rozwiązywać problemy podczas dołączania rozwiązania.
+description: Dowiedz się, jak rozwiązywać problemy z błędami dołączania rozwiązań Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: da5152b459f54cbaae5ec168f103f23a237edebd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679232"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836533"
 ---
 # <a name="troubleshoot-solution-onboarding"></a>Rozwiązywanie problemów z dołączaniem rozwiązania
 
-Podczas dołączania rozwiązania Update Management lub rozwiązania Change Tracking i spisu mogą pojawić się błędy. W tym artykule opisano różne błędy, które mogą wystąpić i sposoby ich rozwiązywania.
+Podczas dołączania rozwiązania Azure Automation Update Management lub rozwiązania Change Tracking i spisu mogą pojawić się komunikaty o błędach. W tym artykule opisano różne błędy, które mogą wystąpić i sposoby ich rozwiązywania.
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -25,7 +25,7 @@ Podczas dołączania rozwiązania Update Management lub rozwiązania Change Trac
 
 #### <a name="issue"></a>Problem
 
-Węzeł jest zarejestrowany w Azure Automation a następnie zmieniono nazwę komputera systemu operacyjnego. Raporty z węzła nadal pojawiają się z oryginalną nazwą.
+Węzeł jest zarejestrowany w Azure Automation, a następnie zmieniono nazwę komputera systemu operacyjnego. Raporty z węzła nadal pojawiają się z oryginalną nazwą.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -35,11 +35,11 @@ Zmiana nazwy zarejestrowanych węzłów nie aktualizuje nazwy węzła w Azure Au
 
 Wyrejestruj węzeł z konfiguracji stanu Azure Automation, a następnie zarejestruj go ponownie. Raporty publikowane w usłudze przed upływem tego czasu nie będą już dostępne.
 
-### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Scenariusz: ponowne podpisywanie certyfikatów za pośrednictwem protokołu HTTPS proxy nie jest obsługiwane
+### <a name="scenario-re-signing-certificates-via-https-proxy-isnt-supported"></a><a name="resigning-cert"></a>Scenariusz: certyfikaty ponownego podpisywania za pośrednictwem serwera proxy HTTPS nie są obsługiwane
 
 #### <a name="issue"></a>Problem
 
-Podczas nawiązywania połączenia za pośrednictwem rozwiązania serwera proxy, które przerywa ruch HTTPS, a następnie ponownie szyfruje ruch przy użyciu nowego certyfikatu, usługa nie zezwala na połączenie.
+Podczas łączenia się za pośrednictwem rozwiązania serwera proxy, które kończy ruch HTTPS, a następnie ponownie szyfruje ruch przy użyciu nowego certyfikatu, usługa nie zezwala na połączenie.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -47,11 +47,11 @@ Azure Automation nie obsługuje certyfikatów ponownego podpisywania używanych 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Obecnie nie ma żadnego obejścia tego problemu.
+Obecnie nie istnieje obejście tego problemu.
 
 ## <a name="general-errors"></a>Błędy ogólne
 
-### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem — nie można włączyć rozwiązania
+### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem "nie można włączyć rozwiązania"
 
 #### <a name="issue"></a>Problem
 
@@ -71,9 +71,9 @@ Ten błąd jest spowodowany przez nieprawidłowe lub brakujące uprawnienia do m
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że masz odpowiednie [uprawnienia potrzebne do](../automation-role-based-access-control.md#onboarding-permissions) dołączenia maszyn, a następnie spróbuj ponownie dołączyć rozwiązanie. Jeśli wystąpi błąd `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna została dołączona do obszaru roboczego.
+Upewnij się, że masz odpowiednie [uprawnienia potrzebne do](../automation-role-based-access-control.md#onboarding-permissions)dołączenia maszyn, a następnie spróbuj ponownie dołączyć rozwiązanie. Jeśli zostanie wyświetlony komunikat `The solution cannot be enabled on this VM because the permission to read the workspace is missing`o błędzie, upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna została dołączona do obszaru roboczego.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem: nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego
+### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem "nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego"
 
 #### <a name="issue"></a>Problem
 
@@ -85,7 +85,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd może być spowodowany tym, że warstwa cenowa nie jest zgodna z modelem rozliczania subskrypcji. Zobacz [monitorowanie użycia i szacowane koszty w Azure monitor](https://aka.ms/PricingTierWarning).
+Ten błąd może być spowodowany tym, że warstwa cenowa nie jest zgodna z modelem rozliczania subskrypcji. Aby uzyskać więcej informacji, zobacz [monitorowanie użycia i szacowane koszty w Azure monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -103,7 +103,7 @@ Być może zmieniono zapytanie lub system mógł go zmienić.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Możesz usunąć zapytanie dla rozwiązania, a następnie ponownie dołączyć rozwiązanie, które odtworzy zapytanie. Zapytanie można znaleźć w obszarze roboczym, w obszarze **zapisane wyszukiwania**. Nazwa zapytania to **MicrosoftDefaultComputerGroup**, a kategoria zapytania to nazwa skojarzonego rozwiązania. Jeśli włączono wiele rozwiązań, zapytanie **MicrosoftDefaultComputerGroup** wyświetla wiele razy w obszarze **zapisane wyszukiwania**.
+Możesz usunąć zapytanie dla rozwiązania, a następnie ponownie dołączyć rozwiązanie, co spowoduje ponowne utworzenie zapytania. Zapytanie można znaleźć w obszarze roboczym w obszarze **zapisane wyszukiwania**. Nazwa zapytania to **MicrosoftDefaultComputerGroup**, a kategoria zapytania to nazwa skojarzonego rozwiązania. Jeśli włączono wiele rozwiązań, zapytanie **MicrosoftDefaultComputerGroup** wyświetla wiele razy w obszarze **zapisane wyszukiwania**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenariusz: PolicyViolation
 
@@ -117,7 +117,7 @@ Zasady blokują wykonywanie operacji.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby można było pomyślnie wdrożyć rozwiązanie, należy rozważyć zmianę wskazanych zasad. Ponieważ istnieje wiele różnych typów zasad, które można zdefiniować, wymagane zmiany są zależne od zasad, które zostały naruszone. Na przykład jeśli zasady są zdefiniowane w grupie zasobów, która nie zezwala na zmianę zawartości niektórych zawartych zasobów, można wybrać jedną z następujących poprawek:
+Aby pomyślnie wdrożyć rozwiązanie, należy rozważyć zmianę wskazanych zasad. Ponieważ istnieje wiele różnych typów zasad, które można zdefiniować, wymagane zmiany są zależne od zasad, które zostały naruszone. Na przykład jeśli zasady są zdefiniowane w grupie zasobów, która nie zezwala na zmianę zawartości niektórych zawartych zasobów, można wybrać jedną z następujących poprawek:
 
 * Usuń zasady całkowicie.
 * Spróbuj dołączyć rozwiązanie do innej grupy zasobów.
@@ -130,7 +130,7 @@ Sprawdź powiadomienia w prawym górnym rogu Azure Portal lub przejdź do grupy 
 
 #### <a name="issue"></a>Problem
 
-Podczas próby odłączenia obszaru roboczego pojawia się następujący błąd:
+Podczas próby odłączenia obszaru roboczego pojawia się następujący komunikat o błędzie:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -148,10 +148,10 @@ Jeśli są używane, Usuń następujące rozwiązania z obszaru roboczego:
 * Śledzenie zmian i spis
 * Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
 
-Po usunięciu rozwiązań możesz odłączyć obszar roboczy. Ważne jest, aby wyczyścić wszystkie istniejące artefakty z tych rozwiązań z obszaru roboczego i konta usługi Automation 
+Po usunięciu rozwiązań możesz odłączyć obszar roboczy. Ważne jest, aby wyczyścić wszystkie istniejące artefakty z tych rozwiązań z obszaru roboczego i konta usługi Automation:
 
-* W przypadku Update Management Usuń wdrożenia aktualizacji (harmonogramy) z konta usługi Automation.
-* Aby uzyskać Start/Stop VMS during off-hours, Usuń wszelkie blokady składników rozwiązania na koncie usługi Automation w obszarze **Ustawienia** > **blokady**. Zobacz [usuwanie rozwiązania Start/Stop VMS during off-hours](../automation-solution-vm-management.md#remove-the-solution).
+* W przypadku Update Management Usuń **wdrożenia aktualizacji (harmonogramy)** z konta usługi Automation.
+* Aby uzyskać Start/Stop VMS during off-hours, Usuń wszelkie blokady składników rozwiązania na koncie usługi Automation w obszarze **Ustawienia** > **blokady**. Aby uzyskać więcej informacji, zobacz [usuwanie rozwiązania Start/Stop VMS during off-hours](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics błędów rozszerzenia systemu Windows
 
@@ -189,9 +189,9 @@ Niektóre potencjalne przyczyny tego błędu to:
 
 Upewnij się, że masz odpowiednie porty i adresy otwarte do komunikacji. Lista portów i adresów znajduje się w temacie [Planning The Network](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenariusz: instalacja nie powiodła się z powodu przejściowych problemów ze środowiskiem
+### <a name="scenario-install-failed-because-of-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenariusz: instalacja nie powiodła się z powodu przejściowych problemów ze środowiskiem
 
-Instalacja rozszerzenia Log Analytics for Windows nie powiodła się podczas wdrażania, ponieważ inna instalacja lub akcja blokująca instalację
+Instalacja rozszerzenia Log Analytics for Windows nie powiodła się podczas wdrażania z powodu innej instalacji lub akcji blokującej instalację.
 
 #### <a name="issue"></a>Problem
 
@@ -242,8 +242,8 @@ Spróbuj zainstalować rozszerzenie Agent Log Analytics dla systemu Windows, gdy
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nie widzisz Twojego problemu powyżej lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
+Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
+* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
+* Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

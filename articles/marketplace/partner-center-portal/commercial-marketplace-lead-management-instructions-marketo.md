@@ -1,22 +1,22 @@
 ---
-title: Konfigurowanie zarządzania liderem w programie Marketo | Portal Azure Marketplace
-description: Skonfiguruj zarządzanie potencjalnymi klientami dla programu Marketo dla klientów portalu Azure Marketplace.
+title: Zarządzanie potencjalnymi klientami w programie Marketo — Microsoft Commercial Marketplace
+description: Dowiedz się, jak zarządzać potencjalnymi klientami z Microsoft AppSource i Azure Marketplace przy użyciu systemu programu Marketo.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133650"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789882"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Konfigurowanie zarządzania potencjalnymi klientami w programie Marketo
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Korzystanie z programu Marketo do zarządzania komercyjnymi klientami portalu Marketplace
 
-W tym artykule opisano, jak skonfigurować system CRM dla programu Marketo, aby przetwarzać potencjalne wyniki sprzedaży z komercyjnej oferty portalu Marketplace.
+W tym artykule opisano, jak skonfigurować system CRM dla programu Marketo, aby przetwarzać potencjalni klienci z ofert w Microsoft AppSource i witrynie Azure Marketplace.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Skonfiguruj system CRM dla programu Marketo
 
@@ -67,9 +67,11 @@ W tym artykule opisano, jak skonfigurować system CRM dla programu Marketo, aby 
 
 Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące kroki. 
 
-1. Przejdź do strony **konfiguracji oferty** oferty.
+1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 
-1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** . 
+1. Wybierz ofertę i przejdź do karty **Konfiguracja oferty** .
+
+1. W sekcji **Zarządzanie potencjalnymi klientami** wybierz pozycję **Połącz**. 
 
     ![Przycisk Połącz sekcję zarządzania potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
@@ -86,6 +88,6 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. Wybierz przycisk **OK**.
 
-   Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz przycisk **Weryfikuj** . Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
+   Aby upewnić się, że pomyślnie nawiązano połączenie z miejscem docelowym potencjalnego klienta, wybierz pozycję **Weryfikuj**. Jeśli się powiedzie, będziesz mieć test w miejscu docelowym potencjalnego klienta.
 
    ![Okno podręczne szczegółów połączenia](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

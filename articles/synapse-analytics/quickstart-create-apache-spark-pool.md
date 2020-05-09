@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0fd8a379927396f2ae44d74c2d968d48fbd039c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2501f66c42360d3ec1626f5f4ee42e0212f1967b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096371"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792245"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>Szybki Start: Tworzenie nowej puli Apache Spark (wersja zapoznawcza)
 
@@ -25,16 +25,16 @@ W tym przewodniku szybki start dowiesz się, jak za pomocą Azure Portal utworzy
 > [!IMPORTANT]
 > Opłaty za wystąpienia platformy Spark są naliczane proporcjonalnie za minutę, niezależnie od tego, czy są one używane. Upewnij się, że wystąpienie platformy Spark zostało zamknięte po zakończeniu korzystania z niego, lub ustaw krótki limit czasu. Aby uzyskać więcej informacji, zobacz sekcję **Czyszczenie zasobów** w tym artykule.
 
-Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https:/azure.microsoft.com/free/).
+Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https:/azure.microsoft.com/free/)
+- Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - [Obszar roboczy analizy Synapse](quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [Azure Portal](https:/portal.azure.com/)
+Zaloguj się do [Azure Portal](https://portal.azure.com/)
 
 ## <a name="create-new-apache-spark-pool"></a>Utwórz nową pulę Apache Spark
 

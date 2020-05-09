@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca54c60d424722d31d195d10eb15751a2ec6c0eb
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891258"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612915"
 ---
 # <a name="connect-with-the-macos-client"></a>Nawiązywanie połączenia z klientem systemu macOS
 
 > Dotyczy: macOS 10,12 lub nowszego
+
+>[!IMPORTANT]
+>Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Możesz uzyskać dostęp do zasobów pulpitu wirtualnego systemu Windows z urządzeń macOS za pomocą klienta do pobrania. Ten przewodnik zawiera informacje na temat konfigurowania klienta programu.
 
@@ -33,7 +39,7 @@ Aby subskrybować źródło danych:
 
 1. Wybierz pozycję **Dodaj obszar roboczy** na stronie głównej, aby nawiązać połączenie z usługą i pobrać zasoby.
 2. Wprowadź adres URL źródła danych. Może to być adres URL lub adres e-mail:
-   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest <https://rdweb.wvd.microsoft.com>to adres URL.
+   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>to adres URL.
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
 3. Wybierz pozycję **Dodaj**.
 4. Po wyświetleniu monitu zaloguj się przy użyciu konta użytkownika.

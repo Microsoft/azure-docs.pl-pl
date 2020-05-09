@@ -1,14 +1,14 @@
 ---
 title: Zrozumienie kolejności kolejności wdrażania
 description: Informacje o domyślnej kolejności, w której artefakty są wdrażane w trakcie przypisywania strategii i dostosowywania kolejności wdrażania.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677560"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864525"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Zrozumienie sekwencji wdrożenia w planach platformy Azure
 
@@ -47,8 +47,7 @@ Podczas redagowania dużych definicji planów może być konieczne utworzenie za
 Kolejność jest realizowana przez zdefiniowanie `dependsOn` właściwości w formacie JSON. Ta właściwość obsługuje definicje strategii, dla grup zasobów i obiektów artefaktów. `dependsOn`jest tablicą ciągów nazw artefaktów, które należy utworzyć przed utworzeniem określonego artefaktu.
 
 > [!NOTE]
-> Podczas tworzenia obiektów strategii każdy zasób artefaktów pobiera swoją nazwę z nazwy pliku, jeśli jest używany program [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), lub punkt końcowy adresu URL, jeśli używany jest [interfejs API REST](/rest/api/blueprints/artifacts/createorupdate).
-> odwołania do odwołań do _zasobów_ w artefaktach muszą być zgodne z tymi zdefiniowanymi w definicji strategii.
+> Podczas tworzenia obiektów strategii każdy zasób artefaktów pobiera swoją nazwę z nazwy pliku, jeśli jest używany program [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), lub punkt końcowy adresu URL, jeśli używany jest [interfejs API REST](/rest/api/blueprints/artifacts/createorupdate). odwołania do odwołań do _zasobów_ w artefaktach muszą być zgodne z tymi zdefiniowanymi w definicji strategii.
 
 ### <a name="example---ordered-resource-group"></a>Przykładowa Grupa zasobów uporządkowana
 
@@ -137,7 +136,8 @@ Artefakt szablonu poziomu subskrypcji w zależności od grupy zasobów **oczekiw
 
 Podczas procesu tworzenia, sortowanie topologiczny jest używane do tworzenia wykresu zależności artefaktów. Sprawdza, czy każdy poziom zależności między grupami zasobów i artefaktami jest obsługiwany.
 
-Jeśli zależność artefaktu jest zadeklarowana, która nie zmienia kolejności domyślnej, nie zostanie wprowadzona żadna zmiana. Przykładem jest Grupa zasobów, która zależy od zasad na poziomie subskrypcji. Innym przykładem jest przypisanie zasad podrzędnych grupy zasobów "Standard-RG", które zależy od przypisania roli podrzędnej grupy zasobów "Standard-RG". W obu przypadkach `dependsOn` nie mógł zmienić domyślnej kolejności sekwencjonowania i żadne zmiany nie zostaną wprowadzone.
+Jeśli zależność artefaktu jest zadeklarowana, która nie zmienia kolejności domyślnej, nie zostanie wprowadzona żadna zmiana.
+Przykładem jest Grupa zasobów, która zależy od zasad na poziomie subskrypcji. Innym przykładem jest przypisanie zasad podrzędnych grupy zasobów "Standard-RG", które zależy od przypisania roli podrzędnej grupy zasobów "Standard-RG". W obu przypadkach `dependsOn` nie mógł zmienić domyślnej kolejności sekwencjonowania i żadne zmiany nie zostaną wprowadzone.
 
 ## <a name="next-steps"></a>Następne kroki
 

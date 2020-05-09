@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 1b639da3494c0527141347ca61e77980d29a59ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135559"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628609"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Określanie odpowiedniej rezerwacji do kupienia
 
 Wszystkie rezerwacje, z wyjątkiem usługi Azure Databricks, są stosowane godzinowo. Rezerwacje należy zakupić na podstawie spójnego użycia podstawowego. Istnieje wiele sposobów określania elementów do zakupu. Ten artykuł pomaga określić, które rezerwacje należy kupić.
 
-Zakup większej pojemności niż historyczne użycie powoduje, że rezerwacja jest niewystarczająca. Jeśli to możliwe, należy unikać niewystarczających rezerwacji. Niewykorzystana pojemność zarezerwowana nie jest przenoszona na następną godzinę.  Użycie przekraczające zarezerwowaną ilość jest obciążane droższymi stawkami płatności zgodnie z rzeczywistym użyciem.
+Zakup większej pojemności niż historyczne użycie powoduje, że rezerwacja jest niewystarczająca. Jeśli to możliwe, należy unikać niewystarczających rezerwacji. Niewykorzystana pojemność zarezerwowana nie jest przenoszona na następną godzinę. Użycie przekraczające zarezerwowaną ilość jest obciążane droższymi stawkami płatności zgodnie z rzeczywistym użyciem.
 
 ## <a name="analyze-usage-data"></a>Analiza danych użycia
 
@@ -40,11 +40,11 @@ Ignoruj zasoby, które mają mniej niż 24 godziny użycia w ciągu dnia.
 
 Jeśli chcesz analizować dane na poziomie rodziny rozmiaru wystąpienia, możesz uzyskać wartości elastyczności rozmiaru wystąpienia ze strony [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Połącz wartości z danymi, aby przeprowadzić analizę. Aby uzyskać więcej informacji o elastyczności rozmiaru wystąpienia, zobacz artykuł [Elastyczność rozmiaru maszyny wirtualnej z zarezerwowanymi wystąpieniami maszyn wirtualnych](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-### <a name="analyze-usage-for-a-sql-database-reserved-instance-purchase"></a>Analizowanie użycia pod kątem zakupu wystąpienia zarezerwowanego usługi SQL Database
+### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analizowanie użycia dla zakupu wystąpienia zarezerwowanego usługi Azure Synapse Analytics
 
-Pojemność zarezerwowana dotyczy cen zasobów obliczeniowych rdzeni wirtualnych baz danych SQL Database. Nie dotyczy cen opartych na jednostkach DTU, kosztów licencji SQL ani kosztów innych niż obliczenia.
+Pojemność zarezerwowana dotyczy cen jednostek DWU usługi Azure Synapse Analytics. Nie dotyczy kosztów licencji usługi Azure Synapse Analytics ani kosztów innych niż obliczenia.
 
-Aby zawęzić kwalifikujące się użycie SQL, zastosuj następujące filtry do danych użycia:
+Aby zawęzić kwalifikujące się użycie, zastosuj następujące filtry do danych użycia:
 
 
 - W elemencie **MeterCategory** odfiltruj elementy **SQL Database**.
@@ -60,22 +60,22 @@ Dane informują o spójnym użyciu:
 - Generacja. Przykład: generacja 5.
 - Lokalizacja zasobu
 
-### <a name="analysis-for-sql-data-warehouse"></a>Analiza usługi SQL Data Warehouse
+### <a name="analysis-for-azure-synapse-analytics"></a>Analiza usługi Azure Synapse Analytics
 
-Pojemność zarezerwowana ma zastosowanie do użycia jednostek DWU usługi SQL Data Warehouse i jest kupowana w przyrostach co 100 jednostek DWU. Aby zawęzić kwalifikujące się użycie SQL, zastosuj następujące filtry do danych użycia:
+Pojemność zarezerwowana ma zastosowanie do użycia jednostek DWU usługi Azure Synapse Analytics i jest kupowana w przyrostach co 100 jednostek DWU. Aby zawęzić kwalifikujące się użycie, zastosuj następujące filtry do danych użycia:
 
 - W elemencie **MeterName** odfiltruj elementy **100 jednostek DWU**.
 - W elemencie **Podkategoria miernika** odfiltruj elementy **Zoptymalizowane pod kątem obliczeń Gen2**.
 
-Użyj pola **lokalizacja zasobu**, aby określić użycie usługi SQL DW w regionie.
+Użyj pola **Lokalizacja zasobu**, aby określić użycie usługi Azure Synapse Analytics w regionie.
 
-Użycie usługi SQL Data Warehouse można skalować w górę i w dół w ciągu dnia. Porozmawiaj z zespołem, który zarządza wystąpieniem usługi SQL Data Warehouse, aby uzyskać informacje o podstawowym użyciu.
+Użycie usługi Azure Synapse Analytics można skalować w górę i w dół w ciągu dnia. Porozmawiaj z zespołem, który zarządza wystąpieniem usługi Azure Synapse Analytics, aby uzyskać informacje o podstawowym użyciu.
 
-Przejdź do rezerwacji w witrynie Azure Portal i kup pojemność zarezerwowaną usługi SQL Data Warehouse w wielokrotnościach 100 jednostek DWU.
+Przejdź do rezerwacji w witrynie Azure Portal i kup pojemność zarezerwowaną usługi Azure Synapse Analytics w wielokrotnościach 100 jednostek DWU.
 
 ## <a name="reservation-purchase-recommendations"></a>Zalecenia dotyczące zakupów rezerwacji
 
-Zalecenia dotyczące zakupu rezerwacji są obliczane przez przeanalizowanie danych użycia godzinowego w ciągu ostatnich 7, 30 i 60 dni. Platforma Azure oblicza prawdopodobne koszty w przypadku rezerwacji i porównuje je z rzeczywistymi kosztami w ramach płatności zgodnie z rzeczywistym użyciem w czasie trwania. Obliczenia są wykonywane dla każdej ilości, która była używana w przedziale czasowym. Zalecana jest ilość, która maksymalizuje oszczędności. 
+Zalecenia dotyczące zakupu rezerwacji są obliczane przez przeanalizowanie danych użycia godzinowego w ciągu ostatnich 7, 30 i 60 dni. Platforma Azure oblicza prawdopodobne koszty w przypadku rezerwacji i porównuje je z rzeczywistymi kosztami w ramach płatności zgodnie z rzeczywistym użyciem w czasie trwania. Obliczenia są wykonywane dla każdej ilości, która była używana w przedziale czasowym. Zalecana jest ilość, która maksymalizuje oszczędności.
 
 Na przykład możesz przez większość czasu używać 500 maszyn wirtualnych, ale czasami użycie rośnie nagle do 700 maszyn wirtualnych. W tym przykładzie platforma Azure oblicza oszczędności dla ilości 500 i 700 maszyn wirtualnych. Użycie na poziomie 700 maszyn wirtualnych jest sporadyczne, dlatego zalecane obliczenie określa, że oszczędności są maksymalizowane dla zakupu rezerwacji 500 maszyn wirtualnych, a zalecenie dotyczy 500 maszyn wirtualnych.
 

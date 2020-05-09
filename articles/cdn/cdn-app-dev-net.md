@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594178"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611470"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
-> 
-> 
+>
+>
 
 Za pomocą [biblioteki Azure CDN dla platformy .NET](/dotnet/api/overview/azure/cdn) można zautomatyzować tworzenie profilów i punktów końcowych usługi CDN oraz zarządzanie nimi.  Ten samouczek przeprowadzi Cię przez proces tworzenia prostej aplikacji konsolowej .NET, która pokazuje kilka dostępnych operacji.  Ten samouczek nie jest przeznaczony do szczegółowego opisywania wszystkich aspektów biblioteki Azure CDN dla platformy .NET.
 
@@ -34,35 +35,35 @@ Aby ukończyć ten samouczek, potrzebujesz programu Visual Studio 2015.  [Progra
 
 > [!TIP]
 > [Ukończony projekt z tego samouczka](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) jest dostępny do pobrania w witrynie MSDN.
-> 
-> 
+>
+>
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## <a name="create-your-project-and-add-nuget-packages"></a>Tworzenie projektu i dodawanie pakietów NuGet
 Po utworzeniu grupy zasobów dla naszych profilów usługi CDN i udostępnieniu naszej aplikacji usługi Azure AD uprawnienia do zarządzania profilami i punktami końcowymi sieci CDN w tej grupie możemy rozpocząć tworzenie aplikacji.
 
-W programie Visual Studio 2015 kliknij kolejno pozycje **plik**, **Nowy**, **projekt...** , aby otworzyć okno dialogowe Nowy projekt.  Rozwiń pozycję **Visual C#**, a następnie w okienku po lewej stronie wybierz pozycję **Windows** .  Kliknij pozycję **Aplikacja konsolowa** w środkowym okienku.  Nazwij projekt, a następnie kliknij przycisk **OK**.  
+W programie Visual Studio 2015 kliknij kolejno pozycje **plik**, **Nowy**, **projekt...** , aby otworzyć okno dialogowe Nowy projekt.  Rozwiń pozycję **Visual C#**, a następnie w okienku po lewej stronie wybierz pozycję **Windows** .  Kliknij pozycję **Aplikacja konsolowa** w środkowym okienku.  Nazwij projekt, a następnie kliknij przycisk **OK**.
 
 ![Nowy projekt](./media/cdn-app-dev-net/cdn-new-project.png)
 
 Nasz projekt będzie używać niektórych bibliotek platformy Azure zawartych w pakietach NuGet.  Dodajmy je do projektu.
 
 1. Kliknij menu **Narzędzia** , **Menedżer pakietów NuGet**, a następnie **konsolę Menedżera pakietów**.
-   
+
     ![Zarządzanie pakietami NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. W konsoli Menedżera pakietów wykonaj następujące polecenie, aby zainstalować **Active Directory Authentication Library (ADAL)**:
-   
+
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Wykonaj następujące czynności, aby zainstalować **bibliotekę zarządzania Azure CDN**:
-   
+
     `Install-Package Microsoft.Azure.Management.Cdn`
 
 ## <a name="directives-constants-main-method-and-helper-methods"></a>Dyrektywy, stałe, Metoda Main i metody pomocnika
 Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 1. Po powrocie na karcie Program.cs Zastąp `using` dyrektywy w górnej części:
-   
+
     ```csharp
     using System;
     using System.Collections.Generic;
@@ -74,13 +75,13 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
     using Microsoft.Rest;
     ```
 2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  W `Program` klasie, ale przed `Main` metodą, Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt;nawiasy&gt;kątowe**, z własnymi wartościami, zgodnie z potrzebami.
-   
+
     ```csharp
     //Tenant app constants
     private const string clientID = "<YOUR CLIENT ID>";
     private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
     private const string authority = "https://login.microsoftonline.com/<YOUR TENANT ID>/<YOUR TENANT DOMAIN NAME>";
-   
+
     //Application constants
     private const string subscriptionId = "<YOUR SUBSCRIPTION ID>";
     private const string profileName = "CdnConsoleApp";
@@ -89,48 +90,48 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
 3. Na poziomie klasy, należy również zdefiniować te dwie zmienne.  Użyjemy ich później, aby określić, czy profil i punkt końcowy już istnieją.
-   
+
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
 4. Zastąp `Main` metodę w następujący sposób:
-   
+
    ```csharp
    static void Main(string[] args)
    {
        //Get a token
        AuthenticationResult authResult = GetAccessToken();
-   
+
        // Create CDN client
        CdnManagementClient cdn = new CdnManagementClient(new TokenCredentials(authResult.AccessToken))
            { SubscriptionId = subscriptionId };
-   
+
        ListProfilesAndEndpoints(cdn);
-   
+
        // Create CDN Profile
        CreateCdnProfile(cdn);
-   
+
        // Create CDN Endpoint
        CreateCdnEndpoint(cdn);
-   
+
        Console.WriteLine();
-   
+
        // Purge CDN Endpoint
        PromptPurgeCdnEndpoint(cdn);
-   
+
        // Delete CDN Endpoint
        PromptDeleteCdnEndpoint(cdn);
-   
+
        // Delete CDN Profile
        PromptDeleteCdnProfile(cdn);
-   
+
        Console.WriteLine("Press Enter to end program.");
        Console.ReadLine();
    }
    ```
 5. Niektóre z naszych innych metod będą monitował użytkownika z pytaniami "tak/nie".  Dodaj następującą metodę, aby nieco łatwiej:
-   
+
     ```csharp
     private static bool PromptUser(string Question)
     {
@@ -155,15 +156,15 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 Teraz, gdy podstawowa struktura naszego programu jest zapisywana, należy utworzyć metody wywoływane przez `Main` metodę.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 Zanim będziemy mogli korzystać z biblioteki zarządzania Azure CDN, musimy uwierzytelnić naszą nazwę główną usługi i uzyskać token uwierzytelniania.  Ta metoda używa biblioteki ADAL do pobrania tokenu.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
 {
-    AuthenticationContext authContext = new AuthenticationContext(authority); 
+    AuthenticationContext authContext = new AuthenticationContext(authority);
     ClientCredential credential = new ClientCredential(clientID, clientSecret);
-    AuthenticationResult authResult = 
+    AuthenticationResult authResult =
         authContext.AcquireTokenAsync("https://management.core.windows.net/", credential).Result;
 
     return authResult;
@@ -174,8 +175,8 @@ Jeśli używasz uwierzytelniania pojedynczego użytkownika, `GetAccessToken` Met
 
 > [!IMPORTANT]
 > Tego przykładowego kodu należy używać tylko w przypadku wybrania opcji uwierzytelniania poszczególnych użytkowników zamiast nazwy głównej usługi.
-> 
-> 
+>
+>
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -271,8 +272,8 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 > [!NOTE]
 > Powyższy przykład przypisuje punkt końcowy o nazwie *contoso* z nazwą hosta `www.contoso.com`.  Należy zmienić tę pozycję, aby wskazywała nazwę hosta własnego źródła.
-> 
-> 
+>
+>
 
 ## <a name="purge-an-endpoint"></a>Przeczyszczanie punktu końcowego
 Przy założeniu, że punkt końcowy został utworzony, jednym z typowych zadań, które możemy chcieć wykonać w naszym programie, jest przeczyszczanie zawartości w naszym punkcie końcowym.
@@ -292,8 +293,8 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 > [!NOTE]
 > W powyższym przykładzie ciąg `/*` wskazuje, że chcę przeczyścić wszystko w elemencie głównym ścieżki punktu końcowego.  Jest to równoznaczne z sprawdzeniem, czy **wszystkie** w oknie dialogowym "przeczyszczanie" Azure Portal. W `CreateCdnProfile` metodzie został utworzony profil jako **Azure CDN z profilu Verizon** przy użyciu kodu `Sku = new Sku(SkuName.StandardVerizon)`, więc zostanie to wykonane pomyślnie.  Jednak **Azure CDN z profilów Akamai** nie obsługują **przeczyszczania**, więc jeśli w tym samouczku był używany profil Akamai, należy uwzględnić określone ścieżki do przeczyszczenia.
-> 
-> 
+>
+>
 
 ## <a name="delete-cdn-profiles-and-endpoints"></a>Usuń profile i punkty końcowe usługi CDN
 Ostatnie metody spowodują usunięcie naszego punktu końcowego i profilu.
@@ -341,4 +342,3 @@ Aby wyświetlić ukończony projekt z tego przewodnika, [Pobierz przykład](http
 Aby znaleźć dodatkową dokumentację dotyczącą Azure CDN biblioteki zarządzania dla platformy .NET, zapoznaj się z informacjami w [witrynie MSDN](/dotnet/api/overview/azure/cdn).
 
 Zarządzanie zasobami usługi CDN przy użyciu [programu PowerShell](cdn-manage-powershell.md).
-
