@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65037ec0cc8b10b176622a7047beb7d912c7f701
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a881f1cbc93d4774e25833a5c57b4727cc2e4be
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617545"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594835"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver
 
@@ -397,9 +397,9 @@ Szablony trzech warstw w Azure Resource Manager obsługują również scenariusz
 
 Oto, gdzie można uzyskać Azure Resource Manager szablonów dla przykładowego scenariusza opisywanego w tym artykule:
 
-* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
 * [Obraz portalu Azure Marketplace korzystający Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/)
 * [Obraz niestandardowy przy użyciu Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 Aby przygotować infrastrukturę dla szablonu architektury 1:
@@ -490,9 +490,9 @@ Za pomocą tego szablonu Azure Resource Manager dla oprogramowania SAP można up
 
 Oto, gdzie można uzyskać Azure Resource Manager szablonów dla tego scenariusza wdrażania:
 
-* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Obraz witryny Azure Marketplace](https://github.com/Azure/azure-quickstart-templates/)  
 * [Obraz portalu Azure Marketplace korzystający Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Obraz niestandardowy](https://github.com/Azure/azure-quickstart-templates/)
 * [Obraz niestandardowy przy użyciu Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 

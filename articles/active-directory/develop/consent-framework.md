@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev
-ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: aaddev, has-adal-ref
+ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161146"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611368"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory struktura wyrażania zgody
 

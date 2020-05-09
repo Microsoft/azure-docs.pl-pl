@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279150"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792330"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Odzyskiwanie po awarii w chmurze z platformy Azure
 
@@ -32,3 +32,32 @@ Zapewnienie wysokiej dostępności i ochrony przed awariami wymaga wdrożenia ap
 Usługa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) zapewnia Równoważenie obciążenia ruchem opartym na systemie DNS i umożliwia dystrybucję ruchu sieciowego między wieloma regionami.  Użyj usługi Azure Traffic Manager, aby skierować klientów do najbliższego wystąpienia usługi w chmurze ze sprężyną na platformie Azure.  Aby uzyskać najlepszą wydajność i nadmiarowość, należy skierować cały ruch aplikacji za pośrednictwem platformy Azure Traffic Manager przed wysłaniem go do usługi w chmurze Azure wiosennej.
 
 Jeśli masz aplikacje chmurowe platformy Azure w wielu regionach, Użyj usługi Azure Traffic Manager, aby kontrolować przepływ ruchu do aplikacji w poszczególnych regionach.  Zdefiniuj punkt końcowy Traffic Manager platformy Azure dla każdej usługi korzystającej z adresu IP usługi. Klienci powinni łączyć się z nazwą DNS usługi Azure Traffic Manager, wskazując na usługę Azure wiosennej w chmurze.  Usługa Azure Traffic Manager równoważy obciążenie ruchu między zdefiniowanymi punktami końcowymi.  Jeśli awaria zostanie wyświetlona w centrum danych, usługa Azure Traffic Manager przekieruje ruch z tego regionu do pary, zapewniając ciągłość usługi.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Tworzenie usługi Azure Traffic Manager dla chmury wiosennej platformy Azure
+
+1. Utwórz chmurę z platformą Azure z dwoma różnymi regionami.
+W dwóch różnych regionach (Wschodnie stany USA i Europa Zachodnia) będą potrzebne dwa wystąpienia usługi Azure wiosennej. Uruchom istniejącą aplikację w chmurze platformy Azure przy użyciu Azure Portal, aby utworzyć dwa wystąpienia usługi. Każdy z nich będzie obsługiwał jako podstawowy i bezawaryjny punkt końcowy dla ruchu. 
+
+**Dwie informacje o wystąpieniach usługi:**
+
+| Nazwa usługi | Lokalizacja | Aplikacja |
+|--|--|--|
+| Service — przykład-a | Wschodnie stany USA | Brama/uwierzytelnianie-usługa/konto — usługa |
+| Service-Sample-b | Europa Zachodnia | Brama/uwierzytelnianie-usługa/konto — usługa |
+
+2. Skonfiguruj domenę niestandardową dla usługi, postępując zgodnie z [dokumentem domena niestandardowa](spring-cloud-tutorial-custom-domain.md) , aby skonfigurować domenę niestandardową dla tych dwóch istniejących wystąpień usługi. Po pomyślnym skonfigurowaniu oba wystąpienia usługi zostaną powiązane z domeną niestandardową: bcdr-test.contoso.com
+
+3. Utwórz Menedżera ruchu i dwa punkty końcowe: [Utwórz profil Traffic Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Oto profil Menedżera ruchu:
+* Traffic Manager nazwę DNS:http://asc-bcdr.trafficmanager.net
+* Profile punktów końcowych: 
+
+| Profil | Typ | Środowisko docelowe | Priorytet | Niestandardowe ustawienia nagłówka |
+|--|--|--|--|--|
+| Punkt końcowy profilu | Zewnętrzny punkt końcowy | service-sample-a.asc-test.net | 1 | Host: bcdr-test.contoso.com |
+| Profil punktu końcowego B | Zewnętrzny punkt końcowy | service-sample-b.asc-test.net | 2 | Host: bcdr-test.contoso.com |
+
+4. Utwórz rekord CNAME w strefie DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. Środowisko jest teraz całkowicie skonfigurowane. Klienci powinni mieć dostęp do aplikacji za pośrednictwem: bcdr-test.contoso.com
