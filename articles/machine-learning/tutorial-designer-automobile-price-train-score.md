@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: przewidywanie ceny za samochód przy użyciu narzędzia Projektant'
+title: 'Samouczek: prognozowanie cen samochodu przy użyciu narzędzia Projektant'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uczenie, ocenę i wdrożenie modelu uczenia maszynowego przy użyciu interfejsu typu "przeciągnij i upuść". Ten samouczek jest częścią jednej z serii dwóch części na przewidywania cen samochodów, przy użyciu regresji liniowej.
 author: peterclu
@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 47288c5da5b32a9f9640b1ee65c646885bf5cbab
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.date: 05/12/2020
+ms.openlocfilehash: d730eb64f5025daa740e4fad0fce0a95300363e1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653239"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983401"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

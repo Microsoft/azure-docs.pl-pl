@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127577"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692232"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -82,6 +82,16 @@ Gdy jest używany z pulpitem wirtualnym systemu Windows, ControlUp zapewnia doda
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Przejdź do witryny sieci Web partnera](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="dell"></a>Macierzy
+
+![Logo firmy Dell](./media/partners/dell.png)
+
+Zubożoni klienci firmy Dell są zoptymalizowane pod kątem dostępu do Microsoft Azure i usług pulpitu wirtualnego systemu Windows. W celu zaspokojenia potrzeb od pracowników z pracownikami z dziedziny współpracy w przypadku użytkowników zaawansowanych intensywnie korzystających z grafiki Wyse zubożoni klienci mogą w pełni korzystać z rosnącej liczby aplikacji i zawartości. Idealne rozwiązanie dla środowisk z ograniczeniami, Wyse zubożonych klientów dostosowuje się do sposobu, w jaki ludzie pracują z uniwersalnymi aspektami formularzy oraz szeroką gamę opcji instalacji.
+
+Wyse zubożonych klientów są zaprojektowana z myślą o bezpieczeństwie z ograniczoną powierzchnią ataków, obsługą standardów zgodności zabezpieczeń oraz zaawansowanymi rozwiązaniami do uwierzytelniania wieloskładnikowego. Wdróż wysoce zabezpieczony zubożonych klientów z Wyseą ThinOS firmy Dell lub zapoznaj się z bezpiecznym dostępem do aplikacji w chmurze i wirtualnych obszarów roboczych z zaostrzonych Wyse ThinLinux z komercyjnym sprawdzonym projektem i systemem Windows 10 IoT Enterprise z funkcjami zabezpieczeń dodanych przez firmę Microsoft. Dzięki bezpiecznej, opartej na protokole HTTPS komunikacji i uwierzytelnianiu usługi Active Directory dla administracji opartej na rolach Wyse Management Suite utrzymuje, że Wyse punkty końcowe są zawsze aktualne, a aplikacja mobilna dla usługi WMS Pro umożliwia działowi IT wyświetlanie alertów krytycznych i wysyłanie poleceń w czasie rzeczywistym za pomocą jednego naciśnięcia w dowolnym momencie.
+
+- [Przejdź do witryny sieci Web partnera](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
+
 ## <a name="devicetrust"></a>deviceTRUST
 
 ![Logo deviceTRUST](./media/partners/devicetrust.png)
@@ -110,6 +120,7 @@ IGEL jest zatwierdzonym i zweryfikowanym partnerem Microsoft Azure i usług pulp
  
 System operacyjny IGEL obsługuje wszystkie popularne aplikacje wirtualne, komputery stacjonarne i protokoły klienckie w chmurze z firmy Citrix, Microsoft i VMware. Obejmuje ona zintegrowane technologie od 85 urządzeń peryferyjnych, interfejsów i protokołów, które ułatwiają organizacjom szybkie wdrażanie usług pulpitu wirtualnego systemu Windows we własnych unikatowych środowiskach użytkownika. System operacyjny IGEL jest tylko do odczytu i modularnym punktem końcowym, który pomaga chronić go przed manipulacją. Teraz zawiera również kompletny "łańcuch zaufania", który weryfikuje integralność wszystkich najważniejszych procesów wykonywanych w punkcie końcowym, od sprzętu punktu końcowego (niektóre z wybranych modeli) lub procesu UEFI, aż do chmury platformy Azure i usług pulpitu wirtualnego systemu Windows. Dzięki IGEL systemu operacyjnego przedsiębiorstwa mogą subskrybować pulpity wirtualne systemu Windows z chmury platformy Azure z pełnym zaufaniem do integralności, zabezpieczeń i możliwości zarządzania urządzeniami końcowymi użytkowników.
 
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO).
 - [Przejdź do witryny sieci Web partnera](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
@@ -191,6 +202,7 @@ PolicyPak Software to partner pulpitu wirtualnego systemu Windows, który wykonu
 
 Najczęstsze przypadki użycia PolicyPak mają na celu usunięcie lokalnych praw administratora i przezwyciężenie monitów kontroli konta użytkownika, zablokowanie oprogramowania wymuszającego okup, zarządzanie wieloma przeglądarkami, Zarządzanie trybami Enterprise i zgodność programu Internet Explorer, Zmniejszanie liczby obiektów zasad grupy, zarządzanie skojarzeniami plików systemu Windows 10, zarządzanie systemem Windows 10 i menu Start oraz Zarządzanie funkcjami systemu Windows 10 i opcjonalnymi funkcjami.  
 
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Przejdź do witryny sieci Web partnera](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
 
 ## <a name="printerlogic"></a>PrinterLogic
@@ -211,8 +223,8 @@ Printix to dostawca usług usług pulpitu wirtualnego systemu Windows, który au
 
 Drukowanie to podstawowe zadanie w zaledwie na każdym biurze i w małym środowisku biznesowym. Aby w pełni wykorzystać możliwości pulpitu wirtualnego systemu Windows i zapewnić doskonałe środowisko użytkownika, należy upewnić się, że użytkownicy mogą łączyć się z drukarkami przy minimalnym wysiłku i maksymalnej niezawodności. Dzięki programowi Printix można maksymalnie wykorzystać możliwości pulpitu wirtualnego systemu Windows za pomocą logowania jednokrotnego (SSO), konfiguracji dyskretnej, zwykłych aktualizacji i ciągłego monitorowania środowiska wydruku.
 
-- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
-- [Przejdź do witryny sieci Web partnera](https://www.printix.net/printix-for-windows-virtual-desktop)
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2).
+- [Przejdź do witryny sieci Web partnera](https://www.printix.net/printix-for-windows-virtual-desktop).
 
 ## <a name="rdpsoft"></a>RDPSoft
 
@@ -222,7 +234,7 @@ RDPSoft to partner pulpitu wirtualnego systemu Windows, który zapewnia zaawanso
  
 Rozwiązania dowódców Pulpit zdalny RDPSoft ulepszają administrację pulpitów wirtualnych systemu Windows. Funkcje zarządzania w warstwie Premium upraszczają delegowanie zadań związanych z zarządzaniem pulpitem wirtualnym systemu Windows do pomocy technicznej personelowi, zapewniając pomoc zdalną, sesję użytkownika i zarządzanie procesami. W tym samym czasie pakiet dowódców Pulpit zdalny zbiera bogate metryki dotyczące wydajności i obciążenia użytkownika, działania i inspekcji, a następnie zapewnia jakość połączenia pulpitu wirtualnego systemu Windows (opóźnienie i przepustowość), Licencjonowanie i zabezpieczenia w centralnym wystąpieniu usługi Azure SQL Database do przeglądu. Dzięki RDPSoft bogate raporty historyczne i kompleksowe pulpity nawigacyjne są po prostu kliknięciami.
 
-- [Przejdź do witryny sieci Web partnera](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+- [Przejdź do witryny sieci Web partnera](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
 ## <a name="sepago"></a>sepago
 
@@ -232,7 +244,8 @@ sepago został utworzony w 2002 przez cztery znajomych w Kolonii. Dzisiaj, sepag
 
 sepago innowacje i rozwój laboratoryjne kompilują inteligentne rozwiązania przy użyciu technologii danych Big Data i AI. Rozwiązania te koncentrują się na ulepszaniu działalności biznesowej, środowisku użytkownika i administrowaniu produktami partnerskimi, takimi jak pulpit wirtualny systemu Windows.
 
-- [Przejdź do witryny sieci Web partnera](https://www.sepago.de/wvd-value-add-tools/)
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
+- [Przejdź do witryny sieci Web partnera](https://www.sepago.de/wvd-value-add-tools/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -263,7 +276,18 @@ ogromne limity, firma uberAgent, zapewnia widoczność dla wdrożeń pulpitów w
 
 uberAgent to produkt monitorujący i analityczny przeznaczony do obliczeń dla użytkowników końcowych, który nie zbiera danych tylko — zapewnia klientom informacje, które mają znaczenie. uberAgent ma swoje własne metryki, które obejmują kluczowe aspekty środowiska użytkownika, wydajności aplikacji i zabezpieczeń punktów końcowych, informując wszystko, co musisz wiedzieć o maszynach wirtualnych z systemem Windows, bez wpływu na gęstość użytkownika w systemie. uberAgent upraszcza Rozwiązywanie problemów, pomaga w ustalaniu wielkości i oferuje bogate informacje niezbędne do zapewnienia bezpieczeństwa informacji.
 
-- [Przejdź do witryny sieci Web partnera](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
+- [Przejdź do witryny sieci Web partnera](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
+
+## <a name="workspace-365"></a>Obszar roboczy 365
+
+![Logo obszaru roboczego 365](./media/partners/workspace-365.png)
+
+Obszar roboczy 365 obejmuje wszystkie informacje (dane biznesowe, dokumenty, komunikacja i Micro Apps) i umożliwia dostęp do dowolnej aplikacji lokalnej, sieci Web lub hostowanej w jednym obszarze roboczym. Automatycznie dostosowuje się do roli, lokalizacji, urządzenia, przeglądarki i nie tylko, aby zapewnić spersonalizowany obszar roboczy. Użytkownicy uzyskują uproszczone i spójne środowisko, niezależnie od tego, jaka technologia leży poniżej powierzchni. Możesz zintegrować bieżące rozwiązania, takie jak RDP, Citrix i starsze aplikacje, a następnie przenieść je do pulpitu wirtualnego systemu Windows przy zachowaniu tego samego środowiska użytkownika. Ponadto możesz zintegrować wszystkie lokalizacje plików, takie jak SharePoint, OneDrive, zespoły i serwery plików, w jednej aplikacji do zarządzania dokumentami.
+
+W obszarze roboczym 365 Administratorzy IT mogą udostępnić aplikacjom z obsługą pulpitu wirtualnego systemu Windows dostęp do osób na podstawie uprawnień. Następnie administrator może dodać te aplikacje do udostępnionej grupy aplikacji. Gdy aplikacja pulpitu wirtualnego systemu Windows jest widoczna w obszarze roboczym 365, użytkownicy mogą otworzyć ją z obszaru roboczego bez konieczności ponownego logowania. 
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh).
+- [Przejdź do witryny sieci Web partnera](https://workspace365.net/product-tour/hybrid-workspace-365/).
 
 ## <a name="workspot"></a>Workspot
 
@@ -279,4 +303,4 @@ Workspot rozszerza wartość pulpitu wirtualnego systemu Windows przez uproszcze
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej na temat pulpitu wirtualnego systemu Windows](overview.md).
-- [Utwórz dzierżawcę na pulpicie wirtualnym systemu Windows](tenant-setup-azure-active-directory.md).
+- [Utwórz dzierżawcę na pulpicie wirtualnym systemu Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
