@@ -15,6 +15,8 @@
   items:
     - name: Korzystanie z interfejsu API usługi Video Indexer
       href: video-indexer-use-apis.md
+    - name: Łącznik usługi Logic Apps
+      href: logic-apps-connector-tutorial.md
 - name: Samples
   items:
     - name: Przykłady usługi Video Indexer

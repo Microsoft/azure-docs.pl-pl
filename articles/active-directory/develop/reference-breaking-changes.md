@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535965"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871543"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
@@ -37,13 +37,31 @@ System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bez
 
 Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajdują się w środowisku produkcyjnym lub znajdują się w nim.
 
+## <a name="may-2020"></a>2020 maja
+
+### <a name="azure-government-endpoints-are-changing"></a>Azure Government punkty końcowe są zmieniane
+
+**Data wprowadzenia**: maj piąty (końcowa 2020 czerwca) 
+
+**Wpływ na punkty końcowe**: wszystkie
+
+**Wpływ na protokół**: wszystkie przepływy
+
+1 czerwca 2018 Urząd oficjalnych Azure Active Directory (AAD) dla Azure Government zmieniony z `https://login-us.microsoftonline.com` na. `https://login.microsoftonline.us` Ta zmiana została również zastosowana do Microsoft 365 i DoD w serwisie zatoce, które Azure Government usługi AAD. Jeśli jesteś członkiem aplikacji w ramach dzierżawy dla instytucji rządowych Stanów Zjednoczonych, musisz zaktualizować aplikację, aby `.us` zalogować użytkowników w punkcie końcowym.  
+
+Począwszy od 5 maja, usługa Azure AD zacznie wymuszać zmianę punktu końcowego, blokując Logowanie użytkowników w aplikacjach hostowanych w dzierżawach dla instytucji rządowych Stanów Zjednoczonych przy użyciu publicznego punktu końcowego (`microsoftonline.com`).  Aplikacje, których dotyczy problem, rozpoczną `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`wyświetlanie błędu. Ten błąd oznacza, że aplikacja próbuje zalogować się do użytkownika rządu USA w punkcie końcowym chmury publicznej. Jeśli Twoja aplikacja znajduje się w dzierżawie chmury publicznej i jest przeznaczona do obsługi użytkowników w Stanach Zjednoczonych, musisz [zaktualizować aplikację, aby obsługiwała ją jawnie](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Może to wymagać utworzenia nowej rejestracji aplikacji w chmurze dla instytucji rządowych USA. 
+
+Egzekwowanie tej zmiany zostanie wykonane przy użyciu stopniowego wdrażania w zależności od tego, jak często użytkownicy z chmury rządowej Stanów Zjednoczonych zalogują się do aplikacji aplikacja — aplikacje dla instytucji rządowych STANów Zjednoczonych często zobaczą wymuszanie, a aplikacje często używane przez użytkowników rządów USA będą musiały zostać zastosowane. Oczekujemy, że wymuszanie zakończy się we wszystkich aplikacjach w czerwcu 2020. 
+
+Aby uzyskać więcej informacji, zobacz [wpis w blogu Azure Government dotyczący tej migracji](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## <a name="march-2020"></a>Marzec 2020 r.
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Hasła użytkowników będą ograniczone do 256 znaków.
 
 **Data wprowadzenia**: 13 marca 2020
 
-**Wpływ na punkty końcowe**: 1.0 i v 2.0
+**Wpływ na punkty końcowe**: wszystkie
 
 **Wpływ na protokół**: wszystkie przepływy użytkownika.
 
