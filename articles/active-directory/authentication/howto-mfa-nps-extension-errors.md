@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330363a78aa9b642f4794cee40bbf040d3484b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 09468272397925d9afd1d3014f4fcc1d6a222198
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653710"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611385"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolve error messages from the NPS extension for Azure Multi-Factor Authentication (Rozstrzyganie komunikatów o błędach z rozszerzenia serwera NPS dotyczących usługi Azure Multi-Factor Authentication)
 
@@ -66,9 +67,9 @@ Jeśli wystąpią błędy rozszerzenia serwera NPS dla usługi Azure Multi-Facto
 
 Czasami użytkownicy mogą odbierać komunikaty z Multi-Factor Authentication, ponieważ ich żądanie uwierzytelnienia nie powiodło się. Nie są to błędy w produkcie konfiguracji, ale są zamierzonymi ostrzeżeniami wyjaśniającymi, dlaczego żądanie uwierzytelnienia zostało odrzucone.
 
-| Kod błędu | Komunikat o błędzie | Zalecane czynności | 
+| Kod błędu | Komunikat o błędzie | Zalecane czynności |
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Nieprawidłowy kod entered\OATH kodu | Użytkownik wprowadził nieprawidłowy kod. Spróbuj ponownie, żądając nowego kodu lub Zaloguj się ponownie. | 
+| **OathCodeIncorrect** | Nieprawidłowy kod entered\OATH kodu | Użytkownik wprowadził nieprawidłowy kod. Spróbuj ponownie, żądając nowego kodu lub Zaloguj się ponownie. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Osiągnięto maksymalną dozwoloną liczbę ponownych prób w kodzie | Użytkownik nie zakończył zbyt wiele razy wyzwania weryfikacji. W zależności od ustawień może być konieczne odblokowanie przez administratora.  |
 | **SMSAuthFailedWrongCodeEntered** | Wprowadzono błędny kod/nieprawidłowa OTP wiadomości tekstowej | Użytkownik wprowadził nieprawidłowy kod. Spróbuj ponownie, żądając nowego kodu lub Zaloguj się ponownie. |
 

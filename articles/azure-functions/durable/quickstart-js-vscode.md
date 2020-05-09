@@ -3,20 +3,18 @@ title: Tworzenie pierwszej funkcji trwałej na platformie Azure przy użyciu ję
 description: Utwórz i opublikuj funkcję trwałą platformy Azure przy użyciu programu Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257652"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889669"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Tworzenie pierwszej funkcji trwałej w języku Java Script
 
 *Durable Functions* to rozszerzenie usługi [Azure Functions](../functions-overview.md) umożliwiające zapisywanie funkcji stanowych w środowisku bezserwerowym. Rozszerzenie zarządza stanem, punktami kontrolnymi i ponownym uruchamianiem.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 W tym artykule przedstawiono użycie rozszerzenia programu Visual Studio Code dla usługi Azure Functions w celu lokalnego utworzenia i przetestowania funkcji trwałej „hello world”.  Ta funkcja będzie aranżować i łączyć w łańcuchy wywołania do innych funkcji. Kod funkcji zostanie następnie opublikowany na platformie Azure.
 
@@ -44,7 +42,7 @@ W tej sekcji użyto Visual Studio Code do utworzenia projektu Azure Functions lo
 
 1. W Visual Studio Code naciśnij klawisz F1 (lub Ctrl/Cmd + Shift + P), aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create New Project...`.
 
-    ![Create, funkcja](media/quickstart-js-vscode/functions-create-project.png)
+    ![Tworzenie funkcji](media/quickstart-js-vscode/functions-create-project.png)
 
 1. Wybierz pustą lokalizację folderu dla projektu i wybierz **pozycję Wybierz**.
 
@@ -61,7 +59,7 @@ Visual Studio Code instaluje Azure Functions Core Tools, w razie konieczności. 
 
 Plik Package. JSON jest również tworzony w folderze głównym.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Włącz tryb zgodności Azure Functions v2
+### <a name="enable-compatibility-mode"></a>Włącz tryb zgodności
 
 Obecnie Durable Functions JavaScript wymaga włączenia trybu zgodności Azure Functions v2.
 
@@ -165,7 +163,7 @@ Podstawowe narzędzia usługi Azure Functions umożliwiają uruchamianie projekt
     | Wybierz konto magazynu | Tworzenie nowego konta magazynu |  |
     | Wprowadź nazwę nowego konta magazynu | *Unikatowa nazwa* | Nazwa konta magazynu do utworzenia |
     | Wybieranie grupy zasobów | *Unikatowa nazwa* | Nazwa grupy zasobów do utworzenia |
-    | Wybieranie lokalizacji | *okolicy* | Zaznacz region blisko siebie |
+    | Wybieranie lokalizacji | *region* | Zaznacz region blisko siebie |
 
 1. W panelu **terminalu** skopiuj punkt końcowy adresu URL funkcji wyzwalanej przez protokół HTTP.
 
@@ -204,7 +202,7 @@ Gdy będziesz mieć pewność, że funkcja działa poprawnie na komputerze lokal
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Włącz tryb zgodności Azure Functions v2
+### <a name="enable-compatibility-mode"></a>Włącz tryb zgodności
 
 Ta sama wersja Azure Functions v2 musi być włączona w aplikacji na platformie Azure.
 
