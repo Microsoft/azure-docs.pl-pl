@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233113"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739317"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
@@ -52,6 +52,10 @@ Aby sprawdzić, czy moduł jest gotowy do użycia, użyj następującego polecen
 
 Teraz możesz zacząć korzystać z poleceń cmdlet w module. Pełny opis poleceń cmdlet w module usługi Azure AD można znaleźć w dokumentacji referencyjnej online dla [programu Azure Active Directory PowerShell w wersji 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
+> [!NOTE]
+> Polecenia cmdlet programu PowerShell usługi Azure AD nie współpracują z nowym programem PowerShell 7, ponieważ jest on oparty na platformie .NET Core. Mamy świadomość, że trwa proces pobierania aktualizacji. Obecnie zalecamy używanie modułu Windows PowerShell 5. x do użycia z operacjami programu PowerShell usługi Azure AD. 
+
+
 ## <a name="connect-to-the-directory"></a>Nawiązywanie połączenia z katalogiem
 
 Przed rozpoczęciem zarządzania grupami przy użyciu poleceń cmdlet programu PowerShell usługi Azure AD należy połączyć sesję programu PowerShell z katalogiem, który ma być zarządzany. Użyj następującego polecenia:
@@ -63,8 +67,8 @@ Przed rozpoczęciem zarządzania grupami przy użyciu poleceń cmdlet programu P
 Polecenie cmdlet poprosi o poświadczenia, których chcesz użyć w celu uzyskania dostępu do katalogu. W tym przykładzie używamy karen@drumkit.onmicrosoft.com w celu uzyskania dostępu do katalogu demonstracyjnego. Polecenie cmdlet zwraca potwierdzenie, aby pokazać, że sesja została pomyślnie podłączona do katalogu:
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 
@@ -336,5 +340,5 @@ Funkcja zapisywania zwrotnego grup pakietu Office 365 jest publiczną funkcją w
 
 Więcej Azure Active Directory dokumentacji programu PowerShell można znaleźć w [Azure Active Directory poleceniach cmdlet](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-* [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [Zarządzanie dostępem do zasobów za pomocą grup Azure Active Directory](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
