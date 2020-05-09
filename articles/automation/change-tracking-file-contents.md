@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509151"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779301"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
 Po dodaniu nowego pliku lub klucza rejestru do śledzenia Program Azure Automation włącza go dla funkcji [Change Tracking i spisu](change-tracking.md) . Ten artykuł zawiera procedury umożliwiające pracę z tą funkcją.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>Włącz pełne rozwiązanie Change Tracking i spisu
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Włącz pełną Change Tracking i funkcję spisu
 
-Jeśli włączono funkcję [monitorowania integralności plików Azure Security Center (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), możesz użyć rozwiązania Full Change Tracking i spisu, jak opisano poniżej. Twoje ustawienia nie są usuwane przez ten proces.
+Jeśli włączono funkcję [monitorowania integralności plików Azure Security Center (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), możesz użyć funkcji pełnego Change Tracking i spisu, jak opisano poniżej. Twoje ustawienia nie są usuwane przez ten proces.
 
 > [!NOTE]
-> Włączenie pełnego rozwiązania Change Tracking i spisu może spowodować naliczenie dodatkowych opłat. Zobacz [Cennik usługi Automation](https://azure.microsoft.com/pricing/details/automation/).
+> Włączenie pełnego Change Tracking i funkcji spisu może spowodować naliczenie dodatkowych opłat. Zobacz [Cennik usługi Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Usuń rozwiązanie monitorowania, przechodząc do obszaru roboczego i lokalizowanie go na [liście zainstalowanych rozwiązań monitorowania](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Kliknij nazwę rozwiązania, aby otworzyć jego stronę podsumowania, a następnie kliknij pozycję **Usuń**, zgodnie z opisem w temacie [usuwanie rozwiązania monitorowania](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Aby ponownie włączyć rozwiązanie, przejdź do konta usługi Automation i wybierz pozycję **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
+3. Aby ponownie włączyć Change Tracking i spis, przejdź do konta usługi Automation i wybierz pozycję **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
 4. Wybierz obszar roboczy Log Analytics i konto usługi Automation, Potwierdź ustawienia obszaru roboczego, a następnie kliknij pozycję **Włącz**.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Dołączanie maszyn do Change Tracking i spisu

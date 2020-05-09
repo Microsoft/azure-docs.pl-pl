@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631424"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982891"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretowanie modeli w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,17 +74,17 @@ Poznaj obsługiwane techniki interpretacji, obsługiwane modele uczenia maszynow
 
 |Metoda interpretacji|Opis|Typ|
 |--|--|--------------------|
-|1. Objaśnienie drzewa kształtu| Klasyfikator drzewa [kształtu](https://github.com/slundberg/shap), który koncentruje się na algorytmie oceny wartości szybkiego kształtu czasu wielomianu, który jest specyficzny dla **drzew i ich kompletów drzew**.|Specyficzne dla modelu|
-|2. kształt szczegółowy Wyjaśnij| W oparciu o objaśnienie z [kształtu](https://github.com/slundberg/shap), szczegółowy opis "jest algorytmem zbliżeniowym o dużej szybkości, dla wartości kształtu w modelach uczenia głębokiego, które kompilują się w połączeniu z DeepLIFT opisanym w [dokumencie kształt NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Obsługiwane są modele **TensorFlow** i modele **Keras** korzystające z zaplecza TensorFlow (istnieje również wstępna pomoc techniczna dla PyTorch) ".|Specyficzne dla modelu|
-|3. KSZTAŁTowy objaśnienie liniowe| Funkcja wyjaśniająca liniowy [kształtu](https://github.com/slundberg/shap)oblicza wartości kształtu dla **modelu liniowego**, opcjonalnie rozliczanie korelacji między funkcjami.|Specyficzne dla modelu|
-|4. kształt objaśnienia jądra| Wyjaśnienie jądra [kształtu](https://github.com/slundberg/shap)używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości kształtu dla **dowolnego modelu**.|Model — niezależny od|
-|5. wyjaśnienie śladu (globalny Surogat)| Objaśnienie śladów opiera się na pomysłie na [globalne modele wieloskładnikowe](https://christophm.github.io/interpretable-ml-book/global.html) do naśladowania modeli blackbox. Globalny model zastępczy jest modelem, który jest interpretowany wewnętrznie, aby przybliżyć prognozy **dowolnego czarnego modelu** , jak to możliwe. Naukowcy danych mogą interpretować model zastępczy, aby rysować wnioski o modelu czarnego pudełka. Można użyć jednego z następujących modeli interpretowanych jako model zastępczy: LightGBM (LGBMExplainableModel), regresja liniowa (LinearExplainableModel), Gradient stochastycznego, który jest bardziej wyjaśniony model (SGDExplainableModel) i drzewo decyzyjne (DecisionTreeExplainableModel).|Model — niezależny od|
-|6. Opis ważności funkcji permutacji (PFI)| Ważność funkcji permutacji jest techniką używaną do wyjaśnienia modeli klasyfikacji i regresji, które są [sponsorowane przez papier Breimanych lasów](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie, w jaki działa, jest to spowodowane losowo Shuffling danych jedną funkcją w danym czasie dla całego zestawu danych i obliczaniem, ile jest Metryka wydajności. Im większa zmiana, tym bardziej ważna jest funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego** , ale nie wyjaśnia poszczególnych prognoz. |Model — niezależny od|
+|Objaśnienie drzewa kształtu| Klasyfikator drzewa [kształtu](https://github.com/slundberg/shap), który koncentruje się na algorytmie oceny wartości szybkiego kształtu czasu wielomianu, który jest specyficzny dla **drzew i ich kompletów drzew**.|Specyficzne dla modelu|
+|Szczegółowy opis kształtu| W oparciu o objaśnienie z kształtu, szczegółowy opis "jest algorytmem zbliżeniowym o dużej szybkości, dla wartości kształtu w modelach uczenia głębokiego, które kompilują się w połączeniu z DeepLIFT opisanym w [dokumencie kształt NIPS](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Obsługiwane są modele **TensorFlow** i modele **Keras** korzystające z zaplecza TensorFlow (istnieje również wstępna pomoc techniczna dla PyTorch) ".|Specyficzne dla modelu|
+|Objaśnienie liniowe kształtu| Funkcja wyjaśniająca liniowy kształtu oblicza wartości kształtu dla **modelu liniowego**, opcjonalnie rozliczanie korelacji między funkcjami.|Specyficzne dla modelu|
+|Wyjaśnienie jądra kształtu| Wyjaśnienie jądra kształtu używa specjalnie ważonej lokalnej regresji liniowej do oszacowania wartości kształtu dla **dowolnego modelu**.|Model — niezależny od|
+|Objaśnienie śladowe (globalny Surogat)| Objaśnienie śladów opiera się na pomysłie na [globalne modele wieloskładnikowe](https://christophm.github.io/interpretable-ml-book/global.html) do naśladowania modeli blackbox. Globalny model zastępczy jest modelem, który jest interpretowany wewnętrznie, aby przybliżyć prognozy **dowolnego czarnego modelu** , jak to możliwe. Naukowcy danych mogą interpretować model zastępczy, aby rysować wnioski o modelu czarnego pudełka. Można użyć jednego z następujących modeli interpretowanych jako model zastępczy: LightGBM (LGBMExplainableModel), regresja liniowa (LinearExplainableModel), Gradient stochastycznego, który jest bardziej wyjaśniony model (SGDExplainableModel) i drzewo decyzyjne (DecisionTreeExplainableModel).|Model — niezależny od|
+|Objaśnienie ważności funkcji permutacji (PFI)| Ważność funkcji permutacji jest techniką używaną do wyjaśnienia modeli klasyfikacji i regresji, które są [sponsorowane przez papier Breimanych lasów](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (patrz sekcja 10). Na wysokim poziomie, w jaki działa, jest to spowodowane losowo Shuffling danych jedną funkcją w danym czasie dla całego zestawu danych i obliczaniem, ile jest Metryka wydajności. Im większa zmiana, tym bardziej ważna jest funkcja. PFI może wyjaśnić ogólne zachowanie **dowolnego modelu bazowego** , ale nie wyjaśnia poszczególnych prognoz. |Model — niezależny od|
 
 
 
 
-Oprócz opisanych powyżej technik interpretacji obsługujemy inne [objaśnienie oparte na kształtach](https://github.com/slundberg/shap), zwane `TabularExplainer`. W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
+Oprócz opisanych powyżej technik interpretacji obsługujemy inne objaśnienie oparte na KSZTAŁTach, zwane `TabularExplainer`. W zależności od modelu program `TabularExplainer` używa jednego z obsługiwanych objaśnień kształtu:
 
 * TreeExplainer dla wszystkich modeli opartych na drzewie
 * DeepExplainer dla modeli DNN
@@ -120,4 +120,6 @@ Wyjaśnienie można uruchomić zdalnie na Azure Machine Learning COMPUTE i zalog
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z artykułem jak włączyć funkcję interpretacji dla modeli — zarówno lokalnie, [jak](how-to-machine-learning-interpretability-aml.md) i na Azure Machine Learning zdalnych zasobów obliczeniowych. Zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) , aby uzyskać dodatkowe scenariusze.
+- Zapoznaj się z artykułem jak włączyć funkcję interpretacji dla modeli — zarówno lokalnie, [jak](how-to-machine-learning-interpretability-aml.md) i na Azure Machine Learning zdalnych zasobów obliczeniowych. 
+- Zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) , aby uzyskać dodatkowe scenariusze. 
+- Jeśli interesuje Cię interpretowanie scenariuszy tekstowych, zobacz [Interpretuj-Text](https://github.com/interpretml/interpret-text), powiązane repozytorium typu "open source" w celu [interpretacji społeczności](https://github.com/interpretml/interpret-community/)dla technik interpretowania dla NLP. `azureml.interpret`pakiet nie obsługuje obecnie tych technik, ale można rozpocząć pracę z [przykładowym notesem na klasyfikacji tekstu](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

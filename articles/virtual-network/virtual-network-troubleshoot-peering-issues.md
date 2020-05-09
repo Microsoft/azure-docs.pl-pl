@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521883"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801573"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Zacznij</a></span><span class="has-padding-small">szybko rozwiązywać problemy, korzystając z naszego agenta wirtualnego do uruchamiania <b>zautomatyzowanej diagnostyki.</b> </span> Zasady zachowania <sub>poufności informacji</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
-Ten przewodnik rozwiązywania problemów zawiera kroki ułatwiające rozwiązywanie typowych problemów z [siecią równorzędną sieci wirtualnej](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
+Ten przewodnik rozwiązywania problemów zawiera kroki ułatwiające rozwiązywanie typowych problemów z [siecią równorzędną sieci wirtualnej](virtual-network-peering-overview.md) .
 
 ![Diagram komunikacji równorzędnej sieci wirtualnych](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 

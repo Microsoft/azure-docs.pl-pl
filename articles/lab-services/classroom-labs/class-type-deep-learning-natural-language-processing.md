@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dab5f3dcdfb6ddabbd94960dcf8a8bf2bce98af
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257763"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890768"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Skonfiguruj laboratorium ukierunkowane na głębokie uczenie się w przetwarzaniu języka naturalnego przy użyciu Azure Lab Services
 W tym artykule opisano sposób konfigurowania laboratorium ukierunkowanego na głębokie uczenie w ramach przetwarzania języka naturalnego (NLP) przy użyciu Azure Lab Services. Przetwarzanie języka naturalnego (NLP) jest formą sztucznej analizy (AI), która umożliwia komputerom z translacją, rozpoznawanie mowy i innymi funkcjami interpretacji języka.  
@@ -40,7 +40,7 @@ Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utw
 | ------------ | ------------------ |
 | Rozmiar maszyny wirtualnej (VM) | Mały procesor GPU (COMPUTE). Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z obliczeń i sieci, takich jak sztuczna inteligencja i uczenie głębokie. |
 | Obraz maszyny wirtualnej | [Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Ten obraz zawiera platformy uczenia głębokiego i narzędzia do uczenia maszynowego i analizy danych. Aby wyświetlić pełną listę zainstalowanych narzędzi na tym obrazie, zapoznaj się z następującym artykułem: [co obejmuje DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
-| Włącz Podłączanie pulpitu zdalnego | Włącz. <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się ze swoimi Virtual Machines (maszyną wirtualną) przy użyciu Pulpit zdalny (RDP).</p><p>**Ważne**: protokół RDP jest już zainstalowany i skonfigurowany na Data Science Virtual Machine obrazu systemu Linux. W związku z tym nauczyciele/uczniowie mogą łączyć się z maszynami wirtualnymi za pośrednictwem protokołu RDP bez dodatkowych kroków. Ponadto, jeśli musisz nawiązać połączenie z pulpitem graficznym, ten obraz ma już zainstalowany [serwer x2go](https://wiki.x2go.org/doku.php/doc:newtox2go) na maszynie wirtualnej. Studenci muszą zainstalować klienta X2Go na swoich komputerach lokalnych i musi użyć klienta do nawiązania połączenia. Aby uzyskać więcej informacji, zobacz następujące przewodniki: <ul><li>[Jak uzyskać dostęp do Data Science Virtual Machine dla systemu Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Nawiązywanie połączenia z szablonową maszyną wirtualną w celu zainstalowania pakietów RDP i interfejsu GUI](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
+| Włącz Podłączanie pulpitu zdalnego | <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się ze swoimi Virtual Machines (maszyną wirtualną) przy użyciu Pulpit zdalny (RDP).</p><p>**Ważne**: włączenie tego ustawienia powoduje otwarcie tylko portu **RDP** na maszynach z systemem Linux. Jeśli protokół RDP jest już zainstalowany i skonfigurowany w obrazie maszyny wirtualnej, możesz połączyć się z maszynami wirtualnymi za pośrednictwem protokołu RDP, nie wykonując żadnych dodatkowych kroków. <p>Jeśli na obrazie maszyny wirtualnej nie zainstalowano i skonfigurowano protokół RDP, należy połączyć się z maszyną z systemem Linux przy użyciu protokołu SSH po raz pierwszy, a następnie zainstalować pakiety RDP i GUI, aby umożliwić uczniom łączenie się z maszyną z systemem Linux przy użyciu protokołu RDP. Aby uzyskać więcej informacji, zobacz [Instalowanie i konfigurowanie pulpit zdalny do nawiązywania połączenia z maszyną wirtualną z systemem Linux na platformie Azure](../../virtual-machines/linux/use-remote-desktop.md). Następnie opublikujesz obraz tak, aby studenci mogli na maszynach wirtualnych z systemem Linux mieć protokół RDP.  |
 
 Obraz Data Science Virtual Machine dla systemu Linux zapewnia niezbędne platformy uczenia głębokiego i narzędzia wymagane dla tego typu klasy. W związku z tym po utworzeniu komputera szablonu nie trzeba będzie go jeszcze modyfikować. Można je opublikować dla uczniów. Wybierz przycisk **Publikuj** na stronie szablon, aby opublikować szablon w laboratorium.  
 

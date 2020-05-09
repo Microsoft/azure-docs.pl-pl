@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594155"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982381"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -89,7 +89,7 @@ Ponadto procesor kanału informacyjnego zmiany można dynamicznie dopasować do 
 
 Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do i z kontenerów Cosmos zawsze zużywa jednostek ru. Opłata jest naliczana za jednostek ru zużyty przez kontener dzierżawy.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zestaw SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [Przykłady użycia w witrynie GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
@@ -100,6 +100,7 @@ Opłata jest naliczana za zużyte jednostek ru, ponieważ przenoszenie danych do
 Teraz można dowiedzieć się więcej o procesorze źródła zmian w następujących artykułach:
 
 * [Przegląd źródła zmian](change-feed.md)
+* [Zmień model ściągania kanału informacyjnego](change-feed-pull-model.md)
 * [Jak przeprowadzić migrację z biblioteki procesora źródła zmian](how-to-migrate-from-change-feed-library.md)
 * [Korzystanie z estymatora zestawienia zmian](how-to-use-change-feed-estimator.md)
 * [Czas rozpoczęcia procesora zestawienia zmian](how-to-configure-change-feed-start-time.md)
