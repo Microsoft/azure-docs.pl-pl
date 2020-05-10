@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 3618e6d3fe919bc06496d5b41d162bd211c3d404
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 47bb4e4cc4902168631fa67f186d0b3259c94328
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231938"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004648"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Twórz, Zaplanuj i uruchamiaj zadania cykliczne i przepływy pracy z wyzwalaczem cyklu w Azure Logic Apps
 
@@ -54,8 +54,8 @@ W przypadku różnic między tym wyzwalaczem a oknem przesuwania lub aby uzyska�
 
    | Właściwość | Nazwa JSON | Wymagany | Typ | Opis |
    |----------|-----------|----------|------|-------------|
-   | **Dat** | `interval` | Tak | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p>-Miesiąc: 1-16 miesięcy </br>-Dzień: 1-500 dni </br>-Godz.: 1 – 12 godzin </br>-Minutę: 1 – 72000 minut </br>-Sekunda: 1 – 9999999 s<p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
-   | **Częstotliwość** | `frequency` | Tak | String | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
+   | **Dat** | `interval` | Yes | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p>-Miesiąc: 1-16 miesięcy <br>-Tydzień: 1-71 tyg. <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s<p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
+   | **Częstotliwość** | `frequency` | Yes | String | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
    ||||||
 
    > [!IMPORTANT]
@@ -75,17 +75,17 @@ W przypadku różnic między tym wyzwalaczem a oknem przesuwania lub aby uzyska�
    | Właściwość | Nazwa JSON | Wymagany | Typ | Opis |
    |----------|-----------|----------|------|-------------|
    | **Strefa czasowa** | `timeZone` | Nie | String | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
-   | **Godzina rozpoczęcia** | `startTime` | Nie | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>— lub — <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Godzina rozpoczęcia** | `startTime` | Nie | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>— lub — <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2020 o 2:00 PM, określ wartość "2020-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2020-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia ma maksymalnie 49 lat w przyszłości i musi być zgodna ze [specyfikacją ISO 8601 Data Time](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, a w przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany dłużej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    | **W tych dniach** | `weekDays` | Nie | Ciąg lub tablica ciągów | W przypadku wybrania opcji "tydzień" można wybrać co najmniej jeden dzień, w którym chcesz uruchomić przepływ pracy: **poniedziałek**, **wtorek**, **środa**, **czwartek**, **piątek**, **Sobota**i **Niedziela** |
    | **W tych godzinach** | `hours` | Nie | Tablica liczb całkowitych lub liczb całkowitych | W przypadku wybrania opcji "dzień" lub "tydzień" można wybrać co najmniej jedną liczbę całkowitą z przedziału od 0 do 23 jako godzinę, o której ma być uruchamiany przepływ pracy. <p><p>Na przykład, jeśli określisz wartość "10", "12" i "14", otrzymujesz 10 AM, 12 PM i 2 PM w godzinach dnia, ale minuty dnia są obliczane na podstawie momentu rozpoczęcia cyklu. Aby ustawić określone minuty dnia, na przykład 10:00 AM, 12:00 PM i 2:00 PM, określ te wartości przy użyciu właściwości **at** . |
    | **W tych minutach** | `minutes` | Nie | Tablica liczb całkowitych lub liczb całkowitych | W przypadku wybrania opcji "dzień" lub "tydzień" można wybrać co najmniej jedną liczbę całkowitą z zakresu od 0 do 59 jako minuty godziny, Kiedy chcesz uruchomić przepływ pracy. <p>Na przykład można określić wartość "30" jako znak minuty i użyć poprzedniego przykładu dla godzin dnia, otrzymują 10:30 AM, 12:30 PM i 2:30 PM. |
    |||||
 
-   Załóżmy na przykład, że dzisiaj jest poniedziałek, 4 września 2017. Następujący wyzwalacz cykliczny nie jest uruchamiany *wcześniej* niż data i godzina rozpoczęcia, czyli poniedziałek, 18 września, 2017 w dniu 8:00 am. Harmonogram cyklu jest jednak ustawiany dla 10:30 AM, 12:30 PM i 2:30 PM tylko w poniedziałek. Dlatego po pierwszym uruchomieniu wyzwalacza i utworzeniu wystąpienia przepływu pracy aplikacji logiki jest 10:30 AM. Aby dowiedzieć się więcej na temat czasu rozpoczęcia pracy, zobacz te [przykłady czasu rozpoczęcia](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   Załóżmy na przykład, że dzisiaj jest piątek, 4 września 2020. Następujący wyzwalacz cykliczny nie jest uruchamiany *wcześniej* niż data i godzina rozpoczęcia, czyli piątek, 18 września 2020 w dniu 8:00 am. Harmonogram cyklu jest jednak ustawiany dla 10:30 AM, 12:30 PM i 2:30 PM tylko w poniedziałek. W związku z tym podczas pierwszego uruchomienia wyzwalacza i utworzenia wystąpienia przepływu pracy aplikacji logiki jest w poniedziałek o godzinie 10:30. Aby dowiedzieć się więcej na temat czasu rozpoczęcia pracy, zobacz te [przykłady czasu rozpoczęcia](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Przyszłe uruchomienia są wykonywane o godzinie 12:30 PM i 2:30 PM w tym samym dniu. Każdy cykl tworzy własne wystąpienie przepływu pracy. Po wykonaniu tej czynności cały harmonogram zostanie powtórzony w ciągu następnych poniedziałku. [*Jakie są inne przykładowe wystąpienia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
-   ![Przykład planowania zaawansowanego](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
+   ![Przykład planowania zaawansowanego](./media/connectors-native-recurrence/recurrence-trigger-advanced-schedule-options.png)
 
    > [!NOTE]
    > Wyzwalacz pokazuje podgląd określonego cyklu tylko w przypadku wybrania częstotliwości "dzień" lub "tydzień".
@@ -118,7 +118,7 @@ Ten przykład pokazuje, jak definicja wyzwalacza cyklicznego może wyglądać w 
                "Monday"
             ]
          },
-         "startTime": "2017-09-07T14:00:00Z",
+         "startTime": "2020-09-07T14:00:00Z",
          "timeZone": "Pacific Standard Time"
       }
    }

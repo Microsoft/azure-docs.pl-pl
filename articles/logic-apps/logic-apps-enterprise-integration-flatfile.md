@@ -1,98 +1,99 @@
 ---
 title: Kodowanie lub dekodowanie plików prostych
-description: Koduj lub Dekoduj pliki płaskie dla integracji przedsiębiorstwa z Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
+description: Koduj lub Dekoduj pliki płaskie integracji przedsiębiorstwa w Azure Logic Apps przy użyciu Pakiet integracyjny dla przedsiębiorstw
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
-ms.openlocfilehash: 2d6182ba01507c2fb361628e01bb52e1ea821f44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2020
+ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152656"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005363"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Koduj lub Dekoduj pliki płaskie za pomocą Azure Logic Apps i Pakiet integracyjny dla przedsiębiorstw
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Kodowanie i dekodowanie plików prostych w Azure Logic Apps przy użyciu Pakiet integracyjny dla przedsiębiorstw
 
-Możesz chcieć zakodować zawartość XML przed wysłaniem jej do partnera biznesowego w scenariuszu biznesowym (B2B). W aplikacji logiki można w tym celu użyć łącznika prostego pliku kodowania. Utworzona aplikacja logiki może pobrać zawartość XML z różnych źródeł, w tym z wyzwalacza żądania HTTP, z innej aplikacji lub nawet z jednego z wielu [łączników](../connectors/apis-list.md). Aby uzyskać więcej informacji na temat usługi Logic Apps, zobacz [dokumentację usługi Logic Apps](logic-apps-overview.md "Dowiedz się więcej o usłudze Logic Apps").  
+Przed wysłaniem zawartości XML do partnera biznesowego w scenariuszu biznesowym (B2B) możesz chcieć najpierw zakodować tę zawartość. Tworząc aplikację logiki, można kodować i dekodować pliki płaskie przy użyciu łącznika **prostego pliku** . Aplikacja logiki może pobrać tę zawartość XML z różnych źródeł, takich jak wyzwalacz żądania, inna aplikacja lub inne [Łączniki obsługiwane przez Azure Logic Apps](../connectors/apis-list.md). Aby uzyskać więcej informacji, zobacz [co to jest Azure Logic Apps](logic-apps-overview.md)?
 
-## <a name="create-the-flat-file-encoding-connector"></a>Tworzenie łącznika prostego kodowania plików
-Wykonaj następujące kroki, aby dodać łącznik prostego kodowania plików do aplikacji logiki.
+## <a name="prerequisites"></a>Wymagania wstępne
 
-1. Utwórz aplikację logiki i [Połącz ją z kontem integracji](logic-apps-enterprise-integration-accounts.md "Dowiedz się, jak połączyć konto integracji z aplikacją logiki"). To konto zawiera schemat, który będzie używany do kodowania danych XML.  
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-1. W Projektancie aplikacji logiki Dodaj wyzwalacz **po odebraniu żądania HTTP** do aplikacji logiki.
+* Aplikacja logiki, w której ma być używany **prosty łącznik plików** , oraz wyzwalacz, który uruchamia przepływ pracy aplikacji logiki. Łącznik **prostego pliku** zawiera tylko akcje, a nie wyzwalacze. Można użyć wyzwalacza lub innej akcji, aby dostarczyć zawartość XML do aplikacji logiki w celu kodowania lub dekodowania. Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj się z [przewodnikiem Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Dodaj akcję kodowania pliku prostego w następujący sposób:
+* [Konto integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) skojarzone z subskrypcją platformy Azure i połączone z [aplikacją logiki](logic-apps-enterprise-integration-accounts.md#link-account) , w której zamierzasz używać łącznika **prostego pliku** . Zarówno aplikacja logiki, jak i konto integracji muszą istnieć w tej samej lokalizacji lub regionie platformy Azure.
 
-   a. Wybierz znak **Plus** .
+* [Schemat](logic-apps-enterprise-integration-schemas.md) pliku prostego, który został przekazany do konta integracji w celu kodowania lub dekodowania zawartości XML
 
-   b. Wybierz łącze **Dodaj akcję** (pojawia się po wybraniu znaku plusa).
+* Co najmniej dwóch [partnerów handlowych](logic-apps-enterprise-integration-partners.md) , które zostały już zdefiniowane na koncie integracji
 
-   c. W polu wyszukiwania wprowadź wartość *Flat* , aby odfiltrować wszystkie akcje do tej, która ma zostać użyta.
+## <a name="add-flat-file-encode-action"></a>Dodaj akcję kodowania prostego pliku
 
-   d. Wybierz z listy opcję **kodowania pliku prostego** .   
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-      ![Zrzut ekranu przedstawiający opcję kodowania pliku prostego](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok** > **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP**i obsługuje żądania przychodzące spoza aplikacji logiki.
 
-1. W oknie dialogowym **kodowanie pliku prostego** zaznacz pole tekstowe **zawartość** .  
+   > [!TIP]
+   > Udostępnianie schematu JSON jest opcjonalne. Jeśli masz przykładowy ładunek z żądania przychodzącego, wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**, wprowadź przykładowy ładunek i wybierz pozycję **gotowe**. Schemat pojawia się w polu **schemat JSON treści żądania** .
 
-   ![Zrzut ekranu przedstawiający pole tekstowe zawartości](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
+1. W obszarze **Wybierz akcję**wprowadź `flat file`. Z listy Akcje wybierz pozycję Ta akcja: **kodowanie pliku prostego**
 
-1. Wybierz tag treści jako zawartość, którą chcesz zakodować. Tag treści wypełni pole zawartość.     
+   ![Wybieranie akcji "Kodowanie plików prostych"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
-   ![Zrzut ekranu przedstawiający tag treści](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
+1. Kliknij wewnątrz pola **zawartość** , aby wyświetlić listę zawartość dynamiczna. Z listy w sekcji **po odebraniu żądania HTTP** wybierz właściwość **Body** , która zawiera dane wyjściowe treści żądania z wyzwalacza i zawartość do zakodowania.
 
-1. Zaznacz pole listy **Nazwa schematu** i wybierz schemat, którego chcesz użyć do kodowania zawartości wejściowej.    
+   ![Wybierz zawartość do kodowania z listy zawartości dynamicznej](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode.png)
 
-   ![Zrzut ekranu przedstawiający pole listy Nazwa schematu](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
+   > [!TIP]
+   > Jeśli właściwość **Body** nie jest widoczna na liście zawartości dynamicznej, wybierz pozycję **Zobacz więcej** obok pozycji **po odebraniu żądania HTTP** .
+   > Możesz również bezpośrednio wprowadzić zawartość do dekodowania w polu **zawartość** .
 
-1. Zapisz pracę.
+1. Z listy **Nazwa schematu** wybierz schemat, który znajduje się na połączonym koncie integracji do użycia na potrzeby kodowania, na przykład:
 
-   ![Zrzut ekranu przedstawiający ikonę zapisywania](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+   ![Wybierz schemat, który ma być używany do kodowania](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-encoding.png)
 
-W tym momencie zakończysz Konfigurowanie łącznika prostego pliku kodowania. W świecie rzeczywistym można przechowywać dane zakodowane w aplikacji biznesowych, na przykład w usłudze Salesforce. Możesz też wysłać te dane zakodowane do partnera handlowego. Możesz łatwo dodać akcję w celu wysłania danych wyjściowych akcji kodowania do usługi Salesforce lub do partnera handlowego przy użyciu dowolnego z oferowanych łączników.
+   > [!NOTE]
+   > Jeśli na liście nie ma schematu, konto integracji nie zawiera żadnych plików schematu do użycia w celu kodowania. Przekaż schemat, który ma być używany na potrzeby konta integracji.
 
-Teraz można testować łącznik, wysyłając żądanie do punktu końcowego HTTP i uwzględniając zawartość XML w treści żądania.  
+1. Zapisz aplikację logiki. Aby przetestować łącznik, należy wysłać żądanie do punktu końcowego HTTPS, który jest wyświetlany w właściwości **http post adresu URL** wyzwalacza żądania i dołączyć zawartość XML, która ma być zakodowana w treści żądania.
 
-## <a name="create-the-flat-file-decoding-connector"></a>Utwórz łącznik prostego dekodowania plików
+Teraz wszystko jest gotowe do skonfigurowania akcji kodowania pliku prostego. W aplikacji Real World można przechowywać dane zakodowane w aplikacji biznesowych, na przykład w usłudze Salesforce. Można też wysyłać zakodowane dane do partnera handlowego. Aby wysłać dane wyjściowe z akcji kodowania do usługi Salesforce lub do partnera handlowego, użyj innych [łączników dostępnych w Azure Logic Apps](../connectors/apis-list.md).
 
-> [!NOTE]
-> Aby wykonać te czynności, musisz mieć plik schematu, który został już przekazany do konta integracji.
+## <a name="add-flat-file-decode-action"></a>Dodaj akcję dekodowania pliku prostego
 
-1. W Projektancie aplikacji logiki Dodaj wyzwalacz **po odebraniu żądania HTTP** do aplikacji logiki.
+1. W [Azure Portal](https://portal.azure.com)Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Dodaj akcję dekodowania prostego pliku w następujący sposób:
+1. W obszarze wyzwalacza lub akcji w aplikacji logiki wybierz pozycję **nowy krok** > **Dodaj akcję**. W tym przykładzie jest używany wyzwalacz żądania o nazwie, **gdy odebrane żądanie HTTP**i obsługuje żądania przychodzące spoza aplikacji logiki.
 
-   a. Wybierz znak **Plus** .
+   > [!TIP]
+   > Udostępnianie schematu JSON jest opcjonalne. Jeśli masz przykładowy ładunek z żądania przychodzącego, wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**, wprowadź przykładowy ładunek i wybierz pozycję **gotowe**. Schemat pojawia się w polu **schemat JSON treści żądania** .
 
-   b. Wybierz łącze **Dodaj akcję** (pojawia się po wybraniu znaku plusa).
+1. W obszarze **Wybierz akcję**wprowadź `flat file`. Z listy Akcje wybierz akcję: **dekodowanie pliku prostego**
 
-   c. W polu wyszukiwania wprowadź wartość *Flat* , aby odfiltrować wszystkie akcje do tej, która ma zostać użyta.
+   ![Wybierz akcję "rozkodowanie prostego pliku"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 
-   d. Wybierz opcję **prostego dekodowania pliku** z listy.   
+1. Kliknij wewnątrz pola **zawartość** , aby wyświetlić listę zawartość dynamiczna. Z listy w sekcji **po odebraniu żądania HTTP** wybierz właściwość **Body** , która zawiera dane wyjściowe treści żądania z wyzwalacza i zawartość do zdekodowania.
 
-      ![Zrzut ekranu przedstawiający opcję prostego dekodowania pliku](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+   ![Wybierz zawartość do zdekodowania z listy zawartości dynamicznej](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png)
 
-1. Wybierz kontrolkę **zawartość** . Spowoduje to utworzenie listy zawartości z wcześniejszych kroków, których można użyć jako zawartości do zdekodowania. Zwróć uwagę, że *treść* z przychodzącego żądania HTTP jest dostępna do użycia jako zawartość do zdekodowania. Możesz również wprowadzić zawartość, która ma zostać zdekodowana bezpośrednio do kontrolki **zawartość** .     
+   > [!TIP]
+   > Jeśli właściwość **Body** nie jest widoczna na liście zawartości dynamicznej, wybierz pozycję **Zobacz więcej** obok pozycji **po odebraniu żądania HTTP** . Możesz również bezpośrednio wprowadzić zawartość do dekodowania w polu **zawartość** .
 
-1. Wybierz tag *treści* . Zwróć uwagę, że tag treści znajduje się teraz w kontrolce **zawartość** .
+1. Z listy **Nazwa schematu** wybierz schemat, który znajduje się na połączonym koncie integracji, który ma być używany do dekodowania, na przykład:
 
-1. Wybierz nazwę schematu, którego chcesz użyć do zdekodowania zawartości. Poniższy zrzut ekranu pokazuje, że *OrderFile* jest wybraną nazwą schematu. Ta nazwa schematu została wcześniej przekazana do konta integracji.
+   ![Wybierz schemat, który ma być używany do dekodowania](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-decoding.png)
 
-   ![Zrzut ekranu przedstawiający okno dialogowe prostego dekodowania plików](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
+   > [!NOTE]
+   > Jeśli na liście nie ma schematu, konto integracji nie zawiera żadnych plików schematu do użycia podczas dekodowania. Przekaż schemat, który ma być używany na potrzeby konta integracji.
 
-1. Zapisz pracę.  
+1. Zapisz aplikację logiki. Aby przetestować łącznik, należy wysłać żądanie do punktu końcowego HTTPS, który jest wyświetlany w właściwości **http post adresu URL** wyzwalacza żądania i dołączyć zawartość XML, która ma zostać zdekodowana w treści żądania.
 
-   ![Zrzut ekranu przedstawiający ikonę zapisywania](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
-
-W tym momencie skończysz skonfigurować łącznik prostego dekodowania plików. W świecie rzeczywistym można przechowywać zdekodowane dane w aplikacji branżowej, takiej jak Salesforce. Możesz łatwo dodać akcję w celu wysłania danych wyjściowych akcji dekodowania do usługi Salesforce.
-
-Teraz można testować łącznik, wysyłając żądanie do punktu końcowego HTTP i uwzględniając zawartość XML, która ma zostać zdekodowana w treści żądania.  
+Teraz można skonfigurować akcję dekodowania prostego pliku. W świecie rzeczywistym można przechowywać zdekodowane dane w aplikacji biznesowej (LOB), na przykład w usłudze Salesforce. Można też wysyłać zdekodowane dane do partnera handlowego. Aby wysłać dane wyjściowe z akcji dekodowania do usługi Salesforce lub do partnera handlowego, użyj innych [łączników dostępnych w Azure Logic Apps](../connectors/apis-list.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej o Pakiet integracyjny dla przedsiębiorstw").  
 
+* Dowiedz się więcej o [pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md)

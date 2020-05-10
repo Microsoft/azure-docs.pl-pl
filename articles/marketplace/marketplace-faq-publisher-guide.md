@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 38d1a15f471d353595f57b86df5137257eaf63a5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: be9a9d6b93068adc6d09db9b9ac23de9abd6a69f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857628"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005169"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
 
@@ -300,7 +300,7 @@ Aby uzyskać więcej informacji, przejdź do pozycji [wypłata i formularze poda
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Czy są zwracane i zwroty obsługiwane przez komercyjne witryny Marketplace?
 
-Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedziale czasu. Oferty, które są rozliczane zgodnie z użyciem po użyciu rozwiązania, nie kwalifikują się do zwrotów.
+Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedziale czasu. Miesięczne subskrypcje to 24 godziny, a w przypadku subskrypcji rocznych jest to 14 dni. Oferty, które są rozliczane zgodnie z zużyciem po użyciu rozwiązania, nie kwalifikują się do zwrotów.
 
 ## <a name="resources"></a>Zasoby
 

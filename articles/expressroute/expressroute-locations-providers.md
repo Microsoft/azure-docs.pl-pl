@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d7476b2bb64c9ed45d543345107008c4cedfb66
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b6c73f9d73a9e93bd6c47d6e748dba1352b21450
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996627"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005745"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -99,7 +99,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **We** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Niemcy Środkowo-Zachodnie | 10G, 100G | W&T teleobligacji, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, pomarańczowy, Telia |
 | **Genewie** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Szwajcaria Zachodnia | 10G, 100G | Equinix, Megaport |
 | **Hongkong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Azja Wschodnia | n/d | Sieci aryaka networkse, telekomunikacyjne brytyjskie, CenturyLink Cloud Connect, dyrektor Telecom, Chiny Telecom, Equinix, międzychmurowe, Megaport, NTT Communications, pomarańcze, PCCW Global Limited, Tata Communications, Telia, Verizon |
-| **Kong2 Hongkong** | Chiny Telecom — globalne, [i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/d | ° | |
+| **Kong2 Hongkong** | [I](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/d | ° | China Telecom Global |
 | **Dżakarta** | Telkom Indonezja | 4 | n/d | ° | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Północna Republika Południowej Afryki | ° | BCX, Brytyjskie Telecom, Internet Solutions — Cloud Connect, ciecz Telecom, pomarańczowy, Teraco |
 | **Kuala Lumpur** | [CZAS dotCom Menara cele](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | n/d | n/d | TIME dotCom |

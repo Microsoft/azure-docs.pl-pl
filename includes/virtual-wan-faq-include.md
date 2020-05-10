@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cde644b821b8c9233c9a79c2c5e9fe8478850a65
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82997655"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006445"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -190,8 +190,8 @@ Całkowita przepustowość sieci VPN koncentratora to 20 GB/s w oparciu o wybran
 Przejdź do bramy sieci VPN w centrum w portalu i kliknij jednostkę skalowania, aby zmienić to ustawienie na odpowiednie.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Czy wirtualne sieci WAN zezwalają na urządzenie lokalne w celu użycia wielu usługodawców równoległych, czy też jest to zawsze pojedynczy tunel VPN?
+Rozwiązania urządzeń lokalnych mogą stosować zasady ruchu w celu kierowania ruchu między wieloma tunelami do platformy Azure.
 
-Połączenie z wirtualną siecią VPN sieci WAN zawsze jest tunelem aktywnym (w celu odporności w obrębie tego samego centrum/regionu) przy użyciu linku dostępnego w rozgałęzieniu. Ten link może być linkiem usługodawcy internetowego w gałęzi lokalnej. Wirtualna sieć WAN "VPNSite" umożliwia dodawanie informacji o linku do lokacji. Jeśli masz wielu usługodawców internetowych w oddziale i każdy usługodawca internetowy dostarczył link, te informacje można skonfigurować w informacjach o witrynie sieci VPN na platformie Azure. Jednak zarządzanie trybem failover między usługodawcami internetowymi w gałęzi jest całkowicie operacją routingu skoncentrowanego na gałęzi.
 
 ### <a name="what-is-global-transit-architecture"></a>Co to jest globalna architektura tranzytowa?
 

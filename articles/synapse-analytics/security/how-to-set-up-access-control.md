@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983214"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006067"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -89,7 +89,7 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
 - Otwórz Azure Portal
 - Znajdź STG1
 - Przejdź do CNT1
-- Upewnij się, że plik MSI (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautor danych obiektów blob platformy Azure** w witrynie CNT1
+- Upewnij się, że plik MSI (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautor danych obiektów blob magazynu** w witrynie CNT1
   - Jeśli nie widzisz jej przypisanej, przypisz ją.
   - Plik MSI ma taką samą nazwę jak obszar roboczy. W takim przypadku &quot;WS1&quot;.
 

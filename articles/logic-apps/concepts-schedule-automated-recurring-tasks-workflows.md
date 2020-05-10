@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234098"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005199"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Planowanie i uruchamianie cyklicznych automatycznych zadań, procesów i przepływów pracy przy użyciu usługi Azure Logic Apps
 
@@ -48,13 +48,13 @@ W tym artykule opisano możliwości harmonogramu wbudowane wyzwalacze i akcje.
 
 ## <a name="schedule-triggers"></a>Wyzwalacze harmonogramu
 
-Przepływ pracy aplikacji logiki można uruchomić przy użyciu wyzwalacza cykl lub okna przesuwania, które nie jest skojarzone z żadną określoną usługą lub systemem, na przykład Office 365 Outlook lub SQL Server. Te wyzwalacze uruchamiają i uruchamiają przepływy pracy na podstawie określonego cyklu, w którym można wybrać interwał i częstotliwość, takie jak liczba sekund, minut i godzin dla obu wyzwalaczy lub liczba dni, tygodni lub miesięcy dla wyzwalacza cyklu. Możesz również ustawić datę i godzinę rozpoczęcia, a także strefę czasową. Za każdym razem, gdy uruchamiany jest wyzwalacz, Logic Apps tworzy i uruchamia nowe wystąpienie przepływu pracy dla aplikacji logiki.
+Przepływ pracy aplikacji logiki można uruchomić przy użyciu wyzwalacza cykl lub okna przesuwania, które nie jest skojarzone z żadną określoną usługą lub systemem. Te wyzwalacze uruchamiają i uruchamiają przepływy pracy na podstawie określonego cyklu, w którym można wybrać interwał i częstotliwość, takie jak liczba sekund, minut, godzin, dni, tygodnie lub miesiące. Możesz również ustawić datę i godzinę rozpoczęcia, a także strefę czasową. Za każdym razem, gdy uruchamiany jest wyzwalacz, Logic Apps tworzy i uruchamia nowe wystąpienie przepływu pracy dla aplikacji logiki.
 
 Poniżej przedstawiono różnice między tymi wyzwalaczami:
 
 * **Cykl**: uruchamia przepływ pracy w regularnych odstępach czasu zgodnie z określonym harmonogramem. Jeśli pominięto cykle, wyzwalacz cyklu nie przetwarza pominiętych cykli, ale uruchamia ponownie cykle przy następnym zaplanowanym interwale. Możesz określić datę i godzinę rozpoczęcia, a także strefę czasową. W przypadku wybrania opcji "dzień" można określić godziny dnia i minuty godziny, na przykład codziennie o godzinie 2:30. W przypadku wybrania opcji "tydzień" można również wybrać dni tygodnia, takie jak środa i sobota. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy z wyzwalaczem cyklu](../connectors/connectors-native-recurrence.md).
 
-* **Okno przewijania**: uruchamia przepływ pracy w regularnych odstępach czasu, które obsługują dane w ciągłych fragmentach. Jeśli pominięto cykle, wyzwalacz okna przesuwania wraca i przetwarza pominięte cykle. Możesz określić datę i godzinę rozpoczęcia, strefę czasową oraz czas trwania, aby opóźnić każdy cykl w przepływie pracy. Ten wyzwalacz nie zawiera opcji określających dni, tygodnie i miesiące, godziny dnia, minuty godziny i dni tygodnia. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy przy użyciu wyzwalacza okna przesuwanego](../connectors/connectors-native-sliding-window.md).
+* **Okno przewijania**: uruchamia przepływ pracy w regularnych odstępach czasu, które obsługują dane w ciągłych fragmentach. Jeśli pominięto cykle, wyzwalacz okna przesuwania wraca i przetwarza pominięte cykle. Możesz określić datę i godzinę rozpoczęcia, strefę czasową oraz czas trwania, aby opóźnić każdy cykl w przepływie pracy. Ten wyzwalacz nie obsługuje zaawansowanych harmonogramów, na przykład określonych godzin dnia, minut godzin i dni tygodnia. Aby uzyskać więcej informacji, zobacz [Tworzenie, planowanie i uruchamianie cyklicznych zadań i przepływów pracy przy użyciu wyzwalacza okna przesuwanego](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

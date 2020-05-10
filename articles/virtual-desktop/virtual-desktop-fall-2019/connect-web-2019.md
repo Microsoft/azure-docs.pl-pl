@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 357687a80325554c7dbb28eae6e42d946bb012dc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c264006d51f8f0f9ee2a56e994a0dc52d24bd7a8
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614865"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006037"
 ---
 # <a name="connect-with-the-web-client"></a>Łączenie się z klientem internetowym
 
@@ -40,6 +40,9 @@ Chociaż każda przeglądarka z obsługą języka HTML5 powinna działać, oficj
 ## <a name="access-remote-resources-feed"></a>Uzyskiwanie dostępu do źródeł danych zdalnych
 
 W przeglądarce przejdź do [klienta sieci Web pulpitu wirtualnego systemu Windows](https://rdweb.wvd.microsoft.com/webclient) i zaloguj się przy użyciu konta użytkownika.
+
+>[!NOTE]
+>Jeśli używasz wersji 2020 pulpitu wirtualnego z systemem Windows, Użyj linku klient sieci Web w [tym artykule](../connect-web.md) , aby nawiązać połączenie z zasobami.
 
 >[!NOTE]
 >Jeśli zalogowano się już przy użyciu innego konta Azure Active Directory niż ten, który ma być używany dla pulpitu wirtualnego systemu Windows, należy się wylogować lub użyć prywatnego okna przeglądarki.

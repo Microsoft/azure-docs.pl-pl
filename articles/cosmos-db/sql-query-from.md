@@ -4,22 +4,22 @@ description: Dowiedz się więcej na temat składni SQL i przykład dla klauzuli
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587689"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005870"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Klauzula FROM w Azure Cosmos DB
 
 Klauzula FROM (`FROM <from_specification>`) jest opcjonalna, chyba że źródło zostanie odfiltrowane lub zaprojektować w dalszej części zapytania. Zapytanie, takie `SELECT * FROM Families` jak Wyliczenie w całym `Families` kontenerze. Zamiast używać nazwy kontenera, można także użyć głównego identyfikatora dla kontenera.
 
-Klauzula FROM wymusza następujące reguły dla każdego zapytania:
+`FROM` Klauzula wymusza następujące reguły dla każdego zapytania:
 
-* Kontener może mieć alias, taki jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. Poniżej `f` znajduje się alias `Families`. JAKO opcjonalne słowo kluczowe [aliasu](sql-query-aliasing.md) identyfikatora.  
+* Kontener może mieć alias, taki jak `SELECT f.id FROM Families AS f` lub po prostu `SELECT f.id FROM Families f`. Poniżej `f` znajduje się alias `Families`. JAKO opcjonalne słowo kluczowe [aliasu](sql-query-working-with-json.md#aliasing) identyfikatora.  
 
 * Po usunięciu aliasu oryginalna nazwa źródła nie może być powiązana. Na przykład składnia `SELECT Families.id FROM Families f` jest nieprawidłowa, ponieważ identyfikator `Families` został alias i nie można go rozpoznać.  
 
@@ -30,15 +30,15 @@ Klauzula FROM wymusza następujące reguły dla każdego zapytania:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Określa źródło danych z aliasem lub bez niego. Jeśli alias nie zostanie określony, zostanie wywnioskowany `<container_expression>` przy użyciu następujących reguł:  
   
-  -  Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
+-  Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
   
-  -  Jeśli wyrażenie ma wartość `<container_expression>`, PROPERTY_NAME, wówczas property_name zostanie użyte jako alias. Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
+-  Jeśli wyrażenie ma wartość `<container_expression>`, PROPERTY_NAME, wówczas property_name zostanie użyte jako alias. Jeśli wyrażenie jest container_name, wówczas container_name zostanie użyte jako alias.  
   
 - DEFINICJ`input_alias`  
   
@@ -99,9 +99,9 @@ Jeśli wyrażenie kontenera uzyskuje dostęp do właściwości lub elementów ta
   
 Wyrażenie kontenera może być w zakresie kontenera lub w zakresie dokumentu:  
   
--   Wyrażenie jest w zakresie kontenera, jeśli źródłowe Źródło wyrażenia kontenera jest elementem głównym lub `container_name`. Takie wyrażenie reprezentuje zestaw dokumentów pobranych bezpośrednio z kontenera i nie zależy od przetwarzania innych wyrażeń kontenera.  
+- Wyrażenie jest w zakresie kontenera, jeśli źródłowe Źródło wyrażenia kontenera jest elementem głównym lub `container_name`. Takie wyrażenie reprezentuje zestaw dokumentów pobranych bezpośrednio z kontenera i nie zależy od przetwarzania innych wyrażeń kontenera.  
   
--   Wyrażenie jest w zakresie dokumentu, jeśli bazowe Źródło wyrażenia kontenera jest `input_alias` wprowadzane wcześniej w zapytaniu. Takie wyrażenie reprezentuje zestaw dokumentów uzyskanych przez ocenę wyrażenia kontenera w zakresie każdego dokumentu należącego do zestawu skojarzonego z kontenerem aliasów.  Wynikiem zestawu będzie związek zestawów uzyskanych przez obliczenie wyrażenia kontenera dla każdego z dokumentów w zestawie bazowym. 
+- Wyrażenie jest w zakresie dokumentu, jeśli bazowe Źródło wyrażenia kontenera jest `input_alias` wprowadzane wcześniej w zapytaniu. Takie wyrażenie reprezentuje zestaw dokumentów uzyskanych przez ocenę wyrażenia kontenera w zakresie każdego dokumentu należącego do zestawu skojarzonego z kontenerem aliasów. Wynikiem zestawu będzie związek zestawów uzyskanych przez obliczenie wyrażenia kontenera dla każdego z dokumentów w zestawie bazowym.
 
 ## <a name="examples"></a>Przykłady
 
@@ -165,6 +165,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie](sql-query-getting-started.md)
+- [Pierwsze kroki](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
 - [Klauzula WHERE](sql-query-where.md)

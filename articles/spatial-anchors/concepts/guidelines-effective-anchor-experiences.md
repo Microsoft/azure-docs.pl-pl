@@ -8,20 +8,24 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270518"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005525"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Tworzenie efektywnego środowiska zakotwiczonego przy użyciu kotwic przestrzennych platformy Azure
 
-Ten artykuł zawiera wskazówki i zagadnienia ułatwiające efektywne tworzenie i lokalizowanie kotwic przy użyciu kotwic przestrzennych.
+Ten artykuł zawiera wskazówki i zagadnienia ułatwiające efektywne tworzenie i lokalizowanie kotwic przy użyciu kotwic przestrzennych platformy Azure.
+
+## <a name="anchor-improvement-over-time"></a>Ulepszanie kotwic w czasie
+
+Dzięki zakotwiczeniem przestrzennym platformy Azure przy każdym lokalizowaniu kotwic próbujemy poprawić jakość przyszłych operacji lokalizowania. W tym celu można użyć zebranych danych środowiska w celu rozszerzenia wizualizacji informacji na temat zakotwiczenia. Ten proces jest uruchamiany w ramach okapu i jest optymalizacją w trybie offline uruchomioną przez usługę kotwice przestrzenne platformy Azure w celu optymalizacji pod kątem środowiska. Dodatkowe dane zbierane podczas każdej operacji kompilują silniejsze zrozumienie środowiska. Poprawia to jakość i umożliwia lepsze lokalizowanie kotwic poprzez zmianę środowiska, przekazanie czasu i dla użytkowników przeglądających kotwicę z różnych kątów i perspektyw.
 
 ## <a name="good-anchors"></a>Dobre kotwice
 
-Kotwice przestrzenne ułatwiają tworzenie dobrych kotwic. Ważne jest, aby zainwestować w środowisko użytkownika lub użytkowników w celu utworzenia dobrych kotwic. Dzięki zainwestowaniu w tworzenie dobrych kotwic należy pomóc użytkownikom końcowym w niezawodnym znajdowaniu kotwic:
+Podczas gdy kotwice przestrzenne platformy Azure podejmują próbę zwiększenia jakości kotwic z upływem czasu, ważne jest również, aby zainwestować użytkowników w środowisko użytkownika (UX) w celu utworzenia dobrych kotwic. Dzięki zainwestowaniu w tworzenie dobrych kotwic należy pomóc użytkownikom końcowym w niezawodnym znajdowaniu kotwic:
 
 - Na różnych urządzeniach.
 - W różnym czasie.
@@ -100,7 +104,7 @@ Systemy śledzenia wizualizacji są oparte na funkcjach wizualnych w środowisku
 
 Postępuj zgodnie z ogólnymi wskazówkami w tej sekcji, aby utworzyć środowisko użytkownika, które zachęca do przydatnego skanowania środowiska.
 
-Po pierwsze, jeśli użytkownik nie odnajdzie zakotwiczenia w ciągu kilku sekund, aplikacja powinna zachęcić użytkowników do przenoszenia urządzenia, aby przechwycić więcej perspektyw. Aplikacja może również zachęcić użytkowników do przenoszenia się do środowiska w celu przeskanowania pod kątem zakotwiczenia z większej perspektywy. Im więcej funkcji widzi, tym lepiej.
+Po pierwsze, jeśli użytkownik nie odnajdzie zakotwiczenia w ciągu kilku sekund, aplikacja powinna zachęcić użytkowników do przenoszenia urządzenia, aby przechwycić więcej perspektyw. Aplikacja może również zachęcić użytkowników do przenoszenia się do środowiska w celu przeskanowania pod kątem zakotwiczenia z większej perspektywy. Im więcej cechuje się, że urządzenie widzi, lepsza, ponieważ zwiększy prawdopodobieństwo, że zakotwiczenie znajduje się, a także będzie zbierać więcej danych środowiskowych, które zostaną użyte w celu poprawienia jakości zakotwiczenia.
 
 W przypadku scenariuszy docelowych poproszenie użytkownika o przechodzenie wokół elementu docelowego w celu wyświetlenia go z różnych perspektyw. Innymi słowy poproszenie użytkownika o przechwycenie elementu docelowego z nowych perspektyw do momentu, gdy zakotwiczenie nie zostanie umieszczone.
 

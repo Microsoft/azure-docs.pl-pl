@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995337"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005508"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -210,9 +210,9 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    Ten przykład pokazuje adres URL wywołania zwrotnego z przykładową nazwą parametru `postalCode=123456` i wartością w różnych pozycjach w adresie URL:
 
-   * Pozycja 1:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+   * Pozycja 1:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * drugie położenie:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+   * drugie położenie:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 <a name="relative-path"></a>
 

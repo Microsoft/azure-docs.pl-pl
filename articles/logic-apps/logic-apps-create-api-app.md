@@ -3,15 +3,15 @@ title: Tworzenie internetowych interfejsów API & interfejsów API REST dla Azur
 description: Tworzenie internetowych interfejsów API & interfejsów API REST, które umożliwiają wywoływanie interfejsów API, usług lub systemów na potrzeby integracji systemu w programie Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270539"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005247"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Tworzenie niestandardowych interfejsów API, które można wywołać z Azure Logic Apps
 
@@ -136,11 +136,13 @@ Dla tego wzorca Skonfiguruj dwa punkty końcowe na kontrolerze: `subscribe` i`un
 
 ![Wzorzec akcji elementu webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [akcję **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz także [Akcje przepływu pracy i wyzwalacze](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
+Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [akcję **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz także [Akcje przepływu pracy i wyzwalacze](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Oto kilka innych porad i uwag:
+
+* Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
+
+* Jeśli jesteś zarówno aplikacją logiki, jak i usługą subskrybowaną, nie musisz wywoływać `unsubscribe` punktu końcowego po wywołaniu adresu URL wywołania zwrotnego. W przeciwnym razie środowisko uruchomieniowe Logic Apps musi wywołać `unsubscribe` punkt końcowy, aby sygnalizować, że nie są oczekiwane kolejne wywołania i umożliwiają czyszczenie zasobów po stronie serwera.
 
 <a name="triggers"></a>
 
@@ -172,7 +174,7 @@ Na przykład aby okresowo sprawdzać usługę pod kątem nowych plików, można 
 | Czy żądanie `triggerState`zawiera? | Odpowiedź interfejsu API | 
 | -------------------------------- | -------------| 
 | Nie | Zwróć stan HTTP `202 ACCEPTED` i `location` nagłówek z `triggerState` ustawionym na bieżącą godzinę, a `retry-after` interwał na 15 sekund. | 
-| Tak | Sprawdź, czy usługa zawiera `DateTime` pliki dodane po stronie `triggerState`for. | 
+| Yes | Sprawdź, czy usługa zawiera `DateTime` pliki dodane po stronie `triggerState`for. | 
 ||| 
 
 | Liczba znalezionych plików | Odpowiedź interfejsu API | 
@@ -198,13 +200,15 @@ Wyzwalacze elementu webhook działają podobnie jak [Akcje elementu webhook](#we
 
 ![Wzorzec wyzwalacza elementu webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [wyzwalacz **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz również [wyzwalacz HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
->
-> Aby zapobiec wielokrotnemu przetwarzaniu tych samych danych, wyzwalacz powinien czyścić dane, które zostały już odczytane i przesłane do aplikacji logiki.
+Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcowych elementu webhook za pomocą struktury Swagger. Dlatego dla tego wzorca należy dodać [wyzwalacz **elementu webhook** ](../connectors/connectors-native-webhook.md) i określić adres URL, nagłówki i treść żądania. Zobacz również [wyzwalacz HTTPWebhook](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [kontrolera wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Przykładowy wzorzec elementu webhook zapoznaj się z tym przykładem [kontrolera wyzwalacza elementu webhook w usłudze GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Oto kilka innych porad i uwag:
+
+* Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
+
+* Aby zapobiec wielokrotnemu przetwarzaniu tych samych danych, wyzwalacz powinien czyścić dane, które zostały już odczytane i przesłane do aplikacji logiki.
+
+* Jeśli jesteś zarówno aplikacją logiki, jak i usługą subskrybowaną, nie musisz wywoływać `unsubscribe` punktu końcowego po wywołaniu adresu URL wywołania zwrotnego. W przeciwnym razie środowisko uruchomieniowe Logic Apps musi wywołać `unsubscribe` punkt końcowy, aby sygnalizować, że nie są oczekiwane kolejne wywołania i umożliwiają czyszczenie zasobów po stronie serwera.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Zwiększ bezpieczeństwo wywołań interfejsów API z usługi Logic Apps
 

@@ -10,17 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430879"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005815"
 ---
 # <a name="common-parameters-and-headers"></a>Typowe parametry i nagłówki
 
 Następujące informacje są wspólne dla wszystkich operacji, które mogą być powiązane z Key Vault zasobami:
 
+- Nagłówek HTTP `Host` musi być zawsze obecny i musi określać nazwę hosta magazynu. Przykład: `Host: contoso.vault.azure.net`. Należy pamiętać, że większość technologii klienta `Host` wypełnia nagłówek identyfikatorem URI. Na przykład `GET https://contoso.vault.azure.net/secrets/mysecret{...}` ustawi wartość `Host` jako. `contoso.vault.azure.net` Oznacza to, że jeśli dostęp do Key Vault za pomocą surowego `GET https://10.0.0.23/secrets/mysecret{...}`adresu IP, na przykład `Host` , automatyczna wartość nagłówka będzie nieprawidłowa i trzeba ręcznie upewnić się, że `Host` nagłówek zawiera nazwę hosta magazynu.
 - Zamień `{api-version}` na wersję interfejsu API w identyfikatorze URI.
 - Zamień `{subscription-id}` na identyfikator subskrypcji w identyfikatorze URI
 - Zamień `{resource-group-name}` na grupę zasobów. Aby uzyskać więcej informacji, zobacz Używanie grup zasobów do zarządzania zasobami platformy Azure.

@@ -7,16 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267289"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006149"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
 Dane referencyjne (nazywane również tabelami odnośników) to zbiór danych, który jest statyczny lub wolno zmieniany w charakterze, używany do przeszukiwania lub rozszerzania strumieni danych. Na przykład w scenariuszu IoT można przechowywać metadane dotyczące czujników (które często nie zmieniają się) w danych referencyjnych i przyłączać je do strumieni danych IoT w czasie rzeczywistym. Azure Stream Analytics ładuje dane referencyjne w pamięci, aby osiągnąć Przetwarzanie strumienia o małym opóźnieniu. Aby korzystać z danych referencyjnych w zadaniu Azure Stream Analytics, zazwyczaj użyjesz [sprzężenia danych referencyjnych](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) w zapytaniu. 
+
+## <a name="example"></a>Przykład  
+ Jeśli pojazd komercyjny jest zarejestrowany w firmie opłata za połączenie, może przechodzić przez połączenie płatne bez zatrzymania w celu przeprowadzenia inspekcji. Będziemy używać komercyjnej tabeli odnośników rejestracji, aby zidentyfikować wszystkie pojazdy komercyjne z wygasłą rejestracją.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics obsługuje magazyn obiektów blob platformy Azure i Azure SQL Database jako warstwę magazynu dla danych referencyjnych. Możesz również przekształcić i/lub skopiować dane referencyjne do usługi BLOB Storage z Azure Data Factory, aby korzystać z [dowolnej liczby magazynów danych opartych na chmurze i lokalnych](../data-factory/copy-activity-overview.md).
 
@@ -34,7 +45,7 @@ Aby skonfigurować dane referencyjne, musisz najpierw utworzyć dane wejściowe 
 |Konto magazynu   | Nazwa konta magazynu, w którym znajdują się obiekty blob. Jeśli znajduje się w tej samej subskrypcji co zadanie Stream Analytics, możesz wybrać ją z listy rozwijanej.   |
 |Klucz konta magazynu   | Klucz tajny skojarzony z kontem magazynu. Ta wartość zostanie wypełniona automatycznie, jeśli konto magazynu znajduje się w tej samej subskrypcji co zadanie Stream Analytics.   |
 |Kontener magazynu   | Kontenery zapewniają logiczne grupowanie obiektów BLOB przechowywanych w Blob service Microsoft Azure. Po przekazaniu obiektu BLOB do Blob service należy określić kontener dla tego obiektu BLOB.   |
-|Wzorzec ścieżki   | Ścieżka używana do lokalizowania obiektów BLOB w określonym kontenerze. W ścieżce możesz określić jedno lub więcej wystąpień następujących dwóch zmiennych:<BR>{Date}, {Time}<BR>Przykład 1: produkty/{Date}/{Time}/Product-List. csv<BR>Przykład 2: produkty/{Date}/Product-List. csv<BR>Przykład 3: Product-List. csv<BR><br> Jeśli obiekt BLOB nie istnieje w określonej ścieżce, zadanie Stream Analytics będzie oczekiwać, że obiekt BLOB stanie się nieokreślony.   |
+|Wzorzec ścieżki   | Jest to właściwość wymagana, która służy do lokalizowania obiektów BLOB w określonym kontenerze. W ścieżce możesz określić jedno lub więcej wystąpień następujących dwóch zmiennych:<BR>{Date}, {Time}<BR>Przykład 1: produkty/{Date}/{Time}/Product-List. csv<BR>Przykład 2: produkty/{Date}/Product-List. csv<BR>Przykład 3: Product-List. csv<BR><br> Jeśli obiekt BLOB nie istnieje w określonej ścieżce, zadanie Stream Analytics będzie oczekiwać, że obiekt BLOB stanie się nieokreślony.   |
 |Format daty [opcjonalnie]   | Jeśli używasz {Date} w określonym wzorcu ścieżki, możesz wybrać format daty, w którym obiekty blob są zorganizowane z listy rozwijanej obsługiwanych formatów.<BR>Przykład: RRRR/MM/DD, MM/DD/RRRR itd.   |
 |Format czasu [opcjonalnie]   | Jeśli użyto {Time} w określonym wzorcu ścieżki, można wybrać format czasu, w którym obiekty blob są zorganizowane z listy rozwijanej obsługiwanych formatów.<BR>Przykład: gg, HH/mm lub HH-mm.  |
 |Format serializacji zdarzeń   | Aby upewnić się, że zapytania działają w oczekiwany sposób, Stream Analytics należy wiedzieć, który format serializacji jest używany w przypadku przychodzących strumieni danych. W przypadku danych referencyjnych obsługiwane formaty to CSV i JSON.  |
@@ -110,7 +121,24 @@ Stream Analytics obsługuje dane referencyjne o **maksymalnym rozmiarze 300 MB**
 
 Zwiększenie liczby jednostek przesyłania strumieniowego zadania poza 6 nie zwiększa maksymalnego obsługiwanego rozmiaru danych referencyjnych.
 
-Obsługa kompresji nie jest dostępna dla danych referencyjnych. 
+Obsługa kompresji nie jest dostępna dla danych referencyjnych.
+
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>Sprzęganie wielu zestawów danych referencyjnych w zadaniu
+W jednym kroku zapytania można przyłączyć tylko jedno dane wejściowe strumienia z jednym wejściem danych referencyjnych. Można jednak dołączyć wiele zestawów danych referencyjnych, dzieląc zapytanie na wiele kroków. Przykład przedstawiono poniżej.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

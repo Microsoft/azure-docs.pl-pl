@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fa815d9fb653ee61d647023f7867549aa8d655aa
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791922"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005799"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapowania pól i przekształcenia przy użyciu indeksatorów usługi Azure Wyszukiwanie poznawcze
 
@@ -36,7 +36,7 @@ Mapowanie pola składa się z trzech części:
 
 1. A `sourceFieldName`, który reprezentuje pole w źródle danych. Ta właściwość jest wymagana.
 2. Opcjonalna `targetFieldName`, która reprezentuje pole w indeksie wyszukiwania. W przypadku pominięcia zostanie użyta taka sama nazwa jak w źródle danych.
-3. Opcjonalna `mappingFunction`, która może przekształcić dane przy użyciu jednej z kilku wstępnie zdefiniowanych funkcji. Pełna lista funkcji znajduje się [poniżej](#mappingFunctions).
+3. Opcjonalna `mappingFunction`, która może przekształcić dane przy użyciu jednej z kilku wstępnie zdefiniowanych funkcji. Można to zastosować zarówno dla mapowania pól wejściowych, jak i wyjściowych. Pełna lista funkcji znajduje się [poniżej](#mappingFunctions).
 
 Mapowania pól są dodawane do `fieldMappings` tablicy definicji indeksatora.
 

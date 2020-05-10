@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74280981"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005490"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Jak mapować pola wzbogacone AI na indeks wyszukiwania
 
 Ten artykuł zawiera informacje na temat mapowania ulepszonych pól wejściowych do pól wyjściowych w indeksie, który można przeszukiwać. Po [zdefiniowaniu zestawu umiejętności](cognitive-search-defining-skillset.md)należy zamapować pola danych wyjściowych o wszelkie umiejętności, które bezpośrednio współtworzą wartości w danym polu w indeksie wyszukiwania. 
 
 Mapowania pól wyjściowych są wymagane do przeniesienia zawartości z ulepszonych dokumentów do indeksu.  Wzbogacony dokument jest w rzeczywistości drzewem informacji, a nawet w przypadku obsługi typów złożonych w indeksie czasami warto przekształcić informacje z wzbogaconego drzewa do bardziej prostego typu (na przykład tablicy ciągów). Mapowania pól wyjściowych umożliwiają wykonywanie transformacji kształtu danych przez spłaszczenie informacji.
+
+> [!NOTE]
+> Ostatnio włączono funkcję mapowania funkcji w mapowaniach pól wyjściowych. Aby uzyskać więcej informacji na temat funkcji mapowania, zobacz [funkcje mapowania pól](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Użyj outputFieldMappings
 Aby zmapować pola, Dodaj `outputFieldMappings` je do definicji indeksatora, jak pokazano poniżej:
@@ -50,7 +53,10 @@ Treść żądania jest uporządkowana w następujący sposób:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

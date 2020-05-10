@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884490"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005158"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 
 ## <a name="what-types-of-load-balancer-exist"></a>Jakie typy Load Balancer istnieją?
-Wewnętrzne moduły równoważenia obciążenia, które równoważą ruch w obrębie sieci wirtualnej i zewnętrznych usług równoważenia obciążenia, które równoważą ruch do i z połączonego z Internetem punktu końcowego. Aby uzyskać więcej informacji, zobacz [typy Load Balancer]https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types)(. 
+Wewnętrzne moduły równoważenia obciążenia, które równoważą ruch w obrębie sieci wirtualnej i zewnętrznych usług równoważenia obciążenia, które równoważą ruch do i z połączonego z Internetem punktu końcowego. Aby uzyskać więcej informacji, zobacz [typy Load Balancer](components.md#frontend-ip-configurations). 
 
-Dla obu tych typów platforma Azure oferuje podstawową jednostkę SKU i standardową jednostkę SKU, która ma różne możliwości funkcjonalne, wydajnościowe, dotyczące zabezpieczeń i śledzenia kondycji. Te różnice zostały wyjaśnione w naszym [porównaniu z magazynem SKU] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) artykuł.
+Dla obu tych typów platforma Azure oferuje podstawową jednostkę SKU i standardową jednostkę SKU, która ma różne możliwości funkcjonalne, wydajnościowe, dotyczące zabezpieczeń i śledzenia kondycji. Te różnice zostały wyjaśnione w naszym artykule [porównawczym jednostki SKU](skus.md) .
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>Jak przeprowadzić uaktualnienie z warstwy Podstawowa do usługa Load Balancer w warstwie Standardowa?
 Zapoznaj się z artykułem " [uaktualnienie z warstwy Podstawowa do Standard](upgrade-basic-standard.md) ", aby uzyskać zautomatyzowany skrypt i wskazówki dotyczące uaktualniania jednostki SKU Load Balancer.
