@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63226089a0a87660f0796cdfef2b729070ca01e3
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: d7af6bd0f36f5a1fc11acbd7906088d7d5c17d32
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837859"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996798"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -92,7 +92,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Obsługiwane |Obsługiwane |Amsterdam2, Chicago, Frankfurt, Hongkong, Las Vegas, London2, Nowy Jork, Paryż, San Antonio, Dolina Krzemowa, Tokio, Toronto, Waszyngton DC, Waszyngton DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Obsługiwane |Obsługiwane |Hongkong, Tajpej |
 | **Chiny międzynarodowe dla urządzeń przenośnych** |Obsługiwane |Obsługiwane | Singapur |
-| **China Telecom Global** |Obsługiwane |Obsługiwane |Hongkong |
+| **China Telecom Global** |Obsługiwane |Obsługiwane |Hongkong, Hongkong Kong2 |
 | **Chiny Unicom globalne** |Obsługiwane |Obsługiwane | Singapur2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Obsługiwane |Obsługiwane |Tajpej |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Obsługiwane |Obsługiwane |Chicago, Dallas, Montrealu, Toronto, Vancouver, Waszyngton |

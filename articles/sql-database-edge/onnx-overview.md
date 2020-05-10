@@ -4,17 +4,17 @@ description: Usługa Machine Learning w Azure SQL Database Edge w wersji zapozna
 keywords: Wdróż krawędź bazy danych SQL
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 03/26/2020
-ms.openlocfilehash: 7813a08b6b18e517b81e8c4bfac660d198eba7f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53e884c6ef0b03b3bbc1a0c9729f497e40290416
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366269"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994293"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Uczenie maszynowe i AI z ONNX w wersji zapoznawczej SQL Database Edge
 

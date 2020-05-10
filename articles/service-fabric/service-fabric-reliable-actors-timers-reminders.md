@@ -1,16 +1,14 @@
 ---
 title: Reliable Actors czasomierze i przypomnienia
 description: Wprowadzenie do czasomierzy i przypomnień dla Reliable Actors Service Fabric, w tym wskazówki dotyczące używania każdego z nich.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75639619"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996352"
 ---
 # <a name="actor-timers-and-reminders"></a>Czasomierze aktora i przypomnienia
 Aktory mogą zaplanować okresowe prace na siebie przez zarejestrowanie czasomierza lub przypomnień. W tym artykule przedstawiono sposób korzystania z czasomierzy i przypomnień oraz wyjaśniono różnice między nimi.
@@ -122,12 +120,17 @@ Następny okres czasomierza rozpocznie się po wykonaniu wywołania zwrotnego. O
 
 Środowisko uruchomieniowe aktorów zapisuje zmiany wprowadzone do menedżera stanu aktora po zakończeniu wywołania zwrotnego. Jeśli wystąpi błąd podczas zapisywania stanu, ten obiekt aktora zostanie zdezaktywowany i zostanie aktywowane nowe wystąpienie.
 
+W przeciwieństwie do [przypomnień](#actor-reminders)nie można zaktualizować czasomierzy. Jeśli `RegisterTimer` zostanie wywołana ponownie, zostanie zarejestrowany nowy czasomierz.
+
 Wszystkie czasomierze są przerywane, gdy aktor zostanie zdezaktywowany w ramach odzyskiwania pamięci. Żadne wywołania zwrotne czasomierza nie są wywoływane po tym elemencie. Ponadto środowisko uruchomieniowe aktorów nie zachowuje żadnych informacji na temat czasomierzy, które były uruchomione przed dezaktywacją. Do aktora można rejestrować wszelkie czasomierze, których potrzebuje, gdy zostanie ona ponownie aktywowana w przyszłości. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [zbierania elementów bezużytecznych aktora](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Przypomnienia aktora
-Przypomnienia są mechanizmem do wyzwalania trwałych wywołań zwrotnych w aktorze o określonych godzinach. Ich funkcje są podobne do czasomierzy. Ale w przeciwieństwie do czasomierzy, przypomnienia są wyzwalane w każdym przypadku, dopóki aktor jawnie wyrejestruje je lub aktor został jawnie usunięty. W każdym przypadku przypomnienia są wyzwalane przez dezaktywacje aktora i tryb failover, ponieważ środowisko wykonawcze aktorów utrzymuje informacje o przypomnieniach aktora przy użyciu dostawcy stanu aktora. Należy pamiętać, że niezawodność przypomnień jest związana z gwarancją niezawodności stanu zapewnioną przez dostawcę stanu aktora. Oznacza to, że dla uczestników, których stan trwałości jest ustawiony na None, przypomnienia nie będą wyzwalane po przejściu w tryb failover. 
+Przypomnienia są mechanizmem do wyzwalania trwałych wywołań zwrotnych w aktorze o określonych godzinach. Ich funkcje są podobne do czasomierzy. Ale w przeciwieństwie do czasomierzy, przypomnienia są wyzwalane w każdym przypadku, dopóki aktor jawnie wyrejestruje je lub aktor został jawnie usunięty. W każdym przypadku przypomnienia są wyzwalane przez dezaktywacje aktora i tryb failover, ponieważ środowisko wykonawcze aktorów utrzymuje informacje o przypomnieniach aktora przy użyciu dostawcy stanu aktora. Także w przeciwieństwie do czasomierzy, istniejące przypomnienia można zaktualizować, wywołując metodę rejestracji`RegisterReminderAsync`() ponownie przy użyciu tego samego *przypomnienianame*.
 
-Aby zarejestrować przypomnienie, aktor wywołuje `RegisterReminderAsync` metodę dostarczoną z klasą bazową, jak pokazano w następującym przykładzie:
+> [!NOTE]
+> Niezawodność przypomnień jest związana z gwarancją niezawodności stanu zapewnioną przez dostawcę stanu aktora. Oznacza to, że dla uczestników, których stan trwałości jest ustawiony na *none*, przypomnienia nie będą wyzwalane po przejściu w tryb failover.
+
+Aby zarejestrować przypomnienie, aktor wywołuje [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) metodę dostarczoną z klasą bazową, jak pokazano w następującym przykładzie:
 
 ```csharp
 protected override async Task OnActivateAsync()

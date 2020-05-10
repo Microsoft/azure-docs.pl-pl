@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/09/2020
-ms.openlocfilehash: 87c3e2439d1b4bef4a58663e3ea06d8bb7cb9b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 98bb643e1a780754fcb3b9f4eb91d8f04dc4e90b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192539"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996386"
 ---
-# <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Jakie składniki Apache Hadoop i wersje są dostępne w usłudze HDInsight?
+# <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
 Dowiedz się więcej o składnikach środowiska [Apache Hadoop](https://hadoop.apache.org/) i wersjach Microsoft Azure HDInsight i pakiet Enterprise Security. Należy również zapoznać się z tematem Sprawdzanie wersji składników usługi Hadoop w usłudze HDInsight.
 
-## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Składniki Apache Hadoop dostępne z różnymi wersjami usługi HDInsight
+## <a name="apache-components-available-with-different-hdinsight-versions"></a>Składniki Apache dostępne z różnymi wersjami usługi HDInsight
 
 Usługa Azure HDInsight obsługuje wiele wersji klastra Hadoop, które można wdrożyć w dowolnym momencie. 4 kwietnia 2017 domyślna wersja klastra używana przez usługę Azure HDInsight to 3,6.
 
@@ -53,11 +53,11 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 > [!NOTE]
 > Ze względu na wydajność systemu Pomoc techniczna dla Kafka w wersji 0,10 wygasła w marcu 2019.
 
-## <a name="check-for-current-hadoop-component-version-information"></a>Wyszukaj bieżące informacje o wersji składnika usługi Hadoop
+## <a name="check-for-current-apache-component-version-information"></a>Wyszukaj bieżące informacje o wersji składnika Apache
 
 Wersje składników środowiska Hadoop skojarzone z wersjami klastra usługi HDInsight mogą ulec zmianie przy użyciu aktualizacji usługi HDInsight. Aby sprawdzić składniki usługi Hadoop i sprawdzić, które wersje są używane dla klastra, użyj interfejsu API REST Ambari. Polecenie **GetComponentInformation** pobiera informacje o składnikach usługi. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-### <a name="release-notes"></a>Uwagi do wersji
+### <a name="release-notes"></a>Informacje o wersji
 
 Zobacz [Informacje o wersji usługi HDInsight](hdinsight-release-notes.md) , aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi HDInsight.
 
@@ -77,8 +77,8 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które są dostępne w 
 
 | Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność w Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Tak |Tak |
-| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Tak |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Yes |Yes |
+| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Yes |
 
 Platforma Spark 2,1, 2,2 & Kafka 1,0 wygaśnie 30 czerwca 2020.
 
@@ -91,62 +91,18 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które **nie są** dost
 
 | Wersja usługi HDInsight | Wersja HDP | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 września 2016 |5 września 2017 |28 czerwca 2018 |Tak |Nie |
-| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 marca 2016 |29 grudnia 2016 |9 stycznia 2018 r. |Tak |Nie |
-| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2018 r. |Tak |Nie |
-| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4 LTS |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2017 |Tak |Nie |
-| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS lub Windows Server 2012 R2 |18 lutego 2015 |1 marca 2016 |1 kwietnia 2017 r. |Tak |Nie |
-| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 czerwca 2014 |18 maja 2015 |30 czerwca 2016 |Tak |Nie |
-| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 lutego 2014 |17 września 2014 |30 czerwca 2015 |Tak |Nie |
-| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 |31 maja 2015 |Tak |Nie |
+| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 września 2016 |5 września 2017 |28 czerwca 2018 |Yes |Nie |
+| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 marca 2016 |29 grudnia 2016 |9 stycznia 2018 r. |Yes |Nie |
+| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2018 r. |Yes |Nie |
+| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4 LTS |2 grudnia 2015 |27 czerwca 2016 r. |31 lipca 2017 |Yes |Nie |
+| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS lub Windows Server 2012 R2 |18 lutego 2015 |1 marca 2016 |1 kwietnia 2017 r. |Yes |Nie |
+| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 czerwca 2014 |18 maja 2015 |30 czerwca 2016 |Yes |Nie |
+| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 lutego 2014 |17 września 2014 |30 czerwca 2015 |Yes |Nie |
+| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 |31 maja 2015 |Yes |Nie |
 | HDInsight 1,6 |HDP 1,1 | |28 października 2013 |26 kwietnia 2014 |31 maja 2015 |Nie |Nie |
 
 > [!NOTE]  
 > Klastry o wysokiej dostępności z dwoma węzłami głównymi są wdrażane domyślnie dla usługi HDInsight w wersji 2,1 lub nowszej. Nie są one dostępne w klastrach usługi HDInsight w wersji 1,6.
-
-## <a name="enterprise-security-package-for-hdinsight"></a>pakiet Enterprise Security usługi HDInsight
-
-Zabezpieczenia przedsiębiorstwa to opcjonalny pakiet, który można dodać do klastra usługi HDInsight w ramach przepływu pracy tworzenia klastra. Pakiet Enterprise Security obsługuje:
-
-- Integracja z usługą Active Directory na potrzeby uwierzytelniania.
-
-    W przeszłości utworzono klastry usługi HDInsight z lokalnym użytkownikiem administracyjnym i lokalnym użytkownikiem SSH. Użytkownik lokalny administrator ma dostęp do wszystkich plików, folderów, tabel i kolumn.  Za pomocą pakiet Enterprise Security włączasz kontrolę dostępu opartą na rolach przez integrację usługi HDInsight z Active Directory. W tym Active Directory lokalnych, Azure Active Directory Domain Services. Lub Active Directory na maszynie wirtualnej IaaS. Administrator domeny w klastrze może udzielić użytkownikom dostępu do nazwy użytkownika i hasła do firmowej firmy (domeny).
-
-    Aby uzyskać więcej informacji, zobacz:
-
-    - [Wprowadzenie do Apache Hadoop zabezpieczeń z przyłączonymi do domeny klastrami usługi HDInsight](./domain-joined/hdinsight-security-overview.md)
-    - [Planowanie klastrów Apache Hadoop przyłączonych do domeny platformy Azure w usłudze HDInsight](./domain-joined/apache-domain-joined-architecture.md)
-    - [Konfigurowanie przyłączonego do domeny środowiska piaskownicy](./domain-joined/apache-domain-joined-configure.md)
-    - [Konfigurowanie przyłączonych do domeny klastrów usługi HDInsight przy użyciu Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-
-- Autoryzacja danych
-
-  - Integracja z platformą Apache Ranger na potrzeby autoryzacji dla kolejek Hive, Spark SQL i przędzy.
-  - Można ustawić kontrolę dostępu dla plików i folderów.
-
-    Aby uzyskać więcej informacji, zobacz:
-
-  - [Konfigurowanie zasad Apache Hive w usłudze HDInsight przyłączonych do domeny](./domain-joined/apache-domain-joined-run-hive.md)
-
-- Wyświetl dzienniki inspekcji, aby monitorować dostęp i skonfigurowane zasady.
-
-### <a name="supported-cluster-types"></a>Obsługiwane typy klastrów
-
-Obecnie tylko następujące typy klastrów obsługują pakiet Enterprise Security:
-
-- Hadoop (tylko Usługa HDInsight 3,6)
-- platforma Spark
-- Kafka
-- HBase
-- Zapytanie interakcyjne
-
-### <a name="support-for-azure-data-lake-storage"></a>Obsługa usługi Azure Data Lake Storage
-
-Pakiet Enterprise Security obsługuje używanie Azure Data Lake Storage zarówno jako magazynu podstawowego, jak i do magazynu dodatków.
-
-### <a name="pricing-and-service-level-agreement-sla"></a>Cennik i umowa dotycząca poziomu usług (SLA)
-
-Aby uzyskać informacje o cenach i umowie SLA dla pakiet Enterprise Security, zobacz [Cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Umowa dotycząca poziomu usług dla wersji klastra usługi HDInsight
 
@@ -166,3 +122,4 @@ Aby uzyskać więcej informacji na temat jednostek SKU maszyn wirtualnych do wyb
 - [Konfiguracja klastra dla Apache Hadoop, Spark i nie tylko w usłudze HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Pracuj w Apache Hadoop w usłudze HDInsight z komputera z systemem Windows](hdinsight-hadoop-windows-tools.md)
 - [Informacje o wersji Hortonworks skojarzone z wersjami usługi Azure HDInsight](./hortonworks-release-notes.md)
+- [Pakiet Enterprise Security](./enterprise-security-package.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77199045"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994181"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Tworzenie klastrów usługi HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -49,7 +49,7 @@ Interfejs wiersza polecenia platformy Azure. Jeśli nie zainstalowano interfejsu
     |`--workernode-count`| Liczba węzłów procesu roboczego w klastrze. W tym artykule jest stosowana `clusterSizeInNodes` zmienna jako wartość przekazaną do `--workernode-count`. |
     |`--version`| Wersja klastra usługi HDInsight. W tym artykule jest stosowana `clusterVersion` zmienna jako wartość przekazaną do `--version`. Zobacz również: [obsługiwane wersje usługi HDInsight](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Typ klastra usługi HDInsight, taki jak: Hadoop, interactivehive, HBase, Kafka, burza, Spark, Rserver, mlservices.  W tym artykule jest stosowana `clusterType` zmienna jako wartość przekazaną do `--type`. Zobacz również: [typy i konfiguracja klastra](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|Wersje różnych składników usługi Hadoop, w wersjach rozdzielonych spacjami w formacie "Component = Version". W tym artykule jest stosowana `componentVersion` zmienna jako wartość przekazaną do `--component-version`. Zobacz również: [składniki usługi Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|Wersje różnych składników usługi Hadoop, w wersjach rozdzielonych spacjami w formacie "Component = Version". W tym artykule jest stosowana `componentVersion` zmienna jako wartość przekazaną do `--component-version`. Zobacz również: [składniki usługi Hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
 
     Zamień `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`i `PASSWORD` z wymaganymi wartościami. Zmień wartości innych zmiennych zgodnie z potrzebami. Następnie wprowadź polecenie interfejsu wiersza polecenia.
 

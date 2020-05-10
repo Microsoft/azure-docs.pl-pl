@@ -4,17 +4,17 @@ description: Dowiedz się, jak szkolić model, przekonwertować go na ONNX, wdro
 keywords: Wdróż krawędź bazy danych SQL
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 04/23/2020
-ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de1f7db9ca9b8e8d4228ec822a92d43e9b7853f8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129292"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996080"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX w wersji zapoznawczej programu SQL Database Edge
 

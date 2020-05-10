@@ -4,14 +4,14 @@ description: Zarządzanie woluminami telemetrii i monitorowanie kosztów w Appli
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405386"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995535"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -62,7 +62,7 @@ E. Ustaw dzienny limit ilości danych.
 
 Aby dokładniej zbadać użycie Application Insights, Otwórz stronę **metryki** , Dodaj metrykę o nazwie "punkt danych", a następnie wybierz opcję *Zastosuj dzielenie* , aby podzielić dane przez "typ elementu telemetrii".
 
-Opłaty za Application Insights są dodawane do rachunku na korzystanie z platformy Azure. Szczegóły rachunku na korzystanie z platformy Azure można znaleźć w sekcji **rozliczenia** w Azure Portal lub w [portalu rozliczeń na platformie Azure](https://account.windowsazure.com/Subscriptions).
+Opłaty za Application Insights są dodawane do rachunku na korzystanie z platformy Azure. Szczegóły rachunku na korzystanie z platformy Azure można znaleźć w sekcji **Cost Management + rozliczenia** Azure Portal lub w [portalu rozliczeń systemu Azure](https://account.windowsazure.com/Subscriptions).  [Poniżej znajdują](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) się szczegółowe informacje dotyczące korzystania z tego programu w celu Application Insights. 
 
 ![W menu po lewej stronie wybierz pozycję rozliczenia](./media/pricing/02-billing.png)
 
@@ -129,7 +129,7 @@ dependencies
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Wyświetlanie Application Insights użycia na rachunku na platformie Azure
 
-Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Dodawanie filtru według typu zasobu (do Microsoft. Insights/Components for Application Insights) umożliwi śledzenie wydatków.
+Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Dodawanie filtru według typu zasobu (do Microsoft. Insights/Components for Application Insights) umożliwi śledzenie wydatków. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  W przypadku zasobów Application Insights w bieżących planach cenowych, większość użycia będzie wyświetlana jako Log Analytics dla kategorii miernika, ponieważ istnieje pojedyncze zaplecze dzienników dla wszystkich składników Azure Monitor. 
 
 Więcej informacji o użyciu można uzyskać, [pobierając użycie z Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 W pobranym arkuszu kalkulacyjnym można zobaczyć użycie na zasób platformy Azure dziennie. W tym arkuszu kalkulacyjnym programu Excel można sprawdzić użycie zasobów Application Insights przez pierwsze filtrowanie w kolumnie "kategoria licznika", aby pokazać "Application Insights" i "Log Analytics", a następnie dodać filtr w kolumnie "identyfikator wystąpienia", która jest "zawiera Microsoft. Insights/Components".  Większość Application Insights użycie jest raportowane na miernikach z kategorią licznika Log Analytics, ponieważ istnieje pojedyncze zaplecze dzienników dla wszystkich składników Azure Monitor.  Tylko zasoby Application Insights ze starszych warstw cenowych i wieloetapowych testów sieci Web są zgłaszane z kategorią miernika Application Insights.  Użycie jest wyświetlane w kolumnie "zużyta ilość", a jednostka dla każdego wpisu jest pokazywana w kolumnie "jednostka miary".  Dostępne są więcej szczegółów, które ułatwiają [zrozumienie Microsoft Azure rachunku](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -212,7 +212,7 @@ W każdym zachowanym rekordzie `itemCount` wskazuje liczbę oryginalnych rekord�
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Zmienianie okresu przechowywania danych)
 
-Domyślne przechowywanie dla zasobów Application Insights to 90 dni. Dla każdego zasobu Application Insights można wybrać różne okresy przechowywania. Pełny zestaw dostępnych okresów przechowywania to 30, 60, 90, 120, 180, 270, 365, 550 lub 730.
+Domyślne przechowywanie dla zasobów Application Insights to 90 dni. Dla każdego zasobu Application Insights można wybrać różne okresy przechowywania. Pełny zestaw dostępnych okresów przechowywania to 30, 60, 90, 120, 180, 270, 365, 550 lub 730. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/monitor/) na temat cen, aby uzyskać dłuższe przechowywanie danych. 
 
 Aby zmienić przechowywanie, z zasobu Application Insights przejdź na stronę **użycie i szacowane koszty** i wybierz opcję **przechowywania danych** :
 

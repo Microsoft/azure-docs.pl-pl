@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927873"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996100"
 ---
 # <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager
 
@@ -22,7 +22,7 @@ Za pomocą [szablonów Azure Resource Manager](../azure-resource-manager/templat
 * Automatyzuje tworzenie konta Azure Automation.
 * Łączy konto usługi Automation z obszarem roboczym Log Analytics.
 
-Szablon nie automatyzuje dołączania maszyn wirtualnych ani rozwiązań z platformy Azure. 
+Szablon nie automatyzuje włączania maszyn wirtualnych platformy Azure lub spoza platformy Azure. 
 
 >[!NOTE]
 >Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane, jeśli używasz szablonu Azure Resource Manager. Aby ręcznie utworzyć konto Uruchom jako w portalu lub za pomocą programu PowerShell, zobacz [Zarządzanie kontami Uruchom jako](manage-runas-account.md).

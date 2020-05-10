@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791905"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994353"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami usług konsultingowych z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zamieszczonymi w temacie [Azure and Dynamics 365 Consulting Service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) , aby Portal Cloud partner zarządzać ofertami.
 
 W tym artykule opisano sposób publikowania oferty usługi konsultingowej w [Microsoft AppSource](https://appsource.microsoft.com/) lub [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Utwórz listę ofert usługi konsultingowej opartych na systemie Microsoft [Dynamics 365](https://dynamics.microsoft.com/) i platformie AppSource. Wystaw oferty usługi konsultingowej na podstawie Microsoft Azure w witrynie Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
@@ -99,10 +96,10 @@ Na tej stronie można ustawić podstawowy produkt, z którym usługa doradcza of
     - **Weryfikacja koncepcji**: implementacja ograniczonego zakresu, aby określić, czy rozwiązanie spełnia wymagania klientów.
     - **Warsztat**: Interaktywna zaangażowanie w siedzibie klienta. Może to dotyczyć szkoleń, krótkich, ocen lub pokazów utworzonych na danych lub środowisku klienta.
 
-1. Jeśli wybrano podstawowy produkt **platformy Azure**, wybierz maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
-2. Jeśli wybrano podstawowy produkt _inny_ niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-3. Wybierz maksymalnie sześć **branż** , do których odnosi się oferta. Ułatwi to klientom znalezienie oferty.
-4. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencje z wyjątkiem usług Azure ekspercki MSP i Azure Network msp.
+3. Jeśli wybrano podstawowy produkt **platformy Azure**, wybierz maksymalnie trzy **obszary rozwiązań**. Ułatwiają one klientom w witrynie Azure Marketplace znalezienie oferty. Jeśli nie wybrano platformy Azure, Pomiń ten krok.
+4. Jeśli wybrano podstawowy produkt _inny_ niż Azure, wybierz maksymalnie trzy **odpowiednie produkty**. Ułatwiają one klientom usługi AppSource znalezienie oferty. Aby uzyskać szczegółowe informacje, zobacz [Microsoft AppSource wskazówki dotyczące usługi konsultingowej](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+5. Wybierz maksymalnie sześć **branż** , do których odnosi się oferta. Ułatwi to klientom znalezienie oferty.
+6. Dodaj do trzech **kompetencji** , które firma uzyskała do wyświetlenia na liście oferty usługi konsultingowej. Wymagana jest co najmniej jedna kompetencje z wyjątkiem usług Azure ekspercki MSP i Azure Network msp.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 

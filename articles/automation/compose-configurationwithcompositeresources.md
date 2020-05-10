@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682926"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993776"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Redagowanie konfiguracji DSC w konfiguracji stanu Azure Automation przy użyciu zasobów złożonych
 
@@ -34,9 +34,9 @@ Aby można było przypisać konfigurację z zasobów złożonych w Azure Portal,
 1. W kroku **Parametry** , parametr dla każdego zasobu złożonego jest uwidoczniony, aby można było podać wartości. Jeśli parametr ma opis, zostanie wyświetlony obok pola parametru. Jeśli parametr jest `PSCredential` typu, lista rozwijana zawiera listę obiektów **poświadczeń** na bieżącym koncie usługi Automation. Dostępna jest również opcja **+ Add a Credential** . Po podaniu wszystkich wymaganych parametrów kliknij przycisk **Zapisz i skompiluj**.
    ![Zrzut ekranu przedstawiający krok parametrów na stronie Konfiguracja redagowania](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-Po zapisaniu nowej konfiguracji zostanie ona przesłana do kompilacji. Stan zadania kompilacji można wyświetlić jak każda zaimportowana konfiguracja. Aby uzyskać więcej informacji, zobacz [Wyświetlanie zadania kompilacji](automation-dsc-getting-started.md#viewing-a-compilation-job).
+Po zapisaniu nowej konfiguracji zostanie ona przesłana do kompilacji. Stan zadania kompilacji można wyświetlić jak każda zaimportowana konfiguracja. Aby uzyskać więcej informacji, zobacz [Wyświetlanie zadania kompilacji](automation-dsc-getting-started.md#view-a-compilation-job).
 
-Po pomyślnym zakończeniu kompilacji Nowa konfiguracja zostanie wyświetlona na karcie **skompilowane konfiguracje** . Następnie można przypisać konfigurację do węzła zarządzanego przy użyciu kroków w sekcji [ponowne przypisywanie węzła do konfiguracji innej węzła](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+Po pomyślnym zakończeniu kompilacji Nowa konfiguracja zostanie wyświetlona na karcie **skompilowane konfiguracje** . Następnie można przypisać konfigurację do węzła zarządzanego przy użyciu kroków w sekcji [ponowne przypisywanie węzła do konfiguracji innej węzła](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Następne kroki
 

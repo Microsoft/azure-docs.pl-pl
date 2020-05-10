@@ -1,0 +1,173 @@
+---
+title: Połącz z Common Data Service
+description: Tworzenie rekordów Common Data Service i zarządzanie nimi za pomocą Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: jdaly, logicappspm
+ms.topic: conceptual
+ms.date: 05/08/2020
+tags: connectors
+ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997102"
+---
+# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Tworzenie rekordów i zarządzanie nimi w Common Data Service przy użyciu Azure Logic Apps
+
+Za pomocą [Azure Logic Apps](../logic-apps/logic-apps-overview.md) i [łącznika Common Data Service](https://docs.microsoft.com/connectors/commondataservice/)można tworzyć zautomatyzowane przepływy pracy, które zarządzają rekordami w bazie danych [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) . Te przepływy pracy umożliwiają tworzenie rekordów, aktualizowanie rekordów i wykonywanie innych operacji. Możesz również uzyskać informacje z bazy danych Common Data Service i udostępnić dane wyjściowe dla innych akcji do użycia w aplikacji logiki. Na przykład, gdy rekord zostanie zaktualizowany w bazie danych Common Data Service, możesz wysłać wiadomość e-mail przy użyciu łącznika programu Office 365 Outlook.
+
+W tym artykule pokazano, jak utworzyć aplikację logiki, która tworzy rekord zadania za każdym razem, gdy zostanie utworzony nowy rekord potencjalnego klienta.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
+
+* [Środowisko Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), czyli miejsce, w którym organizacja przechowuje i udostępnia dane biznesowe oraz Common Data Service bazę danych. Aby uzyskać więcej informacji, zobacz następujące zasoby:<p>
+
+  * [Dowiedz się: Rozpoczynanie pracy z usługą Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Platforma energetyczna — Omówienie środowisk](https://docs.microsoft.com/power-platform/admin/environments-overview)
+
+* Podstawowa wiedza na temat [tworzenia aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md) i aplikacji logiki z lokalizacji, w której chcesz uzyskać dostęp do rekordów w bazie danych Common Data Service. Aby uruchomić aplikację logiki z wyzwalaczem Common Data Service, musisz mieć pustą aplikację logiki. Jeśli dopiero zaczynasz Azure Logic Apps, zobacz [Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="add-common-data-service-trigger"></a>Dodaj wyzwalacz Common Data Service
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+Na potrzeby tego przykładu Dodaj wyzwalacz Common Data Service, który jest uruchamiany, gdy zostanie utworzony nowy rekord.
+
+1. W [Azure Portal](https://portal.azure.com)Otwórz pustą aplikację logiki w Projektancie aplikacji logiki, jeśli nie jest jeszcze otwarta.
+
+1. W polu wyszukiwania wpisz `common data service`. Na potrzeby tego przykładu na liście Wyzwalacze wybierz ten wyzwalacz: **po utworzeniu rekordu**
+
+   ![Wybierz wyzwalacz "po utworzeniu rekordu"](./media/connect-common-data-service/select-when-record-created-trigger.png)
+
+1. Jeśli zostanie wyświetlony monit, zaloguj się do Common Data Service.
+
+1. W wyzwalaczu podaj informacje o środowisku, w którym mają być monitorowane nowe rekordy "potencjalni klienci", na przykład:
+
+   ![Wyzwalaj informacje dla środowiska do monitorowania](./media/connect-common-data-service/when-record-created-trigger-details.png)
+
+   | Właściwość | Wymagany | Opis |
+   |----------|----------|-------------|
+   | **Środowisko** | Yes | Środowisko do monitorowania, na przykład "produkcja Fabrikam Sales". Aby uzyskać więcej informacji, zobacz [platformę PowerShell — Omówienie](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Nazwa jednostki** | Yes | Jednostka do monitorowania, na przykład "potencjalni klienci" |
+   | **Zakres** | Yes | Źródło, które utworzyło nowy rekord, na przykład użytkownik w jednostce biznesowej lub dowolny użytkownik w organizacji. W tym przykładzie zastosowano "jednostkę biznesową". |
+   ||||
+
+## <a name="add-common-data-service-action"></a>Dodaj akcję Common Data Service
+
+Teraz Dodaj akcję Common Data Service, która tworzy rekord zadania dla nowego rekordu "potencjalni klienci".
+
+1. W obszarze wyzwalacz **po utworzeniu rekordu** wybierz pozycję **nowy krok**.
+
+1. W polu wyszukiwania wpisz `common data service`. Z listy Akcje wybierz tę akcję: **Utwórz nowy rekord**
+
+   ![Wybierz akcję "Utwórz nowy rekord"](./media/connect-common-data-service/select-create-new-record-action.png)
+
+1. W akcji podaj informacje o środowisku, w którym chcesz utworzyć nowy rekord zadania. Jeśli są dostępne, inne właściwości są również wyświetlane na podstawie jednostki wybranej dla tej akcji, na przykład:
+
+   ![Informacje o akcji dla środowiska, w którym ma zostać utworzony rekord](./media/connect-common-data-service/create-new-record-action-details.png)
+
+   | Właściwość | Wymagany | Opis |
+   |----------|----------|-------------|
+   | **Nazwa organizacji** | Yes | Środowisko, w którym chcesz utworzyć rekord, który nie musi być tym samym środowiskiem w wyzwalaczu, ale jest "produkcja Fabrikam Sales" w tym przykładzie |
+   | **Nazwa jednostki** | Yes | Jednostka, w której ma zostać utworzony rekord, na przykład "zadania" |
+   | **Temat** | Tak, na podstawie jednostki zaznaczonej w tym przykładzie | Krótki opis celu tego zadania |
+   ||||
+
+   1. Dla właściwości **podmiot** wprowadź ten tekst z końcowym miejscem:
+
+      `Follow up with new lead:`
+
+   1. Zachowaj wskaźnik wewnątrz pola **tematu** , aby lista zawartości dynamicznej pozostawała widoczna.
+   
+   1. Z listy, w sekcji **gdy rekord zostanie utworzony** , wybierz wyjściowe wyzwalacze, które chcesz dołączyć do rekordu zadania, na przykład:
+
+      ![Wybierz wyzwalacze wyjściowe do użycia w rekordzie zadania](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
+
+      | Wyzwalanie danych wyjściowych | Opis |
+      |----------------|-------------|
+      | **Imię** | Imię i nazwisko z rekordu potencjalnego klienta, które ma być używane jako kontakt podstawowy w rekordzie zadania |
+      | **Nazwisko** | Nazwisko z rekordu potencjalnego klienta, które ma być używane jako kontakt podstawowy w rekordzie zadania |
+      | **Opis** | Inne dane wyjściowe do uwzględnienia w rekordzie zadania, takie jak adres e-mail i numer telefonu służbowego |
+      |||
+
+   Gdy wszystko będzie gotowe, akcja może wyglądać podobnie do tego przykładu:
+
+   ![Zakończono akcję "Utwórz nowy rekord"](./media/connect-common-data-service/finished-create-record-action-details.png)
+
+1. Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+
+1. Aby ręcznie uruchomić aplikację logiki, na pasku narzędzi projektanta wybierz pozycję **Uruchom**. Aby przetestować aplikację logiki, Utwórz nowy rekord "potencjalni klienci".
+
+## <a name="trigger-only-on-updated-attributes"></a>Wyzwalaj tylko dla zaktualizowanych atrybutów
+
+W przypadku wyzwalaczy, które są uruchamiane podczas aktualizowania rekordów, takich jak Akcja **gdy rekord jest aktualizowany** , można użyć atrybutów filtru, aby aplikacja logiki działała tylko wtedy, gdy określone atrybuty zostaną zaktualizowane. Ta funkcja pomaga uniknąć niepotrzebnych uruchomień aplikacji logiki.
+
+1. W wyzwalaczu na liście **Dodaj nowy parametr** wybierz pozycję **filtry atrybutów**.
+
+   ![Dodaj właściwość "filtry atrybutów"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+
+1. Dla każdego **elementu filtry atrybutów**Wybierz atrybut, który ma być monitorowany dla aktualizacji, na przykład:
+
+   ![Dodaj właściwość "filtry atrybutów"](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
+
+## <a name="list-records-based-on-a-filter"></a>Wyświetlanie listy rekordów na podstawie filtru
+
+W przypadku akcji, które zwracają rekordy, takie jak Akcja **listy rekordów** , można użyć zapytania OData, które zwraca rekordy na podstawie określonego filtru. Na przykład akcja zawiera listę tylko rekordów dla kont aktywnych.
+
+1. W akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz właściwość **Filter Query** .
+
+   ![Dodaj właściwość "Filter Query"](./media/connect-common-data-service/list-records-action-filter-query.png)
+
+1. We właściwości **Filtruj zapytanie** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData:`statuscode eq 1`
+
+   ![Wprowadź zapytanie filtru ODATA dla rekordów filtrowania](./media/connect-common-data-service/list-records-action-filter-query-value.png)
+
+Aby uzyskać więcej informacji `$filter` na temat opcji zapytania systemowego, zobacz [Common Data Service-Filter Results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+
+## <a name="list-records-based-on-an-order"></a>Wyświetlanie listy rekordów na podstawie zamówienia
+
+W przypadku akcji, które zwracają rekordy, takie jak działanie **list Records** , można użyć zapytania OData zwracającego rekordy w określonej kolejności, które różni się w zależności od rekordów zwracanych przez tę akcję. Na przykład akcja może zawierać listę rekordów na podstawie nazwy konta.
+
+1. W akcji Otwórz listę **Dodaj nowy parametr** , a następnie wybierz właściwość **order by** .
+
+   ![Dodaj właściwość "Order by"](./media/connect-common-data-service/list-records-action-order-by.png)
+
+1. W właściwości **order by** , która jest teraz wyświetlana w akcji, wprowadź zapytanie filtru OData:`name`
+
+   ![Wprowadzanie zapytania filtru ODATA w celu uporządkowania rekordów](./media/connect-common-data-service/list-records-action-order-by-value.png)
+
+Aby uzyskać więcej informacji `$orderby` na temat opcji zapytania systemowego, zobacz [wyniki Common Data Service kolejności](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+
+## <a name="field-data-types"></a>Typy danych pola
+
+Niezależnie od tego, czy ręcznie wprowadzisz wartość, czy wybierzesz wartość z listy zawartości dynamicznej dla pola w wyzwalaczu lub akcji, typ danych wartości musi być zgodny z wymaganym typem danych pola.
+
+W tej tabeli opisano niektóre typy pól i typy danych, których te pola wymagają dla ich wartości.
+
+| Pole | Typ danych | Opis |
+|-------|-----------|-------------|
+| Pole tekstowe | Pojedynczy wiersz tekstu | Wymaga pojedynczego wiersza tekstu lub zawartości dynamicznej, która ma typ danych tekstowych, na przykład następujące właściwości: <p><p>- **Zharmonizowan** <br>- **Kategorii** |
+| Pole liczb całkowitych | Liczba całkowita | Wymaga wartości całkowitej lub dynamicznej, która ma typ danych Integer, na przykład następujące właściwości: <p><p>- **Procent ukończenia** <br>- **Trwania** |
+| Pole daty | Data i godzina | Wymaga daty w formacie MM/DD/YYY lub zawartości dynamicznej, która ma typ danych Data, na przykład następujące właściwości: <p><p>- **Data utworzenia** <br>- **Data rozpoczęcia** <br>- **Rzeczywiste rozpoczęcie** <br>- **Rzeczywiste zakończenie** <br>- **Data ukończenia** |
+| Pole, które odwołuje się do innego rekordu jednostki | Klucz podstawowy | Wymaga zarówno identyfikatora rekordu, takiego jak identyfikator GUID, jak i typu wyszukiwania, co oznacza, że wartości z listy zawartości dynamicznej nie będą działały, na przykład następujące właściwości: <p><p>- **Właściciel**: musi być PRAWIDŁOWYm identyfikatorem użytkownika lub identyfikatorem rekordu zespołu. <br>- **Typ właściciela**: musi być typem wyszukiwania, takim jak `systemusers` lub `teams`, odpowiednio. <p><p>- **Dotyczy**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ dotyczący**: musi być typem wyszukiwania, na `accounts` przykład `contacts`, lub, odpowiednio. <p><p>- **Klient**: musi być PRAWIDŁOWYm identyfikatorem rekordu, np. identyfikatorem konta lub identyfikatorem rekordu osoby kontaktowej. <br>- **Typ klienta**: musi być typem wyszukiwania, takim jak `accounts` lub `contacts`, odpowiednio. |
+||||
+
+Ten przykład pokazuje, jak Akcja **Utwórz nowy rekord** powoduje utworzenie nowego rekordu "Tasks" skojarzonego z innymi rekordami jednostki, w tym rekordu użytkownika i rekordu konta. Akcja określa identyfikatory i typy wyszukiwania dla tych rekordów jednostek przy użyciu wartości, które pasują do oczekiwanych typów danych dla odpowiednich właściwości.
+
+* Na podstawie właściwości **Owner** , która określa identyfikator użytkownika i Właściwość **typu właściciela** , która określa typ `systemusers` wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym użytkownikiem.
+
+* Na podstawie właściwości " **dotyczy** ", która określa identyfikator rekordu i Właściwość **dotyczy typu** , która określa typ `accounts` wyszukiwania, Akcja kojarzy nowy rekord "Tasks" z określonym kontem.
+
+![Tworzenie rekordu "Tasks" skojarzonego z identyfikatorami i typami wyszukiwania](./media/connect-common-data-service/create-new-record-task-properties.png)
+
+## <a name="connector-reference"></a>Dokumentacja łączników
+
+Informacje techniczne na podstawie opisu struktury Swagger łącznika, takie jak wyzwalacze, akcje, limity i inne szczegóły, znajdują się na [stronie odniesienia łącznika](https://docs.microsoft.com/connectors/commondataservice/).
+
+## <a name="next-steps"></a>Następne kroki
+
+* Dowiedz się więcej na temat innych [łączników dla Azure Logic Apps](../connectors/apis-list.md)

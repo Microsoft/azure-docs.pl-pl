@@ -4,12 +4,12 @@ description: Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell,
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79473c5fb63a5f5ad29194c65cd8094ea444dbd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115843"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995312"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Zarządzanie zasobami usługi Batch za pomocą poleceń cmdlet programu PowerShell
 
@@ -297,4 +297,4 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 * Szczegóły składni poleceń cmdlet oraz przykłady znajdują się w [dokumentacji dotyczącej poleceń cmdlet w usłudze Azure Batch](/powershell/module/az.batch).
 * Aby uzyskać więcej informacji dotyczących aplikacji i pakietów aplikacji w usłudze Batch, zobacz temat [Deploy applications to compute nodes with Batch application packages (Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji usługi Batch)](batch-application-packages.md).
 
-[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 618803e8e94f96a63e0c39c27b40a933acac7cb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74968702"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995522"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Przesyłanie strumieniowe w trybie offline przy użyciu technologii FairPlay na potrzeby systemu iOS 
 
@@ -211,7 +211,7 @@ Poniższe często zadawane pytania zapewniają pomoc w rozwiązywaniu problemów
 - **Co oznacza ostatni parametr w następującym interfejsie API dla trybu online z FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-    Aby zapoznać się z dokumentacją dla tego interfejsu API, zobacz [FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr reprezentuje czas trwania dzierżawy w trybie offline przy użyciu godziny jako jednostki.
+    Aby zapoznać się z dokumentacją dla tego interfejsu API, zobacz [FairPlayConfiguration. CreateSerializedFairPlayOptionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Parametr reprezentuje czas trwania dzierżawy w trybie offline, a drugi jako jednostkę.
 - **Co to jest struktura plików pobierana/w trybie offline na urządzeniach z systemem iOS?** Pobrana struktura plików na urządzeniu z systemem iOS wygląda podobnie do poniższego zrzutu ekranu. `_keys` Folder przechowuje pobrane licencje FPS z jednym plikiem magazynu dla każdego hosta usługi licencjonowania. `.movpkg` Folder przechowuje zawartość audio i wideo. Pierwszy folder o nazwie kończącej się znakiem łącznika, po którym następuje wartość liczbowa, zawiera zawartość wideo. Wartość liczbowa jest PeakBandwidthą dla odwzorowań wideo. Drugi folder o nazwie kończącej się znakiem łącznika, po którym następuje 0, zawiera zawartość audio. Trzeci folder o nazwie "Data" zawiera główną listę odtwarzania zawartości FPS. Na koniec plik Boot. xml zawiera pełny opis zawartości `.movpkg` folderu. 
 
 ![Struktura pliku przykładowej aplikacji w trybie offline FairPlay iOS](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

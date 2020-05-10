@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983804"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995337"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -140,17 +140,19 @@ Domyślnie wyzwalacz żądania oczekuje na żądanie POST. Można określić inn
 
    ![Wybierz metodę żądania oczekiwaną przez wyzwalacz](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>Zaakceptuj parametry w adresie URL punktu końcowego
+<a name="endpoint-url-parameters"></a>
 
-Jeśli chcesz, aby adres URL punktu końcowego akceptował wartości parametrów za pomocą adresu URL punktu końcowego, dostępne są następujące opcje:
+## <a name="pass-parameters-through-endpoint-url"></a>Przekaż parametry za poorednictwem adresu URL punktu końcowego
+
+Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, dostępne są następujące opcje:
 
 * [Akceptuj wartości za poorednictwem parametrów pobierania](#get-parameters) lub parametrów adresu URL.
 
-  Te wartości są przesyłane jako pary nazwa-wartość podczas wysyłania żądania do adresu URL punktu końcowego. W przypadku tej opcji należy użyć metody GET w wyzwalaczu żądania. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza przy użyciu `triggerOutputs()` funkcji w wyrażeniu.
+  Te wartości są przesyłane jako pary nazwa-wartość w adresie URL punktu końcowego. W przypadku tej opcji należy użyć metody GET w wyzwalaczu żądania. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza przy użyciu `triggerOutputs()` funkcji w wyrażeniu.
 
 * [Akceptuj wartości za pomocą ścieżki względnej](#relative-path) dla parametrów w wyzwalaczu żądania.
 
-  Te wartości są przesyłane podczas wysyłania żądania do adresu URL punktu końcowego. Należy również jawnie [wybrać metodę](#select-method) oczekiwaną przez wyzwalacz. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza, odwołując się bezpośrednio do tych danych wyjściowych.
+  Te wartości są przesyłane za pomocą ścieżki względnej w adresie URL punktu końcowego. Należy również jawnie [wybrać metodę](#select-method) oczekiwaną przez wyzwalacz. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza, odwołując się bezpośrednio do tych danych wyjściowych.
 
 <a name="get-parameters"></a>
 

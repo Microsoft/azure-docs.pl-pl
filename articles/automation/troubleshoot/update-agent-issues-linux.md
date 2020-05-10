@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927976"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997015"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z usługą Linux Update Agent
 
@@ -82,14 +82,14 @@ Ta kontrola określa, czy Agent wysyła raporty do wielu obszarów roboczych. Wi
 
 ### <a name="hybrid-runbook-worker"></a>Hybrydowy proces roboczy elementu Runbook
 
-Ten test sprawdza, czy Agent Log Analytics dla systemu Linux ma pakiet hybrydowego procesu roboczego elementu Runbook. Ten pakiet jest wymagany do pracy Update Management.
+Ten test sprawdza, czy Agent Log Analytics dla systemu Linux ma pakiet hybrydowego procesu roboczego elementu Runbook. Ten pakiet jest wymagany do pracy Update Management. Aby dowiedzieć się więcej, zobacz [agent log Analytics dla systemu Linux nie jest uruchomiony](hybrid-runbook-worker.md#oms-agent-not-running).
+
+Update Management pobiera hybrydowe pakiety procesów roboczych elementu Runbook z punktu końcowego operacji. W związku z tym, jeśli hybrydowy proces roboczy elementu Runbook nie jest uruchomiony, a [punkt końcowy operacji](#operations-endpoint) zakończy się niepowodzeniem, aktualizacja może zakończyć się niepowodzeniem.
 
 ### <a name="hybrid-runbook-worker-status"></a>Stan hybrydowego procesu roboczego elementu Runbook
 
-To sprawdzenie gwarantuje, że hybrydowy proces roboczy elementu Runbook jest uruchomiony na komputerze. Jeśli hybrydowy proces roboczy elementu Runbook działa prawidłowo, powinny być obecne następujące procesy. Aby dowiedzieć się więcej, zobacz [Rozwiązywanie problemów z agentem log Analytics dla systemu Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+To sprawdzenie gwarantuje, że hybrydowy proces roboczy elementu Runbook jest uruchomiony na komputerze. Procesy w poniższym przykładzie powinny być obecne, jeśli hybrydowy proces roboczy elementu Runbook działa poprawnie.
 
-> [!NOTE]
-> Jeśli hybrydowy proces roboczy elementu Runbook nie jest uruchomiony, a punkt końcowy operacji zakończy się niepowodzeniem, aktualizacja może zakończyć się niepowodzeniem. Update Management pobiera pakiety hybrydowego procesu roboczego z punktu końcowego operacji.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ Ten test sprawdza, czy komputer ma dostęp do Internetu.
 
 Ta kontrola określa, czy hybrydowy proces roboczy elementu Runbook może prawidłowo komunikować się z Azure Automation w obszarze roboczym Log Analytics.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z punktem końcowym rejestracji. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Punkt końcowy operacji
 
-Ta kontrola określa, czy Agent może prawidłowo komunikować się z usługą danych czasu wykonywania zadania.
+Ta kontrola określa, czy Agent Log Analytics może prawidłowo komunikować się z usługą danych czasu wykonywania zadania.
 
-Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci dla hybrydowych procesów roboczych](../automation-hybrid-runbook-worker.md#network-planning).
+Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego procesu roboczego elementu Runbook na komunikowanie się z usługą danych czasu wykonywania zadania. Aby uzyskać listę adresów i portów do otwarcia, zobacz [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="log-analytics-endpoint-1"></a>Log Analytics punkt końcowy 1
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: ae1beeebfddfe250ae20a70c3e78ec32774218d4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891217"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996325"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planowanie i zarządzanie kosztami Azure Machine Learning
 
@@ -49,7 +49,7 @@ Poniższy zrzut ekranu przedstawia oszacowanie kosztów za pomocą kalkulatora:
 
 Dodając nowe zasoby do obszaru roboczego, Wróć do tego kalkulatora i Dodaj tutaj ten sam zasób, aby zaktualizować oszacowania kosztów.
 
-Wersja Enterprise Edition jest dostępna w wersji zapoznawczej, ale nie ma dopłaty do l. Gdy wersja Enterprise jest ogólnie dostępna, zostanie wykorzystana opłata za uczenie maszynowe (na potrzeby szkoleń i inferencing).  Aby uzyskać więcej informacji, [Azure Machine Learning Cennik](https://azure.microsoft.com/pricing/details/machine-learning/).
+Wersja Enterprise Edition jest dostępna w wersji zapoznawczej, ale nie ma dopłaty do l. Gdy wersja Enterprise jest ogólnie dostępna, będzie ona mieć dodatkową opłatę (na potrzeby szkoleń i inferencing).  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## <a name="get-cost-alerts"></a>Pobierz alerty kosztów
 
@@ -59,7 +59,7 @@ Twórz [budżety](../cost-management/tutorial-acm-create-budgets.md) , aby zarz�
 
 Gdy korzystasz z zasobów z Azure Machine Learning, naliczane są koszty. Koszty jednostki użycia zasobów platformy Azure różnią się w zależności od interwału czasu (sekundy, minuty, godziny i dni) lub według użycia jednostki żądania. Po rozpoczęciu korzystania z Azure Machine Learning są naliczane koszty. Zapoznaj się z tymi kosztami w okienku [Analiza kosztów](../cost-management/quick-acm-cost-analysis.md) w Azure Portal.
 
-Wyświetlanie kosztów w wykresach i tabelach dla różnych przedziałów czasu. Kilka przykładów jest dziennie, bieżących, poprzedniego miesiąca i roku. Wyświetlaj także koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie pomaga identyfikować trendy wydatków i zobaczyć, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, zobacz miejsce ich przekroczenia.  
+Możesz wyświetlić koszty w wykresach i tabelach dla różnych przedziałów czasu. Możesz również wyświetlić koszty związane z budżetami i prognozowanymi kosztami. Przełączenie na dłuższe widoki w czasie pomaga identyfikować trendy wydatków i zobaczyć, gdzie mogły wystąpić nadwyżki. Jeśli utworzono budżety, zobacz miejsce ich przekroczenia.  
 
 Nie zobaczysz oddzielnego obszaru usługi dla Machine Learning.  Zamiast tego zobaczysz różne zasoby, które zostały dodane do obszarów roboczych Machine Learning.
 
@@ -67,18 +67,22 @@ Nie zobaczysz oddzielnego obszaru usługi dla Machine Learning.  Zamiast tego zo
 
 Dzięki ciągłej zmianie danych potrzebne są szybkie i usprawnione szkolenia modeli oraz przeszkolenie w celu utrzymania dokładnych modeli. Jednak ciągłe szkolenie jest kosztem, szczególnie w przypadku modeli uczenia głębokiego w procesorach GPU. 
 
-Azure Machine Learning użytkownicy mogą korzystać z zarządzanego Azure Machine Learning klastra obliczeniowego, nazywanego również AmlCompute. AmlCompute obsługuje wiele opcji procesora GPU i procesorów. AmlCompute jest wewnętrznie hostowana w imieniu Twojej subskrypcji przez Azure Machine Learning, ale zapewnia te same zabezpieczenia, zgodność i zarządzanie na poziomie przedsiębiorstwa na platformie Azure IaaS w skali chmury.
+Azure Machine Learning użytkownicy mogą korzystać z zarządzanego Azure Machine Learning klastra obliczeniowego, nazywanego również AmlCompute. AmlCompute obsługuje wiele opcji procesora GPU i procesorów. AmlCompute jest wewnętrznie hostowana w imieniu subskrypcji przez Azure Machine Learning. Zapewnia to takie samo bezpieczeństwo, zgodność i zarządzanie, na platformie Azure IaaS w skali chmury.
 
 Ponieważ te pule obliczeniowe należą do infrastruktury IaaS platformy Azure, można wdrożyć, skalować i zarządzać szkoleniami z tymi samymi wymaganiami dotyczącymi zabezpieczeń i zgodności, co w przypadku reszty infrastruktury.  Te wdrożenia są wykonywane w ramach subskrypcji i przestrzegają reguł zarządzania. Dowiedz się więcej na temat [Azure Machine Learning obliczeń](how-to-set-up-training-targets.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurowanie klastrów szkoleniowych na potrzeby automatycznego skalowania
 
-Automatyczne skalowanie klastrów na podstawie wymagań obciążeń pozwala zmniejszyć koszty, dzięki czemu możesz korzystać tylko z tego, czego potrzebujesz. Klastry AmlCompute są zaprojektowane do automatycznego skalowania na podstawie wymagań obciążeń. Klaster może być skalowany w górę do maksymalnej liczby węzłów zainicjowanych i w ramach limitu przydziału wyznaczonych dla subskrypcji. Po zakończeniu każdego uruchomienia klaster będzie zwalniał węzły i skalowanie automatyczne do wyoznaczonej minimalnej liczby węzłów.
+Automatyczne skalowanie klastrów na podstawie wymagań obciążeń pozwala zmniejszyć koszty, dzięki czemu możesz korzystać tylko z tego, czego potrzebujesz.
 
-Oprócz ustawienia minimalnej i maksymalnej liczby węzłów, można dostosować ilość czasu bezczynności węzła przed scaleniem w dół. Domyślnie czas bezczynności przed skalą w dół jest ustawiony na 120 sekund.
+Klastry AmlCompute są przeznaczone do skalowania dynamicznie na podstawie obciążenia. Klaster może być skalowany w górę do maksymalnej skonfigurowanej liczby węzłów. Po zakończeniu każdego uruchomienia klaster będzie zwalniał węzły i skalować je do skonfigurowanej minimalnej liczby węzłów.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+
+Można również skonfigurować ilość czasu bezczynności węzła przed scaleniem w dół. Domyślnie czas bezczynności przed skalą w dół jest ustawiony na 120 sekund.
 
 + W przypadku przeprowadzania mniej iteracyjnych eksperymentów należy skrócić ten czas, aby zaoszczędzić koszty. 
-+ W przypadku przeprowadzania wysoko iteracyjnych eksperymentów związanych z tworzeniem/testowaniem można zwiększyć, aby nie płacić za stałe skalowanie w górę i w dół po każdej zmianie w skrypcie lub środowisku szkoleniowym.
++ W przypadku przeprowadzania wysoko iteracyjnych eksperymentów deweloperskich i testowych może być konieczne zwiększenie czasu, aby nie płacić za stałe skalowanie w górę i w dół po każdej zmianie w skrypcie lub środowisku szkoleniowym.
 
 Klastry AmlCompute można skonfigurować w celu zmiany wymagań obciążeń w Azure Portal, przy użyciu [klasy zestawu SDK AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [interfejsu wiersza polecenia AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)z [interfejsami API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
@@ -88,24 +92,24 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 ## <a name="set-quotas-on-resources"></a>Ustawianie przydziałów zasobów
 
-Podobnie jak w przypadku innych zasobów obliczeniowych platformy Azure, AmlCompute obejmuje [konfigurację przydziałów (lub ograniczeń)](how-to-manage-quotas.md#azure-machine-learning-compute). Ten przydział dotyczy rodziny maszyn wirtualnych (na przykład serii Dv2, Seria NCV3 Series) i różni się w zależności od regionu dla każdej subskrypcji. Subskrypcje zaczynają się od małych wartości domyślnych, aby można było je uzyskać, ale przy użyciu tego ustawienia można kontrolować ilość zasobów Amlcompute dostępnych do odtworzenia w ramach subskrypcji. 
+AmlCompute zawiera [konfigurację limitu przydziału (lub limitu)](how-to-manage-quotas.md#azure-machine-learning-compute). Ten przydział dotyczy rodziny maszyn wirtualnych (na przykład serii Dv2, Seria NCV3 Series) i różni się w zależności od regionu dla każdej subskrypcji. Subskrypcje zaczynają się od małych wartości domyślnych, aby można było je uzyskać, ale przy użyciu tego ustawienia można kontrolować ilość zasobów Amlcompute dostępnych do odtworzenia w ramach subskrypcji. 
 
-Skonfiguruj również [przydział poziomu obszaru roboczego według rodziny maszyn wirtualnych](how-to-manage-quotas.md#workspace-level-quota)dla każdego obszaru roboczego w ramach subskrypcji. Dzięki temu można mieć dokładniejszą kontrolę nad kosztami, które mogą zostać poniesione przez każdy obszar roboczy i ograniczyć liczbę rodzin maszyn wirtualnych. 
+Skonfiguruj również [przydział poziomu obszaru roboczego według rodziny maszyn wirtualnych](how-to-manage-quotas.md#workspace-level-quota)dla każdego obszaru roboczego w ramach subskrypcji. Dzięki temu można mieć dokładniejszą kontrolę nad kosztami, które mogą zostać naliczone przez każdy obszar roboczy i ograniczyć liczbę rodzin maszyn wirtualnych. 
 
-Aby ustawić przydziały na poziomie obszaru roboczego, Uruchom w [Azure Portal](https://portal.azure.com).  Wybierz dowolny obszar roboczy w ramach subskrypcji, a następnie wybierz pozycję **użycie + przydziały** w okienku po lewej stronie. Następnie wybierz kartę **Konfigurowanie przydziałów** , aby wyświetlić przydziały. Aby ustawić ten przydział, potrzebne są uprawnienia, ponieważ jest to ustawienie wpływające na wiele obszarów roboczych.
+Aby ustawić przydziały na poziomie obszaru roboczego, Uruchom w [Azure Portal](https://portal.azure.com).  Wybierz dowolny obszar roboczy w ramach subskrypcji, a następnie wybierz pozycję **użycie + przydziały** w okienku po lewej stronie. Następnie wybierz kartę **Konfigurowanie przydziałów** , aby wyświetlić przydziały. Aby ustawić limit przydziału, potrzebne są uprawnienia, ponieważ jest to ustawienie wpływające na wiele obszarów roboczych.
 
-## <a name="set-run-auto-termination-policies"></a>Ustaw zasady uruchamiania autokończenia 
+## <a name="set-run-autotermination-policies"></a>Ustaw zasady autokończenia uruchamiania 
 
-Skonfiguruj przebiegi szkoleniowe, aby ograniczyć ich czas trwania lub przerwać ich wczesne działania w przypadku niektórych warunków, szczególnie w przypadku korzystania z wbudowanych funkcji strojenia lub Machine Learning automatycznych w Azure Machine Learning. 
+W niektórych przypadkach należy skonfigurować przebiegi szkoleniowe, aby ograniczyć ich czas trwania lub przerwać ich wczesne działanie. Na przykład w przypadku korzystania z wbudowanego dostrajania preparameteru Azure Machine Learning lub automatycznego uczenia maszynowego.
 
 Oto kilka opcji, których dysponujesz:
 * Zdefiniuj parametr wywoływany `max_run_duration_seconds` w RunConfiguration, aby kontrolować maksymalny czas trwania uruchomienia w ramach wybranego obliczenia (lokalnie lub w chmurze).
-* W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcięcia. Ponadto należy również użyć parametrów, takich jak `max_total_runs` lub `max_duration_minutes` , aby dodatkowo kontrolować różne odchylenia parametrów.
+* W przypadku [dostrajania parametrów](how-to-tune-hyperparameters.md#early-termination)należy zdefiniować zasady wczesnego zakończenia na podstawie zasad Banditymi, średniego zatrzymywania zasad lub zasad wyboru obcinania. Aby dodatkowo kontrolować odchylenia parametrów, użyj parametrów takich jak `max_total_runs` lub. `max_duration_minutes`
 * Aby [zautomatyzować automatyczne Uczenie maszynowe](how-to-configure-auto-train.md#exit), ustaw podobne zasady `enable_early_stopping` kończenia przy użyciu flagi. Należy również użyć właściwości, `iteration_timeout_minutes` takich `experiment_timeout_minutes` jak i, aby kontrolować maksymalny czas trwania przebiegu lub dla całego eksperymentu.
 
 ## <a name="use-low-priority-vms"></a>Używanie maszyn wirtualnych o niskim priorytecie
 
-System Azure umożliwia korzystanie z nadmiarowej niewykorzystanej pojemności jako maszyn wirtualnych o niskim priorytecie w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy korzystanie z maszyn wirtualnych o niskim priorytecie dla obciążeń wsadowych lub w przypadku, gdy przerwy są odzyskiwane przez ponowne przesłanie (dla usługi Batch Inferencing) lub za pośrednictwem ponownych uruchomień (dla szkolenia głębokiego uczenia z użyciem punktów kontrolnych).
+System Azure umożliwia korzystanie z nadmiarowej niewykorzystanej pojemności jako maszyn wirtualnych o niskim priorytecie w ramach zestawów skalowania maszyn wirtualnych, partii i usługi Machine Learning. Te przydziały są wstępnie emptible, ale mają obniżoną cenę w porównaniu do dedykowanych maszyn wirtualnych. Ogólnie rzecz biorąc, zalecamy korzystanie z maszyn wirtualnych o niskim priorytecie dla obciążeń wsadowych. Należy również użyć ich w przypadku, gdy przerwy są odzyskiwane za pomocą ponownych przesyłania (dla usługi Batch Inferencing) lub przez ponowne uruchomienie (w przypadku szkolenia głębokiego uczenia się z punktem kontrolnym).
 
 Maszyny wirtualne o niskim priorytecie mają jeden przydział oddzielny od dedykowanej wartości przydziału, która jest przez rodzinę maszyn wirtualnych. Dowiedz się [więcej na temat przydziałów AmlCompute](how-to-manage-quotas.md).
 
@@ -131,9 +135,9 @@ Ustaw priorytet maszyny wirtualnej w dowolny z następujących sposobów:
 
 ## <a name="use-reserved-instances"></a>Użycie wystąpień zarezerwowanych
 
-Wystąpienie zarezerwowane maszyny wirtualnej platformy Azure umożliwia innym sposobem uzyskania ogromnych oszczędności zasobów obliczeniowych przez zatwierdzenie do jednego roku lub trzech lat. Rabaty te obejmują do 72% cen płatności zgodnie z rzeczywistym użyciem i są stosowane bezpośrednio na miesięcznym rachunku za platformę Azure.
+Innym sposobem oszczędności zasobów obliczeniowych jest wystąpienie zarezerwowane maszyny wirtualnej platformy Azure. Dzięki tej ofercie możesz zatwierdzić jeden rok lub trzy lata. Rabaty te obejmują do 72% cen płatności zgodnie z rzeczywistym użyciem i są stosowane bezpośrednio na miesięcznym rachunku za platformę Azure.
 
-Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. Jeśli więc zakupiono jednoletnie lub trzy lata zarezerwowane wystąpienie, automatycznie zastosuje rabat wystąpienia zarezerwowanego względem zarządzanego obliczenia, który jest używany w Azure Machine Learning bez konieczności przeprowadzania jakichkolwiek dodatkowych ustawień.
+Azure Machine Learning COMPUTE obsługuje zarezerwowane wystąpienia. W przypadku zakupienia jednego roku lub z 3-letniego wystąpienia zarezerwowanego automatycznie stosuje się rabat do Azure Machine Learning zarządzanych obliczeń.
 
 
 ## <a name="next-steps"></a>Następne kroki

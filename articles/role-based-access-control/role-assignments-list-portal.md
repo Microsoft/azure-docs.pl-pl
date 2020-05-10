@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983027"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996642"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Wyświetlanie listy przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -130,7 +130,7 @@ Aby wyświetlić listę dostępu dla użytkownika, grupy, nazwy głównej usług
 
 ## <a name="list-number-of-role-assignments"></a>Liczba przypisań ról
 
-W każdej subskrypcji można korzystać z maksymalnie **2000** przypisań ról. Aby ułatwić śledzenie tego limitu, karta **przypisania ról** zawiera wykres zawierający listę przypisań ról dla bieżącej subskrypcji.
+W każdej subskrypcji można korzystać z maksymalnie **2000** przypisań ról. Ten limit obejmuje przypisania ról w ramach subskrypcji, grupy zasobów i zakresów zasobów. Aby ułatwić śledzenie tego limitu, karta **przypisania ról** zawiera wykres zawierający listę przypisań ról dla bieżącej subskrypcji.
 
 ![Kontrola dostępu — liczba wykresów przypisań ról](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

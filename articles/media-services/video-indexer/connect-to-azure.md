@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097188"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995711"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Utwórz konto Video Indexer połączone z platformą Azure
 
 Podczas tworzenia konta Video Indexer możesz wybrać bezpłatne konto próbne (w przypadku wybrania pewnej liczby bezpłatnych minut indeksowania) lub opcji płatnej (w przypadku których limit przydziału nie jest ograniczony). Dzięki bezpłatnej wersji próbnej Video Indexer zapewnia do 600 minut bezpłatnego indeksowania do użytkowników witryny sieci Web oraz do 2400 minut wolnego indeksowania do użytkowników interfejsu API. Za pomocą opcji płatne można utworzyć konto Video Indexer, które jest połączone z subskrypcją platformy Azure i kontem Azure Media Services. Płacisz za minuty, a także opłaty związane z kontami multimediów.
 
 W tym artykule pokazano, jak utworzyć konto Video Indexer połączone z subskrypcją platformy Azure i kontem Azure Media Services. Temat zawiera instrukcje dotyczące łączenia się z platformą Azure przy użyciu automatycznego (domyślnego) przepływu. Przedstawiono w nim również sposób ręcznego nawiązywania połączenia z platformą Azure (Zaawansowane).
+
+W przypadku przechodzenia z *wersji próbnej* do *płatnego* konta Video Indexer można skopiować wszystkie filmy wideo i dostosowania modelu do nowego konta, zgodnie z opisem w sekcji [Importowanie zawartości z konta wersji próbnej](#import-your-content-from-the-trial-account).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

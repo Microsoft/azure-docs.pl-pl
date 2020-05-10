@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730313"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996954"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -54,9 +54,9 @@ Na poniższej liście opisano punkty końcowe:
 
   * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md).
 
-    Punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP jest również dostępna za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
+    Punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP i MQTT są również dostępne za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
 
-* **Punkty końcowe usługi**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych dla zaplecza rozwiązania do komunikowania się z urządzeniami. Z jednym wyjątkiem te punkty końcowe są udostępniane tylko przy użyciu protokołu [AMQP](https://www.amqp.org/) . Punkt końcowy wywołania metody jest udostępniany za pośrednictwem protokołu HTTPS.
+* **Punkty końcowe usługi**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych dla zaplecza rozwiązania do komunikowania się z urządzeniami. Z jednym wyjątkiem te punkty końcowe są ujawniane tylko przy użyciu protokołów [AMQP](https://www.amqp.org/) i AMQP over WebSockets. Punkt końcowy wywołania metody bezpośredniej jest udostępniany za pośrednictwem protokołu HTTPS.
   
   * *Odbieraj komunikaty z urządzenia do chmury*. Ten punkt końcowy jest zgodny z [usługą Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Usługa zaplecza może używać jej do odczytywania komunikatów z [urządzenia do chmury](iot-hub-devguide-messages-d2c.md) wysyłanych przez urządzenia. Oprócz tego wbudowanego punktu końcowego można utworzyć niestandardowe punkty końcowe w centrum IoT.
   

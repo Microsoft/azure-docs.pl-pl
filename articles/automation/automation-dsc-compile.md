@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeb60012ae607e49b1249fda13222cb2fa753911
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392084"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996076"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Kompiluj konfiguracje DSC w konfiguracji stanu Azure Automation
 
@@ -28,9 +28,6 @@ Konfiguracje konfiguracji żądanego stanu (DSC) można kompilować w konfigurac
   - Znaczne zwiększenie wydajności
 
 Za Azure Resource Manager pomocą rozszerzenia konfiguracji żądanego stanu (DSC) platformy Azure można również używać szablonów do wypychania konfiguracji do maszyn wirtualnych platformy Azure. Rozszerzenie Azure DSC korzysta z platformy agenta maszyny wirtualnej platformy Azure w celu dostarczania, przyjęcia i raportowania konfiguracji DSC działających na maszynach wirtualnych platformy Azure. Aby uzyskać szczegółowe informacje dotyczące kompilacji przy użyciu szablonów Azure Resource Manager, zobacz [rozszerzenie konfiguracji żądanego stanu z szablonami Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Kompilowanie konfiguracji DSC w konfiguracji stanu platformy Azure
 

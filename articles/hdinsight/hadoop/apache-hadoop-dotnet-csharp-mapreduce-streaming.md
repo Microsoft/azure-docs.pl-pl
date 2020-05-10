@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: c8c4e35fb14d834721a29037c9ac12d8160507d9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28817489af535ee45a6cc06cc5fe9d4fde9da8eb
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209098"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996836"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Używanie języka C# z MapReduce przesyłania strumieniowego na Apache Hadoop w usłudze HDInsight
 
@@ -23,7 +23,7 @@ Apache Hadoop Streaming umożliwia uruchamianie zadań MapReduce przy użyciu sk
 
 ## <a name="net-on-hdinsight"></a>Platforma .NET w usłudze HDInsight
 
-Klastry usługi HDInsight wykorzystują [mono (https://mono-project.com) ](https://mono-project.com) do uruchamiania aplikacji platformy .NET). W usłudze HDInsight w wersji 3,6 jest dołączony system mono w wersji. Aby uzyskać więcej informacji na temat wersji programu mono zawartej w usłudze HDInsight, zobacz [składniki Apache Hadoop dostępne dla różnych wersji usługi HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+Klastry usługi HDInsight wykorzystują [mono (https://mono-project.com) ](https://mono-project.com) do uruchamiania aplikacji platformy .NET). W usłudze HDInsight w wersji 3,6 jest dołączony system mono w wersji. Aby uzyskać więcej informacji na temat wersji programu mono zawartej w usłudze HDInsight, zobacz [składniki Apache Hadoop dostępne dla różnych wersji usługi HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
 
 Aby uzyskać więcej informacji na temat zgodności z programem mono z wersjami .NET Framework, zobacz Zgodność z usługą [mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 

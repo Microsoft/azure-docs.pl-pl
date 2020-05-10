@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8697c7a82e271919f8d5aaa48160aa93c833809b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270786"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996898"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
@@ -209,6 +209,9 @@ Aby skopiować istniejące maszyny wirtualne do DevTest Labs:
 ### <a name="can-i-attach-multiple-disks-to-my-vms"></a>Czy mogę dołączyć wiele dysków do maszyn wirtualnych?
 
 Tak, możesz dołączyć wiele dysków do maszyn wirtualnych.
+
+### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Czy są to obrazy generacji 2 obsługiwane przez DevTest Labs?
+Nie. Usługa DevTest Labs nie obsługuje [obrazów generacji 2](../virtual-machines/windows/generation-2.md). Jeśli dla obrazu są dostępne wersje generacji 1 i Gen 2, DevTest Labs wyświetla tylko wersję Gen 1 obrazu podczas tworzenia maszyny wirtualnej. Nie zobaczysz obrazu, jeśli dostępna jest tylko wersja 2 generacji. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Jeśli chcę używać obrazu systemu operacyjnego Windows do testowania, czy muszę kupić subskrypcję MSDN?
 Aby użyć obrazów systemu operacyjnego klienta systemu Windows (systemu Windows 7 lub nowszej wersji) do programowania lub testowania na platformie Azure, wykonaj jedną z następujących czynności:
