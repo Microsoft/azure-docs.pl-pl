@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 505670e719e86086dbf7721b4298ec913220f928
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 849777ac3ec11915c602861fea0c42a49fb08bcb
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76694273"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006435"
 ---
 ## <a name="provide-frames-to-the-session"></a>Podaj ramki do sesji
 
-Sesja kotwicy przestrzennej działa przez mapowanie miejsca wokół użytkownika. Dzięki temu można określić, gdzie znajdują się kotwice. Platformy mobilne (iOS & Android) wymagają natywnego wywołania kanału informacyjnego aparatu, aby uzyskać ramki z biblioteki AR platformy. W przeciwieństwie do środowiska HoloLens ciągle skanuje środowisko, dlatego nie ma potrzeby określonego wywołania, takiego jak na urządzeniach przenośnych.
+Sesja kotwicy przestrzennej działa przez mapowanie miejsca wokół użytkownika. Dzięki temu można określić, gdzie znajdują się kotwice. Platformy mobilne (iOS & Android) wymagają natywnego wywołania kanału informacyjnego aparatu, aby uzyskać ramki z biblioteki AR platformy. W przeciwieństwie do środowiska HoloLens ciągle skanuje środowisko, dlatego nie ma potrzeby określonego wywołania, takiego jak na platformach mobilnych.

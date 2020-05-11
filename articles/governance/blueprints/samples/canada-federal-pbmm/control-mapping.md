@@ -1,14 +1,14 @@
 ---
 title: Przykładowe kontrolki Federalnej PBMM planu Kanady
 description: Sterowanie mapowaniem przykładowych planów PBMMów federalnych Kanady. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545255"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005709"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Sterowanie mapowaniem przykładu Federal PBMM Canada
 
@@ -57,8 +57,8 @@ Posiadanie tylko jednego właściciela subskrypcji platformy Azure nie pozwala n
 
 - Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli
 - Do subskrypcji powinien być przypisany więcej niż jeden właściciel
-- Inspekcja maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera którykolwiek z określonych elementów członkowskich
-- Inspekcja maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
+- Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera dowolny z określonych elementów członkowskich
+- Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera dowolnego z określonych elementów członkowskich
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
 
@@ -68,8 +68,8 @@ Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../.
 
 - Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli
 - Do subskrypcji powinien być przypisany więcej niż jeden właściciel
-- Inspekcja maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera którykolwiek z określonych elementów członkowskich
-- Inspekcja maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
+- Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera dowolny z określonych elementów członkowskich
+- Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy zawiera dowolnego z określonych elementów członkowskich
 - Wdróż wymagania, aby przeprowadzić inspekcję maszyn wirtualnych z systemem Windows, w których Grupa Administratorzy nie zawiera wszystkich określonych elementów członkowskich
 
@@ -85,7 +85,7 @@ Funkcja odnajdywania i klasyfikowania danych Advanced Data Security dla Azure SQ
 
 Ten plan ułatwia monitorowanie i kontrolowanie dostępu zdalnego przez przypisanie definicji [Azure Policy](../../../policy/overview.md) do monitorowania, że debugowanie zdalne dla Azure App Service aplikacji jest wyłączone. Plan przypisuje również definicje zasad, które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł. Ponadto plan przypisuje definicję Azure Policy, która ułatwia monitorowanie nieograniczonego dostępu do kont magazynu. Monitorowanie tych wskaźników może pomóc zapewnić zgodność metod dostępu zdalnego z zasadami zabezpieczeń.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
 - \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API
@@ -107,7 +107,7 @@ Dane dziennika zbierane przez Azure Monitor są przechowywane w Log Analytics ob
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które monitorują konfiguracje inspekcji i rejestrowania zdarzeń. Monitorowanie tych konfiguracji może zapewnić wskaźnik awarii systemu inspekcji lub błędnej konfiguracji i pomóc w podejmowaniu działań naprawczych.
 
 - Przeprowadzanie inspekcji ustawienia diagnostyki
-- Inspekcja ustawień inspekcji poziomu serwera SQL
+- Inspekcja w programie SQL Server powinna być włączona
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 
@@ -131,7 +131,7 @@ Ten plan pomaga zapewnić, że zdarzenia systemowe są rejestrowane przez przypi
 - \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
 - \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Przeprowadzanie inspekcji ustawienia diagnostyki
-- Inspekcja ustawień inspekcji poziomu serwera SQL
+- Inspekcja w programie SQL Server powinna być włączona
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 - Wdróż zaawansowane zabezpieczenia danych na serwerach SQL
@@ -167,8 +167,8 @@ Ten plan pomaga ograniczyć dostęp uprzywilejowany i kontrolować go, przypisuj
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł i/lub mają ustawione nieprawidłowe uprawnienia w pliku haseł. Ten plan przypisuje również definicje zasad, które przeprowadzają inspekcję konfiguracji typu szyfrowania hasła dla maszyn wirtualnych z systemem Windows. Monitorowanie tych wskaźników pomaga upewnić się, że uwierzytelniające systemu są zgodne z zasadami identyfikacji i uwierzytelniania w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
+- \[Wersja\]zapoznawcza: Wyświetlanie wyników inspekcji z maszyn wirtualnych systemu Linux, które mają konta bez hasła
 - \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
 - \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
 
@@ -176,11 +176,11 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 
 Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Windows, które nie wymuszają minimalnej siły i innych wymagań dotyczących haseł. Świadomość maszyn wirtualnych z naruszeniem zasad dotyczących siły haseł pomaga podejmować działania naprawcze w celu zapewnienia zgodności haseł dla wszystkich kont użytkowników maszyny wirtualnej z zasadami haseł obowiązującymi w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które zezwalają na ponowne korzystanie z poprzednich 24 haseł
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła 70 dni
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez minimalnego wieku hasła wynoszącego 1 dzień
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie mają maksymalnego wieku hasła wynoszącego 70 dni
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie mają minimalnego wieku hasła wynoszącego 1 dzień
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
 - \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
 - \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła wynoszącego 70 dni
 - \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez minimalnej wieku hasła wynoszącej 1 dzień
@@ -217,10 +217,9 @@ Funkcja rozproszonej odmowy usługi (DDoS) platformy Azure oferuje dodatkowe fun
 Ten plan ułatwia zarządzanie granicą systemu i sterowanie nią przez przypisanie definicji [Azure Policy](../../../policy/overview.md) , która monitoruje zalecenia dotyczące ograniczania funkcjonalności sieciowych grup zabezpieczeń w programie Azure Security Center. Azure Security Center analizuje wzorce ruchu maszyn wirtualnych mających dostęp do Internetu i zawiera zalecenia dotyczące reguły sieciowej grupy zabezpieczeń, aby zmniejszyć potencjalną powierzchnię ataku.
 Ponadto ten plan przypisuje również definicje zasad, które monitorują niechronione punkty końcowe, aplikacje i konta magazynu. Punkty końcowe i aplikacje, które nie są chronione przez zaporę, i konta magazynu z nieograniczonym dostępem mogą zezwalać na nieograniczony dostęp do informacji zawartych w systemie informacyjnym.
 
-- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone
+- Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.
 - Dostęp za poorednictwem punktu końcowego połączonego z Internetem powinien być ograniczony
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
-- Reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web w usłudze IaaS powinny być zaostrzone
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) ochrona granic | Punkty dostępu
 
@@ -239,7 +238,7 @@ Dostęp z maszyn wirtualnych just-in-Time (JIT) blokuje ruch przychodzący do ma
 Ten plan pomaga chronić poufne i integralność przesyłanych informacji przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które ułatwiają monitorowanie mechanizmu kryptograficznego zaimplementowanego dla protokołów komunikacyjnych. Zapewnienie, że komunikacja jest prawidłowo zaszyfrowana, może pomóc spełnić wymagania organizacji lub chronić informacje przed nieautoryzowanym ujawnieniem i modyfikacją.
 
 - Aplikacja interfejsu API powinna być dostępna tylko za pośrednictwem protokołu HTTPS
-- Inspekcja serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych
+- Pokaż wyniki inspekcji z serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych
 - Wdróż wymagania w celu inspekcji serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych
 - aplikacja funkcji powinna być dostępna tylko za pośrednictwem protokołu HTTPS
 - Należy włączyć tylko bezpieczne połączenia z Redis Cache

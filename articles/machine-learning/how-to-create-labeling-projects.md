@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231224"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007546"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -138,8 +138,6 @@ W przypadku pól ograniczenia ważne pytania obejmują:
 
 Strona **etykietowania** z pomocąą ml umożliwia wyzwalanie automatycznych modeli uczenia maszynowego w celu przyspieszenia zadania etykietowania. Na początku projektu etykietowania obrazy są ustawiane losowo w kolejności losowej, aby zmniejszyć liczbę potencjalnych odchyleń. Jednak wszelkie bias, które znajdują się w zestawie danych, zostaną odzwierciedlone w modelu przeszkolonym. Na przykład jeśli 80% obrazów ma jedną klasę, wówczas około 80% danych używanych do uczenia modelu będzie tej klasy. To szkolenie nie obejmuje aktywnego uczenia się.
 
-Ta funkcja jest dostępna dla zadań klasyfikacji obrazów (wiele klas lub wieloetykietowe).  
-
 Wybierz opcję *Włącz oznaczenie ml z etykietami* i określ procesor GPU, aby włączyć obsługę etykietowania, która składa się z dwóch faz:
 * Klastrowanie
 * Etykietowanie
@@ -150,13 +148,15 @@ Ponieważ końcowe etykiety nadal opierają się na danych wejściowych z Labele
 
 ### <a name="clustering"></a>Klastrowanie
 
-Po przesłaniu pewnej liczby etykiet model uczenia maszynowego zacznie grupować podobne obrazy.  Te podobne obrazy są prezentowane na etykietach na tym samym ekranie w celu przyspieszenia ręcznego tagowania. Klastrowanie jest szczególnie przydatne, gdy Labeler przegląda siatkę obrazów 4, 6 lub 9. 
+Po przesłaniu pewnej liczby etykiet model uczenia maszynowego dla klasyfikacji obrazów zaczyna grupować podobne obrazy.  Te podobne obrazy są prezentowane na etykietach na tym samym ekranie w celu przyspieszenia ręcznego tagowania. Klastrowanie jest szczególnie przydatne, gdy Labeler przegląda siatkę obrazów 4, 6 lub 9. 
 
 Gdy model uczenia maszynowego został przeszkolony na ręcznie oznaczonych danych, model zostanie obcięty do jego ostatniej w pełni połączonej warstwy. Obrazy bez etykiet są następnie przenoszone przez obcięty model w procesie powszechnie znanym jako "osadzanie" lub "cechowania". Spowoduje to osadzenie każdego obrazu w miejscu o dużej wymiarze zdefiniowanym przez tę warstwę modelu. Obrazy, które są najbliższe sąsiadów w miejscu, są używane na potrzeby zadań związanych z klastrowaniem. 
 
+Faza klastrowania nie jest wyświetlana dla modeli wykrywania obiektów.
+
 ### <a name="prelabeling"></a>Etykietowanie
 
-Po przesłaniu większej liczby etykiet obrazu model klasyfikacji jest używany do przewidywania tagów obrazu.  Labeler teraz widzi strony, które zawierają przewidywane etykiety, które znajdują się już w każdym obrazie.  Następnie zadanie to przegląda te etykiety i poprawia wszystkie nieoznaczone obrazy przed przesłaniem strony.  
+Po przesłaniu wystarczającej liczby etykiet obrazu model klasyfikacji jest używany do przewidywania tagów obrazu. Lub model wykrywania obiektów służy do przewidywania pól ograniczenia. Labeler teraz widzi strony, które zawierają przewidywane etykiety, które znajdują się już w każdym obrazie. W przypadku wykrywania obiektów wyświetlane są również pola predykcyjne. Zadanie jest następnie, aby przejrzeć te przewidywania i skorygować wszystkie nieoznaczone obrazy przed przesłaniem strony.  
 
 Po przeszkoleniu modelu uczenia maszynowego na ręcznie etykietowanych danych model jest oceniany na zestawie testów z ręcznie oznaczonymi obrazami, aby określić jego dokładność na różnych różnych progach ufności. Ten proces oceny jest używany do określenia progu pewności, powyżej którego model jest wystarczająco dokładny, aby pokazać etykietki wstępne. Model jest następnie oceniany pod kątem braku etykietowania danych. Obrazy z przewidywaniami bardziej wątpliwości niż ten próg są używane do wstępnego etykietowania.
 

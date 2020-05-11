@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5ebd29b5fb6fdedcdfbc434209b350512c4cd5dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77657311"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006111"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Omówienie usługi Azure Spatial Anchors
 
@@ -26,7 +26,7 @@ Te dokładne punkty orientacyjne są określane jako kotwice przestrzenne.
 
 Przykładowe przypadki użycia możliwe dzięki zastosowaniu usługi Spatial Anchors obejmują:
 
-- [Środowiska z wieloma użytkownikami](tutorials/tutorial-share-anchors-across-devices.md). Usługa Spatial Anchors ułatwia osobom w tym samym miejscu wzięcie udziału w aplikacjach rzeczywistości mieszanej dla wielu użytkowników. Na przykład dwie osoby mogą uruchomić grę w szachy w rzeczywistości mieszanej, umieszczając wirtualną szachownicę na stole. Następnie, nakierowując swoje urządzenia na stół, mogą wspólnie wyświetlać i wchodzić w interakcje z wirtualną szachownicą.
+- [Środowiska z wieloma użytkownikami](tutorials/tutorial-share-anchors-across-devices.md). Kotwice przestrzenne platformy Azure ułatwiają osobom w tym samym miejscu uczestnictwo w aplikacjach rzeczywistości mieszanej o różnych użytkownikach. Na przykład dwie osoby mogą uruchomić grę w szachy w rzeczywistości mieszanej, umieszczając wirtualną szachownicę na stole. Następnie, nakierowując swoje urządzenia na stół, mogą wspólnie wyświetlać i wchodzić w interakcje z wirtualną szachownicą.
 
 - [Znajdowanie drogi](concepts/anchor-relationships-way-finding.md). Deweloperzy mogą także łączyć kotwice przestrzenne, tworząc między nimi relacje. Na przykład aplikacja może obejmować środowisko z co najmniej dwoma punktami orientacyjnymi, z którymi użytkownik musi wejść w interakcję, aby ukończyć zadanie. Te punkty orientacyjne mogą być tworzone jako połączone. Później, gdy użytkownik wykonuje zadanie wieloetapowe, aplikacja może zapytać o kotwice znajdujące się w pobliżu bieżącej kotwicy, aby skierować użytkownika do następnego kroku w zadaniu.
 
@@ -36,7 +36,7 @@ Usługa Azure Spatial Anchors składa się z usługi zarządzanej i zestawów SD
 
 ## <a name="next-steps"></a>Następne kroki
 
-Tworzenie pierwszej aplikacji z użyciem usługi Spatial Anchors.
+Utwórz swoją pierwszą aplikację z zakotwiczeniami przestrzennymi platformy Azure.
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)

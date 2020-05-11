@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76844891"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004472"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Często zadawane pytania dotyczące usługi Azure Spatial Anchors
 
@@ -49,6 +49,10 @@ Odp **.:** Czas wymagany do tworzenia i lokalizowania kotwic zależy od wielu cz
 
 Odp **.:** Kotwice są izolowane według konta platformy Azure. Tylko aplikacje, dla których przyznano dostęp do Twojego konta, będą mogły uzyskać dostęp do kotwic w ramach tego konta.
 
+**P: jak kotwice przestrzenne platformy Azure przechowują dane?**
+
+Odp **.:** Wszystkie dane są przechowywane w postaci zaszyfrowanej przy użyciu klucza szyfrowania danych zarządzanych przez firmę Microsoft.
+
 **P: jakie informacje o środowisku są przesyłane i przechowywane w usłudze przy użyciu kotwic przestrzennych platformy Azure? Czy obrazy środowiska są przesyłane i przechowywane?**
 
 Odp **.: podczas**tworzenia lub lokalizowania kotwic obrazy środowiska są przetwarzane na urządzeniu w formacie pochodnym. Ten format pochodny jest przesyłany i przechowywany w ramach usługi.
@@ -59,7 +63,6 @@ Usługa Azure Spatial Anchors jest zgodna z [postanowieniami umowy serwisowej pl
 
 ![Środowisko i jej pochodny chmurowy](./media/sparse-point-cloud.png)
 punkt na*rysunku 1: środowisko i jego pochodna Chmura punktów rozrzedzonych*
-
 
 **P: Czy można wysyłać informacje diagnostyczne do firmy Microsoft?**
 

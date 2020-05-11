@@ -1,14 +1,14 @@
 ---
 title: Wdróż & oficjalne przykłady planu NHS w Wielkiej Brytanii
 description: Wdróż kroki dla przykładów planów NHS publicznego i ZJEDNOCZONEgo Królestwa BRYTYJSKIego, w tym szczegóły parametrów artefaktu.
-ms.date: 06/26/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 3d69f4477163618aa225150ac6352a16e901f826
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7fa78eab463c9a3202b2ec08e1952e275e51b20d
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546395"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005587"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Wdróż przykłady planów NHS z OFICJALNymi i ZJEDNOCZONYmi Królestwem Zjednoczonego Królestwa
 

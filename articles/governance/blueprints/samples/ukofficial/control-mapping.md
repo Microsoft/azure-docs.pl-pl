@@ -1,14 +1,14 @@
 ---
 title: '& oficjalne kontrolki przykładowe planów NHS w Wielkiej Brytanii'
 description: Kontrolowanie mapowania przykładowych OFICJALNych i BRYTYJSKIch planów NHS. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851370"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005614"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontrolowanie mapowania przykładowych OFICJALNych i BRYTYJSKIch planów NHS w Wielkiej Brytanii
 
@@ -27,9 +27,6 @@ Plan pomaga zapewnić, że transfer informacji w ramach usług platformy Azure j
 - Należy włączyć bezpieczny transfer na konta magazynu
 - Pokaż wyniki inspekcji z serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych
 - Wdróż wymagania wstępne w celu inspekcji serwerów sieci Web systemu Windows, które nie używają bezpiecznych protokołów komunikacyjnych
-- Najnowsza wersja protokołu TLS powinna być używana w aplikacji interfejsu API
-- Najnowsza wersja protokołu TLS powinna być używana w aplikacji sieci Web
-- Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
 
 ## <a name="23-data-at-rest-protection"></a>2,3 danych w ramach ochrony REST
 
@@ -129,8 +126,8 @@ Ten plan pomaga również kontrolować dostęp do zasobów platformy Azure, przy
 
 - \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
 - \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja\]zapoznawcza: Wyświetlanie wyników inspekcji z maszyn wirtualnych systemu Linux, które mają konta bez hasła
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
 - Konta magazynu należy migrować do nowych zasobów Azure Resource Manager
 - Maszyny wirtualne należy migrować do nowych zasobów Azure Resource Manager
 - Inspekcja maszyn wirtualnych, które nie korzystają z dysków zarządzanych
@@ -141,12 +138,10 @@ W przypadku korzystania z więcej niż 25 zasad do odpowiedniego zarządzania be
 
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji
-- Reguły sieciowych grup zabezpieczeń dla aplikacji sieci Web w usłudze IaaS powinny być zaostrzone
 - Dostęp za poorednictwem punktu końcowego połączonego z Internetem powinien być ograniczony
-- Reguły sieciowej grupy zabezpieczeń dla maszyn wirtualnych mających dostęp do Internetu powinny być zaostrzone
+- Zalecane zalecenia dotyczące ograniczania przepustowości sieci powinny być stosowane w przypadku maszyn wirtualnych mających dostęp do Internetu.
 - Rozwiązanie Endpoint Protection powinno być zainstalowane w zestawach skalowania maszyn wirtualnych
 - Kontrola dostępu do sieci just-in-time powinna być stosowana na maszynach wirtualnych
-- Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji
 - Zdalne debugowanie powinno zostać wyłączone dla aplikacji sieci Web
 - Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API
@@ -179,13 +174,13 @@ Ten plan przypisuje również definicje Azure Policy do kont inspekcji, dla któ
 
 Ten plan przypisuje również definicję Azure Policy, która przeprowadza inspekcję uprawnień pliku hasła maszyny wirtualnej systemu Linux do alertu, jeśli są ustawione nieprawidłowo. Ten projekt umożliwia podejmowanie działań naprawczych w celu zapewnienia, że uwierzytelniające nie zostały naruszone.
 
-- \[Wersja\]zapoznawcza: Inspekcja pliku/etc/passwd maszyny wirtualnej z systemem Linux jest ustawiona na 0644
+- \[Wersja\]zapoznawcza: Pokaż wyniki inspekcji z maszyn wirtualnych systemu Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
 
 ## <a name="13-audit-information-for-users"></a>13 informacji o inspekcji dla użytkowników
 
 Ten plan pomaga zapewnić, że zdarzenia systemowe są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które Przeprowadź inspekcję ustawień dziennika w zasobach platformy Azure. Przypisane zasady również przeprowadzają inspekcję, jeśli maszyny wirtualne nie wysyłają dzienników do określonego obszaru roboczego usługi log Analytics.
 
-- Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
+- Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 - \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
 - \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows

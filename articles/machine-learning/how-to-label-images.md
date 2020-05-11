@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204325"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007520"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania
 
@@ -65,11 +65,13 @@ Po przesłaniu tagów dla danych, platforma Azure Odświeża stronę nowym zesta
 
 ### <a name="assisted-machine-learning"></a>Uczenie maszynowe z asystą 
 
-Algorytmy uczenia maszynowego mogą być wyzwalane podczas zadania klasyfikacji wieloklasowej lub wieloetykietowej. Jeśli te algorytmy są włączone w projekcie, mogą pojawić się następujące elementy:
+Mogą zostać wyzwolone algorytmy uczenia maszynowego. Jeśli te algorytmy są włączone w projekcie, mogą pojawić się następujące elementy:
 
 * Po oznaczeniu pewnej ilości obrazów można zobaczyć **zadania klastrowane** w górnej części ekranu obok nazwy projektu.  Oznacza to, że obrazy są pogrupowane w taki sposób, aby przedstawić podobne obrazy na tej samej stronie.  Jeśli tak, przejdź do jednego z widoków wielu obrazów, aby skorzystać z grupowania.  
 
 * W późniejszym czasie można zobaczyć, jakie **zadania są oznaczone** obok nazwy projektu.  Następnie zostaną wyświetlone obrazy z sugerowaną etykietą, która pochodzi z modelu klasyfikacji uczenia maszynowego. Żaden model uczenia maszynowego nie ma dokładności do 100%. Chociaż używamy tylko obrazów, dla których model jest pewny, te obrazy mogą nadal być nieprawidłowo oznaczone etykietami.  Gdy zobaczysz te etykiety, Popraw wszelkie niewłaściwe etykiety przed przesłaniem strony.  
+
+* W przypadku modeli wykrywania obiektów mogą pojawić się pola ograniczenia i etykiety już obecne.  Popraw te, które są nieprawidłowe przed przesłaniem strony.
 
 W szczególności przede wszystkim w projekcie etykietowania model uczenia maszynowego może być wystarczająco dokładny tylko, aby można było oznaczyć mały podzestaw obrazów. Gdy te obrazy są oznaczone etykietami, projekt etykietowania powróci do ręcznego etykietowania, aby zebrać więcej danych dla następnej rundy szkolenia modeli. W miarę upływu czasu model będzie bardziej wiedział o większej liczbie obrazów, co spowodowało bardziej szczegółowe zadanie zadań w dalszej części projektu.
 
