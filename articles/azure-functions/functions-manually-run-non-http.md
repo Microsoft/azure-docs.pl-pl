@@ -3,14 +3,14 @@ title: Ręczne uruchamianie usługi Azure Functions niewyzwalanej przez protokó
 description: Uruchamianie usługi Azure Functions niewyzwalanej przez protokół HTTP za pomocą żądania HTTP
 author: craigshoemaker
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892363"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121787"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Ręczne uruchamianie funkcji niewyzwalanej przez protokół HTTP
 
@@ -37,11 +37,17 @@ Ta lokalizacja żądania w narzędziu Postman wraz z kluczem głównym funkcji w
 
 ## <a name="get-the-functions-master-key"></a>Uzyskiwanie klucza głównego funkcji
 
-Przejdź do funkcji w witrynie Azure Portal, kliknij pozycję **Zarządzaj** i znajdź sekcję **Klucze hosta**. Kliknij przycisk **Kopiuj** w wierszu *_master*, aby skopiować klucz główny do schowka.
+1. Przejdź do funkcji w Azure Portal i wybierz pozycję **klawisze funkcyjne**. Następnie wybierz klucz funkcji, który chcesz skopiować. 
 
-![Kopiowanie klucza głównego z ekranu Zarządzanie funkcjami](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Zlokalizuj klucz główny, który ma zostać skopiowany." border="true":::
 
-Po skopiowaniu klucza głównego kliknij nazwę funkcji, aby wrócić do okna pliku kodu. Następnie kliknij kartę **dzienniki** . W przypadku ręcznego uruchomienia funkcji z poziomu programu post zostaną wyświetlone komunikaty z funkcji zarejestrowanej w tym miejscu.
+1. W sekcji **Edytuj klucz** skopiuj wartość klucza do schowka, a następnie wybierz przycisk **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Skopiuj klucz główny do Schowka." border="true":::
+
+1. Po skopiowaniu klucza *_master* wybierz pozycję **Kod + test**, a następnie wybierz pozycję **dzienniki**. Zostaną wyświetlone komunikaty z funkcji rejestrowane w tym miejscu po ręcznym uruchomieniu funkcji z narzędzia Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Wyświetl dzienniki, aby wyświetlić wyniki testu klucza głównego." border="true":::
 
 > [!CAUTION]  
 > Ze względu na podwyższony poziom uprawnień w aplikacji funkcji przyznany przez klucz główny nie należy udostępniać tego klucza osobom trzecim ani rozpowszechniać go w aplikacji.
@@ -51,27 +57,27 @@ Po skopiowaniu klucza głównego kliknij nazwę funkcji, aby wrócić do okna pl
 Otwórz narzędzie Postman i wykonaj następujące kroki:
 
 1. Wprowadź **lokalizację żądania w polu tekstowym adresu URL**.
-2. Upewnij się, że jako metodę HTTP ustawiono wartość **POST**.
-3. **Kliknij** kartę **Nagłówki**.
-4. Wprowadź **x-functions-key** jako pierwszy **klucz** i wklej klucz główny (ze schowka) w polu **wartości**.
-5. Wprowadź **Content-Type** jako drugi **klucz** i wprowadź **application/json** jako **wartość**.
+1. Upewnij się, że jako metodę HTTP ustawiono wartość **POST**.
+1. Wybierz kartę **nagłówki** .
+1. Wpisz **x-Functions-Key** jako pierwszy klucz i Wklej klucz główny (ze schowka) jako wartość.
+1. Wpisz typ **Content-Type** jako drugi klucz i wpisz wartość w polu **Application/JSON** .
 
-    ![Ustawienia nagłówków narzędzia Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Ustawienia nagłówków wpisów." border="true":::
 
-6. **Kliknij** kartę **Treść**.
-7. Wprowadź **{ "input": "test" }** jako treść żądania.
+1. Wybierz kartę **Treść**.
+1. Wpisz **{"Input": "test"}** jako treść żądania.
 
-    ![Ustawienia treści narzędzia Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Ustawienia treści wpisu." border="true":::
 
-8. Kliknij pozycję **Wyślij**.
+1. Wybierz pozycję **Wyślij**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Wyślij żądanie przy użyciu programu Poster." border="true":::
 
-    ![Wysyłanie żądania za pomocą narzędzia Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    Narzędzie Postman zgłosi stan **202 Zaakceptowano**.
 
-Narzędzie Postman zgłosi stan **202 Zaakceptowano**.
+1. Następnie wróć do swojej funkcji w witrynie Azure Portal. Przejrzyj dzienniki i zobaczysz komunikaty pochodzące z ręcznego wywołania funkcji.
 
-Następnie wróć do swojej funkcji w witrynie Azure Portal. Znajdź okno *Dzienniki*, aby zobaczyć komunikaty pochodzące z ręcznego wywołania funkcji.
-
-![Wyniki dziennika funkcji z ręcznego wywołania](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Wyświetl dzienniki, aby wyświetlić wyniki testu klucza głównego." border="true":::
 
 ## <a name="next-steps"></a>Następne kroki
 
