@@ -1,24 +1,30 @@
 ---
-title: Włącz usuwanie nietrwałe dla obiektów BLOB
+title: Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 titleSuffix: Azure Storage
 description: Włącz nietrwałe usuwanie obiektów BLOB w celu łatwiejszego odzyskiwania danych po ich błędnym zmodyfikowaniu lub usunięciu.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884685"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120117"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Włącz usuwanie nietrwałe dla obiektów BLOB
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
-Poniższe kroki pokazują, jak rozpocząć pracę z usuwaniem nietrwałym.
+Usuwanie nietrwałe chroni dane obiektów BLOB przed przypadkowym lub błędnym modyfikacją lub usunięciem. Po włączeniu usuwania nietrwałego dla konta magazynu obiekty blob, wersje obiektów BLOB (wersja zapoznawcza) i migawki na tym koncie magazynu mogą zostać odzyskane po ich usunięciu w okresie przechowywania, który określisz.
+
+Jeśli istnieje możliwość, że dane mogą zostać przypadkowo zmodyfikowane lub usunięte przez aplikację lub innego użytkownika konta magazynu, firma Microsoft zaleca włączenie usuwania nietrwałego.
+
+W tym artykule pokazano, jak rozpocząć pracę z niemiękkim usuwaniem.
+
+## <a name="enable-soft-delete"></a>Włączanie usuwania nietrwałego
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -60,7 +66,7 @@ Po cofnięciu usunięcia migawek obiektu BLOB można kliknąć pozycję **Podwy�
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 Można sprawdzić, czy usuwanie nietrwałe zostało włączone przy użyciu następującego polecenia:
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>Następne kroki
+
+- [Usuwanie nietrwałe dla magazynu obiektów BLOB](soft-delete-overview.md)
+- [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)

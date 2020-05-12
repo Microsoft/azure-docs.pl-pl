@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183470"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118468"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria klas, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.
@@ -124,16 +124,16 @@ Po rozpoczęciu pracy z Azure Lab Services zalecamy ustanowienie konwencji nazew
 
 | Typ zasobu | Rola | Sugerowany wzorzec | Przykłady |
 | ------------- | ---- | ----------------- | -------- | 
-| Grupa zasobów | Zawiera jedno lub więcej kont laboratorium i jedną lub więcej udostępnionych galerii obrazów | \<\>-\<środowisko\>krótkiej nazwy organizacji — RG<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**RG** oznacza typ zasobu: Grupa zasobów.</li></ul> | contosouniversitylabs — RG<br/>contosouniversitylabs-pilotaż-RG<br/>contosouniversitylabs — prod-RG |
-| Konto laboratorium | Zawiera co najmniej jedną Labs | \<\>-\<środowisko\>krótkiej nazwy organizacji — La<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**La** oznacza typ zasobu: konto laboratorium.</li></ul> | contosouniversitylabs — La<br/>mathdeptlabs — La<br/>sciencedeptlabs-pilotaż-La<br/>sciencedeptlabs — prod-La |
-| Laboratorium zajęć | Zawiera co najmniej jedną maszynę wirtualną |\<\>\>-\<identyfikator klasy\<-czasu nauczycieli\><ul><li>**Nazwa klasy** identyfikuje nazwę klasy obsługiwanej przez laboratorium.</li><li>**Przedział czasu** określa przedział czasu, w którym jest oferowana Klasa.</li>**Identyfikator edukacji** identyfikuje nauczycieli, który jest właścicielem laboratorium.</li></ul> | CS1234-fall2019-jankowalski<br/>CS1234-spring2019-jankowalski |
-| Galeria obrazów udostępnionych | Zawiera co najmniej jedną wersję obrazu maszyny wirtualnej | \<Galeria krótkich\>nazw organizacji | contosouniversitylabsgallery |
+| Grupa zasobów | Zawiera jedno lub więcej kont laboratorium i jedną lub więcej udostępnionych galerii obrazów | \<środowisko krótkiej nazwy organizacji \> - \< \> — RG<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**RG** oznacza typ zasobu: Grupa zasobów.</li></ul> | contosouniversitylabs — RG<br/>contosouniversitylabs-pilotaż-RG<br/>contosouniversitylabs — prod-RG |
+| Konto laboratorium | Zawiera co najmniej jedną Labs | \<środowisko krótkiej nazwy organizacji \> - \< \> — La<ul><li>**Krótka nazwa organizacji** określa nazwę organizacji obsługiwaną przez grupę zasobów</li><li>**Środowisko** identyfikuje środowisko dla zasobu, na przykład pilotażowy lub produkcyjny</li><li>**La** oznacza typ zasobu: konto laboratorium.</li></ul> | contosouniversitylabs — La<br/>mathdeptlabs — La<br/>sciencedeptlabs-pilotaż-La<br/>sciencedeptlabs — prod-La |
+| Laboratorium zajęć | Zawiera co najmniej jedną maszynę wirtualną |\<Identyfikator klasy \> - \< przedziału czasu \> - \< nauczycieli\><ul><li>**Nazwa klasy** identyfikuje nazwę klasy obsługiwanej przez laboratorium.</li><li>**Przedział czasu** określa przedział czasu, w którym jest oferowana Klasa.</li>**Identyfikator edukacji** identyfikuje nauczycieli, który jest właścicielem laboratorium.</li></ul> | CS1234-fall2019-jankowalski<br/>CS1234-spring2019-jankowalski |
+| Galeria obrazów udostępnionych | Zawiera co najmniej jedną wersję obrazu maszyny wirtualnej | \<Galeria krótkich nazw organizacji \> | contosouniversitylabsgallery |
 
 Aby uzyskać więcej informacji na temat nazewnictwa innych zasobów platformy Azure, zobacz [konwencje nazewnictwa dla zasobów platformy Azure](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="regionslocations"></a>Regions\locations
 
-Podczas konfigurowania zasobów Azure Lab Services "wymagane jest podanie regionu (lub lokalizacji) centrum danych, które będzie hostować zasób. Poniżej znajdują się szczegółowe informacje o tym, w jaki sposób region ma wpływ na każde z zasobów zamieszczonych w celu skonfigurowania laboratorium.
+Podczas konfigurowania zasobów Azure Lab Services "wymagane jest podanie regionu (lub lokalizacji) centrum danych, które będzie hostować zasób. Poniżej znajdują się szczegółowe informacje o tym, jak region ma wpływ na wszystkie zasoby, które są wykorzystywane podczas konfigurowania laboratorium.
 
 ### <a name="resource-group"></a>Grupa zasobów
 

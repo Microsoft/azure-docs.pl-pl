@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
-ms.translationtype: HT
+ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007470"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119896"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -65,7 +65,6 @@ Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierar
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Obsługa systemu plików w zestawach SDK, programie PowerShell i interfejsie wiersza polecenia platformy Azure
 
 - Operacje pobierania i ustawiania listy ACL nie są obecnie cykliczne.
-- Obsługa [interfejsu wiersza polecenia platformy Azure](data-lake-storage-directory-file-acl-cli.md) jest w publicznej wersji zapoznawczej.
 
 
 ## <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia

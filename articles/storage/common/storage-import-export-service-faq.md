@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8af4cafb2c7ab4d39a591f5972803161c2aa0f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519482"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120389"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Usługa Azure Import/Export: często zadawane pytania
 
@@ -109,7 +109,7 @@ Po zakończeniu przekazywania proces zwracania dysków na adres międzynarodowy 
 
 Wymagania te zależą od konkretnych ograniczeń centrum danych platformy Azure.
 
-- Istnieje kilka witryn, takich jak Australia, Niemcy i Południowe Zjednoczone Królestwo, które wymagają, aby numer przychodzący Microsoft centrum danych został zapisany w parceli ze względów bezpieczeństwa. Przed dostarczeniem dysków lub dysków do centrum danych skontaktuj się z pomocą techniczną Azureadbops@microsoft.comDataBox Operations (), aby uzyskać tę liczbę. Bez tej liczby pakiet zostanie odrzucony.
+- Istnieje kilka witryn, takich jak Australia, Niemcy i Południowe Zjednoczone Królestwo, które wymagają, aby numer przychodzący Microsoft centrum danych został zapisany w parceli ze względów bezpieczeństwa. Przed dostarczeniem dysków lub dysków do centrum danych skontaktuj się z pomocą techniczną Azure DataBox Operations ( adbops@microsoft.com ), aby uzyskać tę liczbę. Bez tej liczby pakiet zostanie odrzucony.
 - Centra danych w Indiach wymagają szczegółowych informacji o sterowniku, takich jak karta identyfikatora instytucji rządowych lub numer dowodu. (na przykład PANORAMowanie, AADHAR, DL), imię i nazwisko, kontakt i numer płyty samochodu, aby przejść do wpisu bramy. Aby uniknąć opóźnień dostarczania, należy poinformować przewoźnika o tych wymaganiach.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Podczas tworzenia zadania adres wysyłkowy jest lokalizacją inną niż lokalizacja konta magazynu. Co mam zrobić?
@@ -153,7 +153,7 @@ Nie. Narzędzie WAImportExport jest zgodne tylko z 64-bitowymi systemami operacy
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Czy usługa Azure Import/Export obsługuje szyfrowanie AES-256?
 
-Nie. Usługa Azure Import/Export korzysta z szyfrowania AES-128 funkcji BitLocker.
+Tak. Usługa Azure Import/Export korzysta z szyfrowania AES-256 funkcji BitLocker.
 
 ## <a name="next-steps"></a>Następne kroki
 

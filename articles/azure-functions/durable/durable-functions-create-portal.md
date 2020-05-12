@@ -2,14 +2,14 @@
 title: Tworzenie Durable Functions przy użyciu Azure Portal
 description: Dowiedz się, jak zainstalować rozszerzenie Durable Functions dla Azure Functions do tworzenia aplikacji w portalu.
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769646"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120158"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Tworzenie Durable Functions przy użyciu Azure Portal
 
@@ -30,17 +30,19 @@ Domyślnie utworzona aplikacja funkcji używa wersji 2. x środowiska uruchomien
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Instalowanie pakietu npm o trwałych funkcjach (tylko kod JavaScript)
 
-W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `durable-functions` pakiet npm](https://www.npmjs.com/package/durable-functions).
+W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `durable-functions` pakiet npm](https://www.npmjs.com/package/durable-functions):
 
-1. Wybierz nazwę aplikacji funkcji, a następnie pozycję **funkcje platformy**, a następnie **Narzędzia zaawansowane (kudu)**.
+1. Na stronie aplikacji funkcji wybierz pozycję **Narzędzia zaawansowane** w obszarze **Narzędzia programistyczne** w okienku po lewej stronie.
 
-   ![Funkcje platformy funkcji wybierz kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Funkcje platformy funkcji wybierz kudu":::
 
-2. W konsoli kudu wybierz pozycję **konsola debugowania** , a następnie polecenie **cmd**.
+2. Na stronie **Narzędzia zaawansowane** wybierz pozycję **Przejdź**.
 
-   ![Konsola debugowania kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+3. W konsoli kudu wybierz pozycję **konsola debugowania**, a następnie polecenie **cmd**.
 
-3. Struktura katalogu plików aplikacji funkcji powinna być wyświetlana. Przejdź do folderu `site/wwwroot`. W tym miejscu możesz przekazać `package.json` plik, przeciągając go i upuszczając do okna katalogu plików. Poniżej przedstawiono `package.json` przykład:
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Konsola debugowania kudu":::
+
+3. Struktura katalogu plików aplikacji funkcji powinna być wyświetlana. Przejdź do folderu `site/wwwroot`. W tym miejscu możesz przekazać plik, `package.json` przeciągając go i upuszczając do okna katalogu plików. Poniżej przedstawiono przykład `package.json` :
 
     ```json
     {
@@ -50,37 +52,31 @@ W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `dura
     }
     ```
 
-   ![Kudu Przekaż plik Package. JSON](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu Przekaż plik Package. JSON":::
 
-4. `package.json` Po przekazaniu należy uruchomić `npm install` polecenie z konsoli wykonywania zdalnego kudu.
+4. Po `package.json` przekazaniu należy uruchomić `npm install` polecenie z konsoli wykonywania zdalnego kudu.
 
    ![Kudu Uruchom instalację npm](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Tworzenie funkcji programu Orchestrator
 
-1. Rozwiń aplikację funkcji i kliknij **+** przycisk obok pozycji **funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **W portalu**, a następnie opcję **Kontynuuj**. W przeciwnym razie przejdź do kroku trzeciego.
+1. W aplikacji funkcji wybierz pozycję **funkcje** w okienku po lewej stronie, a następnie wybierz pozycję **Dodaj** z górnego menu. 
 
-   ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+1. W polu wyszukiwania na stronie **Nowa funkcja** wprowadź `durable` , a następnie wybierz szablon **Durable Functions http Starter** .
 
-1. Wybierz pozycję **Więcej szablonów**, a następnie pozycję **Zakończ i wyświetl szablony**.
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Wybierz Durable Functions HTTP Starter":::
 
-    ![Wybieranie pozycji Więcej szablonów w przewodniku Szybki start usługi Functions](./media/durable-functions-create-portal/add-first-function.png)
+1. Dla **nowej nazwy funkcji** wprowadź wartość `HttpStart` , a następnie wybierz pozycję **Utwórz funkcję**.
 
-1. W polu wyszukiwania wpisz `durable` , a następnie wybierz szablon **Durable Functions http Starter** .
+   Utworzona funkcja jest używana do uruchomienia aranżacji.
 
-1. Po wyświetleniu monitu wybierz pozycję **Zainstaluj** , aby zainstalować rozszerzenie Azure DurableTask i wszystkie zależności w aplikacji funkcji. Dla danej aplikacji funkcji wystarczy zainstalować rozszerzenie tylko raz. Po pomyślnym zakończeniu instalacji wybierz pozycję **Kontynuuj**.
+1. Utwórz kolejną funkcję w aplikacji funkcji, tym razem używając szablonu **Durable Functions Orchestrator** . Nazwij nową funkcję aranżacji `HelloSequence` .
 
-    ![Instalowanie rozszerzeń powiązania](./media/durable-functions-create-portal/install-durabletask-extension.png)
-
-1. Po zakończeniu instalacji Nazwij nową funkcję `HttpStart` i wybierz pozycję **Utwórz**. Utworzona funkcja jest używana do uruchomienia aranżacji.
-
-1. Utwórz kolejną funkcję w aplikacji funkcji, tym razem używając szablonu **Durable Functions Orchestrator** . Nazwij nową funkcję `HelloSequence`aranżacji.
-
-1. Utwórz trzecią funkcję o `Hello` nazwie przy użyciu szablonu **działania Durable Functions** .
+1. Utwórz trzecią funkcję o nazwie przy `Hello` użyciu szablonu **działania Durable Functions** .
 
 ## <a name="test-the-durable-function-orchestration"></a>Testowanie aranżacji funkcji trwałych
 
-1. Wróć do funkcji **HttpStart** , wybierz pozycję **</> Pobierz adres URL funkcji** i **Skopiuj** adres URL. Ten adres URL jest używany do uruchamiania funkcji **HelloSequence** .
+1. Wróć do funkcji **HttpStart** , wybierz pozycję **Pobierz adres URL funkcji**i wybierz ikonę **Kopiuj do schowka** , aby skopiować adres URL. Ten adres URL jest używany do uruchamiania funkcji **HelloSequence** .
 
 1. Użyj narzędzia HTTP, takiego jak Poster lub zwinięcie, aby wysłać żądanie POST do skopiowanego adresu URL. Poniższy przykład jest poleceniem zwinięcie, które wysyła żądanie POST do funkcji trwałej:
 
@@ -100,7 +96,7 @@ W przypadku tworzenia Durable Functions JavaScript należy zainstalować [ `dura
     }
     ```
 
-1. Wywołaj `statusQueryGetUri` identyfikator URI punktu końcowego i zobaczysz bieżący stan funkcji trwałej, która może wyglądać podobnie do tego przykładu:
+1. Wywołaj `statusQueryGetUri` Identyfikator URI punktu końcowego i zobaczysz bieżący stan funkcji trwałej, która może wyglądać podobnie do tego przykładu:
 
     ```json
         {

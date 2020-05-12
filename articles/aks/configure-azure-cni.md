@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować usługę Azure CNI (Advanced) Netw
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207500"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120933"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurowanie sieci Azure CNI w usłudze Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ W tym artykule pokazano, jak za pomocą *usługi Azure CNI* Networking utworzyć
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Sieć wirtualna klastra AKS musi zezwalać na wychodzącą łączność z Internetem.
-* Klastry AKS nie mogą `169.254.0.0/16`używać `172.30.0.0/16`zakresu `172.31.0.0/16`adresów usługi `192.0.2.0/24` Kubernetes,,, ani.
+* Klastry AKS nie mogą `169.254.0.0/16` używać `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` zakresu adresów usługi Kubernetes,,, ani.
 * Nazwa główna usługi używana przez klaster AKS musi mieć co najmniej uprawnienia [współautora sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -38,10 +38,10 @@ Adresy IP dla i węzły klastra są przypisywane z określonej podsieci w sieci 
 > [!IMPORTANT]
 > Wymagana liczba adresów IP powinna obejmować zagadnienia dotyczące operacji uaktualniania i skalowania. Jeśli zakres adresów IP zostanie ustawiony tak, aby obsługiwał stałą liczbę węzłów, nie można uaktualnić ani skalować klastra.
 >
-> - Po **uaktualnieniu** klastra AKS do klastra jest wdrażany nowy węzeł. Usługi i obciążenia zaczynają działać w nowym węźle, a z klastra jest usuwany starszy węzeł. Ten proces uaktualniania stopniowego wymaga, aby był dostępny co najmniej jeden dodatkowy blok adresów IP. Liczba węzłów jest następnie `n + 1`.
+> - Po **uaktualnieniu** klastra AKS do klastra jest wdrażany nowy węzeł. Usługi i obciążenia zaczynają działać w nowym węźle, a z klastra jest usuwany starszy węzeł. Ten proces uaktualniania stopniowego wymaga, aby był dostępny co najmniej jeden dodatkowy blok adresów IP. Liczba węzłów jest następnie `n + 1` .
 >   - Jest to szczególnie ważne w przypadku używania pul węzłów systemu Windows Server. W węzłach systemu Windows Server w programie AKS nie są automatycznie stosowane aktualizacje systemu Windows, zamiast tego należy przeprowadzić uaktualnienie w puli węzłów. To uaktualnienie wdraża nowe węzły z najnowszym obrazem podstawowego węzła systemu Windows Server 2019 i poprawkami zabezpieczeń. Aby uzyskać więcej informacji na temat uaktualniania puli węzłów systemu Windows Server, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 >
-> - Podczas **skalowania** klastra AKS nowy węzeł jest wdrażany w klastrze. Usługi i obciążenia zaczynają działać w nowym węźle. Zakres adresów IP należy wziąć pod uwagę, w jaki sposób można skalować liczbę węzłów i określić, jak może być obsługiwany klaster. Należy również uwzględnić jeden dodatkowy węzeł operacji uaktualniania. Liczba węzłów jest następnie `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+> - Podczas **skalowania** klastra AKS nowy węzeł jest wdrażany w klastrze. Usługi i obciążenia zaczynają działać w nowym węźle. Zakres adresów IP należy wziąć pod uwagę, w jaki sposób można skalować liczbę węzłów i określić, jak może być obsługiwany klaster. Należy również uwzględnić jeden dodatkowy węzeł operacji uaktualniania. Liczba węzłów jest następnie `n + number-of-additional-scaled-nodes-you-anticipate + 1` .
 
 Jeśli oczekujesz, że węzły mają uruchamiać maksymalną liczbę zasobników i regularnie zniszczą i wdrażają stawki, należy również wziąć pod uwagę pewne dodatkowe adresy IP na węzeł. Te dodatkowe adresy IP należy wziąć pod uwagę, ponieważ usunięcie usługi może potrwać kilka sekund, a adres IP dla nowej usługi zostanie wdrożony i uzyskać adres.
 
@@ -67,7 +67,9 @@ Maksymalna liczba zasobników na węzeł w klastrze AKS to 250. *Domyślna* Maks
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurowanie nowych klastrów
 
-Można skonfigurować maksymalną liczbę zasobników na węzeł *tylko w czasie wdrażania klastra*. W przypadku wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure lub szablonu Menedżer zasobów można ustawić wartość maksymalna liczba zasobników na węzeł jako 250.
+Można skonfigurować maksymalną liczbę zasobników na węzeł w czasie wdrażania klastra lub dodać nowe pule węzłów. W przypadku wdrażania przy użyciu interfejsu wiersza polecenia platformy Azure lub szablonu Menedżer zasobów można ustawić wartość maksymalna liczba zasobników na węzeł jako 250.
+
+Jeśli nie określisz maxPods podczas tworzenia nowych pul węzłów, otrzymasz wartość domyślną 30 dla usługi Azure CNI.
 
 Minimalna wartość dla maksymalnej liczby zasobników na węzeł jest wymuszana w celu zagwarantowania ilości miejsca dla systemu w przypadku kondycji klastra o krytycznym znaczeniu. Minimalną wartością, którą można ustawić dla maksymalnej liczby zasobników na węzeł, jest 10, jeśli i tylko wtedy, gdy konfiguracja każdej puli węzłów ma miejsce na co najmniej 30 zasobników. Na przykład ustawienie maksymalnej liczby zasobników na węzeł na wartość minimalną 10 wymaga, aby każda pula węzłów była mieć co najmniej 3 węzły. To wymaganie jest stosowane dla każdej nowej puli węzłów, tak więc jeśli 10 jest zdefiniowana jako maksymalna liczba zasobników na węzeł, każda kolejna dodana Pula węzłów musi mieć co najmniej 3 węzły.
 
@@ -80,12 +82,12 @@ Minimalna wartość dla maksymalnej liczby zasobników na węzeł jest wymuszana
 > Minimalna wartość w powyższej tabeli jest wymuszana przez usługę AKS. Nie można ustawić wartości maxPods mniejszej niż wartość minimalna wyświetlana jako taka może uniemożliwić uruchomienie klastra.
 
 * **Interfejs wiersza polecenia platformy Azure**: Określ `--max-pods` argument podczas wdrażania klastra za pomocą polecenia [AZ AKS Create][az-aks-create] . Wartość maksymalna to 250.
-* **Szablon Menedżer zasobów**: Określ `maxPods` właściwość w obiekcie [ManagedClusterAgentPoolProfile] podczas wdrażania klastra z szablonem Menedżer zasobów. Wartość maksymalna to 250.
+* **Szablon Menedżer zasobów**: Określ `maxPods` Właściwość w obiekcie [ManagedClusterAgentPoolProfile] podczas wdrażania klastra z szablonem Menedżer zasobów. Wartość maksymalna to 250.
 * **Azure Portal**: nie można zmienić maksymalnej liczby zasobników na węzeł podczas wdrażania klastra z Azure Portal. W przypadku wdrażania przy użyciu Azure Portal klastry sieci usługi Azure CNI są ograniczone do 30 zasobników na węzeł.
 
 ### <a name="configure-maximum---existing-clusters"></a>Skonfiguruj maksymalną liczbę istniejących klastrów
 
-Nie można zmienić maksymalnej liczby zasobników na węzeł w istniejącym klastrze AKS. Liczbę można dostosować tylko podczas początkowego wdrażania klastra.
+Ustawienie maxPod na węzeł można zdefiniować podczas tworzenia nowej puli węzłów. Jeśli musisz zwiększyć ustawienia maxPod na węzeł istniejącego klastra, Dodaj nową pulę węzłów z nową żądaną liczbą maxPod. Po przeprowadzeniu migracji do nowej puli, Usuń starszą pulę. Aby usunąć starszą pulę w klastrze, należy się upewnić, że są ustawiane tryby puli węzłów, jak zdefiniowano w węźle systemowy Pula węzłów system[-Pule].
 
 ## <a name="deployment-parameters"></a>Parametry wdrożenia
 
@@ -100,7 +102,7 @@ Podczas tworzenia klastra AKS następujące parametry można skonfigurować dla 
 * Nie może znajdować się w zakresie adresów IP sieci wirtualnej klastra
 * Nie może pokrywać się z innymi sieciami wirtualnymi, z którymi są równorzędne sieci wirtualne klastra
 * Nie może nakładać się na lokalne adresy IP
-* Nie może należeć do zakresu `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`lub`192.0.2.0/24`
+* Nie może należeć do zakresu `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` lub`192.0.2.0/24`
 
 Chociaż jest to technicznie możliwe określenie zakresu adresów usługi w ramach tej samej sieci wirtualnej co klaster, nie jest to zalecane. W przypadku używania nakładających się zakresów adresów IP może wystąpić nieprzewidywalne zachowanie. Aby uzyskać więcej informacji, zapoznaj się z sekcją [często zadawanych pytań](#frequently-asked-questions) w tym artykule. Aby uzyskać więcej informacji na temat usług Kubernetes Services, zobacz [usługi][services] w dokumentacji Kubernetes.
 
@@ -212,3 +214,4 @@ Klastry Kubernetes utworzone za pomocą aparatu AKS obsługują zarówno wtyczki
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[pule węzłów systemu]: use-system-pools.md

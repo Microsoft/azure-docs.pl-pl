@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722962"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118162"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Storage
 
@@ -44,7 +44,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 | ContainerCount    | Liczba kontenerów na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | IndexCapacity     | Ilość miejsca do magazynowania używanego przez ADLS Gen2 indeks hierarchiczny <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 
-#### <a name="table-storage"></a>Magazyn tabel
+#### <a name="table-storage"></a>Table Storage
 
 | Metryka | Opis |
 | ------------------- | ----------------- |
@@ -131,18 +131,18 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |:--- |:---|
 |**pierwszym** | Czas uniwersalnego czasu koordynowanego (UTC), gdy żądanie zostało odebrane przez magazyn. Na przykład: `2018/11/08 21:09:36.6900118`.|
 |**Identyfikator** | Identyfikator zasobu konta magazynu. Na przykład: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**kategorii** | Kategoria żądanej operacji. Na przykład: `StorageRead`, `StorageWrite`, lub `StorageDelete`.|
+|**kategorii** | Kategoria żądanej operacji. Na przykład: `StorageRead` , `StorageWrite` , lub `StorageDelete` .|
 |**operationName** | Typ operacji REST, która została wykonana. <br> Aby uzyskać pełną listę operacji, zobacz [temat analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | Wersja usługi magazynu określona podczas żądania. Jest to odpowiednik wartości nagłówka **x-MS-Version** . Na przykład: `2017-04-17`.|
 |**schemaVersion** | Wersja schematu dziennika. Na przykład: `1.0`.|
-|**Stanu** | Kod stanu HTTP dla żądania. Jeśli żądanie zostanie przerwane, ta wartość może być ustawiona na `Unknown`. <br> Na przykład: `206` |
-|**statusText** | Stan wymaganej operacji.  Pełna lista komunikatów o stanie znajduje się w [temacie analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). W wersji 2017-04-17 i nowszych komunikat `ClientOtherError` o stanie nie jest używany. Zamiast tego pole to zawiera kod błędu. Na przykład: `SASSuccess`  |
+|**Stanu** | Kod stanu HTTP dla żądania. Jeśli żądanie zostanie przerwane, ta wartość może być ustawiona na `Unknown` . <br> Na przykład: `206` |
+|**statusText** | Stan wymaganej operacji.  Pełna lista komunikatów o stanie znajduje się w [temacie analityka magazynu zarejestrowane operacje i komunikaty o stanie](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). W wersji 2017-04-17 i nowszych komunikat o stanie `ClientOtherError` nie jest używany. Zamiast tego pole to zawiera kod błędu. Na przykład: `SASSuccess`  |
 |**durationMs** | Łączny czas, wyrażony w milisekundach, w celu wykonania żądanej operacji. Obejmuje to czas odczytywania żądania przychodzącego oraz wysłanie odpowiedzi do osoby żądającej. Na przykład: `12`.|
 |**callerIpAddress** | Adres IP osoby żądającej, w tym numer portu. Na przykład: `192.100.0.102:4362`. |
 |**korelacj** | Identyfikator, który jest używany do skorelowania dzienników między zasobami. Na przykład: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**przeniesienie** | Lokalizacja konta magazynu. Na przykład: `North Europe`. |
-|**protokol**|Protokół, który jest używany w operacji. Na przykład: `HTTP`, `HTTPS`, `SMB`lub`NFS`|
-| **adresu** | Zażądano identyfikatora Uniform Resource Identifier. Na przykład: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+|**protokol**|Protokół, który jest używany w operacji. Na przykład: `HTTP` , `HTTPS` , `SMB` lub`NFS`|
+| **adresu** | Zażądano identyfikatora Uniform Resource Identifier. Na przykład: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Pola opisujące sposób uwierzytelniania operacji
 
@@ -177,7 +177,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 
 | Właściwość | Opis |
 |:--- |:---|
-|**tożsamość/typ** | Typ uwierzytelniania, który został użyty do wysłania żądania. Na przykład: `OAuth`, `SAS Key`, `Account Key`lub`Anonymous` |
+|**tożsamość/typ** | Typ uwierzytelniania, który został użyty do wysłania żądania. Na przykład: `OAuth` , `SAS Key` , `Account Key` lub`Anonymous` |
 |**tożsamość/tokenHash**|To pole jest zarezerwowane wyłącznie do użytku wewnętrznego. |
 |**Autoryzacja/akcja** | Akcja, która jest przypisana do żądania. Na przykład: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**Autoryzacja/roleAssignmentId** | Identyfikator przypisania roli. Na przykład: `4e2521b7-13be-4363-aeda-111111111111`.|
@@ -239,8 +239,8 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |**Identyfikatorem żądania klienta** | Wartość nagłówka **x-MS-Client-Request-ID** żądania. Na przykład: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
 |**element ETag** | Identyfikator ETag dla zwracanego obiektu, w cudzysłowie. Na przykład: `0x8D101F7E4B662C4`.  |
 |**serverLatencyMs** | Łączny czas, wyrażony w milisekundach, aby wykonać żądaną operację. Ta wartość nie obejmuje opóźnienia sieci (czasu odczytu żądania przychodzącego i wysłania odpowiedzi do zleceniodawcy). Na przykład: `22`. |
-|**Service** | Usługa skojarzona z tym żądaniem. Na przykład: `blob`, `table`, `files`lub `queue`. |
-|**operationCount** | Liczba każdej zarejestrowanej operacji, która jest uwzględniona w żądaniu. Ta liczba zaczyna się od indeksu `0`. Niektóre żądania wymagają więcej niż jednej operacji, na przykład żądanie skopiowania obiektu BLOB. Większość żądań wykonuje tylko jedną operację. Na przykład: `1`. |
+|**Service** | Usługa skojarzona z tym żądaniem. Na przykład: `blob` , `table` , `files` lub `queue` . |
+|**operationCount** | Liczba każdej zarejestrowanej operacji, która jest uwzględniona w żądaniu. Ta liczba zaczyna się od indeksu `0` . Niektóre żądania wymagają więcej niż jednej operacji, na przykład żądanie skopiowania obiektu BLOB. Większość żądań wykonuje tylko jedną operację. Na przykład: `1`. |
 |**requestHeaderSize** | Rozmiar nagłówka żądania wyrażony w bajtach. Na przykład: `578`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta. |
 |**requestBodySize** | Rozmiar pakietów żądań wyrażony w bajtach, które są odczytywane przez usługę magazynu. <br> Na przykład: `0`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |
 |**responseHeaderSize** | Rozmiar nagłówka odpowiedzi wyrażony w bajtach. Na przykład: `216`. <br>Jeśli żądanie nie powiedzie się, ta wartość może być pusta.  |

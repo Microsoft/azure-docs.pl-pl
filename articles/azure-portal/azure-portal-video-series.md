@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 04/06/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74d43f8c200fad5caf152d24df6c8544074916ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757074"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120032"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Seria instruktażowych wideo dla witryny Azure Portal
 
@@ -22,18 +22,18 @@ W Azure Portal seriach filmów wideo przedstawiono sposób pracy z usługami pla
 
 ## <a name="featured-video"></a>Polecane wideo
 
-W tym polecanym filmie wideo pokazujemy, jak zaoszczędzić pieniądze na platformie Azure, korzystając z zaleceń dotyczących kosztów Azure Advisor.
+W tym polecanym filmie wideo pokazano, jak nawiązać połączenie z kontem magazynu przy użyciu prywatnego linku platformy Azure.
 
-> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
+> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
 
-[Jak korzystać z zaleceń dotyczących kosztów w Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
+[Jak nawiązać połączenie z kontem magazynu przy użyciu prywatnego linku platformy Azure](https://www.youtube.com/watch?v=vM7yDwHSc_o)
 
 Zapoznaj się z tymi ostatnimi filmami wideo, które mogły zostać pominięte:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Obraz wideo w serwisie YouTube dotyczący używania skoroszytów Azure Monitor](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Obraz wideo w usłudze YouTube dotyczący filtrowania widoku listy zasobów w Azure Portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Obraz przedstawiający film wideo w usłudze YouTube dotyczący używania autoodświeżania dla pulpitów nawigacyjnych](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
-| [Używanie Azure Monitor skoroszytów](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtrowanie widoku listy zasobów w Azure Portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Używanie funkcji AutoRefresh dla pulpitów nawigacyjnych](https://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [![Obraz wideo w serwisie YouTube dotyczący nowego środowiska Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Obraz wideo w serwisie YouTube wdrażanie aplikacji sieci Web przy użyciu akcji GitHub](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Obraz wideo w serwisie YouTube o korzystaniu z kart informacji o usłudze](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
+| [Nowe środowisko Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Wdrażanie aplikacji sieci Web przy użyciu akcji GitHub](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Korzystanie z kart informacji o usłudze](https://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## <a name="video-playlist"></a>Lista odtwarzania wideo
 

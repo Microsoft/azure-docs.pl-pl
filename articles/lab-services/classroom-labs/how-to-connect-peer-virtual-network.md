@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188008"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118366"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Połącz sieć laboratorium z równorzędną siecią wirtualną w Azure Lab Services
 
@@ -48,7 +48,7 @@ Podczas tworzenia nowego [konta laboratorium](tutorial-setup-lab-account.md)moż
 
 Istnieje również możliwość zapewnienia **zakresu adresów** dla maszyn wirtualnych dla laboratoriów.  Właściwość **zakres adresów** stosuje się tylko wtedy, gdy dla laboratorium jest włączona **równorzędna Sieć wirtualna** .  W przypadku podanego zakresu adresów wszystkie maszyny wirtualne w laboratoriach w ramach konta laboratorium zostaną utworzone w tym zakresie adresów. Zakres adresów powinien być w notacji CIDR (np. 10.20.0.0/20) i nie pokrywa się z żadnym istniejącymi zakresami adresów.  W przypadku podawania zakresu adresów należy wziąć pod uwagę liczbę *laboratoriów* , które zostaną utworzone, i podać zakres adresów do tego celu. Usługi laboratoryjne zakładają maksymalnie 512 maszyn wirtualnych na laboratorium.  Na przykład zakres adresów IP z "/23" może utworzyć tylko jedno laboratorium.  Zakres z "/21" umożliwi tworzenie czterech laboratoriów.
 
-Jeśli **zakres adresów** nie zostanie określony, usługi Lab Services będą używać domyślnego zakresu adresów nadanego przez platformę Azure podczas tworzenia sieci wirtualnej w celu komunikacji równorzędnej z siecią wirtualną.  Zakres jest często podobny do 10. x. 0.0/16.  Może to prowadzić do nakładania się zakresów adresów IP, dlatego upewnij się, że w ustawieniach laboratorium określono zakres adresów, lub sprawdź, czy zakres adresów sieci wirtualnej jest w trybie komunikacji równorzędnej.
+Jeśli **zakres adresów** nie zostanie określony, usługi Lab Services będą używać domyślnego zakresu adresów nadanego przez platformę Azure podczas tworzenia sieci wirtualnej w celu komunikacji równorzędnej z siecią wirtualną.  Zakres jest często podobny do 10. x. 0.0/16.  Może to prowadzić do nakładania się zakresów adresów IP, dlatego należy określić zakres adresów w ustawieniach laboratorium lub sprawdzić zakres adresów sieci wirtualnej, która jest wysyłana za pomocą komunikacji równorzędnej.
 
 ## <a name="configure-after-the-lab-is-created"></a>Konfiguruj po utworzeniu laboratorium
 

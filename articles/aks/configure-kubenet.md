@@ -5,18 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559692"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120916"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
 Domyślnie klastry AKS korzystają z [korzystającą wtyczki kubenet][kubenet], a sieć wirtualna platformy Azure jest tworzona dla Ciebie. W przypadku *korzystającą wtyczki kubenet*węzły uzyskują adres IP z podsieci sieci wirtualnej platformy Azure. Zasobniki uzyskują adresy IP z przestrzeni adresowej, która jest logicznie różna od podsieci sieci wirtualnej platformy Azure, używanej przez węzły. Dzięki skonfigurowaniu translatora adresów sieciowych (NAT) zasobniki mogą uzyskać dostęp do zasobów w sieci wirtualnej platformy Azure. Źródłowy adres IP ruchu to NAT do podstawowego adresu IP węzła. Takie podejście znacznie zmniejsza liczbę adresów IP, które należy zarezerwować w przestrzeni sieciowej, aby można było użyć używanych przez nią zasobników.
 
-[Usługa Azure Container Network Interface (CNI)][cni-networking]w każdym przypadku Pobiera adres IP z podsieci i jest dostępny bezpośrednio. Te adresy IP muszą być unikatowe w przestrzeni sieci i muszą być planowane z wyprzedzeniem. Każdy węzeł ma parametr konfiguracji dla maksymalnej liczby obsługiwanych przez nią zasobników. Równoważna liczba adresów IP na węzeł jest następnie rezerwowana na początku dla tego węzła. Takie podejście wymaga większego planowania i często prowadzi do wyczerpania adresów IP lub trzeba ponownie skompilować klastry w większej podsieci, w miarę wzrostu wymagań aplikacji.
+[Usługa Azure Container Network Interface (CNI)][cni-networking]w każdym przypadku Pobiera adres IP z podsieci i jest dostępny bezpośrednio. Te adresy IP muszą być unikatowe w przestrzeni sieci i muszą być planowane z wyprzedzeniem. Każdy węzeł ma parametr konfiguracji dla maksymalnej liczby obsługiwanych przez nią zasobników. Równoważna liczba adresów IP na węzeł jest następnie rezerwowana na początku dla tego węzła. Takie podejście wymaga większego planowania i często prowadzi do wyczerpania adresów IP lub trzeba ponownie skompilować klastry w większej podsieci, w miarę wzrostu wymagań aplikacji. Można skonfigurować maksymalną liczbę zestawów do wdrożenia w węźle podczas tworzenia klastra lub podczas tworzenia nowych pul węzłów. Jeśli nie określisz maxPods podczas tworzenia nowych pul węzłów, otrzymasz wartość domyślną 110 dla korzystającą wtyczki kubenet.
 
 W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* utworzyć i używać podsieci sieci wirtualnej dla klastra AKS. Aby uzyskać więcej informacji o opcjach sieciowych i zagadnieniach, zobacz [pojęcia sieci dotyczące Kubernetes i AKS][aks-network-concepts].
 
@@ -24,7 +24,7 @@ W tym artykule pokazano, jak za pomocą sieci *korzystającą wtyczki kubenet* u
 
 * Sieć wirtualna klastra AKS musi zezwalać na wychodzącą łączność z Internetem.
 * Nie należy tworzyć więcej niż jednego klastra AKS w tej samej podsieci.
-* Klastry AKS nie mogą `169.254.0.0/16`używać `172.30.0.0/16`zakresu `172.31.0.0/16`adresów usługi `192.0.2.0/24` Kubernetes,,, ani.
+* Klastry AKS nie mogą `169.254.0.0/16` używać `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` zakresu adresów usługi Kubernetes,,, ani.
 * Nazwa główna usługi używana przez klaster AKS musi mieć co najmniej rolę [współautor sieci](../role-based-access-control/built-in-roles.md#network-contributor) w podsieci w sieci wirtualnej. Jeśli chcesz zdefiniować [rolę niestandardową](../role-based-access-control/custom-roles.md) , zamiast korzystać z wbudowanej roli współautor sieci, wymagane są następujące uprawnienia:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Teraz Przypisz jednostkę usługi do uprawnień *współautora* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własny * \<identyfikator appid>* jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
+Teraz Przypisz jednostkę usługi do uprawnień *współautora* klastra AKS w sieci wirtualnej za pomocą polecenia [AZ role Assign Create][az-role-assignment-create] . Podaj własny * \< identyfikator appid>* jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć jednostkę usługi:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Tworzenie klastra AKS w sieci wirtualnej
 
-Utworzono sieć wirtualną i podsieć, a następnie utworzono i przypisano uprawnienia do jednostki usługi w celu używania tych zasobów sieciowych. Teraz Utwórz klaster AKS w sieci wirtualnej i podsieci przy użyciu polecenia [AZ AKS Create][az-aks-create] . Zdefiniuj własną nazwę aplikacji głównej * \<usługi>* i * \<hasło>*, jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć nazwę główną usługi.
+Utworzono sieć wirtualną i podsieć, a następnie utworzono i przypisano uprawnienia do jednostki usługi w celu używania tych zasobów sieciowych. Teraz Utwórz klaster AKS w sieci wirtualnej i podsieci przy użyciu polecenia [AZ AKS Create][az-aks-create] . Zdefiniuj własną nazwę aplikacji głównej usługi * \<>* i * \< hasło>*, jak pokazano w danych wyjściowych poprzedniego polecenia, aby utworzyć nazwę główną usługi.
 
 Następujące zakresy adresów IP są również zdefiniowane jako część procesu tworzenia klastra:
 

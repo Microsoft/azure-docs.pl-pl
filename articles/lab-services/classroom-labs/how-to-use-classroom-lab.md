@@ -14,24 +14,28 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501932"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118400"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services
 W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania wszystkich laboratoriów, do których można uzyskać dostęp, uruchamiania/zatrzymywania maszyny wirtualnej w laboratorium oraz nawiązywania połączenia z maszyną wirtualną. 
 
 ## <a name="register-to-the-lab"></a>Zarejestruj się w laboratorium
 
-1. Przejdź do **adresu URL rejestracji** otrzymanego od nauczyciela. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu URL: [https://labs.azure.com](https://labs.azure.com). Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
+1. Przejdź do **adresu URL rejestracji** otrzymanego od nauczyciela. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu URL: [https://labs.azure.com](https://labs.azure.com) . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
+
+    ![Zarejestruj się w laboratorium](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Zaloguj się do usługi przy użyciu konta służbowego, aby ukończyć rejestrację. 
 
     > [!NOTE]
     > Do korzystania z Azure Lab Services jest wymagany konto Microsoft. Jeśli próbujesz zalogować się do portalu przy użyciu innych konto Microsoft, takich jak Yahoo lub konta Google, postępuj zgodnie z instrukcjami, aby utworzyć konto Microsoft, który zostanie połączony z niekonto Microsoft. Następnie postępuj zgodnie z instrukcjami, aby ukończyć proces rejestracji. 
 1. Po zarejestrowaniu upewnij się, że widzisz maszyny wirtualne dla laboratorium, do którego masz dostęp. 
+
+    ![Dostępne maszyny wirtualne](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Zaczekaj, aż maszyna wirtualna będzie gotowa. Na kafelku maszyny wirtualnej Zwróć uwagę na następujące pola:
     1. W górnej części kafelka zobaczysz **nazwę laboratorium**.
     1. Po prawej stronie zostanie wyświetlona ikona reprezentująca **system operacyjny (OS)** maszyny wirtualnej. W tym przykładzie jest to system operacyjny Windows. 
@@ -80,7 +84,7 @@ Pasek postępu na kafelku pokazuje liczbę godzin użycia w odniesieniu do liczb
 ## <a name="view-all-the-classroom-labs"></a>Wyświetlanie wszystkich laboratoriów
 Po zarejestrowaniu się w laboratoriach możesz wyświetlić wszystkie laboratoria na potrzeby zajęć, wykonując następujące czynności: 
 
-1. Przejdź do [https://labs.azure.com](https://labs.azure.com). Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
+1. Przejdź do [https://labs.azure.com](https://labs.azure.com) . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
 2. Zaloguj się w usłudze przy użyciu konta użytkownika, którego użyto do zarejestrowania się do laboratorium. 
 3. Upewnij się, że są wyświetlone wszystkie laboratoria, do których masz dostęp. 
 
