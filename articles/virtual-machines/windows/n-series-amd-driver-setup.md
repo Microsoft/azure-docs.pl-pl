@@ -1,6 +1,6 @@
 ---
-title: Konfiguracja sterownika procesora graficznego AMD z serii N dla systemu Windows
-description: Jak skonfigurować sterowniki procesorów graficznych AMD dla maszyn wirtualnych z serii N z systemem Windows Server lub Windows na platformie Azure
+title: Konfiguracja sterowników procesora GPU AMD na platformie Azure dla systemu Windows
+description: Jak skonfigurować sterowniki AMD GPU dla maszyn wirtualnych serii N z systemem Windows Server lub Windows na platformie Azure
 author: vikancha
 manager: jkabat
 ms.service: virtual-machines-windows
@@ -8,18 +8,22 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865755"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198011"
 ---
-# <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników procesorów graficznych AMD na maszynach wirtualnych z systemem Windows z systemem Windows
+# <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows
 
-Aby korzystać z możliwości procesora GPU nowych maszyn wirtualnych z serii Azure NVv4 z systemem Windows, należy zainstalować sterowniki PROCESORA GRAFICZNEGO AMD. Rozszerzenie sterownika AMD będzie dostępne w najbliższych tygodniach. Ten artykuł zawiera obsługiwane systemy operacyjne, sterowniki oraz instrukcje instalacji i weryfikacji.
+Aby skorzystać z możliwości procesora GPU nowych maszyn wirtualnych z serii Azure NVv4 z systemem Windows, należy zainstalować sterowniki procesora GPU AMD. [Rozszerzenie sterownika procesora GPU AMD](../extensions/hpccompute-amd-gpu-windows.md) instaluje sterowniki procesora GPU AMD na maszynie wirtualnej z serii NVv4. Zainstaluj rozszerzenie lub Zarządzaj nim przy użyciu Azure Portal lub narzędzi, takich jak szablony Azure PowerShell lub Azure Resource Manager. Zapoznaj się z [dokumentacją rozszerzenia sterownika procesora GPU AMD](../extensions/hpccompute-amd-gpu-windows.md) , aby poznać obsługiwane systemy operacyjne i kroki wdrażania.
 
-Aby uzyskać podstawowe specyfikacje, pojemność pamięci masowej i szczegóły dysku, zobacz [Rozmiary maszyn wirtualnych systemu GPU systemu Windows](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+W przypadku wybrania opcji ręcznego instalowania sterowników procesora GPU firmy AMD w tym artykule przedstawiono obsługiwane systemy operacyjne, sterowniki oraz czynności instalacyjne i weryfikacyjne.
+
+Na maszynach wirtualnych NVv4 są obsługiwane tylko sterowniki procesora GPU opublikowane przez firmę Microsoft. NIE instaluj sterowników procesora GPU z innych źródeł.
+
+Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółami dysku, zobacz [rozmiary maszyn wirtualnych w systemie Windows GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
@@ -27,33 +31,33 @@ Aby uzyskać podstawowe specyfikacje, pojemność pamięci masowej i szczegóły
 
 | System operacyjny | Sterownik |
 | -------- |------------- |
-| Windows 10 EVD - Kompilacja 1903 <br/><br/>Windows 10 - Kompilacja 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+| Windows 10 EVD — kompilacja 1903 <br/><br/>Windows 10 — kompilacja 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
 
 
 ## <a name="driver-installation"></a>Instalacja sterownika
 
-1. Połącz się za pomocą pulpitu zdalnego z każdą maszyną wirtualną z serii NVv4.
+1. Połącz się Pulpit zdalny z każdą maszyną wirtualną serii NVv4.
 
-2. Jeśli jesteś klientem w wersji zapoznawczej NVv4, zatrzymaj maszynę wirtualną i poczekaj, aż przejdzie do stanu zatrzymanego(cofniętego).
+2. Jeśli jesteś klientem usługi NVv4 w wersji zapoznawczej, Zatrzymaj maszynę wirtualną i zaczekaj, aż zostanie ona przeniesiona do stanu zatrzymana (cofnięta alokacja).
 
-3. Uruchom maszynę wirtualną i pobierz najnowsze [narzędzie AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Odinstaluj istniejący sterownik, uruchamiając "amdcleanuputility-x64.exe". PROSZĘ NIE używać żadnego istniejącego narzędzia do oczyszczania, które zostało zainstalowane z poprzednim sterownikiem.  
+3. Uruchom maszynę wirtualną i Pobierz najnowsze [Narzędzie do oczyszczania AMD](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Odinstaluj istniejący sterownik, uruchamiając plik "amdcleanuputility-x64. exe". NIE używaj żadnego istniejącego narzędzia czyszczącego, które zostało zainstalowane z poprzednim sterownikiem.  
 
-4. Pobierz i zainstaluj najnowszy sterownik.
+4. Pobierz i zainstaluj najnowszą wersję sterownika.
 
 5. Uruchom ponownie maszynę wirtualną.
 
-## <a name="verify-driver-installation"></a>Weryfikowanie instalacji sterownika
+## <a name="verify-driver-installation"></a>Weryfikuj instalację sterownika
 
-Instalację sterownika można zweryfikować w Menedżerze urządzeń. Poniższy przykład przedstawia pomyślną konfigurację karty Radeon Instinct MI25 na maszynie Wirtualnej NVv4 platformy Azure.
+Instalację sterownika można sprawdzić w Menedżer urządzeń. W poniższym przykładzie przedstawiono pomyślną konfigurację karty Instinct MI25 na maszynie wirtualnej Azure NVv4.
 <br />
-![Właściwości sterownika GPU](./media/n-series-amd-driver-setup/device-manager.png)
+![Właściwości sterownika procesora GPU](./media/n-series-amd-driver-setup/device-manager.png)
 
-Za pomocą dxdiag można zweryfikować właściwości wyświetlania gpu, w tym pamięć RAM wideo. W poniższym przykładzie przedstawiono partycję 1/2 karty Radeon Instinct MI25 na maszynie wirtualnej Azure NVv4.
+Możesz użyć programu dxdiag do zweryfikowania właściwości wyświetlania procesora GPU, w tym pamięci RAM wideo. Poniższy przykład przedstawia partycję 1/2 karty Instinct Radeon MI25 na maszynie wirtualnej Azure NVv4.
 <br />
-![Właściwości sterownika GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![Właściwości sterownika procesora GPU](./media/n-series-amd-driver-setup/dxdiag-output.png)
 
-Jeśli korzystasz z systemu Windows 10 budować 1903 lub wyższy następnie dxdiag nie pokaże żadnych informacji w zakładce "Display". Użyj opcji "Zapisz wszystkie informacje" na dole, a plik wyjściowy pokaże informacje związane z procesorem graficznym AMD MI25.
+Jeśli korzystasz z systemu Windows 10 Build 1903 lub nowszego, program DxDiag nie wyświetli żadnych informacji na karcie "Display" (wyświetlanie). Użyj opcji "Zapisz wszystkie informacje" u dołu, a w pliku wyjściowym zostaną wyświetlone informacje związane z procesorem GPU AMD MI25.
 
-![Właściwości sterownika GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
+![Właściwości sterownika procesora GPU](./media/n-series-amd-driver-setup/dxdiag-details.png)
 
 

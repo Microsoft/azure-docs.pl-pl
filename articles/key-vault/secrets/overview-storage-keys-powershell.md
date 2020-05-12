@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: f8c526148e37ba1b716aafd32dcc3f242358f1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427785"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121137"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Zarządzanie kluczami konta magazynu przy użyciu Key Vault i Azure PowerShell
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Ustaw zmienne
 
-Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować symbole <YourResourceGroupName>zastępcze <YourStorageAccountName>, <YourKeyVaultName> i i ustawić $keyVaultSpAppId na `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (zgodnie z opisem w [identyfikatorze aplikacji głównej usługi](#service-principal-application-id), powyżej).
+Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować <YourResourceGroupName> <YourStorageAccountName> <YourKeyVaultName> symbole zastępcze, i i ustawić $keyVaultSpAppId na `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (zgodnie z opisem w [identyfikatorze aplikacji głównej usługi](#service-principal-application-id), powyżej).
 
 Będziemy również Azure PowerShell używać poleceń cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) i [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) w celu uzyskania identyfikatora użytkownika i kontekstu konta usługi Azure Storage.
 
@@ -84,14 +84,18 @@ $resourceGroupName = <YourResourceGroupName>
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
-$storageAccountKey = "key1"
+$storageAccountKey = "key1" #(key1 or key2 are allowed)
 
 # Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+
 ```
+>[!Note]
+> W przypadku klasycznego konta magazynu Użyj "podstawowe" i "pomocnicze" dla $storageAccountKey <br>
+> Użyj polecenia "Get-AzResource-Name" ClassicStorageAccountName "-ResourceGroupName $resourceGroupName" zamiast of'Get-AzStorageAccount "dla klasycznego konta magazynu
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Przyznaj Key Vault dostęp do konta magazynu
 
@@ -134,7 +138,7 @@ Należy pamiętać, że uprawnienia dla kont magazynu nie są dostępne na stron
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Dodawanie zarządzanego konta magazynu do wystąpienia Key Vault
 
-Użyj Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) polecenia cmdlet, aby utworzyć zarządzane konto magazynu w wystąpieniu Key Vault. `-DisableAutoRegenerateKey` Przełącznik określa, aby nie generować ponownie kluczy konta magazynu.
+Użyj Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) polecenia cmdlet, aby utworzyć zarządzane konto magazynu w wystąpieniu Key Vault. `-DisableAutoRegenerateKey`Przełącznik określa, aby nie generować ponownie kluczy konta magazynu.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -160,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Włącz ponowne generowanie klucza
 
-Jeśli chcesz, aby Key Vault okresowo generować ponownie klucze konta magazynu, możesz użyć polecenia cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) Azure PowerShell w celu ustawienia okresu regeneracji. W tym przykładzie ustawimy okres regeneracji o trzy dni. Po upływie trzech dni Key Vault ponownie wygeneruje element "klucz2" i zamianę aktywnego klucza z "klucz2" na "Klucz1".
+Jeśli chcesz, aby Key Vault okresowo generować ponownie klucze konta magazynu, możesz użyć polecenia cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) Azure PowerShell w celu ustawienia okresu regeneracji. W tym przykładzie ustawimy okres regeneracji o trzy dni. Po upływie trzech dni Key Vault ponownie wygeneruje element "klucz2" i zamiana aktywnego klucza z "klucz2" na "Klucz1" (Zastąp element "Primary" i "pomocniczy" dla klasycznych kont magazynu).
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -192,12 +196,12 @@ Polecenia w tej sekcji pełnią następujące czynności:
 
 - Ustaw definicję sygnatury dostępu współdzielonego konta. 
 - Utwórz token sygnatury dostępu współdzielonego konta dla usług obiektów blob, plików, tabel i kolejek. Token jest tworzony dla usług, kontenerów i obiektów typu zasób. Token jest tworzony ze wszystkimi uprawnieniami, za pośrednictwem protokołu HTTPS i z określonymi datami rozpoczęcia i zakończenia.
-- Ustaw Key Vault zarządzaną definicję sygnatury dostępu współdzielonego magazynu w magazynie. Definicja zawiera identyfikator URI szablonu utworzonego tokenu sygnatury dostępu współdzielonego. Definicja zawiera typ `account` sygnatury dostępu współdzielonego i jest ważna przez N dni.
+- Ustaw Key Vault zarządzaną definicję sygnatury dostępu współdzielonego magazynu w magazynie. Definicja zawiera identyfikator URI szablonu utworzonego tokenu sygnatury dostępu współdzielonego. Definicja zawiera typ sygnatury dostępu współdzielonego `account` i jest ważna przez N dni.
 - Sprawdź, czy sygnatura dostępu współdzielonego została zapisana w magazynie kluczy jako wpis tajny.
 - 
 ### <a name="set-variables"></a>Ustaw zmienne
 
-Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować symbole <YourStorageAccountName> zastępcze i <YourKeyVaultName> .
+Najpierw Ustaw zmienne, które będą używane przez polecenia cmdlet programu PowerShell w poniższych krokach. Pamiętaj, aby zaktualizować <YourStorageAccountName> <YourKeyVaultName> symbole zastępcze i.
 
 Użyjemy również Azure PowerShell polecenia cmdlet [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) , aby uzyskać kontekst konta usługi Azure Storage.
 
@@ -205,7 +209,7 @@ Użyjemy również Azure PowerShell polecenia cmdlet [New-AzStorageContext](/pow
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
 ### <a name="create-a-shared-access-signature-token"></a>Tworzenie tokenu sygnatury dostępu współdzielonego
@@ -252,7 +256,7 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-Teraz można użyć polecenia cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) i właściwości Secret `Name` , aby wyświetlić zawartość tego klucza tajnego.
+Teraz można użyć polecenia cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) i właściwości Secret, `Name` Aby wyświetlić zawartość tego klucza tajnego.
 
 ```azurepowershell-interactive
 $secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>

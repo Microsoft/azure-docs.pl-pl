@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77591544"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201669"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Przygotowanie infrastruktury platformy Azure pod kątem wysokiej dostępności SAP przy użyciu klastra trybu failover systemu Windows i udziału plików dla wystąpień oprogramowania SAP ASCS/SCS
 
@@ -228,7 +228,7 @@ Przed rozpoczęciem instalacji zapoznaj się z następującym artykułem:
 
 **Tabela 1**: klaster ASCS/SCS
 
-| > \<identyfikatorów SID SAP | Numer wystąpienia SAP ASCS/SCS |
+| \<> identyfikatorów SID SAP | Numer wystąpienia SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -348,7 +348,7 @@ Po pomyślnym zainstalowaniu klastra Windows Serwer plików skalowalny w poziomi
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 Te ustawienia zostały przetestowane przez klientów i oferują dobry kompromis. Są one wystarczająco odporne, ale zapewniają również szybką pracę w trybie failover w rzeczywistych warunkach błędów lub awariach maszyny wirtualnej.
 

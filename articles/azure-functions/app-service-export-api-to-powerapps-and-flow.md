@@ -2,20 +2,20 @@
 title: Eksportowanie interfejsu API hostowanego na platformie Azure do usługi PowerApps i Microsoft Flow
 description: Omówienie sposobu uwidaczniania interfejsu API hostowanego w App Service w usłudze PowerApps i Microsoft Flow
 ms.topic: conceptual
-ms.date: 12/15/2017
+ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233070"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115828"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Eksportowanie interfejsu API hostowanego na platformie Azure do usługi PowerApps i Microsoft Flow
 
 [Powerapps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) to usługa służąca do kompilowania i używania niestandardowych aplikacji firmowych, które łączą się z danymi i pracują na różnych platformach. [Microsoft Flow](/learn/modules/get-started-with-flow/index) ułatwia Automatyzowanie przepływów pracy i procesów biznesowych między ulubionymi aplikacjami i usługami. W przypadku usług PowerApps i Microsoft Flow są dostępne różne wbudowane łączniki ze źródłami danych, takimi jak Office 365, Dynamics 365, Salesforce i nie tylko. W niektórych przypadkach konstruktory aplikacji i przepływu chcą również łączyć się ze źródłami danych i interfejsami API utworzonymi przez ich organizację.
 
-Podobnie deweloperzy, którzy chcą uwidocznić interfejsy API w organizacji, mogą udostępnić interfejsy API aplikacji i konstruktorów przepływów. W tym temacie przedstawiono sposób eksportowania interfejsu API skompilowanego za pomocą [Azure Functions](../azure-functions/functions-overview.md) lub [Azure App Service](../app-service/overview.md). Wyeksportowany interfejs API jest *łącznikiem niestandardowym*, który jest używany w usłudze PowerApps i Microsoft Flow podobnie jak wbudowany łącznik.
+Podobnie deweloperzy, którzy chcą uwidocznić interfejsy API w organizacji, mogą udostępnić interfejsy API aplikacji i konstruktorów przepływów. W tym artykule opisano sposób eksportowania interfejsu API skompilowanego za pomocą [Azure Functions](../azure-functions/functions-overview.md) lub [Azure App Service](../app-service/overview.md). Wyeksportowany interfejs API jest *łącznikiem niestandardowym*, który jest używany w usłudze PowerApps i Microsoft Flow podobnie jak wbudowany łącznik.
 
 > [!IMPORTANT]
 > Funkcja definicji interfejsu API wyświetlana w tym artykule jest obsługiwana tylko w przypadku [wersji 1. x środowiska uruchomieniowego Azure Functions](functions-versions.md#creating-1x-apps) i aplikacji App Services. Wersja 2. x funkcji integruje się z API Management, aby tworzyć i obsługiwać definicje OpenAPI. Aby dowiedzieć się więcej, zobacz [Tworzenie definicji openapi dla funkcji za pomocą usługi Azure API Management](functions-openapi-definition.md). 
@@ -28,25 +28,21 @@ Przed wyeksportowaniem interfejsu API należy opisać interfejs API przy użyciu
 
 Aby wyeksportować definicję interfejsu API, wykonaj następujące kroki:
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do Azure Functions lub innej aplikacji App Service.
+1. W [Azure Portal](https://portal.azure.com)przejdź do aplikacji funkcji lub aplikacji App Service.
 
-    Jeśli używasz Azure Functions, wybierz aplikację funkcji, wybierz pozycję **funkcje platformy**, a następnie pozycję **definicja interfejsu API**.
+    W menu po lewej stronie w obszarze **interfejs API**wybierz pozycję **definicja interfejsu API**.
 
-    ![Definicja interfejsu API Azure Functions](media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png)
+    :::image type="content" source="media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png" alt-text="Definicja interfejsu API Azure Functions":::
 
-    W przypadku używania Azure App Service wybierz pozycję **definicja interfejsu API** z listy ustawień.
-
-    ![Definicja interfejsu API App Service](media/app-service-export-api-to-powerapps-and-flow/api-definition-app.png)
-
-2. Przycisk **Eksportuj do usługi powerapps i Microsoft Flow** powinien być dostępny (jeśli nie, musisz najpierw utworzyć definicję openapi). Kliknij ten przycisk, aby rozpocząć proces eksportowania.
+2. Przycisk **Eksportuj do usługi powerapps i Microsoft Flow** powinien być dostępny (jeśli nie, musisz najpierw utworzyć definicję openapi). Wybierz ten przycisk, aby rozpocząć proces eksportowania.
 
     ![Przycisk Eksportuj do usługi PowerApps i Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
 3. Wybierz **tryb eksportu**:
 
-    Program **Express** umożliwia utworzenie łącznika niestandardowego na podstawie Azure Portal. Wymaga zalogowania się w usłudze PowerApps lub Microsoft Flow i ma uprawnienia do tworzenia łączników w środowisku docelowym. Jest to zalecane rozwiązanie, jeśli można spełnić te dwa wymagania. W przypadku korzystania z tego trybu postępuj zgodnie z poniższymi instrukcjami dotyczącymi [eksportu](#express) .
+    Program **Express** umożliwia utworzenie łącznika niestandardowego na podstawie Azure Portal. Wymaga zalogowania się w usłudze PowerApps lub Microsoft Flow i ma uprawnienia do tworzenia łączników w środowisku docelowym. Takie podejście jest zalecane, jeśli można spełnić te dwa wymagania. W przypadku korzystania z tego trybu postępuj zgodnie z poniższymi instrukcjami dotyczącymi [eksportu](#express) .
 
-    Opcja **Ręczna** umożliwia wyeksportowanie definicji interfejsu API, która zostanie następnie zaimportowana przy użyciu portali usługi PowerApps lub Microsoft Flow. Jest to zalecane rozwiązanie, jeśli użytkownik platformy Azure i użytkownik z uprawnieniami do tworzenia łączników są różnymi osobami lub jeśli łącznik musi zostać utworzony w innej dzierżawie platformy Azure. W przypadku korzystania z tego trybu postępuj zgodnie z poniższymi instrukcjami dotyczącymi [eksportowania ręcznego](#manual) .
+    Opcja **Ręczna** umożliwia wyeksportowanie definicji interfejsu API, która zostanie następnie zaimportowana przy użyciu portali usługi PowerApps lub Microsoft Flow. Ta metoda jest zalecana w przypadku, gdy użytkownik platformy Azure i użytkownik z uprawnieniami do tworzenia łączników są różnymi osobami lub jeśli łącznik musi zostać utworzony w innej dzierżawie platformy Azure. W przypadku korzystania z tego trybu postępuj zgodnie z poniższymi instrukcjami dotyczącymi [eksportowania ręcznego](#manual) .
 
     ![Tryb eksportu](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -81,7 +77,7 @@ Aby zakończyć eksport w trybie **ręcznym** , wykonaj następujące kroki:
  
     ![Ręczne eksportowanie do usługi PowerApps i Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
  
-2. Jeśli definicja interfejsu API zawiera wszystkie definicje zabezpieczeń, są one wywoływane w kroku #2. Podczas importowania usługi PowerApps i Microsoft Flow wykrywają te i monitują o informacje o zabezpieczeniach. Zbierz poświadczenia związane z każdą definicją do użycia w następnej sekcji. Aby uzyskać więcej informacji, zobacz [Określ typ uwierzytelniania](#auth) poniżej.
+2. Jeśli definicja interfejsu API zawiera wszystkie definicje zabezpieczeń, te definicje są wywoływane w kroku #2. Podczas importowania usługi PowerApps i Microsoft Flow wykrywają te definicje i monitują o informacje o zabezpieczeniach. Zbierz poświadczenia związane z każdą definicją do użycia w następnej sekcji. Aby uzyskać więcej informacji, zobacz [Określ typ uwierzytelniania](#auth) poniżej.
 
     ![Zabezpieczenia eksportu ręcznego](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
 
@@ -117,7 +113,7 @@ Aby zaimportować definicję interfejsu API do usługi PowerApps i Microsoft Flo
 
     ![Karta definicje](media/app-service-export-api-to-powerapps-and-flow/tab-definitions.png)
 
-    Ten przykład ma jedną operację o nazwie `CalculateCosts`. Metadane, takie jak **Opis**, pochodzą z pliku openapi.
+    Ten przykład ma jedną operację o nazwie `CalculateCosts` . Metadane, takie jak **Opis**, pochodzą z pliku openapi.
 
 7. Kliknij pozycję **Utwórz łącznik** w górnej części strony.
 
@@ -143,29 +139,29 @@ Podczas eksportowania dostarcza się wartości konfiguracyjne zezwalające usłu
 W tej sekcji omówiono typy uwierzytelniania, które są obsługiwane w trybie **Express** : klucz interfejsu API, Azure Active Directory i ogólne uwierzytelnianie OAuth 2,0. Usługa PowerApps i usługa Microsoft Flow obsługują również uwierzytelnianie podstawowe i protokół OAuth 2,0 dla określonych usług, takich jak Dropbox, Facebook i SalesForce.
 
 ### <a name="api-key"></a>Klucz interfejsu API
-Przy użyciu klucza interfejsu API Użytkownicy Twojego łącznika są monitowani o podanie klucza podczas tworzenia połączenia. Należy określić nazwę klucza interfejsu API, aby pomóc im zrozumieć, który klucz jest wymagany. W poprzednim przykładzie używamy nazwy `API Key (contact meganb@contoso.com)` , aby użytkownicy wiedzieli, gdzie uzyskać informacje o kluczu interfejsu API. W przypadku Azure Functions klucz jest zazwyczaj jednym z kluczy hosta, obejmujących kilka funkcji w aplikacji funkcji.
+Przy użyciu klucza interfejsu API Użytkownicy Twojego łącznika są monitowani o podanie klucza podczas tworzenia połączenia. Należy określić nazwę klucza interfejsu API, aby pomóc im zrozumieć, który klucz jest wymagany. W poprzednim przykładzie używamy nazwy, `API Key (contact meganb@contoso.com)` aby użytkownicy wiedzieli, gdzie uzyskać informacje o kluczu interfejsu API. W przypadku Azure Functions klucz jest zazwyczaj jednym z kluczy hosta, obejmujących kilka funkcji w aplikacji funkcji.
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 W przypadku korzystania z usługi Azure AD wymagane są dwie rejestracje aplikacji usługi Azure AD: jeden dla samego interfejsu API i jeden dla łącznika niestandardowego:
 
 - Aby skonfigurować rejestrację dla interfejsu API, użyj funkcji [uwierzytelniania App Service/autoryzacji](../app-service/configure-authentication-provider-aad.md) .
 
-- Aby skonfigurować rejestrację łącznika, wykonaj kroki opisane w temacie [Dodawanie aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Rejestracja musi mieć delegowany dostęp do Twojego interfejsu API i adres URL odpowiedzi `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Aby skonfigurować rejestrację łącznika, wykonaj kroki opisane w temacie [Dodawanie aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Rejestracja musi mieć delegowany dostęp do Twojego interfejsu API i adres URL odpowiedzi `https://msmanaged-na.consent.azure-apim.net/redirect` . 
 
 Aby uzyskać więcej informacji, zobacz przykłady rejestracji usługi Azure AD dla usług [powerapps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) i [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). Te przykłady używają Azure Resource Manager jako interfejsu API; Zastąp interfejs API, jeśli wykonano kroki.
 
 Wymagane są następujące wartości konfiguracji:
 - **Identyfikator klienta** — identyfikator klienta rejestracji usługi Azure AD łącznika
 - **Klucz tajny klienta** — klucz tajny klienta dla rejestracji usługi Azure AD na łączniku
-- **Adres URL logowania** — podstawowy adres URL usługi Azure AD. Na platformie Azure zwykle `https://login.windows.net`jest to.
-- **Identyfikator dzierżawy** — identyfikator dzierżawy, który ma być używany podczas logowania. Powinna to być "Common" lub identyfikator dzierżawy, w której utworzono łącznik.
+- **Adres URL logowania** — podstawowy adres URL usługi Azure AD. Na platformie Azure zwykle `https://login.windows.net` .
+- **Identyfikator dzierżawy** — identyfikator dzierżawy, który ma być używany podczas logowania. Ten identyfikator powinien mieć wartość "Common" lub identyfikator dzierżawy, w której utworzono łącznik.
 - **Adres URL zasobu** — adres URL zasobu rejestracji usługi Azure AD dla interfejsu API
 
 > [!IMPORTANT]
 > Jeśli ktoś inny zaimportuje definicję interfejsu API do usługi PowerApps i Microsoft Flow w ramach przepływu ręcznego, należy podać je identyfikator klienta i klucz tajny klienta *rejestracji łącznika*, a także adres URL zasobu interfejsu API. Upewnij się, że te klucze tajne są bezpiecznie zarządzane. **Nie udostępniaj poświadczeń zabezpieczeń samego interfejsu API.**
 
 ### <a name="generic-oauth-20"></a>Ogólne uwierzytelnianie OAuth 2.0
-W przypadku korzystania z ogólnego uwierzytelniania OAuth 2,0 można zintegrować z dowolnym dostawcą protokołu OAuth 2,0. Pozwala to na współpracę z dostawcami niestandardowymi, które nie są natywnie obsługiwane.
+W przypadku korzystania z ogólnego uwierzytelniania OAuth 2,0 można zintegrować z dowolnym dostawcą protokołu OAuth 2,0. Dzięki temu można współpracować z dostawcami niestandardowymi, które nie są natywnie obsługiwane.
 
 Wymagane są następujące wartości konfiguracji:
 - **Identyfikator klienta** — identyfikator klienta OAuth 2,0

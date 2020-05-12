@@ -1,19 +1,20 @@
 ---
 title: Modyfikowanie zestawu skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak modyfikować i aktualizować zestaw skalowania maszyn wirtualnych platformy Azure przy użyciu interfejsów API REST, Azure PowerShell i interfejsu wiersza polecenia platformy Azure
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: management
 ms.date: 03/10/2020
-ms.author: mimckitt
-ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476828"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121018"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modify a virtual machine scale set (Modyfikowanie zestawu skalowania maszyn wirtualnych)
 
@@ -272,11 +273,11 @@ Aby zaktualizować Właściwość globalnego zestawu skalowania, należy zaktual
         az vmss update --remove {propertyPath} {indexToRemove}
         ```
 
-    - Jeśli zestaw skalowania został wcześniej wdrożony za `az vmss create` pomocą polecenia, możesz uruchomić `az vmss create` polecenie ponownie, aby zaktualizować zestaw skalowania. Upewnij się, że wszystkie właściwości w `az vmss create` poleceniu są takie same jak poprzednio, z wyjątkiem właściwości, które chcesz zmodyfikować.
+    - Jeśli zestaw skalowania został wcześniej wdrożony za pomocą `az vmss create` polecenia, możesz uruchomić `az vmss create` polecenie ponownie, aby zaktualizować zestaw skalowania. Upewnij się, że wszystkie właściwości w `az vmss create` poleceniu są takie same jak poprzednio, z wyjątkiem właściwości, które chcesz zmodyfikować.
 
 - Możesz również użyć [resources.Azure.com](https://resources.azure.com) lub [zestawów SDK platformy Azure](https://azure.microsoft.com/downloads/).
 
-Po zaktualizowaniu modelu zestawu skalowania Nowa konfiguracja ma zastosowanie do wszystkich nowych maszyn wirtualnych utworzonych w zestawie skalowania. Jednak modele istniejących maszyn wirtualnych w zestawie skalowania muszą być nadal aktualne przy użyciu najnowszego ogólnego modelu zestawu skalowania. W modelu dla każdej maszyny wirtualnej jest to właściwość logiczna o `latestModelApplied` nazwie wskazująca, czy maszyna wirtualna jest aktualna przy użyciu najnowszego ogólnego modelu zestawu skalowania (`true` oznacza to, że maszyna wirtualna jest aktualna przy użyciu najnowszego modelu).
+Po zaktualizowaniu modelu zestawu skalowania Nowa konfiguracja ma zastosowanie do wszystkich nowych maszyn wirtualnych utworzonych w zestawie skalowania. Jednak modele istniejących maszyn wirtualnych w zestawie skalowania muszą być nadal aktualne przy użyciu najnowszego ogólnego modelu zestawu skalowania. W modelu dla każdej maszyny wirtualnej jest to właściwość logiczna o nazwie `latestModelApplied` wskazująca, czy maszyna wirtualna jest aktualna przy użyciu najnowszego ogólnego modelu zestawu skalowania ( `true` oznacza to, że maszyna wirtualna jest aktualna przy użyciu najnowszego modelu).
 
 
 ## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Jak zapewnić aktualność maszyn wirtualnych przy użyciu najnowszego modelu zestawu skalowania

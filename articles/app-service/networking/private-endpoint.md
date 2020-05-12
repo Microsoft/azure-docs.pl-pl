@@ -4,17 +4,17 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756278"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198817"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Korzystanie z prywatnego punktu końcowego dla aplikacji sieci Web umożliwia:
 - Zabezpiecz swoją aplikację sieci Web, konfigurując prywatny punkt końcowy, eliminując ujawnianie opinii publicznej.
 - Bezpiecznie łącz się z aplikacją internetową z sieci lokalnych, które łączą się z siecią wirtualną za pomocą sieci VPN lub prywatnej komunikacji równorzędnej ExpressRoute.
 
-Jeśli potrzebujesz bezpiecznego połączenia między siecią wirtualną a aplikacją sieci Web, punkt końcowy usługi jest najprostszym rozwiązaniem. Jeśli trzeba również skontaktować się z aplikacją internetową z poziomu lokalnego za pośrednictwem bramy platformy Azure, z regionalną równorzędną siecią wirtualną lub z wirtualną siecią równorzędną, prywatny punkt końcowy to rozwiązanie.  
+Jeśli potrzebujesz bezpiecznego połączenia między siecią wirtualną a aplikacją sieci Web, punkt końcowy usługi jest najprostszym rozwiązaniem. Jeśli trzeba również skontaktować się z aplikacją internetową ze strony lokalnej za pośrednictwem bramy platformy Azure, sieci równorzędnej z regionalną lub wirtualną siecią równorzędną, jest to rozwiązanie.  
 
 Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi][serviceendpoint].
 
@@ -63,13 +63,21 @@ W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródł
 ## <a name="dns"></a>DNS
 
 Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, nie zmieniamy wpisu DNS w trakcie okresu zapoznawczego. Musisz samodzielnie zarządzać wpisem DNS na prywatnym serwerze DNS lub Azure DNS strefie prywatnej.
-Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation] .
+Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
+
+Jeśli musisz na przykład użyć konsoli programu kudu lub interfejsu API REST (wdrożenie z obsługą platformy Azure DevOps), musisz utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## <a name="pricing"></a>Cennik
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Private link][pricing].
 
 ## <a name="limitations"></a>Ograniczenia
+
+Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć dostęp do prywatnego punktu końcowego, aby wykonać funkcję z portalu sieci Web systemu Azure. 
+
+W wersji zapoznawczej tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda są dostępne tylko dla publicznego punktu końcowego.
 
 Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego. Zapoznaj się z [tym artykułem][pllimitations] , aby uzyskać aktualne informacje o ograniczeniach.
 

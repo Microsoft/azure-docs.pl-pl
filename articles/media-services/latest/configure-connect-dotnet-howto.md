@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269811"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201131"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Nawiązywanie połączenia z interfejsem API Media Services v3 — .NET
 
@@ -35,15 +36,15 @@ W tym artykule opisano sposób nawiązywania połączenia z zestawem SDK platfor
 ## <a name="create-a-console-application"></a>Tworzenie aplikacji konsolowej
 
 1. Uruchom program Visual Studio. 
-1. W menu **plik** kliknij pozycję **Nowy** > **projekt**. 
+1. W menu **plik** kliknij pozycję **Nowy**  >  **projekt**. 
 1. Utwórz aplikację konsolową **.NET Core** .
 
-Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0`. Kod używa metody "Async Main", która jest dostępna od języka C# 7,1. Aby uzyskać więcej informacji, zobacz ten [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0` . Kod używa metody "Async Main", która jest dostępna od języka C# 7,1. Aby uzyskać więcej informacji, zobacz ten [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
 
 ## <a name="add-required-nuget-packages"></a>Dodaj wymagane pakiety NuGet
 
-1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia** > **NuGet Menedżer** > pakietów NuGet**konsola Menedżer**.
-2. W oknie **konsola Menedżera pakietów** Użyj `Install-Package` polecenia, aby dodać następujące pakiety NuGet. Na przykład `Install-Package Microsoft.Azure.Management.Media`.
+1. W programie Visual Studio wybierz kolejno pozycje **Narzędzia**  >  **NuGet Menedżer pakietów**NuGet  >  **konsola Menedżer**.
+2. W oknie **konsola Menedżera pakietów** Użyj polecenia, `Install-Package` Aby dodać następujące pakiety NuGet. Na przykład `Install-Package Microsoft.Azure.Management.Media`.
 
 |Pakiet|Opis|
 |---|---|
@@ -57,7 +58,7 @@ Przykładowa aplikacja w tym temacie jest celem `netcoreapp2.0`. Kod używa meto
 
 ### <a name="create-appsettingsjson"></a>Utwórz plik appSettings. JSON
 
-1. Przejdź do **General** > **pliku tekstowego**ogólnego.
+1. Przejdź do **General**  >  **pliku tekstowego**ogólnego.
 1. Nadaj mu nazwę "appSettings. JSON".
 1. Ustaw właściwość "Kopiuj do katalogu wyjściowego" pliku JSON na "Kopiuj, jeśli nowszy" (tak, aby aplikacja mogła uzyskać do niej dostęp po opublikowaniu).
 
@@ -70,7 +71,7 @@ Uruchom `az ams account sp create` polecenie zgodnie z opisem w temacie [interfe
 Dla wygody Dodaj plik konfiguracji, który jest odpowiedzialny za odczyt wartości z pliku appSettings. JSON.
 
 1. Dodaj nową klasę cs do projektu. Nadaj jej nazwę `ConfigWrapper`. 
-1. Wklej następujący kod do tego pliku (w tym przykładzie założono, że masz przestrzeń `ConsoleApp1`nazw).
+1. Wklej następujący kod do tego pliku (w tym przykładzie założono, że masz przestrzeń nazw `ConsoleApp1` ).
 
 ```csharp
 using System;
@@ -240,7 +241,7 @@ namespace ConsoleApp1
 - [Tworzenie filtrów za pomocą usługi Media Services — .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Zaawansowane przykłady wideo na żądanie usługi Azure Functions v2 z usługą Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Dokumentacja platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Aby uzyskać więcej przykładów kodu, zobacz repozytorium [przykładów zestawu .NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) .

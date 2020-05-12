@@ -3,19 +3,19 @@ title: Zagadnienia dotyczące projektowania Virtual Machine Scale Sets platformy
 description: Poznaj zagadnienia dotyczące projektowania Virtual Machine Scale Sets platformy Azure. Porównaj funkcje zestawów skalowania z funkcjami maszyn wirtualnych.
 keywords: Maszyna wirtualna z systemem Linux, zestawy skalowania maszyn wirtualnych
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
-ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: vm-linux
-ms.topic: conceptual
-ms.date: 06/01/2017
 ms.author: mimckitt
-ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 06/01/2017
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273770"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200194"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
 W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
@@ -56,7 +56,7 @@ Zestaw skalowania, który nie jest zdefiniowany za pomocą usługi Azure Managed
 ## <a name="overprovisioning"></a>Celi
 Zestawy skalowania są obecnie domyślne dla maszyn wirtualnych o nadmiernej aprowizacji. Dzięki włączeniu nadmiarowego udostępniania zestaw skalowania faktycznie zmniejsza liczbę maszyn wirtualnych, niż jest to wymagane, a następnie usuwa dodatkowe maszyny wirtualne po pomyślnym zainicjowaniu żądanej liczby maszyn wirtualnych. Nadmierne Inicjowanie obsługi administracyjnej zwiększa szybkość inicjowania obsługi i skraca czas wdrażania. Nie są naliczane opłaty za dodatkowe maszyny wirtualne i nie są one wliczane do limitów przydziałów.
 
-Mimo że nadmierne Inicjowanie obsługi administracyjnej zwiększa częstotliwość powodzeń aprowizacji, może to spowodować mylące zachowanie aplikacji, która nie jest przeznaczona do obsługi dodatkowych maszyn wirtualnych, które są wyświetlane, a następnie znika. Aby wyłączyć nadmierne Inicjowanie obsługi administracyjnej, upewnij się, że w szablonie znajduje się następujący `"overprovision": "false"`ciąg:. Więcej szczegółów można znaleźć w [dokumentacji interfejsu API REST zestawu skalowania](/rest/api/virtualmachinescalesets/create-or-update-a-set).
+Mimo że nadmierne Inicjowanie obsługi administracyjnej zwiększa częstotliwość powodzeń aprowizacji, może to spowodować mylące zachowanie aplikacji, która nie jest przeznaczona do obsługi dodatkowych maszyn wirtualnych, które są wyświetlane, a następnie znika. Aby wyłączyć nadmierne Inicjowanie obsługi administracyjnej, upewnij się, że w szablonie znajduje się następujący ciąg: `"overprovision": "false"` . Więcej szczegółów można znaleźć w [dokumentacji interfejsu API REST zestawu skalowania](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Jeśli zestaw skalowania korzysta z magazynu zarządzanego przez użytkownika i zostanie wyłączone przeprowadzenie nadmiernej aprowizacji, możesz mieć więcej niż 20 maszyn wirtualnych na konto magazynu, ale nie zaleca się więcej niż 40 z przyczyn związanych z wydajnością we/wy. 
 

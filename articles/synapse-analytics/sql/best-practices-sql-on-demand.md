@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692144"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198881"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące usług SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Po wykryciu ograniczenia przepustowości SQL na żądanie ma wbudowaną obsług�
 
 Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajności:
 
-- Convert CSV do Parquet-Parquet ma format kolumnowy. Ponieważ jest skompresowany, jego rozmiary plików są mniejsze niż pliki CSV z tymi samymi danymi. Do odczytu na żądanie SQL wymagane są mniej czasu i żądania pamięci masowej.
+- Konwertowanie plików CSV i JSON na Parquet-Parquet ma format kolumnowy. Ponieważ jest skompresowany, jego rozmiary plików są mniejsze niż pliki CSV lub JSON z tymi samymi danymi. Do odczytu na żądanie SQL wymagane są mniej czasu i żądania pamięci masowej.
 - Jeśli zapytanie odwołuje się do pojedynczego dużego pliku, można je podzielić na kilka mniejszych plików.
 - Spróbuj zachować rozmiar pliku CSV poniżej 10 GB.
 - Lepiej jest mieć pliki o równym rozmiarze dla jednej ścieżki OPENROWSET lub lokalizacji tabeli zewnętrznej.
@@ -118,7 +118,14 @@ Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](develop-st
 > [!TIP]
 > Zawsze należy rzutować wynik funkcji FilePath i FileInfo na odpowiednie typy danych. Jeśli używasz typów danych znakowych, upewnij się, że jest używana odpowiednia długość.
 
+> [!NOTE]
+> Funkcje używane do usuwania partycji, FilePath i FileInfo nie są obecnie obsługiwane w przypadku tabel zewnętrznych innych niż te utworzone automatycznie dla każdej tabeli utworzonej w Synapse Spark.
+
 Jeśli przechowywane dane nie są podzielone na partycje, należy rozważyć ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików. Podczas [wykonywania zapytania dotyczącego partycjonowanych tabel platformy Spark](develop-storage-files-spark-tables.md) z poziomu bazy danych SQL na żądanie zapytanie będzie automatycznie kierować tylko te pliki.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Używanie PARSER_VERSION 2,0 do wykonywania zapytań dotyczących plików CSV
+
+Analizatora wydajności zoptymalizowany można użyć podczas wykonywania zapytania dotyczącego plików CSV. Sprawdź [PARSER_VERSION](develop-openrowset.md) , aby uzyskać szczegółowe informacje.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 
@@ -127,6 +134,12 @@ Jeśli przechowywane dane nie są podzielone na partycje, należy rozważyć ich
 Można użyć CETAS do przechowywania często używanych części zapytań, takich jak sprzężone tabele odwołań, do nowego zestawu plików. Następnie można przyłączyć się do tej pojedynczej tabeli zewnętrznej zamiast powtarzających się wspólnych sprzężeń w wielu zapytaniach.
 
 Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworzone, gdy pierwsze zapytanie odwołuje się do tej tabeli zewnętrznej, co spowodowało zwiększenie wydajności.
+
+## <a name="aad-pass-through-performance"></a>Wydajność przekazywania w usłudze AAD
+
+Funkcja SQL na żądanie umożliwia dostęp do plików w magazynie przy użyciu funkcji przekazywania lub poświadczeń usługi AAD. Może wystąpić wolniejsze działanie z przekazywaniem usługi AAD do sygnatury dostępu współdzielonego. 
+
+Jeśli potrzebujesz lepszej wydajności, spróbuj użyć poświadczeń SAS, aby uzyskać dostęp do magazynu, dopóki nie zostanie zwiększona wydajność usługi AAD.
 
 ## <a name="next-steps"></a>Następne kroki
 

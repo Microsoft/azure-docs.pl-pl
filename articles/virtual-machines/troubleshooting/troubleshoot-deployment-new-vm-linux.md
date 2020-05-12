@@ -3,7 +3,7 @@ title: Rozwiązywanie problemów z wdrożeniem maszyny wirtualnej systemu Linux 
 description: Rozwiązywanie problemów z wdrażaniem Menedżer zasobów podczas tworzenia nowej maszyny wirtualnej z systemem Linux na platformie Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
-ms.author: cjiang
-ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981421"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118230"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Rozwiązywanie problemów z wdrażaniem Menedżer zasobów przy tworzeniu nowej maszyny wirtualnej z systemem Linux na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -50,7 +50,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **N<sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Linux i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
 
-**Tłumaczenia**
+**Rozwiązanie:**
 
 Aby rozwiązać oba te błędy, należy przekazać oryginalny wirtualny dysk twardy, który jest dostępny lokalnie, przy użyciu tego samego ustawienia jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić Inicjowanie obsługi administracyjnej.
 
@@ -60,7 +60,7 @@ Aby rozwiązać oba te błędy, należy przekazać oryginalny wirtualny dysk twa
 
 **N<sup>4</sup>:** Jeśli system operacyjny jest w systemie Linux wyspecjalizowany i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
 
-**Tłumaczenia**
+**Rozwiązanie:**
 
 Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
 
@@ -74,7 +74,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 * Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 * Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
   * Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności.
-    Kliknij **pozycję grupy** > zasobów**zasoby** > *grupy* > zasobów*Twój zestaw* > **dostępności Virtual Machines** > **zatrzymać***maszynę* > wirtualną.
+    Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >  **Resources**  >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  **Stop**.
   * Po zatrzymaniu wszystkich maszyn wirtualnych Utwórz nową maszynę wirtualną w żądanym rozmiarze.
   * Najpierw uruchom nową maszynę wirtualną, a następnie wybierz każdą z zatrzymanych maszyn wirtualnych, a następnie kliknij przycisk **Uruchom**.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312046"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198797"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrowanie usługi Azure Application Gateway i zapory aplikacji sieci Web z wersji 1 do wersji 2
 
@@ -53,15 +53,15 @@ W zależności od konfiguracji i preferencji lokalnego środowiska programu Powe
 * Jeśli nie masz zainstalowanych modułów platformy Azure AZ lub nie chcesz odinstalować modułów Azure AZ modules, najlepszą opcją jest użycie `Install-Script` opcji do uruchomienia skryptu.
 * Jeśli zachodzi potrzeba zachowania usługi Azure AZ modules, najlepszym trafieniem jest pobranie skryptu i uruchomienie go bezpośrednio.
 
-Aby określić, czy masz zainstalowane moduły Azure AZ, uruchom `Get-InstalledModule -Name az`polecenie. Jeśli nie widzisz żadnych zainstalowanych modułów AZ, możesz użyć `Install-Script` metody.
+Aby określić, czy masz zainstalowane moduły Azure AZ, uruchom polecenie `Get-InstalledModule -Name az` . Jeśli nie widzisz żadnych zainstalowanych modułów AZ, możesz użyć `Install-Script` metody.
 
 ### <a name="install-using-the-install-script-method"></a>Instalowanie przy użyciu metody install-Script
 
 Aby można było użyć tej opcji, na komputerze nie trzeba mieć zainstalowanych modułów platformy Azure. Jeśli są zainstalowane, następujące polecenie wyświetla błąd. Możesz odinstalować usługę Azure AZ module lub użyć innej opcji, aby ręcznie pobrać skrypt i uruchomić go.
   
-Uruchom skrypt za pomocą następującego polecenia:
+Uruchom skrypt za pomocą następującego polecenia, aby uzyskać najnowszą wersję:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 To polecenie instaluje również wymagane AZ modules.  
 
@@ -75,7 +75,7 @@ Aby uruchomić skrypt:
 
 1. Użyj `Import-Module Az` do zaimportowania AZ modules.
 
-1. Uruchom `Get-Help AzureAppGWMigration.ps1` , aby przeanalizować wymagane parametry:
+1. Uruchom, `Get-Help AzureAppGWMigration.ps1` Aby przeanalizować wymagane parametry:
 
    ```
    AzureAppGwMigration.ps1
@@ -115,7 +115,7 @@ Aby uruchomić skrypt:
         -Password $password
       ```
 
-     W poprzednim przykładzie można `$mySslCert1, $mySslCert2` przekazać (rozdzielone przecinkami) jako wartości tego parametru w skrypcie.
+     W `$mySslCert1, $mySslCert2` poprzednim przykładzie można przekazać (rozdzielone przecinkami) jako wartości tego parametru w skrypcie.
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: opcjonalne**. Rozdzielana przecinkami lista obiektów PSApplicationGatewayTrustedRootCertificate, które są tworzone w celu reprezentowania [zaufanych certyfikatów głównych](ssl-overview.md) na potrzeby uwierzytelniania wystąpień zaplecza z poziomu bramy v2.
    
       ```azurepowershell
@@ -162,7 +162,7 @@ Poniżej przedstawiono kilka scenariuszy, w których bieżąca Brama Application
 
   * W przypadku używania publicznych adresów IP na bramie aplikacji można przeprowadzić kontrolowanej, szczegółowej migracji przy użyciu profilu Traffic Manager, aby przyrostowo kierować ruchem (metodą routingu ruchu ważonego) do nowej bramy v2.
 
-    Można to zrobić przez dodanie etykiet DNS zarówno bram aplikacji V1, jak i V2 do [profilu Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), a także CNAME niestandardowy rekord DNS (na przykład `www.contoso.com`) do domeny Traffic Manager (na przykład contoso.trafficmanager.NET).
+    Można to zrobić przez dodanie etykiet DNS zarówno bram aplikacji V1, jak i V2 do [profilu Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), a także CNAME niestandardowy rekord DNS (na przykład `www.contoso.com` ) do domeny Traffic Manager (na przykład contoso.trafficmanager.NET).
   * Można też zaktualizować rekord DNS domeny niestandardowej, aby wskazywał etykietę DNS nowej bramy aplikacji w wersji 2. W zależności od czasu wygaśnięcia skonfigurowanego w rekordzie DNS może upłynąć trochę czasu, aż cały ruch klienta zostanie zmigrowany do nowej bramy w wersji 2.
 * **Klienci łączą się z adresem IP frontonu bramy aplikacji**.
 
@@ -196,7 +196,7 @@ Nie. Obecnie skrypt nie obsługuje certyfikatów w magazynie kluczy. Jest to jed
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Wystąpił problem z używaniem tego skryptu. Jak uzyskać pomoc?
   
-Możesz wysłać wiadomość e-mail na appgwmigrationsup@microsoft.comadres, otworzyć sprawę pomocy technicznej w ramach pomocy technicznej platformy Azure lub obie te czynności.
+Możesz skontaktować się z pomocą techniczną platformy Azure w temacie "Konfiguracja i instalacja/migracja do wersji 2 SKU". Więcej informacji na temat [pomocy technicznej platformy Azure znajdziesz tutaj](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Następne kroki
 

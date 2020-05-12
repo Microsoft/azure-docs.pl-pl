@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617664"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199548"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -76,15 +77,15 @@ Po zainstalowaniu rozszerzenia wymagany jest identyfikator katalogu i poświadcz
 
 Serwer NPS musi mieć możliwość komunikowania się z następującymi adresami URL za pośrednictwem portów 80 i 443.
 
-- https:\//adnotifications.windowsazure.com
+- https: \/ /adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
-- https:\//Credentials.Azure.com
+- https: \/ /Credentials.Azure.com
 
 Ponadto do ukończenia [instalacji karty przy użyciu podanego skryptu programu PowerShell](#run-the-powershell-script) jest wymagane połączenie z następującymi adresami URL
 
 - https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.NET
+- https: \/ /provisioningapi.microsoftonline.com
+- https: \/ /aadcdn.msauth.NET
 
 ## <a name="prepare-your-environment"></a>Przygotowywanie środowiska
 
@@ -110,7 +111,7 @@ W zależności od używanego rozwiązania sieci VPN kroki konfigurowania zasad u
 Ten krok można już zakończyć w dzierżawie, ale warto sprawdzić, czy Azure AD Connect ostatnio synchronizować bazy danych.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-2. Wybierz **Azure Active Directory** > **Azure AD Connect**
+2. Wybierz **Azure Active Directory**  >  **Azure AD Connect**
 3. Sprawdź, czy stan synchronizacji jest **włączony** i czy Ostatnia synchronizacja była krótsza niż godzina temu.
 
 Aby rozpocząć pracę z nową rundą synchronizacji, należy wykonać instrukcje podane w [Azure AD Connect Sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
@@ -139,7 +140,7 @@ Przed wdrożeniem i użyciem rozszerzenia serwera NPS użytkownicy, którzy są 
 
 Wykonaj następujące kroki, aby rozpocząć Uruchamianie konta testowego:
 
-1. Zaloguj się do [https://aka.ms/mfasetup](https://aka.ms/mfasetup) programu przy użyciu konta testowego.
+1. Zaloguj się do programu [https://aka.ms/mfasetup](https://aka.ms/mfasetup) przy użyciu konta testowego.
 2. Postępuj zgodnie z monitami, aby skonfigurować metodę weryfikacji.
 3. [Utwórz zasady dostępu warunkowego](howto-mfa-getstarted.md#create-conditional-access-policy) , aby wymagać uwierzytelniania wieloskładnikowego dla konta testowego.
 
@@ -200,7 +201,7 @@ Powtórz te kroki na wszystkich dodatkowych serwerach NPS, które chcesz skonfig
 Jeśli poprzedni certyfikat komputera wygasł i został wygenerowany nowy certyfikat, należy usunąć wszystkie wygasłe certyfikaty. Wygaśnięcie certyfikatów może spowodować problemy z uruchamianiem rozszerzenia serwera NPS.
 
 > [!NOTE]
-> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi być **CN =\<TenantID\>, OU = Microsoft NPS Extension**. 
+> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi być **CN = \< TenantID \> , OU = Microsoft NPS Extension**. 
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government dodatkowych kroków
 
@@ -225,7 +226,7 @@ W przypadku wydania 1.0.1.32 rozszerzenia serwera NPS jest teraz obsługiwane od
 
 Certyfikaty utworzone przez `AzureMfaNpsExtnConfigSetup.ps1` skrypt są ważne przez 2 lata. Organizacje IT powinny monitorować certyfikaty do wygaśnięcia. Certyfikaty rozszerzenia serwera NPS są umieszczane w magazynie certyfikatów komputera lokalnego w obszarze osobistym i są wystawiane dla identyfikatora dzierżawy dostarczonego do skryptu.
 
-Gdy certyfikat zbliża się do daty wygaśnięcia, należy utworzyć nowy certyfikat w celu jego zastąpienia.  Ten proces jest realizowany przez `AzureMfaNpsExtnConfigSetup.ps1` ponowne uruchomienie i utrzymywanie tego samego identyfikatora dzierżawy po wyświetleniu monitu. Ten proces należy powtórzyć na każdym serwerze NPS w środowisku.
+Gdy certyfikat zbliża się do daty wygaśnięcia, należy utworzyć nowy certyfikat w celu jego zastąpienia.  Ten proces jest realizowany przez ponowne uruchomienie `AzureMfaNpsExtnConfigSetup.ps1` i utrzymywanie tego samego identyfikatora dzierżawy po wyświetleniu monitu. Ten proces należy powtórzyć na każdym serwerze NPS w środowisku.
 
 ## <a name="configure-your-nps-extension"></a>Konfigurowanie rozszerzenia serwera NPS
 
@@ -247,7 +248,7 @@ Po włączeniu uwierzytelniania wieloskładnikowego dla klienta usługi RADIUS p
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Użyj ustawienia rejestru *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA* , aby kontrolować zachowanie funkcji. To ustawienie ma jedną opcję konfiguracji:
 
-| Key | Wartość | Domyślny |
+| Klucz | Wartość | Domyślny |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
@@ -267,7 +268,7 @@ Następujący skrypt jest dostępny do wykonywania podstawowych kroków kontroli
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Jak mogę sprawdzić, czy certyfikat klienta został zainstalowany zgodnie z oczekiwaniami?
 
-Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu ** \<CN tenantid\>, OU = Microsoft NPS Extension**
+Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu **CN \< tenantid \> , OU = Microsoft NPS Extension**
 
 Certyfikaty z podpisem własnym wygenerowane przez skrypt *AzureMfaNpsExtnConfigSetup. ps1* mają również okres istnienia ważności wynoszący dwa lata. Podczas sprawdzania, czy certyfikat jest zainstalowany, należy również sprawdzić, czy certyfikat nie wygasł.
 

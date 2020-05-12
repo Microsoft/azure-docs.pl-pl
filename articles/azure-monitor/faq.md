@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732040"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117788"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -196,11 +196,15 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Diagnostyka platformy Azure](platform/diagnostics-extension-to-application-insights.md)
 * [Aplikacje internetowe w języku Java](app/java-troubleshoot.md)
 
-*Nie otrzymuję żadnych danych z mojego serwera*
+*Nie otrzymuję żadnych danych z mojego serwera:*
 
 * [Ustawianie wyjątków zapory](app/ip-addresses.md)
 * [Konfigurowanie serwera ASP.NET](app/monitor-performance-live-website-now.md)
 * [Konfigurowanie serwera Java](app/java-agent.md)
+
+*Ile Application Insights należy wdrożyć?:*
+
+* [Jak zaprojektować wdrożenie Application Insights: jeden a wiele zasobów Application Insights?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>Czy można użyć Application Insights z...?
 
@@ -212,7 +216,7 @@ Projektant widoków jest dostępny tylko dla użytkowników przypisanych z upraw
 * [Cloud Services na platformie Azure](app/cloudservices.md)
 * [Serwery aplikacji działające w programie Docker](app/docker.md)
 * [Jednostronicowe aplikacje sieci Web](app/javascript.md)
-* [Sharepoint](app/sharepoint.md)
+* [SharePoint](app/sharepoint.md)
 * [Aplikacja klasyczna systemu Windows](app/windows-desktop.md)
 * [Inne platformy](app/platforms.md)
 
@@ -247,13 +251,13 @@ Szczegóły są zależne od typu projektu. Dla aplikacji sieci Web:
 * Wstawia elementy do:
   * Web.config
   * packages.config
-* (Tylko nowe projekty — w przypadku [dodania Application Insights do istniejącego projektu][start]należy to zrobić ręcznie). Wstawia fragmenty kodu klienta i serwera, aby je zainicjować przy użyciu identyfikatora zasobu Application Insights. Na przykład w aplikacji MVC kod jest wstawiany do widoku strony głównej/udostępniony/\_układ. cshtml
+* (Tylko nowe projekty — w przypadku [dodania Application Insights do istniejącego projektu][start]należy to zrobić ręcznie). Wstawia fragmenty kodu klienta i serwera, aby je zainicjować przy użyciu identyfikatora zasobu Application Insights. Na przykład w aplikacji MVC kod jest wstawiany do widoku strony głównej/udostępniony/ \_ układ. cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Jak mogę uaktualnić ze starszych wersji zestawu SDK?
 Zapoznaj się z [informacjami o wersji](app/release-notes.md) zestawu SDK, które są odpowiednie dla danego typu aplikacji.
 
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Jak mogę zmienić zasób platformy Azure, do którego mój projekt wysyła dane?
-W Eksplorator rozwiązań kliknij prawym przyciskiem `ApplicationInsights.config` myszy i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w pliku ApplicationInsights. config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
+W Eksplorator rozwiązań kliknij prawym przyciskiem myszy `ApplicationInsights.config` i wybierz polecenie **Aktualizuj Application Insights**. Dane można wysyłać do istniejącego lub nowego zasobu na platformie Azure. Kreator aktualizacji zmienia klucz Instrumentacji w pliku ApplicationInsights. config, który określa, gdzie zestaw SDK serwera wysyła dane. Chyba że usuniesz opcję "Aktualizuj wszystko", zostanie również zmieniony klucz, w którym pojawia się na stronach sieci Web.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Czy można użyć `providers('Microsoft.Insights', 'components').apiVersions[0]` w ramach wdrożeń Azure Resource Manager?
 
@@ -309,7 +313,7 @@ Wyszukujemy adres IP (IPv4 lub IPv6) klienta sieci Web za pomocą [GeoLite2](htt
 * Aby dowiedzieć się więcej o sposobie zbierania danych o adresie IP i geolokalizacji w Application Insights zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Można skonfigurować, `ClientIpHeaderTelemetryInitializer` aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do `X-Originating-IP`programu. [Dowiedz się więcej](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Można skonfigurować, `ClientIpHeaderTelemetryInitializer` Aby przyjmować adres IP z innego nagłówka. W niektórych systemach jest to na przykład przenoszone przez serwer proxy, moduł równoważenia obciążenia lub sieć CDN do programu `X-Originating-IP` . [Dowiedz się więcej](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Możesz [użyć Power BI](app/export-power-bi.md ) , aby wyświetlić dane telemetryczne żądania na mapie.
 
@@ -378,7 +382,7 @@ Użyj pojedynczego zasobu dla wszystkich składników lub ról w jednym systemie
 
 [Próbkowanie](app/sampling.md) zmniejsza liczbę elementów telemetrycznych (żądań, zdarzeń niestandardowych itd.), które są faktycznie wysyłane z aplikacji do portalu. W obszarze wyszukiwanie zostanie wyświetlona liczba elementów, które faktycznie zostały odebrane. Na wykresach metryk, które wyświetlają liczbę zdarzeń, zobaczysz liczbę oryginalnych zdarzeń, które wystąpiły. 
 
-Każdy element, który jest przesyłany `itemCount` , przenosi właściwość, która pokazuje, ile oryginalnych zdarzeń reprezentuje element. Aby obserwować próbkowanie w operacji, można uruchomić to zapytanie w analizie:
+Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, która pokazuje, ile oryginalnych zdarzeń reprezentuje element. Aby obserwować próbkowanie w operacji, można uruchomić to zapytanie w analizie:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -436,7 +440,7 @@ Zezwól serwerowi sieci Web na wysyłanie danych telemetrycznych do naszych punk
 
 Kierowanie ruchu z serwera do bramy w intranecie przez zastępowanie punktów końcowych w konfiguracji. Jeśli te właściwości "punkt końcowy" nie są obecne w konfiguracji, te klasy będą używały domyślnych wartości przedstawionych poniżej w przykładowym pliku ApplicationInsights. config. 
 
-Twoja Brama powinna kierować ruch do adresu podstawowego tego punktu końcowego. W konfiguracji Zastąp wartości domyślne wartością `http://<your.gateway.address>/<relative path>`.
+Twoja Brama powinna kierować ruch do adresu podstawowego tego punktu końcowego. W konfiguracji Zastąp wartości domyślne wartością `http://<your.gateway.address>/<relative path>` .
 
 
 ##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Przykład ApplicationInsights. config z domyślnymi punktami końcowymi:
@@ -515,7 +519,7 @@ Są to procesy niekontenerowe, które są uruchamiane w węźle.
 
 Jak to obliczyć?
 
-**Inne procesy** = *łączą użycie z CAdvisor* - *użycie z procesu kontenera*
+**Inne procesy**  =  *Łączne użycie z CAdvisor*  -  *Użycie z procesu kontenera*
 
 **Inne procesy** obejmują:
 
@@ -628,7 +632,7 @@ Aby zapoznać się z szczegółowym opisem problemu, zapoznaj się z następują
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Jak mogę rozwiązać problemy z usługą Azure AD po włączeniu dzienników na żywo? 
 
-Może zostać wyświetlony następujący błąd: **adres URL odpowiedzi określony w żądaniu nie jest zgodny z adresami URL odpowiedzi skonfigurowanymi dla aplikacji: "<identyfikator\>aplikacji"**. Rozwiązanie, które ma zostać rozwiązane, można znaleźć w artykule [jak wyświetlać dane kontenerów w czasie rzeczywistym za pomocą Azure monitor dla kontenerów](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+Może zostać wyświetlony następujący błąd: **adres URL odpowiedzi określony w żądaniu nie jest zgodny z adresami URL odpowiedzi skonfigurowanymi dla aplikacji: "<identyfikator aplikacji \> "**. Rozwiązanie, które ma zostać rozwiązane, można znaleźć w artykule [jak wyświetlać dane kontenerów w czasie rzeczywistym za pomocą Azure monitor dla kontenerów](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Dlaczego nie mogę uaktualnić klastra po dołączeniu?
 

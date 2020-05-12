@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/11/2020
 ms.author: apimpm
-ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203203"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196986"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
 <a name="required-ports"> </a> Gdy wystąpienie usługi API Management jest hostowane w sieci wirtualnej, używane są porty w poniższej tabeli.
 
-| Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel (\*)                                                 | Typ Virtual Network |
+| Porty źródłowe/docelowe | Kierunek          | Protokół transportowy |   [Tagi usług](../virtual-network/security-overview.md#service-tags) <br> Źródło/miejsce docelowe   | Cel ( \* )                                                 | Typ Virtual Network |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | Przychodzący            | TCP                | INTERNET/VIRTUAL_NETWORK            | Komunikacja z klientem do API Management                      | Zewnętrzna             |
 | */3443                     | Przychodzący            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Punkt końcowy zarządzania dla Azure Portal i programu PowerShell         | Wewnętrzna & zewnętrzna  |
@@ -136,22 +136,22 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
     | Środowisko platformy Azure | Punkty końcowe                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure — publiczna      | <ul><li>gcs.prod.monitoring.core.windows.net (**Nowy**)</li><li>prod.warmpath.msftcloudes.com (**jako przestarzałe**)</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-black.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-red.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`warm.ingestion.msftcloudes.com gdzie `East US 2` to eastus2.Warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
-    | Azure w Chinach — 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure — publiczna      | <ul><li>gcs.prod.monitoring.core.windows.net (**Nowy**)</li><li>prod.warmpath.msftcloudes.com (**jako przestarzałe**)</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-black.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-red.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure w Chinach — 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > Zmiana klastrów powyżej przy użyciu strefy DNS **. nsatc.NET** do **. microsoftmetrics.com** jest przede wszystkim zmianą DNS. Adres IP klastra nie ulegnie zmianie.
 
 + **Regionalne znaczniki usług**: reguły sieciowej grupy zabezpieczeń umożliwiające łączność wychodzącą z tagami usługi Storage, SQL i Event Hubs mogą używać regionalnych wersji tych tagów odpowiadających regionowi zawierającemu wystąpienie API Management (na przykład Storage. Zachodnie dla wystąpienia API Management w regionie zachodnie stany USA). W przypadku wdrożeń obejmujących wiele regionów sieciowej grupy zabezpieczeń w każdym regionie powinien zezwalać na ruch do tagów usługi dla tego regionu i regionu podstawowego.
 
-+ **Przekaźnik SMTP**: wychodząca łączność sieciowa dla przekaźnika SMTP, która jest rozpoznawana `smtpi-ch1.msn.com`pod `smtpi-db3.msn.com`kątem `smtpi-sin.msn.com` hosta `smtpi-co1.msn.com`,, i`ies.global.microsoft.com`
++ **Przekaźnik SMTP**: wychodząca łączność sieciowa dla przekaźnika SMTP, która jest rozpoznawana pod kątem hosta `smtpi-co1.msn.com` , `smtpi-ch1.msn.com` , `smtpi-db3.msn.com` `smtpi-sin.msn.com` i`ies.global.microsoft.com`
 
-+ **Portal deweloperów CAPTCHA**: wychodząca łączność sieciowa dla CAPTCHA portalu deweloperów, która jest rozpoznawana pod `client.hip.live.com` kątem `partner.hip.live.com`hostów i.
++ **Portal deweloperów CAPTCHA**: wychodząca łączność sieciowa dla CAPTCHA portalu deweloperów, która jest rozpoznawana pod kątem hostów `client.hip.live.com` i `partner.hip.live.com` .
 
-+ **Azure Portal Diagnostics**: aby umożliwić przepływ dzienników diagnostycznych z Azure Portal przy użyciu rozszerzenia API Management z wewnątrz Virtual Network, wymagany jest dostęp wychodzący `dc.services.visualstudio.com` do portu 443. Pomaga to w rozwiązywaniu problemów, które mogą wystąpić podczas korzystania z rozszerzenia.
++ **Azure Portal Diagnostics**: aby umożliwić przepływ dzienników diagnostycznych z Azure Portal przy użyciu rozszerzenia API Management z wewnątrz Virtual Network, wymagany jest dostęp wychodzący do `dc.services.visualstudio.com` portu 443. Pomaga to w rozwiązywaniu problemów, które mogą wystąpić podczas korzystania z rozszerzenia.
 
-+ **Azure Load Balancer**: Zezwalanie na żądanie przychodzące z `AZURE_LOAD_BALANCER` tagu usługi nie jest wymagane dla `Developer` jednostki SKU, ponieważ wdrażamy tylko jedną jednostkę obliczeniową w tle. Ale ruch przychodzący z [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) stanie się krytyczny podczas `Premium`skalowania do wyższej jednostki SKU, na przykład w przypadku niepowodzenia sondy kondycji z Load Balancer, wdrożenie nie powiedzie
++ **Azure Load Balancer**: Zezwalanie na żądanie przychodzące z tagu usługi `AZURE_LOAD_BALANCER` nie jest wymagane dla `Developer` jednostki SKU, ponieważ wdrażamy tylko jedną jednostkę obliczeniową w tle. Ale ruch przychodzący z [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) stanie się krytyczny podczas skalowania do wyższej jednostki SKU, na przykład w przypadku `Premium` niepowodzenia sondy kondycji z Load Balancer, wdrożenie nie powiedzie
 
 + **Wymuszanie tunelowania ruchu do zapory lokalnej przy użyciu trasy Express lub sieciowego urządzenia wirtualnego**: wspólna konfiguracja klienta polega na zdefiniowaniu własnej trasy domyślnej (0.0.0.0/0), która wymusza cały ruch z API Management delegowanej podsieci do przepływu za pośrednictwem lokalnej zapory lub sieciowego urządzenia wirtualnego. Ten przepływ ruchu niezmiennie zrywa łączność z platformą Azure API Management, ponieważ ruch wychodzący jest blokowany lokalnie lub NAT na nierozpoznawalny zbiór adresów, które nie działają już z różnymi punktami końcowymi platformy Azure. Rozwiązanie wymaga wykonania kilku czynności:
 
@@ -203,7 +203,7 @@ Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych a
 
 Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezwolenia na adres IP żądań przychodzących oznaczony przy użyciu **szablonu globalnego** musi być listy dozwolonych wraz z adresem IP specyficznym dla **regionu** .
 
-| **Środowisko platformy Azure**|   **Region**|  **Adres IP**|
+| **Środowisko platformy Azure**|   **Okolicy**|  **Adres IP**|
 |-----------------|-------------------------|---------------|
 | Azure — publiczna| Południowo-środkowe stany USA (globalne)| 104.214.19.224|
 | Azure — publiczna| Północno-środkowe stany USA (globalne)| 52.162.110.80|

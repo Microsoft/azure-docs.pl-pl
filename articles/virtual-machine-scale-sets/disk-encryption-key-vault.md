@@ -1,18 +1,20 @@
 ---
 title: Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 description: Ten artykuł zawiera instrukcje dotyczące tworzenia i konfigurowania magazynu kluczy do użycia z usługą Azure Disk Encryption
+author: ju-shim
+ms.author: jushiman
+ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.custom: seodec18
-ms.openlocfilehash: 30fa6b910c0241621c2b2cdae9bb9a164f27cedb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 6350e85552a6c92592dbe2b1a9cf48a35f86a7be
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454547"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198450"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 
@@ -34,7 +36,7 @@ Kroki opisane w tym artykule można wykonać przy użyciu [interfejsu wiersza po
 
 ### <a name="connect-to-your-azure-account"></a>Nawiąż połączenie z kontem platformy Azure
 
-Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell należy najpierw nawiązać połączenie z subskrypcją platformy Azure. Można to zrobić, [logując się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [logując się przy użyciu programu Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub dostarczając poświadczenia do Azure Portal po wyświetleniu monitu.
+Przed rozpoczęciem korzystania z interfejsu wiersza polecenia platformy Azure lub Azure PowerShell należy najpierw nawiązać połączenie z subskrypcją platformy Azure. Można to zrobić, [logując się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [logując się za pomocą Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)lub podając poświadczenia do Azure Portal po wyświetleniu monitu.
 
 ```azurecli-interactive
 az login

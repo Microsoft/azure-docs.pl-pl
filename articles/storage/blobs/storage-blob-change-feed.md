@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883344"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120423"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -36,6 +36,8 @@ Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które
   - Twórz rozwiązania do tworzenia kopii zapasowych, dublowania lub replikowania stanu obiektów na koncie w celu zarządzania awaryjnego lub zapewnienia zgodności.
 
   - Twórz połączone potoki aplikacji, które reagują na zmiany zdarzeń lub Zaplanuj wykonania na podstawie utworzonego lub zmienionego obiektu.
+  
+Funkcja kanału informacyjnego zmian jest funkcją wymaganą wstępnie do [przywracania do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Źródło zmian zawiera trwały, uporządkowany model dziennika zmian, które występują w obiekcie blob. Zmiany są zapisywane i udostępniane w dzienniku kanału informacyjnego zmiany w kolejności kilku minut od zmiany. Jeśli aplikacja musi reagować na zdarzenia znacznie szybciej niż tutaj, zamiast tego Rozważ użycie [zdarzeń BLOB Storage](storage-blob-event-overview.md) . [Zdarzenia BLOB Storage](storage-blob-event-overview.md) zawierają zdarzenia jednorazowe w czasie rzeczywistym, które umożliwiają Azure Functions lub aplikacjom szybkie reagowanie na zmiany, które wystąpiły w obiekcie blob. 
@@ -55,7 +57,7 @@ Poniżej przedstawiono kilka kwestii, które należy wziąć pod uwagę po włą
 - Tylko konta GPv2 i BLOB Storage mogą włączać Źródło zmian. Konta BlockBlobStorage Premium i hierarchiczne konta z obsługą nazw nie są obecnie obsługiwane. Konta magazynu GPv1 nie są obsługiwane, ale można je uaktualnić do GPv2 bez przestojów. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu GPv2](../common/storage-account-upgrade.md) .
 
 > [!IMPORTANT]
-> Kanał informacyjny zmiany jest w publicznej wersji zapoznawczej i jest dostępny w regionach **westcentralus** i **westus2** . Zobacz sekcję [warunki](#conditions) w tym artykule. Aby zarejestrować się w wersji zapoznawczej, zobacz sekcję [Rejestrowanie subskrypcji](#register) w tym artykule. Musisz zarejestrować swoją subskrypcję, aby można było włączyć funkcję źródła zmian na kontach magazynu.
+> Źródło zmian jest w publicznej wersji zapoznawczej i jest dostępne w regionach **zachodnie stany USA**, **zachodnie stany USA 2**, **Francja środkowa**, **Francja Południowa**, **Kanada środkowa**i **Kanada Wschodnia** . Zobacz sekcję [warunki](#conditions) w tym artykule. Aby zarejestrować się w wersji zapoznawczej, zobacz sekcję [Rejestrowanie subskrypcji](#register) w tym artykule. Musisz zarejestrować swoją subskrypcję, aby można było włączyć funkcję źródła zmian na kontach magazynu.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -71,7 +73,7 @@ Włącz źródło zmian na koncie magazynu przy użyciu Azure Portal:
 
     ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Włącz źródło zmian przy użyciu programu PowerShell:
 
@@ -154,7 +156,7 @@ Zobacz [dzienniki źródła zmian procesów na platformie Azure Blob Storage](st
 
 Kanał informacyjny zmiany jest dziennikiem zmian zorganizowanych na *segmenty* **godzinowe** , ale dołączane i aktualizowane co kilka minut. Te segmenty są tworzone tylko wtedy, gdy istnieją zdarzenia zmiany obiektów blob, które wystąpiły w danej godzinie. Dzięki temu aplikacja kliencka może zużywać zmiany, które wystąpiły w określonych zakresach czasu bez konieczności przeszukiwania całego dziennika. Aby dowiedzieć się więcej, zobacz [specyfikacje](#specifications).
 
-Dostępny segment godzinowy kanału informacyjnego zmiany jest opisany w pliku manifestu, który określa ścieżki do plików kanału informacyjnego zmiany dla tego segmentu. Na liście katalogu `$blobchangefeed/idx/segments/` wirtualnego są wyświetlane te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek okresu godzinowego, który reprezentuje segment. Za pomocą tej listy można odfiltrować segmenty dzienników, które są dla Ciebie ważne.
+Dostępny segment godzinowy kanału informacyjnego zmiany jest opisany w pliku manifestu, który określa ścieżki do plików kanału informacyjnego zmiany dla tego segmentu. Na liście `$blobchangefeed/idx/segments/` katalogu wirtualnego są wyświetlane te segmenty uporządkowane według czasu. Ścieżka segmentu opisuje początek okresu godzinowego, który reprezentuje segment. Za pomocą tej listy można odfiltrować segmenty dzienników, które są dla Ciebie ważne.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -166,9 +168,9 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` Jest tworzony automatycznie po włączeniu źródła zmian. Możesz bezpiecznie zignorować ten plik. Jest to zawsze pusty plik inicjujący. 
+> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`Jest tworzony automatycznie po włączeniu źródła zmian. Możesz bezpiecznie zignorować ten plik. Jest to zawsze pusty plik inicjujący. 
 
-Plik manifestu segmentu (`meta.json`) pokazuje ścieżkę plików kanału informacyjnego zmiany dla tego segmentu we `chunkFilePaths` właściwości. Oto przykład pliku manifestu segmentu.
+Plik manifestu segmentu ( `meta.json` ) pokazuje ścieżkę plików kanału informacyjnego zmiany dla tego segmentu we `chunkFilePaths` właściwości. Oto przykład pliku manifestu segmentu.
 
 ```json
 {
@@ -199,7 +201,7 @@ Plik manifestu segmentu (`meta.json`) pokazuje ścieżkę plików kanału inform
 ```
 
 > [!NOTE]
-> `$blobchangefeed` Kontener jest wyświetlany dopiero po włączeniu funkcji kanału informacyjnego zmiany na Twoim koncie. Przed wyświetleniem listy obiektów BLOB w kontenerze należy poczekać kilka minut po włączeniu kanału informacyjnego zmiany. 
+> `$blobchangefeed`Kontener jest wyświetlany dopiero po włączeniu funkcji kanału informacyjnego zmiany na Twoim koncie. Przed wyświetleniem listy obiektów BLOB w kontenerze należy poczekać kilka minut po włączeniu kanału informacyjnego zmiany. 
 
 <a id="log-files"></a>
 
@@ -207,7 +209,13 @@ Plik manifestu segmentu (`meta.json`) pokazuje ścieżkę plików kanału inform
 
 Pliki kanału informacyjnego zmiany zawierają serię rekordów zdarzeń zmiany. Każdy rekord zdarzenia zmiany odnosi się do jednej zmiany w pojedynczym obiekcie blob. Rekordy są serializowane i zapisywane w pliku przy użyciu specyfikacji formatu [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) . Rekordy można odczytać przy użyciu specyfikacji formatu pliku Avro. Istnieje kilka bibliotek dostępnych do przetwarzania plików w tym formacie.
 
-Pliki kanału informacyjnego zmiany są przechowywane `$blobchangefeed/log/` w katalogu wirtualnym jako [dołączane obiekty blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik kanału informacyjnego zmiany w każdej ścieżce będzie `00000` miał nazwę pliku (na przykład `00000.avro`). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki zostanie zwiększona o 1 (na przykład `00001.avro`:).
+Pliki kanału informacyjnego zmiany są przechowywane w `$blobchangefeed/log/` katalogu wirtualnym jako [dołączane obiekty blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Pierwszy plik kanału informacyjnego zmiany w każdej ścieżce będzie miał `00000` nazwę pliku (na przykład `00000.avro` ). Nazwa każdego kolejnego pliku dziennika dodanego do tej ścieżki zostanie zwiększona o 1 (na przykład: `00001.avro` ).
+
+Następujące typy zdarzeń są przechwytywane w rekordach źródła zmian:
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
 
 Oto przykład zmiany rekordu zdarzenia z pliku źródła zmian konwertowanego na format JSON.
 
@@ -238,7 +246,7 @@ Oto przykład zmiany rekordu zdarzenia z pliku źródła zmian konwertowanego na
 }
 ```
 
-Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzenia dla BLOB Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zdarzenia dla BLOB Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). Zdarzenia BlobPropertiesUpdated i BlobSnapshotCreated są obecnie wyłączne, aby można było zmienić źródło danych i nie były jeszcze obsługiwane dla zdarzeń Blob Storage.
 
 > [!NOTE]
 > Pliki źródła zmian dla segmentu nie są natychmiast wyświetlane po utworzeniu segmentu. Długość opóźnienia jest w normalnym interwale opóźnienia publikowania źródła zmian, które jest w ciągu kilku minut od zmiany.
@@ -257,13 +265,13 @@ Aby uzyskać opis każdej właściwości, zobacz [Azure Event Grid schemacie zda
 
 - Zmiany rekordów zdarzeń, gdzie `eventType` ma wartość, `Control` są wewnętrznymi rekordami systemu i nie odzwierciedlają zmiany w obiektach na koncie. Można bezpiecznie zignorować te rekordy.
 
-- Wartości w zbiorze `storageDiagnonstics` właściwości są przeznaczone wyłącznie do użytku wewnętrznego i nie są przeznaczone do użytku przez aplikację. Twoje aplikacje nie powinny mieć umownej zależności od tych danych. Można bezpiecznie zignorować te właściwości.
+- Wartości w `storageDiagnonstics` zbiorze właściwości są przeznaczone wyłącznie do użytku wewnętrznego i nie są przeznaczone do użytku przez aplikację. Twoje aplikacje nie powinny mieć umownej zależności od tych danych. Można bezpiecznie zignorować te właściwości.
 
 - Czas reprezentowany przez segment jest **przybliżony** z granicami wynoszącymi 15 minut. Aby zapewnić użycie wszystkich rekordów w określonym czasie, użyj kolejnego i następnego segmentu godzin.
 
-- Każdy segment może mieć inną liczbę z `chunkFilePaths` powodu wewnętrznego partycjonowania strumienia dziennika do zarządzania przepływność publikowania. Pliki dziennika w każdej z `chunkFilePath` nich powinny zawierać wzajemnie wykluczające się obiekty blob i mogą być używane i przetwarzane równolegle bez naruszania kolejności modyfikacji na obiekt BLOB podczas iteracji.
+- Każdy segment może mieć inną liczbę z `chunkFilePaths` powodu wewnętrznego partycjonowania strumienia dziennika do zarządzania przepływność publikowania. Pliki dziennika w każdej z nich `chunkFilePath` powinny zawierać wzajemnie wykluczające się obiekty blob i mogą być używane i przetwarzane równolegle bez naruszania kolejności modyfikacji na obiekt BLOB podczas iteracji.
 
-- Segmenty zaczynają się `Publishing` w stanie. Po zakończeniu dołączania rekordów do segmentu będzie to możliwe `Finalized`. Pliki dziennika w dowolnym segmencie, który przypada po dacie `LastConsumable` właściwości w `$blobchangefeed/meta/Segments.json` pliku, nie powinny być używane przez aplikację. Oto przykład `LastConsumable`właściwości w `$blobchangefeed/meta/Segments.json` pliku:
+- Segmenty zaczynają się w `Publishing` stanie. Po zakończeniu dołączania rekordów do segmentu będzie to możliwe `Finalized` . Pliki dziennika w dowolnym segmencie, który przypada po dacie `LastConsumable` właściwości w `$blobchangefeed/meta/Segments.json` pliku, nie powinny być używane przez aplikację. Oto przykład `LastConsumable` właściwości w `$blobchangefeed/meta/Segments.json` pliku:
 
 ```json
 {
@@ -310,13 +318,13 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Warunki i znane problemy (wersja zapoznawcza)
 
 W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zapoznawczej źródła zmian. 
-- W przypadku wersji zapoznawczej musisz najpierw [zarejestrować swoją subskrypcję](#register) , aby można było włączyć funkcję źródła zmian dla konta magazynu w regionach westcentralus lub westus2. 
-- Źródło zmian przechwytuje tylko operacje tworzenia, aktualizowania, usuwania i kopiowania. Aktualizacje metadanych nie są obecnie przechwytywane w wersji zapoznawczej.
+- W przypadku wersji zapoznawczej musisz najpierw [zarejestrować swoją subskrypcję](#register) , aby móc włączyć funkcję źródła zmian dla konta magazynu w regionach zachodnie stany USA, zachodnie stany USA 2, Francja środkowa, Francja Południowa, Kanada Środkowa i Kanada Wschodnia. 
+- Źródło zmian przechwytuje tylko operacje tworzenia, aktualizowania, usuwania i kopiowania. Zmiany właściwości i metadanych obiektu BLOB są również przechwytywane. Jednak Właściwość Warstwa dostępu nie jest obecnie przechwycona. 
 - Zmiany rekordów zdarzeń dla jednej zmiany mogą pojawić się więcej niż jeden raz w kanale zmian.
-- Nie można jeszcze zarządzać okresem istnienia plików dziennika kanału informacyjnego zmian przez ustawienie zasad przechowywania opartych na czasie i nie można usunąć obiektów BLOB 
-- `url` Właściwość pliku dziennika jest obecnie zawsze pusta.
-- `LastConsumable` Właściwość pliku Segments. JSON nie zawiera pierwszego segmentu, który kończy się podawaniem zmian. Ten problem występuje tylko po sfinalizowaniu pierwszego segmentu. Wszystkie kolejne segmenty po pierwszej godzinie są dokładnie przechwytywane `LastConsumable` we właściwości.
-- Nie widzisz obecnie kontenera **$blobchangefeed** podczas wywoływania interfejsu API ListContainers, a kontener nie jest wyświetlany na Azure Portal lub Eksplorator usługi Storage
+- Nie można jeszcze zarządzać okresem istnienia plików dziennika kanału informacyjnego zmian przez ustawienie zasad przechowywania opartych na czasie i nie można usunąć obiektów BLOB.
+- `url`Właściwość pliku dziennika jest obecnie zawsze pusta.
+- `LastConsumable`Właściwość pliku Segments. JSON nie zawiera pierwszego segmentu, który kończy się podawaniem zmian. Ten problem występuje tylko po sfinalizowaniu pierwszego segmentu. Wszystkie kolejne segmenty po pierwszej godzinie są dokładnie przechwytywane we `LastConsumable` właściwości.
+- Nie widzisz obecnie kontenera **$blobchangefeed** podczas wywoływania interfejsu API ListContainers, a kontener nie jest wyświetlany na Azure Portal lub Eksplorator usługi Storage. Zawartość można wyświetlić, wywołując interfejs API ListBlobs bezpośrednio w kontenerze $blobchangefeed.
 - Konta magazynu, w przypadku których wcześniej zainicjowano [pracę w trybie failover](../common/storage-disaster-recovery-guidance.md) , mogą mieć problemy z plikiem dziennika, które nie są wyświetlane. Wszystkie przyszłe przełączenia w tryb failover może mieć wpływ na plik dziennika w wersji zapoznawczej.
 
 ## <a name="faq"></a>Często zadawane pytania

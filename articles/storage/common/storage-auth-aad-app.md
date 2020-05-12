@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268485"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201069"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Uzyskiwanie tokenu z usługi Azure AD w celu autoryzowania żądań z aplikacji klienckiej
 

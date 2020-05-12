@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521185"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119301"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
 
@@ -136,7 +136,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 Jeśli komputer szablonu wymaga pakietu Office, zalecamy instalację pakietu Office za pomocą [Narzędzia do wdrażania pakietu Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Należy utworzyć plik konfiguracyjny wielokrotnego użytku przy użyciu [usługi konfiguracji klienta pakietu Office 365](https://config.office.com/) , aby wybrać architekturę, jakie funkcje będą potrzebne z pakietu Office i jak często aktualizacje.
 
 1. Przejdź do [usługi konfiguracji klienta pakietu Office 365](https://config.office.com/) i Pobierz własny plik konfiguracji.
-2. Pobierz [Narzędzie do wdrażania pakietu Office](https://www.microsoft.com/download/details.aspx?id=49117).  Pobrany plik będzie `setup.exe`.
+2. Pobierz [Narzędzie do wdrażania pakietu Office](https://www.microsoft.com/download/details.aspx?id=49117).  Pobrany plik będzie `setup.exe` .
 3. Uruchom `setup.exe /download configuration.xml` , aby pobrać składniki pakietu Office.
 4. Uruchom `setup.exe /configure configuration.xml` , aby zainstalować składniki pakietu Office.
 
@@ -211,11 +211,11 @@ Jeśli potrzebujesz dodatkowych języków zainstalowanych na maszynie wirtualnej
 2. Wyszukaj "pakiet językowy"
 3. Wybierz język do zainstalowania
 
-Jeśli użytkownik jest już zalogowany do szablonu maszyny wirtualnej, użyj [skrótu "Zainstaluj pakiet językowy"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) , aby przejść bezpośrednio do odpowiedniej strony ustawień.
+Jeśli użytkownik jest już zalogowany do szablonu maszyny wirtualnej, użyj skrótu "Zainstaluj pakiet językowy" ( `ms-settings:regionlanguage?activationSource=SMC-IA-4027670` ), aby przejść bezpośrednio do odpowiedniej strony ustawień.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Usuń niepotrzebne aplikacje wbudowane
 
-System Windows 10 zawiera wiele wbudowanych aplikacji, które mogą nie być potrzebne dla określonej klasy. Aby uprościć obraz komputera dla studentów, możesz chcieć odinstalować niektóre aplikacje z komputera szablonu.  Aby wyświetlić listę zainstalowanych aplikacji, należy użyć polecenia cmdlet programu `Get-AppxPackage` PowerShell.  W poniższym przykładzie pokazano wszystkie zainstalowane aplikacje, które można usunąć.
+System Windows 10 zawiera wiele wbudowanych aplikacji, które mogą nie być potrzebne dla określonej klasy. Aby uprościć obraz komputera dla studentów, możesz chcieć odinstalować niektóre aplikacje z komputera szablonu.  Aby wyświetlić listę zainstalowanych aplikacji, należy użyć `Get-AppxPackage` polecenia cmdlet programu PowerShell.  W poniższym przykładzie pokazano wszystkie zainstalowane aplikacje, które można usunąć.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name

@@ -5,15 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/05/2019
-ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249609"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199909"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Wykonywanie zapytań dotyczących dzienników wielu zasobów w Azure Monitor  
+
+> [!IMPORTANT]
+> Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Użyj wyrażenia log (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
 
 Wcześniej z Azure Monitor można analizować dane tylko z poziomu bieżącego obszaru roboczego i ograniczyć możliwość wykonywania zapytań w wielu obszarach roboczych zdefiniowanych w ramach subskrypcji.  Ponadto można wyszukiwać tylko elementy telemetrii zebrane z aplikacji sieci Web, Application Insights bezpośrednio w Application Insights lub z programu Visual Studio. Jest to również wyzwanie do natywnej analizy danych operacyjnych i aplikacji.
 
@@ -103,7 +106,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Używanie zapytania między zasobami dla wielu zasobów
 W przypadku korzystania z zapytań między zasobami w celu skorelowania danych z wielu obszarów roboczych Log Analytics i zasobów Application Insights, zapytanie może stać się skomplikowane i trudne do utrzymania. W celu oddzielenia logiki zapytania od zakresu zasobów zapytania, które upraszczają strukturę zapytań, należy korzystać z [funkcji w kwerendach dzienników Azure monitor](functions.md) . W poniższym przykładzie pokazano, jak można monitorować wiele zasobów Application Insights i wizualizować liczbę żądań nieudanych przez nazwę aplikacji. 
 
-Utwórz zapytanie podobne do zakresu zasobów Application Insights. `withsource= SourceApp` Polecenie dodaje kolumnę, która określa nazwę aplikacji, która wysłała dziennik. [Zapisz zapytanie jako funkcję](functions.md#create-a-function) z aliasem _applicationsScoping_.
+Utwórz zapytanie podobne do zakresu zasobów Application Insights. `withsource= SourceApp`Polecenie dodaje kolumnę, która określa nazwę aplikacji, która wysłała dziennik. [Zapisz zapytanie jako funkcję](functions.md#create-a-function) z aliasem _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources

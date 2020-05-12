@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1199bca9e2ab7c85ccf5c90879fe5141a55a7bb5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443554"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115068"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurowanie laboratorium do uczenia skryptów powłoki w systemie Linux
 W tym artykule opisano sposób konfigurowania laboratorium do uczenia skryptów powłoki w systemie Linux. Obsługa skryptów jest przydatną częścią administrowania systemem, która umożliwia administratorom uniknięcie powtarzających się zadań. W tym przykładowym scenariuszu Klasa obejmuje tradycyjne skrypty bash oraz ulepszone skrypty. Ulepszone skrypty to skrypty, które łączą bash polecenia i Ruby. Takie podejście umożliwia używanie języka Ruby do przekazywania danych wokół i bash poleceń w celu współdziałania z powłoką. 
@@ -32,19 +32,19 @@ Po utworzeniu konta laboratorium należy włączyć następujące ustawienia na 
 
 | Ustawienie konta laboratorium | Instrukcje |
 | ----------- | ------------ |  
-| Obrazy z witryny Marketplace | Włącz obraz [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) do użycia w ramach Twojego konta laboratorium. Aby uzyskać więcej informacji, zobacz temat [Określanie obrazów z witryny Marketplace dostępnych dla twórców laboratorium](specify-marketplace-images.md). | 
+| Obrazy z witryny Marketplace | Włącz obraz Ubuntu Server 18,04 LTS do użycia w ramach Twojego konta laboratorium. Aby uzyskać więcej informacji, zobacz temat [Określanie obrazów z witryny Marketplace dostępnych dla twórców laboratorium](specify-marketplace-images.md). | 
 
 Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utworzyć nowe laboratorium i zastosować następujące ustawienia:
 
 | Ustawienia laboratorium | Wartość/instrukcje | 
 | ------------ | ------------------ |
 | Rozmiar maszyny wirtualnej (VM) | Small  |
-| Obraz maszyny wirtualnej | [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
+| Obraz maszyny wirtualnej | Ubuntu Server 18,04 LTS |
 | Włącz Podłączanie pulpitu zdalnego | Włącz. <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się z maszynami wirtualnymi przy użyciu pulpitu zdalnego (RDP). Aby uzyskać więcej informacji, zobacz [Włączanie maszyn wirtualnych pulpitu zdalnego dla systemu Linux w laboratorium w Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Zainstaluj program Desktop i xrdp
-Na obrazie [LTS serwera Ubuntu server 18,04](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) nie jest zainstalowany serwer pulpitu zdalnego. Postępuj zgodnie z instrukcjami podanymi w artykule [Instalowanie i konfigurowanie pulpit zdalny, aby nawiązać połączenie z maszyną wirtualną z systemem Linux w systemie Azure](../../virtual-machines/linux/use-remote-desktop.md) , aby zainstalować pakiety, które są konieczne na komputerze szablonu, aby połączyć się za pośrednictwem protokołu RDP.
+Na obrazie LTS serwera Ubuntu Server 18,04 nie jest zainstalowany serwer pulpitu zdalnego. Postępuj zgodnie z instrukcjami podanymi w artykule [Instalowanie i konfigurowanie pulpit zdalny, aby nawiązać połączenie z maszyną wirtualną z systemem Linux w systemie Azure](../../virtual-machines/linux/use-remote-desktop.md) , aby zainstalować pakiety, które są konieczne na komputerze szablonu, aby połączyć się za pośrednictwem protokołu RDP.
 
 ## <a name="install-ruby"></a>Instalowanie języka Ruby
 Ruby to dynamiczny język, który może być połączony ze skryptami bash. W tej sekcji pokazano, jak `apt-get` zainstalować najnowszą wersję języka [Ruby](https://www.ruby-lang.org/).

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008647"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196964"
 ---
 Usługa Azure Ultra disks oferuje wysoką przepływność, dużą liczbę IOPS i spójny magazyn dyskowy o małym opóźnieniu dla maszyn wirtualnych IaaS platformy Azure. Ta nowa oferta zapewnia najwyższą wydajność linii na tych samych poziomach dostępności co istniejące dyski. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania maszyn wirtualnych. Dyski w warstwie Ultra to rozwiązanie odpowiednie w przypadku obciążeń intensywnie korzystających z danych, takich jak platforma SAP HANA, bazy danych górnej warstwy i obciążenia z dużą liczbą transakcji.
 
@@ -62,7 +62,7 @@ Teraz, gdy znasz strefę do wdrożenia, wykonaj kroki wdrażania opisane w tym a
 
 ### <a name="vms-with-no-redundancy-options"></a>Maszyny wirtualne bez opcji nadmiarowości
 
-Usługi Ultra disks wdrożone w regionie zachodnie stany USA muszą zostać wdrożone bez żadnych opcji nadmiarowości. Jednak nie każdy rozmiar dysku, który obsługuje Ultra disks, może znajdować się w tym regionie. Aby określić, które z nich znajdowały się w regionie zachodnie stany USA, można użyć dowolnego z poniższych fragmentów kodu. Pamiętaj, `vmSize` aby najpierw zastąpić wartości `subscription` i:
+Usługi Ultra disks wdrożone w regionie zachodnie stany USA muszą zostać wdrożone bez żadnych opcji nadmiarowości. Jednak nie każdy rozmiar dysku, który obsługuje Ultra disks, może znajdować się w tym regionie. Aby określić, które z nich znajdowały się w regionie zachodnie stany USA, można użyć dowolnego z poniższych fragmentów kodu. Pamiętaj, aby najpierw zastąpić `vmSize` `subscription` wartości i:
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -79,7 +79,7 @@ $vmSize = "Standard_E64s_v3"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-Odpowiedź będzie wyglądać podobnie do następującej: wskazuje, `UltraSSDAvailable   True` czy rozmiar maszyny wirtualnej obsługuje Ultra dyski w tym regionie.
+Odpowiedź będzie wyglądać podobnie do następującej: `UltraSSDAvailable   True` wskazuje, czy rozmiar maszyny wirtualnej obsługuje Ultra dyski w tym regionie.
 
 ```
 Name                                         Value

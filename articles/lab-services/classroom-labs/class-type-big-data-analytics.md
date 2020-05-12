@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538780"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118434"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Skonfiguruj laboratorium do analizy danych Big Data przy użyciu platformy Docker Deployment HortonWorks Data Platform
 
@@ -102,7 +102,7 @@ W tej sekcji zostanie wdrożona piaskownica HDP, a następnie dostęp do piaskow
 1. Po wdrożeniu i uruchomieniu kontenerów platformy Docker dla piaskownicy HDP możesz uzyskać dostęp do środowiska, uruchamiając przeglądarkę i postępując zgodnie z instrukcjami Cloudera, aby otworzyć [stronę powitalną piaskownicy](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) i uruchomić Pulpit nawigacyjny HDP.
 
     > [!NOTE] 
-    > W tych instrukcjach przyjęto założenie, że najpierw zmapowano lokalny adres IP środowiska piaskownicy do sandbox-hdp.hortonworks.com w pliku hosta na maszynie wirtualnej szablonu.  Jeśli to mapowanie **nie** zostanie przedzielone, możesz uzyskać dostęp do strony powitalnej piaskownicy, przechodząc do [http://localhost:8080](http://localhost:8080)obszaru.
+    > W tych instrukcjach przyjęto założenie, że najpierw zmapowano lokalny adres IP środowiska piaskownicy do sandbox-hdp.hortonworks.com w pliku hosta na maszynie wirtualnej szablonu.  Jeśli to mapowanie **nie** zostanie przedzielone, możesz uzyskać dostęp do strony powitalnej piaskownicy, przechodząc do obszaru `http://localhost:8080` .
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Automatycznie uruchamiaj kontenery platformy Docker podczas logowania uczniów
 

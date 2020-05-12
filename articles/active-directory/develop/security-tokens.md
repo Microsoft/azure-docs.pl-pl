@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926582"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115799"
 ---
 # <a name="security-tokens"></a>Tokeny zabezpieczające
 
@@ -31,7 +31,7 @@ Tokeny dostępu są prawidłowe tylko przez krótki czas, więc serwery autoryza
 **Tokeny identyfikatorów** są wysyłane do aplikacji klienckiej w ramach przepływu [połączenia OpenID Connect](v2-protocols-oidc.md) . Mogą być wysyłane po stronie lub zamiast tokenu dostępu i są używane przez klienta do uwierzytelniania użytkownika. Aby dowiedzieć się więcej o tym, jak program Microsoft Identity platform generuje tokeny identyfikatorów, zobacz [identyfikatory tokenów](id-tokens.md).
 
 > [!NOTE]
-> W tym artykule omówiono tokeny zabezpieczające dla protokołów połączeń OAuth2 i OpenID Connect. Wiele aplikacji przedsiębiorstwa używa protokołu SAML do uwierzytelniania użytkowników. Aby uzyskać informacje na temat potwierdzeń SAML, zobacz [odwołanie do tokenu SAML usługi Azure AD](reference-saml-tokens.md) .
+> W tym artykule omówiono tokeny zabezpieczające używane przez protokoły połączeń OAuth2 i OpenID Connect. Wiele aplikacji przedsiębiorstwa używa protokołu SAML do uwierzytelniania użytkowników. Aby uzyskać informacje na temat potwierdzeń SAML, zobacz [odwołanie do tokenu SAML usługi Azure AD](reference-saml-tokens.md) .
 
 ## <a name="validating-security-tokens"></a>Weryfikowanie tokenów zabezpieczających
 
@@ -46,7 +46,7 @@ Tokeny dostępu są przesyłane do internetowego interfejsu API jako token okazi
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>Tokeny sieci Web JSON (JWTs) i oświadczenia
 
-Platforma tożsamości firmy Microsoft implementuje tokeny zabezpieczające jako **tokeny sieci Web JSON (JWTs)** , które zawierają **oświadczenia**.
+Platforma tożsamości firmy Microsoft implementuje tokeny zabezpieczające jako **tokeny sieci Web JSON (JWTs)** , które zawierają **oświadczenia**. Ponieważ JWTs są używane jako tokeny zabezpieczające, ta forma uwierzytelniania jest czasami nazywana **uwierzytelnianiem JWT**.
 
 [Twierdzenie](developer-glossary.md#claim) zawiera potwierdzenia dotyczące jednej jednostki, takiej jak aplikacja kliencka lub [właściciel zasobu](developer-glossary.md#resource-owner), do innej jednostki, takiej jak serwer zasobów. Można również odwołać się do żądania jako żądania tokenu JWT lub tokenu sieci Web JSON.
 
@@ -82,7 +82,7 @@ W zależności od sposobu skompilowania klienta można użyć jednego (lub kilku
 |[Przepływ „w imieniu”](v2-oauth2-on-behalf-of-flow.md) | token dostępu| x| x| x| |
 |[Poświadczenia klienta](v2-oauth2-client-creds-grant-flow.md) | | | x (tylko aplikacja)| | |
 
-Tokeny wystawione za pośrednictwem trybu niejawnego mają ograniczenie długości z powodu przekazanie z powrotem do przeglądarki `response_mode` za `query` pośrednictwem adresu URL (gdzie is lub `fragment`).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który może być umieszczony na pasku przeglądarki i niepowodzenie, gdy jest zbyt długi.  W rezultacie te tokeny nie mają `groups` ani `wids` oświadczenia.
+Tokeny wystawione za pośrednictwem trybu niejawnego mają ograniczenie długości z powodu przekazanie z powrotem do przeglądarki za pośrednictwem adresu URL (gdzie `response_mode` is `query` lub `fragment` ).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który może być umieszczony na pasku przeglądarki i niepowodzenie, gdy jest zbyt długi.  W rezultacie te tokeny nie mają `groups` ani `wids` oświadczenia.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a6c0153105627e272d05af5514a030577431f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c42c0dd3848ec913f991e4b07612669c5a25c9f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233996"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197269"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Program PowerShell dla ról usługi Azure AD w Privileged Identity Management
 
@@ -45,12 +45,12 @@ Ten artykuł zawiera instrukcje dotyczące korzystania z poleceń cmdlet program
         $AzureAdCred = Get-Credential  
         Connect-AzureAD -Credential $AzureAdCred
 
-1. Znajdź identyfikator dzierżawy dla organizacji usługi Azure AD, przechodząc do **Azure Active Directory** > **Właściwości** > **katalogu**. W sekcji poleceń cmdlet Użyj tego identyfikatora zawsze wtedy, gdy musisz podać identyfikator zasobu.
+1. Znajdź identyfikator dzierżawy dla organizacji usługi Azure AD, przechodząc do **Azure Active Directory**  >  **Właściwości**  >  **katalogu**. W sekcji poleceń cmdlet Użyj tego identyfikatora zawsze wtedy, gdy musisz podać identyfikator zasobu.
 
     ![Znajdź identyfikator organizacji we właściwościach organizacji usługi Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_managementadresem. Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora organizacji dla organizacji usługi Azure AD jako parametru resourceId.
+> Poniższe sekcje stanowią proste przykłady, które mogą pomóc Ci w rozpoczęciu pracy. Więcej szczegółowej dokumentacji dotyczącej następujących poleceń cmdlet można znaleźć pod adresem https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management . Należy jednak zamienić ciąg "azureResources" w parametrze identyfikatorem na wartość "aadRoles". Należy również pamiętać, aby użyć identyfikatora organizacji dla organizacji usługi Azure AD jako parametru resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Pobieranie definicji ról
 
@@ -122,11 +122,10 @@ Ustawienie obejmuje cztery główne obiekty. Tylko trzy z tych obiektów są obe
 
 [![](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png "Get and update role settings")](media/powershell-for-azure-ad-roles/get-update-role-settings-result.png#lightbox)
 
-Aby zaktualizować ustawienie roli, należy najpierw zdefiniować obiekt ustawień w następujący sposób:
+Aby zaktualizować ustawienie roli, należy uzyskać istniejący obiekt ustawień dla określonej roli i wprowadzić w nim zmiany:
 
-    $setting = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting 
-    $setting.RuleIdentifier = "JustificationRule"
-    $setting.Setting = "{'required':false}"
+    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+    $setting.UserMemberSetting.justificationRule = '{"required":false}'
 
 Następnie można zastosować ustawienie do jednego z obiektów dla określonej roli, jak pokazano poniżej. Ten identyfikator jest IDENTYFIKATORem ustawienia roli, który można pobrać z wyniku polecenia cmdlet listy ustawień roli.
 

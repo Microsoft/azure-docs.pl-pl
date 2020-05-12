@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 752df34c263563cdb970cadb59f92f2811af378e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263506"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199520"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal
 
@@ -42,9 +42,6 @@ Aby dodać użytkowników współpracy B2B do katalogu, wykonaj następujące kr
 
    ![Pokazuje, gdzie nowy użytkownik-Gość znajduje się w interfejsie użytkownika](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
-   > [!NOTE]
-   > Opcja **nowy użytkownik-Gość** jest również dostępna na stronie **relacje organizacyjne** . W **Azure Active Directory**w obszarze **Zarządzaj**wybierz pozycję **relacje organizacyjne**.
-
 5. Na stronie **nowy użytkownik** wybierz pozycję **Zaproś użytkownika** , a następnie Dodaj informacje o użytkowniku gościa. 
 
     > [!NOTE]
@@ -85,7 +82,7 @@ Aby dodać użytkowników współpracy B2B do aplikacji, wykonaj następujące k
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. Wyszukaj i wybierz **Azure Active Directory** z dowolnej strony.
-3. W obszarze **Zarządzaj**wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+3. W obszarze **Zarządzaj**wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 4. Wybierz aplikację, do której chcesz dodać użytkowników-Gości.
 5. Na pulpicie nawigacyjnym aplikacji wybierz pozycję **łączna liczba użytkowników** , aby otworzyć okienko **Użytkownicy i grupy** .
 

@@ -8,12 +8,13 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 50f76d9b4f3061e6e9a1e4a0b510146dbded422a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410225"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199005"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Rozwiązywanie problemów z łącznikami usługi Azure Data Factory
 
@@ -30,7 +31,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: problem z trafieniem magazynu obiektów BLOB.
 
-- **Zalecenie**: Sprawdź błąd w obszarze Szczegóły. Zapoznaj się z dokumentem https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codespomocy obiektu BLOB:. Skontaktuj się z zespołem ds. magazynu, jeśli potrzebujesz pomocy.
+- **Zalecenie**: Sprawdź błąd w obszarze Szczegóły. Zapoznaj się z dokumentem pomocy obiektu BLOB: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes . Skontaktuj się z zespołem ds. magazynu, jeśli potrzebujesz pomocy.
 
 
 ### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Kod błędu: AzureBlobServiceNotReturnExpectedDataLength
@@ -134,7 +135,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "zabronione", nazwa główna usługi lub tożsamość zarządzana może nie mieć wystarczających uprawnień, aby uzyskać dostęp do ADLS Gen2.
 
-- **Zalecenie**: Zapoznaj się z dokumentem https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authenticationpomocy:.
+- **Zalecenie**: Zapoznaj się z dokumentem pomocy: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication .
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "InternalServerError", błąd jest zwracany przez ADLS Gen2.
 
@@ -198,11 +199,11 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "SqlException", SQL Database zgłasza błąd wskazujący, że określona operacja nie powiodła się.
 
-- **Zalecenie**: Aby uzyskać więcej informacji, Wyszukaj według kodu błędu SQL w tym dokumencie odwołania https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors:. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: Aby uzyskać więcej informacji, Wyszukaj według kodu błędu SQL w tym dokumencie odwołania: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "klient z adresem IP"... " nie ma dostępu do serwera "i próbujesz nawiązać połączenie z Azure SQL Database, zwykle jest to spowodowane przez Azure SQL Database problem z zaporą.
 
-- **Zalecenie**: w konfiguracji zapory SQL Server platformy Azure Włącz opcję "Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure". Doc Reference: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Zalecenie**: w konfiguracji zapory SQL Server platformy Azure Włącz opcję "Zezwalaj na dostęp do tego serwera dla usług i zasobów platformy Azure". Doc Reference: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>Kod błędu: SqlOperationFailed
@@ -211,8 +212,8 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "SqlException", SQL Database zgłasza błąd wskazujący, że określona operacja nie powiodła się.
 
-- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Może zgłosić najnowsze wersje programu SQL Server. Zapoznaj się z dokumentem https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompatszczegółowym:.
-        Aby rozwiązać problemy związane z programem SQL, wyszukaj kod błędu SQL w tym dokumencie odwołania, aby uzyskać https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errorswięcej szczegółów:. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
+- **Zalecenie**: Jeśli błąd SQL nie jest wyczyszczony, spróbuj zmienić bazę danych na najnowszy poziom zgodności "150". Może zgłosić najnowsze wersje programu SQL Server. Zapoznaj się z dokumentem szczegółowym: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
+        Aby rozwiązać problemy związane z programem SQL, wyszukaj kod błędu SQL w tym dokumencie odwołania, aby uzyskać więcej szczegółów: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Jeśli potrzebujesz dalszej pomocy, skontaktuj się z pomocą techniczną Azure SQL.
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera "PdwManagedToNativeInteropException", zazwyczaj jest spowodowany niezgodnością rozmiarów kolumn źródłowych i ujścia.
 
@@ -220,7 +221,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Jeśli komunikat o błędzie zawiera wartość "InvalidOperationException", zazwyczaj jest to spowodowane przez nieprawidłowe dane wejściowe.
 
-- **Zalecenie**: aby ustalić, który wiersz napotyka problem, Włącz funkcję odporności na uszkodzenia w działaniu kopiowania, która może przekierować problematyczne wiersze do magazynu w celu przeprowadzenia dalszej analizy. Doc Reference: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Zalecenie**: aby ustalić, który wiersz napotyka problem, Włącz funkcję odporności na uszkodzenia w działaniu kopiowania, która może przekierować problematyczne wiersze do magazynu w celu przeprowadzenia dalszej analizy. Doc Reference: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Kod błędu: SqlUnauthorizedAccess
@@ -323,7 +324,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: Kopiowanie zbiorcze SQL nie powiodło się z powodu odebrania nieprawidłowej długości kolumny od klienta bcp.
 
-- **Zalecenie**: aby ustalić, który wiersz napotyka problem, Włącz funkcję odporności na uszkodzenia w działaniu kopiowania, która może przekierować problematyczne wiersze do magazynu w celu przeprowadzenia dalszej analizy. Doc Reference: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+- **Zalecenie**: aby ustalić, który wiersz napotyka problem, Włącz funkcję odporności na uszkodzenia w działaniu kopiowania, która może przekierować problematyczne wiersze do magazynu w celu przeprowadzenia dalszej analizy. Doc Reference: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>Kod błędu: SqlConnectionIsClosed
@@ -545,7 +546,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: format Parquet nie jest obsługiwany w Azure Data Factory.
 
-- **Zalecenie**: dokładnie sprawdź dane źródłowe. Zapoznaj się z dokumentem: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Zalecenie**: dokładnie sprawdź dane źródłowe. Zapoznaj się z dokumentem: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Kod błędu: ParquetMissedDecimalPrecisionScale
@@ -581,7 +582,7 @@ W tym artykule przedstawiono typowe metody rozwiązywania problemów z łącznik
 
 - **Przyczyna**: nie można przekonwertować danych na typ określony w mapowaniu. Źródło
 
-- **Zalecenie**: należy dokładnie sprawdzić dane źródłowe lub określić poprawny typ danych dla tej kolumny w mapowaniu kolumny działania kopiowania. Zapoznaj się z dokumentem: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Zalecenie**: należy dokładnie sprawdzić dane źródłowe lub określić poprawny typ danych dla tej kolumny w mapowaniu kolumny działania kopiowania. Zapoznaj się z dokumentem: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Kod błędu: ParquetDataCountNotMatchColumnCount

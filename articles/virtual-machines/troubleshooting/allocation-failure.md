@@ -3,7 +3,7 @@ title: Rozwiązywanie problemów z błędami alokacji maszyny wirtualnej platfor
 description: Rozwiązywanie problemów z błędami alokacji podczas tworzenia lub ponownego uruchamiania maszyny wirtualnej lub zmieniania jej rozmiaru na platformie Azure
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -11,13 +11,13 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
-ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484404"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124792"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Rozwiązywanie problemów związanych z błędami alokacji występującymi podczas tworzenia lub ponownego uruchamiania maszyn wirtualnych na platformie Azure bądź zmieniania ich rozmiaru
 
@@ -25,7 +25,7 @@ Podczas tworzenia maszyny wirtualnej, ponownego uruchamiania zatrzymanej (cofni�
 
 **Kod błędu**: AllocationFailed lub ZonalAllocationFailed
 
-**Komunikat o błędzie**: "Alokacja nie powiodła się. Nie ma wystarczającej pojemności dla żądanego rozmiaru maszyny wirtualnej w tym regionie. Przeczytaj więcej o tym, jak zwiększyć prawdopodobieństwo sukcesu alokacji przy\/użyciu protokołu https:/aka.MS/Allocation-Guidance "
+**Komunikat o błędzie**: "Alokacja nie powiodła się. Nie ma wystarczającej pojemności dla żądanego rozmiaru maszyny wirtualnej w tym regionie. Przeczytaj więcej o tym, jak zwiększyć prawdopodobieństwo sukcesu alokacji przy użyciu protokołu https: \/ /aka.MS/Allocation-Guidance "
 
 W tym artykule wyjaśniono przyczyny niektórych typowych niepowodzeń alokacji i zaproponowano możliwe środki zaradcze.
 

@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f0c678f2426d9de58d2ab337c56243394b4d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 84b68e5aecca11fb72f8cacc7e16701eebd0ae1a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266535"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197331"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 

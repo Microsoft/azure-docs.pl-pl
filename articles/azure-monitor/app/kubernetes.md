@@ -5,19 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3b2b4e8868b73e22706c684d94371fe37885b9a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132344"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119241"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Zero monitorowanie aplikacji Instrumentacji dla aplikacji hostowanych Kubernetes
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Zero monitorowanie aplikacji Instrumentacji dla aplikacji hostowanych Kubernetes z Istio — PRZESTARZAŁe
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta funkcja jest obecnie przestarzała i nie będzie już obsługiwana po 1 sierpnia 2020.
+> Obecnie zalecana wersja działa tylko dla [środowiska Java za pomocą autonomicznego agenta](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
 Azure Monitor teraz korzysta z usługi Service siatk Tech w klastrze Kubernetes, aby umożliwić monitorowanie aplikacji w usłudze Box dla dowolnej hostowanej aplikacji Kubernetes. Za pomocą domyślnych funkcji usługi Application Insight, takich jak [Mapa aplikacji](../../azure-monitor/app/app-map.md) , aby modelować zależności, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) do monitorowania w czasie rzeczywistym, zaawansowanych wizualizacji z [domyślnym pulpitem nawigacyjnym](../../azure-monitor/app/overview-dashboard.md), [Eksploratorem metryk](../../azure-monitor/platform/metrics-getting-started.md)i [skoroszytami](../../azure-monitor/app/usage-workbooks.md). Ta funkcja ułatwi użytkownikom dostęp do wąskich gardeł wydajności i hotspotów niepowodzeń we wszystkich obciążeniach Kubernetes w ramach wybranej przestrzeni nazw Kubernetes. Wielką literą dla istniejących inwestycji w siatkę usług przy użyciu technologii, takich jak Istio, Azure Monitor umożliwia monitorowanie aplikacji z autoinstrumentacją bez żadnych modyfikacji w kodzie aplikacji.
 
@@ -127,11 +126,11 @@ Poniżej znajduje się przepływ rozwiązywania problemów, który ma być używ
    ```
    Poszukaj błędów, szczególnie związanych z komunikacją z kartą *applicationinsightsadapter* .
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 Aby uzyskać najnowsze informacje o postępie tego projektu, odwiedź [kartę Application Insightsową usługi GitHub projektu Istio](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Odinstaluj
+## <a name="uninstall"></a>Odinstalowanie
 
 Aby odinstalować produkt, dla *każdego* pliku YAML znalezionego w ścieżce *src/Kubernetes/* Run:
 

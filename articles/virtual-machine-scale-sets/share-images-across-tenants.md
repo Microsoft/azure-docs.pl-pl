@@ -2,18 +2,19 @@
 title: Udostępnianie obrazów galerii między dzierżawcami na platformie Azure
 description: Dowiedz się, jak udostępniać obrazy maszyn wirtualnych w dzierżawach platformy Azure przy użyciu udostępnionych galerii obrazów.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: conceptual
-ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: a29999102ad8a10d8965145b31a7d804675e0e57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
+ms.date: 04/05/2019
+ms.reviewer: akjosh
+ms.custom: akjosh
+ms.openlocfilehash: 5b86335ab8bcc3af75dbd8af39e3d913f2461e58
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76276339"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119845"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Udostępnianie obrazów maszyn wirtualnych z galerii w ramach dzierżawców platformy Azure
 
@@ -22,7 +23,7 @@ ms.locfileid: "76276339"
 
 ## <a name="create-a-scale-set-using-azure-cli"></a>Create a scale set using Azure CLI (Tworzenie zestawu skalowania przy użyciu interfejsu wiersza polecenia platformy Azure)
 
-Zaloguj się do jednostki usługi dla dzierżawy 1 przy użyciu identyfikatora appID, klucz aplikacji i identyfikator dzierżawy 1. W razie potrzeby `az account show --query "tenantId"` można użyć programu w celu uzyskania identyfikatorów dzierżawy.
+Zaloguj się do jednostki usługi dla dzierżawy 1 przy użyciu identyfikatora appID, klucz aplikacji i identyfikator dzierżawy 1. `az account show --query "tenantId"`W razie potrzeby można użyć programu w celu uzyskania identyfikatorów dzierżawy.
 
 ```azurecli-interactive
 az account clear

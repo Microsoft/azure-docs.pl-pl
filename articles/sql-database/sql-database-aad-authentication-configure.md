@@ -4,19 +4,19 @@ description: Dowiedz się, jak nawiązać połączenie z usługą SQL Database, 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419886"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198595"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configure and manage Azure Active Directory authentication with SQL (Konfigurowanie uwierzytelniania w usłudze Azure Active Directory i zarządzanie nim przy użyciu języka SQL)
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób tworzenia i wypełniania usługi Azure AD, a nast
 > Ten artykuł ma zastosowanie do programu Azure SQL Server i zarówno do SQL Database, jak i do usługi Azure Synapse. Dla uproszczenia SQL Database jest używany podczas odwoływania się do SQL Database i usługi Azure Synapse.
 
 > [!IMPORTANT]  
-> Nawiązywanie połączenia z usługą SQL Server działającej na maszynie wirtualnej platformy Azure nie jest obsługiwane przy użyciu konta Azure Active Directory. Zamiast tego użyj konta Active Directory domeny.
+> Nawiązywanie połączenia z usługą SQL Server działającej na maszynie wirtualnej platformy Azure nie jest obsługiwane przy użyciu konta Azure Active Directory. Zamiast tego użyj konta domeny usługi Active Directory.
 
 ## <a name="azure-ad-authentication-methods"></a>Metody uwierzytelniania usługi Azure AD
 
@@ -187,8 +187,8 @@ Jako najlepsze rozwiązanie dla istniejących administratorów usługi Azure AD 
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Znane problemy związane z logowaniem do usługi Azure AD GA dla mnie
 
-- Jeśli w bazie danych Master istnieje identyfikator logowania usługi Azure AD dla mnie, utworzony za pomocą polecenia `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`T-SQL nie można skonfigurować jako administratora usługi Azure AD dla mi. Wystąpił błąd podczas konfigurowania logowania jako administrator usługi Azure AD przy użyciu poleceń Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby utworzyć identyfikator logowania usługi Azure AD.
-  - Aby można było utworzyć konto jako administrator usługi Azure AD, należy `DROP LOGIN [myaadaccount]`porzucić nazwę logowania w bazie danych Master przy użyciu polecenia.
+- Jeśli w bazie danych Master istnieje identyfikator logowania usługi Azure AD dla mnie, utworzony za pomocą polecenia T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` nie można skonfigurować jako administratora usługi Azure AD dla mi. Wystąpił błąd podczas konfigurowania logowania jako administrator usługi Azure AD przy użyciu poleceń Azure Portal, PowerShell lub interfejsu wiersza polecenia, aby utworzyć identyfikator logowania usługi Azure AD.
+  - `DROP LOGIN [myaadaccount]`Aby można było utworzyć konto jako administrator usługi Azure AD, należy porzucić nazwę logowania w bazie danych Master przy użyciu polecenia.
   - Skonfiguruj konto administratora usługi Azure AD w Azure Portal po `DROP LOGIN` pomyślnym zakończeniu. 
   - Jeśli nie możesz skonfigurować konta administratora usługi Azure AD, zapoznaj się z główną bazą danych wystąpienia zarządzanego. Użyj następującego polecenia:`SELECT * FROM sys.server_principals`
   - Skonfigurowanie administratora usługi Azure AD dla programu MI spowoduje automatyczne utworzenie nazwy logowania w bazie danych Master dla tego konta. Usunięcie administratora usługi Azure AD spowoduje automatyczne porzucenie nazwy logowania z bazy danych Master.
@@ -198,7 +198,7 @@ Jako najlepsze rozwiązanie dla istniejących administratorów usługi Azure AD 
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell dla wystąpienia zarządzanego SQL
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
@@ -294,7 +294,7 @@ Aby później usunąć administratora, w górnej części strony **administrator
 
 ### <a name="powershell-for-azure-sql-database-and-azure-synapse"></a>Program PowerShell dla Azure SQL Database i Azure Synapse
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uruchomić polecenia cmdlet programu PowerShell, należy zainstalować i uruchomić Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz temat [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview). Aby zainicjować obsługę administracyjną administratora usługi Azure AD, wykonaj następujące polecenia Azure PowerShell:
 
@@ -311,16 +311,16 @@ Polecenia cmdlet służące do aprowizacji i zarządzania administratorem usług
 
 Aby uzyskać więcej informacji na temat każdego z tych poleceń, użyj polecenia programu PowerShell get-help. Na przykład `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
-Poniższy skrypt inicjuje grupę administratorów usługi Azure AD o nazwie **DBA_Group** (identyfikator `40b79501-b343-44ed-9ce7-da4c8cc7353f`obiektu) dla serwera **demo_server** w grupie zasobów o nazwie **Grupa-23**:
+Poniższy skrypt inicjuje grupę administratorów usługi Azure AD o nazwie **DBA_Group** (identyfikator obiektu `40b79501-b343-44ed-9ce7-da4c8cc7353f` ) dla serwera **demo_server** w grupie zasobów o nazwie **Grupa-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"``. W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
+Parametr wejściowy **DisplayName** akceptuje nazwę wyświetlaną usługi Azure AD lub główną nazwę użytkownika. Na przykład ``DisplayName="John Smith"`` i ``DisplayName="johns@contoso.com"`` . W przypadku grup usługi Azure AD jest obsługiwana tylko nazwa wyświetlana usługi Azure AD.
 
 > [!NOTE]
-> Polecenie ```Set-AzSqlServerActiveDirectoryAdministrator``` Azure PowerShell nie uniemożliwia aprowizacji administratorów usługi Azure AD dla nieobsługiwanych użytkowników. Nieobsługiwany użytkownik może zostać zainicjowany, ale nie może nawiązać połączenia z bazą danych.
+> Polecenie Azure PowerShell nie ```Set-AzSqlServerActiveDirectoryAdministrator``` uniemożliwia aprowizacji administratorów usługi Azure AD dla nieobsługiwanych użytkowników. Nieobsługiwany użytkownik może zostać zainicjowany, ale nie może nawiązać połączenia z bazą danych.
 
 Poniższy przykład używa opcjonalnego **identyfikatora objectid**:
 
@@ -366,7 +366,7 @@ Aby uzyskać więcej informacji na temat poleceń interfejsu wiersza polecenia, 
 
 Na wszystkich komputerach klienckich, z których aplikacje lub użytkownicy łączą się z Azure SQL Database lub Azure Synapse przy użyciu tożsamości usługi Azure AD, należy zainstalować następujące oprogramowanie:
 
-- .NET Framework 4,6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+- .NET Framework 4,6 lub nowszy z [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Azure Active Directory bibliotekę uwierzytelniania dla SQL Server (*ADAL. DLL*). Poniżej znajdują się linki pobierania umożliwiające zainstalowanie najnowszego sterownika programu SSMS, ODBC i OLE DB zawierającego bibliotekę *ADAL. Biblioteka DLL* .
     1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [Sterownik ODBC 17 dla SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -471,7 +471,7 @@ Użyj tej metody, aby uwierzytelnić się w usłudze SQL DB lub MI przy użyciu 
 
 1. Uruchom Management Studio lub narzędzia danych, a następnie w oknie dialogowym **łączenie z serwerem** (lub **łączenie z aparatem bazy danych**) w polu **uwierzytelnianie** wybierz pozycję **Azure Active Directory-Password**.
 
-2. W polu **Nazwa użytkownika** wpisz nazwę użytkownika Azure Active Directory w formacie **username\@Domain.com**. Nazwy użytkowników muszą być kontami z Azure Active Directory lub konta z domeny zarządzanej lub federacyjnej z Azure Active Directory.
+2. W polu **Nazwa użytkownika** wpisz nazwę użytkownika Azure Active Directory w formacie **username \@ Domain.com**. Nazwy użytkowników muszą być kontami z Azure Active Directory lub konta z domeny zarządzanej lub federacyjnej z Azure Active Directory.
 
 3. W polu **hasło** wpisz hasło użytkownika dla konta Azure Active Directory lub konta domeny zarządzane/federacyjne.
 
@@ -498,7 +498,7 @@ Aby można było korzystać ze zintegrowanego uwierzytelniania systemu Windows, 
 
 Aplikacja kliencka (lub usługa) łącząca się z bazą danych musi być uruchomiona na komputerze przyłączonym do domeny w ramach poświadczeń domeny użytkownika.
 
-Aby nawiązać połączenie z bazą danych przy użyciu uwierzytelniania zintegrowanego i tożsamości usługi Azure AD, słowo kluczowe uwierzytelniania w parametrach połączenia bazy `Active Directory Integrated`danych musi być ustawione na wartość. Poniższy przykładowy kod w języku C# używa ADO .NET.
+Aby nawiązać połączenie z bazą danych przy użyciu uwierzytelniania zintegrowanego i tożsamości usługi Azure AD, słowo kluczowe uwierzytelniania w parametrach połączenia bazy danych musi być ustawione na wartość `Active Directory Integrated` . Poniższy przykładowy kod w języku C# używa ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -506,11 +506,11 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-Słowo kluczowe `Integrated Security=True` parametrów połączenia nie jest obsługiwane w przypadku nawiązywania połączenia z Azure SQL Database. Podczas tworzenia połączenia ODBC należy usunąć spacje i ustawić uwierzytelnianie na "ActiveDirectoryIntegrated".
+Słowo kluczowe parametrów połączenia `Integrated Security=True` nie jest obsługiwane w przypadku nawiązywania połączenia z Azure SQL Database. Podczas tworzenia połączenia ODBC należy usunąć spacje i ustawić uwierzytelnianie na "ActiveDirectoryIntegrated".
 
 ### <a name="active-directory-password-authentication"></a>Active Directory uwierzytelnianie hasła
 
-Aby nawiązać połączenie z bazą danych przy użyciu kont użytkowników tożsamości tylko w chmurze usługi Azure AD lub tych, którzy korzystają z tożsamości hybrydowych usługi Azure AD, `Active Directory Password`słowo kluczowe uwierzytelniania musi być ustawione na wartość. Parametry połączenia muszą zawierać słowa kluczowe ID/UID i Password/PWD oraz wartości. Poniższy przykładowy kod w języku C# używa ADO .NET.
+Aby nawiązać połączenie z bazą danych przy użyciu kont użytkowników tożsamości tylko w chmurze usługi Azure AD lub tych, którzy korzystają z tożsamości hybrydowych usługi Azure AD, słowo kluczowe uwierzytelniania musi być ustawione na wartość `Active Directory Password` . Parametry połączenia muszą zawierać słowa kluczowe ID/UID i Password/PWD oraz wartości. Poniższy przykładowy kod w języku C# używa ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -546,7 +546,7 @@ Aby uzyskać więcej informacji, zobacz Blog dotyczący [zabezpieczeń SQL Serve
 Poniższe instrukcje łączą się przy użyciu wersji 13,1 narzędzia sqlcmd, która jest dostępna w [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=53591).
 
 > [!NOTE]
-> `sqlcmd``-G` polecenie nie działa z tożsamościami systemu i wymaga logowania do podmiotu zabezpieczeń użytkownika.
+> `sqlcmd`polecenie nie `-G` działa z tożsamościami systemu i wymaga logowania do podmiotu zabezpieczeń użytkownika.
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  

@@ -2,17 +2,19 @@
 title: Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak włączyć powiadomienia o zakończeniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 author: avirishuv
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 02/26/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250753"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125183"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
 Wystąpienia zestawu skalowania mogą zrezygnować z otrzymywania powiadomień o zakończeniu wystąpienia i ustawiać wstępnie zdefiniowany limit czasu opóźnienia dla operacji przerywania. Powiadomienie o wygaśnięciu jest wysyłane za pomocą usługi Azure Metadata Service — [Scheduled Events](../virtual-machines/windows/scheduled-events.md), która zapewnia powiadomienia i opóźniać wpływ na operacje, takie jak ponowny rozruch i ponowne wdrażanie. Rozwiązanie dodaje kolejne zdarzenie — Zakończ — do listy Scheduled Events, a skojarzone opóźnienie zdarzenia zakończenia będzie zależeć od limitu opóźnienia określonego przez użytkowników w konfiguracjach modelu zestawu skalowania.

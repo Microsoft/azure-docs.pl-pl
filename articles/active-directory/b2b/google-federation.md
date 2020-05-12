@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126663"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199531"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
@@ -37,20 +37,20 @@ Jeśli użytkownik-Gość widzi błąd "nagłówek jest zbyt długi", może wypr
 
 ## <a name="limitations"></a>Ograniczenia
 
-Zespoły w pełni obsługują użytkowników gościa Google na wszystkich urządzeniach. Użytkownicy usługi Google mogą logować się do zespołów z wspólnego punktu końcowego `https://teams.microsoft.com`, takiego jak.
+Zespoły w pełni obsługują użytkowników gościa Google na wszystkich urządzeniach. Użytkownicy usługi Google mogą logować się do zespołów z wspólnego punktu końcowego, takiego jak `https://teams.microsoft.com` .
 
 Wspólne punkty końcowe aplikacji mogą nie obsługiwać użytkowników usługi Google. Użytkownicy usługi Google Guest muszą się zalogować przy użyciu linku zawierającego informacje o dzierżawie. Poniżej przedstawiono przykłady:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   Jeśli użytkownicy usługi Google Guest próbują użyć linku, `https://myapps.microsoft.com` takiego `https://portal.azure.com`jak lub, wystąpi błąd.
+   Jeśli użytkownicy usługi Google Guest próbują użyć linku, takiego jak `https://myapps.microsoft.com` lub `https://portal.azure.com` , wystąpi błąd.
 
-Możesz również udzielić użytkownikom usługi Google gość bezpośredniego linku do aplikacji lub zasobu, o ile link ten zawiera informacje o dzierżawie, na przykład `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+Możesz również udzielić użytkownikom usługi Google gość bezpośredniego linku do aplikacji lub zasobu, o ile link ten zawiera informacje o dzierżawie, na przykład `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` . 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Krok 1. Konfigurowanie projektu dla deweloperów Google
 Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania identyfikatora klienta i klucza tajnego klienta, który można później dodać do usługi Azure AD. 
-1. Przejdź do interfejsów API usługi Google https://console.developers.google.comat i zaloguj się przy użyciu konta Google. Zalecamy używanie udostępnionego konta Google zespołu.
+1. Przejdź do interfejsów API usługi Google at https://console.developers.google.com i zaloguj się przy użyciu konta Google. Zalecamy używanie udostępnionego konta Google zespołu.
 2. Utwórz nowy projekt: na pulpicie nawigacyjnym wybierz pozycję **Utwórz projekt**, a następnie wybierz pozycję **Utwórz**. Na stronie Nowy projekt wprowadź **nazwę projektu**, a następnie wybierz pozycję **Utwórz**.
    
    ![Zrzut ekranu przedstawiający nową stronę projektu dla usługi Google](media/google-federation/google-new-project.png)
@@ -77,7 +77,7 @@ Najpierw utwórz nowy projekt w konsoli firmy Google Developers w celu uzyskania
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(gdzie `<directory id>` jest identyfikatorem katalogu)
    
      > [!NOTE]
-     > Aby znaleźć identyfikator katalogu, przejdź https://portal.azure.comdo, a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator katalogu**.
+     > Aby znaleźć identyfikator katalogu, przejdź do https://portal.azure.com , a w obszarze **Azure Active Directory**wybierz pozycję **Właściwości** i skopiuj **Identyfikator katalogu**.
 
    ![Zrzut ekranu przedstawiający sekcję autoryzowane identyfikatory URI przekierowania](media/google-federation/google-create-oauth-client-id.png)
 
@@ -90,15 +90,15 @@ Teraz ustawisz identyfikator klienta Google i klucz tajny klienta, wprowadzając
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Aby skonfigurować usługę Google Federation w portalu usługi Azure AD 
 1. Przejdź do [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne**.
-3. Wybierz pozycję **dostawcy tożsamości**, a następnie kliknij przycisk **Google** .
+2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+3. Wybierz pozycję **Wszyscy dostawcy tożsamości**, a następnie kliknij przycisk **Google** .
 4. Wprowadź nazwę. Następnie wprowadź wcześniej otrzymany identyfikator klienta i klucz tajny klienta. Wybierz pozycję **Zapisz**. 
 
    ![Zrzut ekranu przedstawiający stronę Dodawanie dostawcy usługi Google Identity](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Aby skonfigurować usługi Google Federation przy użyciu programu PowerShell
 1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Uruchom następujące polecenie: `Connect-AzureAD`.
+2. Uruchom następujące polecenie: `Connect-AzureAD` .
 3. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego.  
 4. Uruchom następujące polecenie: 
    
@@ -112,8 +112,8 @@ Możesz usunąć konfigurację usługi Google Federation. W takim przypadku uży
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Aby usunąć usługę Google Federation w portalu usługi Azure AD: 
 1. Przejdź do [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne**.
-3. Wybierz pozycję **dostawcy tożsamości**.
+2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+3. Wybierz pozycję **Wszyscy dostawcy tożsamości**.
 4. W wierszu **Google** wybierz menu kontekstowe (**...**), a następnie wybierz pozycję **Usuń**. 
    
    ![Zrzut ekranu przedstawiający opcję usuwania dla dostawcy tożsamości społecznościowej](media/google-federation/google-social-identity-providers.png)

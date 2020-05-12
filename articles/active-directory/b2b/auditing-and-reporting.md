@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d2473d37dcf0d435ab61763e72a64111845956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273297"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199458"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Inspekcja i raportowanie użytkownika współpracy B2B
 Użytkownicy-Goście mają możliwość inspekcji, podobnie jak w przypadku użytkowników będących członkami. 
 
 ## <a name="access-reviews"></a>Przeglądy dostępu
-Za pomocą przeglądów dostępu można okresowo weryfikować, czy użytkownicy-Goście nadal potrzebują dostępu do zasobów. Funkcja **przeglądy dostępu** jest dostępna w **Azure Active Directory** w obszarze **Zarządzanie** > **relacjami organizacyjnymi**. (Możesz również wyszukać "przeglądy dostępu" ze **wszystkich usług** w Azure Portal). Aby dowiedzieć się, jak korzystać z przeglądów dostępu, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+Za pomocą przeglądów dostępu można okresowo weryfikować, czy użytkownicy-Goście nadal potrzebują dostępu do zasobów. Funkcja **przeglądy dostępu** jest dostępna w **Azure Active Directory** w obszarze **relacje organizacyjne**  >  **przeglądy dostępu** (lub weryfikacji **tożsamości zewnętrznych**  >  **Access reviews** ). Możesz również wyszukać "przeglądy dostępu" ze **wszystkich usług** w Azure Portal. Aby dowiedzieć się, jak korzystać z przeglądów dostępu, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 

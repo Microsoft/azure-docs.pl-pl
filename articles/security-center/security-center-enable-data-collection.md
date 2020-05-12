@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189824"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198613"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Zbieranie danych w usłudze Azure Security Center
 Security Center zbiera dane z maszyn wirtualnych platformy Azure, zestawów skalowania maszyn wirtualnych, kontenerów IaaS oraz innych niż platformy Azure (w tym komputerów lokalnych) do monitorowania luk w zabezpieczeniach i zagrożeń. Dane są zbierane przy użyciu agenta Log Analytics, który odczytuje różne konfiguracje związane z zabezpieczeniami i dzienniki zdarzeń z komputera i kopiuje dane do obszaru roboczego w celu przeprowadzenia analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik. Agent Log Analytics kopiuje także pliki zrzutu awaryjnego do obszaru roboczego.
@@ -72,7 +72,7 @@ Aby wybrać obszar roboczy utworzony przez Security Center:
 
 1. Kliknij przycisk **Zapisz**.<br>
     Security Center tworzy nową grupę zasobów i domyślny obszar roboczy w tej geolokalizacji i łączy agenta z tym obszarem roboczym. Konwencja nazewnictwa obszaru roboczego i grupy zasobów to:<br>
-   **Obszar roboczy: DefaultWorkspace-[Identyfikator subskrypcji]-[geograficzna<br> ] grupa zasobów: DefaultResourceGroup-[Geo]**
+   **Obszar roboczy: DefaultWorkspace-[Identyfikator subskrypcji]-[geograficzna] <br> Grupa zasobów: DefaultResourceGroup-[Geo]**
 
    Jeśli subskrypcja zawiera maszyny wirtualne z wielu lokalizacji, wówczas Security Center tworzy wiele obszarów roboczych. Utworzono wiele obszarów roboczych, aby zachować reguły ochrony prywatności danych.
 1. Security Center automatycznie włączy Security Center rozwiązanie w obszarze roboczym zgodnie z warstwą cenową ustawioną dla subskrypcji. 
@@ -126,7 +126,7 @@ Aby wybrać istniejący obszar roboczy Log Analytics:
     a.  W menu głównym Security Center wybierz pozycję **cennik & ustawienia**.
      
     b.  Wybierz żądany obszar roboczy, w którym ma zostać połączony Agent.
-        ![Wybierz pozycję][7] obszar roboczy c. Ustaw warstwę cenową.
+        ![Wybierz pozycję obszar roboczy ][7] c. Ustaw warstwę cenową.
         ![Wybierz warstwę cenową][9]
    
    >[!NOTE]
@@ -223,9 +223,8 @@ Automatyczne Inicjowanie obsługi można wyłączyć z zasobów w dowolnym momen
 
 Gdy funkcja automatycznej aprowizacji jest wyłączona (wyłączona), domyślna sekcja konfiguracji obszaru roboczego nie zostanie wyświetlona.
 
-Jeśli wyłączysz funkcję autozastrzeganie po wcześniej:
--   Agenci nie będą obsługiwani na nowych maszynach wirtualnych.
--   Security Center przestaje zbierać dane z domyślnego obszaru roboczego.
+Jeśli wyłączysz funkcję autozastrzeganie, gdy wcześniej jej Agent nie zostanie zainicjowany na nowych maszynach wirtualnych.
+
  
 > [!NOTE]
 >  Wyłączenie automatycznej aprowizacji nie powoduje usunięcia agenta Log Analytics z maszyn wirtualnych platformy Azure, w przypadku których Agent został zainicjowany. Aby uzyskać informacje dotyczące usuwania rozszerzenia pakietu OMS, zobacz [Jak mogę usuwania rozszerzeń pakietu OMS zainstalowanych przez Security Center](faq-data-collection-agents.md#remove-oms).

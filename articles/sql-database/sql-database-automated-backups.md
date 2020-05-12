@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061760"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198569"
 ---
 # <a name="automated-backups"></a>Automatyczne kopie zapasowe
 
@@ -61,6 +61,8 @@ Niektóre z tych operacji można wypróbować, korzystając z następujących pr
 SQL Database obsługuje samoobsługowe przywracanie do punktu w czasie (kopie) przez automatyczne tworzenie pełnych kopii zapasowych, różnicowych kopii zapasowych i kopii zapasowych dziennika transakcji. Tworzone są pełne kopie zapasowe bazy danych, a kopie zapasowe baz danych są zwykle tworzone co 12 godzin. Kopie zapasowe dziennika transakcji są zwykle tworzone co 5 – 10 minut. Częstotliwość tworzenia kopii zapasowych dziennika transakcji zależy od rozmiaru obliczeń i liczby działań związanych z bazą danych. 
 
 Pierwsza pełna kopia zapasowa jest zaplanowana natychmiast po utworzeniu bazy danych. Ta kopia zapasowa zwykle kończy się w ciągu 30 minut, ale może trwać dłużej, gdy baza danych jest duża. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazie danych lub kopii bazy danych. Po utworzeniu pierwszej pełnej kopii zapasowej wszystkie kolejne kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładne terminy wykonywania wszystkich kopii zapasowych bazy danych są określane przez usługę SQL Database, ponieważ równoważy ona całkowite obciążenie systemu. Nie można zmienić ani wyłączyć zadań tworzenia kopii zapasowej.
+
+### <a name="default-backup-retention-period"></a>Domyślny okres przechowywania kopii zapasowej
 
 Kopie zapasowe kopie są chronione za pomocą magazynu geograficznie nadmiarowego. Aby uzyskać więcej informacji, zobacz [Nadmiarowość usługi Azure Storage](../storage/common/storage-redundancy.md).
 
@@ -156,7 +158,7 @@ Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe s
 
 Na bieżąco zespół inżynierów Azure SQL Database automatycznie testuje przywracanie zautomatyzowanych kopii zapasowych baz danych umieszczonych w serwerach logicznych i elastycznych pulach baz danych. (Ten test nie jest dostępny w wystąpieniu zarządzanym). W przypadku przywracania do punktu w czasie bazy danych również są odbierane testy integralności DBCC CHECKDB.
 
-Wystąpienie zarządzane pobiera automatycznie początkową kopię zapasową `CHECKSUM` z baz danych `RESTORE` przywróconych za pomocą polecenia macierzystego lub z usługą Azure Data Migration Service po zakończeniu migracji.
+Wystąpienie zarządzane pobiera automatycznie początkową kopię zapasową z `CHECKSUM` baz danych przywróconych za pomocą `RESTORE` polecenia macierzystego lub z usługą Azure Data Migration Service po zakończeniu migracji.
 
 Wszelkie problemy znalezione podczas kontroli integralności spowodują powstanie alertu dla zespołu inżynieryjnego. Aby uzyskać więcej informacji, zobacz [integralność danych w Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 

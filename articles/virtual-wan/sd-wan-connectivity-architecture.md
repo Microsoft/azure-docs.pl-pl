@@ -1,5 +1,5 @@
 ---
-title: Architektura łączności z usługą SD-WAN
+title: Architektura łączności SD-WAN
 titleSuffix: Azure Virtual WAN
 description: Dowiedz się więcej na temat łączenia prywatnych SD-WAN z wirtualną siecią WAN platformy Azure
 services: virtual-wan
@@ -8,16 +8,16 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 15e44b9c048f167935fe8660228581e5bac0f43d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 34b2282421b9c95ad99ad040cb11847a30d3b52c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006263"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199996"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architektura łączności między SIECIami wirtualnymi z usługą Azure Virtual WAN
 
-Wirtualna sieć WAN platformy Azure to usługa sieciowa, która łączy wiele usług łączności w chmurze i zabezpieczeń z pojedynczym interfejsem operacyjnym. Te usługi obejmują rozgałęzienie (za pośrednictwem sieci VPN typu lokacja-lokacja), zdalny użytkownik (sieć połączeń punkt-lokacja), połączenie prywatne (ExpressRoute), a także łączność międzychmurową w chmurze dla połączeń sieci wirtualnych, VPN i ExpressRoute, routing, Zapora platformy Azure i szyfrowanie w celu połączenia prywatnego.
+Wirtualna sieć WAN platformy Azure to usługa sieciowa, która łączy wiele usług łączności w chmurze i zabezpieczeń z pojedynczym interfejsem operacyjnym. Te usługi obejmują rozgałęzienie (za pośrednictwem sieci VPN typu lokacja-lokacja), użytkowników zdalnych (sieci VPN punkt-lokacja), połączeń prywatnych (ExpressRoute), łączności przechodniej wewnątrz chmury dla sieci wirtualnych, sieci VPN i ExpressRoute łączności, routingu, zapory platformy Azure i szyfrowania na potrzeby połączeń prywatnych.
 
 Mimo że wirtualna sieć WAN platformy Azure to oprogramowanie sieci WAN zdefiniowane w oprogramowaniu (SD-WAN), jest również przeznaczone do zapewniania bezproblemowego połączenia z opartymi na lokalnym technologią i technologiami SD-WAN. Wiele takich usług jest oferowanych przez nasz ekosystem [wirtualnych sieci WAN](virtual-wan-locations-partners.md) i partnerów usług zarządzanych sieci platformy Azure [(msp)](../networking/networking-partners-msp.md). Przedsiębiorstwa, które przekształcają prywatne sieci WAN do SD-WAN, są dostępne w przypadku łączenia ich prywatnych SD-WAN z wirtualną siecią WAN platformy Azure. Przedsiębiorstwa mogą wybierać spośród następujących opcji:
 
@@ -39,7 +39,7 @@ URZĄDZENIE typu SD-WAN jest nadal miejscem, w którym Optymalizacja ruchu oraz 
 
 W tym modelu pewna niezależna od dostawcy Optymalizacja ruchu oparta na charakterystykach ruchu w czasie rzeczywistym może nie być obsługiwana, ponieważ łączność z wirtualną siecią WAN odbywa się za pośrednictwem protokołu IPsec, a sieć VPN IPsec jest przerywana na wirtualnej bramie sieci VPN. Na przykład można wybrać ścieżkę dynamiczną na urządzeniu CPE, ponieważ odgałęzienie odnosi się do różnych informacji o pakietach sieciowych z innym węzłem SD-WAN, a tym samym zidentyfikowanie najlepszego linku do użycia w przypadku różnych priorytetów ruchu dynamicznego w gałęzi. Ta funkcja może być przydatna w obszarach, w których wymagana jest optymalizacja między ostatnimi milami (rozgałęzienie do najbliższej firmy Microsoft).
 
-Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia skonfigurowanie wielu linków (ścieżek) do tej samej gałęzi CPE-WAN, a każde łącze kończy się na innym publicznym interfejsie IP dla systemu SD-WAN CPE. Dostawcy SD-WAN mogą skorzystać z tej funkcji, aby wybrać najbardziej optymalną ścieżkę do platformy Azure, na podstawie zasad ruchu specyficznych dla tych ścieżek.
+Dzięki wirtualnej sieci WAN użytkownicy mogą uzyskać wybór ścieżki platformy Azure, która jest ścieżką opartą na zasadach obejmującą wiele linków usługodawcy internetowego z gałęzi CPE do wirtualnych bram sieci VPN w sieci WAN. Wirtualna sieć WAN umożliwia konfigurowanie wielu linków (ścieżek) z tego samego rozgałęzienia "SD-WAN" CPE; Każde łącze reprezentuje połączenie podwójnego tunelu z unikatowego publicznego adresu IP z systemem SD-WAN CPE do dwóch różnych wystąpień bramy sieci VPN usługi Azure Virtual WAN. Dostawcy SD-WAN mogą zaimplementować najbardziej optymalną ścieżkę do platformy Azure, na podstawie zasad ruchu ustawionych przez aparat zasad w łączach CPE.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Pośredni model połączeń
 

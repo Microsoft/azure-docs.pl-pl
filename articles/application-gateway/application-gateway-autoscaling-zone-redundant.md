@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207264"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125234"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 
@@ -132,8 +133,16 @@ Cena jednostkowa wydajności = 744 (godz.) * Max (maksymalna liczba jednostek ob
 
 Application Gateway i WAF można skonfigurować do skalowania w dwóch trybach:
 
-- **Skalowanie** automatyczne — z włączonym skalowaniem automatycznym jednostki SKU Application Gateway i WAF v2 są skalowane w górę lub w dół na podstawie wymagań dotyczących ruchu aplikacji. Ten tryb oferuje lepszą elastyczność aplikacji i eliminuje konieczność odgadnięcia rozmiaru bramy aplikacji lub liczby wystąpień. Ten tryb pozwala także zaoszczędzić koszt przez niewymaganie, aby brama działała na szczytowej pojemności dla przewidywanego maksymalnego obciążenia ruchem. Należy określić minimalną i opcjonalną maksymalną liczbę wystąpień. Minimalna pojemność zapewnia, że Application Gateway i WAF v2 nie spadnie poniżej minimalnej określonej liczby wystąpień, nawet w przypadku braku ruchu. Każde wystąpienie liczy się jako 10 dodatkowych jednostek pojemności zarezerwowanych. Zero oznacza brak zarezerwowanej pojemności i ma charakter wyłącznie Skalowanie automatyczne. Należy pamiętać, że zero dodatkowych wystąpień w dalszym ciągu zapewnia wysoką dostępność usługi, która jest zawsze dostępna ze stałą ceną. Opcjonalnie można również określić maksymalną liczbę wystąpień, która zapewnia, że Application Gateway nie będzie skalowana poza określoną liczbę wystąpień. Opłaty są naliczane za ilość ruchu obsługiwanego przez bramę. Liczba wystąpień może być z zakresu od 0 do 125. Wartość domyślna maksymalna liczba wystąpień to 20, jeśli nie zostanie określona.
+- **Skalowanie** automatyczne — z włączonym skalowaniem automatycznym jednostki SKU Application Gateway i WAF v2 są skalowane w górę lub w dół na podstawie wymagań dotyczących ruchu aplikacji. Ten tryb oferuje lepszą elastyczność aplikacji i eliminuje konieczność odgadnięcia rozmiaru bramy aplikacji lub liczby wystąpień. Ten tryb pozwala także zaoszczędzić koszt przez niewymaganie, aby brama działała na szczytowej pojemności dla przewidywanego maksymalnego obciążenia ruchem. Należy określić minimalną i opcjonalną maksymalną liczbę wystąpień. Minimalna pojemność zapewnia, że Application Gateway i WAF v2 nie spadnie poniżej minimalnej określonej liczby wystąpień, nawet w przypadku braku ruchu. Każde wystąpienie jest w przybliżeniu równe 10 dodatkowym zarezerwowanym jednostkom pojemności. Zero oznacza brak zarezerwowanej pojemności i ma charakter wyłącznie Skalowanie automatyczne. Opcjonalnie można również określić maksymalną liczbę wystąpień, która zapewnia, że Application Gateway nie będzie skalowana poza określoną liczbę wystąpień. Opłaty są naliczane tylko za ilość ruchu obsługiwanego przez bramę. Liczba wystąpień może być z zakresu od 0 do 125. Wartość domyślna maksymalna liczba wystąpień to 20, jeśli nie zostanie określona.
 - **Ręczne** — możesz alternatywnie wybrać tryb ręczny, w którym Brama nie będzie automatycznie skalowana. W tym trybie, jeśli ruch jest większy niż obsługiwane Application Gateway lub WAF, może to spowodować utratę ruchu. W trybie ręcznym określenie liczby wystąpień jest obowiązkowe. Liczba wystąpień może się różnić od 1 do 125 wystąpień.
+
+## <a name="autoscaling-and-high-availability"></a>Skalowanie automatyczne i wysoka dostępność
+
+Bramy aplikacji platformy Azure są zawsze wdrażane w sposób wysokiej dostępności. Usługa została utworzona z wielu wystąpień utworzonych zgodnie z konfiguracją (Jeśli automatyczne skalowanie jest wyłączone) lub wymagane przez obciążenie aplikacji (jeśli Skalowanie automatyczne jest włączone). Należy zauważyć, że z perspektywy użytkownika nie musisz mieć wglądu w poszczególne wystąpienia, ale tylko w ramach usługi Application Gateway jako całości. Jeśli pewne wystąpienie ma problem i przestaje działać, usługa Azure Application Gateway będzie w sposób niewidoczny dla użytkownika utworzyć nowe wystąpienie.
+
+Należy pamiętać, że nawet jeśli skonfigurujesz Skalowanie automatyczne z zerem o wartości zero, usługa nadal będzie o wysokiej dostępności, która zawsze jest uwzględniana w ustalonej cenie.
+
+Jednak utworzenie nowego wystąpienia może zająć trochę czasu (około sześć lub siedem minut). W związku z tym, jeśli nie chcesz poradzić sobie z tym przestojem, możesz skonfigurować minimalną liczbę wystąpień równą 2, najlepiej z obsługą strefy dostępności. W ten sposób będziesz mieć co najmniej dwa wystąpienia w ramach usługi Azure Application Gateway w normalnych warunkach, więc jeśli jeden z nich wystąpił problem, drugi spróbuje poradzić sobie z ruchem, podczas gdy nowe wystąpienie zostanie utworzone. Należy pamiętać, że wystąpienie usługi Azure Application Gateway może obsłużyć około 10 jednostek pojemności, więc w zależności od ilości ruchu, który zwykle może chcieć skonfigurować ustawienie skalowania automatycznego o wartości większej niż 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Porównanie funkcji między jednostką SKU V1 i jednostką SKU v2
 

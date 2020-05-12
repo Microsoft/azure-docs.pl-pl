@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995535"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199044"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -29,6 +29,10 @@ Cennik [usługi Azure Application Insights][start] to model z **płatnością zg
 [Wieloetapowe testy sieci Web](../../azure-monitor/app/availability-multistep.md) wiążą się z dodatkowymi opłatami. Wieloetapowe testy sieci Web to testy sieci Web, które wykonują sekwencję akcji. Nie ma oddzielnej opłaty za *testy ping* dla pojedynczej strony. Dane telemetryczne z testów ping i testów wieloetapowych są rozliczone tak samo jak inne dane telemetryczne z aplikacji.
 
 Opcja Application Insights [włączania alertów w niestandardowych wymiarach metryk](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) można również generować w dodatkowych kosztach, ponieważ może to spowodować utworzenie dodatkowych metryk przed agregacją. [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) o metrykach opartych na dzienniku i wstępnie zagregowanych informacjach w Application Insights i o [cenach](https://azure.microsoft.com/pricing/details/monitor/) Azure monitor metryk niestandardowych.
+
+### <a name="workspace-based-application-insights"></a>Application Insights oparte na obszarze roboczym
+
+W przypadku zasobów Application Insights, które wysyłają dane do Log Analytics obszaru roboczego, nazywanych [zasobami Application Insights opartymi na obszarze roboczym](create-workspace-resource.md), rozliczanie za pozyskiwanie i przechowywanie danych odbywa się w obszarze roboczym, w którym znajdują się dane Application Insights. Dzięki temu klienci mogą korzystać ze wszystkich opcji [modelu cen](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) log Analytics, który obejmuje rezerwacje pojemności, a nie tylko płatność zgodnie z rzeczywistym użyciem. Log Analytics również zawiera więcej opcji przechowywania danych, w tym [przechowywanie według typu danych](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type). Application Insights typy danych w obszarze roboczym otrzymują 90 dni przechowywania bez opłat. Użycie testów sieci Web i włączenie alertów w niestandardowych wymiarach metryk jest nadal zgłaszane przez Application Insights. Dowiedz się, jak śledzić koszty pozyskiwania i przechowywania danych w Log Analytics przy użyciu [i szacowanych kosztów](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs), [Azure Cost Management + rozliczeń](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) i [log Analytics zapytań](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Szacowanie kosztów zarządzania aplikacją
 
@@ -75,7 +79,7 @@ Aby dowiedzieć się więcej na temat woluminów danych, wybierz **metryki** dla
 
 ### <a name="queries-to-understand-data-volume-details"></a>Zapytania, aby zrozumieć szczegóły ilości danych
 
-Istnieją dwa podejścia do badania woluminów danych dla Application Insights. Pierwsze używa zagregowanych informacji w `systemEvents` tabeli, a druga używa `_BilledSize` właściwości, która jest dostępna dla każdego pozyskanego zdarzenia.
+Istnieją dwa podejścia do badania woluminów danych dla Application Insights. Pierwsze używa zagregowanych informacji w `systemEvents` tabeli, a druga używa `_BilledSize` właściwości, która jest dostępna dla każdego pozyskanego zdarzenia. `systemEvents`nie będzie zawierać informacji o rozmiarze danych w przypadku [aplikacji opartych na obszarze roboczym](#data-volume-for-workspace-based-application-insights-resources).
 
 #### <a name="using-aggregated-data-volume-information"></a>Korzystanie z zagregowanych informacji o woluminie danych
 
@@ -127,6 +131,47 @@ dependencies
 | render barchart  
 ```
 
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>Wolumin danych dla Application Insights zasobów opartych na obszarze roboczym
+
+Aby przyjrzeć się trendom ilości danych dla wszystkich [zasobów Application Insights opartych na obszarze roboczym](create-workspace-resource.md) w obszarze roboczym przez ostatni tydzień, przejdź do obszaru roboczego log Analytics i uruchom zapytanie:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+Aby wykonać zapytanie o trendy ilości danych według typu dla określonego zasobu Application Insights opartego na obszarze roboczym, w Log Analytics Użyj obszaru roboczego:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
+```
+
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Wyświetlanie Application Insights użycia na rachunku na platformie Azure
 
 Platforma Azure oferuje bardzo przydatne funkcje w [Azure Cost Management i centrum rozliczeń](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) . Na przykład funkcja "analiza kosztów" umożliwia wyświetlanie wydatków dotyczących zasobów platformy Azure. Dodawanie filtru według typu zasobu (do Microsoft. Insights/Components for Application Insights) umożliwi śledzenie wydatków. Następnie dla opcji "Grupuj według" Wybierz "kategoria licznika" lub "licznik".  W przypadku zasobów Application Insights w bieżących planach cenowych, większość użycia będzie wyświetlana jako Log Analytics dla kategorii miernika, ponieważ istnieje pojedyncze zaplecze dzienników dla wszystkich składników Azure Monitor. 
@@ -174,11 +219,11 @@ Aby zmienić dzienny limit, w sekcji **Konfigurowanie** zasobu Application Insig
 
 ![Dostosuj dzienny limit ilości danych telemetrycznych](./media/pricing/pricing-003.png)
 
-Aby [zmienić dzienny limit za pośrednictwem Azure Resource Manager](../../azure-monitor/app/powershell.md), właściwość do zmiany jest `dailyQuota`.  Za pomocą Azure Resource Manager można również ustawić `dailyQuotaResetTime` i dzienny limit. `warningThreshold`
+Aby [zmienić dzienny limit za pośrednictwem Azure Resource Manager](../../azure-monitor/app/powershell.md), właściwość do zmiany jest `dailyQuota` .  Za pomocą Azure Resource Manager można również ustawić `dailyQuotaResetTime` i dzienny limit `warningThreshold` .
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Tworzenie alertów dla dziennego limitu
 
-Application Insights dzienny tworzy zdarzenie w dzienniku aktywności platformy Azure, gdy pozyskiwane woluminy danych trafią na poziom ostrzeżeń lub dziennie.  Alert można [utworzyć na podstawie tych zdarzeń dziennika aktywności](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Nazwy sygnałów dla tych zdarzeń to:
+Application Insights dzienny tworzy zdarzenie w dzienniku aktywności platformy Azure, gdy pozyskiwane woluminy danych osiągnie poziom ostrzeżeń lub dzienny limit.  Alert można [utworzyć na podstawie tych zdarzeń dziennika aktywności](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Nazwy sygnałów dla tych zdarzeń to:
 
 * Osiągnięto próg ostrzeżenia dziennego limitu Application Insights składnika
 

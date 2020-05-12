@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186254"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116530"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Samouczek: Dostosowywanie interfejsu środowiska użytkownika w Azure Active Directory B2C
 
@@ -63,8 +63,8 @@ Chociaż pliki można przechowywać na wiele sposobów, w tym samouczku można j
  Azure AD B2C kod w przeglądarce korzysta z nowoczesnego i standardowego podejścia do załadowania niestandardowej zawartości z adresu URL określonego w przepływie użytkownika. Współużytkowanie zasobów między źródłami (CORS) umożliwia zażądanie zasobów na stronie sieci Web z innych domen.
 
 1. Z menu wybierz pozycję **CORS**.
-2. Dla **dozwolonych źródeł**wprowadź `https://your-tenant-name.b2clogin.com`. Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. Podczas wprowadzania nazwy dzierżawy należy używać wszystkich małych liter.
-3. Dla **dozwolonych metod**, `GET`wybierz`PUT`,, `OPTIONS`i.
+2. Dla **dozwolonych źródeł**wprowadź `https://your-tenant-name.b2clogin.com` . Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C. Na przykład `https://fabrikam.b2clogin.com`. Podczas wprowadzania nazwy dzierżawy należy używać wszystkich małych liter.
+3. Dla **dozwolonych metod**, wybierz `GET` , `PUT` , i `OPTIONS` .
 4. Dla **dozwolonych nagłówków**Wprowadź gwiazdkę (*).
 5. W przypadku **widocznych nagłówków**Wprowadź gwiazdkę (*).
 6. W obszarze **Maksymalny wiek**wprowadź 200.
@@ -75,7 +75,7 @@ Chociaż pliki można przechowywać na wiele sposobów, w tym samouczku można j
 
 ### <a name="create-the-customization-files"></a>Tworzenie plików dostosowania
 
-Aby dostosować interfejs użytkownika środowiska rejestracji, Zacznij od utworzenia prostego pliku HTML i CSS. Możesz skonfigurować kod HTML w dowolny sposób, ale musi on mieć element **DIV** o identyfikatorze `api`. Na przykład `<div id="api"></div>`. Azure AD B2C wprowadza elementy do `api` kontenera, gdy zostanie wyświetlona strona.
+Aby dostosować interfejs użytkownika środowiska rejestracji, Zacznij od utworzenia prostego pliku HTML i CSS. Możesz skonfigurować kod HTML w dowolny sposób, ale musi on mieć element **DIV** o identyfikatorze `api` . Na przykład `<div id="api"></div>`. Azure AD B2C wprowadza elementy do kontenera, `api` gdy zostanie wyświetlona strona.
 
 1. W folderze lokalnym Utwórz następujący plik i upewnij się, że zmienisz `your-storage-account` nazwę konta magazynu i `your-container` nazwę utworzonego kontenera. Na przykład `https://store1.blob.core.windows.net/b2c/style.css`.
 
@@ -166,4 +166,4 @@ W tym artykule zawarto informacje na temat wykonywania następujących czynnośc
 > * Testowanie dostosowanego interfejsu użytkownika
 
 > [!div class="nextstepaction"]
-> [Dostosowanie języka w Azure Active Directory B2C](user-flow-language-customization.md)
+> [Dostosuj interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md)

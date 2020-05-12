@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926990"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199455"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 |     |
@@ -28,7 +28,7 @@ ms.locfileid: "82926990"
 W tym artykule opisano sposób konfigurowania Federacji bezpośredniej z inną organizacją do współpracy B2B. Można skonfigurować bezpośrednią Federacji z każdą organizacją, której dostawca tożsamości (dostawcy tożsamości) obsługuje protokół SAML 2,0 lub WS-IP.
 Po skonfigurowaniu bezpośredniej Federacji z dostawcy tożsamości partnera nowi użytkownicy-Goście z tej domeny mogą używać własnego konta organizacji zarządzanego przez dostawcy tożsamości do logowania się do dzierżawy usługi Azure AD i rozpoczynania współpracy z Twoimi użytkownikami. Użytkownik-Gość nie musi tworzyć oddzielnego konta usługi Azure AD.
 > [!NOTE]
-> Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na `https://myapps.microsoft.com/?tenantid=<tenant id>` przykład `https://portal.azure.com/<tenant id>`lub w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com`, `https://portal.azure.com`, lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
+> Bezpośredni federacyjny użytkownicy-gość muszą się zalogować przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy Federacji bezpośredniej nie mogą obecnie zalogować się przy użyciu wspólnych punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład użycie `https://myapps.microsoft.com` , `https://portal.azure.com` , lub `https://teams.microsoft.com` spowoduje wystąpienie błędu.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>Kiedy jest uwierzytelniany przez użytkownika-gościa za pomocą Federacji bezpośredniej?
 Po skonfigurowaniu bezpośredniej Federacji z organizacją Wszyscy nowi zaproszeni użytkownicy-Goście będą uwierzytelniani za pomocą Federacji bezpośredniej. Należy pamiętać, że skonfigurowanie Federacji bezpośredniej nie zmienia metody uwierzytelniania dla użytkowników-Gości, którzy już wykorzystali zaproszenie. Poniżej przedstawiono kilka przykładów:
@@ -61,7 +61,7 @@ Federacja bezpośrednia jest dozwolona tylko w przypadku zasad, w których domen
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Na przykład podczas konfigurowania Federacji bezpośredniej dla **fabrikam.com**, adres URL `https://fabrikam.com/adfs` uwierzytelniania przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs`. Jednak adres URL `https://fabrikamconglomerate.com/adfs` uwierzytelniania lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
+Na przykład podczas konfigurowania Federacji bezpośredniej dla **fabrikam.com**, adres URL uwierzytelniania `https://fabrikam.com/adfs` przekaże weryfikację. Host w tej samej domenie również zostanie przekazany na przykład `https://sts.fabrikam.com/adfs` . Jednak adres URL uwierzytelniania `https://fabrikamconglomerate.com/adfs` lub `https://fabrikam.com.uk/adfs` dla tej samej domeny nie zostanie przekazany.
 
 ### <a name="signing-certificate-renewal"></a>Odnawianie certyfikatu podpisywania
 Jeśli określisz adres URL metadanych w ustawieniach dostawcy tożsamości, usługa Azure AD automatycznie odnowi certyfikat podpisywania po jego wygaśnięciu. Jeśli jednak certyfikat jest obrócony z dowolnego powodu przed upływem czasu wygaśnięcia lub jeśli nie podano adresu URL metadanych, usługa Azure AD nie będzie mogła go odnowić. W takim przypadku należy ręcznie zaktualizować certyfikat podpisywania.
@@ -146,8 +146,8 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Aby skonfigurować bezpośrednią Federacji w portalu usługi Azure AD
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne**.
-3. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy protokół SAML/WS-dostawcy tożsamości**.
+2. Wybierz pozycję **relacje organizacyjne**  >  **wszystkie dostawcy tożsamości** (lub **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**).
+3. Wybierz pozycję, a następnie wybierz pozycję **nowe dostawcy tożsamości SAML/WS-karmione**.
 
     ![Zrzut ekranu przedstawiający przycisk dodawania nowych dostawcy tożsamości języka SAML lub protokołu WS-karmionego](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -174,7 +174,7 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
    Connect-AzureAD
    ```
 1. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego. 
-2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych Federacji. Dla AD FS Server i usługi okta plik federacyjny to federationmetadata. XML, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
+2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych Federacji. Dla AD FS Server i usługi okta plik federacyjny to federationmetadata. XML, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml` . 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -194,8 +194,8 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Jak mogę edytować bezpośredniej relacji Federacji?
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne**.
-3. Wybierz **dostawców tożsamości**
+2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+3. Wybierz **wszystkich dostawców tożsamości**
 4. W obszarze **dostawcy tożsamości protokołu SAML/WS-karmionego**wybierz dostawcę.
 5. W okienku szczegółów dostawcy tożsamości zaktualizuj wartości.
 6. Wybierz pozycję **Zapisz**.
@@ -205,8 +205,8 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 Możesz usunąć konfigurację Federacji bezpośredniej. Jeśli to zrobisz, wszyscy użytkownicy-Goście Federacji, którzy już korzystali z zaproszenia, nie będą mogli się zalogować. Można jednak umożliwić im ponowne uzyskanie dostępu do zasobów, usuwając je z katalogu i ponownie zapraszając. Aby usunąć bezpośrednią Federacji z dostawcą tożsamości w portalu usługi Azure AD:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne**.
-3. Wybierz pozycję **dostawcy tożsamości**.
+2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+3. Wybierz pozycję **Wszyscy dostawcy tożsamości**.
 4. Wybierz dostawcę tożsamości, a następnie wybierz pozycję **Usuń**. 
 5. Wybierz pozycję **tak** , aby potwierdzić usunięcie. 
 
