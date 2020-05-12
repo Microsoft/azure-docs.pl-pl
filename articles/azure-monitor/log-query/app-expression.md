@@ -5,19 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/25/2019
-ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670263"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201099"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>wyrażenie App () w kwerendzie Azure Monitor
 
-`app` Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonej Application Insights aplikacji w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do dołączania danych aplikacji do zapytania dziennika Azure Monitor i do wykonywania zapytań dotyczących danych w wielu aplikacjach w kwerendzie Application Insightsowej.
+`app`Wyrażenie jest używane w zapytaniu Azure monitor, aby pobrać dane z określonej Application Insights aplikacji w tej samej grupie zasobów, innej grupie zasobów lub innej subskrypcji. Jest to przydatne do dołączania danych aplikacji do zapytania dziennika Azure Monitor i do wykonywania zapytań dotyczących danych w wielu aplikacjach w kwerendzie Application Insightsowej.
 
-
+> [!IMPORTANT]
+> Wyrażenie App () nie jest używane, jeśli używasz [zasobu Application Insights opartego na obszarze roboczym](../app/create-workspace-resource.md) , ponieważ dane dziennika są przechowywane w log Analytics obszarze roboczym. Użyj wyrażenia log (), aby napisać zapytanie zawierające aplikację w wielu obszarach roboczych. W przypadku wielu aplikacji w tym samym obszarze roboczym nie jest wymagane zapytanie między obszarem roboczym.
 
 ## <a name="syntax"></a>Składnia
 
@@ -30,7 +31,7 @@ ms.locfileid: "77670263"
 
 | Identyfikator | Opis | Przykład
 |:---|:---|:---|
-| Nazwa zasobu | Czytelna dla człowieka nazwa aplikacji ("Nazwa składnika") | Aplikacja ("fabrikamapp") |
+| Nazwa zasobu | Czytelna dla człowieka nazwa aplikacji (znana również jako "Nazwa składnika") | Aplikacja ("fabrikamapp") |
 | Kwalifikowana nazwa | Pełna nazwa aplikacji w postaci: "subscriptionname/resourceName/ComponentName" | Aplikacja ("AI-Prototype/Fabrikam/fabrikamapp") |
 | ID | Identyfikator GUID aplikacji | Aplikacja ("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Identyfikator zasobu platformy Azure | Identyfikator zasobu platformy Azure |Aplikacja ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |

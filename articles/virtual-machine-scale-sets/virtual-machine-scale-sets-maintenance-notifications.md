@@ -1,19 +1,20 @@
 ---
 title: Powiadomienia o konserwacji dla zestawów skalowania maszyn wirtualnych na platformie Azure
 description: Wyświetl powiadomienia dotyczące konserwacji i uruchom samoobsługową konserwację zestawów skalowania maszyn wirtualnych na platformie Azure.
-author: shants123
-tags: azure-service-management,azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
-ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062698"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200087"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Powiadomienia dotyczące planowanej konserwacji zestawów skalowania maszyn wirtualnych
 
@@ -82,7 +83,7 @@ Na liście zestawów skalowania maszyn wirtualnych jest teraz wyświetlana kolum
 
 | Wartość | Opis |
 |-------|-------------|
-| Tak | Co najmniej jedna maszyna wirtualna w zestawie skalowania maszyn wirtualnych znajduje się w oknie samoobsługowym. Konserwację można uruchomić w dowolnym momencie podczas tego okna samoobsługowego. | 
+| Yes | Co najmniej jedna maszyna wirtualna w zestawie skalowania maszyn wirtualnych znajduje się w oknie samoobsługowym. Konserwację można uruchomić w dowolnym momencie podczas tego okna samoobsługowego. | 
 | Nie | Żadne maszyny wirtualne nie znajdują się w oknie samoobsługowym w zestawie skalowania maszyn wirtualnych, których to dotyczy. | 
 | - | Zestawy skalowania maszyn wirtualnych nie są częścią planowanej fazy konserwacji.| 
 
@@ -170,7 +171,7 @@ Następujące wywołanie inicjuje konserwację w wystąpieniu maszyny wirtualnej
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P: Dlaczego musisz teraz ponownie uruchomić moje maszyny wirtualne?**
 

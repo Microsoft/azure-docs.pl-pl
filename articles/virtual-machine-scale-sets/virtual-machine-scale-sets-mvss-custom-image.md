@@ -1,19 +1,20 @@
 ---
 title: Odwoływanie się do niestandardowego obrazu w szablonie zestawu skalowania platformy Azure
 description: Dowiedz się, jak dodać obraz niestandardowy do istniejącego szablonu zestawu skalowania maszyn wirtualnych platformy Azure
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: cynthn
+ms.author: cynthn
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: imaging
 ms.date: 04/26/2018
-ms.author: mimckitt
-ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: akjosh
+ms.custom: akjosh
+ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273702"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124911"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Add a custom image to an Azure scale set template (Dodawanie obrazu niestandardowego do szablonu zestawu skalowania platformy Azure)
 
@@ -24,7 +25,7 @@ W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) został utworz
 
 ### <a name="creating-a-managed-disk-image"></a>Tworzenie obrazu dysku zarządzanego
 
-Jeśli masz już niestandardowy obraz dysku zarządzanego (zasób typu `Microsoft.Compute/images`), możesz pominąć tę sekcję.
+Jeśli masz już niestandardowy obraz dysku zarządzanego (zasób typu `Microsoft.Compute/images` ), możesz pominąć tę sekcję.
 
 Najpierw Dodaj `sourceImageVhdUri` parametr, który jest identyfikatorem URI do uogólnionego obiektu BLOB w usłudze Azure Storage, który zawiera obraz niestandardowy do wdrożenia.
 
@@ -44,7 +45,7 @@ Najpierw Dodaj `sourceImageVhdUri` parametr, który jest identyfikatorem URI do 
    "variables": {},
 ```
 
-Następnie Dodaj zasób typu `Microsoft.Compute/images`, który jest obrazem dysku zarządzanego na podstawie uogólnionego obiektu BLOB znajdującego się w identyfikatorze `sourceImageVhdUri`URI. Ten obraz musi znajdować się w tym samym regionie co zestaw skalowania, który go używa. We właściwościach obrazu określ typ systemu operacyjnego, lokalizację obiektu BLOB (z `sourceImageVhdUri` parametru) i typ konta magazynu:
+Następnie Dodaj zasób typu `Microsoft.Compute/images` , który jest obrazem dysku zarządzanego na podstawie uogólnionego obiektu BLOB znajdującego się w identyfikatorze URI `sourceImageVhdUri` . Ten obraz musi znajdować się w tym samym regionie co zestaw skalowania, który go używa. We właściwościach obrazu określ typ systemu operacyjnego, lokalizację obiektu BLOB (z `sourceImageVhdUri` parametru) i typ konta magazynu:
 
 ```diff
    "resources": [
@@ -88,7 +89,7 @@ W zasobów zestawu skalowania Dodaj `dependsOn` klauzulę odwołującą się do 
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Zmienianie właściwości zestawu skalowania w celu korzystania z obrazu dysku zarządzanego
 
-`imageReference` W `storageProfile`zestawie skalowania zamiast określania wydawcy, oferty, jednostki SKU i wersji obrazu platformy należy określić `id` `Microsoft.Compute/images` zasób:
+W `imageReference` zestawie skalowania `storageProfile` zamiast określania wydawcy, oferty, jednostki SKU i wersji obrazu platformy należy określić `id` `Microsoft.Compute/images` zasób:
 
 ```json
          "virtualMachineProfile": {
@@ -100,7 +101,7 @@ W zasobów zestawu skalowania Dodaj `dependsOn` klauzulę odwołującą się do 
            "osProfile": {
 ```
 
-W tym przykładzie Użyj `resourceId` funkcji, aby pobrać identyfikator zasobu obrazu utworzonego w tym samym szablonie. Jeśli wcześniej utworzono obraz dysku zarządzanego, należy podać identyfikator tego obrazu. Ten identyfikator musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+W tym przykładzie Użyj funkcji, `resourceId` Aby pobrać identyfikator zasobu obrazu utworzonego w tym samym szablonie. Jeśli wcześniej utworzono obraz dysku zarządzanego, należy podać identyfikator tego obrazu. Ten identyfikator musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>` .
 
 
 ## <a name="next-steps"></a>Następne kroki

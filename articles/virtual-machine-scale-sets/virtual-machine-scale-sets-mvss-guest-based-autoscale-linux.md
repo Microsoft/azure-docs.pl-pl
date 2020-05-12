@@ -1,18 +1,20 @@
 ---
 title: Korzystanie z funkcji automatycznego skalowania platformy Azure z metrykami gościa w szablonie zestawu skalowania systemu Linux
 description: Dowiedz się, jak automatyczne skalowanie przy użyciu metryk gościa w szablonie zestawu skalowania maszyn wirtualnych z systemem Linux
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 8021b7b8feb6dc06fb2e48bc4e825200a1baad33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273651"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124809"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Skalowanie automatyczne przy użyciu metryk gościa w szablonie zestawu skalowania systemu Linux
 
@@ -24,7 +26,7 @@ Metryki hosta nie wymagają dodatkowej konfiguracji, ponieważ są zbierane prze
 
 W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) został utworzony podstawowy szablon zestawu skalowania. Teraz użyjemy tego wcześniejszego szablonu i zmodyfikujesz go, aby utworzyć szablon, który wdraża zestaw skalowania systemu Linux z funkcją automatycznego skalowania opartego na metrykach gościa.
 
-Najpierw Dodaj parametry dla `storageAccountName` i. `storageAccountSasToken` Agent diagnostyki przechowuje dane metryk w [tabeli](../cosmos-db/table-storage-how-to-use-dotnet.md) na tym koncie magazynu. W przypadku agenta diagnostyki systemu Linux w wersji 3,0 użycie klucza dostępu do magazynu nie jest już obsługiwane. Zamiast tego należy użyć [tokenu sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Najpierw Dodaj parametry dla `storageAccountName` i `storageAccountSasToken` . Agent diagnostyki przechowuje dane metryk w [tabeli](../cosmos-db/table-storage-how-to-use-dotnet.md) na tym koncie magazynu. W przypadku agenta diagnostyki systemu Linux w wersji 3,0 użycie klucza dostępu do magazynu nie jest już obsługiwane. Zamiast tego należy użyć [tokenu sygnatury dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -40,7 +42,7 @@ Najpierw Dodaj parametry dla `storageAccountName` i. `storageAccountSasToken` Ag
    },
 ```
 
-Następnie zmodyfikuj zestaw `extensionProfile` skalowania, aby uwzględnić rozszerzenie diagnostyki. W tej konfiguracji określ identyfikator zasobu zestawu skalowania, z którego mają być zbierane metryki, a także konto magazynu i token sygnatury dostępu współdzielonego, które mają być używane do przechowywania metryk. Określ, jak często metryki są agregowane (w tym przypadku co minutę) i które metryki mają być śledzone (w tym przypadku używana pamięć to procent). Więcej szczegółowych informacji na temat tej konfiguracji i metryk innych niż procent używanej pamięci można znaleźć w [tej dokumentacji](../virtual-machines/linux/diagnostic-extension.md).
+Następnie zmodyfikuj zestaw skalowania, `extensionProfile` Aby uwzględnić rozszerzenie diagnostyki. W tej konfiguracji określ identyfikator zasobu zestawu skalowania, z którego mają być zbierane metryki, a także konto magazynu i token sygnatury dostępu współdzielonego, które mają być używane do przechowywania metryk. Określ, jak często metryki są agregowane (w tym przypadku co minutę) i które metryki mają być śledzone (w tym przypadku używana pamięć to procent). Więcej szczegółowych informacji na temat tej konfiguracji i metryk innych niż procent używanej pamięci można znaleźć w [tej dokumentacji](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }

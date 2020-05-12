@@ -1,19 +1,20 @@
 ---
 title: Odwoływanie się do istniejącej sieci wirtualnej w szablonie zestawu skalowania platformy Azure
 description: Dowiedz się, jak dodać sieć wirtualną do istniejącego szablonu zestawu skalowania maszyn wirtualnych platformy Azure
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 83328a31dad8009c28e146c81b24d6d9244f88a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273668"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124826"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Dodawanie odwołania do istniejącej sieci wirtualnej w szablonie zestawu skalowania platformy Azure
 
@@ -25,7 +26,7 @@ W [poprzednim artykule](virtual-machine-scale-sets-mvss-start.md) został utworz
 
 Najpierw Dodaj `subnetId` parametr. Ten ciąg jest przesyłany do konfiguracji zestawu skalowania, co pozwala zestawowi skalowania identyfikować wstępnie utworzoną podsieć, w której mają zostać wdrożone maszyny wirtualne. Ten ciąg musi mieć postać:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
-Na przykład w celu wdrożenia zestawu `myvnet`skalowania w istniejącej sieci wirtualnej z nazwą, podsiecią `mysubnet`, grupą `myrg`zasobów i `00000000-0000-0000-0000-000000000000`subskrypcją subnetId będzie: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Na przykład w celu wdrożenia zestawu skalowania w istniejącej sieci wirtualnej z nazwą `myvnet` , podsiecią `mysubnet` , grupą zasobów `myrg` i subskrypcją `00000000-0000-0000-0000-000000000000` subnetId będzie: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 
 ```diff
      },

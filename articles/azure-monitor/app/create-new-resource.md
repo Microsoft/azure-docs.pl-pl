@@ -3,12 +3,12 @@ title: Tworzenie nowego zasobu usługi Azure Application Insights | Microsoft Do
 description: Ręcznie skonfiguruj Application Insights monitorowania dla nowej aplikacji na żywo.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537580"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200662"
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
 
@@ -26,9 +26,10 @@ Zaloguj się do [Azure Portal](https://portal.azure.com)i utwórz zasób Applica
 
    | Ustawienia        |  Wartość           | Opis  |
    | ------------- |:-------------|:-----|
-   | **Nazwa**      | Unikatowa wartość | Nazwa identyfikująca monitorowaną aplikację. |
-   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej lub istniejącej grupy zasobów do hostowania danych usługi App Insights. |
-   | **Lokalizacja** | Wschodnie stany USA | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
+   | **Nazwa**      | `Unique value` | Nazwa identyfikująca monitorowaną aplikację. |
+   | **Grupa zasobów**     | `myResourceGroup`      | Nazwa nowej lub istniejącej grupy zasobów do hostowania danych usługi App Insights. |
+   | **Okolicy** | `East US` | Wybierz lokalizację znajdującą się w sąsiedztwie lub w miejscu, w którym znajduje się aplikacja. |
+   | **Tryb zasobów** | `Classic` lub `Workspace-based` | Zasoby oparte na obszarze roboczym są obecnie dostępne w publicznej wersji zapoznawczej i umożliwiają wysyłanie danych telemetrycznych Application Insights do wspólnego Log Analytics obszaru roboczego. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący zasobów obszaru roboczego](create-workspace-resource.md).
 
 > [!NOTE]
 > Chociaż można używać tej samej nazwy zasobu w różnych grupach zasobów, może być korzystne użycie globalnie unikatowej nazwy. Może to być przydatne, jeśli planujesz [wykonywać zapytania między zasobami](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , ponieważ upraszczają one wymaganą składnię.
@@ -96,13 +97,13 @@ Pełna Dokumentacja programu PowerShell dla tego polecenia cmdlet i Dowiedz się
 
 ### <a name="azure-cli-preview"></a>Interfejs wiersza polecenia platformy Azure (wersja zapoznawcza)
 
-Aby uzyskać dostęp do wersji zapoznawczej Application Insights poleceń interfejsu wiersza polecenia platformy Azure, musisz najpierw wykonać następujące działania:
+Aby uzyskać dostęp do Application Insights poleceń interfejsu wiersza polecenia platformy Azure w wersji zapoznawczej, należy najpierw wykonać następujące działania:
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-Jeśli `az extension add` polecenie nie zostanie uruchomione, zostanie wyświetlony komunikat o błędzie informujący o tym, że:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Jeśli polecenie nie zostanie uruchomione `az extension add` , zostanie wyświetlony komunikat o błędzie informujący o tym, że:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Teraz można wykonać następujące czynności, aby utworzyć zasób Application Insights:
 

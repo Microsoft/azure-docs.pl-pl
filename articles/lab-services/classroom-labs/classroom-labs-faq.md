@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983911"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115153"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
 Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
@@ -77,6 +77,6 @@ Zasubskrybuj [Aktualizacje usług Lab Services](https://azure.microsoft.com/upda
 Jeśli pytania nie ma na liście, daj nam znać, aby pomóc Ci znaleźć odpowiedź.
 
 - Opublikuj pytanie na końcu tego często zadawanych pytań. 
-- Aby dotrzeć do szerszego grona użytkowników, Opublikuj pytanie na [Azure Lab Services — Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Aby dotrzeć do szerszego grona użytkowników, Opublikuj pytanie na [Azure Lab Services — forum społeczności Tech](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - W przypadku żądań funkcji Prześlij swoje żądania i pomysły dotyczące [Azure Lab Services — User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

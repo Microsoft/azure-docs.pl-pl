@@ -12,12 +12,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250012"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201347"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Błędy rozruchu funkcji BitLocker na maszynie wirtualnej platformy Azure
 
@@ -273,13 +274,13 @@ W przypadku scenariusza klucz szyfrowania klucza wykonaj następujące czynnośc
 
 **Błąd: nie można załadować pliku lub zestawu**
 
-Ten błąd występuje, ponieważ ścieżki zestawów ADAL są nieprawidłowe. Jeśli polecenie AZ module jest zainstalowane tylko dla bieżącego użytkownika, zestawy ADAL będą zlokalizowane w `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Ten błąd występuje, ponieważ ścieżki zestawów ADAL są nieprawidłowe. Jeśli polecenie AZ module jest zainstalowane tylko dla bieżącego użytkownika, zestawy ADAL będą zlokalizowane w `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>` .
 
 Możesz również wyszukać `Az.Accounts` folder, aby znaleźć poprawną ścieżkę.
 
 **Błąd: polecenie Get-AzKeyVaultSecret lub Get-AzKeyVaultSecret nie jest rozpoznawane jako nazwa polecenia cmdlet**
 
-Jeśli używasz starego modułu AZ PowerShell, musisz zmienić te dwa polecenia na `Get-AzureKeyVaultSecret` i. `Get-AzureKeyVaultSecret`
+Jeśli używasz starego modułu AZ PowerShell, musisz zmienić te dwa polecenia na `Get-AzureKeyVaultSecret` i `Get-AzureKeyVaultSecret` .
 
 **Przykłady parametrów**
 

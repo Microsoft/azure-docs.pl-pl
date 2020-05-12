@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e725df5c875f23d82da1fda19bcdf28db548fc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428565"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201689"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
 > [!div class="op_single_selector"]
@@ -28,9 +28,8 @@ ms.locfileid: "81428565"
 
 Za pomocą programu Visual Studio Zbadaj pulę SQL przy użyciu usługi Azure Synapse Analytics. Ta metoda używa rozszerzenia SQL Server Data Tools (SSDT) w programie Visual Studio 2019. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Obsługiwane narzędzia dla SQL na żądanie (wersja zapoznawcza)
-
-Program Visual Studio nie jest obecnie obsługiwany w przypadku wersji SQL na żądanie (wersja zapoznawcza). Jednak usługa Azure Data Studi (wersja zapoznawcza) o to w pełni obsługiwane narzędzie. SQL Server Management Studio jest częściowo obsługiwana w wersji 18,4 i ma ograniczone funkcje, takie jak łączenie i wykonywanie zapytań.
+> [!NOTE]
+> SQL na żądanie (wersja zapoznawcza) nie jest obsługiwana przez SSDT.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby skorzystać z tego samouczka, należy dysponować następującymi składnikami:
@@ -41,7 +40,7 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
 
 ## <a name="1-connect-to-sql-pool"></a>1. Łączenie z pulą SQL
 1. Otwórz program Visual Studio 2019.
-2. Otwórz Eksplorator obiektów SQL Server. Aby to zrobić, wybierz pozycję **Wyświetl** > **Eksplorator obiektów SQL Server**.
+2. Otwórz Eksplorator obiektów SQL Server. Aby to zrobić, wybierz pozycję **Wyświetl**  >  **Eksplorator obiektów SQL Server**.
    
     ![Eksplorator obiektów SQL Server](./media/get-started-visual-studio/open-ssdt.png)
 3. Kliknij **ikonę dodawania serwera SQL**.

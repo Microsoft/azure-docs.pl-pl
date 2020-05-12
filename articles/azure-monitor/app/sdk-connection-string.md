@@ -1,57 +1,57 @@
 ---
-title: Parametry połączeń w usłudze Azure Application Insights | Dokumenty firmy Microsoft
-description: Jak używać ciągów połączeń.
+title: Parametry połączenia na platformie Azure Application Insights | Microsoft Docs
+description: Jak używać parametrów połączenia.
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410607"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125710"
 ---
 # <a name="connection-strings"></a>Parametry połączeń
 
 ## <a name="overview"></a>Omówienie
 
-Parametry połączenia zapewniają użytkownikom usługi Application Insight jedno ustawienie konfiguracji, eliminując potrzebę wielu ustawień serwera proxy. Bardzo przydatne w przypadku intranetowych serwerów sieci web, suwerennych lub hybrydowych środowisk chmury, które chcą wysyłać dane do usługi monitorowania.
+Parametry połączenia zapewniają użytkownikom usługi Application Insights jedno ustawienie konfiguracji, eliminując konieczność stosowania wielu ustawień serwera proxy. Wysoce przydatne w przypadku intranetowych serwerów sieci Web, suwerennych lub hybrydowych środowisk w chmurze, które chcą wysyłać dane do usługi monitorowania.
 
-The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
+Pary klucz wartość umożliwiają użytkownikom łatwe definiowanie kombinacji sufiksu prefiksu dla każdej usługi Application Insights (AI)/produktu.
 
 > [!IMPORTANT]
-> Nie zaleca się ustawiania zarówno parametry połączenia, jak i klucza instrumentacji. W przypadku, gdy użytkownik ustawi oba, w zależności od tego, który został ustawiony jako ostatni, będzie miał pierwszeństwo. 
+> Nie zalecamy ustawiania parametrów połączenia i klucza Instrumentacji. W przypadku, gdy użytkownik ustawił oba elementy, w zależności od ustawienia ustawiono pierwszeństwo. 
 
 
 ## <a name="scenario-overview"></a>Omówienie scenariusza 
 
-Scenariusze klientów, w których wizualizujemy to, mając największy wpływ:
+Scenariusze klientów, które są wizualizowane z największym wpływem:
 
 - Wyjątki zapory lub przekierowania serwera proxy 
 
-    W przypadkach, gdy wymagane jest monitorowanie intranetowego serwera sieci web, nasze wcześniejsze rozwiązanie poprosiło klientów o dodanie poszczególnych punktów końcowych usługi do konfiguracji. Aby uzyskać więcej informacji, zobacz [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
-    Parametry połączenia oferują lepszą alternatywę, zmniejszając ten wysiłek do jednego ustawienia. Prosty prefiks, zmiana sufiksu umożliwia automatyczne zapełnianie i przekierowywanie wszystkich punktów końcowych do odpowiednich usług. 
+    W przypadkach, gdy wymagane jest monitorowanie intranetowego serwera sieci Web, nasze wcześniejsze rozwiązanie poprosiło klientów o dodanie poszczególnych punktów końcowych usługi do konfiguracji. Aby uzyskać więcej informacji, zobacz [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    Parametry połączenia oferują lepszą alternatywę, skracając ten nakład pracy do jednego ustawienia. Prosty prefiks, zmiana sufiksu, umożliwia automatyczne zapełnianie i przekierowywanie wszystkich punktów końcowych do odpowiednich usług. 
 
 - Suwerenne lub hybrydowe środowiska chmury
 
-    Użytkownicy mogą wysyłać dane do zdefiniowanego [regionu azure government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-    Parametry połączenia umożliwiają definiowanie ustawień punktu końcowego dla serwerów intranetowych lub ustawień chmury hybrydowej. 
+    Użytkownicy mogą wysyłać dane do zdefiniowanego [regionu Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+    Parametry połączeń umożliwiają definiowanie ustawień punktu końcowego dla serwerów intranetowych lub ustawień chmury hybrydowej. 
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-### <a name="finding-my-connection-string"></a>Czy znaleźć mój ciąg połączenia?
+### <a name="finding-my-connection-string"></a>Szukasz moich parametrów połączenia?
 
-Parametry połączenia są wyświetlane w bloku Przegląd zasobu usługi Application Insights.
+Parametry połączenia są wyświetlane w bloku przegląd zasobu Application Insights.
 
-![ciąg połączenia na bloku przeglądu](media/overview-dashboard/overview-connection-string.png)
+![parametry połączenia w bloku przeglądu](media/overview-dashboard/overview-connection-string.png)
 
 ### <a name="schema"></a>Schemat
 
 #### <a name="max-length"></a>Długość maksymalna
 
-Maksymalna obsługiwana długość połączenia wynosi 4096 znaków.
+Połączenie ma maksymalną obsługiwaną długość wynoszącą 4096 znaków.
 
 #### <a name="key-value-pairs"></a>Pary klucz-wartość
 
@@ -59,113 +59,113 @@ Parametry połączenia składają się z listy ustawień reprezentowanych jako p
 
 #### <a name="syntax"></a>Składnia
 
-- `InstrumentationKey`(np.: 0000000-0000-0000-0000-000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  Parametry połączenia są **polem wymaganym.**
-- `Authorization`(np. (To ustawienie jest opcjonalne, ponieważ dziś obsługujemy tylko autoryzację ikey).
-- `EndpointSuffix`(np. applicationinsights.azure.cn) Ustawienie sufiksu punktu końcowego poinstruuje zestaw SDK, z którym ma się połączyć chmura Azure. Zestaw SDK zmontuje pozostałą część punktu końcowego dla poszczególnych usług.
+- `InstrumentationKey`(np.: 00000000-0000-0000-0000-000000000000)  Ciąg połączenia jest polem **wymaganym** .
+- `Authorization`(np.: iKey) (To ustawienie jest opcjonalne, ponieważ dzisiaj obsługujemy tylko autoryzację iKey).
+- `EndpointSuffix`(np.: applicationinsights.azure.cn) Ustawienie sufiksu punktu końcowego spowoduje nawiązanie połączenia z zestawem SDK z chmurą platformy Azure. Zestaw SDK będzie gromadzić pozostałe punkty końcowe dla poszczególnych usług.
 - Jawne punkty końcowe.
-  Każda usługa może być jawnie zastąpiona w ciągu połączenia.
-   - `IngestionEndpoint`(np.https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`(np.https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`(np.https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`(np.https://snapshot.applicationinsights.azure.com)
+  Każdą usługę można jawnie przesłaniać w parametrach połączenia.
+   - `IngestionEndpoint`(np.: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint`(np.: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint`(np.: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint`(np.: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Schemat punktu końcowego
 
 `<prefix>.<suffix>`
-- Prefiks: Definiuje usługę. 
-- Sufiks: Definiuje wspólną nazwę domeny.
+- Prefiks: Określa usługę. 
+- Sufiks: definiuje wspólną nazwę domeny.
 
-##### <a name="valid-suffixes"></a>Prawidłowe przyrostki
+##### <a name="valid-suffixes"></a>Prawidłowe sufiksy
 
-Oto lista prawidłowych przyrostków 
+Oto lista prawidłowych sufiksów 
 - applicationinsights.azure.cn
 - applicationinsights.us
 
 
-Zobacz też:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Zobacz również:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Prawidłowe prefiksy
 
-- [Połknienie danych telemetrycznych:](./app-insights-overview.md)`dc`
-- [Dane na żywo:](./live-stream.md)`live`
+- Pozyskiwanie danych [telemetrycznych](./app-insights-overview.md):`dc`
+- [Metryki na żywo](./live-stream.md):`live`
 - [Profiler](./profiler-overview.md):`profiler`
 - [Migawka](./snapshot-debugger.md):`snapshot`
 
 
 
-## <a name="connection-string-examples"></a>Przykłady ciągu połączenia
+## <a name="connection-string-examples"></a>Przykłady parametrów połączenia
 
 
-### <a name="minimal-valid-connection-string"></a>Minimalny prawidłowy ciąg połączenia
+### <a name="minimal-valid-connection-string"></a>Minimalne prawidłowe parametry połączenia
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;`
 
-W tym przykładzie ustawiono tylko klucz instrumentacji.
+W tym przykładzie ustawiono tylko klucz Instrumentacji.
 
-- Domyślnie schemat autoryzacji to "ikey" 
-- Klucz oprzyrządowania: 00000000-0000-0000-0000-00000000000
-- Identyfikatory identyfikatorów URI usługi regionalnej są oparte na [wartościach domyślnych zestawu SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) i będą łączyć się z publiczną globalną platformą Azure:
-   - Spożyciu:https://dc.services.visualstudio.com/
-   - Dane na żywo:https://rt.services.visualstudio.com/
-   - Profiler:https://agent.azureserviceprofiler.net/
-   - Debuger:https://agent.azureserviceprofiler.net/  
+- Domyślna wartość schematu autoryzacji to "iKey" 
+- Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
+- Identyfikatory URI usługi regionalnej są oparte na [ustawieniach domyślnych zestawu SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) i łączą się z publiczną globalną platformą Azure:
+   - Pozyskiwania`https://dc.services.visualstudio.com/`
+   - Metryki na żywo:`https://rt.services.visualstudio.com/`
+   - Profilera`https://agent.azureserviceprofiler.net/`
+   - Oknie`https://agent.azureserviceprofiler.net/`
 
 
 
-### <a name="connection-string-with-endpoint-suffix"></a>Ciąg połączenia z sufiksem punktu końcowego
+### <a name="connection-string-with-endpoint-suffix"></a>Parametry połączenia z sufiksem punktu końcowego
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-W tym przykładzie ten ciąg połączenia określa sufiks punktu końcowego i SDK skonstruuje punkty końcowe usługi.
+W tym przykładzie parametry połączenia określają sufiks punktu końcowego, a zestaw SDK będzie konstruować punkty końcowe usługi.
 
-- Domyślnie schemat autoryzacji to "ikey" 
-- Klucz oprzyrządowania: 00000000-0000-0000-0000-00000000000
-- Identyfikatory URI usługi regionalnej są oparte na dostarczonym sufiksie punktu końcowego: 
-   - Spożyciu:https://dc.ai.contoso.com
-   - Dane na żywo:https://live.ai.contoso.com
-   - Profiler:https://profiler.ai.contoso.com 
-   - Debuger:https://snapshot.ai.contoso.com   
+- Domyślna wartość schematu autoryzacji to "iKey" 
+- Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
+- Identyfikatory URI usługi regionalnej są oparte na podanym sufiksie punktu końcowego: 
+   - Pozyskiwania`https://dc.ai.contoso.com`
+   - Metryki na żywo:`https://live.ai.contoso.com`
+   - Profilera`https://profiler.ai.contoso.com`
+   - Oknie`https://snapshot.ai.contoso.com`  
 
 
 
-### <a name="connection-string-with-explicit-endpoint-overrides"></a>Ciąg połączenia z jawnymi zastąpieniami punktów końcowych 
+### <a name="connection-string-with-explicit-endpoint-overrides"></a>Parametry połączenia z jawnym zastąpień punktu końcowego 
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-W tym przykładzie ten ciąg połączenia określa jawne zastąpienia dla każdej usługi. SDK użyje dokładnych punktów końcowych dostarczonych bez modyfikacji.
+W tym przykładzie parametry połączenia określają jawne zastąpienia dla każdej usługi. Zestaw SDK będzie używać dokładnych punktów końcowych, które nie są modyfikowane.
 
-- Domyślnie schemat autoryzacji to "ikey" 
-- Klucz oprzyrządowania: 00000000-0000-0000-0000-00000000000
-- Identyfikatory URI usługi regionalnej są oparte na jawnych wartościach zastępowania: 
-   - Połknienie: https:\//custom.com:111/
-   - Dane na żywo: https:\//custom.com:222/
-   - Profiler: https:\//custom.com:333/ 
-   - Debuger: https:\//custom.com:444/   
+- Domyślna wartość schematu autoryzacji to "iKey" 
+- Klucz Instrumentacji: 00000000-0000-0000-0000-000000000000
+- Identyfikatory URI usługi regionalnej są oparte na wartościach jawnego zastąpienia: 
+   - Pozyskiwania`https://custom.com:111/`
+   - Metryki na żywo:`https://custom.com:222/`
+   - Profilera`https://custom.com:333/`
+   - Oknie`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Jak ustawić parametry połączenia
 
-Parametry połączenia są obsługiwane w następujących wersjach SDK:
-- .NET i .NET Core v2.12.0
-- Java v2.5.1 i Java 3.0
-- Javascript v2.3.0
-- NodeJS v1.5.0
-- Python v1.0.0
+Parametry połączenia są obsługiwane w następujących wersjach zestawu SDK:
+- .NET i .NET Core v 2.12.0
+- Java v, 2.5.1 i Java 3,0
+- 2.3.0 JavaScript v
+- NodeJS v 1.5.0
+- 1.0.0 Python v
 
-Parametry połączenia można ustawić za pomocą kodu, zmiennej środowiskowej lub pliku konfiguracyjnego.
+Parametry połączenia można ustawić za pomocą kodu, zmiennej środowiskowej lub pliku konfiguracji.
 
 
 
 ### <a name="environment-variable"></a>Zmienna środowiskowa
 
-- Ciąg połączenia:`APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Parametry połączenia:`APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
+# <a name="netnetcore"></a>[.NET/. Core](#tab/net)
 
-TelemetryConfiguration.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net Jawnie ustaw:
+Zestaw .NET jawnie ustawiony:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-Plik konfiguracyjny .net:
+Plik konfiguracji .NET:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -183,7 +183,7 @@ Plik konfiguracyjny .net:
 ```
 
 
-NetCore config.json: 
+Plik config. JSON: 
 
 ```json
 {
@@ -197,12 +197,12 @@ NetCore config.json:
 # <a name="java"></a>[Java](#tab/java)
 
 
-Java (wersja 2.5.x) Jawnie ustawiona:
+Język Java (v 2.5. x) jawnie ustawiony:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
 
-Plik ApplicationInsights.xml
+ApplicationInsights. XML
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -212,7 +212,7 @@ Plik ApplicationInsights.xml
 
 # <a name="javascript"></a>[JavaScript](#tab/js)
 
-Ważne: Javascript nie obsługuje używania zmiennych środowiskowych.
+Ważne: język JavaScript nie obsługuje użycia zmiennych środowiskowych.
 
 Za pomocą fragmentu kodu:
 
@@ -249,7 +249,7 @@ appInsights.start();
 
 # <a name="python"></a>[Python](#tab/python)
 
-Zalecamy użytkownikom ustawienie zmiennej środowiskowej.
+Zalecamy, aby użytkownicy ustawili zmienną środowiskową.
 
 Aby jawnie ustawić parametry połączenia:
 
@@ -266,7 +266,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Rozpocznij pracę w czasie wykonywania za pomocą rozwiązań:
 
-* [Zestaw aplikacji hostowanych usługami IIS dla maszyn wirtualnych platformy Azure i platformy Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Maszyna wirtualna platformy Azure i zestaw skalowania maszyn wirtualnych platformy Azure — aplikacje hostowane](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Serwer usług IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 

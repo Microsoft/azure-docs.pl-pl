@@ -2,18 +2,19 @@
 title: Zarządzanie Virtual Machine Scale Sets przy użyciu Azure PowerShell
 description: Typowe polecenia cmdlet Azure PowerShell umożliwiające zarządzanie Virtual Machine Scale Sets, takie jak uruchamianie i zatrzymywanie wystąpienia lub zmienianie pojemności zestawu skalowania.
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: 5794fb40b49a575c12f6855292c41014fabf3b8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 68b5aa21f861009dd78f48428fa0ffdc5b5ae3a3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011603"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124874"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Zarządzanie zestawem skalowania maszyn wirtualnych za pomocą Azure PowerShell
 
@@ -95,7 +96,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Usuwanie maszyn wirtualnych z zestawu skalowania
-Aby usunąć co najmniej jedną maszynę wirtualną w zestawie skalowania, użyj polecenie [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). `-InstanceId` Parametr umożliwia określenie co najmniej jednej maszyny wirtualnej do usunięcia. Jeśli nie określisz identyfikatora wystąpienia, wszystkie maszyny wirtualne w zestawie skalowania zostaną usunięte. Aby usunąć wiele maszyn wirtualnych, każdy identyfikator wystąpienia należy oddzielić przecinkami.
+Aby usunąć co najmniej jedną maszynę wirtualną w zestawie skalowania, użyj polecenie [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). `-InstanceId`Parametr umożliwia określenie co najmniej jednej maszyny wirtualnej do usunięcia. Jeśli nie określisz identyfikatora wystąpienia, wszystkie maszyny wirtualne w zestawie skalowania zostaną usunięte. Aby usunąć wiele maszyn wirtualnych, każdy identyfikator wystąpienia należy oddzielić przecinkami.
 
 Poniższy przykład usuwa wystąpienie *0* z zestawu skalowania o nazwie *myScaleSet* i grupę *zasobów zasobu* . Podaj własne wartości w następujący sposób:
 
