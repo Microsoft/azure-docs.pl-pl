@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54fd8caef51a17148714d9cf90328572433c59db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717988"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115119"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Korzystanie z laboratoriów zajęć na potrzeby szkoleń
-Można skonfigurować laboratorium do szkoleń. Pracowni Labs of Azure Lab Services umożliwiają tworzenie laboratorium dla szkolenia, w którym każda z nich używa tych samych i izolowanych środowisk do szkolenia. Można stosować zasady, aby zapewnić, że środowiska szkoleniowe są dostępne dla każdego z nich tylko wtedy, gdy ich potrzebują, i zawierają wystarczające zasoby, takie jak maszyny wirtualne — wymagane do szkolenia. 
+Usługi Azure Labs umożliwiają szybkie i łatwe tworzenie laboratorium online w celu aprowizacji wstępnie skonfigurowanych środowisk szkoleniowych dla tego instruktora. Każdy z nich może korzystać z tych samych i izolowanych środowisk dla szkolenia. Zasady mogą być stosowane w celu upewnienia się, że środowiska szkoleniowe są dostępne dla każdego z nich tylko wtedy, gdy ich potrzebują i zawierają wystarczające zasoby, takie jak maszyny wirtualne — wymagane do szkolenia. 
 
 ![Laboratorium zajęć](../media/classroom-labs-scenarios/classroom.png)
 

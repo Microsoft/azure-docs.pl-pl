@@ -1,17 +1,20 @@
 ---
 title: Sekwencjonowanie rozszerzeń zestawów skalowania maszyn wirtualnych Azure Disk Encryption i platformy Azure
 description: Ten artykuł zawiera instrukcje dotyczące włączania Microsoft Azure szyfrowania dysków dla maszyn wirtualnych z systemem Linux IaaS.
-author: msmbaldwin
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.author: mbaldwin
+ms.subservice: disks
 ms.date: 10/10/2019
-ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279027"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117261"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Użyj Azure Disk Encryption z sekwencjonowaniem rozszerzenia zestawu skalowania maszyn wirtualnych
 
@@ -26,7 +29,7 @@ W obu przypadkach `provisionAfterExtensions` Właściwość określa, które roz
 
 ## <a name="sample-azure-templates"></a>Przykładowe szablony platformy Azure
 
-Jeśli chcesz, aby Azure Disk Encryption zastosowały się po innym rozszerzeniu `provisionAfterExtensions` , umieść właściwość w bloku rozszerzenia AzureDiskEncryption. 
+Jeśli chcesz, aby Azure Disk Encryption zastosowały się po innym rozszerzeniu, umieść `provisionAfterExtensions` Właściwość w bloku rozszerzenia AzureDiskEncryption. 
 
 Oto przykład użycia "CustomScriptExtension", skryptu programu PowerShell, który inicjuje i formatuje dysk systemu Windows, po którym następuje "AzureDiskEncryption":
 
@@ -84,7 +87,7 @@ Oto przykład użycia "CustomScriptExtension", skryptu programu PowerShell, któ
 }
 ```
 
-Jeśli chcesz, aby Azure Disk Encryption zastosowały się przed innym rozszerzeniem, `provisionAfterExtensions` Umieść właściwość w bloku rozszerzenia, aby kontynuować.
+Jeśli chcesz, aby Azure Disk Encryption zastosowały się przed innym rozszerzeniem, umieść `provisionAfterExtensions` Właściwość w bloku rozszerzenia, aby kontynuować.
 
 Oto przykład użycia "AzureDiskEncryption", po którym następuje "VMDiagnosticsSettings", rozszerzenia, które zapewnia możliwości monitorowania i diagnostyki na maszynie wirtualnej platformy Azure opartej na systemie Windows:
 
@@ -157,7 +160,7 @@ Aby zapoznać się z bardziej szczegółowym szablonem, zobacz:
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej na temat sekwencjonowania rozszerzeń: [Inicjowanie obsługi rozszerzeń sekwencji w zestawach skalowania maszyn wirtualnych](virtual-machine-scale-sets-extension-sequencing.md).
-- Dowiedz się więcej `provisionAfterExtensions` o właściwości: [Microsoft. COMPUTE virtualMachineScaleSets/Extensions Template Reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- Dowiedz się więcej o `provisionAfterExtensions` Właściwości: [Microsoft. COMPUTE virtualMachineScaleSets/Extensions Template Reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
 - [Azure Disk Encryption dla zestawów skalowania maszyn wirtualnych](disk-encryption-overview.md)
 - [Szyfrowanie zestawów skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli.md)
 - [Szyfrowanie zestawów skalowania maszyn wirtualnych przy użyciu Azure PowerShell](disk-encryption-powershell.md)

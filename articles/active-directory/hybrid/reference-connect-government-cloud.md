@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: uwagi dotyczące tożsamości hybrydowej dla Azure Government'
-description: Specjalne zagadnienia dotyczące wdrażania Azure AD Connect w chmurze dla instytucji rządowych.
+title: 'Azure AD Connect: uwagi dotyczące tożsamości hybrydowej dla chmury Azure Government'
+description: Specjalne zagadnienia dotyczące wdrażania Azure AD Connect w chmurze Azure Government.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,69 +11,96 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad28beb68afb5207e7b36c5d76c4dac808c5114
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acdc99ca50255bd9b75828f0a051f364c5218471
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81378927"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115493"
 ---
-# <a name="hybrid-identity-considerations-for-azure-government"></a>Zagadnienia dotyczące tożsamości hybrydowej dla usługi Azure Government 
-W poniższym dokumencie opisano zagadnienia dotyczące implementowania środowiska hybrydowego w chmurze Azure Government.  Te informacje są udostępniane jako Dokumentacja dla administratorów i architektów, którzy pracują z chmurą Azure Government.  
-> [!NOTE] 
-> Aby zintegrować lokalne środowisko usługi AD z chmurą usługi Azure Governemnt, należy przeprowadzić uaktualnienie do najnowszej wersji [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
+# <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
-> [!NOTE] 
-> Pełną listę punktów końcowych USA w Stanach Zjednoczonych można znaleźć w [dokumentacji](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) . 
+W tym artykule opisano zagadnienia dotyczące integracji środowiska hybrydowego z chmurą Microsoft Azure Government. Te informacje są udostępniane jako Dokumentacja dla administratorów i architektów, którzy pracują z chmurą Azure Government.
 
-## <a name="pass-through-authentication"></a>Uwierzytelnianie przekazywane 
-Poniższe informacje dotyczą implementacji uwierzytelniania przekazywanego (PTA) i chmury Azure Government.
-
-### <a name="allow-access-to-urls"></a>Zezwalanie na dostęp do adresów URL  
-Przed wdrożeniem agenta uwierzytelniania przekazywanego Sprawdź, czy istnieje Zapora między serwerami i usługą Azure AD. Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj następujące połączenia: 
 > [!NOTE]
-> Poniższe wskazówki dotyczą także instalowania [łącznika serwera proxy aplikacji](https://aka.ms/whyappproxy) dla środowisk Azure Governmentych.
+> Aby zintegrować lokalne środowisko Microsoft Azure Active Directory (Azure AD) z chmurą Azure Government, należy przeprowadzić uaktualnienie do najnowszej wersji [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+
+Aby zapoznać się z pełną listą Stany Zjednoczone Departamentu Obrony rządowych, zapoznaj się z [dokumentacją](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+
+## <a name="azure-ad-pass-through-authentication"></a>Uwierzytelnianie przekazywane przez usługę Azure AD
+
+Poniższe informacje opisują implementację uwierzytelniania przekazywanego i chmurę Azure Government.
+
+### <a name="allow-access-to-urls"></a>Zezwalanie na dostęp do adresów URL
+
+Przed wdrożeniem agenta uwierzytelniania przekazywanego Sprawdź, czy istnieje Zapora między serwerami i usługą Azure AD. Jeśli zapora lub serwer proxy zezwala na dostęp do systemu nazw domen (DNS) blokowanych lub bezpiecznych dla programów, Dodaj następujące połączenia.
+
+> [!NOTE]
+> Poniższe wskazówki dotyczą także instalowania [łącznika usługi Azure serwer proxy aplikacji usługi Azure AD](https://aka.ms/whyappproxy) dla środowisk Azure Government.
 
 |Adres URL |Zastosowanie|
-|-----|-----| 
-|*. msappproxy.us *. servicebus.usgovcloudapi.net|Komunikacja między agentem a usługą w chmurze usługi Azure AD |
-|mscrl.microsoft.us:80 crl.microsoft.us:80 </br>ocsp.msocsp.us:80 www.microsoft.us:80| Agent używa tych adresów URL do weryfikowania certyfikatów.| 
-|Login.Windows.us Secure.aadcdn.microsoftonline-p.com *. microsoftonline.us </br> *. microsoftonline-p.us </br>*. msauth.NET </br> *. msauthimages.NET </br>*. msecnd.NET</br>*. msftauth.NET </br>*. msftauthimages.NET</br>*. PhoneFactor.NET </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| Agent używa tych adresów URL podczas procesu rejestracji.| 
+|-----|-----|
+|&#42;. msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|Agent używa tych adresów URL do komunikowania się z usługą w chmurze usługi Azure AD. |
+|mscrl.microsoft.us:80 </br>crl.microsoft.us:80 </br>ocsp.msocsp.us:80 </br>www.microsoft.us:80| Agent używa tych adresów URL do weryfikowania certyfikatów.|
+|login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;. microsoftonline.us </br>&#42;. microsoftonline-p.us </br>&#42;. msauth.net </br>&#42;. msauthimages.net </br>&#42;. msecnd.net</br>&#42;. msftauth.net </br>&#42;. msftauthimages.net</br>&#42;. phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| Agent używa tych adresów URL podczas procesu rejestracji.
 
-### <a name="install-the-agent-for-the-azure-government-cloud"></a>Zainstaluj agenta dla chmury Azure Government 
-Aby zainstalować agenta dla chmury Azure Government, należy wykonać następujące czynności: w terminalu wiersza polecenia przejdź do folderu, w którym znajduje się plik wykonywalny służący do instalacji agenta. Uruchom następujące polecenie, które określa, że instalacja ma Azure Government. 
+### <a name="install-the-agent-for-the-azure-government-cloud"></a>Zainstaluj agenta dla chmury Azure Government
 
-Na potrzeby uwierzytelniania Passthrough: 
-```
-AADConnectAuthAgentSetup.exe ENVIRONMENTNAME="AzureUSGovernment"
-```
+Wykonaj następujące kroki, aby zainstalować agenta dla chmury Azure Government:
 
-W przypadku serwera proxy aplikacji:
-```
-AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
-```
+1. W terminalu wiersza polecenia przejdź do folderu, który zawiera plik wykonywalny, który instaluje agenta.
+1. Uruchom następujące polecenia, aby określić, że instalacja ma Azure Government.
 
-## <a name="single-sign-on"></a>Logowanie jednokrotne 
-Skonfiguruj serwer Azure AD Connect: Jeśli używasz uwierzytelniania przekazywanego jako metody logowania, nie jest wymagane żadne dodatkowe Sprawdzanie wymagań wstępnych. Jeśli używasz synchronizacji skrótów haseł jako metody logowania, a jeśli między Azure AD Connect i usługą Azure AD istnieje Zapora, upewnij się, że:
-- Używasz wersji 1.1.644.0 lub nowszej Azure AD Connect. 
-- Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj połączenia do adresów URL *. msapproxy.us przez port 443. W przeciwnym razie Zezwól na dostęp do zakresów adresów IP centrum danych platformy Azure, które są aktualizowane co tydzień. To wymaganie wstępne jest stosowane tylko po włączeniu funkcji. Nie jest to wymagane w przypadku rzeczywistych logowań użytkownika. 
+   W przypadku uwierzytelniania przekazywanego:
 
-### <a name="rolling-out-seamless-sso"></a>Bezproblemowe wdrażanie logowania jednokrotnego 
-Możesz stopniowo wdrożyć bezproblemową rejestrację jednokrotną dla użytkowników, korzystając z instrukcji podanych poniżej. Aby rozpocząć, Dodaj następujący adres URL usługi Azure AD do ustawień strefy intranetowej wszystkich lub wybranych użytkowników za pomocą zasady grupy w Active Directory:https://autologon.microsoft.us 
+   ```
+   AADConnectAuthAgentSetup.exe ENVIRONMENTNAME="AzureUSGovernment"
+   ```
 
-Ponadto należy włączyć ustawienie zasad strefy intranet o nazwie Zezwalaj na aktualizacje na pasku stanu za pośrednictwem skryptu za pośrednictwem zasady grupy. Zagadnienia dotyczące przeglądarki Mozilla Firefox (wszystkie platformy) Mozilla Firefox nie korzysta automatycznie z uwierzytelniania Kerberos. Każdy użytkownik musi ręcznie dodać adres URL usługi Azure AD do ustawień przeglądarki Firefox, wykonując następujące czynności: 
-1. Uruchom przeglądarkę Firefox i wpisz about: config na pasku adresu. Odrzuć wszystkie wyświetlone powiadomienia. 
-2. Wyszukaj preferencje Network. Negocjuj-auth. Trusted-URI. To preferencje zawiera Zaufane witryny programu Firefox do uwierzytelniania Kerberos. 
-3. Kliknij prawym przyciskiem myszy i wybierz polecenie Modyfikuj. 
-4. Wprowadź https://autologon.microsoft.us wartość w polu.
-5. Wybierz przycisk OK, a następnie ponownie otwórz przeglądarkę. 
+   W przypadku serwera proxy aplikacji:
 
-### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge oparta na chromie (wszystkie platformy) 
-Jeśli `AuthNegotiateDelegateAllowlist`  `AuthServerAllowlist`ustawienia zasad w Twoim środowisku zostały zastąpione lub, upewnij się, że adres URL usługi Azure AD został równieżhttps://autologon.microsoft.us) dodany do nich. 
+   ```
+   AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
+   ```
 
-### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy) 
-Jeśli `AuthNegotiateDelegateWhitelist`  `AuthServerWhitelist`ustawienia zasad w Twoim środowisku zostały zastąpione lub, upewnij się, że adres URL usługi Azure AD został równieżhttps://autologon.microsoft.us) dodany do nich. 
+## <a name="single-sign-on"></a>Logowanie jednokrotne
+
+### <a name="set-up-your-azure-ad-connect-server"></a>Skonfiguruj serwer Azure AD Connect
+
+Jeśli używasz uwierzytelniania przekazywanego jako metody logowania, nie jest wymagane żadne dodatkowe Sprawdzanie wymagań wstępnych. Jeśli używasz synchronizacji skrótów haseł jako metody logowania i istnieje Zapora między Azure AD Connect a usługą Azure AD, upewnij się, że:
+
+- Używasz Azure AD Connect w wersji 1.1.644.0 lub nowszej.
+- Jeśli zapora lub serwer proxy zezwala na dostęp do zablokowanych lub bezpiecznych programów DNS, Dodaj połączenia do adresów URL &#42;. msappproxy.us na porcie 443.
+
+  W przeciwnym razie Zezwól na dostęp do zakresów adresów IP centrum danych platformy Azure, które są aktualizowane co tydzień. To wymaganie wstępne ma zastosowanie tylko po włączeniu tej funkcji. Nie jest to wymagane w przypadku rzeczywistych logowania użytkowników.
+
+### <a name="roll-out-seamless-single-sign-on"></a>Wycofaj bezproblemowe logowanie jednokrotne
+
+Możesz stopniowo wdrażać bezproblemowe logowanie jednokrotne w usłudze Azure AD dla użytkowników, wykonując poniższe instrukcje. Zacznij od dodania adresu URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) do wszystkich ustawień strefy intranetowej lub wybranych użytkowników za pomocą zasady grupy w Active Directory.
+
+Należy również włączyć ustawienie zasad strefy intranet **Zezwalaj na aktualizacje paska stanu za pośrednictwem skryptu za pośrednictwem zasady grupy**.
+
+## <a name="browser-considerations"></a>Zagadnienia dotyczące przeglądarki
+
+### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (wszystkie platformy)
+
+Mozilla Firefox nie korzysta automatycznie z uwierzytelniania Kerberos. Każdy użytkownik musi ręcznie dodać adres URL usługi Azure AD do swoich ustawień przeglądarki Firefox, wykonując następujące czynności:
+
+1. Uruchom przeglądarkę Firefox i wpisz **about: config**   na pasku adresu. Odrzuć wszystkie powiadomienia, które mogą zostać wyświetlone.
+1. Wyszukaj preferencje **Network. Negocjuj-auth. Trusted-URI**   . To preferencje zawiera listę witryn zaufanych przez przeglądarkę Firefox na potrzeby uwierzytelniania Kerberos.
+1. Kliknij prawym przyciskiem myszy nazwę preferencji, a następnie wybierz polecenie **Modyfikuj**.
+1. Wprowadź  [**https://autologon.microsoft.us**](https://autologon.microsoft.us**)   w polu.
+1. Wybierz przycisk **OK**   , a następnie ponownie otwórz przeglądarkę.
+
+### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge oparta na chromie (wszystkie platformy)
+
+Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateAllowlist`   `AuthServerAllowlist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) .
+
+### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
+
+Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateWhitelist`   `AuthServerWhitelist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) .
 
 ## <a name="next-steps"></a>Następne kroki
-[Pass-through Authentication](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
-[Logowanie](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) jednokrotne uwierzytelniania przekazywanego 
+
+- [Uwierzytelnianie przekazywane](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
+- [Logowanie jednokrotne](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)

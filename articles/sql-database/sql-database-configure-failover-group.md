@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aea252772bfd911899ebdc00c902996b32475a90
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461814"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115136"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
 
@@ -53,7 +53,7 @@ Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy uży
         
     ![Dodawanie bazy danych SQL do grupy trybu failover](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Utwórz grupę trybu failover i Dodaj do niej pojedynczą bazę danych przy użyciu programu PowerShell. 
 
    ```powershell-interactive
@@ -129,7 +129,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role. 
 1. Wybierz ponownie **tryb failover** , aby powrócić do awarii serwerów z powrotem do ich pierwotnych ról. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.  
 
@@ -221,7 +221,7 @@ Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu Azu
         
 1. Wybierz pozycję **Wybierz** , aby zastosować ustawienia puli elastycznej do grupy trybu failover, a następnie wybierz pozycję **Utwórz** , aby utworzyć grupę trybu failover. Dodanie puli elastycznej do grupy trybu failover spowoduje automatyczne uruchomienie procesu replikacji geograficznej. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover i Dodaj do niej pulę elastyczną przy użyciu programu PowerShell. 
 
@@ -293,7 +293,7 @@ Niepowodzenie grupy trybu failover na serwerze pomocniczym, a następnie powrót
 1. Sprawdź, który serwer jest serwerem podstawowym, który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role. 
 1. Wybierz ponownie **tryb failover** , aby zakończyć pracę grupy trybu failover z powrotem do oryginalnych ustawień. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell.
 
@@ -374,10 +374,10 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej. | 
-    | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+    | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-    | **Magazyn**| Pozostaw wartość domyślną `VpnGw1`. |
+    | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
     | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza Sieć wirtualna.   |
     | **Sieć wirtualna**| Wybierz sieć wirtualną dla pomocniczego wystąpienia zarządzanego. |
     | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
@@ -390,7 +390,7 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Utwórz** , aby utworzyć nową bramę sieci wirtualnej. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz bramę podstawowej sieci wirtualnej przy użyciu programu PowerShell. 
 
@@ -434,20 +434,20 @@ Powtórz kroki opisane w poprzedniej sekcji, aby utworzyć podsieć i bramę sie
    | **Pole** | Wartość |
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
-   | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway`. | 
-   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+   | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . | 
+   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-   | **Magazyn**| Pozostaw wartość domyślną `VpnGw1`. |
+   | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
    | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza Sieć wirtualna.   |
-   | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-secondary`. |
+   | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-secondary` . |
    | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
-   | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `secondary-gateway-IP`. |
+   | **Nazwa publicznego adresu IP**| Wprowadź nazwę adresu IP, na przykład `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
    ![Ustawienia bramy dodatkowej](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz bramę dodatkowej sieci wirtualnej przy użyciu programu PowerShell. 
 
@@ -495,22 +495,22 @@ Utwórz połączenia między dwiema bramami przy użyciu Azure Portal.
 1. Wpisz `connection` w polu wyszukiwania, a następnie naciśnij klawisz ENTER, aby przeszukać, co spowoduje przejście do zasobu **połączenia** opublikowanego przez firmę Microsoft.
 1. Wybierz pozycję **Utwórz** , aby utworzyć połączenie. 
 1. Na karcie **podstawowe** wybierz poniższe wartości, a następnie wybierz przycisk **OK**. 
-    1. Wybierz `VNet-to-VNet` pozycję dla **typu połączenia**. 
+    1. Wybierz pozycję `VNet-to-VNet` dla **typu połączenia**. 
     1. Wybierz subskrypcję z listy rozwijanej. 
     1. Z listy rozwijanej wybierz grupę zasobów dla wystąpienia zarządzanego. 
     1. Wybierz lokalizację podstawowego wystąpienia zarządzanego z listy rozwijanej 
 1. Na karcie **Ustawienia** wybierz lub wprowadź następujące wartości, a następnie wybierz przycisk **OK**:
-    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej**, na przykład `Primary-Gateway`.  
-    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej**, na przykład `Secondary-Gateway`. 
+    1. Wybierz bramę sieci podstawowej dla **pierwszej bramy sieci wirtualnej**, na przykład `Primary-Gateway` .  
+    1. Wybierz bramę sieci pomocniczej dla **drugiej bramy sieci wirtualnej**, na przykład `Secondary-Gateway` . 
     1. Zaznacz pole wyboru obok pozycji **Ustanów łączność dwukierunkową**. 
     1. Pozostaw domyślną nazwę połączenia podstawowego lub Zmień nazwę na wybraną wartość. 
-    1. Podaj **klucz współużytkowany (PSK)** dla połączenia, na przykład `mi1m2psk`. 
+    1. Podaj **klucz współużytkowany (PSK)** dla połączenia, na przykład `mi1m2psk` . 
 
    ![Utwórz połączenie bramy](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
 1. Na karcie **Podsumowanie** Sprawdź ustawienia połączenia dwukierunkowego, a następnie wybierz przycisk **OK** , aby utworzyć połączenie. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz połączenia między dwiema bramami przy użyciu programu PowerShell. 
 
@@ -562,7 +562,7 @@ Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu Azure P
 
 1. Po zakończeniu wdrażania grupy trybu failover nastąpi powrót do strony **grupy trybu failover** . 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu programu PowerShell. 
 
@@ -604,7 +604,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
 
 1. Przejdź do nowego _pomocniczego_ wystąpienia zarządzanego i ponownie wybierz **tryb failover** w celu niepowodzenia wystąpienia podstawowego z powrotem do roli podstawowej. 
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu PowerShell. 
 
@@ -644,11 +644,24 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu programu Po
 
 ---
 
+## <a name="use-private-link"></a>Używanie linku prywatnego
+
+Użycie linku prywatnego umożliwia skojarzenie serwera logicznego z określonym prywatnym adresem IP w sieci wirtualnej i podsieci. 
+
+Aby użyć prywatnego linku z grupą trybu failover, wykonaj następujące czynności:
+
+1. Upewnij się, że serwery główne i pomocnicze znajdują się w [sparowanym regionie](/azure/best-practices-availability-paired-regions). 
+1. Utwórz sieć wirtualną i podsieć w każdym regionie, aby hostować prywatne punkty końcowe dla serwerów podstawowych i pomocniczych, takich jak nienakładające się przestrzenie adresów IP. Na przykład główny zakres adresów sieci wirtualnej 10.0.0.0/16 i zakres adresów pomocniczej sieci wirtualnej wynoszący 10.0.0.1/16 nakładają się na siebie. Więcej informacji o zakresach adresów sieci wirtualnej znajduje się w blogu [projektowanie sieci wirtualnych platformy Azure](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
+1. Utwórz [prywatny punkt końcowy i strefę prywatna strefa DNS platformy Azure dla serwera podstawowego](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
+1. Utwórz również prywatny punkt końcowy serwera pomocniczego, ale tym razem wybierz opcję ponownego użycia tej samej strefy Prywatna strefa DNS, która została utworzona dla serwera podstawowego. 
+1. Po nawiązaniu połączenia prywatnego można utworzyć grupę trybu failover, wykonując czynności opisane wcześniej w tym artykule. 
+
+
 ## <a name="locate-listener-endpoint"></a>Lokalizowanie punktu końcowego odbiornika
 
 Po skonfigurowaniu grupy trybu failover zaktualizuj parametry połączenia dla aplikacji do punktu końcowego odbiornika. Dzięki temu aplikacja będzie połączona z odbiornikiem grupy trybu failover, a nie podstawową bazą danych, elastyczną pulą lub wystąpieniem zarządzanym. W ten sposób nie trzeba ręcznie aktualizować parametrów połączenia za każdym razem, gdy jednostka usługi Azure SQL Database zostanie przełączona w tryb failover, a ruch jest kierowany do jednostki, która jest obecnie podstawowa. 
 
-Punkt końcowy odbiornika ma postać `fog-name.database.windows.net`i jest widoczny w Azure Portal podczas wyświetlania grupy trybu failover:
+Punkt końcowy odbiornika ma postać `fog-name.database.windows.net` i jest widoczny w Azure Portal podczas wyświetlania grupy trybu failover:
 
 ![Parametry połączenia grupy trybu failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 

@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261044"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115612"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Scentralizowanie zarządzania aplikacjami za pomocą usługi Azure AD
 
@@ -53,7 +53,7 @@ Większość aplikacji wymaga, aby użytkownik mógł zostać zainicjowany do ap
 
 |Funkcja  |Opis|Zalecenie |
 |---------|---------|---------|
-|Inicjowanie obsługi Standard scim|[Standard scim](https://aka.ms/SICMOverview) to najlepsze rozwiązanie w branży do automatyzowania aprowizacji użytkowników. Wszystkie aplikacje zgodne z standard scim można zintegrować z usługą Azure AD. Automatycznie twórz, Aktualizuj i usuwaj konta użytkowników bez konieczności zachowywania plików CSV, skryptów niestandardowych ani rozwiązań Premium.|Zapoznaj się z rosnącą listą [wstępnie zintegrowanych](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) aplikacji w galerii aplikacji usługi Azure AD|
+|Inicjowanie obsługi Standard scim|[Standard scim](https://aka.ms/SCIMOverview) to najlepsze rozwiązanie w branży do automatyzowania aprowizacji użytkowników. Wszystkie aplikacje zgodne z standard scim można zintegrować z usługą Azure AD. Automatycznie twórz, Aktualizuj i usuwaj konta użytkowników bez konieczności zachowywania plików CSV, skryptów niestandardowych ani rozwiązań Premium.|Zapoznaj się z rosnącą listą [wstępnie zintegrowanych](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) aplikacji w galerii aplikacji usługi Azure AD|
 |Microsoft Graph|Skorzystaj z wdychania i głębokości danych, które usługa Azure AD ma wzbogacać swoją aplikację o dane, których potrzebuje.|Skorzystaj z [programu Microsoft Graph](https://developer.microsoft.com/graph/) , aby uzyskać dane z całego ekosystemu firmy Microsoft. |
 
 

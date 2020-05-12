@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629596"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116972"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Odbieranie zdarzeń w punkcie końcowym HTTP
 
@@ -30,7 +30,7 @@ Potrzebna jest aplikacja funkcji z funkcją wyzwalaną przez protokół HTTP.
 
 W przypadku tworzenia aplikacji w programie .NET należy [dodać zależność](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) do funkcji dla `Microsoft.Azure.EventGrid` [pakietu NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Przykłady w tym artykule wymagają wersji 1.4.0 lub nowszej.
 
-Zestawy SDK dla innych języków są dostępne za pośrednictwem referencyjnego [publikowania zestawów SDK](./sdk-overview.md#data-plane-sdks) . Te pakiety mają modele dla natywnych typów zdarzeń, takich `EventGridEvent`jak `StorageBlobCreatedEventData`,, `EventHubCaptureFileCreatedEventData`i.
+Zestawy SDK dla innych języków są dostępne za pośrednictwem referencyjnego [publikowania zestawów SDK](./sdk-overview.md#data-plane-sdks) . Te pakiety mają modele dla natywnych typów zdarzeń, takich jak `EventGridEvent` , `StorageBlobCreatedEventData` , i `EventHubCaptureFileCreatedEventData` .
 
 Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w portalu usługi Azure Functions) i Utwórz plik o nazwie Project. JSON. Dodaj następującą zawartość do `project.json` pliku i Zapisz go:
 
@@ -50,9 +50,9 @@ Kliknij link "Wyświetl pliki" w funkcji platformy Azure (z prawej strony w port
 
 ## <a name="endpoint-validation"></a>Walidacja punktu końcowego
 
-W pierwszej kolejności są obsługiwane `Microsoft.EventGrid.SubscriptionValidationEvent` zdarzenia. Za każdym razem, gdy ktoś subskrybuje zdarzenie, Event Grid wysyła zdarzenie weryfikacji do punktu końcowego z `validationCode` ładunkiem danych. Punkt końcowy jest wymagany do wyechania z powrotem w treści odpowiedzi, aby [potwierdzić, że punkt końcowy jest prawidłowy i należy do użytkownika](webhook-event-delivery.md). Jeśli używasz [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid.md) zamiast funkcji wyzwalanej przez element webhook, sprawdzanie poprawności punktu końcowego jest obsługiwane. Jeśli używasz usługi API innej firmy (na przykład [zapier](https://zapier.com) lub [IFTTT](https://ifttt.com/)), możesz nie być w stanie programowo echo kodu weryfikacyjnego. W przypadku tych usług można ręcznie zweryfikować subskrypcję przy użyciu adresu URL walidacji, który jest wysyłany w ramach zdarzenia walidacji subskrypcji. Skopiuj ten adres URL we `validationUrl` właściwości i Wyślij żądanie Get za pomocą klienta REST lub przeglądarki sieci Web.
+W pierwszej kolejności są obsługiwane `Microsoft.EventGrid.SubscriptionValidationEvent` zdarzenia. Za każdym razem, gdy ktoś subskrybuje zdarzenie, Event Grid wysyła zdarzenie weryfikacji do punktu końcowego z `validationCode` ładunkiem danych. Punkt końcowy jest wymagany do wyechania z powrotem w treści odpowiedzi, aby [potwierdzić, że punkt końcowy jest prawidłowy i należy do użytkownika](webhook-event-delivery.md). Jeśli używasz [wyzwalacza Event Grid](../azure-functions/functions-bindings-event-grid.md) zamiast funkcji wyzwalanej przez element webhook, sprawdzanie poprawności punktu końcowego jest obsługiwane. Jeśli używasz usługi API innej firmy (na przykład [zapier](https://zapier.com/home) lub [IFTTT](https://ifttt.com/)), możesz nie być w stanie programowo echo kodu weryfikacyjnego. W przypadku tych usług można ręcznie zweryfikować subskrypcję przy użyciu adresu URL walidacji, który jest wysyłany w ramach zdarzenia walidacji subskrypcji. Skopiuj ten adres URL we `validationUrl` właściwości i Wyślij żądanie Get za pomocą klienta REST lub przeglądarki sieci Web.
 
-W języku C# `DeserializeEventGridEvents()` funkcja deserializacji zdarzeń Event Grid. Deserializacji dane zdarzenia do odpowiedniego typu, takiego jak StorageBlobCreatedEventData. Użyj `Microsoft.Azure.EventGrid.EventTypes` klasy, aby pobrać obsługiwane typy i nazwy zdarzeń.
+W języku C# `DeserializeEventGridEvents()` Funkcja deserializacji zdarzeń Event Grid. Deserializacji dane zdarzenia do odpowiedniego typu, takiego jak StorageBlobCreatedEventData. Użyj `Microsoft.Azure.EventGrid.EventTypes` klasy, aby pobrać obsługiwane typy i nazwy zdarzeń.
 
 Aby programowo ECHA kod sprawdzania poprawności, użyj następującego kodu. Pokrewne przykłady można znaleźć na [przykład Event Grid konsumenta](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer).
 
@@ -134,13 +134,13 @@ Przetestuj funkcję odpowiedzi walidacji, wklejając przykładowe zdarzenie do p
 }]
 ```
 
-Kliknięcie przycisku Uruchom powoduje, że dane wyjściowe powinny być 200 OK `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` i w treści:
+Kliknięcie przycisku Uruchom powoduje, że dane wyjściowe powinny być 200 OK i `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` w treści:
 
 ![odpowiedź dotycząca walidacji](./media/receive-events/validation-response.png)
 
 ## <a name="handle-blob-storage-events"></a>Obsługa zdarzeń magazynu obiektów BLOB
 
-Teraz przyciągnijmy funkcję do obsługi `Microsoft.Storage.BlobCreated`:
+Teraz przyciągnijmy funkcję do obsługi `Microsoft.Storage.BlobCreated` :
 
 ```cs
 using System.Net;
@@ -255,9 +255,9 @@ Możesz również testować przez utworzenie konta usługi BLOB Storage lub kont
 
 Na koniec program umożliwia rozbudowanie funkcji jeszcze raz, aby umożliwić obsługę niestandardowych zdarzeń. 
 
-W języku C# zestaw SDK obsługuje mapowanie nazwy typu zdarzenia na typ danych zdarzenia. Użyj funkcji `AddOrUpdateCustomEventMapping()` , aby zmapować zdarzenie niestandardowe.
+W języku C# zestaw SDK obsługuje mapowanie nazwy typu zdarzenia na typ danych zdarzenia. Użyj `AddOrUpdateCustomEventMapping()` funkcji, aby zmapować zdarzenie niestandardowe.
 
-Dodaj sprawdzanie dla zdarzenia `Contoso.Items.ItemReceived`. Końcowy kod powinien wyglądać następująco:
+Dodaj sprawdzanie dla zdarzenia `Contoso.Items.ItemReceived` . Końcowy kod powinien wyglądać następująco:
 
 ```cs
 using System.Net;

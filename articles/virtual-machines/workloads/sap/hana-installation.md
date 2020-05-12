@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617093"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117125"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Jak zainstalować i skonfigurować SAP HANA (duże wystąpienia) na platformie Azure
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem instalacji platformy HANA Sprawdź poprawność następując
 - [Jednostki:/s](#validate-the-hana-large-instance-units)
 - [Konfiguracja systemu operacyjnego](#operating-system)
 - [Konfiguracja sieci](#networking)
-- [Konfiguracja usługi Storage](#storage)
+- [Konfiguracja magazynu](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Sprawdź poprawność jednostek dużych wystąpień platformy HANA
@@ -90,7 +90,7 @@ Zapoznaj się z tematem [Biblioteka zasobów/oficjalne dokumenty](https://www.su
 Poniżej znajduje się dodatkowy i przydatny system SAP dla linków związanych z SUSE:
 
 - [SAP HANA w witrynie SUSE Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Najlepsze rozwiązania dotyczące oprogramowania SAP: replikacja z kolejki — SAP NetWeaver w systemie SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
+- [Najlepsze rozwiązania dotyczące oprogramowania SAP: replikacja z kolejki — SAP NetWeaver w systemie SUSE Linux Enterprise 12](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf)
 - [ClamSAP – SLES ochrona przed wirusami dla oprogramowania SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (w tym SLES 12 dla aplikacji SAP)
 
 Poniżej przedstawiono uwagi dotyczące pomocy technicznej SAP, które mają zastosowanie w przypadku wdrażania SAP HANA w SLES 12:
@@ -117,7 +117,7 @@ Poniżej znajdują się uwagi dotyczące pomocy technicznej SAP, które mają za
 
 ### <a name="time-synchronization"></a>Synchronizacja czasu
 
-Aplikacje SAP, które są oparte na architekturze SAP NetWeaver, są wrażliwe na różnice czasu dla różnych składników wchodzących w skład systemu SAP. Krótkie zrzuty SAP ABAP z tytułem błędu ZDATE\_duże\_różnice czasu\_są prawdopodobnie znane. Wynika to z faktu, że te krótkie zrzuty pojawiają się, gdy czas systemowy różnych serwerów lub maszyn wirtualnych jest zbyt daleko od siebie.
+Aplikacje SAP, które są oparte na architekturze SAP NetWeaver, są wrażliwe na różnice czasu dla różnych składników wchodzących w skład systemu SAP. Krótkie zrzuty SAP ABAP z tytułem błędu ZDATE \_ duże różnice \_ czasu \_ są prawdopodobnie znane. Wynika to z faktu, że te krótkie zrzuty pojawiają się, gdy czas systemowy różnych serwerów lub maszyn wirtualnych jest zbyt daleko od siebie.
 
 W przypadku SAP HANA na platformie Azure (duże wystąpienia) synchronizacja czasu wykonywana na platformie Azure nie ma zastosowania do jednostek obliczeniowych w sygnaturach dużych wystąpień. Ta synchronizacja nie ma zastosowania do uruchamiania aplikacji SAP na natywnych maszynach wirtualnych platformy Azure, ponieważ platforma Azure zapewnia poprawną synchronizację czasu systemu. 
 
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji na temat informacji o architekturze sieci Ethern
 
 ## <a name="storage"></a>Magazyn
 
-Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie `service management` Azure za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
+Układ magazynu dla SAP HANA na platformie Azure (duże wystąpienia) jest konfigurowany przez SAP HANA na platformie Azure `service management` za pomocą zalecanych wytycznych dotyczących protokołu SAP. Te wytyczne zostały udokumentowane w dokumencie [SAP HANA wymagania dotyczące magazynu](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) . 
 
 Ilościowe rozmiary różnych woluminów z różnymi jednostkami SKU dużych wystąpień usługi HANA są udokumentowane w [SAP HANA (duże wystąpienia) przegląd i architektura na platformie Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -144,8 +144,8 @@ Konwencje nazewnictwa woluminów magazynu są wymienione w poniższej tabeli:
 
 | Użycie magazynu | Nazwa instalacji | Nazwa woluminu | 
 | --- | --- | ---|
-| Dane platformy HANA | /hana/data/SID/mnt0000\<m> | Hana_data_SID_mnt00001_tenant_vol IP:/magazynu |
-| Dziennik platformy HANA | /hana/log/SID/mnt0000\<m> | Hana_log_SID_mnt00001_tenant_vol IP:/magazynu |
+| Dane platformy HANA | /hana/data/SID/mnt0000 \< m> | Hana_data_SID_mnt00001_tenant_vol IP:/magazynu |
+| Dziennik platformy HANA | /hana/log/SID/mnt0000 \< m> | Hana_log_SID_mnt00001_tenant_vol IP:/magazynu |
 | Kopia zapasowa dziennika HANA | /hana/log/backups | Hana_log_backups_SID_mnt00001_tenant_vol IP:/magazynu |
 | Platformy HANA — udostępnione | /hana/shared/SID | Magazyn IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |
 | usr/SAP | /usr/sap/SID | Magazyn IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -164,7 +164,7 @@ Wolumin HANA/log/backup nie powinien być woluminem dla kopii zapasowych bazy da
 
 Oprócz dostarczonego magazynu można zakupić dodatkową pojemność magazynu w przyrostach 1 TB. Ten dodatkowy magazyn można dodać jako nowe woluminy do dużego wystąpienia platformy HANA.
 
-Podczas dołączania do SAP HANA na platformie `service management`Azure klient określa identyfikator użytkownika (UID) i identyfikator grupy (GID) dla użytkownika sidadm i grupy sapsys (na przykład: 1 000 500). Podczas instalacji systemu SAP HANA należy użyć tych samych wartości. Ze względu na to, że chcesz wdrożyć wiele wystąpień HANA w jednostce, uzyskasz wiele zestawów woluminów (jeden zestaw dla każdego wystąpienia). W związku z tym w czasie wdrażania należy zdefiniować:
+Podczas dołączania do SAP HANA na platformie Azure `service management` klient określa identyfikator użytkownika (UID) i identyfikator grupy (GID) dla użytkownika sidadm i grupy sapsys (na przykład: 1 000 500). Podczas instalacji systemu SAP HANA należy użyć tych samych wartości. Ze względu na to, że chcesz wdrożyć wiele wystąpień HANA w jednostce, uzyskasz wiele zestawów woluminów (jeden zestaw dla każdego wystąpienia). W związku z tym w czasie wdrażania należy zdefiniować:
 
 - Identyfikator SID różnych wystąpień HANA (sidadm pochodzi od niego).
 - Rozmiary pamięci różnych wystąpień platformy HANA. Rozmiar pamięci na wystąpienie definiuje rozmiar woluminów w poszczególnych zestawach poszczególnych woluminów.

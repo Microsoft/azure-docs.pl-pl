@@ -2,26 +2,26 @@
 title: Jak wyłączyć funkcje w Azure Functions
 description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Functions.
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/08/2020
+ms.openlocfilehash: 8922edb7aaa41bcf50dcce5257b6600f1bde224a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686883"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115573"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
 
 W tym artykule wyjaśniono, jak wyłączyć funkcję w Azure Functions. Aby *wyłączyć* funkcję oznacza, że środowisko uruchomieniowe zignoruje automatyczny wyzwalacz, który jest zdefiniowany dla funkcji. Dzięki temu można zapobiec uruchamianiu określonej funkcji bez zatrzymywania całej aplikacji funkcji.
 
-Zalecanym sposobem wyłączenia funkcji jest użycie ustawienia aplikacji w formacie `AzureWebJobs.<FUNCTION_NAME>.Disabled`. To ustawienie aplikacji można utworzyć i zmodyfikować na wiele sposobów, w tym za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/) oraz z karty **zarządzanie** funkcją w [Azure Portal](https://portal.azure.com). 
+Zalecanym sposobem wyłączenia funkcji jest użycie ustawienia aplikacji w formacie `AzureWebJobs.<FUNCTION_NAME>.Disabled` . To ustawienie aplikacji można utworzyć i zmodyfikować na wiele sposobów, w tym za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/) oraz z karty **zarządzanie** funkcją w [Azure Portal](https://portal.azure.com). 
 
 > [!NOTE]  
 > Po wyłączeniu funkcji wyzwalanej przez protokół HTTP przy użyciu metod opisanych w tym artykule punkt końcowy może nadal być dostępny, gdy działa na komputerze lokalnym.  
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
-W interfejsie wiersza [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) polecenia platformy Azure można użyć polecenie, aby utworzyć i zmodyfikować ustawienie aplikacji. Następujące polecenie wyłącza funkcję o nazwie `QueueTrigger` przez utworzenie ustawienia aplikacji o nazwie `AzureWebJobs.QueueTrigger.Disabled` ustaw ją na. `true` 
+W interfejsie wiersza polecenia platformy Azure można użyć [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) polecenie, aby utworzyć i zmodyfikować ustawienie aplikacji. Następujące polecenie wyłącza funkcję o nazwie `QueueTrigger` przez utworzenie ustawienia aplikacji o nazwie `AzureWebJobs.QueueTrigger.Disabled` Ustaw ją na `true` . 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -29,7 +29,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-Aby ponownie włączyć funkcję, należy ponownie uruchomić to samo polecenie o wartości `false`.
+Aby ponownie włączyć funkcję, należy ponownie uruchomić to samo polecenie o wartości `false` .
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -39,7 +39,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Korzystanie z portalu
 
-Można również użyć przełącznika **stanu funkcji** na karcie **Zarządzanie** funkcją. Przełącznik działa po utworzeniu i usunięciu ustawienia `AzureWebJobs.<FUNCTION_NAME>.Disabled` aplikacji.
+Można również użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Te przyciski działają przez tworzenie i usuwanie `AzureWebJobs.<FUNCTION_NAME>.Disabled` ustawień aplikacji.
 
 ![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
 
@@ -87,7 +87,7 @@ public static class QueueFunctions
 Ta metoda pozwala włączać i wyłączać funkcję przez zmianę ustawienia aplikacji, bez ponownej kompilacji lub ponownego wdrożenia. Zmiana ustawienia aplikacji powoduje, że aplikacja funkcji zostanie ponownie uruchomiona, więc zmiana stanu wyłączenia zostanie natychmiast rozpoznana.
 
 > [!IMPORTANT]
-> Ten `Disabled` atrybut jest jedynym sposobem wyłączenia funkcji biblioteki klas. Nie można bezpośrednio edytować pliku generated *Function. JSON* dla funkcji biblioteki klas. Jeśli edytujesz ten plik, nie ma to żadnego wpływu `disabled` na właściwość.
+> Ten `Disabled` atrybut jest jedynym sposobem wyłączenia funkcji biblioteki klas. Nie można bezpośrednio edytować pliku generated *Function. JSON* dla funkcji biblioteki klas. Jeśli edytujesz ten plik, nie `disabled` ma to żadnego wpływu na właściwość.
 >
 > Ta sama wartość dotyczy przełącznika **stanu funkcji** na karcie **Zarządzanie** , ponieważ działa przez zmianę pliku *Function. JSON* .
 >
@@ -95,7 +95,7 @@ Ta metoda pozwala włączać i wyłączać funkcję przez zmianę ustawienia apl
 
 ### <a name="functions-1x---scripting-languages"></a>Functions 1. x — Języki obsługi skryptów
 
-W wersji 1. x można także użyć `disabled` właściwości pliku *Function. JSON* , aby poinformować, że środowisko uruchomieniowe nie wyzwala funkcji. Ta metoda działa tylko w przypadku języków skryptów, takich jak skrypt C# i JavaScript. `disabled` Właściwość może mieć wartość `true` lub na nazwę ustawienia aplikacji:
+W wersji 1. x można także użyć `disabled` właściwości pliku *Function. JSON* , aby poinformować, że środowisko uruchomieniowe nie wyzwala funkcji. Ta metoda działa tylko w przypadku języków skryptów, takich jak skrypt C# i JavaScript. `disabled`Właściwość może mieć wartość `true` lub na nazwę ustawienia aplikacji:
 
 ```json
 {
@@ -122,9 +122,8 @@ lub
 
 W drugim przykładzie funkcja jest wyłączona, gdy istnieje ustawienie aplikacji o nazwie IS_DISABLED i jest ustawione na `true` lub 1.
 
-Można edytować plik w Azure Portal lub użyć przełącznika **stanu funkcji** na karcie **Zarządzanie** funkcją. Przełącznik portalu działa przez zmianę pliku *Function. JSON* .
+Można edytować plik w Azure Portal lub użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Przełącznik portalu działa przez zmianę pliku *Function. JSON* .
 
-![Przełącznik stanu funkcji](media/disable-function/function-state-switch.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

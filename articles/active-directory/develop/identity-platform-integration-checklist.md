@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7c26780cdba37a2bddc201928dbcbd5f86e0170
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050494"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115901"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Najlepsze rozwiązania i zalecenia dotyczące platformy tożsamości firmy Microsoft
 
@@ -26,6 +26,9 @@ W tym artykule przedstawiono najlepsze rozwiązania, zalecenia i szczegółowe i
 Jeśli dopiero zaczynasz, zapoznaj się z [dokumentacją platformy tożsamości firmy Microsoft](index.yml) , aby poznać podstawowe informacje dotyczące uwierzytelniania, scenariusze aplikacji na platformie tożsamości firmy Microsoft i inne elementy.
 
 Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektywnie zintegrowana z [platformą tożsamości firmy Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> *Asystent integracji* w Azure Portal może pomóc w zastosowaniu wielu najlepszych rozwiązań i zaleceń. W Azure Portal wybierz dowolną [rejestrację aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) , a następnie wybierz element menu **Asystent Integration (wersja zapoznawcza)** , aby rozpocząć pracę z asystentem.
 
 ## <a name="basics"></a>Podstawy
 
@@ -56,7 +59,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 
 |   |   |
 |---|---|
-| ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Zarządzaj identyfikatorami URI przekierowania: <ul><li>Zachować własność wszystkich identyfikatorów URI przekierowania i zachować Aktualności rekordów DNS.</li><li>Nie używaj symboli wieloznacznych (*) w identyfikatorach URI.</li><li>W przypadku usługi Web Apps upewnij się, że wszystkie identyfikatory URI są bezpieczne i szyfrowane (na przykład przy użyciu schematów https).</li><li>W przypadku klientów publicznych Użyj identyfikatorów URI przekierowania specyficznych dla platformy, jeśli są odpowiednie (głównie dla systemów iOS i Android). W przeciwnym razie Użyj identyfikatorów URI przekierowania z dużą ilością losowości, aby zapobiec kolizjom podczas wywoływania z powrotem do aplikacji.</li><li>Jeśli aplikacja jest używana przez izolowanego agenta sieci Web, można użyć `https://login.microsoftonline.com/common/oauth2/nativeclient`programu.</li><li>Regularnie Przeglądaj i przycinaj wszystkie nieużywane lub niepotrzebne identyfikatory URI przekierowań.</li></ul> |
+| ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Zarządzaj identyfikatorami URI przekierowania: <ul><li>Zachować własność wszystkich identyfikatorów URI przekierowania i zachować Aktualności rekordów DNS.</li><li>Nie używaj symboli wieloznacznych (*) w identyfikatorach URI.</li><li>W przypadku usługi Web Apps upewnij się, że wszystkie identyfikatory URI są bezpieczne i szyfrowane (na przykład przy użyciu schematów https).</li><li>W przypadku klientów publicznych Użyj identyfikatorów URI przekierowania specyficznych dla platformy, jeśli są odpowiednie (głównie dla systemów iOS i Android). W przeciwnym razie Użyj identyfikatorów URI przekierowania z dużą ilością losowości, aby zapobiec kolizjom podczas wywoływania z powrotem do aplikacji.</li><li>Jeśli aplikacja jest używana przez izolowanego agenta sieci Web, można użyć programu `https://login.microsoftonline.com/common/oauth2/nativeclient` .</li><li>Regularnie Przeglądaj i przycinaj wszystkie nieużywane lub niepotrzebne identyfikatory URI przekierowań.</li></ul> |
 | ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Jeśli Twoja aplikacja jest zarejestrowana w katalogu, Zminimalizuj i ręcznie Monitoruj listę właścicieli rejestracji aplikacji. |
 | ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Nie włączaj obsługi [niejawnego przepływu OAuth2](v2-oauth2-implicit-grant-flow.md) , chyba że jest to wymagane jawnie. Zapoznaj się z prawidłowym [scenariuszem](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Przenieś poza nazwę użytkownika/hasło. Nie używaj [przepływu poświadczeń hasła właściciela zasobu (ROPC)](v2-oauth-ropc.md), który bezpośrednio obsługuje hasła użytkowników. Ten przepływ wymaga wysokiego stopnia zaufania i zagrożeń użytkownika i powinien być używany tylko wtedy, gdy inne, bezpieczniejsze, nie można używać przepływów. Ten przepływ jest nadal wymagany w niektórych scenariuszach (na przykład DevOps), ale uważaj, że jego użycie spowoduje nałożenie ograniczeń dotyczących aplikacji.  Aby uzyskać bardziej nowoczesne podejścia, Przeczytaj [przepływy uwierzytelniania i scenariusze aplikacji](authentication-flows-app-scenarios.md).|
@@ -94,7 +97,7 @@ Użyj poniższej listy kontrolnej, aby upewnić się, że aplikacja jest efektyw
 | ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Przetestuj [zasady dostępu warunkowego](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) , które mogą mieć wpływ na możliwość korzystania z aplikacji przez użytkowników. |
 | ![pole wyboru](./media/active-directory-integration-checklist/checkbox-two.svg) | Przetestuj swoją aplikację ze wszystkimi możliwymi kontami, które planujesz obsługiwać (na przykład konta służbowe, osobiste konta Microsoft, konta podrzędne i suwerenne konta). |
 
-## <a name="additional-resources"></a>Zasoby dodatkowe
+## <a name="additional-resources"></a>Dodatkowe zasoby
 
 Uzyskaj szczegółowe informacje na temat wersji 2.0:
 
@@ -104,4 +107,4 @@ Uzyskaj szczegółowe informacje na temat wersji 2.0:
 * [Dokumentacja tokenów identyfikatorów](id-tokens.md)
 * [Dokumentacja bibliotek uwierzytelniania](reference-v2-libraries.md)
 * [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](v2-permissions-and-consent.md)
-* [Interfejs API programu Microsoft Graph](https://developer.microsoft.com/graph)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b905b8f3fe99b83bafdd61b1daa25549354c5275
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: fca794d51e06c72f157dc063445d1cab09d92d28
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926786"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115867"
 ---
 # <a name="authentication-vs-authorization"></a>Uwierzytelnianie a autoryzacja
 
@@ -26,7 +26,7 @@ Ten artykuł definiuje uwierzytelnianie i autoryzację oraz krótko opisuje, jak
 
 ## <a name="authentication"></a>Authentication
 
-**Uwierzytelnianie** to proces potwierdzania użytkownika. Uwierzytelnianie jest czasami określane terminem AuthN. Platforma tożsamości firmy Microsoft implementuje protokoły [OpenID Connect Connect](https://openid.net/connect/) i [SAML 2,0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) do obsługi uwierzytelniania.
+**Uwierzytelnianie** to proces potwierdzania użytkownika. Uwierzytelnianie jest czasami określane terminem AuthN. Platforma tożsamości firmy Microsoft implementuje protokół [Connect OpenID Connect](https://openid.net/connect/) do obsługi uwierzytelniania.
 
 ## <a name="authorization"></a>Autoryzacja
 
@@ -38,13 +38,13 @@ Zamiast tworzyć aplikacje, które zachowują własne informacje o nazwie użytk
 
 Azure Active Directory (Azure AD) to scentralizowany dostawca tożsamości w chmurze. Delegowanie uwierzytelniania i autoryzacji pozwala na takie scenariusze, jak zasady dostępu warunkowego, które wymagają, aby użytkownik znajdował się w określonej lokalizacji, korzystać z uwierzytelniania wieloskładnikowego, a także umożliwić użytkownikowi logowanie się jednokrotne do wszystkich aplikacji sieci Web, które współużytkują ten sam katalog scentralizowany. Ta funkcja jest określana jako logowanie jednokrotne **(SSO)**.
 
-Platforma tożsamości firmy Microsoft upraszcza uwierzytelnianie i autoryzację dla deweloperów aplikacji, zapewniając tożsamość jako usługę, z obsługą standardowych protokołów, takich jak OAuth 2,0, OpenID Connect Connect i SAML 2,0, a także bibliotek typu open source dla różnych platform, które ułatwiają szybkie rozpoczęcie tworzenia kodu. Dzięki temu deweloperzy mogą tworzyć aplikacje, które logują się do wszystkich tożsamości firmy Microsoft, uzyskują tokeny, aby wywoływać [Microsoft Graph](https://developer.microsoft.com/graph/), inne interfejsy API firmy Microsoft lub interfejsy API zaprojektowane przez deweloperów. Aby uzyskać więcej informacji, zobacz [ewolucja platformy tożsamości firmy Microsoft](about-microsoft-identity-platform.md).
+Platforma tożsamości firmy Microsoft upraszcza uwierzytelnianie i autoryzację dla deweloperów aplikacji, zapewniając tożsamość jako usługę, z obsługą standardowych protokołów, takich jak OAuth 2,0 i OpenID Connect Connect, a także bibliotek typu "open source" dla różnych platform, które ułatwiają szybkie rozpoczęcie tworzenia kodu. Dzięki temu deweloperzy mogą tworzyć aplikacje, które logują się do wszystkich tożsamości firmy Microsoft, uzyskują tokeny, aby wywoływać [Microsoft Graph](https://developer.microsoft.com/graph/), inne interfejsy API firmy Microsoft lub interfejsy API zaprojektowane przez deweloperów. Aby uzyskać więcej informacji, zobacz [ewolucja platformy tożsamości firmy Microsoft](about-microsoft-identity-platform.md).
 
 Poniżej przedstawiono krótkie porównanie różnych protokołów używanych przez platformę tożsamości firmy Microsoft:
 
 * Uwierzytelnianie **OAuth a OpenID Connect Connect**: protokół OAuth jest używany na potrzeby autoryzacji i OpenID Connect Connect (OIDC) do uwierzytelniania. OpenID Connect Connect jest tworzona na podstawie protokołu OAuth 2,0, więc Terminologia i przepływ są podobne między nimi. Można nawet uwierzytelnić użytkownika (za pomocą usługi OpenID Connect Connect) i uzyskać autoryzację w celu uzyskania dostępu do chronionego zasobu, którego właścicielem jest użytkownik (przy użyciu protokołu OAuth 2,0). Aby uzyskać więcej informacji, zobacz [Protokoły OAuth 2,0 i OpenID Connect Connect](active-directory-v2-protocols.md) [Protocols i OpenID Connect Connect](v2-protocols-oidc.md)
 * Uwierzytelnianie **OAuth a SAML**: OAuth jest używane do autoryzacji i służy do uwierzytelniania protokołu SAML. Aby uzyskać więcej informacji o tym, jak te dwa protokoły mogą być używane razem z uwierzytelnianiem użytkownika (przy użyciu protokołu SAML) i uzyskać autoryzację w celu uzyskania dostępu do chronionego zasobu (przy użyciu uwierzytelniania OAuth 2,0), zobacz [Microsoft Identity platform i OAuth 2,0 SAML Flow](v2-saml-bearer-assertion.md) .
-* **OpenID Connect Connect a SAML**: w celu uwierzytelnienia użytkownika używane są zarówno połączenie OpenID Connect, jak i SAML, które są używane do włączania logowania jednokrotnego. Uwierzytelnianie SAML jest często używane z dostawcami tożsamości, takimi jak Active Directory Federation Services (ADFS) federacyjne do usługi Azure AD i dlatego często są używane w aplikacjach dla przedsiębiorstw.
+* **OpenID Connect Connect a SAML**: w celu uwierzytelnienia użytkownika używane są zarówno połączenie OpenID Connect, jak i SAML, które są używane do włączania logowania jednokrotnego. Uwierzytelnianie SAML jest często używane z dostawcami tożsamości, takimi jak Active Directory Federation Services (ADFS) federacyjne do usługi Azure AD i dlatego często są używane w aplikacjach dla przedsiębiorstw. OpenID Connect Connect jest często używana w przypadku aplikacji, które są wyłącznie w chmurze, takich jak aplikacje mobilne, witryny sieci Web i interfejsy API sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983197"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117397"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -23,6 +23,10 @@ ms.locfileid: "82983197"
 Możesz zmniejszyć łączny koszt wdrożenia pulpitu wirtualnego systemu Windows, przeskalując maszyny wirtualne. Oznacza to wyłączenie i cofnięcie przydziału maszyn wirtualnych hosta sesji w godzinach użycia poza szczytem, a następnie włączenie ich z powrotem i ich ponowne przypisanie w godzinach szczytu.
 
 Ten artykuł zawiera informacje na temat narzędzia do skalowania utworzonego przy użyciu Azure Automation i Azure Logic Apps, które automatycznie skaluje maszyny wirtualne hosta sesji w środowisku pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak korzystać z narzędzia do skalowania, przejdź do sekcji [wymagania wstępne](#prerequisites).
+
+## <a name="report-issues"></a>Zgłaszanie problemów
+
+Raporty o problemach narzędzia do skalowania są obecnie obsługiwane w usłudze GitHub, a nie pomoc techniczna firmy Microsoft. Jeśli wystąpią problemy z narzędziem skalowania, możesz zgłosić je komp otwarcie problemu z usługą GitHub o nazwie "4a-WVD-skalować-logicapps" na [stronie usług pulpitu zdalnego](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)w witrynie GitHub.
 
 ## <a name="how-the-scaling-tool-works"></a>Jak działa narzędzie skalowania
 
@@ -43,7 +47,7 @@ W czasie szczytowego użycia zadanie sprawdza bieżącą liczbę sesji i pojemno
 
 W czasie użytkowania poza szczytem zadanie Określa, które maszyny wirtualne hosta sesji powinny zostać zamknięte na podstawie parametru *MinimumNumberOfRDSH* . Zadanie skonfiguruje maszyny wirtualne hosta sesji do trybu opróżniania, aby zapobiec łączeniu się nowych sesji z hostami. Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość różną od zera, zadanie powiadomi wszystkie aktualnie zalogowanych użytkowników, aby zaoszczędzić swoją pracę, zaczekać skonfigurowany czas, a następnie wymusić wylogowanie się użytkowników. Po wyrejestrowaniu wszystkich sesji użytkownika na maszynie wirtualnej hosta sesji zadanie zostanie zamknięte.
 
-Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwoli na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja** > **zasady** > **Szablony administracyjne** > **składniki** > systemu Windows**usługi** > terminalowych**limity czasu sesji****serwera** > terminali. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
+Jeśli parametr *LimitSecondsToForceLogOffUser* zostanie ustawiony na wartość zero, zadanie zezwoli na ustawienie konfiguracji sesji w określonych zasadach grupy do obsługi wylogowywania sesji użytkowników. Aby wyświetlić te zasady grupy, przejdź do pozycji **Konfiguracja komputera**  >  **zasady**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi terminalowych**  >  **Terminal Server**  >  **limity czasu sesji**serwera terminali. W przypadku aktywnych sesji na maszynie wirtualnej hosta sesji zadanie pozostawi maszynę wirtualną hosta sesji uruchomioną. Jeśli nie ma aktywnych sesji, zadanie zamknie maszynę wirtualną hosta sesji.
 
 Zadanie jest uruchamiane okresowo na podstawie interwału ustawionego cyklu. Ten interwał można zmienić na podstawie rozmiaru środowiska pulpitu wirtualnego systemu Windows, ale należy pamiętać, że uruchamianie i zamykanie maszyn wirtualnych może zająć trochę czasu, więc pamiętaj, aby uwzględnić opóźnienie. Zalecamy ustawienie interwału cyklu na co 15 minut.
 
@@ -258,6 +262,3 @@ Przejdź do elementu Runbook (nazwa domyślna to WVDAutoScaleRunbook) w grupie z
 
 ![Obraz okna dane wyjściowe narzędzia do skalowania.](../media/tool-output.png)
 
-## <a name="report-issues"></a>Zgłaszanie problemów
-
-Jeśli wystąpią problemy z narzędziem skalowania, możesz je zgłosić na [stronie usług pulpitu zdalnego](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps)w serwisie GitHub.

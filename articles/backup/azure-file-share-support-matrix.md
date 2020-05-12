@@ -3,12 +3,12 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 92fbd1333fa80c73bb48020d6e0e73e0cf545476
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 38e8cdba4913a56b4dc6b4398a99db9e9f93be51
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977621"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116734"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -18,9 +18,11 @@ Za pomocą [usługi Azure Backup](https://docs.microsoft.com/azure/backup/backup
 
 Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następujących GEOREGIONY:
 
-| Regiony | Obsługiwane regiony (w ramach wersji zapoznawczej), ale jeszcze nie GA                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morze), Szwajcaria Zachodnia (SZW), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (INW), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia (JPW), Północna Republika Południowej Afryki (SAN), Zachodnie Zjednoczone Królestwo , Korea Południowa (KRS), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (piły), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), Azja Wschodnia (EA), Australia Wschodnia (AE), Stany USA (ci), zachodnie stany USA (WUS),, US Gov Arizona (UGA), US Gov Teksas (UGT), US gov Wirginia (UGV), US dod (region środkowy) (UDC), US DoD (region wschodni) ()                                                  |  Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Północna (NE), Południowo-środkowe stany USA (SCUS), Południowe Zjednoczone Królestwo (UKS), Europa Zachodnia (my)            |
+**Regiony ga**:<br>
+Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morze), Szwajcaria Zachodnia (SZW), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (INW), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia (JPW), Północna Republika Południowej Afryki (SAN), Zachodnie Zjednoczone Królestwo , Korea Południowa (KRS), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (piły), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), Azja Wschodnia (EA), Australia Wschodnia (AE), Stany USA (ci), zachodnie stany USA (WUS),, US Gov Arizona (UGA), US Gov Teksas (UGT), US gov Wirginia (UGV), US dod (region środkowy) (UDC), US DoD (region wschodni) ()
+
+**Obsługiwane regiony (w ramach wersji zapoznawczej), ale nie są jeszcze ga**:<br>
+Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Północna (NE), Południowo-środkowe stany USA (SCUS), Południowe Zjednoczone Królestwo (UKS), Europa Zachodnia (my)
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 

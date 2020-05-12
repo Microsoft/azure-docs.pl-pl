@@ -3,16 +3,16 @@ title: Obsługa dużych komunikatów przy użyciu fragmentów
 description: Dowiedz się, jak obsługiwać duże rozmiary komunikatów przy użyciu fragmentów w zautomatyzowanych zadaniach i przepływach pracy utworzonych przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: shae-hurst
-ms.author: shhurst
+author: DavidCBerry13
+ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456558"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117567"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Obsługa dużych komunikatów z fragmentacją w Azure Logic Apps
 
@@ -41,7 +41,7 @@ Usługi, które komunikują się z Logic Apps mogą mieć własne limity rozmiar
 W przypadku łączników, które obsługują rozdzielenie, podstawowy protokół fragmentaryczny jest niewidoczny dla użytkowników końcowych. Jednak nie wszystkie łączniki obsługują rozdzielenie, więc te łączniki generują błędy w czasie wykonywania, gdy komunikaty przychodzące przekraczają limity rozmiaru łączników.
 
 > [!NOTE]
-> W przypadku akcji, które korzystają z fragmentów, nie można przekazać treści wyzwalacza ani używać `@triggerBody()?['Content']` wyrażeń, takich jak w tych akcjach. Zamiast tego dla zawartości pliku tekstowego lub JSON można spróbować użyć [ **Compose** akcji](../logic-apps/logic-apps-perform-data-operations.md#compose-action) [tworzenia lub utworzyć zmienną](../logic-apps/logic-apps-create-variables-store-values.md) do obsługi tej zawartości. Jeśli treść wyzwalacza zawiera inne typy zawartości, takie jak pliki multimedialne, należy wykonać inne czynności, aby obsłużyć tę zawartość.
+> W przypadku akcji, które korzystają z fragmentów, nie można przekazać treści wyzwalacza ani używać wyrażeń, takich jak `@triggerBody()?['Content']` w tych akcjach. Zamiast tego dla zawartości pliku tekstowego lub JSON można spróbować użyć [ **Compose** akcji](../logic-apps/logic-apps-perform-data-operations.md#compose-action) [tworzenia lub utworzyć zmienną](../logic-apps/logic-apps-create-variables-store-values.md) do obsługi tej zawartości. Jeśli treść wyzwalacza zawiera inne typy zawartości, takie jak pliki multimedialne, należy wykonać inne czynności, aby obsłużyć tę zawartość.
 
 <a name="set-up-chunking"></a>
 
@@ -51,7 +51,7 @@ W przypadku ogólnych scenariuszy HTTP można rozdzielić pobieranie dużych zaw
 
 Jeśli punkt końcowy włączył fragmentowanie do pobrania lub przeładowania, akcje HTTP w aplikacji logiki automatycznie rozłączyją duże wiadomości. W przeciwnym razie należy skonfigurować obsługę fragmentów w punkcie końcowym. Jeśli nie jesteś własnością lub nie kontrolujesz punktu końcowego lub łącznika, możesz nie mieć możliwości skonfigurowania fragmentu.
 
-Ponadto, jeśli akcja HTTP nie umożliwia jeszcze rozdzielenie, należy również skonfigurować fragmentowanie we `runTimeConfiguration` właściwości akcji. Tę właściwość można ustawić wewnątrz akcji, bezpośrednio w edytorze widoku kodu zgodnie z opisem w dalszej części, lub w projektancie Logic Apps, zgodnie z opisem w tym miejscu:
+Ponadto, jeśli akcja HTTP nie umożliwia jeszcze rozdzielenie, należy również skonfigurować fragmentowanie we `runTimeConfiguration` Właściwości akcji. Tę właściwość można ustawić wewnątrz akcji, bezpośrednio w edytorze widoku kodu zgodnie z opisem w dalszej części, lub w projektancie Logic Apps, zgodnie z opisem w tym miejscu:
 
 1. W prawym górnym rogu akcji http wybierz przycisk wielokropka (**...**), a następnie wybierz pozycję **Ustawienia**.
 
@@ -69,7 +69,7 @@ Ponadto, jeśli akcja HTTP nie umożliwia jeszcze rozdzielenie, należy równie�
 
 Wiele punktów końcowych automatycznie wysyła duże wiadomości w fragmentach, gdy są pobierane za pośrednictwem żądania HTTP GET. Aby pobrać fragmenty komunikatów z punktu końcowego za pośrednictwem protokołu HTTP, punkt końcowy musi obsługiwać częściowe żądania zawartości lub *pobrane fragmenty*. Gdy aplikacja logiki wysyła żądanie HTTP GET do punktu końcowego w celu pobrania zawartości, a punkt końcowy odpowiada za pomocą kodu stanu "206", odpowiedź zawiera zawartość fragmentaryczną. Logic Apps nie może kontrolować, czy punkt końcowy obsługuje częściowe żądania. Jeśli jednak aplikacja logiki Pobiera pierwszą odpowiedź "206", aplikacja logiki automatycznie wysyła wiele żądań w celu pobrania całej zawartości.
 
-Aby sprawdzić, czy punkt końcowy może obsługiwać częściową zawartość, Wyślij żądanie główne. To żądanie pozwala określić, czy odpowiedź zawiera `Accept-Ranges` nagłówek. W ten sposób, jeśli punkt końcowy obsługuje pobrane fragmenty, ale nie wysyła zawartości z fragmenty, można *zasugerować* tę opcję przez `Range` ustawienie nagłówka w żądaniu HTTP GET. 
+Aby sprawdzić, czy punkt końcowy może obsługiwać częściową zawartość, Wyślij żądanie główne. To żądanie pozwala określić, czy odpowiedź zawiera `Accept-Ranges` nagłówek. W ten sposób, jeśli punkt końcowy obsługuje pobrane fragmenty, ale nie wysyła zawartości z fragmenty, można *zasugerować* tę opcję przez ustawienie `Range` nagłówka w żądaniu HTTP GET. 
 
 W tych krokach opisano szczegółowy proces Logic Apps używany do pobierania zawartości z punktu końcowego do aplikacji logiki:
 
@@ -121,10 +121,10 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
 
 2. Punkt końcowy odpowiada za pomocą kodu stanu sukcesu "200" i informacji dodatkowych:
 
-   | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagany | Opis |
+   | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
    | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
-   | **Lokalizacja** | String | Tak | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
+   | **Lokalizacja** | String | Yes | Lokalizacja adresu URL, w której mają zostać wysłane komunikaty poprawek HTTP |
    ||||
 
 3. Aplikacja logiki tworzy i wysyła komunikaty poprawek protokołu HTTP z monitami o następujące informacje:
@@ -142,13 +142,13 @@ W tych krokach opisano szczegółowy proces Logic Apps używany do przekazywania
 
 4. Po każdym żądaniu poprawki punkt końcowy potwierdza odbiór dla każdego fragmentu, odpowiadając na kod stanu "200" i następujące nagłówki odpowiedzi:
 
-   | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagany | Opis |
+   | Pole nagłówka odpowiedzi punktu końcowego | Typ | Wymagane | Opis |
    |--------------------------------|------|----------|-------------|
-   | **Zakresu** | String | Tak | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
+   | **Zakresu** | String | Yes | Zakres bajtów dla zawartości otrzymanej przez punkt końcowy, na przykład: "bajty = 0-1023" |   
    | **x-MS-fragment rozmiaru** | Liczba całkowita | Nie | Sugerowany rozmiar fragmentu w bajtach |
    ||||
 
-Na przykład ta definicja akcji przedstawia żądanie HTTP POST dotyczące przekazywania fragmentarycznej zawartości do punktu końcowego. We `runTimeConfiguration` właściwości `contentTransfer` akcji Właściwość ustawia `transferMode` `chunked`:
+Na przykład ta definicja akcji przedstawia żądanie HTTP POST dotyczące przekazywania fragmentarycznej zawartości do punktu końcowego. We właściwości akcji właściwość `runTimeConfiguration` `contentTransfer` ustawia `transferMode` `chunked` :
 
 ```json
 "postAction": {

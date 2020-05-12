@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872015"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117720"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -102,7 +102,7 @@ Magazyn strefy Geograficznie nadmiarowy (GZRS) łączy wysoką dostępność zap
 
 Za pomocą konta magazynu GZRS można nadal odczytywać i zapisywać dane, jeśli strefa dostępności stanie się niedostępna lub nie można jej odzyskać. Ponadto dane są również trwałe w przypadku kompletnej awarii regionalnej lub awarii, w której region podstawowy nie jest możliwy do odzyskania. GZRS zaprojektowano w celu udostępnienia co najmniej 99.99999999999999% (16 9) trwałości obiektów w danym roku.
 
-Tylko konta magazynu ogólnego przeznaczenia w wersji 2 obsługują GZRS i RA-GZRS. Aby uzyskać więcej informacji dotyczących typów kont magazynu, zobacz temat [Przegląd konta usługi Azure Storage](storage-account-overview.md). GZRS i RA-GZRS obsługują blokowe obiekty blob, stronicowe obiekty blob (z wyjątkiem dysków VHD), pliki, tabele i kolejki. GZRS i RA-GZRS są dostępne we wszystkich regionach świadczenia usługi Azure.
+Tylko konta magazynu ogólnego przeznaczenia w wersji 2 obsługują GZRS i RA-GZRS. Aby uzyskać więcej informacji dotyczących typów kont magazynu, zobacz temat [Przegląd konta usługi Azure Storage](storage-account-overview.md). GZRS i RA-GZRS obsługują blokowe obiekty blob, stronicowe obiekty blob (z wyjątkiem dysków VHD), pliki, tabele i kolejki.
 
 GZRS i RA-GZRS są obsługiwane w następujących regionach:
 
@@ -126,7 +126,7 @@ Magazyn Geograficznie nadmiarowy (z GRS lub GZRS) replikuje dane do innej lokali
 
 Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do regionu pomocniczego, można zaprojektować aplikacje w celu bezproblemowego przesunięcia danych z regionu pomocniczego, jeśli region podstawowy stanie się niedostępny z jakiegokolwiek powodu. Region pomocniczy jest zawsze dostępny dla dostępu do odczytu, dzięki czemu można testować aplikację, aby upewnić się, że zostanie ona odczytana z dodatkowej w przypadku awarii. Aby uzyskać więcej informacji o sposobach projektowania aplikacji pod kątem wysokiej dostępności, zobacz [Korzystanie z nadmiarowości geograficznej w celu projektowania aplikacji o dużym dostępności](geo-redundant-design.md).
 
-Po włączeniu dostępu do odczytu do elementu pomocniczego dane można odczytać z pomocniczego punktu końcowego, a także z podstawowego punktu końcowego dla konta magazynu. Pomocniczy punkt końcowy dołącza sufiks *— pomocniczy* do nazwy konta. Na przykład, jeśli podstawowy punkt końcowy usługi BLOB Storage ma `myaccount.blob.core.windows.net`wartość, pomocniczy punkt końcowy `myaccount-secondary.blob.core.windows.net`to. Klucze dostępu do konta magazynu są takie same dla podstawowych i pomocniczych punktów końcowych.
+Po włączeniu dostępu do odczytu do elementu pomocniczego dane można odczytać z pomocniczego punktu końcowego, a także z podstawowego punktu końcowego dla konta magazynu. Pomocniczy punkt końcowy dołącza sufiks *— pomocniczy* do nazwy konta. Na przykład, jeśli podstawowy punkt końcowy usługi BLOB Storage ma wartość `myaccount.blob.core.windows.net` , pomocniczy punkt końcowy to `myaccount-secondary.blob.core.windows.net` . Klucze dostępu do konta magazynu są takie same dla podstawowych i pomocniczych punktów końcowych.
 
 ### <a name="check-the-last-sync-time-property"></a>Sprawdzanie właściwości czasu ostatniej synchronizacji
 
@@ -142,7 +142,7 @@ W poniższej tabeli przedstawiono, jak trwałe i dostępne dane znajdują się w
 
 | Scenariusz                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Węzeł w centrum danych jest niedostępny                                                                 | Tak                             | Tak                              | Tak                                  | Tak                                  |
+| Węzeł w centrum danych jest niedostępny                                                                 | Yes                             | Tak                              | Tak                                  | Tak                                  |
 | Całe centrum danych (zona lub non-Zona) staną się niedostępne                                           | Nie                              | Yes                              | Tak                                  | Tak                                  |
 | Wystąpi awaria całego regionu                                                                                     | Nie                              | Nie                               | Yes                                  | Tak                                  |
 | Dostęp do odczytu do danych w regionie pomocniczym, jeśli region podstawowy stał się niedostępny | Nie                              | Nie                               | Tak (z RA-GRS)                                   | Tak (z RA-GZRS)                                 |
