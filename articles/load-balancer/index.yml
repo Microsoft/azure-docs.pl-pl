@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 12/05/2019
-  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
-  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.date: 05/07/2020
+  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/03/2020
-  ms.locfileid: "82732992"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930628"
 landingContent:
 - title: Informacje o usłudze Load Balancer
   linkLists:
@@ -28,11 +28,13 @@ landingContent:
       url: concepts.md
     - text: Składniki dotyczące modułu równoważenia obciążenia
       url: components.md
+    - text: Jednostki SKU usługi Load Balancer
+      url: skus.md
 - title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Tworzenie usługi Load Balancer w warstwie Standardowa w celu równoważenia obciążenia maszyn wirtualnych
+    - text: Tworzenie usługi Load Balancer w celu równoważenia obciążenia maszyn wirtualnych
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
@@ -54,25 +56,27 @@ landingContent:
       url: load-balancer-multivip-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usłudze Load Balancer w warstwie Standardowa przy użyciu interfejsu wiersza polecenia platformy Azure
+    - text: Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usłudze Load Balancer (interfejs wiersza polecenia platformy Azure)
       url: configure-load-balancer-outbound-cli.md
-    - text: Tworzenie modułu równoważenia obciążenia połączonego z Internetem z protokołem IPv6 przy użyciu programu PowerShell
+    - text: Tworzenie modułu równoważenia obciążenia połączonego z Internetem z protokołem IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Konfigurowanie trybu dystrybucji
       url: load-balancer-distribution-mode.md
+    - text: Zmiana warstwy Podstawowa na warstwę Standardowa
+      url: upgrade-basic-standard.md
 - title: Wdrażanie
   linkLists:
   - linkListType: concept
     links:
     - text: Usługa Load Balancer w warstwie Standardowa i strefy dostępności
       url: load-balancer-standard-availability-zones.md
-    - text: Usługa Load Balancer z resetowaniem protokołu TCP przy bezczynności (publiczna wersja zapoznawcza)
+    - text: Usługa Load Balancer z resetowaniem protokołu TCP przy bezczynności
       url: load-balancer-tcp-reset.md
   - linkListType: how-to-guide
     links:
-    - text: Tworzenie usługi Load Balancer w warstwie Standardowa za pomocą frontonu strefowo nadmiarowego
+    - text: Tworzenie usługi Load Balancer za pomocą frontonu strefowo nadmiarowego
       url: load-balancer-get-started-internet-az-portal.md
-    - text: Tworzenie usługi Load Balancer w warstwie Standardowa za pomocą frontonu strefowego
+    - text: Tworzenie usługi Load Balancer za pomocą frontonu strefowego
       url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
     - text: Równoważenie obciążenia dla wielu konfiguracji adresów IP
       url: load-balancer-multiple-ip.md
@@ -94,3 +98,7 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: Interfejs wiersza polecenia platformy Azure
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+    - text: Szablony usługi ARM
+      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+    - text: Często zadawane pytania dotyczące modułu równoważenia obciążenia
+      url: load-balancer-faqs.md

@@ -357,6 +357,8 @@
               href: soft-delete-sql-saphana-in-azure-vm.md
         - name: Zabezpieczenia hybrydowych kopii zapasowych
           href: backup-azure-security-feature.md
+        - name: Prywatne punkty końcowe
+          href: private-endpoints.md
         - name: Szyfrowanie
           href: backup-encryption.md
         - name: Wbudowane mechanizmy zabezpieczeń
