@@ -15,7 +15,7 @@
           href: quick-setup-auto-provision-cli.md
         - name: Szablon usługi Azure RM
           href: quick-setup-auto-provision-rm.md
-    - name: Aprowizowanie jednego symulowanego urządzenia
+    - name: Aprowizowanie jednego urządzenia
       items:
         - name: Zaświadczanie klucza symetrycznego
           items:

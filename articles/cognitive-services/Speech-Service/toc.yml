@@ -426,13 +426,31 @@
           items:
             - name: Często zadawane pytania dotyczące asystentów głosowych
               href: faq-voice-assistants.md
+    - name: Asystenci głosowi w systemie Windows
+      items:
+        - name: Omówienie asystentów głosowych w systemie Windows
+          href: windows-voice-assistants-overview.md
+        - name: Przewodniki z instrukcjami
+          items:
+            - name: Rozpocznij tworzenie asystenta w systemie Windows
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: Włącz aktywację za pomocą głosu
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Zasoby
+          items:
+            - name: Wymagania i wskazówki dotyczące zachowania poufności informacji
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: Najlepsze rozwiązania dotyczące środowisk asystenta
+              href: windows-voice-assistants-best-practices.md
+            - name: Przykłady i często zadawane pytania
+              href: windows-voice-assistants-faq.md
     - name: Custom — słowo kluczowe
       items:
         - name: Omówienie niestandardowych słów kluczowych
           href: custom-keyword-overview.md
         - name: Wskazówki dotyczące nazewnictwa niestandardowych słów kluczowych
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Wykrywanie niestandardowych słów kluczowych
+        - name: Rozpoznawanie niestandardowych słów kluczowych
           href: speech-devices-sdk-create-kws.md
 - name: Hosting
   items:
