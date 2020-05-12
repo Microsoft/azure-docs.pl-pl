@@ -127,6 +127,8 @@
               items:
                 - name: Ocena luk w zabezpieczeniach
                   href: sql-vulnerability-assessment.md
+                - name: Reguły oceny luk w zabezpieczeniach
+                  href: sql-database-vulnerability-assessment-rules.md
                 - name: Przechowywanie skanów oceny luk w zabezpieczeniach za zaporami i w sieciach wirtualnych
                   href: sql-database-vulnerability-assessment-storage.md
             - name: Zaawansowana ochrona przed zagrożeniami

@@ -74,6 +74,8 @@
           href: alerts-schemas.md
         - name: Zarządzanie alertami zabezpieczeń
           href: security-center-managing-and-responding-alerts.md
+        - name: Reguły pomijania alertów zabezpieczeń
+          href: alerts-suppression-rules.md
         - name: Zarządzanie zdarzeniami zabezpieczeń
           href: security-center-incident.md
         - name: Korelacja alertów inteligentnych w chmurze (zdarzenia)

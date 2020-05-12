@@ -5,21 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536908"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007303"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Utwórz konto BlockBlobStorage
 
 Rodzaj konta BlockBlobStorage umożliwia tworzenie blokowych obiektów blob z charakterystyką wydajności Premium. Ten typ konta magazynu jest zoptymalizowany pod kątem obciążeń z wysoką stawką transakcji lub wymagających bardzo szybkiego dostępu. W tym artykule przedstawiono sposób tworzenia konta usługi BlockBlobStorage przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> Funkcja hierarchicznej przestrzeni nazw na koncie magazynu blokowych obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępna w regionach Wschodnie stany USA, Wschodnie stany USA 2, Stany USA, Południowo-środkowe stany USA, Europa Zachodnia 2, Południowe Zjednoczone Królestwo, Kanada Środkowa i Australia Wschodnia. Aby zapoznać się z ograniczeniami, zobacz [funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) i [znanych problemach](data-lake-storage-known-issues.md). Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adlspremiumonboard).
 
 Aby uzyskać więcej informacji o kontach BlockBlobStorage, zobacz [Omówienie konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -31,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Brak.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Ten artykuł instruktażowy wymaga modułu Azure PowerShell AZ Version 1.2.0 lub nowszego. Uruchom polecenie `Get-Module -ListAvailable Az`, aby określić bieżącą wersję. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -64,7 +65,7 @@ Interfejs wiersza polecenia platformy Azure możesz również zainstalować i u�
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Zaloguj się do subskrypcji platformy Azure za pomocą `Connect-AzAccount` polecenia i postępuj zgodnie z instrukcjami wyświetlanymi na ekranie w celu uwierzytelnienia.
 
@@ -91,21 +92,21 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi** > kategoria **magazynu** > **konta magazynu**.
 
-1. W obszarze **konta magazynu**wybierz pozycję **Dodaj**.
+2. W obszarze **konta magazynu**wybierz pozycję **Dodaj**.
 
-1. W polu **subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
+3. W polu **subskrypcja** wybierz subskrypcję, w ramach której chcesz utworzyć konto magazynu.
 
-1. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.
+4. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów lub wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę nowej grupy zasobów.
 
-1. W polu **nazwa konta magazynu** wprowadź nazwę konta. Należy zwrócić uwagę na następujące wytyczne:
+5. W polu **nazwa konta magazynu** wprowadź nazwę konta. Należy zwrócić uwagę na następujące wytyczne:
 
    - Nazwa musi być unikatowa na platformie Azure.
    - Nazwa musi mieć długość od 3 do 24 znaków.
    - Nazwa może zawierać tylko cyfry i małe litery.
 
-1. W polu **Lokalizacja** wybierz lokalizację konta magazynu lub Użyj domyślnej lokalizacji.
+6. W polu **Lokalizacja** wybierz lokalizację konta magazynu lub Użyj domyślnej lokalizacji.
 
-1. W pozostałych ustawieniach skonfiguruj następujące opcje:
+7. W pozostałych ustawieniach skonfiguruj następujące opcje:
 
    |Pole     |Wartość  |
    |---------|---------|
@@ -115,29 +116,38 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
    ![Przedstawia interfejs użytkownika portalu do tworzenia konta blokowego magazynu obiektów BLOB](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
+8. Wybierz kartę **Zaawansowane** .
 
-1. Wybierz przycisk **Utwórz**.
+9. Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, ustaw **hierarchiczną przestrzeń nazw** na **włączone**. W przeciwnym razie pozostaw tę opcję ustawioną na wartość domyślną.
 
-## <a name="azure-powershell"></a>[Program Azure PowerShell](#tab/azure-powershell)
+   Aby dowiedzieć się więcej, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funkcja hierarchicznej przestrzeni nazw na koncie magazynu blokowych obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępna w regionach Wschodnie stany USA, Wschodnie stany USA 2, Stany USA, Południowo-środkowe stany USA, Europa Zachodnia 2, Południowe Zjednoczone Królestwo, Kanada Środkowa i Australia Wschodnia. Aby zapoznać się z ograniczeniami, zobacz [funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) i [znanych problemach](data-lake-storage-known-issues.md). Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adlspremiumonboard).
+
+8. Wybierz pozycję **Przegląd + Utwórz** , aby przejrzeć ustawienia konta magazynu.
+
+9. Wybierz przycisk **Utwórz**.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 1. Otwórz sesję programu Windows PowerShell z podwyższonym poziomem uprawnień (Uruchom jako administrator).
 
-1. Uruchom następujące polecenie, aby upewnić się, że zainstalowano najnowszą wersję modułu `Az` PowerShell.
+2. Uruchom następujące polecenie, aby upewnić się, że `Az` zainstalowano najnowszą wersję modułu PowerShell.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
    ```
 
-1. Otwórz nową konsolę programu PowerShell i zaloguj się przy użyciu konta platformy Azure.
+3. Otwórz nową konsolę programu PowerShell i zaloguj się przy użyciu konta platformy Azure.
 
    ```powershell
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. W razie konieczności Utwórz nową grupę zasobów. Zastąp wartości w cudzysłowach i uruchom następujące polecenie.
+4. W razie konieczności Utwórz nową grupę zasobów. Zastąp wartości w cudzysłowach i uruchom następujące polecenie.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -145,7 +155,7 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Utwórz konto BlockBlobStorage. Zastąp wartości w cudzysłowach i uruchom następujące polecenie.
+5. Utwórz konto BlockBlobStorage. Zastąp wartości w cudzysłowach i uruchom następujące polecenie.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -154,6 +164,10 @@ Aby utworzyć konto BlockBlobStorage w Azure Portal, wykonaj następujące kroki
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, Dodaj `-EnableHierarchicalNamespace $True` je do polecenia. Aby dowiedzieć się więcej, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funkcja hierarchicznej przestrzeni nazw na koncie magazynu blokowych obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępna w regionach Wschodnie stany USA, Wschodnie stany USA 2, Stany USA, Południowo-środkowe stany USA, Europa Zachodnia 2, Południowe Zjednoczone Królestwo, Kanada Środkowa i Australia Wschodnia. Aby zapoznać się z ograniczeniami, zobacz [funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) i [znanych problemach](data-lake-storage-known-issues.md). Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adlspremiumonboard).
 
 ## <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
@@ -165,7 +179,7 @@ Aby utworzyć konto blokowego obiektu BLOB przy użyciu interfejsu wiersza polec
    az login
    ```
 
-1. W razie konieczności Utwórz nową grupę zasobów. Zastąp wartości w nawiasach (w tym nawiasy klamrowe) i uruchom następujące polecenie.
+2. W razie konieczności Utwórz nową grupę zasobów. Zastąp wartości w nawiasach (w tym nawiasy klamrowe) i uruchom następujące polecenie.
 
    ```azurecli
    az group create \
@@ -173,7 +187,7 @@ Aby utworzyć konto blokowego obiektu BLOB przy użyciu interfejsu wiersza polec
     --location "<location>"
    ```
 
-1. Utwórz konto BlockBlobStorage. Zastąp wartości w nawiasach (w tym nawiasy klamrowe) i uruchom następujące polecenie.
+3. Utwórz konto BlockBlobStorage. Zastąp wartości w nawiasach (w tym nawiasy klamrowe) i uruchom następujące polecenie.
 
    ```azurecli
    az storage account create \
@@ -184,6 +198,11 @@ Aby utworzyć konto blokowego obiektu BLOB przy użyciu interfejsu wiersza polec
     --sku "Premium_LRS"
    ```
 
+   Jeśli chcesz zoptymalizować konto magazynu na potrzeby analizy danych, Dodaj `--hierarchical-namespace true` je do polecenia. Aby dowiedzieć się więcej, zobacz [wprowadzenie do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funkcja hierarchicznej przestrzeni nazw na koncie magazynu blokowych obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępna w regionach Wschodnie stany USA, Wschodnie stany USA 2, Stany USA, Południowo-środkowe stany USA, Europa Zachodnia 2, Południowe Zjednoczone Królestwo, Kanada Środkowa i Australia Wschodnia. Aby zapoznać się z ograniczeniami, zobacz [funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) i [znanych problemach](data-lake-storage-known-issues.md). Aby zarejestrować się w wersji zapoznawczej, zobacz [ten formularz](https://aka.ms/adlspremiumonboard).
+   
 ---
 
 ## <a name="next-steps"></a>Następne kroki
