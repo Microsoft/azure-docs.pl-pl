@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767963"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007470"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ W tej sekcji opisano problemy i ograniczenia dotyczące używania interfejsów A
 
 * Do zapisu w tym samym wystąpieniu pliku nie można używać zarówno interfejsów API obiektów blob, jak i interfejsów API Data Lake Storage. W przypadku zapisywania do pliku przy użyciu Data Lake Storage Gen2 interfejsów API, bloki tego pliku nie będą widoczne dla wywołań interfejsu API [pobierania listy zablokowanych](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Plik można zastąpić za pomocą interfejsów API Data Lake Storage Gen2 lub interfejsów API obiektów BLOB. Nie wpłynie to na właściwości pliku.
 
-* W przypadku korzystania z operacji [list obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) bez określania ogranicznika wyniki będą obejmować zarówno katalogi, jak i obiekty blob. Jeśli zdecydujesz się użyć ogranicznika, użyj tylko ukośnika (`/`). Jest to jedyny obsługiwany ogranicznik.
+* W przypadku korzystania z operacji [list obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) bez określania ogranicznika wyniki będą obejmować zarówno katalogi, jak i obiekty blob. Jeśli zdecydujesz się użyć ogranicznika, użyj tylko ukośnika ( `/` ). Jest to jedyny obsługiwany ogranicznik.
 
 * Jeśli używasz interfejsu API [usuwania obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) do usuwania katalogu, ten katalog zostanie usunięty tylko wtedy, gdy jest pusty. Oznacza to, że nie można używać usługi Blob API Delete katalogów rekursywnie.
 
@@ -70,12 +70,11 @@ Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierar
 
 ## <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-* Usuwanie migawek obiektów BLOB nie jest jeszcze obsługiwane.  
+Usuwanie migawek obiektów BLOB nie jest jeszcze obsługiwane. 
 
 ## <a name="archive-tier"></a>Warstwa Archiwum
 
 Obecnie występuje usterka wpływająca na warstwę dostępu archiwizowania.
-
 
 ## <a name="blobfuse"></a>Blobfuse
 
@@ -91,7 +90,7 @@ Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/az
 
 ## <a name="azure-storage-explorer"></a>Eksplorator usługi Azure Storage
 
-Używaj tylko wersji `1.6.0` lub nowszej.
+Używaj tylko wersji  `1.6.0`   lub nowszej.
 
 <a id="explorer-in-portal" />
 
@@ -108,6 +107,39 @@ Aplikacje innych firm, które używają interfejsów API REST do pracy, będą n
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listy kontroli dostępu (ACL) i anonimowy dostęp do odczytu
 
 Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
+
+## <a name="premium-performance-block-blob-storage-accounts"></a>Premium — konta magazynu bloków BLOB wydajności
+
+### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+
+Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Przykład:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
+
+- Zasady zarządzania cyklem życia nie są jeszcze obsługiwane w przypadku kont magazynu blokowych obiektów BLOB w warstwie Premium. 
+
+- Nie można przenieść danych z warstwy Premium do niższej warstwy. 
+
+- Akcja **usuwania obiektu BLOB** nie jest obecnie obsługiwana. 
+
+### <a name="hdinsight-support"></a>Obsługa usługi HDInsight
+
+Podczas tworzenia klastra usługi HDInsight n nie można jeszcze wybrać konta blokowego magazynu obiektów blob, w którym jest włączona funkcja hierarchicznej przestrzeni nazw. Można jednak dołączyć konto do klastra po jego utworzeniu.
+
+### <a name="dremio-support"></a>Obsługa Dremio
+
+Dremio jeszcze nie nawiązuje połączenia z kontem magazynu blokowych obiektów blob, w którym jest włączona funkcja hierarchicznej przestrzeni nazw. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Sterownik systemu Windows Azure Storage Blob (WASB) (nieobsługiwany z Data Lake Storage Gen2)
 
