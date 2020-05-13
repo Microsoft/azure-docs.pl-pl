@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517923"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201447"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Wspólna sprzedaż w Centrum partnerskim
 
@@ -22,11 +22,11 @@ Opcja współsprzedaży w centrum partnerskim jest obecnie dostępna dla niektó
 
 | **Typ oferty** | **Strona współsprzedawcy dostępna w centrum partnerskim** |
 |    -----------------------    |    -----------------------------  |
-| Oprogramowanie jako usługa (SaaS) |     Ogólna dostępność kwietnia 2020      |
+| Oprogramowanie jako usługa (SaaS) |      Dostępny teraz      |
 | Dynamics 365 dla zaangażowania klienta & PowerApps      |     Dostępny teraz      |
 | Dynamics 365 for Operations     |     Dostępny teraz       |
-| Dynamics 365 Business Central      |  Ogólna dostępność kwietnia 2020     |
-| Azure Application     |     Ogólna dostępność kwietnia 2020     |
+| Dynamics 365 Business Central      |   Dostępny teraz     |
+| Azure Application     |      Dostępny teraz     |
 | Maszyna wirtualna platformy Azure      |     Do ogłaszania       |
 | Kontener platformy Azure     |     Do ogłaszania       |
 | Usługa konsultingowa      |     Do ogłaszania       |
