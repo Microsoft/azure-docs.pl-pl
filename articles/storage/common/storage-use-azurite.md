@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872586"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195941"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Korzystanie z emulatora azurite na potrzeby programowania i testowania lokalnego magazynu platformy Azure (wersja zapoznawcza)
 
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Uruchom obraz platformy Docker azurite**:
 
-Następujące polecenie uruchamia obraz platformy Docker azurite. `-p 10000:10000` Parametr przekierowuje żądania z portu 10000 maszyny hosta do wystąpienia platformy Docker.
+Następujące polecenie uruchamia obraz platformy Docker azurite. `-p 10000:10000`Parametr przekierowuje żądania z portu 10000 maszyny hosta do wystąpienia platformy Docker.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -150,7 +150,7 @@ Ta sekcja zawiera szczegółowe informacje dotyczące przełączników wiersza p
 
 ### <a name="help"></a>Pomoc
 
-**Opcjonalne** — Uzyskiwanie pomocy wiersza polecenia za pomocą przełącznika `-h` lub `--help` .
+**Opcjonalne** — Uzyskiwanie pomocy wiersza polecenia za pomocą `-h` przełącznika lub `--help` .
 
 ```console
 azurite -h
@@ -159,7 +159,7 @@ azurite --help
 
 ### <a name="blob-listening-host"></a>Host nasłuchujący obiektów BLOB
 
-**Opcjonalna** — domyślnie azurite nasłuchuje adres 127.0.0.1 jako serwer lokalny. Użyj przełącznika `--blobHost` , aby ustawić adres na wymagania.
+**Opcjonalna** — domyślnie azurite nasłuchuje adres 127.0.0.1 jako serwer lokalny. Użyj `--blobHost` przełącznika, aby ustawić adres na wymagania.
 
 Akceptuj tylko żądania na komputerze lokalnym:
 
@@ -199,7 +199,7 @@ Używany port jest wyświetlany podczas uruchamiania azurite.
 
 ### <a name="queue-listening-host"></a>Host nasłuchiwania kolejki
 
-**Opcjonalna** — domyślnie azurite nasłuchuje adres 127.0.0.1 jako serwer lokalny. Użyj przełącznika `--queueHost` , aby ustawić adres na wymagania.
+**Opcjonalna** — domyślnie azurite nasłuchuje adres 127.0.0.1 jako serwer lokalny. Użyj `--queueHost` przełącznika, aby ustawić adres na wymagania.
 
 Akceptuj tylko żądania na komputerze lokalnym:
 
@@ -239,7 +239,7 @@ Używany port jest wyświetlany podczas uruchamiania azurite.
 
 ### <a name="workspace-path"></a>Ścieżka obszaru roboczego
 
-**Opcjonalne** -azurite przechowuje dane na dysku lokalnym podczas wykonywania. Użyj przełącznika `-l` lub `--location` , aby określić ścieżkę jako lokalizację obszaru roboczego. Domyślnie zostanie użyty katalog roboczy bieżącego procesu. Zwróć uwagę na małe litery "l".
+**Opcjonalne** -azurite przechowuje dane na dysku lokalnym podczas wykonywania. Użyj `-l` przełącznika lub, `--location` Aby określić ścieżkę jako lokalizację obszaru roboczego. Domyślnie zostanie użyty katalog roboczy bieżącego procesu. Zwróć uwagę na małe litery "l".
 
 ```console
 azurite -l c:\azurite
@@ -248,7 +248,7 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>Dziennik dostępu
 
-**Opcjonalna** — domyślnie Dziennik dostępu jest wyświetlany w oknie konsoli. Wyłącz wyświetlanie dziennika dostępu przy użyciu przełącznika `-s` lub. `--silent`
+**Opcjonalna** — domyślnie Dziennik dostępu jest wyświetlany w oknie konsoli. Wyłącz wyświetlanie dziennika dostępu przy użyciu `-s` `--silent` przełącznika lub.
 
 ```console
 azurite -s
@@ -265,7 +265,7 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>Tryb luźny
 
-**Opcjonalna** — domyślnie azurite stosuje tryb ścisły do blokowania nieobsługiwanych nagłówków i parametrów żądania. Wyłącz tryb Strict przy użyciu przełącznika `-L` lub `--loose` . Zanotuj wielką literę "L".
+**Opcjonalna** — domyślnie azurite stosuje tryb ścisły do blokowania nieobsługiwanych nagłówków i parametrów żądania. Wyłącz tryb Strict przy użyciu `-L` przełącznika lub `--loose` . Zanotuj wielką literę "L".
 
 ```console
 azurite -L
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>Wersja
 
-**Opcjonalne** — wyświetla zainstalowany numer wersji azurite przy użyciu przełącznika `-v` lub. `--version`
+**Opcjonalne** — wyświetla zainstalowany numer wersji azurite przy użyciu `-v` `--version` przełącznika lub.
 
 ```console
 azurite -v
@@ -307,7 +307,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> Uwierzytelnianie OAuth wymaga punktu końcowego HTTPS. Upewnij się, że protokół HTTPS jest `--cert` włączony, dostarczając przełącznik `--oauth` wraz z przełącznikiem.
+> Uwierzytelnianie OAuth wymaga punktu końcowego HTTPS. Upewnij się, że protokół HTTPS jest włączony, dostarczając `--cert` przełącznik wraz z `--oauth` przełącznikiem.
 
 Azurite obsługuje uwierzytelnianie podstawowe przez określenie `basic` parametru `--oauth` przełącznika. Azurite będzie wykonywać uwierzytelnianie podstawowe, takie jak Weryfikowanie przychodzącego tokenu okaziciela, sprawdzanie wystawcy, odbiorców i wygasanie. Azurite nie sprawdza podpisu ani uprawnień tokenu.
 
@@ -326,7 +326,7 @@ Azurite akceptuje to samo dobrze znane konto i klucz używany przez starszy emul
 
 ### <a name="custom-storage-accounts-and-keys"></a>Niestandardowe konta magazynu i klucze
 
-Azurite obsługuje niestandardowe nazwy kont magazynu i klucze przez ustawienie zmiennej `AZURITE_ACCOUNTS` środowiskowej w następującym formacie: `account1:key1[:key2];account2:key1[:key2];...`.
+Azurite obsługuje niestandardowe nazwy kont magazynu i klucze przez ustawienie `AZURITE_ACCOUNTS` zmiennej środowiskowej w następującym formacie: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Na przykład Użyj niestandardowego konta magazynu, które ma jeden klucz:
 
@@ -461,20 +461,22 @@ Za pomocą Eksplorator usługi Storage można wyświetlić dane przechowywane w 
 
 W Eksplorator usługi Storage Połącz się z usługą azurite, wykonując następujące czynności:
 
- 1. Wybierz ikonę **Dodaj konto**
+ 1. Wybierz ikonę **Zarządzaj kontami**
+ 1. Wybierz pozycję **Dodaj konto**
  1. Wybierz opcję **Dołącz do lokalnego emulatora**
  1. Wybierz pozycję **dalej**
+ 1. Edytuj pole **nazwy wyświetlanej** pod wybraną nazwą
  1. Ponownie wybierz pozycję **dalej**
  1. Wybierz pozycję **Połącz**
 
 #### <a name="connect-to-azurite-using-https"></a>Nawiązywanie połączenia z usługą azurite przy użyciu protokołu HTTPS
 
-Domyślnie Eksplorator usługi Storage nie otworzy punktu końcowego HTTPS, który używa certyfikatu z podpisem własnym. Jeśli korzystasz z programu azurite z protokołem HTTPS, możesz użyć certyfikatu z podpisem własnym. W Eksplorator usługi Storage zaimportuj certyfikaty SSL za pomocą okna dialogowego **Edytowanie** -> **certyfikatów SSL** -> **Importuj certyfikaty** .
+Domyślnie Eksplorator usługi Storage nie otworzy punktu końcowego HTTPS, który używa certyfikatu z podpisem własnym. Jeśli korzystasz z programu azurite z protokołem HTTPS, możesz użyć certyfikatu z podpisem własnym. W Eksplorator usługi Storage zaimportuj certyfikaty SSL za pomocą okna dialogowego **Edytowanie**certyfikatów  ->  **SSL**  ->  **Importuj certyfikaty** .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importuj certyfikat do Eksplorator usługi Storage
 
 1. Znajdź certyfikat na komputerze lokalnym.
-1. W Eksplorator usługi Storage przejdź do pozycji **Edycja** -> **certyfikatów** -> SSL**Importuj certyfikaty** i zaimportuj certyfikat.
+1. W Eksplorator usługi Storage przejdź do pozycji **Edycja**  ->  **certyfikatów SSL**  ->  **Importuj certyfikaty** i zaimportuj certyfikat.
 
 Jeśli certyfikat nie zostanie zaimportowany, zostanie wyświetlony komunikat o błędzie:
 

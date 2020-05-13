@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888791"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195905"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
@@ -124,9 +124,9 @@ Zdarzenia diagnostyczne są wysyłane do Log Analytics po zakończeniu.
 
 Log Analytics tylko raporty w tych Stanach pośrednich dla działań związanych z połączeniami:
 
-- Rozpoczęto
-- Połączone
-- Zakończone
+- Rozpoczęto: gdy użytkownik wybierze i nawiąże połączenie z aplikacją lub pulpitem w kliencie Pulpit zdalny.
+- Połączono: w przypadku pomyślnego nawiązania połączenia przez użytkownika z maszyną wirtualną, na której znajduje się aplikacja lub pulpit.
+- Ukończono: Kiedy użytkownik lub serwer rozłącza sesję, w której nastąpiło działanie.
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 

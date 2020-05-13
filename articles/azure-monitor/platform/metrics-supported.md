@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128448"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196630"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -21,18 +21,24 @@ ms.locfileid: "82128448"
 
 Azure Monitor oferuje kilka sposobów współpracy z metrykami, w tym wykresów w portalu, uzyskiwania do nich dostępu za pośrednictwem interfejsu API REST lub wykonywania zapytań przy użyciu programu PowerShell lub interfejsu wiersza polecenia. 
 
-Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Lista została ostatnio zaktualizowana 27 marca, 2020. Metryki zostały zmienione lub dodane po tej dacie mogą nie być wyświetlane poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Ten artykuł to kompletna lista wszystkich platform (które są zbierane automatycznie), które są obecnie dostępne w ramach skonsolidowanego potoku metryki Azure Monitor. Lista została ostatnio zaktualizowana 27 marca, 2020. Metryki zostały zmienione lub dodane po tej dacie mogą nie być wyświetlane poniżej. Aby wykonać zapytanie o i uzyskać dostęp do listy metryk programowo, użyj [wersji interfejsu api 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Inne metryki, których nie ma na tej liście, mogą być dostępne w portalu lub przy użyciu starszych interfejsów API.
 
-Inne metryki mogą być dostępne w portalu lub przy użyciu starszych interfejsów API. Metryki dla systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w usłudze Azure Virtual Machines, Service Fabric i Cloud Services **nie** są wyświetlane w tym miejscu. Muszą one być zbierane przez co najmniej jednego agenta, który działa w systemie lub w ramach systemu operacyjnego. Metryki agentów można wysyłać do bazy danych metryk platformy przy użyciu interfejsu API [metryk niestandardowych](metrics-custom-overview.md) , które są obecnie dostępne w publicznej wersji zapoznawczej. Następnie możesz wykresów, alertów i w inny sposób używać metryk systemu operacyjnego gościa, takich jak metryki platformy. Aby uzyskać więcej informacji, zobacz [Omówienie agentów monitorowania](agents-overview.md).    
+Metryki są zorganizowane według dostawców zasobów i typów zasobów. Aby uzyskać listę usług i dostawców zasobów, które należą do nich, zobacz [dostawcy zasobów dla usług platformy Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-Metryki są zorganizowane według przestrzeni nazw. Aby uzyskać listę usług i przestrzenie nazw, które należą do nich, zobacz [dostawcy zasobów dla usług platformy Azure](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> Wysyłanie metryk wielowymiarowych za pomocą ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach.
->
-> *Na przykład*: metrykę „Komunikaty przychodzące” w centrum zdarzeń można przeglądać i przedstawiać na wykresie na poziomie pojedynczej kolejki. Jednak w przypadku eksportowania za pomocą ustawień diagnostycznych metryka ta jest przedstawiana jako wszystkie komunikaty przychodzące we wszystkich kolejkach w centrum zdarzeń.
->
-> Aby uzyskać listę metryk platformy, które można eksportować za pośrednictwem ustawień diagnostycznych, zobacz [ten artykuł](metrics-supported-export-diagnostic-settings.md).
+## <a name="guest-os-metrics"></a>Metryki systemu operacyjnego gościa
+
+Metryki dla systemu operacyjnego gościa (systemu operacyjnego gościa) działającego w usłudze Azure Virtual Machines, Service Fabric i Cloud Services **nie** są wyświetlane w tym miejscu. Zamiast tego metryki wydajności systemu operacyjnego gościa muszą być zbierane za pomocą co najmniej jednego agenta, który działa w systemie lub w ramach systemu operacyjnego gościa.  Metryki systemu operacyjnego gościa obejmują liczniki wydajności, które śledzą użycie procesora CPU gościa lub pamięci, z których oba są często używane do automatycznego skalowania lub generowania alertów.  Korzystając z [rozszerzenia Diagnostyka Azure](diagnostics-extension-overview.md), można wysyłać metryki wydajności systemu operacyjnego gościa do tej samej bazy danych, w której są przechowywane metryki platformy. Kieruje metryki systemu operacyjnego gościa za pomocą interfejsu API [metryk niestandardowych](metrics-custom-overview.md) . Następnie możesz wykresów, alertów i w inny sposób używać metryk systemu operacyjnego gościa, takich jak metryki platformy. Aby uzyskać więcej informacji, zobacz [Omówienie agentów monitorowania](agents-overview.md).    
+
+## <a name="routing-platform-metrics-to-other-locations"></a>Metryki platformy routingu do innych lokalizacji
+
+[Ustawienia diagnostyczne](diagnostic-settings.md) umożliwiają kierowanie metryk platformy do usługi Azure Storage, dzienników Azure monitor (a tym samym log Analytics) i centrów zdarzeń.  
+
+Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formularz, w którym są przechowywane. 
+- Nie wszystkie metryki są eksportowane do innych lokalizacji. Aby uzyskać listę metryk platformy, które można eksportować za pośrednictwem ustawień diagnostycznych, zobacz [ten artykuł](metrics-supported-export-diagnostic-settings.md).
+
+- Wysyłanie metryk wielowymiarowych do innych lokalizacji za pośrednictwem ustawień diagnostycznych nie jest obecnie obsługiwane. Metryki wielowymiarowe są eksportowane jako spłaszczone metryki jednowymiarowe z wartościami zagregowanymi we wszystkich wymiarach.
+*Na przykład*: metrykę „Komunikaty przychodzące” w centrum zdarzeń można przeglądać i przedstawiać na wykresie na poziomie pojedynczej kolejki. Jednak w przypadku eksportowania za pomocą ustawień diagnostycznych metryka ta jest przedstawiana jako wszystkie komunikaty przychodzące we wszystkich kolejkach w centrum zdarzeń.
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft. AnalysisServices/serwery
@@ -242,18 +248,18 @@ Metryki są zorganizowane według przestrzeni nazw. Aby uzyskać listę usług i
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|connectedclients|Podłączeni klienci|Liczba|Maksimum||ShardId|
+|connectedclients|Połączeni klienci|Liczba|Maksimum||ShardId|
 |totalcommandsprocessed|Łączna liczba operacji|Liczba|Łącznie||ShardId|
-|cachehits|Trafienia pamięci podręcznej|Liczba|Łącznie||ShardId|
+|cachehits|Trafienia w pamięci podręcznej|Liczba|Łącznie||ShardId|
 |cachemisses|Chybienia w pamięci podręcznej|Liczba|Łącznie||ShardId|
 |cachemissrate|Współczynnik chybień w pamięci podręcznej|Wartość procentowa|cachemissrate||ShardId|
-|GetCommands|Kto|Liczba|Łącznie||ShardId|
+|GetCommands|Pobrania|Liczba|Łącznie||ShardId|
 |SetCommands|Zestawy|Liczba|Łącznie||ShardId|
 |operationsPerSecond|Liczba operacji na sekundę|Liczba|Maksimum||ShardId|
 |evictedkeys|Wykluczone klucze|Liczba|Łącznie||ShardId|
 |totalkeys|Łączna liczba kluczy|Liczba|Maksimum||ShardId|
 |expiredkeys|Wygasłe klucze|Liczba|Łącznie||ShardId|
-|usedmemory|Używana pamięć|Bajty|Maksimum||ShardId|
+|usedmemory|Użyta pamięć|Bajty|Maksimum||ShardId|
 |usedmemorypercentage|Wartość procentowa używanej pamięci|Wartość procentowa|Maksimum||ShardId|
 |usedmemoryRss|Używana pamięć RSS|Bajty|Maksimum||ShardId|
 |serverLoad|Obciążenie serwera|Wartość procentowa|Maksimum||ShardId|
@@ -953,7 +959,7 @@ Metryki są zorganizowane według przestrzeni nazw. Aby uzyskać listę usług i
 |D2C. endpoints. opóźnienie. Storage|Routing: opóźnienie komunikatu dla magazynu|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów telemetrycznych w punkcie końcowym magazynu.|Brak|
 |D2C. endpoints. ruch wychodzący. Storage. Bytes|Routing: dane dostarczane do magazynu|Bajty|Łącznie|Ilość danych (w bajtach) IoT Hub Routing dostarczany do punktów końcowych magazynu.|Brak|
 |D2C. endpoints. dane wyjściowe. Storage. blob|Routing: obiekty blob dostarczane do magazynu|Liczba|Łącznie|Ile razy usługa Routing IoT Hub dostarczać obiekty blob do punktów końcowych magazynu.|Brak|
-|EventGridDeliveries|Dostawy Event Grid (wersja zapoznawcza)|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia (https://aka.ms/ioteventgrid).|ResourceId, wynik, typ zdarzenia|
+|EventGridDeliveries|Dostawy Event Grid (wersja zapoznawcza)|Liczba|Łącznie|Liczba zdarzeń IoT Hub opublikowanych do Event Grid. Użyj wymiaru wynik dla liczby żądań zakończonych powodzeniem i niepowodzeniem. Wymiar EventType przedstawia typ zdarzenia ( https://aka.ms/ioteventgrid) .|ResourceId, wynik, typ zdarzenia|
 |EventGridLatency|Opóźnienie Event Grid (wersja zapoznawcza)|)|Średnia|Średnie opóźnienie (w milisekundach) od momentu wygenerowania zdarzenia usługi IoT Hub po opublikowaniu zdarzenia w Event Grid. Ta liczba jest średnia między wszystkimi typami zdarzeń. Użyj wymiaru EventType, aby zobaczyć opóźnienie określonego typu zdarzenia.|ResourceId, EventType|
 |RoutingDeliveries|Dostawy routingu (wersja zapoznawcza)|)|Łącznie|Liczba prób dostarczenia komunikatów do wszystkich punktów końcowych przy użyciu routingu przez IoT Hub. Aby sprawdzić liczbę prób zakończonych powodzeniem lub nieudanych, użyj wymiaru wynik. Aby zobaczyć przyczynę niepowodzenia, na przykład nieprawidłowe, porzucone lub oddzielone, użyj wymiaru FailureReasonCategory. Można również użyć wymiarów EndpointName i EndpointType, aby zrozumieć, ile komunikatów zostało dostarczonych do różnych punktów końcowych. Wartość metryki zwiększa się o jeden dla każdej próby dostarczenia, w tym, jeśli wiadomość jest dostarczana do wielu punktów końcowych, lub jeśli wiadomość jest przekazywana do tego samego punktu końcowego wiele razy.|ResourceId, EndpointType, EndpointName, FailureReasonCategory, Result, RoutingSource|
 |RoutingDeliveryLatency|Opóźnienie dostarczania routingu (wersja zapoznawcza)|)|Średnia|Średnie opóźnienie (w milisekundach) między komunikatami przychodzącymi do IoT Hub i komunikatów telemetrycznych w punkcie końcowym. Można użyć wymiarów EndpointName i EndpointType, aby zrozumieć opóźnienia dla różnych punktów końcowych.|ResourceId, EndpointType, EndpointName, RoutingSource|
@@ -1013,7 +1019,7 @@ Metryki są zorganizowane według przestrzeni nazw. Aby uzyskać listę usług i
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
 |Addregion|Dodano region|Liczba|Liczba|Dodano region|Region|
-|AvailableStorage|Dostępna pamięć|Bajty|Łącznie|Łączna ilość dostępnego magazynu zgłoszona z dokładnością do 5 minut|CollectionName, DatabaseName, region|
+|AvailableStorage|Dostępny magazyn|Bajty|Łącznie|Łączna ilość dostępnego magazynu zgłoszona z dokładnością do 5 minut|CollectionName, DatabaseName, region|
 |CassandraConnectionClosures|Zamknięcia połączeń Cassandra|Liczba|Łącznie|Liczba zamkniętych połączeń Cassandra, które zostały zgłoszone z dokładnością do 1 minuty|APIType, region, ClosureReason|
 |CassandraKeyspaceDelete|Cassandra usunięto przestrzeń kluczy|Liczba|Liczba|Cassandra usunięto przestrzeń kluczy|ResourceName, rodzaju interfejsu API, ApiKindResourceType, OperationType|
 |CassandraKeyspaceThroughputUpdate|Cassandra przepustowość obszaru kluczy|Liczba|Liczba|Cassandra przepustowość obszaru kluczy|ResourceName, rodzaju interfejsu API, ApiKindResourceType, IsThroughputRequest|

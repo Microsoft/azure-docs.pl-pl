@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274478"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196230"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standardowe właściwości w dziennikach Azure Monitor
 Dane w dziennikach Azure Monitor są [przechowywane jako zestaw rekordów w obszarze roboczym log Analytics lub w aplikacji Application Insights](../log-query/logs-structure.md), z których każdy ma określony typ danych, który ma unikatowy zestaw właściwości. Wiele typów danych będzie zawierać standardowe właściwości, które są wspólne dla wielu typów. W tym artykule opisano te właściwości i przedstawiono przykłady korzystania z nich w zapytaniach.
+
+> [!IMPORTANT]
+> Jeśli używasz APM 2,1, Application Insights aplikacje są przechowywane w obszarze roboczym Log Analytics ze wszystkimi innymi danymi dziennika. Tabele zostały zmienione i zmieniono ich strukturę, ale zawierają te same informacje co tabele w aplikacji Application Insights. Te nowe tabele mają takie same właściwości standardowe, jak inne tabele w obszarze roboczym Log Analytics.
 
 > [!NOTE]
 > Niektóre z właściwości standardowych nie będą wyświetlane w widoku schematu ani IntelliSense w Log Analytics i nie będą wyświetlane w wynikach zapytania, chyba że jawnie określisz właściwość w danych wyjściowych.
@@ -46,9 +49,9 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-Właściwość ** \_TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
+Właściwość ** \_ TimeReceived** zawiera datę i godzinę odebrania rekordu przez punkt pozyskiwania Azure monitor w chmurze platformy Azure. Może to być przydatne do identyfikowania problemów opóźnienia między źródłem danych i chmurą. Przykładem może być problem z siecią, powodujący opóźnienie przesyłania danych z agenta. Aby uzyskać więcej informacji, zobacz czas pozyskiwania [danych dziennika w Azure monitor](data-ingestion-time.md) .
 
-Następujące zapytanie zwraca średni czas oczekiwania (według godziny) dla rekordów zdarzeń z agenta. Obejmuje to czas od agenta do chmury oraz całkowity czas dostępności rekordu dla zapytań dzienników.
+Następujące zapytanie zwraca średni czas oczekiwania (według godziny) dla rekordów zdarzeń z agenta. Obejmuje to czas od agenta do chmury oraz łączny czas dla rekordu, który będzie dostępny dla zapytań dzienników.
 
 ```Kusto
 Event
@@ -60,7 +63,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>Typ i itemType
-Właściwości **Type** (log Analytics Workspace) i **ItemType** (Application Insights Application) zawierają nazwę tabeli, z której został pobrany rekord, który może być również uważany za typ rekordu. Ta właściwość jest przydatna w zapytaniach, które łączą rekordy z wielu tabel, takich jak `search` te, które używają operatora, aby rozróżnić rekordy różnych typów. **$Table** można używać zamiast **typu** w niektórych miejscach.
+Właściwości **Type** (log Analytics Workspace) i **ItemType** (Application Insights Application) zawierają nazwę tabeli, z której został pobrany rekord, który może być również uważany za typ rekordu. Ta właściwość jest przydatna w zapytaniach, które łączą rekordy z wielu tabel, takich jak te, które używają `search` operatora, aby rozróżnić rekordy różnych typów. **$Table** można używać zamiast **typu** w niektórych miejscach.
 
 ### <a name="examples"></a>Przykłady
 Następujące zapytanie zwraca liczbę rekordów według typu zebranych w ciągu ostatniej godziny.
@@ -72,11 +75,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_Elementów
-Właściwość ** \_ItemId** posiada unikatowy identyfikator rekordu.
+Właściwość ** \_ ItemId** posiada unikatowy identyfikator rekordu.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-Właściwość ** \_ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową Właściwość służącą do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi powiązanymi między wieloma tabelami.
+Właściwość ** \_ ResourceID** zawiera unikatowy identyfikator zasobu, z którym jest skojarzony rekord. Zapewnia to standardową Właściwość służącą do określania zakresu zapytania tylko do rekordów z określonego zasobu lub do łączenia się z danymi powiązanymi między wieloma tabelami.
 
 W przypadku zasobów platformy Azure wartość **_ResourceId** jest [adresem URL identyfikatora zasobu platformy Azure](../../azure-resource-manager/templates/template-functions-resource.md). Właściwość jest obecnie ograniczona do zasobów platformy Azure, ale zostanie rozszerzona o zasoby spoza platformy Azure, takie jak komputery lokalne.
 
@@ -119,10 +122,10 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Te zapytania `union withsource = tt *` są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
+Te `union withsource = tt *` zapytania są oszczędnie zależą od tego, jak skanowanie między typami danych jest kosztowne.
 
 ## <a name="_isbillable"></a>\_Ismiliard
-Właściwość isbilled określa, czy są naliczane opłaty za pozyskiwane dane. ** \_** Dane z ** \_ismiliardem** równym _wartości false_ są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
+Właściwość ** \_ isbilled** określa, czy są naliczane opłaty za pozyskiwane dane. Dane z ** \_ ** niepłatną opłatą `false` są zbierane bezpłatnie i nie są naliczane za Twoje konto platformy Azure.
 
 ### <a name="examples"></a>Przykłady
 Aby uzyskać listę komputerów wysyłających typy danych, należy użyć następującej kwerendy:
@@ -149,11 +152,11 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-Właściwość ** \_BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na konto platformy Azure ** \_, jeśli jest** to wartość true.
+Właściwość ** \_ BilledSize** określa rozmiar w bajtach danych, które będą rozliczane na konto platformy Azure, jeśli jest ** \_ ** to wartość true.
 
 
 ### <a name="examples"></a>Przykłady
-Aby wyświetlić wielkość rozliczania zdarzeń pobieranych na komputer, użyj `_BilledSize` właściwości, która zapewnia rozmiar w bajtach:
+Aby wyświetlić wielkość rozliczania zdarzeń pobieranych na komputer, użyj właściwości, `_BilledSize` która zapewnia rozmiar w bajtach:
 
 ```Kusto
 union withsource = tt * 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100281"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196177"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server migracji wystąpień do Azure SQL Database wystąpienia zarządzanego
 
@@ -43,9 +43,7 @@ Na wysokim poziomie proces migracji bazy danych wygląda następująco:
 
 Najpierw Ustal, czy wystąpienie zarządzane jest zgodne z wymaganiami bazy danych aplikacji. Opcja wdrożenia wystąpienia zarządzanego została zaprojektowana w celu zapewnienia łatwego przenoszenia i przesunięcia w przypadku większości istniejących aplikacji, które używają SQL Server lokalnie lub na maszynach wirtualnych. Czasami jednak może być wymagana funkcja lub możliwości, które nie są jeszcze obsługiwane, a koszt wdrożenia obejścia jest zbyt duży.
 
-Użyj [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością, które mają wpływ na funkcjonalność bazy danych na Azure SQL Database. Usługa DMA nie obsługuje jeszcze wystąpienia zarządzanego jako miejsca docelowego migracji, ale zaleca się przeprowadzenie oceny pod kątem Azure SQL Database i starannie przejrzeć listę raportowanych problemów z obsługą funkcji i zgodności z dokumentacją produktu. Zobacz [Azure SQL Database funkcje](sql-database-features.md) do sprawdzania, czy zgłoszono pewne problemy z blokowaniem, które nie są blokowane w wystąpieniu zarządzanym, ponieważ większość problemów z blokowaniem, które uniemożliwiają migrację do Azure SQL Database, zostały usunięte z wystąpienia zarządzanego. Na przykład funkcje, takie jak zapytania między bazami danych, transakcje między bazami danych w tym samym wystąpieniu, połączonego serwera z innymi źródłami SQL, CLR, globalne tabele tymczasowe, widoki na poziomie wystąpienia, Service Broker i podobne są dostępne w wystąpieniach zarządzanych.
-
-W przypadku problemów z blokowaniem, które nie zostały usunięte z opcją wdrożenia wystąpienia zarządzanego, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server na maszynach wirtualnych platformy Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Oto kilka przykładów:
+Użyj [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością, które mają wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server w usłudze Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Poniżej przedstawiono kilka przykładów:
 
 - Jeśli wymagany jest bezpośredni dostęp do systemu operacyjnego lub systemu plików, na przykład w celu zainstalowania niestandardowych agentów na tej samej maszynie wirtualnej z SQL Server.
 - Jeśli masz ścisłą zależność od funkcji, które nadal nie są obsługiwane, takich jak transakcje typu FileStream/FileTable, wielopodstawowy i międzywystąpień.
@@ -53,6 +51,7 @@ W przypadku problemów z blokowaniem, które nie zostały usunięte z opcją wdr
 - Jeśli wymagania dotyczące obliczeń są znacznie niższe, w przypadku których oferty wystąpienia zarządzanego (jedna rdzeń wirtualny, na przykład) i konsolidacja bazy danych nie są akceptowalne.
 
 Jeśli zostały rozpoznane wszystkie zidentyfikowane blokady migracji i kontynuowanie migracji do wystąpienia zarządzanego, należy pamiętać, że niektóre zmiany mogą wpływać na wydajność obciążeń:
+
 - Obowiązkowy model odzyskiwania pełnego i regularne automatyczne harmonogramy tworzenia kopii zapasowych mogą mieć wpływ na wydajność zadań związanych z obciążeniem lub konserwacją/ETL, jeśli okresowo używany jest prosty/zarejestrowany w całości model lub zatrzymane kopie zapasowe na żądanie.
 - Różne konfiguracje na poziomie serwera lub bazy danych, takie jak flagi śledzenia lub poziomy zgodności
 - Nowe funkcje, takie jak szyfrowanie przezroczystej bazy danych (TDE) lub grupy autopracy awaryjnej, mogą mieć wpływ na użycie procesora CPU i operacji we/wy.
@@ -181,7 +180,7 @@ Zmień parametry lub warstwy usługi uaktualniania na zbieżność z optymalną 
 Wystąpienie zarządzane udostępnia wiele zaawansowanych narzędzi do monitorowania i rozwiązywania problemów oraz służy do monitorowania wydajności w wystąpieniu. Oto niektóre z parametrów, które muszą być monitorowane:
 - Użycie procesora CPU w wystąpieniu w celu ustalenia, czy liczba zainicjowanych rdzeni wirtualnych jest właściwym dopasowaniem dla obciążenia.
 - Stron życia strony na wystąpieniu zarządzanym, aby określić [, czy potrzebna jest dodatkowa pamięć](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Zaczekaj `INSTANCE_LOG_GOVERNOR` na `PAGEIOLATCH` to, że dane statystyczne zawierają problemy ze stanem operacji we/wy magazynu, szczególnie w przypadku warstwy ogólnego przeznaczenia, w której może być konieczne wstępne przydzielenie plików w celu uzyskania lepszej wydajności operacji we/wy.
+- Zaczekaj `INSTANCE_LOG_GOVERNOR` na to, że dane statystyczne `PAGEIOLATCH` zawierają problemy ze stanem operacji we/wy magazynu, szczególnie w przypadku warstwy ogólnego przeznaczenia, w której może być konieczne wstępne przydzielenie plików w celu uzyskania lepszej wydajności operacji we/wy.
 
 ## <a name="leverage-advanced-paas-features"></a>Korzystanie z zaawansowanych funkcji PaaS
 

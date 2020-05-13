@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676932"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197588"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
@@ -34,7 +34,7 @@ Na przykład, jeśli optymalizator szacuje, że data filtrowania zapytania zwró
 
 ### <a name="automatic-creation-of-statistics"></a>Automatyczne tworzenie statystyk
 
-Pula SQL będzie analizować przychodzące zapytania użytkownika pod kątem braku statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest `ON`ustawiona na.  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. Ta funkcja służy do poprawiania oszacowania kardynalności dla planu zapytania.
+Pula SQL będzie analizować przychodzące zapytania użytkownika pod kątem braku statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest ustawiona na `ON` .  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. Ta funkcja służy do poprawiania oszacowania kardynalności dla planu zapytania.
 
 > [!IMPORTANT]
 > Automatyczne tworzenie statystyk jest obecnie domyślnie włączone.
@@ -149,7 +149,7 @@ Następujące zasady dotyczące identyfikatorów GUID są udostępniane do aktua
 - Skup się na kolumnach uczestniczących w klauzulach JOIN, GROUP BY, ORDER BY i DISTINCT.
 - Warto rozważyć aktualizowanie kolumn "Ascending Key", takich jak daty transakcji, ponieważ te wartości nie zostaną uwzględnione w histogramie statystyki.
 - Należy rozważyć częste Aktualizowanie statycznych kolumn dystrybucji.
-- Należy pamiętać, że każdy obiekt statystyki jest aktualizowany w kolejności. Po prostu `UPDATE STATISTICS <TABLE_NAME>` implementacja nie zawsze jest idealnym rozwiązaniem, szczególnie w przypadku szerokich tabel zawierających wiele obiektów statystyk.
+- Należy pamiętać, że każdy obiekt statystyki jest aktualizowany w kolejności. Po prostu implementacja `UPDATE STATISTICS <TABLE_NAME>` nie zawsze jest idealnym rozwiązaniem, szczególnie w przypadku szerokich tabel zawierających wiele obiektów statystyk.
 
 Aby uzyskać więcej informacji, zobacz [oszacowanie kardynalności](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
@@ -239,7 +239,7 @@ Aby utworzyć obiekt statystyk z wieloma kolumnami, należy użyć powyższych p
 > [!NOTE]
 > Histogram, który jest używany do oszacowania liczby wierszy w wyniku zapytania, jest dostępny tylko dla pierwszej kolumny wymienionej w definicji obiektu statystyki.
 
-W tym przykładzie histogram znajduje się w *kategorii Product\_(produkt*). Statystyki między kolumnami są obliczane na *podstawie\_kategorii produktu* i *sub_category produktu\_*:
+W tym przykładzie histogram znajduje się w * \_ kategorii Product (produkt*). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i * \_ sub_category produktu*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ istnieje korelacja między *kategorią produktu\_* a *\_podrzędną\_kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
+Ponieważ istnieje korelacja między * \_ kategorią produktu* a * \_ podrzędną \_ kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli te kolumny są dostępne w tym samym czasie.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Tworzenie statystyk dla wszystkich kolumn w tabeli
 
@@ -611,6 +611,8 @@ W poniższych przykładach pokazano, jak używać różnych opcji tworzenia stat
 
 > [!NOTE]
 > W tej chwili można utworzyć statystyki pojedynczej kolumny.
+>
+> Nazwa procedury sp_create_file_statistics zostanie zmieniona na sp_create_openrowset_statistics. Rola serwera publicznego ma przyznane uprawnienie do ADMINISTROWANia OPERACJAmi ZBIORCZymi, gdy rola publicznej bazy danych ma uprawnienia do wykonywania w sp_create_file_statistics i sp_drop_file_statistics. Można to zmienić w przyszłości.
 
 Następująca procedura składowana służy do tworzenia statystyk:
 
@@ -695,6 +697,9 @@ Aby zaktualizować statystyki, należy porzucić i utworzyć statystyki. Poniżs
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
+> [!NOTE]
+> Nazwa procedury sp_drop_file_statistics zostanie zmieniona na sp_drop_openrowset_statistics. Rola serwera publicznego ma przyznane uprawnienie do ADMINISTROWANia OPERACJAmi ZBIORCZymi, gdy rola publicznej bazy danych ma uprawnienia do wykonywania w sp_create_file_statistics i sp_drop_file_statistics. Można to zmienić w przyszłości.
 
 Argumenty: [ @stmt =] N "statement_text" — określa tę samą instrukcję Transact-SQL używaną podczas tworzenia statystyk.
 

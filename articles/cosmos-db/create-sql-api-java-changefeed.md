@@ -1,19 +1,19 @@
 ---
 title: Tworzenie przykładowej aplikacji do Azure Cosmos DB Java SDK v4 przy użyciu kanału zmiany
-description: Ten przewodnik zawiera szczegółowe instrukcje dotyczące prostej aplikacji interfejsu API języka Java, która wstawia dokumenty do kontenera Azure Cosmos DB, zachowując materiałowy widok kontenera za pomocą źródła zmian.
-author: anfeldma
+description: Ten przewodnik przeprowadzi Cię przez prostą aplikację interfejsu API SQL języka Java, która wstawia dokumenty do kontenera Azure Cosmos DB, zachowując materiałowy widok kontenera za pomocą źródła zmian.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996509"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125676"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Jak utworzyć aplikację Java, która używa Azure Cosmos DB interfejsu API SQL i procesora źródła zmian
 
@@ -73,7 +73,7 @@ mvn clean package
 
     następnie wróć do Eksplorator danych Azure Portal w przeglądarce. Zobaczysz, że baza danych **GroceryStoreDatabase** została dodana z trzema pustymi kontenerami: 
 
-    * **InventoryContainer** — rekord spisu dla naszego przykładowego sklepu w postaci spożywczej, podzielony ```id``` na element, który jest identyfikatorem UUID.
+    * **InventoryContainer** — rekord spisu dla naszego przykładowego sklepu w postaci spożywczej, podzielony na element, ```id``` który jest identyfikatorem UUID.
     * **InventoryContainer-pktype** — materiałowy widok rekordu spisu zoptymalizowany pod kątem zapytań względem elementu```type```
     * **InventoryContainer-leases** — kontener dzierżawy jest zawsze wymagany dla źródła zmian; dzierżawy śledzą postęp aplikacji w odczytaniu źródła zmian.
 
@@ -100,7 +100,7 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start
+    while (!isProcessorRunning.get()); //Wait for change feed processor start
     ```
 
     ```"SampleHost_1"```jest nazwą procesu roboczego procesora źródła zmian. ```changeFeedProcessorInstance.start()```Czy w rzeczywistości zaczyna się procesorem źródła zmian.
@@ -138,19 +138,19 @@ mvn clean package
     }
     ```
 
-1. Zezwól na uruchomienie kodu 5-10sec. Następnie wróć do Azure Portal Eksplorator danych i przejdź do **InventoryContainer > elementów**. Należy zobaczyć, że elementy są wstawiane do kontenera spisu; Zanotuj klucz partycji (```id```).
+1. Zezwól na uruchomienie kodu 5-10sec. Następnie wróć do Azure Portal Eksplorator danych i przejdź do **InventoryContainer > elementów**. Należy zobaczyć, że elementy są wstawiane do kontenera spisu; Zanotuj klucz partycji ( ```id``` ).
 
     ![Kontener kanału informacyjnego](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. Teraz w Eksplorator danych przejdź do **pozycji > InventoryContainer-pktype**. Jest to widok z materiałami — elementy znajdujące się w tym kontenerze dublowane **InventoryContainer** , ponieważ zostały wstawione programowo przez źródło zmian. Zanotuj klucz partycji (```type```). Dlatego ten widok z materiałami jest zoptymalizowany pod kątem zapytań ```type```filtrowanych, co byłoby niewydajne w **InventoryContainer** , ponieważ jest on podzielony ```id```na partycje.
+1. Teraz w Eksplorator danych przejdź do **pozycji > InventoryContainer-pktype**. Jest to widok z materiałami — elementy znajdujące się w tym kontenerze dublowane **InventoryContainer** , ponieważ zostały wstawione programowo przez źródło zmian. Zanotuj klucz partycji ( ```type``` ). Dlatego ten widok z materiałami jest zoptymalizowany pod kątem zapytań filtrowanych ```type``` , co byłoby niewydajne w **InventoryContainer** , ponieważ jest on podzielony na partycje ```id``` .
 
     ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. Zamierzamy usunąć dokument z zarówno **InventoryContainer** , jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z Azure Portal Eksplorator danych. Usuniemy dokument, dla którego ```/type == "plums"```; jest on otoczony czerwonym kolorem poniżej
+1. Zamierzamy usunąć dokument z zarówno **InventoryContainer** , jak i **InventoryContainer-pktype** przy użyciu tylko jednego ```upsertItem()``` wywołania. Najpierw zapoznaj się z Azure Portal Eksplorator danych. Usuniemy dokument, dla którego ```/type == "plums"``` jest on otoczony czerwono poniżej
 
     ![Zmaterializowany widok](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
-    Ponownie naciśnij klawisz ENTER, aby wywołać ```deleteDocument()``` funkcję w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5```, który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
+    Ponownie naciśnij klawisz ENTER, aby wywołać funkcję ```deleteDocument()``` w przykładowym kodzie. Ta funkcja, pokazana poniżej, upserts nową wersję dokumentu z ```/ttl == 5``` , który ustawia czas wygaśnięcia dokumentu na Live (TTL) na 5Sec. 
     
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -181,7 +181,7 @@ mvn clean package
     }    
     ```
 
-    Kanał informacyjny ```feedPollDelay``` zmiany jest ustawiany na 100 MS; w związku z tym, kanał informacyjny zmiany reaguje na tę ```updateInventoryTypeMaterializedView()``` aktualizację niemal natychmiast i pokazanych powyżej wywołaniach. To ostatnie wywołanie funkcji będzie upsert nowy dokument z wartością TTL 5Sec do **InventoryContainer-pktype**.
+    Kanał informacyjny zmiany ```feedPollDelay``` jest ustawiany na 100 MS; w związku z tym, kanał informacyjny zmiany reaguje na tę aktualizację niemal natychmiast i ```updateInventoryTypeMaterializedView()``` pokazane powyżej wywołania. To ostatnie wywołanie funkcji będzie upsert nowy dokument z wartością TTL 5Sec do **InventoryContainer-pktype**.
 
     Ten efekt jest taki, że po około 5 sekundach dokument utraci ważność i zostanie usunięty z obu kontenerów.
 

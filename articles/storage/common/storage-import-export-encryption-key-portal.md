@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871164"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195254"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Korzystanie z kluczy zarządzanych przez klienta w Azure Key Vault dla usługi Import/Export
 
@@ -99,9 +99,10 @@ Jeśli występują błędy związane z kluczem zarządzanym przez klienta, Skorz
 
 | Kod błędu     |Szczegóły     | Odzyskiwaln?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Zastosowano klucz zarządzany przez klienta, ale dostęp do klucza jest obecnie odwołany. Aby uzyskać więcej informacji, zobacz jak [włączyć dostęp do klucza](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Tak, sprawdź, czy: <ol><li>Magazyn kluczy ma nadal plik MSI w zasadach dostępu.</li><li>Zasady dostępu zapewniają uprawnienia do pobierania, zawijania i depakowania.</li><li>Jeśli magazyn kluczy znajduje się w sieci wirtualnej za zaporą, sprawdź, czy jest włączona funkcja **Zezwalaj na zaufane usługi firmy Microsoft** .</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | Zastosowano klucz zarządzany przez klienta, ale klucz jest wyłączony. Aby uzyskać więcej informacji, zobacz jak [włączyć klucz](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Tak, włączając wersję klucza     |
-| CmkErrorKeyNotFound      | Zastosowano klucz zarządzany przez klienta, ale nie można znaleźć magazynu kluczy skojarzonego z kluczem.<br>Jeśli magazyn kluczy został usunięty, nie można odzyskać klucza zarządzanego przez klienta.  Jeśli przeprowadzono migrację magazynu kluczy do innej dzierżawy, zobacz [zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Jeśli magazyn kluczy został usunięty:<ol><li>Tak, jeśli jest to czas trwania funkcji przeczyszczania i ochrony, wykonaj kroki opisane w sekcji [odzyskiwanie magazynu kluczy](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Nie, jeśli przekracza czas trwania ochrony przed usunięciem.</li></ol><br>W przeciwnym razie, jeśli Magazyn kluczy przeszedł do migracji dzierżawy, można go odzyskać, wykonując jedną z poniższych czynności: <ol><li>Przywróć Magazyn kluczy z powrotem do starej dzierżawy.</li><li>Ustaw `Identity = None` , a następnie ustaw wartość z powrotem `Identity = SystemAssigned`na. Spowoduje to usunięcie i odtworzenie tożsamości po utworzeniu nowej tożsamości. Włącz `Get`, `Wrap`i `Unwrap` uprawnienia do nowej tożsamości w zasadach dostępu magazynu kluczy.</li></ol>|
+| CmkErrorAccessRevoked | Dostęp do klucza zarządzanego przez klienta został odwołany.                                                       | Tak, sprawdź, czy: <ol><li>Magazyn kluczy ma nadal plik MSI w zasadach dostępu.</li><li>Zasady dostępu mają włączone uprawnienia pobieranie, zawijanie i odpakowywanie.</li><li>Jeśli magazyn kluczy znajduje się w sieci wirtualnej za zaporą, sprawdź, czy jest włączona funkcja **Zezwalaj na zaufane usługi firmy Microsoft** .</li><li>Sprawdź, czy plik MSI zasobu zadania został zresetowany do `None` korzystania z interfejsów API.<br>Jeśli tak, a następnie ustaw wartość z powrotem na `Identity = SystemAssigned` . Spowoduje to odtworzenie tożsamości zasobu zadania.<br>Po utworzeniu nowej tożsamości, włączeniu i przypisaniu `Get` `Wrap` `Unwrap` nowej tożsamości w zasadach dostępu magazynu kluczy</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | Klucz zarządzany przez klienta jest wyłączony.                                         | Tak, włączając wersję klucza     |
+| CmkErrorKeyNotFound      | Nie można znaleźć klucza zarządzanego przez klienta. | Tak, jeśli klucz został usunięty, ale nadal trwa przeczyszczanie, za pomocą polecenia [Cofnij usuwanie klucza magazynu kluczy](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Przejmi <ol><li>Tak, jeśli klient ma klucz z kopią zapasową i przywraca go.</li><li>Nie, w przeciwnym razie.</li></ol>
+| CmkErrorVaultNotFound |Nie można odnaleźć magazynu kluczy zarządzanego przez klienta. |   Jeśli magazyn kluczy został usunięty:<ol><li>Tak, jeśli jest to czas trwania funkcji przeczyszczania i ochrony, wykonaj kroki opisane w sekcji [odzyskiwanie magazynu kluczy](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Nie, jeśli przekracza czas trwania ochrony przed usunięciem.</li></ol><br>Jeśli magazyn kluczy został zmigrowany do innej dzierżawy, można go odzyskać przy użyciu jednego z poniższych kroków:<ol><li>Przywróć Magazyn kluczy z powrotem do starej dzierżawy.</li><li>Ustaw `Identity = None` , a następnie ustaw wartość z powrotem na `Identity = SystemAssigned` . Spowoduje to usunięcie i odtworzenie tożsamości po utworzeniu nowej tożsamości. Włącz `Get` , `Wrap` i `Unwrap` uprawnienia do nowej tożsamości w zasadach dostępu magazynu kluczy.</li></ol>|
 
 ## <a name="next-steps"></a>Następne kroki
 

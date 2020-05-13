@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653131"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195130"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows
 
@@ -46,7 +46,7 @@ Następnie uruchom następujące polecenie cmdlet, aby nawiązać połączenie z
 Connect-AzAccount
 ```
 
-Zalogowanie się do konta platformy Azure wymaga kodu, który jest generowany po uruchomieniu polecenia cmdlet Connect. Aby się zalogować, przejdź <https://microsoft.com/devicelogin>do, wprowadź kod, a następnie zaloguj się przy użyciu poświadczeń administratora platformy Azure.
+Zalogowanie się do konta platformy Azure wymaga kodu, który jest generowany po uruchomieniu polecenia cmdlet Connect. Aby się zalogować, przejdź do <https://microsoft.com/devicelogin> , wprowadź kod, a następnie zaloguj się przy użyciu poświadczeń administratora platformy Azure.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Spowoduje to zalogowanie się bezpośrednio do subskrypcji, która jest domyśln
 Jeśli chcesz zmienić domyślną subskrypcję po zalogowaniu, uruchom następujące polecenie cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 W przypadku wybrania nowej subskrypcji, która ma zostać użyta, nie trzeba określać jej identyfikatora w poleceniach cmdlet, które są uruchamiane w późniejszym czasie. Na przykład następujące polecenie cmdlet pobiera określonego hosta sesji bez potrzeby identyfikatora subskrypcji:

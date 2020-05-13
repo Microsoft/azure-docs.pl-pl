@@ -1,18 +1,18 @@
 ---
-title: Oddzielanie danych telemetrycznych na platformie Azure Application Insights
+title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zasobów?
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562155"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125693"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Oddzielanie danych telemetrycznych od opracowywania, testowania i produkcji
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
-Podczas tworzenia kolejnej wersji aplikacji sieci Web nie chcesz mieszać danych telemetrycznych [Application Insights](../../azure-monitor/app/app-insights-overview.md) z nowej wersji i już wydanej wersji. Aby uniknąć nieporozumień, Wyślij dane telemetryczne z różnych etapów tworzenia do oddzielnych zasobów Application Insights przy użyciu oddzielnych kluczy Instrumentacji (kluczy iKey). Aby ułatwić zmianę klucza instrumentacji, ponieważ wersja jest przenoszona z jednego etapu do drugiego, można przystąpić do ustawiania iKey w kodzie, a nie w pliku konfiguracji. 
+Podczas tworzenia kolejnej wersji aplikacji sieci Web nie chcesz mieszać danych telemetrycznych [Application Insights](../../azure-monitor/app/app-insights-overview.md) z nowej wersji i już wydanej wersji. Aby uniknąć nieporozumień, Wyślij dane telemetryczne z różnych etapów tworzenia do oddzielnych zasobów Application Insights przy użyciu oddzielnych kluczy Instrumentacji (kluczy iKey). Aby ułatwić zmianę klucza instrumentacji, ponieważ wersja jest przenoszona z jednego etapu do drugiego, można przystąpić do ustawiania iKey w kodzie, a nie w pliku konfiguracji.
 
 (Jeśli system jest usługą w chmurze Azure, istnieje [inna metoda ustawiania oddzielnych kluczy iKey](../../azure-monitor/app/cloudservices.md)).
 
@@ -22,7 +22,7 @@ Po skonfigurowaniu monitorowania Application Insights dla aplikacji sieci Web na
 
 Każdy zasób Application Insights jest dostarczany z metrykami, które są dostępne jako gotowe. W przypadku całkowitego oddzielenia składników do tego samego Application Insights zasobów te metryki mogą nie mieć sensu dla pulpitu nawigacyjnego/alertu.
 
-### <a name="use-a-single-application-insights-resource"></a>Użyj pojedynczego zasobu Application Insights
+### <a name="when-to-use-a-single-application-insights-resource"></a>Kiedy używać pojedynczego zasobu Application Insights
 
 -   Dla składników aplikacji, które są wdrażane razem. Zwykle opracowywane przez jednego zespołu, zarządzane przez ten sam zestaw użytkowników DevOps/ITOps.
 -   Jeśli warto agregować kluczowe wskaźniki wydajności (KPI), takie jak czasy trwania odpowiedzi, współczynniki niepowodzeń na pulpicie nawigacyjnym itp., wszystkie te ustawienia są domyślnie (można wybrać segment według nazwy roli w Eksplorator metryk środowisku).
@@ -93,7 +93,7 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
 * Zawiń ten wiersz w [inicjatorze telemetrii](../../azure-monitor/app/api-custom-events-metrics.md#defaults) , aby upewnić się, że wszystkie wystąpienia TelemetryClient są skonfigurowane spójnie.
-* [ASP.NET] Ustaw wersję w `BuildInfo.config`. Moduł sieci Web pobierze wersję z węzła BuildLabel. Dołącz ten plik do projektu i pamiętaj, aby ustawić właściwość Copy Always w Eksplorator rozwiązań.
+* [ASP.NET] Ustaw wersję w `BuildInfo.config` . Moduł sieci Web pobierze wersję z węzła BuildLabel. Dołącz ten plik do projektu i pamiętaj, aby ustawić właściwość Copy Always w Eksplorator rozwiązań.
 
     ```XML
 
@@ -121,7 +121,7 @@ Istnieje kilka różnych metod ustawiania właściwości wersji aplikacji.
 
     Etykieta kompilacji zawiera symbol zastępczy (AutoGen_...) podczas kompilowania przy użyciu programu Visual Studio. Ale w przypadku skompilowania przy użyciu programu MSBuild jest on wypełniony prawidłowym numerem wersji.
 
-    Aby umożliwić programowi MSBuild generowanie numerów wersji, ustaw wersję podobną `1.0.*` do AssemblyReference.cs
+    Aby umożliwić programowi MSBuild generowanie numerów wersji, ustaw wersję podobną do `1.0.*` AssemblyReference.cs
 
 ## <a name="version-and-release-tracking"></a>Śledzenie wersji i wydania
 Aby śledzić wersje aplikacji, upewnij się, że plik `buildinfo.config` jest generowany przez proces aparatu Microsoft Build Engine. W `.csproj` pliku Dodaj następujące polecenie:  

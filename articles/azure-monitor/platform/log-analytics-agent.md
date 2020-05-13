@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982211"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196246"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)i [Azure Automation](../../automation/automation-intro.md).
@@ -43,7 +43,7 @@ Poniższa tabela zawiera listę typów danych, które można skonfigurować dla 
 | --- | --- |
 | [Dzienniki zdarzeń systemu Windows](data-sources-windows-events.md) | Informacje wysyłane do systemu rejestrowania zdarzeń systemu Windows. |
 | [Dziennik systemu](data-sources-syslog.md)                     | Informacje wysyłane do systemu rejestrowania zdarzeń w systemie Linux. |
-| [Skuteczności](data-sources-performance-counters.md)  | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
+| [Wydajność](data-sources-performance-counters.md)  | Wartości liczbowe mierzące wydajność różnych aspektów systemu operacyjnego i obciążeń. |
 | [Dzienniki usług IIS](data-sources-iis-logs.md)                 | Informacje o użyciu witryn sieci Web usług IIS działających w systemie operacyjnym gościa. |
 | [Niestandardowe dzienniki](data-sources-custom-logs.md)           | Zdarzenia z plików tekstowych na komputerach z systemem Windows i Linux. |
 
@@ -115,11 +115,11 @@ Począwszy od wersji wydanej po 2018 sierpnia, wprowadzamy następujące zmiany 
 >Jeśli używasz dystrybucji lub wersji, która nie jest obecnie obsługiwana i nie jest zgodna z naszym modelem pomocy technicznej, zalecamy przerozwidlenie tego repozytorium, co oznacza, że pomoc techniczna firmy Microsoft nie będzie świadczyć pomocy z wersjami agentów z rozwidleniami.
 
 * Amazon Linux 2017,09 (x64)
-* CentOS Linux 6 (x86/x64) i 7 (x64)  
-* Oracle Linux 6 i 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) i 7 (x64)
-* Debian GNU/Linux 8 i 9 (x86/x64)
-* Ubuntu 14,04 LTS (x86/x64), 16,04 LTS (x86/x64) i 18,04 LTS (x64)
+* CentOS Linux 6 (x64) i 7 (x64)  
+* Oracle Linux 6 i 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) i 8 (x64)
+* Debian GNU/Linux 8 i 9 (x64)
+* Ubuntu 14,04 LTS (x86/x64), 16,04 LTS (x64) i 18,04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) i 15 (x64)
 
 >[!NOTE]
@@ -201,7 +201,7 @@ W przypadku agenta systemu Linux serwer proxy jest określony podczas instalacji
 Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Jeśli używasz znaków specjalnych, takich jak "\@" w haśle, pojawi się komunikat o błędzie połączenia z serwerem proxy, ponieważ wartość jest analizowana nieprawidłowo.  Aby obejść ten problem, zakoduj hasło w adresie URL przy użyciu narzędzia, takiego jak [UrlDecode](https://www.urldecoder.org/).  
+> Jeśli używasz znaków specjalnych, takich jak " \@ " w haśle, pojawi się komunikat o błędzie połączenia z serwerem proxy, ponieważ wartość jest analizowana nieprawidłowo.  Aby obejść ten problem, zakoduj hasło w adresie URL przy użyciu narzędzia, takiego jak [UrlDecode](https://www.urldecoder.org/).  
 
 
 

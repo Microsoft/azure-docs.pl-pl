@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733264"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125778"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Wysyłanie metryk systemu operacyjnego gościa do Azure Monitor magazynu metryk przy użyciu szablonu Azure Resource Manager dla zestawu skalowania maszyn wirtualnych z systemem Windows
 
@@ -238,8 +238,8 @@ Zapisz i zamknij oba pliki.
 Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:  
 
 1. Uruchom program PowerShell. 
-1. Zaloguj się do platformy Azure `Login-AzAccount`przy użyciu.
-1. Zapoznaj się z listą subskrypcji `Get-AzSubscription`, korzystając z programu.
+1. Zaloguj się do platformy Azure przy użyciu `Login-AzAccount` .
+1. Zapoznaj się z listą subskrypcji, korzystając z programu `Get-AzSubscription` .
 1. Ustaw subskrypcję, którą utworzysz, lub zaktualizuj maszynę wirtualną: 
 
    ```powershell
@@ -252,7 +252,7 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Pamiętaj, aby użyć regionu platformy Azure, który jest włączony dla metryk niestandardowych. Pamiętaj, aby użyć [regionu platformy Azure, który jest włączony dla metryk niestandardowych](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Pamiętaj, aby użyć regionu platformy Azure, który jest włączony dla metryk niestandardowych. Pamiętaj, aby użyć [regionu platformy Azure, który jest włączony dla metryk niestandardowych](./metrics-custom-overview.md#supported-regions).
  
 1. Uruchom następujące polecenia, aby wdrożyć maszynę wirtualną:  
 
@@ -285,7 +285,7 @@ Aby wdrożyć szablon Menedżer zasobów, użyj Azure PowerShell:
 
 1. W menu rozwijanym obszary nazw wybierz pozycję **Azure. VM. Windows. gość**. 
 
-1. Z menu rozwijanego metryk wybierz pozycję **pamięć\%zadeklarowane bajty w użyciu**.  
+1. Z menu rozwijanego metryk wybierz pozycję **pamięć \% zadeklarowane bajty w użyciu**.  
 
 Następnie można również użyć wymiarów tej metryki do wykresu dla określonej maszyny wirtualnej lub wykreślić każdą maszynę wirtualną w zestawie skalowania. 
 

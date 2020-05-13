@@ -5,19 +5,22 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.date: 05/09/2020
+ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738086"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196290"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktura dzienników Azure Monitor
 Możliwość szybkiego uzyskiwania wglądu w dane przy użyciu [zapytania dziennika](log-query-overview.md) jest zaawansowaną funkcją Azure monitor. Aby tworzyć wydajne i użyteczne zapytania, należy zapoznać się z podstawowymi pojęciami, takimi jak miejsce, w którym znajdują się dane i jak są one strukturalne. Ten artykuł zawiera podstawowe pojęcia, które należy wykonać, aby rozpocząć pracę.
 
 ## <a name="overview"></a>Omówienie
 Dane w dziennikach Azure Monitor są przechowywane w obszarze roboczym Log Analytics lub w aplikacji Application Insights. Oba są obsługiwane przez [usługę Azure Eksplorator danych](/azure/data-explorer/) , co oznacza, że korzystają z zaawansowanego aparatu danych i języka zapytań.
+
+> [!IMPORTANT]
+> Jeśli używasz [zasobu Application Insights opartego na obszarze roboczym](../app/create-workspace-resource.md), dane telemetryczne są przechowywane w log Analytics obszarze roboczym ze wszystkimi innymi danymi dziennika. Tabele zostały zmienione i zmieniono ich strukturę, ale zawierają te same informacje co tabele w aplikacji Application Insights.
 
 Dane w obu obszarach roboczych i aplikacjach są zorganizowane w tabele, z których każdy przechowuje różne rodzaje danych i ma własny unikatowy zestaw właściwości. Większość [źródeł danych](../platform/data-sources.md) będzie zapisywać w własnych tabelach w log Analytics obszarze roboczym, podczas gdy Application Insights będzie zapisywać do wstępnie zdefiniowanego zestawu tabel w aplikacji Application Insights. Zapytania dzienników są bardzo elastyczne, co pozwala na łatwe łączenie danych z wielu tabel, a nawet użycie zapytania między zasobami w celu łączenia danych z tabel w wielu obszarach roboczych lub do pisania zapytań, które łączą dane obszaru roboczego i aplikacji.
 
@@ -48,23 +51,26 @@ Zapoznaj się z dokumentacją dla każdego źródła danych, aby uzyskać szczeg
 Zapoznaj się z artykułem [projektowanie wdrożenia dzienników Azure monitor](../platform/design-logs-deployment.md) , aby poznać strategię kontroli dostępu i zalecenia dotyczące zapewnienia dostępu do danych w obszarze roboczym. Poza udzieleniem dostępu do samego obszaru roboczego można ograniczyć dostęp do poszczególnych tabel przy użyciu funkcji [RBAC na poziomie tabeli](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Aplikacja Application Insights
+
+> [!IMPORTANT]
+> Jeśli używasz Application Insights danych telemetrycznych w [obszarze roboczym](../app/create-workspace-resource.md) , w obszarze roboczym log Analytics będą przechowywane wszystkie inne dane dziennika. Tabele zostały zmienione i zmieniono ich strukturę, ale mają te same informacje co tabele w klasycznym Application Insights zasobów.
+
 W przypadku tworzenia aplikacji w Application Insights w dziennikach Azure Monitor zostanie automatycznie utworzona odpowiednia aplikacja. Do zbierania danych nie jest wymagana żadna konfiguracja, a aplikacja będzie automatycznie zapisywać dane monitorowania, takie jak wyświetlanie stron, żądania i wyjątki.
 
 W przeciwieństwie do obszaru roboczego Log Analytics, aplikacja Application Insights ma stały zestaw tabel. Nie można skonfigurować innych źródeł danych do zapisu w aplikacji, aby nie można było tworzyć żadnych dodatkowych tabel. 
 
 | Tabela | Opis | 
 |:---|:---|
-| availabilityResults   | Dane podsumowujące z testów dostępności.
-| browserTimings      |     Dane dotyczące wydajności klienta, takie jak czas przetwarzania danych przychodzących.
-| customEvents        | Zdarzenia niestandardowe utworzone przez aplikację.
-| customMetrics       | Metryki niestandardowe utworzone przez aplikację.
-| zależności        | Wywołania z aplikacji do innych składników (w tym składników zewnętrznych) zarejestrowanych przez TrackDependency () — na przykład wywołania interfejsu API REST, bazy danych lub systemu plików. 
-| wyłączenia            | Wyjątki zgłoszone przez środowisko uruchomieniowe aplikacji, przechwytuje zarówno wyjątki po stronie serwera, jak i klienta (przeglądarki).
-| pageViews           | Dane o każdym widoku witryny sieci Web z informacjami o przeglądarce.
-| Liczniki wydajności   | Pomiary wydajności z zasobów obliczeniowych obsługujących aplikację, na przykład liczniki wydajności systemu Windows.
-| żądań            | Żądania odebrane przez aplikację. Na przykład oddzielny rekord żądania jest rejestrowany dla każdego żądania HTTP, które otrzymuje aplikacja sieci Web. 
-| ścieżki                | Szczegółowe dzienniki (ślady) emitowane za pośrednictwem kodu aplikacji/platform rejestrowania zarejestrowanych za pośrednictwem TrackTrace ().
-
+| availabilityResults | Dane podsumowujące z testów dostępności. |
+| browserTimings      | Dane dotyczące wydajności klienta, takie jak czas przetwarzania danych przychodzących. |
+| customEvents        | Zdarzenia niestandardowe utworzone przez aplikację. |
+| customMetrics       | Metryki niestandardowe utworzone przez aplikację. |
+| zależności        | Wywołania z aplikacji do innych składników (w tym składników zewnętrznych) zarejestrowanych przez TrackDependency () — na przykład wywołania interfejsu API REST, bazy danych lub systemu plików. |
+| wyłączenia          | Wyjątki zgłoszone przez środowisko uruchomieniowe aplikacji, przechwytuje zarówno wyjątki po stronie serwera, jak i klienta (przeglądarki).|
+| pageViews           | Dane o każdym widoku witryny sieci Web z informacjami o przeglądarce. |
+| Liczniki wydajności | Pomiary wydajności z zasobów obliczeniowych obsługujących aplikację, na przykład liczniki wydajności systemu Windows. |
+| żądań            | Żądania odebrane przez aplikację. Na przykład oddzielny rekord żądania jest rejestrowany dla każdego żądania HTTP, które otrzymuje aplikacja sieci Web.  |
+| ścieżki              | Szczegółowe dzienniki (ślady) emitowane za pośrednictwem kodu aplikacji/platform rejestrowania zarejestrowanych za pośrednictwem TrackTrace (). |
 
 Możesz wyświetlić schemat dla każdej tabeli na karcie **schemat** w log Analytics aplikacji.
 

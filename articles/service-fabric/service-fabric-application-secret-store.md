@@ -3,18 +3,18 @@ title: Magazyn centralnych wpisów tajnych usługi Azure Service Fabric
 description: W tym artykule opisano sposób korzystania z magazynu centralnych wpisów tajnych w usłudze Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770413"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197762"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Magazyn centralnych wpisów tajnych na platformie Azure Service Fabric 
 W tym artykule opisano sposób korzystania z magazynu centralnych wpisów tajnych (CSS) w usłudze Azure Service Fabric do tworzenia wpisów tajnych w aplikacjach Service Fabric. CSS to lokalna pamięć podręczna magazynu lokalnego wpisu tajnego, która przechowuje dane poufne, takie jak hasło, tokeny i klucze, szyfrowane w pamięci.
 
 ## <a name="enable-central-secrets-store"></a>Włącz magazyn centralnych wpisów tajnych
-Dodaj następujący skrypt do konfiguracji klastra w `fabricSettings` celu włączenia CSS. Zalecamy użycie certyfikatu innego niż certyfikat klastra dla CSS. Upewnij się, że certyfikat szyfrowania został zainstalowany we wszystkich węzłach `NetworkService` i ma uprawnienia do odczytu klucza prywatnego certyfikatu.
+Dodaj następujący skrypt do konfiguracji klastra w `fabricSettings` celu włączenia CSS. Zalecamy użycie certyfikatu innego niż certyfikat klastra dla CSS. Upewnij się, że certyfikat szyfrowania został zainstalowany we wszystkich węzłach i `NetworkService` ma uprawnienia do odczytu klucza prywatnego certyfikatu.
   ```json
     "fabricSettings": 
     [
@@ -28,7 +28,7 @@ Dodaj następujący skrypt do konfiguracji klastra w `fabricSettings` celu włą
                 },
                 {
                     "name":  "MinReplicaSetSize",
-                    "value":  "3"
+                    "value":  "1"
                 },
                 {
                     "name":  "TargetReplicaSetSize",
@@ -51,7 +51,7 @@ Zasób tajny można utworzyć przy użyciu interfejsu API REST.
   > [!NOTE] 
   > Jeśli klaster używa uwierzytelniania systemu Windows, żądanie REST jest wysyłane za pośrednictwem niezabezpieczonego kanału HTTP. Zalecenie polega na użyciu klastra z certyfikatem x509 z bezpiecznymi punktami końcowymi.
 
-Aby utworzyć zasób `supersecret` tajny przy użyciu interfejsu API REST, wprowadź żądanie Put `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. Do utworzenia tajnego zasobu potrzebny jest certyfikat klastra lub certyfikat klienta administratora.
+Aby utworzyć `supersecret` zasób tajny przy użyciu interfejsu API REST, wprowadź żądanie Put `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview` . Do utworzenia tajnego zasobu potrzebny jest certyfikat klastra lub certyfikat klienta administratora.
 
 ```powershell
 $json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "supersecret"}}'
@@ -73,7 +73,7 @@ Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -U
 
 Wykonaj następujące kroki, aby użyć wpisu tajnego w aplikacji Service Fabric.
 
-1. Dodaj sekcję w pliku **Settings. XML** z następującym fragmentem kodu. Zwróć uwagę, że wartość jest w formacie {`secretname:version`}.
+1. Dodaj sekcję w pliku **Settings. XML** z następującym fragmentem kodu. Zwróć uwagę, że wartość jest w formacie { `secretname:version` }.
 
    ```xml
      <Section Name="testsecrets">
@@ -94,11 +94,11 @@ Wykonaj następujące kroki, aby użyć wpisu tajnego w aplikacji Service Fabric
      </ServiceManifestImport>
    ```
 
-   Zmienna `SecretPath` środowiskowa będzie wskazywała katalog, w którym są przechowywane wszystkie wpisy tajne. Każdy parametr wymieniony w `testsecrets` sekcji jest przechowywany w osobnym pliku. Aplikacja może teraz używać klucza tajnego w następujący sposób:
+   Zmienna środowiskowa `SecretPath` będzie wskazywała katalog, w którym są przechowywane wszystkie wpisy tajne. Każdy parametr wymieniony w `testsecrets` sekcji jest przechowywany w osobnym pliku. Aplikacja może teraz używać klucza tajnego w następujący sposób:
    ```C#
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
-1. Zainstaluj wpisy tajne w kontenerze. Jedyną zmianą wymaganą do udostępnienia wpisów tajnych wewnątrz kontenera jest `specify` punkt instalacji w programie `<ConfigPackage>`.
+1. Zainstaluj wpisy tajne w kontenerze. Jedyną zmianą wymaganą do udostępnienia wpisów tajnych wewnątrz kontenera jest `specify` punkt instalacji w programie `<ConfigPackage>` .
 Poniższy fragment kodu jest zmodyfikowany **ApplicationManifest. XML**.  
 
    ```xml
@@ -117,7 +117,7 @@ Poniższy fragment kodu jest zmodyfikowany **ApplicationManifest. XML**.
    ```
    Wpisy tajne są dostępne w punkcie instalacji wewnątrz kontenera.
 
-1. Wpis tajny można powiązać ze zmienną środowiskową procesu, określając `Type='SecretsStoreRef`. Poniższy fragment kodu stanowi przykład `supersecret` powiązania wersji `ver1` ze zmienną `MySuperSecret` środowiskową w **pliku servicemanifest. XML**.
+1. Wpis tajny można powiązać ze zmienną środowiskową procesu, określając `Type='SecretsStoreRef` . Poniższy fragment kodu stanowi przykład powiązania `supersecret` wersji ze `ver1` zmienną środowiskową `MySuperSecret` w **pliku servicemanifest. XML**.
 
    ```xml
    <EnvironmentVariables>

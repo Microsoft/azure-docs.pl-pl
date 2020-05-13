@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928282"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195682"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -145,10 +145,10 @@ Zabezpieczone tranzyt między sieciami wirtualnymi umożliwia sieci wirtualnych 
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>Usługa zabezpieczeń sieci wirtualnej lub innej firmy (i)
 
-Połączenie między sieciami wirtualnymi a transportem zewnętrznym umożliwia usłudze sieci wirtualnych łączenie się z Internetem lub obsługiwane usługi zabezpieczeń innych firm za pośrednictwem zapory platformy Azure w wirtualnej sieci WAN.
+Połączenie między sieciami wirtualnymi umożliwia sieci wirtualnych łączenie się z Internetem za pośrednictwem zapory platformy Azure w koncentratorze sieci wirtualnej. Ruch do Internetu przez obsługiwane usługi zabezpieczeń innych firm nie przechodzi przez zaporę platformy Azure. Można skonfigurować ścieżkę między sieciami wirtualnymi za pomocą obsługiwanej usługi zabezpieczeń innych firm przy użyciu Menedżera zapory platformy Azure.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Odgałęzienie do Internetu lub usługa zabezpieczeń innych firm (j)
-Odgałęzienie do Internetu lub zabezpieczone tranzyt innych firm umożliwia rozgałęzienia do łączenia się z Internetem lub obsługiwanych usług zabezpieczeń innych firm za pośrednictwem zapory platformy Azure w wirtualnym koncentratorze sieci WAN.
+Gałąź do Internetu umożliwia rozgałęzienia łączenia się z Internetem za pośrednictwem zapory platformy Azure w wirtualnym koncentratorze sieci WAN. Ruch do Internetu przez obsługiwane usługi zabezpieczeń innych firm nie przechodzi przez zaporę platformy Azure. Można skonfigurować ścieżkę rozgałęzienia do Internetu za pomocą obsługiwanej usługi zabezpieczeń innych firm przy użyciu Menedżera zapory platformy Azure. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Jak mogę włączyć trasy domyślnej (0.0.0.0/0) w zabezpieczonym koncentratorze wirtualnym
 

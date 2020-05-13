@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617881"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196546"
 ---
 # <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -20,7 +20,7 @@ Stabilne połączenie sieciowe o małym opóźnieniu z centrum danych platformy 
 
 Dokładne wymagania dotyczące sieci są zależne od konkretnego przypadku użycia, takich jak liczba i częstotliwość modyfikacji zdalnego wykresu sceny, a także złożoność renderowanego widoku, ale istnieje kilka wytycznych, które zapewniają, że środowisko jest równie dobre:
 
-* Łączność z Internetem musi obsługiwać co najmniej **50 MB/s na poziomie podrzędnym** i **10 MB/s** dla jednej sesji użytkownika na potrzeby renderowania zdalnego na platformie Azure, przy założeniu, że nie istnieje konkurencyjny ruch sieciowy. Zalecamy wyższe stawki za lepsze środowiska. W przypadku większej liczby użytkowników w tej samej sieci te wymagania są skalowane odpowiednio.
+* Łączność z Internetem musi obsługiwać co najmniej **40 MB/s na poziomie podrzędnym** i **5 MB/s** dla jednej sesji użytkownika na potrzeby renderowania zdalnego na platformie Azure, przy założeniu, że nie istnieje konkurencyjny ruch sieciowy. Zalecamy wyższe stawki za lepsze środowiska. W przypadku większej liczby użytkowników w tej samej sieci te wymagania są skalowane odpowiednio.
 * Użycie **pasma Wi-Fi 5 GHz** zwykle daje lepsze wyniki niż pasmo Wi-Fi 2,4 GHz, chociaż obie powinny być wykonane.
 * Jeśli w pobliżu istnieją inne sieci Wi-Fi, należy unikać używania kanałów sieci Wi-Fi używanych przez te inne sieci. Możesz użyć narzędzi do skanowania sieci, takich jak [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) , aby sprawdzić, czy kanały używane przez sieć Wi-Fi są bezpłatne.
 * **Należy ściśle unikać korzystania z funkcji powtarzania Wi-Fi** lub przekazywania sieci LAN przez sieć PowerLine.

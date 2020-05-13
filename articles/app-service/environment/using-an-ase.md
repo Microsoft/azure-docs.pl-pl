@@ -4,15 +4,15 @@ description: Dowiedz się, jak tworzyć, publikować i skalować aplikacje w App
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586134"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125812"
 ---
 # <a name="use-an-app-service-environment"></a>Używanie środowiska usługi App Service
 
@@ -36,7 +36,7 @@ Jeśli nie masz środowiska ASE, możesz go utworzyć, postępując zgodnie z in
 
 Aby utworzyć aplikację w środowisku ASE:
 
-1. Wybierz pozycję **Utwórz zasób** > **Sieć Web + aplikacje mobilne** > **aplikacji sieci Web**.
+1. Wybierz pozycję **Utwórz zasób**  >  **Sieć Web + aplikacje mobilne**  >  **aplikacji sieci Web**.
 
 1. wprowadź nazwę aplikacji. Jeśli w środowisku ASE został już wybrany plan App Service, nazwa domeny aplikacji odzwierciedla nazwę domeny środowiska ASE:
 
@@ -104,14 +104,14 @@ Zasoby frontonu są punktami końcowymi protokołu HTTP/HTTPS dla środowiska AS
 
 ## <a name="app-access"></a>Dostęp do aplikacji
 
-W zewnętrznym środowisku ASE sufiks domeny używany do tworzenia aplikacji jest *.&lt; asename&gt;. p.azurewebsites.NET*. Jeśli środowisko ASE ma nazwę _External-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
+W zewnętrznym środowisku ASE sufiks domeny używany do tworzenia aplikacji jest *. &lt; asename &gt; . p.azurewebsites.NET*. Jeśli środowisko ASE ma nazwę _External-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 Aby uzyskać informacje o sposobach tworzenia zewnętrznego środowiska ASE, zobacz [tworzenie App Service Environment][MakeExternalASE].
 
-W środowisku ILB ASE sufiks domeny używany do tworzenia aplikacji to *.&lt; asename&gt;. appserviceenvironment.NET*. Jeśli środowisko ASE ma nazwę _ILB-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
+W środowisku ILB ASE sufiks domeny używany do tworzenia aplikacji to *. &lt; asename &gt; . appserviceenvironment.NET*. Jeśli środowisko ASE ma nazwę _ILB-ASE_ i hostuje aplikację o nazwie _contoso_ w tym środowisku ASE, dotrzesz do niej przy użyciu następujących adresów URL:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -122,19 +122,26 @@ Adres URL usługi SCM służy do uzyskiwania dostępu do konsoli usługi kudu lu
 
 ### <a name="dns-configuration"></a>Konfiguracja usługi DNS 
 
-W przypadku korzystania z zewnętrznego środowiska ASE aplikacje utworzone w środowisku ASE są rejestrowane przy użyciu Azure DNS. W środowisku ILB ASE należy zarządzać własnym systemem DNS. 
+W przypadku korzystania z zewnętrznego środowiska ASE aplikacje utworzone w środowisku ASE są rejestrowane przy użyciu Azure DNS. Nie ma żadnych dodatkowych kroków, a następnie w zewnętrznym środowisku ASE, dla którego Twoje aplikacje będą dostępne publicznie. W środowisku ILB ASE należy zarządzać własnym systemem DNS. Można to zrobić na własnym serwerze DNS lub w Azure DNS strefach prywatnych.
 
-Aby skonfigurować system DNS w środowisku ILB ASE:
+Aby skonfigurować system DNS na własnym serwerze DNS przy użyciu środowiska ILB ASE:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. Tworzenie strefy dla elementu <ASE name> . appserviceenvironment.NET
+1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
+1. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
+1. Tworzenie strefy w programie <ASE name> . appserviceenvironment.NET o nazwie SCM
+1. Utwórz rekord A w strefie SCM, który wskazuje * na adres IP ILB
 
-Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji w aplikacjach w środowisku ILB ASE. Jeśli chcesz utworzyć strefę o nazwie *contoso.NET*, możesz to zrobić i wskazać adres IP ILB. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko w * &lt;witrynie nazwa_aplikacji&gt;. SCM.&lt; asename&gt;. appserviceenvironment.NET*. 
+Aby skonfigurować serwer DNS w Azure DNS strefach prywatnych:
 
-Strefa o nazwie *.&lt; asename&gt;. appserviceenvironment.NET* jest globalnie unikatowy. Przed 2019 maja klienci mogli określić sufiks domeny ILB ASE. Jeśli chcesz użyć *. contoso.com* dla sufiksu domeny, możesz to zrobić, aby uwzględnić witrynę SCM. Istniały problemy związane z tym modelem, w tym: Zarządzanie domyślnym certyfikatem SSL, brakiem logowania jednokrotnego w witrynie SCM oraz wymaganie użycia certyfikatu wieloznacznego. Proces uaktualniania domyślnego certyfikatu programu ILB ASE został również zakłócony i spowodowało ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ILB ASE zostało zmienione tak, aby używało sufiksu domeny na podstawie nazwy środowiska ASE i z sufiksem własności firmy Microsoft. Zmiana zachowania środowiska ILB ASE ma wpływ tylko na ILB środowisk ASE wykonane po 2019 maja. Wcześniej istniejące ILB środowisk ASE muszą nadal zarządzać domyślnym certyfikatem środowiska ASE i ich konfiguracją DNS.
+1. Utwórz Azure DNS strefę prywatną o nazwie <ASE name> . appserviceenvironment.NET
+1. Utwórz rekord A w tej strefie, który wskazuje * na adres IP ILB
+1. Utwórz rekord A w tej strefie, który wskazuje na ILB adres IP
+1. Utwórz rekord A w tej strefie, który wskazuje *. SCM na adres IP ILB
+
+Ustawienia DNS dla domyślnego sufiksu domeny środowiska ASE nie ograniczają aplikacji do dostępu do tych nazw. Możesz ustawić niestandardową nazwę domeny bez żadnej weryfikacji w aplikacjach w środowisku ILB ASE. Jeśli chcesz utworzyć strefę o nazwie *contoso.NET*, możesz to zrobić i wskazać adres IP ILB. Niestandardowa nazwa domeny działa w przypadku żądań aplikacji, ale nie dla witryny SCM. Witryna SCM jest dostępna tylko w witrynie * &lt; nazwa_aplikacji &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
+
+Strefa o nazwie *. &lt; asename &gt; . appserviceenvironment.NET* jest globalnie unikatowy. Przed 2019 maja klienci mogli określić sufiks domeny ILB ASE. Jeśli chcesz użyć *. contoso.com* dla sufiksu domeny, możesz to zrobić, aby uwzględnić witrynę SCM. Istniały problemy związane z tym modelem, w tym: Zarządzanie domyślnym certyfikatem SSL, brakiem logowania jednokrotnego w witrynie SCM oraz wymaganie użycia certyfikatu wieloznacznego. Proces uaktualniania domyślnego certyfikatu programu ILB ASE został również zakłócony i spowodowało ponowne uruchomienie aplikacji. Aby rozwiązać te problemy, zachowanie ILB ASE zostało zmienione tak, aby używało sufiksu domeny na podstawie nazwy środowiska ASE i z sufiksem własności firmy Microsoft. Zmiana zachowania środowiska ILB ASE ma wpływ tylko na ILB środowisk ASE wykonane po 2019 maja. Wcześniej istniejące ILB środowisk ASE muszą nadal zarządzać domyślnym certyfikatem środowiska ASE i ich konfiguracją DNS.
 
 ## <a name="publishing"></a>Publikowanie
 
@@ -152,28 +159,28 @@ Za pomocą ILB ASE punkty końcowe publikowania są dostępne tylko w ILB. ILB z
 
 Bez dodatkowych zmian internetowe systemy CI, takie jak GitHub i Azure DevOps, nie współpracują z ILB ASE, ponieważ punkt końcowy publikowania nie jest dostępny dla Internetu. Możesz włączyć publikowanie w środowisku ILB ASE z poziomu usługi Azure DevOps, instalując własny Agent wydania w sieci wirtualnej, która zawiera ILB ASE. Alternatywnie można również użyć systemu CI, który używa modelu ściągania, takiego jak Dropbox.
 
-Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie** > **podstawowe** i również w obszarze **Właściwości**).
+Punkty końcowe publikowania dla aplikacji w środowisku ASE z wewnętrznym modułem równoważenia obciążenia używają domeny, za pomocą której utworzono to środowisko. Zobaczysz ją w profilu publikowania aplikacji i w okienku portalu aplikacji (w temacie **Omówienie**  >  **podstawowe** i również w obszarze **Właściwości**).
 
 ## <a name="storage"></a>Magazyn
 
-Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma domyślnie limit 250 GB. Jeśli masz pięć lub więcej planów App Service, uważaj, aby nie przekroczyć limitu 1 TB środowiska ASE. Jeśli potrzebujesz więcej niż limit 250 GB w jednym planie App Service, skontaktuj się z pomocą techniczną, aby dostosować limit planu App Service do maksymalnie 1 TB. Po dostosowaniu limitu planu nadal obowiązuje limit 1 TB dla wszystkich planów App Service w środowisku ASE.
+Środowisko ASE ma 1 TB magazynu dla wszystkich aplikacji w środowisku ASE. Plan App Service w odizolowanej cenie SKU ma limit wynoszący 250 GB. W środowisku ASE 250 GB miejsca do magazynowania jest dodawane App Service planowanie do limitu 1 TB. Możesz mieć więcej App Service planów niż tylko cztery, ale nie Dodaliśmy więcej miejsca poza limit 1 TB.
 
 ## <a name="logging"></a>Rejestrowanie
 
 Możesz zintegrować środowisko ASE z Azure Monitor, aby wysyłać dzienniki dotyczące środowiska ASE do usługi Azure Storage, Azure Event Hubs lub Log Analytics. Te elementy są rejestrowane Dzisiaj:
 
-| Istniał | Wiadomość |
+| Istniał | Komunikat |
 |---------|----------|
-| Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne https://docs.microsoft.com/azure/app-service/environment/network-info:. |
-| Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. {0} Istnieją adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
+| Środowisko ASE jest w złej kondycji | Określony środowisko ASE jest w złej kondycji ze względu na nieprawidłową konfigurację sieci wirtualnej. Środowisko ASE zostanie zawieszone w przypadku kontynuowania stanu złej kondycji. Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
+| Za mało miejsca w podsieci ASE | Określone środowisko ASE znajduje się w podsieci, która jest w prawie nieprawidłowym miejscu. Istnieją {0} adresy. Po wyczerpaniu tych adresów środowisko ASE nie będzie w stanie skalować.  |
 | Środowisko ASE zbliża się do łącznego limitu wystąpień | Określone środowisko ASE zbliża się do całkowitego limitu wystąpień środowiska ASE. Obecnie zawiera {0} App Service wystąpienia planu o maksymalnej liczbie 201 wystąpień. |
-| Środowisko ASE nie może nawiązać połączenia z zależnością | Nie można nawiązać połączenia {0}z określonym środowiskiem ASE.  Upewnij się, że zostały wykonane następujące wytyczne https://docs.microsoft.com/azure/app-service/environment/network-info:. |
+| Środowisko ASE nie może nawiązać połączenia z zależnością | Nie można nawiązać połączenia z określonym środowiskiem ASE {0} .  Upewnij się, że zostały wykonane następujące wytyczne: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | Środowisko ASE jest zawieszone | Określona środowisko ASE jest zawieszone. Zawieszenie środowiska ASE może być spowodowane brakiem konta lub konfiguracją nieprawidłowej sieci wirtualnej. Rozwiąż główną przyczynę i Wznów środowisko ASE, aby kontynuować obsługę ruchu. |
 | Rozpoczęto Uaktualnianie środowiska ASE | Rozpoczęto Uaktualnianie platformy do określonego środowiska ASE. Oczekiwane opóźnienia operacji skalowania. |
 | Ukończono Uaktualnianie środowiska ASE | Uaktualnianie platformy do określonego środowiska ASE zostało zakończone. |
-| Rozpoczęto operacje skalowania | Rozpoczęcie skalowanie planu App Service ({0}). Żądany stan: {1} I{2} pracownicy.
-| Ukończono operacje skalowania | Zakończono skalowanie{0}planu App Service (). Bieżący stan: {1} I{2} pracownicy. |
-| Operacje skalowania zakończyły się niepowodzeniem | Skalowanie planu App Service{0}() nie powiodło się. Bieżący stan: {1} I{2} pracownicy. |
+| Rozpoczęto operacje skalowania | {0}Rozpoczęcie skalowanie planu App Service (). Żądany stan: {1} I {2} pracownicy.
+| Ukończono operacje skalowania | Zakończono skalowanie planu App Service ( {0} ). Bieżący stan: {1} I {2} pracownicy. |
+| Operacje skalowania zakończyły się niepowodzeniem | Skalowanie planu App Service ( {0} ) nie powiodło się. Bieżący stan: {1} I {2} pracownicy. |
 
 Aby włączyć rejestrowanie w środowisku ASE:
 
@@ -200,16 +207,16 @@ Aby utworzyć alert dotyczący dzienników, postępuj zgodnie z instrukcjami w t
 
 ## <a name="upgrade-preference"></a>Preferencja uaktualniania
 
-Jeśli masz wiele środowisk ASE, możesz chcieć uaktualnić niektóre środowisk ASE przed innymi. W ramach obiektu **Menedżer zasobów ASE HostingEnvironment** można ustawić wartość dla **upgradePreference**. Ustawienie **upgradePreference** można skonfigurować przy użyciu szablonu, ARMClient lub https://resources.azure.com. Trzy możliwe wartości to:
+Jeśli masz wiele środowisk ASE, możesz chcieć uaktualnić niektóre środowisk ASE przed innymi. W ramach obiektu **Menedżer zasobów ASE HostingEnvironment** można ustawić wartość dla **upgradePreference**. Ustawienie **upgradePreference** można skonfigurować przy użyciu szablonu, ARMClient lub https://resources.azure.com . Trzy możliwe wartości to:
 
 - **Brak**: platforma Azure UAKTUALNI środowisko ASE bez określonej partii. Ta wartość jest domyślna.
 - **Wczesne**: środowisko ASE zostanie uaktualnione w pierwszej połowie App Service uaktualnieniami.
 - **Późne**: środowisko ASE zostanie uaktualnione w drugiej połowie App Service uaktualnień.
 
-Jeśli używasz programu https://resources.azure.com, wykonaj następujące kroki, aby ustawić wartość **upgradePreferences** :
+Jeśli używasz programu https://resources.azure.com , wykonaj następujące kroki, aby ustawić wartość **upgradePreferences** :
 
 1. Przejdź do resources.azure.com i zaloguj się przy użyciu konta platformy Azure.
-1. \/\[Zapoznaj się z tematem Resources\/\[for subscriptions\]\/Name\/\]\/resourceGroups nazwa grupy zasobów\/\[Providers\]Microsoft. Web\/hostingEnvironments ASE Name.
+1. Zapoznaj się z tematem Resources for subscriptions \/ \[ name \] \/ resourceGroups nazwa \/ \[ grupy zasobów \] \/ providers \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE Name \] .
 1. Na górze wybierz pozycję **Odczyt/zapis** .
 1. Wybierz pozycję **Edit** (Edytuj).
 1. Ustaw **upgradePreference** na jedną z trzech wartości, które chcesz.

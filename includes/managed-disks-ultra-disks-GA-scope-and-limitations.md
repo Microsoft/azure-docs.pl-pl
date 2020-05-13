@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5e0e459800e7cb57672518597f3d04a74f53118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f14a269478541eaa5852697a917afb3d771841a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008649"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196924"
 ---
 Na razie Ultra dyski mają dodatkowe ograniczenia, są następujące:
 
@@ -22,23 +22,30 @@ Jedyne opcje nadmiarowości infrastruktury obecnie dostępne dla Ultra disks to 
 W poniższej tabeli przedstawiono regiony Ultra disks, a także odpowiadające im opcje dostępności:
 
 > [!NOTE]
-> Niektóre strefy dostępności w tych regionach nie oferują bardzo dużo dysków.
+> Jeśli region na poniższej liście nie ma stref dostępności obsługujących dysk, należy wdrożyć maszyny wirtualne w tym regionie bez żadnych opcji nadmiarowości infrastruktury w celu dołączenia dysku Ultra.
 
-|Regiony  |Brak nadmiarowości infrastruktury  |Strefy dostępności  |
-|---------|---------|---------|
-|Zachodnie stany USA     |Tak         |Nie         |
-|Zachodnie stany USA 2    |Nie         |Tak         |
-|Wschodnie stany USA     |Nie         |Tak         |
-|Wschodnie stany USA 2     |Nie         |Tak         |
-|Azja Południowo-Wschodnia     |Nie         |Tak         |
-|Europa Północna     |Nie         |Tak         |
-|Europa Zachodnia     |Nie         |Tak         |
-|Południowe Zjednoczone Królestwo     |Nie         |Tak         |
+|Regiony  |Liczba stref dostępności obsługujących Ultra disks  |
+|---------|---------|
+|US Gov Wirginia     |Brak         |
+|Południowo-środkowe stany USA     |Brak         |
+|Środkowe stany USA     |Trzy strefy         |
+|Zachodnie stany USA     |Brak         |
+|Zachodnie stany USA 2    |Trzy strefy         |
+|Wschodnie stany USA     |Trzy strefy         |
+|Wschodnie stany USA 2     |Dwie strefy         |
+|Azja Południowo-Wschodnia     |Trzy strefy         |
+|Europa Północna     |Trzy strefy          |
+|Europa Zachodnia     |Trzy strefy          |
+|Południowe Zjednoczone Królestwo     |Trzy strefy          |
+|Japonia Wschodnia     |Dwie strefy         |
+
+
 
 - Są obsługiwane tylko przez następującą serię maszyn wirtualnych:
-    - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - FSv2
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nie każdy rozmiar maszyny wirtualnej jest dostępny w każdym obsługiwanym regionie za pomocą Ultra disks

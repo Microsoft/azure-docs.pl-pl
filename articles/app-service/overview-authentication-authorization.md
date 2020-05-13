@@ -5,15 +5,13 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 04/15/2020
 ms.reviewer: mahender
-ms.custom:
-- seodec18
-- fasttrack-edit
-ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457862"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196433"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Uwierzytelnianie i autoryzacja w Azure App Service i Azure Functions
 
@@ -71,7 +69,7 @@ Jeśli nie musisz korzystać z tokenów w aplikacji, możesz wyłączyć magazyn
 
 ### <a name="logging-and-tracing"></a>Rejestrowanie i śledzenie
 
-Po [włączeniu rejestrowania aplikacji](troubleshoot-diagnostic-logs.md)będą widoczne ślady uwierzytelniania i autoryzacji bezpośrednio w plikach dziennika. Jeśli zobaczysz nieoczekiwany błąd uwierzytelniania, możesz wygodnie znaleźć wszystkie szczegóły, przeglądając istniejące dzienniki aplikacji. W przypadku włączenia [śledzenia nieudanych żądań](troubleshoot-diagnostic-logs.md)można zobaczyć dokładnie rolę modułu uwierzytelnianie i autoryzacja w nieprawidłowym żądaniu. W dziennikach śledzenia poszukaj odwołań do modułu o nazwie `EasyAuthModule_32/64`. 
+Po [włączeniu rejestrowania aplikacji](troubleshoot-diagnostic-logs.md)będą widoczne ślady uwierzytelniania i autoryzacji bezpośrednio w plikach dziennika. Jeśli zobaczysz nieoczekiwany błąd uwierzytelniania, możesz wygodnie znaleźć wszystkie szczegóły, przeglądając istniejące dzienniki aplikacji. W przypadku włączenia [śledzenia nieudanych żądań](troubleshoot-diagnostic-logs.md)można zobaczyć dokładnie rolę modułu uwierzytelnianie i autoryzacja w nieprawidłowym żądaniu. W dziennikach śledzenia poszukaj odwołań do modułu o nazwie `EasyAuthModule_32/64` . 
 
 ## <a name="identity-providers"></a>Dostawcy tożsamości
 
@@ -102,12 +100,12 @@ W poniższej tabeli przedstawiono kroki przepływu uwierzytelniania.
 
 | Krok | Bez zestawu SDK dostawcy | Z zestawem SDK dostawcy |
 | - | - | - |
-| 1. Podpisz użytkownika w | Przekierowuje klienta do programu `/.auth/login/<provider>`. | Kod klienta podpisuje użytkownika bezpośrednio przy użyciu zestawu SDK dostawcy i odbiera token uwierzytelniania. Aby uzyskać więcej informacji, zobacz dokumentację dostawcy. |
-| 2. po uwierzytelnieniu | Dostawca przekierowuje klienta do programu `/.auth/login/<provider>/callback`. | Kod klienta [zapisuje token od dostawcy](app-service-authentication-how-to.md#validate-tokens-from-providers) do `/.auth/login/<provider>` walidacji. |
+| 1. Podpisz użytkownika w | Przekierowuje klienta do programu `/.auth/login/<provider>` . | Kod klienta podpisuje użytkownika bezpośrednio przy użyciu zestawu SDK dostawcy i odbiera token uwierzytelniania. Aby uzyskać więcej informacji, zobacz dokumentację dostawcy. |
+| 2. po uwierzytelnieniu | Dostawca przekierowuje klienta do programu `/.auth/login/<provider>/callback` . | Kod klienta [zapisuje token od dostawcy](app-service-authentication-how-to.md#validate-tokens-from-providers) do `/.auth/login/<provider>` walidacji. |
 | 3. ustanawianie sesji uwierzytelnionej | App Service dodaje uwierzytelniony plik cookie do odpowiedzi. | App Service zwraca swój własny token uwierzytelniania do kodu klienta. |
 | 4. Obsługuj uwierzytelnioną zawartość | Klient zawiera plik cookie uwierzytelniania w kolejnych żądaniach (automatycznie obsłużonych przez przeglądarkę). | Kod klienta przedstawia token uwierzytelniania w `X-ZUMO-AUTH` nagłówku (automatycznie obsłużony przez Mobile Apps zestawy SDK klienta). |
 
-W przypadku przeglądarek klienta App Service może automatycznie kierować wszystkich nieuwierzytelnionych użytkowników `/.auth/login/<provider>`do programu. Możesz również przedstawić użytkownikom linki do jednego lub kilku `/.auth/login/<provider>` linków, aby zalogować się do aplikacji przy użyciu wybranego przez siebie dostawcy.
+W przypadku przeglądarek klienta App Service może automatycznie kierować wszystkich nieuwierzytelnionych użytkowników do programu `/.auth/login/<provider>` . Możesz również przedstawić użytkownikom linki do jednego lub kilku `/.auth/login/<provider>` linków, aby zalogować się do aplikacji przy użyciu wybranego przez siebie dostawcy.
 
 <a name="authorization"></a>
 
@@ -127,7 +125,7 @@ Ta opcja zapewnia większą elastyczność obsługi żądań anonimowych. Na prz
 
 ### <a name="allow-only-authenticated-requests"></a>Zezwalaj tylko na uwierzytelnione żądania
 
-Opcja ta umożliwia **zalogowanie się \<przy użyciu>dostawcy **. App Service przekierowuje wszystkie anonimowe żądania do `/.auth/login/<provider>` wybranego dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized`.
+Opcja ta umożliwia **zalogowanie się przy użyciu \<>dostawcy **. App Service przekierowuje wszystkie anonimowe żądania do wybranego `/.auth/login/<provider>` dostawcy. Jeśli żądanie anonimowe pochodzi z natywnej aplikacji mobilnej, zwrócona odpowiedź to `HTTP 401 Unauthorized` .
 
 W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardziej precyzyjne uwierzytelnianie, takie jak autoryzacja specyficzna dla ról, może być obsługiwane przez sprawdzenie oświadczeń użytkownika (zobacz [dostęp do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims)).
 
@@ -142,9 +140,9 @@ W przypadku tej opcji nie trzeba pisać kodu uwierzytelniania w aplikacji. Bardz
 
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników na zakończenie w Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Samouczek: uwierzytelnianie i Autoryzowanie użytkowników w Azure App Service dla systemu Linux](containers/tutorial-auth-aad.md)  
-[Dostosuj uwierzytelnianie i autoryzację w programie App Service](app-service-authentication-how-to.md)
-[.NET Core integrację usługi Azure appService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[otrzymywanie Azure App Service uwierzytelniania pracującego z platformą .NET Core (trzecia firma)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+[Dostosuj uwierzytelnianie i autoryzację w App Service](app-service-authentication-how-to.md) 
+ [Integracja z platformą .NET Core w usłudze Azure appService EasyAuth (trzecia firma)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
+ [Pobieranie Azure App Service uwierzytelniania podczas pracy z platformą .NET Core (inna firma)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Przewodniki z poszczególnymi dostawcami:
 

@@ -2,20 +2,19 @@
 title: Automatyczne naprawianie wystąpień przy użyciu zestawów skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak skonfigurować zasady naprawy automatycznych dla wystąpień maszyn wirtualnych w zestawie skalowania
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603683"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197035"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatyczne naprawy wystąpień dla zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 Powyższy przykład używa istniejącego modułu równoważenia obciążenia i sondy kondycji do monitorowania stanu kondycji aplikacji wystąpień. Jeśli zamiast tego wolisz używać rozszerzenia kondycji aplikacji do monitorowania, możesz utworzyć zestaw skalowania, skonfigurować rozszerzenie kondycji aplikacji, a następnie włączyć zasady naprawy automatycznego wystąpienia przy użyciu polecenia *AZ VMSS Update*, jak wyjaśniono w następnej sekcji.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Wyświetlanie i aktualizowanie stanu usługi automatycznego naprawiania zasad

@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101216"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196866"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Wysoka dostępność SAP HANA na maszynach wirtualnych platformy Azure na SUSE Linux Enterprise Server
 
@@ -112,7 +112,7 @@ Aby wdrożyć szablon, wykonaj następujące kroki:
     - **Dostępność systemu**: Wybierz **ha**.
     - **Nazwa użytkownika administratora i hasło administratora**: tworzony jest nowy użytkownik, którego można użyć do zalogowania się na komputerze.
     - **Nowa lub istniejąca podsieć**: określa, czy należy utworzyć nową sieć wirtualną i podsieć, czy też użyto istniejącej podsieci. Jeśli masz już sieć wirtualną, która jest połączona z siecią lokalną, wybierz pozycję **istniejące**.
-    - **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator jest zwykle wygląda jak **Identyfikator\<subskrypcji/subscriptions/>/resourcegroups/\<grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/\<nazwa sieci wirtualnej>/Subnets/\<nazwa podsieci>**.
+    - **Identyfikator podsieci**: Jeśli chcesz wdrożyć maszynę wirtualną w istniejącej sieci wirtualnej, w której zdefiniowano podsieć, należy przypisać do niej identyfikator tej konkretnej podsieci. Identyfikator jest zwykle wygląda jak ** \< Identyfikator subskrypcji/subscriptions/>/ResourceGroups/ \< grupy zasobów>/Providers/Microsoft.Network/virtualnetworks/ \< Nazwa sieci wirtualnej>/Subnets/ \< Nazwa podsieci>**.
 
 ### <a name="manual-deployment"></a>Wdrażanie ręczne
 
@@ -277,7 +277,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Utwórz woluminy logiczne. Wolumin liniowy jest tworzony, gdy jest `lvcreate` używany bez `-i` przełącznika. Zalecamy utworzenie woluminu rozłożonego w celu uzyskania lepszej wydajności operacji we/wy i dostosowanie rozmiarów rozłożonych do wartości przedstawionych w [SAP HANA konfiguracjach magazynu maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i` Argument powinien być liczbą podstawowych woluminów fizycznych, a `-I` argument jest rozmiarem paska. W tym dokumencie dwa woluminy fizyczne są używane dla woluminu danych, więc argument `-i` Switch ma wartość **2**. Rozmiar rozłożonego woluminu danych to **256KiB**. Jeden wolumin fizyczny jest używany w woluminie dziennika, więc żadne `-i` `-I` przełączniki nie są jawnie używane dla poleceń woluminu dziennika.  
+   Utwórz woluminy logiczne. Wolumin liniowy jest tworzony, gdy jest używany `lvcreate` bez `-i` przełącznika. Zalecamy utworzenie woluminu rozłożonego w celu uzyskania lepszej wydajności operacji we/wy i dostosowanie rozmiarów rozłożonych do wartości przedstawionych w [SAP HANA konfiguracjach magazynu maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i`Argument powinien być liczbą podstawowych woluminów fizycznych, a `-I` argument jest rozmiarem paska. W tym dokumencie dwa woluminy fizyczne są używane dla woluminu danych, więc `-i` argument Switch ma wartość **2**. Rozmiar rozłożonego woluminu danych to **256KiB**. Jeden wolumin fizyczny jest używany w woluminie dziennika, więc żadne `-i` `-I` przełączniki nie są jawnie używane dla poleceń woluminu dziennika.  
 
    > [!IMPORTANT]
    > Użyj `-i` przełącznika i ustaw go na numer bazowego woluminu fizycznego, jeśli używasz więcej niż jednego woluminu fizycznego dla każdego danych, dziennika lub udostępnionych woluminów. Użyj `-I` przełącznika, aby określić rozmiar paska podczas tworzenia woluminu rozłożonego.  
@@ -407,14 +407,14 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
    Jeśli używasz SAP HANA 2,0 lub MDC, Utwórz bazę danych dzierżawy dla systemu SAP NetWeaver. Zastąp **NW1** identyfikatorem SID systemu SAP.
 
-   Wykonaj następujące polecenie jako <hanasid\>adm:
+   Wykonaj następujące polecenie jako <hanasid \> adm:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** Skonfiguruj replikację systemu w pierwszym węźle:
 
-   Wykonaj kopię zapasową baz danych\>jako <hanasid adm:
+   Wykonaj kopię zapasową baz danych jako <hanasid \> adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -434,7 +434,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[2]** Skonfiguruj replikację systemu w drugim węźle:
     
-   Zarejestruj drugi węzeł, aby rozpocząć replikację systemu. Uruchom następujące polecenie jako <hanasid\>adm:
+   Zarejestruj drugi węzeł, aby rozpocząć replikację systemu. Uruchom następujące polecenie jako <hanasid \> adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -481,7 +481,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[1]** Skonfiguruj replikację systemu na pierwszym węźle.
 
-   Utwórz lokację główną jako <hanasid\>adm:
+   Utwórz lokację główną jako <hanasid \> adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -489,7 +489,7 @@ W procedurach przedstawionych w tej sekcji są używane następujące prefiksy:
 
 1. **[2]** Skonfiguruj replikację systemu w węźle pomocniczym.
 
-   Zarejestruj lokację dodatkową jako <hanasid\>adm:
+   Zarejestruj lokację dodatkową jako <hanasid \> adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -547,7 +547,8 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b>
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+  meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
@@ -610,7 +611,7 @@ Można zmigrować węzeł główny SAP HANA, wykonując następujące polecenie:
 <pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-W przypadku ustawienia `AUTOMATED_REGISTER="false"`ta sekwencja poleceń powinna migrować węzeł główny SAP HANA i grupę zawierającą wirtualny adres IP do hn1-dB-1.
+W przypadku ustawienia `AUTOMATED_REGISTER="false"` Ta sekwencja poleceń powinna migrować węzeł główny SAP HANA i grupę zawierającą wirtualny adres IP do hn1-dB-1.
 
 Po zakończeniu migracji crm_mon-r dane wyjściowe wyglądają następująco
 
@@ -681,7 +682,7 @@ Możesz przetestować instalację Agenta ogrodzenia platformy Azure, wyłączaj�
 Maszyna wirtualna powinna być teraz ponownie uruchamiana lub zatrzymywana w zależności od konfiguracji klastra.
 Jeśli `stonith-action` ustawienie zostanie wyłączone, maszyna wirtualna zostanie zatrzymana, a zasoby zostaną zmigrowane do uruchomionej maszyny wirtualnej.
 
-Po ponownym uruchomieniu maszyny wirtualnej nie można uruchomić zasobu SAP HANA jako pomocniczego, jeśli został ustawiony `AUTOMATED_REGISTER="false"`. W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
+Po ponownym uruchomieniu maszyny wirtualnej nie można uruchomić zasobu SAP HANA jako pomocniczego, jeśli został ustawiony `AUTOMATED_REGISTER="false"` . W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -719,7 +720,7 @@ Ręczne przełączanie w tryb failover można przetestować, zatrzymując `pacem
 <pre><code>service pacemaker stop
 </code></pre>
 
-Po przejściu w tryb failover możesz ponownie uruchomić usługę. Jeśli ustawisz `AUTOMATED_REGISTER="false"`, zasób SAP HANA w węźle hn1-DB-0 nie zostanie uruchomiony jako pomocniczy. W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
+Po przejściu w tryb failover możesz ponownie uruchomić usługę. Jeśli ustawisz `AUTOMATED_REGISTER="false"` , zasób SAP HANA w węźle hn1-DB-0 nie zostanie uruchomiony jako pomocniczy. W takim przypadku należy skonfigurować wystąpienie HANA jako pomocnicze, wykonując następujące polecenie:
 
 <pre><code>service pacemaker start
 su - <b>hn1</b>adm
@@ -759,7 +760,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-DB-0:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -800,7 +801,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-dB-1:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-dB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -841,7 +842,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-DB-0:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-DB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -882,7 +883,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-dB-1:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-dB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1025,7 +1026,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-dB-1:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-dB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1062,7 +1063,7 @@ Uwaga: następujące testy zostały zaprojektowane tak, aby były uruchamiane w 
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Uruchom następujące polecenia jako <hanasid\>adm w węźle hn1-dB-1:
+   Uruchom następujące polecenia jako <hanasid \> adm w węźle hn1-dB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

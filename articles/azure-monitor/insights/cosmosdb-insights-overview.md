@@ -1,21 +1,21 @@
 ---
-title: Monitoruj Azure Cosmos DB z Azure Monitor dla Cosmos DB (wersja zapoznawcza) | Microsoft Docs
+title: Monitoruj Azure Cosmos DB przy użyciu Azure Monitor dla Cosmos DB | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Cosmos DB, która zapewnia Cosmos DB właściciele z szybką wiedzą na temat problemów z wydajnością i wykorzystaniem ich kont CosmosDB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250676"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195396"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Eksploruj Azure Monitor dla Azure Cosmos DB (wersja zapoznawcza)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Eksploruj Azure Monitor dla Azure Cosmos DB
 
-Azure Monitor dla Azure Cosmos DB (wersja zapoznawcza) zawiera widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej wszystkich zasobów Azure Cosmos DB w ujednoliconym interaktywnym środowisku. Ten artykuł pomoże Ci zrozumieć korzyści płynące z nowego środowiska monitorowania oraz jak można modyfikować i dostosowywać środowisko, aby odpowiadało unikatowym potrzebom organizacji.   
+Azure Monitor dla Azure Cosmos DB stanowi widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym. Ten artykuł pomoże Ci zrozumieć korzyści płynące z nowego środowiska monitorowania oraz jak można modyfikować i dostosowywać środowisko, aby odpowiadało unikatowym potrzebom organizacji.   
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -44,7 +44,7 @@ Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach
 
     ![Pole wyszukiwania z słowem "Monitor" oraz listą rozwijaną "Monitor" z obrazem stylu prędkościomierza](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Wybierz pozycję **Cosmos dB (wersja zapoznawcza)**.
+3. Wybierz **Cosmos DB**.
 
     ![Zrzut ekranu przedstawiający skoroszyt omówienia Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -92,7 +92,7 @@ Podobnie jak w przypadku skoroszytu z omówieniem, wybranie listy rozwijanej obo
 
 Wybierz pozycję **operacje** w górnej części strony, a zostanie otwarta część **operacje** szablonu skoroszytu. Daje ona możliwość wyświetlenia żądań, które zostały podzielone według typu żądań. 
 
-Tak więc w poniższym przykładzie widzisz, `eastus-billingint` że jest on głównie otrzymywał żądania odczytu, ale z niewielką liczbą żądań upsert i Create. Program `westeurope-billingint` jest tylko do odczytu z perspektywy żądania, co najmniej w ciągu ostatnich czterech godzin, do których ten skoroszyt jest obecnie objęty zakresem czasu.
+Tak więc w poniższym przykładzie widzisz, że `eastus-billingint` jest on głównie otrzymywał żądania odczytu, ale z niewielką liczbą żądań upsert i Create. Program `westeurope-billingint` jest tylko do odczytu z perspektywy żądania, co najmniej w ciągu ostatnich czterech godzin, do których ten skoroszyt jest obecnie objęty zakresem czasu.
 
 ![Skoroszyt operacji](./media/cosmosdb-insights-overview/operation.png) 
 
@@ -110,9 +110,9 @@ Aby rozwinąć lub zwinąć wszystkie widoki rozwijane w skoroszycie, wybierz ik
 
 ![Rozwiń ikonę skoroszytu](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Dostosowywanie Azure Monitor dla Azure Cosmos DB (wersja zapoznawcza)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Dostosuj Azure Monitor dla Azure Cosmos DB
 
-Ponieważ to środowisko zostało utworzone na podstawie Azure monitor szablonów skoroszytów, można **dostosować** > **Edytowanie** i **zapisywać** kopię zmodyfikowanej wersji w skoroszycie niestandardowym. 
+Ponieważ to środowisko zostało utworzone na podstawie Azure monitor szablonów skoroszytów, można **dostosować**  >  **Edytowanie** i **zapisywać** kopię zmodyfikowanej wersji w skoroszycie niestandardowym. 
 
 ![Dostosuj pasek](./media/cosmosdb-insights-overview/customize.png)
 
