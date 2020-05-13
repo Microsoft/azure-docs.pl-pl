@@ -3,14 +3,14 @@ title: Azure Functions monitorowania z dziennikami Azure Monitor
 description: Dowiedz się, jak używać dzienników Azure Monitor z Azure Functions do monitorowania wykonań funkcji.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649878"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121649"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Functions monitorowania z dziennikami Azure Monitor
 
@@ -25,17 +25,23 @@ Azure Monitor używa wersji [języka zapytań Kusto](/azure/kusto/query/) używa
 
 ## <a name="setting-up"></a>Konfigurowanie
 
-W sekcji **monitorowanie** wybierz pozycję **Ustawienia diagnostyczne** , a następnie kliknij pozycję **Dodaj ustawienie diagnostyczne**.
+1. Z sekcji **monitorowanie** aplikacji funkcji w [Azure Portal](https://portal.azure.com)wybierz pozycję **Ustawienia diagnostyczne**, a następnie wybierz pozycję **Dodaj ustawienie diagnostyczne**.
 
-![Dodaj ustawienie diagnostyczne](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Wybieranie ustawień diagnostycznych":::
 
-Na stronie **Ustawienia diagnostyki** wybierz pozycję **Wyślij do log Analytics**a następnie wybierz obszar roboczy log Analytics. W obszarze **Dziennik** wybierz **FunctionAppLogs**, ta tabela zawiera odpowiednie dzienniki.
+1. Na stronie **Ustawienia diagnostyki** w obszarze **szczegóły kategorii** i **Dziennik**wybierz pozycję **FunctionAppLogs**.
 
-![Dodaj ustawienie diagnostyczne](media/functions-monitor-log-analytics/choose-table.png)
+   Tabela **FunctionAppLogs** zawiera żądane dzienniki.
+
+1. W obszarze **szczegóły miejsca docelowego**wybierz pozycję **Wyślij do log Analytics**. a następnie wybierz **obszar roboczy log Analytics**. 
+
+1. Wprowadź **nazwę ustawień diagnostycznych**, a następnie wybierz pozycję **Zapisz**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Dodaj ustawienie diagnostyczne":::
 
 ## <a name="user-generated-logs"></a>Dzienniki generowane przez użytkownika
 
-W celu wygenerowania dzienników niestandardowych można użyć określonej instrukcji rejestrowania w zależności od języka, poniżej przedstawiono przykładowe fragmenty kodu:
+Aby generować dzienniki niestandardowe, użyj instrukcji rejestrowania właściwej dla danego języka. Oto przykładowe fragmenty kodu:
 
 
 # <a name="c"></a>[S #](#tab/csharp)
@@ -56,7 +62,7 @@ context.getLogger().info("My app logs here.");
 context.log('My app logs here.');
 ```
 
-# <a name="powershell"></a>[Narzędzia](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 Write-Host "My app logs here."
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Wykonywanie zapytania dotyczącego dzienników
 
-Aby wykonać zapytanie dotyczące wygenerowanych dzienników, przejdź do obszaru roboczego Log Analytics skonfigurowanego do wysyłania dzienników funkcji do i kliknij pozycję **dzienniki**.
+Aby wykonać zapytanie dotyczące wygenerowanych dzienników:
+ 
+1. W aplikacji funkcji wybierz pozycję **Ustawienia diagnostyczne**. 
 
-![Okno zapytania w obszarze roboczym LA](media/functions-monitor-log-analytics/querying.png)
+1. Z listy **ustawień diagnostycznych** wybierz obszar roboczy log Analytics, który został skonfigurowany do wysyłania dzienników funkcji. 
 
-Azure Functions zapisuje wszystkie dzienniki w tabeli **FunctionAppLogs** , poniżej przedstawiono kilka przykładowych zapytań.
+1. Na stronie **obszar roboczy log Analytics** wybierz pozycję **dzienniki**.
+
+   Azure Functions zapisuje wszystkie dzienniki w tabeli **FunctionAppLogs** w obszarze **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Okno zapytania w obszarze roboczym Log Analytics":::
+
+Oto kilka przykładowych zapytań:
 
 ### <a name="all-logs"></a>Wszystkie dzienniki
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>Określone dzienniki funkcji
+### <a name="specific-function-logs"></a>Określone dzienniki funkcji
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Zapoznaj się z [omówieniem Azure Functions](functions-overview.md)
-- Dowiedz się więcej o [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md)
+- Zapoznaj się z [omówieniem Azure Functions](functions-overview.md).
+- Dowiedz się więcej o [dziennikach Azure monitor](../azure-monitor/platform/data-platform-logs.md).
 - Dowiedz się więcej o [języku zapytań](../azure-monitor/log-query/get-started-queries.md).

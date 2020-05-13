@@ -1,17 +1,17 @@
 ---
 title: Jak zmienić rozmiar maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Jak skalować w górę lub w dół maszynę wirtualną z systemem Linux, zmieniając rozmiar maszyny wirtualnej.
-author: mikewasson
+author: DavidCBerry13
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/10/2017
-ms.author: mwasson
-ms.openlocfilehash: 20e7db80b55347c4a4a76b7c95d4d8bec368abda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: cf2716ce5d24aa86e32f6f521134590c671d5011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969275"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120984"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Zmienianie rozmiaru maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure 
 
@@ -20,7 +20,7 @@ Po udostępnieniu maszyny wirtualnej można skalować ją w górę lub w dół, 
 ## <a name="resize-a-vm"></a>Zmienianie rozmiaru maszyny wirtualnej
 Aby zmienić rozmiar maszyny wirtualnej, należy zainstalować najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-az-cli2) i zalogować się na konto platformy Azure za pomocą polecenia [AZ login](/cli/azure/reference-index).
 
-1. Wyświetl listę dostępnych rozmiarów maszyn wirtualnych w klastrze sprzętowym, w którym jest hostowana maszyna wirtualna za pomocą [AZ VM list-VM-size-Options](/cli/azure/vm). W poniższym przykładzie wymieniono rozmiary maszyn wirtualnych dla maszyny `myVM` wirtualnej o nazwie w `myResourceGroup` regionie grupy zasobów:
+1. Wyświetl listę dostępnych rozmiarów maszyn wirtualnych w klastrze sprzętowym, w którym jest hostowana maszyna wirtualna za pomocą [AZ VM list-VM-size-Options](/cli/azure/vm). W poniższym przykładzie wymieniono rozmiary maszyn wirtualnych dla maszyny wirtualnej o nazwie `myVM` w `myResourceGroup` regionie grupy zasobów:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
@@ -34,7 +34,7 @@ Aby zmienić rozmiar maszyny wirtualnej, należy zainstalować najnowszy [interf
    
     Maszyna wirtualna jest uruchamiana ponownie w trakcie tego procesu. Po ponownym uruchomieniu istniejące dyski systemu operacyjnego i danych są ponownie mapowane. Wszystkie elementy na dysku tymczasowym zostaną utracone.
 
-3. Jeśli żądany rozmiar maszyny wirtualnej nie znajduje się na liście, musisz najpierw cofnąć przydział maszyny wirtualnej za pomocą polecenie [AZ VM deallocate](/cli/azure/vm). Ten proces umożliwia zmianę rozmiaru maszyny wirtualnej w dowolnym rozmiarze dostępnym dla regionu, a następnie rozpoczęcie. Wykonaj następujące kroki, aby cofnąć alokację, zmienić rozmiar, a `myVM` następnie uruchom maszynę wirtualną `myResourceGroup`o nazwie w grupie zasobów o nazwie:
+3. Jeśli żądany rozmiar maszyny wirtualnej nie znajduje się na liście, musisz najpierw cofnąć przydział maszyny wirtualnej za pomocą polecenie [AZ VM deallocate](/cli/azure/vm). Ten proces umożliwia zmianę rozmiaru maszyny wirtualnej w dowolnym rozmiarze dostępnym dla regionu, a następnie rozpoczęcie. Wykonaj następujące kroki, aby cofnąć alokację, zmienić rozmiar, a następnie uruchom maszynę wirtualną o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` :
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

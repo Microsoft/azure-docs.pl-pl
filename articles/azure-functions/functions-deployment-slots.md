@@ -3,14 +3,14 @@ title: Azure Functions miejsc wdrożenia
 description: Dowiedz się, jak tworzyć i używać miejsc wdrożenia przy użyciu Azure Functions
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769221"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122599"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions miejsc wdrożenia
 
@@ -19,7 +19,7 @@ Azure Functions miejsca wdrożenia pozwalają aplikacji funkcji uruchamiać ró�
 Poniżej przedstawiono sposób, w jaki funkcje mają wpływ na zamienienie gniazd:
 
 - Przekierowywanie ruchu jest bezproblemowe; żadne żądania nie są usuwane ze względu na zamianę.
-- Jeśli funkcja jest uruchomiona w trakcie wymiany, wykonywanie jest kontynuowane, a kolejne wyzwalacze są kierowane do zamienionego wystąpienia aplikacji.
+- Jeśli funkcja jest uruchomiona w trakcie wymiany, wykonywanie jest kontynuowane, a następne wyzwalacze są kierowane do zamienionego wystąpienia aplikacji.
 
 > [!NOTE]
 > Gniazda nie są obecnie dostępne dla planu zużycia systemu Linux.
@@ -49,11 +49,11 @@ W trakcie wymiany jedno gniazdo jest uznawane za źródło i inne miejsce docelo
 
 Należy pamiętać o następujących kwestiach:
 
-- W dowolnym momencie operacji wymiany inicjowanie zamienionych aplikacji odbywa się w miejscu źródłowym. Gniazdo docelowe pozostaje w trybie online, gdy miejsce źródłowe jest przygotowywane, niezależnie od tego, czy swap zakończyło się powodzeniem, czy niepowodzeniem.
+- W dowolnym momencie operacji wymiany inicjowanie zamienionych aplikacji odbywa się w miejscu źródłowym. Gniazdo docelowe pozostaje w trybie online, gdy gniazdo źródłowe jest przygotowana, niezależnie od tego, czy swap zakończy się powodzeniem, czy nie.
 
 - Aby wymienić miejsce przejściowe z miejscem produkcyjnym, upewnij się, że miejsce produkcyjne jest *zawsze* miejscem docelowym. W ten sposób operacja zamiany nie ma wpływu na aplikację produkcyjną.
 
-- Ustawienia związane ze źródłami i powiązaniami zdarzeń muszą zostać skonfigurowane jako [Ustawienia miejsca wdrożenia](#manage-settings) *przed zainicjowaniem zamiany*. Oznaczanie ich jako "Sticky" przed czasem gwarantuje, że zdarzenia i wyjścia są kierowane do właściwego wystąpienia.
+- Ustawienia związane ze źródłami i powiązaniami zdarzeń muszą zostać skonfigurowane jako [Ustawienia miejsca wdrożenia](#manage-settings) *przed rozpoczęciem wymiany*. Oznaczanie ich jako "Sticky" przed czasem gwarantuje, że zdarzenia i wyjścia są kierowane do właściwego wystąpienia.
 
 ## <a name="manage-settings"></a>Zarządzanie ustawieniami
 
@@ -61,21 +61,27 @@ Należy pamiętać o następujących kwestiach:
 
 ### <a name="create-a-deployment-setting"></a>Utwórz ustawienie wdrożenia
 
-Można oznaczyć ustawienia jako ustawienie wdrożenia, które powoduje "Sticky IT". Ustawienie programu Sticky Notes nie jest zamieniane na wystąpienie aplikacji.
+Można oznaczyć ustawienia jako ustawienia wdrożenia, co sprawia, że "Stick". Ustawienie programu Sticky Notes nie zamienia wystąpienia aplikacji.
 
-W przypadku utworzenia ustawienia wdrożenia w jednym gnieździe upewnij się, że to ustawienie ma wartość unikatową w dowolnym innym gnieździe uwzględnionym w wymianie. W ten sposób, gdy wartość ustawienia nie ulegnie zmianie, nazwy ustawień pozostają spójne między gniazdami. Ta spójność nazw gwarantuje, że kod nie próbuje uzyskać dostępu do ustawienia zdefiniowanego w jednym gnieździe, ale innym.
+W przypadku utworzenia ustawienia wdrożenia w jednym gnieździe upewnij się, że to ustawienie ma wartość unikatową w każdym innym miejscu, które jest uwzględnione w wymianie. W ten sposób, gdy wartość ustawienia nie ulegnie zmianie, nazwy ustawień pozostają spójne między gniazdami. Ta spójność nazw gwarantuje, że kod nie próbuje uzyskać dostępu do ustawienia zdefiniowanego w jednym gnieździe, ale innym.
 
 Wykonaj następujące kroki, aby utworzyć ustawienie wdrożenia:
 
-- Przejdź do *miejsc* w aplikacji funkcji
-- Kliknij nazwę miejsca
-- W obszarze *funkcje platformy > ustawienia ogólne*kliknij pozycję **Konfiguracja** .
-- Kliknij nazwę ustawienia, które chcesz połączyć z bieżącym miejscem
-- Kliknij pole wyboru **Ustawienia miejsca wdrożenia**
-- Kliknij przycisk **OK** .
-- Po wyznikaniu bloku ustawienia kliknij przycisk **Zapisz** , aby zachować zmiany
+1. Przejdź do **miejsc wdrożenia** w aplikacji funkcji, a następnie wybierz nazwę gniazda.
 
-![Ustawienie miejsca wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
+
+1. Wybierz pozycję **Konfiguracja**, a następnie wybierz nazwę ustawienia, które chcesz nawiązać z bieżącym miejscem.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Skonfiguruj ustawienie aplikacji dla gniazda w Azure Portal." border="true":::
+
+1. Wybierz **ustawienie miejsce wdrożenia**, a następnie wybierz przycisk **OK**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Skonfiguruj ustawienie miejsca wdrożenia." border="true":::
+
+1. Gdy sekcja ustawienia znika, wybierz pozycję **Zapisz** , aby zachować zmiany
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Zapisz ustawienie miejsca wdrożenia." border="true":::
 
 ## <a name="deployment"></a>Wdrożenie
 
@@ -92,22 +98,28 @@ Wszystkie gniazda są skalowane do tej samej liczby procesów roboczych co miejs
 
 Możesz dodać gniazdo za pośrednictwem [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) lub portalu. Poniższe kroki pokazują, jak utworzyć nowe miejsce w portalu:
 
-1. Przejdź do aplikacji funkcji i kliknij znak **Plus** *obok pozycji miejsca.*
+1. Przejdź do aplikacji funkcji.
 
-    ![Dodaj Azure Functions miejsce wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Wybierz pozycję miejsca **wdrożenia**, a następnie wybierz pozycję **+ Dodaj miejsce**.
 
-1. Wprowadź nazwę w polu tekstowym, a następnie naciśnij przycisk **Utwórz** .
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Dodaj Azure Functions miejsce wdrożenia." border="true":::
 
-    ![Nazwa Azure Functions miejsce wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Wpisz nazwę gniazda i wybierz pozycję **Dodaj**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Nazwij Azure Functions miejsce wdrożenia." border="true":::
 
 ## <a name="swap-slots"></a>Zastępowanie miejsc
 
 Możesz zamienić gniazda za pośrednictwem [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) lub portalu. W poniższych krokach przedstawiono sposób wymiany gniazd w portalu:
 
-1. Przejdź do aplikacji funkcji
-1. Kliknij nazwę miejsca źródłowego, które chcesz zamienić
-1. Na karcie *Omówienie* kliknij przycisk ![ **swap** Zamień Azure Functions miejsce wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Sprawdź ustawienia konfiguracji wymiany **i kliknij pozycję swap** ![swap Azure Functions miejsce wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Przejdź do aplikacji funkcji.
+1. Wybierz pozycję miejsca **wdrożenia**, a następnie wybierz pozycję **Zamień**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Zamień miejsce wdrożenia." border="true":::
+
+1. Sprawdź ustawienia konfiguracji wymiany i wybierz pozycję **Zamień**
+    
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Zamień miejsce wdrożenia." border="true":::
 
 Operacja może chwilę potrwać, gdy trwa wykonywanie operacji zamiany.
 
@@ -119,11 +131,21 @@ Jeśli Zamiana powoduje błąd lub po prostu chcesz "cofnąć" zamianę, możesz
 
 Możesz usunąć gniazdo za pośrednictwem [interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) lub portalu. W poniższych krokach pokazano, jak usunąć miejsce w portalu:
 
-1. Przejdź do omówienia aplikacji funkcji
+1. Przejdź do **miejsc wdrożenia** w aplikacji funkcji, a następnie wybierz nazwę gniazda.
 
-1. Kliknij przycisk **Usuń**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
 
-    ![Dodaj Azure Functions miejsce wdrożenia](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+1. Wybierz pozycję **Usuń**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Usuń miejsce wdrożenia w Azure Portal." border="true":::
+
+1. Wpisz nazwę miejsca wdrożenia, które chcesz usunąć, a następnie wybierz pozycję **Usuń**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Usuń miejsce wdrożenia w Azure Portal." border="true":::
+
+1. Zamknij okienko potwierdzenie usunięcia.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Potwierdzenie usunięcia miejsca wdrożenia." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatyzowanie zarządzania gniazdami
 
@@ -131,40 +153,37 @@ Korzystając z [interfejsu wiersza polecenia platformy Azure](https://docs.micro
 
 - [Create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [usunięty](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
-- [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
+- [staw](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
 - [wymiany](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [Zamień na siebie](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>Zmień plan App Service
 
-W przypadku aplikacji funkcji działającej w ramach planu App Service istnieje możliwość zmiany bazowego planu App Service dla gniazda.
+Za pomocą aplikacji funkcji działającej w ramach planu App Service można zmienić bazowy Plan App Service dla gniazda.
 
 > [!NOTE]
 > Nie można zmienić planu App Service gniazda w ramach planu zużycia.
 
 Aby zmienić plan App Service gniazda, wykonaj następujące czynności:
 
-1. Przejdź do miejsca
+1. Przejdź do **miejsc wdrożenia** w aplikacji funkcji, a następnie wybierz nazwę gniazda.
 
-1. W obszarze *funkcje platformy*kliknij pozycję **wszystkie ustawienia** .
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Znajdź gniazda w Azure Portal." border="true":::
 
-    ![Zmień plan usługi App Service](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. W obszarze **plan App Service**wybierz pozycję **Zmień App Service plan**.
 
-1. Kliknij **plan App Service**
+1. Wybierz plan, do którego chcesz przeprowadzić uaktualnienie, lub Utwórz nowy plan.
 
-1. Wybierz nowy plan App Service lub Utwórz nowy plan
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Zmień plan App Service w Azure Portal." border="true":::
 
-1. Kliknij przycisk **OK** .
-
-    ![Zmień plan usługi App Service](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
-
+1. Wybierz przycisk **OK**.
 
 ## <a name="limitations"></a>Ograniczenia
 
 Azure Functions miejsca wdrożenia mają następujące ograniczenia:
 
 - Liczba gniazd dostępnych dla aplikacji zależy od planu. Plan zużycia jest dozwolony tylko w jednym miejscu wdrożenia. Dodatkowe gniazda są dostępne dla aplikacji uruchamianych w ramach planu App Service.
-- Wymiana gniazda powoduje zresetowanie kluczy dla aplikacji, których ustawienie `AzureWebJobsSecretStorageType` aplikacji jest równe. `files`
+- Wymiana gniazda powoduje zresetowanie kluczy dla aplikacji, których `AzureWebJobsSecretStorageType` ustawienie aplikacji jest równe `files` .
 - Gniazda nie są dostępne dla planu zużycia systemu Linux.
 
 ## <a name="support-levels"></a>Poziomy pomocy technicznej

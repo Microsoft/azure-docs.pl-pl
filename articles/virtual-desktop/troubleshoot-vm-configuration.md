@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607252"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125118"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -87,7 +87,7 @@ Zalecanym sposobem aprowizacji maszyn wirtualnych jest użycie szablonu tworzeni
 
 Postępuj zgodnie z tymi instrukcjami, aby upewnić się, że składniki są zainstalowane i sprawdź komunikaty o błędach.
 
-1. Upewnij się, że dwa składniki są zainstalowane, zaznaczając **panel** > sterowania**programy** > **programy i funkcje**. Jeśli program **Windows Virtual Desktop Agent** i **moduł ładujący rozruchu agenta wirtualnego systemu Windows** nie są widoczne, nie są one zainstalowane na maszynie wirtualnej.
+1. Upewnij się, że dwa składniki są zainstalowane, zaznaczając **Panel sterowania**  >  **programy**  >  **programy i funkcje**. Jeśli program **Windows Virtual Desktop Agent** i **moduł ładujący rozruchu agenta wirtualnego systemu Windows** nie są widoczne, nie są one zainstalowane na maszynie wirtualnej.
 2. Otwórz **Eksploratora plików** i przejdź do **C:\Windows\Temp\ScriptLog.log**. Jeśli brakuje pliku, oznacza to, że nie można uruchomić programu PowerShell DSC, który zainstalował dwa składniki, w podanym kontekście zabezpieczeń.
 3. Jeśli plik **C:\Windows\Temp\ScriptLog.log** jest obecny, otwórz go i sprawdź komunikaty o błędach.
 
@@ -234,7 +234,7 @@ Maszyna wirtualna używana do uruchamiania korygowania musi znajdować się w te
 Postępuj zgodnie z tymi instrukcjami, aby przeprowadzić korygowanie z tej samej podsieci i domeny:
 
 1. Połącz się z maszyną wirtualną przy użyciu standardu Remote Desktop Protocol (RDP), z której zostanie zastosowana poprawka.
-2. Pobierz PsExec z https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Pobierz PsExec z https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Rozpakuj pobrany plik.
 4. Uruchom wiersz polecenia jako administrator lokalny.
 5. Przejdź do folderu, w którym PsExec zostało rozpakowane.
@@ -310,7 +310,7 @@ Jeśli zobaczysz jeden z tych komunikatów, oznacza to, że obraz nie ma zainsta
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Wyłącz ustawienie zasad grupy trybu licencjonowania Pulpit zdalny
 
-Sprawdź ustawienie zasad grupy, otwierając Edytor zasady grupy na maszynie wirtualnej i przechodząc do **Szablony administracyjne** > **składniki** > systemu Windows**usługi pulpitu zdalnego** > **pulpit zdalny** > **Licencjonowanie** > hosta sesji**Ustaw tryb licencjonowania pulpit zdalny**. Jeśli ustawienie zasad grupy jest **włączone**, zmień je na **wyłączone**. Jeśli jest już wyłączona, pozostaw ją jako-is.
+Sprawdź ustawienie zasad grupy, otwierając Edytor zasady grupy na maszynie wirtualnej i przechodząc do **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **Licencjonowanie**hosta sesji  >  **Ustaw tryb licencjonowania pulpit zdalny**. Jeśli ustawienie zasad grupy jest **włączone**, zmień je na **wyłączone**. Jeśli jest już wyłączona, pozostaw ją jako-is.
 
 >[!NOTE]
 >Jeśli zasady grupy są ustawiane za pośrednictwem domeny, należy wyłączyć to ustawienie dla zasad przeznaczonych dla maszyn wirtualnych obejmujących wiele sesji systemu Windows 10 Enterprise.
@@ -335,6 +335,12 @@ Jeśli numer wersji jest taki sam, jak "1809", zainstaluj [aktualizację KB45160
 ### <a name="version-1903"></a>Wersja 1903
 
 Wdróż ponownie system operacyjny hosta z najnowszą wersją obrazu systemu Windows 10 w wersji 1903 z galerii platformy Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Nie można nawiązać połączenia z komputerem zdalnym z powodu błędu zabezpieczeń
+
+Jeśli użytkownicy zobaczą komunikat o błędzie "nie można nawiązać połączenia z komputerem zdalnym z powodu błędu zabezpieczeń. Jeśli ten problem będzie się powtarzał, skontaktuj się z administratorem lub pomocą techniczną, aby uzyskać pomoc, "Sprawdź poprawność wszelkich istniejących zasad, które zmieniają domyślne uprawnienia RDP. Jedną z zasad, które mogą spowodować pojawienie się tego błędu jest "Zezwalaj na logowanie za Usługi pulpitu zdalnego zasad zabezpieczeń".
+
+Aby dowiedzieć się więcej na temat tych zasad, zobacz [Zezwalanie na logowanie przy użyciu usługi pulpitu zdalnego](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Następne kroki
 

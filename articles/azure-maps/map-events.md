@@ -1,20 +1,20 @@
 ---
 title: Obsługa zdarzeń mapy | Mapy Microsoft Azure
 description: W tym artykule dowiesz się, jak utworzyć interaktywną mapę sieci Web SDK ze zdarzeniami mapy przy użyciu zestawu Microsoft Azure Web SDK mapy.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534902"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124010"
 ---
 # <a name="interact-with-the-map"></a>Korzystanie z mapy
 
@@ -26,7 +26,7 @@ Odtwórz przy użyciu mapy poniżej i zobacz odpowiednie zdarzenia myszy wyróż
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Korzystanie z mapy — zdarzenia myszy' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>z zdarzeń dotyczących mapy — wskaźnik myszy</a> według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Korzystanie z mapy — zdarzenia myszy' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>z zdarzeń dotyczących mapy — wskaźnik myszy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Korzystanie z warstw mapy
@@ -35,7 +35,7 @@ Poniższy kod wyróżnia wywoływane zdarzenie podczas korzystania z warstwy sym
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Korzystanie z zdarzeń mapy — zdarzenia warstwy' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>z zdarzeń mapy — zdarzenia warstwy</a> według Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Korzystanie z zdarzeń mapy — zdarzenia warstwy' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zapoznaj się z piórem, korzystając <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>z zdarzeń mapy — zdarzenia warstwy</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Korzystanie z znacznika HTML
@@ -44,7 +44,7 @@ Poniższy kod dodaje zdarzenia mapy JavaScript do znacznika HTML. Wyróżnia tak
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Korzystanie z zdarzeń mapy — znaczniki HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz, jak <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>korzystać z pióra z zdarzeniami znacznika mapy kodu HTML</a> według<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () w <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Korzystanie z zdarzeń mapy — znaczniki HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz, jak <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>korzystać z pióra z zdarzeniami znacznika mapy kodu HTML</a> według Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) w <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
@@ -57,9 +57,9 @@ W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 | `close`             | Uruchamiany, gdy menu podręczne jest zamknięte ręcznie lub programowo.|
 | `contextmenu`       | Uruchamiany po kliknięciu prawego przycisku myszy.|
 | `data`              | Uruchamiany, gdy dowolne dane mapy są ładowane lub zmieniane. |
-| `dataadded`         | Uruchamiany, `DataSource`gdy kształty są dodawane do.|
-| `dataremoved`       | Uruchamiany, `DataSource`gdy kształty są usuwane z.|
-| `datasourceupdated` | Uruchamiany, `DataSource` gdy obiekt zostanie zaktualizowany.|
+| `dataadded`         | Uruchamiany, gdy kształty są dodawane do `DataSource` .|
+| `dataremoved`       | Uruchamiany, gdy kształty są usuwane z `DataSource` .|
+| `datasourceupdated` | Uruchamiany, gdy `DataSource` obiekt zostanie zaktualizowany.|
 | `dblclick`          | Uruchamiany, gdy urządzenie wskazujące jest kliknięte dwukrotnie w tym samym punkcie na mapie.|
 | `drag`              | Wywoływane wielokrotnie podczas interakcji "przeciągnij do kadrowania" w znaczniku mapy, popup lub HTML.|
 | `dragend`           | Uruchamiany po zakończeniu interakcji "przeciągnij do kadrowania" w znaczniku mapy, popup lub HTML.|
@@ -94,8 +94,8 @@ W poniższej tabeli wymieniono wszystkie obsługiwane zdarzenia klas mapy.
 | `rotatestart`       | Uruchamiany po rozpoczęciu interakcji "przeciągnij do obrotu".|
 | `shapechanged`      | Uruchamiany, gdy zostanie zmieniona właściwość obiektu kształtu.|
 | `sourcedata`        | Uruchamiany, gdy jeden ze źródeł mapy jest ładowany lub zmienia się, w tym, czy kafelek należący do źródła jest ładowany lub zmieniany. |
-| `sourceadded`       | Uruchamiany po `DataSource` dodaniu `VectorTileSource` lub do mapy.|
-| `sourceremoved`     | Uruchamiany po `DataSource` usunięciu `VectorTileSource` lub z mapy.|
+| `sourceadded`       | Uruchamiany po `DataSource` `VectorTileSource` dodaniu lub do mapy.|
+| `sourceremoved`     | Uruchamiany po `DataSource` `VectorTileSource` usunięciu lub z mapy.|
 | `styledata`         | Uruchamiany, gdy styl mapy zostanie załadowany lub zmieniony.|
 | `styleimagemissing` | Uruchamiany, gdy warstwa próbuje załadować obraz z Sprite obrazu, który nie istnieje |
 | `tokenacquired`     | Uruchamiany, gdy zostanie uzyskany token dostępu usługi AAD.|

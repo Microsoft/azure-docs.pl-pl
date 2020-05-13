@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80280358"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124707"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instrukcje dotyczące zarządzania potencjalnymi klientami dla usługi Table Storage
 
@@ -98,7 +98,7 @@ W następnym zestawie kroków zostanie nawiązane połączenie z tabelą magazyn
 
    - **Zapytanie filtru**: po zaznaczeniu tego pola w oknie podręcznym zostanie wyświetlona ikona **uzyskaj czas** ostatniej. Wybierz **poprzedni czas** , aby użyć tej wartości jako sygnatury czasowej do filtrowania zapytania. Lub można wkleić następującą funkcję do pola:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Konfigurowanie funkcji zapytania filtru](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

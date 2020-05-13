@@ -2,17 +2,19 @@
 title: Zarządzanie Virtual Machine Scale Sets przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Typowe polecenia platformy Azure umożliwiające zarządzanie Virtual Machine Scale Sets, takie jak uruchamianie i zatrzymywanie wystąpienia lub zmienianie pojemności zestawu skalowania.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: ad07a237dd40d836705b332c6c10356720901481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011586"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124333"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Zarządzanie zestawem skalowania maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure
 W całym cyklu życia zestawu skalowania maszyn wirtualnych konieczne może być uruchomienie jednego lub większej liczby zadań zarządzania. Ponadto może pojawić się potrzeba tworzenia skryptów automatyzujących różne zadania cyklu życia. Ten artykuł zawiera szczegółowe informacje na temat typowych poleceń interfejsu wiersza polecenia platformy Azure, które umożliwiają wykonywanie tych zadań.
@@ -120,7 +122,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Usuwanie maszyn wirtualnych z zestawu skalowania
-Aby usunąć co najmniej jedną maszynę wirtualną w zestawie skalowania, użyj [AZ VMSS Delete-Instances](/cli/azure/vmss). `--instance-ids` Parametr umożliwia określenie co najmniej jednej maszyny wirtualnej do usunięcia. Jeśli określisz * dla identyfikatora wystąpienia, wszystkie maszyny wirtualne w zestawie skalowania zostaną usunięte. Aby usunąć wiele maszyn wirtualnych, należy oddzielić każdy identyfikator wystąpienia spacją.
+Aby usunąć co najmniej jedną maszynę wirtualną w zestawie skalowania, użyj [AZ VMSS Delete-Instances](/cli/azure/vmss). `--instance-ids`Parametr umożliwia określenie co najmniej jednej maszyny wirtualnej do usunięcia. Jeśli określisz * dla identyfikatora wystąpienia, wszystkie maszyny wirtualne w zestawie skalowania zostaną usunięte. Aby usunąć wiele maszyn wirtualnych, należy oddzielić każdy identyfikator wystąpienia spacją.
 
 Poniższy przykład usuwa wystąpienie *0* z zestawu skalowania o nazwie *myScaleSet* i grupę *zasobów zasobu* . Podaj własne wartości w następujący sposób:
 

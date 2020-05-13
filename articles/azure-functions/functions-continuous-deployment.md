@@ -4,12 +4,12 @@ description: Użyj funkcji ciągłego wdrażania Azure App Service, aby opubliko
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277026"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123689"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Ciągłe wdrażanie dla usługi Azure Functions
 
@@ -36,46 +36,30 @@ Aby ciągłe wdrożenie powiodło się, struktura katalogów musi być zgodna z 
 
 Aby skonfigurować ciągłe wdrażanie dla istniejącej aplikacji funkcji, wykonaj te kroki. Kroki pokazują integrację z repozytorium GitHub, ale podobne kroki dotyczą Azure Repos lub innych repozytoriów kodu źródłowego.
 
-1. W aplikacji funkcji w [Azure Portal](https://portal.azure.com)wybierz pozycję **platforma funkcje** > platformy**Deployment Center**.
+1. W aplikacji funkcji w [Azure Portal](https://portal.azure.com)wybierz pozycję **centrum wdrażania**, wybierz pozycję **GitHub**, a następnie wybierz pozycję **Autoryzuj**. Jeśli masz już autoryzowany serwis GitHub, wybierz pozycję **Kontynuuj** i Pomiń następny krok. 
 
-    ![Otwórz centrum wdrażania](./media/functions-continuous-deployment/platform-features.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service centrum wdrażania":::
 
-2. W **centrum wdrażania**wybierz pozycję **GitHub**, a następnie wybierz pozycję **Autoryzuj**. Jeśli masz już autoryzowany serwis GitHub, wybierz pozycję **Kontynuuj**. 
+3. W witrynie GitHub wybierz pozycję **Autoryzuj AzureAppService**.
 
-    ![Azure App Service centrum wdrażania](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autoryzuj Azure App Service":::
 
-3. W witrynie GitHub wybierz przycisk **Autoryzuj AzureAppService** . 
-
-    ![Autoryzuj Azure App Service](./media/functions-continuous-deployment/authorize.png)
-    
-    W obszarze **centrum wdrażania** w Azure Portal wybierz pozycję **Kontynuuj**.
+    Wprowadź hasło usługi GitHub, a następnie wybierz pozycję **Kontynuuj**.
 
 4. Wybierz jednego z następujących dostawców kompilacji:
 
     * **App Service Build Service**: najlepiej, gdy nie potrzebujesz kompilacji lub jeśli potrzebujesz kompilacji ogólnej.
     * **Azure Pipelines (wersja zapoznawcza)**: Najlepsza, gdy potrzebna jest większa kontrola nad kompilacją. Ten dostawca jest obecnie w wersji zapoznawczej.
 
-    ![Wybierz dostawcę kompilacji](./media/functions-continuous-deployment/build.png)
+    Wybierz pozycję **Continue** (Kontynuuj).
 
 5. Skonfiguruj informacje specyficzne dla określonej opcji kontroli źródła. W przypadku usługi GitHub należy wprowadzić lub wybrać wartości dla **organizacji**, **repozytorium**i **gałęzi**. Wartości są zależne od lokalizacji kodu. Następnie wybierz pozycję **Kontynuuj**.
 
-    ![Konfigurowanie usługi GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Konfigurowanie usługi GitHub":::
 
 6. Przejrzyj wszystkie szczegóły, a następnie wybierz pozycję **Zakończ** , aby ukończyć konfigurację wdrożenia.
 
-    ![Podsumowanie](./media/functions-continuous-deployment/summary.png)
-
 Po zakończeniu procesu cały kod z określonego źródła zostanie wdrożony w aplikacji. W tym momencie zmiany w źródle wdrożenia wyzwalają wdrożenie tych zmian w aplikacji funkcji na platformie Azure.
-
-## <a name="deployment-scenarios"></a>Scenariusze wdrażania
-
-<a name="existing"></a>
-
-### <a name="move-existing-functions-to-continuous-deployment"></a>Przenieś istniejące funkcje do ciągłego wdrażania
-
-Jeśli masz już zapisaną funkcję w [Azure Portal](https://portal.azure.com) i chcesz pobrać zawartość aplikacji przed przełączeniem do ciągłego wdrażania, przejdź na kartę **Przegląd** aplikacji funkcji. Wybierz przycisk **Pobierz zawartość aplikacji** .
-
-![Pobierz zawartość aplikacji](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > Po skonfigurowaniu ciągłej integracji nie można już edytować plików źródłowych w portalu funkcji.

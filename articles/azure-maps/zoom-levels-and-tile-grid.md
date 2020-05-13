@@ -1,19 +1,19 @@
 ---
 title: Poziomy powiększenia i siatka kafelków | Mapy Microsoft Azure
 description: W tym artykule przedstawiono informacje na temat poziomów powiększenia i siatki kafelków w Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530295"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123908"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Poziomy powiększenia i siatka kafelków
 
@@ -140,12 +140,12 @@ Oto siatka powiększenia dla poziomu powiększenia 1:
 
 ## <a name="quadkey-indices"></a>Indeksy Quadkey
 
-Niektóre platformy mapowania używają Konwencji `quadkey` nazewnictwa indeksowania, która łączy współrzędne zy kafelków z jednowymiarowym ciągiem o `quadtree` nazwie Keys `quadkeys` lub short. Każdy `quadkey` jednoznacznie identyfikuje pojedynczy kafelek na określonym poziomie szczegółowości i może być używany jako klucz w Common Database B — indeksy drzewa. Zestawy SDK Azure Maps obsługują nakładki warstw kafelków, które używają `quadkey` konwencji nazewnictwa oprócz innych konwencji nazewnictwa, zgodnie z opisem w dokumencie [Dodawanie warstwy kafelków](map-add-tile-layer.md) .
+Niektóre platformy mapowania używają `quadkey` konwencji nazewnictwa indeksowania, która łączy współrzędne zy kafelków z jednowymiarowym ciągiem o nazwie `quadtree` Keys lub `quadkeys` Short. Każdy `quadkey` jednoznacznie identyfikuje pojedynczy kafelek na określonym poziomie szczegółowości i może być używany jako klucz w Common Database B — indeksy drzewa. Zestawy SDK Azure Maps obsługują nakładki warstw kafelków, które używają `quadkey` konwencji nazewnictwa oprócz innych konwencji nazewnictwa, zgodnie z opisem w dokumencie [Dodawanie warstwy kafelków](map-add-tile-layer.md) .
 
 > [!NOTE]
-> Konwencja `quadkeys` nazewnictwa działa tylko dla poziomów powiększenia jednego lub więcej. Zestaw Azure Maps SDK obsługuje poziom powiększenia 0, który jest jednym kafelkiem mapy dla całego świata. 
+> `quadkeys`Konwencja nazewnictwa działa tylko dla poziomów powiększenia jednego lub więcej. Zestaw Azure Maps SDK obsługuje poziom powiększenia 0, który jest jednym kafelkiem mapy dla całego świata. 
 
-Aby przekonwertować współrzędne kafelka na `quadkey`, bity współrzędne Y i X są przeplatane, a wynik jest interpretowany jako numer Base-4 (z utrzymującymi się zerami) i konwertowane na ciąg. Na przykład współrzędne XY kafelka (3, 5) na poziomie 3 `quadkey` są określane w następujący sposób:
+Aby przekonwertować współrzędne kafelka na `quadkey` , bity współrzędne Y i X są przeplatane, a wynik jest interpretowany jako numer Base-4 (z utrzymującymi się zerami) i konwertowane na ciąg. Na przykład współrzędne XY kafelka (3, 5) na poziomie 3 `quadkey` są określane w następujący sposób:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`mają kilka interesujących właściwości. Po pierwsze długość `quadkey` (liczba cyfr) jest równa poziomowi powiększenia odpowiedniego kafelka. Po drugie, `quadkey` każdy kafelek zaczyna `quadkey` się od jego kafelka nadrzędnego (zawierający kafelek na poprzednim poziomie). Jak pokazano w poniższym przykładzie, kafelek 2 jest elementem nadrzędnym kafelków od 20 do 23:
+`Qquadkeys`mają kilka interesujących właściwości. Po pierwsze długość `quadkey` (liczba cyfr) jest równa poziomowi powiększenia odpowiedniego kafelka. Po drugie, `quadkey` każdy kafelek zaczyna się od `quadkey` jego kafelka nadrzędnego (zawierający kafelek na poprzednim poziomie). Jak pokazano w poniższym przykładzie, kafelek 2 jest elementem nadrzędnym kafelków od 20 do 23:
 
 <center>
 
 ![Piramida kafelka Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Na koniec `quadkeys` Podaj jednowymiarowy klucz indeksu, który zwykle zachowuje bliskość kafelków w obszarze wykresu. Innymi słowy, dwa kafelki, które mają znajdujące się w `quadkeys` pobliżu współrzędne xy są zwykle blisko siebie. Jest to ważne w przypadku optymalizowania wydajności bazy danych, ponieważ sąsiadujące kafelki są często żądane w grupach i pożądane jest zachowywanie tych kafelków na tych samych blokach dysków, aby zminimalizować liczbę operacji odczytu z dysku.
+Na koniec `quadkeys` Podaj jednowymiarowy klucz indeksu, który zwykle zachowuje bliskość kafelków w obszarze wykresu. Innymi słowy, dwa kafelki, które mają znajdujące się w pobliżu współrzędne XY `quadkeys` są zwykle blisko siebie. Jest to ważne w przypadku optymalizowania wydajności bazy danych, ponieważ sąsiadujące kafelki są często żądane w grupach i pożądane jest zachowywanie tych kafelków na tych samych blokach dysków, aby zminimalizować liczbę operacji odczytu z dysku.
 
 ## <a name="tile-math-source-code"></a>Kod źródłowy kafelków matematycznych
 

@@ -3,20 +3,20 @@ title: Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
 description: Utwórz za pomocą usługi Azure Functions funkcję niewymagającą użycia serwera wywoływaną w przypadku dodania danych do bazy danych w usłudze Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754200"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123769"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
 
 Dowiedz się, jak utworzyć funkcję wyzwalaną w przypadku dodania lub zmiany danych w usłudze Azure Cosmos DB. Aby uzyskać więcej informacji o usłudze Azure Cosmos DB, zobacz [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md) (Azure Cosmos DB: przetwarzanie danych w bazie danych bez użycia serwera dzięki usłudze Azure Functions).
 
-![Wyświetlanie komunikatu w dziennikach.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Kod Azure Cosmos DB":::
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -26,6 +26,9 @@ W celu ukończenia tego samouczka:
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
@@ -43,35 +46,33 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Tworzenie wyzwalacza usługi Azure Cosmos DB
 
-1. Rozwiń aplikację funkcji i kliknij **+** przycisk obok pozycji **funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **W portalu**, a następnie opcję **Kontynuuj**. W przeciwnym razie przejdź do kroku trzeciego.
+1. W aplikacji funkcji wybierz pozycję **funkcje** w menu po lewej stronie, a następnie wybierz pozycję **Dodaj** z górnego menu. 
 
-   ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. Na stronie **Nowa funkcja** wprowadź `cosmos` w polu wyszukiwania, a następnie wybierz szablon **wyzwalacza Azure Cosmos DB** .
 
-1. Wybierz pozycję **Więcej szablonów**, a następnie pozycję **Zakończ i wyświetl szablony**.
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Strona funkcje w Azure Portal":::
 
-    ![Wybieranie pozycji Więcej szablonów w przewodniku Szybki start usługi Functions](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. W polu wyszukiwania wpisz `cosmos`, a następnie wybierz szablon **Wyzwalacz usługi Azure Cosmos DB**.
-
-1. Jeśli zostanie wyświetlony monit, wybierz pozycję **Zainstaluj** , aby zainstalować rozszerzenie Azure Cosmos DB w aplikacji funkcji. Po pomyślnym zakończeniu instalacji wybierz pozycję **Kontynuuj**.
-
-    ![Instalowanie rozszerzeń powiązania](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. Skonfiguruj nowy wyzwalacz, wprowadzając ustawienia określone w tabeli znajdującej się poniżej obrazu.
-
-    ![Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+1. Skonfiguruj nowy wyzwalacz przy użyciu ustawień określonych w poniższej tabeli:
 
     | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nazwa** | Domyślny | Użyj domyślnej nazwy funkcji sugerowanej przez szablon.|
-    | **Połączenie konta usługi Azure Cosmos DB** | Nowe ustawienie | Wybierz pozycję **Nowy**, swoją **subskrypcję**, utworzone wcześniej **konto bazy danych** i polecenie **Wybierz**. Spowoduje to utworzenie ustawienia aplikacji na potrzeby połączenia konta. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
-    | **Nazwa kontenera** | Items | Nazwa kontenera do monitorowania. |
-    | **Utwórz kontener dzierżawy, jeśli nie istnieje** | Zaznaczono | Kontener jeszcze nie istnieje, więc utwórz go. |
-    | **Nazwa bazy danych** | Zadania | Nazwa bazy danych z kontenerem, który ma być monitorowany. |
+    | **Nowa funkcja** | Zaakceptuj nazwę domyślną | Nazwa funkcji. |
+    | **Połączenie konta usługi Cosmos DB** | Zaakceptuj domyślną nową nazwę | Wybierz pozycję **Nowy**, utworzone wcześniej **konto bazy danych** , a następnie kliknij przycisk **OK**. Ta akcja powoduje utworzenie ustawienia aplikacji dla połączenia z kontem. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
+    | **Nazwa bazy danych** | Zadania | Nazwa bazy danych, która zawiera kolekcję do monitorowania. |
+    | **Nazwa kolekcji** | Items | Nazwa kolekcji do monitorowania. |
+    | **Nazwa kolekcji dzierżaw** | leases | Nazwa kolekcji do przechowywania dzierżaw. |
+    | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Yes | Sprawdza obecność kolekcji dzierżaw i automatycznie tworzy ją. |
 
-1. Kliknij pozycję **Utwórz**, aby utworzyć funkcję wyzwalaną usługi Azure Cosmos DB. Po utworzeniu funkcji zostanie wyświetlony kod funkcji oparty na szablonie.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB":::
 
-    ![Szablon funkcji usługi Azure Cosmos DB w języku C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. Wybierz pozycję **Utwórz funkcję**. 
+
+    Platforma Azure tworzy funkcję wyzwalacza Cosmos DB.
+
+1. Aby wyświetlić kod funkcji oparty na szablonie, wybierz pozycję **Code + test**.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Szablon funkcji usługi Azure Cosmos DB w języku C#":::
 
     Ten szablon funkcji zapisuje w dziennikach liczbę dokumentów oraz identyfikator pierwszego dokumentu.
 
@@ -110,7 +111,7 @@ Gdy kontener określony w powiązaniu funkcji istnieje, można przetestować fun
 
 1. Rozwiń kontener nowe **elementy** w obszarze Eksplorator danych, wybierz pozycję **elementy**, a następnie wybierz pozycję **nowy element**.
 
-    ![Tworzenie elementu w kontenerze elementów](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Tworzenie elementu w kontenerze elementów":::
 
 1. Zastąp zawartość nowego elementu następującą zawartością, a następnie wybierz pozycję **Zapisz**.
 

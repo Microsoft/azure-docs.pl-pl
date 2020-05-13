@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612473"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121069"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
@@ -41,7 +41,7 @@ Najpierw należy uzyskać obraz systemu operacyjnego, który będzie używany dl
      >[!NOTE]
      >Aby uzyskać dostęp do portalu niejawnego testera systemu Windows, musisz być członkiem niejawnego programu testów systemu Windows. Aby dowiedzieć się więcej o programie testów systemu Windows, zapoznaj się z [dokumentacją zatestera systemu Windows](/windows-insider/at-home/).
 
-2. Przewiń w dół do sekcji **Wybierz wersję** i wybierz pozycję **Windows 10 wersja zapoznawcza wersji zapoznawczej Enterprise (Fast) — Kompilacja 19035** lub nowsza.
+2. Przewiń w dół do sekcji **Wybierz wersję** i wybierz pozycję **Windows 10 wersja zapoznawcza wersji zapoznawczej Enterprise (Fast) — Kompilacja 19041** lub nowsza.
 
 3. Wybierz pozycję **Potwierdź**, a następnie wybierz język, którego chcesz użyć, a następnie wybierz pozycję **Potwierdź** ponownie.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Po wyłączeniu funkcji Aktualizacje automatyczne należy włączyć funkcję Hyper-V, ponieważ w celu przełączenia i odinstalowania dysku VHD na nośniku należy użyć polecenia miotacza-VHD. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Ta zmiana będzie wymagała ponownego uruchomienia maszyny wirtualnej.
 
 Następnie przygotuj dysk VHD maszyny wirtualnej dla platformy Azure i przekaż otrzymany na platformie Azure plik VHD. Aby dowiedzieć się więcej, zobacz [Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego](set-up-customize-master-image.md).
 
@@ -211,7 +219,7 @@ Przed aktualizacją skryptów programu PowerShell upewnij się, że masz identyf
 
 5.  Otwórz wiersz polecenia i wprowadź polecenie **mountvol**. To polecenie spowoduje wyświetlenie listy woluminów i ich identyfikatorów GUID. Skopiuj identyfikator GUID woluminu, na którym litera dysku jest zgodna z dyskiem, który został zainstalowany w kroku 2.
 
-    Na przykład w tym przykładzie dane wyjściowe polecenia mountvol, jeśli dysk VHD został zainstalowany na dysku C, należy skopiować powyższą `C:\`wartość:
+    Na przykład w tym przykładzie dane wyjściowe polecenia mountvol, jeśli dysk VHD został zainstalowany na dysku C, należy skopiować powyższą wartość `C:\` :
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ Przed aktualizacją skryptów programu PowerShell upewnij się, że masz identyf
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

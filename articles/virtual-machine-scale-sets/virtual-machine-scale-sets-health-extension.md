@@ -1,18 +1,20 @@
 ---
 title: Używanie rozszerzenia kondycji aplikacji z zestawami skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak używać rozszerzenia kondycja aplikacji do monitorowania kondycji aplikacji wdrożonych w zestawach skalowania maszyn wirtualnych.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 05/06/2020
-ms.author: mimckitt
-ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864372"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124112"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Używanie rozszerzenia kondycji aplikacji z zestawami skalowania maszyn wirtualnych
 Monitorowanie kondycji aplikacji jest ważnym sygnałem do zarządzania wdrożeniem i uaktualniania go. Zestawy skalowania maszyn wirtualnych platformy Azure zapewniają obsługę [uaktualnień stopniowych](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , takich jak [automatyczne uaktualnienia obrazu systemu operacyjnego](virtual-machine-scale-sets-automatic-upgrade.md), które polegają na monitorowaniu kondycji poszczególnych wystąpień w celu uaktualnienia wdrożenia. Można również użyć rozszerzenia kondycji do monitorowania kondycji aplikacji każdego wystąpienia w zestawie skalowania i wykonywania napraw wystąpień przy użyciu [automatycznych napraw wystąpień](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -67,8 +69,8 @@ Poniższy kod JSON przedstawia schemat rozszerzenia kondycji aplikacji. Rozszerz
 | Nazwa | Wartość/przykład | Typ danych
 | ---- | ---- | ----
 | protokol | `http`lub `https` lub`tcp` | ciąg |
-| port | Opcjonalne, gdy protokół `http` jest `https`lub, obowiązkowy, gdy protokół jest`tcp` | int |
-| requestPath | Obowiązkowe, gdy protokół `http` jest `https`lub, nie jest dozwolony, gdy protokół jest`tcp` | ciąg |
+| port | Opcjonalne, gdy protokół jest `http` lub `https` , obowiązkowy, gdy protokół jest`tcp` | int |
+| requestPath | Obowiązkowe, gdy protokół jest `http` lub `https` , nie jest dozwolony, gdy protokół jest`tcp` | ciąg |
 
 ## <a name="deploy-the-application-health-extension"></a>Wdróż rozszerzenie kondycji aplikacji
 Istnieje wiele sposobów wdrażania rozszerzenia kondycji aplikacji w zestawach skalowania, jak opisano w poniższych przykładach.

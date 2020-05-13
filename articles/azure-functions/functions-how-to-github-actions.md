@@ -3,14 +3,14 @@ title: Korzystanie z akcji usługi GitHub w celu wprowadzania aktualizacji kodu 
 description: Dowiedz się, jak używać akcji usługi GitHub do definiowania przepływu pracy do kompilowania i wdrażania projektów Azure Functions w usłudze GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878208"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122339"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
@@ -24,7 +24,7 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 
 | Sekcja | Zadania |
 | ------- | ----- |
-| **Uwierzytelnianie** | <ol><li>Zdefiniuj nazwę główną usługi.</li><li>Pobierz profil publikowania.</li><li>Utwórz wpis tajny usługi GitHub.</li></ol>|
+| **Authentication** | <ol><li>Zdefiniuj nazwę główną usługi.</li><li>Pobierz profil publikowania.</li><li>Utwórz wpis tajny usługi GitHub.</li></ol>|
 | **Kompilacja** | <ol><li>Skonfiguruj środowisko.</li><li>Kompiluj aplikację funkcji.</li></ol> |
 | **Wdróż** | <ol><li>Wdróż aplikację funkcji.</li></ol>|
 
@@ -46,17 +46,19 @@ W tym przykładzie Zastąp symbole zastępcze w zasobie IDENTYFIKATORem subskryp
 
 ## <a name="download-the-publishing-profile"></a>Pobieranie profilu publikowania
 
-Profil publikowania aplikacji funkcji można pobrać, przechodząc do strony **przeglądu** aplikacji i klikając pozycję **Pobierz profil publikowania**.
+Aby pobrać profil publikowania aplikacji funkcji:
 
-   ![Pobierz profil publikowania](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Wybierz stronę **Przegląd** aplikacji funkcji, a następnie wybierz pozycję **Pobierz profil publikowania**.
 
-Skopiuj zawartość pliku.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Pobierz profil publikowania":::
+
+1. Zapisz i skopiuj zawartość pliku ustawień publikowania.
 
 ## <a name="configure-the-github-secret"></a>Konfigurowanie wpisu tajnego usługi GitHub
 
-1. W witrynie [GitHub](https://github.com)przejdź do repozytorium, wybierz pozycję **Ustawienia** > wpisy**tajne** > **Dodaj nowy wpis tajny**.
+1. W witrynie [GitHub](https://github.com)przejdź do repozytorium, wybierz pozycję **Ustawienia**wpisy  >  **tajne**  >  **Dodaj nowy wpis tajny**.
 
-   ![Dodaj klucz tajny](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Dodaj klucz tajny":::
 
 1. Dodaj nowy wpis tajny.
 
@@ -205,7 +207,7 @@ Aby wdrożyć kod w aplikacji funkcji, musisz użyć `Azure/functions-action` ak
 |_**Nazwa gniazda**_ | Obowiązkowe Nazwa [miejsca wdrożenia](functions-deployment-slots.md) , które ma zostać wdrożone. Gniazdo musi być już zdefiniowane w aplikacji funkcji. |
 
 
-W poniższym przykładzie jest `functions-action`używane wersja 1:
+W poniższym przykładzie jest używane wersja 1 `functions-action` :
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -217,7 +219,7 @@ W poniższym przykładzie jest `functions-action`używane wersja 1:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wyświetlić kompletny przepływ pracy. YAML, zobacz jeden z plików w [repozytorium przykładów przepływu pracy akcji usługi Azure GitHub](https://aka.ms/functions-actions-samples) , który `functionapp` ma nazwę. Możesz użyć tych przykładów jako punktu wyjścia dla przepływu pracy.
+Aby wyświetlić kompletny plik Workflow. YAML, zobacz jeden z plików w [repozytorium przykładów przepływu pracy akcji usługi Azure GitHub](https://aka.ms/functions-actions-samples) , który ma `functionapp` nazwę. Możesz użyć tych przykładów jako punktu wyjścia dla przepływu pracy.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej o akcjach usługi GitHub](https://help.github.com/en/articles/about-github-actions)

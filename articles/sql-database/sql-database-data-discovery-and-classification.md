@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767004"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123857"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Klasyfikacja & odnajdywania danych dla Azure SQL Database i usługi Azure Synapse Analytics
 
@@ -113,7 +113,7 @@ Po zdefiniowaniu zasad w całej organizacji można kontynuować klasyfikowanie p
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Inspekcja dostępu do poufnych danych
 
-Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja Azure SQL Database](sql-database-auditing.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji `data_sensitivity_information`o nazwie. To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Przykład:
+Ważnym aspektem modelu ochrony informacji jest możliwość monitorowania dostępu do poufnych danych. [Inspekcja Azure SQL Database](sql-database-auditing.md) została ulepszona w celu uwzględnienia nowego pola w dzienniku inspekcji o nazwie `data_sensitivity_information` . To pole służy do rejestrowania klasyfikacji czułości (etykiet) danych zwróconych przez zapytanie. Przykład:
 
 ![Dziennik inspekcji](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -152,18 +152,6 @@ Aby uzyskać informacje na temat używania języka T-SQL dla klasyfikacji, zobac
 - Aby usunąć klasyfikację z jednej lub kilku kolumn: [Klasyfikacja czułości](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Aby wyświetlić wszystkie klasyfikacje w bazie danych: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Korzystanie z interfejsu API REST
-
-Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i zaleceniami. Opublikowany interfejs API REST obsługuje następujące operacje:
-
-- [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): tworzy lub aktualizuje etykietę czułości dla określonej kolumny.
-- [Usuń](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): usuwa etykietę czułości dla określonej kolumny.
-- [Wyłącz rekomendacje](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): wyłącza zalecenia dotyczące czułości w określonej kolumnie.
-- [Włącz rekomendacje](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): włącza zalecenia dotyczące czułości w określonej kolumnie. (Zalecenia są domyślnie włączone dla wszystkich kolumn).
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Pobiera etykietę czułości dla określonej kolumny.
-- [Lista bieżąca według bazy danych](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): pobiera bieżące etykiety czułości określonej bazy danych.
-- [Lista zalecana przez bazę danych](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Pobiera zalecane etykiety czułości określonej bazy danych.
-
 ### <a name="use-powershell-cmdlets"></a>Korzystanie z poleceń cmdlet programu PowerShell
 Za pomocą programu PowerShell można zarządzać klasyfikacjami i zaleceniami dotyczącymi Azure SQL Database i wystąpieniami zarządzanymi.
 
@@ -185,6 +173,17 @@ Za pomocą programu PowerShell można zarządzać klasyfikacjami i zaleceniami d
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Korzystanie z interfejsu API REST
+
+Za pomocą interfejsu API REST można programowo zarządzać klasyfikacjami i zaleceniami. Opublikowany interfejs API REST obsługuje następujące operacje:
+
+- [Utwórz lub zaktualizuj](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): tworzy lub aktualizuje etykietę czułości dla określonej kolumny.
+- [Usuń](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): usuwa etykietę czułości dla określonej kolumny.
+- [Wyłącz rekomendacje](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): wyłącza zalecenia dotyczące czułości w określonej kolumnie.
+- [Włącz rekomendacje](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): włącza zalecenia dotyczące czułości w określonej kolumnie. (Zalecenia są domyślnie włączone dla wszystkich kolumn).
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Pobiera etykietę czułości dla określonej kolumny.
+- [Lista bieżąca według bazy danych](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): pobiera bieżące etykiety czułości określonej bazy danych.
+- [Lista zalecana przez bazę danych](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Pobiera zalecane etykiety czułości określonej bazy danych.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Następne kroki
 

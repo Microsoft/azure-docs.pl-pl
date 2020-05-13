@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993957"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123840"
 ---
 # <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
 
@@ -167,7 +167,7 @@ Na poniższym diagramie przedstawiono działania wykonywane po utworzeniu migawk
 Dostęp do wersji obiektów BLOB można autoryzować przy użyciu jednej z następujących metod:
 
 - Za pomocą kontroli dostępu opartej na rolach (RBAC) w celu udzielenia uprawnień do podmiotu zabezpieczeń usługi Azure Active Directory (Azure AD). Firma Microsoft zaleca korzystanie z usługi Azure AD w celu zapewnienia bezpieczeństwa i łatwość użycia. Aby uzyskać więcej informacji na temat korzystania z usługi Azure AD z operacjami obiektów blob, zobacz [Autoryzuj dostęp do obiektów blob i kolejek przy użyciu Azure Active Directory](../common/storage-auth-aad.md).
-- Za pomocą sygnatury dostępu współdzielonego (SAS) do delegowania dostępu do wersji obiektów BLOB. Określ identyfikator wersji dla podpisanego typu `bv`zasobu reprezentujący wersję obiektu BLOB, aby utworzyć token sygnatury dostępu współdzielonego dla operacji w określonej wersji. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md).
+- Za pomocą sygnatury dostępu współdzielonego (SAS) do delegowania dostępu do wersji obiektów BLOB. Określ identyfikator wersji dla podpisanego typu zasobu `bv` reprezentujący wersję obiektu BLOB, aby utworzyć token sygnatury dostępu współdzielonego dla operacji w określonej wersji. Aby uzyskać więcej informacji na temat sygnatur dostępu współdzielonego, zobacz [udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](../common/storage-sas-overview.md).
 - Przy użyciu kluczy dostępu do konta w celu autoryzacji operacji dla wersji obiektów blob z użyciem klucza współużytkowanego. Aby uzyskać więcej informacji, zobacz [Autoryzuj przy użyciu klucza współużytkowanego](/rest/api/storageservices/authorize-with-shared-key).
 
 Obsługa wersji obiektów BLOB została zaprojektowana w celu ochrony danych przed przypadkowym lub złośliwym usunięciem. Aby podwyższyć poziom ochrony, Usuwanie wersji obiektu BLOB wymaga specjalnych uprawnień. W poniższych sekcjach opisano uprawnienia potrzebne do usunięcia wersji obiektu BLOB.
@@ -183,7 +183,7 @@ W poniższej tabeli przedstawiono akcje RBAC obsługujące usuwanie obiektu BLOB
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametry sygnatury dostępu współdzielonego (SAS)
 
-Zasób podpisany dla wersji obiektu BLOB to `bv`. Aby uzyskać więcej informacji, zobacz [Tworzenie sygnatury dostępu współdzielonego usługi](/rest/api/storageservices/create-service-sas) lub [Tworzenie konta SAS delegowania](/rest/api/storageservices/create-user-delegation-sas).
+Zasób podpisany dla wersji obiektu BLOB to `bv` . Aby uzyskać więcej informacji, zobacz [Tworzenie sygnatury dostępu współdzielonego usługi](/rest/api/storageservices/create-service-sas) lub [Tworzenie konta SAS delegowania](/rest/api/storageservices/create-user-delegation-sas).
 
 W poniższej tabeli przedstawiono uprawnienia wymagane przez sygnaturę dostępu współdzielonego w celu usunięcia wersji obiektu BLOB.
 
@@ -224,9 +224,10 @@ Aby zarejestrować się w wersji zapoznawczej usługi BLOB, użyj programu Power
 Aby zarejestrować się w programie PowerShell, wywołaj polecenie [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -308,7 +309,7 @@ W scenariuszu 3 obiekt BLOB został zaktualizowany, ale wersja nie została. Blo
 
 #### <a name="scenario-4"></a>Scenariusz 4
 
-W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych &mdash; bloków cztery w podstawowym obiekcie blob i cztery w poprzedniej wersji. Ten scenariusz może wystąpić, jeśli piszesz do obiektu BLOB za pomocą operacji Put obiektu BLOB, ponieważ zastępuje całą zawartość podstawowego obiektu BLOB.
+W scenariuszu 4 podstawowy obiekt BLOB został całkowicie zaktualizowany i nie zawiera żadnego z jego oryginalnych bloków. W związku z tym konto jest obciążane za wszystkie osiem unikatowych bloków &mdash; cztery w podstawowym obiekcie blob i cztery w poprzedniej wersji. Ten scenariusz może wystąpić, jeśli piszesz do obiektu BLOB za pomocą operacji Put obiektu BLOB, ponieważ zastępuje całą zawartość podstawowego obiektu BLOB.
 
 ![Zasoby usługi Azure Storage](./media/versioning-overview/versions-billing-scenario-4.png)
 

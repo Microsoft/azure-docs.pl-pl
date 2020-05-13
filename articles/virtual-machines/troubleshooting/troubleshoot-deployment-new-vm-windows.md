@@ -3,7 +3,7 @@ title: Rozwiązywanie problemów z wdrażaniem maszyn wirtualnych systemu Window
 description: Rozwiązywanie problemów z wdrażaniem Menedżer zasobów podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981401"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120967"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Rozwiązywanie problemów z wdrażaniem podczas tworzenia nowej maszyny wirtualnej z systemem Windows na platformie Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -51,7 +51,7 @@ Aby rozpocząć rozwiązywanie problemów, Zbierz dzienniki aktywności w celu z
 
 **N<sup>2</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i został przekazany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi administracyjnej maszyny wirtualnej zablokowanej na ekranie OOBE, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem.
 
-**Rozwiązanie**
+**Tłumaczenia**
 
 Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania oryginalnego wirtualnego dysku twardego](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), dostępnego lokalnie, z tym samym ustawieniem jak w przypadku systemu operacyjnego (uogólniony/wyspecjalizowany). Aby przekazać jako uogólniony, pamiętaj, aby najpierw uruchomić program Sysprep.
 
@@ -61,7 +61,7 @@ Aby rozwiązać oba te błędy, użyj polecenie [Add-AzVhd w celu przekazania or
 
 **N<sup>4</sup>:** Jeśli system operacyjny jest wyspecjalizowany dla systemu Windows i jest przechwytywany jako uogólniony, zostanie wyświetlony błąd inicjowania obsługi, ponieważ nowa maszyna wirtualna jest uruchomiona z oryginalną nazwą komputera, nazwą użytkownika i hasłem. Ponadto oryginalna maszyna wirtualna nie jest używana, ponieważ jest oznaczona jako wyspecjalizowana.
 
-**Rozwiązanie**
+**Tłumaczenia**
 
 Aby rozwiązać oba te błędy, Usuń bieżący obraz z portalu i [Przechwyć go ponownie z bieżącego dysku VHD](../windows/create-vm-specialized.md) z tym samym ustawieniem dla systemu operacyjnego (uogólniony/wyspecjalizowany).
 
@@ -75,7 +75,7 @@ Ten błąd występuje w sytuacji, gdy nowe żądanie maszyny wirtualnej jest prz
 * Spróbuj ponownie wykonać żądanie, używając mniejszego rozmiaru maszyny wirtualnej.
 * Jeśli nie można zmienić rozmiaru żądanej maszyny wirtualnej:
   * Zatrzymaj wszystkie maszyny wirtualne w zestawie dostępności.
-    Kliknij **pozycję grupy** > zasobów**zasoby** > *grupy* > zasobów*Twój zestaw* > **dostępności Virtual Machines** > **zatrzymać***maszynę* > wirtualną.
+    Kliknij pozycję **grupy zasobów**  >  *zasoby grupy zasobów*  >  **Resources**  >  *Twój zestaw dostępności*  >  **Virtual Machines**  >  *zatrzymać maszynę wirtualną*  >  **Stop**.
   * Po zatrzymaniu wszystkich maszyn wirtualnych Utwórz nową maszynę wirtualną w żądanym rozmiarze.
   * Najpierw uruchom nową maszynę wirtualną, a następnie wybierz każdą z zatrzymanych maszyn wirtualnych, a następnie kliknij przycisk **Uruchom**.
 

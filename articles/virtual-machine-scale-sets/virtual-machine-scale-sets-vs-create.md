@@ -1,21 +1,20 @@
 ---
 title: Wdrażanie zestawu skalowania maszyn wirtualnych przy użyciu programu Visual Studio
 description: Wdrażanie Virtual Machine Scale Sets przy użyciu programu Visual Studio i szablonu Menedżer zasobów
-ms.custom: vs-azure, H1Hack27Feb2017
-ms.workload: azure-vs
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: visual-studio
 ms.date: 09/09/2019
-ms.author: mimckitt
-ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273345"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124367"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Jak utworzyć zestaw skalowania maszyn wirtualnych za pomocą programu Visual Studio
 
@@ -65,7 +64,7 @@ Moduł równoważenia obciążenia umożliwia łączenie się z wystąpieniami m
 
 Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania maszyn wirtualnych:
 
-1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Wdróż** > **nowe**.
+1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Wdróż**  >  **nowe**.
 
     ![Wdrażanie projektu](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -85,7 +84,7 @@ Wdróż szablon Azure Resource Manager, aby utworzyć zasób zestawu skalowania 
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Eksplorowanie zestawu skalowania maszyn wirtualnych<a name="exploring-your-virtual-machine-scale-set"></a>
 
-Wybierz pozycję **Wyświetl** > program**Cloud Explorer** , aby wyświetlić nowy zestaw skalowania maszyn wirtualnych. W razie potrzeby użyj **Odśwież wszystko**.
+Wybierz pozycję **Wyświetl**program  >  **Cloud Explorer** , aby wyświetlić nowy zestaw skalowania maszyn wirtualnych. W razie potrzeby użyj **Odśwież wszystko**.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 
@@ -95,4 +94,4 @@ Program **Cloud Explorer** umożliwia zarządzanie zasobami platformy Azure w pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po pomyślnym wdrożeniu Virtual Machine Scale Sets za poorednictwem programu Visual Studio można bardziej dostosować projekt zgodnie z wymaganiami aplikacji. Na przykład skonfiguruj automatyczne skalowanie, dodając zasób usługi **Insights** . Do szablonu można dodać infrastrukturę, taką jak autonomiczne maszyny wirtualne, lub wdrożyć aplikacje przy użyciu rozszerzenia niestandardowego skryptu. Dobre przykładowe szablony można znaleźć w repozytorium GitHub [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates) . Wyszukaj `vmss`.
+Po pomyślnym wdrożeniu Virtual Machine Scale Sets za poorednictwem programu Visual Studio można bardziej dostosować projekt zgodnie z wymaganiami aplikacji. Na przykład skonfiguruj automatyczne skalowanie, dodając zasób usługi **Insights** . Do szablonu można dodać infrastrukturę, taką jak autonomiczne maszyny wirtualne, lub wdrożyć aplikacje przy użyciu rozszerzenia niestandardowego skryptu. Dobre przykładowe szablony można znaleźć w repozytorium GitHub [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates) . Wyszukaj ciąg `vmss`.

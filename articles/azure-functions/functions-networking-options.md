@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419532"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121353"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -30,11 +30,11 @@ Aplikacje funkcji można hostować na kilka sposobów:
 
 |                |[Plan Zużycie](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Środowisko usługi App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Ograniczenia przychodzącego adresu IP i dostępu do lokacji prywatnej](#inbound-ip-restrictions)|✅Opcję|✅Opcję|✅Opcję|✅Opcję|
-|[Integracja z siecią wirtualną](#virtual-network-integration)|❌Znaleziono|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Opcję|
-|[Wyzwalacze sieci wirtualnej (bez protokołu HTTP)](#virtual-network-triggers-non-http)|❌Znaleziono| ✅Opcję |✅Opcję|✅Opcję|
-|[Połączenia hybrydowe](#hybrid-connections) (tylko system Windows)|❌Znaleziono|✅Opcję|✅Opcję|✅Opcję|
-|[Ograniczenia wychodzącego adresu IP](#outbound-ip-restrictions)|❌Znaleziono| ✅Opcję|✅Opcję|✅Opcję|
+|[Ograniczenia przychodzącego adresu IP i dostępu do lokacji prywatnej](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Integracja sieci wirtualnej](#virtual-network-integration)|❌Nie|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Yes|
+|[Wyzwalacze sieci wirtualnej (bez protokołu HTTP)](#virtual-network-triggers-non-http)|❌Nie| ✅Yes |✅Yes|✅Yes|
+|[Połączenia hybrydowe](#hybrid-connections) (tylko system Windows)|❌Nie|✅Yes|✅Yes|✅Yes|
+|[Ograniczenia wychodzącego adresu IP](#outbound-ip-restrictions)|❌Nie| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Ograniczenia przychodzącego adresu IP
 
@@ -50,7 +50,7 @@ Aby dowiedzieć się więcej, zobacz [Azure App Service ograniczenia dostępu st
 Dostęp do lokacji prywatnej dotyczy udostępniania aplikacji tylko z sieci prywatnej, takiej jak sieć wirtualna platformy Azure.
 
 * Dostęp do lokacji prywatnej jest dostępny w planach [Premium](./functions-premium-plan.md), [zużycia](functions-scale.md#consumption-plan)i [App Service](functions-scale.md#app-service-plan) w przypadku skonfigurowania punktów końcowych usługi.
-    * Punkty końcowe usługi można skonfigurować dla poszczególnych aplikacji w obszarze**Networking** >  **funkcje** > platformy**Konfigurowanie ograniczeń** > dostępu**Dodaj regułę**. Sieci wirtualne można teraz wybrać jako typ reguły.
+    * Punkty końcowe usługi można skonfigurować dla poszczególnych aplikacji w obszarze **funkcje platformy**  >  **Networking**  >  **Konfigurowanie ograniczeń dostępu**  >  **Dodaj regułę**. Sieci wirtualne można teraz wybrać jako typ reguły.
     * Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
     * Należy pamiętać, że dzięki punktom końcowym usługi funkcja nadal ma pełny dostęp wychodzący do Internetu, nawet z skonfigurowaną integracją sieci wirtualnej.
 * Dostęp do lokacji prywatnej jest również dostępny w ramach App Service Environment, który jest skonfigurowany przy użyciu wewnętrznego modułu równoważenia obciążenia (ILB). Aby uzyskać więcej informacji, zobacz [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
@@ -102,9 +102,9 @@ Obecnie można używać funkcji wyzwalacza innego niż HTTP z poziomu sieci wirt
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium z wyzwalaczami sieci wirtualnej
 
-Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **obsługi wyzwalacza sieci wirtualnej** znajduje się w [Azure Portal](https://portal.azure.com) w obszarze **Ustawienia aplikacji funkcji**.
+Po uruchomieniu planu Premium można połączyć funkcje wyzwalacza inne niż HTTP z usługami, które działają w sieci wirtualnej. W tym celu należy włączyć obsługę wyzwalacza sieci wirtualnej dla aplikacji funkcji. Ustawienie **obsługi wyzwalacza sieci wirtualnej** znajduje się w [Azure Portal](https://portal.azure.com) w obszarze **Configuration**  >  **Ustawienia środowiska uruchomieniowego funkcji**konfiguracji.
 
-![Przełącznik sieci wirtualnej](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 Wyzwalacze sieci wirtualnej można również włączyć za pomocą następującego polecenia interfejsu CLI platformy Azure:
 
@@ -146,7 +146,7 @@ Aby dowiedzieć się więcej, zapoznaj się z dokumentacją dotyczącą [App Ser
 
 Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App Service lub App Service Environment. Można skonfigurować ograniczenia ruchu wychodzącego dla sieci wirtualnej, w której wdrożono App Service Environment.
 
-W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia `WEBSITE_VNET_ROUTE_ALL=1`aplikacji wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
+W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

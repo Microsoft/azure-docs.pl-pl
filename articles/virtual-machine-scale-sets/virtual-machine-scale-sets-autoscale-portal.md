@@ -2,18 +2,19 @@
 title: Automatyczne skalowanie zestawów skalowania maszyn wirtualnych w Azure Portal
 description: Jak utworzyć reguły automatycznego skalowania dla zestawów skalowania maszyn wirtualnych w Azure Portal
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 05/29/2018
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010294"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124945"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Automatyczne skalowanie zestawu skalowania maszyn wirtualnych w Azure Portal
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia.
@@ -45,7 +46,7 @@ Wraz ze wzrostem zapotrzebowania aplikacji zwiększa się obciążenie wystąpie
     | *Agregacja czasu*     | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
     | *Nazwa metryki*          | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
     | *Statystyka ziarna czasu* | Definiuje sposób agregowania zebranych metryk w poszczególnych ziarnach w celu analizy.                             | Średnia        |
-    | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
+    | *Zakład*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 70             |
     | *Czas trwania*             | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 10 minut     |
     | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                        | Zwiększ wartość procentową o |
@@ -69,7 +70,7 @@ Wieczorami lub w weekendy zapotrzebowanie aplikacji może być mniejsze. Jeśli 
     
     | Parametr              | Wyjaśnienie                                                                                                          | Wartość          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
+    | *Zakład*             | Operator używany do porównywania danych metryki z wartością progową.                                                      | Mniejsze niż   |
     | *Próg*            | Wartość procentowa powodująca wyzwalanie akcji przez regułę skalowania automatycznego.                                                 | 30             |
     | *Operacja*            | Określa, czy zestaw skalowania ma być skalowany w górę, czy w dół, gdy reguła zostanie zastosowana, a następnie przez zwiększenie                         | Zmniejsz procent według |
     | *Liczba wystąpień*       | Wartość procentowa liczby wystąpień maszyn wirtualnych, która powinna zostać zmieniona po wyzwoleniu reguły.                                             | 20             |

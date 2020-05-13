@@ -5,16 +5,16 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a96d2ede80b4c57e7b85048379a4bfb66cacfd52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 030af8a289daaf03d17f8402e8d603e893657853
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754845"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123626"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Tworzenie pierwszej funkcji w witrynie Azure Portal
 
-Azure Functions umożliwia uruchamianie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. W tym artykule dowiesz się, jak za pomocą Azure Functions utworzyć w Azure Portal funkcję wyzwalaną przez protokół HTTP "Hello World".
+Azure Functions umożliwia uruchamianie kodu w środowisku bezserwerowym bez konieczności uprzedniego tworzenia maszyny wirtualnej lub publikowania aplikacji sieci Web. W tym artykule dowiesz się, jak za pomocą Azure Functions utworzyć funkcję wyzwalacza HTTP "Hello World" w Azure Portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,29 +32,31 @@ Do obsługi wykonywania funkcji potrzebna jest aplikacja funkcji. Aplikacja funk
 
 Następnie Utwórz funkcję w nowej aplikacji funkcji.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Tworzenie funkcji wyzwalanej przez protokół HTTP
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Tworzenie funkcji wyzwalacza HTTP
 
-1. Rozwiń nową **+** aplikację funkcji, wybierz przycisk obok pozycji **funkcje**, wybierz pozycję **w portalu**, a następnie wybierz pozycję **Kontynuuj**.
+1. W menu po lewej stronie okna **funkcje** wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu. 
+ 
+1. W oknie **Nowa funkcja** wybierz pozycję **wyzwalacz http**.
 
-    ![Funkcje — szybki start do wybierania platformy.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Wybierz funkcję wyzwalacza HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Wybierz **element webhook i interfejs API**, a następnie wybierz pozycję **Utwórz**.
+1. W oknie **Nowa funkcja** Zaakceptuj nazwę domyślną **nowej funkcji**lub wprowadź nową nazwę. 
 
-    ![Szybkie rozpoczynanie pracy z usługą Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+1. Z listy rozwijanej **poziom autoryzacji** wybierz pozycję **anonimowe** , a następnie wybierz pozycję **Utwórz funkcję**.
 
-   Funkcja zostanie utworzona przy użyciu szablonu funkcji wyzwalanej przez protokół HTTP właściwego dla danego języka.
-
-Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
+    Platforma Azure tworzy funkcję wyzwalacza HTTP. Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
 
 ## <a name="test-the-function"></a>Testowanie funkcji
 
-1. W nowej funkcji wybierz pozycję **</> Pobierz adres URL funkcji** w prawym górnym rogu. 
+1. W nowej funkcji wyzwalacza HTTP wybierz pozycję **Kod + test** z menu po lewej stronie, a następnie wybierz pozycję **Pobierz adres URL funkcji** z górnego menu.
 
-1. W oknie dialogowym **pobieranie adresu URL funkcji** wybierz pozycję **domyślne (klawisz funkcyjny)** z listy rozwijanej, a następnie wybierz pozycję **Kopiuj**. 
+    ![Wybierz adres URL funkcji Get](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. W oknie dialogowym **pobieranie adresu URL funkcji** wybierz opcję **domyślne** z listy rozwijanej, a następnie wybierz ikonę **Kopiuj do schowka** . 
 
     ![Kopiowanie adresu URL funkcji z witryny Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość `&name=<your_name>` ciągu zapytania na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
+1. Wklej adres URL funkcji do paska adresu przeglądarki. Dodaj wartość ciągu zapytania `?name=<your_name>` na końcu tego adresu URL i naciśnij klawisz ENTER, aby uruchomić żądanie. 
 
     Poniższy przykład przedstawia odpowiedź w przeglądarce:
 
@@ -62,7 +64,7 @@ Możesz teraz uruchomić nową funkcję, wysyłając żądanie HTTP.
 
     Adres URL żądania zawiera klucz, który domyślnie jest wymagany do uzyskania dostępu do funkcji za pośrednictwem protokołu HTTP.
 
-1. Gdy funkcja działa, informacje o śledzeniu są zapisywane w dziennikach. Aby wyświetlić dane wyjściowe śledzenia z poprzedniego wykonania, Wróć do funkcji w portalu i wybierz strzałkę w dolnej części ekranu, aby rozwinąć **dzienniki**.
+1. Gdy funkcja działa, informacje o śledzeniu są zapisywane w dziennikach. Aby wyświetlić dane wyjściowe śledzenia, Wróć do strony **Code + test** w portalu i rozwiń strzałkę **dzienniki** w dolnej części strony.
 
    ![Podgląd dziennika usługi Functions w witrynie Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

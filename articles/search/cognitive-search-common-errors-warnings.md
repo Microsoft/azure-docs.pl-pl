@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086619"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125098"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -30,14 +30,14 @@ Informacje o błędzie w tym artykule mogą pomóc w rozwiązaniu błędów, co 
 
 Ostrzeżenia nie zatrzymują indeksowania, ale wskazują warunki, które mogą spowodować nieoczekiwane wyniki. Niezależnie od tego, czy podejmujesz akcję, czy nie zależą od danych i Twojego scenariusza.
 
-Począwszy od wersji `2019-05-06`interfejsu API, błędy indeksatora na poziomie elementu i ostrzeżenia są uporządkowane w celu zapewnienia większej przejrzystości wokół przyczyn i następnych kroków. Zawierają one następujące właściwości:
+Począwszy od wersji interfejsu API `2019-05-06` , błędy indeksatora na poziomie elementu i ostrzeżenia są uporządkowane w celu zapewnienia większej przejrzystości wokół przyczyn i następnych kroków. Zawierają one następujące właściwości:
 
 | Właściwość | Opis | Przykład |
 | --- | --- | --- |
-| key | Identyfikator dokumentu dokumentu, którego dotyczy błąd lub ostrzeżenie. | https:\//coromsearch.blob.Core.Windows.NET/JFK-1K/DocId-32112954.PDF |
+| key | Identyfikator dokumentu dokumentu, którego dotyczy błąd lub ostrzeżenie. | https: \/ /coromsearch.blob.Core.Windows.NET/JFK-1K/DocId-32112954.PDF |
 | name | Nazwa operacji opisująca miejsce wystąpienia błędu lub ostrzeżenia. Ta wartość jest generowana przez następującą strukturę: [Kategoria]. [Podkategoria]. [ResourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName wzbogacanie. WebApiSkill. Moja umiejętność projekcji. SearchIndex. OutputFieldMapping. myOutputFieldName projekcji. SearchIndex. MergeOrUpload. Indeksname. KnowledgeStore. Table. webtablename |
 | message | Ogólny opis błędu lub ostrzeżenia. | Nie można wykonać umiejętności, ponieważ żądanie interfejsu API sieci Web nie powiodło się. |
-| uzyskać | Wszelkie dodatkowe szczegóły, które mogą być pomocne w diagnozowaniu problemu, takie jak odpowiedź WebApi w przypadku niepowodzenia wykonywania niestandardowej umiejętności. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 Źródło, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Pozostałe ślady stosu... |
+| uzyskać | Wszelkie dodatkowe szczegóły, które mogą być pomocne w diagnozowaniu problemu, takie jak odpowiedź WebApi w przypadku niepowodzenia wykonywania niestandardowej umiejętności. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 Źródło, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Pozostałe ślady stosu... |
 | documentationLink | Link do odpowiedniej dokumentacji ze szczegółowymi informacjami na temat debugowania i rozwiązywania problemu. Ten link będzie często wskazywał jedną z poniższych sekcji na tej stronie. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -48,7 +48,7 @@ Indeksator nie mógł odczytać dokumentu ze źródła danych. Przyczyną może 
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Niespójne typy pól w różnych dokumentach | "Typ wartości jest niezgodny z typem kolumny. Nie można `'{47.6,-122.1}'` przechowywać w kolumnie autorów.  Oczekiwany typ to JArray ".  "Błąd podczas konwertowania typu danych nvarchar na float".  "Konwersja nie powiodła się podczas konwersji wartości nvarchar" 12 miesięcy "na typ danych int."  "Błąd przepełnienia arytmetycznego konwersji wyrażenia na typ danych int." | Upewnij się, że typ każdego pola jest taki sam w różnych dokumentach. Na przykład jeśli pierwsze pole dokumentu `'startTime'` ma wartość DateTime, a w drugim dokumencie jest ciągiem, ten błąd zostanie trafiony. |
+| Niespójne typy pól w różnych dokumentach | "Typ wartości jest niezgodny z typem kolumny. Nie można przechowywać `'{47.6,-122.1}'` w kolumnie autorów.  Oczekiwany typ to JArray ".  "Błąd podczas konwertowania typu danych nvarchar na float".  "Konwersja nie powiodła się podczas konwersji wartości nvarchar" 12 miesięcy "na typ danych int."  "Błąd przepełnienia arytmetycznego konwersji wyrażenia na typ danych int." | Upewnij się, że typ każdego pola jest taki sam w różnych dokumentach. Na przykład jeśli pierwsze `'startTime'` pole dokumentu ma wartość DateTime, a w drugim dokumencie jest ciągiem, ten błąd zostanie trafiony. |
 | błędy usługi źródłowej źródła danych | (z Cosmos DB)`{"Errors":["Request rate is large"]}` | Sprawdź wystąpienie magazynu, aby upewnić się, że jest w dobrej kondycji. Może być konieczne dostosowanie skalowania/partycjonowania. |
 | problemy przejściowe | Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
@@ -73,8 +73,13 @@ Indeksator odczytuje dokument ze źródła danych, ale wystąpił problem podcza
 | --- | --- | --- |
 | Brak klucza dokumentu | Brak klucza dokumentu lub jest on pusty | Upewnij się, że wszystkie dokumenty mają prawidłowe klucze dokumentu |
 | Klucz dokumentu jest nieprawidłowy | Klucz dokumentu nie może mieć więcej niż 1024 znaków | Zmodyfikuj klucz dokumentu, aby spełniał wymagania dotyczące weryfikacji. |
-| Nie można zastosować mapowania pola do pola | Nie można zastosować funkcji `'functionName'` mapowania do pola `'fieldName'`. Tablica nie może mieć wartości null. Nazwa parametru: bajty | Dokładnie sprawdź [mapowania pól](search-indexer-field-mappings.md) zdefiniowane w indeksatorze i porównaj z danymi określonego pola dokumentu, który się nie powiódł. Może być konieczne zmodyfikowanie mapowań pól lub danych dokumentu. |
-| Nie można odczytać wartości pola | Nie można odczytać wartości kolumny `'fieldName'` w indeksie. `'fieldIndex'` Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego). | Te błędy są zwykle spowodowane nieoczekiwanymi problemami z łącznością z usługą źródłową źródła danych. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
+| Nie można zastosować mapowania pola do pola | Nie można zastosować funkcji mapowania `'functionName'` do pola `'fieldName'` . Tablica nie może mieć wartości null. Nazwa parametru: bajty | Dokładnie sprawdź [mapowania pól](search-indexer-field-mappings.md) zdefiniowane w indeksatorze i porównaj z danymi określonego pola dokumentu, który się nie powiódł. Może być konieczne zmodyfikowanie mapowań pól lub danych dokumentu. |
+| Nie można odczytać wartości pola | Nie można odczytać wartości kolumny `'fieldName'` w indeksie `'fieldIndex'` . Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego). | Te błędy są zwykle spowodowane nieoczekiwanymi problemami z łącznością z usługą źródłową źródła danych. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Błąd: nie można zmapować pola wyjściowego " `xyz` " na indeks wyszukiwania z powodu problemu deserializacji podczas stosowania funkcji mapowania " `abc` "
+Mapowanie danych wyjściowych mogło się nie powieść, ponieważ dane wyjściowe są w niewłaściwym formacie dla używanej funkcji mapowania. Na przykład zastosowanie funkcji mapowania Base64Encode na danych binarnych spowoduje wygenerowanie tego błędu. Aby rozwiązać ten problem, należy ponownie uruchomić indeksator bez określania funkcji mapowania lub upewnić się, że funkcja mapowania jest zgodna z typem danych wyjściowych. Szczegóły można znaleźć w temacie [Mapowanie pola danych wyjściowych](cognitive-search-output-field-mapping.md) .
 
 <a name="could-not-execute-skill"/>
 
@@ -110,7 +115,7 @@ Wiele wbudowanych umiejętności poznawczych, takich jak wykrywanie języka, roz
 Jeśli ten błąd będzie nadal występować w tym samym dokumencie dla wbudowanej umiejętności poznawczej, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby uzyskać pomoc, ponieważ nie jest to oczekiwane.
 
 ### <a name="custom-skills"></a>Umiejętności niestandardowe
-Jeśli wystąpi błąd przekroczenia limitu czasu z utworzoną niestandardową umiejętnością, istnieje kilka rzeczy, które można wypróbować. Najpierw przejrzyj swoją niestandardową umiejętność i upewnij się, że nie jest ona zablokowana w pętli nieskończonej i że zwraca wynik konsekwentnie. Po potwierdzeniu, że jest to przypadek, ustal, jaki jest czas wykonywania danej umiejętności. Jeśli nie ustawiono jawnie `timeout` wartości w niestandardowej definicji umiejętności, wartość domyślna `timeout` to 30 sekund. Jeśli 30 sekund nie jest wystarczająco długi, aby można było wykonać swoją umiejętność, możesz określić `timeout` wyższą wartość w niestandardowej definicji umiejętności. Oto przykład niestandardowej definicji umiejętności, w której limit czasu jest ustawiony na 90 sekund:
+Jeśli wystąpi błąd przekroczenia limitu czasu z utworzoną niestandardową umiejętnością, istnieje kilka rzeczy, które można wypróbować. Najpierw przejrzyj swoją niestandardową umiejętność i upewnij się, że nie jest ona zablokowana w pętli nieskończonej i że zwraca wynik konsekwentnie. Po potwierdzeniu, że jest to przypadek, ustal, jaki jest czas wykonywania danej umiejętności. Jeśli nie ustawiono jawnie `timeout` wartości w niestandardowej definicji umiejętności, wartość domyślna `timeout` to 30 sekund. Jeśli 30 sekund nie jest wystarczająco długi, aby można było wykonać swoją umiejętność, możesz określić wyższą `timeout` wartość w niestandardowej definicji umiejętności. Oto przykład niestandardowej definicji umiejętności, w której limit czasu jest ustawiony na 90 sekund:
 
 ```json
   {
@@ -134,11 +139,11 @@ Jeśli wystąpi błąd przekroczenia limitu czasu z utworzoną niestandardową u
       }
 ```
 
-Maksymalna wartość, którą można ustawić dla `timeout` parametru to 230 sekund.  Jeśli niestandardowa umiejętność nie może zostać wykonana spójnie w ciągu 230 sekund, możesz `batchSize` rozważyć zmniejszenie umiejętności niestandardowych, aby było możliwe przetwarzanie mniejszej liczby dokumentów w ramach jednego wykonania.  Jeśli ustawiono już wartość `batchSize` 1, należy ponownie napisać umiejętność, aby można było wykonać ją w mniej niż 230 sekund lub w inny sposób podzielić ją na wiele umiejętności niestandardowych, tak aby czas wykonywania dla każdej pojedynczej umiejętności niestandardowej wynosił maksymalnie 230 sekund. Zapoznaj się z dokumentacją dotyczącą [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md) , aby uzyskać więcej informacji.
+Maksymalna wartość, którą można ustawić dla `timeout` parametru to 230 sekund.  Jeśli niestandardowa umiejętność nie może zostać wykonana spójnie w ciągu 230 sekund, możesz rozważyć zmniejszenie umiejętności niestandardowych, aby było możliwe `batchSize` Przetwarzanie mniejszej liczby dokumentów w ramach jednego wykonania.  Jeśli ustawiono już wartość `batchSize` 1, należy ponownie napisać umiejętność, aby można było wykonać ją w mniej niż 230 sekund lub w inny sposób podzielić ją na wiele umiejętności niestandardowych, tak aby czas wykonywania dla każdej pojedynczej umiejętności niestandardowej wynosił maksymalnie 230 sekund. Zapoznaj się z dokumentacją dotyczącą [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md) , aby uzyskać więcej informacji.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Błąd: nie można "`MergeOrUpload`" | dokument`Delete`"" w indeksie wyszukiwania
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Błąd: nie można " `MergeOrUpload` " | `Delete`dokument "" w indeksie wyszukiwania
 
 Dokument został odczytany i przetworzony, ale indeksator nie mógł go dodać do indeksu wyszukiwania. Przyczyną może być:
 
@@ -186,8 +191,8 @@ Ten błąd występuje, gdy indeksator próbuje [projektować dane w sklepie z wi
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Nie można zaktualizować obiektu BLOB `'blobUri'` projekcji w kontenerze`'containerName'` |Określony kontener nie istnieje. | Indeksator sprawdzi, czy określony kontener został wcześniej utworzony i utworzy go w razie potrzeby, ale wykonuje to sprawdzenie tylko raz dla indeksatora. Ten błąd oznacza, że element usunięty z kontenera jest usuwany po tym kroku.  Aby rozwiązać ten problem, wypróbuj: pozostaw same informacje o koncie magazynu, poczekaj na zakończenie indeksatora, a następnie ponownie uruchom indeksator. |
-| Nie można zaktualizować obiektu BLOB `'blobUri'` projekcji w kontenerze`'containerName'` |Nie można zapisać danych do połączenia transportowego: wykryto, że istniejące połączenie zostało wymuszone przez hosta zdalnego. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
+| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze`'containerName'` |Określony kontener nie istnieje. | Indeksator sprawdzi, czy określony kontener został wcześniej utworzony i utworzy go w razie potrzeby, ale wykonuje to sprawdzenie tylko raz dla indeksatora. Ten błąd oznacza, że element usunięty z kontenera jest usuwany po tym kroku.  Aby rozwiązać ten problem, wypróbuj: pozostaw same informacje o koncie magazynu, poczekaj na zakończenie indeksatora, a następnie ponownie uruchom indeksator. |
+| Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze`'containerName'` |Nie można zapisać danych do połączenia transportowego: wykryto, że istniejące połączenie zostało wymuszone przez hosta zdalnego. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
 | Nie można zaktualizować wiersza `'projectionRow'` w tabeli`'tableName'` | Serwer jest zajęty. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
@@ -197,13 +202,13 @@ Brak danych wejściowych dla umiejętności, nieprawidłowy typ lub w inny spos�
 1) Nie można wykonać umiejętności
 2) Umiejętność została wykonana, ale może mieć nieoczekiwane wyniki
 
-Umiejętności poznawcze mają wymagane dane wejściowe i opcjonalne dane wejściowe. Na przykład [umiejętność wyodrębniania frazy klucza](cognitive-search-skill-keyphrases.md) ma dwa `text`wymagane `languageCode`dane wejściowe, i bez dodatkowych danych wejściowych. Niestandardowe dane wejściowe umiejętności są uznawane za opcjonalne dane wejściowe.
+Umiejętności poznawcze mają wymagane dane wejściowe i opcjonalne dane wejściowe. Na przykład [umiejętność wyodrębniania frazy klucza](cognitive-search-skill-keyphrases.md) ma dwa wymagane dane wejściowe `text` , `languageCode` i bez dodatkowych danych wejściowych. Niestandardowe dane wejściowe umiejętności są uznawane za opcjonalne dane wejściowe.
 
 Jeśli brakuje wymaganych danych wejściowych lub jeśli jakiekolwiek dane wejściowe nie są odpowiednim typem, umiejętność zostanie pominięta i wygeneruje ostrzeżenie. Pominięte umiejętności nie generują żadnych danych wyjściowych, więc jeśli inne umiejętności korzystają z wyników pominiętych umiejętności, mogą generować dodatkowe ostrzeżenia.
 
 Jeśli brakuje opcjonalnego danych wejściowych, umiejętność nadal będzie działać, ale może generować nieoczekiwane dane wyjściowe ze względu na Brak danych wejściowych.
 
-W obu przypadkach to ostrzeżenie może być oczekiwane ze względu na kształt danych. Na przykład jeśli masz dokument zawierający informacje o osobach z `firstName`polami, `middleName`i `lastName`, możesz mieć pewne dokumenty, dla `middleName`których nie ma wpisu. Jeśli chcesz przekazać `middleName` jako dane wejściowe do umiejętności w potoku, oczekujesz, że dane wejściowe dotyczące umiejętności mogą nie mieć pewnego czasu. Należy oszacować dane i scenariusz, aby określić, czy w wyniku tego ostrzeżenia wymagane jest wykonanie jakiejkolwiek akcji.
+W obu przypadkach to ostrzeżenie może być oczekiwane ze względu na kształt danych. Na przykład jeśli masz dokument zawierający informacje o osobach z polami `firstName` , `middleName` i `lastName` , możesz mieć pewne dokumenty, dla których nie ma wpisu `middleName` . Jeśli chcesz przekazać `middleName` jako dane wejściowe do umiejętności w potoku, oczekujesz, że dane wejściowe dotyczące umiejętności mogą nie mieć pewnego czasu. Należy oszacować dane i scenariusz, aby określić, czy w wyniku tego ostrzeżenia wymagane jest wykonanie jakiejkolwiek akcji.
 
 Jeśli chcesz podać wartość domyślną w przypadku braku danych wejściowych, możesz użyć [umiejętności warunkowej](cognitive-search-skill-conditional.md) do wygenerowania wartości domyślnej, a następnie użyć danych wyjściowych z [umiejętności warunkowej](cognitive-search-skill-conditional.md) jako danych wejściowych umiejętności.
 
@@ -223,16 +228,16 @@ Jeśli chcesz podać wartość domyślną w przypadku braku danych wejściowych,
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Dane wejściowe umiejętności są niewłaściwego typu | "Wymagane dane wejściowe kwalifikacji nie mają oczekiwanego typu `String`. Name: `text`, source: `/document/merged_content`. "  "Wymagane dane wejściowe kwalifikacji mają nieoczekiwany format. Name: `text`, source: `/document/merged_content`. "  "Nie można wykonać iteracji w przypadku `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`braku tablicy".  "Nie można wybrać `0` w niearray `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Pewne umiejętności oczekują danych wejściowych określonych typów, na przykład [umiejętność tonacji](cognitive-search-skill-sentiment.md) powinna `text` być ciągiem. Jeśli dane wejściowe określają wartość różną od ciągu, wówczas umiejętność nie zostanie wykonana i nie wygeneruje żadnych danych wyjściowych. Upewnij się, że zestaw danych zawiera wartości wejściowe, które są jednorodne w typie, lub Użyj [niestandardowej umiejętności interfejsu API sieci Web](cognitive-search-custom-skill-web-api.md) , aby wstępnie przetworzyć dane wejściowe. Jeśli Iteracja jest przeprowadzana przez tablicę, sprawdź kontekst umiejętności i wprowadź `*` odpowiednie pozycje. Zwykle zarówno kontekst, jak i źródło danych wejściowych powinny `*` kończyć się na potrzeby tablic. |
-| Brak danych wejściowych kwalifikacji | Brak "wymaganych danych wejściowych umiejętności. Name: `text`, source: `/document/merged_content`"" brak wartości `/document/normalized_images/0/imageTags`".  "Nie można wybrać `0` w tablicy `/document/pages` o długości `0`". | Jeśli wszystkie dokumenty otrzymają to ostrzeżenie, prawdopodobnie występuje literówka w ścieżkach wejściowych i należy dokładnie sprawdzić wielkość liter nazwy właściwości, dodatkowe lub brakujące `*` w ścieżce, i upewnić się, że dokumenty ze źródła danych zawierają wymagane dane wejściowe. |
-| Dane wejściowe kodu języka umiejętności są nieprawidłowe | Dane wejściowe `languageCode` kwalifikacji mają następujące kody `X,Y,Z`języka: co najmniej jeden z nich jest nieprawidłowy. | Zobacz więcej szczegółów [poniżej](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
+| Dane wejściowe umiejętności są niewłaściwego typu | "Wymagane dane wejściowe kwalifikacji nie mają oczekiwanego typu `String` . Name: `text` , source: `/document/merged_content` . "  "Wymagane dane wejściowe kwalifikacji mają nieoczekiwany format. Name: `text` , source: `/document/merged_content` . "  "Nie można wykonać iteracji w przypadku braku tablicy `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Nie można wybrać `0` w niearray `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Pewne umiejętności oczekują danych wejściowych określonych typów, na przykład [umiejętność tonacji](cognitive-search-skill-sentiment.md) powinna `text` być ciągiem. Jeśli dane wejściowe określają wartość różną od ciągu, wówczas umiejętność nie zostanie wykonana i nie wygeneruje żadnych danych wyjściowych. Upewnij się, że zestaw danych zawiera wartości wejściowe, które są jednorodne w typie, lub Użyj [niestandardowej umiejętności interfejsu API sieci Web](cognitive-search-custom-skill-web-api.md) , aby wstępnie przetworzyć dane wejściowe. Jeśli Iteracja jest przeprowadzana przez tablicę, sprawdź kontekst umiejętności i wprowadź `*` odpowiednie pozycje. Zwykle zarówno kontekst, jak i źródło danych wejściowych powinny kończyć się `*` na potrzeby tablic. |
+| Brak danych wejściowych kwalifikacji | Brak "wymaganych danych wejściowych umiejętności. Name: `text` , source: `/document/merged_content` "" brak wartości " `/document/normalized_images/0/imageTags` .  "Nie można wybrać `0` w tablicy `/document/pages` o długości `0` ". | Jeśli wszystkie dokumenty otrzymają to ostrzeżenie, prawdopodobnie występuje literówka w ścieżkach wejściowych i należy dokładnie sprawdzić wielkość liter nazwy właściwości, dodatkowe lub brakujące `*` w ścieżce, i upewnić się, że dokumenty ze źródła danych zawierają wymagane dane wejściowe. |
+| Dane wejściowe kodu języka umiejętności są nieprawidłowe | Dane wejściowe kwalifikacji `languageCode` mają następujące kody języka: co `X,Y,Z` najmniej jeden z nich jest nieprawidłowy. | Zobacz więcej szczegółów [poniżej](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Ostrzeżenie: dane wejściowe umiejętności "languageCode" zawierają następujące kody języka: "X, Y, Z", co najmniej jeden z nich jest nieprawidłowy.
 Co najmniej jedna wartość przeniesiona do opcjonalnego `languageCode` danych wejściowych z poziomu umiejętności podrzędnej nie jest obsługiwana. Taka sytuacja może wystąpić, jeśli przekazujesz dane wyjściowe [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) do kolejnych umiejętności, a dane wyjściowe składają się z większej liczby języków niż jest to obsługiwane w tych umiejętnościach podrzędnych.
 
-Jeśli wiesz, że zestaw danych znajduje się w jednym języku, należy usunąć [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) i dane wejściowe dotyczące `languageCode` umiejętności, a zamiast tego użyć `defaultLanguageCode` parametru umiejętności dla tej umiejętności, przy założeniu, że język jest obsługiwany dla tej umiejętności.
+Jeśli wiesz, że zestaw danych znajduje się w jednym języku, należy usunąć [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) i `languageCode` dane wejściowe dotyczące umiejętności, a `defaultLanguageCode` zamiast tego użyć parametru umiejętności dla tej umiejętności, przy założeniu, że język jest obsługiwany dla tej umiejętności.
 
 Jeśli wiesz, że zestaw danych zawiera wiele języków i dlatego potrzebujesz [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) i `languageCode` danych wejściowych, rozważ dodanie [ConditionalSkill](cognitive-search-skill-conditional.md) w celu odfiltrowania tekstu w językach, które nie są obsługiwane przed przekazaniem tekstu do poziomu umiejętności podrzędnej.  Oto przykład tego, co może wyglądać jak w przypadku EntityRecognitionSkill:
 
@@ -259,7 +264,7 @@ Poniżej przedstawiono niektóre odwołania do obecnie obsługiwanych języków 
 ## <a name="warning-skill-input-was-truncated"></a>Ostrzeżenie: dane wejściowe dotyczące umiejętności zostały obcięte
 Umiejętności poznawcze mają ograniczone długość tekstu, który można analizować jednocześnie. Jeśli wprowadzanie tekstu tych umiejętności przekracza ten limit, spowoduje to obcinanie tekstu w celu spełnienia limitu, a następnie przeprowadzenie wzbogacania tego tekstu. Oznacza to, że umiejętność jest wykonywana, ale nie na wszystkich Twoich danych.
 
-W poniższym przykładzie LanguageDetectionSkill pole `'text'` wejściowe może wyzwolić to ostrzeżenie, jeśli przekracza limit znaków. Limity danych wejściowych kwalifikacji można znaleźć w dokumentacji dotyczącej [umiejętności](cognitive-search-predefined-skills.md).
+W poniższym przykładzie LanguageDetectionSkill `'text'` pole wejściowe może wyzwolić to ostrzeżenie, jeśli przekracza limit znaków. Limity danych wejściowych kwalifikacji można znaleźć w dokumentacji dotyczącej [umiejętności](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -289,7 +294,7 @@ To ostrzeżenie występuje tylko w przypadku Cosmos DB źródeł danych.
 
 Przyrostowy postęp podczas indeksowania zapewnia, że jeśli wykonywanie indeksatora zostanie przerwane przez przejściowe błędy lub limit czasu wykonywania, indeksator może zostać pobrany w miejscu, w którym zostanie pozostawiony po następnym uruchomieniu, zamiast konieczności ponownego indeksowania całej kolekcji od podstaw. Jest to szczególnie ważne podczas indeksowania dużych kolekcji.
 
-Możliwość wznowienia nieukończonego zadania indeksowania jest predykatem według dokumentów uporządkowanych według `_ts` kolumny. Indeksator używa sygnatury czasowej, aby określić, który dokument powinien zostać pobrany dalej. Jeśli brakuje `_ts` kolumny lub jeśli indeksator nie może określić, czy kwerenda niestandardowa jest uporządkowana, indeksator rozpoczyna się od początku i zobaczysz to ostrzeżenie.
+Możliwość wznowienia nieukończonego zadania indeksowania jest predykatem według dokumentów uporządkowanych według `_ts` kolumny. Indeksator używa sygnatury czasowej, aby określić, który dokument powinien zostać pobrany dalej. Jeśli `_ts` brakuje kolumny lub jeśli indeksator nie może określić, czy kwerenda niestandardowa jest uporządkowana, indeksator rozpoczyna się od początku i zobaczysz to ostrzeżenie.
 
 Istnieje możliwość zastąpienia tego zachowania, co pozwala na przyrostowy postęp i pomijanie tego ostrzeżenia przy użyciu `assumeOrderByHighWatermarkColumn` właściwości konfiguracja.
 
@@ -311,7 +316,12 @@ Aby uzyskać więcej informacji, zobacz [limity indeksatora](search-limits-quota
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Ostrzeżenie: nie można zmapować pola wyjściowego "X" na indeks wyszukiwania
-Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepustych danych, będą generować ostrzeżenia dla każdego dokumentu i powodować puste pole indeksu. Aby obejść ten problem, należy dokładnie sprawdzić ścieżki źródłowe mapowania pól wyjściowych dla możliwych błędów lub ustawić wartość domyślną przy użyciu [umiejętności warunkowej](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepustych danych, będą generować ostrzeżenia dla każdego dokumentu i powodować puste pole indeksu. Aby obejść ten problem, należy dokładnie sprawdzić ścieżki źródłowe mapowania pól wyjściowych dla możliwych błędów lub ustawić wartość domyślną przy użyciu [umiejętności warunkowej](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Szczegóły można znaleźć w temacie [Mapowanie pola danych wyjściowych](cognitive-search-output-field-mapping.md) .
+
+| Przyczyna | Szczegóły/przykład | Rozwiązanie |
+| --- | --- | --- |
+| Nie można wykonać iteracji w przypadku niearray | "Nie można wykonać iteracji w przypadku braku tablicy `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Ten błąd występuje, gdy wyjście nie jest tablicą. Jeśli uważasz, że dane wyjściowe powinny być tablicą, sprawdź wskazane wyjściowe ścieżki pola źródłowego pod kątem błędów. Na przykład `*` w nazwie pola źródłowego mogą znajdować się brakujące lub dodatkowe. Istnieje również możliwość, że dane wejściowe tej umiejętności mają wartość null, co oznacza pustą tablicę. Znajdź podobne szczegóły w polu [dane wejściowe dotyczące umiejętności były nieprawidłowe](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .    |
+| Nie można wybrać `0` w niearray | "Nie można wybrać `0` w nie Array `/document/pages` ". | Może się tak zdarzyć, jeśli dane wyjściowe umiejętności nie generują tablicy, a wynikowa nazwa pola źródłowego ma indeks tablicy lub `*` ścieżkę. Sprawdź dokładnie ścieżki podane w nazwach pól źródłowych danych wyjściowych i wartość pola dla wskazanej nazwy pola. Znajdź podobne szczegóły w polu [dane wejściowe dotyczące umiejętności były nieprawidłowe](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

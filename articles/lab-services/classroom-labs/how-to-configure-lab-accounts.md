@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284306"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121086"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurowanie kont laboratorium w Azure Lab Services 
 W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak pracownie. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. 
@@ -38,6 +38,9 @@ Poniżej przedstawiono niektóre ograniczenia dotyczące określania zakresu adr
 
 1. Na stronie **konto laboratorium** wybierz pozycję **Ustawienia laboratoria** w menu po lewej stronie.
 2. Dla pola **zakres adresów** Określ zakres adresów dla maszyn wirtualnych, które zostaną utworzone w laboratorium. Zakres adresów powinien znajdować się w notacji Classless Inter-Domain Routing (CIDR) (przykład: 10.20.0.0/23). Maszyny wirtualne w laboratorium zostaną utworzone w tym zakresie adresów.
+
+    > [!NOTE]
+    > Właściwość zakres adresów stosuje się tylko wtedy, gdy dla laboratorium jest włączona równorzędna Sieć wirtualna. 
 3. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
     ![Konfiguruj zakres adresów](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

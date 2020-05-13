@@ -3,14 +3,14 @@ title: Konfigurowanie ustawień aplikacji funkcji na platformie Azure
 description: Dowiedz się, jak skonfigurować ustawienia aplikacji funkcji platformy Azure.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276948"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122305"
 ---
 # <a name="manage-your-function-app"></a>Zarządzanie aplikacją funkcji 
 
@@ -27,9 +27,11 @@ W tym artykule opisano sposób konfigurowania aplikacji funkcji i zarządzania n
 
 ## <a name="get-started-in-the-azure-portal"></a>Rozpoczęcie pracy w witrynie Azure portal
 
-Aby rozpocząć, przejdź do [Azure Portal] i zaloguj się na koncie platformy Azure. Na pasku wyszukiwania w górnej części portalu wpisz nazwę aplikacji funkcji i wybierz ją z listy. Po wybraniu aplikacji funkcji zostanie wyświetlona następująca strona:
+1. Aby rozpocząć, przejdź do [Azure Portal] i zaloguj się na koncie platformy Azure. Na pasku wyszukiwania w górnej części portalu wprowadź nazwę aplikacji funkcji i wybierz ją z listy. 
 
-![Przegląd aplikacji funkcji w Azure Portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. W obszarze **Ustawienia** w okienku po lewej stronie wybierz pozycję **Konfiguracja**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Przegląd aplikacji funkcji w Azure Portal":::
 
 Możesz przejść do wszystkiego, czego potrzebujesz do zarządzania aplikacją funkcji, na stronie przeglądu, w szczególności z **[ustawieniami aplikacji](#settings)** i **[funkcjami platformy](#platform-features)**.
 
@@ -45,14 +47,14 @@ Aby dodać ustawienie w portalu, wybierz pozycję **nowe ustawienie aplikacji** 
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-[`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) Polecenie zwraca istniejące ustawienia aplikacji, jak w poniższym przykładzie:
+[`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list)Polecenie zwraca istniejące ustawienia aplikacji, jak w poniższym przykładzie:
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) Polecenie dodaje lub aktualizuje ustawienie aplikacji. Poniższy przykład tworzy ustawienie z kluczem o nazwie `CUSTOM_FUNCTION_APP_SETTING` i wartości: `12345`
+[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)Polecenie dodaje lub aktualizuje ustawienie aplikacji. Poniższy przykład tworzy ustawienie z kluczem o nazwie `CUSTOM_FUNCTION_APP_SETTING` i wartości `12345` :
 
 
 ```azurecli-interactive
@@ -69,9 +71,7 @@ Podczas lokalnego tworzenia aplikacji funkcji należy zachować lokalne kopie ty
 
 ## <a name="platform-features"></a>Funkcje platformy
 
-![Karta funkcje platformy aplikacji funkcji.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Aplikacje funkcji działają w programie i są obsługiwane przez platformę Azure App Service. W związku z tym aplikacje funkcji mają dostęp do większości funkcji platformy hostingu w sieci Web platformy Azure. Karta **funkcje platformy** to miejsce, w którym można uzyskać dostęp do wielu funkcji platformy App Service, których można używać w aplikacjach funkcji. 
+Aplikacje funkcji działają w programie i są obsługiwane przez program, Azure App Service platformę. W związku z tym aplikacje funkcji mają dostęp do większości funkcji platformy hostingu w sieci Web platformy Azure. W lewym okienku znajduje się dostęp do wielu funkcji platformy App Service, których można używać w aplikacjach funkcji. 
 
 > [!NOTE]
 > Nie wszystkie funkcje App Service są dostępne, gdy aplikacja funkcji jest uruchamiana w ramach planu hostingu zużycia.
@@ -83,11 +83,11 @@ Pozostała część tego artykułu koncentruje się na następujących App Servi
 + [Narzędzia zaawansowane (kudu)](#kudu)
 + [Opcje wdrożenia](#deployment)
 + [CORS](#cors)
-+ [Uwierzytelnianie](#auth)
++ [Authentication](#auth)
 
 Aby uzyskać więcej informacji na temat sposobu pracy z ustawieniami App Service, zobacz [konfigurowanie Azure App Service ustawień](../app-service/configure-common.md).
 
-### <a name="app-service-editor"></a><a name="editor"></a>Edytor usługi App Service
+### <a name="app-service-editor"></a><a name="editor"></a>Edytor App Service
 
 ![Edytor App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -124,9 +124,9 @@ Po skonfigurowaniu listy **dozwolonych źródeł** dla aplikacji funkcji `Access
 
 ![Skonfiguruj listę CORS aplikacji funkcji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-Gdy jest używany symbol`*`wieloznaczny (), wszystkie pozostałe domeny zostaną zignorowane. 
+Gdy jest używany symbol wieloznaczny ( `*` ), wszystkie pozostałe domeny zostaną zignorowane. 
 
-Użyj polecenia [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) , aby dodać domenę do listy dozwolonych źródeł. Poniższy przykład dodaje domenę contoso.com:
+Użyj [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) polecenia, aby dodać domenę do listy dozwolonych źródeł. Poniższy przykład dodaje domenę contoso.com:
 
 ```azurecli-interactive
 az functionapp cors add --name <FUNCTION_APP_NAME> \
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Użyj [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) polecenia, aby wyświetlić listę bieżących dozwolonych źródeł.
 
-### <a name="authentication"></a><a name="auth"></a>Uwierzytelnianie
+### <a name="authentication"></a><a name="auth"></a>Authentication
 
 ![Konfigurowanie uwierzytelniania dla aplikacji funkcji](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

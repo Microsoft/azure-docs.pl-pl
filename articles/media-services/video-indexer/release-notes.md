@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131208"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124588"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` do czytnika źródła danych RSS.
 
 Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na temat:
 
@@ -30,13 +30,13 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="new-widget-parameters-capabilities"></a>Nowe możliwości parametrów widżetu
 
-Widżet **Insights** zawiera nowe parametry: `language` i. `control`
+Widżet **Insights** zawiera nowe parametry: `language` i `control` .
 
-Widżet **odtwarzacza** ma nowy `locale` parametr. Oba `locale` i `language` parametry kontrolują język odtwarzacza.
+Widżet **odtwarzacza** ma nowy `locale` parametr. Oba `locale` i `language` Parametry kontrolują język odtwarzacza.
 
 Aby uzyskać więcej informacji, zobacz sekcję [typy elementów widget](video-indexer-embed-widgets.md#widget-types) . 
 
@@ -54,11 +54,11 @@ Nowa skórka odtwarzacza została uruchomiona z zaktualizowanym projektem.
     * [Get-accounts-with-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
     Obiekt konta ma `Url` pole wskazujące lokalizację [witryny sieci Web Video Indexer](https://www.videoindexer.ai/).
-W przypadku płatnych `Url` kont pole jest obecnie wskazywane na wewnętrzny adres URL zamiast publicznej witryny sieci Web.
+W przypadku płatnych kont `Url` pole jest obecnie wskazywane na wewnętrzny adres URL zamiast publicznej witryny sieci Web.
 W najbliższych tygodniach zmienimy ją i zwrócimy adres URL [witryny internetowej Video Indexer](https://www.videoindexer.ai/) dla wszystkich kont (wersja próbna i płatna).
 
     Nie używaj wewnętrznych adresów URL, należy używać [Video Indexer publicznych interfejsów API](https://api-portal.videoindexer.ai/).
-* W przypadku osadzania Video Indexerych adresów URL w aplikacjach, a adresy URL nie wskazują [Video Indexer witryny sieci Web](https://www.videoindexer.ai/) ani [punktu końcowego interfejsu API Video Indexer](https://api.videoindexer.ai) , ale nie do regionalnego punktu końcowego ( `https://wus2.videoindexer.ai`na przykład), należy ponownie wygenerować adresy URL.
+* Jeśli osadzasz Video Indexer adresy URL w aplikacjach, a adresy URL nie wskazują [witryny Video Indexer](https://www.videoindexer.ai/) lub punktu końcowego interfejsu API Video Indexer ( `https://api.videoindexer.ai` ), ale nie do regionalnego punktu końcowego (na przykład `https://wus2.videoindexer.ai` ), ponownie Wygeneruj adresy URL.
 
    Można to zrobić za pomocą jednej z:
 
@@ -73,7 +73,7 @@ W najbliższych tygodniach zmienimy ją i zwrócimy adres URL [witryny interneto
  
 ### <a name="custom-language-support-for-additional-languages"></a>Obsługa języków niestandardowych w dodatkowych językach
 
-Video Indexer teraz obsługuje niestandardowe modele języka dla `ar-SY` , `en-UK`i `en-AU` (tylko interfejsy API).
+Video Indexer teraz obsługuje niestandardowe modele języka dla `ar-SY` , `en-UK` i `en-AU` (tylko interfejsy API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Usuń aktualizację przedziału czasu konta
 
@@ -127,7 +127,7 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
  
 * Obsługa koreańskich niestandardowych modeli języków
 
-    Indeksator wideo obsługuje teraz niestandardowe modele językowe w języku koreańskim`ko-KR`() zarówno w interfejsie API, jak i w portalu. 
+    Indeksator wideo obsługuje teraz niestandardowe modele językowe w języku koreańskim ( `ko-KR` ) zarówno w interfejsie API, jak i w portalu. 
 * Nowe języki obsługiwane w przypadku zamiany mowy na tekst (monitora STT)
 
     Interfejsy API Video Indexer obsługują teraz monitora STT w języku arabskim Levantine (AR-SY), dialekt angielskiej Brytanii (en-GB) i angielski dialekt australijski (en-AU).

@@ -6,37 +6,36 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834048"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122373"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Omówienie diagnostyki Azure Functions
 
-Gdy uruchamiasz aplikację funkcji, chcesz przygotować się do wszelkich problemów, które mogą wystąpić, z 4xx błędów, aby wyzwolić błędy. Azure Functions Diagnostics to inteligentne i interaktywne środowisko ułatwiające rozwiązywanie problemów z aplikacją funkcji bez konieczności konfigurowania ani ponoszenia dodatkowych kosztów. Gdy uruchamiasz problemy z aplikacją funkcji, Azure Functions Diagnostics wskazuje, co jest niewłaściwe, aby przeprowadzić Cię do właściwych informacji w celu łatwiejszego i szybkiego rozwiązywania problemów i rozwiązania problemu. W tym artykule przedstawiono podstawowe informacje dotyczące korzystania z narzędzia Azure Functions Diagnostics do szybszego diagnozowania i rozwiązywania typowych problemów z aplikacjami funkcji.
+Gdy uruchamiasz aplikację funkcji, chcesz przygotować się do wszelkich problemów, które mogą wystąpić, z 4xx błędów, aby wyzwolić błędy. Azure Functions Diagnostics to inteligentne i interaktywne środowisko ułatwiające rozwiązywanie problemów z aplikacją funkcji bez konieczności konfigurowania ani ponoszenia dodatkowych kosztów. Gdy uruchamiasz problemy z aplikacją funkcji, Azure Functions Diagnostics wskazuje, co jest nieprawidłowe. Przeprowadzimy Cię do właściwych informacji, aby łatwiej i szybko rozwiązywać problemy oraz rozwiązać problem. W tym artykule przedstawiono podstawowe informacje dotyczące korzystania z narzędzia Azure Functions Diagnostics do szybszego diagnozowania i rozwiązywania typowych problemów z aplikacjami funkcji.
 
 ## <a name="start-azure-functions-diagnostics"></a>Uruchom diagnostykę Azure Functions
 
-Aby uzyskać dostęp do diagnostyki Azure Functions:
+Aby rozpocząć diagnostykę Azure Functions:
 
 1. Przejdź do aplikacji funkcji w [Azure Portal](https://portal.azure.com).
-2. Wybierz kartę **funkcje platformy** .
-3. Wybierz opcję **Diagnozuj i rozwiąż problemy** w obszarze **Zarządzanie zasobami**, co spowoduje otwarcie Azure Functions diagnostyki.
-4. Wybierz kategorię, która najlepiej opisuje problem z aplikacją funkcji przy użyciu słów kluczowych na kafelku strony głównej. Możesz również wpisać słowo kluczowe, które najlepiej opisuje Twój problem na pasku wyszukiwania. Można na przykład wpisać `execution` listę raportów diagnostycznych związanych z wykonywaniem aplikacji funkcji i otworzyć je bezpośrednio z poziomu strony głównej.
+1. Wybierz pozycję **Diagnozuj i rozwiąż problemy** , aby otworzyć Azure Functions diagnostykę.
+1. Wybierz kategorię, która najlepiej opisuje problem z aplikacją funkcji przy użyciu słów kluczowych na kafelku strony głównej. Możesz również wpisać słowo kluczowe, które najlepiej opisuje Twój problem na pasku wyszukiwania. Można na przykład wpisać `execution` listę raportów diagnostycznych związanych z wykonywaniem aplikacji funkcji i otworzyć je bezpośrednio z poziomu strony głównej.
 
-![Strona główna](./media/functions-diagnostics/homepage.png)
+   :::image type="content" source="./media/functions-diagnostics/functions-app-search-azure-functions-diagnostics.png" alt-text="Wyszukaj Azure Functions diagnostykę." border="true":::
 
 ## <a name="use-the-interactive-interface"></a>Korzystanie z interfejsu interakcyjnego
 
-Po wybraniu kategorii głównej najlepiej dopasowanej do problemu z aplikacją funkcji Azure Functions Diagnostyka "Interactive Interface Genie" może przeprowadzić Cię przez diagnozowanie i rozwiązywanie problemów z aplikacją. Aby wyświetlić pełny raport diagnostyczny dotyczącej interesującej kategorii problemu, możesz skorzystać z skrótów dostępnych w genie. Skróty kafelków zapewniają bezpośredni sposób uzyskiwania dostępu do metryk diagnostycznych.
+Po wybraniu kategorii głównej najlepiej dopasowanej do problemu z aplikacją funkcji, Azure Functions interfejs interaktywny diagnostyki o nazwie Genie, może przeprowadzić Cię przez diagnozowanie i rozwiązywanie problemów z aplikacją. Aby wyświetlić pełny raport diagnostyczny dotyczącej interesującej kategorii problemu, możesz skorzystać z skrótów dostępnych w genie. Skróty kafelków zapewniają bezpośredni sposób uzyskiwania dostępu do metryk diagnostycznych.
 
-![Genie](./media/functions-diagnostics/genie.png)
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie jest interfejsem diagnostycznym "Azure Functions"." border="false":::
 
-Po wybraniu kafelka zobaczysz listę tematów związanych z problemem opisanym w kafelku. Te tematy zawierają fragmenty istotnych informacji z pełnego raportu. Możesz wybrać dowolny z tych tematów, aby dokładniej zbadać problemy. Ponadto możesz wybrać opcję **Wyświetl pełny raport** , aby poznać wszystkie tematy na jednej stronie.
+Po wybraniu kafelka zobaczysz listę tematów związanych z problemem opisanym w kafelku. Te tematy zawierają fragmenty istotnych informacji z pełnego raportu. Wybierz dowolny z tych tematów, aby dokładniej zbadać problemy. Ponadto możesz wybrać opcję **Wyświetl pełny raport** , aby poznać wszystkie tematy na jednej stronie.
 
-![Podgląd raportu diagnostycznego](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Podgląd raportu diagnostycznego" border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Wyświetl raport diagnostyczny
 
@@ -44,11 +43,11 @@ Po wybraniu tematu można wyświetlić raport diagnostyczny specyficzny dla apli
 
 ## <a name="find-the-problem-code"></a>Znajdź kod problemu
 
-W przypadku funkcji opartych na skryptach można użyć **funkcji wykonywania i błędów** w obszarze **aplikacja funkcji lub raportowania błędów** , aby zawęzić wiersz kodu powodujący wyjątki lub błędy. Ta funkcja może być przydatnym narzędziem do uzyskiwania dostępu do głównej przyczyny i rozwiązywania problemów z określonym wierszem kodu. Ta opcja jest niedostępna dla wstępnie skompilowanych funkcji języka C# i języka Java.
+W przypadku funkcji opartych na skryptach można użyć **funkcji wykonywania i błędów** w obszarze **aplikacja funkcji lub raportowania błędów** , aby zawęzić wiersz kodu powodujący wyjątki lub błędy. Możesz użyć tego narzędzia do uzyskiwania dostępu do głównej przyczyny i rozwiązywania problemów z określonego wiersza kodu. Ta opcja jest niedostępna dla wstępnie skompilowanych funkcji języka C# i języka Java.
 
-![Raport diagnostyczny dotyczący błędów wykonania funkcji](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Raport diagnostyczny dotyczący błędów wykonania funkcji" border="false":::
 
-![Wyjątek funkcji](./media/functions-diagnostics/function-exception.png)
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Widok szczegółów wyjątku." border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 

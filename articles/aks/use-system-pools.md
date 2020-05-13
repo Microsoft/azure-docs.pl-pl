@@ -4,12 +4,12 @@ description: Dowiedz się, jak tworzyć pule węzłów systemu i zarządzać nim
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790562"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125251"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Zarządzanie pulami węzłów systemowych w usłudze Azure Kubernetes Service (AKS)
 
@@ -50,6 +50,7 @@ W przypadku pul węzłów można wykonać następujące operacje:
 * Usuń pule węzłów użytkownika.
 * Pule węzłów systemowych można usunąć, pod warunkiem, że w klastrze AKS istnieje inna Pula węzłów systemu.
 * Klaster AKS może mieć wiele pul węzłów systemowych i wymaga co najmniej jednej puli węzłów systemu.
+* Jeśli chcesz zmienić różne niezmienne ustawienia dla istniejących pul węzłów, możesz utworzyć nowe pule węzłów, aby je zastąpić. Jednym z przykładu jest dodanie nowej puli węzłów z nowym ustawieniem maxPods i usunięcie starej puli węzłów.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Tworzenie nowego klastra AKS z pulą węzłów systemowych
 

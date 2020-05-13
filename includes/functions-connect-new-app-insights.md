@@ -5,33 +5,35 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/06/2019
+ms.date: 04/09/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 266cd52117f36b282fdd4bc8615a15e451cc203f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3289ba03d0f613d004bc8bff4dbcf2bd434f3da3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132550"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121571"
 ---
-Funkcje ułatwiają dodawanie integracji usługi Application Insights do aplikacji funkcji z [witryny Azure portal.]
+Funkcje ułatwiają dodawanie Application Insights integracji z aplikacją funkcji z [Azure Portal].
 
-1. W [portalu][Azure Portal]wpisz `Function Apps` na pasku wyszukiwania u góry strony wybierz aplikację funkcji, a następnie wybierz plik danych Usługi Application Insights nie jest **skonfigurowany** baner w górnej części okna. Jeśli nie widzisz tego banera, aplikacja ma już włączoną statystykę aplikacji.
+1. W [Azure Portal][witrynie Azure Portal]Wyszukaj i wybierz pozycję **aplikacja funkcji**, a następnie wybierz aplikację funkcji. 
 
-    ![Włączanie usługi Application Insights z portalu](media/functions-connect-new-app-insights/enable-application-insights.png)
+1. Wybierz pozycję **Application Insights nie jest skonfigurowany** transparent w górnej części okna. Jeśli nie widzisz tego transparentu, aplikacja ma już włączony Application Insights.
 
-1. Utwórz zasób usługi Application Insights przy użyciu ustawień określonych w tabeli poniżej obrazu.
+    :::image type="content" source="media/functions-connect-new-app-insights/enable-application-insights.png" alt-text="Włączanie Application Insights z poziomu portalu":::
 
-   ![Tworzenie zasobu usługi Application Insights](media/functions-connect-new-app-insights/ai-general.png)
+1. Utwórz zasób Application Insights przy użyciu ustawień określonych w tabeli poniżej obrazu.
+
+   :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Tworzenie zasobu Application Insights":::
 
     | Ustawienie      | Sugerowana wartość  | Opis                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nazwa** | Unikatowa nazwa aplikacji | Najłatwiej jest użyć tej samej nazwy co aplikacja funkcji, która musi być unikatowa w subskrypcji. | 
-    | **Lokalizacja** | Europa Zachodnia | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) co aplikacja funkcji lub takiego, który znajduje się w pobliżu tego regionu. |
+    | **Nazwa** | Unikatowa nazwa aplikacji | Najłatwiej używać tej samej nazwy, co aplikacja funkcji, która musi być unikatowa w subskrypcji. | 
+    | **Lokalizacja** | Europa Zachodnia | Jeśli to możliwe, użyj tego samego [regionu](https://azure.microsoft.com/regions/) , w którym znajduje się aplikacja funkcji lub która znajduje się blisko tego regionu. |
 
-1. Kliknij przycisk **OK**. Zasób usługi Application Insights jest tworzony w tej samej grupie zasobów i subskrypcji co aplikacja funkcji. Po utworzeniu zasobu zamknij okno Usługi Application Insights.
+1. Wybierz przycisk **Zastosuj**. Zasób Application Insights jest tworzony w tej samej grupie zasobów i subskrypcji co aplikacja funkcji. Po utworzeniu zasobu Zamknij okno Application Insights.
 
-1. Wróć do aplikacji funkcji wybierz **pozycję Ustawienia aplikacji**, a następnie przewiń w dół do pozycji Ustawienia **aplikacji**. Jeśli zostanie wyświetlone `APPINSIGHTS_INSTRUMENTATIONKEY`ustawienie o nazwie , integracja usługi Application Insights jest włączona dla aplikacji funkcji uruchomionej na platformie Azure.
+1. Wróć do aplikacji funkcji, wybierz pozycję **Settings**  >  **Konfiguracja**ustawień, a następnie wybierz pozycję **Ustawienia aplikacji**. Jeśli zobaczysz ustawienie o nazwie `APPINSIGHTS_INSTRUMENTATIONKEY` , Application Insights integracja jest włączona dla aplikacji funkcji działającej na platformie Azure.
 
-[Azure Portal]: https://portal.azure.com
+[Witryna Azure Portal]: https://portal.azure.com

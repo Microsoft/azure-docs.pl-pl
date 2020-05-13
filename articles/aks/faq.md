@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS
 description: Znajdź odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 112060e72f36bfe5d11a997fc4161e26c36259ff
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854245"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123823"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Często zadawane pytania dotyczące usługi Azure Kubernetes Service (AKS)
 
@@ -127,6 +127,8 @@ Obsługa systemu Windows Server dla puli węzłów obejmuje pewne ograniczenia, 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Czy AKS oferuje umowę dotyczącą poziomu usług?
 
+AKS zapewnia możliwość osiągnięcia dostępności na 99,95% dla serwera interfejsu API z [Umowa SLA na czas przestoju] [przestoje-sla.md].
+
 W umowie dotyczącej poziomu usług (SLA) dostawca zgadza się zwrócić klienta koszt usługi, jeśli nie jest spełniony opublikowany poziom usług. Ponieważ AKS jest bezpłatny, żaden koszt nie jest dostępny do zwrotu, więc AKS nie ma formalnej umowy SLA. AKS ma jednak na celu zachowanie dostępności co najmniej 99,5% dla serwera interfejsu API Kubernetes.
 
 Ważne jest, aby rozpoznać rozróżnienie między dostępnością usługi AKS, która odnosi się do czasu przestoju płaszczyzny kontroli Kubernetes i dostępności konkretnego obciążenia działającego w usłudze Azure Virtual Machines. Mimo że płaszczyzna kontroli może być niedostępna, jeśli płaszczyzna kontroli nie jest gotowa, obciążenia klastra uruchomione na maszynach wirtualnych platformy Azure mogą nadal działać. Maszyny wirtualne platformy Azure są płatnymi zasobami, które są objęte umową SLA. Przeczytaj [tutaj, aby uzyskać więcej informacji](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) na temat umowy SLA dotyczącej maszyn wirtualnych platformy Azure i jak zwiększyć dostępność przy użyciu funkcji, takich jak [strefy dostępności][availability-zones].
@@ -173,7 +175,7 @@ Upewnij się, że nazwa główna usługi nie wygasła.  Zapoznaj się z tematem:
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Czy można używać interfejsów API zestawu skalowania maszyn wirtualnych do skalowania ręcznie?
 
-Nie, operacje skalowania przy użyciu interfejsów API zestawu skalowania maszyn wirtualnych nie są obsługiwane. Użyj interfejsów API AKS (`az aks scale`).
+Nie, operacje skalowania przy użyciu interfejsów API zestawu skalowania maszyn wirtualnych nie są obsługiwane. Użyj interfejsów API AKS ( `az aks scale` ).
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Czy można używać zestawów skalowania maszyn wirtualnych do ręcznego skalowania do 0 węzłów?
 
@@ -209,6 +211,7 @@ Chociaż AKS ma mechanizmy odporności, aby wytrzymać takie konfiguracje i odzy
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
+[czas pracy — umowa SLA]./uptime-sla.mdd
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop składniki i wersje — Azure HDInsight
-description: Poznaj składniki Apache Hadoop i wersje w usłudze Azure HDInsight.
+description: Dowiedz się więcej o składnikach i wersjach Apache Hadoop w usłudze Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 05/08/2020
-ms.openlocfilehash: 98bb643e1a780754fcb3b9f4eb91d8f04dc4e90b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 9ce6df8491bf4ce7cbb0e12a08816e198f665beb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996386"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124656"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
-Dowiedz się więcej o składnikach środowiska [Apache Hadoop](https://hadoop.apache.org/) i wersjach Microsoft Azure HDInsight i pakiet Enterprise Security. Należy również zapoznać się z tematem Sprawdzanie wersji składników usługi Hadoop w usłudze HDInsight.
+Ten artykuł zawiera informacje o składnikach i wersjach środowiska [Apache Hadoop](https://hadoop.apache.org/) w usłudze Azure HDInsight i pakiet Enterprise Security. Dowiesz się również, jak sprawdzić wersje składników usługi Hadoop w usłudze HDInsight.
 
 ## <a name="apache-components-available-with-different-hdinsight-versions"></a>Składniki Apache dostępne z różnymi wersjami usługi HDInsight
 
 Usługa Azure HDInsight obsługuje wiele wersji klastra Hadoop, które można wdrożyć w dowolnym momencie. 4 kwietnia 2017 domyślna wersja klastra używana przez usługę Azure HDInsight to 3,6.
 
-Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienione w poniższej tabeli:
+Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienione w poniższej tabeli.
 
-> [!NOTE]  
-> Domyślna wersja usługi HDInsight może ulec zmianie bez powiadomienia. Jeśli masz zależność wersji, określ wersję usługi HDInsight podczas tworzenia klastrów przy użyciu zestawu .NET SDK z Azure PowerShell i klasycznego interfejsu wiersza polecenia platformy Azure.
+> [!NOTE]
+> Domyślna wersja usługi HDInsight może ulec zmianie bez powiadomienia. Jeśli masz zależność wersji, określ wersję usługi HDInsight podczas tworzenia klastrów przy użyciu zestawu .NET SDK z Azure PowerShell oraz klasycznego interfejsu wiersza polecenia platformy Azure.
 
 | Składnik              | HDInsight 4.0 | HDInsight 3,6 (domyślnie)     |
 |------------------------|---------------|-----------------------------|
@@ -45,51 +45,51 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.3.1, 2,4    | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
-| Apache Kafka           | 1.1.1, 2,1    | 1,1, 1,0 * (patrz Uwaga poniżej) |
+| Apache Kafka           | 1.1.1, 2,1    | 1,1, 1,0 * (patrz Uwaga).   |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
-> Ze względu na wydajność systemu Pomoc techniczna dla Kafka w wersji 0,10 wygasła w marcu 2019.
+> Obsługa Kafka w wersji 0,10 wygasła w marcu 2019 ze względu na wydajność systemu.
 
 ## <a name="check-for-current-apache-component-version-information"></a>Wyszukaj bieżące informacje o wersji składnika Apache
 
-Wersje składników środowiska Hadoop skojarzone z wersjami klastra usługi HDInsight mogą ulec zmianie przy użyciu aktualizacji usługi HDInsight. Aby sprawdzić składniki usługi Hadoop i sprawdzić, które wersje są używane dla klastra, użyj interfejsu API REST Ambari. Polecenie **GetComponentInformation** pobiera informacje o składnikach usługi. Aby uzyskać szczegółowe informacje, zobacz [dokumentację usługi Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Wersje składników środowiska Hadoop skojarzone z wersjami klastra usługi HDInsight mogą ulec zmianie przy użyciu aktualizacji usługi HDInsight. Aby sprawdzić składniki usługi Hadoop i sprawdzić, które wersje są używane dla klastra, użyj interfejsu API REST Ambari. Polecenie **GetComponentInformation** pobiera informacje o składnikach usługi. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ### <a name="release-notes"></a>Informacje o wersji
 
-Zobacz [Informacje o wersji usługi HDInsight](hdinsight-release-notes.md) , aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi HDInsight.
+Aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi HDInsight, zobacz [Informacje o wersji usługi HDInsight](hdinsight-release-notes.md).
 
 ## <a name="supported-hdinsight-versions"></a>Obsługiwane wersje usługi HDInsight
 
 ### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Obsługa wygaśnięcia i wycofania wersji usługi HDInsight
 
-**Wygaśnięcie pomocy technicznej** oznacza, że firma Microsoft nie będzie już obsługiwać określonej wersji usługi HDInsight. Nie będzie on już dostępny w Azure Portal na potrzeby tworzenia klastra. Jednak te wersje można nadal tworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub różnych zestawów SDK.
+**Wygaśnięcie pomocy technicznej** oznacza, że firma Microsoft nie zapewnia już pomocy technicznej dotyczącej określonej wersji usługi HDInsight. Nie jest już dostępny w Azure Portal na potrzeby tworzenia klastra. Te wersje można nadal tworzyć przy użyciu interfejsu wiersza polecenia platformy Azure lub różnych zestawów SDK.
 
-**Wycofanie** wersji usługi HDInsight oznacza, że istniejące klastry będą nadal działać w niezmienionej postaci. Jednak nowe klastry tej wersji nie mogą być tworzone za pomocą jakichkolwiek środków (w tym interfejsu wiersza polecenia i zestawów SDK). Inne funkcje płaszczyzny kontroli (takie jak skalowanie ręczne i skalowanie automatyczne) mogą również nie funkcjonować po wycofaniu wersji. Pomoc techniczna nie jest dostępna dla wycofanych wersji.
+**Wycofanie** oznacza, że istniejące klastry wersji usługi HDInsight nadal działają zgodnie z oczekiwaniami. Nowych klastrów tej wersji nie można utworzyć za pomocą żadnych metod, które obejmują interfejs wiersza polecenia i zestawy SDK. Inne funkcje płaszczyzny kontroli, takie jak skalowanie ręczne i skalowanie automatyczne, mogą nie funkcjonować po wycofaniu wersji. Pomoc techniczna nie jest dostępna dla wycofanych wersji.
 
-W poniższych tabelach przedstawiono wersje usługi HDInsight. Są również udostępniane daty wygaśnięcia i wycofania pomocy technicznej, jeśli są znane.
+W poniższych tabelach przedstawiono wersje usługi HDInsight. Daty wygaśnięcia i wycofania pomocy technicznej są również udostępniane, gdy są znane.
 
 ### <a name="available-versions"></a>Dostępne wersje
 
-W poniższej tabeli wymieniono wersje usługi HDInsight, które są dostępne w Azure Portal i innych metod wdrażania, takich jak PowerShell i .NET SDK.
+Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i innych metod wdrażania, takich jak program PowerShell i zestaw .NET SDK.
 
 | Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność w Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Yes |Yes |
 | HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Yes |
 
-Platforma Spark 2,1, 2,2 & Kafka 1,0 wygaśnie 30 czerwca 2020.
+Obsługa platformy Spark 2,1, 2,2 i Kafka 1,0 wygaśnie 30 czerwca 2020.
 
-> [!NOTE]  
-> Po wygaśnięciu obsługi wersji program może nie być dostępny w Microsoft Azure Portal. Wersje klastra są jednak nadal dostępne za pomocą `Version` parametru w poleceniach [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) programu Windows PowerShell i zestawu .NET SDK do momentu wycofania wersji.
+> [!NOTE]
+> Po wygaśnięciu obsługi wersji program może nie być dostępny w Azure Portal. Wersje klastra są nadal dostępne za pomocą parametru **Version** w poleceniu [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) programu Windows PowerShell i zestawu .NET SDK do momentu wycofania wersji.
 
 ### <a name="retired-versions"></a>Wycofane wersje
 
-W poniższej tabeli wymieniono wersje usługi HDInsight, które **nie są** dostępne w Azure Portal.
+W tej tabeli wymieniono wersje usługi HDInsight, które nie są dostępne w Azure Portal.
 
-| Wersja usługi HDInsight | Wersja HDP | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność Azure Portal |
+| Wersja usługi HDInsight | Wersja HDP | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność w Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 września 2016 |5 września 2017 |28 czerwca 2018 |Yes |Nie |
 | HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4 LTS |29 marca 2016 |29 grudnia 2016 |9 stycznia 2018 r. |Yes |Nie |
@@ -101,15 +101,15 @@ W poniższej tabeli wymieniono wersje usługi HDInsight, które **nie są** dost
 | HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 października 2013 |12 maja 2014 |31 maja 2015 |Yes |Nie |
 | HDInsight 1,6 |HDP 1,1 | |28 października 2013 |26 kwietnia 2014 |31 maja 2015 |Nie |Nie |
 
-> [!NOTE]  
+> [!NOTE]
 > Klastry o wysokiej dostępności z dwoma węzłami głównymi są wdrażane domyślnie dla usługi HDInsight w wersji 2,1 lub nowszej. Nie są one dostępne w klastrach usługi HDInsight w wersji 1,6.
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Umowa dotycząca poziomu usług dla wersji klastra usługi HDInsight
 
-Umowa dotycząca poziomu usług (SLA) jest definiowana jako _okno obsługi_. Okno pomocy technicznej to okres, przez który wersja usługi HDInsight jest `Microsoft Customer Service and Support`obsługiwana przez program. Jeśli wersja ma przekazaną _datę wygaśnięcia obsługi_, klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygaśnięcia dla usługi HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:  
+Umowa dotycząca poziomu usług jest definiowana w _oknie obsługi_. Okno pomocy technicznej to czas, przez który wersja usługi HDInsight jest obsługiwana przez dział obsługi klienta firmy Microsoft. Jeśli wersja została przeniesiona na _datę wygaśnięcia obsługi_, klaster usługi HDInsight jest poza oknem obsługi. Obsługa wygasania w usłudze HDInsight w wersji X (dostępna jest nowsza wersja X + 1) jest nowsza:
 
-- Wzór 1: dodanie 180 dni do daty wydania klastra usługi HDInsight w wersji X.
-- Formuła 2: dodanie 90 dni do daty, w której klaster usługi HDInsight w wersji X + 1 jest udostępniony w Azure Portal.
+- **Wzór 1:** Dodaj 180 dni do daty wydania klastra usługi HDInsight w wersji X.
+- **Formuła 2:** Dodaj 90 dni do daty, w której w Azure Portal jest dostępny klaster usługi HDInsight w wersji X + 1.
 
 _Data wycofania_ to data, po której nie można utworzyć wersji klastra w usłudze HDInsight. Od 31 lipca 2017 nie można zmienić rozmiaru klastra usługi HDInsight po jego dacie wycofania.
 

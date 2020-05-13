@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f4c9fab3caf1089b97265d93db7d945604a59fd3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723014"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121239"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Korzystanie z tagów indeksu obiektów BLOB (wersja zapoznawcza) w celu zarządzania danymi w usłudze Azure Blob Storage i znajdowania ich
 
@@ -204,6 +204,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -254,9 +255,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -284,9 +285,9 @@ static async Task FindBlobsByTagsExample()
 
 3. Wybierz pozycję *Dodaj regułę* , a następnie wypełnij pola formularza zestawu akcji.
 
-4. Wybierz opcję Filtr zestaw, aby dodać opcjonalny filtr dla dopasowania prefiksu i ![dopasowania indeksu obiektów BLOB Dodaj filtry tagów indeksu obiektów BLOB do zarządzania cyklem życia](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Wybierz opcję Filtr zestaw, aby dodać opcjonalny filtr dla dopasowania prefiksu i dopasowania indeksu obiektów BLOB ![ Dodaj filtry tagów indeksu obiektów BLOB do zarządzania cyklem życia](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. Wybierz kolejno pozycje **Przegląd + Dodaj** , aby ![przejrzeć regułę zarządzania cyklem życia ustawień reguły z przykładem filtru tagów indeksu obiektów BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. Wybierz kolejno pozycje **Przegląd + Dodaj** , aby przejrzeć ![ regułę zarządzania cyklem życia ustawień reguły z przykładem filtru tagów indeksu obiektów BLOB](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Wybierz pozycję **Dodaj** , aby zastosować nową regułę do zasad zarządzania cyklem życia
 

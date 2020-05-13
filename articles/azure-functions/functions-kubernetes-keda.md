@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301679"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121698"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions w Kubernetes z KEDA
 
@@ -28,11 +28,11 @@ Aby uruchomić funkcje w klastrze Kubernetes, należy zainstalować składnik KE
 
 ### <a name="installing-with-helm"></a>Instalowanie za pomocą Helm
 
-Istnieją różne sposoby instalowania KEDA w dowolnym klastrze Kubernetes, w tym Helm.  Opcje wdrażania są udokumentowane w [witrynie KEDA](https://keda.sh/deploy/).
+Istnieją różne sposoby instalowania KEDA w dowolnym klastrze Kubernetes, w tym Helm.  Opcje wdrażania są udokumentowane w [witrynie KEDA](https://keda.sh/docs/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Wdrażanie aplikacji funkcji do Kubernetes
 
-Każdą aplikację funkcji można wdrożyć w klastrze Kubernetes z systemem KEDA.  Ponieważ funkcje działają w kontenerze platformy Docker, projekt wymaga `Dockerfile`.  Jeśli jeszcze nie istnieje, możesz dodać pliku dockerfile, uruchamiając następujące polecenie w katalogu głównym projektu funkcji:
+Każdą aplikację funkcji można wdrożyć w klastrze Kubernetes z systemem KEDA.  Ponieważ funkcje działają w kontenerze platformy Docker, projekt wymaga `Dockerfile` .  Jeśli jeszcze nie istnieje, możesz dodać pliku dockerfile, uruchamiając następujące polecenie w katalogu głównym projektu funkcji:
 
 ```cli
 func init --docker-only
@@ -41,7 +41,7 @@ func init --docker-only
 Aby skompilować obraz i wdrożyć funkcje w usłudze Kubernetes, uruchom następujące polecenie:
 
 > [!NOTE]
-> Podstawowe narzędzia będą korzystać z interfejsu wiersza polecenia platformy Docker do kompilowania i publikowania obrazu. Upewnij się, że Aparat Docker został już zainstalowany i połączony z kontem `docker login`w usłudze.
+> Podstawowe narzędzia będą korzystać z interfejsu wiersza polecenia platformy Docker do kompilowania i publikowania obrazu. Upewnij się, że Aparat Docker został już zainstalowany i połączony z kontem w usłudze `docker login` .
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -49,15 +49,15 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Zamień `<name-of-function-deployment>` na nazwę aplikacji funkcji.
 
-Spowoduje to utworzenie zasobu `Deployment` Kubernetes, `ScaledObject` zasobu i `Secrets`, zawierającego zmienne środowiskowe zaimportowane z `local.settings.json` pliku.
+Spowoduje to utworzenie `Deployment` zasobu Kubernetes, `ScaledObject` zasobu i, zawierającego `Secrets` zmienne środowiskowe zaimportowane z `local.settings.json` pliku.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Wdrażanie aplikacji funkcji z rejestru prywatnego
 
-Powyższy przepływ działa również w przypadku rejestrów prywatnych.  Jeśli pobierasz obraz kontenera z rejestru prywatnego, Dołącz `--pull-secret` flagę, która odwołuje się do wpisu tajnego Kubernetes z poświadczeniami rejestru prywatnego podczas `func kubernetes deploy`uruchamiania.
+Powyższy przepływ działa również w przypadku rejestrów prywatnych.  Jeśli pobierasz obraz kontenera z rejestru prywatnego, Dołącz `--pull-secret` flagę, która odwołuje się do wpisu tajnego Kubernetes z poświadczeniami rejestru prywatnego podczas uruchamiania `func kubernetes deploy` .
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Usuwanie aplikacji funkcji z Kubernetes
 
-Po wdrożeniu można usunąć funkcję, usuwając skojarzone `Deployment`, `ScaledObject` `Secrets` utworzone.
+Po wdrożeniu można usunąć funkcję, usuwając skojarzone `Deployment` , `ScaledObject` `Secrets` utworzone.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>

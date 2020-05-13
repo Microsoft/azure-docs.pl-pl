@@ -2,17 +2,19 @@
 title: Tworzenie zestawu skalowania korzystającego z maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak tworzyć zestawy skalowania maszyn wirtualnych platformy Azure korzystające z maszyn wirtualnych do oszczędzania kosztów.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545938"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125047"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Maszyny wirtualne platformy Azure dla zestawów skalowania maszyn wirtualnych 
 
@@ -26,7 +28,7 @@ Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, 
 Cennik wystąpień dodatkowych to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik dla systemów [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość `0.98765`będzie cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1`, wystąpienie nie zostanie wykluczone w oparciu o cenę. Cena dla tego wystąpienia będzie aktualna cena za wystąpienie standardowe lub cena w przypadku wystąpienia standardowego, które kiedykolwiek jest mniejsze, o ile jest dostępna pojemność i przydział.
+W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , wystąpienie nie zostanie wykluczone w oparciu o cenę. Cena dla tego wystąpienia będzie aktualna cena za wystąpienie standardowe lub cena w przypadku wystąpienia standardowego, które kiedykolwiek jest mniejsze, o ile jest dostępna pojemność i przydział.
 
 ## <a name="eviction-policy"></a>Zasady wykluczania
 
@@ -49,12 +51,12 @@ Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wir
 
 ## <a name="portal"></a>Portal
 
-Proces tworzenia zestawu skalowania, który korzysta z maszyn wirtualnych, jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-portal.md). Podczas wdrażania zestawu skalowania można ustawić flagę punktu aktywnego i zasady wykluczania: ![Tworzenie zestawu skalowania z maszynami wirtualnymi](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+Proces tworzenia zestawu skalowania, który korzysta z maszyn wirtualnych, jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-portal.md). Podczas wdrażania zestawu skalowania można ustawić flagę punktu aktywnego i zasady wykluczania: ![ Tworzenie zestawu skalowania z maszynami wirtualnymi](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Proces tworzenia zestawu skalowania z maszynami wirtualnymi jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-cli.md). Po prostu Dodaj element "--Priority" i Dodaj `--max-price`. W tym przykładzie używamy `-1` do `--max-price` tego, że wystąpienie nie zostanie wykluczone w oparciu o cenę.
+Proces tworzenia zestawu skalowania z maszynami wirtualnymi jest taki sam jak szczegółowy w [artykule wprowadzenie](quick-create-cli.md). Po prostu Dodaj element "--Priority" i Dodaj `--max-price` . W tym przykładzie używamy do tego, `-1` `--max-price` że wystąpienie nie zostanie wykluczone w oparciu o cenę.
 
 ```azurecli
 az vmss create \
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 Proces tworzenia zestawu skalowania, który korzysta z maszyn wirtualnych, jest taki sam jak szczegółowy w artykule wprowadzenie do systemu [Linux](quick-create-template-linux.md) lub [Windows](quick-create-template-windows.md). 
 
-W przypadku wdrożeń szablonów dodatkowych Użyj`"apiVersion": "2019-03-01"` programu lub nowszego. `priority`Dodaj `evictionPolicy` właściwości i `billingProfile` do `"virtualMachineProfile":` sekcji w szablonie: 
+W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019-03-01"` lub nowszego. Dodaj `priority` `evictionPolicy` `billingProfile` właściwości i do `"virtualMachineProfile":` sekcji w szablonie: 
 
 ```json
                 "priority": "Spot",
@@ -97,9 +99,9 @@ W przypadku wdrożeń szablonów dodatkowych Użyj`"apiVersion": "2019-03-01"` p
                 }
 ```
 
-Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na. `Delete`
+Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 
@@ -126,9 +128,9 @@ Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu p
 Odp **.:** Nie, ustawienie `Spot` flagi jest obsługiwane tylko w czasie tworzenia.
 
 
-**P:** Czy jeśli korzystam `low` z zestawów skalowania o niskim priorytecie, czy muszę zacząć używać `Spot` zamiast tego?
+**P:** Czy jeśli korzystam z `low` zestawów skalowania o niskim priorytecie, czy muszę zacząć używać `Spot` zamiast tego?
 
-Odp **.:** Na razie obie `low` i `Spot` będą działały, ale należy rozpocząć przechodzenie do korzystania z `Spot`programu.
+Odp **.:** Na razie obie `low` i `Spot` będą działały, ale należy rozpocząć przechodzenie do korzystania z programu `Spot` .
 
 
 **P:** Czy mogę utworzyć zestaw skalowania z regularnymi maszynami wirtualnymi i maszynami wirtualnymi?
@@ -154,8 +156,8 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
+| Enterprise Agreement         | Yes                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Korzyści                     | Niedostępne                     |
 | Sponsorowan                    | Niedostępne                     |

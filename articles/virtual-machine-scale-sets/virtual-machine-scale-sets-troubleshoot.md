@@ -1,20 +1,20 @@
 ---
 title: Rozwiązywanie problemów z automatycznym skalowaniem za pomocą Virtual Machine Scale Sets
 description: Rozwiązywanie problemów z automatycznym skalowaniem za pomocą Virtual Machine Scale Sets. Poznaj typowe problemy napotkane i sposoby ich rozwiązywania.
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
+author: avirishuv
+ms.author: avverma
+ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: windows
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 11/16/2017
-ms.author: mimckitt
-ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviwer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273379"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125149"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Troubleshooting autoscale with Virtual Machine Scale Sets (Rozwiązywanie problemów ze skalowaniem automatycznym przy użyciu zestawów skalowania maszyn wirtualnych)
 **Problem** — utworzono infrastrukturę skalowania automatycznego w Azure Resource Manager przy użyciu zestawów skalowania maszyn wirtualnych — na przykład przez wdrożenie szablonu takiego jak ten: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale — masz zdefiniowane reguły skalowania i działają doskonale, bez względu na to, ile obciążeń zostało umieszczonych na maszynach wirtualnych, nie jest to automatyczne skalowanie.
@@ -46,7 +46,7 @@ Oto kilka rzeczy, które należy wziąć pod uwagę:
     Azure Resource Explorer to narzędzie do rozwiązywania problemów, które pokazuje stan zasobów Azure Resource Manager. Kliknij swoją subskrypcję i przejrzyj grupę zasobów, którą chcesz rozwiązać. W obszarze dostawca zasobów obliczeniowych zapoznaj się z utworzonym zestawem skalowania maszyn wirtualnych i sprawdź Widok wystąpienia, który pokazuje stan wdrożenia. Sprawdź również widok wystąpienia maszyn wirtualnych w zestawie skalowania maszyn wirtualnych. Następnie przejdź do dostawcy zasobów Microsoft. Insights i sprawdź, czy reguły skalowania automatycznego wyglądają w prawo.
 * Czy rozszerzenie diagnostyczne działa i emituje dane wydajności?
   
-    **Aktualizacja:** Skalowanie automatyczne platformy Azure zostało udoskonalone tak, aby korzystało z potoku metryk opartych na hoście, który nie wymaga już zainstalowania rozszerzenia diagnostyki. W następnych akapitach nie ma już zastosowania w przypadku tworzenia aplikacji skalowania automatycznego przy użyciu nowego potoku. Przykład szablonów platformy Azure, które zostały przekonwertowane do korzystania z potoku hosta, jest dostępny https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscaletutaj:. 
+    **Aktualizacja:** Skalowanie automatyczne platformy Azure zostało udoskonalone tak, aby korzystało z potoku metryk opartych na hoście, który nie wymaga już zainstalowania rozszerzenia diagnostyki. W następnych akapitach nie ma już zastosowania w przypadku tworzenia aplikacji skalowania automatycznego przy użyciu nowego potoku. Przykład szablonów platformy Azure, które zostały przekonwertowane do korzystania z potoku hosta, jest dostępny tutaj: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale . 
   
     Korzystanie z metryk opartych na hoście na potrzeby automatycznego skalowania jest lepsze z następujących powodów:
   

@@ -2,23 +2,24 @@
 title: Konwertowanie szablonu zestawu skalowania w celu używania dysku zarządzanego
 description: Przekonwertuj szablon zestawu skalowania maszyn wirtualnych Azure Resource Manager na szablon zestawu skalowania dysku zarządzanego.
 keywords: zestawy skalowania maszyn wirtualnych
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 5/18/2017
-ms.author: mimckitt
-ms.openlocfilehash: 79fafa8344312294f6df107b88c9b7c571af1969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 85f8694a017c8de94d987c244994a24ad0929441
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270659"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124894"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konwertowanie szablonu zestawu skalowania na szablon zestawu skalowania dysku zarządzanego
 
-Klienci z szablonem Menedżer zasobów do tworzenia zestawu skalowania, który nie korzysta z dysku zarządzanego, mogą chcieć zmodyfikować go tak, aby korzystał z dysku zarządzanego. W tym artykule pokazano, jak korzystać z usługi Managed disks, używając jako przykładowego żądania ściągnięcia z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates), repozytorium opartego na społeczności dla przykładowych szablonów Menedżer zasobów. Pełne żądanie ściągnięcia można zobaczyć tutaj: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), a istotne części porównania są poniżej, a także wyjaśnienia:
+Klienci z szablonem Menedżer zasobów do tworzenia zestawu skalowania, który nie korzysta z dysku zarządzanego, mogą chcieć zmodyfikować go tak, aby korzystał z dysku zarządzanego. W tym artykule pokazano, jak korzystać z usługi Managed disks, używając jako przykładowego żądania ściągnięcia z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates), repozytorium opartego na społeczności dla przykładowych szablonów Menedżer zasobów. Pełne żądanie ściągnięcia można zobaczyć tutaj: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) , a istotne części porównania są poniżej, a także wyjaśnienia:
 
 ## <a name="making-the-os-disks-managed"></a>Tworzenie zarządzanych dysków systemu operacyjnego
 
@@ -85,7 +86,7 @@ W poniższej różnicy zasób konta magazynu jest usuwany z tablicy zasobów ca�
        "location": "[resourceGroup().location]",
 ```
 
-W poniższym pozostałej różnicy można zobaczyć, że usuwamy klauzulę zależną od zestawu skalowania do pętli, w której zostały utworzone konta magazynu. W starym szablonie zagwarantujemy, że konta magazynu zostały utworzone przed rozpoczęciem tworzenia zestawu skalowania, ale ta klauzula nie jest już potrzebna w przypadku dysku zarządzanego. Właściwość kontenerów VHD jest również usuwana wraz z właściwością nazwa dysku systemu operacyjnego, ponieważ te właściwości są automatycznie obsługiwane pod okapem przez dysk zarządzany. Jeśli potrzebujesz dysków `"managedDisk": { "storageAccountType": "Premium_LRS" }` systemu operacyjnego w warstwie Premium, możesz dodać je w konfiguracji "osDisk". Tylko maszyny wirtualne z dużymi lub małymi literami "w jednostce SKU maszyn wirtualnych mogą używać dysków w warstwie Premium.
+W poniższym pozostałej różnicy można zobaczyć, że usuwamy klauzulę zależną od zestawu skalowania do pętli, w której zostały utworzone konta magazynu. W starym szablonie zagwarantujemy, że konta magazynu zostały utworzone przed rozpoczęciem tworzenia zestawu skalowania, ale ta klauzula nie jest już potrzebna w przypadku dysku zarządzanego. Właściwość kontenerów VHD jest również usuwana wraz z właściwością nazwa dysku systemu operacyjnego, ponieważ te właściwości są automatycznie obsługiwane pod okapem przez dysk zarządzany. `"managedDisk": { "storageAccountType": "Premium_LRS" }`Jeśli potrzebujesz dysków systemu operacyjnego w warstwie Premium, możesz dodać je w konfiguracji "osDisk". Tylko maszyny wirtualne z dużymi lub małymi literami "w jednostce SKU maszyn wirtualnych mogą używać dysków w warstwie Premium.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -131,7 +132,7 @@ Po wprowadzeniu powyższych zmian zestaw skalowania używa dysków zarządzanych
 ]
 ```
 
-Jeśli określisz `n` dyski w tej tablicy, każda maszyna wirtualna w zestawie skalowania `n` pobierze dyski danych. Należy jednak pamiętać, że te dyski danych są urządzeniami nieprzetworzonymi. Nie są one sformatowane. Klient może dołączyć, podzielić i sformatować dyski przed ich użyciem. Opcjonalnie można również określić `"managedDisk": { "storageAccountType": "Premium_LRS" }` wartość w każdym obiekcie dysku danych, aby określić, że powinien być dyskiem danych w warstwie Premium. Tylko maszyny wirtualne z dużymi lub małymi literami "w jednostce SKU maszyn wirtualnych mogą używać dysków w warstwie Premium.
+Jeśli określisz `n` dyski w tej tablicy, każda maszyna wirtualna w zestawie skalowania pobierze `n` dyski danych. Należy jednak pamiętać, że te dyski danych są urządzeniami nieprzetworzonymi. Nie są one sformatowane. Klient może dołączyć, podzielić i sformatować dyski przed ich użyciem. Opcjonalnie można również określić `"managedDisk": { "storageAccountType": "Premium_LRS" }` wartość w każdym obiekcie dysku danych, aby określić, że powinien być dyskiem danych w warstwie Premium. Tylko maszyny wirtualne z dużymi lub małymi literami "w jednostce SKU maszyn wirtualnych mogą używać dysków w warstwie Premium.
 
 Aby dowiedzieć się więcej o korzystaniu z dysków danych z zestawami skalowania, zobacz [ten artykuł](./virtual-machine-scale-sets-attached-disks.md).
 

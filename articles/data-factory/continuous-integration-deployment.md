@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 87cb7c57aab048e1b7acf211d58c850a41afa5a2
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 54ff58735b6831bb45a9477360ffca3439d2f6b4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628236"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124724"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -88,7 +88,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
 1.  W polu **Nazwa etapu** wprowadź nazwę środowiska.
 
-1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane z Twoją fabryką danych programistycznych. Wybierz [gałąź Publikuj](source-control.md#configure-publishing-settings) repozytorium dla **gałęzi domyślnej**. Domyślnie ta gałąź publikowania to `adf_publish`. W polu **wersja domyślna**wybierz pozycję **Najnowsza z gałęzi domyślnej**.
+1.  Wybierz pozycję **Dodaj artefakt**, a następnie wybierz repozytorium git skonfigurowane z Twoją fabryką danych programistycznych. Wybierz [gałąź Publikuj](source-control.md#configure-publishing-settings) repozytorium dla **gałęzi domyślnej**. Domyślnie ta gałąź publikowania to `adf_publish` . W polu **wersja domyślna**wybierz pozycję **Najnowsza z gałęzi domyślnej**.
 
     ![Dodawanie artefaktu](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -228,14 +228,14 @@ Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten pl
 Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas tworzenia pliku parametrów niestandardowych, **ARM-template-parameters-Definition. JSON**. Plik składa się z sekcji dla każdego typu jednostki: wyzwalacz, potok, połączona usługa, zestaw danych, środowisko Integration Runtime i przepływ danych.
 
 * Wprowadź ścieżkę właściwości pod odpowiednim typem jednostki.
-* Ustawienie nazwy właściwości na `*` wskazuje, że chcesz Sparametryzuj wszystkie jej właściwości (tylko do pierwszego poziomu, a nie cyklicznie). Możesz również podać wyjątki dla tej konfiguracji.
-* Ustawienie wartości właściwości jako ciągu wskazuje, że chcesz Sparametryzuj właściwość. Użyj formatu `<action>:<name>:<stype>`.
+* Ustawienie nazwy właściwości na  `*` wskazuje, że chcesz Sparametryzuj wszystkie jej właściwości (tylko do pierwszego poziomu, a nie cyklicznie). Możesz również podać wyjątki dla tej konfiguracji.
+* Ustawienie wartości właściwości jako ciągu wskazuje, że chcesz Sparametryzuj właściwość. Użyj formatu  `<action>:<name>:<stype>` .
    *  `<action>` może to być jeden z następujących znaków:
       * `=` oznacza, że bieżąca wartość jest zachowywana jako wartość domyślna parametru.
       * `-` oznacza nie zachowywanie wartości domyślnej dla parametru.
       * `|` jest specjalnym przypadkiem dla wpisów tajnych z Azure Key Vault dla parametrów połączenia lub kluczy.
-   * `<name>` jest nazwą parametru. Jeśli jest pusta, przyjmuje nazwę właściwości. Jeśli wartość zaczyna się od `-` znaku, nazwa zostanie skrócona. Na przykład `AzureStorage1_properties_typeProperties_connectionString` zostałby skrócony do `AzureStorage1_connectionString`.
-   * `<stype>` jest typem parametru. Jeśli `<stype>` pole jest puste, domyślnym typem jest `string`. Obsługiwane wartości: `string`, `bool`, `number` `object`, i `securestring`.
+   * `<name>` jest nazwą parametru. Jeśli jest pusta, przyjmuje nazwę właściwości. Jeśli wartość zaczyna się od `-` znaku, nazwa zostanie skrócona. Na przykład `AzureStorage1_properties_typeProperties_connectionString` zostałby skrócony do `AzureStorage1_connectionString` .
+   * `<stype>` jest typem parametru. Jeśli  `<stype>`   pole jest puste, domyślnym typem jest `string` . Obsługiwane wartości: `string` , `bool` , `number` , `object` i `securestring` .
 * Określenie tablicy w pliku definicji wskazuje, że zgodna właściwość w szablonie jest tablicą. Data Factory wykonuje iterację wszystkich obiektów w tablicy przy użyciu definicji określonej w obiekcie Integration Runtime tablicy. Drugi obiekt, ciąg, będzie nazwą właściwości, która jest używana jako nazwa parametru dla każdej iteracji.
 * Definicja nie może być określona dla wystąpienia zasobu. Każda definicja ma zastosowanie do wszystkich zasobów tego typu.
 * Domyślnie wszystkie bezpieczne ciągi, takie jak Key Vault Secret, i bezpieczne ciągi, takie jak ciągi połączeń, klucze i tokeny, są sparametryzowane.
@@ -312,22 +312,22 @@ Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu,
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Wszystkie właściwości pod ścieżką `typeProperties` są sparametryzowane z odpowiednimi wartościami domyślnymi. Na przykład w `IntegrationRuntimes` właściwościach typu istnieją dwie właściwości: `computeProperties` i. `ssisProperties` Oba typy właściwości są tworzone z odpowiednimi wartościami domyślnymi i typami (Object).
+* Wszystkie właściwości pod ścieżką `typeProperties` są sparametryzowane z odpowiednimi wartościami domyślnymi. Na przykład w `IntegrationRuntimes` właściwościach typu istnieją dwie właściwości: `computeProperties` i `ssisProperties` . Oba typy właściwości są tworzone z odpowiednimi wartościami domyślnymi i typami (Object).
 
 #### <a name="triggers"></a>Wyzwalacze
 
-* W `typeProperties`obszarze, dwie właściwości są sparametryzowane. Pierwszy z nich to `maxConcurrency`, który jest określony jako ma wartość domyślną i jest typu`string`. Ma nazwę `<entityName>_properties_typeProperties_maxConcurrency`domyślnego parametru.
-* `recurrence` Właściwość jest również sparametryzowana. W obszarze IT wszystkie właściwości na tym poziomie są określane jako ciągi, z wartościami domyślnymi i nazwami parametrów. Wyjątek jest `interval` właściwością, która jest sparametryzowane jako typ `number`. Nazwa parametru jest sufiksem `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Podobnie `freq` właściwość jest ciągiem i jest określana jako ciąg. Jednak `freq` właściwość jest sparametryzowane bez wartości domyślnej. Nazwa jest skracana i ma sufiks. Na przykład `<entityName>_freq`.
+* W obszarze `typeProperties` , dwie właściwości są sparametryzowane. Pierwszy z nich to `maxConcurrency` , który jest określony jako ma wartość domyślną i jest typu `string` . Ma nazwę domyślnego parametru `<entityName>_properties_typeProperties_maxConcurrency` .
+* `recurrence`Właściwość jest również sparametryzowana. W obszarze IT wszystkie właściwości na tym poziomie są określane jako ciągi, z wartościami domyślnymi i nazwami parametrów. Wyjątek jest `interval` właściwością, która jest sparametryzowane jako typ `number` . Nazwa parametru jest sufiksem `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Podobnie `freq` Właściwość jest ciągiem i jest określana jako ciąg. Jednak `freq` Właściwość jest sparametryzowane bez wartości domyślnej. Nazwa jest skracana i ma sufiks. Na przykład `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Połączone usługi są unikatowe. Ponieważ połączone usługi i zestawy danych mają szeroką gamę typów, można zapewnić dostosowanie specyficzne dla określonego typu. W tym przykładzie dla wszystkich połączonych usług typu `AzureDataLakeStore`, zostanie zastosowany określony szablon. Dla wszystkich innych (za `*`pośrednictwem) zostanie zastosowany inny szablon.
-* `connectionString` Właściwość zostanie sparametryzowana jako `securestring` wartość. Nie będzie ona mieć wartości domyślnej. Nazwa parametru zostanie skrócona z `connectionString`sufiksem.
+* Połączone usługi są unikatowe. Ponieważ połączone usługi i zestawy danych mają szeroką gamę typów, można zapewnić dostosowanie specyficzne dla określonego typu. W tym przykładzie dla wszystkich połączonych usług typu `AzureDataLakeStore` , zostanie zastosowany określony szablon. Dla wszystkich innych (za pośrednictwem `*` ) zostanie zastosowany inny szablon.
+* `connectionString`Właściwość zostanie sparametryzowana jako `securestring` wartość. Nie będzie ona mieć wartości domyślnej. Nazwa parametru zostanie skrócona z sufiksem `connectionString` .
 * Właściwość `secretAccessKey` ma być `AzureKeyVaultSecret` (na przykład w połączonej usłudze Amazon S3). Jest on automatycznie sparametryzowany jako wpis tajny Azure Key Vault i pobierany ze skonfigurowanego magazynu kluczy. Możesz również Sparametryzuj sam magazyn kluczy.
 
 #### <a name="datasets"></a>Zestawy danych
 
-* Chociaż dostosowanie specyficzne dla typu jest dostępne dla zestawów danych, można zapewnić konfigurację bez jawnego \*konfigurowania. W poprzednim przykładzie wszystkie właściwości zestawu danych w obszarze `typeProperties` są sparametryzowane.
+* Chociaż dostosowanie specyficzne dla typu jest dostępne dla zestawów danych, można zapewnić konfigurację bez jawnego \* konfigurowania. W poprzednim przykładzie wszystkie właściwości zestawu danych w obszarze `typeProperties` są sparametryzowane.
 
 ### <a name="default-parameterization-template"></a>Domyślny szablon parametryzacja
 
@@ -443,7 +443,7 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Przykład: parametryzacja istniejący Azure Databricks interaktywny identyfikator klastra
 
-Poniższy przykład pokazuje, jak dodać pojedynczą wartość do domyślnego szablonu parametryzacja. Chcemy dodać do pliku parametrów istniejący Azure Databricks interaktywny identyfikator klastra dla połączonej usługi datakostki. Należy zauważyć, że ten plik jest taki sam jak poprzedni plik, z wyjątkiem tego `existingClusterId` , że jest to uzupełnienie `Microsoft.DataFactory/factories/linkedServices`pola właściwości.
+Poniższy przykład pokazuje, jak dodać pojedynczą wartość do domyślnego szablonu parametryzacja. Chcemy dodać do pliku parametrów istniejący Azure Databricks interaktywny identyfikator klastra dla połączonej usługi datakostki. Należy zauważyć, że ten plik jest taki sam jak poprzedni plik, z wyjątkiem tego, że jest to uzupełnienie `existingClusterId` pola właściwości `Microsoft.DataFactory/factories/linkedServices` .
 
 ```json
 {
@@ -569,6 +569,26 @@ Aby użyć połączonych szablonów zamiast szablonu pełnego Menedżer zasobów
 Pamiętaj, aby dodać skrypty Data Factory w potoku ciągłej integracji/ciągłego wdrażania przed i po wykonaniu zadania wdrożenia.
 
 Jeśli nie masz skonfigurowanego narzędzia Git, możesz uzyskać dostęp do połączonych szablonów za pośrednictwem **szablonu** usługi ARM na liście **szablonów ARM** .
+
+## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Wyklucz środowiska Azure-SSIS Integration Runtime z napędu CI/CD
+
+Jeśli Twoja fabryka programistyczna ma środowisko Azure-SSIS Integration Runtime, możesz wykluczyć wszystkie środowiska Azure-SSIS Integration Runtime z procesu ciągłej integracji/ciągłego wdrażania w poniższym scenariuszu:
+
+- Infrastruktura Azure-SSIS IR jest złożona i różni się w każdym środowisku.  
+- Azure-SSIS IR jest skonfigurowany ręcznie dla każdego środowiska o tej samej nazwie. W przeciwnym razie publikowanie będzie kończyć się niepowodzeniem, jeśli istnieje aktywność w zależności od Azure-SSIS IR.
+
+Aby wykluczyć środowisko Azure-SSIS Integration Runtime:
+
+1. Dodaj plik publish_config. JSON do folderu głównego w gałęzi współpracy, jeśli nie istnieje.
+1. Dodaj poniższe ustawienie do pliku publish_config. JSON: 
+
+```json
+{
+    " excludeIRs": "true"
+}
+```
+
+Podczas publikowania z gałęzi współpracy środowiska Azure-SSIS Integration Runtime zostaną wykluczone z wygenerowanego szablonu Menedżer zasobów.
 
 ## <a name="hotfix-production-branch"></a>Gałąź produkcyjna poprawek
 

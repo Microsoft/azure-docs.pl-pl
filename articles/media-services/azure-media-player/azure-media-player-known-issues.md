@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692261"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124639"
 ---
 # <a name="known-issues"></a>Znane problemy #
 
@@ -41,6 +41,7 @@ W bieżącej wersji znajdują się następujące znane problemy:
 
 - W przypadku usługi AD-Block w przeglądarce mogą być wstawiane problemy (na żądanie lub na żywo).
 - Urządzenia przenośne mogą mieć problemy z odtwarzaniem reklam.
+- Usługa MP4 midroll ads nie jest obecnie obsługiwana przez Azure Media Player.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 

@@ -6,20 +6,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006149"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124078"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
 Dane referencyjne (nazywane również tabelami odnośników) to zbiór danych, który jest statyczny lub wolno zmieniany w charakterze, używany do przeszukiwania lub rozszerzania strumieni danych. Na przykład w scenariuszu IoT można przechowywać metadane dotyczące czujników (które często nie zmieniają się) w danych referencyjnych i przyłączać je do strumieni danych IoT w czasie rzeczywistym. Azure Stream Analytics ładuje dane referencyjne w pamięci, aby osiągnąć Przetwarzanie strumienia o małym opóźnieniu. Aby korzystać z danych referencyjnych w zadaniu Azure Stream Analytics, zazwyczaj użyjesz [sprzężenia danych referencyjnych](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) w zapytaniu. 
 
 ## <a name="example"></a>Przykład  
- Jeśli pojazd komercyjny jest zarejestrowany w firmie opłata za połączenie, może przechodzić przez połączenie płatne bez zatrzymania w celu przeprowadzenia inspekcji. Będziemy używać komercyjnej tabeli odnośników rejestracji, aby zidentyfikować wszystkie pojazdy komercyjne z wygasłą rejestracją.  
+Możesz mieć strumień zdarzeń generowanych w czasie rzeczywistym, gdy samochody przechodzą w kabinę płatną. W przypadku połączeń płatnych można przechwycić płytę licencyjną w czasie rzeczywistym i dołączyć do statycznego zestawu danych, który zawiera szczegółowe informacje o rejestracji, aby identyfikować płytki licencyjne, które wygasły.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -57,18 +57,18 @@ Jeśli dane referencyjne nie powinny być zmieniane, obsługa statycznych danych
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Generuj dane referencyjne według harmonogramu
 
-Jeśli dane referencyjne są wolnie zmienianym zestawem danych, to obsługa odświeżania danych referencyjnych jest włączana przez określenie wzorca ścieżki w konfiguracji wejściowej przy użyciu tokenów podstawiania {date} i {Time}. Stream Analytics pobiera zaktualizowane definicje danych referencyjnych na podstawie tego wzorca ścieżki. Na przykład wzorzec `sample/{date}/{time}/products.csv` o formacie daty **"rrrr-mm-dd"** i format czasu **"gg-mm"** instruuje Stream Analytics, aby pobrać zaktualizowany obiekt BLOB `sample/2015-04-16/17-30/products.csv` o godzinie 5:30 PM w 16 kwietnia 2015 strefie czasowej UTC.
+Jeśli dane referencyjne są wolnie zmienianym zestawem danych, to obsługa odświeżania danych referencyjnych jest włączana przez określenie wzorca ścieżki w konfiguracji wejściowej przy użyciu tokenów podstawiania {date} i {Time}. Stream Analytics pobiera zaktualizowane definicje danych referencyjnych na podstawie tego wzorca ścieżki. Na przykład wzorzec o `sample/{date}/{time}/products.csv` formacie daty **"rrrr-mm-dd"** i format czasu **"gg-mm"** instruuje Stream Analytics, aby pobrać zaktualizowany obiekt BLOB `sample/2015-04-16/17-30/products.csv` o godzinie 5:30 PM w 16 kwietnia 2015 strefie czasowej UTC.
 
 Azure Stream Analytics automatycznie skanuje w poszukiwaniu odświeżonych obiektów BLOB danych referencyjnych w ciągu jednej minuty. Jeśli obiekt BLOB z sygnaturą czasową 10:30:00 jest przekazywany z niewielkim opóźnieniem (na przykład 10:30:30), zobaczysz małe opóźnienie w Stream Analytics zadania odwołującego się do tego obiektu BLOB. Aby uniknąć takich scenariuszy, zaleca się przekazanie obiektu BLOB wcześniej niż docelowy czas obowiązywania (10:30:00 w tym przykładzie), aby umożliwić Stream Analytics zadanie wystarczającą ilość czasu na odnalezienie i załadowanie go w pamięci oraz wykonanie operacji. 
 
 > [!NOTE]
 > Obecnie Stream Analytics zadania wyszukują odświeżanie obiektów BLOB tylko wtedy, gdy komputer przekroczy czas zakodowany w nazwie obiektu BLOB. Na przykład zadanie będzie wyglądało `sample/2015-04-16/17-30/products.csv` tak szybko, jak to możliwe, ale nie wcześniej niż 5:30 PM w 16 kwietnia 2015 strefie czasowej UTC. *Nigdy nie* będzie szukać obiektu BLOB z zakodowanym czasem wcześniejszym niż ostatni wykryty.
 > 
-> Na przykład po znalezieniu obiektu BLOB `sample/2015-04-16/17-30/products.csv` przez zadanie funkcja zignoruje wszystkie pliki z zakodowaną datą wcześniejszą niż 5:30 PM kwietnia, 2015, więc jeśli zostanie utworzony opóźniony `sample/2015-04-16/17-25/products.csv` obiekt BLOB w tym samym kontenerze, zadanie nie będzie używać go.
+> Na przykład po znalezieniu obiektu BLOB przez zadanie `sample/2015-04-16/17-30/products.csv` Funkcja zignoruje wszystkie pliki z zakodowaną datą wcześniejszą niż 5:30 PM kwietnia, 2015, więc jeśli zostanie utworzony opóźniony `sample/2015-04-16/17-25/products.csv` obiekt BLOB w tym samym kontenerze, zadanie nie będzie używać go.
 > 
-> Podobnie w `sample/2015-04-16/17-30/products.csv` przypadku, gdy jest on tworzony tylko o godzinie 10:03 2015, 16 kwietnia, ale w kontenerze nie występuje obiekt BLOB z wcześniejszą datą, zadanie użyje tego pliku, rozpoczynając od 2015 10:03.
+> Podobnie w przypadku `sample/2015-04-16/17-30/products.csv` , gdy jest on tworzony tylko o godzinie 10:03 2015, 16 kwietnia, ale w kontenerze nie występuje obiekt BLOB z wcześniejszą datą, zadanie użyje tego pliku, rozpoczynając od 2015 10:03.
 > 
-> Wyjątkiem jest to, kiedy zadanie musi ponownie przetworzyć dane w czasie lub podczas pierwszego uruchomienia zadania. W czasie uruchamiania zadanie szuka najnowszego obiektu BLOB wygenerowanego przed określonym czasem rozpoczęcia zadania. W tym celu upewnij się, że podczas uruchamiania zadania istnieje zestaw danych referencyjnych, które **nie są puste** . Jeśli nie można go znaleźć, zadanie Wyświetla następującą diagnostykę: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Wyjątkiem jest to, kiedy zadanie musi ponownie przetworzyć dane w czasie lub podczas pierwszego uruchomienia zadania. W czasie uruchamiania zadanie szuka najnowszego obiektu BLOB wygenerowanego przed określonym czasem rozpoczęcia zadania. W tym celu upewnij się, że podczas uruchamiania zadania istnieje zestaw danych referencyjnych, które **nie są puste** . Jeśli nie można go znaleźć, zadanie Wyświetla następującą diagnostykę: `Initializing input without a valid reference data blob for UTC time <start time>` .
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) może służyć do organizowania zadania tworzenia zaktualizowanych obiektów BLOB wymaganych przez Stream Analytics do aktualizowania definicji danych referencyjnych. Fabryka danych jest usługą integracji danych w chmurze, która służy do aranżacji i automatyzacji przenoszenia i przekształcania danych. Data Factory obsługuje [łączenie z dużą liczbą magazynów danych opartych na chmurze i lokalnymi](../data-factory/copy-activity-overview.md) oraz szybkie przeniesienie danych zgodnie z regularnym określonym harmonogramem. Aby uzyskać więcej informacji i wskazówki krok po kroku dotyczące konfigurowania potoku Data Factory w celu wygenerowania danych referencyjnych dla Stream Analytics, które odświeżają zgodnie ze wstępnie zdefiniowanym harmonogramem, zapoznaj się z tym [przykładem](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs)w witrynie GitHub.
 
@@ -111,15 +111,13 @@ Można użyć [Azure SQL Database wystąpienia zarządzanego](https://docs.micro
 
 ## <a name="size-limitation"></a>Ograniczenie rozmiaru
 
-Stream Analytics obsługuje dane referencyjne o **maksymalnym rozmiarze 300 MB**. Limit 300 MB maksymalnego rozmiaru danych referencyjnych jest osiągalny tylko w przypadku prostych zapytań. W miarę wzrostu złożoności zapytania w celu uwzględnienia przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne czasowe, oczekuje się, że maksymalny obsługiwany rozmiar danych referencyjnych jest zmniejszany. Jeśli Azure Stream Analytics nie może załadować danych referencyjnych i wykonać złożonych operacji, zadanie wygaśnie za mało pamięci i zakończy się niepowodzeniem. W takich przypadkach Metryka użycia SU% osiągnie 100%.    
+Zaleca się użycie zestawów danych referencyjnych o rozmiarze mniejszym niż 300 MB w celu uzyskania najlepszej wydajności. Użycie danych referencyjnych o rozmiarze większym niż 300 MB jest obsługiwane w zadaniach mających wartość 6 usług SUs lub więcej. Ta funkcja jest w wersji zapoznawczej i nie może być używana w środowisku produkcyjnym. Korzystanie z bardzo dużych danych referencyjnych może mieć wpływ na wydajność zadania. W miarę wzrostu złożoności zapytania w celu uwzględnienia przetwarzania stanowego, takiego jak agregacje okienkowe, sprzężenia czasowe i funkcje analityczne czasowe, oczekuje się, że maksymalny obsługiwany rozmiar danych referencyjnych jest zmniejszany. Jeśli Azure Stream Analytics nie może załadować danych referencyjnych i wykonać złożonych operacji, zadanie wygaśnie za mało pamięci i zakończy się niepowodzeniem. W takich przypadkach Metryka użycia SU% osiągnie 100%.    
 
-|**Liczba jednostek przesyłania strumieniowego**  |**Przybliżony obsługiwany rozmiar (w MB)**  |
+|**Liczba jednostek przesyłania strumieniowego**  |**Zalecany rozmiar**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 i więcej   |300   |
-
-Zwiększenie liczby jednostek przesyłania strumieniowego zadania poza 6 nie zwiększa maksymalnego obsługiwanego rozmiaru danych referencyjnych.
+|1   |50 MB lub niższy   |
+|3   |150 MB lub niższy   |
+|6 i więcej   |300 MB lub niższy. Korzystanie z danych referencyjnych o rozmiarze większym niż 300 MB jest obsługiwane w wersji zapoznawczej i może mieć wpływ na wydajność danego zadania.    |
 
 Obsługa kompresji nie jest dostępna dla danych referencyjnych.
 
