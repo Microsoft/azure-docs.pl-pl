@@ -12,6 +12,8 @@
           href: security-center-services.md
         - name: Pokrycie funkcji w przypadku zasobów usługi Azure PaaS
           href: features-paas.md
+    - name: Co nowego w usłudze Security Center?
+      href: release-notes.md
     - name: Zalecenia dotyczące zabezpieczeń
       href: recommendations-reference.md
     - name: Alerty zabezpieczeń i łańcuch eliminacji intencji
@@ -188,7 +190,9 @@
           href: faq-vms.md
         - name: Istniejący użytkownicy usługi Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Informacje o wersji
+    - name: Archiwum Co nowego w usłudze Security Center?
+      href: release-notes-archive.md
+    - name: Blog harmonogramu działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Wycofywanie funkcji i interfejsów API (lipiec 2019 r.)
       href: security-center-features-retirement-july2019.md

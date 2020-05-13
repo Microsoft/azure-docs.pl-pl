@@ -315,6 +315,8 @@
           href: search-security-overview.md
         - name: Tworzenie prywatnego punktu końcowego
           href: service-create-private-endpoint.md
+        - name: Konfigurowanie zapory IP
+          href: service-configure-firewall.md
         - name: Zarządzanie kluczem usługi
           href: search-security-api-keys.md
         - name: Oparty na rolach dostęp administratora

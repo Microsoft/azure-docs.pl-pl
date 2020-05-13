@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Tworzenie fabryki danych — szablon usługi Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Zabezpieczenia — włączanie szyfrowania kluczy zarządzanego przez klienta
+      href: quickstart-enable-customer-managed-key.md
     - name: Tworzenie przepływu danych
       href: data-flow-create.md
 - name: Samouczki

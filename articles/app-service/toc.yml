@@ -200,6 +200,8 @@
           href: web-sites-monitor.md
         - name: Włączanie dzienników
           href: troubleshoot-diagnostic-logs.md
+        - name: Pobieranie zdarzeń dotyczących zasobów
+          href: get-resource-events.md
     - name: Zarządzanie aplikacją
       items:
         - name: Zarządzanie planem hostingu

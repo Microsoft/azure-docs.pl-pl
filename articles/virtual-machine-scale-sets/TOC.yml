@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: Rozwiązywanie problemów z obrazami udostępnionymi
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: Używanie kluczy zarządzanych przez klienta
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: Tworzenie szablonu
       items:
         - name: Informacje na temat szablonów zestawów dostępności
@@ -310,7 +315,7 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: Powiadomienie o przerwaniu po usunięciu
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: Galerie obrazów udostępnionych
+        - name: Udostępnione galerie obrazów
           items:
             - name: Omówienie
               href: shared-image-galleries.md

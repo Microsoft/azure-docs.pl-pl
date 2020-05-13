@@ -22,6 +22,8 @@
   items:
     - name: Pojęcia związane z laboratoriami na potrzeby zajęć
       href: classroom-labs-concepts.md
+    - name: Podstawowe założenia dotyczące architektury laboratoriów na potrzeby zajęć
+      href: classroom-labs-fundamentals.md
     - name: Scenariusze
       items:
         - name: Korzystanie z laboratoriów przy prowadzeniu zajęć
@@ -136,7 +138,7 @@
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: Forum społeczności technicznej
+      href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Często zadawane pytania
       href: classroom-labs-faq.md

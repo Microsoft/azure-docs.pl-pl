@@ -15,7 +15,7 @@
       href: tutorial-enable-sspr-writeback.md
     - name: Konfigurowanie niestandardowych list zakazanych haseł
       href: tutorial-configure-custom-password-protection.md
-    - name: Integracja z usługą Azure Identity Protection
+    - name: Włączanie ochrony logowania na podstawie ryzyka
       href: tutorial-risk-based-sspr-mfa.md
 - name: Pojęcia
   expanded: true

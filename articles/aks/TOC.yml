@@ -129,6 +129,8 @@
           href: scale-cluster.md
         - name: Uaktualnianie klastra AKS
           href: upgrade-cluster.md
+        - name: Używanie umowy SLA dotyczącej czasu dostępności
+          href: uptime-sla.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła
           href: node-updates-kured.md
         - name: Konfigurowanie klastra AKS
@@ -231,7 +233,7 @@
         - name: Włączanie integracji z usługą Azure Active Directory
           items:
             - name: Integrowanie usługi Azure AD (wersja zapoznawcza)
-              href: azure-ad-v2.md
+              href: managed-aad.md
             - name: Używanie interfejsu wiersza polecenia platformy Azure
               href: azure-ad-integration-cli.md
             - name: Korzystanie z witryny Azure Portal

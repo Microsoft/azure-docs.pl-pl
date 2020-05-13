@@ -303,6 +303,113 @@
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Często zadawane pytania
           href: migration-classic-resource-manager-faq.md
+    - name: Korzystanie z obrazów
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Galerie obrazów udostępnionych
+          items:
+            - name: Interfejs wiersza polecenia
+              items:
+                - name: Tworzenie galerii
+                  href: ../shared-images-cli.md
+                - name: Tworzenie obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-cli.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-cli.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-cli.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-cli.md
+                - name: Rejestracja aplikacji na potrzeby udostępniania
+                  href: share-images-across-tenants.md
+            - name: PowerShell
+              items:
+                - name: Tworzenie galerii
+                  href: ../shared-images-powershell.md
+                - name: Tworzenie wersji obrazu
+                  items:
+                    - name: Z maszyny wirtualnej
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrowanie z obrazu zarządzanego
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Kopiowanie z innej galerii
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Tworzenie maszyny wirtualnej
+                  items:
+                    - name: Uogólniony
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Aktualizowanie zasobów obrazów
+                  href: ../update-image-resources-powershell.md
+            - name: Portal
+              items:
+                - name: 'Tworzenie galerii, obrazu i maszyny wirtualnej'
+                  href: shared-images-portal.md
+            - name: Szablony usługi Resource Manager
+              items:
+                - name: Tworzenie galerii obrazów udostępnionych
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Tworzenie definicji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Tworzenie wersji obrazu w usłudze Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+            - name: Rozwiązywanie problemów z obrazami udostępnionymi
+              href: troubleshooting-shared-images.md
+            - name: Używanie kluczy zarządzanych przez klienta
+              displayName: 'SSE, CMK, encrypt'
+              href: ../image-version-encryption.md
+        - name: Konstruktor obrazów (wersja zapoznawcza)
+          items:
+            - name: Omówienie
+              href: image-builder-overview.md
+            - name: Interfejs wiersza polecenia platformy Azure
+              href: image-builder.md
+            - name: Dokumentacja szablonu usługi Resource Manager
+              href: image-builder-json.md
+              displayName: 'ARM,Resource Manager'
+            - name: Tworzenie dla galerii obrazów
+              href: image-builder-gallery.md
+            - name: Aktualizowanie istniejącego obrazu
+              href: image-builder-gallery-update-image-version.md
+            - name: Rozwiązywanie problemów
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+        - name: Znajdowanie obrazów i korzystanie z nich
+          href: cli-ps-findimage.md
+        - name: Tworzenie obrazu niestandardowego
+          items:
+            - name: Ogólne kroki
+              href: create-upload-generic.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: Przechwytywanie maszyny wirtualnej do obrazu
+          href: capture-image.md
+        - name: Tworzenie obrazu za pomocą usługi Packer
+          href: build-image-with-packer.md
+        - name: Pobieranie istniejącego dysku
+          href: download-vhd.md
     - name: Zabezpieczone maszyny wirtualne
       items:
         - name: Zalecenia
@@ -461,110 +568,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Tworzenie alertów dotyczących dzienników
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Korzystanie z obrazów
-      displayName: 'SIG, AMI, image'
-      items:
-        - name: Galerie obrazów udostępnionych
-          items:
-            - name: Interfejs wiersza polecenia
-              items:
-                - name: Tworzenie galerii
-                  href: ../shared-images-cli.md
-                - name: Tworzenie obrazu
-                  items:
-                    - name: Z maszyny wirtualnej
-                      href: ../image-version-vm-cli.md
-                    - name: Migrowanie z obrazu zarządzanego
-                      href: ../image-version-managed-image-cli.md
-                    - name: Kopiowanie z innej galerii
-                      href: ../image-version-another-gallery-cli.md
-                - name: Tworzenie maszyny wirtualnej
-                  items:
-                    - name: Uogólniony
-                      href: ../vm-generalized-image-version-cli.md
-                - name: Aktualizowanie zasobów obrazów
-                  href: ../update-image-resources-cli.md
-                - name: Rejestracja aplikacji na potrzeby udostępniania
-                  href: share-images-across-tenants.md
-            - name: PowerShell
-              items:
-                - name: Tworzenie galerii
-                  href: ../shared-images-powershell.md
-                - name: Tworzenie wersji obrazu
-                  items:
-                    - name: Z maszyny wirtualnej
-                      href: ../image-version-vm-powershell.md
-                    - name: Migrowanie z obrazu zarządzanego
-                      href: ../image-version-managed-image-powershell.md
-                    - name: Kopiowanie z innej galerii
-                      href: ../image-version-another-gallery-powershell.md
-                - name: Tworzenie maszyny wirtualnej
-                  items:
-                    - name: Uogólniony
-                      href: ../vm-generalized-image-version-powershell.md
-                    - name: Wyspecjalizowany
-                      href: ../vm-specialized-image-version-powershell.md
-                - name: Aktualizowanie zasobów obrazów
-                  href: ../update-image-resources-powershell.md
-            - name: Portal
-              items:
-                - name: 'Tworzenie galerii, obrazu i maszyny wirtualnej'
-                  href: shared-images-portal.md
-            - name: Szablony usługi Resource Manager
-              items:
-                - name: Tworzenie galerii obrazów udostępnionych
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
-                - name: Tworzenie definicji obrazu w usłudze Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
-                - name: Tworzenie wersji obrazu w usłudze Shared Image Gallery
-                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
-                - name: Tworzenie maszyny wirtualnej na podstawie wersji obrazu
-                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
-            - name: Rozwiązywanie problemów z obrazami udostępnionymi
-              href: troubleshooting-shared-images.md
-        - name: Konstruktor obrazów (wersja zapoznawcza)
-          items:
-            - name: Omówienie
-              href: image-builder-overview.md
-            - name: Interfejs wiersza polecenia platformy Azure
-              href: image-builder.md
-            - name: Dokumentacja szablonu usługi Resource Manager
-              href: image-builder-json.md
-              displayName: 'ARM,Resource Manager'
-            - name: Tworzenie dla galerii obrazów
-              href: image-builder-gallery.md
-            - name: Aktualizowanie istniejącego obrazu
-              href: image-builder-gallery-update-image-version.md
-            - name: Rozwiązywanie problemów
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
-        - name: Znajdowanie obrazów i korzystanie z nich
-          href: cli-ps-findimage.md
-        - name: Tworzenie obrazu niestandardowego
-          items:
-            - name: Ogólne kroki
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: Przechwytywanie maszyny wirtualnej do obrazu
-          href: capture-image.md
-        - name: Tworzenie obrazu za pomocą usługi Packer
-          href: build-image-with-packer.md
-        - name: Pobieranie istniejącego dysku
-          href: download-vhd.md
     - name: Dostępność i skala
       items:
         - name: Automatyczne skalowanie

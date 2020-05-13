@@ -557,6 +557,20 @@
       items:
         - name: Informacje o wersji zestawu Speech Devices SDK
           href: devices-sdk-release-notes.md
+- name: narzędzia
+  items:
+    - name: SPX
+      items:
+        - name: Co to jest SPX?
+          href: spx-overview.md
+        - name: SPX — podstawy
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Co to jest usługa Speech Studio?
+          href: 'https://speech.microsoft.com'
+        - name: Tworzenie aplikacji z poleceniami niestandardowymi przy użyciu usługi Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
 - name: Migracja
   items:
     - name: Z rozpoznawania mowy Bing

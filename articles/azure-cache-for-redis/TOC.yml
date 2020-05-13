@@ -7,18 +7,26 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Aplikacja ASP.NET
-      href: cache-web-app-howto.md
-    - name: Aplikacja .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: Aplikacja platformy .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Aplikacja w języku Java
-      href: cache-java-get-started.md
-    - name: Aplikacja platformy Node.js
-      href: cache-nodejs-get-started.md
-    - name: Aplikacja w języku Python
-      href: cache-python-get-started.md
+    - name: Tworzenie pamięci podręcznej
+      items:
+        - name: 'Warstwy Podstawowa, Standardowa i Premium'
+          href: quickstart-create-redis.md
+        - name: Warstwy Enterprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Używanie pamięci podręcznej
+      items:
+        - name: Aplikacja ASP.NET
+          href: cache-web-app-howto.md
+        - name: Aplikacja .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: Aplikacja platformy .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Aplikacja w języku Java
+          href: cache-java-get-started.md
+        - name: Aplikacja platformy Node.js
+          href: cache-nodejs-get-started.md
+        - name: Aplikacja w języku Python
+          href: cache-python-get-started.md
 - name: Samouczki
   items:
     - name: Używanie buforowania z rankingami

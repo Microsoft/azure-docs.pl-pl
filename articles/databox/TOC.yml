@@ -56,6 +56,8 @@
               href: data-box-portal-admin.md
             - name: Zarządzanie za pomocą lokalnego interfejsu użytkownika sieci Web
               href: data-box-local-web-ui-admin.md
+            - name: Włączanie klucza zarządzanego przez klienta
+              href: data-box-customer-managed-encryption-key-portal.md
             - name: Przenoszenie danych do warstwy obiektu blob
               href: data-box-how-to-set-data-tier.md
             - name: Podłączanie kabli urządzenia
@@ -173,6 +175,8 @@
               href: data-box-portal-admin.md
             - name: Zarządzanie za pomocą lokalnego interfejsu użytkownika sieci Web
               href: data-box-local-web-ui-admin.md
+            - name: Włączanie klucza zarządzanego przez klienta
+              href: data-box-customer-managed-encryption-key-portal.md
             - name: Rozwiązywanie problemów z urządzeniami
               href: data-box-troubleshoot.md
             - name: Przenoszenie danych do warstwy obiektu blob

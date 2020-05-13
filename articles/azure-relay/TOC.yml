@@ -1,0 +1,103 @@
+- name: Dokumentacja usługi Azure Relay
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa Relay?
+      href: relay-what-is-it.md
+- name: Samouczki
+  items:
+    - name: Połączenia hybrydowe
+      items:
+        - name: Wysyłanie i odbieranie komunikatów — elementy WebSocket platformy .NET
+          href: relay-hybrid-connections-dotnet-get-started.md
+        - name: Wysyłanie i odbieranie komunikatów — protokół HTTP na platformie .NET
+          href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+        - name: Wysyłanie i odbieranie komunikatów — elementy WebSocket środowiska Node
+          href: relay-hybrid-connections-node-get-started.md
+        - name: Wysyłanie i odbieranie komunikatów — protokół HTTP w środowisku Node
+          href: relay-hybrid-connections-http-requests-node-get-started.md
+    - name: Windows Communication Foundation (WCF)
+      items:
+        - name: Uwidacznianie lokalnej usługi WCF dla aplikacji internetowej w chmurze
+          href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+        - name: Uwidacznianie lokalnej usługi WCF dla klienta WCF spoza sieci
+          href: service-bus-relay-tutorial.md
+        - name: Uwidacznianie lokalnej usługi WCF dla klienta WCF spoza sieci
+          href: service-bus-relay-rest-tutorial.md
+- name: Samples
+  items:
+    - name: Połączenia hybrydowe
+      href: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
+    - name: Przekaźnik WCF
+      href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
+- name: Pojęcia
+  items:
+    - name: Zabezpieczenia
+      items:
+        - name: Uwierzytelnianie i autoryzacja
+          href: relay-authentication-and-authorization.md
+        - name: Wbudowane mechanizmy zabezpieczeń
+          href: service-bus-relay-security-controls.md
+        - name: Bezpieczeństwo sieci
+          href: network-security.md
+    - name: Protokół połączeń hybrydowych
+      href: relay-hybrid-connections-protocol.md
+- name: Instrukcje
+  items:
+    - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
+      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json
+    - name: Planowanie i projektowanie
+      items:
+        - name: Migrowanie z usługi ACS do sygnatury dostępu współdzielonego
+          href: relay-migrate-acs-sas.md
+    - name: Programowanie
+      items:
+        - name: Tworzenie przestrzeni nazw
+          href: relay-create-namespace-portal.md
+        - name: Dostępne interfejsy API
+          href: relay-api-overview.md
+          items:
+            - name: .NET
+              href: relay-hybrid-connections-dotnet-api-overview.md
+            - name: Węzeł
+              href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Bezpieczeństwo
+      items:
+        - name: Konfigurowanie zapory IP (wersja zapoznawcza)
+          href: ip-firewall-virtual-networks.md
+        - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
+          href: private-link-service.md
+    - name: Zarządzanie i monitorowanie
+      items:
+        - name: Monitorowanie usługi Azure Relay przy użyciu funkcji monitorowania platformy Azure
+          href: relay-metrics-azure-monitor.md
+        - name: Konfigurowanie dzienników diagnostycznych
+          href: diagnostic-logs.md
+- name: Dokumentacja
+  items:
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.Relay
+          href: /dotnet/api/microsoft.azure.relay
+        - name: Microsoft.ServiceBus
+          href: /dotnet/api/Microsoft.ServiceBus
+    - name: Wyjątki
+      href: relay-exceptions.md
+    - name: Ustawienia portu
+      href: relay-port-settings.md
+- name: Zasoby
+  items:
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: Często zadawane pytania
+      href: relay-faq.md
+    - name: Blog
+      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Samples
+      href: 'https://github.com/azure/azure-relay/tree/master/samples'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-servicebusrelay'

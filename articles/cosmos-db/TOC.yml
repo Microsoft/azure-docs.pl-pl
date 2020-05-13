@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migrowanie z biblioteki procesora zestawienia zmian
           href: how-to-migrate-from-change-feed-library.md
-        - name: Tworzenie aplikacji SQL języka Java z użyciem zestawienia zmian
+        - name: Zestawienie zmian — przykład asynchronicznej aplikacji Java
           href: create-sql-api-java-changefeed.md
     - name: Wbudowana analiza przy użyciu platformy Apache Spark
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: Monitorowanie użycia jednostek żądań
               href: monitor-request-unit-usage.md
+            - name: Monitorowanie znormalizowanego użycia jednostek żądań
+              href: monitor-normalized-request-units.md
         - name: Korzystanie z dzienników usługi Azure Monitor
           items:
             - name: Monitorowanie za pomocą dzienników diagnostycznych

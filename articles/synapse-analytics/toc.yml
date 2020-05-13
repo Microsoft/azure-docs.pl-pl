@@ -18,6 +18,8 @@
       href: quickstart-create-workspace.md
     - name: Korzystanie z programu Azure Synapse Studio
       href: quickstart-synapse-studio.md
+    - name: Podłączanie obszaru roboczego usługi Power BI
+      href: quickstart-power-bi.md
     - name: Tworzenie pul
       items:
         - name: Tworzenie notesu platformy Apache Spark przy użyciu narzędzi internetowych
@@ -30,6 +32,8 @@
       items:
         - name: Instrukcja COPY
           href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Synapse Studio
+          href: quickstart-load-studio-sql-pool.md
     - name: Korzystanie z bazy danych SQL na żądanie
       href: quickstart-sql-on-demand.md
 - name: Samouczki
@@ -188,6 +192,8 @@
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Wydajność platformy Apache Spark
               href: ./spark/apache-spark-performance.md
+            - name: Zachowanie automatycznego skalowania platformy Apache Spark
+              href: ./spark/apache-spark-autoscale.md
         - name: Opracowywanie zawartości
           items:
             - name: Notesy programu Azure Synapse Studio
