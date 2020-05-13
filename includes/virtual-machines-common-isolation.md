@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3aeb0369ee4a04dbbe89a4d0684b2a6c97378d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 033ec0f4011cae657fc464849aac5c5d9a850907
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77123197"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343324"
 ---
 Usługa Azure COMPUTE oferuje rozmiary maszyn wirtualnych, które są odizolowane od określonego typu sprzętu i przeznaczone dla jednego klienta.  Te rozmiary maszyn wirtualnych najlepiej nadają się do obciążeń wymagających wysokiego stopnia izolacji od innych klientów w przypadku obciążeń obejmujących takie elementy, jak zgodność i wymagania prawne.  Klienci mogą również dodatkowo podzielić zasoby tych izolowanych maszyn wirtualnych, korzystając z [pomocy technicznej platformy Azure dla zagnieżdżonych maszyn wirtualnych](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -23,11 +23,11 @@ Wykorzystanie wyizolowanego rozmiaru gwarantuje, że Twoja maszyna wirtualna bę
 * Standard_M128ms
 * Standardowa_GS5
 * Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
+* Standard_DS15_v2<sup>*</sup>
+* Standard_D15_v2<sup>*</sup>
 * Standard_F72s_v2
 
-Więcej informacji o każdym dostępnym rozmiarze izolowanym można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+<sup>*</sup>Gwarancja izolacji zostanie wycofana o 15 maja 2020
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-may-15-2020"></a>Wycofanie izolacji D15_v2/DS15_v2 15 maja 2020
 **Aktualizacja 7 lutego 2020: oś czasu wycofania "izolacja" została rozszerzona do 15 maja 2020 "**

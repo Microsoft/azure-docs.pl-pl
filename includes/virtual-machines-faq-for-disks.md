@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595268"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343307"
 ---
 W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usługi Azure Managed Disks i Azure SSD w warstwie Premium Disks.
 
@@ -178,7 +178,7 @@ Tylko Premium dysków SSD, które są P15 lub większe obsługują dyski udostę
 
 **Jeśli mam dysk SSD w warstwie Premium, czy mogę włączyć na nim dyski udostępnione?**
 
-Wszystkie dyski zarządzane utworzone przy użyciu interfejsu API w wersji 2019-07-01 lub nowszej mogą umożliwić udostępnianie dysków. W tym celu należy odinstalować dysk ze wszystkich maszyn wirtualnych, do których jest dołączony. Następnie Edytuj `maxShares` właściwość na dysku.
+Wszystkie dyski zarządzane utworzone przy użyciu interfejsu API w wersji 2019-07-01 lub nowszej mogą umożliwić udostępnianie dysków. W tym celu należy odinstalować dysk ze wszystkich maszyn wirtualnych, do których jest dołączony. Następnie Edytuj `maxShares` Właściwość na dysku.
 
 **Jeśli nie chcesz już używać dysku w trybie udostępniania, jak go wyłączyć?**
 
@@ -257,32 +257,6 @@ Wszystkie regiony platformy Azure obsługują teraz SSD w warstwie Standardowa d
 **Czy jest Azure Backup dostępne w przypadku korzystania ze standardowego dysków SSD?**
 Tak, Azure Backup jest teraz dostępny.
 
-**Jak mogę utworzyć dyski SSD w warstwie Standardowa?**
-SSD w warstwie Standardowa dysków można utworzyć przy użyciu szablonów Azure Resource Manager, zestawu SDK, programu PowerShell lub interfejsu wiersza polecenia. Poniżej znajdują się parametry, które są konieczne w szablonie Menedżer zasobów do tworzenia dysków SSD w warstwie Standardowa:
-
-* *apiVersion* dla Microsoft. COMPUTE musi być ustawiona jako `2018-04-01` (lub nowsza)
-* Określ *managedDisk. storageAccountType* jako`StandardSSD_LRS`
-
-W poniższym przykładzie przedstawiono sekcję *Properties. obszarze storageprofile. osDisk* dla maszyny wirtualnej korzystającej z dysków SSD w warstwie Standardowa:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Aby zapoznać się z kompletnym przykładem szablonu dotyczącego tworzenia dysku SSD w warstwie Standardowa z szablonem, zobacz [Tworzenie maszyny wirtualnej na podstawie obrazu systemu Windows z dyskami danych SSD w warstwie Standardowa](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Czy mogę przekonwertować istniejące dyski na SSD w warstwie Standardowa?**
-Tak, można. Zapoznaj się z tematem [konwertowanie magazynu Azure Managed disks z warstwy Standardowa na Premium i na odwrót,](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) Aby uzyskać ogólne wytyczne dotyczące konwersji Managed Disks. I użyj następującej wartości, aby zaktualizować typ dysku do SSD w warstwie Standardowa.
--AccountType StandardSSD_LRS
-
 **Jakie korzyści przynosi korzystanie z SSD w warstwie Standardowa dysków zamiast DYSKowych?**
 SSD w warstwie Standardowa dyski zapewniają lepsze opóźnienia, spójność, dostępność i niezawodność w porównaniu z dyskami TWARDYmi. Obciążenia aplikacji działają znacznie bardziej płynnie w SSD w warstwie Standardowa z tego powodu. Należy pamiętać, że dyski SSD w warstwie Premium są zalecanym rozwiązaniem dla większości obciążeń produkcyjnych intensywnie korzystających z operacji we/wy.
 
@@ -328,13 +302,13 @@ Nie. Dostępne są Azure Site Recovery ochrony platformy Azure na platformie Azu
 
 **Czy można migrować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które zostały wcześniej zaszyfrowane do dysków zarządzanych?**
 
-Tak
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks i szyfrowanie usługi Storage
 
-**Czy usługa Azure szyfrowanie usługi Storage domyślnie włączona podczas tworzenia dysku zarządzanego?**
+**Czy szyfrowanie po stronie serwera jest domyślnie włączone podczas tworzenia dysku zarządzanego?**
 
-Tak.
+Tak. Managed Disks są szyfrowane za pomocą szyfrowania po stronie serwera za pomocą kluczy zarządzanych przez platformę. 
 
 **Czy wolumin rozruchowy jest szyfrowany domyślnie na dysku zarządzanym?**
 
@@ -342,34 +316,31 @@ Tak. Domyślnie wszystkie dyski zarządzane są szyfrowane, łącznie z dyskiem 
 
 **Kto zarządza kluczami szyfrowania?**
 
-Firma Microsoft zarządza kluczami szyfrowania.
+Klucze zarządzane przez platformę są zarządzane przez firmę Microsoft. Możesz również użyć własnych kluczy przechowywanych w Azure Key Vault i zarządzać nimi. 
 
-**Czy można wyłączyć szyfrowanie usługi Storage dla moich dysków zarządzanych?**
+**Czy można wyłączyć szyfrowanie po stronie serwera dla moich dysków zarządzanych?**
 
 Nie.
 
-**Czy szyfrowanie usługi Storage jest dostępny tylko w określonych regionach?**
+**Czy szyfrowanie po stronie serwera jest dostępne tylko w określonych regionach?**
 
-Nie. Jest ona dostępna we wszystkich regionach, w których Managed Disks są dostępne. Managed Disks jest dostępna we wszystkich regionach publicznych i Niemczech. Jest ona również dostępna w Chinach, ale tylko w przypadku kluczy zarządzanych przez firmę Microsoft, a nie kluczy zarządzanych przez klienta.
+Nie. Szyfrowanie po stronie serwera z kluczami zarządzanymi przez platformę i klienta są dostępne we wszystkich regionach, w których Managed Disks są dostępne. 
 
-**Jak można sprawdzić, czy mój dysk zarządzany jest szyfrowany?**
+**Czy Azure Site Recovery obsługuje szyfrowanie po stronie serwera z kluczem zarządzanym przez klienta na potrzeby scenariuszy odzyskiwania po awarii platformy Azure i platformy Azure do platformy Azure?**
 
-Możesz sprawdzić czas utworzenia dysku zarządzanego na podstawie Azure Portal, interfejsu wiersza polecenia platformy Azure i programu PowerShell. Jeśli czas jest po 9 czerwca 2017, dysk jest szyfrowany.
+Tak. 
 
-**Jak mogę zaszyfrować istniejące dyski, które zostały utworzone przed 10 czerwca 2017?**
+**Czy można tworzyć kopie zapasowe Managed Disks szyfrowane za pomocą szyfrowania po stronie serwera z kluczem zarządzanym przez klienta za pomocą usługi Azure Backup?**
 
-Od 10 czerwca 2017 nowe dane zapisywane na istniejących dyskach zarządzanych są szyfrowane automatycznie. Planuje również szyfrowanie istniejących danych, a szyfrowanie zostanie wykonane asynchronicznie w tle. Jeśli musisz teraz zaszyfrować istniejące dane, Utwórz kopię dysku. Nowe dyski zostaną zaszyfrowane.
-
-* [Kopiowanie dysków zarządzanych przy użyciu interfejsu wiersza polecenia platformy Azure](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Kopiowanie dysków zarządzanych przy użyciu programu PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Tak.
 
 **Czy zarządzane migawki i obrazy są szyfrowane?**
 
-Tak. Wszystkie zarządzane migawki i obrazy utworzone po 9 czerwca 2017 są automatycznie szyfrowane. 
+Tak. Wszystkie zarządzane migawki i obrazy są szyfrowane automatycznie. 
 
 **Czy mogę przekonwertować maszyny wirtualne z dyskami niezarządzanymi, które znajdują się na kontach magazynu, które zostały wcześniej zaszyfrowane do dysków zarządzanych?**
 
-Tak
+Yes
 
 **Czy plik wirtualnego dysku twardego z dysku zarządzanego lub migawki zostanie również zaszyfrowany?**
 
