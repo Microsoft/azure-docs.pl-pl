@@ -2,15 +2,15 @@
 title: Uwidacznianie funkcji za pomocą usługi OpenAPI na platformie API Management Azure
 description: Utwórz definicję interfejsu OpenAPI, która umożliwia innym aplikacjom i usługom wywołanie Twojej funkcji na platformie Azure.
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d63d5ea17184ffa6e456877079da0821a75d59e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77210212"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121495"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Tworzenie definicji OpenAPI dla interfejsu API bezserwerowego przy użyciu usługi Azure API Management
 
@@ -39,17 +39,19 @@ W tym samouczku jest stosowana funkcja wyzwalana przez protokół HTTP, która p
 * Szacowany czas trwania naprawy turbiny w godzinach.
 * Pojemność turbiny w kilowatach. 
 
-Następnie funkcja oblicza koszt naprawy oraz przychody, które mogą zostać uzyskane dzięki turbinie w ciągu 24 godzin. Aby utworzyć funkcję wyzwalaną przez protokół HTTP w [Azure Portal](https://portal.azure.com):
+Funkcja oblicza następnie koszt naprawy i ilość przychodów, które może wykonać w 24-godzinnym okresie. Aby utworzyć funkcję wyzwalaną przez protokół HTTP w [Azure Portal](https://portal.azure.com):
 
-1. Rozwiń swoją aplikację funkcji i wybierz **+** przycisk obok pozycji **funkcje**. Wybierz pozycję **w portalu** > **Kontynuuj**.
+1. W menu po lewej stronie aplikacji usługi Functions wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu.
 
-1. Wybierz pozycję **więcej szablonów...**, a następnie wybierz pozycję **Zakończ i Wyświetl szablony**
+1. W oknie **Nowa funkcja** wybierz pozycję **wyzwalacz http**.
 
-1. Wybierz pozycję wyzwalacz HTTP, `TurbineRepair` wpisz **nazwę** `Function` funkcji, wybierz pozycję **[poziom uwierzytelniania](functions-bindings-http-webhook-trigger.md#http-auth)**, a następnie wybierz pozycję **Utwórz**.  
+1. Dla **nowej funkcji**wprowadź `TurbineRepair` . 
 
-    ![Utwórz funkcję HTTP dla OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
+1. Wybierz z listy rozwijanej **[poziom autoryzacji](functions-bindings-http-webhook-trigger.md#http-auth)** pozycję **Funkcja** , a następnie wybierz pozycję **Utwórz funkcję**.
 
-1. Zastąp zawartość pliku skryptu Run. CSX C# następującym kodem, a następnie wybierz pozycję **Zapisz**:
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Utwórz funkcję HTTP dla OpenAPI":::
+
+1. Wybierz pozycję **Code + test**, a następnie na liście rozwijanej wybierz pozycję **Run. CSX** . Zastąp zawartość pliku skryptu Run. CSX C# następującym kodem, a następnie wybierz pozycję **Zapisz**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -102,9 +104,9 @@ Następnie funkcja oblicza koszt naprawy oraz przychody, które mogą zostać uz
     }
     ```
 
-    Ten kod funkcji zwraca komunikat `Yes` lub `No` wskazujący, czy awaryjna naprawa turbiny jest opłacalna, a także wartość ewentualnego przychodu, który można uzyskać dzięki turbinie, oraz koszt naprawy turbiny.
+    Ten kod funkcji zwraca komunikat z `Yes` lub `No` , aby wskazać, czy Naprawa awaryjna jest opłacalna. Zwraca również szansę, że analiza bioreprezentuje, i koszt naprawy turbiny.
 
-1. Aby przetestować funkcję, kliknij przycisk **Testuj** po prawej stronie, aby rozwinąć kartę test. Wprowadź następującą wartość dla **treści żądania**, a następnie kliknij przycisk **Uruchom**.
+1. Aby przetestować funkcję, wybierz pozycję **test**, wybierz kartę **dane wejściowe** , wprowadź następujące dane wejściowe dla **treści**, a następnie wybierz pozycję **Uruchom**:
 
     ```json
     {
@@ -113,9 +115,9 @@ Następnie funkcja oblicza koszt naprawy oraz przychody, które mogą zostać uz
     }
     ```
 
-    ![Testowanie funkcji w witrynie Azure Portal](media/functions-openapi-definition/test-function.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Testowanie funkcji w witrynie Azure Portal":::
 
-    W treści odpowiedzi jest zwracana poniższa wartość.
+    Na karcie **dane wyjściowe** zwracany jest następujący wynik:
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -125,15 +127,14 @@ Funkcja określająca opłacalność naprawy awaryjnej jest już gotowa. Następ
 
 ## <a name="generate-the-openapi-definition"></a>Generowanie definicji interfejsu OpenAPI
 
-Teraz możesz przystąpić do generowania definicji interfejsu OpenAPI.
+Aby wygenerować definicję OpenAPI:
 
-1. Wybierz aplikację funkcji, a następnie w obszarze **funkcje platformy**wybierz **API Management** a następnie wybierz pozycję **Utwórz nowy** w obszarze **API Management**.
+1. Wybierz aplikację funkcji, wybierz **API Management** z menu po lewej stronie, a następnie wybierz pozycję **Utwórz nowy** w obszarze **API Management**.
 
-    ![Wybierz API Management w funkcjach platformy](media/functions-openapi-definition/select-all-settings-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Wybierz API Management":::
 
-1. Użyj ustawień API Management określonych w tabeli poniżej obrazu.
 
-    ![Tworzenie nowej usługi API Management](media/functions-openapi-definition/new-apim-service-openapi.png)
+1. Użyj ustawień API Management, zgodnie z opisem w poniższej tabeli:
 
     | Ustawienie      | Sugerowana wartość  | Opis                                        |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -143,29 +144,31 @@ Teraz możesz przystąpić do generowania definicji interfejsu OpenAPI.
     | **Lokalizacja** | Zachodnie stany USA | Wybierz lokalizację zachodnie stany USA. |
     | **Nazwa organizacji** | Contoso | Nazwa organizacji używanej w portalu dla deweloperów i powiadomień e-mail. |
     | **Adres e-mail administratora** | Twój adres e-mail | Wiadomość e-mail, która otrzymała powiadomienia systemowe od API Management. |
-    | **Warstwa cenowa** | Użycie (wersja zapoznawcza) | Warstwa zużycia jest w wersji zapoznawczej i nie jest dostępna we wszystkich regionach. Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem API Management](https://azure.microsoft.com/pricing/details/api-management/) . |
+    | **Warstwa cenowa** | Zużycie | Warstwa zużycia nie jest dostępna we wszystkich regionach. Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem API Management](https://azure.microsoft.com/pricing/details/api-management/) . |
+
+    ![Tworzenie nowej usługi API Management](media/functions-openapi-definition/new-apim-service-openapi.png)
 
 1. Wybierz pozycję **Utwórz**, aby utworzyć wystąpienie usługi API Management, co może potrwać kilka minut.
 
-1. Wybierz pozycję **włącz Application Insights** , aby wysyłać dzienniki do tego samego miejsca, w którym znajduje się aplikacja funkcji, a następnie zaakceptuj pozostałe wartości domyślne i wybierz pozycję **interfejs API łączenia**.
+1. Po utworzeniu wystąpienia na platformie Azure włączana jest opcja **włącz Application Insights** na stronie. Wybierz go, aby wysłać dzienniki do tego samego miejsca, w którym znajduje się aplikacja funkcji, a następnie wybierz pozycję **Połącz interfejs API**.
 
 1. Zostanie otwarty **Azure Functions importowania** z wyróżnioną funkcją **TurbineRepair** . Wybierz pozycję **Wybierz**, aby kontynuować.
 
     ![Importowanie Azure Functions do API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-1. Na stronie **Tworzenie na podstawie aplikacja funkcji** zaakceptuj wartości domyślne i wybierz pozycję **Utwórz** .
+1. Na stronie **Utwórz z aplikacja funkcji** zaakceptuj wartości domyślne, a następnie wybierz pozycję **Utwórz**.
 
-    ![Utwórz z aplikacja funkcji](media/functions-openapi-definition/create-function-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Utwórz z aplikacja funkcji":::
 
-Interfejs API jest teraz tworzony dla funkcji.
+    Platforma Azure tworzy interfejs API dla funkcji.
 
 ## <a name="test-the-api"></a>Testowanie interfejsu API
 
 Przed użyciem definicji OpenAPI należy sprawdzić, czy interfejs API działa.
 
-1. Na karcie **testowanie** funkcji wybierz pozycję **Księguj** .
+1. Na stronie aplikacja funkcji wybierz pozycję **API Management**, wybierz kartę **test** , a następnie wybierz pozycję **Opublikuj TurbineRepair**. 
 
-1. Wprowadź wartości **godzin** i **pojemności**
+1. Wprowadź następujący kod w **treści żądania**:
 
     ```json
     {
@@ -174,9 +177,9 @@ Przed użyciem definicji OpenAPI należy sprawdzić, czy interfejs API działa.
     }
     ```
 
-1. Kliknij przycisk **Wyślij**, a następnie Wyświetl odpowiedź HTTP.
+1. Wybierz pozycję **Wyślij**, a następnie Wyświetl **odpowiedź HTTP**.
 
-    ![Interfejs API funkcji testowych](media/functions-openapi-definition/test-function-api-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Interfejs API funkcji testowych":::
 
 ## <a name="download-the-openapi-definition"></a>Pobierz definicję OpenAPI
 
@@ -186,7 +189,7 @@ Jeśli interfejs API działa zgodnie z oczekiwaniami, można pobrać definicję 
    
    ![Pobieranie definicji interfejsu OpenAPI](media/functions-openapi-definition/download-definition.png)
 
-2. Otwórz pobrany plik JSON i zapoznaj się z definicją.
+2. Zapisz pobrany plik JSON, a następnie otwórz go. Zapoznaj się z definicją.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 

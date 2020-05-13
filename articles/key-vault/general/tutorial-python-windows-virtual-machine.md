@@ -2,20 +2,20 @@
 title: Samouczek — używanie Azure Key Vault z maszyną wirtualną z systemem Windows w języku Python | Microsoft Docs
 description: W tym samouczku skonfigurujesz aplikację ASP.NET Core w celu odczytu wpisu tajnego z magazynu kluczy.
 services: key-vault
-author: msmbaldwin
-manager: rajvijan
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/05/2018
-ms.author: mbaldwin
+ms.date: 05/11/2020
+ms.author: sudbalas
 ms.custom: mvc
-ms.openlocfilehash: 85dc751909f61eff40ad57868bafa7ea2019ed89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 00e2f573a85d6926c8941a3ed05eeab1163b9ea1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422872"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121103"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Samouczek: używanie Azure Key Vault z maszyną wirtualną z systemem Windows w języku Python
 
@@ -105,7 +105,7 @@ Ten wpis tajny zawiera wartość **MySecret**.
 Maszynę wirtualną można utworzyć za pomocą jednej z następujących metod:
 
 * [Interfejs wiersza polecenia platformy Azure](../../virtual-machines/windows/quick-create-cli.md)
-* [PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+* [Program PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
 * [Witryna Azure Portal](../../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Przypisywanie tożsamości do maszyny wirtualnej
@@ -152,7 +152,10 @@ Kod przedstawia proces dwuetapowy:
     # importing the requests library 
     import requests 
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.
+    # Resources with an MSI configured recieve an AAD access token by using the Azure Instance Metadata Service (IMDS)
+    # IMDS provides an endpoint accessible to all IaaS VMs using a non-routable well-known IP Address
+    # To learn more about IMDS and MSI Authentication see the following link: https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
@@ -162,7 +165,7 @@ Kod przedstawia proces dwuetapowy:
     data = r.json() 
     
     # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
-    KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+    KeyVaultURL = "https://{YOUR KEY VAULT NAME}.vault.azure.net/secrets/{YOUR SECRET NAME}?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
     print(kvSecret.json()["value"])

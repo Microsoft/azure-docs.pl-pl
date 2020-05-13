@@ -1,19 +1,19 @@
 ---
-title: 'Samouczek: samouczek tworzenia aplikacji Java za pomocą Azure Cosmos DB'
+title: 'Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL'
 description: 'Samouczek: ten samouczek aplikacji sieci Web Java pokazuje, jak używać Azure Cosmos DB i interfejsu API SQL do przechowywania i uzyskiwania dostępu do danych z aplikacji Java hostowanej w usłudze Azure Websites.'
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
-ms.author: ramkris
-ms.openlocfilehash: 2e38aeba198f875961024f8c25c7fb0123479f87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: anfeldma
+ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985273"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120197"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -50,7 +50,7 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 * [Środowisko Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Witryna internetowa platformy Azure z włączonym środowiskiem uruchomieniowym języka Java (np. Tomcat lub Jetty).](../app-service/app-service-web-get-started-java.md)
 
-Jeśli instalujesz te narzędzia po raz pierwszy, witryna coreservlets.com zawiera omówienie procesu instalacji w artykule [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) (Samouczek: Instalacja środowiska TomCat7 i używanie go ze środowiskiem Eclipse) w sekcji Quick Start (Szybki start).
+Jeśli instalujesz te narzędzia po raz pierwszy, coreservlets.com zawiera Przewodnik po procesie instalacji w sekcji szybki start w [samouczku: Instalowanie TomCat7 i używanie go z](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) zaem.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Krok 1. Tworzenie konta usługi Azure Cosmos DB
 Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
@@ -98,7 +98,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
      
    ![Instalowanie zestawu SDK Java usługi SQL](./media/sql-api-java-application/image13.png)
      
-   * Alternatywnie możesz dodać kod XML zależności dla elementów Group Id i Artifact Id bezpośrednio w pliku pom.xml za pomocą edytora tekstu:
+   * Lub Dodaj plik XML zależności dla identyfikatora grupy i identyfikatora artefaktu bezpośrednio do pliku pom. XML za pośrednictwem edytora tekstu:
         ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -250,7 +250,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Podobnie jak w przypadku baz danych i kolekcji usługi Azure Cosmos, do dokumentów odwołują się również łącza. Poniższa funkcja pomocnicza pozwala nam pobrać dokumenty przy użyciu innego atrybutu (np. „id”), zamiast linku do samego siebie:
+5. Podobnie jak w przypadku baz danych i kolekcji usługi Azure Cosmos, do dokumentów odwołują się również łącza. Poniższe funkcje pomocnika umożliwiają nam pobieranie dokumentów według innego atrybutu (np. "ID"), a nie do samołączenia:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -265,7 +265,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
                 return null;
             }
         }
-6. Możemy użyć metody pomocniczej z kroku 5 do pobrania dokumentu TodoItem typu JSON przy użyciu atrybutu id, a następnie do deserializacji do obiektu typu POJO:
+6. Możemy użyć metody pomocnika w kroku 5, aby pobrać dokument JSON TodoItem o IDENTYFIKATORze, a następnie zdeserializować go do POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {

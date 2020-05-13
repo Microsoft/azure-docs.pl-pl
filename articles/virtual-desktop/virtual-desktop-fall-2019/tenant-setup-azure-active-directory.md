@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94128c69f227ceff51968354048ec6610e3d7c4c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614403"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124401"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Samouczek: Tworzenie dzierżawy w programie Virtual Desktop systemu Windows
 
@@ -57,7 +57,7 @@ Aby udzielić uprawnień usługi:
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. Zaloguj się na stronie zgody na pulpit wirtualny systemu Windows przy użyciu konta administratora globalnego. Na przykład jeśli jesteś w organizacji contoso, Twoje konto może być admin@contoso.com lub. admin@contoso.onmicrosoft.com
+2. Zaloguj się na stronie zgody na pulpit wirtualny systemu Windows przy użyciu konta administratora globalnego. Na przykład jeśli jesteś w organizacji contoso, Twoje konto może być admin@contoso.com lub admin@contoso.onmicrosoft.com .
 3. Wybierz pozycję **Zaakceptuj**.
 4. Poczekaj chwilę, aby usługa Azure AD mogła rejestrować zgodę.
 5. Otwórz przeglądarkę i Rozpocznij przepływ zgody administratora na [aplikację klienta pulpitu wirtualnego systemu Windows](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
@@ -87,7 +87,7 @@ Aby przypisać rolę aplikacji TenantCreator:
    ![Zrzut ekranu użytkowników i grup przypisanych do zarządzania aplikacją Enterprise "pulpit wirtualny systemu Windows". Zrzut ekranu zawiera tylko jedno przypisanie, które jest przeznaczone dla "dostępu domyślnego".](../media/tenant-default-access.png)
 4. Wybierz pozycję **Dodaj użytkownika**, a następnie wybierz pozycję **Użytkownicy i grupy** na karcie **Dodaj przypisanie** .
 5. Wyszukaj konto użytkownika, które będzie tworzyć dzierżawcę pulpitów wirtualnych systemu Windows. Dla uproszczenia może to być konto administratora globalnego.
-   - Jeśli używasz dostawcy tożsamości firmy Microsoft, takiego jak contosoadmin@live.com lub contosoadmin@outlook.com, możesz nie być w stanie zalogować się do pulpitu wirtualnego systemu Windows. Zalecamy użycie konta specyficznego dla domeny, takiego admin@contoso.com jak admin@contoso.onmicrosoft.com lub.
+   - Jeśli używasz dostawcy tożsamości firmy Microsoft, takiego jak contosoadmin@live.com lub contosoadmin@outlook.com , możesz nie być w stanie zalogować się do pulpitu wirtualnego systemu Windows. Zalecamy użycie konta specyficznego dla domeny, takiego jak admin@contoso.com lub admin@contoso.onmicrosoft.com .
 
    ![Zrzut ekranu przedstawiający Wybieranie użytkownika do dodania jako "TenantCreator".](../media/tenant-assign-user.png)
    > [!NOTE]
@@ -145,13 +145,15 @@ Zastąp wartości ujęte w nawiasy wartościami istotnymi dla Twojej organizacji
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
-Dobrym pomysłem jest przydzielenie dostępu administracyjnego do drugiego użytkownika na wypadek, gdyby kiedykolwiek wcześniej się wyszukali z Twojego konta. Możesz też przejść na wakacje i potrzebować kogoś, kto może działać jako Administrator dzierżawy w Twojej nieobecności. Aby przypisać dostęp administratora do drugiego użytkownika, uruchom następujące polecenie cmdlet w programie `<TenantName>` i `<Upn>` zastąp go nazwą dzierżawy oraz z identyfikatorem UPN drugiego użytkownika.
+Dobrym pomysłem jest przydzielenie dostępu administracyjnego do drugiego użytkownika na wypadek, gdyby kiedykolwiek wcześniej się wyszukali z Twojego konta. Możesz też przejść na wakacje i potrzebować kogoś, kto może działać jako Administrator dzierżawy w Twojej nieobecności. Aby przypisać dostęp administratora do drugiego użytkownika, uruchom następujące polecenie cmdlet w programie i zastąp go `<TenantName>` `<Upn>` nazwą dzierżawy oraz z identyfikatorem UPN drugiego użytkownika.
 
 ```powershell
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
+Aby zapoznać się z bardziej szczegółowym przewodnikiem, zapoznaj się z naszą [ścieżką uczenia pulpitu wirtualnego systemu Windows](https://docs.microsoft.com/learn/paths/m365-wvd/).
 
 Po utworzeniu dzierżawy należy utworzyć nazwę główną usługi w Azure Active Directory i przypisać ją do roli w ramach pulpitu wirtualnego systemu Windows. Jednostka usługi umożliwi pomyślne wdrożenie oferty Azure Marketplace pulpitu wirtualnego systemu Windows w celu utworzenia puli hostów. Aby dowiedzieć się więcej na temat pul hostów, przejdź do samouczka dotyczącego tworzenia puli hostów w programie Virtual Desktop systemu Windows.
 

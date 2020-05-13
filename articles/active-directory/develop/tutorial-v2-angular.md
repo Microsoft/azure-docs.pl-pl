@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181600"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201326"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Samouczek: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph ze kątowej aplikacji jednostronicowej
 
@@ -81,7 +81,7 @@ Zarejestruj wartość **identyfikatora URI przekierowania** jako **http://localh
 
 ## <a name="configure-the-application"></a>Konfigurowanie aplikacji
 
-1. W folderze *src/App* Edytuj *aplikację App. module. TS* i Dodaj `MSALModule` do `imports` niej `isIE` , a także stałą:
+1. W folderze *src/App* Edytuj *aplikację App. module. TS* i Dodaj do niej, a także `MSALModule` `imports` `isIE` stałą:
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -126,9 +126,9 @@ Zarejestruj wartość **identyfikatora URI przekierowania** jako **http://localh
     |Nazwa wartości|Informacje|
     |---------|---------|
     |Enter_the_Application_Id_Here|Na stronie **Przegląd** rejestracji aplikacji jest to wartość **identyfikatora aplikacji (klienta)** . |
-    |Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź **https://login.microsoftonline.com**wartość. W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
     |Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com**). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**. |
-    |Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200**.|
+    |Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200** .|
 
     Aby uzyskać więcej informacji na temat dostępnych opcji konfigurowalnych, zobacz [Inicjowanie aplikacji klienckich](msal-js-initializing-client-applications.md).
 
@@ -138,7 +138,7 @@ Zarejestruj wartość **identyfikatora URI przekierowania** jako **http://localh
     import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
     ```
 
-3. Dodaj następujące instrukcje importu na początku `src/app/app.component.ts`:
+3. Dodaj następujące instrukcje importu na początku `src/app/app.component.ts` :
 
     ```javascript
     import { MsalService } from '@azure/msal-angular';
@@ -175,7 +175,7 @@ export class AppComponent implements OnInit {
 
 ### <a name="angular-interceptor"></a>Interceptor kątowy
 
-MSAL kątowy udostępnia `Interceptor` klasę, która automatycznie uzyskuje tokeny dla żądań wychodzących, które `http` korzystają z klienta kątowego do znanych chronionych zasobów.
+MSAL kątowy udostępnia `Interceptor` klasę, która automatycznie uzyskuje tokeny dla żądań wychodzących, które korzystają z klienta kątowego `http` do znanych chronionych zasobów.
 
 Najpierw należy dołączyć `Interceptor` klasę jako dostawcę do aplikacji:
 
@@ -195,7 +195,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Następnie podaj mapę chronionych zasobów `MsalModule.forRoot()` jako `protectedResourceMap` i Dołącz te zakresy w programie: `consentScopes`
+Następnie podaj mapę chronionych zasobów `MsalModule.forRoot()` jako `protectedResourceMap` i Dołącz te zakresy w programie `consentScopes` :
 
 ```javascript
 @NgModule({
@@ -244,11 +244,11 @@ getProfile() {
 ```
 
 ### <a name="acquiretokensilent-acquiretokenpopup-acquiretokenredirect"></a>acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
-MSAL używa trzech metod do uzyskiwania tokenów `acquireTokenRedirect`: `acquireTokenPopup`,, `acquireTokenSilent`i. Zaleca się jednak używanie `MsalInterceptor` klasy zamiast aplikacji kątowych, jak pokazano w poprzedniej sekcji.
+MSAL używa trzech metod do uzyskiwania tokenów: `acquireTokenRedirect` , `acquireTokenPopup` , i `acquireTokenSilent` . Zaleca się jednak używanie `MsalInterceptor` klasy zamiast aplikacji kątowych, jak pokazano w poprzedniej sekcji.
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
-`acquireTokenSilent` Metoda obsługuje pozyskiwanie i odnawianie tokenów bez interakcji z użytkownikiem. Gdy `loginRedirect` lub `loginPopup` Metoda jest wykonywana po raz pierwszy, `acquireTokenSilent` jest często używana do uzyskiwania tokenów używanych do uzyskiwania dostępu do chronionych zasobów w późniejszych wywołaniach. Wywołania żądania lub odnowienia tokenów są wykonywane dyskretnie.
+`acquireTokenSilent`Metoda obsługuje pozyskiwanie i odnawianie tokenów bez interakcji z użytkownikiem. Gdy `loginRedirect` lub `loginPopup` Metoda jest wykonywana po raz pierwszy, `acquireTokenSilent` jest często używana do uzyskiwania tokenów używanych do uzyskiwania dostępu do chronionych zasobów w późniejszych wywołaniach. Wywołania żądania lub odnowienia tokenów są wykonywane dyskretnie.
 
 ```javascript
 const requestObj = {
@@ -268,7 +268,7 @@ W tym kodzie `scopes` zawiera zakresy wymagane do zwrócenia w tokenie dostępu 
 Przykład:
 
 * `["user.read"]`dla Microsoft Graph
-* `["<Application ID URL>/scope"]`w przypadku niestandardowych interfejsów API sieci Web ( `api://<Application ID>/access_as_user`czyli)
+* `["<Application ID URL>/scope"]`w przypadku niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
@@ -278,9 +278,9 @@ Czasami potrzebujesz, aby użytkownik mógł korzystać z punktu końcowego plat
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.
 * Wymagane jest uwierzytelnianie dwuskładnikowe.
 
-Zalecany wzorzec dla większości aplikacji jest najpierw wywoływany `acquireTokenSilent` , a następnie przechwytywany jest wyjątek, a następnie `acquireTokenPopup` wywoływanie `acquireTokenRedirect`(lub) w celu uruchomienia interakcyjnego żądania.
+Zalecany wzorzec dla większości aplikacji jest najpierw wywoływany `acquireTokenSilent` , a następnie przechwytywany jest wyjątek, a następnie wywoływanie `acquireTokenPopup` (lub `acquireTokenRedirect` ) w celu uruchomienia interakcyjnego żądania.
 
-Wywoływanie `acquireTokenPopup` wyników w oknie podręcznym logowania. `acquireTokenRedirect` Alternatywnie przekierowuje użytkowników do punktu końcowego platformy tożsamości firmy Microsoft. W tym oknie Użytkownicy muszą potwierdzić swoje poświadczenia, wyrazić zgodę na wymagane zasoby lub ukończyć uwierzytelnianie dwuskładnikowe.
+Wywoływanie `acquireTokenPopup` wyników w oknie podręcznym logowania. Alternatywnie `acquireTokenRedirect` przekierowuje użytkowników do punktu końcowego platformy tożsamości firmy Microsoft. W tym oknie Użytkownicy muszą potwierdzić swoje poświadczenia, wyrazić zgodę na wymagane zasoby lub ukończyć uwierzytelnianie dwuskładnikowe.
 
 ```javascript
   const requestObj = {
@@ -319,7 +319,7 @@ Aby zapoznać się z przykładem dodawania interfejsu użytkownika przy użyciu 
     npm install
     npm start
     ```
-1. W przeglądarce wpisz **http://localhost:4200** lub **http://localhost:{port}**, gdzie *port* to port, na którym nasłuchuje serwer sieci Web.
+1. W przeglądarce wpisz **http://localhost:4200** lub **http://localhost:{port}** , gdzie *port* to port, na którym nasłuchuje serwer sieci Web.
 
 
 ### <a name="provide-consent-for-application-access"></a>Wyrażanie zgody na dostęp do aplikacji
@@ -332,7 +332,7 @@ Po pierwszym zalogowaniu się do aplikacji zostanie wyświetlony monit o udziele
 
 Interfejs API Microsoft Graph wymaga, aby *użytkownik. Read* miał zakres do odczytu profilu użytkownika. Domyślnie ten zakres jest automatycznie dodawany w każdej aplikacji, która jest zarejestrowana w portalu rejestracji. Inne interfejsy API dla Microsoft Graph, a także niestandardowe interfejsy API dla serwera zaplecza mogą wymagać dodatkowych zakresów. Na przykład interfejs API Microsoft Graph wymaga zakresu *Calendars. Read* , aby wyświetlić kalendarze użytkownika.
 
-Aby uzyskać dostęp do kalendarzy użytkownika w kontekście aplikacji, Dodaj *kalendarze. Odczytaj* delegowane uprawnienia do informacji rejestracyjnych aplikacji. Następnie Dodaj do `acquireTokenSilent` wywołania zakres *Calendars. Read* .
+Aby uzyskać dostęp do kalendarzy użytkownika w kontekście aplikacji, Dodaj *kalendarze. Odczytaj* delegowane uprawnienia do informacji rejestracyjnych aplikacji. Następnie Dodaj do wywołania zakres *Calendars. Read* . `acquireTokenSilent`
 
 >[!NOTE]
 >Użytkownik może zostać poproszony o dodatkowe przesłanie w miarę zwiększania liczby zakresów.
@@ -343,7 +343,6 @@ Jeśli interfejs API zaplecza nie wymaga zakresu (niezalecane), można użyć *c
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie Dowiedz się, jak zalogować użytkownika i uzyskać tokeny w samouczku kątowym:
+Jeśli jesteś nowym programem do zarządzania tożsamościami i dostępem, mamy kilka artykułów, które pomogą Ci poznać nowoczesne koncepcje dotyczące uwierzytelniania, rozpoczynając od [uwierzytelniania a autoryzacją](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Samouczek kątowy](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+Jeśli chcesz szczegółowe więcej na temat tworzenia aplikacji jednostronicowych na platformie tożsamości firmy Microsoft, scenariusz wieloetapowy [: jednostronicowa seria aplikacji](scenario-spa-overview.md) może pomóc Ci rozpocząć pracę.

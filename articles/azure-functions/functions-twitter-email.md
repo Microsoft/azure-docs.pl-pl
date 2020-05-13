@@ -4,21 +4,21 @@ description: Utwórz funkcję integrującą się z usługą Azure Logic Apps i u
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190303"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116398"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Tworzenie funkcji integrującej się z usługą Azure Logic Apps
 
 Usługa Azure Functions integruje się z usługą Azure Logic Apps w Projektancie aplikacji usługi Logic Apps. Ta integracja umożliwia używanie mocy obliczeniowej usługi Functions w aranżacjach z innymi usługami platformy Azure oraz innych dostawców. 
 
-W tym samouczku pokazano, jak za pomocą usługi Functions z usługami Logic Apps i Microsoft Cognitive Services na platformie Azure uruchamiać analizę tonacji we wpisach w usłudze Twitter. Funkcja wyzwalana przez protokół HTTP kategoryzuje tweety jako zielone, żółte lub czerwone na podstawie wyniku tonacji. W razie wykrycia niskiego poziomu tonacji wysyłana jest wiadomość e-mail. 
+Ten samouczek pokazuje, w jaki sposób używać Azure Functions z Logic Apps i Cognitive Services na platformie Azure do uruchamiania analizy tonacji z wpisów w serwisie Twitter. Funkcja wyzwalacza HTTP klasyfikuje tweety jako zielone, żółte lub czerwone na podstawie wyniku tonacji. W razie wykrycia niskiego poziomu tonacji wysyłana jest wiadomość e-mail. 
 
 ![ilustracja: pierwsze dwa kroki aplikacji w Projektancie aplikacji usługi Logic Apps](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -51,7 +51,7 @@ Interfejsy API usług Cognitive Services są dostępne na platformie Azure jako 
 
 2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal.
 
-3. Kliknij pozycję **AI + Machine Learning** > **Analiza tekstu**. Następnie użyj ustawień określonych w tabeli, aby utworzyć zasób.
+3. Kliknij pozycję **AI + Machine Learning**  >  **Analiza tekstu**. Następnie użyj ustawień określonych w tabeli, aby utworzyć zasób.
 
     ![Tworzenie strony zasobu usług Cognitive](media/functions-twitter-email/01-create-text-analytics.png)
 
@@ -64,7 +64,7 @@ Interfejsy API usług Cognitive Services są dostępne na platformie Azure jako 
 
 4. Kliknij przycisk **Utwórz**, aby utworzyć zasób. 
 
-5. Kliknij pozycję **Przegląd** i skopiuj wartość **Punkt końcowy** do edytora tekstów. Ta wartość jest używana podczas tworzenia połączenia z interfejsem API usług Cognitive Services.
+5. Kliknij pozycję **Przegląd** i skopiuj wartość **punktu końcowego** do edytora tekstu. Ta wartość jest używana podczas tworzenia połączenia z interfejsem API usług Cognitive Services.
 
     ![Ustawienia usług Cognitive Services](media/functions-twitter-email/02-cognitive-services.png)
 
@@ -74,21 +74,21 @@ Interfejsy API usług Cognitive Services są dostępne na platformie Azure jako 
 
 ## <a name="create-the-function-app"></a>Tworzenie aplikacji funkcji
 
-Usługa Functions zapewnia doskonały sposób na odciążanie przetwarzania zadań w przepływie pracy aplikacji logiki. W tym samouczku funkcja wyzwalana przez protokół HTTP używana jest do przetwarzania wyników tonacji tweetów z usług Cognitive Services i zwracania wartości kategorii.  
+Azure Functions zapewnia doskonały sposób odciążania zadań przetwarzania w przepływie pracy aplikacji logiki. Ten samouczek używa funkcji wyzwalacza HTTP do przetwarzania wyników tonacji tweetów z Cognitive Services i zwracania wartości kategorii.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Tworzenie funkcji wyzwalanej przez protokół HTTP  
+## <a name="create-an-http-trigger-function"></a>Tworzenie funkcji wyzwalacza HTTP  
 
-1. Rozwiń aplikację funkcji i kliknij **+** przycisk obok pozycji **funkcje**. Jeśli jest to pierwsza funkcja w aplikacji funkcji, wybierz pozycję **W portalu**.
+1. W menu po lewej stronie okna **funkcje** wybierz pozycję **funkcje**, a następnie wybierz pozycję **Dodaj** z górnego menu.
 
-    ![Strona szybkiego rozpoczynania pracy z usługą Functions w witrynie Azure Portal](media/functions-twitter-email/05-function-app-create-portal.png)
+2. W oknie **Nowa funkcja** wybierz pozycję **wyzwalacz http**.
 
-2. Następnie wybierz pozycję **Element webhook i interfejs API** i kliknij pozycję **Utwórz**. 
+    ![Wybierz funkcję wyzwalacza HTTP](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Wybieranie wyzwalacza HTTP](./media/functions-twitter-email/06-function-webhook.png)
+3. Na stronie **Nowa funkcja** wybierz pozycję **Utwórz funkcję**.
 
-3. Zastąp zawartość pliku `run.csx` poniższym kodem, a następnie kliknij przycisk **Zapisz**:
+4. W nowej funkcji wyzwalacza HTTP wybierz pozycję **Kod + test** z menu po lewej stronie, Zastąp zawartość `run.csx` pliku następującym kodem, a następnie wybierz pozycję **Zapisz**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ Usługa Functions zapewnia doskonały sposób na odciążanie przetwarzania zada
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     Ten kod funkcji zwraca kategorię koloru na podstawie wyniku tonacji otrzymanego w żądaniu. 
 
-4. Aby przetestować funkcję, kliknij przycisk **Testuj** po prawej stronie, aby rozwinąć kartę test. Wpisz wartość `0.2` dla **treści żądania**, a następnie kliknij przycisk **Uruchom**. W treści odpowiedzi jest zwracana wartość **RED** (Czerwony). 
+5. Aby przetestować funkcję, wybierz pozycję **Testuj** z górnego menu. Na karcie **dane wejściowe** wprowadź wartość `0.2` w polu **treść**, a następnie wybierz pozycję **Uruchom**. Wartość **czerwona** jest zwracana w **treści odpowiedzi HTTP** na karcie **dane wyjściowe** . 
 
-    ![Testowanie funkcji w witrynie Azure Portal](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definiowanie ustawień serwera proxy":::
 
 Została utworzona funkcja kategoryzująca wyniki tonacji. Następnie należy utworzyć aplikację logiki, która zintegruje funkcję z usługą Twitter i interfejsem API usług Cognitive Services. 
 
@@ -135,7 +136,7 @@ Została utworzona funkcja kategoryzująca wyniki tonacji. Następnie należy ut
 
 1. W Azure Portal kliknij przycisk **Utwórz zasób** znajdujący się w lewym górnym rogu Azure Portal.
 
-2. Kliknij pozycję**aplikacja logiki** **sieci Web** > .
+2. Kliknij **Web**pozycję  >  **aplikacja logiki**sieci Web.
  
 3. Następnie wpisz wartość **Nazwa**, taką jak `TweetSentiment`, i użyj ustawień określonych w tabeli.
 
@@ -187,7 +188,7 @@ Teraz aplikacja jest połączona z usługą Twitter. Następnie należy połącz
 
     ![Nowy krok, a następnie pozycja Dodaj akcję](media/functions-twitter-email/12-connection-settings.png)
 
-4. Następnie wprowadź **Tekst tweetu** w polu tekstowym i kliknij pozycję **Nowy krok**.
+4. Następnie w polu tekstowym wprowadź **tekst tweetu** , a następnie kliknij przycisk **nowy krok**.
 
     ![Definiowanie tekstu do przeanalizowania](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -195,7 +196,7 @@ Skonfigurowano już wykrywanie tonacji, więc można dodać połączenie z funkc
 
 ## <a name="connect-sentiment-output-to-your-function"></a>Łączenie danych wyjściowych tonacji z funkcją
 
-1. W projektancie Logic Apps kliknij pozycję **nowy krok** > **Dodaj akcję**, odfiltruj **Azure Functions** a następnie kliknij pozycję **Wybierz funkcję platformy Azure**.
+1. W projektancie Logic Apps kliknij pozycję **nowy krok**  >  **Dodaj akcję**, odfiltruj **Azure Functions** a następnie kliknij pozycję **Wybierz funkcję platformy Azure**.
 
     ![Wykrywanie tonacji](media/functions-twitter-email/14-azure-functions.png)
   
@@ -215,9 +216,9 @@ Teraz funkcja jest wyzwalana po wysłaniu wyniku tonacji z aplikacji logiki. Fun
 
 ## <a name="add-email-notifications"></a>Dodawanie powiadomień w wiadomościach e-mail
 
-Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy wynik tonacji skategoryzowano jako _RED_ (Czerwony). W tym temacie używany jest łącznik usługi Outlook.com. Wykonując podobne kroki, można użyć łącznika usługi Gmail lub programu Outlook w usłudze Office 365.   
+Ostatnia część przepływu pracy polega na wyzwoleniu wiadomości e-mail, gdy wynik tonacji skategoryzowano jako _RED_ (Czerwony). W tym artykule jest stosowany łącznik Outlook.com. Wykonując podobne kroki, można użyć łącznika usługi Gmail lub programu Outlook w usłudze Office 365.   
 
-1. W projektancie Logic Apps kliknij pozycję **nowy krok** > **Dodaj warunek**. 
+1. W projektancie Logic Apps kliknij pozycję **nowy krok**  >  **Dodaj warunek**. 
 
     ![Dodaj warunek do aplikacji logiki.](media/functions-twitter-email/18-add-condition.png)
 
@@ -277,7 +278,7 @@ Przepływ pracy jest gotowy, można więc włączyć aplikację logiki i przyjrz
     > [!IMPORTANT]
     > Po ukończeniu tego samouczka najlepiej jest wyłączyć aplikację logiki. Wyłączenie aplikacji pozwala uniknąć naliczania opłat za wykonania i zużywania transakcji w interfejsie API usług Cognitive Services.
 
-Teraz wiesz już, jak łatwe jest integrowanie usługi Functions w przepływie pracy usługi Logic Apps.
+Teraz wiesz, jak łatwo zintegrować funkcje z przepływem pracy Logic Apps.
 
 ## <a name="disable-the-logic-app"></a>Wyłączanie aplikacji logiki
 

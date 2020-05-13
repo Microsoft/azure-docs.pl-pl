@@ -15,151 +15,148 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b12bd8ba7998b924035a0946f9e32b88ce206e4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0c0c1cab94a6b83ca429fd640759bed8af0ae881
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79476505"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Samouczek: integracja Azure Active Directory z zestawem narzędzi do obsługi myśli
 
 W tym samouczku dowiesz się, jak zintegrować zestaw narzędzi z narzędziami do tworzenia i Azure Active Directory (Azure AD).
-Integracja zestawu narzędzi do sprawdzania myśli z usługą Azure AD zapewnia następujące korzyści:
 
-* Możesz kontrolować usługę Azure AD, która ma dostęp do zestawu narzędzi.
-* Możesz umożliwić użytkownikom automatyczne logowanie się do zestawu narzędzi (Logowanie jednokrotne) za pomocą kont usługi Azure AD.
-* Możesz zarządzać swoimi kontami w jednej centralnej lokalizacji — witrynie Azure Portal.
+Dzięki tej integracji można:
 
-Jeśli chcesz dowiedzieć się więcej na temat integracji aplikacji SaaS z usługą Azure AD, zobacz [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
+* Kontrolka w usłudze Azure AD, która ma dostęp do zestawu narzędzi.
+* Zezwól użytkownikom na automatyczne logowanie się do zestawu narzędzi (Logowanie jednokrotne) za pomocą kont usługi Azure AD.
+* Zarządzaj kontami w jednej centralnej lokalizacji: Azure Portal.
+
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby skonfigurować integrację usługi Azure AD z zestawem narzędzi do sprawdzania myśli, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Zestaw narzędzi do obsługi logowania jednokrotnego — włączono subskrypcję
+* Pakiet narzędzi do obsługi narzędzi do zalogowania z włączonym logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i przetestujesz logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Zestaw narzędzi do obsługi myśli obsługuje logowanie jednokrotne w usłudze **SP**
-* Zestaw narzędzi do obsługi myśli obsługuje funkcję aprowizacji użytkowników **just in Time**
-* Po skonfigurowaniu zestawu narzędzi do tworzenia myśli można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Zestaw narzędzi do tworzenia myśli obsługuje logowanie jednokrotne zainicjowane przez usługę SP.
+* Zestaw narzędzi do obsługi myśli obsługuje funkcję aprowizacji użytkowników just in Time.
+* Po skonfigurowaniu zestawu narzędzi do sprawdzania myśli można wymusić kontrolę sesji. Ta kontrolka chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-mind-tools-toolkit-from-the-gallery"></a>Dodawanie zestawu narzędzi do myśli z galerii
+## <a name="add-mind-tools-toolkit-from-the-gallery"></a>Dodaj zestaw narzędzi do przypominania z galerii
 
 Aby skonfigurować integrację zestawu narzędzi do sprawdzania myśli z usługą Azure AD, musisz dodać zestaw narzędzi do wyświetlania z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Przejdź do pozycji **Aplikacje dla przedsiębiorstw** i wybierz pozycję **Wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** w polu wyszukiwania wpisz ciąg **Narzędzia do sprawdzania** .
-1. Wybierz **zestaw narzędzi myśli narzędzia** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** w polu wyszukiwania wprowadź **zestaw narzędzi do sprawdzania myśli** .
+1. Wybierz **zestaw narzędzi myśli narzędzia** z wyników wyszukiwania, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie logowania jednokrotnego usługi Azure AD
 
-W tej sekcji konfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD za pomocą zestawu narzędzi do sprawdzania myśli w oparciu o użytkownika testowego o nazwie **B. Simon**.
-Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem.
+W tej sekcji skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD za pomocą zestawu narzędzi do sprawdzania myśli przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić połączoną relację między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w zestawie narzędzi.
 
-Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą zestawu narzędzi do tworzenia i testowania, należy wykonać następujące bloki konstrukcyjne:
+Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą zestawu narzędzi do tworzenia i testowania, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    * **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    * **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj zestaw narzędzi do zdania Logowanie jednokrotne](#configure-mind-tools-toolkit-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    * **[Utwórz zestaw narzędzi do sprawdzania myśli Użytkownik testowy](#create-mind-tools-toolkit-test-user)** — Aby uzyskać odpowiedniki zestawu narzędzi. Simon, który jest połączony z reprezentacją usługi Azure AD.
-1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** , aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
+    1. **[Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user)** aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+1. **[Skonfiguruj zestaw narzędzi do zdania Logowanie jednokrotne](#configure-mind-tools-toolkit-sso)** w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego zestawu narzędzi do Rozmyślinia](#create-a-mind-tools-toolkit-test-user)** , aby uzyskać odpowiednika B. Simon w zestawie narzędzi. Ten odpowiednik jest połączony z reprezentacją usługi Azure AD użytkownika.
+1. **[Przetestuj Logowanie jednokrotne](#test-sso)** , aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-W tej sekcji włączysz logowanie jednokrotne usługi Azure AD w witrynie Azure Portal.
-
-Aby skonfigurować funkcję logowania jednokrotnego usługi Azure AD przy użyciu zestawu narzędzi, należy wykonać następujące czynności:
+W tej sekcji skonfigurujesz Logowanie jednokrotne w usłudze Azure AD za pomocą zestawu narzędzi do przypominania, wykonując następujące czynności:
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **zestawu narzędzi do rozmyślinia** wybierz pozycję **Logowanie jednokrotne**.
 
-    ![Link do konfigurowania logowania jednokrotnego](common/select-sso.png)
+    ![Sekcja zarządzania z wyróżnionym logowaniem jednokrotnym](common/select-sso.png)
 
-2. W oknie dialogowym **Wybieranie metody logowania jednokrotnego** wybierz tryb **SAML/WS-Fed**, aby włączyć logowanie jednokrotne.
+1. W oknie dialogowym **Wybierz metodę logowania** jednokrotnego wybierz pozycję **SAML/WS-karmione** , aby włączyć logowanie jednokrotne.
 
-    ![Wybieranie trybu logowania jednokrotnego](common/select-saml-option.png)
+    ![Okno dialogowe Wybieranie metody logowania jednokrotnego z wyróżnioną pozycją SAML](common/select-saml-option.png)
 
-3. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** kliknij ikonę **Edytuj**, aby otworzyć okno dialogowe **Podstawowa konfiguracja protokołu SAML**.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę ołówka dla **podstawowej konfiguracji SAML** , aby edytować ustawienia.
 
-    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+    ![Strona Konfigurowanie logowania jednokrotnego za pomocą języka SAML z ikoną ołówka dla podstawowej konfiguracji języka SAML wyróżniona](common/edit-urls.png)
 
-4. W sekcji **Podstawowa konfiguracja protokołu SAML** wykonaj następujące czynności:
+1. W sekcji **Podstawowa konfiguracja języka SAML** w polu **adres URL logowania** wprowadź adres URL ze wzorcem `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>` .
 
-    W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
+    > [!NOTE]
+    > Wartość **adresu URL logowania** nie jest prawdziwa. Zaktualizuj wartość przy użyciu rzeczywistego adresu URL logowania. Aby uzyskać wartość, skontaktuj się z [zespołem obsługi klienta zestawu narzędzi](mailto:support@goodpractice.com) .
 
-    > [!Note]
-    > Wartość adresu URL logowania nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z firmą z [zestawem narzędzi do obsługi klienta](mailto:support@goodpractice.com) , aby uzyskać wartość.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** przejdź do sekcji **certyfikat podpisywania SAML** . Z prawej strony **XML metadanych Federacji**wybierz pozycję **Pobierz** , aby pobrać tekst XML i zapisać go na komputerze. Zawartość XML zależy od wybranych opcji.
 
-5. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
+    ![Sekcja certyfikat podpisywania SAML z wyróżnioną pozycją Pobierz obok pliku XML metadanych Federacji](common/metadataxml.png)
 
-    ![Link do pobierania certyfikatu](common/metadataxml.png)
+1. W sekcji **Konfiguracja zestawu narzędzi do sprawdzania myśli** Skopiuj, w zależności od następujących adresów URL, które są potrzebne.
 
-6. W sekcji **Konfiguracja zestawu narzędzi do sprawdzania myśli** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
+    * **Adres URL logowania**
 
-    ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
+    * **Identyfikator usługi Azure AD**
 
-    a. Adres URL logowania
+    * **Adres URL wylogowywania**
 
-    b. Identyfikator usługi Azure AD
-
-    c. Adres URL wylogowywania
+    ![Sekcja zestawu narzędzi do ustawiania myśli z wyróżnionymi adresami URL konfiguracji](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
+W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal:
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+1. Na lewej stronie Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
+1. W górnej części ekranu wybierz pozycję **nowy użytkownik**.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. W polu **Nazwa** wpisz **B. Simon**.  
+   1. W polu **Nazwa użytkownika** wpisz **B. Simon@**_formacie_**.** _rozszerzenie_. Na przykład B.Simon@contoso.com.
+   1. Zaznacz pole wyboru **Pokaż hasło** , a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure, przyznając dostęp do zestawu narzędzi.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **zestaw narzędzi**.
-1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
+1. Na stronie Przegląd aplikacji przejdź do sekcji **Zarządzanie** , a następnie wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+   ![Sekcja zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
-    ![Link Dodaj użytkownika](common/add-assign-user.png)
+   ![Okno Użytkownicy i grupy z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy. Następnie wybierz przycisk **Wybierz** w dolnej części ekranu.
+1. Jeśli oczekujesz jakiejkolwiek wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybieranie roli** wybierz odpowiednią rolę dla użytkownika z listy. Następnie wybierz przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
 ## <a name="configure-mind-tools-toolkit-sso"></a>Skonfiguruj zestaw narzędzi do zdania Logowanie jednokrotne
 
-Aby skonfigurować funkcję jednokrotnego logowania na stronie **zestawu narzędzi** do pracy, musisz wysłać pobrany **kod XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal, aby uzyskać [Pomoc zespołu zestawu narzędzi](mailto:support@goodpractice.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **zestawu narzędzi** do obsługi myśli, Wyślij pobrany tekst **XML metadanych Federacji** i wcześniej skopiowane adresy URL do [zespołu pomocy technicznej zestawu narzędzi](mailto:support@goodpractice.com). Ustawi on to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-mind-tools-toolkit-test-user"></a>Utwórz użytkownika testowego zestawu narzędzi myśli
+### <a name="create-a-mind-tools-toolkit-test-user"></a>Utwórz użytkownika testowego zestawu narzędzi do sprawdzania myśli
 
-W tej sekcji użytkownik o nazwie B. Simon został utworzony w narzędziu narzędzia do sprawdzania myśli. Zestaw narzędzi do zamyślinia obsługuje **obsługę just-in-Time**, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik jeszcze nie istnieje w zestawie narzędzi do przypominania, zostanie utworzony nowy, gdy spróbujesz uzyskać dostęp do zestawu narzędzi.
+W tej sekcji utworzysz użytkownika o nazwie B. Simon w narzędziu narzędzia do sprawdzania myśli.
+
+Zestaw narzędzi do zamyślinia obsługuje obsługę just-in-Time, która jest domyślnie włączona. Nie ma żadnych akcji, które należy wykonać w tej sekcji. Jeśli użytkownik jeszcze nie istnieje w zestawie narzędzi do przypominania, zostanie utworzony nowy, gdy spróbujesz uzyskać dostęp do zestawu narzędzi.
 
 ### <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD za pomocą portalu My Apps.
 
-Po kliknięciu kafelka zestaw narzędzi myśli w panelu dostępu należy automatycznie zalogować się do zestawu narzędzi do ZAMYŚLI, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka zestawu narzędzi myśli w portalu Moje aplikacje użytkownik zostanie automatycznie zalogowany do zestawu narzędzi do zdania, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat portalu Moje aplikacje, zobacz [wprowadzenie do portalu My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS apps with Azure Active Directory (Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 

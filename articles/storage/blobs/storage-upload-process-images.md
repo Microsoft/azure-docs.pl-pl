@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c475787eafde4ba847b292df57e4b0d18cfe5d0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393859"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196047"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Samouczek: przekazywanie danych obrazu do chmury za pomocą usługi Azure Storage
 
 Niniejszy samouczek jest pierwszą częścią serii. W tym samouczku dowiesz się, jak wdrożyć aplikację sieci Web, która korzysta z biblioteki klienta usługi Azure Blob Storage w celu przekazywania obrazów do konta magazynu. Po zakończeniu tego samouczka będziesz mieć aplikację internetową zapisującą obrazy w usłudze Azure Storage i wyświetlającą obrazy z tej usługi.
 
-# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 ![Aplikacja do zmiany rozmiaru obrazu w programie .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[Zestaw SDK v10 środowiska Node. js](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[V10 środowiska Node. js](#tab/nodejsv10)
 ![Aplikacja do zmiany rozmiaru obrazu w Node. js v10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -121,7 +121,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Wdrażanie aplikacji przykładowej z repozytorium usługi GitHub
 
-# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
 Usługa App Service obsługuje kilka metod wdrażania zawartości w aplikacji internetowej. W tym samouczku wdrażasz aplikację internetową z [publicznego repozytorium przykładów usługi GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Skonfiguruj wdrożenie usługi GitHub do aplikacji internetowej za pomocą polecenia [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -133,7 +133,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Zestaw SDK v10 środowiska Node. js](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[V10 środowiska Node. js](#tab/nodejsv10)
 Usługa App Service obsługuje kilka metod wdrażania zawartości w aplikacji internetowej. W tym samouczku wdrażasz aplikację internetową z [publicznego repozytorium przykładów usługi GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Skonfiguruj wdrożenie usługi GitHub do aplikacji internetowej za pomocą polecenia [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 ```azurecli-interactive
@@ -146,7 +146,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Konfigurowanie ustawień aplikacji internetowej
 
-# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
 Przykładowa aplikacja internetowa używa [interfejsów API usługi Azure Storage dla platformy .NET](/dotnet/api/overview/azure/storage) do przekazywania obrazów. Poświadczenia konta magazynu są ustawiane w ustawieniach aplikacji dla aplikacji sieci Web. Dodaj ustawienia aplikacji do wdrożonej aplikacji za pomocą polecenia [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -158,7 +158,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Zestaw SDK v10 środowiska Node. js](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[V10 środowiska Node. js](#tab/nodejsv10)
 
 Przykładowa aplikacja internetowa używa [biblioteki klienta usługi Azure Storage](https://github.com/Azure/azure-storage-js), aby żądać tokenów dostępu, które służą do przekazywania obrazów. Poświadczenia konta magazynu używane przez zestaw Storage SDK są konfigurowane w ustawieniach aplikacji dla danej aplikacji internetowej. Dodaj ustawienia aplikacji do wdrożonej aplikacji za pomocą polecenia [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -176,13 +176,13 @@ Po wdrożeniu i skonfigurowaniu aplikacji internetowej możesz przetestować fun
 
 Aby przetestować aplikację internetową, przejdź pod adres URL Twojej opublikowanej aplikacji. Domyślnym adresem URL aplikacji internetowej jest `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 
 Wybierz region **Przekaż Zdjęcia** , aby określić i przekazać plik, lub przeciągnij plik na region. Obraz zniknie, jeśli zostanie pomyślnie przekazany. Sekcja **Generated Thumbnails** (Wygenerowane miniatury) pozostanie pusta, dopóki nie przetestujemy jej w dalszej części tego tematu.
 
 ![Przekazywanie zdjęć w programie .NET](media/storage-upload-process-images/figure1.png)
 
-`UploadFileToStorage` W przykładowym kodzie zadanie w pliku *Storagehelper.cs* służy do przekazywania obrazów do kontenera *obrazów* na koncie magazynu przy użyciu metody [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) . Poniższy przykładowy kod zawiera zadanie `UploadFileToStorage`.
+W przykładowym kodzie `UploadFileToStorage` zadanie w pliku *Storagehelper.cs* służy do przekazywania obrazów do kontenera *obrazów* na koncie magazynu przy użyciu metody [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) . Poniższy przykładowy kod zawiera zadanie `UploadFileToStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName,
@@ -218,7 +218,7 @@ W poprzednim zadaniu użyto następujących klas i metod:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential (String, String) — Konstruktor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10-sdk"></a>[Zestaw SDK v10 środowiska Node. js](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[V10 środowiska Node. js](#tab/nodejsv10)
 
 Wybierz pozycję **Choose File** (Wybierz plik), aby wybrać plik, a następnie kliknij przycisk **Upload Image** (Przekaż obraz). Sekcja **Generated Thumbnails** (Wygenerowane miniatury) pozostanie pusta, dopóki nie przetestujemy jej w dalszej części tego tematu. 
 
@@ -304,7 +304,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Z menu po lewe
 
 Sprawdź, czy obraz jest wyświetlany w kontenerze.
 
-![Lista kontenerów obrazów w witrynie Azure Portal](media/storage-upload-process-images/figure13.png)
+![Azure Portal listę kontenerów obrazów](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Testowanie wyświetlania miniatur
 
@@ -316,10 +316,10 @@ Wybierz plik za pomocą selektora plików i wybierz pozycję **Przekaż**.
 
 Przejdź z powrotem do aplikacji, aby sprawdzić, czy obraz przekazany do kontenera **thumbnails** jest widoczny.
 
-# <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
+# <a name="net-v12"></a>[\.V12 netto](#tab/dotnet)
 ![Aplikacja do zmiany rozmiaru obrazu platformy .NET z wyświetlonym nowym obrazem](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[Zestaw SDK v10 środowiska Node. js](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[V10 środowiska Node. js](#tab/nodejsv10)
 ![Aplikacja do zmiany rozmiaru obrazu v10 Node. js z nowym obrazem](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
