@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Konfigurowanie lokalnych metryk i dzienników dla własnej bramy
           href: how-to-configure-local-metrics-logs.md
-        - name: Rejestrowanie żądań za pomocą usługi Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Konfigurowanie odzyskiwania po awarii przy użyciu funkcji wykonywania/przywracania kopii zapasowej
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Zarządzanie kontami użytkowników
