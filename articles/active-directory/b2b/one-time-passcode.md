@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263376"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199483"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ W tym artykule opisano, jak włączyć jednokrotne uwierzytelnianie kodu dostęp
 Ta funkcja jest obecnie dostępna w wersji zapoznawczej (zobacz [rezygnację z wersji zapoznawczej](#opting-in-to-the-preview) poniżej). W wersji zapoznawczej ta funkcja będzie domyślnie włączona dla wszystkich dzierżawców.
 
 > [!NOTE]
-> Jednorazowy kod dostępu użytkownicy muszą logować się przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>`w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy-Goście nie mogą obecnie zalogować się za pomocą punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład przy użyciu `https://myapps.microsoft.com`, `https://portal.azure.com`, lub wspólny punkt końcowy zespołów spowoduje wystąpienie błędu. 
+> Jednorazowy kod dostępu użytkownicy muszą logować się przy użyciu linku zawierającego kontekst dzierżawy (na przykład `https://myapps.microsoft.com/?tenantid=<tenant id>` lub `https://portal.azure.com/<tenant id>` w przypadku zweryfikowanej domeny `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). Bezpośrednie linki do aplikacji i zasobów działają również tak długo, jak w przypadku kontekstu dzierżawy. Użytkownicy-Goście nie mogą obecnie zalogować się za pomocą punktów końcowych, które nie mają kontekstu dzierżawy. Na przykład przy użyciu `https://myapps.microsoft.com` , `https://portal.azure.com` , lub wspólny punkt końcowy zespołów spowoduje wystąpienie błędu. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Środowisko użytkownika dla użytkowników-Gości jednorazowego kodu dostępu
 W przypadku uwierzytelniania za pomocą jednorazowego kodu dostępu użytkownik-Gość może skorzystać z zaproszenia przez kliknięcie linku bezpośredniego lub wysłanie wiadomości e-mail z zaproszeniem. W obu przypadkach komunikat w przeglądarce wskazuje, że kod zostanie wysłany na adres e-mail użytkownika-gościa. Użytkownik-Gość wybierze opcję **Wyślij kod**:
@@ -52,11 +52,11 @@ Użytkownik-Gość jest teraz uwierzytelniany i może zobaczyć zasób udostępn
 Gdy użytkownik-Gość zrealizuje zaproszenie lub używa linku do zasobu, który został Ci udostępniony, otrzyma jednorazowy kod dostępu, jeśli:
 - Nie mają konta usługi Azure AD 
 - Nie mają konto Microsoft 
-- Zapraszana dzierżawa nie została skonfigurowana dla użytkowników usługi Google @gmail.com Federation @googlemail.com for i 
+- Zapraszana dzierżawa nie została skonfigurowana dla użytkowników usługi Google Federation for @gmail.com i @googlemail.com 
 
 W momencie zaproszenia nie ma wskazania, że użytkownik, którego zapraszasz, będzie używać uwierzytelniania jednorazowego kodu dostępu. Jednak po zalogowaniu się użytkownika-gościa uwierzytelnianie jednorazowego kodu dostępu będzie metodą rezerwową, jeśli nie można użyć innych metod uwierzytelniania. 
 
-Można wyświetlić użytkowników-Gości, którzy uwierzytelniają się za pomocą jednorazowych kodów dostępu w Azure Portal, przechodząc do **Azure Active Directory** > **relacji** > organizacji**użytkowników z innych organizacji**.
+Użytkowników-Gości, którzy uwierzytelniają się za pomocą jednorazowych kodów dostępu w Azure Portal, można wyświetlić, przechodząc do **Azure Active Directory**  >  **użytkowników**.
 
 ![Zrzut ekranu przedstawiający użytkownika jednorazowego kodu dostępu z wartością źródłową OTP](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Wykonanie akcji zgody może potrwać kilka minut. Po tym czasie tylko nowo zapro
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Aby zrezygnować z korzystania z portalu usługi Azure AD
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3.  W obszarze **Zarządzaj**wybierz pozycję **relacje organizacyjne**.
-4.  Wybierz pozycję **Ustawienia**.
+3.  Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
 5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **tak**.
  
 ### <a name="to-opt-in-using-powershell"></a>Aby wyrazić zgodę na korzystanie z programu PowerShell
@@ -139,8 +138,7 @@ Wykonanie akcji rezygnacji może potrwać kilka minut. Jeśli wyłączysz Podgl�
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Aby wyłączyć podgląd przy użyciu portalu usługi Azure AD
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3.  W obszarze **Zarządzaj**wybierz pozycję **relacje organizacyjne**.
-4.  Wybierz pozycję **Ustawienia**.
+3.  Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
 5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **nie**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Aby wyłączyć podgląd przy użyciu programu PowerShell

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249596"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199030"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Zakres i zakres czasu zapytania dziennika w Azure Monitor Log Analytics
 Po uruchomieniu [zapytania dziennika](log-query-overview.md) w [log Analytics w Azure Portal](get-started-portal.md), zestaw danych ocenianych przez zapytanie zależy od zakresu i wybranego zakresu czasu. W tym artykule opisano zakres i zakres czasu oraz sposób, w jaki można ustawić każdą z nich w zależności od wymagań. Opisano w nim również zachowanie różnych typów zakresów.
@@ -25,6 +25,9 @@ Zakres jest zawsze wyświetlany w lewym górnym rogu okna Log Analytics. Ikona w
 ![Zakres](media/scope/scope.png)
 
 Zakres jest określany przez metodę, która jest używana do uruchamiania Log Analytics, a w niektórych przypadkach można zmienić zakres, klikając go. W poniższej tabeli wymieniono różne typy używanych zakresów i różne szczegóły dotyczące każdego z nich.
+
+> [!IMPORTANT]
+> Jeśli używasz APM 2,1, Application Insights aplikacje są przechowywane w obszarze roboczym Log Analytics ze wszystkimi innymi danymi dziennika, a zakres Application Insights jest niedostępny. Jeśli wybierzesz pozycję **dzienniki** z menu Application Insights, będzie ona działać tak samo jak w przypadku **innych zakresów zasobów platformy Azure** , a tylko te dane, w których znajdują się aplikacje znajdujące się w tabelach Application Insights.
 
 | Zakres zapytania | Rekordy w zakresie | Jak wybrać | Zmienianie zakresu |
 |:---|:---|:---|:---|

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: f41a15fb52698eaa17d6f76b991cbd31a56ba14f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731977"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199741"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -22,6 +22,11 @@ Funkcja bezpłatnego automatycznego skalowania usługi Azure HDInsight może aut
 ## <a name="how-it-works"></a>Jak to działa
 
 Funkcja automatycznego skalowania używa dwóch typów warunków do wyzwalania zdarzeń skalowania: progi dla różnych metryk wydajności klastra (nazywane *skalowaniem opartym na założeniu*) i wyzwalacze oparte na czasie (zwane *skalowaniem opartym na harmonogramie*). Skalowanie oparte na obciążeniu zmienia liczbę węzłów w klastrze w określonym zakresie, aby zapewnić optymalne użycie procesora i zminimalizować koszt działania. Skalowanie oparte na harmonogramie zmienia liczbę węzłów w klastrze na podstawie operacji skojarzonych z określonymi datami i godzinami.
+
+Poniższy klip wideo zawiera omówienie wyzwań, które są rozwiązywane przez automatyczne skalowanie i w jaki sposób może pomóc w kontroli kosztów w usłudze HDInsight.
+
+
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Wybieranie skalowania opartego na ładowaniu lub harmonogramie
 
@@ -69,14 +74,14 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 | Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
 
 \*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Tworzenie klastra z automatycznym skalowaniem na podstawie obciążenia
 
@@ -128,7 +133,7 @@ Aby uzyskać więcej informacji na temat tworzenia klastra usługi HDInsight prz
 
 #### <a name="load-based-autoscaling"></a>Skalowanie automatyczne przy użyciu obciążenia
 
-Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, `autoscale` dodając węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON.
+Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania Azure Resource Manager szablonu, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji z właściwościami `minInstanceCount` i `maxInstanceCount` jak pokazano w poniższym fragmencie kodu JSON.
 
 ```json
 {
@@ -156,7 +161,7 @@ Można utworzyć klaster usługi HDInsight z użyciem automatycznego skalowania 
 
 #### <a name="schedule-based-autoscaling"></a>Skalowanie automatyczne oparte na harmonogramie
 
-Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu `autoscale` Azure Resource Manager, dodając węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale` Węzeł `recurrence` zawiera `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona.
+Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatycznego skalowania szablonu Azure Resource Manager, dodając `autoscale` węzeł do `computeProfile`  >  `workernode` sekcji. `autoscale`Węzeł zawiera `recurrence` `timezone` i `schedule` , który opisuje, kiedy zmiana zostanie przeprowadzona.
 
 ```json
 {
@@ -202,7 +207,7 @@ Aby włączyć lub wyłączyć funkcję automatycznego skalowania w uruchomionym
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
 ```
 
-Użyj odpowiednich parametrów w ładunku żądania. Poniżej można włączyć automatyczne skalowanie przy użyciu poniższego ładunku JSON. Użyj ładunku `{autoscale: null}` , aby wyłączyć automatyczne skalowanie.
+Użyj odpowiednich parametrów w ładunku żądania. Poniżej można włączyć automatyczne skalowanie przy użyciu poniższego ładunku JSON. Użyj ładunku, `{autoscale: null}` Aby wyłączyć automatyczne skalowanie.
 
 ```json
 { autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }

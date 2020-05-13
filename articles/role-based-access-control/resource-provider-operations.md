@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839100"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199561"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów Azure Resource Manager
 
-W tym artykule wymieniono operacje dostępne dla każdego dostawcy zasobów usługi Azure Resource Manager. Te operacje mogą być używane w [rolach niestandardowych platformy Azure](custom-roles.md) w celu zapewnienia szczegółowej kontroli dostępu do zasobów na platformie Azure. Ciągi operacji mają następujący format: `{Company}.{ProviderName}/{resourceType}/{action}`. Aby uzyskać listę sposobu mapowania przestrzeni nazw dostawcy zasobów na usługi platformy Azure, zobacz [dopasowanie dostawcy zasobów do usługi](../azure-resource-manager/management/azure-services-resource-providers.md).
+W tym artykule wymieniono operacje dostępne dla każdego dostawcy zasobów usługi Azure Resource Manager. Te operacje mogą być używane w [rolach niestandardowych platformy Azure](custom-roles.md) w celu zapewnienia szczegółowej kontroli dostępu do zasobów na platformie Azure. Ciągi operacji mają następujący format: `{Company}.{ProviderName}/{resourceType}/{action}` . Aby uzyskać listę sposobu mapowania przestrzeni nazw dostawcy zasobów na usługi platformy Azure, zobacz [dopasowanie dostawcy zasobów do usługi](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 Operacje dostawcy zasobów są zawsze rozwijane. Aby uzyskać najnowsze operacje, Użyj listy operacji [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) lub [AZ Provider](/cli/azure/provider/operation#az-provider-operation-list).
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft. AAD
 
@@ -52,7 +50,7 @@ Usługa platformy Azure: [Azure Active Directory Domain Services](../active-dire
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
-Usługa Azure Active Directory
+Azure Active Directory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -2137,7 +2135,7 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Akcja dataaction | Microsoft. CognitiveServices/accounts/sprawdzanie pisowni/sprawdzanie pisowni/akcja | Pobierz wynik zapytania sprawdzania pisowni za pomocą GET lub POST. |
 > |  | **konta/analiza** |  |
 > | Akcja dataaction | Microsoft. CognitiveServices/accounts/textanalytics/Języki/akcja | Interfejs API zwraca wykryty język i wynik liczbowy z zakresu od 0 do 1. Wyniki zbliżone do 1 wskazują na 100% pewności, że zidentyfikowany język ma wartość true. Obsługiwana jest łączna liczba języków 120. |
-> | Akcja dataaction | Microsoft. CognitiveServices/accounts/textanalytics/Entities/akcja | Interfejs API zwraca listę znanych jednostek i ogólnych nazwanych jednostek\"(osoba\", \"lokalizacja\", \"organizacja\" itp.) w danym dokumencie. |
+> | Akcja dataaction | Microsoft. CognitiveServices/accounts/textanalytics/Entities/akcja | Interfejs API zwraca listę znanych jednostek i ogólnych nazwanych jednostek ( \" osoba \" , \" Lokalizacja \" , \" organizacja \" itp.) w danym dokumencie. |
 > | Akcja dataaction | Microsoft. CognitiveServices/accounts/textanalytics/frazy kluczowe/akcja | Interfejs API zwraca listę ciągów oznaczających kluczowe punkty w tekście wejściowym. |
 > | Akcja dataaction | Microsoft. CognitiveServices/accounts/textanalytics/tonacji/Action | Interfejs API zwraca wynik liczbowy z zakresu od 0 do 1.<br>Wyniki o wartości bliższej 1 oznaczają tonację pozytywną, a wyniki bliższe 0 — tonację negatywną.<br>Wynik 0,5 wskazuje brak tonacji (np.<br>Instrukcja factoid). |
 > |  | **konta/VideoSearch** |  |
@@ -2299,7 +2297,7 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Akcja | Microsoft. COMPUTE/sharedVMImages/Versions/Replikacja/Akcja | Replikowanie element sharedvmimageversion do regionów docelowych |
 > |  | **SKU** |  |
 > | Akcja | Microsoft. COMPUTE/SKU/odczyt | Pobiera listę jednostek SKU Microsoft. COMPUTE dostępnych dla Twojej subskrypcji |
-> |  | **Migawki** |  |
+> |  | **migawki** |  |
 > | Akcja | Microsoft. COMPUTE/snapshots/Read | Pobierz właściwości migawki |
 > | Akcja | Microsoft. COMPUTE/snapshots/Write | Utwórz nową migawkę lub zaktualizuj istniejącą |
 > | Akcja | Microsoft. COMPUTE/snapshots/Delete | Usuń migawkę |

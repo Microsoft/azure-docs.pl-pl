@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160748"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199507"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
 
@@ -41,10 +41,10 @@ Po dodaniu użytkownika-gościa do katalogu przy [użyciu Azure Portal](https://
 Alternatywą dla wiadomości e-mail z zaproszeniem jest nadanie gościa bezpośredniego linku do aplikacji lub portalu. Najpierw musisz dodać użytkownika-gościa do katalogu za pośrednictwem [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) lub [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Następnie możesz użyć dowolnie [dostosowywalnych metod wdrażania aplikacji dla użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), w tym bezpośrednich linków logowania. Gdy gość korzysta ze bezpośredniego linku zamiast wiadomości e-mail z zaproszeniem, nadal będzie przeprowadzany po raz pierwszy.
 
 > [!IMPORTANT]
-> Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, https://myapps.microsoft.com taki jak nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
- > - Panel dostępu do aplikacji https://myapps.microsoft.com/?tenantid=&lt:; Identyfikator dzierżawy&gt; 
- > - Panel dostępu do aplikacji dla zweryfikowanej domeny https://myapps.microsoft.com/&lt:; zweryfikowana domena&gt;
- > - Azure Portal: https://portal.azure.com/&lt; identyfikator dzierżawy&gt;
+> Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, taki jak https://myapps.microsoft.com nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
+ > - Panel dostępu do aplikacji: https://myapps.microsoft.com/?tenantid=&lt ; Identyfikator dzierżawy&gt; 
+ > - Panel dostępu do aplikacji dla zweryfikowanej domeny: https://myapps.microsoft.com/&lt ; zweryfikowana domena&gt;
+ > - Azure Portal: https://portal.azure.com/&lt ; Identyfikator dzierżawy&gt;
  > - Poszczególna aplikacja: Zobacz, jak używać [linku bezpośredniego logowania](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Istnieją sytuacje, w których wiadomość e-mail z zaproszeniem zaleca się za pośrednictwem linku bezpośredniego. Jeśli te specjalne przypadki są ważne dla organizacji, zalecamy Zapraszanie użytkowników przy użyciu metod, które nadal wysyłają wiadomość e-mail z zaproszeniem:
@@ -99,7 +99,7 @@ Gdy gość loguje się w celu uzyskania dostępu do zasobów w organizacji partn
 
    ![Zrzut ekranu przedstawiający nowe warunki użytkowania](media/redemption-experience/terms-of-use-accept.png) 
 
-   Można skonfigurować [warunki użytkowania](../governance/active-directory-tou.md) w > temacie **Zarządzanie** > **relacjami organizacyjnymi****warunki użytkowania**.
+   [Warunki użytkowania](../governance/active-directory-tou.md) można skonfigurować w **relacjach organizacyjnych** (lub **tożsamości zewnętrznych**) > **warunki użytkowania**.
 
 3. O ile nie określono inaczej, Gość zostanie przekierowany do panelu dostępu do aplikacji, który zawiera listę aplikacji, do których gość może uzyskać dostęp.
 

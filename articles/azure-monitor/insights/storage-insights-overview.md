@@ -1,25 +1,25 @@
 ---
-title: Monitoruj usługi Azure Storage za pomocą Azure Monitor dla magazynu (wersja zapoznawcza) | Microsoft Docs
+title: Monitorowanie usług Azure Storage za pomocą Azure Monitor dla magazynu | Microsoft Docs
 description: W tym artykule opisano Azure Monitor funkcji Storage, która zapewnia administratorom magazynu szybkie zrozumienie problemów z wydajnością i wykorzystaniem ich kont usługi Azure Storage.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691112"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199956"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu (wersja zapoznawcza)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
-Usługa Azure Monitor for Storage (wersja zapoznawcza) umożliwia kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. Można obserwować pojemność magazynu i wydajność na dwa sposoby, przeglądać bezpośrednio z poziomu konta magazynu lub widoku Azure Monitor, aby zobaczyć w różnych grupach kont magazynu. 
+Azure Monitor dla magazynu oferuje kompleksowe monitorowanie kont usługi Azure Storage, zapewniając ujednolicony wgląd w wydajność, wydajność i dostępność usług Azure Storage. Można obserwować pojemność magazynu i wydajność na dwa sposoby, przeglądać bezpośrednio z poziomu konta magazynu lub widoku Azure Monitor, aby zobaczyć w różnych grupach kont magazynu. 
 
-Ten artykuł ułatwi zapoznanie się z Azure Monitorami dotyczącymi usługi Storage (wersja zapoznawcza) w celu uzyskania informacji na temat kondycji i wydajności kont magazynu na dużą skalę, z możliwością skoncentrowania się na hotspotach i zdiagnozowaniu opóźnień, przepustowości i dostępności.
+Ten artykuł ułatwi zapoznanie się z Azure Monitor środowiska magazynowego w celu uzyskania świadomej wiedzy na temat kondycji i wydajności kont magazynu na dużą skalę, z możliwością skoncentrowania się na hotspotach i zdiagnozowaniu opóźnień, ograniczania przepustowości i dostępności.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Wprowadzenie do Azure Monitor usługi Storage (wersja zapoznawcza)
+## <a name="introduction-to-azure-monitor-for-storage"></a>Wprowadzenie do Azure Monitor magazynu
 
 Przed wprowadzeniem do środowiska należy zrozumieć, jak prezentuje i wizualizuje informacje. Bez względu na to, czy funkcja magazynu jest wybierana bezpośrednio z konta magazynu, czy z Azure Monitor, Azure Monitor dla magazynu będzie mieć spójne środowisko pracy. 
 
@@ -48,7 +48,7 @@ Aby wyświetlić wykorzystanie i dostępność kont magazynu we wszystkich subsk
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wybierz pozycję **monitor** w okienku po lewej stronie w Azure Portal i w sekcji **szczegółowe informacje** wybierz pozycję **konta magazynu (wersja zapoznawcza)**.
+2. Wybierz pozycję **monitor** z okienka po lewej stronie w Azure Portal i w sekcji **szczegółowe informacje** wybierz pozycję **konta magazynu**.
 
     ![Widok wielu kont magazynu](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Aby uzyskać dostęp do Azure Monitor dla maszyn wirtualnych bezpośrednio z kon
 
 1. W Azure Portal wybierz pozycję konta magazynu.
 
-2. Z listy wybierz konto magazynu. W sekcji monitorowanie wybierz pozycję szczegółowe dane (wersja zapoznawcza).
+2. Z listy wybierz konto magazynu. W sekcji monitorowanie wybierz pozycję szczegółowe dane.
 
     ![Strona przeglądu wybranego konta magazynu](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ Możesz przypiąć każdą z sekcji metryk do pulpitu nawigacyjnego platformy Az
 
 ![Przykład eksportu wyników siatki skoroszytu](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Dostosowywanie Azure Monitor dla magazynu (wersja zapoznawcza)
+## <a name="customize-azure-monitor-for-storage"></a>Dostosowywanie Azure Monitor magazynu
 
 W tej sekcji przedstawiono typowe scenariusze edytowania skoroszytu w celu dostosowania ich do potrzeb związanych z analizą danych:
 
@@ -155,7 +155,7 @@ Dostosowania są zapisywane w niestandardowym skoroszycie, aby zapobiec zastąpi
 
 Można skonfigurować wiele subskrypcji i **przeglądanie** konta magazynu oraz skoroszyty **pojemności** do określonych subskrypcji lub kont magazynu na każdym uruchomieniu, wykonując następujące kroki.
 
-1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu (wersja zapoznawcza)** w okienku po lewej stronie.
+1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu** w okienku po lewej stronie.
 
 2. W skoroszycie **Przegląd** , na pasku poleceń wybierz pozycję **Edytuj**.
 
@@ -176,7 +176,7 @@ W naszym przykładzie pracujemy z skoroszytem pojemności dla wielosubskrypcji i
 
 Te same zmiany można wykonać w odniesieniu do jednego ze wstępnie skompilowanych skoroszytów **błędów**, **wydajności**, **dostępności**i **pojemności** .
 
-1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu (wersja zapoznawcza)** w okienku po lewej stronie.
+1. Wybierz pozycję **monitor** z portalu, a następnie wybierz pozycję **konta magazynu** w okienku po lewej stronie.
 
 2. Wybierz pozycję **pojemność** , aby przełączyć się na skoroszyt pojemności, a następnie na pasku poleceń wybierz pozycję **Edytuj** na pasku poleceń.
 
@@ -210,7 +210,7 @@ W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i ukazuj�
 
 1. Wybierz pozycję **konta magazynu** z portalu, a następnie wybierz konto magazynu z listy.
 
-2. Wybierz pozycję **Insights (wersja zapoznawcza)** w okienku po lewej stronie.
+2. Wybierz pozycję **szczegółowe** dane w okienku po lewej stronie.
 
 3. W skoroszycie wybierz opcję **dostępność** , aby przełączyć się do skoroszytu dostępności, a następnie wybierz pozycję **Edytuj** na pasku poleceń. 
 
@@ -228,11 +228,11 @@ W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i ukazuj�
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z usługi Azure Monitor for Storage (wersja zapoznawcza). Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
+Ta sekcja pomoże w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor dla magazynu. Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Rozwiązywanie problemów z wydajnością, pojemnością lub dostępnością
 
-Aby ułatwić rozwiązywanie problemów związanych z magazynem, które są identyfikowane za pomocą Azure Monitor for Storage (wersja zapoznawcza), zobacz [wskazówki dotyczące rozwiązywania problemów](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)z usługą Azure Storage  
+Aby ułatwić rozwiązywanie problemów związanych z magazynem, które są identyfikowane za pomocą Azure Monitor dla magazynu, zobacz [wskazówki dotyczące rozwiązywania problemów](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)z usługą Azure Storage.  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Dlaczego można zobaczyć tylko konta magazynu 200?
 
@@ -311,8 +311,8 @@ Tytuł lub krok skoroszytu, który jest przypięty do pulpitu nawigacyjnego, zac
 
 Aby zmienić nazwę kroku w zapisanym skoroszycie, wybierz opcję Edytuj w obszarze tego kroku, a następnie wybierz koła zębatego u dołu ustawień.
 
-![Wybierz pozycję Edytuj u dołu kroku skoroszytu, aby otworzyć ustawienia](./media/storage-insights-overview/fqa-edit.png)
-![w obszarze Ustawienia wybierz koła zębatego u dołu, aby zmienić nazwę kroku.](./media/storage-insights-overview/fqa-change-name.png)
+![Wybierz pozycję Edytuj u dołu kroku skoroszytu, aby otworzyć ustawienia ](./media/storage-insights-overview/fqa-edit.png)
+ ![ w obszarze Ustawienia wybierz koła zębatego u dołu, aby zmienić nazwę kroku.](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

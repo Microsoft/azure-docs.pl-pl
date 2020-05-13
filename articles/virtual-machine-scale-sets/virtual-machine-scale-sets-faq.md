@@ -2,18 +2,19 @@
 title: Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 description: Uzyskaj odpowiedzi na najczęściej zadawane pytania dotyczące zestawów skalowania maszyn wirtualnych na platformie Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611402"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200164"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Często zadawane pytania dotyczące usługi Azure Virtual Machine Scale Sets
 
@@ -226,16 +227,16 @@ Klucze publiczne SSH można podawać w postaci zwykłego tekstu podczas tworzeni
 Nazwa elementu linuxConfiguration | Wymagany | Typ | Opis
 --- | --- | --- | ---
 SSH | Nie | Collection | Określa konfigurację klucza SSH dla systemu operacyjnego Linux
-ścieżka | Tak | String | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
-Dane dotyczące danych | Tak | String | Określa klucz publiczny SSH szyfrowany algorytmem Base64
+ścieżka | Yes | String | Określa ścieżkę pliku systemu Linux, w której należy zlokalizować klucze SSH lub certyfikat
+Dane dotyczące danych | Yes | String | Określa klucz publiczny SSH szyfrowany algorytmem Base64
 
 Aby zapoznać się z przykładem, zobacz [szablon 101-VM-Sshkey GitHub — szybki start](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Gdy uruchamiam `Update-AzVmss` się po dodaniu więcej niż jednego certyfikatu z tego samego magazynu kluczy, zobaczysz następujący komunikat:
 
->Polecenie Update-AzVmss: list Secret zawiera powtórzone wystąpienia\</subscriptions/my-Subscription-ID>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, które są niedozwolone.
+>Polecenie Update-AzVmss: list Secret zawiera powtórzone wystąpienia/subscriptions/ \< My-Subscription-id>/ResourceGroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, które są niedozwolone.
 
-Taka sytuacja może wystąpić, jeśli spróbujesz ponownie dodać ten sam magazyn zamiast korzystać z nowego certyfikatu magazynu dla istniejącego magazynu źródłowego. Polecenie `Add-AzVmssSecret` nie działa prawidłowo w przypadku dodawania dodatkowych wpisów tajnych.
+Taka sytuacja może wystąpić, jeśli spróbujesz ponownie dodać ten sam magazyn zamiast korzystać z nowego certyfikatu magazynu dla istniejącego magazynu źródłowego. `Add-AzVmssSecret`Polecenie nie działa prawidłowo w przypadku dodawania dodatkowych wpisów tajnych.
 
 Aby dodać więcej wpisów tajnych z tego samego magazynu kluczy, zaktualizuj listę $vmss. Properties. osProfile. Secret [0]. vaultCertificates.
 
@@ -251,7 +252,7 @@ Nowe maszyny wirtualne nie będą miały starego certyfikatu. Jednak maszyny wir
 
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Czy można wypychanie certyfikatów do zestawu skalowania maszyn wirtualnych bez podawania hasła, gdy certyfikat znajduje się w magazynie wpisów tajnych?
 
-Nie jest konieczne wprowadzanie twardych haseł w skryptach. Można dynamicznie pobierać hasła z uprawnieniami używanymi do uruchamiania skryptu wdrażania. Jeśli masz skrypt, który przenosi certyfikat z magazynu kluczy magazynu tajnego, polecenie magazynu `get certificate` tajnego zapisuje również hasło do pliku PFX.
+Nie jest konieczne wprowadzanie twardych haseł w skryptach. Można dynamicznie pobierać hasła z uprawnieniami używanymi do uruchamiania skryptu wdrażania. Jeśli masz skrypt, który przenosi certyfikat z magazynu kluczy magazynu tajnego, polecenie magazynu tajnego zapisuje `get certificate` również hasło do pliku PFX.
 
 ### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Jak działa Właściwość Secret elementu virtualMachineProfile. osProfile dla zestawu skalowania maszyn wirtualnych? Dlaczego muszę mieć wartość sourceVault, gdy muszę określić bezwzględny identyfikator URI dla certyfikatu za pomocą właściwości certificateUrl?
 
@@ -301,7 +302,7 @@ Jeśli utworzysz maszynę wirtualną, a następnie zaktualizujesz wpis tajny w m
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mój zespół współpracuje z kilkoma certyfikatami, które są dystrybuowane do nas jako klucze publiczne CER. Jakie jest zalecane podejście do wdrażania tych certyfikatów w zestawie skalowania maszyn wirtualnych?
 
-Aby wdrożyć klucze publiczne. cer do zestawu skalowania maszyn wirtualnych, można wygenerować plik PFX zawierający tylko pliki. cer. W tym celu użyj `X509ContentType = Pfx`. Na przykład Załaduj plik CER jako obiekt x509Certificate2 w języku C# lub PowerShell, a następnie Wywołaj metodę.
+Aby wdrożyć klucze publiczne. cer do zestawu skalowania maszyn wirtualnych, można wygenerować plik PFX zawierający tylko pliki. cer. W tym celu użyj `X509ContentType = Pfx` . Na przykład Załaduj plik CER jako obiekt x509Certificate2 w języku C# lub PowerShell, a następnie Wywołaj metodę.
 
 Aby uzyskać więcej informacji, zobacz [Metoda x509. Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
@@ -359,7 +360,7 @@ $vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
-Wartość ExtensionName można znaleźć w `$vmss`temacie.
+Wartość ExtensionName można znaleźć w temacie `$vmss` .
 
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Czy istnieje przykład szablonu zestawu skalowania maszyn wirtualnych, który integruje się z dziennikami Azure Monitor?
 
@@ -638,7 +639,7 @@ Aby zaktualizować zestaw skalowania maszyn wirtualnych do nowego obrazu i aby z
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Czy mogę użyć operacji odtworzenie obrazu do zresetowania maszyny wirtualnej bez zmiany obrazu? (Oznacza to, że chcę zresetować maszynę wirtualną do ustawień fabrycznych, a nie na nowy obraz).
 
-Tak, możesz użyć operacji Odtwórz z obrazu, aby zresetować maszynę wirtualną bez zmiany obrazu. Jeśli jednak zestaw skalowania maszyn wirtualnych odwołuje się do obrazu platformy `version = latest`przy użyciu programu, maszyna wirtualna może przeprowadzić aktualizację do nowszej wersji obrazu `reimage`systemu operacyjnego podczas wywoływania.
+Tak, możesz użyć operacji Odtwórz z obrazu, aby zresetować maszynę wirtualną bez zmiany obrazu. Jeśli jednak zestaw skalowania maszyn wirtualnych odwołuje się do obrazu platformy przy użyciu programu `version = latest` , maszyna wirtualna może przeprowadzić aktualizację do nowszej wersji obrazu systemu operacyjnego podczas wywoływania `reimage` .
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Czy możliwe jest zintegrowanie zestawów skalowania z dziennikami Azure Monitor?
 
@@ -683,13 +684,13 @@ Po utworzeniu nowej maszyny wirtualnej Właściwość InstanceView maszyny wirtu
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Jak mogę pobrać informacji o właściwościach dla każdej maszyny wirtualnej bez wykonywania wielu wywołań? Na przykład jak uzyskać domenę błędów dla każdej z maszyn wirtualnych 100 w moim zestawie skalowania maszyn wirtualnych?
 
-Aby uzyskać informacje o właściwościach dla każdej maszyny wirtualnej bez wykonywania wielu wywołań, `ListVMInstanceViews` możesz wywołać interfejs API `GET` REST dla następującego identyfikatora URI zasobu:
+Aby uzyskać informacje o właściwościach dla każdej maszyny wirtualnej bez wykonywania wielu wywołań, możesz wywołać `ListVMInstanceViews` interfejs API REST `GET` dla następującego identyfikatora URI zasobu:
 
 /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines? $expand = instanceView&$select = instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Czy można przekazywać inne argumenty rozszerzenia do różnych maszyn wirtualnych w zestawie skalowania maszyn wirtualnych?
 
-Nie, nie można przekazać różnych argumentów rozszerzenia do różnych maszyn wirtualnych w zestawie skalowania maszyn wirtualnych. Jednak rozszerzenia mogą działać na podstawie unikatowych właściwości maszyny wirtualnej, na przykład na nazwę komputera. Rozszerzenia mogą również wykonywać zapytania dotyczące http://169.254.169.254 metadanych wystąpienia, aby uzyskać więcej informacji o maszynie wirtualnej.
+Nie, nie można przekazać różnych argumentów rozszerzenia do różnych maszyn wirtualnych w zestawie skalowania maszyn wirtualnych. Jednak rozszerzenia mogą działać na podstawie unikatowych właściwości maszyny wirtualnej, na przykład na nazwę komputera. Rozszerzenia mogą również wykonywać zapytania dotyczące metadanych wystąpienia http://169.254.169.254 , aby uzyskać więcej informacji o maszynie wirtualnej.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Dlaczego istnieją przerwy między nazwami maszyn wirtualnych zestawu skalowania maszyn wirtualnych i identyfikatorami maszyn wirtualnych? Na przykład: 0, 1, 3...
 
@@ -699,12 +700,12 @@ Dla tej właściwości można ustawić **wartość false**. W przypadku małych 
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Jaka jest różnica między usuwaniem maszyny wirtualnej w zestawie skalowania maszyn wirtualnych i cofanie przydziału maszyny wirtualnej? Kiedy należy wybrać jeden w drugim?
 
-Główną różnicą między usuwaniem maszyny wirtualnej w zestawie skalowania maszyn wirtualnych i cofnięciem przydziału maszyny wirtualnej jest `deallocate` to, że nie są usuwane wirtualne dyski twarde (VHD). Istnieją koszty magazynu skojarzone z uruchomionym `stop deallocate`programem. Możesz użyć jednej z nich lub drugiej z następujących powodów:
+Główną różnicą między usuwaniem maszyny wirtualnej w zestawie skalowania maszyn wirtualnych i cofnięciem przydziału maszyny wirtualnej jest to, że `deallocate` nie są usuwane wirtualne dyski twarde (VHD). Istnieją koszty magazynu skojarzone z uruchomionym programem `stop deallocate` . Możesz użyć jednej z nich lub drugiej z następujących powodów:
 
 - Chcesz zatrzymać płatne koszty obliczeń, ale chcesz zachować stan dysku maszyn wirtualnych.
 - Chcesz szybciej uruchomić zestaw maszyn wirtualnych, niż można skalować zestaw skalowania maszyn wirtualnych.
   - W związku z tym scenariuszem można utworzyć własny aparat skalowania automatycznego i zwiększyć skalę kompleksową.
-- Istnieje zestaw skalowania maszyn wirtualnych, który jest nierównomiernie dystrybuowany w domenach błędów lub domenach aktualizacji. Może to być spowodowane tym, że zostały selektywnie usunięte maszyny wirtualne lub maszyny wirtualne zostały usunięte po przeprowadzeniu aprowizacji. Uruchomiona `stop deallocate` , a `start` następnie w zestawie skalowania maszyn wirtualnych równomiernie dystrybuuje maszyny wirtualne między domenami błędów lub domenami aktualizacji.
+- Istnieje zestaw skalowania maszyn wirtualnych, który jest nierównomiernie dystrybuowany w domenach błędów lub domenach aktualizacji. Może to być spowodowane tym, że zostały selektywnie usunięte maszyny wirtualne lub maszyny wirtualne zostały usunięte po przeprowadzeniu aprowizacji. Uruchomiona, `stop deallocate` a następnie `start` w zestawie skalowania maszyn wirtualnych równomiernie dystrybuuje maszyny wirtualne między domenami błędów lub domenami aktualizacji.
 
 ### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Jak mogę utworzyć migawki wystąpienia zestawu skalowania maszyn wirtualnych?
 Utwórz migawkę z wystąpienia zestawu skalowania maszyn wirtualnych.

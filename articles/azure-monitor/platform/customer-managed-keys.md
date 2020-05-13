@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2838051d8e75ffbe3b7ecc9fbc655f24b57199e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982228"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198686"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -20,10 +20,6 @@ Ten artykuł zawiera ogólne informacje i instrukcje dotyczące konfigurowania k
 Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitations-and-constraints) poniżej przed rozpoczęciem konfiguracji.
 
 ## <a name="disclaimers"></a>Zastrzeżenia
-
-- Azure Monitor CMK to funkcja wczesnego dostępu i włączona dla zarejestrowanej subskrypcji.
-
-- Wdrożenie CMK opisane w tym artykule jest dostarczane w jakości produkcyjnej i obsługiwane w taki sposób, że jest to funkcja wczesnego dostępu.
 
 - Funkcja CMK jest dostarczana w dedykowanym klastrze Log Analytics, który jest klastrem fizycznym i magazynem danych, który jest odpowiedni dla klientów wysyłających 1 TB dziennie lub więcej
 
@@ -42,7 +38,7 @@ Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci p
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Jak działa CMK w Azure Monitor
 
-Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure. Tożsamość dedykowanego klastra Log Analytics jest obsługiwana na poziomie klastra, co oznacza, że funkcja CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. To pojęcie zachowuje tożsamość między dedykowanym klastrem Log Analytics i Log Analytics zasobem *klastra* , podczas gdy dane skojarzonych obszarów roboczych są chronione za pomocą klucza Key Vault. Dedykowany magazyn klastra Log Analytics używa tożsamości\'zarządzanej skojarzonej z zasobem *klastra* w celu uwierzytelniania i uzyskiwania dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
+Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure. Tożsamość dedykowanego klastra Log Analytics jest obsługiwana na poziomie klastra, co oznacza, że funkcja CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. To pojęcie zachowuje tożsamość między dedykowanym klastrem Log Analytics i Log Analytics zasobem *klastra* , podczas gdy dane skojarzonych obszarów roboczych są chronione za pomocą klucza Key Vault. Dedykowany magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* w celu uwierzytelniania i uzyskiwania dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview-8bit.png)
 1.    Key Vault klienta.
@@ -72,7 +68,7 @@ Mają zastosowanie następujące zasady:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedura inicjowania obsługi CMK
 
-1. Listy dozwolonych subskrypcji — jest to wymagane w przypadku tej funkcji wczesnego dostępu
+1. Listy dozwolonych subskrypcji — aby upewnić się, że w Twoim regionie jest wymagana pojemność dedykowanego klastra Log Analytics, należy wcześniej zweryfikować i dozwolonych subskrypcję
 2. Tworzenie Azure Key Vault i przechowywanie klucza
 3. Tworzenie zasobu *klastra*
 5. Przyznawanie uprawnień do Key Vault
@@ -173,7 +169,7 @@ Te ustawienia są dostępne za pośrednictwem interfejsu wiersza polecenia i pro
 
 Ten zasób jest używany jako połączenie tożsamości pośredniej między Key Vault i obszarami roboczymi Log Analytics. Po otrzymaniu potwierdzenia, że subskrypcje zostały listy dozwolonyche, utwórz zasób *klastra* log Analytics w regionie, w którym znajdują się obszary robocze.
 
-Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod LAIngestionRate@microsoft.comadresem. [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
     
 Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
 - *klaster* (domyślnie) — rozliczenia są przypisywane do subskrypcji hostingowej zasobu *klastra*
@@ -420,16 +416,17 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>CMK (KEK) — odwołanie
 
-Możesz odwołać dostęp do swoich danych, wyłączając klucz lub usuwając zasady dostępu do zasobów *klastra* w Key Vault. Azure Monitor Storage zawsze będzie uwzględniać zmiany w uprawnieniach klucza w ciągu godziny, zwykle wcześniej, a magazyn stanie się niedostępny. Wszelkie dane pozyskane do obszarów roboczych skojarzonych z zasobem *klastra* zostaną usunięte, a zapytania zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają niedostępne w magazynie Azure Monitor, o ile jesteś zasobem *klastra* , a obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. 
+Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu do zasobów *klastra* w Key Vault. Dedykowany magazyn klastra Log Analytics zawsze będzie uwzględniał zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszystkie dane pozyskane do obszarów roboczych skojarzonych z zasobem *klastra* zostaną porzucone, a zapytania zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają niedostępne w magazynie, tak jak w przypadku, gdy zasób *klastra* i obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. 
 
-Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostaną zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale zostaną usunięte podczas operacji odwoływania klucza i staną się niedostępne.
+Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Spowoduje to usunięcie operacji odwoływania klucza i stanie się niedostępna.
 
-Magazyn będzie okresowo sondował Key Vault, aby próbować odszyfrować klucz szyfrowania, a następnie uzyskać dostęp do pozyskiwania danych i wznowienia zapytania w ciągu 30 minut.
+Magazyn okresowo sonduje Key Vault, aby próbować odszyfrować klucz szyfrowania, a następnie uzyskać dostęp do pozyskiwania danych i wznowienia zapytania w ciągu 30 minut.
 
 ## <a name="cmk-kek-rotation"></a>CMK (KEK)
 
-Obrót CMK wymaga jawnej aktualizacji zasobu *klastra* z nową wersją klucza w Azure Key Vault. Aby zaktualizować Azure Monitor przy użyciu nowej wersji klucza, postępuj zgodnie z instrukcjami w kroku "Aktualizowanie zasobu *klastra* z identyfikatorem klucza szczegóły". Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , Azure monitor magazyn będzie nadal korzystać z poprzedniego klucza.
-Wszystkie dane są dostępne po operacji rotacji kluczy, w tym danych pozyskanych przed rotacją i po niej, ponieważ wszystkie dane pozostają zaszyfrowane za pomocą klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania kluczy (KEK).
+Obrót CMK wymaga jawnej aktualizacji zasobu *klastra* przy użyciu nowej wersji klucza w Azure Key Vault. Postępuj zgodnie z instrukcjami w kroku "Aktualizowanie zasobu *klastra* z identyfikatorem klucza szczegóły". Jeśli nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , dedykowany magazyn log Analytics klastra będzie nadal korzystać z poprzedniego klucza.
+
+Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym danych pozyskanych przed obróceniem i po nim, ponieważ dane są zawsze szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania klucza (KEK) w Key Vault.
 
 ## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
 
@@ -575,8 +572,7 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym danych pozyskanyc
 
 - **Odzyskiwanie zasobu *klastra* i danych** 
   
-  Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać. Jest to wykonywane ręcznie przez grupę produktów. Użyj Twojego kanału firmy Microsoft na potrzeby żądań odzyskiwania.
-
+  Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać z danymi. Ponieważ wszystkie obszary robocze zostały usunięte z zasobu *klastra* podczas usuwania, należy ponownie skojarzyć obszary robocze po odzyskaniu do szyfrowania CMK. Operacja odzyskiwania jest wykonywana ręcznie przez grupę produktów. Użyj Twojego kanału firmy Microsoft na potrzeby żądań odzyskiwania.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 - Zachowanie z dostępnością Key Vault
@@ -595,3 +591,10 @@ Wszystkie dane są dostępne po operacji rotacji kluczy, w tym danych pozyskanyc
 - Jeśli wystąpi błąd konfliktu podczas tworzenia zasobu *klastra* — może to spowodować, że zasób *klastra* został usunięty w ciągu ostatnich 14 dni i jest w okresie usuwania nietrwałego. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Nazwa jest wydawana po okresie usuwania nietrwałego, gdy zasób *klastra* zostanie trwale usunięty.
 
 - W przypadku aktualizowania zasobu *klastra* , gdy operacja jest w toku, operacja zakończy się niepowodzeniem.
+
+- Jeśli nie można wdrożyć zasobu *klastra* , sprawdź, czy Azure Key Vault, zasób *klastra*   i skojarzone obszary robocze log Analytics znajdują się w tym samym regionie. Mogą znajdować się w różnych subskrypcjach.
+
+- Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , klaster log Analytics będzie nadal korzystać z poprzedniego klucza i Twoje dane staną się niedostępne. Zaktualizuj szczegóły nowego identyfikatora klucza w zasobie *klastra* w celu wznowienia pozyskiwania danych i umożliwienia wykonywania zapytań dotyczących danych.
+
+- Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, Użyj kontaktów do firmy Microsoft.
+

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272904"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199435"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włącz zewnętrzną współpracę B2B i Zarządzaj osobami, które mogą zapraszać Gości
 
@@ -36,11 +36,9 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 ### <a name="to-configure-external-collaboration-settings"></a>Aby skonfigurować ustawienia współpracy zewnętrznej:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator dzierżawy.
-2. Wybierz pozycję**Ustawienia użytkownika** **Azure Active Directory** > **Użytkownicy** > .
-3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
-   > [!NOTE]
-   > **Ustawienia współpracy zewnętrznej** są również dostępne na stronie **relacje organizacyjne** . W Azure Active Directory w obszarze **Zarządzaj**przejdź do pozycji**Ustawienia** **relacji** > organizacji.
-4. Na stronie **Ustawienia współpracy zewnętrznej** wybierz zasady, które chcesz włączyć.
+2. Wybierz pozycję **Azure Active Directory**.
+3. Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
+6. Na stronie **Ustawienia współpracy zewnętrznej** wybierz zasady, które chcesz włączyć.
 
    ![Ustawienia zewnętrznej współpracy](./media/delegate-invitations/control-who-to-invite.png)
 
