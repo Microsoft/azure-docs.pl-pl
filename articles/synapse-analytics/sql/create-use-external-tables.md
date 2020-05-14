@@ -9,74 +9,110 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a708e5e713e62ab5b7ca70b61235a84830b051cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f90021e35b4089547b236d01b10820f6c06bd0cc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424552"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195166"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie.
+W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie. Tabele zewnętrzne mogą uzyskać dostęp do dwóch typów magazynu:
+- Magazyn publiczny, w którym użytkownicy uzyskują dostęp do publicznych plików magazynu.
+- Chroniony magazyn, w którym użytkownicy uzyskują dostęp do plików magazynu przy użyciu poświadczeń SAS, tożsamości usługi Azure AD lub zarządzanej tożsamości obszaru roboczego Synapse.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwszym krokiem jest zapoznanie się z artykułami poniżej i upewnienie się, że spełniono wymagania wstępne dotyczące tworzenia i używania tabel zewnętrznych na żądanie SQL:
+Pierwszym krokiem jest utworzenie bazy danych, w której zostaną utworzone tabele. Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny spowoduje utworzenie następujących obiektów, które są używane w tym przykładzie:
+- POŚWIADCZENIA w zakresie bazy danych `sqlondemand` , które umożliwiają dostęp do `https://sqlondemandstorage.blob.core.windows.net` konta usługi Azure Storage chronionego przez SAS.
 
-- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
-- [Wymagania wstępne](query-data-storage.md#prerequisites)
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
+    WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+    SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+    ```
 
-## <a name="create-an-external-table"></a>Tworzenie tabeli zewnętrznej
+- ZEWNĘTRZNE źródło danych `sqlondemanddemo` , które odwołuje się do demonstracyjnego konta magazynu chronionego za pomocą klucza SAS i zewnętrznego źródła danych `YellowTaxi` , które odwołuje się do publicznie dostępnego konta usługi Azure Storage w lokalizacji `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/` .
 
-Tabele zewnętrzne można tworzyć w ten sam sposób, w jaki tworzysz regularne SQL Server tabele zewnętrzne. Poniższe zapytanie tworzy tabelę zewnętrzną, która odczytuje plik. *CSV* .
+    ```sql
+    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+        LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+        CREDENTIAL = sqlondemand
+    );
+    GO
+    CREATE EXTERNAL DATA SOURCE YellowTaxi
+    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+    ```
+
+- Formaty plików `QuotedCSVWithHeaderFormat` i `ParquetFormat` opisujące typy plików CSV i Parquet.
+
+    ```sql
+    CREATE EXTERNAL FILE FORMAT QuotedCsvWithHeaderFormat
+    WITH (  
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2   )
+    );
+    GO
+    CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
+    ```
+
+Zapytania w tym artykule będą wykonywane w przykładowej bazie danych i używają tych obiektów. 
+
+## <a name="create-an-external-table-on-protected-data"></a>Tworzenie tabeli zewnętrznej dla chronionych danych
+
+Możesz tworzyć tabele zewnętrzne, które uzyskują dostęp do danych na koncie usługi Azure Storage, które umożliwiają dostęp użytkownikom przy użyciu tożsamości usługi Azure AD lub klucza SAS. Tabele zewnętrzne można tworzyć w ten sam sposób, w jaki tworzysz regularne SQL Server tabele zewnętrzne. Poniższe zapytanie tworzy tabelę zewnętrzną, która odczytuje plik SynapseSQL *populacji* z konta usługi Azure Storage, do którego odwołuje się `sqlondemanddemo` Źródło danych i chronione przy użyciu poświadczeń o zakresie bazy danych o nazwie `sqlondemand` . Poświadczenia w zakresie źródła danych i bazy danych są tworzone w [skrypcie Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. 
 
 ```sql
 USE [mydbname];
 GO
-
-CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-);
-GO
-
-CREATE EXTERNAL FILE FORMAT CSVFileFormat
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT,
-    FORMAT_OPTIONS (
-        FIELD_TERMINATOR = ',',
-        STRING_DELIMITER = '"',
-        FIRST_ROW = 2
-    )
-);
-GO
-
 CREATE EXTERNAL TABLE populationExternalTable
 (
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
     [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
     [year] smallint,
     [population] bigint
-);
+)
 WITH (
-    LOCATION = 'population/population.csv',
-    DATA_SOURCE = CsvDataSource,
-    FILE_FORMAT = CSVFileFormat
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
 GO
 ```
 
+## <a name="create-an-external-table-on-public-data"></a>Tworzenie tabeli zewnętrznej na danych publicznych
+
+Można utworzyć tabele zewnętrzne, które odczytają dane z plików umieszczonych w publicznie dostępnej usłudze Azure Storage. Ten [skrypt instalacji](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) spowoduje utworzenie definicji publicznego zewnętrznego źródła danych i pliku Parquet, który jest używany w następującej kwerendzie:
+
+```sql
+CREATE EXTERNAL TABLE Taxi (
+     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+     pickup_datetime DATETIME2, 
+     dropoff_datetime DATETIME2,
+     passenger_count INT,
+     trip_distance FLOAT,
+     fare_amount FLOAT,
+     tip_amount FLOAT,
+     tolls_amount FLOAT,
+     total_amount FLOAT
+) WITH (
+         LOCATION = 'puYear=*/puMonth=*/*.parquet',
+         DATA_SOURCE = YellowTaxi,
+         FILE_FORMAT = ParquetFormat
+);
+```
 ## <a name="use-a-external-table"></a>Korzystanie z tabeli zewnętrznej
 
 W zapytaniach można używać tabel zewnętrznych w taki sam sposób, w jaki są one używane w kwerendach SQL Server.
 
-Poniższe zapytanie ilustruje użycie tabeli zewnętrznej *populacji* utworzonej w sekcji [Tworzenie tabeli zewnętrznej](#create-an-external-table) . Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
+Poniższe zapytanie ilustruje tę wartość przy użyciu tabeli zewnętrznej *wypełniania* utworzonej w poprzedniej sekcji. Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.
 
 ```sql
 USE [mydbname];

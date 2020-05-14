@@ -2,19 +2,19 @@
 title: Szybki Start — Tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Rozpocznij pracę z wdrożeniami, Dowiedz się, jak szybko utworzyć zestaw skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: ju-shim
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.devlang: azurecli
-ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.openlocfilehash: 392af4d96efc9b60cedc8488dc1cebbfd68a92c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: af69b4d80ef6f7216bdf13a7e7314e8b0616f376
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011331"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197716"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych, automatycznie skalowanych maszyn wirtualnych, oraz zarządzanie nimi. Maszyny wirtualne w zestawie skalowania możesz skalować ręcznie lub możesz zdefiniować reguły skalowania automatycznego na podstawie użycia takich zasobów jak procesor CPU, zapotrzebowanie na pamięć lub ruch sieciowy. Moduł równoważenia obciążenia platformy Azure następnie dystrybuuje ruch do wystąpień maszyn wirtualnych w zestawie skalowania. W tym przewodniku Szybki start utworzysz zestaw skalowania maszyn wirtualnych i wdrożysz przykładową aplikację przy użyciu interfejsu wiersza polecenia platformy Azure.

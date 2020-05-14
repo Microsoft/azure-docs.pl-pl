@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea6f78d0d0856bb6a758a3168b6b86a1c962962b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062578"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201006"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurowanie aplikacji uwierzytelniania jako metody weryfikacji dwuskładnikowej
 
@@ -29,7 +29,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>Konfigurowanie aplikacji Microsoft Authenticator do wysyłania powiadomień
 
-1. Na stronie **dodatkowa Weryfikacja zabezpieczeń** wybierz pozycję **aplikacja mobilna** z **kroku 1: jak należy się skontaktować** z Twoim obszarem.
+1. Na [stronie dodatkowa Weryfikacja zabezpieczeń](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)wybierz pozycję **aplikacja mobilna** z **kroku 1: jak należy się skontaktować** z Twoim obszarem.
 
 2. Wybierz pozycję **Otrzymuj powiadomienia, aby przeprowadzić weryfikację** , w obszarze **jak chcesz korzystać z aplikacji mobilnej** , a następnie wybierz pozycję **Konfiguruj**.
 
@@ -65,7 +65,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-9. Wybierz pozycję **Gotowe**.
+9. Wybierz pozycję **Done** (Gotowe).
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurowanie aplikacji Microsoft Authenticator do używania kodów weryfikacyjnych
 
@@ -107,7 +107,7 @@ Można skonfigurować aplikację uwierzytelniającej do wysyłania powiadomienia
     >[!Note]
     >Aby uzyskać informacje o sposobach używania hasła aplikacji ze starszymi aplikacjami, zobacz [Zarządzanie hasłami aplikacji](multi-factor-authentication-end-user-app-passwords.md). Hasła aplikacji należy używać tylko w przypadku kontynuowania korzystania ze starszych aplikacji, które nie obsługują weryfikacji dwuskładnikowej.
 
-9. Wybierz pozycję **Gotowe**.
+9. Wybierz pozycję **Done** (Gotowe).
 
 ## <a name="next-steps"></a>Następne kroki
 

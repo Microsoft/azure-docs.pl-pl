@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bf7ff668584a78fea6e2d787e96f36a20f12e37
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424027"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197631"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
 
@@ -78,6 +78,9 @@ Wybierz <select_criteria>
 
 Wypełnia nową tabelę wynikami instrukcji SELECT. *select_criteria* jest treścią instrukcji SELECT, która określa, które dane mają zostać skopiowane do nowej tabeli. Aby uzyskać informacje na temat instrukcji SELECT, zobacz [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> Klauzula ORDER BY w SELECT Part elementu CETAS nie jest obsługiwana.
+
 ## <a name="permissions"></a>Uprawnienia
 
 Musisz mieć uprawnienia do wyświetlania zawartości folderu i zapisywania do folderu lokalizacji, aby CETAS działał.
@@ -139,7 +142,7 @@ CETAS może służyć do przechowywania zestawów wyników przy użyciu następu
 - varbinary
 - char
 - varchar
-- date
+- data
 - time
 - datetime2
 - decimal

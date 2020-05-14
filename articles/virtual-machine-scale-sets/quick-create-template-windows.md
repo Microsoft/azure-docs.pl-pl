@@ -2,18 +2,19 @@
 title: Szybki Start — Tworzenie zestawu skalowania maszyn wirtualnych z systemem Windows przy użyciu szablonu platformy Azure
 description: Dowiedz się, jak szybko utworzyć skalę maszyny wirtualnej z systemem Windows za pomocą szablonu usługi Azure Resource Manager, który wdraża przykładową aplikację i konfiguruje reguły automatycznego skalowania
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 030479a02b33a92c3917ba112d99c9bcef4f7f32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 8bf75dc08a033c254152cb6e5b6f3af6389d8380
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010447"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198201"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych z systemem Windows przy użyciu szablonu platformy Azure
 
@@ -112,7 +113,7 @@ Aby zapoznać się z działaniem zestawu skalowania, uzyskaj dostęp do przykła
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *http:\//publicIpAddress/MyApp*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
+Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *http: \/ /publicIpAddress/MyApp*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
 
 ![Uruchamianie witryny usług IIS](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

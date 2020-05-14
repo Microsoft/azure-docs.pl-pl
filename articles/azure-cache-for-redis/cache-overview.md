@@ -5,21 +5,21 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/11/2020
-ms.openlocfilehash: cd4e7c8e2693c25f3fc092fb53874a97cfd62434
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/12/2020
+ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113208"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196370"
 ---
-# <a name="azure-cache-for-redis-description"></a>Opis usługi Azure Cache for Redis
+# <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
-Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci na podstawie [Redis](https://redis.io/)oprogramowania open source. W przypadku użycia jako pamięci podręcznej program Redis poprawia wydajność i skalowalność systemów, które opierają się na zastosowaniach magazynów danych zaplecza. Ulepszona wydajność dzięki kopiowaniu często używanych danych do szybkiego magazynu znajdującego się blisko aplikacji. Dzięki usłudze Azure cache for Redis ten szybki magazyn znajduje się w pamięci, a nie jest ładowany z dysku przez bazę danych.
+Pamięć podręczna systemu Azure dla usługi Redis zapewnia magazyn danych w pamięci na podstawie [Redis](https://redis.io/)oprogramowania open source. Gdy jest używana jako pamięć podręczna, Redis poprawia wydajność i skalowalność systemów, które opierają się na dużym stopniu w magazynach danych zaplecza. Ulepszona wydajność dzięki kopiowaniu często używanych danych do szybkiego magazynu znajdującego się blisko aplikacji. Dzięki usłudze Azure cache for Redis ten szybki magazyn znajduje się w pamięci, a nie jest ładowany z dysku przez bazę danych.
 
-Pamięć podręczna platformy Azure dla usługi Redis może być używana jako magazyn struktury danych w pamięci, rozproszona baza danych nierelacyjna i Broker komunikatów. Wydajność aplikacji jest zwiększana dzięki wykorzystaniu małego opóźnienia i wysokiej przepustowości aparatu Redis.
+Pamięć podręczna platformy Azure dla usługi Redis może być używana jako rozproszona pamięć podręczna danych, magazyn sesji i Broker komunikatów. Wydajność aplikacji jest zwiększana dzięki wykorzystaniu małego opóźnienia i wysokiej przepustowości aparatu Redis.
 
-Pamięć podręczna systemu Azure dla usługi Redis zapewnia dostęp do bezpiecznej, dedykowanej pamięci podręcznej Redis. Usługa Azure cache for Redis jest zarządzana przez firmę Microsoft, hostowana na platformie Azure i dostępna dla dowolnej aplikacji w ramach platformy Azure lub poza nią. Ponadto usługa Azure Redis dla pamięci podręcznej używa strategii replikacji bezdyskowej, co zwiększa zgodność z branżą kart płatniczych.
+Usługa Azure cache for Redis oferuje dostęp do bezpiecznej, dedykowanej pamięci podręcznej Redis. Jest ona zarządzana przez firmę Microsoft, hostowana na platformie Azure i dostępna dla każdej aplikacji w ramach platformy Azure lub poza nią.
 
 ## <a name="using-azure-cache-for-redis"></a>Korzystanie z usługi Azure cache for Redis
 

@@ -9,14 +9,15 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25049aee620a1cf14eeb51adfb75f6577defc2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423740"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197065"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Nawiązywanie połączenia z usługą Synapse SQL z programem SQL Server Management Studio (SSMS)
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -30,8 +31,11 @@ Za pomocą [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-m
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>Obsługiwane narzędzia dla SQL na żądanie (wersja zapoznawcza)
 
-Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5 z ograniczoną funkcjonalnością, taką jak łączenie i wykonywanie zapytań. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwany.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) jest w pełni obsługiwana począwszy od wersji 1.18.0. Program SSMS jest częściowo obsługiwany począwszy od wersji 18,5, można go używać do nawiązywania połączeń i tylko zapytań.
 
+> [!NOTE]
+> Jeśli logowanie w usłudze AAD ma otwarte połączenie przez ponad 1 godzinę w czasie wykonywania zapytania, wszelkie zapytania, które opierają się na usłudze AAD, zakończą się niepowodzeniem. Obejmuje to wysyłanie zapytań do magazynu przy użyciu przekazywania usługi AAD i instrukcji, które współpracują z usługą AAD (na przykład CREATE EXTERNAL PROVIDER). Ma to wpływ na wszystkie narzędzia, które utrzymują otwarte połączenie, takie jak w edytorze zapytań w programie SSMS i ADS. Nie dotyczy narzędzi otwierających nowe połączenie z wykonywaniem zapytań, takich jak Synapse Studio.
+> Aby rozwiązać ten problem, możesz uruchomić ponownie narzędzie SSMS lub połączyć się i rozłączyć w usłudze ADS. .
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed rozpoczęciem upewnij się, że masz następujące wymagania wstępne:  
@@ -94,7 +98,7 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5`.
+4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5` .
    
     ![Uruchamianie zapytania](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.
@@ -114,7 +118,7 @@ Po nawiązaniu połączenia z bazą danych można wykonywać zapytania dotycząc
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5`.
+4. Uruchom zapytanie. Aby to zrobić, kliknij `Execute` lub użyj następującego skrótu: `F5` .
    
     ![Uruchamianie zapytania](./media/get-started-ssms/execute-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie widok usPopulationView ma 3664512 wierszy.

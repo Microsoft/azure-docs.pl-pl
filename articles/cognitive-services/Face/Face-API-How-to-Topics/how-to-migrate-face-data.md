@@ -3,19 +3,19 @@ title: Migrowanie danych czołowych między subskrypcjami — głowa
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku pokazano, jak migrować przechowywane dane ze swojej firmy z jednej subskrypcji czołowej do innej.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169807"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120814"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrowanie danych własnych do innej subskrypcji programu Marketo
 
@@ -62,7 +62,7 @@ Wypełnij wartości klucza subskrypcji i adresy URL punktów końcowych dla subs
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Przygotowywanie osoby do migracji
 
-Potrzebujesz identyfikatora osoby w Twojej subskrypcji źródłowej, aby przeprowadzić migrację do subskrypcji docelowej. Użyj metody [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) , aby pobrać listę obiektów osoby. Następnie Pobierz Właściwość [Persons. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Proces ten wygląda różnie w zależności od tego, jakie obiekty są dostępne. W tym przewodniku identyfikator źródła osoby źródłowej jest przechowywany w `personGroupId`.
+Potrzebujesz identyfikatora osoby w Twojej subskrypcji źródłowej, aby przeprowadzić migrację do subskrypcji docelowej. Użyj metody [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) , aby pobrać listę obiektów osoby. Następnie Pobierz Właściwość [Persons. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Proces ten wygląda różnie w zależności od tego, jakie obiekty są dostępne. W tym przewodniku identyfikator źródła osoby źródłowej jest przechowywany w `personGroupId` .
 
 > [!NOTE]
 > [Przykładowy kod](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) tworzy i pociąga za niego nową osobę do migracji. W większości przypadków powinna istnieć już osoba, która ma być używana.
@@ -98,7 +98,7 @@ Typowa `OperationLocation` wartość wygląda następująco:
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
 ```
 
-Metoda `WaitForOperation` pomocnika jest tutaj:
+`WaitForOperation`Metoda pomocnika jest tutaj:
 
 ```csharp
 /// <summary>
@@ -127,7 +127,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Po wyświetleniu `Succeeded`stanu operacji Pobierz identyfikator migawki, przenosząc `ResourceLocation` pole zwróconego wystąpienia OperationStatus.
+Po wyświetleniu stanu operacji `Succeeded` Pobierz identyfikator migawki, przenosząc `ResourceLocation` pole zwróconego wystąpienia OperationStatus.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
@@ -158,7 +158,7 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Proces aplikacji Snapshot jest również asynchroniczny, dlatego należy ponownie `WaitForOperation` użyć, aby poczekać na zakończenie.
+Proces aplikacji Snapshot jest również asynchroniczny, dlatego należy ponownie użyć, `WaitForOperation` aby poczekać na zakończenie.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);

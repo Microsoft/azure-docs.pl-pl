@@ -2,18 +2,19 @@
 title: Szybki Start — Tworzenie zestawu skalowania maszyn wirtualnych z systemem Linux przy użyciu szablonu Azure Resource Manager
 description: Dowiedz się, jak szybko utworzyć skalę maszyny wirtualnej z systemem Linux za pomocą szablonu usługi Azure Resource Manager, który wdraża przykładową aplikację i konfiguruje reguły automatycznego skalowania
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: linux
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: f51bfa012c62e7acdd0aa2cd16279ec68702a72c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010464"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117334"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie zestawu skalowania maszyn wirtualnych z systemem Linux przy użyciu szablonu Azure Resource Manager
 
@@ -76,7 +77,7 @@ Aby przetestować zestaw skalowania, należy zainstalować podstawową aplikacj�
 
 Szablon używa niestandardowego rozszerzenia skryptu w celu zainstalowania [butelek](https://bottlepy.org/docs/dev/), struktury sieci Web języka Python i prostego serwera http.
 
-Dwa skrypty są zdefiniowane w **fileUris** - *installserver.sh*i *workserver.py*. Te pliki są pobierane z usługi GitHub, *commandToExecute* a następnie `bash installserver.sh` sekcji commandtoexecute są uruchamiane w celu zainstalowania i skonfigurowania aplikacji.
+Dwa skrypty są zdefiniowane w **fileUris**  -  *installserver.sh*i *workserver.py*. Te pliki są pobierane z usługi GitHub, a następnie *sekcji commandtoexecute* są uruchamiane `bash installserver.sh` w celu zainstalowania i skonfigurowania aplikacji.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -108,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *http:\//publicIpAddress: 9000/do_work*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
+Wprowadź publiczny adres IP modułu równoważenia obciążenia w przeglądarce internetowej w formacie *http: \/ /publicIpAddress: 9000/do_work*. Moduł równoważenia obciążenia kieruje ruch do jednego z wystąpień maszyn wirtualnych, jak pokazano w poniższym przykładzie:
 
 ![Domyślna strona internetowa na serwerze NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e8f17f54f52aef6f552b7c211aa8f0e498b94df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424923"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197655"
 ---
 # <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Korzystanie z uwierzytelniania wieloskładnikowego usługi AAD za pomocą Synapse SQL (Obsługa programu SSMS dla usługi MFA)
 
@@ -56,7 +57,7 @@ Użytkownicy-Goście obejmują użytkowników zaproszonych z innych reklam syste
 
 Wszyscy ci użytkownicy, którzy chcą być uwierzytelniani przy użyciu uwierzytelniania uniwersalnego, muszą wprowadzić nazwę domeny usługi Azure AD lub identyfikator dzierżawy. Ten parametr reprezentuje bieżącą nazwę domeny i identyfikator dzierżawy usługi Azure AD, z którą jest połączony serwer platformy Azure. 
 
-Na przykład jeśli serwer platformy Azure jest skojarzony `contosotest.onmicrosoft.com` z domeną usługi Azure AD `joe@contosodev.onmicrosoft.com` , w której użytkownik jest hostowany jako zaimportowany `contosodev.onmicrosoft.com`użytkownik z domeny usługi Azure AD, nazwa domeny wymagana `contosotest.onmicrosoft.com`do uwierzytelnienia tego użytkownika to. 
+Na przykład jeśli serwer platformy Azure jest skojarzony z domeną usługi Azure AD `contosotest.onmicrosoft.com` , w której użytkownik `joe@contosodev.onmicrosoft.com` jest hostowany jako zaimportowany użytkownik z domeny usługi Azure AD `contosodev.onmicrosoft.com` , nazwa domeny wymagana do uwierzytelnienia tego użytkownika to `contosotest.onmicrosoft.com` . 
 
 Jeśli użytkownik jest natywnym użytkownikiem usługi Azure AD połączonej z serwerem platformy Azure i nie jest kontem MSA, nie jest wymagana żadna nazwa domeny ani identyfikator dzierżawy. 
 
@@ -71,15 +72,15 @@ Jeśli używasz programu SSMS 18. x lub nowszego, nazwa domeny lub identyfikator
    ![MFA — dzierżawca — SSMS](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Obsługa usługi Azure AD Business dla firm   
-Użytkownicy usługi Azure AD obsługiwani przez scenariusze B2B usługi Azure AD jako użytkownicy-Goście (Zobacz artykuł [co to jest współpraca w usłudze Azure B2B](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , która może łączyć się z usługą Synapse SQL tylko jako część elementów członkowskich grupy utworzonej w bieżącej usłudze `CREATE USER` Azure AD i zamapowana ręcznie przy użyciu instrukcji języka Transact-SQL w danej bazie danych. 
+Użytkownicy usługi Azure AD obsługiwani przez scenariusze B2B usługi Azure AD jako użytkownicy-Goście (Zobacz artykuł [co to jest współpraca w usłudze Azure B2B](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , która może łączyć się z usługą Synapse SQL tylko jako część elementów członkowskich grupy utworzonej w bieżącej usłudze Azure AD i zamapowana ręcznie przy użyciu instrukcji języka Transact-SQL `CREATE USER` w danej bazie danych. 
 
-Na `steve@gmail.com` przykład jeśli zostanie zaproszony do usługi Azure `contosotest` AD (z `contosotest.onmicrosoft.com`domeną usługi Azure AD), Grupa usługi Azure AD, `usergroup` taka jak musi zostać utworzona w usłudze Azure AD, `steve@gmail.com` która zawiera członka. Następnie należy utworzyć tę grupę dla konkretnej bazy danych (to jest baza danych) za pomocą administratora SQL usługi Azure AD lub roli DBO usługi Azure AD przez wykonanie instrukcji języka `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` Transact-SQL. 
+Na przykład jeśli `steve@gmail.com` zostanie zaproszony do usługi Azure AD `contosotest` (z domeną usługi Azure AD `contosotest.onmicrosoft.com` ), Grupa usługi Azure AD, taka jak `usergroup` musi zostać utworzona w usłudze Azure AD, która zawiera `steve@gmail.com` członka. Następnie należy utworzyć tę grupę dla konkretnej bazy danych (to jest baza danych) za pomocą administratora SQL usługi Azure AD lub roli DBO usługi Azure AD przez wykonanie instrukcji języka Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` . 
 
-Po utworzeniu użytkownika bazy danych użytkownik `steve@gmail.com` może zalogować się `MyDatabase` przy użyciu opcji `Active Directory – Universal with MFA support`uwierzytelniania programu SSMS. 
+Po utworzeniu użytkownika bazy danych użytkownik `steve@gmail.com` może zalogować się `MyDatabase` przy użyciu opcji uwierzytelniania programu SSMS `Active Directory – Universal with MFA support` . 
 
 Domyślnie użytkownik ma tylko uprawnienie łączenie i dalsze dostęp do danych, które będą musiały zostać przyznane w zwykły sposób. 
 
-Należy zauważyć, `steve@gmail.com` że użytkownik jako gość musi zaznaczyć pole wyboru i dodać nazwę `contosotest.onmicrosoft.com` domeny usługi AD w oknie dialogowym **Właściwości połączenia** programu SSMS. Opcja **nazwy domeny lub identyfikatora dzierżawy usługi Active Directory** jest obsługiwana tylko dla opcji połączenia uniwersalnego z usługą MFA, w przeciwnym razie jest wyszarzona.
+Należy zauważyć, że użytkownik `steve@gmail.com` jako gość musi zaznaczyć pole wyboru i dodać nazwę domeny usługi AD `contosotest.onmicrosoft.com` w oknie dialogowym **Właściwości połączenia** programu SSMS. Opcja **nazwy domeny lub identyfikatora dzierżawy usługi Active Directory** jest obsługiwana tylko dla opcji połączenia uniwersalnego z usługą MFA, w przeciwnym razie jest wyszarzona.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Ograniczenia uwierzytelniania uniwersalnego dla Synapse SQL
 

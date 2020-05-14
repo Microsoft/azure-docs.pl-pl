@@ -8,12 +8,13 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6304077a26f5c0ecb91e1ec4936bd79b3d839d95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1da5bd7020304c67bd9f9058612f47d528611a9e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79471221"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195336"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Szybki Start: Tworzenie aplikacji dla systemu iOS z zakotwiczeniami przestrzennymi platformy Azure w postaci SWIFT lub w celu-C
 
@@ -34,9 +35,9 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 
 - Maszyna macOS z włączoną obsługą dewelopera z najnowszą wersją <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> i <a href="https://cocoapods.org" target="_blank">CocoaPods</a> .
 - Narzędzie git zainstalowane za pośrednictwem oprogramowania Homebrew:
-  1. Wprowadź następujące polecenie jako pojedynczy wiersz w terminalu: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. 
+  1. Wprowadź następujące polecenie jako pojedynczy wiersz w terminalu: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . 
   1. Uruchom polecenia `brew install git` i `brew install git-lfs`.
-  1. Zaktualizuj konfigurację git przy użyciu `git lfs install` programu (dla bieżącego użytkownika) lub `git lfs install --system` (dla całego systemu).
+  1. Zaktualizuj konfigurację git przy użyciu programu `git lfs install` (dla bieżącego użytkownika) lub `git lfs install --system` (dla całego systemu).
 - Deweloperskie urządzenie z systemem iOS, <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">zgodne z zestawem ARKit</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -129,7 +130,7 @@ W programie Xcode zatrzymaj aplikację, naciskając pozycję **Stop**.
 
 ### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problemy w macOS Catalina (10,15)
 
-Jeśli niedawno Zaktualizowano do macOS Catalina (10,15) i CocoaPods zostały wcześniej zainstalowane, CocoaPods może być w stanie przerwania i nie można prawidłowo skonfigurować swoich zasobników `.xcworkspace` i plików projektu. Aby rozwiązać ten problem, należy ponownie zainstalować program CocoaPods, uruchamiając następujące polecenia:
+Jeśli niedawno Zaktualizowano do macOS Catalina (10,15) i CocoaPods zostały wcześniej zainstalowane, CocoaPods może być w stanie przerwania i nie można prawidłowo skonfigurować swoich zasobników i `.xcworkspace` plików projektu. Aby rozwiązać ten problem, należy ponownie zainstalować program CocoaPods, uruchamiając następujące polecenia:
 
 ```shell
 brew update
@@ -139,7 +140,7 @@ brew link --overwrite cocoapods
 
 ### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>Awarie aplikacji podczas wdrażania w systemie iOS 10.3.1 z poziomu osobistego profilu aprowizacji/konta dewelopera 
 
-Jeśli aplikacja dla systemu iOS zostanie wdrożona w systemie iOS 10.3.1 z poziomu osobistego profilu aprowizacji/konta dewelopera, może zostać wyświetlony następujący `Library not loaded: @rpath/ADAL...`błąd:. 
+Jeśli aplikacja dla systemu iOS zostanie wdrożona w systemie iOS 10.3.1 z poziomu osobistego profilu aprowizacji/konta dewelopera, może zostać wyświetlony następujący błąd: `Library not loaded: @rpath/ADAL...` . 
 
 Aby rozwiązać ten problem:
 

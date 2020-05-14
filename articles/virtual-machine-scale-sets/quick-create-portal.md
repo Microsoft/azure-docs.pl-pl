@@ -2,20 +2,19 @@
 title: Szybki Start — Tworzenie zestawu skalowania maszyn wirtualnych w Azure Portal
 description: Rozpocznij pracę z wdrożeniami, Dowiedz się, jak szybko utworzyć maszynę wirtualną skalowanie Azure Portal.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: quickstart
-ms.custom: mvc, H1Hack27Feb2017
-ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 10/23/2019
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680416"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197645"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Szybki start: tworzenie zestawu skalowania maszyn wirtualnych w witrynie Azure Portal
 

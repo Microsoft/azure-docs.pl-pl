@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0f5323193706fdd00739be6c71a4fe12cfedf21b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c6a151bdd3b437c6a01a949096604b3963489bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424538"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195146"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i Używanie widoków w usłudze SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
@@ -22,17 +22,14 @@ W tej sekcji dowiesz się, jak tworzyć widoki i używać ich do zawijania zapyt
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwszym krokiem jest zapoznanie się z artykułami poniżej i upewnienie się, że spełniono wymagania wstępne dotyczące tworzenia i używania widoków na żądanie SQL:
-
-- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
-- [Wymagania wstępne](query-data-storage.md#prerequisites)
+Pierwszym krokiem jest utworzenie bazy danych, w której widok zostanie utworzony, i zainicjowanie obiektów potrzebnych do uwierzytelnienia w usłudze Azure Storage przez wykonanie [skryptu instalacyjnego](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Wszystkie zapytania w tym artykule zostaną wykonane w przykładowej bazie danych.
 
 ## <a name="create-a-view"></a>Tworzenie widoku
 
 Możesz tworzyć widoki w taki sam sposób, jak w przypadku zwykłych widoków SQL Server. Poniższe zapytanie tworzy widok, który odczytuje plik. *CSV* .
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.
 
 ```sql
 USE [mydbname];
@@ -57,6 +54,19 @@ WITH (
 ) AS [r];
 ```
 
+Widok w tym przykładzie używa `OPENROWSET` funkcji, która używa ścieżki bezwzględnej do plików bazowych. Jeśli masz `EXTERNAL DATA SOURCE` główny adres URL magazynu, możesz użyć `OPENROWSET` z `DATA_SOURCE` i względnej ścieżki pliku:
+
+```
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemandstorage',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## <a name="use-a-view"></a>Korzystanie z widoku
 
 W zapytaniach można używać widoków w taki sam sposób jak w przypadku zapytań SQL Server.
@@ -64,7 +74,7 @@ W zapytaniach można używać widoków w taki sam sposób jak w przypadku zapyta
 Poniższe zapytanie ilustruje użycie widoku *population_csv* utworzonego w temacie [Tworzenie widoku](#create-a-view). Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.
 
 ```sql
 USE [mydbname];

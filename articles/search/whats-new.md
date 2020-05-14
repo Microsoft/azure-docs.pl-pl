@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0aea6a42269712e5c1e505c270f9d88635de83e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80247201"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195280"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -26,6 +26,10 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 Azure Search teraz zmieniono nazwę na **platformę Azure wyszukiwanie poznawcze** w celu odzwierciedlenia rozszerzonego (nieopcjonalnego) korzystania z umiejętności poznawczych i przetwarzania AI w operacjach podstawowych. Wersje interfejsu API, pakiety NuGet, przestrzenie nazw i punkty końcowe nie są zmieniane. Zmiany nazwy usługi nie wpływają na nowe i istniejące rozwiązania wyszukiwania.
 
 ## <a name="feature-announcements"></a>Anonse funkcji
+
+### <a name="may-2020"></a>Maj 2020 r.
+
++ Funkcja debugowania sesji jest teraz dostępna w wersji zapoznawczej. [Zarejestruj się, aby zażądać dostępu](https://aka.ms/DebugSessions).
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 
@@ -41,11 +45,11 @@ Azure Search teraz zmieniono nazwę na **platformę Azure wyszukiwanie poznawcze
 
 ### <a name="january-2020"></a>Styczeń 2020 r.
 
-+ [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) są teraz ogólnie dostępne. Jeśli używasz usługi REST, możesz uzyskać dostęp do tej funkcji przy `api-version=2019-05-06`użyciu polecenia. W przypadku kodu zarządzanego prawidłowy pakiet nadal jest [zestawem SDK .NET w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , nawet jeśli ta funkcja nie jest dostępna w wersji zapoznawczej. 
++ [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) są teraz ogólnie dostępne. Jeśli używasz usługi REST, możesz uzyskać dostęp do tej funkcji przy użyciu polecenia `api-version=2019-05-06` . W przypadku kodu zarządzanego prawidłowy pakiet nadal jest [zestawem SDK .NET w wersji 8,0-Preview](search-dotnet-sdk-migration-version-9.md) , nawet jeśli ta funkcja nie jest dostępna w wersji zapoznawczej. 
 
 + Prywatny dostęp do usługi wyszukiwania jest dostępny za pomocą dwóch mechanizmów, które są obecnie dostępne w wersji zapoznawczej:
 
-  + Aby utworzyć usługę, można ograniczyć dostęp do określonych adresów IP za pomocą interfejsu `api-version=2019-10-01-Preview` API REST zarządzania. Interfejs API w wersji zapoznawczej zawiera nowe właściwości **IpRule** i **NetworkRuleSet** w [interfejsie API metodę createorupdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Ta funkcja w wersji zapoznawczej jest dostępna w wybranych regionach. Aby uzyskać więcej informacji, zobacz [jak używać interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Aby utworzyć usługę, można ograniczyć dostęp do określonych adresów IP za pomocą interfejsu API REST zarządzania `api-version=2019-10-01-Preview` . Interfejs API w wersji zapoznawczej zawiera nowe właściwości **IpRule** i **NetworkRuleSet** w [interfejsie API metodę createorupdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Ta funkcja w wersji zapoznawczej jest dostępna w wybranych regionach. Aby uzyskać więcej informacji, zobacz [jak używać interfejsu API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Obecnie dostępne w wersji zapoznawczej o ograniczonym dostępie, można zainicjować obsługę Azure Search usługi, która obsługuje prywatny punkt końcowy platformy Azure dla połączeń klientów w tej samej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [Tworzenie prywatnego punktu końcowego dla bezpiecznego połączenia](service-create-private-endpoint.md).
 
