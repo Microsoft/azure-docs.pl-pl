@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f92c05476c9e85690fdeacade5463a43d0a4af42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424293"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201456"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -24,7 +24,7 @@ ms.locfileid: "81424293"
 
 Przenoszenie danych między pulami platformy Spark i pulami SQL można wykonać przy użyciu JDBC. Jednak w przypadku dwóch systemów rozproszonych, takich jak platforma Spark i pule SQL, JDBC zachodzi wąskie gardło z transferem danych szeregowych.
 
-Pule platformy Spark do łącznika usługi SQL Analytics to implementacja źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen 2 i Base w pulach SQL do wydajnego transferu danych między klastrem Spark i wystąpieniem usługi SQL Analytics.
+Pule platformy Spark do łącznika usługi SQL Analytics są implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen 2 i Base w pulach SQL do wydajnego transferu danych między klastrem Spark i wystąpieniem usługi SQL Analytics.
 
 ![Architektura łącznika](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -55,7 +55,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 ## <a name="usage"></a>Sposób użycia
 
-Nie trzeba dostarczać instrukcji importu, które są wstępnie zaimportowane do środowiska notesu.
+Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowiska notesu.
 
 ### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL na serwerze logicznym (wystąpienie DW) dołączonym do obszaru roboczego
 
@@ -161,9 +161,36 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
+
 Podobnie w scenariuszu odczytu Odczytaj dane przy użyciu Scala i Zapisz je w tabeli tymczasowej, a następnie użyj platformy Spark SQL w PySpark, aby zbadać tabelę tymczasową w ramce Dataframe.
+
+## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Zezwalanie innym użytkownikom na korzystanie z łącznika DW w obszarze roboczym
+
+Aby zmienić brakujące uprawnienia dla innych osób, musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADLS Gen2 połączonym z obszarem roboczym. Upewnij się, że użytkownik ma dostęp do obszaru roboczego i uprawnień do uruchamiania notesów.
+
+### <a name="option-1"></a>Opcja 1
+
+- Ustaw użytkownika jako współautora lub właściciela danych obiektu blob magazynu
+
+### <a name="option-2"></a>Opcja 2
+
+- Określ następujące listy ACL w strukturze folderów:
+
+| Folder | / | synapse | obszary robocze  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+|--|--|--|--|--|--|--|--|
+| Uprawnienia dostępu |--X |--X |--X |--X |--X |--X |-WX |
+| Uprawnienia domyślne |---|---|---|---|---|---|---|
+
+- Powinien być możliwy dostęp do listy ACL wszystkich folderów z "Synapse" i w dół z Azure Portal. Aby uzyskać dostęp do listy ACL w folderze głównym "/", postępuj zgodnie z poniższymi instrukcjami.
+
+- Łączenie się z kontem magazynu połączonym z obszarem roboczym z Eksplorator usługi Storage przy użyciu usługi AAD
+- Wybierz konto i podaj adres URL ADLS Gen2 i domyślny system plików dla obszaru roboczego
+- Po wyświetleniu konta magazynu na liście kliknij prawym przyciskiem myszy obszar roboczy listy i wybierz pozycję "Zarządzaj dostępem".
+- Dodaj użytkownika do folderu/z uprawnieniami dostępu "wykonaj". Wybierz pozycję "OK"
+
+**Upewnij się, że nie wybrano opcji "domyślne", jeśli nie zamierzasz**
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie puli SQL]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
+- [Tworzenie puli SQL](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
 - [Utwórz nową pulę Apache Spark dla obszaru roboczego analizy usługi Azure Synapse](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147767"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343450"
 ---
 ## <a name="benefits-of-managed-disks"></a>Zalety dysków zarządzanych
 
@@ -55,11 +55,14 @@ Dyski zarządzane oferują dwa różne rodzaje szyfrowania. Pierwszy jest szyfro
 
 ### <a name="server-side-encryption"></a>Szyfrowanie po stronie serwera
 
-[Szyfrowanie po stronie serwera platformy Azure](../articles/virtual-machines/windows/disk-encryption.md) zapewnia szyfrowanie w czasie spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać więcej informacji, odwiedź [stronę Managed disks często zadawanych pytań](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+[Szyfrowanie po stronie serwera platformy Azure](../articles/virtual-machines/windows/disk-encryption.md) zapewnia szyfrowanie w czasie spoczynku i zabezpiecza dane zgodnie z zobowiązaniami dotyczącymi bezpieczeństwa i zgodności w organizacji. Szyfrowanie po stronie serwera jest domyślnie włączone dla wszystkich dysków zarządzanych, migawek i obrazów we wszystkich regionach, w których są dostępne usługi Managed Disks. (Dyski tymczasowe, z drugiej strony, nie są szyfrowane przez szyfrowanie usługi Storage; zobacz [role dysków: dyski tymczasowe](#temporary-disk)).
+
+Możesz zezwolić na platformę Azure do zarządzania kluczami, które są kluczami zarządzanymi przez platformę, lub samodzielnie zarządzać kluczami. są to klucze zarządzane przez klienta. Aby uzyskać więcej informacji, odwiedź [stronę Managed disks często zadawanych pytań](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+
 
 ### <a name="azure-disk-encryption"></a>Usługa Azure Disk Encryption
 
-Azure Disk Encryption pozwala na szyfrowanie dysków systemu operacyjnego i danych używanych przez maszynę wirtualną IaaS. To szyfrowanie obejmuje dyski zarządzane. W przypadku systemu Windows dyski są szyfrowane przy użyciu standardowej technologii szyfrowania funkcji BitLocker. W przypadku systemu Linux dyski są szyfrowane przy użyciu technologii DM-Crypt. Proces szyfrowania jest zintegrowany z usługą Azure Key Vault, aby umożliwić kontrolowanie kluczy szyfrowania dysków i zarządzanie nimi. Aby uzyskać więcej informacji, zobacz [Azure Disk Encryption dla maszyn wirtualnych IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+Azure Disk Encryption pozwala na szyfrowanie dysków systemu operacyjnego i danych używanych przez maszynę wirtualną IaaS. To szyfrowanie obejmuje dyski zarządzane. W przypadku systemu Windows dyski są szyfrowane przy użyciu standardowej technologii szyfrowania funkcji BitLocker. W przypadku systemu Linux dyski są szyfrowane przy użyciu technologii DM-Crypt. Proces szyfrowania jest zintegrowany z usługą Azure Key Vault, aby umożliwić kontrolowanie kluczy szyfrowania dysków i zarządzanie nimi. Aby uzyskać więcej informacji, zobacz [Azure Disk Encryption dla maszyn wirtualnych](../articles/virtual-machines/linux/disk-encryption-overview.md) z systemem Linux lub [Azure Disk Encryption dla maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Role dysku
 
@@ -79,7 +82,9 @@ Ten dysk ma maksymalną pojemność wynoszącą 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Dysk tymczasowy
 
-Każda maszyna wirtualna zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowe przechowywanie aplikacji i procesów. jest to przeznaczone tylko do przechowywania danych, takich jak pliki strony lub wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas zdarzenia [konserwacji](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub w przypadku [ponownego wdrożenia maszyny wirtualnej](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Na maszynach wirtualnych systemu Linux na platformie Azure dysk tymczasowy jest domyślnie/dev/sdb i na maszynach wirtualnych z systemem Windows dysk tymczasowy jest D: domyślnie. Podczas pomyślnego standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane.
+Każda maszyna wirtualna zawiera dysk tymczasowy, który nie jest dyskiem zarządzanym. Dysk tymczasowy zapewnia krótkoterminowe przechowywanie aplikacji i procesów. jest to przeznaczone tylko do przechowywania danych, takich jak pliki strony lub wymiany. Dane na dysku tymczasowym mogą zostać utracone podczas zdarzenia [konserwacji](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) lub w przypadku [ponownego wdrożenia maszyny wirtualnej](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Podczas pomyślnego standardowego ponownego uruchomienia maszyny wirtualnej dane na dysku tymczasowym będą utrwalane.  
+
+Na maszynach wirtualnych z systemem Linux na platformie Azure dysk tymczasowy jest zazwyczaj/dev/sdb i na maszynach wirtualnych systemu Windows dysk tymczasowy jest D: domyślnie. Dysk tymczasowy nie jest szyfrowany przez szyfrowanie po stronie serwera (zobacz [szyfrowanie](#encryption)).
 
 ## <a name="managed-disk-snapshots"></a>Migawki dysków zarządzanych
 

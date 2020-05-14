@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692167"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201042"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
 
-Synapse SQL na żądanie (wersja zapoznawcza) to usługa zapytań bezserwerowych, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie.
+Synapse SQL na żądanie (wersja zapoznawcza) to usługa zapytań bezserwerowych, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
 
-Obsługiwane są następujące typy plików: JSON, CSV, Apache Parquet
+Ten przewodnik Szybki Start przedstawia wykonywanie zapytań: CSV, Apache Parquet i plików JSON.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

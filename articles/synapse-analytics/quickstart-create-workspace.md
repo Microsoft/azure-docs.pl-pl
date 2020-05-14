@@ -2,19 +2,19 @@
 title: Szybki Start — Tworzenie obszaru roboczego
 description: Utwórz obszar roboczy usługi Azure Synapse Analytics, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0bf58348d91c23db9bcc016ff6d71ce2b3804ced
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792211"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201055"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -33,9 +33,9 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Tworzenie obszaru roboczego usługi Azure Synapse za pomocą Azure Portal
 
 1. W okienku wyszukiwania Microsoft Azure wprowadź **Synapse obszar roboczy** , a następnie wybierz pozycję Ta usługa.
-![Azure Portal pasku wyszukiwania przy użyciu obszarów roboczych usługi Azure Synapse wpisanych](media/quickstart-create-synapse-workspace/workspace-search.png)w..
+![Azure Portal pasku wyszukiwania przy użyciu obszarów roboczych usługi Azure Synapse wpisanych w temacie.](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. Na stronie **obszary robocze Synapse** kliknij pozycję **+ Dodaj**.
-![Polecenie utworzenia nowego wyróżnionego obszaru roboczego usługi Azure Synapse. ](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Polecenie utworzenia nowego wyróżnionego obszaru roboczego usługi Azure Synapse.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Wypełnij formularz **obszaru roboczego usługi Azure Synapse** , podając następujące informacje:
 
     | Ustawienie | Sugerowana wartość | Opis |
@@ -43,11 +43,11 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | **Subskrypcja** | *Twoja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
     | **Grupa zasobów** | *Dowolna Grupa zasobów* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Reguły i ograniczenia nazewnictwa). |
     | **Nazwa obszaru roboczego** | mysampleworkspace | Określa nazwę obszaru roboczego, który będzie również używany dla punktów końcowych połączenia.|
-    | **Region** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
+    | **Okolicy** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
     | **Usługa Data Lake Storage 2. generacji** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
     ||||
 
-    ![Przepływ obszaru roboczego — podstawowe karty.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Przepływ obszaru roboczego — podstawowe karty.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     Konto magazynu można wybrać z:
     - Lista kont ADLS Gen2 dostępnych w ramach subskrypcji
@@ -60,8 +60,8 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 
 4. Obowiązkowe Zmodyfikuj dowolną kartę **Ustawienia zabezpieczeń i sieci** :
 5. Obowiązkowe Dodaj dowolne Tagi na karcie **Tagi** .
-6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji naciśnij pozycję **Utwórz** ![przepływ aprowizacji obszaru roboczego — karta potwierdzenie](media/quickstart-create-synapse-workspace/create-workspace-05.png).
-7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji kliknij pozycję **Utwórz** ![ przepływ obsługi obszaru roboczego — karta potwierdzenie.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

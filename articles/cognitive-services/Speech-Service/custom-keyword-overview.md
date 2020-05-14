@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: dd5748cf8afe19a49e5ea406aea9b558432eeaf3
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82802182"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202050"
 ---
 # <a name="what-is-a-keyword"></a>Co to jest słowo kluczowe?
 
@@ -31,26 +31,15 @@ Za pomocą funkcji dostosowywania, wydajności i integracji niestandardowego sł
 | Weryfikacja słowa kluczowego | Gdy słowo kluczowe o wysokim poziomie pewności jest wykrywane lokalnie, dźwięk jest wysyłany do chmury w celu dalszej weryfikacji, że użytkownik wypowiedział słowo kluczowe. Weryfikacja słowa kluczowego stanowi dodatkową warstwę zabezpieczeń, skracając wpływ nieprawidłowego wykrywania lokalnego i ochrony prywatności użytkowników.
 | Asystent głosowy & integrację z zestawem SDK mowy | Słowa kluczowe generowane na podstawie niestandardowego słowa kluczowego w programie Speech Studio można łatwo zintegrować z urządzeniem lub aplikacją za pomocą zestawu Speech SDK. Po prostu wskaż zestaw SDK modelem słowa kluczowego dostarczanym przez program Speech Studio, a Twój produkt zostanie aktywowany głosem, a następnie spróbuj wykonać weryfikację słowa kluczowego. Możesz dokończyć pracę z dźwiękiem swojego produktu, tworząc własny [asystenta głosowego](voice-assistants.md).
 
-## <a name="sample-code"></a>Przykładowy kod
+## <a name="get-started-with-custom-keywords"></a>Wprowadzenie do niestandardowych słów kluczowych
 
-Przykładowy kod służący do integrowania modelu słów kluczowych jest dostępny w witrynie GitHub. Te przykłady obejmują aplikację kliencką służącą do integracji słowa kluczowego w kilku popularnych językach programowania.
-
-* [Samouczek: głos — Aktywacja produktu przy użyciu zestawu Speech SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Przykłady asystenta głosowego (SDK)](https://aka.ms/csspeech/samples)
-
-## <a name="tutorial"></a>Samouczek
-
-* Jak [utworzyć niestandardowe słowo kluczowe przy użyciu programu Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-* Jak [głosować produkt przy użyciu zestawu Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md).
-
-## <a name="reference-docs"></a>Dokumentacja dokumentacji
-
-* [Niestandardowe wskazówki dotyczące nazewnictwa słów kluczowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
-* [Zestaw SDK rozpoznawania mowy](speech-sdk-reference.md)
+* Samouczek: jak [utworzyć niestandardowe słowo kluczowe przy użyciu programu Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+* Samouczek: jak [głosować i aktywować produkt za pomocą zestawu Speech SDK przy użyciu języka C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* Szybki Start: [rozpoznawanie słów kluczowych przy użyciu zestawu Speech SDK na platforma uniwersalna systemu Windows przy użyciu języka C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* Szybki Start: [rozpoznawanie słów kluczowych za pomocą zestawu Speech SDK w systemie Android przy użyciu języka Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Uzyskaj bezpłatnie klucz subskrypcji usługi mowy](get-started.md)
-* [Tworzenie niestandardowego słowa kluczowego](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Pobieranie zestawu Speech SDK](speech-sdk.md)
 * [Dowiedz się więcej na temat asystentów głosowych](voice-assistants.md)

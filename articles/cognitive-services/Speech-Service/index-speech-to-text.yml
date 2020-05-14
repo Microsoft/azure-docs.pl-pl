@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: 717c4e0322b48eca0acfacd20ed527a629bd1ff0
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+  ms.openlocfilehash: f496ba72f4f649a3ed5146f0b74caf3d8110adf9
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401406"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83201920"
 landingContent:
 - title: Informacje o zamiany mowy na tekst
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: batch-transcription.md
     - text: Podstawy rozpoznawania mowy
       url: speech-to-text-basics.md
+    - text: Używanie SPX na potrzeby zamiany mowy na tekst bez kodu
+      url: spx-overview.md
   - linkListType: quickstart
     links:
     - text: Rozpoznawanie mowy z danych wejściowych mikrofonu
@@ -60,7 +62,7 @@ landingContent:
       url: how-to-custom-speech-train-model.md
     - text: Tworzenie transkrypcji oznaczonych etykietą przez użytkownika
       url: how-to-custom-speech-human-labeled-transcriptions.md
-- title: Dokumentacja
+- title: Odwołania
   linkLists:
   - linkListType: reference
     links:

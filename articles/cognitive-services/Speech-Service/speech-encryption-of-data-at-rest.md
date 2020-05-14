@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372360"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198672"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Usługa mowy — szyfrowanie danych magazynowanych
 
@@ -42,13 +42,10 @@ Aby zażądać dostępu w celu przeniesienia własnego magazynu, Wypełnij i prz
 > [!IMPORTANT]
 > Jeśli wyłączysz tożsamości zarządzane przypisane przez system, dostęp do konta magazynu zostanie usunięty. Spowoduje to, że części usługi mowy, które wymagają dostępu do konta magazynu, przestaną działać.  
 
-## <a name="regional-availability"></a>Dostępność regionalna
+Usługa mowy nie obsługuje obecnie Skrytka klienta. Dane klienta mogą jednak być przechowywane przy użyciu BYOS, co pozwala na uzyskanie podobnych kontroli danych do [skrytka klienta](../../security/fundamentals/customer-lockbox-overview.md). Należy pamiętać, że dane usługi mowy pozostają i są przetwarzane w regionie, w którym został utworzony zasób mowy. Dotyczy to danych przechowywanych w czasie spoczynku i przesyłania danych. W przypadku korzystania z funkcji dostosowywania, takich jak Custom Speech i Niestandardowa obsługa głosu, wszystkie dane klienta są przesyłane, przechowywane i przetwarzane w tym samym regionie, w którym znajduje się zasób usługi BYOS (jeśli jest używany) i usługa Speech.
 
-BYOS jest obecnie dostępna w następujących regionach:
-
-* Południowo-środkowe stany USA
-* Zachodnie stany USA 2
-* Wschodnie stany USA
+> [!IMPORTANT]
+> Firma Microsoft **nie** używa danych klienta w celu ulepszania modeli mowy. Ponadto jeśli rejestrowanie punktów końcowych jest wyłączone i nie są używane żadne dostosowania, dane klienta nie są przechowywane. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,15 +1,15 @@
 ---
 title: Przechowywanie danych niestrukturalnych przy użyciu Azure Cosmos DB i funkcji
 description: Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Cosmos DB
-ms.topic: how-to
-ms.date: 10/01/2018
+ms.topic: quickstart
+ms.date: 04/14/2020
 ms.custom: mvc
-ms.openlocfilehash: d11b7e7d55d0327bdec0a8bd6c73571cf846fd3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09d9bbca7119539f31a4cea056f338cf28dfcd23
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756656"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121954"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Przechowywanie danych niestrukturalnych przy użyciu usług Azure Functions i Azure Cosmos DB
 
@@ -19,8 +19,6 @@ ms.locfileid: "80756656"
 > W tej chwili wyzwalacz usługi Azure Cosmos DB, powiązania danych wejściowych i powiązania danych wyjściowych współpracują tylko z kontami interfejsu API SQL i interfejsu API programu Graph.
 
 W usłudze Azure Functions powiązania danych wejściowych i wyjściowych zapewniają deklaratywną metodę łączenia z danymi usług zewnętrznych z funkcji. W tym artykule opisano, jak zaktualizować istniejącą funkcję w celu dodania powiązania danych wyjściowych, które zapisuje dane bez struktury w dokumencie usługi Azure Cosmos DB.
-
-![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,30 +34,30 @@ Do utworzenia powiązania danych wyjściowych konieczne jest posiadanie konta us
 
 ## <a name="add-an-output-binding"></a>Dodawanie powiązania danych wyjściowych
 
-1. W portalu przejdź do utworzonej wcześniej aplikacji funkcji i rozwiń zarówno aplikację funkcji, jak i funkcję.
+1. W Azure Portal przejdź do i wybierz wcześniej utworzoną aplikację funkcji.
 
-1. Wybierz pozycje **Integracja** i **+ Nowe dane wyjściowe** znajdujące się w prawej górnej części strony. Wybierz pozycję **Azure Cosmos DB** i kliknij przycisk **Wybierz**.
+1. Wybierz pozycję **funkcje**, a następnie wybierz funkcję HttpTrigger.
 
-    ![Dodawanie powiązania danych wyjściowych usługi Azure Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Wybierz funkcję http w Azure Portal." border="true":::
 
-1. Jeśli zostanie wyświetlony komunikat **Rozszerzenia niezainstalowane**, wybierz polecenie **Instaluj**, aby zainstalować rozszerzenie powiązań usługi Azure Cosmos DB w aplikacji funkcji. Instalacja może zająć od jednej do dwóch minut.
+1. Wybierz pozycję **integracja** i **+ Dodaj dane wyjściowe**.
 
-    ![Instalowanie rozszerzenia powiązania usługi Azure Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-install-binding-extension.png)
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Dodawanie powiązania danych wyjściowych Azure Cosmos DB." border="true":::
 
-1. Użyj ustawień **Dane wyjściowe usługi Azure Cosmos DB** określonych w tabeli:
+1. Użyj ustawień **tworzenia danych wyjściowych** , jak określono w tabeli:
 
-    ![Konfigurowanie powiązania danych wyjściowych Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Skonfiguruj powiązanie danych wyjściowych Azure Cosmos DB." border="true":::
 
     | Ustawienie      | Sugerowana wartość  | Opis                                |
     | ------------ | ---------------- | ------------------------------------------ |
+    | **Typ powiązania** | Azure Cosmos DB | Nazwa typu powiązania do wybrania, aby utworzyć powiązanie danych wyjściowych do Azure Cosmos DB. |
     | **Nazwa parametru dokumentu** | taskDocument | Nazwa, która odwołuje się do obiektu Cosmos DB w kodzie. |
     | **Nazwa bazy danych** | taskDatabase | Nazwa bazy danych do zapisywania dokumentów. |
-    | **Nazwa kolekcji** | TaskCollection | Nazwa bazy kolekcji bazy danych. |
-    | **W przypadku wartości true tworzy bazę danych i kolekcję usługi Cosmos DB** | Zaznaczono | Kolekcja jeszcze nie istnieje, więc należy ją utworzyć. |
-    | **Połączenie konta usługi Azure Cosmos DB** | Nowe ustawienie | Wybierz pozycję **Nowy**, swoją **subskrypcję**, utworzone wcześniej **konto bazy danych** i polecenie **Wybierz**. Spowoduje to utworzenie ustawienia aplikacji na potrzeby połączenia konta. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
-    | **Przepływność kolekcji** |400 RU| Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. |
+    | **Nazwa kolekcji** | Kolekcji taskcollection | Nazwa bazy kolekcji bazy danych. |
+    | **W przypadku wartości true tworzy bazę danych i kolekcję usługi Cosmos DB** | Tak | Kolekcja jeszcze nie istnieje, więc należy ją utworzyć. |
+    | **Połączenie konta usługi Cosmos DB** | Nowe ustawienie | Wybierz pozycję **Nowy**, a następnie wybierz **konto Azure Cosmos DB** i **konto bazy danych** utworzone wcześniej, a następnie wybierz przycisk **OK**. Spowoduje to utworzenie ustawienia aplikacji na potrzeby połączenia konta. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
 
-1. Wybierz pozycję **Zapisz**, aby utworzyć powiązanie.
+1. Wybierz **przycisk OK** , aby utworzyć powiązanie.
 
 ## <a name="update-the-function-code"></a>Aktualizacja kodu funkcji
 
@@ -134,25 +132,29 @@ Ten przykładowy kod odczytuje ciągi zapytań żądania HTTP i przypisuje je do
 
 ## <a name="test-the-function-and-database"></a>Testowanie funkcji i bazy danych
 
-1. Rozwiń okno po prawej stronie i wybierz pozycję **Testuj**. W obszarze **Zapytanie** kliknij pozycję **+ Dodaj parametr** i dodaj następujące parametry do ciągu zapytania:
+1. Kliknij przycisk **Testuj**. W obszarze **zapytanie**wybierz pozycję **+ Dodaj parametr** i Dodaj następujące parametry do ciągu zapytania:
 
     + `name`
     + `task`
     + `duedate`
 
-1. Kliknij pozycję **Uruchom** i sprawdź, czy zwracany jest stan 200.
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Przetestuj funkcję." border="true":::
 
-    ![Konfigurowanie powiązania danych wyjściowych Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-1. W witrynie Azure Portal rozwiń pasek ikon po lewej stronie, wpisz ciąg `cosmos` w polu wyszukiwania, a następnie wybierz pozycję **Azure Cosmos DB**.
+1. Wybierz pozycję **Uruchom** i sprawdź, czy jest zwracany stan 200.
 
-    ![Wyszukiwanie usługi Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Przetestuj funkcję." border="true":::
 
-1. Wybierz konto usługi Azure Cosmos DB, a następnie wybierz pozycję **Eksplorator danych**.
 
-1. Rozwiń węzły **Kolekcje**, wybierz nowy dokument i upewnij się, że zawiera on wartości ciągu zapytania wraz z pewnymi dodatkowymi metadanymi.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Cosmos DB**.
 
-    ![Sprawdzanie wpisu w bazie danych Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Wyszukaj usługę Cosmos DB." border="true":::
+
+1. Wybierz konto Azure Cosmos DB, a następnie wybierz pozycję **Eksplorator danych**.
+
+1. Rozwiń węzły **taskcollection** , zaznacz nowy dokument i upewnij się, że dokument zawiera wartości ciągu zapytania wraz z dodatkowymi metadanymi.
+
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Sprawdź wartości ciągów w dokumencie." border="true":::
 
 Powiązanie zostało pomyślnie dodane do wyzwalacza HTTP w celu zapisania danych bez struktury w bazie danych Azure Cosmos DB.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79371226"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202075"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych Cognitive Services platformy Azure
 
@@ -55,7 +55,7 @@ Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ogr
 
 Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ograniczona do regionu *środkowe stany USA*, *Południowo-środkowe*stany USA, *Wschodnie stany*US USA, *zachodnie stany USA 2*, *globalne*i *US gov Wirginia* regiony platformy Azure.
 > [!div class="checklist"]
-> * [Tekst usługi Translator](./translator/index.yml)
+> * [Tekst usługi Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tagi usługi
 Oprócz obsługi punktów końcowych usługi sieci wirtualnej dla powyższych usług Cognitive Services obsługuje także tag usługi dla konfiguracji reguł sieci wychodzącej. Poniższe usługi są zawarte w tagu usługi CognitiveServicesManagement.
@@ -99,7 +99,7 @@ Można zarządzać domyślnymi regułami dostępu do sieci dla zasobów Cognitiv
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -221,7 +221,7 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
@@ -339,12 +339,12 @@ Można zarządzać regułami sieci wirtualnej dla zasobów Cognitive Services za
 
 Można skonfigurować zasoby Cognitive Services, aby zezwolić na dostęp z określonych publicznych zakresów adresów IP. Ta konfiguracja zapewnia dostęp do określonych usług i sieci lokalnych, co skutecznie blokuje ogólny ruch internetowy.
 
-Podaj dozwolone zakresy adresów internetowych przy użyciu [notacji CIDR](https://tools.ietf.org/html/rfc4632) w `16.17.18.0/24` postaci lub jako indywidualne adresy IP `16.17.18.19`, takie jak.
+Podaj dozwolone zakresy adresów internetowych przy użyciu [notacji CIDR](https://tools.ietf.org/html/rfc4632) w postaci `16.17.18.0/24` lub jako indywidualne adresy IP, takie jak `16.17.18.19` .
 
    > [!Tip]
    > Małe zakresy adresów przy użyciu prefiksów "/31" lub "/32" nie są obsługiwane. Te zakresy należy skonfigurować przy użyciu poszczególnych reguł adresów IP.
 
-Reguły sieci IP są dozwolone tylko dla **publicznych** adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają `172.16.*`  -  `172.31.*`się od `192.168.*` `10.*`, i.
+Reguły sieci IP są dozwolone tylko dla **publicznych** adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w [dokumencie RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od `10.*` , `172.16.*`  -  `172.31.*` i `192.168.*` .
 
    > [!NOTE]
    > Reguły sieci IP nie mają wpływu na żądania pochodzące z tego samego regionu świadczenia usługi Azure co zasób Cognitive Services. Użyj [reguł sieci wirtualnej](#grant-access-from-a-virtual-network) , aby zezwolić na żądania tego samego regionu.
@@ -369,7 +369,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Sprawdź, czy wybrano opcję zezwalania na dostęp z **wybranych sieci**.
 
-1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze **Firewall** > **zakres adresów**zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
+1. Aby udzielić dostępu do zakresu internetowego adresu IP, wprowadź adres IP lub zakres adresów (w [formacie CIDR](https://tools.ietf.org/html/rfc4632)) w obszarze **Firewall**  >  **zakres adresów**zapory. Akceptowane są tylko prawidłowe publiczne adresy IP (niezarezerwowane).
 
    ![Dodaj zakres adresów IP](media/vnet/virtual-network-add-ip-range.png)
 
@@ -379,7 +379,7 @@ Można zarządzać regułami sieci IP dla zasobów Cognitive Services za pomocą
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 1. Zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps) i [Zaloguj się](/powershell/azure/authenticate-azureps)lub wybierz opcję **Wypróbuj**.
 
