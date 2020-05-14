@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593584"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402461"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Zasady pomocy technicznej dla usługi Azure Kubernetes Service
 
@@ -38,11 +38,6 @@ Firma Microsoft zarządza następującymi składnikami i monitoruje je za pomoc�
 AKS nie jest rozwiązaniem w pełni zarządzanym klastrem. Niektóre składniki, takie jak węzły procesu roboczego, mają *wspólną odpowiedzialność*, w której użytkownicy muszą pomóc w utrzymaniu klastra AKS. Dane wejściowe użytkownika są wymagane na przykład w celu zastosowania poprawki zabezpieczeń systemu operacyjnego węzła procesu roboczego.
 
 Usługi są *zarządzane* w sensie, że firma Microsoft i zespół AKS wdrażają, działają i są odpowiedzialne za dostępność i funkcjonalność usługi. Klienci nie mogą zmieniać tych składników zarządzanych. Firma Microsoft ogranicza dostosowanie w celu zapewnienia spójnego i skalowalnego środowiska użytkownika. Aby uzyskać w pełni dostosowywalne rozwiązanie, zobacz [aparat AKS](https://github.com/Azure/aks-engine).
-
-> [!NOTE]
-> Węzły procesu roboczego AKS są wyświetlane w Azure Portal jako zwykłe zasoby IaaS platformy Azure. Jednak te maszyny wirtualne są wdrażane w niestandardowej grupie zasobów platformy Azure (z prefiksem\\MC *). Istnieje możliwość zmiany węzłów procesu roboczego AKS. Na przykład można użyć Secure Shell (SSH), aby zmienić AKS węzły procesu roboczego w sposób zmieniania normalnych maszyn wirtualnych (nie można jednak zmienić podstawowego obrazu systemu operacyjnego, a zmiany mogą nie zostać zachowane przez aktualizację lub ponowny rozruch) i można dołączyć inne zasoby platformy Azure do węzłów procesu roboczego AKS. Jednak po wprowadzeniu zmian w *zarządzaniu poza pasmem i dostosowaniu* klaster AKS może stać się nieobsługiwany. Należy unikać zmiany węzłów procesu roboczego, chyba że pomoc techniczna firmy Microsoft nie kieruje się do wprowadzania zmian.
-
-Wygenerowanie nieobsługiwanych operacji zgodnie z definicją powyżej, takich jak cofnięcie przydziału poza pasmem dla wszystkich węzłów agenta, renderowanie klastra jest nieobsługiwane. AKS zastrzega sobie prawo do archiwizowania płaszczyzn kontroli, które zostały skonfigurowane z poziomu wytycznych dla rozszerzonych okresów równych i dłuższych niż 30 dni. AKS przechowuje kopie zapasowe metadanych etcd klastra i może łatwo ponownie przydzielić klaster. Tę ponowną alokację można zainicjować za pomocą dowolnej operacji PUT przełączenia klastra do pomocy technicznej, takiego jak uaktualnienie lub skalowanie do węzłów aktywnego agenta.
 
 ## <a name="shared-responsibility"></a>Wspólna odpowiedzialność
 
@@ -104,8 +99,22 @@ Firma Microsoft nie automatycznie ponownie uruchomi węzły procesu roboczego w 
 
 Klienci są odpowiedzialni za wykonywanie uaktualnień Kubernetes. Umożliwiają one wykonywanie uaktualnień za pomocą panelu sterowania platformy Azure lub interfejsu wiersza polecenia platformy Azure. Dotyczy to aktualizacji, które zawierają udoskonalenia zabezpieczeń lub funkcjonalności do Kubernetes.
 
+#### <a name="user-customization-of-worker-nodes"></a>Dostosowywanie węzłów procesu roboczego przez użytkownika
 > [!NOTE]
-> Ponieważ AKS jest *usługą zarządzaną*, jej cele końcowe obejmują usunięcie odpowiedzialności za poprawki, aktualizacje i zbieranie dzienników, aby zapewnić pełniejsze i bezobsługowe zarządzanie usługami. W miarę wzrostu pojemności usługi w celu kompleksowego zarządzania przyszłe wersje mogą pominąć niektóre funkcje (na przykład ponowne uruchomienie węzła i automatyczne stosowanie poprawek).
+> Węzły procesu roboczego AKS są wyświetlane w Azure Portal jako zwykłe zasoby IaaS platformy Azure. Jednak te maszyny wirtualne są wdrażane w niestandardowej grupie zasobów platformy Azure (z prefiksem MC \\ *). Można rozszerzyć węzły procesu roboczego AKS z ich konfiguracji podstawowych. Na przykład można użyć Secure Shell (SSH), aby zmienić AKS węzły procesu roboczego w sposób zmieniania normalnych maszyn wirtualnych. Nie można jednak zmienić podstawowego obrazu systemu operacyjnego. Wszelkie zmiany niestandardowe mogą nie zostać zachowane poprzez uaktualnienie, skalowanie, aktualizowanie lub ponowne uruchomienie. **Jednak**wprowadzanie zmian *poza pasmem i poza zakresem interfejsu API AKS* prowadzi do nieobsługiwanego klastra AKS. Należy unikać zmiany węzłów procesu roboczego, chyba że pomoc techniczna firmy Microsoft nie kieruje się do wprowadzania zmian.
+
+Wygenerowanie nieobsługiwanych operacji zgodnie z definicją powyżej, takich jak cofnięcie przydziału poza pasmem dla wszystkich węzłów agenta, renderowanie klastra jest nieobsługiwane. AKS zastrzega sobie prawo do archiwizowania płaszczyzn kontroli, które zostały skonfigurowane z poziomu wytycznych dla rozszerzonych okresów równych i dłuższych niż 30 dni. AKS przechowuje kopie zapasowe metadanych etcd klastra i może łatwo ponownie przydzielić klaster. Tę ponowną alokację można zainicjować za pomocą dowolnej operacji PUT przełączenia klastra do pomocy technicznej, takiego jak uaktualnienie lub skalowanie do węzłów aktywnego agenta.
+
+AKS zarządza cyklem życia i operacjami węzłów procesu roboczego w imieniu klientów — modyfikowanie zasobów IaaS skojarzonych z węzłami procesu roboczego **nie jest obsługiwane**. Przykładem nieobsługiwanej operacji jest dostosowanie zestawu skalowania maszyn wirtualnych puli węzłów przez ręczne zmianę konfiguracji w VMSS za pomocą portalu VMSS lub interfejsu API VMSS.
+ 
+W przypadku konfiguracji lub pakietów specyficznych dla obciążenia AKS zaleca się użycie [Kubernetes daemonsets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+Dzięki użyciu Kubernetes uprzywilejowanych daemonsets i init Containers klienci mogą dostosowywać/modyfikować lub instalować oprogramowanie innych firm w węzłach procesu roboczego klastra. Przykłady takich dostosowań obejmują dodanie niestandardowego oprogramowania do skanowania zabezpieczeń lub zaktualizowanie ustawień sysctl.
+
+Chociaż jest to zalecana ścieżka, jeśli powyższe wymagania nie mają zastosowania, Inżynieria i pomoc techniczna AKS nie mogą pomóc w rozwiązywaniu problemów lub diagnozowaniu niefunkcjonalnych modyfikacji ani tych, które nie są dostępne z powodu wdrożenia przez klienta elementu daemonset.
+
+> [!NOTE]
+> AKS jako *usługa zarządzana* ma cele końcowe, takie jak usuwanie odpowiedzialności za poprawki, aktualizacje i zbieranie dzienników, aby zapewnić pełniejsze i dodatkowe zarządzanie usługami. W miarę wzrostu pojemności usługi w celu kompleksowego zarządzania przyszłe wersje mogą pominąć niektóre funkcje (na przykład ponowne uruchomienie węzła i automatyczne stosowanie poprawek).
 
 ### <a name="security-issues-and-patching"></a>Problemy z zabezpieczeniami i stosowanie poprawek
 

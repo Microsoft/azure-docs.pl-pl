@@ -3,16 +3,16 @@ title: Połącz z SQL Server lub Azure SQL Database
 description: Automatyzowanie zadań związanych z bazami danych SQL w środowisku lokalnym lub w chmurze przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam; logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789203"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402601"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla SQL Server lub Azure SQL Database przy użyciu Azure Logic Apps
 
@@ -86,7 +86,7 @@ W Azure Logic Apps [Akcja](../logic-apps/logic-apps-overview.md#logic-app-concep
 
    ![Dodawanie nowego kroku do aplikacji logiki](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między istniejącymi krokami, przesuń wskaźnik myszy na strzałkę łączącą. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź ciąg "SQL Server" jako filtr. Z listy Akcje wybierz żądaną akcję SQL.
 
@@ -129,6 +129,20 @@ Czasami musisz współpracować z zestawami wyników tak długo, że łącznik n
   * [Podział na strony SQL na potrzeby transferu danych zbiorczych za pomocą Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
   * [SELECT-ORDER BY — klauzula](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+
+### <a name="handle-dynamic-bulk-data"></a>Obsługa dynamicznych danych zbiorczych
+
+Czasami w przypadku wywołania procedury składowanej w łączniku SQL Server zwrócone dane wyjściowe są dynamiczne. W tym scenariuszu wykonaj następujące kroki:
+
+1. Otwórz **projektanta Logic Apps**.
+1. Wykonaj przebieg testowy aplikacji logiki, aby wyświetlić format danych wyjściowych. Skopiuj przykładowe dane wyjściowe.
+1. W projektancie w obszarze działania, w którym wywołujesz procedurę składowaną, wybierz pozycję **nowy krok**.
+1. W obszarze **Wybierz akcję**Wyszukaj i wybierz akcję [**Przeanalizuj dane JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
+1. W akcji **Przeanalizuj dane JSON** wybierz pozycję **Użyj przykładowego ładunku do wygenerowania schematu**.
+1. W oknie **wprowadzanie lub wklejanie przykładowego ładunku JSON** wklej przykładowe dane wyjściowe, a następnie wybierz pozycję **gotowe**.
+1. Jeśli zostanie wyświetlony komunikat o błędzie, który Logic Apps nie może wygenerować schematu, sprawdź, czy składnia przykładowych danych wyjściowych jest prawidłowo sformatowana. Jeśli nadal nie można wygenerować schematu, wprowadź go ręcznie w polu **schemat** .
+1. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
+1. Aby uzyskać dostęp do właściwości zawartości JSON, użyj tokenów danych, które są wyświetlane na liście zawartości dynamicznej w ramach [akcji **Analizuj dane JSON** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 

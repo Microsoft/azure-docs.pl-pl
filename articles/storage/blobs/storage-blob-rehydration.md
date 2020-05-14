@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1265d018997f9540e14e83ab15a44e78f4f86fb1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684095"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402660"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Przeodwodnione dane obiektów blob z warstwy Archiwum
 
@@ -34,6 +34,9 @@ Gdy obiekt BLOB znajduje się w warstwie dostępu archiwizowania, jest traktowan
 Jeśli nie chcesz ponownie odwodnionić obiektu BLOB archiwum, możesz wykonać operację [kopiowania obiektu BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) . Oryginalny obiekt BLOB pozostanie niezmodyfikowany w archiwum, podczas gdy nowy obiekt BLOB zostanie utworzony w warstwie gorąca lub chłodna w trybie online, na którym będziesz pracować. W operacji kopiowania obiektu BLOB można również ustawić opcjonalną Właściwość *x-MS---* ------------------Priority na wartość standardowa lub wysoka, aby określić priorytet tworzenia kopii obiektu BLOB.
 
 Kopiowanie obiektu BLOB z archiwum może zająć kilka godzin, w zależności od wybranego priorytetu rehydratacji. W tle operacja **kopiowania obiektu BLOB** odczytuje źródłowy obiekt BLOB archiwum, aby utworzyć nowy obiekt BLOB w trybie online w wybranej warstwie docelowej. Nowy obiekt BLOB może być widoczny podczas wyświetlania listy obiektów blob, ale dane nie są dostępne do momentu zakończenia odczytu ze źródłowego obiektu BLOB archiwum, a dane są zapisywane w nowym docelowym obiekcie blob online. Nowy obiekt BLOB jest niezależną kopią, a jakakolwiek modyfikacja lub usunięcie nie ma wpływu na źródłowy obiekt BLOB archiwum.
+
+> [!IMPORTANT]
+> Nie usuwaj źródłowego obiektu BLOB, dopóki kopia nie zostanie pomyślnie ukończona w miejscu docelowym. Jeśli źródłowy obiekt BLOB zostanie usunięty, docelowy obiekt BLOB nie może zakończyć kopiowania i będzie pusty. Aby określić stan operacji kopiowania, można sprawdzić *stan x-MS-Copy-status* .
 
 Obiekty blob archiwalne mogą być kopiowane tylko do warstwy docelowej online w ramach tego samego konta magazynu. Kopiowanie obiektu BLOB archiwum do innego obiektu BLOB archiwum nie jest obsługiwane. W poniższej tabeli przedstawiono możliwości CopyBlob.
 
@@ -74,11 +77,11 @@ Obiekty blob w warstwie archiwum powinny być przechowywane przez co najmniej 18
 
 1. Wybierz pozycję **Zapisz** u dołu.
 
-![Zmień stan sprawdzania warstwy](media/storage-tiers/blob-access-tier.png)
-![konta magazynu](media/storage-tiers/rehydrate-status.png)
+![Zmień ](media/storage-tiers/blob-access-tier.png)
+ ![ stan sprawdzania warstwy konta magazynu](media/storage-tiers/rehydrate-status.png)
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
-Poniższy skrypt programu PowerShell może służyć do zmiany warstwy obiektów BLOB archiwum obiektów BLOB. `$rgName` Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName` Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. `$containerName` Zmienna musi być zainicjowana przy użyciu nazwy kontenera. `$blobName` Zmienna musi być zainicjowana przy użyciu nazwy obiektu BLOB. 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Poniższy skrypt programu PowerShell może służyć do zmiany warstwy obiektów BLOB archiwum obiektów BLOB. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. `$containerName`Zmienna musi być zainicjowana przy użyciu nazwy kontenera. `$blobName`Zmienna musi być zainicjowana przy użyciu nazwy obiektu BLOB. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -99,7 +102,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
 ---
 
 ### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Kopiuj obiekt BLOB archiwalny do nowego obiektu BLOB za pomocą warstwy online
-Poniższy skrypt programu PowerShell może służyć do kopiowania archiwum BLOB do nowego obiektu BLOB w ramach tego samego konta magazynu. `$rgName` Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName` Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. Zmienne `$srcContainerName` i `$destContainerName` muszą być inicjowane przy użyciu nazw kontenerów. Zmienne `$srcBlobName` i `$destBlobName` muszą być inicjowane przy użyciu nazw obiektów BLOB. 
+Poniższy skrypt programu PowerShell może służyć do kopiowania archiwum BLOB do nowego obiektu BLOB w ramach tego samego konta magazynu. `$rgName`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu. `$srcContainerName`Zmienne i `$destContainerName` muszą być inicjowane przy użyciu nazw kontenerów. `$srcBlobName`Zmienne i `$destBlobName` muszą być inicjowane przy użyciu nazw obiektów BLOB. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""

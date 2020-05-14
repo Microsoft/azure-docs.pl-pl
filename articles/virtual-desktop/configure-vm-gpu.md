@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 99393ed518df590140f79933623a9f7ec96edc85
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612082"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402292"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Skonfiguruj przyspieszenie procesora graficznego (GPU) dla pulpitu wirtualnego systemu Windows
 
@@ -55,7 +55,7 @@ Domyślnie aplikacje i komputery stacjonarne działające w konfiguracjach wielo
 
 1. Połącz się z pulpitem maszyny wirtualnej przy użyciu konta z uprawnieniami administratora lokalnego.
 2. Otwórz menu Start i wpisz "gpedit. msc", aby otworzyć Edytor zasady grupy.
-3. Przejdź do węzła **Konfiguracja** > **Szablony administracyjne** > **składniki** > systemu Windows**usługi pulpitu zdalnego** > pulpit zdalny**środowisku sesji zdalnej****hosta** > sesji.
+3. Przejdź do węzła **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny**  >  **środowisku sesji zdalnej**hosta sesji.
 4. Wybierz pozycję zasady **Użyj domyślnej karty graficznej sprzętowej dla wszystkich sesji usługi pulpitu zdalnego** i **Ustaw dla tych** zasad włączenie renderowania procesora GPU w sesji zdalnej.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurowanie kodowania ramek z przyspieszeniem procesora GPU
@@ -80,7 +80,7 @@ Pulpit zdalny koduje wszystkie grafiki renderowane przez aplikacje i komputery s
 
 Aby sprawdzić, czy aplikacje używają procesora GPU do renderowania, spróbuj wykonać jedną z następujących czynności:
 
-* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU `nvidia-smi` firmy NVIDIA Użyj narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
+* W przypadku maszyn wirtualnych platformy Azure z procesorem GPU firmy NVIDIA Użyj `nvidia-smi` narzędzia zgodnie z opisem w temacie [Weryfikowanie instalacji sterowników](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) , aby sprawdzić użycie procesora GPU podczas uruchamiania aplikacji.
 * W przypadku obsługiwanych wersji systemu operacyjnego można użyć Menedżera zadań do sprawdzenia użycia procesora GPU. Wybierz procesor GPU na karcie "Performance" (wydajność), aby sprawdzić, czy aplikacje korzystają z procesora GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Weryfikowanie przyspieszanego procesora GPU
@@ -88,7 +88,7 @@ Aby sprawdzić, czy aplikacje używają procesora GPU do renderowania, spróbuj 
 Aby sprawdzić, czy Pulpit zdalny używa kodowania przyspieszanego przez procesor GPU:
 
 1. Nawiąż połączenie z pulpitem maszyny wirtualnej przy użyciu klienta pulpitu wirtualnego systemu Windows.
-2.  > Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług****Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **operacyjnego**
+2. Uruchom Podgląd zdarzeń i przejdź do następującego węzła: **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **Windows**  >  **RemoteDesktopServices-RdpCoreCDV**  >  **operacyjnego**
 3. Aby określić, czy jest używane kodowanie przyspieszone procesora GPU, poszukaj zdarzenia o IDENTYFIKATORze 170. Jeśli widzisz "koder sprzętowy AVC włączony: 1", używane jest kodowanie GPU.
 4. Aby określić, czy jest używany tryb AVC 444, poszukaj zdarzenia o IDENTYFIKATORze 162. Jeśli widzisz wartość "dostępnego AVC: 1 początkowy profil: 2048", zostanie użyta wartość AVC 444.
 
@@ -96,5 +96,5 @@ Aby sprawdzić, czy Pulpit zdalny używa kodowania przyspieszanego przez proceso
 
 Instrukcje te powinny obejmować Przyspieszenie GPU na jednym hoście sesji (jednej maszynie wirtualnej). Dodatkowe zagadnienia dotyczące włączania przyspieszenia procesora GPU w większej puli hostów:
 
-* Rozważ użycie [rozszerzenia maszyny wirtualnej](/azure/virtual-machines/extensions/overview) w celu uproszczenia instalacji sterowników i aktualizacji na wielu maszynach wirtualnych. Użyj [rozszerzenia sterownika procesora GPU firmy NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla maszyn wirtualnych z procesorami GPU NVIDIA i Użyj rozszerzenia sterownika procesora GPU AMD (dostępnego wkrótce) dla maszyn wirtualnych z procesorami GPU AMD.
+* Rozważ użycie [rozszerzenia maszyny wirtualnej](/azure/virtual-machines/extensions/overview) w celu uproszczenia instalacji sterowników i aktualizacji na wielu maszynach wirtualnych. Użyj [rozszerzenia sterownika procesora GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) dla maszyn wirtualnych z procesorami GPU firmy NVIDIA i Użyj [rozszerzenia sterownika procesora GPU AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) dla maszyn wirtualnych z procesorami GPU AMD.
 * Rozważ użycie zasady grupy Active Directory, aby uprościć konfigurację zasad grupy na wielu maszynach wirtualnych. Aby uzyskać informacje na temat wdrażania zasady grupy w domenie Active Directory, zobacz [Praca z obiektami zasady grupy](https://go.microsoft.com/fwlink/p/?LinkId=620889).

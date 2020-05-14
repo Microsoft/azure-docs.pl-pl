@@ -16,12 +16,12 @@ ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c0b7070502059eee7f87e82812e06095e56d578
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: bf34f808e2c59e32990a83c817b98ee899e769ac
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582655"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402253"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nazwy produktów i identyfikatory planów usług na potrzeby licencjonowania
 
@@ -36,9 +36,10 @@ Podczas zarządzania licencjami w [Azure Portal](https://portal.azure.com/#blade
 >[!NOTE]
 >Te informacje są dokładne od 28 kwietnia 2020.
 
-| Nazwa produktu | Identyfikator ciągu | Identyfikator GUID | Uwzględnione plany usług | Uwzględnione plany usług (przyjazne nazwy) |
+| Nazwa produktu | Identyfikator ciągu | GUID | Uwzględnione plany usług | Uwzględnione plany usług (przyjazne nazwy) |
 | --- | --- | --- |--- | --- |
-| KONFERENCJE AUDIO | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | KONFERENCJe AUDIO (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
+| IW APLIKACJI CONNECT | SPZA_IW |  8f0c5670-4e56-4892-b06d-91c085d7004f | SPZA (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | Łączenie aplikacji (0bfc98ed-1dbc-4a97-b246-701754e48b17)<br/>EXCHANGE FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) |
+| KONFERENCJE AUDIO | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 | MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | KONFERENCJe AUDIO (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY — PODSTAWOWE  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ACTIVE DIRECTORY w warstwie Podstawowa (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
 | AZURE ACTIVE DIRECTORY — WERSJA PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) | AZURE ACTIVE DIRECTORY — wersja PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MICROSOFT AZURE — uwierzytelnianie wieloskładnikowe (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>ODNAJDOWAnie usługi CLOUD APP SECURITY (932ad362-64a8-4783-9106-97849a1a30b9) |
 | AZURE ACTIVE DIRECTORY — WERSJA PREMIUM P2 | AAD_PREMIUM_P2    | 84a661c4-e949-4bd2-a560-ed7766fcaf2b  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AAD_PREMIUM_P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) | AZURE ACTIVE DIRECTORY — wersja PREMIUM P1 (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MICROSOFT AZURE — uwierzytelnianie wieloskładnikowe (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>ODNAJDOWAnie usługi CLOUD APP SECURITY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>AZURE ACTIVE DIRECTORY — wersja PREMIUM P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998) |
@@ -130,7 +131,7 @@ Podczas zarządzania licencjami w [Azure Portal](https://portal.azure.com/#blade
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Plany usług, których nie można przypisać w tym samym czasie
 
-Niektóre produkty zawierają plany usług, które nie mogą być przypisane do tego samego użytkownika w tym samym czasie. Jeśli na przykład masz *pakiet office 365 E1* i *pakiet Office 365 E3* w organizacji usługi Azure AD, a użytkownik spróbuje przypisać obie licencje do tego samego użytkownika, operacja zakończy się niepowodzeniem. Wynika to z faktu, że produkt E3 zawiera następujące plany usług, które powodują konflikt ze swoimi odpowiednikami E1:
+Niektóre produkty zawierają plany usług, które nie mogą być przypisane do tego samego użytkownika w tym samym czasie. Jeśli na przykład masz *pakiet office 365 E1* i *pakiet Office 365 E3* w dzierżawie, a użytkownik spróbuje przypisać obie licencje do tego samego użytkownika, operacja zakończy się niepowodzeniem. Wynika to z faktu, że produkt E3 zawiera następujące plany usług, które powodują konflikt ze swoimi odpowiednikami E1:
 
 -   SharePoint Online (plan 2) powoduje konflikt z usługą SharePoint Online (plan 1).
 -   Usługa Exchange Online (plan 2) powoduje konflikt z usługą Exchange Online (plan 1).
@@ -148,7 +149,7 @@ Ta sekcja zawiera listę najbardziej typowych planów usług, które wzajemnie s
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
 | CRMPLAN2  | bf36ca64-95c6-4918-9275-eb9f4ce2c04f |
@@ -164,7 +165,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -179,7 +180,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -189,7 +190,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -206,7 +207,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -215,7 +216,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -225,7 +226,7 @@ Następujące plany usług nie mogą być przypisane razem:
 
 Następujące plany usług nie mogą być przypisane razem:
 
-| Nazwa planu usługi | Identyfikator GUID |
+| Nazwa planu usługi | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |

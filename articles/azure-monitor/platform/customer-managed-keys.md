@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/07/2020
-ms.openlocfilehash: 2838051d8e75ffbe3b7ecc9fbc655f24b57199e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/13/2020
+ms.openlocfilehash: 71a28d4a0b69b117039f998891e082740e4269a2
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198686"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402560"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -21,30 +21,29 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitations-and-constraints) p
 
 ## <a name="disclaimers"></a>Zastrzeżenia
 
-- Funkcja CMK jest dostarczana w dedykowanym klastrze Log Analytics, który jest klastrem fizycznym i magazynem danych, który jest odpowiedni dla klientów wysyłających 1 TB dziennie lub więcej
-
-- Model cen CMK jest obecnie niedostępny i nie został uwzględniony w tym artykule. Model cenowy dedykowanego klastra Log Analytics jest oczekiwany w drugim kwartale roku kalendarzowego (CY) 2020 i będzie miał zastosowanie do wszystkich istniejących wdrożeń CMK.
+Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. [Model cenowy klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Klucz zarządzany przez klienta (CMK) — Omówienie
 
-[Szyfrowanie w spoczynku](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) to wspólne wymagania w zakresie ochrony prywatności i bezpieczeństwa w organizacjach. Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
+Szyfrowanie w spoczynku ( https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) stanowi typowe wymagania w zakresie ochrony prywatności i zabezpieczeń w organizacjach. Możesz pozwolić, aby platforma Azure całkowicie zarządzała szyfrowaniem w stanie spoczynku, podczas gdy masz różne opcje, aby dokładnie zarządzać szyfrowaniem lub kluczami szyfrowania.
 
-Azure Monitor Storage zapewnia, że wszystkie dane zaszyfrowane przy użyciu kluczy zarządzanych przez platformę Azure przechowywane w usłudze Azure Storage. Azure Monitor udostępnia również opcję szyfrowania danych przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview), do którego uzyskuje się dostęp przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) przypisanego przez system. Ten klucz może być [chroniony przez oprogramowanie lub sprzęt-moduł HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) .
+Azure Monitor gwarantuje, że wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure. Azure Monitor udostępnia również opcję szyfrowania danych przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)przypisanego przez system   . Ten klucz może być [chroniony przez oprogramowanie lub sprzęt-moduł HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
+
+Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   .
+
+Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
 
 Częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operacji zawijania i rozwinięcia, wynosi od 6 do 60 sekund.Azure Monitor Storage zawsze uwzględnia zmiany w uprawnieniach klucza w ciągu godziny.
 
-Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation) i jest niedostępna. Pracujemy nad szyfrowaniem danych SSD przy użyciu CMK w drugiej połowie 2020.
-
 ## <a name="how-cmk-works-in-azure-monitor"></a>Jak działa CMK w Azure Monitor
 
-Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure. Tożsamość dedykowanego klastra Log Analytics jest obsługiwana na poziomie klastra, co oznacza, że funkcja CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. To pojęcie zachowuje tożsamość między dedykowanym klastrem Log Analytics i Log Analytics zasobem *klastra* , podczas gdy dane skojarzonych obszarów roboczych są chronione za pomocą klucza Key Vault. Dedykowany magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* w celu uwierzytelniania i uzyskiwania dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
+Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra, co oznacza, że funkcja CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics, które utrzymują tożsamość między klastrem Log Analytics i Key Vault. Magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* do uwierzytelniania i uzyskiwania dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Key Vault klienta.
-2.    Zasób *klastra* log Analytics klienta mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest obsługiwana na poziomie dedykowanego klastra log Analytics.
-3.    Dedykowany klaster Log Analytics.
-4.    Obszary robocze klientów skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK.
+1.    Usługa Key Vault
+2.    Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
+3.    Dedykowany klaster Log Analytics
+4.    Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
 
 ## <a name="encryption-keys-operation"></a>Operacja kluczy szyfrowania
 
@@ -56,7 +55,7 @@ Istnieją trzy typy kluczy, które wiążą się z szyfrowaniem danych magazynu:
 
 Mają zastosowanie następujące zasady:
 
-- Dedykowane konta magazynu Log Analytics klastra generują unikatowy klucz szyfrowania dla każdego konta magazynu, który jest znany jako AEK.
+- Konta magazynu klastra Log Analytics generują unikatowy klucz szyfrowania dla każdego konta magazynu, który jest znany jako AEK.
 
 - AEK jest używany do wyprowadzania DEKs, które są kluczami, które są używane do szyfrowania poszczególnych bloków danych zapisywana na dysku.
 
@@ -68,7 +67,7 @@ Mają zastosowanie następujące zasady:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedura inicjowania obsługi CMK
 
-1. Listy dozwolonych subskrypcji — aby upewnić się, że w Twoim regionie jest wymagana pojemność dedykowanego klastra Log Analytics, należy wcześniej zweryfikować i dozwolonych subskrypcję
+1. Listy dozwolonych subskrypcji — aby upewnić się, że w Twoim regionie dostępna jest wymagana pojemność umożliwiająca obsługę klastra Log Analytics, należy wcześniej zweryfikować i dozwolonych subskrypcję
 2. Tworzenie Azure Key Vault i przechowywanie klucza
 3. Tworzenie zasobu *klastra*
 5. Przyznawanie uprawnień do Key Vault
@@ -207,7 +206,7 @@ Tożsamość jest przypisywana do zasobu *klastra* podczas tworzenia.
 
 200 OK i nagłówek.
 
-Po zakończeniu aprowizacji dedykowanego klastra Log Analytics a przez pewien czas można sprawdzić stan aprowizacji na dwa sposoby:
+Mimo że trwa inicjowanie obsługi klastra Log Analytics przez pewien czas, można sprawdzić stan aprowizacji na dwa sposoby:
 
 1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
 2. Wyślij żądanie GET do zasobu *klastra* i sprawdź wartość *provisioningState* . Jest on *ProvisioningAccount* podczas inicjowania obsługi administracyjnej i zakończył *się pomyślnie* .
@@ -351,7 +350,7 @@ Aby wykonać tę operację, musisz mieć uprawnienia "Write" do obszaru roboczeg
 - W obszarze zasób *klastra* : Microsoft. OperationalInsights/klastrów/Write
 
 > [!IMPORTANT]
-> Ten krok należy wykonać dopiero po zakończeniu dedykowanej Log Analytics aprowizacji klastra. W przypadku kojarzenia obszarów roboczych i pozyskiwania danych przed rozpoczęciem aprowizacji pozyskiwane dane zostaną usunięte i nie będzie można ich odzyskać.
+> Ten krok należy wykonać dopiero po zakończeniu aprowizacji klastra Log Analytics. W przypadku kojarzenia obszarów roboczych i pozyskiwania danych przed rozpoczęciem aprowizacji pozyskiwane dane zostaną usunięte i nie będzie można ich odzyskać.
 
 **Kojarzenie obszaru roboczego**
 
@@ -416,7 +415,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>CMK (KEK) — odwołanie
 
-Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu do zasobów *klastra* w Key Vault. Dedykowany magazyn klastra Log Analytics zawsze będzie uwzględniał zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszystkie dane pozyskane do obszarów roboczych skojarzonych z zasobem *klastra* zostaną porzucone, a zapytania zakończą się niepowodzeniem. Wcześniej pozyskiwane dane pozostają niedostępne w magazynie, tak jak w przypadku, gdy zasób *klastra* i obszary robocze nie zostaną usunięte. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. 
+Dostęp do danych można odwołać, wyłączając klucz lub usuwając zasady dostępu do zasobów *klastra* w Key Vault. Magazyn klastra Log Analytics będzie zawsze respektują zmiany w uprawnieniach klucza w ciągu godziny lub wcześniej, a magazyn stanie się niedostępny. Wszelkie nowe dane pozyskiwane w obszarach roboczych skojarzonych z *Cluster*   zasobem klastra zostaną porzucone i nie będzie można ich odzyskać, dane są niedostępne i zapytania do tych obszarów roboczych zakończą się niepowodzeniem. Poprzednio pozyskiwane dane pozostają w magazynie, dopóki nie zostaną usunięte zasoby *klastra* i obszary robocze. Dane niedostępne podlegają zasadom przechowywania danych i zostaną usunięte po osiągnięciu okresu przechowywania. 
 
 Dane odebrane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Spowoduje to usunięcie operacji odwoływania klucza i stanie się niedostępna.
 
@@ -424,19 +423,19 @@ Magazyn okresowo sonduje Key Vault, aby próbować odszyfrować klucz szyfrowani
 
 ## <a name="cmk-kek-rotation"></a>CMK (KEK)
 
-Obrót CMK wymaga jawnej aktualizacji zasobu *klastra* przy użyciu nowej wersji klucza w Azure Key Vault. Postępuj zgodnie z instrukcjami w kroku "Aktualizowanie zasobu *klastra* z identyfikatorem klucza szczegóły". Jeśli nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , dedykowany magazyn log Analytics klastra będzie nadal korzystać z poprzedniego klucza.
+Obrót CMK wymaga jawnej aktualizacji zasobu *klastra* przy użyciu nowej wersji klucza w Azure Key Vault. Postępuj zgodnie z instrukcjami w kroku "Aktualizowanie zasobu *klastra* z identyfikatorem klucza szczegóły". Jeśli nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , magazyn klastra log Analytics będzie nadal korzystać z poprzedniego klucza do szyfrowania. W przypadku wyłączenia lub usunięcia starego klucza przed zaktualizowaniem nowego klucza w zasobie *klastra* zostanie wyświetlony stan [odwoływania klucza](#cmk-kek-revocation) .
 
 Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym danych pozyskanych przed obróceniem i po nim, ponieważ dane są zawsze szyfrowane przy użyciu klucza szyfrowania konta (AEK), podczas gdy AEK jest teraz szyfrowany przy użyciu nowej wersji klucza szyfrowania klucza (KEK) w Key Vault.
 
 ## <a name="limitations-and-constraints"></a>Ograniczenia i ograniczenia
 
-- CMK jest obsługiwana w dedykowanym klastrze Log Analytics odpowiednim dla klientów wysyłających 1 TB dziennie lub dłużej.
+- CMK jest obsługiwana w dedykowanym klastrze Log Analytics i jest odpowiednia dla klientów wysyłających 1 TB dziennie lub dłużej.
 
 - Maksymalna liczba zasobów *klastra* na region i subskrypcja wynosi 2.
 
 - Możesz skojarzyć obszar roboczy z zasobem *klastra* , a następnie usunąć jego skojarzenie, gdy CMK dla jego danych nie jest już wymagany lub z innego powodu. Liczba skojarzeń obszaru roboczego, które można wykonać w obszarze roboczym w okresie 30 dni, jest ograniczona do 2
 
-- Skojarzenie obszaru roboczego z zasobem *klastra* należy przeprowadzić dopiero po sprawdzeniu, czy dedykowana log Analytics klastra została ukończona. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
+- Skojarzenie obszaru roboczego z zasobem *klastra* należy przeprowadzić dopiero po sprawdzeniu, czy zakończono Inicjowanie obsługi klastra log Analytics. Dane wysyłane do obszaru roboczego przed ukończeniem zostaną usunięte i nie będzie można ich odzyskać.
 
 - Szyfrowanie CMK ma zastosowanie do nowo wprowadzonych danych po konfiguracji CMK. Dane pozyskiwane przed konfiguracją CMK pozostają zaszyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych pozyskiwanych przed bezproblemową konfiguracją CMK i po niej.
 
@@ -539,7 +538,7 @@ Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym 
 
 - **Usuń skojarzenie obszaru roboczego**
 
-  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące obszaru roboczego i zasobu *klastra* . Można usunąć skojarzenie obszaru roboczego z zasobów *klastra* w dowolnym momencie. Nowe dane pozyskiwane po operacji usuwania skojarzenia są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych, które zostały pozyskane do obszaru roboczego przed bezproblemowym usunięciem skojarzenia, o ile zasób *klastra* został zainicjowany i skonfigurowany z prawidłowym kluczem Key Vault.
+  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące obszaru roboczego i zasobu *klastra* . W dowolnym momencie możesz usunąć skojarzenie obszaru roboczego z zasobem *klastra* . Nowe dane pozyskiwane po operacji usuwania skojarzenia są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych, które zostały pozyskane do obszaru roboczego przed bezproblemowym usunięciem skojarzenia, o ile zasób *klastra* został zainicjowany i skonfigurowany z prawidłowym kluczem Key Vault.
 
   To żądanie Menedżer zasobów jest operacją asynchroniczną.
 
@@ -554,12 +553,12 @@ Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym 
   Dane pozyskiwane po operacji usuwania skojarzenia są przechowywane w magazynie Log Analytics, co może potrwać 90 minut. Stan nieskojarzenia obszaru roboczego można sprawdzić na dwa sposoby:
 
   1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
-  2. Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzony obszar roboczy nie będzie miał *clusterResourceId* w obszarze *funkcje*.
+  2. Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
 
 - **Usuwanie zasobu *klastra***
 
-  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . Operacja usuwania nietrwałego jest wykonywana w celu zezwalania na odzyskiwanie zasobu *klastra* , w tym jego danych w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Po okresie usuwania nietrwałego nazwa zasobu *klastra* zostanie wydana, a zasoby *klastra* i dane są trwale usuwane i nie można ich odzyskać. Wszystkie skojarzone obszary robocze są usuwane z zasobu *klastra* podczas operacji usuwania. Nowe pozyskiwane dane są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Operacje w obszarze roboczym usuń skojarzenie są asynchroniczne i może upłynąć do 90 minut.
+  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . Operacja usuwania nietrwałego jest wykonywana w celu zezwalania na odzyskiwanie zasobu *klastra* , w tym jego danych w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Po okresie usuwania nietrwałego nazwa zasobu *klastra* zostanie wydana, a zasoby *klastra* i dane są trwale usuwane i nie można ich odzyskać. Wszystkie skojarzone obszary robocze nie są usuwane z zasobów *klastra* podczas operacji usuwania. Nowe pozyskiwane dane są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Operacje obszarów roboczych, które nie są skojarzone, są asynchroniczne i może upłynąć do 90 minut.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -572,7 +571,7 @@ Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym 
 
 - **Odzyskiwanie zasobu *klastra* i danych** 
   
-  Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać z danymi. Ponieważ wszystkie obszary robocze zostały usunięte z zasobu *klastra* podczas usuwania, należy ponownie skojarzyć obszary robocze po odzyskaniu do szyfrowania CMK. Operacja odzyskiwania jest wykonywana ręcznie przez grupę produktów. Użyj Twojego kanału firmy Microsoft na potrzeby żądań odzyskiwania.
+  Zasób *klastra* , który został usunięty w ciągu ostatnich 14 dni, jest w stanie usuwania nietrwałego i można go odzyskać z danymi. Ponieważ wszystkie obszary robocze zostały usunięte z zasobu *klastra* z usunięciem zasobów *klastra* , należy ponownie skojarzyć obszary robocze po odzyskaniu do szyfrowania CMK. Operacja odzyskiwania jest wykonywana ręcznie przez grupę produktów. Użyj Twojego kanału firmy Microsoft na potrzeby żądań odzyskiwania.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 - Zachowanie z dostępnością Key Vault

@@ -7,20 +7,23 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ff6722fbc825ff736a9870618984bbe2c735acfa
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198951"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402426"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Szyfrowanie po stronie serwera dla usługi Azure Managed disks
 
-Usługa Azure Managed disks automatycznie szyfruje dane domyślnie, gdy są utrwalane w chmurze. Szyfrowanie po stronie serwera chroni dane i pomaga sprostać zobowiązaniom dotyczącym bezpieczeństwa i zgodności w organizacji. Dane w usłudze Azure Managed disks są szyfrowane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2.   
+Usługa Azure Managed disks automatycznie szyfruje dane domyślnie, gdy są utrwalane w chmurze. Szyfrowanie po stronie serwera (SSE) chroni dane i pomaga sprostać wymaganiom bezpieczeństwa i zgodności w organizacji. 
 
-Szyfrowanie nie ma wpływu na wydajność dysków zarządzanych. Nie ma dodatkowych opłat za szyfrowanie.
+Dane w usłudze Azure Managed disks są szyfrowane w sposób niewidoczny dla użytkownika przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodny ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
-Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Szyfrowanie nie ma wpływu na wydajność dysków zarządzanych i nie ma dodatkowych opłat za szyfrowanie. 
+
+> [!NOTE]
+> Dyski tymczasowe nie są dyskami zarządzanymi i nie są szyfrowane przez SSE; Aby uzyskać więcej informacji o dyskach tymczasowych, zobacz [Omówienie usługi Managed disks: role dysków](managed-disks-overview.md#disk-roles).
 
 ## <a name="about-encryption-key-management"></a>Informacje o zarządzaniu kluczami szyfrowania
 
@@ -233,7 +236,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Szyfrowanie po stronie serwera a usługa Azure Disk Encryption
 
-[Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) wykorzystuje funkcję [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) systemu Windows i funkcję [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) w systemie Linux do szyfrowania dysków zarządzanych z kluczami ZARZĄDZANYMI przez klienta w ramach maszyny wirtualnej gościa.  Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta usprawnia w systemie ADE, umożliwiając korzystanie z dowolnych typów systemów operacyjnych i obrazów dla maszyn wirtualnych przez szyfrowanie danych w usłudze Storage.
+[Azure Disk Encryption dla maszyn wirtualnych i zestawów skalowania maszyn wirtualnych](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) wykorzystuje funkcję [dm-crypt systemu](https://en.wikipedia.org/wiki/Dm-crypt) Linux do szyfrowania dysków zarządzanych z kluczami zarządzanymi przez klienta w ramach maszyny wirtualnej gościa.  Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta usprawnia w systemie ADE, umożliwiając korzystanie z dowolnych typów systemów operacyjnych i obrazów dla maszyn wirtualnych przez szyfrowanie danych w usłudze Storage.
 
 ## <a name="next-steps"></a>Następne kroki
 

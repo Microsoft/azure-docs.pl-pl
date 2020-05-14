@@ -1,19 +1,19 @@
 ---
 title: Dodawanie wyszukiwania pełnotekstowego do usługi Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij zawartość i Dodaj strukturę do obiektów blob platformy Azure podczas kompilowania indeksu wyszukiwania pełnotekstowego w usłudze Azure poznawcze eszukaj.
+description: Wyodrębnij zawartość i Dodaj strukturę do obiektów blob platformy Azure podczas kompilowania indeksu wyszukiwania pełnotekstowego w usłudze Azure poznawcze wyszukiwanie.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83308f42fb1f2ea3408b5c1a63d88d21a8e7830a
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73496465"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402076"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Dodawanie wyszukiwania pełnotekstowego do danych obiektów blob platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze
 
@@ -58,6 +58,11 @@ Uruchamiając indeksator obiektów BLOB w kontenerze, można wyodrębnić tekst 
 ### <a name="indexing-blob-metadata"></a>Indeksowanie metadanych obiektu BLOB
 
 Typowym scenariuszem, który ułatwia sortowanie za pomocą obiektów BLOB dowolnego typu zawartości, jest indeksowanie zarówno niestandardowych metadanych, jak i właściwości systemu dla każdego obiektu BLOB. W ten sposób informacje o wszystkich obiektach Blob są indeksowane niezależnie od typu dokumentu, przechowywane w indeksie usługi wyszukiwania. Korzystając z nowego indeksu, można następnie posortować, filtrować i aspektować zawartość całej zawartości magazynu obiektów BLOB.
+
+> [!NOTE]
+> Tagi indeksów obiektów BLOB są natywnie indeksowane przez usługę BLOB Storage i udostępniane na potrzeby wykonywania zapytań. Jeśli atrybuty klucza/wartości obiektów BLOB wymagają funkcji indeksowania i filtrowania, zamiast metadanych należy użyć tagów indeksów obiektów BLOB.
+>
+> Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarządzanie danymi i znajdowanie ich w usłudze Azure Blob Storage przy użyciu indeksu obiektów BLOB](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Indeksowanie obiektów BLOB JSON
 Indeksatory można skonfigurować do wyodrębniania zawartości strukturalnej znalezionej w obiektach Blob, które zawierają kod JSON. Indeksator może odczytywać obiekty blob JSON i analizować zawartość strukturalną do odpowiednich pól dokumentu wyszukiwania. Indeksatory mogą również przyjmować obiekty blob, które zawierają tablicę obiektów JSON i mapują każdy element do oddzielnego dokumentu wyszukiwania. Można ustawić tryb analizowania, który ma wpływ na typ obiektu JSON utworzonego przez indeksator.

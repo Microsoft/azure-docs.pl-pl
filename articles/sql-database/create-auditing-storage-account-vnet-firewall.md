@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6345d210e26747f921595039a2a3c8e11be11fda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f26fa00f78b8564e08b6352d4da31640b13f47f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80387635"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402676"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
 
@@ -38,7 +38,7 @@ Aby przeprowadzić inspekcję zapisu na koncie magazynu za siecią wirtualną lu
 > [!div class="checklist"]
 > * Konto magazynu ogólnego przeznaczenia w wersji 2. Jeśli masz konto magazynu ogólnego przeznaczenia w wersji 1 lub BLOB, [Przeprowadź uaktualnienie do konta magazynu ogólnego przeznaczenia w wersji 2](../storage/common/storage-account-upgrade.md). Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Konto magazynu musi znajdować się w tej samej subskrypcji i w tej samej lokalizacji co serwer Azure SQL Database. 
-> * Wymagane `Allow trusted Microsoft services to access this storage account`jest konto usługi Azure Storage. Ustaw tę wartość na **zaporach konta magazynu i w sieciach wirtualnych**.
+> * Wymagane jest konto usługi Azure Storage `Allow trusted Microsoft services to access this storage account` . Ustaw tę wartość na **zaporach konta magazynu i w sieciach wirtualnych**.
 > * Musisz mieć `Microsoft.Authorization/roleAssignments/write` uprawnienie do wybranego konta magazynu. Aby uzyskać więcej informacji, zobacz [role wbudowane platformy Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Konfigurowanie w witrynie Azure Portal
@@ -54,7 +54,7 @@ Połącz się z [Azure Portalą](https://portal.azure.com) z subskrypcją. Przej
   > [!NOTE]
   > Jeśli wybrane konto magazynu znajduje się za siecią wirtualną, zostanie wyświetlony następujący komunikat:
   >
-  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
+  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage requires to enable 'Allow trusted Microsoft services to access this storage account' on the storage account and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
   >Jeśli ten komunikat nie jest wyświetlany, konto magazynu nie należy do sieci wirtualnej.
 
@@ -82,7 +82,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 1. Zarejestruj serwer Azure SQL Database w usłudze Azure Active Directory (Azure AD). Użyj programu PowerShell lub interfejsu API REST.
 
-   **Narzędzia**
+   **Program PowerShell**
    
    ```powershell
    Connect-AzAccount

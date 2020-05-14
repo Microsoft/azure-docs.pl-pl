@@ -7,16 +7,16 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3be60888d3d12d37650ad2cffc1911fb3b5e6682
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790698"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402070"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie ze standardowego modułu równoważenia obciążenia jednostki SKU w usłudze Azure Kubernetes Service (AKS)
 
-Aby zapewnić dostęp do aplikacji za pośrednictwem usług Kubernetes `LoadBalancer` Services typu w usłudze Azure Kubernetes Service (AKS), możesz użyć Azure Load Balancer. Moduł równoważenia obciążenia uruchomiony w systemie AKS może być używany jako wewnętrzny lub zewnętrzny moduł równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia sprawia, że usługa Kubernetes jest dostępna tylko dla aplikacji działających w tej samej sieci wirtualnej co klaster AKS. Zewnętrzny moduł równoważenia obciążenia otrzymuje co najmniej jeden publiczny adres IP dla ruchu przychodzącego, a usługa Kubernetes jest dostępna zewnętrznie przy użyciu publicznych adresów IP.
+Aby zapewnić dostęp do aplikacji za pośrednictwem usług Kubernetes Services typu `LoadBalancer` w usłudze Azure Kubernetes Service (AKS), możesz użyć Azure Load Balancer. Moduł równoważenia obciążenia uruchomiony w systemie AKS może być używany jako wewnętrzny lub zewnętrzny moduł równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia sprawia, że usługa Kubernetes jest dostępna tylko dla aplikacji działających w tej samej sieci wirtualnej co klaster AKS. Zewnętrzny moduł równoważenia obciążenia otrzymuje co najmniej jeden publiczny adres IP dla ruchu przychodzącego, a usługa Kubernetes jest dostępna zewnętrznie przy użyciu publicznych adresów IP.
 
 Azure Load Balancer jest dostępny w dwóch jednostkach SKU — *podstawowa* i *standardowa*. Domyślnie *standardowa* jednostka SKU jest używana podczas tworzenia klastra AKS. Użycie usługi równoważenia obciążenia ze *standardową* jednostką SKU zapewnia dodatkowe funkcje i funkcje, takie jak większy rozmiar puli zaplecza i strefy dostępności. Ważne jest, aby zrozumieć różnice między *standardowymi* i *podstawowymi* usługami równoważenia obciążenia przed wybraniem, który ma być używany. Po utworzeniu klastra AKS nie można zmienić jednostki SKU modułu równoważenia obciążenia dla tego klastra. Aby uzyskać więcej informacji na temat *podstawowych* i *standardowych* jednostek SKU, zobacz [porównanie jednostki SKU modułu równoważenia obciążenia platformy Azure][azure-lb-comparison].
 
@@ -38,7 +38,7 @@ Nazwa główna usługi klastra AKS musi również mieć uprawnienia do zarządza
 
 Jeśli istnieje klaster z podstawową jednostką SKU Load Balancer, istnieją istotne różnice w działaniu podczas migrowania do używania klastra ze standardową jednostką SKU Load Balancer.
 
-Na przykład w przypadku wdrożeń Blue/Green do migracji klastrów jest powszechną metodą, w `load-balancer-sku` której typ klastra można zdefiniować tylko w czasie tworzenia klastra. Jednak *podstawowe* usługi równoważenia obciążenia SKU używają podstawowych adresów IP *jednostki SKU* , które nie są zgodne ze *standardowymi* modułami równoważenia obciążenia jednostki SKU, ponieważ wymagają standardowych adresów IP *jednostki SKU* . W przypadku migrowania klastrów w celu uaktualnienia Load Balancer jednostek SKU będzie wymagane nowe adresy IP ze zgodną jednostką SKU adresu IP.
+Na przykład w przypadku wdrożeń Blue/Green do migracji klastrów jest powszechną metodą, w której `load-balancer-sku` Typ klastra można zdefiniować tylko w czasie tworzenia klastra. Jednak *podstawowe* usługi równoważenia obciążenia SKU używają podstawowych adresów IP *jednostki SKU* , które nie są zgodne ze *standardowymi* modułami równoważenia obciążenia jednostki SKU, ponieważ wymagają standardowych adresów IP *jednostki SKU* . W przypadku migrowania klastrów w celu uaktualnienia Load Balancer jednostek SKU będzie wymagane nowe adresy IP ze zgodną jednostką SKU adresu IP.
 
 Aby uzyskać więcej informacji na temat migracji klastrów, zapoznaj się z [naszą dokumentacją dotyczącą zagadnień związanych z migracją](aks-migration.md) , aby wyświetlić listę ważnych tematów, które należy wziąć pod uwagę podczas migracji. Poniższe ograniczenia są również ważnymi różnicami w działaniu podczas korzystania ze standardowych modułów równoważenia obciążenia SKU w programie AKS.
 
@@ -81,7 +81,7 @@ az aks update \
 
 Powyższy przykład ustawia liczbę zarządzanych publicznych adresów IP z *2* dla klastra *MyAKSCluster* w ramach *zasobu*. 
 
-Aby ustawić początkową liczbę zarządzanych publicznych adresów IP, które są używane podczas tworzenia klastra `--load-balancer-managed-outbound-ip-count` , można również użyć parametru *modułu równoważenia obciążenia-Managed-IP-Count* . Domyślna liczba zarządzanych publicznych adresów IP wychodzących to 1.
+Aby ustawić początkową liczbę zarządzanych publicznych adresów IP, które są używane podczas tworzenia klastra, można również użyć parametru *modułu równoważenia obciążenia-Managed-IP-Count* `--load-balancer-managed-outbound-ip-count` . Domyślna liczba zarządzanych publicznych adresów IP wychodzących to 1.
 
 ## <a name="provide-your-own-public-ips-or-prefixes-for-egress"></a>Podaj własne publiczne adresy IP lub prefiksy dla ruchu wychodzącego
 
@@ -89,12 +89,17 @@ W przypadku korzystania ze *standardowego* modułu równoważenia obciążenia j
 
 Przez umieszczenie wielu adresów IP lub prefiksów, można zdefiniować wiele usług zapasowych podczas definiowania adresu IP za pojedynczym obiektem modułu równoważenia obciążenia. Punkt końcowy danych wychodzących określonych węzłów będzie zależeć od tego, z jakim usługą są one skojarzone.
 
-> [!IMPORTANT]
-> Należy używać publicznych adresów IP jednostki SKU dla ruchu wychodzącego ze *standardową* jednostką *SKU modułu* równoważenia obciążenia. Można zweryfikować jednostki SKU publicznych adresów IP za pomocą polecenia [AZ Network Public-IP show][az-network-public-ip-show] :
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### <a name="pre-requisites-to-bring-your-own-ip-addresses-or-ip-prefixes"></a>Wymagania wstępne dotyczące przenoszenia własnych adresów IP lub prefiksów IP
+1. Należy używać publicznych adresów IP jednostki SKU dla ruchu wychodzącego ze *standardową* jednostką *SKU modułu* równoważenia obciążenia. Można zweryfikować jednostki SKU publicznych adresów IP za pomocą polecenia [AZ Network Public-IP show][az-network-public-ip-show] :
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. Publiczne adresy IP i prefiksy adresów IPv4 muszą znajdować się w tym samym regionie i części tej samej subskrypcji, co klaster AKS.
+ 1. Publiczne adresy IP i prefiksy protokołu IPSec nie mogą zostać adresami IP utworzonymi przez AKS jako zarządzany adres IP. Upewnij się, że adresy IP określone jako niestandardowe adresy IP zostały utworzone ręcznie, a nie jako usługa AKS.
+ 1. Nie można używać publicznych adresów IP i prefiksów adresów IPv4 przez inny zasób lub usługę.
+
+ ### <a name="define-your-own-public-ip-or-prefixes-on-an-existing-cluster"></a>Definiowanie własnego publicznego adresu IP lub prefiksów w istniejącym klastrze
 
 Użyj polecenia [AZ Network Public-IP show][az-network-public-ip-show] , aby wyświetlić listę identyfikatorów publicznych adresów IP.
 
@@ -131,9 +136,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> Publiczne adresy IP i prefiksy adresów IPv4 muszą znajdować się w tym samym regionie i części tej samej subskrypcji, co klaster AKS. 
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definiowanie własnego publicznego adresu IP lub prefiksów podczas tworzenia klastra
 
@@ -222,7 +224,7 @@ W przypadku zmiany parametrów *równoważenia obciążenia — porty wychodząc
 ### <a name="required-quota-for-customizing-allocatedoutboundports"></a>Wymagany limit przydziału allocatedOutboundPorts
 Musisz mieć wystarczającą ilość wychodzącego adresu IP na podstawie liczby maszyn wirtualnych węzła i żądanych przyznanych portów wychodzących. Aby sprawdzić, czy masz wystarczającą ilość wychodzących adresów IP, należy użyć następującej formuły: 
  
-*outboundIPs* \* 64 000 \> *nodeVMs* nodeVMs \* *desiredAllocatedOutboundPorts*.
+*outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Na przykład jeśli masz 3 *nodeVMs*i 50 000 *desiredAllocatedOutboundPorts*, musisz mieć co najmniej 3 *outboundIPs*. Zaleca się dołączenie dodatkowej pojemności wychodzącego adresu IP poza potrzebami. Ponadto należy uwzględnić automatyczne skalowanie klastra i możliwość uaktualniania puli węzłów przy obliczaniu wydajności wychodzącego adresu IP. W przypadku automatycznego skalowania klastra sprawdź bieżącą liczbę węzłów i maksymalną liczbę węzłów i użyj wyższej wartości. W przypadku uaktualniania należy uwzględnić dodatkową maszynę wirtualną węzłową dla każdej puli węzłów, która umożliwia uaktualnianie.
  

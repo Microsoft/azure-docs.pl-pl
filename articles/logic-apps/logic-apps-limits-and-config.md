@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 807949d7ed0c68edd44fba95109f118e97c59b5a
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 1dfb1b43eadebbfc7128c5a2451668be8a99329f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901245"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402540"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -143,7 +143,7 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 
 | Nazwa | Limit wielu dzierżawców | Limit środowiska usługi integracji | Uwagi |
 |------|--------------------|---------------------------------------|-------|
-| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacze protokołu HTTP. <p><p>**Porada**: Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Żądanie wychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykłady żądań wychodzących obejmują wywołania wykonywane przez wyzwalacze protokołu HTTP. <p><p>**Porada**: Aby uzyskać więcej uruchomionych operacji, użyj [asynchronicznego wzorca sondowania](../logic-apps/logic-apps-create-api-app.md#async-pattern) lub [pętli do until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Aby obejść limity limitu czasu podczas wywoływania innej aplikacji logiki, która ma [możliwy do wywołania punkt końcowy](logic-apps-http-endpoint.md), można zamiast tego użyć wbudowanej akcji Azure Logic Apps, którą można znaleźć w selektorze łącznika w obszarze **wbudowane**. |
 | Żądanie przychodzące | 120 sekund <br>(2 minuty) | 240 sekund <br>(4 minuty) | Przykładowe żądania przychodzące obejmują wywołania odbierane przez wyzwalacze żądań i wyzwalacze elementu webhook. <p><p>**Uwaga**: Aby uzyskać odpowiedzi dla oryginalnego obiektu wywołującego, wszystkie kroki odpowiedzi muszą zakończyć się w ramach limitu, chyba że zostanie wywołana inna aplikacja logiki jako zagnieżdżony przepływ pracy. Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -161,7 +161,7 @@ Niektóre operacje łączników powodują wywołania asynchroniczne lub Nasłuch
 
 | Nazwa | Uwagi |
 |------|-------|
-| Limit oceniania wyrażeń | 131 072 znaki | Wyrażenia `@concat()`, `@base64()`, `@string()` nie mogą być dłuższe niż ten limit. |
+| Limit oceniania wyrażeń | 131 072 znaki | `@concat()`Wyrażenia, `@base64()` , `@string()` nie mogą być dłuższe niż ten limit. |
 | Limit znaków w adresie URL żądania | 16 384 znaków |
 |||
 

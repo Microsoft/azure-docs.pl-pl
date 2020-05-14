@@ -1,14 +1,14 @@
 ---
 title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
-ms.date: 04/24/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 51cd464da417bfd1d6d4ff52e2a2595a7ce77fe6
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201707"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402372"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -38,7 +38,7 @@ Azure PowerShell [polecenie cmdlet Get-AzSubscription](https://docs.microsoft.co
 Podobnie polecenie interfejsu wiersza polecenia platformy Azure, takie jak [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) , wyświetla atrybuty **homeTenantId** i **managedByTenants** .
 
 > [!TIP]
-> Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić `az account clear` pamięć podręczną, uruchamiając polecenie `az login --identity`.
+> Jeśli te wartości nie są wyświetlane podczas korzystania z interfejsu wiersza polecenia platformy Azure, spróbuj wyczyścić pamięć podręczną, uruchamiając polecenie `az account clear` `az login --identity` .
 
 Udostępniamy również interfejsy API, które są specyficzne dla wykonywania zadań zarządzania zasobami delegowanymi przez platformę Azure. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą **odwołania** .
 
@@ -113,6 +113,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 
 - Zarządzanie zasobami wskaźnikowymi platformy Azure [w dzierżawach klientów](../../sentinel/multiple-tenants-service-providers.md)
 - [Śledź ataki i wyświetlaj alerty zabezpieczeń dla wielu dzierżawców klientów](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [Wyświetlanie zdarzeń](../../sentinel/multiple-workspace-view.md) w wielu obszarach roboczych wskaźnikowych rozmieszczonych w różnych dzierżawach klientów
 
 [Azure Service Health](../../service-health/index.yml):
 
@@ -138,7 +139,7 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 We wszystkich scenariuszach należy pamiętać o następujących bieżących ograniczeniach:
 
-- Żądania obsługiwane przez Azure Resource Manager można wykonać przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure. Identyfikatory URI operacji dla tych żądań zaczynają `https://management.azure.com`się od. Jednak żądania, które są obsługiwane przez wystąpienie typu zasobu (takie jak dostęp do magazynu kluczy lub dostęp do danych magazynu), nie są obsługiwane przez delegowane zarządzanie zasobami platformy Azure. Identyfikatory URI operacji dla tych żądań zwykle zaczynają się od adresu, który jest unikatowy dla Twojego wystąpienia, `https://myaccount.blob.core.windows.net` takiego `https://mykeyvault.vault.azure.net/`jak lub. Te ostatnie również są zazwyczaj operacjami na danych, a nie operacjami zarządzania. 
+- Żądania obsługiwane przez Azure Resource Manager można wykonać przy użyciu funkcji zarządzania zasobami delegowanymi przez platformę Azure. Identyfikatory URI operacji dla tych żądań zaczynają się od `https://management.azure.com` . Jednak żądania, które są obsługiwane przez wystąpienie typu zasobu (takie jak dostęp do magazynu kluczy lub dostęp do danych magazynu), nie są obsługiwane przez delegowane zarządzanie zasobami platformy Azure. Identyfikatory URI operacji dla tych żądań zwykle zaczynają się od adresu, który jest unikatowy dla Twojego wystąpienia, takiego jak `https://myaccount.blob.core.windows.net` lub `https://mykeyvault.vault.azure.net/` . Te ostatnie również są zazwyczaj operacjami na danych, a nie operacjami zarządzania. 
 - Przypisania ról muszą używać [wbudowanych ról](../../role-based-access-control/built-in-roles.md)kontroli dostępu opartej na ROLACH (RBAC). Wszystkie wbudowane role są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z wyjątkiem właściciela lub wszelkich wbudowanych ról z uprawnieniem [Dataactions](../../role-based-access-control/role-definitions.md#dataactions) . Rola Administrator dostępu użytkowników jest obsługiwana tylko w przypadku ograniczonego użycia w [przypisywaniu ról do zarządzanych tożsamości](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 - W tej chwili można dołączać subskrypcje korzystające z Azure Databricks. Użytkownicy w dzierżawie zarządzającej nie mogą teraz uruchamiać Azure Databricks obszarów roboczych w delegowanej subskrypcji.
 - W trakcie dodawania subskrypcji i grup zasobów na potrzeby zarządzania zasobami delegowanymi przez platformę Azure, które mają blokadę zasobów, te blokady nie uniemożliwią wykonywania akcji przez użytkowników w dzierżawie zarządzającej. [Odmów przypisań](../../role-based-access-control/deny-assignments.md) , które chronią zasoby zarządzane przez system, takie jak te utworzone przez aplikacje zarządzane przez platformę Azure lub plany platformy Azure (przypisań odmowy przypisanych do systemu), uniemożliwiają użytkownikom z dzierżawy zarządzającej wykonywanie tych zasobów. Jednak w tej chwili użytkownicy w dzierżawie klienta nie mogą tworzyć własnych przypisań Odmów (przypisań Odmów przez użytkownika).
