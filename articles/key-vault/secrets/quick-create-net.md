@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 46ffcfbe382a974b2e8cf465f35bf9eff77dbb7e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 355ca9b5a96367bbe84fb8abf998f13032dc004a
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983180"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402530"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla platformy .NET (SDK v4)
 
@@ -26,21 +26,21 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 - Uprość i automatyzuj zadania dla certyfikatów TLS/SSL.
 - Użyj zweryfikowanej sprzętowych modułów zabezpieczeń poziomu 2 trybu FIPS 140-2.
 
-[API reference documentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | Pakiet[kodu](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)[Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/) źródłowego biblioteki dokumentacji interfejsu API (NuGet) | 
+[Dokumentacja](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/2.1).
+* [Zestaw .NET Core 3,1 SDK lub nowszy](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/overview)
 
-W tym przewodniku Szybki Start `dotnet`założono, że korzystasz z systemu, [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)i poleceń systemu Windows w terminalu z systemem Windows (na przykład [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)lub [Azure Cloud Shell](https://shell.azure.com/)).
+W tym przewodniku szybki start założono, że korzystasz z systemu `dotnet` , [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)i poleceń systemu Windows w terminalu z systemem Windows (na przykład [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)lub [Azure Cloud Shell](https://shell.azure.com/)).
 
 ## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="create-new-net-console-app"></a>Utwórz nową aplikację konsolową platformy .NET
 
-W oknie konsoli Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową .NET o nazwie. `key-vault-console-app`
+W oknie konsoli Użyj `dotnet new` polecenia, aby utworzyć nową aplikację konsolową .NET o nazwie `key-vault-console-app` .
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -97,7 +97,7 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . 
 
-W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://&lt;my-Unique-Service-Name&gt;".
+W tym przewodniku szybki start można jednak utworzyć aplikację konsolową platformy .NET, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http:// &lt; My-Unique-Service-Name &gt; ".
 
 Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
@@ -158,9 +158,9 @@ Set-AzKeyVaultAccessPolicy -VaultName <your-unique-keyvault-name> -ServicePrinci
 
 #### <a name="set-environmental-variables"></a>Ustaw zmienne środowiskowe
 
-Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`i `AZURE_TENANT_ID`. Użyj opcji Ustaw te zmienne do wartości clientId, clientSecret i tenantId zanotowanych w kroku [Create a Service Principal](#create-a-service-principal) .
+Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` i `AZURE_TENANT_ID` . Użyj opcji Ustaw te zmienne do wartości clientId, clientSecret i tenantId zanotowanych w kroku [Create a Service Principal](#create-a-service-principal) .
 
-Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME`;
+Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME` ;
 
 ```console
 setx AZURE_CLIENT_ID <your-clientID>
@@ -172,7 +172,7 @@ setx AZURE_TENANT_ID <your-tenantId>
 setx KEY_VAULT_NAME <your-key-vault-name>
 ````
 
-Przy każdym wywołaniu `setx`należy uzyskać odpowiedź "sukces: określona wartość została zapisana".
+Przy każdym wywołaniu należy `setx` uzyskać odpowiedź "sukces: określona wartość została zapisana".
 
 ```shell
 AZURE_CLIENT_ID=<your-clientID>
@@ -188,7 +188,7 @@ KEY_VAULT_NAME=<your-key-vault-name>
 
 Biblioteka klienta Azure Key Vault dla platformy .NET umożliwia zarządzanie kluczami i powiązanymi zasobami, takimi jak certyfikaty i wpisy tajne. Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić wpis tajny, pobrać klucz tajny i usunąć wpis tajny.
 
-Cała Aplikacja konsolowa jest dostępna pod https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-appadresem.
+Cała Aplikacja konsolowa jest dostępna pod adresem https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app .
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -200,7 +200,7 @@ Dodaj następujące dyrektywy na początku kodu:
 
 ### <a name="authenticate-and-create-a-client"></a>Uwierzytelnianie i tworzenie klienta
 
-Uwierzytelnianie w magazynie kluczy i tworzenie klienta magazynu kluczy zależy od zmiennych środowiskowych w powyższym kroku [Ustaw zmienne środowiskowe](#set-environmental-variables) . Nazwa magazynu kluczy jest rozszerzana do identyfikatora URI magazynu kluczy w formacie "https://\<-key-Vault.Azure.NET-Name.\>
+Uwierzytelnianie w magazynie kluczy i tworzenie klienta magazynu kluczy zależy od zmiennych środowiskowych w powyższym kroku [Ustaw zmienne środowiskowe](#set-environmental-variables) . Nazwa magazynu kluczy jest rozszerzana do identyfikatora URI magazynu kluczy w formacie "https:// \< -Key-Vault.Azure.NET-Name \> .
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -226,7 +226,7 @@ Teraz można pobrać wcześniej ustawioną wartość za pomocą [klienta. Metoda
 
 [!code-csharp[Get secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=getsecret)]
 
-Wpis tajny jest teraz zapisywany jako `secret.Value`.
+Wpis tajny jest teraz zapisywany jako `secret.Value` .
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
 

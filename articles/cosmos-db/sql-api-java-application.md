@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0b4e25bd0c24b51975682b83df608581dea083bd
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120197"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402512"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -36,10 +36,10 @@ W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do z
 
 > [!TIP]
 > Ten samouczek tworzenia aplikacji zakłada, że masz już pewne doświadczenie w korzystaniu z języka Java. Jeśli nie znasz języka Java lub [wstępnie wymaganych narzędzi](#Prerequisites), zalecamy pobranie kompletnego projektu [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) z usługi GitHub i skompilowanie go zgodnie z [instrukcjami znajdującymi się na końcu artykułu](#GetProject). Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.  
-> 
-> 
+>
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Wymagania wstępne dotyczące tego samouczka aplikacji internetowej w języku Java
+
 Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dysponować następującymi elementami:
 
 * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
@@ -52,36 +52,48 @@ Przed rozpoczęciem korzystania z tego samouczka tworzenia aplikacji należy dys
 
 Jeśli instalujesz te narzędzia po raz pierwszy, coreservlets.com zawiera Przewodnik po procesie instalacji w sekcji szybki start w [samouczku: Instalowanie TomCat7 i używanie go z](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) zaem.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Krok 1. Tworzenie konta usługi Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Utwórz konto Azure Cosmos DB
+
 Zacznijmy od utworzenia konta usługi Azure Cosmos DB. Jeśli masz już konto lub jeśli korzystasz z emulatora usługi Azure Cosmos DB na potrzeby tego samouczka, możesz od razu przejść do sekcji [Krok 2. Tworzenie aplikacji Java JSP](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Krok 2. Tworzenie aplikacji Java JSP
+## <a name="create-the-java-jsp-application"></a><a id="CreateJSP"></a>Tworzenie aplikacji Java JSP
+
 Aby utworzyć aplikację JSP:
 
 1. Najpierw zaczniemy od utworzenia projektu Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli **dynamiczny projekt sieci Web** nie jest wyświetlany na liście dostępnych projektów, wykonaj następujące czynności: kliknij pozycję **plik**, kliknij pozycję **Nowy**, kliknij pozycję **projekt**..., rozwiń węzeł **Sieć Web**, kliknij pozycję **dynamiczny projekt sieci Web**, a następnie kliknij przycisk **dalej**.
    
     ![Tworzenie aplikacji Java JSP](./media/sql-api-java-application/image10.png)
-2. Wprowadź nazwę projektu w polu **Project name** (Nazwa projektu) i z menu rozwijanego **Target Runtime** (Docelowe środowisko uruchomieniowe) opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Finish** (Zakończ). Wybranie docelowego środowiska uruchomieniowego umożliwia uruchamianie projektu lokalnie za pośrednictwem środowiska Eclipse.
-3. W środowisku Eclipse w widoku Project Explorer (Eksplorator projektów) rozwiń projekt. Kliknij prawym przyciskiem myszy folder **WebContent**, kliknij polecenie **New** (Nowy), a następnie kliknij polecenie **JSP File** (Plik JSP).
-4. W oknie dialogowym **New JSP File** (Nowy plik JSP) nazwij plik **index.jsp**. Pozostaw folder **WebContent** jako folder nadrzędny, w sposób pokazany na poniższej ilustracji, a następnie kliknij przycisk **Next** (Dalej).
+
+1. Wprowadź nazwę projektu w polu **Project name** (Nazwa projektu) i z menu rozwijanego **Target Runtime** (Docelowe środowisko uruchomieniowe) opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Finish** (Zakończ). Wybranie docelowego środowiska uruchomieniowego umożliwia uruchamianie projektu lokalnie za pośrednictwem środowiska Eclipse.
+
+1. W środowisku Eclipse w widoku Project Explorer (Eksplorator projektów) rozwiń projekt. Kliknij prawym przyciskiem myszy folder **WebContent**, kliknij polecenie **New** (Nowy), a następnie kliknij polecenie **JSP File** (Plik JSP).
+
+1. W oknie dialogowym **New JSP File** (Nowy plik JSP) nazwij plik **index.jsp**. Pozostaw folder **WebContent** jako folder nadrzędny, w sposób pokazany na poniższej ilustracji, a następnie kliknij przycisk **Next** (Dalej).
    
     ![Tworzenie nowego pliku JSP — samouczek aplikacji internetowej w języku Java](./media/sql-api-java-application/image11.png)
-5. W oknie dialogowym **Select JSP Template** (Wybierz szablon pliku JSP) na potrzeby tego samouczka wybierz szablon **New JSP File (html)**, a następnie kliknij przycisk **Finish** (Zakończ).
-6. Po otwarciu pliku index.jsp w środowisku Eclipse dodaj tekst do wyświetlenia **Hello World!** wewnątrz istniejącego elementu `<body>`. Zaktualizowana zawartość elementu `<body>` powinna wyglądać podobnie do następującego kodu:
-   
-        <body>
-            <% out.println("Hello World!"); %>
-        </body>
-7. Zapisz plik index.jsp.
-8. Jeśli docelowe środowisko uruchomieniowe zostało ustawione w kroku 2, możesz kliknąć pozycję **Project** (Projekt), a następnie pozycję **Run** (Uruchom), aby uruchomić aplikację JSP lokalnie:
-   
-    ![Witaj świecie – samouczek aplikacji w języku Java](./media/sql-api-java-application/image12.png)
 
-## <a name="step-3-install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Krok 3. Instalowanie zestawu Java SDK usługi SQL
+1. W oknie dialogowym **Select JSP Template** (Wybierz szablon pliku JSP) na potrzeby tego samouczka wybierz szablon **New JSP File (html)**, a następnie kliknij przycisk **Finish** (Zakończ).
+
+1. Po otwarciu pliku index.jsp w środowisku Eclipse dodaj tekst do wyświetlenia **Hello World!** wewnątrz istniejącego elementu `<body>`. Zaktualizowana zawartość elementu `<body>` powinna wyglądać podobnie do następującego kodu:
+
+   ```html
+   <body>
+     <% out.println("Hello World!"); %>
+   </body>
+   ```
+
+1. Zapisz plik index.jsp.
+
+1. Jeśli docelowe środowisko uruchomieniowe zostało ustawione w kroku 2, możesz kliknąć pozycję **Project** (Projekt), a następnie pozycję **Run** (Uruchom), aby uruchomić aplikację JSP lokalnie:
+
+  ![Witaj świecie – samouczek aplikacji w języku Java](./media/sql-api-java-application/image12.png)
+
+## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Instalowanie zestawu Java SDK usługi SQL
+
 Najprostszym sposobem pobrania zestawu SDK Java usługi SQL i jego zależności jest skorzystanie z usługi [Apache Maven](https://maven.apache.org/).
 
 Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując następujące kroki:
@@ -109,7 +121,8 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
 6. Kliknij przycisk **OK**, aby zainstalować zestaw SDK Java usługi SQL przy użyciu usługi Maven.
 7. Zapisz plik pom.xml.
 
-## <a name="step-4-using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Krok 4. Korzystanie z usługi Azure Cosmos DB w aplikacji Java
+## <a name="using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Korzystanie z usługi Azure Cosmos DB w aplikacji Java
+
 1. Najpierw zdefiniujmy obiekt TodoItem w pliku TodoItem.java:
    
         @Data
@@ -343,7 +356,7 @@ Aby to zrobić, należy przekonwertować projekt na projekt maven, wykonując na
             return true;
         }
 
-## <a name="step-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Krok 5. Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
+## <a name="wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Dołączenie pozostałej części projektu tworzenia aplikacji w języku Java
 Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego interfejsu użytkownika i połączenie go z obiektem DAO.
 
 1. Zacznijmy od utworzenia kontrolera do wywoływania obiektu DAO:
@@ -715,7 +728,7 @@ Teraz, gdy już zakończyliśmy zabawę, pozostało tylko utworzenie szybkiego i
 5. Fantastycznie! Teraz pozostało już tylko przetestować aplikację. Uruchom aplikację lokalnie, a następnie dodaj jakieś zadania do wykonania, wpisując nazwę zadania oraz jego kategorię i klikając przycisk **Add Task** (Dodaj zadanie).
 6. Gdy zadanie zostanie wyświetlone, można zaktualizować, czy jest ono ukończone, klikając pole wyboru, a następnie klikając przycisk **Update Tasks** (Zaktualizuj zadania).
 
-## <a name="step-6-deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Krok 6. Wdrożenie aplikacji w języku Java w usłudze Azure Web Sites
+## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Wdrożenie aplikacji w języku Java w usłudze Azure Web Sites
 Usługa Azure Web Sites sprawia, że wdrożenie aplikacji Java sprowadza się do wyeksportowania aplikacji jako pliku WAR i przesłania go na serwer za pomocą systemu kontroli źródła (np. Git) lub FTP.
 
 1. Aby wyeksportować aplikację jako plik WAR, kliknij prawym przyciskiem myszy projekt w widoku **Project Explorer** (Eksplorator projektów), kliknij pozycję **Export** (Eksportuj), a następnie kliknij pozycję **WAR File** (Plik WAR).
@@ -755,3 +768,4 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 21. W przeglądarce przejdź do `http://localhost:8080/azure-documentdb-java-sample/` i zacznij dodawać zadania do listy zadań. Należy pamiętać, że jeśli zmieniono domyślne wartości portów, zmień 8080 na wybraną wartość.
 22. Aby wdrożyć projekt w witrynie sieci Web platformy Azure, zobacz [krok 6. Wdróż aplikację w witrynach sieci Web systemu Azure](#Deploy).
 
+## <a name="next-steps"></a>Następne kroki

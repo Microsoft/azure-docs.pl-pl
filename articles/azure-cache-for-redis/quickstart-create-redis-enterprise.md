@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
-ms.openlocfilehash: f3eee85c600d40b3997a0e6dff6a9b218242feb4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204718"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402491"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Szybki Start: tworzenie pamięci podręcznej warstwy przedsiębiorstwa (wersja zapoznawcza)
 
@@ -20,7 +20,7 @@ Usługa Azure cache for Redis "warstwy przedsiębiorstwa zapewniają w pełni zi
 * Enterprise, która używa pamięci lotnej (DRAM) na maszynie wirtualnej do przechowywania danych
 * Dysk SSD przedsiębiorstwa, który używa pamięci nietrwałej i nieulotnej (NVMe) do przechowywania danych.
 
-Nie ma żadnego kosztu dołączenia do wersji zapoznawczej. Zarejestruj się w [portalu Azure Marketplace](https://aka.ms/redispreviewsignup/) , jeśli interesują Cię zainteresowania. Mamy bardzo ograniczoną liczbę elementów uczestników i nie gwarantujemy, że użytkownik zostanie zaakceptowany do wersji zapoznawczej.
+Nie ma żadnego kosztu dołączenia do wersji zapoznawczej. Zarejestruj **się** w [portalu Azure Marketplace](https://aka.ms/redispreviewsignup/) , jeśli interesują Cię zainteresowania. Mamy bardzo ograniczoną liczbę elementów uczestników i nie gwarantujemy, że użytkownik zostanie zaakceptowany do wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

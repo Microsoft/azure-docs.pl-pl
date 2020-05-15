@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: abb61afab3391f9a53ada4881cb186aa9fae3187
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005912"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402630"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -60,13 +60,13 @@ Identyfikator objectId aplikacji odpowiada skojarzonej z nią jednostce usługi.
 
 Istnieją dwa sposoby uzyskania identyfikatora objectId dla aplikacji.  Pierwszy polega na zarejestrowaniu aplikacji w Azure Active Directory. Aby to zrobić, wykonaj kroki opisane w sekcji Szybki Start [zarejestruj aplikację na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md). Po zakończeniu rejestracji identyfikator objectID zostanie wyświetlony jako "Identyfikator aplikacji".
 
-Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http://&lt;my-Unique-Service-Name&gt;".
+Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http:// &lt; My-Unique-Service-Name &gt; ".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
-Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `clientID`.
+Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `clientID` .
 
 Za pomocą Azure PowerShell Użyj polecenia cmdlet [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal?view=azps-2.7.0) .
 
@@ -75,7 +75,7 @@ Za pomocą Azure PowerShell Użyj polecenia cmdlet [New-AzADServicePrincipal](/p
 New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
-Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `Id` (nie `ApplicationId`).
+Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `Id` (nie `ApplicationId` ).
 
 #### <a name="azure-ad-groups"></a>Grupy usługi Azure AD
 
@@ -100,7 +100,7 @@ Aby znaleźć identyfikator objectId grupy usługi Azure AD z Azure PowerShell, 
 Get-AzADGroup -SearchString <search-string>
 ```
 
-W danych wyjściowych identyfikator objectId jest wymieniony jako `Id`:
+W danych wyjściowych identyfikator objectId jest wymieniony jako `Id` :
 
 ```console
 ...
@@ -109,7 +109,7 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ```
 
 > [!WARNING]
-> Grupy usługi Azure AD nie obsługują zarządzanych tożsamości. Obsługiwane są tylko nazwy główne usługi i użytkownika.
+> Grupy usługi Azure AD z tożsamościami zarządzanymi wymagają do 8hr tokenu odświeżania i zaczynają obowiązywać.
 
 #### <a name="users"></a>Użytkownicy
 
@@ -137,7 +137,7 @@ Aby znaleźć użytkownika z Azure PowerShell, należy użyć polecenia cmdlet [
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
 ```
 
-Identyfikator obiektu użytkownika zostanie zwrócony w danych wyjściowych jako `Id`.
+Identyfikator obiektu użytkownika zostanie zwrócony w danych wyjściowych jako `Id` .
 
 ```console
 ...
@@ -207,7 +207,7 @@ Aby znaleźć identyfikatory obiektów użytkowników, wykonaj kroki opisane w s
 
 Teraz Dodaj identyfikatory obiektów do nowo utworzonej grupy usługi Azure AD.
 
-Za pomocą interfejsu wiersza polecenia platformy Azure, użyj [elementu członkowskiego AZ AD Group Add](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), przekazując `--member-id` identyfikator objectid do parametru.
+Za pomocą interfejsu wiersza polecenia platformy Azure, użyj [elementu członkowskiego AZ AD Group Add](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), przekazując identyfikator objectid do `--member-id` parametru.
 
 
 ```azurecli-interactive
