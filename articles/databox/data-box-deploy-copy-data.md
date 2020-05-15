@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 8d72ee529966fe0db8bf496533453c81064a81a5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1730317296c672eb9347986ec41fdba25427408e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79501797"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200482"
 ---
 ::: zone target="docs" 
 
@@ -24,7 +24,7 @@ ms.locfileid: "79501797"
 
 ::: zone target="chromeless"
 
-# <a name="copy-data-to-azure-data-box"></a>Kopiowanie danych na urządzenie Azure Data Box
+## <a name="copy-data-to-azure-data-box"></a>Kopiowanie danych na urządzenie Azure Data Box
 
 ::: zone-end
 
