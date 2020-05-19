@@ -7,19 +7,19 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: e67f65d252be0ea638d3b5fa241d9413e76f1a98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 253c391b222c757a367bd5cd39939052cc697b00
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877054"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588411"
 ---
-Aby uruchomić kontener *Analiza tonacji* , wykonaj następujące `docker run` polecenie.
+Aby uruchomić kontener *Analiza tonacji v3* , wykonaj następujące `docker run` polecenie.
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/sentiment \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -29,6 +29,6 @@ ApiKey={API_KEY}
 To polecenie:
 
 * Uruchamia *Analiza tonacji* kontener z obrazu kontenera
-* Przypisuje jedne rdzeń procesora CPU i 4 gigabajty (GB) pamięci
+* Przypisuje jedne rdzeń procesora CPU i 8 gigabajtów (GB) pamięci
 * Udostępnia port TCP 5000 i przydziela pseudo-TTY dla kontenera
 * Automatycznie usuwa kontener po zakończeniu. Obraz kontenera jest nadal dostępny na komputerze-hoście.

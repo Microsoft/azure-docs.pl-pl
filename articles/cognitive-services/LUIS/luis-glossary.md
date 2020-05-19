@@ -1,190 +1,329 @@
 ---
 title: Słownik — LUIS
-titleSuffix: Azure Cognitive Services
 description: Słownik objaśnia warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099363"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589673"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
-W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
+W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
 
-## <a name="active-version"></a><a name="active-version"></a>Aktywna wersja
+## <a name="active-version"></a>Aktywna wersja
 
-Aktywna wersja usługi LUIS to wersja, która otrzymuje zmiany w modelu. Jeśli chcesz wprowadzić zmiany w wersji, która nie jest wersją aktywną, w portalu [Luis](luis-reference-regions.md) należy najpierw ustawić tę wersję jako aktywną.
+Aktywna wersja to [wersja](luis-how-to-manage-versions.md) aplikacji, która jest aktualizowana po wprowadzeniu zmian w modelu przy użyciu portalu Luis. Jeśli chcesz wprowadzić zmiany w wersji, która nie jest wersją aktywną, w portalu LUIS należy najpierw ustawić tę wersję jako aktywną.
 
-## <a name="authoring"></a><a name="authoring"></a>Tworzenie
+## <a name="active-learning"></a>Aktywna nauka
 
-Tworzenie umożliwia tworzenie i wdrażanie [aplikacji Luis](#luis-app)oraz zarządzanie nią przy użyciu portalu [Luis](luis-reference-regions.md) lub [interfejsów API tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087).
+Active Learning to technika uczenia maszynowego, w której jest używany model uczenia maszynowego do identyfikowania nowych przykładów do etykiet. W LUIS aktywne uczenie odwołuje się do dodawania wyrażenia długości z ruchu punktu końcowego, którego bieżące przewidywania są niejasne, aby poprawić model. Kliknij pozycję "Przejrzyj punkt końcowy wyrażenia długości", aby wyświetlić wyrażenia długości do etykiet.
 
-## <a name="authoring-key"></a><a name="authoring-key"></a>Klucz tworzenia
+Zobacz też:
+* [Informacje koncepcyjne](luis-concept-review-endpoint-utterances.md)
+* [Samouczek dotyczący przeglądania punktu końcowego wyrażenia długości](luis-tutorial-review-endpoint-utterances.md)
+* Jak ulepszyć aplikację LUIS, [przeglądając punkt końcowy wyrażenia długości](luis-how-to-review-endpoint-utterances.md)
 
-Wcześniej nazwany kluczem "programowy". Służy do tworzenia aplikacji. Nieużywane dla zapytań punktów końcowych na poziomie produkcyjnym. Aby uzyskać więcej informacji, zobacz [limity kluczy](luis-limits.md#key-limits).
+## <a name="application-app"></a>Aplikacja (aplikacja)
 
-## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Plik JSON testu wsadowego
+W LUIS, aplikacja lub aplikacja to zbiór zebranych przez maszynę modeli opartych na tym samym zestawie danych, które współdziałają z przewidywaniam intencji i jednostek w konkretnym scenariuszu. Każda aplikacja ma oddzielny punkt końcowy przewidywania.
 
-Testowanie wsadowe to możliwość weryfikacji bieżącego modelu aplikacji LUIS przy użyciu spójnego i znanego zestawu testów wyrażenia długości użytkownika. Test wsadowy jest zdefiniowany w [pliku sformatowanym w formacie JSON](luis-concept-batch-test.md#batch-file-format).
+Jeśli tworzysz bot HR, możesz mieć zestaw intencji, na przykład "czas urlopu harmonogramu", "informacje o korzyściach" i "Aktualizuj informacje osobiste" oraz jednostki dla każdego z tych elementów, które można grupować w jedną aplikację.
+
+## <a name="authoring"></a>Tworzenie
+
+Tworzenie umożliwia tworzenie i wdrażanie aplikacji LUIS oraz zarządzanie nią przy użyciu portalu LUIS lub interfejsów API tworzenia.
+
+### <a name="authoring-key"></a>Klucz tworzenia
+
+[Klucz autorstwo](luis-concept-keys.md) służy do tworzenia aplikacji. Nieużywane dla zapytań punktów końcowych na poziomie produkcyjnym. Aby uzyskać więcej informacji, zobacz [limity kluczy](luis-limits.md#key-limits).
+
+### <a name="authoring-resource"></a>Tworzenie zasobu
+
+[Zasób autorstwa](luis-concept-keys.md#azure-resources-for-luis) Luis jest elementem możliwym do zarządzania, który jest dostępny za pomocą platformy Azure. Zasób to dostęp do skojarzonych możliwości tworzenia, uczenia i publikowania usługi platformy Azure. Zasób obejmuje informacje o uwierzytelnianiu, autoryzacji i zabezpieczeniach potrzebne do uzyskania dostępu do skojarzonej usługi platformy Azure.
+
+Zasób tworzenia ma "rodzaj" platformy Azure `LUIS-Authoring` .
+
+## <a name="batch-test"></a>Test wsadowy
+
+Testowanie wsadowe to możliwość sprawdzenia, czy bieżące modele aplikacji LUIS mają spójny i znany zestaw testów wyrażenia długości użytkownika. Test wsadowy jest zdefiniowany w [pliku sformatowanym w formacie JSON](luis-concept-batch-test.md#batch-file-format).
 
 Zobacz też:
 * [Pojęcia](luis-concept-batch-test.md)
-* [Instrukcje](luis-how-to-batch-test.md)
-* [Samouczek](luis-tutorial-batch-testing.md)
+* [Jak](luis-how-to-batch-test.md) uruchomić test wsadowy
+* [Samouczek](luis-tutorial-batch-testing.md) — tworzenie i uruchamianie testu wsadowego
 
-## <a name="collaborator"></a><a name="collaborator"></a>Współpracownik
+### <a name="f-measure"></a>Miara F
 
-Współpracownik/współautor nie jest [właścicielem](#owner) aplikacji, ale ma takie same uprawnienia, aby dodawać, edytować i usuwać intencje, jednostki, wyrażenia długości.
+W testach wsadowych mierzy się dokładność testu.
 
-## <a name="contributor"></a><a name="contributor"></a>Współautor
+### <a name="false-negative-fn"></a>Wartość fałszywa ujemna (FN)
 
-Współautor jest tym samym elementem co [współpracownik](#collaborator).
+W testach wsadowych punkty danych przedstawiają wyrażenia długości, w których aplikacja niepoprawnie przewidywalna nieobecność docelowego celu/jednostki.
 
-## <a name="descriptor"></a><a name="descriptor"></a>Opis
+### <a name="false-positive-fp"></a>Fałszywie dodatnie (FP)
 
-Deskryptor jest [funkcją](#features) zastosowana do modelu w czasie uczenia, w tym [listy zwrotów](#phrase-list) i [jednostek](#entity).
+W testach wsadowych punkty danych reprezentują wyrażenia długości, w których aplikacja niepoprawnie przewidywalna istnienie docelowego celu/jednostki.
 
-## <a name="domain"></a><a name="domain"></a>Domain
+### <a name="precision"></a>Dokładność
+W testach wsadowych precyzja (zwana również dodatnią wartością predykcyjną) jest częścią odpowiednich wyrażenia długości wśród pobranego wyrażenia długościu.
 
-W kontekście LUIS **domena** jest obszarem wiedzy. Twoja domena jest specyficzna dla Twojej dziedziny Twojej aplikacji. Może to być ogólny obszar, taki jak aplikacja agenta podróży. Aplikacja agenta podróży może być również specyficzna dla tylko obszarów informacji dla firmy, takich jak określone lokalizacje geograficzne, Języki i usługi.
+Przykładem testu partii zwierząt jest liczba owiec przewidzianych przez łączną liczbę zwierząt (owiec i nieowiec).
 
-## <a name="endpoint"></a><a name="endpoint"></a>Punktu końcowego
+### <a name="recall"></a>Kompletność
 
-Adres URL [punktu końcowego Luis](https://go.microsoft.com/fwlink/?linkid=2092356) to miejsce, w którym przesyłane są zapytania Luis po utworzeniu i opublikowaniu [aplikacji Luis](#luis-app) . Adres URL punktu końcowego zawiera region opublikowanej aplikacji oraz identyfikator aplikacji. Punkt końcowy można znaleźć na stronie **[klucze i punkty końcowe](luis-how-to-azure-subscription.md)** aplikacji lub uzyskać adres URL punktu końcowego za pomocą interfejsu API [pobierania informacji o aplikacji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) .
+W testach wsadowych funkcja odwoływania (znana także jako czułość) jest LUIS do uogólniania.
 
-## <a name="entity"></a><a name="entity"></a>Jednostka
+Przykładem testu partii zwierząt jest liczba hodowli, które zostały przewidywalne podzielone przez łączną liczbę dostępnych owiec.
 
-[Jednostki](luis-concept-entity-types.md) są ważnymi wyrazami w [wyrażenia długości](luis-concept-utterance.md) , które opisują informacje istotne dla [zamiaru](luis-concept-intent.md)i czasami są dla nich niezbędne. Jednostka jest zasadniczo typem danych w LUIS.
+### <a name="true-negative-tn"></a>True ujemna (TN)
 
-## <a name="f-measure"></a><a name="f-measure"></a>Miara F
+Wartość true oznacza, że aplikacja prawidłowo przewidywalna niezgodność. W testach wsadowych prawdziwa wartość true występuje, gdy aplikacja przewidywalna zamiar lub jednostkę dla przykładu, który nie został oznaczony etykietą z tym zamiarem lub jednostką.
 
-W [testach wsadowych](luis-interactive-test.md#batch-testing)mierzy się dokładność testu.
+### <a name="true-positive-tp"></a>Prawda dodatnia (TP)
 
-## <a name="false-negative-fn"></a><a name="false-negative"></a>Wartość fałszywa ujemna (FN)
+Prawdziwe dodatnie (TP) wynik pozytywny to, gdy aplikacja prawidłowo przewidywalna dopasowanie. W testach wsadowych prawdziwa wartość dodatnia występuje, gdy aplikacja przewiduje zamiar lub jednostkę dla przykładu, który został oznaczony tym zamiarem lub jednostką.
 
-W [testach wsadowych](luis-interactive-test.md#batch-testing)punkty danych przedstawiają wyrażenia długości, w których aplikacja niepoprawnie przewidywalna nieobecność docelowego celu/jednostki.
+## <a name="classifier"></a>Klasyfikator
 
-## <a name="false-positive-fp"></a><a name="false-positive"></a>Fałszywie dodatnie (FP)
+Klasyfikator to komputerowy model, który przewiduje, jakie kategorie lub klasy są uwzględniane przez dane wejściowe.
 
-W [testach wsadowych](luis-interactive-test.md#batch-testing)punkty danych reprezentują wyrażenia długości, w których aplikacja niepoprawnie przewidywalna istnienie docelowego celu/jednostki.
+[Zamiarem](#intent) jest przykład klasyfikatora.
 
-## <a name="features"></a><a name="features"></a>Funkcje
+## <a name="collaborator"></a>Współpracownik
 
-W uczeniu maszynowym [Funkcja](luis-concept-feature.md) jest odróżnianą cechą lub atrybutem danych, które są przestrzegane przez system.
+Współpracownik jest koncepcyjnie taki sam jak [współautor](#contributor). Współpracownikowi uzyskuje się dostęp, gdy właściciel dodaje adres e-mail współpracownika do aplikacji, która nie jest kontrolowana przez dostęp oparty na rolach (RBAC). Jeśli nadal używasz współpracowników, należy przeprowadzić migrację konta usługi LUIS i użyć zasobów tworzenia LUIS do zarządzania współautorami za pomocą RBAC.
 
-## <a name="intent"></a><a name="intent"></a>Intencja
+## <a name="contributor"></a>Współautor
 
-[Cel](luis-concept-intent.md) reprezentuje zadanie lub akcję, które użytkownik chce wykonać. Jest to cel lub cel wyrażony w danych wejściowych użytkownika, na przykład w przypadku rezerwacji lotu, płacenia rachunku lub znajdowania artykułu z wiadomościami. W LUIS prognozowanie zamierzania opiera się na całym wypowiedź. Jednostki, porównując, są elementami wypowiedź.
+Współautor nie jest [właścicielem](#owner) aplikacji, ale ma takie same uprawnienia, aby dodawać, edytować i usuwać intencje, jednostki, wyrażenia długości. Współautor zapewnia dostęp oparty na rolach (RBAC) do aplikacji LUIS.
 
-## <a name="labeling"></a><a name="labeling"></a>Etykietowania
+Zobacz też:
+* [Jak](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) dodać współautorów
 
-Oznacza to, że jest to proces kojarzenia wyrazu lub frazy w [wypowiedź](#utterance) zamiaru z [jednostką](#entity) (DataType).
+## <a name="descriptor"></a>Opis
 
-## <a name="luis-app"></a><a name="luis-app"></a>Aplikacja LUIS
+Deskryptor jest terminem wcześniej używanym dla [funkcji](#features)uczenia maszynowego.
 
-Aplikacja LUIS to zbiór modeli języka do przetwarzania języka naturalnego, w tym [intencje](#intent), [podmioty](#entity)i etykiety [wyrażenia długości](#utterance).
+## <a name="domain"></a>Domain
 
-## <a name="owner"></a><a name="owner"></a>Właściciel
+W kontekście LUIS domena jest obszarem wiedzy. Twoja domena jest specyficzna dla Twojego scenariusza. Różne domeny używają określonego języka i terminologii mającej znaczenie w kontekście domeny. Na przykład, jeśli tworzysz aplikację do odtwarzania muzyki, aplikacja będzie miała warunki i język specyficzne dla utworów muzycznych — słowa takie jak "utwór, śledzenie, album, teksty, b, wykonawca". Przykłady domen można znaleźć w temacie [prebudowane domeny](#prebuilt-domain).
 
-Każda aplikacja ma jednego właściciela, który jest osobą, która utworzyła aplikację. Właściciel może dodawać [współpracowników](#collaborator).
+## <a name="endpoint"></a>Endpoint
 
-## <a name="patterns"></a><a name="pattern"></a>Wzorce
-Funkcja poprzedniego wzorca jest zastępowana [wzorcami](luis-concept-patterns.md). Użyj wzorców, aby poprawić dokładność przewidywania, oferując mniejszą liczbę przykładów szkoleniowych.
+### <a name="authoring-endpoint"></a>Punkt końcowy tworzenia
 
-## <a name="phrase-list"></a><a name="phrase-list"></a>Lista fraz
+Adres URL punktu końcowego autorstwa LUIS to miejsce, w którym można tworzyć, wyszkolić i publikować aplikację. Adres URL punktu końcowego zawiera region lub niestandardową poddomenę opublikowanej aplikacji oraz identyfikator aplikacji.
 
-[Lista fraz](luis-concept-feature.md) zawiera grupę wartości (wyrazów lub fraz) należących do tej samej klasy i musi być traktowana podobnie (na przykład nazwy miast lub produktów). Lista zamienna jest traktowana jako synonimy.
+Dowiedz się więcej o programistycznym tworzeniu aplikacji z [dokumentacji dla deweloperów](developer-reference-resource.md#rest-endpoints)
 
-## <a name="prebuilt-domain"></a><a name="prebuilt-domains"></a>Preskompilowana domena
+### <a name="prediction-endpoint"></a>Punkt końcowy przewidywania
 
-[Preskompilowana domena](luis-how-to-use-prebuilt-domains.md) jest aplikacją Luis skonfigurowaną dla konkretnej domeny, taką jak Automatyzacja główna (HomeAutomation) lub rezerwacje restauracji (RestaurantReservation). Zamiary, wyrażenia długości i jednostki są skonfigurowane dla tej domeny.
+Adres URL punktu końcowego przewidywania LUIS to miejsce, w którym przesyłane są zapytania LUIS po utworzeniu i opublikowaniu [aplikacji Luis](#application-app) . Adres URL punktu końcowego zawiera region lub niestandardową poddomenę opublikowanej aplikacji oraz identyfikator aplikacji. Punkt końcowy można znaleźć na stronie **[zasobów platformy Azure](luis-how-to-azure-subscription.md)** swojej aplikacji lub uzyskać adres URL punktu końcowego za pomocą interfejsu API [uzyskiwania informacji o aplikacji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) .
 
-## <a name="prebuilt-entity"></a><a name="prebuilt-entity"></a>Wstępnie utworzona jednostka
+Dostęp do punktu końcowego przewidywania jest autoryzowany za pomocą klucza przewidywania LUIS.
 
-[Wstępnie utworzona jednostka](luis-prebuilt-entities.md) to Luis jednostki zapewniające wspólne typy informacji, takie jak Number, URL i email. Wybierzesz opcję dodania wstępnie skompilowanej jednostki do aplikacji.
+## <a name="entity"></a>Jednostka
 
-## <a name="precision"></a><a name="precision"></a>Dokładność
-W [testach wsadowych](luis-interactive-test.md#batch-testing)precyzja (zwana również dodatnią wartością predykcyjną) jest częścią odpowiednich wyrażenia długości wśród pobranego wyrażenia długościu.
+[Jednostki](luis-concept-entity-types.md) są słowami w wyrażenia długości, które opisują informacje używane do spełnienia lub identyfikacji zamierzenia. Jeśli jednostka jest złożona i chcesz, aby model zidentyfikował konkretne części, możesz przerwać model w podjednostkach. Na przykład możesz chcieć modelować, aby przewidzieć adres, ale również podjednostki ulica, miasto, Województwo i kod pocztowy. Jednostki mogą być również używane jako funkcje do modeli. Odpowiedź z aplikacji LUIS będzie zawierać zarówno przewidywane intencje, jak i wszystkie jednostki.
 
-## <a name="programmatic-key"></a><a name="programmatic-key"></a>Klucz programistyczny
+### <a name="entity-extractor"></a>Ekstraktor jednostek
+
+Ekstraktor jednostki czasami znany tylko jako Ekstraktor jest typem modelu uczenia maszynowego, który LUIS używa do przewidywania jednostek.
+
+### <a name="entity-schema"></a>Schemat jednostki
+
+Schemat jednostki to struktura zdefiniowana dla maszyn z obiektami podobiektami. Punkt końcowy przewidywania zwraca wszystkie wyodrębnione jednostki i podjednostki zdefiniowane w schemacie.
+
+### <a name="entitys-subentity"></a>Podjednostka jednostki
+
+Podjednostka jest jednostką podrzędną jednostki, która jest poznania maszyny.
+
+### <a name="non-machine-learned-entity"></a>Jednostka nieoparta na maszynie
+
+Jednostka, która używa dopasowywania tekstu do wyodrębniania danych:
+* Jednostka listy
+* Jednostka wyrażenia regularnego
+
+### <a name="list-entity"></a>Jednostka listy
+
+[Jednostka listy](reference-entity-list.md) reprezentuje stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. Jednostki listy są dokładnymi dopasowaniami, w przeciwieństwie do jednostek obsługiwanych przez maszynę.
+
+Jednostka zostanie przewidywalna, jeśli na liście zostanie uwzględniony wyraz znajdujący się na liście. Na przykład jeśli masz jednostkę listy o nazwie "size" i masz słowa "małe, średnie, duże" na liście, jednostka rozmiaru zostanie przewidywalna dla wszystkich wyrażenia długości, gdzie słowa "małe", "średnie" lub "duże" są używane niezależnie od kontekstu.
+
+### <a name="regular-expression"></a>Wyrażenie regularne
+
+[Jednostka wyrażenia regularnego](reference-entity-regular-expression.md) reprezentuje wyrażenie regularne. Jednostki wyrażenia regularnego są dokładnymi dopasowaniami, w przeciwieństwie do jednostek obsługiwanych przez maszynę.
+### <a name="prebuilt-entity"></a>Wstępnie utworzona jednostka
+
+Zobacz wpis prekompilowanego modelu dla [wstępnie skompilowanej jednostki](#prebuilt-entity)
+
+## <a name="features"></a>Funkcje
+
+W uczeniu maszynowym funkcja jest cechą, która pomaga modelowi rozpoznać konkretną koncepcję. Jest to wskazówka, która może być używana przez LUIS, ale nie na trudnej zasadzie.
+
+Ten termin jest również nazywany **[funkcją uczenia maszynowego](luis-concept-feature.md)**.
+
+Te wskazówki są używane w połączeniu z etykietami, aby dowiedzieć się, jak przewidzieć nowe dane. LUIS obsługuje obie listy fraz i używa innych modeli jako funkcji.
+
+### <a name="required-feature"></a>Wymagana funkcja
+
+Wymagana funkcja jest sposobem ograniczenia danych wyjściowych modelu LUIS. Gdy funkcja dla jednostki jest oznaczona jako wymagana, funkcja musi być obecna w przykładzie dla jednostki, która ma zostać przewidywalna, niezależnie od tego, co zapoznaje się z przewidywaniami modelu.
+
+Rozważmy przykład, w którym masz wbudowaną funkcję, która została oznaczona jako wymagana w jednostce ilości dla kolejności menu bot. Gdy bot widzi `I want a bajillion large pizzas?` , bajillion nie będzie przewidywane jako ilość, niezależnie od kontekstu, w którym występuje. Bajillion nie jest prawidłową liczbą i nie będzie przewidywany przez numer wstępnie skompilowanej jednostki.
+
+## <a name="intent"></a>Intencja
+
+[Cel](luis-concept-intent.md) reprezentuje zadanie lub akcję, które użytkownik chce wykonać. Jest to cel lub cel wyrażony w danych wejściowych użytkownika, na przykład w ramach rezerwacji lub płacenia rachunku. W LUIS, element wypowiedź jako całość jest sklasyfikowany jako cel, ale części wypowiedź są wyodrębniane jako jednostki
+
+## <a name="labeling-examples"></a>Przykłady etykiet
+
+Oznacza to, że jest to proces kojarzenia pozytywnego lub negatywnego przykładu z modelem.
+
+### <a name="labeling-for-intents"></a>Etykietowanie dla intencji
+W LUIS, intencje w aplikacji wykluczają się wzajemnie. Oznacza to, że po dodaniu wypowiedź do zamiaru jest on traktowany jako _pozytywny_ przykład dla tego celu i _negatywny_ przykład dla wszystkich innych intencji. Przykładami negatywnymi nie należy mylić z zamiarem "none", który reprezentuje wyrażenia długości, które są poza zakresem aplikacji.
+
+### <a name="labeling-for-entities"></a>Etykietowanie jednostek
+W LUIS można [oznaczyć](label-entity-example-utterance.md) słowo lub frazę w przykładowym przykładzie wypowiedź z jednostką jako _pozytywnego_ przykładu. Etykietowanie przedstawia zamierzenia, co powinno być przewidywalne dla tego wypowiedź. Etykiety wyrażenia długości są używane do uczenia zamiaru.
+
+## <a name="luis-app"></a>Aplikacja LUIS
+
+Zobacz definicję [aplikacji (aplikacji)](#application-app).
+
+## <a name="model"></a>Model
+
+Model (z maszyną) to funkcja, która wykonuje prognozowanie danych wejściowych. W programie LUIS odnosimy się do klasyfikatorów intencji i ekstraktorów jednostek ogólnie jako "models", a my odwołujemy się do kolekcji modeli, które są przeszkolone, publikowane i badane razem jako "aplikacja".
+
+## <a name="normalized-value"></a>Znormalizowana wartość
+
+Dodaj wartości do jednostek [listy](#list-entity) . Każda z tych wartości może zawierać listę jednego lub kilku synonimów. W odpowiedzi jest zwracana tylko znormalizowana wartość.
+
+## <a name="owner"></a>Właściciel
+
+Każda aplikacja ma jednego właściciela, który jest osobą, która utworzyła aplikację. Właściciel zarządza uprawnieniami do aplikacji w Azure Portal.
+
+## <a name="phrase-list"></a>Lista fraz
+
+[Lista fraz](luis-concept-feature.md) jest określonym typem funkcji uczenia maszynowego, która obejmuje grupę wartości (wyrazów lub fraz) należących do tej samej klasy i musi być traktowana podobnie (na przykład nazwy miast lub produktów).
+
+## <a name="prebuilt-model"></a>Prekompilowany model
+
+[Wstępnie skonstruowany model](luis-concept-prebuilt-model.md) jest celem, jednostką lub kolekcją obu, wraz z przykładami z etykietami. Te popularne wstępnie skompilowane modele można dodać do aplikacji, aby zmniejszyć liczbę zadań związanych z programowaniem modelu wymaganych przez aplikację.
+
+### <a name="prebuilt-domain"></a>Preskompilowana domena
+
+Preskompilowana domena jest aplikacją LUIS skonfigurowaną dla konkretnej domeny, taką jak Automatyzacja główna (HomeAutomation) lub rezerwacje restauracji (RestaurantReservation). Zamiary, wyrażenia długości i jednostki są skonfigurowane dla tej domeny.
+
+### <a name="prebuilt-entity"></a>Wstępnie utworzona jednostka
+
+Wstępnie utworzona jednostka to LUIS jednostki zapewniające wspólne typy informacji, takie jak Number, URL i email. Są one tworzone na podstawie danych publicznych. Możesz dodać wstępnie utworzoną jednostkę jako jednostkę autonomiczną lub jako funkcję do jednostki
+
+### <a name="prebuilt-intent"></a>Wstępnie skompilowany profil
+
+Prebudowany zamiara to LUIS, który oferuje popularne typy informacji i ma własne przykładowe etykiety wyrażenia długości.
+
+## <a name="prediction"></a>Prediction (Prognoza)
+
+Prognoza to żądanie REST do usługi predykcyjnej Azure LUIS, która przyjmuje nowe dane (użytkownik wypowiedź), i stosuje przeszkolone i opublikowane aplikacje do tych danych, aby określić, jakie intencje i jednostki są dostępne.
+
+### <a name="prediction-key"></a>Klucz predykcyjny
+
+[Klucz predykcyjny](luis-concept-keys.md) (wcześniej znany jako klucz subskrypcji) to klucz skojarzony z usługą Luis utworzoną na platformie Azure, która autoryzuje użycie punktu końcowego przewidywania.
+
+Ten klucz nie jest kluczem autorskim. Jeśli masz klucz punktu końcowego przewidywania, powinien on być używany w przypadku żądań punktu końcowego zamiast klucza tworzenia. Bieżący klucz przewidywania można zobaczyć w adresie URL punktu końcowego w dolnej części strony zasobów platformy Azure w witrynie sieci Web LUIS. Jest to wartość pary nazwa/wartość klucza subskrypcji.
+
+### <a name="prediction-resource"></a>Zasób predykcyjny
+
+Zasób przewidywania LUIS jest elementem możliwym do zarządzania, który jest dostępny za pomocą platformy Azure. Zasób to dostęp do powiązanego przewidywania usługi platformy Azure. Zasób obejmuje przewidywania.
+
+Zasób predykcyjny ma "rodzaj" na platformie Azure `LUIS` .
+
+### <a name="prediction-score"></a>Współczynnik przewidywania
+
+[Wynik](luis-concept-prediction-score.md) jest liczbą z przenoszącą od 0 do 1, która jest miarą, że system polega na tym, że dane wejściowe wypowiedź są zgodne z konkretnym zamiarem. Wynik zbliżony do 1 oznacza, że system jest bardzo istotny dla danych wyjściowych, a wynik zbliżony do 0 oznacza, że system jest przekonany, że dane wejściowe nie pasują do określonych danych wyjściowych. Wyniki w środkowym znaczeniu oznacza, że system jest bardzo niekonieczny do podejmowania decyzji.
+
+Na przykład Utwórz model, który służy do identyfikowania, czy część tekstu klienta zawiera zamówienie żywności. Może to dać wynik 1 dla "Chcę zamówić jedną kawę" (system ma bardzo pewność, że jest to zamówienie), a wynik 0 dla "mój zespół wykupiła grę w ostatnim nocy" (system jest bardzo pewny, że nie jest to zamówienie). Może mieć wynik 0,5 dla "mamy kilka herbaty" (nie ma pewności, czy jest to zamówienie, czy nie).
+
+## <a name="programmatic-key"></a>Klucz programistyczny
 
 Zmieniono nazwę [klucza tworzenia](#authoring-key).
 
-## <a name="publish"></a><a name="publish"></a>Publikowanie
+## <a name="publish"></a>Publikowanie
 
-Opublikowanie oznacza, że dostępna jest LUIS aktywna wersja na etapie przejściowym [lub produkcyjnym](#endpoint).
+[Opublikowanie](luis-how-to-publish-app.md) oznacza, że dostępna jest Luis aktywna wersja na etapie przejściowym [lub produkcyjnym](#endpoint).
 
-## <a name="quota"></a><a name="quota"></a>Limit przydziału
+## <a name="quota"></a>Limit przydziału
 
-Limit przydziału LUIS to ograniczenie [warstwy subskrypcji platformy Azure](https://aka.ms/luis-price-tier). Limit przydziału LUIS może być ograniczony przez oba żądania na sekundę (stan HTTP 429) i łączne żądania w miesiącu (stan HTTP 403).
+Limit przydziału LUIS to ograniczenie warstwy subskrypcji platformy Azure. Limit przydziału LUIS może być ograniczony przez oba żądania na sekundę (stan HTTP 429) i łączne żądania w miesiącu (stan HTTP 403).
 
-## <a name="recall"></a><a name="recall"></a>Wycofaniu
-W [testach wsadowych](luis-interactive-test.md#batch-testing)funkcja odwoływania (znana także jako czułość) jest Luis do uogólniania.
+## <a name="schema"></a>Schemat
 
-## <a name="semantic-dictionary"></a><a name="semantic-dictionary"></a>Słownik semantyczny
-Słownik semantyczny jest dostępny na stronie jednostki listy, a także na stronie Lista fraz. Słownik semantyczny zawiera sugestie wyrazów w oparciu o bieżący zakres.
+Schemat zawiera twoje intencje i jednostki wraz z podjednostkami. Schemat jest początkowo planowany, a następnie powtarzany w miarę upływu czasu. Schemat nie obejmuje ustawień aplikacji, funkcji ani przykładu wyrażenia długości. 
 
-## <a name="sentiment-analysis"></a><a name="sentiment-analysis"></a>analiza tonacji
-Tonacji Analysis zawiera wartości dodatnie lub ujemne wyrażenia długości dostarczone przez [Analiza tekstu](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+## <a name="sentiment-analysis"></a>Analiza tonacji
+Tonacji Analysis zawiera wartości dodatnie lub ujemne wyrażenia długości dostarczone przez [Analiza tekstu](../text-analytics/overview.md).
 
-## <a name="speech-priming"></a><a name="speech-priming"></a>Napełnianiu mowy
+## <a name="speech-priming"></a>Napełnianiu mowy
 
-Funkcja Speech napełnianiu umożliwia korzystanie z usługi mowy z modelem LUIS.
+Usługa Speech napełnianiu ulepsza rozpoznawanie mówionych słów i fraz, które są często używane w Twoim scenariuszu dzięki [usługom mowy](../speech-service/overview.md). W przypadku aplikacji obsługujących funkcję Speech napełnianiu wszystkie przykłady z etykietami LUIS są używane do poprawiania dokładności rozpoznawania mowy, tworząc dostosowany model mowy dla tej konkretnej aplikacji. Na przykład w grze szachowej warto upewnić się, że gdy użytkownik mówi "Przenieś Knight", nie jest interpretowany jako "Przenieś nocne". Aplikacja LUIS powinna zawierać przykłady, w których znak "Knight" jest oznaczony jako obiekt.
 
-## <a name="spelling-correction"></a><a name="spelling-correction"></a>Poprawianie pisowni
-
-Włączenie sprawdzania pisowni Bing w celu skorygowania błędnie napisanych wyrazów w wyrażenia długości przed przewidywaniam.
-
-## <a name="starter-key"></a><a name="starter-key"></a>Klucz początkowy
+## <a name="starter-key"></a>Klucz początkowy
 
 Bezpłatny klucz, który będzie używany podczas pierwszego uruchamiania przy użyciu LUIS.
 
-## <a name="structure"></a><a name="structure"></a>Struktura
+## <a name="synonyms"></a>Synonimy
 
-Dodaj strukturę do jednostki uczenia maszynowego, aby zapewnić podskładniki z deskryptorami (funkcjami) i ograniczeniami (wyrażenie regularne lub Lista jednostek).
+W [jednostkach listy](reference-entity-list.md)Luis można utworzyć znormalizowaną wartość, która może zawierać listę synonimów. Jeśli na przykład utworzysz jednostkę rozmiaru, która ma znormalizowane wartości małe, średnie, duże i bardzo duże. Można utworzyć synonimy dla każdej wartości w następujący sposób:
 
-## <a name="subscription-key"></a><a name="subscription-key"></a>Klucz subskrypcji
+|Nomalized wartość| Synonimy|
+|--|--|
+|Mały| nieco jeden, 8 uncji|
+|Średniaa| regularne, 12 uncji|
+|Duży| Big, 16 uncji|
+|Xtra duże| największy jeden, 24 uncje|
 
-Klucz subskrypcji to klucz **punktu końcowego przewidywania** skojarzony z usługą Luis [utworzoną na platformie Azure](luis-how-to-azure-subscription.md). Ten klucz nie jest [kluczem autorskim](#programmatic-key). Jeśli masz klucz punktu końcowego, powinien on być używany w przypadku żądań punktu końcowego zamiast klucza tworzenia. Bieżący klucz punktu końcowego można zobaczyć w adresie URL punktu końcowego u dołu strony [ **klucze i punkty końcowe** ](luis-how-to-azure-subscription.md) w witrynie sieci Web [Luis](luis-reference-regions.md) . Jest to wartość pary nazwa/wartość **klucza subskrypcji** .
+Model zwróci wartość znormalizowaną dla jednostki, gdy którykolwiek z synonimów jest widoczny w danych wejściowych.
 
-## <a name="test"></a><a name="test"></a>Testowanie
+## <a name="test"></a>Testuj
 
-[Testowanie](luis-interactive-test.md#test-your-app) aplikacji Luis oznacza przekazywanie wypowiedź do Luis i wyświetlanie wyników JSON.
+[Testowanie](luis-concept-test.md) aplikacji Luis oznacza przeglądanie prognoz modeli.
 
-## <a name="timezone-offset"></a><a name="timezoneoffset"></a>Przesunięcie strefy czasowej
+## <a name="timezone-offset"></a>Przesunięcie strefy czasowej
 
-Punkt końcowy zawiera timezoneOffset. Jest to liczba minut, którą chcesz dodać lub usunąć ze wstępnie skompilowanej jednostki datetimeV2. Na przykład, jeśli wypowiedź jest "jaki jest teraz?", zwracana wartość datetimeV2 to bieżąca godzina żądania klienta. Jeśli żądanie klienta pochodzi z bot lub innej aplikacji, która nie jest taka sama jak użytkownika bot, należy przekazać przesunięcie między bot i użytkownikiem.
+Punkt końcowy zawiera [timezoneOffset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Jest to liczba minut, którą chcesz dodać lub usunąć ze wstępnie skompilowanej jednostki datetimeV2. Na przykład, jeśli wypowiedź jest "jaki jest teraz?", zwracana wartość datetimeV2 to bieżąca godzina żądania klienta. Jeśli żądanie klienta pochodzi z bot lub innej aplikacji, która nie jest taka sama jak użytkownika bot, należy przekazać przesunięcie między bot i użytkownikiem.
 
 Zobacz [Zmiana strefy czasowej prekompilowanej jednostki datetimeV2](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a><a name="token"></a>Token
-Token jest najmniejszą jednostką, która może być oznaczona w jednostce. Tokenizacji jest oparta na [kulturze](luis-language-support.md#tokenization)aplikacji.
+## <a name="token"></a>Token
+[Token](luis-language-support.md#tokenization) jest najmniejszą jednostką tekstu, którą Luis może rozpoznać. Różni się to nieco w różnych językach.
 
-## <a name="train"></a><a name="train"></a>Szkolenie
+W przypadku **języka angielskiego**token jest ciągłym zakresem (bez spacji i znaków interpunkcyjnych) liter i cyfr. Spacja nie jest tokenem.
 
-Szkolenie to proces uczenia LUIS o wszelkich zmianach w aktywnej wersji od ostatniego szkolenia.
+|R40|Liczba tokenów|Wyjaśnienie|
+|--|--|--|
+|`Dog`|1|Pojedynczy wyraz bez znaków interpunkcyjnych ani spacji.|
+|`RMT33W`|1|Numer lokalizatora rekordu. Może zawierać cyfry i litery, ale nie ma żadnych znaków interpunkcyjnych.|
+|`425-555-5555`|5|Numer telefonu. Każdy znak interpunkcji jest pojedynczym tokenem, więc będzie `425-555-5555` miał 5 tokenów:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="true-negative-tn"></a><a name="true-negative"></a>True ujemna (TN)
+## <a name="train"></a>Szkolenie
 
-W [testach wsadowych](luis-interactive-test.md#batch-testing)punkty danych reprezentują wyrażenia długości, w których aplikacja prawidłowo przewidywalna nieobecność docelowego celu/jednostki.
+[Szkolenie](luis-how-to-train.md) to proces uczenia Luis o wszelkich zmianach w aktywnej wersji od ostatniego szkolenia.
 
-## <a name="true-positive-tp"></a><a name="true-positive"></a>Prawda dodatnia (TP)
+### <a name="training-data"></a>Dane szkoleniowe
 
-W [testach wsadowych](luis-interactive-test.md#batch-testing)punkty danych przedstawiają wyrażenia długości, w którym aplikacja prawidłowo przewidywalna istnienie docelowego celu/jednostki.
+Dane szkoleniowe to zbiór informacji, które są konieczne do uczenia modelu. Obejmuje to schemat, etykiety wyrażenia długości, funkcje i ustawienia aplikacji.
 
-## <a name="utterance"></a><a name="utterance"></a>Wypowiedź
+### <a name="training-errors"></a>Błędy szkoleniowe
 
-Wypowiedź to wyrażenie języka naturalnego, takie jak "Book 2 bilety do Seattle następnego wtorku". Do zamiaru są dodawane przykładowe wyrażenia długości.
+Błędy szkoleniowe są przewidywaniami danych szkoleniowych, które nie pasują do etykiet.
 
-## <a name="version"></a><a name="version"></a>Wersja
+## <a name="utterance"></a>Wypowiedź
 
-LUIS [wersja](luis-how-to-manage-versions.md) jest określonym modelem danych skojarzonym z identyfikatorem aplikacji Luis i opublikowanym punktem końcowym. Każda aplikacja LUIS ma co najmniej jedną wersję.
+[Wypowiedź](luis-concept-utterance.md) to dane wprowadzane przez użytkownika, czyli krótki tekst reprezentatywny zdania w konwersacji. Jest to fraza języka naturalnego, taka jak "Book 2 bilety do Seattle następnego wtorku". Przykład wyrażenia długości są dodawane do uczenia modelu i przewidywania modeli na nowym wypowiedź w czasie wykonywania
+
+## <a name="version"></a>Wersja
+
+[Wersja](luis-how-to-manage-versions.md) Luis to określone wystąpienie aplikacji Luis skojarzonej z identyfikatorem aplikacji Luis oraz opublikowanym punktem końcowym. Każda aplikacja LUIS ma co najmniej jedną wersję.

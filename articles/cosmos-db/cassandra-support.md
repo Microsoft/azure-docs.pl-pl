@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 978dbf3d8e6a92242c0a984b26bb35cf911a3369
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80420151"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590433"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funkcje bazy danych Apache Cassandra obsługiwane przez interfejs API Cassandra usługi Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 * blob  
 * wartość logiczna  
 * counter  
-* date  
+* data  
 * decimal  
 * double  
 * float  
@@ -67,7 +67,7 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące typy da
 * varint  
 * tuples  
 * udts  
-* map  
+* map (mapa)  
 
 ## <a name="cql-functions"></a>Funkcje języka CQL
 
@@ -98,15 +98,19 @@ Interfejs API Cassandra usługi Azure Cosmos DB obsługuje następujące funkcje
 
 Interfejs API Cassandra usługi Azure Cosmos DB nie ma żadnych ograniczeń dotyczących rozmiaru danych przechowywanych w tabeli. Można przechowywać setki terabajtów lub petabajtów danych przy zapewnieniu uznania limitów klucza partycji. Podobnie każdy odpowiednik jednostki lub wiersza nie ma żadnych limitów liczby kolumn. Jednak łączny rozmiar jednostki nie powinien przekraczać 2 MB. Dane na klucz partycji nie mogą przekroczyć 20 GB, tak jak w przypadku wszystkich innych interfejsów API.
 
-## <a name="tools"></a>Narzędzia 
+## <a name="tools"></a>narzędzia 
 
 Interfejs API Cassandra usługi Azure Cosmos DB to platforma usług zarządzanych. Nie wymaga żadnego narzutu związanego z zarządzaniem ani narzędzi, takich jak moduł odzyskiwania pamięci, wirtualna maszyna Java (JVM) i narzędzie nodetool do zarządzania klastrem. Obsługuje narzędzia, takie jak cqlsh, korzystające ze zgodności binarnej z językiem CQL w wersji 4. 
 
 * Azure Portal Eksplorator danych, metryki, Diagnostyka dzienników, program PowerShell i interfejs wiersza polecenia są innymi obsługiwanymi mechanizmami do zarządzania kontem.
 
-## <a name="cql-shell"></a>Powłoka CQL  
+## <a name="hosted-cql-shell-preview"></a>Hostowana powłoka CQL (wersja zapoznawcza)
 
-Narzędzie wiersza polecenia CQLSH jest dostarczane z Apache Cassandra 3.1.1 i działa przez ustawienie niektórych zmiennych środowiskowych.
+Hostowaną natywną powłokę Cassandra (CQLSH v 5.0.1) można otworzyć bezpośrednio z Eksplorator danych w [Azure Portal](data-explorer.md) lub w [Eksploratorze Cosmos platformy Azure](https://cosmos.azure.com/). Przed włączeniem powłoki CQL należy [włączyć funkcję notesów](enable-notebooks.md) na koncie (jeśli nie została jeszcze włączona, zostanie wyświetlony monit po kliknięciu `Open Cassandra Shell` ). Zapoznaj się z wyróżnioną uwagą w temacie [Włączanie notesów dla kont Azure Cosmos DB](enable-notebooks.md) dla obsługiwanych regionów świadczenia usługi Azure.
+
+![CQLSH](./media/cassandra-support/cqlsh.png)
+
+Możesz również nawiązać połączenie z interfejs API Cassandra w Azure Cosmos DB przy użyciu CQLSH zainstalowanego na komputerze lokalnym. Jest on dostarczany z Apache Cassandra 3.1.1 i działa poza ramką przez ustawienie zmiennych środowiskowych. Poniższe sekcje zawierają instrukcje dotyczące instalowania, konfigurowania i nawiązywania połączeń interfejs API Cassandra w programie Azure Cosmos DB w systemie Windows lub Linux przy użyciu CQLSH.
 
 **Systemy**
 
@@ -198,9 +202,8 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Użycie zasad ponawiania próby połączenia bazy danych Cassandra
 
-Azure Cosmos DB jest systemem zarządzanym przez zasoby. Oznacza to, że można wykonać określoną liczbę operacji w danej sekundzie na podstawie jednostek żądań używanych przez operacje. Jeśli aplikacja przekroczy ten limit w danej sekundzie, żądania są ograniczone, a wyjątki zostaną zgłoszone. Interfejs API Cassandra w Azure Cosmos DB tłumaczy te wyjątki na przeciążone błędy w protokole natywnym Cassandra. Aby upewnić się, że aplikacja może przechwycić i ponowić próbę żądania w przypadku ograniczenia szybkości przypadków, dostępne są rozszerzenia [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) i [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) . Jeśli używasz innych zestawów SDK do uzyskiwania dostępu do interfejs API Cassandra w Azure Cosmos DB, Utwórz zasady połączenia, aby ponowić próbę wykonania tych wyjątków.
+Azure Cosmos DB jest systemem zarządzanym przez zasoby. Oznacza to, że można wykonać określoną liczbę operacji w danej sekundzie na podstawie jednostek żądań używanych przez operacje. Jeśli aplikacja przekroczy ten limit w danej sekundzie, żądania są ograniczone, a wyjątki zostaną zgłoszone. Interfejs API Cassandra w Azure Cosmos DB tłumaczy te wyjątki na przeciążone błędy w protokole natywnym Cassandra. Aby zapewnić, że aplikacja może przechwycić i ponowić próbę żądania w przypadku ograniczenia szybkości, dostępne są rozszerzenia [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) i [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) . Zobacz również przykłady kodu Java dla sterowników DataStax w [wersji 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) i [4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) , podczas nawiązywania połączenia z usługą interfejs API Cassandra w Azure Cosmos DB. Jeśli używasz innych zestawów SDK do uzyskiwania dostępu do interfejs API Cassandra w Azure Cosmos DB, Utwórz zasady połączenia, aby ponowić próbę wykonania tych wyjątków.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Rozpocznij od [utworzenia konta, bazy danych i tabeli interfejsu API Cassandra](create-cassandra-api-account-java.md) przy użyciu aplikacji w języku Java
-

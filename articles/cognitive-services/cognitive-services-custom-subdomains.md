@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647692"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590642"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Niestandardowe nazwy domen poddomen dla Cognitive Services
 
@@ -51,7 +51,7 @@ Tak. Używanie niestandardowej nazwy domeny podrzędnej nie zmienia żadnych asp
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Jakie są wymagania dotyczące niestandardowej nazwy domeny podrzędnej?
 
-Niestandardowa nazwa domeny podrzędnej jest unikatowa dla zasobu. Nazwa może zawierać tylko znaki alfanumeryczne i `-` znak; musi mieć długość od 2 do 64 znaków i nie może kończyć się znakiem `-`.
+Niestandardowa nazwa domeny podrzędnej jest unikatowa dla zasobu. Nazwa może zawierać tylko znaki alfanumeryczne i `-` znak; długość musi należeć do przedziału od 2 do 64 znaków i nie może kończyć się spacją `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Czy mogę zmienić niestandardową nazwę domeny?
 
@@ -66,11 +66,11 @@ Każda niestandardowa nazwa domeny podrzędnej jest unikatowa, dlatego w celu po
 Tak. Jest to lista regionalnych punktów końcowych, które mogą być używane z zasobami Cognitive Services platformy Azure.
 
 > [!NOTE]
-> Interfejs API tłumaczenia tekstu w usłudze Translator i interfejsy API wyszukiwania Bing używają globalnych punktów końcowych.
+> Usługa translator i interfejsy API wyszukiwania Bing używać globalnych punktów końcowych.
 
 | Typ punktu końcowego | Region | Endpoint |
 |---------------|--------|----------|
-| Public | Globalne (tłumaczenie tekstu w usłudze Translator & Bing) | `https://api.cognitive.microsoft.com` |
+| Public | Globalne (translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia Wschodnia | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brazylia Południowa | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada Środkowa | `https://canadacentral.api.cognitive.microsoft.com` |

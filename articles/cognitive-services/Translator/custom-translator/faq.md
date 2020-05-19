@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0413c15c025e554ab8465736dfdb5607149c5ed2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836591"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588687"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Często zadawane pytania dotyczące translatora niestandardowego
 
@@ -41,7 +41,7 @@ Wdrożenie zazwyczaj trwa krócej niż godzinę.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Jak uzyskać dostęp do wdrożonego systemu?
 
-Do wdrożonych systemów można uzyskać dostęp za pośrednictwem programu Microsoft interfejs API tłumaczenia tekstu w usłudze Translator v3, określając IDKategorii. Więcej informacji na temat interfejs API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie sieci Web [dokumentacji interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Do wdrożonych systemów można uzyskać dostęp za pośrednictwem usługi Microsoft Translator v3 przez określenie IDKategorii. Więcej informacji na temat translatora można znaleźć na stronie sieci Web [dokumentacji interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Jak mogę pominąć wyrównywanie i przerywanie zdania, jeśli moje dane są już wyrównane do zdania?
 
@@ -51,4 +51,4 @@ Jeśli liczba wyodrębnionych zdań nie pasuje do obu plików o tej samej nazwie
 
 ## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Próbowaliśmy przekazać moją TMX, ale jest to komunikat "Przetwarzanie dokumentu nie powiodło się".
 
-Upewnij się, że TMX jest zgodna ze specyfikacją TMX 1.4 b pod <https://www.gala-global.org/tmx-14b>adresem.
+Upewnij się, że TMX jest zgodna ze specyfikacją TMX 1.4 b pod adresem <https://www.gala-global.org/tmx-14b> .

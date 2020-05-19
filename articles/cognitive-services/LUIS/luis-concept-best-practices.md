@@ -2,14 +2,14 @@
 title: Najlepsze rozwiązania dotyczące tworzenia aplikacji LUIS
 description: Poznaj najlepsze rozwiązania, aby uzyskać najlepsze wyniki z modelu aplikacji LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382385"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589809"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Najlepsze rozwiązania dotyczące tworzenia aplikacji do interpretacji języka (LUIS)
 Tworzenie aplikacji LUIS za pomocą procesu tworzenia aplikacji:
@@ -31,11 +31,11 @@ Poniższa lista zawiera najlepsze rozwiązania dotyczące aplikacji LUIS:
 
 |Zalecenia|Zakazy|
 |--|--|
-|[Definiowanie unikatowych intencji](#do-define-distinct-intents)<br>[Dodaj deskryptory do intencji](#do-add-descriptors-to-intents) |[Dodaj wiele przykładowych wyrażenia długości do intencji](#dont-add-many-example-utterances-to-intents)<br>[Użyj kilku lub prostych jednostek](#dont-use-few-or-simple-entities) |
+|[Definiowanie unikatowych intencji](#do-define-distinct-intents)<br>[Dodawanie funkcji do intencji](#do-add-features-to-intents) |[Dodaj wiele przykładowych wyrażenia długości do intencji](#dont-add-many-example-utterances-to-intents)<br>[Użyj kilku lub prostych jednostek](#dont-use-few-or-simple-entities) |
 |[Znajdź słodkie miejsce między ogólnym i zbyt specyficzne dla każdego zamiaru](#do-find-sweet-spot-for-intents)|[Korzystanie z LUIS jako platformy szkoleniowej](#dont-use-luis-as-a-training-platform)|
 |[Iteracyjne Kompilowanie aplikacji przy użyciu wersji](#do-build-your-app-iteratively-with-versions)<br>[Kompiluj jednostki na potrzeby dekompozycji modelu](#do-build-for-model-decomposition)|[Dodaj wiele przykładowych wyrażenia długości tego samego formatu, ignorując inne formaty](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Dodaj wzorce w późniejszych iteracjach](#do-add-patterns-in-later-iterations)|[Mieszanie definicji intencji i jednostek](#dont-mix-the-definition-of-intents-and-entities)|
-|[Zrównoważ swój wyrażenia długości we wszystkich intencjach](#balance-your-utterances-across-all-intents) , z wyjątkiem intencji none.<br>[Dodaj przykład wyrażenia długości do opcji none](#do-add-example-utterances-to-none-intent)|[Utwórz deskryptory ze wszystkimi możliwymi wartościami](#dont-create-descriptors-with-all-the-possible-values)|
+|[Zrównoważ swój wyrażenia długości we wszystkich intencjach](#balance-your-utterances-across-all-intents) , z wyjątkiem intencji none.<br>[Dodaj przykład wyrażenia długości do opcji none](#do-add-example-utterances-to-none-intent)|[Tworzenie list fraz ze wszystkimi możliwymi wartościami](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Korzystanie z funkcji Sugeruj w przypadku aktywnego uczenia](#do-leverage-the-suggest-feature-for-active-learning)|[Dodaj zbyt wiele wzorców](#dont-add-many-patterns)|
 |[Monitorowanie wydajności aplikacji za pomocą testów wsadowych](#do-monitor-the-performance-of-your-app)|[Uczenie i publikowanie za pomocą każdego pojedynczego przykładu wypowiedź dodanego](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -51,11 +51,11 @@ Rozważmy następujący przykład wyrażenia długości:
 |Książka a samolotem|
 |Książka w hotelu|
 
-`Book a flight`i `Book a hotel` używaj tego samego słownika `book a `. Ten format jest taki sam, więc powinien być taki sam, jak w przypadku innych słów `flight` i `hotel` jako wyodrębnionych jednostek.
+`Book a flight`i `Book a hotel` Używaj tego samego słownika `book a ` . Ten format jest taki sam, więc powinien być taki sam, jak w przypadku innych słów `flight` i `hotel` jako wyodrębnionych jednostek.
 
-## <a name="do-add-descriptors-to-intents"></a>Dodaj deskryptory do intencji
+## <a name="do-add-features-to-intents"></a>Dodaj funkcje do intencji
 
-Deskryptory ułatwiają opisywanie funkcji dla zamiaru. Deskryptor może być listą fraz wyrazów, które są istotne dla tego zamiaru lub jednostki, która jest istotna dla tego celu.
+Funkcje opisują koncepcje dotyczące zamiaru. Funkcja może być listą fraz wyrazów, które są istotne dla tego zamiaru lub jednostki, która jest istotna dla tego celu.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Znajdź słodycze dla intencji
 Użyj danych przewidywania z LUIS, aby określić, czy twoje intencje są nakładane. Nakładające się intencje odmylić LUIS. Wynika to z tego, że największe zamiar oceniania jest zbyt blisko innego celu. Ponieważ LUIS nie używa dokładnie tej samej ścieżki za pomocą danych do szkolenia za każdym razem, nakładające się przeznaczenie ma szansę na pierwsze lub drugie szkolenie. Chcesz, aby wyniki wypowiedź dla każdego zamiaru były od siebie oddzielone, aby nie nastąpiło Przerzucanie/flop. Dobre rozróżnienie w przypadku intencji powinno spowodować, że oczekiwane jest najlepsze zamierzone za każdym razem.
@@ -73,17 +73,22 @@ Dekompozycja modelu ma typowy proces:
 * Tworzenie **zamiaru** na podstawie założeń użytkownika aplikacji klienta
 * Dodaj 15-30 przykład wyrażenia długości na podstawie rzeczywistych danych wejściowych użytkownika
 * Oznacz koncepcję danych najwyższego poziomu na przykład wypowiedź
-* Podziel koncepcję danych na podskładniki
-* Dodawanie deskryptorów (funkcji) do podskładników
-* Dodaj deskryptory (funkcje) do celu
+* Podziel koncepcję danych na podjednostki
+* Dodawanie funkcji do podjednostek
+* Dodawanie funkcji do intencji
 
 Po utworzeniu zamiaru i dodaniu przykładu wyrażenia długości, w poniższym przykładzie opisano dekompozycję jednostki.
 
-Zacznij od zidentyfikowania kompletnych koncepcji dotyczących danych, które mają zostać wyodrębnione w wypowiedź. To jest jednostka, którą uczysz. Następnie rozłożyć frazę na części. Obejmuje to zidentyfikowanie podskładników (jako jednostek) wraz z deskryptorami i ograniczeniami.
+Zacznij od zidentyfikowania kompletnych koncepcji dotyczących danych, które mają zostać wyodrębnione w wypowiedź. To jest jednostka, którą uczysz. Następnie rozłożyć frazę na części. Obejmuje to identyfikowanie podjednostek i funkcji.
 
-Na przykład jeśli chcesz wyodrębnić adres, można wywołać `Address`największą jednostkę polecaną maszynowo. Podczas tworzenia adresu Zidentyfikuj niektóre jego składniki, takie jak adres ulicy, miasto, Województwo i kod pocztowy.
+Na przykład jeśli chcesz wyodrębnić adres, można wywołać największą jednostkę polecaną maszynowo `Address` . Podczas tworzenia adresu Zidentyfikuj niektóre jego podjednostki, takie jak adres ulicy, miasto, Województwo i kod pocztowy.
 
-Kontynuuj składanie tych elementów, **ograniczając** kod pocztowy do wyrażenia regularnego. Rozdziel adres ulicy na części numeru ulicy (przy użyciu wstępnie skompilowanego numeru), nazwy ulicy i typu ulicy. Typ ulicy można opisać przy użyciu listy **deskryptorów** , takiej jak promień, okrąg, droga i tor.
+Kontynuuj tworzenie tych elementów według:
+* Dodawanie wymaganej funkcji kodu pocztowego jako jednostki wyrażenia regularnego.
+* Tworzenie adresu ulicy w częściach:
+    * **Numer ulicy** z wymaganą funkcją wstępnie skompilowanej jednostki liczby.
+    * **Nazwa ulicy**.
+    * **Typ ulicy** z wymaganą funkcją jednostki listy, w tym słowami, takimi jak drogi, okrąg, droga i tor.
 
 Interfejs API tworzenia w wersji 3 pozwala na dekompozycję modelu.
 
@@ -145,9 +150,9 @@ Utwórz zamiar dla każdej akcji, którą zajmie bot. Użyj jednostek jako param
 
 W przypadku botów, które będą księgować loty lotnicze, należy utworzyć intencję **BookFlight** . Nie należy tworzyć zamierzeń dla każdego linii lotniczej lub każdego miejsca docelowego. Użyj tych elementów danych jako [jednostek](luis-concept-entity-types.md) i oznacz je w przykładowym wyrażenia długości.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Nie twórz deskryptorów ze wszystkimi możliwymi wartościami
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Nie twórz list fraz ze wszystkimi możliwymi wartościami
 
-Podaj kilka przykładów w [frazach](luis-concept-feature.md) deskryptorów, ale nie każdy wyraz. LUIS generalize i bierze pod uwagę kontekst.
+Podaj kilka przykładów na [listach fraz](luis-concept-feature.md) , ale nie każdy wyraz lub frazę. LUIS generalize i bierze pod uwagę kontekst.
 
 ## <a name="dont-add-many-patterns"></a>Nie dodawaj wielu wzorców
 

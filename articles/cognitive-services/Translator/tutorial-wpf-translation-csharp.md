@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF, C#-interfejs API tłumaczenia tekstu w usłudze Translator'
+title: 'Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF, C#-translator'
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz aplikację WPF do przeprowadzenia tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni przy użyciu jednego klucza subskrypcji.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d500a7c24538adb139a42924134f784973f496b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118610"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588565"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
-W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. W szczególności aplikacja będzie wywoływać interfejsy API tłumaczenia tekstu w usłudze Translator i [sprawdzania pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+W tym samouczku utworzysz aplikację platformy [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019), która korzysta z usług Azure Cognitive Services na potrzeby tłumaczenia tekstu, wykrywania języka i sprawdzania pisowni, przy użyciu klucza pojedynczej subskrypcji. Aplikacja będzie wywoływać interfejsy API z translatora i [Sprawdzanie pisowni Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Co to jest platforma WPF? Jest struktura interfejsu użytkownika służąca do tworzenia aplikacji klienckich dla komputerów. Platforma programistyczna WPF obsługuje szeroką gamę funkcji tworzenia aplikacji, w tym model aplikacji, zasoby, kontrolki, grafiki, układ, powiązanie danych, dokumenty i zabezpieczenia. Jest podzbiorem programu .NET Framework, więc jeśli wcześniej tworzono aplikacje przy użyciu programu .NET Framework za pomocą platformy ASP.NET lub Windows Forms, środowisko programowania powinno być znajome. Platforma WPF przy użyciu języka Extensible Application Markup Language (XAML) zapewnia model deklaratywny na potrzeby programowania aplikacji, który zostanie omówiony w następnych sekcjach.
 
@@ -29,7 +29,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > * Tworzenie projektu WPF w programie Visual Studio
 > * Dodawanie pakietów NuGet do projektu
 > * Tworzenie interfejsu użytkownika aplikacji przy użyciu języka XAML
-> * Pobieranie języków, tłumaczenie tekstu i wykrywanie języka źródłowego przy użyciu interfejsu API tłumaczenia tekstu w usłudze Translator
+> * Korzystanie z translatora do pobierania języków, tłumaczenia tekstu i wykrywania języka źródłowego
 > * Weryfikowanie danych wejściowych i zwiększanie dokładności tłumaczeń przy użyciu interfejsu API sprawdzania pisowni Bing
 > * Uruchamianie aplikacji WPF
 
@@ -37,11 +37,11 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Funkcja | Opis |
+| Usługa | Cechy | Opis |
 |---------|---------|-------------|
-| Tekst usługi Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
-| Tekst usługi Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Przetłumacz tekst na ponad 60 języków. |
-| Tekst usługi Translator | [Wykrywanie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
+| Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
+| Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Przetłumacz tekst na ponad 60 języków. |
+| Translator | [Wykrywanie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Wykryj język tekstu wejściowego. Obejmuje współczynnik ufności dla wykrywania. |
 | Sprawdzanie pisowni Bing | [Sprawdzanie pisowni](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Popraw błędy pisowni w celu zwiększenia dokładności tłumaczenia. |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -61,11 +61,11 @@ Pierwszą rzeczą, jaką należy wykonać, jest skonfigurowanie projektu w progr
 
 1. Otwórz program Visual Studio. Wybierz pozycję **Utwórz nowy projekt**.
 1. W obszarze **Utwórz nowy projekt**Znajdź i wybierz pozycję **aplikacja WPF (.NET Framework)**. Możesz wybrać język C# z poziomu **języka** , aby zawęzić opcje.
-1. Wybierz pozycję **dalej**, a następnie nadaj nazwę `MSTranslatorTextDemo`projektowi.
+1. Wybierz pozycję **dalej**, a następnie nadaj nazwę projektowi `MSTranslatorDemo` .
 1. Ustaw wersję struktury na **.NET Framework 4.7.2** lub nowszą, a następnie wybierz pozycję **Utwórz**.
    ![Wprowadź nazwę i wersję struktury w programie Visual Studio](media/name-wpf-project-visual-studio.png)
 
-Projekt został utworzony. Zauważysz, że otwarte są dwie karty: `MainWindow.xaml` i `MainWindow.xaml.cs`. W tym samouczku będziemy dodawać kod do tych dwóch plików. Zmodyfikujemy `MainWindow.xaml` interfejs użytkownika aplikacji. Będziemy modyfikować `MainWindow.xaml.cs` dla naszych wywołań tłumaczenie tekstu w usłudze Translator i sprawdzanie pisowni Bing.
+Projekt został utworzony. Zauważysz, że otwarte są dwie karty: `MainWindow.xaml` i `MainWindow.xaml.cs`. W tym samouczku będziemy dodawać kod do tych dwóch plików. Zmodyfikujemy `MainWindow.xaml` interfejs użytkownika aplikacji. Będziemy modyfikować `MainWindow.xaml.cs` dla naszych wywołań usługi Translator i sprawdzanie pisowni Bing.
    ![Przeglądanie środowiska](media/blank-wpf-project.png)
 
 W następnej sekcji dodamy do naszego projektu zestawy i pakiet NuGet w celu uzyskania dodatkowych funkcji, takich jak analiza JSON.
@@ -131,12 +131,12 @@ Dodajmy kod do naszego projektu.
 1. W programie Visual Studio wybierz kartę `MainWindow.xaml`.
 1. Skopiuj ten kod do projektu, a następnie wybierz pozycję **plik > Zapisz MainWindow. XAML** , aby zapisać zmiany.
    ```xaml
-   <Window x:Class="MSTranslatorTextDemo.MainWindow"
+   <Window x:Class="MSTranslatorDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:local="clr-namespace:MSTranslatorTextDemo"
+           xmlns:local="clr-namespace:MSTranslatorDemo"
            mc:Ignorable="d"
            Title="Microsoft Translator" Height="400" Width="700" BorderThickness="0">
        <Grid>
@@ -173,15 +173,15 @@ To wszystko. Formularz jest gotowy. Teraz napiszmy kod, który umożliwi korzyst
 
 ## <a name="create-your-app"></a>Tworzenie aplikacji
 
-Plik `MainWindow.xaml.cs` zawiera kod, który kontroluje naszą aplikację. W kolejnych sekcjach dodamy kod, przy użyciu którego wypełnimy menu rozwijane oraz wywołamy kilka interfejsów API uwidocznionych przez tłumaczenie tekstu w usłudze Translator i sprawdzanie pisowni Bing.
+Plik `MainWindow.xaml.cs` zawiera kod, który kontroluje naszą aplikację. W następnych kilku sekcjach będziemy dodawać kod w celu wypełnienia naszych menu rozwijanych i wywoływania kilku interfejsu API udostępnianego przez translator i sprawdzanie pisowni Bing.
 
-* Po uruchomieniu programu i utworzeniu wystąpienia `MainWindow` metoda `Languages` interfejsu API tłumaczenia tekstu w usłudze Translator jest wywoływana w celu pobrania i wypełnienia menu rozwijanych wyboru języka. Odbywa się to raz na początku każdej sesji.
+* Gdy program zostanie uruchomiony i `MainWindow` zostanie skonkretyzowany, `Languages` Metoda translatora jest wywoływana w celu pobrania i wypełnienia listy rozwijanej wyboru języka. Odbywa się to raz na początku każdej sesji.
 * Po kliknięciu przycisku **Translate** (Tłumacz) pobierany jest tekst i wybrany język użytkownika, przeprowadzane jest sprawdzenie pisowni na danych wejściowych, a następnie użytkownikowi jest wyświetlane tłumaczenie i wykryty język.
-  * Metoda `Translate` interfejsu API tłumaczenia tekstu w usłudze Translator jest wywoływana w celu przetłumaczenia tekstu z elementu `TextToTranslate`. To wywołanie obejmuje także języki `to` i `from` wybrane przy użyciu menu rozwijanych.
-  * Metoda `Detect` interfejsu API tłumaczenia tekstu w usłudze Translator jest wywoływana w celu określenia języka `TextToTranslate`.
+  * `Translate`Metoda translatora jest wywoływana, aby przetłumaczyć tekst z `TextToTranslate` . To wywołanie obejmuje także języki `to` i `from` wybrane przy użyciu menu rozwijanych.
+  * `Detect`Metoda translatora jest wywoływana, aby określić język tekstu `TextToTranslate` .
   * Sprawdzanie pisowni Bing służy do weryfikowania elementu `TextToTranslate` i dopasowania błędów pisowni.
 
-Cały nasz projekt jest hermetyzowany w klasie `MainWindow : Window`. Zacznijmy od dodania kodu, który ustawi klucz subskrypcji, zadeklaruje punkty końcowe dla tłumaczenia tekstu w usłudze Translator i sprawdzania pisowni Bing oraz zainicjuje aplikację.
+Cały nasz projekt jest hermetyzowany w klasie `MainWindow : Window`. Zacznijmy od dodania kodu, aby ustawić klucz subskrypcji, zadeklarować punkty końcowe dla translatora i sprawdzanie pisowni Bing i zainicjować aplikację.
 
 1. W programie Visual Studio wybierz kartę `MainWindow.xaml.cs`.
 1. Zastąp wstępnie wypełnione instrukcje `using` następującym kodem.  
@@ -202,7 +202,7 @@ Cały nasz projekt jest hermetyzowany w klasie `MainWindow : Window`. Zacznijmy 
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
-       // Endpoints for Translator Text and Bing Spell Check
+       // Endpoints for Translator and Bing Spell Check
        public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
@@ -263,7 +263,7 @@ Na koniec dodaliśmy kod wywołujący metody pobierające języki do tłumaczeni
 
 ## <a name="get-supported-languages"></a>Uzyskiwanie obsługiwanych języków
 
-Interfejs API tłumaczenia tekstu w usłudze Translator obecnie obsługuje ponad 60 języków. Ponieważ w miarę upływu czasu będzie dodawana obsługa nowych języków, zalecamy wywołanie zasobu Languages uwidocznionego przez tłumaczenie tekstu w usłudze Translator zamiast trwałego zakodowania listy języków w aplikacji.
+Translator obsługuje obecnie ponad 60 języków. Ponieważ nowa obsługa języka zostanie dodana z upływem czasu, zalecamy wywołanie zasobów języków udostępnianych przez translator, a nie zakodowana listy języków w aplikacji.
 
 W tej sekcji utworzymy żądanie `GET` do zasobu Languages określające, że chcemy uzyskać listę języków dostępnych do tłumaczenia.
 
@@ -289,7 +289,7 @@ Zanim przejdziemy dalej, przyjrzyjmy się przykładowym danym wyjściowym wywoł
 }
 ```
 
-Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja używa NewtonSoft. JSON do deserializacji obiektu JSON ([`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm)).
+Z tych danych wyjściowych możemy wyodrębnić kod języka i właściwość `name` określonego języka. Nasza aplikacja używa NewtonSoft. JSON do deserializacji obiektu JSON ( [`JsonConvert.DeserializeObject`](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm) ).
 
 Wróćmy teraz do miejsca, w który przerwaliśmy pracę w poprzedniej sekcji, i dodajmy metodę pobierającą obsługiwane języki do naszej aplikacji.
 
@@ -328,7 +328,7 @@ Odpowiedź w formacie JSON jest analizowana i konwertowana do słownika. Następ
 
 ## <a name="populate-language-drop-down-menus"></a>Wypełnianie menu rozwijanych języków
 
-Interfejs użytkownika jest zdefiniowany w kodzie XAML, dzięki czemu skonfigurowanie go nie wymaga wielu operacji oprócz wywołania funkcji `InitializeComponent()`. Jedną z tych czynności należy dodać do menu rozwijanego **tłumaczenie z** i **Przetłumacz do** . `PopulateLanguageMenus()` Metoda dodaje nazwy.
+Interfejs użytkownika jest zdefiniowany w kodzie XAML, dzięki czemu skonfigurowanie go nie wymaga wielu operacji oprócz wywołania funkcji `InitializeComponent()`. Jedną z tych czynności należy dodać do menu rozwijanego **tłumaczenie z** i **Przetłumacz do** . `PopulateLanguageMenus()`Metoda dodaje nazwy.
 
 1. W programie Visual Studio otwórz kartę `MainWindow.xaml.cs`.
 2. Dodaj następujący kod do projektu poniżej metody `GetLanguagesForTranslate()`:
@@ -362,7 +362,7 @@ Po zainicjowaniu klasy `MainWindow` i utworzeniu interfejsu użytkownika kod nie
 
 ## <a name="detect-language-of-source-text"></a>Wykrywanie języka tekstu źródłowego
 
-Teraz utworzymy metodę wykrywającą język tekstu źródłowego (tekstu wprowadzonego do pola tekstowego) przy użyciu interfejsu API tłumaczenia tekstu w usłudze Translator. Wartość zwrócona przez to żądanie zostanie później użyta w żądaniu tłumaczenia.
+Teraz będziemy tworzyć metody wykrywania języka tekstu źródłowego (tekst wprowadzony w naszym obszarze tekstu) przy użyciu translatora. Wartość zwrócona przez to żądanie zostanie później użyta w żądaniu tłumaczenia.
 
 1. W programie Visual Studio otwórz kartę `MainWindow.xaml.cs`.
 2. Dodaj następujący kod do projektu poniżej metody `PopulateLanguageMenus()`:
@@ -372,7 +372,7 @@ Teraz utworzymy metodę wykrywającą język tekstu źródłowego (tekstu wprowa
    {
        string detectUri = string.Format(TEXT_TRANSLATION_API_ENDPOINT ,"detect");
 
-       // Create request to Detect languages with Translator Text
+       // Create request to Detect languages with Translator
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
@@ -418,7 +418,7 @@ Ponadto ta metoda oblicza współczynnik ufności odpowiedzi. Jeśli wynik jest 
 
 ## <a name="spell-check-the-source-text"></a>Sprawdzanie pisowni w tekście źródłowym
 
-Teraz utworzymy metodę sprawdzającą pisownię w tekście źródłowym przy użyciu interfejsu API sprawdzania pisowni Bing. Sprawdzanie pisowni zapewnia dokładne tłumaczenia z interfejs API tłumaczenia tekstu w usłudze Translator. Wszelkie poprawki w tekście źródłowym są przekazywane w żądaniu tłumaczenia po kliknięciu przycisku **Translate** (Tłumacz).
+Teraz utworzymy metodę sprawdzającą pisownię w tekście źródłowym przy użyciu interfejsu API sprawdzania pisowni Bing. Sprawdzanie pisowni zapewnia dokładne tłumaczenia z translatora. Wszelkie poprawki w tekście źródłowym są przekazywane w żądaniu tłumaczenia po kliknięciu przycisku **Translate** (Tłumacz).
 
 1. W programie Visual Studio otwórz kartę `MainWindow.xaml.cs`.
 2. Dodaj następujący kod do projektu poniżej metody `DetectLanguage()`:
@@ -559,7 +559,7 @@ Ostatnią czynnością do wykonania jest utworzenie metody wywoływanej po klikn
    }
    ```
 
-Pierwszym krokiem jest pobranie języków źródłowego i docelowego oraz tekstu wprowadzonego przez użytkownika w formularzu. Jeśli język źródłowy jest ustawiony na **wykrycie**, `DetectLanguage()` jest wywoływana w celu określenia języka tekstu źródłowego. Tekst może być w języku, który nie jest obsługiwany przez interfejs API usługi Translator. W takim przypadku jest wyświetlany komunikat z informacją dla użytkownika i następuje powrót bez tłumaczenia tekstu.
+Pierwszym krokiem jest pobranie języków źródłowego i docelowego oraz tekstu wprowadzonego przez użytkownika w formularzu. Jeśli język źródłowy jest ustawiony na **wykrycie**, `DetectLanguage()` jest wywoływana w celu określenia języka tekstu źródłowego. Tekst może znajdować się w języku, który nie jest obsługiwany przez translatora. W takim przypadku jest wyświetlany komunikat z informacją dla użytkownika i następuje powrót bez tłumaczenia tekstu.
 
 Jeśli językiem źródłowym jest angielski (określony lub wykryty), sprawdzana jest pisownia tekstu za pomocą funkcji `CorrectSpelling()` i stosowane są wszelkie poprawki. Poprawiony tekst jest dodawany z powrotem do obszaru tekstu, aby użytkownik widział, że wprowadzono poprawki.
 
@@ -580,4 +580,4 @@ Kod źródłowy tego projektu jest dostępny w serwisie GitHub.
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+> [Dokumentacja usługi Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

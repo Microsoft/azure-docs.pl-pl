@@ -1,5 +1,5 @@
 ---
-title: Dostosowanie tłumaczenia — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Dostosowywanie tłumaczenia — translator
 titleSuffix: Azure Cognitive Services
 description: Użyj centrum usługi Microsoft translator, aby skompilować własny system tłumaczenia maszynowego przy użyciu preferowanej terminologii i stylu.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71257619"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588653"
 ---
 # <a name="customize-your-text-translations"></a>Dostosowywanie tłumaczenia tekstu
 
-Usługa Microsoft Translator firmy Microsoft jest funkcją usługi tłumaczenia, która umożliwia użytkownikom dostosowanie zaawansowanego tłumaczenia maszynowego neuronowych w usłudze Microsoft Translator podczas tłumaczenia tekstu przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator (tylko wersja 3).
+Translator niestandardowy jest funkcją usługi translator, która umożliwia użytkownikom dostosowanie zaawansowanego tłumaczenia maszynowego neuronowych w usłudze Microsoft Translator podczas tłumaczenia tekstu przy użyciu translatora (tylko wersja 3).
 
 Funkcja ta może również służyć do dostosowywania tłumaczenia mowy, gdy jest używany z [Cognitive Services mowy](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -33,7 +33,7 @@ Skorzystaj z wcześniej przetłumaczonych dokumentów (ulotek, stron sieci Web, 
 
 System akceptuje również dane, które są równoległe na poziomie dokumentu, ale nie są jeszcze wyrównane na poziomie zdania. Jeśli użytkownicy mają dostęp do wersji tej samej zawartości w wielu językach, ale w oddzielnych dokumentach translator niestandardowy będzie mógł automatycznie dopasować zdania w dokumentach.  System może również używać danych w języku lub w obu językach, aby uzupełnić równoległe dane szkoleniowe w celu usprawnienia tłumaczenia.
 
-Dostosowany system jest następnie dostępny za pośrednictwem zwykłego wywołania do interfejs API tłumaczenia tekstu w usłudze Translator firmy Microsoft przy użyciu parametru kategorii.
+Dostosowany system jest następnie dostępny za pośrednictwem zwykłego wywołania do translatora przy użyciu parametru kategorii.
 
 Uwzględniając odpowiedni typ i ilość danych szkoleniowych, nie zdarza się, że występuje różnica między 5 a 10, lub jeszcze więcej punktów BLEU dotyczących jakości tłumaczenia przy użyciu translatora niestandardowego.
 
@@ -51,15 +51,15 @@ Więcej szczegółowych informacji na temat różnych poziomów dostosowywania o
 |:-----|:----:|:----:|
 |Stan funkcji dostosowywania   | Ogólna dostępność  | Ogólna dostępność |
 | Wersja interfejsu API tekstu  | Tylko wersja 2   | Tylko wersja 3 |
-| Dostosowanie SMT | Tak   | Nie |
-| Dostosowanie NMT | Nie    | Tak |
-| Nowe ujednolicone usługi rozpoznawania mowy | Nie    | Tak |
+| Dostosowanie SMT | Yes   | Nie |
+| Dostosowanie NMT | Nie    | Yes |
+| Nowe ujednolicone usługi rozpoznawania mowy | Nie    | Yes |
 | [Brak śladu](https://www.aka.ms/notrace) | Tak  | Tak |
 
 ## <a name="collaborative-translations-framework"></a>Struktura tłumaczeń współpracy
 
 > [!NOTE]
-> Od 1 lutego 2018, addtranslation () i AddTranslationArray () nie można już używać z interfejs API tłumaczenia tekstu w usłudze Translator V 2.0. Te metody zakończą się niepowodzeniem i nic nie zostanie zapisaniu. Interfejs API tłumaczenia tekstu w usłudze Translator V 3.0 nie obsługuje tych metod.
+> Od 1 lutego 2018, addtranslation () i AddTranslationArray () nie są już dostępne do użycia z translatorem w wersji 2.0. Te metody zakończą się niepowodzeniem i nic nie zostanie zapisaniu. Translator 3.0 nie obsługuje tych metod.
 
 ## <a name="next-steps"></a>Następne kroki
 

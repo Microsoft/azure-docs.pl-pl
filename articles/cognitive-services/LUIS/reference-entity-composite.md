@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71695169"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588908"
 ---
-# <a name="composite-entity"></a>Jednostka złożona 
+# <a name="composite-entity"></a>Jednostka złożona
 
-Jednostka złożona składa się z innych jednostek, takich jak wstępnie zbudowane jednostki, proste, wyrażenie regularne i jednostki listy. Oddzielne jednostki tworzą całość jednostki. 
+Jednostka złożona składa się z innych jednostek, takich jak wstępnie zbudowane jednostki, proste, wyrażenie regularne i jednostki listy. Oddzielne jednostki tworzą całość jednostki.
+
+> [!CAUTION]
+> Ta jednostka jest **przestarzała**. Przeprowadź migrację do jednostki podanej na [maszynie](reference-entity-machine-learned-entity.md).
 
 **Ta jednostka jest przydatna, gdy dane:**
 
-* Są ze sobą powiązane. 
+* Są ze sobą powiązane.
 * Są ze sobą powiązane w kontekście wypowiedzi.
 * Używaj różnych typów jednostek.
 * Należy grupować i przetwarzać przez aplikację kliencką jako jednostkę informacji.
@@ -33,11 +36,11 @@ Jednostka złożona składa się z innych jednostek, takich jak wstępnie zbudow
 
 ## <a name="example-json"></a>Przykładowy kod JSON
 
-Weź pod uwagę złożone jednostki `number` prekompilowane `Location::ToLocation` i z następującymi wypowiedź:
+Weź pod uwagę złożone jednostki prekompilowane `number` i `Location::ToLocation` z następującymi wypowiedź:
 
 `book 2 tickets to cairo`
 
-Zwróć uwagę `2`, że liczba i `cairo`ToLocation zawierają słowa między nimi, które nie są częścią żadnej z tych jednostek. Zielone podkreślenie używane w wypowiedź z etykietą w witrynie sieci Web [Luis](luis-reference-regions.md) wskazuje jednostkę złożoną.
+Zwróć uwagę, że `2` Liczba i `cairo` ToLocation zawierają słowa między nimi, które nie są częścią żadnej z tych jednostek. Zielone podkreślenie używane w wypowiedź z etykietą w witrynie sieci Web [Luis](luis-reference-regions.md) wskazuje jednostkę złożoną.
 
 ![Jednostka złożona](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -87,11 +90,11 @@ Jednostki złożone są zwracane w `compositeEntities` tablicy, a wszystkie jedn
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -108,7 +111,7 @@ Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 }
 ```
 
-Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -169,7 +172,7 @@ Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 }
 ```
 
-* * * 
+* * *
 
 
 |Obiekt danych|Nazwa jednostki|Wartość|
@@ -179,4 +182,7 @@ Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](luis-tutorial-composite-entity.md)Dodaj **jednostkę złożoną** , aby powiązać wyodrębnione dane różnych typów w jedną zawierającą ją jednostkę. Poprzez zgrupowanie danych aplikacja kliencka może łatwo wyodrębnić powiązane dane w różnych typach danych.
+Dowiedz się więcej o jednostkach:
+
+* [Pojęcia](luis-concept-entity-types.md)
+* [Jak utworzyć](luis-how-to-add-entities.md)

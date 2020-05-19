@@ -1,32 +1,28 @@
 ---
 title: 'Samouczek: wyodrębnianie danych strukturalnych przy użyciu jednostki z obsługą maszyn — LUIS'
-description: Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki, która jest pouczenia maszynowego. Aby zwiększyć dokładność wyodrębniania, Dodaj podskładniki z deskryptorami i ograniczeniami.
+description: Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki, która jest pouczenia maszynowego. Aby zwiększyć dokładność wyodrębniania, Dodaj podjednostki z funkcjami.
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: d1bc8fc6aac52e264cb4352ca05f9df45ccfc50e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588874"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Samouczek: wyodrębnianie danych strukturalnych z wypowiedź użytkownika z jednostkami maszynowymi w Language Understanding (LUIS)
 
 W tym samouczku Wyodrębnij dane strukturalne z wypowiedź przy użyciu jednostki, która jest poznania maszynowego.
 
-Jednostka uczenia maszynowego obsługuje [koncepcję dekompozycji modelu](luis-concept-model.md#v3-authoring-model-decomposition) przez zapewnienie jednostkowych elementów z własnymi deskryptorami i ograniczeniami.
+Jednostka uczenia maszynowego obsługuje [koncepcję dekompozycji modelu](luis-concept-model.md#v3-authoring-model-decomposition) przez zapewnienie jednostkowych jednostek z [funkcjami](luis-concept-feature.md).
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Importowanie aplikacji przykładowej
 > * Dodaj jednostkę uczenia maszynowego
-> * Dodaj podskładnik
-> * Dodaj deskryptor podskładnika
-> * Dodaj ograniczenie podskładnika
-> * Szkolenie aplikacji
-> * Aplikacja testowa
-> * Publikowanie aplikacji
+> * Dodaj podjednostkę i funkcję
+> * Uczenie, testowanie i publikowanie aplikacji
 > * Pobierz prognozowanie jednostek z punktu końcowego
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
@@ -34,35 +30,37 @@ Jednostka uczenia maszynowego obsługuje [koncepcję dekompozycji modelu](luis-c
 
 ## <a name="why-use-a-machine-learned-entity"></a>Dlaczego warto używać jednostki z obsługą maszyn?
 
-W tym samouczku dodano jednostkę uczenia maszynowego w celu wyodrębnienia danych z wypowiedź.
+W tym samouczku dodano jednostkę uczenia maszynowego w celu wyodrębnienia danych z wypowiedź użytkownika.
 
 Jednostka definiuje dane do wyodrębnienia z wypowiedź. Obejmuje to nadanie danych nazwy, typu (jeśli to możliwe), dowolnej rozdzielczości danych, jeśli występuje niejednoznaczność i dokładny tekst, który tworzy dane.
 
-W celu zdefiniowania jednostki należy utworzyć jednostkę, a następnie oznaczyć tekst reprezentujący jednostkę w przykładzie wyrażenia długości we wszystkich intencjach. Te przykładowe przykłady uczyją LUIS, czym jest jednostka i gdzie można ją znaleźć w wypowiedź.
+W celu zdefiniowania danych należy wykonać następujące:
+* Tworzenie jednostki
+* Oznacz tekst etykietą w przykładzie wyrażenia długości, reprezentującą jednostkę. Te przykładowe przykłady uczyją LUIS, czym jest jednostka i gdzie można ją znaleźć w wypowiedź.
 
 ## <a name="entity-decomposability-is-important"></a>Odtworzenie jednostek jest ważne
 
 Odtworzenie jednostek jest ważne w przypadku prognozowania intencji oraz do wyodrębniania danych z jednostką.
 
-Zacznij od jednostki uczeniej maszynowej, która jest jednostką początkową i najwyższego poziomu na potrzeby wyodrębniania danych. Następnie Rozłóż jednostkę do części wymaganych przez aplikację kliencką.
+Zacznij od jednostki uczeniej maszynowej, która jest jednostką początkową i najwyższego poziomu na potrzeby wyodrębniania danych. Następnie rozłożyć jednostkę na podjednostki.
 
-Mimo że użytkownik może nie wiedzieć, w jaki sposób chcesz, aby Twoja jednostka była uruchamiana w aplikacji, najlepszym rozwiązaniem jest rozpoczęcie od jednostki, która jest obsługiwana przez maszynę, a następnie rozdzielenia z podskładnikami jako dojrzałą aplikację.
+Mimo że użytkownik może nie wiedzieć, w jaki sposób chcesz, aby Twoja jednostka była uruchamiana, najlepszym rozwiązaniem jest rozpoczęcie pracy z jednostką, a następnie rozdzielanie z podjednostkami w miarę dojrzewania aplikacji.
 
-W tym miejscu utworzysz jednostkę, która będzie reprezentować zamówienie dla aplikacji Pizza. Kolejność powinna zawierać wszystkie części, które są niezbędne do fullfil zamówienia. Aby rozpocząć, jednostka wyodrębni tekst związany z kolejnością, pobierając rozmiar i ilość.
+W tym samouczku utworzysz jednostkę uczenia maszynowego do reprezentowania zamówienia dla aplikacji Pizza. Jednostka wyodrębni tekst związany z kolejnością, pobierając rozmiar i ilość.
 
-Element wypowiedź dla `Please deliver one large cheese pizza to me` elementu for `one large cheese pizza` powinien zostać wyodrębniony jako kolejność, `1` a `large`następnie wyodrębniony i.
+Wypowiedź `Please deliver one large cheese pizza to me` powinien zostać wyodrębniony `one large cheese pizza` jako kolejność, a następnie wyodrębniony `1` dla ilości i `large` rozmiaru.
 
-Istnieje dalsze dekompozycje, które można dodać, takich jak tworzenie podskładników dla toppings lub crust. Po tym samouczku należy zaczuć się, aby dodać te podskładniki do `Order` istniejącej jednostki.
+## <a name="download-json-file-for-app"></a>Pobierz plik JSON dla aplikacji
 
-## <a name="import-example-json-to-begin-app"></a>Importuj plik example. JSON, aby rozpocząć aplikację
+Pobierz i Zapisz [plik JSON aplikacji](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
 
-1.  Pobierz i Zapisz [plik JSON aplikacji](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
+## <a name="import-json-file-for-app"></a>Importuj plik JSON dla aplikacji
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
 ## <a name="label-text-as-entities-in-example-utterances"></a>Oznacz tekst jako jednostki na przykład wyrażenia długości
 
-Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz `Order` obiekt najwyższego poziomu.
+Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz obiekt najwyższego poziomu `Order` .
 
 1. Na stronie **intencje** wybierz zamiar **OrderPizza** .
 
@@ -79,30 +77,30 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz `Order` o
     > [!NOTE]
     > Jednostka nie zawsze będzie całą wypowiedź. W tym konkretnym przypadku `pickup` wskazuje, w jaki sposób zamówienie ma zostać odebrane. Z perspektywy koncepcyjnej `pickup` powinna być częścią oznaczonej jednostki dla zamówienia.
 
-1. W polu **Wybierz typ jednostki** wybierz pozycję **Dodaj strukturę** , a następnie wybierz przycisk **dalej**. Struktura jest niezbędna do dodawania podskładników, takich jak rozmiar i ilość.
+1. W polu **Wybierz typ jednostki** wybierz pozycję **Dodaj strukturę** , a następnie wybierz przycisk **dalej**. Struktura jest niezbędna do dodawania podjednostek, takich jak rozmiar i ilość.
 
     ![Dodaj strukturę do jednostki](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. W polu **Utwórz jednostkę uczenia maszynowego** w polu **Struktura** Dodaj `Size` pozycję Wprowadź.
-1. Aby dodać **deskryptor**, zaznacz `+` w obszarze **deskryptorów** , a następnie wybierz pozycję **Utwórz nową listę fraz**.
+1. W polu **Utwórz jednostkę uczenia maszynowego** w polu **Struktura** Dodaj pozycję `Size` Wprowadź.
+1. Aby dodać **funkcję**, wybierz `+` w obszarze **funkcje** , a następnie wybierz pozycję **Utwórz nową listę fraz**.
 
-1. W polu **deskryptor Utwórz nową frazę** wpisz nazwę `SizeDescriptor` , a następnie wprowadź wartości: `small`, `medium`, i. `large` Po wypełnieniu pola **sugestie** wybierz `extra large`pozycję i `xl`. Wybierz pozycję **gotowe** , aby utworzyć nową listę fraz.
+1. W polu **Utwórz nową frazę** wprowadź nazwę, a `SizeFeature` następnie wprowadź wartości: `small` , `medium` , i `large` . Po wypełnieniu pola **sugestie** wybierz pozycję `extra large` i `xl` . Wybierz pozycję **gotowe** , aby utworzyć nową listę fraz.
 
-    Ten deskryptor listy wyrazów pomaga `Size` w wyszukiwaniu wyrazów związanych z rozmiarem za pomocą słowa kluczowego. Ta lista nie musi zawierać każdego wyrazu o rozmiarze, ale powinna zawierać słowa, które powinny wskazywać rozmiar.
+    Ta funkcja listy frazy ułatwia `Size` znalezienie wyrazów związanych z rozmiarem, podając Przykładowe słowa. Ta lista nie musi zawierać każdego wyrazu o rozmiarze, ale powinna zawierać słowa, które powinny wskazywać rozmiar.
 
-    ![Utwórz deskryptor dla podskładnika size](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+    ![Utwórz funkcję dla podjednostki size](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
-1. W oknie **Utwórz maszynę** dodaną do obiektu wybierz pozycję **Utwórz** , aby zakończyć tworzenie `Size` podskładnika.
+1. W oknie **Utwórz maszynę** dodaną do obiektu wybierz pozycję **Utwórz** , aby zakończyć tworzenie `Size` podjednostki.
 
-    `Order` Jednostka ze `Size` składnikiem jest tworzona, ale tylko `Order` jednostka została zastosowana do wypowiedź. Należy oznaczyć tekst `Size` jednostki w przykładzie wypowiedź.
+    `Order`Jednostka z `Size` jednostką jest tworzona, ale tylko `Order` Jednostka została zastosowana do wypowiedź. Należy oznaczyć `Size` tekst jednostki w przykładzie wypowiedź.
 
-1. W tym samym przykładzie wypowiedź należy oznaczyć podskładnik `large` **rozmiaru** , zaznaczając wyraz, a następnie wybierając jednostkę **rozmiaru** z listy rozwijanej.
+1. W tym samym przykładzie wypowiedź należy oznaczyć podjednostkę **size** elementu, `large` zaznaczając wyraz, a następnie wybierając jednostkę **rozmiaru** z listy rozwijanej.
 
     ![Oznacz jednostkę rozmiaru dla tekstu w wypowiedź.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
 
     Wiersz jest pełny pod tekstem, ponieważ zarówno dopasowanie etykietowania, jak i przewidywania, ponieważ tekst został _jawnie_ oznaczony etykietą.
 
-1. Oznacz `Order` jednostkę w pozostałej wyrażenia długości wraz z jednostką rozmiar. Nawiasy kwadratowe w tekście wskazują `Order` obiekt oznaczony etykietą i `Size` jednostkę w obrębie.
+1. Oznacz `Order` jednostkę w pozostałej wyrażenia długości wraz z jednostką rozmiar. Nawiasy kwadratowe w tekście wskazują obiekt oznaczony etykietą `Order` i `Size` jednostkę w obrębie.
 
     |Przykład kolejności wyrażenia długości|
     |--|
@@ -111,10 +109,10 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz `Order` o
     |`[delivery for a [small] pepperoni pizza]`|
     |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
 
-    ![Utwórz jednostkę i podskładniki we wszystkich pozostałych przykładach wyrażenia długości.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+    ![Utwórz jednostkę i podjednostki we wszystkich pozostałych przykładach wyrażenia długości.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > Jak traktuje się implikowane dane, takie jak litera `a` implikuje pojedynczy Pizza? Lub brak `pickup` i, `delivery` aby wskazać, gdzie oczekiwany jest Pizza? Lub brak rozmiaru do wskazania domyślnego rozmiaru małego lub dużego? Rozważ traktowanie implikowanej obsługi danych jako części reguł firmy w aplikacji klienckiej zamiast lub oprócz LUIS.
+    > Jak traktuje się implikowane dane, takie jak litera `a` implikuje pojedynczy Pizza? Lub brak `pickup` i, `delivery` Aby wskazać, gdzie oczekiwany jest Pizza? Lub brak rozmiaru do wskazania domyślnego rozmiaru małego lub dużego? Rozważ traktowanie implikowanej obsługi danych jako części reguł firmy w aplikacji klienckiej zamiast lub oprócz LUIS.
 
 1. Aby nauczyć aplikację, wybierz pozycję **pouczenie**. Szkolenie stosuje zmiany, takie jak nowe jednostki i etykiety wyrażenia długości, do aktywnego modelu.
 
@@ -124,7 +122,7 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz `Order` o
     |--|
     |`pickup XL meat lovers pizza`|
 
-    Ogólna Górna jednostka ma etykietę `Order` , a `Size` podskładnik jest również oznaczony linią kropkowaną.
+    Ogólna Górna jednostka `Order` ma etykietę, a `Size` podjednostka jest również oznaczona linią kropkowaną.
 
     ![Nowy przykład wypowiedź przewidziany dla jednostki](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
@@ -134,11 +132,17 @@ Aby wyodrębnić szczegółowe informacje o Pizza kolejności, Utwórz `Order` o
 
     ![Zaakceptuj prognozowanie, wybierając pozycję Potwierdź prognozowanie jednostek.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    W tym momencie jednostka uczenia maszynowego działa, ponieważ może znaleźć jednostkę w ramach nowego przykładu wypowiedź. Po dodaniu przykładu wyrażenia długości, jeśli jednostka nie jest przewidywalna prawidłowo, Oznacz jednostkę i podskładniki. Jeśli jednostka jest przewidywalna prawidłowo, upewnij się, że są one potwierdzone.
+    W tym momencie jednostka uczenia maszynowego działa, ponieważ może znaleźć jednostkę w ramach nowego przykładu wypowiedź. Po dodaniu przykładu wyrażenia długości, jeśli jednostka nie jest przewidywalna prawidłowo, Oznacz jednostkę i podjednostki. Jeśli jednostka jest przewidywalna prawidłowo, upewnij się, że są one potwierdzone.
 
-## <a name="add-prebuilt-number-to-help-extract-data"></a>Dodawanie wstępnie skompilowanego numeru w celu ułatwienia wyodrębnienia danych
 
-Informacje o zamówieniu powinny również zawierać liczbę elementów w kolejności, takich jak liczba pizzami. Aby wyodrębnić te dane, należy dodać nowy podskładnik maszynowy do `Order` i ten składnik wymaga ograniczenia wstępnie skompilowanego numeru. Ograniczając jednostkę do wstępnie skompilowanego numeru, jednostka znajdzie i wyodrębni liczbę, czy tekst jest cyfrą, `2`, czy tekstem. `two`
+<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
+
+## <a name="add-subentity-with-feature-of-prebuilt-entity"></a>Dodaj podjednostkę z funkcją prekompilowanego obiektu
+
+Informacje o zamówieniu powinny również zawierać liczbę elementów w kolejności, takich jak liczba pizzami. Aby wyodrębnić te dane, należy dodać nową podjednostkę dodaną maszynowo do `Order` i ta podjednostka musi mieć wymaganą funkcję wstępnie skompilowanego numeru. Przy użyciu funkcji wstępnie skompilowanej jednostki jednostka dla wstępnie skompilowanego numeru, jednostka znajdzie i wyodrębni liczbę, czy tekst jest cyfrą, `2` , czy tekstem `two` .
+
+## <a name="add-prebuilt-number-entity-to-app"></a>Dodawanie wstępnie skompilowanej jednostki numeru do aplikacji
+Informacje o zamówieniu powinny również zawierać liczbę elementów w kolejności, takich jak liczba pizzami. Aby wyodrębnić te dane, należy dodać nowy podskładnik maszynowy do `Order` i ten składnik potrzebuje wymaganej funkcji wstępnie skompilowanego numeru. Ograniczając jednostkę do wstępnie skompilowanego numeru, jednostka znajdzie i wyodrębni liczbę, czy tekst jest cyfrą, `2` , czy tekstem `two` .
 
 Zacznij od dodania wbudowanej jednostki numeru do aplikacji.
 
@@ -148,47 +152,47 @@ Zacznij od dodania wbudowanej jednostki numeru do aplikacji.
 
     ![Dodaj wstępnie utworzoną jednostkę](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
-    Wstępnie utworzona jednostka jest dodawana do aplikacji, ale nie jest jeszcze ograniczeniem.
+    Wstępnie utworzona jednostka jest dodawana do aplikacji, ale nie jest jeszcze funkcją.
 
-## <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>Tworzenie jednostki podskładnikej z ograniczeniami w celu ułatwienia wyodrębnienia danych
+## <a name="create-subentity-entity-with-required-feature-to-help-extract-data"></a>Tworzenie jednostki podjednostki z wymaganą funkcją w celu ułatwienia wyodrębnienia danych
 
-`Order` Jednostka powinna mieć `Quantity` podskładnik, aby określić, ile elementów znajduje się w kolejności. Ilość powinna być ograniczona do liczby, aby wyodrębnione dane były natychmiast dostępne dla aplikacji klienckiej według nazwy.
+`Order`Jednostka powinna mieć `Quantity` podjednostkę, aby określić, ile elementów znajduje się w kolejności. Ilość powinna korzystać z wymaganej funkcji wstępnie skompilowanego numeru, aby wyodrębnione dane były natychmiast dostępne dla aplikacji klienckiej według nazwy.
 
-Ograniczenie jest stosowane jako dopasowanie tekstu, z dokładnym dopasowaniem (na przykład jednostki listy) lub za pomocą wyrażeń regularnych (takich jak jednostka wyrażenia regularnego lub prekompilowanego obiektu).
+Wymagana funkcja jest stosowana jako dopasowanie tekstu, z dokładnym dopasowaniem (na przykład jednostką listy) lub za pomocą wyrażeń regularnych (takich jak jednostka wyrażenia regularnego lub prekompilowanego obiektu).
 
-Przy użyciu ograniczenia, wyodrębniany jest tylko tekst pasujący do tego ograniczenia.
+Przy użyciu jednostki, która nie jest pouczenia maszynowego jako funkcji, wyodrębniany jest tylko tekst zgodny z.
 
-1. Wybierz pozycję **jednostki** , `Order` a następnie wybierz jednostkę.
-1. Wybierz pozycję **+ Dodaj składnik** , a następnie `Quantity` wprowadź nazwę, a następnie wybierz klawisz ENTER, aby dodać `Order` nowy podskładnik do jednostki.
+1. Wybierz pozycję **jednostki** , a następnie wybierz `Order` jednostkę.
+1. Wybierz pozycję **+ Dodaj jednostkę** , a następnie wprowadź nazwę, `Quantity` a następnie wybierz klawisz ENTER, aby dodać nową podjednostkę do `Order` jednostki.
 1. Po pomyślnym powiadomieniu w **opcjach zaawansowanych**wybierz ołówek.
 1. Z listy rozwijanej wybierz wstępnie skompilowany numer.
 
     ![Utwórz jednostkę ilościową przy użyciu wstępnie skompilowanego numeru jako ograniczenia.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    Jednostka `Quantity` jest stosowana, gdy tekst jest zgodny z prekompilowaną jednostką Number.
+    `Quantity`Jednostka jest stosowana, gdy tekst jest zgodny z prekompilowaną jednostką Number.
 
-    Jednostka z ograniczeniem jest tworzona, ale nie została jeszcze zastosowana do przykładu wyrażenia długości.
+    Jednostka z wymaganą funkcją jest tworzona, ale nie została jeszcze zastosowana do przykładu wyrażenia długości.
 
     > [!NOTE]
-    > Podskładnik może być zagnieżdżony w ramach podskładniku do 5 poziomów. Chociaż ta wartość nie jest wyświetlana w tym artykule, jest dostępna w portalu i interfejsie API.
+    > Podjednostka może być zagnieżdżona w ramach podjednostki do 5 poziomów. Chociaż ta wartość nie jest wyświetlana w tym artykule, jest dostępna w portalu i interfejsie API.
 
 ## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Przykładowa etykieta wypowiedź do uczenia LUIS o jednostce
 
-1. Wybierz pozycję **intencje** w obszarze nawigacji po lewej stronie, a następnie wybierz opcję **OrderPizza** . Trzy cyfry w następujących wyrażenia długości są oznaczone etykietami, ale są wizualnie poniżej linii `Order` jednostki. Ten niższy poziom oznacza, że jednostki są znalezione, ale nie są traktowane jako część `Order` jednostki.
+1. Wybierz pozycję **intencje** w obszarze nawigacji po lewej stronie, a następnie wybierz opcję **OrderPizza** . Trzy cyfry w następujących wyrażenia długości są oznaczone etykietami, ale są wizualnie poniżej `Order` linii jednostki. Ten niższy poziom oznacza, że jednostki są znalezione, ale nie są traktowane jako część `Order` jednostki.
 
     ![Wstępnie skompilowany numer jest znaleziony, ale nie jest jeszcze traktowany poza jednostką zamówienia.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
 
-1. Nadaj etykiety numerom przy `Quantity` użyciu jednostki, zaznaczając `2` w przykładzie wypowiedź, a `Quantity` następnie wybierając z listy. Oznacz `6` i `1` w tym samym przykładzie wypowiedź.
+1. Nadaj etykiety numerom przy użyciu `Quantity` jednostki, zaznaczając `2` w przykładzie wypowiedź, a następnie wybierając `Quantity` z listy. Oznacz `6` i w tym `1` samym przykładzie wypowiedź.
 
     ![Etykieta tekstu z jednostką ilości.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Uczenie aplikacji w celu zastosowania zmian jednostek w aplikacji
 
-Wybierz pozycję **uczenie** , aby nauczyć aplikację przy użyciu tych nowych wyrażenia długości. Po szkoleniu `Quantity` podskładnik jest prawidłowo przewidziany w `Order` składniku. To prawidłowe prognozowanie jest wskazywane przez linię ciągłą.
+Wybierz pozycję **uczenie** , aby nauczyć aplikację przy użyciu tych nowych wyrażenia długości. Po szkoleniu `Quantity` podjednostka jest prawidłowo przewidywalna w `Order` jednostce. To prawidłowe prognozowanie jest wskazywane przez linię ciągłą.
 
 ![Przeszkol aplikację, a następnie zapoznaj się z przykładem wyrażenia długości.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
 
-W tym momencie kolejność zawiera pewne szczegóły, które mogą zostać wyodrębnione (rozmiar, ilość i tekst zamówienia). Dalsze poprawianie `Order` jednostki, takiej jak Pizza toppings, Type of Crust i Orders. Każdy z tych elementów powinien zostać utworzony jako podskładniki `Order` jednostki.
+W tym momencie kolejność zawiera pewne szczegóły, które mogą zostać wyodrębnione (rozmiar, ilość i tekst zamówienia). Dalsze poprawianie `Order` jednostki, takiej jak Pizza toppings, Type of Crust i Orders. Każdy z tych elementów należy utworzyć jako podjednostki `Order` jednostki.
 
 ## <a name="test-the-app-to-validate-the-changes"></a>Przetestuj aplikację, aby zweryfikować zmiany
 
@@ -203,7 +207,7 @@ Przetestuj aplikację przy użyciu interaktywnego panelu **testów** . Ten proce
 
     ![Wyświetl przewidywania jednostek w panelu testów interaktywnych.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    Rozmiar został poprawnie zidentyfikowany. Należy pamiętać, że przykład wyrażenia długości w `OrderPizza` zamiarze nie ma przykładu `medium` jako rozmiaru, ale używa deskryptora listy `SizeDescriptor` frazy, która zawiera średnią.
+    Rozmiar został poprawnie zidentyfikowany. Należy pamiętać, że przykład wyrażenia długości w `OrderPizza` zamiarze nie ma przykładu `medium` rozmiaru, ale używa funkcji `SizeFeature` listy frazy, która zawiera średnią.
 
     Ilość nie jest prawidłowo przewidywalna. Możesz rozwiązać ten problem w aplikacji klienckiej, używając domyślnego rozmiaru do jednego (1), jeśli w prognozie LUIS nie zostanie zwrócony żaden rozmiar.
 
@@ -219,7 +223,7 @@ Przetestuj aplikację przy użyciu interaktywnego panelu **testów** . Ten proce
 
     `deliver a medium veggie pizza`
 
-    Ostatnim parametrem QueryString jest `query`, wypowiedź **Query**.
+    Ostatnim parametrem QueryString jest `query` , wypowiedź **Query**.
 
     ```json
     {

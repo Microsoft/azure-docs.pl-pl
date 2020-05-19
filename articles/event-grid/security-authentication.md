@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 528c3613549ee49009f99d45e5bd9c2cf1745d78
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779998"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588262"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Uwierzytelnianie dostępu do zasobów Azure Event Grid
 Ten artykuł zawiera informacje dotyczące następujących scenariuszy:  
@@ -28,19 +28,25 @@ Wartość uwierzytelniania należy uwzględnić w nagłówku HTTP. Dla sygnatury
 
 ### <a name="key-authentication"></a>Uwierzytelnianie klucza
 
-Uwierzytelnianie klucza jest najprostszą formą uwierzytelniania. Użyj formatu:`aeg-sas-key: <your key>`
+Uwierzytelnianie klucza jest najprostszą formą uwierzytelniania. Użyj formatu: `aeg-sas-key: <your key>` w nagłówku komunikatu.
 
 Na przykład przekazujesz klucz z:
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+Można również określić `aeg-sas-key` jako parametr zapytania. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### <a name="sas-tokens"></a>Tokeny sygnatur dostępu współdzielonego
 
-Tokeny sygnatury dostępu współdzielonego dla Event Grid obejmują zasób, czas wygaśnięcia i sygnaturę. Format tokenu sygnatury dostępu współdzielonego `r={resource}&e={expiration}&s={signature}`to:.
+Tokeny sygnatury dostępu współdzielonego dla Event Grid obejmują zasób, czas wygaśnięcia i sygnaturę. Format tokenu sygnatury dostępu współdzielonego to: `r={resource}&e={expiration}&s={signature}` .
 
-Zasób jest ścieżką do tematu usługi Event Grid, do którego są wysyłane zdarzenia. Na przykład prawidłowa ścieżka zasobu to: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. Aby wyświetlić wszystkie obsługiwane wersje interfejsu API, zobacz [typy zasobów Microsoft. EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+Zasób jest ścieżką do tematu usługi Event Grid, do którego są wysyłane zdarzenia. Na przykład prawidłowa ścieżka zasobu to: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01` . Aby wyświetlić wszystkie obsługiwane wersje interfejsu API, zobacz [typy zasobów Microsoft. EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
 
 Sygnatura jest generowana z klucza.
 

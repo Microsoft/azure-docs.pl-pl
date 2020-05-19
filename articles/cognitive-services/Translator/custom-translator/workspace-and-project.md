@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219435"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588670"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Co to jest obszar roboczy usługi tłumaczenia niestandardowego?
 
@@ -39,9 +39,9 @@ W tym samym obszarze roboczym możesz tworzyć projekty dla tej samej pary języ
 
 Translator niestandardowy umożliwia przypisanie etykiety projektu do projektu. Etykieta projektu odróżnia wiele projektów z tą samą parą językową i kategorią. Najlepszym rozwiązaniem jest unikanie używania etykiet projektu, chyba że jest to konieczne.
 
-Etykieta projektu jest używana jako część IDKategorii. Jeśli etykieta projektu jest pozostawiona nieustawiona lub jest ustawiana identycznie między projektami, projekty o tej samej kategorii i *różne* pary języka będą współużytkować ten sam IDkategorii. Takie podejście jest korzystne, ponieważ umożliwia użytkownikowi lub klientowi przechodzenie między językami w przypadku korzystania z interfejsu API usługi Text translator bez obaw o IDKategorii, który jest unikatowy dla każdego projektu.
+Etykieta projektu jest używana jako część IDKategorii. Jeśli etykieta projektu jest pozostawiona nieustawiona lub jest ustawiana identycznie między projektami, projekty o tej samej kategorii i *różne* pary języka będą współużytkować ten sam IDkategorii. Takie podejście jest korzystne, ponieważ umożliwia użytkownikowi lub klientowi przechodzenie między językami w przypadku korzystania z translatora bez obaw o IDKategorii, który jest unikatowy dla każdego projektu.
 
-Na przykład jeśli chciałem włączyć tłumaczenia w domenie technologii z języka angielskiego na francuski i z francuskiego na angielski, chcę utworzyć dwa projekty: jeden dla języka angielskiego —\> francuski i drugi dla języka francuskiego.\> Należy określić tę samą kategorię (technologię) dla obu i pozostawić pustą etykietę projektu. IDKategorii dla obu projektów jest zgodny, dlatego można wysyłać zapytania do interfejsu API w przypadku tłumaczeń w języku angielskim i francuskim bez konieczności modyfikowania mojego IDKategorii.
+Na przykład jeśli chciałem włączyć tłumaczenia w domenie technologii z języka angielskiego na francuski i z francuskiego na angielski, chcę utworzyć dwa projekty: jeden dla języka angielskiego — \> francuski i drugi dla języka francuskiego \> . Należy określić tę samą kategorię (technologię) dla obu i pozostawić pustą etykietę projektu. IDKategorii dla obu projektów jest zgodny, dlatego można wysyłać zapytania do interfejsu API w przypadku tłumaczeń w języku angielskim i francuskim bez konieczności modyfikowania mojego IDKategorii.
 
 Jeśli jesteś dostawcą usług językowych i chcesz obsłużyć wielu klientów z różnymi modelami, które zachowują ten sam atrybut kategorii i języka, użyj etykiety projektu w celu rozróżnienia klientów.
 

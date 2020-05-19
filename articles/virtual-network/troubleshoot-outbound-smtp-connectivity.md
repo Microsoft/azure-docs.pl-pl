@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e5a878c8108706c4a3a175c920708beeeaa4aa12
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 148a8bf7626d8b8ee687658990fdaf2fce9f7de7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590098"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Rozwiązywanie problemów z łącznością wychodzącą SMTP na platformie Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=027fa865-2329-23de-3740-cfbe35359302" target='_blank'>Zacznij</a></span><span class="has-padding-small">szybko rozwiązywać problemy, korzystając z naszego agenta wirtualnego do uruchamiania <b>zautomatyzowanej diagnostyki.</b> </span> Zasady zachowania <sub>poufności informacji</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
+
 Od 15 listopada 2017 wychodzących wiadomości e-mail, które są wysyłane bezpośrednio do domen zewnętrznych (takich jak outlook.com i gmail.com) z maszyny wirtualnej, są dostępne tylko dla niektórych typów subskrypcji w Microsoft Azure. Wychodzące połączenia SMTP korzystające z portu 25 TCP zostały zablokowane. (Port 25 jest używany głównie do dostarczania nieuwierzytelnionych wiadomości e-mail).
 
 Ta zmiana w zachowaniu dotyczy tylko nowych subskrypcji i nowych wdrożeń od 15 listopada 2017.
@@ -36,7 +36,7 @@ W przypadku Umowa Enterprise użytkowników platformy Azure nie ma zmian w zakre
 ## <a name="pay-as-you-go"></a>Płatność zgodnie z rzeczywistym użyciem
 Jeśli zarejestrowano się przed 15 listopada 2017 w przypadku ofert z ofertami płatność zgodnie z rzeczywistym użyciem lub Microsoft Partner Network subskrypcji, nie będzie żadnych zmian w zakresie możliwości wypróbowania dostarczania wychodzącej poczty e-mail. Będziesz nadal mieć możliwość wypróbowania wychodzącej poczty e-mail z maszyn wirtualnych platformy Azure w ramach tych subskrypcji bezpośrednio do zewnętrznych dostawców poczty e-mail bez żadnych ograniczeń platformy Azure. Nie gwarantujemy, że dostawcy poczty e-mail będą akceptować przychodzące wiadomości e-mail od dowolnego użytkownika, a użytkownicy będą musieli bezpośrednio współpracować z dostawcami poczty e-mail w celu rozwiązania wszelkich problemów z dostarczaniem komunikatów lub filtrowaniem SPAMu, które obejmują określonych dostawców.
 
-W przypadku subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem lub Microsoft Partner Network, które zostały utworzone po 15 listopada 2017, będą obowiązywać ograniczenia techniczne, które blokują pocztę e-mail, która jest wysyłana bezpośrednio z maszyn wirtualnych w ramach tych subskrypcji. Aby móc wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz utworzyć żądanie usunięcia ograniczenia. Żądania będą weryfikowane i zatwierdzane według uznania firmy Microsoft, a ich przyznanie będzie możliwe tylko po przeprowadzeniu dodatkowych kontroli zabezpieczenia przed oszustwem. Aby wykonać żądanie, Otwórz przypadek **pomocy technicznej,** > korzystając z następującego typu problemu:**Virtual Network** > **łączności** > **nie można wysłać wiadomości e-mail (SMTP/port 25)**. Upewnij się, że dodano szczegółowe informacje o tym, dlaczego wdrożenie musi wysyłać pocztą bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekaźnika.
+W przypadku subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem lub Microsoft Partner Network, które zostały utworzone po 15 listopada 2017, będą obowiązywać ograniczenia techniczne, które blokują pocztę e-mail, która jest wysyłana bezpośrednio z maszyn wirtualnych w ramach tych subskrypcji. Aby móc wysyłać wiadomości e-mail z maszyn wirtualnych platformy Azure bezpośrednio do zewnętrznych dostawców poczty e-mail (bez użycia uwierzytelnionego przekazywania SMTP), możesz utworzyć żądanie usunięcia ograniczenia. Żądania będą weryfikowane i zatwierdzane według uznania firmy Microsoft, a ich przyznanie będzie możliwe tylko po przeprowadzeniu dodatkowych kontroli zabezpieczenia przed oszustwem. Aby wykonać żądanie, Otwórz przypadek pomocy technicznej, korzystając z następującego typu **problemu:**  >  **Virtual Network**  >  **łączności**  >  **nie można wysłać wiadomości e-mail (SMTP/port 25)**. Upewnij się, że dodano szczegółowe informacje o tym, dlaczego wdrożenie musi wysyłać pocztą bezpośrednio do dostawców poczty, zamiast korzystać z uwierzytelnionego przekaźnika.
 
 Po wyłączeniu subskrypcji z opcją płatność zgodnie z rzeczywistym użyciem lub Microsoft Partner Network, gdy maszyny wirtualne zostały zatrzymane & "uruchomiono" w Azure Portal, wszystkie maszyny wirtualne w ramach tej subskrypcji zostaną wykluczone w przód. Wyłączenie ma zastosowanie tylko do żądania subskrypcji i dotyczy tylko ruchu maszyn wirtualnych kierowanych bezpośrednio do Internetu. Ruch przychodzący portu 25 za pośrednictwem usług Azure PaaS Services, takich jak [Zapora platformy Azure](https://azure.microsoft.com/services/azure-firewall/) , nie jest obsługiwany.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202075"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588347"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurowanie sieci wirtualnych Cognitive Services platformy Azure
 
@@ -45,7 +45,7 @@ Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ogr
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Niestandardowe przetwarzanie obrazów](./custom-vision-service/index.yml)
 > * [Rozpoznawanie twarzy](./face/index.yml)
 > * [Rozpoznawanie formularzy](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
@@ -55,7 +55,7 @@ Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ogr
 
 Obsługa sieci wirtualnych dla Cognitive Services wymienionych poniżej jest ograniczona do regionu *środkowe stany USA*, *Południowo-środkowe*stany USA, *Wschodnie stany*US USA, *zachodnie stany USA 2*, *globalne*i *US gov Wirginia* regiony platformy Azure.
 > [!div class="checklist"]
-> * [Tekst usługi Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Tłumaczenie tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tagi usługi
 Oprócz obsługi punktów końcowych usługi sieci wirtualnej dla powyższych usług Cognitive Services obsługuje także tag usługi dla konfiguracji reguł sieci wychodzącej. Poniższe usługi są zawarte w tagu usługi CognitiveServicesManagement.
@@ -63,14 +63,14 @@ Oprócz obsługi punktów końcowych usługi sieci wirtualnej dla powyższych us
 > * [Narzędzie do wykrywania anomalii](./anomaly-detector/index.yml)
 > * [Przetwarzanie obrazów](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Niestandardowe przetwarzanie obrazów](./custom-vision-service/index.yml)
 > * [Rozpoznawanie twarzy](./face/index.yml)
 > * [Rozpoznawanie formularzy](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizacja](./personalizer/index.yml)
 > * [Analiza tekstu](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Tekst usługi Translator](./translator/index.yml)
+> * [Translator](./translator/index.yml)
 > * [Usługa rozpoznawania mowy](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Zmienianie domyślnej reguły dostępu do sieci

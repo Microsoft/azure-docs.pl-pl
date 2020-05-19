@@ -1,27 +1,27 @@
 ---
 title: 'Samouczek: przewidywanie zamiarów — LUIS'
-description: W tym samouczku utworzysz niestandardową aplikację, która będzie przewidywać intencje użytkownika. Ta aplikacja to najprostszy rodzaj aplikacji usługi LUIS, ponieważ nie wyodrębnia ona z tekstu wypowiedzi różnych elementów danych, takich jak adresy e-mail czy daty.
+description: Utwórz niestandardową aplikację, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst) w tym samouczku.
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80286748"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588960"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Samouczek: Tworzenie aplikacji LUIS w celu określenia zamiarów użytkownika
 
 W tym samouczku utworzysz aplikację niestandardową, która przewiduje zamiar użytkownika w oparciu o wypowiedź (tekst).
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie nowej aplikacji
 > * Tworzenie intencji
 > * Dodawanie przykładowych wypowiedzi
 > * Szkolenie aplikacji
-> * Publikowanie aplikacji
+> * Publikuj aplikację
 > * Pobierz prognozowanie intencji z punktu końcowego
 
 ## <a name="user-intentions-as-intents"></a>Zamiary użytkownika jako intencje
@@ -37,7 +37,7 @@ Intencje są podzielone na kategorie **intencji**.
 |`ModifyOrder`|Określ kolejność Pizza użytkownika.|
 |`Greeting`|Rozpocznij KONWERSACJĘ bot.|
 |`ConfirmOrder`|Potwierdź zamówienie Pizza.|
-|`None`|Ustal, czy użytkownik jest proszony o to, że aplikacja nie powinna odpowiedzieć. Ta intencja jest dostarczana jako część procesu tworzenia aplikacji i nie można jej usunąć. |
+|`None`|Określ, czy użytkownik jest proszony o to, aby aplikacja LUIS nie została zaprojektowana do odpowiedzi. Ten cel jest dostarczany jako część tworzenia aplikacji i nie można go usunąć. |
 
 ## <a name="create-a-new-app"></a>Tworzenie nowej aplikacji
 
@@ -49,9 +49,9 @@ Zamiar służy do klasyfikowania wyrażenia długości użytkowników na podstaw
 
 W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia długości, które powinny być klasyfikowane przy użyciu tego zamiaru.
 
-1. W sekcji **kompilacja** na stronie **intencje** wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel. Wprowadź nazwę nowego celu, `OrderPizza`a następnie wybierz pozycję **gotowe**.
+1. W sekcji **kompilacja** na stronie **intencje** wybierz pozycję **+ Utwórz** , aby utworzyć nowy cel. Wprowadź nazwę nowego celu, `OrderPizza` a następnie wybierz pozycję **gotowe**.
 
-    Zamiar jest przewidywany, `OrderPizza` gdy użytkownik chce zamówić Pizza.
+    `OrderPizza`Zamiar jest przewidywany, gdy użytkownik chce zamówić Pizza.
 
 1. Dodaj kilka przykładowych wypowiedzi do tej intencji — takich, których spodziewasz się ze strony użytkownika:
 
@@ -64,9 +64,10 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Dodawanie przykładowych wypowiedzi](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający Dodawanie przykładowych wyrażenia długości w portalu LUIS na stronie intencji](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Dostarczając _przykład wyrażenia długości_, wypowiadasz Luis na temat tego, jakie rodzaje wyrażenia długości powinny być przewidywane dla tego celu.
+    Dostarczając _przykład wyrażenia długości_, wypowiadasz Luis na temat tego, jakie rodzaje wyrażenia długości powinny być przewidywane dla tego celu. Są to pozytywne przykłady. Wyrażenia długości we wszystkich innych intencjach jest traktowany jako negatywne przykłady dla tego celu.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -142,7 +143,7 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
     Tablica jednostek jest pusta, ponieważ ta aplikacja nie ma obecnie żadnych jednostek (jednostka danych wewnątrz wypowiedź do wyodrębnienia).
 
-    Wynik JSON identyfikuje najważniejsze intencje oceniania jako **`prediction.topIntent`** właściwość. Wszystkie wyniki są z zakresu od 1 do 0, a lepszy wynik jest zbliżony do 1.
+    Wynik JSON identyfikuje najważniejsze intencje oceniania jako **`prediction.topIntent`** Właściwość. Wszystkie wyniki są z zakresu od 1 do 0, a lepszy wynik jest zbliżony do 1.
 
 1. Zmień parametr **zapytania** adresu URL, aby określić cel **powitania** :
 
@@ -178,6 +179,8 @@ W celu klasyfikowania wypowiedź wymaga przykładów użytkownika wyrażenia dł
 
 ## <a name="client-application-next-steps"></a>Następne czynności dotyczące aplikacji klienckiej
 
+W tym samouczku utworzono aplikację LUIS, utworzono intencje, dodano przykład wyrażenia długości do każdego zamiaru, dodaliśmy przykład wyrażenia długości do zamiaru brak, przeszkolony, opublikowany i przetestowany w punkcie końcowym. Są to podstawowe kroki tworzenia modelu usługi LUIS.
+
 Gdy usługa LUIS zwróci odpowiedź w formacie JSON, żądanie zostanie wykonane. Usługa LUIS nie odpowiada na wypowiedzi użytkowników, tylko określa, o jakie informacje proszą oni w języku naturalnym. Dalsza konwersacja jest udostępniana przez aplikację kliencką, na przykład Azure Bot.
 
 
@@ -193,8 +196,6 @@ Gdy usługa LUIS zwróci odpowiedź w formacie JSON, żądanie zostanie wykonane
 
 
 ## <a name="next-steps"></a>Następne kroki
-
-W tym samouczku utworzono aplikację LUIS, utworzono intencje, dodano przykład wyrażenia długości do każdego zamiaru, dodaliśmy przykład wyrażenia długości do zamiaru brak, przeszkolony, opublikowany i przetestowany w punkcie końcowym. Są to podstawowe kroki tworzenia modelu usługi LUIS.
 
 > [!div class="nextstepaction"]
 > [Dodaj jednostkę, do której ma zostać utworzona aplikacja](tutorial-machine-learned-entity.md)

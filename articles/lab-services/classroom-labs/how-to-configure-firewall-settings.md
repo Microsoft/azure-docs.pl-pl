@@ -3,15 +3,15 @@ title: Ustawienia zapory dla usługi Azure Lab Services
 description: Dowiedz się, jak określić publiczny adres IP i zakres numerów portów maszyn wirtualnych w laboratorium, aby można było dodać informacje do reguł zapory.
 author: emaher
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dcb8c0d5304f052dbe7f14386425ce67ae3b79a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443463"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589537"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Ustawienia zapory dla usługi Azure Lab Services
 
@@ -24,7 +24,7 @@ Każde laboratorium używa jednego publicznego adresu IP i wielu portów.  Na ws
 
 ## <a name="find-public-ip-for-a-lab"></a>Znajdź publiczny adres IP dla laboratorium
 
-Publiczne adresy IP dla każdego laboratorium są wyświetlane na stronie **Wszystkie laboratoria** na koncie laboratorium usługi Lab Services.  Aby uzyskać instrukcje dotyczące sposobu znajdowania strony **Wszystkie laboratoria** , zobacz [jak zarządzać laboratoriami na koncie laboratorium](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+Publiczne adresy IP dla każdego laboratorium są wyświetlane na stronie **Wszystkie laboratoria** na koncie laboratorium usługi Lab Services.  Aby uzyskać instrukcje dotyczące sposobu znajdowania strony **Wszystkie laboratoria** , zobacz [przeglądanie laboratoriów na koncie laboratorium](manage-labs.md#view-labs-in-a-lab-account).  
 
 > [!div class="mx-imgBorder"]
 > ![Strona Wszystkie laboratoria](../media/how-to-configure-firewall-settings/all-labs-properties.png)

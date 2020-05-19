@@ -2,13 +2,13 @@
 title: List — typ jednostki — LUIS
 description: Jednostki listy reprezentują stały, zamknięty zestaw powiązanych słów wraz z ich synonimami. LUIS nie odnajduje dodatkowych wartości dla jednostek listy. Użyj opcji zalecamy, aby zobaczyć sugestie dotyczące nowych słów na podstawie bieżącej listy.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097578"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588891"
 ---
 # <a name="list-entity"></a>Jednostka listy
 
@@ -52,7 +52,7 @@ Jednostka listy nie jest zauczenia maszynowego. Jest to dokładne dopasowanie te
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
-Załóżmy, że aplikacja ma listę o nazwie `Cities`, co pozwala na odmianę nazw miast, w tym miasto lotniska (Sea-Tac), kod lotniska (Sea), kod pocztowy (98101) i numer kierunkowy telefonu (206).
+Załóżmy, że aplikacja ma listę o nazwie `Cities` , co pozwala na odmianę nazw miast, w tym miasto lotniska (Sea-Tac), kod lotniska (Sea), kod pocztowy (98101) i numer kierunkowy telefonu (206).
 
 |Element listy|Synonimy elementów|
 |---|---|
@@ -61,7 +61,7 @@ Załóżmy, że aplikacja ma listę o nazwie `Cities`, co pozwala na odmianę na
 
 `book 2 tickets to paris`
 
-W poprzednim wypowiedź słowo `paris` jest zamapowane na element paryski jako część jednostki `Cities` listy. Jednostka listy dopasowuje zarówno znormalizowaną nazwę elementu, jak i synonimy elementów.
+W poprzednim wypowiedź słowo `paris` jest zamapowane na element paryski jako część `Cities` jednostki listy. Jednostka listy dopasowuje zarówno znormalizowaną nazwę elementu, jak i synonimy elementów.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania wersji 2](#tab/V2)
 
@@ -84,7 +84,7 @@ W poprzednim wypowiedź słowo `paris` jest zamapowane na element paryski jako c
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 }
 ```
 
-Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -132,4 +132,7 @@ Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](tutorial-list-entity.md)dowiesz się, jak za pomocą **jednostki listy** wyodrębnić dokładne dopasowania tekstu z listy znanych elementów.
+Dowiedz się więcej o jednostkach:
+
+* [Pojęcia](luis-concept-entity-types.md)
+* [Jak utworzyć](luis-how-to-add-entities.md)

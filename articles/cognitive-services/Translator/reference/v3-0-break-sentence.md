@@ -1,7 +1,7 @@
 ---
-title: interfejs API tłumaczenia tekstu w usłudze Translator Metoda BreakSentence
+title: Translator — Metoda BreakSentence
 titleSuffix: Azure Cognitive Services
-description: Metoda interfejs API tłumaczenia tekstu w usłudze Translator BreakSentence określa pozycjonowanie granic zdania w fragmencie tekstu.
+description: Metoda BreakSentence translator identyfikuje pozycjonowanie granic zdania w części tekstu.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548122"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588636"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Interfejs API tłumaczenia tekstu w usłudze Translator 3,0: BreakSentence
+# <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
 Określa położenie granic zdania w fragmencie tekstu.
 
@@ -35,7 +35,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
 
 | Parametr zapytania | Opis |
 | -------| ----------- |
-| api-version <img width=200/>   | **Wymagany parametr zapytania**.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0`. |
+| api-version <img width=200/>   | **Wymagany parametr zapytania**.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0` . |
 | language | **Opcjonalny parametr zapytania**.<br/>Tag języka identyfikujący język tekstu wejściowego. Jeśli kod nie zostanie określony, zostanie zastosowane automatyczne wykrywanie języka. |
 | skrypt    | **Opcjonalny parametr zapytania**.<br/>Tag skryptu identyfikujący skrypt używany przez tekst wejściowy. Jeśli skrypt nie jest określony, zostanie przyjęty domyślny skrypt języka.  | 
 
@@ -44,13 +44,13 @@ Nagłówki żądań obejmują:
 | Nagłówki | Opis |
 | ------- | ----------- |
 | Nagłówki uwierzytelniania <img width=200/>  | **Wymagany nagłówek żądania**.<br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>. |
-| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json`. |
+| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json` . |
 | Długość zawartości    | **Wymagany nagłówek żądania**.<br/>Długość treści żądania.  | 
-| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Należy pamiętać, że ten nagłówek można pominąć, jeśli w ciągu zapytania zostanie uwzględniony identyfikator śledzenia, przy użyciu parametru `ClientTraceId`zapytania o nazwie.  | 
+| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Należy pamiętać, że ten nagłówek można pominąć, jeśli w ciągu zapytania zostanie uwzględniony identyfikator śledzenia, przy użyciu parametru zapytania o nazwie `ClientTraceId` .  | 
 
 ## <a name="request-body"></a>Treść żądania
 
-Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o `Text`nazwie. Granice zdania są obliczane dla wartości `Text` właściwości. Przykładowa treść żądania z jednym fragmentem tekstu wygląda następująco:
+Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o nazwie `Text` . Granice zdania są obliczane dla wartości `Text` właściwości. Przykładowa treść żądania z jednym fragmentem tekstu wygląda następująco:
 
 ```json
 [
@@ -63,7 +63,7 @@ Obowiązują następujące ograniczenia:
 * Tablica może zawierać maksymalnie 100 elementów.
 * Wartość tekstowa elementu tablicy nie może być dłuższa niż 10 000 znaków, w tym spacje.
 * Cały tekst zawarty w żądaniu nie może zawierać więcej niż 50 000 znaków, w tym spacji.
-* Jeśli parametr `language` zapytania jest określony, wszystkie elementy tablicy muszą być w tym samym języku. W przeciwnym razie Autowykrywanie języka jest stosowane do każdego elementu tablicy niezależnie.
+* Jeśli `language` parametr zapytania jest określony, wszystkie elementy tablicy muszą być w tym samym języku. W przeciwnym razie Autowykrywanie języka jest stosowane do każdego elementu tablicy niezależnie.
 
 ## <a name="response-body"></a>Treść odpowiedzi
 
@@ -77,7 +77,7 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
 
      * `score`: Wartość zmiennoprzecinkowa wskazująca wiarygodność w wyniku. Wynik jest z przedziału od zera do jednego, a niski Wynik wskazuje na niski poziom pewności.
      
-    Należy zauważyć, `detectedLanguage` że właściwość jest obecna tylko w obiekcie wynikowym, gdy żąda się automatycznego wykrywania języka.
+    Należy zauważyć, że `detectedLanguage` Właściwość jest obecna tylko w obiekcie wynikowym, gdy żąda się automatycznego wykrywania języka.
 
 Przykładowa odpowiedź JSON to:
 
@@ -133,15 +133,15 @@ Oto możliwe kody stanu HTTP zwracane przez żądanie.
   </tr>
   <tr>
     <td>500</td>
-    <td>Wystąpił nieoczekiwany błąd. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka `X-RequestId`odpowiedzi oraz identyfikator klienta z nagłówka `X-ClientTraceId`żądania.</td>
+    <td>Wystąpił nieoczekiwany błąd. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka odpowiedzi `X-RequestId` oraz identyfikator klienta z nagłówka żądania `X-ClientTraceId` .</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Serwer jest tymczasowo niedostępny. Ponów żądanie. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka `X-RequestId`odpowiedzi oraz identyfikator klienta z nagłówka `X-ClientTraceId`żądania.</td>
+    <td>Serwer jest tymczasowo niedostępny. Ponów żądanie. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka odpowiedzi `X-RequestId` oraz identyfikator klienta z nagłówka żądania `X-ClientTraceId` .</td>
   </tr>
 </table> 
 
-Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie odniesienia interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Przykłady
 

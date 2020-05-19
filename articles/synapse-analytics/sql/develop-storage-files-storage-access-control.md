@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d73b3a1a7c3b2ab290d85d88aa24108d9e7a605
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83401987"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589282"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -28,8 +28,8 @@ W tym artykule opisano typy poświadczeń, których można użyć oraz sposób p
 
 Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby uzyskać dostęp do plików w usłudze Azure Storage i wysyłać do nich zapytania, jeśli pliki nie są publicznie dostępne. Obsługiwane są trzy typy autoryzacji:
 
-- [Tożsamość użytkownika](?tabs=user-identity)
 - [Sygnatura dostępu współdzielonego](?tabs=shared-access-signature)
+- [Tożsamość użytkownika](?tabs=user-identity)
 - [Tożsamość zarządzana](?tabs=managed-identity)
 
 > [!NOTE]
@@ -42,13 +42,13 @@ Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby u
 Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **konta magazynu Azure Portal-> Storage-> sygnatura dostęp współdzielony-> skonfigurować uprawnienia-> generować sygnatury SAS i parametry połączenia.**
 
 > [!IMPORTANT]
-> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Przykład:
+> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Na przykład:
 >
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
 Należy utworzyć poświadczenia z zakresem bazy danych lub serwera, aby umożliwić dostęp przy użyciu tokenu SAS.
 
-### <a name="user-identity"></a>Tożsamość użytkownika
+### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
 
 **Tożsamość użytkownika**, znana również jako "pass-through", jest typem autoryzacji, w którym tożsamość użytkownika usługi Azure AD, która jest zalogowana na żądanie SQL, jest używana do autoryzowania dostępu do danych. Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień użytkownikowi usługi Azure AD. Jak wskazano w powyższej tabeli, nie jest to obsługiwane w przypadku typu użytkownika SQL.
 
@@ -91,13 +91,13 @@ DROP CREDENTIAL [UserIdentity];
 
 Jeśli chcesz ponownie włączyć tę funkcję, zapoznaj się z sekcją [przekazanie do usługi Azure AD](#force-azure-ad-pass-through) .
 
-### <a name="managed-identity"></a>Tożsamość zarządzana
+### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
 **Tożsamość zarządzana** jest również znana jako plik msi. Jest to funkcja Azure Active Directory (Azure AD), która udostępnia usługi platformy Azure dla programu SQL na żądanie. Wdraża także automatycznie zarządzaną tożsamość w usłudze Azure AD. Ta tożsamość może służyć do autoryzowania żądania dostępu do danych w usłudze Azure Storage.
 
 Przed uzyskaniem dostępu do danych administrator usługi Azure Storage musi udzielić uprawnień do zarządzanej tożsamości na potrzeby uzyskiwania dostępu do danych. Przyznawanie uprawnień do tożsamości zarządzanej odbywa się tak samo jak udzielanie uprawnień innym użytkownikom usługi Azure AD.
 
-### <a name="anonymous-access"></a>Dostęp anonimowy
+### <a name="anonymous-access"></a>[Dostęp anonimowy](#tab/public-access)
 
 Możesz uzyskać dostęp do publicznie dostępnych plików umieszczonych na kontach usługi Azure Storage, które [zezwalają na dostęp anonimowy](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
@@ -171,7 +171,7 @@ Nazwa poświadczeń na poziomie serwera musi być zgodna z pełną ścieżką do
 
 Poświadczenia o zakresie serwera umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
 
-### <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
+### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję do uzyskiwania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tokenu SAS. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje `OPENROWSET` funkcję do odczytu plików chronionych za pomocą klucza SAS w usłudze Azure Storage, które pasują do adresu URL w nazwie poświadczenia.
 
@@ -184,7 +184,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>Tożsamość użytkownika
+### <a name="user-identity"></a>[Tożsamość użytkownika](#tab/user-identity)
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które umożliwiają użytkownikowi personifikację przy użyciu tożsamości usługi Azure AD.
 
@@ -193,7 +193,7 @@ CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity';
 ```
 
-### <a name="managed-identity"></a>Tożsamość zarządzana
+### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję w celu uzyskania dostępu do dowolnych plików w usłudze Azure Storage przy użyciu tożsamości zarządzanej w obszarze roboczym.
 
@@ -202,7 +202,7 @@ CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystora
 WITH IDENTITY='Managed Identity'
 ```
 
-### <a name="public-access"></a>Dostęp publiczny
+### <a name="public-access"></a>[Dostęp publiczny](#tab/public-access)
 
 Poniższy skrypt tworzy poświadczenia na poziomie serwera, które mogą być używane przez `OPENROWSET` funkcję w celu uzyskania dostępu do dowolnych plików z publicznie dostępnego magazynu Azure. Utwórz to poświadczenie, aby włączyć podmiot zabezpieczeń SQL, który wykonuje `OPENROWSET` funkcję do odczytu publicznie dostępnych plików w usłudze Azure Storage, które pasują do adresu URL w nazwie poświadczenia.
 
@@ -222,7 +222,7 @@ Poświadczenia w zakresie bazy danych są używane, gdy każda `OPENROWSET` funk
 
 Poświadczenia w zakresie bazy danych umożliwiają dostęp do usługi Azure Storage przy użyciu następujących typów uwierzytelniania:
 
-### <a name="shared-access-signature"></a>Sygnatura dostępu współdzielonego
+### <a name="shared-access-signature"></a>[Sygnatura dostępu współdzielonego](#tab/shared-access-signature)
 
 Poniższy skrypt tworzy poświadczenie, które jest używane do uzyskiwania dostępu do plików w magazynie przy użyciu tokenu SAS określonego w poświadczeniu.
 
@@ -232,7 +232,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-### <a name="azure-ad-identity"></a>Tożsamość usługi Azure AD
+### <a name="azure-ad-identity"></a>[Tożsamość usługi Azure AD](#tab/user-identity)
 
 Poniższy skrypt tworzy poświadczenia w zakresie bazy danych używane przez [tabelę zewnętrzną](develop-tables-external-tables.md) i `OPENROWSET` funkcje, które używają źródła danych z poświadczeniami do uzyskiwania dostępu do plików magazynu przy użyciu własnej tożsamości usługi Azure AD.
 
@@ -242,7 +242,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-### <a name="managed-identity"></a>Tożsamość zarządzana
+### <a name="managed-identity"></a>[Tożsamość zarządzana](#tab/managed-identity)
 
 Poniższy skrypt tworzy poświadczenia w zakresie bazy danych, które mogą służyć do personifikacji bieżącego użytkownika usługi Azure AD jako tożsamości zarządzanej usługi. 
 

@@ -9,20 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877085"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588412"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalowanie i uruchamianie kontenerów analizy tekstu
 
-Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i są doskonałe dla konkretnych wymagań dotyczących zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. Łączenie jednostek nie jest obecnie obsługiwane w kontenerze.
+> [!NOTE]
+> * Kontener dla analiza tonacji V3 jest teraz ogólnie dostępny. Kontenery wyodrębniania i wykrywania języka są dostępne jako niezależna [publiczna wersja zapoznawcza](../../cognitive-services-gating-process.md).
+> * Łączenie jednostek i NER nie są obecnie dostępne jako kontener.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Kontenery umożliwiają uruchamianie interfejsów API analizy tekstu we własnym środowisku i są doskonałe dla konkretnych wymagań dotyczących zabezpieczeń i zarządzania danymi. Kontenery analiza tekstu zapewniają zaawansowane przetwarzanie języka naturalnego w przypadku nieprzetworzonego tekstu i zawierają trzy główne funkcje: tonacji Analysis, wyodrębnianie kluczowych fraz i wykrywanie języka. 
+
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > Bezpłatne konto jest ograniczone do 5 000 transakcji miesięcznie, a tylko <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">warstwy <span class="docon docon-navigate-external x-hidden-focus"></span> cenowe</a> **bezpłatna** i **standardowa** są prawidłowe dla kontenerów. Aby uzyskać więcej informacji na temat stawek żądań transakcji, zobacz [limity danych](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
@@ -31,14 +35,14 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aby uruchomić dowolny z kontenerów analiza tekstu, należy mieć komputer hosta i środowiska kontenerów.
 
-## <a name="preparation"></a>Przygotowywanie
+## <a name="preparation"></a>Przygotowanie
 
 Przed użyciem kontenerów analiza tekstu należy spełnić następujące wymagania wstępne:
 
-|Wymagany|Przeznaczenie|
+|Wymagane|Przeznaczenie|
 |--|--|
 |Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> **W systemie Windows**program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
-|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość `docker` podstawowych poleceń.| 
+|Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów, a także znajomość podstawowych `docker` poleceń.| 
 |Zasób analiza tekstu |Aby można było używać kontenera, musisz mieć:<br><br>[Zasób analiza tekstu](../../cognitive-services-apis-create-account.md) platformy Azure, aby pobrać skojarzony klucz interfejsu API i identyfikator URI punktu końcowego. Obie wartości są dostępne na stronie Przegląd analiza tekstu Azure Portal i klucze i są wymagane do uruchomienia kontenera.<br><br>**{API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie **kluczy**<br><br>**{ENDPOINT_URI}**: punkt końcowy określony na stronie **Przegląd**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
@@ -49,60 +53,32 @@ Przed użyciem kontenerów analiza tekstu należy spełnić następujące wymaga
 
 ### <a name="container-requirements-and-recommendations"></a>Wymagania i zalecenia dotyczące kontenera
 
-W poniższej tabeli opisano minimalne i zalecane rdzenie procesora CPU, co najmniej 2,6 gigaherca (GHz) lub szybszy i pamięć, w gigabajtach (GB) do przydzielenia dla każdego kontenera analiza tekstu.
+W poniższej tabeli opisano minimalne i zalecane specyfikacje kontenerów analiza tekstu. Wymagane są co najmniej 2 gigabajty (GB) pamięci, a każdy rdzeń procesora CPU musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy. Są również wyświetlane listy dozwolonych transakcji na sekcję (TPS).
 
-# <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/keyphrase)
+|  | Minimalne specyfikacje hosta | Zalecane specyfikacje hosta | Minimalna TPS | Maksymalna TPS|
+|---|---------|-------------|--|--|
+| **Wykrywanie języka, wyodrębnianie kluczowych fraz**   | 1 rdzeń, 2 GB pamięci | 1 rdzeń, 4 GB pamięci |15 | 30|
+| **analiza tonacji v3**   | 1 rdzeń, 2 GB pamięci | 4 rdzenie, 8 GB pamięci |15 | 30|
 
-[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
-
-# <a name="language-detection"></a>[Wykrywanie języka](#tab/language)
-
-[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
-
-# <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
-
-***
-
-* Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
-* TPS — liczba transakcji na sekundę
-
-Rdzeń i pamięć odpowiadają `--cpus` ustawieniom `--memory` i, które są używane jako część `docker run` polecenia.
+Rdzeń procesora CPU i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą`docker pull`
 
-Obrazy kontenerów dla analiza tekstu są dostępne w programie Microsoft Container Registry.
-
-# <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
-
-# <a name="language-detection"></a>[Wykrywanie języka](#tab/language)
-
-[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
-
-# <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
-
-***
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-text-analytics-containers"></a>Wypychanie platformy Docker dla kontenerów analiza tekstu
+Obrazy kontenerów dla analiza tekstu są dostępne w programie Microsoft Container Registry.
 
-# <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/keyphrase)
+# <a name="sentiment-analysis-v3"></a>[analiza tonacji v3](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+# <a name="key-phrase-extraction-preview"></a>[Wyodrębnianie kluczowych fraz (wersja zapoznawcza)](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection"></a>[Wykrywanie języka](#tab/language)
+# <a name="language-detection-preview"></a>[Wykrywanie języka (wersja zapoznawcza)](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
-
-[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
 ***
 
@@ -110,31 +86,38 @@ Obrazy kontenerów dla analiza tekstu są dostępne w programie Microsoft Contai
 
 Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj następującego procesu, aby współpracować z kontenerem.
 
-1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania. Więcej [przykładów](../text-analytics-resource-container-config.md#example-docker-run-commands) `docker run` polecenia jest dostępnych.
+1. [Uruchom kontener](#run-the-container-with-docker-run)z wymaganymi ustawieniami rozliczania.
 1. [Zbadaj punkt końcowy przewidywania kontenera](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Uruchom kontener za pomocą`docker run`
 
-Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić jeden z trzech kontenerów. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) `{ENDPOINT_URI}` , aby uzyskać szczegółowe `{API_KEY}` informacje na temat sposobu pobierania wartości i.
+Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontenery. Kontener będzie nadal działać do momentu jego zatrzymania.
 
-[Przykłady](../text-analytics-resource-container-config.md#example-docker-run-commands) `docker run` polecenia są dostępne.
+Zastąp Poniższe symbole zastępcze własnymi wartościami:
 
-# <a name="key-phrase-extraction"></a>[Wyodrębnianie kluczowych fraz](#tab/keyphrase)
+| Symbol zastępczy | Wartość | Format lub przykład |
+|-------------|-------|---|
+| **{API_KEY}** | Klucz dla zasobu analiza tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Punkt końcowy do uzyskiwania dostępu do interfejs API analizy tekstu. Można je znaleźć na stronie **klucz zasobu i punkt końcowy** na Azure Portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
-[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+> [!IMPORTANT]
+> * Polecenia platformy Docker w poniższych sekcjach używają ukośnika odwrotnego, `\` jako znaku kontynuacji wiersza. Zastąp lub usuń to w zależności od wymagań systemu operacyjnego hosta. 
+> * `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+> * Kontener tonacji Analysis V3 jest teraz ogólnie dostępny, który zwraca [etykiety tonacji](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) w odpowiedzi. Kontenery wyodrębniania i wykrywania języka używają wersji 2 interfejsu API i są w wersji zapoznawczej.
 
-# <a name="language-detection"></a>[Wykrywanie języka](#tab/language)
-
-[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
-
-# <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment)
+# <a name="sentiment-analysis-v3"></a>[analiza tonacji v3](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
-***
+# <a name="key-phrase-extraction-preview"></a>[Wyodrębnianie kluczowych fraz (wersja zapoznawcza)](#tab/keyphrase)
 
-> [!IMPORTANT]
-> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener, należy określić opcje, i. w przeciwnym razie kontener nie zostanie uruchomiony.  Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+
+# <a name="language-detection-preview"></a>[Wykrywanie języka (wersja zapoznawcza)](#tab/language)
+
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -142,7 +125,7 @@ Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandlin
 
 Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań.
 
-Użyj hosta, `http://localhost:5000`, dla interfejsów API kontenerów.
+Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
 
 <!--  ## Validate container is running -->
 
@@ -175,16 +158,17 @@ Aby uzyskać więcej informacji na temat tych opcji, zobacz [Konfigurowanie kont
 W tym artykule przedstawiono koncepcje i przepływ pracy służące do pobierania, instalowania i uruchamiania kontenerów analiza tekstu. Podsumowanie:
 
 * Analiza tekstu oferuje trzy kontenery systemu Linux dla platformy Docker, hermetyzowając różne możliwości:
-   * *Wyodrębnianie kluczowych fraz*
-   * *Wykrywanie języka*
-   * *analiza tonacji*
+   * *Analiza tonacji*
+   * *Wyodrębnianie kluczowych fraz (wersja zapoznawcza)* 
+   * *Wykrywanie języka (wersja zapoznawcza)*
+   
 * Obrazy kontenerów są pobierane z Container Registry firmy Microsoft (MCR) na platformie Azure.
 * Obrazy kontenerów są uruchamiane w platformie Docker.
 * Można użyć interfejsu API REST lub zestawu SDK do wywoływania operacji w kontenerach analiza tekstu, określając identyfikator URI hosta kontenera.
 * Podczas tworzenia wystąpienia kontenera należy określić informacje o rozliczeniach.
 
 > [!IMPORTANT]
-> Kontenery Cognitive Services nie są licencjonowane do uruchamiania bez połączenia z platformą Azure w celu pomiaru. Klienci muszą włączyć kontenery do przekazywania informacji rozliczeniowych za pomocą usługi pomiarowej przez cały czas. Kontenery Cognitive Services nie wysyłają danych klienta (np. obrazu lub tekstu, który jest analizowany) do firmy Microsoft.
+> Kontenery Cognitive Services nie są licencjonowane do uruchamiania bez połączenia z platformą Azure w celu pomiaru. Klienci muszą włączyć kontenery do przekazywania informacji rozliczeniowych za pomocą usługi pomiarowej przez cały czas. Kontenery Cognitive Services nie wysyłają danych klienta (np. tekstu, który jest analizowany) do firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

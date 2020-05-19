@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590540"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Pomoc techniczna dotycząca platformy Azure Cognitive Services i opcje opinii
 
@@ -33,13 +33,13 @@ Poznaj zakres [opcji pomocy technicznej platformy Azure i wybierz plan](https://
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal dla instytucji rządowych Stany Zjednoczone](https://portal.azure.us)
 
-### <a name="search"></a>Wyszukiwanie
+### <a name="search"></a>Wyszukaj
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
 </div>
 
-W celu uzyskania szybszych wyników wykonaj wyszukiwanie w odpowiednich witrynach, takich jak [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)lub [przykłady kodu usługi GitHub](https://github.com/azure-samples). Użyj notacji `site:` zapytania w [ulubionym aparacie wyszukiwania](https://bing.com), na przykład:
+W celu uzyskania szybszych wyników wykonaj wyszukiwanie w odpowiednich witrynach, takich jak [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/)lub [przykłady kodu usługi GitHub](https://github.com/azure-samples). Użyj `site:` notacji zapytania w [ulubionym aparacie wyszukiwania](https://bing.com), na przykład:
 
 ```
 {search keywords} site:stackoverflow.com
@@ -70,7 +70,7 @@ Jeśli nie możesz znaleźć odpowiedzi na problem z polem wyszukiwania na Stack
 
 Zapoznaj się z informacjami na temat funkcji w nowej wersji lub wiadomościach w blogu platformy Azure, które mogą pomóc w znalezieniu różnicy między błędami programowania, usterką usługi lub funkcją, która nie jest jeszcze dostępna w Cognitive Services.
 
-### <a name="release-notes"></a>Informacje o wersji
+### <a name="release-notes"></a>Uwagi do wersji
 
 <div class='icon is-large'>
     <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
@@ -78,13 +78,13 @@ Zapoznaj się z informacjami na temat funkcji w nowej wersji lub wiadomościach 
 
 Informacje o wersji Cognitive Services są aktualizowane w miarę udostępnienia nowych wersji. Notatki zawierają informacje dotyczące nowych funkcji, ulepszeń i poprawek błędów.
 
- - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Niestandardowe przetwarzanie obrazów](custom-vision-service/release-notes.md)
  - [Rozpoznawanie twarzy](face/releasenotes.md)
  - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Usługi mowy](speech-service/releasenotes.md)
  - [Zestaw SDK usługi Speech Services](speech-service/devices-sdk-release-notes.md)
  - [Analiza tekstu](text-analytics/whats-new.md)
- - [Indeksator wideo](../media-services/video-indexer/release-notes.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog platformy Azure
 
@@ -102,7 +102,7 @@ Wiadomości dotyczące Cognitive Services są udostępniane w [blogu platformy A
 
 Reddit jest witryną internetową dyskusyjną opartą na społeczności, oferującą najnowsze konwersacje dotyczące [usługi Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) News, pomocy, informacji, porad i lew. Zarejestrowane elementy członkowskie mogą przesyłać zawartość, a inne mogą na niej głosować, co ekologicznie podnosi najbardziej odpowiednią zawartość na początku ich źródeł.
 
-## <a name="give-feedback"></a>Przesyłanie opinii
+## <a name="give-feedback"></a>Prześlij opinię
 
 ### <a name="uservoice-forum"></a>Forum UserVoice
 
@@ -132,8 +132,8 @@ Aby zażądać nowych funkcji, Opublikuj je w usłudze UserVoice. Podziel się s
 | Usługi mowy               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Analiza tekstu                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Tekst usługi Translator               | https://cognitive.uservoice.com/forums/558796-translator |
-| Indeksator wideo                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Translator               | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Zgłoś błędy
 
