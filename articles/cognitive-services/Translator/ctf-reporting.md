@@ -1,5 +1,5 @@
 ---
-title: Raportowanie współdziałające z platformą Translation (COLLABORATIVE) — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Raportowanie współpracy między platformą COLLABORATIVE) — translator
 titleSuffix: Azure Cognitive Services
 description: Jak korzystać z funkcji raportowania w programie COLLABORATIVE (współpracownik tłumaczenia).
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 0c099584642de1939df5e1e7d9785006e8d25235
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732346"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584675"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Jak korzystać z raportowania na platformie CTF (Collaborative Translation Framework)
 
 > [!NOTE]
-> Ta metoda jest przestarzała. Nie jest dostępna w wersji 3.0 interfejs API tłumaczenia tekstu w usłudze Translator.
+> Ta metoda jest przestarzała. Nie jest dostępny w wersji 3.0 usługi Translator.
 > 
-> Platforma tłumaczenia do współpracy (COLLABORATIVE), wcześniej dostępna dla wersji V 2.0 interfejs API tłumaczenia tekstu w usłudze Translator, była przestarzała od 1 lutego 2018. Funkcja addtranslation i AddTranslationArray umożliwiają użytkownikom włączanie poprawek za pośrednictwem platformy tłumaczenia współpracy. Po 31 stycznia 2018 te dwie funkcje nie akceptują nowych przesłanych zdań i użytkownicy otrzymają komunikat o błędzie. Te funkcje zostały wycofane i nie zostaną zastąpione.
+> Platforma tłumaczenia do współpracy (COLLABORATIVE), wcześniej dostępna dla usługi Translator w wersji 2.0, była przestarzała od 1 lutego 2018. Funkcja addtranslation i AddTranslationArray umożliwiają użytkownikom włączanie poprawek za pośrednictwem platformy tłumaczenia współpracy. Po 31 stycznia 2018 te dwie funkcje nie akceptują nowych przesłanych zdań i użytkownicy otrzymają komunikat o błędzie. Te funkcje zostały wycofane i nie zostaną zastąpione.
 
 Interfejs API raportowania usługi współpracy między środowiskami (COLLABORATIVE) zwraca statystyki i rzeczywistą zawartość w magazynie COLLABORATIVE. Ten interfejs API różni się od metody gettranslations (), ponieważ:
 * Zwraca przetłumaczoną zawartość i jej łączną liczbę tylko z Twojego konta (Identyfikator aplikacji lub konto portalu Azure Marketplace).
@@ -30,11 +30,10 @@ Interfejs API raportowania usługi współpracy między środowiskami (COLLABORA
 * Nie zwraca automatycznego tłumaczenia (tłumaczenie maszynowe).
 
 ## <a name="endpoint"></a>Endpoint
-Punkt końcowy interfejsu API raportowania COLLABORATIVE tohttps://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-
+Punkt końcowy interfejsu API raportowania COLLABORATIVE to https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Metody
-| Nazwa |    Opis|
+| Nazwa | Opis|
 |:---|:---|
 | GetUserTranslationCounts, Metoda | Pobiera liczbę tłumaczeń, które są tworzone przez użytkownika. |
 | GetUserTranslations, Metoda | Pobiera tłumaczenia, które są tworzone przez użytkownika. |
@@ -51,7 +50,7 @@ Te metody umożliwiają:
 
 Ta metoda pobiera liczbę tłumaczeń, które są tworzone przez użytkownika. Zawiera listę liczb tłumaczeń pogrupowanych według parametrów żądania uriPrefix, from, to, User, minRating i maxRating.
 
-**Obowiązuje**
+**Składnia**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs
@@ -105,24 +104,24 @@ Zestaw wyników zawiera tablicę **UserTranslationCount**. Każdy UserTranslatio
 
 **Wyjątki**
 
-| Wyjątek | Wiadomość | Warunki |
+| Wyjątek | Komunikat | Warunki |
 |:---|:---|:---|
 | Wyjątku ArgumentOutOfRangeException | Parametr "**maxDateUtc**" musi być większy lub równy "**minDateUtc**".| Wartość parametru **maxDateUtc** jest mniejsza niż wartość parametru **minDateUtc**.|
-| TranslateApiException | Adres IP przekracza limit przydziału.| <ul><li>Osiągnięto limit liczby żądań na minutę.</li><li>Rozmiar żądania pozostaje ograniczony do 10000 znaków.</li><li>Co godzinę i dzienny limit przydziału ogranicza liczbę znaków akceptowanych przez interfejs API usługi Microsoft Translator.</li></ul>|
+| TranslateApiException | Adres IP przekracza limit przydziału.| <ul><li>Osiągnięto limit liczby żądań na minutę.</li><li>Rozmiar żądania pozostaje ograniczony do 10000 znaków.</li><li>Co godzinę i dzienny limit przydziału ogranicza liczbę znaków akceptowanych przez translatora.</li></ul>|
 | TranslateApiException | Identyfikator AppId przekracza limit przydziału.| Identyfikator aplikacji został przekroczony co godzinę lub dzienny limit przydziału.|
 
 > [!NOTE]
 > Przydział zostanie dostosowany w celu zapewnienia sprawiedliwości wśród wszystkich użytkowników usługi.
 
 **Wyświetl przykłady kodu w witrynie GitHib**
-* [S #](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
 ## <a name="getusertranslations-method"></a>GetUserTranslations, Metoda
 
 Ta metoda pobiera tłumaczenia, które są tworzone przez użytkownika. Udostępnia tłumaczenia pogrupowane według parametrów żądania uriPrefix, from, to, User i minRating i maxRating.
 
-**Obowiązuje**
+**Składnia**
 
 > [!div class="tabbedCodeSnippets"]
 > ```cs
@@ -156,7 +155,7 @@ Ta metoda pobiera tłumaczenia, które są tworzone przez użytkownika. Udostęp
 | minDateUtc| **Opcjonalne** Data, z której ma zostać pobrane tłumaczenie. Data musi być w formacie UTC.|
 | maxDateUtc| **Opcjonalne** Data do pobrania tłumaczeń. Data musi być w formacie UTC.|
 | Pomiń| **Opcjonalne** Liczba wyników, które mają zostać pominięte na stronie. Na przykład, jeśli chcesz pominąć pierwsze 20 wierszy wyników i widok z 21 rekordu wynikowego, należy określić 20 dla tego parametru. Wartość domyślna tego parametru to 0.|
-| czasochłonn| **Opcjonalne** Liczba wyników, które mają zostać pobrane. Maksymalna liczba żądań wynosi 100. Wartość domyślna to 50.|
+| czasochłonn| **Opcjonalne** Liczba wyników, które mają zostać pobrane. Maksymalna liczba żądań wynosi 100. Domyślna wartość wynosi 50.|
 
 > [!NOTE]
 > Parametry Skip i Take Request umożliwiają stronicowanie w przypadku dużej liczby rekordów wyników.
@@ -178,15 +177,15 @@ Zestaw wyników zawiera tablicę **UserTranslation**. Każdy UserTranslation ma 
 
 **Wyjątki**
 
-| Wyjątek | Wiadomość | Warunki |
+| Wyjątek | Komunikat | Warunki |
 |:---|:---|:---|
 | Wyjątku ArgumentOutOfRangeException | Parametr "**maxDateUtc**" musi być większy lub równy "**minDateUtc**".| Wartość parametru **maxDateUtc** jest mniejsza niż wartość parametru **minDateUtc**.|
-| TranslateApiException | Adres IP przekracza limit przydziału.| <ul><li>Osiągnięto limit liczby żądań na minutę.</li><li>Rozmiar żądania pozostaje ograniczony do 10000 znaków.</li><li>Co godzinę i dzienny limit przydziału ogranicza liczbę znaków akceptowanych przez interfejs API usługi Microsoft Translator.</li></ul>|
+| TranslateApiException | Adres IP przekracza limit przydziału.| <ul><li>Osiągnięto limit liczby żądań na minutę.</li><li>Rozmiar żądania pozostaje ograniczony do 10000 znaków.</li><li>Co godzinę i dzienny limit przydziału ogranicza liczbę znaków akceptowanych przez translatora.</li></ul>|
 | TranslateApiException | Identyfikator AppId przekracza limit przydziału.| Identyfikator aplikacji został przekroczony co godzinę lub dzienny limit przydziału.|
 
 > [!NOTE]
 > Przydział zostanie dostosowany w celu zapewnienia sprawiedliwości wśród wszystkich użytkowników usługi.
 
 **Wyświetl przykłady kodu w witrynie GitHib**
-* [S #](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)

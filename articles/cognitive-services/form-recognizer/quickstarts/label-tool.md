@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6330a77f5971348c3f63fdaa7602ebba9ddf45ec
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186343"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691334"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy z przykładowym narzędziem do etykietowania do uczenia modelu niestandardowego z ręcznie oznaczonymi danymi. Aby dowiedzieć się więcej na temat tej funkcji, zobacz sekcję [uczenie z etykietami](../overview.md#train-with-labels) .
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -37,7 +37,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do etykietowania. Wykonaj następujące kroki, aby skonfigurować kontener platformy Docker. Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).
 
 > [!TIP]
-> Narzędzie do etykietowania formularza OCR jest również dostępne jako projekt Open Source w witrynie GitHub. Narzędzie to aplikacja sieci Web skompilowana przy użyciu reaguje i Redux i jest zapisywana w języku TypeScript. Aby dowiedzieć się więcej lub współtworzyć, zobacz [Narzędzia do etykietowania formularzy OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> Narzędzie do etykietowania formularza OCR jest również dostępne jako projekt Open Source w witrynie GitHub. Narzędzie to aplikacja sieci Web języka TypeScript skompilowana przy użyciu reakcji i Redux. Aby dowiedzieć się więcej lub współtworzyć, zobacz repozytorium [narzędzi do etykietowania formularzy OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) . Aby wypróbować narzędzie w trybie online, przejdź do [witryny sieci Web FOTT](https://fott.azurewebsites.net/).   
 
 1. Najpierw zainstaluj platformę Docker na komputerze-hoście. W tym przewodniku pokazano, jak używać komputera lokalnego jako hosta. Jeśli chcesz używać usługi hostingu platformy Docker na platformie Azure, zobacz Przewodnik dotyczący [wdrażania przykładowego narzędzia do etykietowania](../deploy-label-tool.md) . 
 
@@ -52,11 +52,11 @@ Użyjesz aparatu platformy Docker, aby uruchomić przykładowe narzędzie do ety
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-1. Pobierz kontener narzędzia do etykietowania przykładowego za `docker pull` pomocą polecenia.
+1. Pobierz kontener narzędzia do etykietowania przykładowego za pomocą `docker pull` polecenia.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Teraz możesz przystąpić do uruchamiania kontenera za `docker run`pomocą.
+1. Teraz możesz przystąpić do uruchamiania kontenera za pomocą `docker run` .
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
@@ -75,7 +75,7 @@ Najpierw upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format.
 Włącz funkcję CORS na koncie magazynu. Wybierz konto magazynu w Azure Portal a następnie kliknij kartę **CORS** w okienku po lewej stronie. W dolnej linii Wypełnij poniższe wartości. Następnie kliknij przycisk **Zapisz** u góry.
 
 * Dozwolone źródła = * 
-* Dozwolone metody = \[Zaznacz wszystko\]
+* Dozwolone metody = \[ Zaznacz wszystko\]
 * Dozwolone nagłówki = *
 * Uwidocznione nagłówki = * 
 * Maksymalny wiek = 200
@@ -95,7 +95,7 @@ Wypełnij pola następującymi wartościami:
 
 * **Nazwa wyświetlana** — nazwa wyświetlana połączenia.
 * **Opis** — opis projektu.
-* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na jakiś czas po użyciu usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Adres URL** sygnatury dostępu współdzielonego (SAS) dla kontenera BLOB Storage platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Ustaw czas wygaśnięcia na jakiś czas po użyciu usługi. Upewnij się, że uprawnienia **Odczyt**, **zapis**, **usuwanie**i **Wyświetlanie listy** są zaznaczone, a następnie kliknij pozycję **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
 ![Ustawienia połączenia przykładowego narzędzia do etykietowania](../media/label-tool/connections.png)
 
@@ -141,7 +141,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
     > * Każdy tag można zastosować tylko raz na stronę. Jeśli wartość pojawia się wiele razy w tym samym formularzu, Utwórz różne Tagi dla każdego wystąpienia. Na przykład: "Invoice nr 1", "Invoice nr 2" i tak dalej.
     > * Znaczniki nie mogą obejmować między stronami.
     > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
-    > * Nie dołączaj kluczy w oznakowanych polach&mdash;tylko wartości.
+    > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
     > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
 
 ![Główne okno edytora przykładowego narzędzia do etykietowania](../media/label-tool/main-editor.png)
@@ -157,11 +157,11 @@ Opcjonalnie można ustawić oczekiwany typ danych dla każdego tagu. Otwórz men
 
 Następujące typy wartości i różnice są obecnie obsługiwane:
 * `string`
-    * domyślne, `no-whitespaces`,`alphanumeric`
+    * domyślne, `no-whitespaces` ,`alphanumeric`
 * `number`
     * wartooć`currency`
 * `date` 
-    * domyślne, `dmy`, `mdy`,`ymd`
+    * domyślne, `dmy` , `mdy` ,`ymd`
 * `time`
 * `integer`
 

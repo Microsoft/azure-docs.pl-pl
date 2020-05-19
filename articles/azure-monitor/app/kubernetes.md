@@ -126,7 +126,7 @@ Poniżej znajduje się przepływ rozwiązywania problemów, który ma być używ
    ```
    Poszukaj błędów, szczególnie związanych z komunikacją z kartą *applicationinsightsadapter* .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 Aby uzyskać najnowsze informacje o postępie tego projektu, odwiedź [kartę Application Insightsową usługi GitHub projektu Istio](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

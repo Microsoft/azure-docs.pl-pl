@@ -31,12 +31,12 @@ Poniżej przedstawiono wymagania dotyczące zabezpieczeń, które są odpowiedzi
 
 | Konieczność zabezpieczeń | Czy klient jest odpowiedzialny za to? |
 |---------------|:-------------------------:|
-|Tożsamość|Yes|
-|Urządzenia użytkowników (aplikacje mobilne i komputery)|Yes|
-|Zabezpieczenia aplikacji|Yes|
-|System operacyjny hosta sesji|Yes|
-|Konfiguracja wdrożenia|Yes|
-|Funkcje kontrolne sieci|Yes|
+|Tożsamość|Tak|
+|Urządzenia użytkowników (aplikacje mobilne i komputery)|Tak|
+|Zabezpieczenia aplikacji|Tak|
+|System operacyjny hosta sesji|Tak|
+|Konfiguracja wdrożenia|Tak|
+|Funkcje kontrolne sieci|Tak|
 |Płaszczyzna kontroli wirtualizacji|Nie|
 |Hosty fizyczne|Nie|
 |Sieć fizyczna|Nie|

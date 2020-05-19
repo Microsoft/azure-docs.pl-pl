@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83123769"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB
@@ -22,7 +22,7 @@ Dowiedz się, jak utworzyć funkcję wyzwalaną w przypadku dodania lub zmiany d
 
 W celu ukończenia tego samouczka:
 
-+ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
++ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
@@ -60,9 +60,9 @@ Następnie należy utworzyć funkcję w nowej aplikacji funkcji.
     | **Nowa funkcja** | Zaakceptuj nazwę domyślną | Nazwa funkcji. |
     | **Połączenie konta usługi Cosmos DB** | Zaakceptuj domyślną nową nazwę | Wybierz pozycję **Nowy**, utworzone wcześniej **konto bazy danych** , a następnie kliknij przycisk **OK**. Ta akcja powoduje utworzenie ustawienia aplikacji dla połączenia z kontem. To ustawienie jest używane przez powiązanie do nawiązywania połączenia z bazą danych. |
     | **Nazwa bazy danych** | Zadania | Nazwa bazy danych, która zawiera kolekcję do monitorowania. |
-    | **Nazwa kolekcji** | Items | Nazwa kolekcji do monitorowania. |
+    | **Nazwa kolekcji** | Items (Elementy) | Nazwa kolekcji do monitorowania. |
     | **Nazwa kolekcji dzierżaw** | leases | Nazwa kolekcji do przechowywania dzierżaw. |
-    | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Yes | Sprawdza obecność kolekcji dzierżaw i automatycznie tworzy ją. |
+    | **Utwórz kolekcję dzierżaw, jeśli nie istnieje** | Tak | Sprawdza obecność kolekcji dzierżaw i automatycznie tworzy ją. |
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Tworzenie funkcji wyzwalanej przez usługę Azure Cosmos DB":::
 
@@ -99,7 +99,7 @@ Następnie nawiąż połączenie z kontem Azure Cosmos DB i Utwórz `Items` kont
     | Ustawienie|Sugerowana wartość|Opis |
     | ---|---|--- |
     | **Identyfikator bazy danych** | Zadania |Nazwa nowej bazy danych. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji. |
-    | **Identyfikator kontenera** | Items | Nazwa nowego kontenera. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji.  |
+    | **Identyfikator kontenera** | Items (Elementy) | Nazwa nowego kontenera. Musi być zgodna z nazwą zdefiniowaną w powiązaniu funkcji.  |
     | **[Klucz partycji](../cosmos-db/partition-data.md)** | /category|Klucz partycji służący do równomiernego dystrybuowania danych do każdej partycji. Wybór poprawnego klucza partycji jest istotny podczas tworzenia kontenera wykonywania. | 
     | **Przepływność** |400 RU| Użyj wartości domyślnej. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. |    
 
@@ -127,7 +127,7 @@ Gdy kontener określony w powiązaniu funkcji istnieje, można przetestować fun
 
 1. (Opcjonalnie) Wróć do dokumentu, wprowadź zmianę i kliknij pozycję **Aktualizuj**. Następnie wróć do dzienników funkcji i sprawdź, czy aktualizacja również spowodowała wyzwolenie funkcji.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

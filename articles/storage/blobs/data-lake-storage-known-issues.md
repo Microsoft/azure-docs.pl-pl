@@ -81,7 +81,7 @@ Blobfuse nie jest obsługiwana.
 
 <a id="known-issues-tools" />
 
-## <a name="azcopy"></a>Narzędzie AzCopy
+## <a name="azcopy"></a>AzCopy
 
 Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
@@ -111,7 +111,7 @@ Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) zos
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
-Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Przykład:
+Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Na przykład:
 
 ```powershell
 #To login

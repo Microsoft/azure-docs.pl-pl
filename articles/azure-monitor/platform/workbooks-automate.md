@@ -39,7 +39,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
 
     ![Karta szablonu galerii](./media/workbooks-automate/gallery-template.png)
 1. Skopiuj kod JSON w szablonie galerii do Schowka.
-2. Poniżej znajduje się przykładowy szablon Azure Resource Manager, który wdraża szablon skoroszytu do Azure Monitor galerii skoroszytów. Wklej skopiowany kod JSON w miejscu `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. Szablon Azure Resource Manager odwołania, który tworzy szablon skoroszytu, można znaleźć [tutaj](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+2. Poniżej znajduje się przykładowy szablon Azure Resource Manager, który wdraża szablon skoroszytu do Azure Monitor galerii skoroszytów. Wklej skopiowany kod JSON w miejscu `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>` . Szablon Azure Resource Manager odwołania, który tworzy szablon skoroszytu, można znaleźć [tutaj](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
     {
@@ -77,7 +77,7 @@ Istnieją dwa typy zasobów skoroszytów, które mogą być zarządzane programo
         ]
     }
     ```
-1. W `galleries` obiekcie Wypełnij wartości `name` i. `category` Więcej informacji o [parametrach](#parameters) znajduje się w następnej sekcji.
+1. W `galleries` obiekcie Wypełnij `name` `category` wartości i. Więcej informacji o [parametrach](#parameters) znajduje się w następnej sekcji.
 2. Wdróż ten szablon Azure Resource Manager przy użyciu [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [interfejsu wiersza polecenia](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [programu PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)itd.
 3. Otwórz Azure Portal i przejdź do galerii skoroszytów wybranego w szablonie Azure Resource Manager. W przykładzie szablonu przejdź do galerii skoroszytów Azure Monitor:
     1. Otwórz Azure Portal i przejdź do Azure Monitor
@@ -193,7 +193,7 @@ Ten szablon pokazuje, jak wdrożyć prosty skoroszyt wyświetlający "Hello worl
 | Parametr | Wyjaśnienie |
 | :------------- |:-------------|
 | `workbookDisplayName` | Przyjazna nazwa skoroszytu, który jest używany w galerii lub zapisanej liście. Musi być unikatowa w zakresie grupy zasobów i źródła |
-| `workbookType` | Galeria, w której będzie pokazywany skoroszyt. Obsługiwane wartości to skoroszyt, `tsg`, Azure monitor itd. |
+| `workbookType` | Galeria, w której będzie pokazywany skoroszyt. Obsługiwane wartości to skoroszyt, `tsg` , Azure monitor itd. |
 | `workbookSourceId` | Identyfikator wystąpienia zasobu, do którego zostanie skojarzony skoroszyt. Nowy skoroszyt zostanie wyświetlony względem tego wystąpienia zasobu — na przykład w tabeli zawartości w obszarze _skoroszyt_. Jeśli chcesz, aby skoroszyt był wyświetlany w galerii skoroszytów w Azure Monitor, użyj ciągu _Azure monitor_ zamiast identyfikatora zasobu. |
 | `workbookId` | Unikatowy identyfikator GUID dla tego wystąpienia skoroszytu. Użyj _[newGuid ()]_ , aby automatycznie utworzyć nowy identyfikator GUID. |
 | `kind` | Służy do określania, czy utworzony skoroszyt jest udostępniony, czy prywatny. Użyj wartości _udostępnione_ dla udostępnionych skoroszytów i _użytkownika_ dla prywatnych. |
@@ -210,7 +210,7 @@ Typy skoroszytów określają, który typ galerii skoroszytów zostanie wyświet
 | `usage` | Galeria _więcej informacji_ w obszarze _użycie_ w Application Insights |
 
 ### <a name="limitations"></a>Ograniczenia
-Ze względów technicznych ten mechanizm nie może być używany do tworzenia wystąpień skoroszytów w galerii _skoroszytów_ Application Insights. Pracujemy nad tym ograniczeniem. W tym czasie zalecamy używanie galerii przewodnika rozwiązywania problemów (skoroszyttype: `tsg`) do wdrażania Application Insights powiązanych skoroszytów.
+Ze względów technicznych ten mechanizm nie może być używany do tworzenia wystąpień skoroszytów w galerii _skoroszytów_ Application Insights. Pracujemy nad tym ograniczeniem. W tym czasie zalecamy używanie galerii przewodnika rozwiązywania problemów (skoroszyttype: `tsg` ) do wdrażania Application Insights powiązanych skoroszytów.
 
 ## <a name="next-steps"></a>Następne kroki
 

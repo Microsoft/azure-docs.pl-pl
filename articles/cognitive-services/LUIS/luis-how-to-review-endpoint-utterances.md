@@ -9,28 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c976d3b74badc4eeb5978af352fe425089f2fbfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219853"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584973"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Jak ulepszyć aplikację LUIS, przeglądając punkt końcowy wyrażenia długości
 
 Proces recenzowania punktów końcowych wyrażenia długości pod kątem prawidłowych prognoz jest nazywany [aktywną nauką](luis-concept-review-endpoint-utterances.md). Usługa Active Learning przechwytuje zapytania punktów końcowych i wybiera punkt końcowy użytkownika wyrażenia długości, że nie ma pewności. Te wyrażenia długości są przeglądane w celu wybrania zamiar i oznaczenie jednostek dla tych wyrażenia długości do odczytu. Zaakceptuj te zmiany w przykładzie wyrażenia długości, a następnie Wyszkol i Opublikuj. LUIS następnie identyfikuje wyrażenia długości dokładniej.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="enable-active-learning"></a>Włącz aktywną naukę
 
-Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z parametrem `log=true` QueryString i wartością.
+Aby włączyć aktywną naukę, należy zarejestrować zapytania użytkownika. Jest to realizowane przez wywołanie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) z `log=true` parametrem QueryString i wartością.
 
 Użyj portalu LUIS, aby utworzyć poprawną kwerendę punktu końcowego.
 
-1. W [portalu Luis w wersji zapoznawczej](https://preview.luis.ai/)wybierz aplikację z listy aplikacji.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 1. Przejdź do sekcji **Zarządzanie** , a następnie wybierz pozycję **zasoby platformy Azure**.
 1. Dla przypisanego zasobu przewidywania wybierz pozycję **Zmień parametry zapytania**.
 
@@ -42,7 +41,7 @@ Użyj portalu LUIS, aby utworzyć poprawną kwerendę punktu końcowego.
     > [!div class="mx-imgBorder"]
     > ![Użyj portalu LUIS do zapisania dzienników, które są wymagane do aktywnego uczenia.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Ta akcja powoduje zmianę przykładowego adresu URL przez `log=true` dodanie parametru QueryString. Skopiuj i użyj zmienionego przykładowego adresu URL zapytania podczas tworzenia zapytań prognozowania do punktu końcowego środowiska uruchomieniowego.
+     Ta akcja powoduje zmianę przykładowego adresu URL przez dodanie `log=true` parametru QueryString. Skopiuj i użyj zmienionego przykładowego adresu URL zapytania podczas tworzenia zapytań prognozowania do punktu końcowego środowiska uruchomieniowego.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Popraw przewidywania zamierzeń, aby wyrównać wyrażenia długości
 
@@ -64,7 +63,7 @@ Jeśli nie masz pewności, czy należy usunąć wypowiedź, przenieś je do zami
 
 ## <a name="disable-active-learning"></a>Wyłącz aktywną naukę
 
-Aby wyłączyć aktywną naukę, nie Rejestruj zapytań użytkownika. Jest to realizowane przez ustawienie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) z parametrem `log=false` QueryString i wartością lub nieużywaniem wartości QueryString, ponieważ wartością domyślną jest false.
+Aby wyłączyć aktywną naukę, nie Rejestruj zapytań użytkownika. Jest to realizowane przez ustawienie [zapytania punktu końcowego](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) z `log=false` parametrem QueryString i wartością lub nieużywaniem wartości QueryString, ponieważ wartością domyślną jest false.
 
 ## <a name="next-steps"></a>Następne kroki
 

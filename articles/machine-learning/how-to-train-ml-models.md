@@ -11,19 +11,20 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c96ba3496f4542658878518207b2033342e33f5
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: c47bdc17041b2c388b01681dc1e65ddea29b0efb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628763"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584403"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Uczenie modeli za pomocą Azure Machine Learning przy użyciu szacowania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Za pomocą Azure Machine Learning można łatwo przesłać skrypt szkoleniowy do [różnych obiektów docelowych obliczeń](how-to-set-up-training-targets.md#compute-targets-for-training)przy użyciu [obiektu RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) i [obiektu ScriptRunConfig](how-to-set-up-training-targets.md#submit). Ten wzorzec zapewnia dużą elastyczność i maksymalną kontrolę.
 
-Aby ułatwić szkolenie modelu uczenia głębokiego, zestaw Azure Machine Learning Python SDK udostępnia alternatywne abstrakcję wyższego poziomu, klasy szacowania, która umożliwia użytkownikom łatwe konstruowanie konfiguracji uruchomieniowych. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) do przesyłania skryptu szkoleniowego za pomocą wybranej platformy szkoleniowej (na przykład scikit-Learning) na dowolnym wybranym miejscu docelowym obliczeń, niezależnie od tego, czy jest to maszyna lokalna, jedna maszyna wirtualna na platformie Azure czy klaster GPU na platformie Azure. W przypadku zadań PyTorch, TensorFlow i łańcucha Azure Machine Learning zapewnia także odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)i [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) szacowania, aby uprościć korzystanie z tych platform.
+
+Klasa szacowania ułatwia uczenie modeli o głębokiej uczeniu i wzmacnianiu uczenia się. Zapewnia abstrakcję wysokiego poziomu, która umożliwia łatwe konstruowanie konfiguracji uruchomieniowej. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) do przesyłania skryptu szkoleniowego za pomocą wybranej platformy szkoleniowej (na przykład scikit-Learning) na dowolnym wybranym miejscu docelowym obliczeń, niezależnie od tego, czy jest to maszyna lokalna, jedna maszyna wirtualna na platformie Azure czy klaster GPU na platformie Azure. W przypadku zadań związanych z PyTorch, TensorFlow, łańcuchem i wzmocnieniem, Azure Machine Learning oferuje także odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [łańcucher](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)i [wzmocnienie kształcenia](how-to-use-reinforcement-learning.md) szacowania, aby uprościć korzystanie z tych platform.
 
 ## <a name="train-with-an-estimator"></a>Uczenie z szacowania
 
@@ -38,7 +39,7 @@ Ten artykuł koncentruje się na krokach 4-5. Kroki 1-3 można znaleźć na przy
 
 ### <a name="single-node-training"></a>Szkolenie z jednego węzła
 
-W `Estimator` przypadku szkolenia z jednym węzłem należy użyć na potrzeby zdalnego obliczania na platformie Azure dla modelu scikit-uczenia się. Obiekt `compute_target` [docelowy obliczeń](how-to-set-up-training-targets.md#amlcompute) powinien już być utworzony i obiekt `ds` [FileDataset](how-to-create-register-datasets.md) .
+W `Estimator` przypadku szkolenia z jednym węzłem należy użyć na potrzeby zdalnego obliczania na platformie Azure dla modelu scikit-uczenia się. Obiekt [docelowy obliczeń](how-to-set-up-training-targets.md#amlcompute) powinien już być utworzony `compute_target` i obiekt [FileDataset](how-to-create-register-datasets.md) `ds` .
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -61,14 +62,14 @@ Ten fragment kodu określa następujące parametry `Estimator` konstruktora.
 Parametr | Opis
 --|--
 `source_directory`| Katalog lokalny, który zawiera cały kod wymagany do zadania szkoleniowego. Ten folder zostanie skopiowany z komputera lokalnego do zdalnego obliczenia.
-`script_params`| Słownik określający argumenty wiersza polecenia do przekazania do skryptu `entry_script`szkoleniowego, w postaci `<command-line argument, value>` par. Aby określić flagę verbose w `script_params`, użyj. `<command-line argument, "">`
+`script_params`| Słownik określający argumenty wiersza polecenia do przekazania do skryptu szkoleniowego `entry_script` , w postaci `<command-line argument, value>` par. Aby określić flagę verbose w `script_params` , użyj `<command-line argument, "">` .
 `compute_target`| Miejsce docelowe obliczeń zdalnych, na których będzie wykonywany skrypt szkoleniowy, w tym przypadku klaster Azure Machine Learning COMPUTE ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Należy pamiętać, że klaster AmlCompute jest często używanym miejscem docelowym, dlatego można wybrać inne typy obiektów docelowych obliczeń, takie jak maszyny wirtualne platformy Azure, a nawet komputer lokalny).
-`entry_script`| FilePath (względem `source_directory`) skryptu szkoleniowego do uruchomienia w ramach obliczeń zdalnych. Ten plik i wszelkie dodatkowe pliki, od których zależy, powinny znajdować się w tym folderze.
+`entry_script`| FilePath (względem `source_directory` ) skryptu szkoleniowego do uruchomienia w ramach obliczeń zdalnych. Ten plik i wszelkie dodatkowe pliki, od których zależy, powinny znajdować się w tym folderze.
 `conda_packages`| Lista pakietów języka Python do zainstalowania za pośrednictwem Conda wymaganego przez skrypt szkoleniowy.  
 
 Konstruktor ma inny parametr o nazwie `pip_packages` , który jest używany dla wszystkich wymaganych pakietów PIP.
 
-Teraz `Estimator` , po utworzeniu obiektu, Prześlij zadanie szkolenia, które ma zostać uruchomione na zdalnym obliczeniu, za pomocą wywołania `submit` funkcji w obiekcie [Experiment](concept-azure-machine-learning-architecture.md#experiments) `experiment`eksperymentu. 
+Teraz, po utworzeniu `Estimator` obiektu, Prześlij zadanie szkolenia, które ma zostać uruchomione na zdalnym obliczeniu, za pomocą wywołania `submit` funkcji w obiekcie [eksperymentu](concept-azure-machine-learning-architecture.md#experiments) `experiment` . 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -76,7 +77,7 @@ print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
-> **Foldery specjalne** Dwa foldery, dane *wyjściowe* i *dzienniki*, otrzymują specjalne traktowanie według Azure Machine Learning. Podczas szkolenia podczas pisania plików do folderów o nazwie dane *wyjściowe* i *dzienniki* , które są względne dla katalogu głównego`./outputs` ( `./logs`i odpowiednio), pliki zostaną automatycznie przekazane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
+> **Foldery specjalne** Dwa foldery, dane *wyjściowe* i *dzienniki*, otrzymują specjalne traktowanie według Azure Machine Learning. Podczas szkolenia podczas pisania plików do folderów o nazwie dane *wyjściowe* i *dzienniki* , które są względne dla katalogu głównego ( `./outputs` i `./logs` odpowiednio), pliki zostaną automatycznie przekazane do historii uruchamiania, dzięki czemu będziesz mieć do nich dostęp po zakończeniu przebiegu.
 >
 > Aby tworzyć artefakty podczas szkoleń (takich jak pliki modelu, punkty kontrolne, pliki danych lub rysunki), Zapisz je w `./outputs` folderze.
 >
@@ -86,13 +87,13 @@ print(run.get_portal_url())
 
 ### <a name="distributed-training-and-custom-docker-images"></a>Szkolenie rozproszone i niestandardowe obrazy platformy Docker
 
-Istnieją dwa dodatkowe scenariusze szkoleniowe, które można wykonać przy użyciu `Estimator`:
+Istnieją dwa dodatkowe scenariusze szkoleniowe, które można wykonać przy użyciu `Estimator` :
 * Używanie niestandardowego obrazu platformy Docker
 * Szkolenie rozproszone w klastrze z obsługą kilku węzłów
 
 Poniższy kod przedstawia sposób przeprowadzenia szkolenia rozproszonego dla modelu Keras. Ponadto zamiast używać domyślnych obrazów Azure Machine Learning, określa niestandardowy obraz platformy Docker z usługi Docker Hub `continuumio/miniconda` do szkoleń.
 
-Obiekt `compute_target` [docelowy obliczeń](how-to-set-up-training-targets.md#amlcompute) powinien już być utworzony. Szacowania można utworzyć w następujący sposób:
+Obiekt [docelowy obliczeń](how-to-set-up-training-targets.md#amlcompute) powinien już być utworzony `compute_target` . Szacowania można utworzyć w następujący sposób:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -110,9 +111,9 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 Powyższy kod uwidacznia następujące nowe parametry `Estimator` konstruktorowi:
 
-Parametr | Opis | Domyślny
+Parametr | Opis | Domyślne
 --|--|--
-`custom_docker_image`| Nazwa obrazu, którego chcesz użyć. Udostępniaj tylko obrazy dostępne w publicznych repozytoriach platformy Docker (w tym przypadku Docker Hub). Aby użyć obrazu z prywatnego repozytorium platformy Docker, Użyj zamiast niego `environment_definition` parametru konstruktora. [Zobacz przykład](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
+`custom_docker_image`| Nazwa obrazu, którego chcesz użyć. Udostępniaj tylko obrazy dostępne w publicznych repozytoriach platformy Docker (w tym przypadku Docker Hub). Aby użyć obrazu z prywatnego repozytorium platformy Docker, użyj `environment_definition` zamiast niego parametru konstruktora. [Zobacz przykład](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Liczba węzłów, które mają być używane dla zadania szkoleniowego. | `1`
 `process_count_per_node`| Liczba procesów (lub "pracowników") do uruchomienia w każdym węźle. W takim przypadku używane są `2` procesory GPU dostępne w każdym węźle.| `1`
 `distributed_training`| Obiekt [MPIConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) do uruchamiania szkoleń rozproszonych przy użyciu zaplecza MPI.  | `None`
@@ -128,7 +129,7 @@ print(run.get_portal_url())
 
 Po przeszkoleniu modelu możesz go zapisać i zarejestrować w obszarze roboczym. Rejestracja modelu umożliwia przechowywanie modeli i ich wersji w obszarze roboczym w celu uproszczenia [zarządzania modelami i ich wdrażania](concept-model-management-and-deployment.md).
 
-Uruchomienie następującego kodu spowoduje zarejestrowanie modelu w Twoim obszarze roboczym i udostępnienie go do odwołania według nazwy w zdalnych kontekstach obliczeniowych lub w skryptach wdrożenia. Więcej [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) informacji i dodatkowe parametry można znaleźć w dokumentacji referencyjnej.
+Uruchomienie następującego kodu spowoduje zarejestrowanie modelu w Twoim obszarze roboczym i udostępnienie go do odwołania według nazwy w zdalnych kontekstach obliczeniowych lub w skryptach wdrożenia. [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)Więcej informacji i dodatkowe parametry można znaleźć w dokumentacji referencyjnej.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)
@@ -156,6 +157,7 @@ W przypadku notesów na potrzeby modeli szkoleniowych przy użyciu szacowania z 
 * [Śledzenie metryk uruchamiania podczas szkolenia](how-to-track-experiments.md)
 * [Szkolenie modeli PyTorch](how-to-train-pytorch.md)
 * [Szkolenie modeli TensorFlow](how-to-train-tensorflow.md)
+* [Uczenie głębokiej sieci neuronowych Learning uczenia się](how-to-use-reinforcement-learning.md)
 * [Dostrajanie hiperparametrów](how-to-tune-hyperparameters.md)
 * [Wdrażanie przeszkolonego modelu](how-to-deploy-and-where.md)
 * [Twórz środowiska szkoleniowe i wdrażaj i zarządzaj nimi](how-to-use-environments.md)

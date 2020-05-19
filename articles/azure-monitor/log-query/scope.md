@@ -41,7 +41,7 @@ Zakres jest określany przez metodę, która jest używana do uruchamiania Log A
 
 Gdy zakres zapytania jest obszarem roboczym Log Analytics lub aplikacją Application Insights, dostępne są wszystkie opcje w portalu i wszystkie polecenia zapytań. W przypadku określania zakresu zasobu następujące opcje w portalu nie są dostępne, ponieważ są skojarzone z pojedynczym obszarem roboczym lub aplikacją:
 
-- Zapisz
+- Zapisywanie
 - Eksplorator zapytań
 - Nowa reguła alertu
 

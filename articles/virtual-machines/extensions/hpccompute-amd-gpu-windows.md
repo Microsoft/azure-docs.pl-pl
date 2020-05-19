@@ -73,7 +73,7 @@ Poniższy kod JSON pokazuje schemat rozszerzenia.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
 | publisher | Microsoft. HpcCompute | ciąg |
-| type | AmdGpuDriverWindows | ciąg |
+| typ | AmdGpuDriverWindows | ciąg |
 | typeHandlerVersion | 1.0 | int |
 
 

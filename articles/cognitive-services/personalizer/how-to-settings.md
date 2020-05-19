@@ -2,13 +2,13 @@
 title: Konfigurowanie usługi Personalizacja
 description: Konfiguracja usługi zawiera informacje o tym, jak usługa traktuje korzyści, jak często bada usługa, jak często jest on przełączany i jak dużo danych jest przechowywanych.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219358"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584658"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Konfigurowanie pętli uczenia personalizacji
 
@@ -18,6 +18,23 @@ Skonfiguruj pętlę uczenia na stronie **Konfiguracja** w Azure Portal dla tego 
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Planowanie zmian konfiguracji
+
+Ponieważ niektóre zmiany konfiguracji [resetują model](#settings-that-include-resetting-the-model), należy zaplanować zmiany w konfiguracji.
+
+Jeśli planujesz używanie [trybu zawodowego](concept-apprentice-mode.md), pamiętaj o przejrzeniu konfiguracji personalizacji przed przełączeniem do trybu praktyk.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Ustawienia, które obejmują Resetowanie modelu
+
+Poniższe akcje wyzwalają ponowne szkolenie modelu przy użyciu danych dostępnych do ostatniego 2 dni.
+
+* Nagradzaj
+* Eksploracja
+
+Aby [wyczyścić](how-to-manage-model.md) wszystkie dane, użyj strony **Ustawienia modelu i uczenia** .
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Skonfiguruj nagrody dla pętli opinii
 
@@ -52,7 +69,7 @@ Po zmianie tej wartości upewnij się, że wybrano pozycję **Zapisz**.
 
 |Ustawienie częstotliwości|Przeznaczenie|
 |--|--|
-|1 min|Częstotliwości aktualizacji o pojedynczej minucie są przydatne podczas **debugowania** kodu aplikacji przy użyciu narzędzia do personalizacji, wykonywania pokazów lub interaktywnego testowania aspektów uczenia maszynowego.|
+|1 minuta|Częstotliwości aktualizacji o pojedynczej minucie są przydatne podczas **debugowania** kodu aplikacji przy użyciu narzędzia do personalizacji, wykonywania pokazów lub interaktywnego testowania aspektów uczenia maszynowego.|
 |15 minut|Wysokie częstotliwości aktualizacji modelu są przydatne w sytuacjach, w których chcesz **ściśle śledzić zmiany** zachowań użytkownika. Przykłady obejmują witryny, które są uruchamiane na żywo wiadomości, zawartości wirusowej lub licytacji produktu na żywo. W tych scenariuszach można użyć częstotliwości 15 minut. |
 |1 godzina|W większości przypadków użycia niższa częstotliwość aktualizacji jest skuteczna.|
 
@@ -66,16 +83,7 @@ Po zmianie tej wartości upewnij się, że wybrano pozycję **Zapisz**.
 
 Po zmianie tej wartości upewnij się, że wybrano pozycję **Zapisz**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Ustawienia, które obejmują Resetowanie modelu
-
-Następujące działania zawierają natychmiastowe przeszkolenie modelu z ostatnich 2 dni danych.
-
-* Nagradzaj
-* Eksploracja
-
-Aby [wyczyścić](how-to-manage-model.md) wszystkie dane, użyj strony * * model i nauka ustawienia * *.
 
 ## <a name="next-steps"></a>Następne kroki
 

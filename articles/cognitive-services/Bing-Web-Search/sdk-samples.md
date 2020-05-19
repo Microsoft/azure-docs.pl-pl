@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 63996d5e654f22235ab1c243067389653bfaabd8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 36719fc8370c04e9c2d01422536502f90e124c12
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65798425"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735253"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Przykłady dla zestawu SDK wyszukiwania w sieci Web Bing
 
@@ -31,11 +31,11 @@ Zestaw SDK wyszukiwania w sieci Web Bing jest dostępny w języku Python, Node.j
 Poniższe linki umożliwiają uzyskiwanie dostępu do zestawu SDK dla preferowanego języka.
 
 * Rozpocznij pracę, korzystając z [przykładów dla języka Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-  * Zobacz też [biblioteki języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) zawierające definicje i zależności.
+  * Zobacz też [biblioteki języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-websearch) zawierające definicje i zależności.
 * Wprowadzenie do [przykładów środowiska Node. js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
   * Zobacz też [informacje o wyszukiwaniu w sieci Web platformy Node.js](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch).
 * Rozpocznij pracę, korzystając z [przykładów dla platformy .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [Pakiet NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-  * Zobacz też [biblioteki platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) zawierające definicje i zależności.
+  * Zobacz też [biblioteki platformy .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingWebSearch) zawierające definicje i zależności.
 * Rozpocznij pracę, korzystając z [przykładów dla języka Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
   * Zobacz też [biblioteki języka Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) zawierające definicje i zależności.

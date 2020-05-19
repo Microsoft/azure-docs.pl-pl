@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d94f557ddd946d20020825e2bbb6babbd67d3af3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769868"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734335"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Samouczek: używanie Custom Vision z urządzeniem IoT do zgłaszania Stanów wizualnych
 
@@ -31,7 +31,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Użyj aplikacji do uczenia projektu Custom Vision.
 > * Użyj aplikacji do oceny nowych obrazów w czasie rzeczywistym i wysłania wyników do platformy Azure.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,7 +62,7 @@ Poniższe pliki obsługują najważniejsze funkcje aplikacji.
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Ten kod steruje zachowaniem interfejsu użytkownika XAML. Zawiera kod przetwarzania maszynowego stanu.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | Ta klasa jest otoką obsługującą integrację z Custom Vision Service.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | Ta klasa jest otoką obsługującą integrację z systemem Windows ML na potrzeby ładowania modelu ONNX i przetwarzania obrazów.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | Ta klasa jest otoką, która obsługuje integrację z IoT Hub na potrzeby przekazywania wyników oceniania do platformy Azure.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | Ta klasa jest otoką, która obsługuje integrację z IoT Hub na potrzeby przekazywania wyników oceniania do platformy Azure.|
 
 ## <a name="set-up-the-visual-alerts-app"></a>Konfigurowanie aplikacji alertów wizualnych
 
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby uzyskać dostęp do aplikacji alertów wizualny
     1. Zaktualizuj `targetCVSProjectGuid` zmienną z odpowiednim identyfikatorem projektu Custom Vision, którego chcesz użyć. 
 1. Skonfiguruj zasób IoT Hub:
     1. W skrypcie _IoTHub\IotHubWrapper.cs_ zaktualizuj `s_connectionString` zmienną o prawidłowe parametry połączenia dla Twojego urządzenia. 
-    1. Na Azure Portal Załaduj wystąpienie IoT Hub, kliknij pozycję **urządzenia IoT** w obszarze **Explorer**, wybierz urządzenie docelowe (lub utwórz je w razie konieczności) i Znajdź parametry połączenia w obszarze **podstawowe parametry połączenia**. Ciąg będzie zawierać nazwę IoT Hub, identyfikator urządzenia i klucz dostępu współdzielonego. ma następujący format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
+    1. Na Azure Portal Załaduj wystąpienie IoT Hub, kliknij pozycję **urządzenia IoT** w obszarze **Explorer**, wybierz urządzenie docelowe (lub utwórz je w razie konieczności) i Znajdź parametry połączenia w obszarze **podstawowe parametry połączenia**. Ciąg będzie zawierać nazwę IoT Hub, identyfikator urządzenia i klucz dostępu współdzielonego. ma następujący format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
 
 ## <a name="run-the-app"></a>Uruchomienie aplikacji
 
@@ -90,9 +90,9 @@ Gdy aplikacja jest uruchamiana po raz pierwszy, nie będzie miała żadnej znajo
 
 Aby skonfigurować model, należy umieścić aplikację w stanie **przechwytywania obrazów szkoleniowych** . Wykonaj jedną z następujących czynności:
 * Jeśli używasz aplikacji na komputerze PC, użyj przycisku w prawym górnym rogu interfejsu użytkownika.
-* Jeśli aplikacja jest uruchamiana na urządzeniu IoT, należy wywołać `EnterLearningMode` metodę na urządzeniu za pomocą IoT Hub. Możesz wywołać go za pomocą wpisu urządzenia w menu IoT Hub na Azure Portal lub za pomocą narzędzia, takiego jak [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Jeśli aplikacja jest uruchamiana na urządzeniu IoT, należy wywołać `EnterLearningMode` metodę na urządzeniu za pomocą IoT Hub. Możesz wywołać go za pomocą wpisu urządzenia w menu IoT Hub na Azure Portal lub za pomocą narzędzia, takiego jak [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp).
  
-Gdy aplikacja przejdzie do stanu **przechwytywania obrazów szkoleniowych** , przechwytuje on dwa obrazy co sekundę do czasu osiągnięcia docelowej liczby obrazów. Domyślnie obiektem docelowym jest 30 obrazów, ale można ustawić ten parametr, przekazując żądaną liczbę jako argument do metody `EnterLearningMode` IoT Hub. 
+Gdy aplikacja przejdzie do stanu **przechwytywania obrazów szkoleniowych** , przechwytuje on dwa obrazy co sekundę do czasu osiągnięcia docelowej liczby obrazów. Domyślnie obiektem docelowym jest 30 obrazów, ale można ustawić ten parametr, przekazując żądaną liczbę jako argument do `EnterLearningMode` metody IoT Hub. 
 
 Gdy aplikacja przechwytuje obrazy, należy uwidocznić kamerę w typach Stanów wizualnych, które mają być wykrywane (na przykład puste pomieszczenie, pomieszczenie z osobami, pustym biurem, biurem i wózkiem zabawka itp.).
 
@@ -116,7 +116,7 @@ Aby powtórzyć ten proces z własnym scenariuszem:
 
 Po pobraniu przez aplikację przeszkolonego modelu nastąpi przełączenie do stanu **oceniania** i rozpoczęcie oceniania obrazów z aparatu w pętli ciągłej.
 
-Dla każdego przechwytywanego obrazu aplikacja wyświetli na ekranie górny tag. Jeśli nie rozpoznaje stanu wizualnego, wyświetli **Brak dopasowań**. Aplikacja wysyła również te komunikaty do IoT Hub, a w przypadku wykrycia klasy, komunikat będzie zawierać etykietę, wynik pewności i właściwość o nazwie `detectedClassAlert`, która może być używana przez IoT Hub klientów zainteresowanych wykonywaniem szybkiego routingu komunikatów na podstawie właściwości.
+Dla każdego przechwytywanego obrazu aplikacja wyświetli na ekranie górny tag. Jeśli nie rozpoznaje stanu wizualnego, wyświetli **Brak dopasowań**. Aplikacja wysyła również te komunikaty do IoT Hub, a w przypadku wykrycia klasy, komunikat będzie zawierać etykietę, wynik pewności i właściwość o nazwie `detectedClassAlert` , która może być używana przez IoT Hub klientów zainteresowanych wykonywaniem szybkiego routingu komunikatów na podstawie właściwości.
 
 Ponadto przykład korzysta z [biblioteki rozpoznawania wykrywania](https://github.com/emmellsoft/RPi.SenseHat) , aby wykryć, kiedy jest uruchomiona w Raspberry Pi z jednostką Hat, tak aby można było go używać jako danych wyjściowych, ustawiając wszystkie sygnalizatory wyświetlania na czerwono, gdy wykryje klasę i puste, gdy nie wykryje niczego.
 
@@ -124,11 +124,11 @@ Ponadto przykład korzysta z [biblioteki rozpoznawania wykrywania](https://githu
 
 Jeśli chcesz zresetować aplikację do stanu pierwotnego, możesz to zrobić, klikając przycisk w prawym górnym rogu interfejsu użytkownika lub wywołując metodę `DeleteCurrentModel` za pomocą IoT hubu.
 
-W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych, klikając przycisk interfejsu użytkownika prawym przyciskiem myszy lub ponownie wywołując `EnterLearningMode` metodę.
+W dowolnym momencie można powtórzyć krok przekazywania obrazów szkoleniowych, klikając przycisk interfejsu użytkownika prawym przyciskiem myszy lub `EnterLearningMode` ponownie wywołując metodę.
 
 Jeśli aplikacja jest uruchamiana na urządzeniu i należy ponownie pobrać adres IP (w celu nawiązania połączenia zdalnego za pomocą [zdalnego klienta usługi Windows IoT](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)), można wywołać `GetIpAddress` metodę za pomocą IoT Hub.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń projekt Custom Vision, jeśli nie chcesz już go obsługiwać. W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz, który można obsłużyć w nowym projekcie.
 

@@ -20,7 +20,7 @@ Aby rozpocząć Azure Cloud Shell:
 | Opcja | Przykład/link |
 |-----------------------------------------------|---|
 | Wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Wybranie przycisku **Wypróbuj** nie powoduje automatycznego skopiowania kodu do Cloud Shell. | ![Przykład try dla Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Przejdź do [https://shell.azure.com](https://shell.azure.com)lub wybierz przycisk **Uruchom Cloud Shell** , aby otworzyć Cloud Shell w przeglądarce. | [![Uruchom Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Przejdź do [https://shell.azure.com](https://shell.azure.com) lub wybierz przycisk **Uruchom Cloud Shell** , aby otworzyć Cloud Shell w przeglądarce. | [![Uruchom Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu [Azure Portal](https://portal.azure.com). | ![Przycisk Cloud Shell w witrynie Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 Aby uruchomić kod w tym artykule w Azure Cloud Shell:
@@ -29,6 +29,6 @@ Aby uruchomić kod w tym artykule w Azure Cloud Shell:
 
 1. Aby skopiować kod, wybierz przycisk **Kopiuj** w bloku kodu.
 
-1. Wklej kod do sesji Cloud Shell, wybierając pozycję **Ctrl**+**SHIFT**+**v** w systemach Windows i Linux lub wybierając pozycję **cmd**+**SHIFT**+**v** w macOS.
+1. Wklej kod do sesji Cloud Shell, wybierając pozycję **Ctrl** + **SHIFT** + **v** w systemach Windows i Linux lub wybierając pozycję **cmd** + **SHIFT** + **v** w macOS.
 
 1. Wybierz **klawisz ENTER** , aby uruchomić kod.

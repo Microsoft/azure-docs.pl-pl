@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531104"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594172"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy w języku Python, aby nauczyć model niestandardowy z ręcznie oznaczonymi danymi. Aby dowiedzieć się więcej na temat tej funkcji, zobacz sekcję [uczenie z etykietami](../overview.md#train-with-labels) .
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -63,7 +63,7 @@ Potrzebujesz plików wyników OCR, aby usługa mogła rozważyć odpowiednie pli
 
 1. Wywołaj interfejs API **[analizowania układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** w kontenerze układu odczytu z plikiem wejściowym w ramach treści żądania. Zapisz identyfikator znaleziony w nagłówku **operacji** odpowiedzi.
 1. Wywołaj interfejs API **[wyników Get analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** przy użyciu identyfikatora operacji z poprzedniego kroku.
-1. Pobierz odpowiedź i Zapisz zawartość do pliku. Dla każdego formularza źródłowego odpowiedni plik OCR powinien zawierać oryginalną nazwę pliku `.ocr.json`. Dane wyjściowe OCR w formacie JSON powinny mieć następujący format. Zobacz [przykładowy plik OCR](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) , aby zapoznać się z pełnym przykładem. 
+1. Pobierz odpowiedź i Zapisz zawartość do pliku. Dla każdego formularza źródłowego odpowiedni plik OCR powinien zawierać oryginalną nazwę pliku `.ocr.json` . Dane wyjściowe OCR w formacie JSON powinny mieć następujący format. Zobacz [przykładowy plik OCR](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) , aby zapoznać się z pełnym przykładem. 
 
     ```json
     {
@@ -118,9 +118,9 @@ Potrzebujesz plików wyników OCR, aby usługa mogła rozważyć odpowiednie pli
 
 Pliki etykiet zawierają skojarzenia klucz-wartość wprowadzone ręcznie przez użytkownika. Są one potrzebne do szkolenia danych z etykietami, ale nie każdy plik źródłowy musi mieć odpowiedni plik etykiet. Pliki źródłowe bez etykiet będą traktowane jako zwykłe dokumenty szkoleniowe. Zalecamy używanie co najmniej pięciu plików z etykietą w celu zapewnienia niezawodnego szkolenia.
 
-Podczas tworzenia pliku etykiet można opcjonalnie określić regiony&mdash;dokładne położenia wartości w dokumencie. Zapewni to uczenie nawet wyższą dokładność. Regiony są sformatowane jako zbiór ośmiu wartości odpowiadających czterem X, współrzędnej Y: w lewym górnym rogu, w prawym górnym rogu i w lewym dolnym rogu. Wartości współrzędnych należą do zakresu od zera do jednego, skalowane do wymiarów strony.
+Podczas tworzenia pliku etykiet można opcjonalnie określić regiony &mdash; dokładne położenia wartości w dokumencie. Zapewni to uczenie nawet wyższą dokładność. Regiony są sformatowane jako zbiór ośmiu wartości odpowiadających czterem X, współrzędnej Y: w lewym górnym rogu, w prawym górnym rogu i w lewym dolnym rogu. Wartości współrzędnych należą do zakresu od zera do jednego, skalowane do wymiarów strony.
 
-Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginalną nazwę pliku `.labels.json`. Plik etykiety powinien mieć następujący format. Zapoznaj się z przykładowym [plikiem etykiet](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) .
+Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginalną nazwę pliku `.labels.json` . Plik etykiety powinien mieć następujący format. Zapoznaj się z przykładowym [plikiem etykiet](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) .
 
 ```json
 {
@@ -195,9 +195,9 @@ Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginaln
 
 Aby przeprowadzić uczenie modelu z danymi z etykietami, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
-1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Zamień `<Blob folder name>` na nazwę folderu w kontenerze obiektów blob, w którym znajdują się dane wejściowe. Lub, jeśli Twoje dane są w katalogu głównym, pozostaw to pole puste i Usuń `"prefix"` je z treści żądania HTTP.
+1. Zamień na `<Endpoint>` adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
+1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. Zamień na `<Blob folder name>` nazwę folderu w kontenerze obiektów blob, w którym znajdują się dane wejściowe. Lub, jeśli Twoje dane są w katalogu głównym, pozostaw to pole puste i usuń je `"prefix"` z treści żądania HTTP.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
@@ -486,11 +486,8 @@ Po zakończeniu procesu otrzymasz `202 (Success)` odpowiedź z zawartością JSO
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/15/words/0"
-                }
-              ],
-              "fieldName":"total"
+                "#/analyzeResult/readResults/0/lines/15/words/0"
+              ]
             },
             "invoice #":{ 
               "type":"string",
@@ -509,11 +506,8 @@ Po zakończeniu procesu otrzymasz `202 (Success)` odpowiedź z zawartością JSO
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/12/words/0"
-                }
-              ],
-              "fieldName":"invoice #"
+                "#/analyzeResult/readResults/0/lines/12/words/0"
+              ]
             },
             "vat":{ 
               "type":"string",
@@ -532,11 +526,8 @@ Po zakończeniu procesu otrzymasz `202 (Success)` odpowiedź z zawartością JSO
               "page":1,
               "confidence":0.9839357733726502,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/16/words/0"
-                }
-              ],
-              "fieldName":"vat"
+                "#/analyzeResult/readResults/0/lines/16/words/0"
+              ]
             },
             ...
           }

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: a09b79992f669c296fe0a674179fde5f38e8fc8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149382"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587836"
 ---
 Rozpocznij pracę z biblioteką klienta programu Front for. Wykonaj następujące kroki, aby zainstalować bibliotekę i wypróbuj nasze przykłady dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -26,7 +26,7 @@ Korzystanie z biblioteki klienta usługi Front Service dla języka go:
 * [Identyfikowanie kroju](#identify-a-face)
 * [Utwórz migawkę migracji danych](#take-a-snapshot-for-data-migration)
 
-[Pobierz referencyjną bibliotekę dokumentacji](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | źródłowy[zestaw SDK](https://github.com/Azure/azure-sdk-for-go)
+[Dokumentacja](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  źródłowy biblioteki [Pobieranie zestawu SDK](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -81,7 +81,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.bashrc` z okna k
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-`.bash_profile`Edytuj i Dodaj zmienną środowiskową:
+Edytuj `.bash_profile` i Dodaj zmienną środowiskową:
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -93,7 +93,7 @@ Po dodaniu zmiennej środowiskowej uruchom polecenie `source .bash_profile` z ok
 
 ### <a name="create-a-go-project-directory"></a>Utwórz katalog projektu języka go
 
-W oknie konsoli (cmd, PowerShell, Terminal, bash) Utwórz nowy obszar roboczy dla projektu go, nazwanego `my-app`i przejdź do niego.
+W oknie konsoli (cmd, PowerShell, Terminal, bash) Utwórz nowy obszar roboczy dla projektu go, nazwanego `my-app` i przejdź do niego.
 
 ```
 mkdir -p my-app/{src, bin, pkg}  
@@ -104,17 +104,17 @@ Obszar roboczy będzie zawierać trzy foldery:
 
 * **src** — ten katalog będzie zawierać kod źródłowy i pakiety. Wszystkie pakiety zainstalowane za pomocą `go get` polecenia będą znajdować się w tym folderze.
 * **pkg** — ten katalog będzie zawierać skompilowane obiekty pakietu języka go. Wszystkie te pliki mają `.a` rozszerzenie.
-* **bin** — ten katalog będzie zawierać binarne pliki wykonywalne, które są tworzone podczas uruchamiania `go install`programu.
+* **bin** — ten katalog będzie zawierać binarne pliki wykonywalne, które są tworzone podczas uruchamiania programu `go install` .
 
 > [!TIP]
-> Aby dowiedzieć się więcej na temat struktury obszaru roboczego go, zobacz [dokumentację języka](https://golang.org/doc/code.html#Workspaces)go. Ten przewodnik zawiera informacje dotyczące ustawiania `$GOPATH` i `$GOROOT`.
+> Aby dowiedzieć się więcej na temat struktury obszaru roboczego go, zobacz [dokumentację języka](https://golang.org/doc/code.html#Workspaces)go. Ten przewodnik zawiera informacje dotyczące ustawiania `$GOPATH` i `$GOROOT` .
 
 ### <a name="install-the-client-library-for-go"></a>Zainstaluj bibliotekę kliencką dla języka go
 
 Następnie zainstaluj bibliotekę kliencką dla języka go:
 
 ```bash
-go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
+go get -u github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 a jeśli używasz programu dep, w ramach repozytorium uruchom:
@@ -125,7 +125,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Tworzenie aplikacji języka go
 
-Następnie utwórz plik w katalogu **src** o nazwie `sample-app.go`:
+Następnie utwórz plik w katalogu **src** o nazwie `sample-app.go` :
 
 ```bash
 cd src
@@ -166,7 +166,7 @@ Te przykłady kodu pokazują, jak wykonać podstawowe zadania przy użyciu bibli
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 > [!NOTE] 
-> W tym przewodniku szybki start założono, że zostały [utworzone zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla `FACE_SUBSCRIPTION_KEY` klucza `FACE_ENDPOINT` i punktu końcowego, odpowiednio nazwane i.
+> W tym przewodniku szybki start założono, że zostały [utworzone zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, `FACE_SUBSCRIPTION_KEY` odpowiednio nazwane i `FACE_ENDPOINT` .
 
 Utwórz **główną** funkcję i Dodaj do niej następujący kod, aby utworzyć wystąpienie klienta z punktem końcowym i kluczem. Utworzysz obiekt **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** z kluczem i użyjesz go w punkcie końcowym, aby utworzyć obiekt **[klienta](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** . Ten kod tworzy również obiekt kontekstu, który jest wymagany do tworzenia obiektów klienta. Definiuje również lokalizację zdalną, w której znajdują się niektóre przykładowe obrazy w tym przewodniku Szybki Start.
 
@@ -214,9 +214,9 @@ Poniższy kod drukuje szczegóły dopasowania do konsoli.
 
 ## <a name="create-and-train-a-person-group"></a>Tworzenie i uczenie grupy osób
 
-Aby wykonać czynności opisane w tym scenariuszu, należy zapisać następujące obrazy w katalogu głównym projektu: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Aby wykonać czynności opisane w tym scenariuszu, należy zapisać następujące obrazy w katalogu głównym projektu: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Ta grupa obrazów zawiera trzy zestawy obrazów z jedną stroną, które odpowiadają trzem różnym osobom. Kod określi trzy obiekty **osoby** należącej do osoby i skojarzy je z plikami obrazów, które `woman`zaczynają się od, `man`i `child`.
+Ta grupa obrazów zawiera trzy zestawy obrazów z jedną stroną, które odpowiadają trzem różnym osobom. Kod określi trzy obiekty **osoby** należącej do osoby i skojarzy je z plikami obrazów, które zaczynają się od `woman` , `man` i `child` .
 
 ### <a name="create-persongroup"></a>Utwórz osobę
 
@@ -251,7 +251,7 @@ Poniższy kod pobiera obraz z wieloma twarzami i szuka tożsamości każdej osob
 
 ### <a name="get-a-test-image"></a>Pobierz obraz testowy
 
-Poniższy kod wyszukuje w katalogu głównym projektu obraz _test-Image-Person-Group. jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu grupy osób](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Poniższy kod wyszukuje w katalogu głównym projektu obraz _test-Image-Person-Group. jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu grupy osób](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -353,7 +353,7 @@ Uruchom aplikację go za pomocą `go run [arguments]` polecenia z katalogu aplik
 go run sample-app.go
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

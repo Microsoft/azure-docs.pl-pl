@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 02c86e5a4c1a04b98ebba73653980e8e5e00f645
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7c9f713d50e31557999c9127cd219bfe9b3a8c82
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238888"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199854"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka Java
 
-Użyj tego przewodnika Szybki start, aby rozpocząć żądanie wyników z wystąpienia wyszukiwania niestandardowego Bing. Chociaż ta aplikacja jest napisana w języku Java, interfejs API wyszukiwania niestandardowego Bing jest usługą internetową RESTful zgodną z większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
+Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać wyników wyszukiwania z wystąpienia wyszukiwanie niestandardowe Bing. Mimo że aplikacja jest zapisywana w języku Java, interfejs API wyszukiwania niestandardowego Bing jest usługą sieci Web RESTful zgodną z większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w witrynie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wystąpienie wyszukiwania niestandardowego Bing. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pierwszego wystąpienia wyszukiwanie niestandardowe Bing](quick-start.md) .
+- Wystąpienie wyszukiwania niestandardowego Bing. Aby uzyskać więcej informacji, zobacz [Szybki Start: Tworzenie pierwszego wystąpienia wyszukiwanie niestandardowe Bing](quick-start.md).
 
-- Najnowszy zestaw [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+- Najnowszy [zestaw Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-- [Biblioteka Gson](https://github.com/google/gson)
+- [Biblioteka Gson](https://github.com/google/gson).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. Utwórz nowy projekt w języku Java w ulubionym środowisku IDE lub edytorze i zaimportuj poniższe biblioteki.
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE lub edytorze, a następnie zaimportuj następujące biblioteki:
 
     ```java
     import java.io.InputStream;
@@ -50,7 +50,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć żądanie wyników z wystą
     import com.google.gson.JsonParser;
     ```
 
-2. Utwórz klasę o nazwie `CustomSrchJava`i Utwórz zmienne dla klucza subskrypcji, niestandardowego punktu końcowego wyszukiwania oraz niestandardowego identyfikatora konfiguracji wystąpienia wyszukiwania. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz klasę o nazwie `CustomSrchJava` , a następnie utwórz zmienne dla klucza subskrypcji, niestandardowego punktu końcowego wyszukiwania i NIESTANDARDOWEGO identyfikatora konfiguracji wystąpienia wyszukiwania. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -88,7 +88,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć żądanie wyników z wystą
 
 ## <a name="send-and-receive-a-search-request"></a>Wysyłanie i odbieranie żądania wyszukiwania 
 
-1. Utwórz funkcję o nazwie `SearchWeb()`, która będzie wysyłać żądanie i zwracać obiekt `SearchResults`. Utwórz adres URL żądania, łącząc informacje dotyczące identyfikatora konfiguracji niestandardowej, zapytania i punktu końcowego. Dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`.
+1. Utwórz funkcję o nazwie `SearchWeb()`, która będzie wysyłać żądanie i zwracać obiekt `SearchResults`. Utwórz adres URL żądania, łącząc swój niestandardowy identyfikator konfiguracji, zapytanie i informacje o punkcie końcowym. Dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`.
 
     ```java
     public class CustomSrchJava {
@@ -120,7 +120,7 @@ Użyj tego przewodnika Szybki start, aby rozpocząć żądanie wyników z wystą
         }
     ```
 
-3. W metodzie głównej aplikacji wywołaj element `SearchWeb()` przy użyciu terminu wyszukiwania, 
+3. Wydrukuj odpowiedź JSON.
 
     ```java
     System.out.println("\nJSON Response:\n");

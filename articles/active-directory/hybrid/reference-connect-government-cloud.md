@@ -63,7 +63,7 @@ Wykonaj następujące kroki, aby zainstalować agenta dla chmury Azure Governmen
    AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
    ```
 
-## <a name="single-sign-on"></a>Logowanie jednokrotne
+## <a name="single-sign-on"></a>Rejestracja jednokrotna
 
 ### <a name="set-up-your-azure-ad-connect-server"></a>Skonfiguruj serwer Azure AD Connect
 

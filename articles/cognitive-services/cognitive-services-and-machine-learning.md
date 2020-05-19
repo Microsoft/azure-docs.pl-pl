@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531483"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584624"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Usługi Cognitive Services i uczenie maszynowe
 
@@ -95,7 +95,7 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |Wyszukiwanie Bing |x|||
 |[Przetwarzanie obrazów](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Niestandardowe przetwarzanie obrazów](./Custom-Vision-Service/home.md)||x||
 |[Rozpoznawanie twarzy](./Face/Overview.md)|x|x||
 |[Rozpoznawanie formularzy](./form-recognizer/overview.md)||x||
 |[Czytnik immersyjny](./immersive-reader/overview.md)|x|||
@@ -108,8 +108,8 @@ Następujące dane klasyfikują poszczególne usługi według rodzaju danych, kt
 |[Zamiana mowy na mowę na tekst (monitora STT)](speech-service/speech-to-text.md)|x|x||
 |[Tłumaczenie mowy](speech-service/speech-translation.md)|x|||
 |[Analiza tekstu](./text-analytics/overview.md)|x|||
-|[Tekst usługi Translator](./translator/translator-info-overview.md)|x|||
-|[Tłumaczenie tekstu w usłudze Translator — translator niestandardowy](./translator/custom-translator/overview.md)||x||
+|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator — translator niestandardowy](./translator/custom-translator/overview.md)||x||
 
 * Personalizacja wymaga tylko danych szkoleniowych zbieranych przez usługę (w czasie rzeczywistym) do oszacowania zasad i danych. Program personalizujer nie potrzebuje dużych historycznych zestawów danych dla szkolenia z góry lub partii. 
 
@@ -129,9 +129,9 @@ Cognitive Services, które udostępniają eksportowane modele dla innych narzęd
 
 |Usługa poznawcze|Informacje o modelu|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
+|[Niestandardowe przetwarzanie obrazów](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX for Windows ml|
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 * [Przewodnik po architekturze — jakie są produkty uczenia maszynowego w firmie Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Uczenie maszynowe — wprowadzenie do uczenia głębokiego i uczenia maszynowego](../machine-learning/concept-deep-learning-vs-machine-learning.md)

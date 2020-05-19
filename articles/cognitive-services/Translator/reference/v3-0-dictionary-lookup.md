@@ -1,5 +1,5 @@
 ---
-title: Metoda wyszukiwania słownika interfejs API tłumaczenia tekstu w usłudze Translator
+title: Metoda wyszukiwania słownika translatora
 titleSuffix: Azure Cognitive Services
 description: Metoda wyszukiwania słownika oferuje alternatywne tłumaczenia wyrazu i niewielką liczbę fraz idiomatyczne.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548955"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584743"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Interfejs API tłumaczenia tekstu w usłudze Translator 3,0: wyszukiwanie słownika
+# <a name="translator-30-dictionary-lookup"></a>Translator 3,0: wyszukiwanie słownika
 
 Oferuje alternatywne tłumaczenia wyrazu i niewielką liczbę fraz idiomatyczne. Każde tłumaczenie ma część mowy i listę zwrotów. Ponowne tłumaczenia umożliwiają użytkownikowi zrozumienie tłumaczenia w kontekście. [Przykładowa operacja słownika](./v3-0-dictionary-examples.md) umożliwia dalsze przechodzenie do szczegółów, aby zobaczyć przykład użycia poszczególnych par tłumaczeń.
 
@@ -45,13 +45,13 @@ Nagłówki żądań obejmują:
 | Nagłówki  | Opis |
 | ------ | ----------- |
 | Nagłówki uwierzytelniania <img width=200/>  | **Wymagany nagłówek żądania**.<br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>. |
-| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json`. |
+| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json` . |
 | Długość zawartości   | **Wymagany nagłówek żądania**.<br/>Długość treści żądania. |
-| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Możesz pominąć ten nagłówek, jeśli dołączysz identyfikator śledzenia w ciągu zapytania przy użyciu parametru zapytania o nazwie `ClientTraceId`. |
+| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Możesz pominąć ten nagłówek, jeśli dołączysz identyfikator śledzenia w ciągu zapytania przy użyciu parametru zapytania o nazwie `ClientTraceId` . |
 
 ## <a name="request-body"></a>Treść żądania
 
-Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o `Text`nazwie, która reprezentuje termin do wyszukania.
+Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o nazwie `Text` , która reprezentuje termin do wyszukania.
 
 ```json
 [
@@ -76,7 +76,7 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
 
     * `normalizedTarget`: Ciąg przedstawiający znormalizowaną postać tego terminu w języku docelowym. Ta wartość powinna być używana jako dane wejściowe [przykładów wyszukiwania](./v3-0-dictionary-examples.md).
 
-    * `displayTarget`: Ciąg określający termin w języku docelowym i w postaci najlepiej dopasowanej do wyświetlania przez użytkownika końcowego. Ogólnie rzecz biorąc, będzie ona różnić się `normalizedTarget` tylko od wielkości liter. Na przykład, prawidłowy rzeczownik, taki jak "Juan", `normalizedTarget = "juan"` będzie `displayTarget = "Juan"`miał i.
+    * `displayTarget`: Ciąg określający termin w języku docelowym i w postaci najlepiej dopasowanej do wyświetlania przez użytkownika końcowego. Ogólnie rzecz biorąc, będzie ona różnić się tylko od `normalizedTarget` wielkości liter. Na przykład, prawidłowy rzeczownik, taki jak "Juan", będzie miał `normalizedTarget = "juan"` i `displayTarget = "Juan"` .
 
     * `posTag`: Ciąg kojarzenia tego terminu ze znacznikiem części mowy.
 
@@ -105,16 +105,16 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
 
         * `displayText`: Ciąg dający termin źródłowy, który jest tłumaczeniem zwrotnym elementu docelowego w postaci najlepiej dopasowanej do wyświetlania przez użytkownika końcowego.
 
-        * `numExamples`: Liczba całkowita reprezentująca liczbę przykładów dostępnych dla tej pary tłumaczeń. Rzeczywiste przykłady muszą zostać pobrane z oddzielnym wywołaniem [przykładów wyszukiwania](./v3-0-dictionary-examples.md). Ta liczba jest przeznaczona głównie do ułatwienia wyświetlania w interfejsie użytkownika. Na przykład interfejs użytkownika może dodać hiperlink do tłumaczenia zwrotnego, jeśli liczba przykładów jest większa od zera i w przypadku braku przykładów pokazać tłumaczenie zwrotne jako zwykły tekst. Należy zauważyć, że rzeczywista liczba przykładów zwracanych przez wywołanie do [przykładów odnośnika](./v3-0-dictionary-examples.md) może być `numExamples`mniejsza niż, ponieważ na bieżąco można zastosować dodatkowe filtrowanie, aby usunąć przykłady "złe".
+        * `numExamples`: Liczba całkowita reprezentująca liczbę przykładów dostępnych dla tej pary tłumaczeń. Rzeczywiste przykłady muszą zostać pobrane z oddzielnym wywołaniem [przykładów wyszukiwania](./v3-0-dictionary-examples.md). Ta liczba jest przeznaczona głównie do ułatwienia wyświetlania w interfejsie użytkownika. Na przykład interfejs użytkownika może dodać hiperlink do tłumaczenia zwrotnego, jeśli liczba przykładów jest większa od zera i w przypadku braku przykładów pokazać tłumaczenie zwrotne jako zwykły tekst. Należy zauważyć, że rzeczywista liczba przykładów zwracanych przez wywołanie do [przykładów odnośnika](./v3-0-dictionary-examples.md) może być mniejsza niż `numExamples` , ponieważ na bieżąco można zastosować dodatkowe filtrowanie, aby usunąć przykłady "złe".
         
         * `frequencyCount`: Liczba całkowita reprezentująca częstotliwość tej pary tłumaczeń w danych. Głównym celem tego pola jest zapewnienie interfejsu użytkownika przy użyciu metody do sortowania wstecz-tłumaczenia, tak aby najczęstsze terminy były pierwsze.
 
     > [!NOTE]
-    > Jeśli wyszukiwany okres nie istnieje w słowniku, odpowiedź jest 200 (OK), ale `translations` lista jest pusta.
+    > Jeśli wyszukiwany okres nie istnieje w słowniku, odpowiedź jest 200 (OK), ale `translations` Lista jest pusta.
 
 ## <a name="examples"></a>Przykłady
 
-Ten przykład pokazuje, jak wyszukiwać alternatywne tłumaczenia w hiszpańskim okresie `fly` w języku angielskim.
+Ten przykład pokazuje, jak wyszukiwać alternatywne tłumaczenia w hiszpańskim okresie w języku angielskim `fly` .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"

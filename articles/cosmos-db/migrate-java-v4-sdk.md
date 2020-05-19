@@ -32,9 +32,9 @@ W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę 
 
 | Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Informacje o wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Informacje o wersji](sql-api-sdk-async-java.md) |
+| Async 2. x. x  | Czerwiec 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Informacje o wersji](sql-api-sdk-async-java.md) |
 | Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Informacje o wersji](sql-api-sdk-java.md)  |
-| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 3. x. x    | Lipiec 2019    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4.0   | Kwiecień 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | -  |
 
 ## <a name="sdk-level-implementation-changes"></a>Zmiany implementacji poziomu zestawu SDK
@@ -57,13 +57,13 @@ Poniżej przedstawiono zmiany poziomu interfejsu API w Azure Cosmos DB Java SDK 
 
 ![Azure Cosmos DB konwencje nazewnictwa języka Java SDK](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
 
-* Azure Cosmos DB Java SDK 3. x. x i 4,0 odnoszą się do zasobów klienta `Cosmos<resourceName>`jako. Na przykład `CosmosClient` `CosmosDatabase`,, `CosmosContainer`. W wersji 2. x. x Azure Cosmos DB zestawy SDK języka Java nie mają jednolitego schematu nazewnictwa.
+* Azure Cosmos DB Java SDK 3. x. x i 4,0 odnoszą się do zasobów klienta jako `Cosmos<resourceName>` . Na przykład, `CosmosClient` , `CosmosDatabase` `CosmosContainer` . W wersji 2. x. x Azure Cosmos DB zestawy SDK języka Java nie mają jednolitego schematu nazewnictwa.
 
 * Azure Cosmos DB Java SDK 3. x. x i 4,0 oferują zarówno synchronizację, jak i asynchroniczne interfejsy API.
 
-  * **Java SDK 4,0** : wszystkie klasy należą do interfejsu API synchronizacji, chyba że nazwa klasy jest dołączana `Async` po `Cosmos`.
+  * **Java SDK 4,0** : wszystkie klasy należą do interfejsu API synchronizacji, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
-  * **Java SDK 3. x. x**: wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos`.
+  * **Java SDK 3. x. x**: wszystkie klasy należą do asynchronicznego interfejsu API, chyba że nazwa klasy jest dołączana `Async` po `Cosmos` .
 
   * **Asynchroniczny zestaw Java SDK 2. x. x**: nazwy klas są podobne do synchronizacji zestawu Java SDK 2. x. x, ale nazwa zaczyna się od *Async*.
 
@@ -88,7 +88,7 @@ W Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` obiekt jest uwidaczniany
 * Pakiety Azure Cosmos DB Java SDK 4,0 zaczynają się od`com.azure.cosmos`
   * Azure Cosmos DB zestawu Java SDK 3. x. x pakiety rozpoczynają się od`com.azure.data.cosmos`
 
-* Azure Cosmos DB Java SDK 4,0 umieszcza kilka klas w zagnieżdżonym pakiecie `com.azure.cosmos.models`. Niektóre z tych pakietów obejmują:
+* Azure Cosmos DB Java SDK 4,0 umieszcza kilka klas w zagnieżdżonym pakiecie `com.azure.cosmos.models` . Niektóre z tych pakietów obejmują:
 
   * `CosmosContainerResponse`
   * `CosmosDatabaseResponse`
@@ -102,7 +102,7 @@ W Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` obiekt jest uwidaczniany
 
 ### <a name="accessors"></a>Metod dostępu
 
-Azure Cosmos DB Java SDK 4,0 ujawnia `get` i `set` metody dostępu do elementów członkowskich wystąpienia. Na przykład `CosmosContainer` wystąpienie ma `container.getId()` metodę i. `container.setId()`
+Azure Cosmos DB Java SDK 4,0 ujawnia `get` i `set` metody dostępu do elementów członkowskich wystąpienia. Na przykład `CosmosContainer` wystąpienie ma `container.getId()` `container.setId()` metodę i.
 
 Różni się to od Azure Cosmos DB Java SDK 3. x. x, który uwidacznia interfejs Fluent. Na przykład `CosmosSyncContainer` wystąpienie ma `container.id()` przeciążone w celu pobrania lub ustawienia `id` wartości.
 

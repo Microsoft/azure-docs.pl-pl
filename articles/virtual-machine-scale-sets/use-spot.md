@@ -23,7 +23,7 @@ Korzystanie z usługi Azure spot w ramach zestawów skalowania pozwala korzysta�
 Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, regionu, pory dnia i innych. Podczas wdrażania wystąpień obliczeniowych w zestawach skalowania platforma Azure przydzieli to wystąpienie tylko wtedy, gdy jest dostępna pojemność, ale dla tych wystąpień nie ma umowy SLA. Zestaw skalowania punktowego jest wdrażany w jednej domenie błędów i nie oferuje gwarancji wysokiej dostępności.
 
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Cennik wystąpień dodatkowych to zmienna, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik dla systemów [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) i [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
@@ -47,7 +47,7 @@ Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wir
 - [Azure Portal](#portal)
 - [Interfejs wiersza polecenia platformy Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Szablony usługi Azure Resource Manager](#resource-manager-templates)
+- [Szablony Azure Resource Manager](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
@@ -101,7 +101,7 @@ W przypadku wdrożeń szablonów dodatkowych Użyj programu `"apiVersion": "2019
 
 Aby usunąć wystąpienie po jego wykluczenia, należy zmienić `evictionPolicy` parametr na `Delete` .
 
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **P:** Po utworzeniu, czy to wystąpienie jest takie samo jak standardowe wystąpienie?
 
@@ -156,8 +156,8 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
+| Enterprise Agreement         | Tak                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Korzyści                     | Niedostępne                     |
 | Sponsorowan                    | Niedostępne                     |

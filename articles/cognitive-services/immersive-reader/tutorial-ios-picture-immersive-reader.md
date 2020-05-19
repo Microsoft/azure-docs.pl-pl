@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 69ff58d6cdabe49000b00afecfc6b4ad1a3f2daa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76841850"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735134"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Samouczek: Tworzenie aplikacji dla systemu iOS, która uruchamia czytnik immersyjny z zawartością ze zdjęcia (SWIFT)
 
@@ -22,9 +22,9 @@ ms.locfileid: "76841850"
 
 [Interfejs API odczytu przetwarzanie obrazów Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) wykrywa zawartość tekstową na obrazie przy użyciu najnowszych modeli rozpoznawania firmy Microsoft i konwertuje zidentyfikowany tekst na strumień znaków do odczytu maszynowego.
 
-W tym samouczku utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz interfejs API odczytu oraz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy w tym samouczku jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift).
+W tym samouczku utworzysz aplikację dla systemu iOS od podstaw i zintegrujesz interfejs API odczytu oraz czytnik immersyjny przy użyciu zestawu SDK czytnika immersyjny. Pełny przykład pracy w tym samouczku jest dostępny [tutaj](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,19 +46,19 @@ Wybierz **aplikację z pojedynczym widokiem**.
 Najprostszym sposobem korzystania z zestawu SDK czytnika immersyjny jest za pośrednictwem CocoaPods. Aby zainstalować za pośrednictwem Cocoapods:
 1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) — postępuj zgodnie z przewodnikiem wprowadzenie, aby zainstalować CocoaPods.
 2. Utwórz element plik podfile, uruchamiając `pod init` w katalogu głównym projektu Xcode.
-3.  Dodaj CocoaPod do plik podfile przez dodanie `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Twoja plik podfile powinna wyglądać podobnie do poniższego, a nazwa docelowa:
+3.  Dodaj CocoaPod do plik podfile przez dodanie `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'` . Twoja plik podfile powinna wyglądać podobnie do poniższego, a nazwa docelowa:
  ```ruby
   platform :ios, '9.0'
 
   target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
+  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
-4. W terminalu, w katalogu projektu Xcode, uruchom polecenie `pod install` , aby zainstalować zestaw SDK programu immersyjny pod.
+4. W terminalu, w katalogu projektu Xcode, uruchom polecenie, `pod install` Aby zainstalować zestaw SDK programu immersyjny pod.
 5. Dodaj `import immersive_reader_sdk` do wszystkich plików, które muszą odwoływać się do zestawu SDK.
-6. Upewnij się, że otwarto projekt, `.xcworkspace` otwierając plik, a `.xcodeproj` nie plik.
+6. Upewnij się, że otwarto projekt, otwierając `.xcworkspace` plik, a nie `.xcodeproj` plik.
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Uzyskiwanie tokenu uwierzytelniania usługi Azure AD
 

@@ -51,7 +51,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-W danych wyjściowych polecenia Zwróć uwagę na następujące wartości: `id` i. `principalId` Te wartości są potrzebne w dalszych krokach w celu skonfigurowania dostępu rejestru do magazynu kluczy.
+W danych wyjściowych polecenia Zwróć uwagę na następujące wartości: `id` i `principalId` . Te wartości są potrzebne w dalszych krokach w celu skonfigurowania dostępu rejestru do magazynu kluczy.
 
 ```JSON
 {
@@ -111,7 +111,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-W danych wyjściowych polecenia Zanotuj identyfikator klucza, `kid`. Ten identyfikator jest używany w następnym kroku:
+W danych wyjściowych polecenia Zanotuj identyfikator klucza, `kid` . Ten identyfikator jest używany w następnym kroku:
 
 ```JSON
 [...]
@@ -200,7 +200,7 @@ Podczas tworzenia magazynu kluczy dla klucza zarządzanego przez klienta na karc
 Skonfiguruj zasady dla magazynu kluczy, aby tożsamość mogła uzyskać do niego dostęp.
 
 1. Przejdź do magazynu kluczy.
-1. Wybierz pozycję **Ustawienia** > **zasady dostępu > + Dodaj zasady dostępu**.
+1. Wybierz pozycję **Ustawienia**  >  **zasady dostępu > + Dodaj zasady dostępu**.
 1. Wybierz pozycję **uprawnienia klucza**i wybierz pozycję **Pobierz**, **Odpakuj klucz**i **Zawijaj klucz**.
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wybierz nazwę zasobu tożsamości zarządzanej przypisanej przez użytkownika.  
 1. Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Zapisz**.
@@ -210,14 +210,14 @@ Skonfiguruj zasady dla magazynu kluczy, aby tożsamość mogła uzyskać do nieg
 ### <a name="create-key"></a>Utwórz klucz
 
 1. Przejdź do magazynu kluczy.
-1. Wybierz pozycję **Ustawienia** > **klucze**.
+1. Wybierz pozycję **Ustawienia**  >  **klucze**.
 1. Wybierz pozycję **+ Generuj/Importuj** i wprowadź unikatową nazwę klucza.
 1. Zaakceptuj pozostałe wartości domyślne i wybierz pozycję **Utwórz**.
 1. Po utworzeniu wybierz klucz i zanotuj bieżącą wersję klucza.
 
 ### <a name="create-azure-container-registry"></a>Tworzenie rejestru kontenerów platformy Azure
 
-1. Wybierz **pozycję Utwórz** > **kontenery** > zasobów**Container Registry**.
+1. Wybierz pozycję **Utwórz**  >  **kontenery**zasobów  >  **Container Registry**.
 1. Na karcie **podstawy** wybierz lub Utwórz grupę zasobów, a następnie wprowadź nazwę rejestru. W obszarze **jednostka SKU**wybierz pozycję **Premium**.
 1. Na karcie **szyfrowanie** w **kluczu zarządzanym przez klienta**wybierz pozycję **włączone**.
 1. W obszarze **tożsamość**Wybierz utworzoną tożsamość zarządzaną.
@@ -234,7 +234,7 @@ Aby wyświetlić stan szyfrowania rejestru w portalu, przejdź do rejestru. W ob
 
 Można również użyć szablonu Menedżer zasobów, aby utworzyć rejestr i włączyć szyfrowanie z kluczem zarządzanym przez klienta. 
 
-Poniższy szablon umożliwia utworzenie nowego rejestru kontenerów i zarządzanej tożsamości przypisanej przez użytkownika. Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pliku, `CMKtemplate.json`takiej jak.
+Poniższy szablon umożliwia utworzenie nowego rejestru kontenerów i zarządzanej tożsamości przypisanej przez użytkownika. Skopiuj poniższą zawartość do nowego pliku i Zapisz go przy użyciu nazwy pliku, takiej jak `CMKtemplate.json` .
 
 ```JSON
 {
@@ -418,7 +418,7 @@ Użyj ustawień **szyfrowania** rejestru, aby zaktualizować wersję klucza, klu
 Na przykład w celu wygenerowania i skonfigurowania nowej wersji klucza:
 
 1. W portalu przejdź do rejestru. 
-1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie** > **Zmień klucz**.
+1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
 1. Wybierz **klucz SELECT**
     
     ![Obróć klucz w Azure Portal](./media/container-registry-customer-managed-keys/rotate-key.png)
@@ -448,14 +448,14 @@ Można skonfigurować tożsamość zarządzaną przez system do rejestru, aby uz
 Aby włączyć tożsamość przypisaną przez system do rejestru w portalu:
 
 1. W portalu przejdź do rejestru. 
-1. Wybierz pozycję **Ustawienia** >  **tożsamość**.
+1. Wybierz pozycję **Ustawienia**  >   **tożsamość**.
 1. W obszarze **przypisano system** **Ustaw wartość** **na włączone**. Wybierz pozycję **Zapisz**.
 1. Skopiuj **Identyfikator obiektu** tożsamości.
 
 Aby udzielić tożsamości dostępu do magazynu kluczy:
 
 1. Przejdź do magazynu kluczy.
-1. Wybierz pozycję **Ustawienia** > **zasady dostępu > + Dodaj zasady dostępu**.
+1. Wybierz pozycję **Ustawienia**  >  **zasady dostępu > + Dodaj zasady dostępu**.
 1. Wybierz pozycję **uprawnienia klucza**i wybierz pozycję **Pobierz**, **Odpakuj klucz**i **Zawijaj klucz**.
 1. Wybierz pozycję **Wybierz podmiot zabezpieczeń** i wyszukaj identyfikator obiektu zarządzanej tożsamości przypisanej do systemu lub nazwę rejestru.  
 1. Wybierz pozycję **Dodaj**, a następnie wybierz pozycję **Zapisz**.
@@ -463,7 +463,7 @@ Aby udzielić tożsamości dostępu do magazynu kluczy:
 Aby zaktualizować ustawienia szyfrowania rejestru w celu użycia tożsamości:
 
 1. W portalu przejdź do rejestru. 
-1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie** > **Zmień klucz**.
+1. W obszarze **Ustawienia**wybierz pozycję **szyfrowanie**  >  **Zmień klucz**.
 1. W obszarze **tożsamość**wybierz pozycję **przypisana przez system**i wybierz pozycję **Zapisz**.
 
 ### <a name="key-vault-firewall"></a>Zapora Key Vault

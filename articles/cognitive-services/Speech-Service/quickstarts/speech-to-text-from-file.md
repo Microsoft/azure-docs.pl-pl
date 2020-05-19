@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 0480177bd504052804c9aa833f18d827f688f661
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: b12e00b292cbee1f1b89197bb3d81a10cb8f36c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400547"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82979326"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Szybki Start: Rozpoznawanie mowy z pliku dźwiękowego
 
@@ -42,6 +42,12 @@ ms.locfileid: "81400547"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-file/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/javascript/header.md)]
+[!INCLUDE [python](../includes/quickstarts/from-file/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

@@ -72,7 +72,7 @@ Wybierz pozycję **Błędy** w górnej części strony i zostanie otwarty fragme
 
 ![Zrzut ekranu przedstawiający awarie z podziałem według typu żądania HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Code      |  Opis       | 
+| Kod      |  Opis       | 
 |-----------|:--------------------|
 | `200 OK`  | Jedna z następujących operacji REST została wykonana pomyślnie: </br>— Pobierz zasób. </br> — Umieść w zasobie. </br> -Publikuj w zasobie. </br> — Opublikuj w zasobie procedury składowanej, aby wykonać procedurę składowaną.|
 | `201 Created` | Operacja POST w celu utworzenia zasobu zakończyła się pomyślnie. |

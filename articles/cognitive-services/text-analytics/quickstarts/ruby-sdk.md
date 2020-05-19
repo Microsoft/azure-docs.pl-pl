@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919672"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996962"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu dla języka Ruby
 
@@ -31,7 +31,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 > [!NOTE]
 > Ten przewodnik Szybki Start dotyczy tylko analiza tekstu wersji 2,1. Obecnie Biblioteka klienta v3 dla języka Ruby jest niedostępna.
 
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) |  | [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics)dokumentacji referencyjnej[(RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+[Kod](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics)  |  źródłowy biblioteki [Pakiet (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -39,7 +39,7 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 * Bieżąca wersja języka [Ruby](https://www.ruby-lang.org/)
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Utwórz zasób analiza tekstu"  target="_blank">Utwórz zasób <span class="docon docon-navigate-external x-hidden-focus"></span> </a> analiza tekstu w Azure Portal, aby uzyskać klucz i punkt końcowy. 
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Utwórz zasób analiza tekstu "  target="_blank"> utwórz zasób analiza tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. 
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Tę czynność należy wykonać w dalszej części przewodnika Szybki Start.
     * Możesz użyć warstwy cenowej bezpłatna, aby wypróbować usługę i uaktualnić ją później do warstwy płatnej dla środowiska produkcyjnego.
 
@@ -47,13 +47,13 @@ Użyj biblioteki klienta analiza tekstu do wykonania:
 
 ### <a name="create-a-new-ruby-application"></a>Tworzenie nowej aplikacji Ruby
 
-W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. Następnie utwórz plik o nazwie `GemFile`i plik Ruby dla kodu.
+W oknie konsoli (na przykład cmd, PowerShell lub bash) Utwórz nowy katalog dla aplikacji i przejdź do niego. Następnie utwórz plik o nazwie `GemFile` i plik Ruby dla kodu.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-W programie `GemFile`Dodaj następujące wiersze, aby dodać bibliotekę klienta jako zależność.
+W programie `GemFile` Dodaj następujące wiersze, aby dodać bibliotekę klienta jako zależność.
 
 ```ruby
 source 'https://rubygems.org'
@@ -77,23 +77,23 @@ const endpoint = `<paste-your-text-analytics-endpoint-here>`
 
 Klient analiza tekstu jest uwierzytelniany na platformie Azure przy użyciu klucza. Klient udostępnia kilka metod analizowania tekstu, w postaci pojedynczego ciągu lub partii. 
 
-Tekst jest wysyłany do interfejsu API jako lista obiektów `documents`, które są `dictionary` obiektami zawierającymi kombinację `id`atrybutów `text`, i `language` , w zależności od używanej metody. Ten `text` atrybut zawiera tekst, który ma być analizowany w pochodzeniu `language`i `id` może być dowolną wartością. 
+Tekst jest wysyłany do interfejsu API jako lista `documents` obiektów, które są `dictionary` obiektami zawierającymi kombinację `id` atrybutów, i, w `text` zależności od `language` używanej metody. Ten `text` atrybut zawiera tekst, który ma być analizowany w pochodzeniu `language` i `id` może być dowolną wartością. 
 
 Obiekt Response jest listą zawierającą informacje o analizie dla każdego dokumentu. 
 
 ## <a name="code-examples"></a>Przykłady kodu
 
-Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta analiza tekstu dla języka Python:
+Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą biblioteki klienta analiza tekstu dla języka Ruby:
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [analiza tonacji](#sentiment-analysis)
+* [Analiza tonacji](#sentiment-analysis)
 * [Wykrywanie języka](#language-detection)
 * [Rozpoznawanie jednostek](#entity-recognition)
 * [Wyodrębnianie kluczowych fraz](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Utwórz klasę o nazwie `TextAnalyticsClient`. 
+Utwórz klasę o nazwie `TextAnalyticsClient` . 
 
 ```ruby
 class TextAnalyticsClient
@@ -106,7 +106,7 @@ W tej klasie Utwórz funkcję o nazwie `initialize` do uwierzytelniania klienta 
 
 [!code-ruby[initialize function for authentication](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=initialize)]
 
-Poza klasą Użyj `new()` funkcji klienta, aby ją utworzyć.
+Poza klasą Użyj funkcji klienta, `new()` Aby ją utworzyć.
 
 [!code-ruby[client creation](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=clientCreation)] 
 
@@ -114,11 +114,11 @@ Poza klasą Użyj `new()` funkcji klienta, aby ją utworzyć.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
-W obiekcie Client Utwórz funkcję o nazwie `AnalyzeSentiment()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj `sentiment()` funkcję klienta i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować identyfikator każdego dokumentu oraz tonacji ocenę. Wynik zbliżony do 0 wskazuje negatywną tonacji, natomiast wynik zbliżony do 1 wskazuje pozytywny tonacji.
+W obiekcie Client Utwórz funkcję o nazwie `AnalyzeSentiment()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj funkcję klienta `sentiment()` i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować identyfikator każdego dokumentu oraz tonacji ocenę. Wynik zbliżony do 0 wskazuje negatywną tonacji, natomiast wynik zbliżony do 1 wskazuje pozytywny tonacji.
 
 [!code-ruby[client method for sentiment analysis](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=analyzeSentiment)] 
 
-Poza funkcją klienta Utwórz nową funkcję o nazwie `SentimentAnalysisExample()` , która przyjmuje utworzony wcześniej `TextAnalyticsClient` obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `Language` `text` atrybut i. `text` Atrybut przechowuje tekst do analizy, `language` jest językiem dokumentu i `id` może być dowolną wartością. Następnie Wywołaj `AnalyzeSentiment()` funkcję klienta.
+Poza funkcją klienta Utwórz nową funkcję o nazwie `SentimentAnalysisExample()` , która przyjmuje `TextAnalyticsClient` utworzony wcześniej obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `Language` `text` atrybut i. `text`Atrybut przechowuje tekst do analizy, `language` jest językiem dokumentu i `id` może być dowolną wartością. Następnie wywołaj funkcję klienta `AnalyzeSentiment()` .
 
 [!code-ruby[sentiment analysis document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=sentimentCall)] 
 
@@ -142,11 +142,11 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>Wykrywanie języka
 
-W obiekcie Client Utwórz funkcję o nazwie `DetectLanguage()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj `detect_language()` funkcję klienta i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować każdy dokument o IDENTYFIKATORze oraz wykrytym języku.
+W obiekcie Client Utwórz funkcję o nazwie `DetectLanguage()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj funkcję klienta `detect_language()` i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować każdy dokument o IDENTYFIKATORze oraz wykrytym języku.
 
 [!code-ruby[client method for language detection](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=detectLanguage)] 
 
-Poza funkcją klienta Utwórz nową funkcję o nazwie `DetectLanguageExample()` , która przyjmuje utworzony wcześniej `TextAnalyticsClient` obiekt. Utwórz listę `LanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `text` atrybut i. Ten `text` atrybut przechowuje tekst do przeanalizowania, a `id` może być dowolną wartością. Następnie Wywołaj `DetectLanguage()` funkcję klienta.
+Poza funkcją klienta Utwórz nową funkcję o nazwie `DetectLanguageExample()` , która przyjmuje `TextAnalyticsClient` utworzony wcześniej obiekt. Utwórz listę `LanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `text` atrybut i. Ten `text` atrybut przechowuje tekst do przeanalizowania, a `id` może być dowolną wartością. Następnie wywołaj funkcję klienta `DetectLanguage()` .
 
 [!code-ruby[language detection document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=detectLanguageCall)] 
 
@@ -169,11 +169,11 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="entity-recognition"></a>Rozpoznawanie jednostek
 
-W obiekcie Client Utwórz funkcję o nazwie `RecognizeEntities()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj `entities()` funkcję klienta i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować identyfikator każdego dokumentu oraz rozpoznane jednostki.
+W obiekcie Client Utwórz funkcję o nazwie `RecognizeEntities()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj funkcję klienta `entities()` i uzyskaj wynik. Następnie można wykonać iterację w wynikach i wydrukować identyfikator każdego dokumentu oraz rozpoznane jednostki.
 
 [!code-ruby[client method for entity recognition](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntities)]
 
-Poza funkcją klienta Utwórz nową funkcję o nazwie `RecognizeEntitiesExample()` , która przyjmuje utworzony wcześniej `TextAnalyticsClient` obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `language` `text` atrybut, a i. `text` Atrybut przechowuje tekst do analizy, `language` jest językiem tekstu, a `id` może być dowolną wartością. Następnie Wywołaj `RecognizeEntities()` funkcję klienta.
+Poza funkcją klienta Utwórz nową funkcję o nazwie `RecognizeEntitiesExample()` , która przyjmuje `TextAnalyticsClient` utworzony wcześniej obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` atrybut, a `language` i `text` . `text`Atrybut przechowuje tekst do analizy, `language` jest językiem tekstu, a `id` może być dowolną wartością. Następnie wywołaj funkcję klienta `RecognizeEntities()` .
 
 [!code-ruby[entity recognition documents and method call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=recognizeEntitiesCall)] 
 
@@ -227,11 +227,11 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 
-W obiekcie Client Utwórz funkcję o nazwie `ExtractKeyPhrases()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj `key_phrases()` funkcję klienta i uzyskaj wynik. Następnie wykonuje iterację w wynikach i drukuje identyfikator każdego dokumentu oraz wyodrębnione kluczowe frazy.
+W obiekcie Client Utwórz funkcję o nazwie `ExtractKeyPhrases()` , która pobiera listę dokumentów wejściowych, które zostaną utworzone później. Wywołaj funkcję klienta `key_phrases()` i uzyskaj wynik. Następnie wykonuje iterację w wynikach i drukuje identyfikator każdego dokumentu oraz wyodrębnione kluczowe frazy.
 
 [!code-ruby[key phrase extraction client method](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=extractKeyPhrases)] 
 
-Poza funkcją klienta Utwórz nową funkcję o nazwie `KeyPhraseExtractionExample()` , która przyjmuje utworzony wcześniej `TextAnalyticsClient` obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` `language` `text` atrybut, a i. `text` Atrybut przechowuje tekst do analizy, `language` jest językiem tekstu, a `id` może być dowolną wartością. Następnie Wywołaj `ExtractKeyPhrases()` funkcję klienta.
+Poza funkcją klienta Utwórz nową funkcję o nazwie `KeyPhraseExtractionExample()` , która przyjmuje `TextAnalyticsClient` utworzony wcześniej obiekt. Utwórz listę `MultiLanguageInput` obiektów zawierającą dokumenty, które chcesz przeanalizować. Każdy obiekt będzie zawierać `id` atrybut, a `language` i `text` . `text`Atrybut przechowuje tekst do analizy, `language` jest językiem tekstu, a `id` może być dowolną wartością. Następnie wywołaj funkcję klienta `ExtractKeyPhrases()` .
 
 [!code-ruby[key phrase document creation and call](~/cognitive-services-ruby-sdk-samples/samples/text_analytics.rb?name=keyPhrasesCall)]
 
