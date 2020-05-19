@@ -1,0 +1,414 @@
+---
+title: Wymagania dotyczące pakietu rysowania w programie Azure Maps Creator
+description: Dowiedz się więcej o wymaganiach dotyczących pakietów rysowania w celu przekonwertowania plików projektu funkcji na potrzeby mapowania danych przy użyciu usługi konwersji Azure Maps
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 5/18/2020
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: philMea
+ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83598801"
+---
+# <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu rysowania
+
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. W tym artykule opisano wymagania dotyczące pakietu rysowania dla interfejsu API konwersji. Aby wyświetlić przykładowy pakiet, można pobrać przykładowy [pakiet do rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Pakiet rysowania zawiera rysunki zapisane w formacie DWG, który jest natywnym formatem plików dla programu Autodesk AutoCAD® oprogramowania, [znakiem towarowym Autodesk, Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+
+Możesz wybrać każde oprogramowanie CAD, aby utworzyć rysunki w pakiecie rysunku.  
+
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) konwertuje pakiet rysowania na dane mapy.  Usługa konwersji została opracowana i przetestowana przy użyciu formatu pliku programu AutoCAD DWG. `AC1032`to wewnętrzna wersja formatu dla plików DWG. Zalecamy wybranie `AC1032` wersji pliku w formacie wewnętrznym.  
+
+Słownik terminów użytych w tym dokumencie.
+
+| Termin  | Definicja |
+|:-------|:------------|
+| Warstwa | Warstwa programu AutoCAD DWG.|
+| Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
+| Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg) dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
+| Cechy | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Klasy funkcji | Typowy plan dla funkcji. Na przykład jednostka jest klasą funkcji, a pakiet Office jest funkcją. |
+
+## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
+
+Pakiet rysowania to archiwum zip, które zawiera następujące pliki:
+
+* Pliki DWG w formacie pliku DWG programu AutoCAD.
+* Plik _manifest. JSON_ dla pojedynczej funkcji.
+
+Pliki DWG można organizować w dowolny sposób wewnątrz folderu, ale plik manifestu musi znajdować się w katalogu głównym folderu. Folder musi być spakowany w jednym pliku archiwum z rozszerzeniem zip. W następnych sekcjach opisano wymagania dotyczące plików DWG, pliku manifestu i zawartości tych plików.  
+
+## <a name="dwg-files-requirements"></a>Wymagania dotyczące plików DWG
+
+Dla każdego poziomu funkcji wymagany jest pojedynczy plik DWG. Dane poziomu muszą być zawarte w pojedynczym pliku DWG. Wszystkie odwołania zewnętrzne (_XREFs_) muszą być powiązane z rysowaniem nadrzędnym. Ponadto każdy plik DWG:
+
+* Należy zdefiniować warstwy _zewnętrzne_ i _jednostkowe_ . Opcjonalnie można zdefiniować następujące opcjonalne warstwy: _ściany_, _drzwi_, _UnitLabel_, _Zone_i _ZoneLabel_.
+* Nie może zawierać funkcji z wielu poziomów.
+* Nie może zawierać funkcji z wielu obiektów.
+
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) może wyodrębnić następujące klasy funkcji z pliku DWG:
+
+* Poziomy
+* Lekcji
+* Strefy
+* Wakaty
+* Połącz
+* Penetracja pionowa
+
+Wszystkie zadania konwersji powodują minimalny zestaw kategorii domyślnych: pomieszczenie, struktura. ściany, otwieranie. drzwi, strefa i obiekt. Dodatkowe kategorie są dla każdej nazwy kategorii, do której odwołują się obiekty.  
+
+Warstwa DWG musi zawierać funkcje pojedynczej klasy. Klasy nie mogą udostępniać warstwy. Na przykład jednostki i ściany nie mogą udostępniać warstwy.
+
+Warstwy DWG muszą również spełniać następujące kryteria:
+
+* Źródła rysunków dla wszystkich plików DWG muszą być wyrównane do tej samej szerokości i długości geograficznej.
+* Każdy poziom musi być w tej samej orientacji co inne poziomy.
+* Wielokąty samodzielne zostaną automatycznie naprawione, a [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) zwróci ostrzeżenie. Zalecane jest ręczne sprawdzenie naprawionych wyników, ponieważ mogą one być niezgodne z oczekiwanymi wynikami.
+
+Wszystkie jednostki warstwy muszą być jednym z następujących typów: liniowy, łamaną, Wielokąt, łuk okręgu, okrąg, tekst (pojedynczy wiersz). Wszystkie inne typy jednostek zostaną zignorowane.
+
+W poniższej tabeli przedstawiono obsługiwane typy jednostek i obsługiwane funkcje dla każdej warstwy. Jeśli warstwa zawiera nieobsługiwane typy jednostek, [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) będzie ignorować te jednostki.  
+
+| Warstwa | Typy jednostek | Funkcje |
+| :----- | :-------------------| :-------
+| [Krawężnik](#exterior-layer) | Wielokąt, łamane (zamknięte), okrąg | Poziomy
+| [Jednostka](#unit-layer) |  Wielokąt, łamane (zamknięte), okrąg | Penetracja pionowa, jednostki
+| [Osłon](#wall-layer)  | Wielokąt, łamane (zamknięte), okrąg | Nie dotyczy. Aby uzyskać więcej informacji, zobacz [ścianka warstwy](#wall-layer).
+| [Drzwi](#door-layer) | Wielokąt, łamana, linia, CircularArc, okrąg | Wakaty
+| [Strefa](#zone-layer) | Wielokąt, łamane (zamknięte), okrąg | Strefa
+| [UnitLabel](#unitlabel-layer) | Tekst (pojedynczy wiersz) | Nie dotyczy. Ta warstwa może dodawać tylko właściwości do funkcji jednostki z warstwy jednostki. Aby uzyskać więcej informacji, zobacz [warstwę UnitLabel](#unitlabel-layer).
+| [ZoneLabel](#zonelabel-layer) | Tekst (pojedynczy wiersz) | Nie dotyczy. Ta warstwa może dodawać tylko właściwości do funkcji strefy z ZonesLayer. Aby uzyskać więcej informacji, zobacz [warstwę ZoneLabel](#zonelabel-layer)
+
+W następnych sekcjach opisano wymagania dotyczące każdej warstwy.
+
+### <a name="exterior-layer"></a>Warstwa zewnętrzna
+
+Plik DWG dla każdego poziomu musi zawierać warstwę, aby zdefiniować obwód tego poziomu. Ta warstwa jest określana jako warstwa zewnętrzna. Na przykład jeśli obiekt zawiera dwa poziomy, musi mieć dwa pliki DWG z warstwą zewnętrzną dla każdego pliku.
+
+Teraz, ile rysunków jednostek znajduje się w warstwie zewnętrznej, [utworzony zestaw danych funkcji](tutorial-creator-indoor-maps.md#create-a-feature-stateset) będzie zawierać tylko **jedną** funkcję poziomu dla każdego pliku DWG. Dodatkowo:
+
+* Zewnętrzne muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg.
+
+* Zewnętrzne mogą się nakładać, ale zostaną rozwiązane w jednej geometrii.
+
+Jeśli warstwa zawiera wiele nakładających się linii, wówczas linie łamane zostaną rozwiązane w funkcji jednego poziomu. Alternatywnie, jeśli warstwa zawiera wiele linii non_overlapping, funkcja na poziomie wyniku będzie miała wielowielokątną reprezentację.
+
+Przykład warstwy zewnętrznej można zobaczyć jako warstwę KONSPEKTu w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+### <a name="unit-layer"></a>Warstwa jednostkowa
+
+Plik DWG dla każdego poziomu powinien definiować warstwę zawierającą jednostki.  Jednostki są miejscami do nawigacji w budynku, takie jak biura, korytarzach, schody i windy. Warstwa jednostek powinna być zgodna z następującymi wymaganiami:
+
+* Jednostki muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg.
+* Jednostki muszą przypadać w granicach zewnętrznego obwodu funkcji.
+* Jednostki nie mogą częściowo nakładać się na siebie.
+* Jednostki nie mogą zawierać żadnej własnej geometrii.
+
+ Nadaj nazwę jednostce przez utworzenie obiektu tekstowego w warstwie _unitLabel_ , a następnie umieść obiekt wewnątrz granic jednostki. Aby uzyskać więcej informacji, zobacz [warstwę UnitLabel](#unitlabel-layer).
+
+Przykład warstwy jednostki można zobaczyć jako warstwę jednostek w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+### <a name="wall-layer"></a>Warstwa ścian
+
+Plik DWG dla każdego poziomu może zawierać warstwę, która definiuje fizyczne zakresy ścian, kolumn i innych struktur konstrukcyjnych.
+
+* Ściany muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg.
+* Warstwy ścian powinny zawierać tylko geometrię, która jest interpretowana jako struktura budynku.
+
+Przykład warstwy ściany można zobaczyć jako warstwę ścian w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+### <a name="door-layer"></a>Warstwa drzwi
+
+Może zawierać warstwę DWG zawierającą drzwi. Każde drzwi muszą nakładać się na brzeg jednostki z warstwy jednostkowej.
+
+Otwarte drzwi w zestawie danych Azure Maps są reprezentowane jako segment jednowierszowy, który nakłada się na wiele granic jednostek. Następujące kroki są wykonywane w celu przekonwertowania geometrii w warstwie drzwi na otwieranie funkcji w zestawie danych.
+
+![Kroki umożliwiające wygenerowanie otwartych](./media/drawing-requirements/opening-steps.png)
+
+### <a name="zone-layer"></a>Warstwa strefy
+
+Plik DWG dla każdego poziomu może zawierać warstwę strefy, która definiuje fizyczne zakresy stref. Strefa może być pustą spacją lub z tyłu.
+
+* Strefy muszą być rysowane jako Wielokąt, łamane (zamknięte), okrąg.
+* Strefy mogą się nakładać.
+* Strefy mogą znajdować się wewnątrz lub poza obwodem zewnętrznym obiektu.
+
+Nazwij strefę, tworząc obiekt tekstu w warstwie _zoneLabel_ i umieszczając obiekt tekstowy wewnątrz granic strefy. Aby uzyskać więcej informacji, zobacz [warstwa ZoneLabel](#zonelabel-layer).
+
+Przykład warstwy strefy można zobaczyć jako warstwę stref w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+### <a name="unitlabel-layer"></a>Warstwa UnitLabel
+
+Plik DWG dla każdego poziomu może zawierać warstwę etykiet jednostek. Warstwa etykiet jednostki dodaje właściwość nazwy do jednostek wyodrębnionych z warstwy jednostkowej. Jednostki o właściwości Name mogą zawierać dodatkowe szczegóły określone w pliku manifestu.
+
+* Etykiety jednostek muszą być jednostkami tekstu jednowierszowego.
+* Etykiety jednostek muszą znajdować się wewnątrz granic ich jednostek.
+* Jednostki nie mogą zawierać wielu jednostek tekstowych w warstwie etykiet jednostek.
+
+Przykład warstwy UnitLabel może być traktowany jako warstwa UNITLABELS w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+### <a name="zonelabel-layer"></a>Warstwa ZoneLabel
+
+Plik DWG dla każdego poziomu może zawierać warstwę etykieta strefy. Ta warstwa dodaje właściwość Name do stref wyodrębnionych z warstwy strefy. Strefy z właściwością nazwa mogą zawierać dodatkowe szczegóły określone w pliku manifestu.
+
+* Etykiety stref muszą być jednostkami tekstu jednowierszowego.
+* Etykiety stref muszą znajdować się wewnątrz granic swojej strefy.
+* Strefy nie mogą zawierać wielu jednostek tekstowych w warstwie etykiet strefy.
+
+Przykład warstwy Zonelabel może być traktowany jako warstwa ZONELABELS w [przykładowym pakiecie rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+## <a name="manifest-file-requirements"></a>Wymagania dotyczące pliku manifestu
+
+Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest. JSON**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
+
+Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia. 
+
+Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie wszystkie obiekty są wymagane. W poniższej tabeli przedstawiono wymagane i opcjonalne obiekty w wersji 1,1 [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion).
+
+| Obiekt | Wymagane | Opis |
+| :----- | :------- | :------- |
+| directoryInfo | true | Przedstawia informacje o lokalizacji geograficznej i kontakcie. Można go również użyć do zaprojektowania geograficznego i informacji kontaktowych. |
+| buildingLevels | true | Określa poziomy budynków i pliki zawierające projekt poziomów. |
+| odwołanie georeferencyjne | true | Zawiera liczbowe informacje geograficzne dla rysowania obiektu. |
+| dwgLayers | true | Wyświetla listę nazw warstw, a każda warstwa zawiera nazwy własnych funkcji. |
+| unitProperties | fałsz | Może służyć do wstawiania dodatkowych metadanych dla funkcji jednostkowych. |
+| zoneProperties | fałsz | Może służyć do wstawiania dodatkowych metadanych dla funkcji strefy. |
+
+W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiektu.
+
+### <a name="directoryinfo"></a>directoryInfo
+
+| Właściwość  | typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+| name      | ciąg/int | true   |  Nazwa budynku. |
+| streetAddress|    ciąg/int |    fałsz    | Adres budynku. |
+|unit     | ciąg/int    |  fałsz    |  Trwa Kompilowanie. |
+| miejscowość |    ciąg/int |    fałsz |    Nazwa obszaru, klubu lub regionu. Na przykład "przewidziano" lub "Region Centralny". Miejscowość nie jest częścią adresu wysyłkowego. |
+| adminDivisions |    Tablica JSON ciągów |    fałsz     | Tablica zawierająca oznaczenia adresów (kraj, Województwo, miasto) lub (kraj, Prefektura, miasto, miejscowość). Użyj kodów kraju ISO 3166 i kodów stanu/regionu ISO 3166-2. |
+| Pocztowy |    ciąg/int    | fałsz    | Kod sortowania poczty. |
+| hoursOfOperation |    ciąg |     fałsz | Stosuje się do formatu [godzin otwarcia OSM](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) . |
+| phone    | ciąg/int |    fałsz |    Numer telefonu skojarzony z kompilowaniem. Musi zawierać kod kraju. |
+| witryna internetowa    | ciąg |    fałsz    | Witryna internetowa skojarzona z kompilowaniem. M zaczyna się od http lub https. |
+| nonPublic |    bool    | fałsz | Flaga określająca, czy kompilacja jest otwarta do publicznej. |
+| anchorLatitude | numeryczne |    fałsz | Szerokość i zakotwiczenie obiektu (pinezki). |
+| anchorLongitude | numeryczne |    fałsz | Długość dokotwiczenia obiektu (pinezki). |
+| anchorHeightAboveSeaLevel  | numeryczne | fałsz | Wysokość podłogi gruntowej w obiekcie powyżej poziomu morza w metrach. |
+| defaultLevelVerticalExtent | numeryczne | fałsz | Domyślna wysokość (grubość) poziomu tej funkcji, która ma być używana, gdy poziom `verticalExtent` jest niezdefiniowany. |
+
+### <a name="buildinglevels"></a>buildingLevels
+
+`buildingLevels`Obiekt zawiera tablicę poziomów budynków w formacie JSON.
+
+| Właściwość  | Typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+|levelName    |ciąg/int    |true |    Nazwa poziomu w opisie. Na przykład: piętro 1, poczekalni, niebieskie parkingi, Basement i tak dalej.|
+|liczbą | liczba całkowita |    true | Numer porządkowy jest używany do określenia pionowej kolejności poziomów. Każda funkcja musi mieć poziom z liczbą porządkową 0. |
+|heightAboveFacilityAnchor | numeryczne |    fałsz |    Wysokość poziomu powyżej podłogi podłogowej w metrach. |
+| verticalExtent | numeryczne | fałsz | Podłoga do wysokości sufitu (grubości) poziomu w licznikach. |
+|filename |    ciąg/int |    true |    Ścieżka systemu plików rysunku CAD dla poziomu budynku. Musi być względem katalogu głównego pliku zip budynku. |
+
+### <a name="georeference"></a>odwołanie georeferencyjne
+
+| Właściwość  | Typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+|usługę    | numeryczne |    true |    Reprezentacja dziesiętna stopni szerokości geograficznej na początku rysowania obiektu. Współrzędne pochodzenia muszą znajdować się w WGS84 Web Merkatora ( `EPSG:3857` ).|
+|Długość    |numeryczne|    true|    Reprezentacja dziesiętna wartości długości geograficznej w pochodzeniu rysowania obiektu. Współrzędne pochodzenia muszą znajdować się w WGS84 Web Merkatora ( `EPSG:3857` ). |
+|kąt|    numeryczne|    true|   Kąt ruchowy (w stopniach) między rzeczywistą i pionową osią na rysunku (Y).   |
+
+### <a name="dwglayers"></a>dwgLayers
+
+| Właściwość  | Typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+|Krawężnik    |Tablica ciągów/liczby całkowite|    true|    Nazwy warstw, które definiują zewnętrzny profil budynku.|
+|unit|    Tablica ciągów/liczby całkowite|    true|    Nazwy warstw, które definiują jednostki.|
+|osłon|    Tablica ciągów/liczby całkowite    |fałsz|    Nazwy warstw, które definiują ściany.|
+|drzwi    |Tablica ciągów/liczby całkowite|    fałsz   | Nazwy warstw, które definiują drzwi.|
+|unitLabel    |Tablica ciągów/liczby całkowite|    fałsz    |Nazwy warstw, które definiują nazwy jednostek.|
+|strefa | Tablica ciągów/liczby całkowite    | fałsz    | Nazwy warstw, które definiują strefy.|
+|zoneLabel | Tablica ciągów/liczby całkowite |     fałsz |    Nazwy warstw, które definiują nazwy stref.|
+
+### <a name="unitproperties"></a>unitProperties
+
+`unitProperties`Obiekt zawiera tablicę z właściwościami jednostki JSON.
+
+| Właściwość  | Typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+|jednostkaname    |ciąg/int    |true    |Nazwa jednostki do skojarzenia z tym `unitProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy `unitName` , gdy w warstwach znaleziono dopasowanie do etykiet `unitLabel` . |
+|categoryName|    ciąg/int|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
+|navigableBy| Tablica ciągów |    fałsz    |Wskazuje typy agentów nawigacyjnych, które mogą przechodzić przez jednostkę. Na przykład "pies". Ta właściwość będzie informować o możliwościach wayfinding.  Dozwolone wartości to,,,,,,,,,, `pedestrian` `wheelchair` `machine` `bicycle` `automobile` `hiredAuto` `bus` `railcar` `emergency` `ferry` `boat` i `disallowed` .|
+|routeThroughBehavior|    ciąg|    fałsz    |Zachowanie trasy dla jednostki. Dozwolone wartości to `disallowed` , `allowed` , i `preferred` . Wartość domyślna to `allowed` .|
+|osoby    |Tablica obiektów directoryInfo |fałsz    |Lista osób zajmujących się jednostką. |
+|nameAlt|    ciąg/int|    fałsz|    Alternatywna nazwa jednostki. |
+|nameSubtitle|    ciąg/int    |fałsz|    Podtytuł jednostki. |
+|addressRoomNumber|    ciąg/int|    fałsz|    Numer pomieszczenia/jednostki/komórki/zestawu jednostki.|
+|verticalPenetrationCategory|    ciąg/int|    fałsz| Gdy ta właściwość jest zdefiniowana, wynikiem funkcji będzie pionowa penetracja (VRT), a nie jednostka. VRTs można użyć do przechodzenia do innych funkcji VRT na poziomach powyżej lub poniżej. Penetracja pionowa to nazwa [kategorii](https://aka.ms/pa-indoor-spacecategories) . Jeśli ta właściwość jest zdefiniowana, właściwość categoryName jest zastępowana verticalPenetrationCategory. |
+|verticalPenetrationDirection|    ciąg|    fałsz    |Jeśli `verticalPenetrationCategory` jest zdefiniowany, opcjonalnie Zdefiniuj prawidłowy kierunek podróży. Dozwolone wartości to `lowToHigh` , `highToLow` , `both` , i `closed` . Wartość domyślna to `both` .|
+| nonPublic | bool | fałsz | Wskazuje, czy jednostka jest otwarta publicznie. |
+| isRoutable | bool | fałsz | Gdy ustawiona `false` jest wartość, nie można przejść do jednostki, lub przez. Wartość domyślna to `true` . |
+| isOpenArea | bool | fałsz | Umożliwia nawigowanie przez agenta w celu przejścia do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na, `true` chyba że jednostka ma otwarte. |
+
+### <a name="the-zoneproperties-object"></a>Obiekt zoneProperties
+
+`zoneProperties`Obiekt zawiera tablicę JSON właściwości strefy.
+
+| Właściwość  | Typ | Wymagane | Opis |
+|-----------|------|----------|-------------|
+|zoneName        |ciąg/int    |true    |Nazwa strefy do skojarzenia z `zoneProperty` rekordem. Ten rekord jest prawidłowy tylko wtedy, gdy `zoneName` w warstwie strefy znaleziono dopasowanie do etykiet `zoneLabel` .  |
+|categoryName|    ciąg/int|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
+|zoneNameAlt|    ciąg/int|    fałsz    |Alternatywna nazwa strefy.  |
+|zoneNameSubtitle|    ciąg/int |    fałsz    |Podtytuł strefy. |
+
+### <a name="sample-drawing-package-manifest"></a>Przykładowy manifest pakietu rysowania
+
+Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do rysowania. Aby pobrać cały pakiet, kliknij [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+#### <a name="manifest-file"></a>Plik manifestu
+
+```JSON
+{
+    "version": "1.1", 
+    "directoryInfo": { 
+        "name": "Contoso Building", 
+        "streetAddresss": "Contoso Way", 
+        "unit": "1", 
+        "locality": "Contoso eastside", 
+        "postalCode": "98052", 
+        "adminDivisions": [ 
+            "Contoso city", 
+            "Contoso state", 
+            "Contoso country" 
+        ], 
+        "hoursOfOperation": "Mo-Fr 08:00-17:00 open", 
+        "phone": "1 (425) 555-1234", 
+        "website": "www.contoso.com", 
+        "nonPublic": false, 
+        "anchorLatitude": 47.636152, 
+        "anchorLongitude": -122.132600, 
+        "anchorHeightAboveSeaLevel": 1000, 
+        "defaultLevelVerticalExtent": 3  
+    }, 
+    "buildingLevels": { 
+        "levels": [ 
+            { 
+                "levelName": "Basement", 
+                "ordinal": -1, 
+                "filename": "./Basement.dwg" 
+            }, { 
+                "levelName": "Ground", 
+                "ordinal": 0, 
+                "verticalExtent": 5, 
+                "filename": "./Ground.dwg" 
+            }, { 
+                "levelName": "Level 2", 
+                "ordinal": 1, 
+                "heightAboveFacilityAnchor": 3.5, 
+                "filename": "./Level_2.dwg" 
+            } 
+        ] 
+    }, 
+    "georeference": { 
+        "lat": 47.636152, 
+        "lon": -122.132600, 
+        "angle": 0 
+    }, 
+    "dwgLayers": { 
+        "exterior": [ 
+            "OUTLINE", "WINDOWS" 
+        ], 
+        "unit": [ 
+            "UNITS" 
+        ], 
+        "wall": [ 
+            "WALLS" 
+        ], 
+        "door": [ 
+            "DOORS" 
+        ], 
+        "unitLabel": [ 
+            "UNITLABELS" 
+        ], 
+        "zone": [ 
+            "ZONES" 
+        ], 
+        "zoneLabel": [ 
+            "ZONELABELS" 
+        ] 
+    }, 
+    "unitProperties": [ 
+        { 
+            "unitName": "B01", 
+            "categoryName": "room.office", 
+            "navigableBy": ["pedestrian", "wheelchair", "machine"], 
+            "routeThroughBehavior": "disallowed", 
+            "occupants": [ 
+                { 
+                    "name": "Joe's Office", 
+                    "phone": "1 (425) 555-1234" 
+                } 
+            ], 
+            "nameAlt": "Basement01", 
+            "nameSubtitle": "01", 
+            "addressRoomNumber": "B01", 
+            "nonWheelchairAccessible": false, 
+            "nonPublic": true, 
+            "isRoutable": true, 
+            "isOpenArea": true 
+        }, 
+        { 
+            "unitName": "B02" 
+        }, 
+        { 
+            "unitName": "B05", 
+            "categoryName": "room.office" 
+        }, 
+        { 
+            "unitName": "STRB01", 
+            "verticalPenetrationCategory": "verticalPenetration.stairs", 
+            "verticalPenetrationDirection": "both" 
+        }, 
+        { 
+            "unitName": "ELVB01", 
+            "verticalPenetrationCategory": "verticalPenetration.elevator", 
+            "verticalPenetrationDirection": "high_to_low" 
+        } 
+    ], 
+    "zoneProperties": 
+    [ 
+        { 
+            "zoneName": "WifiB01", 
+            "categoryName": "Zone", 
+            "zoneNameAlt": "MyZone", 
+            "zoneNameSubtitle": "Wifi", 
+            "zoneSetId": "1234" 
+        }, 
+        { 
+            "zoneName": "Wifi101",
+            "categoryName": "Zone",
+            "zoneNameAlt": "MyZone",
+            "zoneNameSubtitle": "Wifi",
+            "zoneSetId": "1234"
+        }
+    ]
+}
+```
+
+## <a name="next-steps"></a>Następne kroki
+
+Gdy pakiet rysowania spełnia wymagania, możesz użyć [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) , aby skonwertować pakiet do zestawu danych mapy. Następnie można użyć zestawu danych, aby wygenerować mapę pomieszczeń przy użyciu modułu Maps. Dowiedz się więcej o korzystaniu z modułu Maps (mapy wewnętrzne), czytając następujące artykuły:
+
+> [!div class="nextstepaction"]
+>[Kreator dla map pomieszczeń](creator-indoor-maps.md)
+
+> [!div class="nextstepaction"]
+> [Samouczek: Tworzenie mapy pomieszczeń dla twórców](tutorial-creator-indoor-maps.md)
+
+> [!div class="nextstepaction"]
+> [Dynamiczne style map](indoor-map-dynamic-styling.md)

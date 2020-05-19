@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 7391fbccaf7983a070d80da64a2908333280420b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878310"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83609005"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funkcje w wersji zapoznawczej Azure Stream Analytics
 
@@ -21,6 +21,15 @@ Ten artykuł podsumowuje wszystkie funkcje obecnie dostępne w wersji zapoznawcz
 ## <a name="public-previews"></a>Publiczne wersje zapoznawcze
 
 Następujące funkcje są dostępne w publicznej wersji zapoznawczej. Można korzystać z tych funkcji dzisiaj, ale nie używać ich w środowisku produkcyjnym.
+
+### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Uwierzytelnianie w celu SQL Database danych wyjściowych z tożsamościami zarządzanymi
+
+Azure Stream Analytics obsługuje [uwierzytelnianie tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla Azure SQL Database ujścia danych wyjściowych. Tożsamości zarządzane eliminują ograniczenia metod uwierzytelniania opartych na użytkownikach, takich jak potrzeba ponownego uwierzytelnienia ze względu na zmiany hasła lub wygaśnięcia tokenów użytkowników, które wystąpiły co 90 dni. Po usunięciu potrzeby ręcznego uwierzytelniania Stream Analytics wdrożenia mogą być w pełni zautomatyzowane.
+
+### <a name="output-to-azure-synapse-analytics"></a>Dane wyjściowe do usługi Azure Synapse Analytics
+
+Azure Stream Analytics zadania mogą wynikać z tabeli puli SQL w [usłudze Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) i mogą przetwarzać stawki przepływności do 200 MB/s. Obsługuje to najbardziej wymagające analiz w czasie rzeczywistym i wymaga przetwarzania danych na gorąco w przypadku obciążeń, takich jak raportowanie i pulpit nawigacyjny.  
+
 
 ### <a name="online-scaling"></a>Skalowanie online
 
