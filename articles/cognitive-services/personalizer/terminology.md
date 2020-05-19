@@ -2,13 +2,13 @@
 title: Terminologia — Personalizacja
 description: Personalizowanie używa terminologii z uczenia wzmacniania. Te warunki są używane w Azure Portal i interfejsy API.
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624276"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586307"
 ---
 # <a name="terminology"></a>Terminologia
 
@@ -19,6 +19,15 @@ Personalizowanie używa terminologii z uczenia wzmacniania. Te warunki są używ
 * **Pętla szkoleniowa**: tworzysz zasób narzędzia personalizacji o nazwie _Pętla szkoleniowa_dla każdej części aplikacji, która może korzystać z personalizacji. Jeśli masz więcej niż jedno środowisko do personalizacji, Utwórz pętlę dla każdego z nich.
 
 * **Model**: model personalizowania przechwytuje wszystkie dane, które są uzyskiwane na temat zachowania użytkowników, uzyskiwanie danych szkoleniowych z kombinacji argumentów wysyłanych do rangi i płatnych wywołań oraz z zachowaniem szkolenia określonym przez zasady uczenia się.
+
+* **Tryb online**: domyślne [zachowanie uczenia](#learning-behavior) dla programu personalizacji, w którym pętla szkoleniowa korzysta z uczenia maszynowego do kompilowania modelu, który przewiduje **najwyższą akcję** dla zawartości.
+
+* **Tryb**współdziałania: [zachowanie uczenia](#learning-behavior) , które pomaga w rozpoczęciu pracy modelu personalizowania w celu uczenia się bez wpływu na wyniki i działania aplikacji.
+
+## <a name="learning-behavior"></a>Zachowanie uczenia:
+
+* **Tryb online**: Zwróć najlepszą akcję. Model reaguje na wywołania rangi z najlepszą akcją i użyje wywołań płatnych, aby poznać i poprawić wybrane opcje w czasie.
+* **[Tryb praktykanta](concept-apprentice-mode.md)**: uczenie się jako praktykant. Twój model będzie uczyć się, obserwując zachowanie istniejącego systemu. Wywołania rangi zawsze zwracają **domyślną akcję** aplikacji (linię bazową).
 
 ## <a name="personalizer-configuration"></a>Konfiguracja personalizacji
 
@@ -63,8 +72,21 @@ Personalizacja jest konfigurowana z poziomu [Azure Portal](https://portal.azure.
 
 * **Wynagrodzenie**: miara sposobu, w jaki użytkownik ODPOWIEDZIAŁ na identyfikator akcji w interfejsie API rangi, jako wynik z przedziału od 0 do 1. Wartość od 0 do 1 jest ustawiana przez logikę biznesową, w zależności od tego, jak wybór pozwala osiągnąć cele biznesowe personalizacji. Pętla szkoleniowa nie przechowuje tego wynagrodzenia jako pojedynczej historii użytkownika.
 
-## <a name="offline-evaluations"></a>Oceny w trybie offline
+## <a name="evaluations"></a>Ocen
 
-* **Ocena**: Ocena w trybie offline określa najlepsze zasady uczenia dla pętli na podstawie danych pętli.
+### <a name="offline-evaluations"></a>Oceny w trybie offline
+
+* **Ocena**: Ocena w trybie offline określa najlepsze zasady uczenia dla pętli na podstawie danych aplikacji.
 
 * **Zasady uczenia**: jak program Personalizuj pociąga za siebie model dla każdego zdarzenia, będzie określać niektóre parametry, które wpływają na działanie algorytmu uczenia maszynowego. Nowa pętla szkoleniowa rozpoczyna się od domyślnych **zasad uczenia**, co może spowodować umiarkowaną wydajność. Podczas przeprowadzania [obliczeń](concepts-offline-evaluation.md)program Personalizuj tworzy nowe zasady uczenia, które zostały zoptymalizowane pod kątem użycia pętli. Personalizacja będzie działać znacznie lepiej dzięki zasadom zoptymalizowanym dla każdej konkretnej pętli, generowanej podczas obliczania. Zasady uczenia są nazywane _ustawieniami uczenia_ w **ustawieniach model i nauka** dla zasobu Personalizacja w Azure Portal.
+
+### <a name="apprentice-mode-evaluations"></a>Oceny trybu praktyk
+
+Tryb praktykanta zapewnia następujące **metryki oceny**:
+* **Linia bazowa — średnia wynagrodzenie**: średnie nagrody wartości domyślnej (linii bazowej) aplikacji.
+* **Personalizacja — średnia Nagroda**: Średnia z całkowitego nagrody personalizacji byłaby prawdopodobnie osiągnięta.
+* **Średnia nadwyżka krocząca**: współczynnik linii bazowej i personalizacji, która została znormalizowana względem ostatnich zdarzeń 1000.
+
+## <a name="next-steps"></a>Następne kroki
+
+* Dowiedz się więcej o [etyki i właściwym użyciu](ethics-responsible-use.md)

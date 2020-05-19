@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/8/2020
+ms.openlocfilehash: d1eda3671b52a1e4bbae9af2d97010657880c383
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475231"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585406"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Poznanie danych wyjściowych z Azure Stream Analytics
 
@@ -42,12 +42,12 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy w celu skonfigur
 | Format daty | Opcjonalny. Jeśli token daty jest używany w ścieżce prefiksu, można wybrać format daty, w którym są zorganizowane pliki. Przykład: RRRR/MM/DD |
 |Format czasu | Opcjonalny. Jeśli token czasu jest używany w ścieżce prefiksu, określ format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest HH. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro.|
-| Kodowanie | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.|
+| Encoding | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.|
 | Ogranicznik | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników na potrzeby serializowania danych woluminu CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek.|
 | Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON.  **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. Ta tablica jest zamykana tylko wtedy, gdy zadanie zostało zatrzymane lub Stream Analytics zostało przeniesione do następnego przedziału czasu. Ogólnie rzecz biorąc, zalecane jest użycie kodu JSON rozdzielonego wierszem, ponieważ nie wymaga żadnej specjalnej obsługi, gdy plik wyjściowy jest nadal w trakcie zapisywania.|
 | Tryb uwierzytelniania | Możesz autoryzować dostęp do konta Data Lake Storage przy użyciu [tożsamości zarządzanej](stream-analytics-managed-identities-adls.md) lub tokenu użytkownika. Po udzieleniu dostępu można odwołać dostęp poprzez zmianę hasła konta użytkownika, usunięcie Data Lake Storage danych wyjściowych dla tego zadania lub usunięcie zadania Stream Analytics. |
 
-## <a name="sql-database"></a>Baza danych SQL
+## <a name="sql-database"></a>SQL Database
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) jako dane wyjściowe można użyć jako danych wyjściowych, które są relacyjne, lub dla aplikacji, które są zależne od zawartości hostowanej w relacyjnej bazie danych. Stream Analytics zadania zapisu do istniejącej tabeli w SQL Database. Schemat tabeli musi dokładnie pasować do pól i ich typów w danych wyjściowych zadania. Możesz również określić [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) jako dane wyjściowe za pośrednictwem opcji SQL Database Output. Aby dowiedzieć się więcej na temat sposobów zwiększania przepływności zapisu, zobacz artykuł [Stream Analytics z Azure SQL Database jako dane wyjściowe](stream-analytics-sql-output-perf.md) .
 
@@ -66,6 +66,33 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 |Dziedzicz schemat partycji| Opcja dziedziczenia schematu partycjonowania poprzedniego kroku zapytania, w celu włączenia w pełni równoległej topologii z wieloma składnikami zapisywania do tabeli. Aby uzyskać więcej informacji, zobacz [Azure Stream Analytics danych wyjściowych Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Maksymalna liczba partii| Zalecany górny limit liczby rekordów wysyłanych z każdą zbiorczą transakcją wstawiania.|
 
+Istnieją dwie karty, które umożliwiają wyjście z Azure Stream Analytics usługi Azure Synapse Analytics (dawniej SQL Data Warehouse): SQL Database i Azure Synapse. Zalecamy wybranie karty usługi Azure Synapse Analytics zamiast karty SQL Database, jeśli spełnione są następujące warunki:
+
+* **Przepływność**: jeśli oczekiwana przepływność teraz lub w przyszłości jest większa niż 10 MB/s, użyj opcji danych wyjściowych usługi Azure Synapse, aby uzyskać lepszą wydajność.
+
+* **Partycje wejściowe**: Jeśli masz osiem lub więcej partycji wejściowych, użyj opcji danych wyjściowych usługi Azure Synapse w celu lepszego skalowania w poziomie.
+
+## <a name="azure-synapse-analytics-preview"></a>Azure Synapse Analytics (wersja zapoznawcza)
+
+[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (dawniej SQL Data Warehouse) to nieograniczona Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. 
+
+Azure Stream Analytics zadania mogą wynikać z tabeli puli SQL w usłudze Azure Synapse Analytics i mogą przetwarzać stawki przepływności do 200 MB/s. Obsługuje to najbardziej wymagające analiz w czasie rzeczywistym i wymaga przetwarzania danych na gorąco w przypadku obciążeń, takich jak raportowanie i pulpit nawigacyjny.  
+
+Tabela puli SQL musi istnieć, aby można było dodać ją jako dane wyjściowe do zadania Stream Analytics. Schemat tabeli musi pasować do pól i ich typów w danych wyjściowych zadania. 
+
+Aby korzystać z usługi Azure Synapse jako danych wyjściowych, należy upewnić się, że konto magazynu zostało skonfigurowane. Przejdź do ustawień konta magazynu, aby skonfigurować konto magazynu. Dozwolone są tylko typy kont magazynu obsługujące tabele: ogólnego przeznaczenia w wersji 2 i ogólnego przeznaczenia w wersji 1.   
+
+W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworzenia danych wyjściowych usługi Azure Synapse Analytics.
+
+|Nazwa właściwości|Opis|
+|-|-|
+|Alias danych wyjściowych |Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tej bazy danych. |
+|baza danych |Nazwa puli SQL, do której wysyłane są dane wyjściowe. |
+|Nazwa serwera |Nazwa serwera usługi Azure Synapse.  |
+|Nazwa użytkownika |Nazwa użytkownika, która ma dostęp do zapisu w bazie danych. Stream Analytics obsługuje tylko uwierzytelnianie SQL. |
+|Hasło |Hasło, aby połączyć się z bazą danych. |
+|Tabela  | Nazwa tabeli, w której zapisano dane wyjściowe. W nazwie tabeli jest rozróżniana wielkość liter. Schemat tej tabeli powinien dokładnie pasować do liczby pól i ich typów generowanych przez dane wyjściowe zadania.|
+
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>BLOB Storage i Azure Data Lake Gen2
 
 Data Lake Storage Gen2 sprawia, że usługa Azure Storage jest podstawą do tworzenia jezior danych przedsiębiorstwa na platformie Azure. Zaprojektowana od początku do obsługi wielu petabajtów informacji przy zachowaniu setek gigabitowej przepływności, Data Lake Storage Gen2 umożliwia łatwe zarządzanie ogromnymi ilościami danych. Podstawową częścią Data Lake Storage Gen2 jest dodanie hierarchicznej przestrzeni nazw do magazynu obiektów BLOB.
@@ -80,13 +107,13 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Konto magazynu     | Nazwa konta magazynu, do którego wysyłane są dane wyjściowe.               |
 | Klucz konta magazynu | Klucz tajny skojarzony z kontem magazynu.                              |
 | Kontener magazynu   | Grupowanie logiczne dla obiektów BLOB przechowywanych w usłudze Azure Blob service. Po przekazaniu obiektu BLOB do Blob service należy określić kontener dla tego obiektu BLOB. |
-| Wzorzec ścieżki | Opcjonalny. Wzorzec ścieżki pliku używany do pisania obiektów BLOB w określonym kontenerze. <br /><br /> We wzorcu ścieżki można wybrać, aby użyć jednego lub większej liczby wystąpień zmiennych daty i godziny, aby określić częstotliwość zapisywania obiektów blob: <br /> {Date}, {Time} <br /><br />Możesz użyć niestandardowego partycjonowania obiektów blob, aby określić jedną niestandardową nazwę {Field} z danych zdarzenia do partycjonowania obiektów BLOB. Nazwa pola jest alfanumeryczna i może zawierać spacje, łączniki i podkreślenia. Ograniczenia dotyczące pól niestandardowych są następujące: <ul><li>W nazwach pól nie jest rozróżniana wielkość liter. Na przykład usługa nie może rozróżnić między kolumnami "ID" i kolumną "ID".</li><li>Zagnieżdżone pola są niedozwolone. Zamiast tego należy użyć aliasu w zapytaniu zadania do "Spłaszcz" pola.</li><li>Wyrażenia nie mogą być używane jako nazwa pola.</li></ul> <br />Ta funkcja umożliwia użycie niestandardowych konfiguracji specyfikatora formatu daty i godziny w ścieżce. Niestandardowe formaty daty i godziny muszą być określone pojedynczo, ujęte w słowo kluczowe {DateTime:\<specyfikator>}. Dozwolone dane wejściowe dla \<specyfikatora> to rrrr, mm, m, DD, d, hh, H, mm, m, SS lub s. Słowo kluczowe {DateTime\<: specyfikator>} może być używane wiele razy w ścieżce, aby utworzyć niestandardową konfigurację daty/czasu. <br /><br />Przykłady: <ul><li>Przykład 1: Klaster1/dzienniki/{Date}/{Time}</li><li>Przykład 2: Klaster1/dzienniki/{Date}</li><li>Przykład 3: Klaster1/{client_id}/{Date}/{Time}</li><li>Przykład 4: Klaster1/{DateTime: SS}/{myField}, gdzie zapytanie jest: Wybierz dane. moje pole z danych wejściowych;</li><li>Przykład 5: Klaster1/Year = {DateTime: RRRR}/miesiąc = {DateTime: MM}/Day = {DateTime: DD}</ul><br />Sygnatura czasowa utworzonej struktury folderów następuje po UTC, a nie na czas lokalny.<br /><br />Nazwa pliku używa następującej konwencji: <br /><br />{Wzorzec prefiksu ścieżki}/schemaHashcode_Guid_Number. rozszerzenie<br /><br />Przykładowe pliki wyjściowe:<ul><li>Dane wyjściowe/20170901/00/45434_gguid_1. csv</li>  <li>Dane wyjściowe/20170901/01/45434_gguid_1. csv</li></ul> <br />Aby uzyskać więcej informacji na temat tej funkcji, zobacz [niestandardowe Partycjonowanie danych wyjściowych obiektu blob Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Wzorzec ścieżki | Opcjonalny. Wzorzec ścieżki pliku używany do pisania obiektów BLOB w określonym kontenerze. <br /><br /> We wzorcu ścieżki można wybrać, aby użyć jednego lub większej liczby wystąpień zmiennych daty i godziny, aby określić częstotliwość zapisywania obiektów blob: <br /> {Date}, {Time} <br /><br />Możesz użyć niestandardowego partycjonowania obiektów blob, aby określić jedną niestandardową nazwę {Field} z danych zdarzenia do partycjonowania obiektów BLOB. Nazwa pola jest alfanumeryczna i może zawierać spacje, łączniki i podkreślenia. Ograniczenia dotyczące pól niestandardowych są następujące: <ul><li>W nazwach pól nie jest rozróżniana wielkość liter. Na przykład usługa nie może rozróżnić między kolumnami "ID" i kolumną "ID".</li><li>Zagnieżdżone pola są niedozwolone. Zamiast tego należy użyć aliasu w zapytaniu zadania do "Spłaszcz" pola.</li><li>Wyrażenia nie mogą być używane jako nazwa pola.</li></ul> <br />Ta funkcja umożliwia użycie niestandardowych konfiguracji specyfikatora formatu daty i godziny w ścieżce. Niestandardowe formaty daty i godziny muszą być określone pojedynczo, ujęte w słowo kluczowe {DateTime: \< specyfikator>}. Dozwolone dane wejściowe dla \< specyfikatora> to rrrr, mm, m, DD, d, hh, H, mm, m, SS lub s. Słowo kluczowe {DateTime: \< specyfikator>} może być używane wiele razy w ścieżce, aby utworzyć niestandardową konfigurację daty/czasu. <br /><br />Przykłady: <ul><li>Przykład 1: Klaster1/dzienniki/{Date}/{Time}</li><li>Przykład 2: Klaster1/dzienniki/{Date}</li><li>Przykład 3: Klaster1/{client_id}/{Date}/{Time}</li><li>Przykład 4: Klaster1/{DateTime: SS}/{myField}, gdzie zapytanie jest: Wybierz dane. moje pole z danych wejściowych;</li><li>Przykład 5: Klaster1/Year = {DateTime: RRRR}/miesiąc = {DateTime: MM}/Day = {DateTime: DD}</ul><br />Sygnatura czasowa utworzonej struktury folderów następuje po UTC, a nie na czas lokalny.<br /><br />Nazwa pliku używa następującej konwencji: <br /><br />{Wzorzec prefiksu ścieżki}/schemaHashcode_Guid_Number. rozszerzenie<br /><br />Przykładowe pliki wyjściowe:<ul><li>Dane wyjściowe/20170901/00/45434_gguid_1. csv</li>  <li>Dane wyjściowe/20170901/01/45434_gguid_1. csv</li></ul> <br />Aby uzyskać więcej informacji na temat tej funkcji, zobacz [niestandardowe Partycjonowanie danych wyjściowych obiektu blob Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Format daty | Opcjonalny. Jeśli token daty jest używany w ścieżce prefiksu, można wybrać format daty, w którym są zorganizowane pliki. Przykład: RRRR/MM/DD |
 | Format czasu | Opcjonalny. Jeśli token czasu jest używany w ścieżce prefiksu, określ format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest HH. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV, Avro i Parquet. |
 |Minimalna ilość wierszy (tylko parquet)|Liczba minimalnych wierszy na partię. Dla Parquet każda partia utworzy nowy plik. Bieżąca wartość domyślna to 2 000 wierszy, a maksymalna dozwolona liczba wierszy to 10 000.|
 |Maksymalny czas (tylko parquet)|Maksymalny czas oczekiwania na partię. Po upływie tego czasu partia zostanie zapisywana w danych wyjściowych, nawet jeśli nie spełniono wymagań dotyczących minimalnych wierszy. Bieżąca wartość domyślna to 1 minuta, a maksymalna dozwolona liczba to 2 godziny. Jeśli dane wyjściowe obiektu BLOB mają częstotliwość tworzenia wzorców ścieżki, czas oczekiwania nie może być wyższy niż zakres czasu partycji.|
-| Kodowanie    | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Encoding    | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik   | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników na potrzeby serializowania danych woluminu CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format      | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. Ta tablica jest zamykana tylko wtedy, gdy zadanie zostało zatrzymane lub Stream Analytics zostało przeniesione do następnego przedziału czasu. Ogólnie rzecz biorąc, zalecane jest użycie kodu JSON rozdzielonego wierszem, ponieważ nie wymaga żadnej specjalnej obsługi, gdy plik wyjściowy jest nadal w trakcie zapisywania. |
 
@@ -116,7 +143,7 @@ Potrzebujesz kilku parametrów, aby skonfigurować strumienie danych z centrów 
 | Klucz zasad centrum zdarzeń | Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw centrum zdarzeń. |
 | Kolumna klucza partycji | Opcjonalny. Kolumna zawierająca klucz partycji dla danych wyjściowych centrum zdarzeń. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Kodowanie | W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Encoding | W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON.  |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
@@ -206,7 +233,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa zasad kolejki |Podczas tworzenia kolejki można także utworzyć zasady dostępu współdzielonego na karcie **Konfiguracja** kolejki. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | Klucz zasad kolejki |Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. |
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Kodowanie |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Encoding |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format |Dotyczy tylko typu JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
@@ -227,7 +254,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa zasad tematu |Podczas tworzenia tematu Service Bus można także utworzyć zasady dostępu współdzielonego na karcie **Konfiguracja** tematu. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | Klucz zasad tematu |Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. |
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Kodowanie |Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Encoding |Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
 | Kolumny właściwości systemu | Opcjonalny. Pary klucz-wartość właściwości systemu i odpowiednich nazw kolumn, które muszą być dołączone do wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [Właściwości systemu dla Service Bus kolejki i danych wyjściowych tematu](#system-properties-for-service-bus-queue-and-topic-outputs) |
@@ -267,7 +294,7 @@ Azure Stream Analytics wywołuje Azure Functions za pośrednictwem wyzwalacza HT
 | --- | --- |
 | Aplikacja funkcji |Nazwa aplikacji Azure Functions. |
 | Funkcja |Nazwa funkcji w aplikacji Azure Functions. |
-| Key |Jeśli chcesz użyć funkcji platformy Azure z innej subskrypcji, możesz to zrobić, podając klucz, aby uzyskać dostęp do funkcji. |
+| Klucz |Jeśli chcesz użyć funkcji platformy Azure z innej subskrypcji, możesz to zrobić, podając klucz, aby uzyskać dostęp do funkcji. |
 | Maksymalny rozmiar wsadu |Właściwość, która umożliwia ustawienie maksymalnego rozmiaru dla każdej partii wyjściowej, która jest wysyłana do funkcji platformy Azure. Jednostka wejściowa jest w bajtach. Wartość domyślna to 262 144 bajtów (256 KB). |
 | Maksymalna liczba partii  |Właściwość, która umożliwia określenie maksymalnej liczby zdarzeń w każdej partii, która jest wysyłana do Azure Functions. Wartość domyślna to 100. |
 
@@ -301,10 +328,10 @@ Poniższy zrzut ekranu przedstawia właściwości komunikatu wyjściowego inspek
 
 ## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Właściwości systemu dla Service Bus kolejki i danych wyjściowych tematu 
 Kolumny zapytania można dołączać jako [Właściwości systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) do kolejki lub komunikatów tematu usługi wychodzącej magistrali usług. Te kolumny nie znajdują się w ładunku, natomiast odpowiednia [Właściwość systemu](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage jest wypełniana wartościami kolumn zapytania.
-Te właściwości systemu są obsługiwane — `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Te właściwości systemu są obsługiwane — `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 Wartości ciągu tych kolumn są analizowane jako odpowiadające im typy wartości właściwości systemu, a wszystkie błędy analizy są traktowane jako błędy danych.
 To pole jest dostępne jako format obiektu JSON. Szczegółowe informacje o tym formacie są następujące:
-* Ujęte w nawiasy klamrowe {}.
+* Ujęte w nawiasy klamrowe {} .
 * Zapisywane w parach klucz/wartość.
 * Klucze i wartości muszą być ciągami.
 * Klucz jest nazwą i wartością właściwości systemowej jest nazwa kolumny zapytania.
@@ -316,7 +343,7 @@ Pokazuje, jak używać tej właściwości —
 * Dotyczących`select *, column1, column2 INTO queueOutput FROM iotHubInput`
 * Kolumny właściwości systemu:`{ "MessageId": "column1", "PartitionKey": "column2"}`
 
-To ustawienie powoduje `MessageId` , że komunikaty w kolejce usługi `column1`Service Bus z wartościami i PartitionKey są `column2`ustawione na wartości.
+To ustawienie powoduje, że `MessageId` komunikaty w kolejce usługi Service Bus z `column1` wartościami i PartitionKey są ustawione na `column2` wartości.
 
 ## <a name="partitioning"></a>Partycjonowanie
 
@@ -326,7 +353,7 @@ Poniższa tabela zawiera podsumowanie obsługi partycji oraz liczbę modułów z
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Tak | Użyj tokenów {date} i {Time} w wzorcu prefiksu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Tak, musi być włączona. | Na podstawie klauzuli PARTITION BY w zapytaniu. | Gdy opcja dziedziczenia jest włączona, następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). Aby dowiedzieć się więcej o osiągnięciu lepszej wydajności zapisu podczas ładowania danych do Azure SQL Database, zobacz [Azure Stream Analytics dane wyjściowe do Azure SQL Database](stream-analytics-sql-output-perf.md). |
-| Azure Blob Storage | Tak | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być partycjonowane za pomocą pojedynczego niestandardowego atrybutu zdarzenia {FieldName} lub\<{DateTime: specyfikator>}. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Blob Storage | Tak | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być partycjonowane za pomocą pojedynczego niestandardowego atrybutu zdarzenia {FieldName} lub {DateTime: \< specyfikator>}. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Tak | Tak | Różni się w zależności od wyrównania partycji.<br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do wysyłania zdarzeń do konkretnej partycji. <br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. |
 | Power BI | Nie | Brak | Nie dotyczy. |
 | Azure Table Storage | Tak | Dowolna kolumna wyjściowa.  | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
@@ -335,7 +362,7 @@ Poniższa tabela zawiera podsumowanie obsługi partycji oraz liczbę modułów z
 | Azure Cosmos DB | Tak | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
 | Azure Functions | Tak | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
 
-Liczba modułów zapisywania danych wyjściowych może być również kontrolowana `INTO <partition count>` za pomocą klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej spowoduje opóźnienie do późnego przybycia. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
+Liczba modułów zapisywania danych wyjściowych może być również kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej spowoduje opóźnienie do późnego przybycia. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Rozmiar partii wyjściowej
 Azure Stream Analytics używa partii o zmiennym rozmiarze do przetwarzania zdarzeń i zapisywania do danych wyjściowych. Zwykle aparat Stream Analytics nie zapisuje jednej wiadomości w danym momencie i używa ich do zwiększenia wydajności. Gdy częstotliwość dla zdarzeń przychodzących i wychodzących jest wysoka, Stream Analytics używa większych partii. Gdy szybkość ruchu wychodzącego jest niska, używa mniejszych partii, aby zachować niski czas oczekiwania.
@@ -347,7 +374,7 @@ W poniższej tabeli objaśniono niektóre zagadnienia dotyczące tworzenia wsado
 | Azure Data Lake Store | Zobacz [limity Data Lake Storage](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Użyj do 4 MB na operację zapisu. |
 | Azure SQL Database | Konfigurowalne przy użyciu maksymalnej liczby partii. 10 000 maksymalna i 100 minimalna liczba wierszy na pojedynczy wkład zbiorczy.<br />Zobacz [limity usługi Azure SQL](../sql-database/sql-database-resource-limits.md). |  Każda partia jest początkowo wstawiana zbiorczo z maksymalną liczbą partii. Partia jest dzielona w połowie (do momentu minimalnej liczby partii) na podstawie błędów z możliwością powtarzania z bazy danych SQL. |
 | Azure Blob Storage | Zobacz [limity usługi Azure Storage](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Maksymalny rozmiar bloku obiektu BLOB to 4 MB.<br />Maksymalna liczba Bock obiektów BLOB to 50 000. |
-| Azure Event Hubs    | 256 KB lub 1 MB na wiadomość. <br />Zobacz [limity Event Hubs](../event-hubs/event-hubs-quotas.md). |    Gdy Partycjonowanie danych wejściowych/wyjściowych nie jest wyrównane, każde zdarzenie `EventData` jest spakowane osobno w i wysyłane w partii o maksymalnym rozmiarze komunikatu. Dzieje się tak, jeśli są używane [niestandardowe właściwości metadanych](#custom-metadata-properties-for-output) . <br /><br />  Gdy Partycjonowanie danych wejściowych/wyjściowych jest wyrównane, do jednego `EventData` wystąpienia są pakowane wiele zdarzeń, do którego zostanie wysłany maksymalny rozmiar komunikatu.    |
+| Azure Event Hubs    | 256 KB lub 1 MB na wiadomość. <br />Zobacz [limity Event Hubs](../event-hubs/event-hubs-quotas.md). |    Gdy Partycjonowanie danych wejściowych/wyjściowych nie jest wyrównane, każde zdarzenie jest spakowane osobno w `EventData` i wysyłane w partii o maksymalnym rozmiarze komunikatu. Dzieje się tak, jeśli są używane [niestandardowe właściwości metadanych](#custom-metadata-properties-for-output) . <br /><br />  Gdy Partycjonowanie danych wejściowych/wyjściowych jest wyrównane, do jednego wystąpienia są pakowane wiele zdarzeń `EventData` , do którego zostanie wysłany maksymalny rozmiar komunikatu.    |
 | Power BI | Zobacz [Power BI limity interfejsu API REST](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table Storage | Zobacz [limity usługi Azure Storage](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Wartość domyślna to 100 jednostek na pojedynczą transakcję. W razie potrzeby można skonfigurować ją na mniejszą wartość. |
 | Kolejka usługi Azure Service Bus    | 256 KB na komunikat dla warstwy Standard, 1 MB dla warstwy Premium.<br /> Zobacz [limity Service Bus](../service-bus-messaging/service-bus-quotas.md). | Użyj pojedynczego zdarzenia na komunikat. |

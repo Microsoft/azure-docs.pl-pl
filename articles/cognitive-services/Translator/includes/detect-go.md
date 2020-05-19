@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7f3824ba4683c5ade4ac5bb84b853caf72e1073b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71837502"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587179"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Tworzenie funkcji main
 
-Ten przykład spróbuje odczytać klucz subskrypcji tłumaczenie tekstu w usłudze Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT`. Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
+Ten przykład spróbuje odczytać klucz subskrypcji usługi Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT` . Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
 
 Skopiuj ten kod do projektu:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-detect-the-text-language"></a>Tworzenie funkcji na potrzeby wykrywania języka tekstu
 
-Utwórzmy funkcję na potrzeby wykrywania języka tekstu. Ta funkcja będzie przyjmować jeden argument — Twój klucz subskrypcji na potrzeby tłumaczenia tekstu w usłudze Translator.
+Utwórzmy funkcję na potrzeby wykrywania języka tekstu. Ta funkcja będzie mieć jeden argument, klucz subskrypcji usługi Translator.
 
 ```go
 func detect(subscriptionKey string, uri string) {
@@ -90,7 +90,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) (Interfejs API 3.0 tłumaczenia tekstu w usłudze Translator: wykrywanie).
+> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator 3,0: wykrywanie](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Tworzenie struktury treści żądania
 
@@ -108,7 +108,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Teraz, gdy treść żądania została zakodowana jako dane JSON, możesz utworzyć żądanie POST i wywołać interfejs API tłumaczenia tekstu w usłudze Translator.
+Teraz, gdy treść żądania została zakodowana w formacie JSON, możesz skompilować żądanie POST i wywołać translator.
 
 ```go
 // Build the HTTP POST request
@@ -120,7 +120,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -146,7 +146,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To wszystko. Utworzono prosty program, który będzie wywoływał interfejs API tłumaczenia tekstu w usłudze Translator i zwracał odpowiedź w formacie JSON. Teraz nadszedł czas, aby uruchomić program:
+Jest to również prosty program, który wywoła translator i zwróci odpowiedź JSON. Teraz nadszedł czas, aby uruchomić program:
 
 ```console
 go run detect-language.go
@@ -189,7 +189,7 @@ Po uruchomieniu przykładu na terminalu powinny zostać wyświetlone następują
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

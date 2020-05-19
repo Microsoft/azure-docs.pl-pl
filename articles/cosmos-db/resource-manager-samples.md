@@ -4,14 +4,14 @@ description: Użyj szablonów Azure Resource Manager, aby utworzyć i skonfiguro
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 501065875cafc035d491e606c016f3ad4dbfc5d4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a98aee61c3a330344b5b7fa0a5f7f53a65e5ecdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791633"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586154"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Szablony usługi Azure Resource Manager dla usługi Azure Cosmos DB
 
@@ -22,6 +22,7 @@ W poniższych tabelach uwzględniono linki do Azure Resource Manager szablonów 
 |**Szablon**|**Opis**|
 |---|---|
 |[Tworzenie konta usługi Azure Cosmos, bazy danych i kontenera z przepływności automatycznego skalowania](manage-sql-with-resource-manager.md#create-autoscale) | Ten szablon tworzy podstawowe konto interfejsu API (SQL) w dwóch regionach, bazę danych i kontener o przepływności skalowania automatycznego. |
+|[Tworzenie konta usługi Azure Cosmos, bazy danych i kontenera z magazynem analitycznym](manage-sql-with-resource-manager.md#create-analytical-store) | Ten szablon służy do tworzenia konta interfejsu API programu Core (SQL) w jednym regionie z kontenerem skonfigurowanym z włączonym wartością czasową TTL i opcją używania przepustowości ręcznej lub skalowania automatycznego. |
 |[Tworzenie konta usługi Azure Cosmos, bazy danych i kontenera ze standardową (ręczną) przepływności](manage-sql-with-resource-manager.md#create-manual) | Ten szablon służy do tworzenia konta interfejsu API Core (SQL) w dwóch regionach, bazy danych i kontenera ze standardową przepływność. |
 |[Utwórz konto usługi Azure Cosmos, bazę danych i kontener przy użyciu procedury składowanej, wyzwalacza i UDF](manage-sql-with-resource-manager.md#create-sproc) | Ten szablon tworzy podstawowe konto interfejsu API (SQL) w dwóch regionach z procedurą składowaną, wyzwalaczem i formatem UDF dla kontenera. |
 |[Utwórz prywatny punkt końcowy dla istniejącego konta usługi Azure Cosmos](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Ten szablon służy do tworzenia prywatnego punktu końcowego dla istniejącego konta interfejsu API usługi Azure Cosmos Core (SQL) w istniejącej sieci wirtualnej. |

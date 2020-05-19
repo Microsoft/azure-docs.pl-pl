@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b2f1478391eccaabcc4dbcd150b54376494d3f56
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199458"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587531"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Inspekcja i raportowanie użytkownika współpracy B2B
 Użytkownicy-Goście mają możliwość inspekcji, podobnie jak w przypadku użytkowników będących członkami. 
 
 ## <a name="access-reviews"></a>Przeglądy dostępu
-Za pomocą przeglądów dostępu można okresowo weryfikować, czy użytkownicy-Goście nadal potrzebują dostępu do zasobów. Funkcja **przeglądy dostępu** jest dostępna w **Azure Active Directory** w obszarze **relacje organizacyjne**  >  **przeglądy dostępu** (lub weryfikacji **tożsamości zewnętrznych**  >  **Access reviews** ). Możesz również wyszukać "przeglądy dostępu" ze **wszystkich usług** w Azure Portal. Aby dowiedzieć się, jak korzystać z przeglądów dostępu, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+Za pomocą przeglądów dostępu można okresowo weryfikować, czy użytkownicy-Goście nadal potrzebują dostępu do zasobów. Funkcja **przeglądy dostępu** jest dostępna w **Azure Active Directory** w obszarze **External Identities**  >  **przeglądy dostępu do**tożsamości zewnętrznych. Możesz również wyszukać "przeglądy dostępu" ze **wszystkich usług** w Azure Portal. Aby dowiedzieć się, jak korzystać z przeglądów dostępu, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 

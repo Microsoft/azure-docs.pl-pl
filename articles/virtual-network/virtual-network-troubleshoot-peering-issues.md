@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801573"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587735"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Rozwiązywanie problemów dotyczących komunikacji równorzędnej sieci wirtualnych
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Zacznij</a></span><span class="has-padding-small">szybko rozwiązywać problemy, korzystając z naszego agenta wirtualnego do uruchamiania <b>zautomatyzowanej diagnostyki.</b> </span> Zasady zachowania <sub>poufności informacji</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
 Ten przewodnik rozwiązywania problemów zawiera kroki ułatwiające rozwiązywanie typowych problemów z [siecią równorzędną sieci wirtualnej](virtual-network-peering-overview.md) .
 
@@ -213,11 +212,11 @@ Aby uzyskać więcej informacji, zobacz [wymagania i ograniczenia](https://docs.
 
 Aby rozwiązać ten problem:
 
-1. Zaloguj się do witryny Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 1. W aplikacji sieci Web wybierz pozycję **Sieć**, a następnie wybierz pozycję integracja z siecią **wirtualną**.
 1. Sprawdź, czy jest wyświetlana zdalna Sieć wirtualna. Ręcznie wprowadź zdalną przestrzeń adresową sieci wirtualnej (**Synchronizacja sieci** i **Dodawanie tras**).
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Integrowanie aplikacji z siecią wirtualną platformy Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Routing sieci VPN typu punkt-lokacja — informacje](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
@@ -238,12 +237,12 @@ Aby rozwiązać ten problem, należy skonfigurować komunikację równorzędną 
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Zdalna Sieć wirtualna nie ma bramy
 
-Ten problem występuje w przypadku równorzędnych sieci wirtualnych od różnych dzierżawców i nowszych `Use Remote Gateways`. Ograniczenie Azure Portal polega na tym, że nie można zweryfikować obecności bramy sieci wirtualnej w sieci wirtualnej innej dzierżawy.
+Ten problem występuje w przypadku równorzędnych sieci wirtualnych od różnych dzierżawców i nowszych `Use Remote Gateways` . Ograniczenie Azure Portal polega na tym, że nie można zweryfikować obecności bramy sieci wirtualnej w sieci wirtualnej innej dzierżawy.
 
 Istnieją dwa sposoby rozwiązania problemu:
 
  * Usuń komunikację równorzędną i aktywuj `Use Remote Gateways` opcję podczas tworzenia nowej komunikacji równorzędnej.
- * Aby włączyć `Use Remote Gateways`, użyj programu PowerShell lub interfejsu wiersza polecenia, a nie Azure Portal.
+ * Aby włączyć, użyj programu PowerShell lub interfejsu wiersza polecenia, a nie Azure Portal `Use Remote Gateways` .
 
 ## <a name="next-steps"></a>Następne kroki
 

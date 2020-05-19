@@ -3,12 +3,12 @@ title: Co to jest usługa Personalizacja?
 description: Personalizacja to oparta na chmurze usługa interfejsu API, która pozwala na wybranie najlepszego środowiska, które ma być widoczne dla użytkowników, a także uczenie się przed zachowaniem ich w czasie rzeczywistym.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687260"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586222"
 ---
 # <a name="what-is-personalizer"></a>Co to jest usługa Personalizacja?
 
@@ -70,17 +70,24 @@ Ponieważ program Personalizujer używa informacji zbiorczych niemal w czasie rz
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Jak projektować i implementować Personalizowanie dla aplikacji klienckiej
 
 1. [Projektuj](concepts-features.md) i planuj zawartość, **_Akcje_** i **_kontekst_**. Ustal algorytm nagrody dla wyniku **_nagrody_** .
-1. Każdy utworzony [zasób Personalizuj](how-to-settings.md) jest uznawany za 1 pętlę uczenia. Pętla otrzyma zarówno wywołania rangi, jak i nagrody dla tej zawartości lub środowiska użytkownika.
-1. Dodaj personalizację do witryny sieci Web lub systemu zawartości:
+1. Każdy utworzony [zasób personalizacji](how-to-settings.md) jest traktowany jako jedna pętla szkoleniowa. Pętla otrzyma zarówno wywołania rangi, jak i nagrody dla tej zawartości lub środowiska użytkownika.
+
+    |Typ zasobu| Przeznaczenie|
+    |--|--|
+    |[Tryb praktykanta](concept-apprentice-mode.md)`E0`|Uczenie modelu personalizowania bez wpływu na istniejącą aplikację, a następnie wdrożenie go w celu uczenia się w trybie online w środowisku produkcyjnym|
+    |Standardowa`S0`|Zachowanie uczenia online w środowisku produkcyjnym|
+    |Zwolniony`F0`| Wypróbuj zachowanie uczenia w trybie online w środowisku nieprodukcyjnym|
+
+1. Dodaj personalizację do swojej aplikacji, witryny sieci Web lub systemu:
     1. Dodaj wywołanie **rangi** do personalizacji w aplikacji, w witrynie sieci Web lub w systemie, aby określić najlepsze, pojedyncze elementy _zawartości_ przed wyświetleniem zawartości dla użytkownika.
     1. Wyświetlaj najlepsze, pojedyncze elementy _zawartości_ , które są ZWRÓCONYm _identyfikatorem akcji z wynagrodzeniem_do użytkownika.
-    1. Zastosuj _algorytm_ do zebranych informacji o sposobie zachowania użytkownika, aby określić wynik **nagrody** , na przykład:
+    1. Zastosuj _logikę biznesową_ do zebranych informacji o sposobie zachowania użytkownika, aby określić wynik **nagrody** , taki jak:
 
-        |Zachowanie|Obliczony wynik nagrody|
-        |--|--|
-        |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
-        |Użytkownik zaznaczył inną zawartość|**0**|
-        |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
+    |Zachowanie|Obliczony wynik nagrody|
+    |--|--|
+    |Wybrany użytkownik: najlepszy, pojedynczy element _zawartości_ (Identyfikator akcji nagradzania)|**1**|
+    |Użytkownik zaznaczył inną zawartość|**0**|
+    |Użytkownik wstrzymał pracę, przewijając się w sposób niedecydujący, przed wybraniem najlepszego, pojedynczego elementu _zawartości_ (Identyfikator akcji nagradzania)|**0,5**|
 
     1. Dodaj wywołanie **zarobkowe** wysyłające wynik nagrody z zakresu od 0 do 1
         * Natychmiast po pokazywania zawartości

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742865"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585355"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania tabel rozproszonych w puli SQL Synapse
 
@@ -92,11 +92,11 @@ WITH
 ;
 ```
 
-Wybór kolumny dystrybucji jest ważną decyzją projektową, ponieważ wartości w tej kolumnie określają sposób dystrybuowania wierszy. Najlepszy wybór zależy od kilku czynników i zazwyczaj wymaga kompromisów. Jeśli jednak nie wybierzesz najlepszej kolumny po raz pierwszy, możesz użyć [CREATE TABLE jako Select (CTAs)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby ponownie utworzyć tabelę z inną kolumną dystrybucji.
+Dane przechowywane w kolumnie dystrybucja można aktualizować. Aktualizacje danych w kolumnie dystrybucja mogą skutkować operacją losową danych.
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Wybierz kolumnę dystrybucji, która nie wymaga aktualizacji
+Wybór kolumny dystrybucji jest ważną decyzją projektową, ponieważ wartości w tej kolumnie określają sposób dystrybuowania wierszy. Najlepszy wybór zależy od kilku czynników i zazwyczaj wymaga kompromisów. Po wybraniu kolumny dystrybucji nie można jej zmienić.  
 
-Nie można zaktualizować kolumny dystrybucji, chyba że zostanie usunięty wiersz i wstawiono nowy wiersz ze zaktualizowanymi wartościami. W związku z tym wybierz kolumnę z wartościami statycznymi.
+Jeśli nie wybrano najlepszej kolumny po raz pierwszy, można użyć [CREATE TABLE jako Select (CTAs)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby ponownie utworzyć tabelę z inną kolumną dystrybucji.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Wybierz kolumnę dystrybucji z danymi, które dystrybuują równomiernie
 
@@ -117,7 +117,7 @@ W celu uzyskania poprawnych kwerend wyników zapytania mogą przenosić dane z j
 
 Aby zminimalizować przenoszenie danych, wybierz kolumnę dystrybucji, która:
 
-- Jest używana w `JOIN`klauzulach `DISTINCT`, `OVER` `GROUP BY`,, `HAVING` i. Gdy dwa duże tabele faktów mają częste sprzężenia, wydajność zapytań zwiększa się, gdy obie tabele są dystrybuowane w jednej z kolumn sprzężenia.  Gdy tabela nie jest używana w sprzężeniach, rozważ rozłożenie tabeli w kolumnie, która jest często w `GROUP BY` klauzuli.
+- Jest używana w `JOIN` `GROUP BY` klauzulach,,, `DISTINCT` `OVER` i `HAVING` . Gdy dwa duże tabele faktów mają częste sprzężenia, wydajność zapytań zwiększa się, gdy obie tabele są dystrybuowane w jednej z kolumn sprzężenia.  Gdy tabela nie jest używana w sprzężeniach, rozważ rozłożenie tabeli w kolumnie, która jest często w `GROUP BY` klauzuli.
 - *Nie* jest używany w `WHERE` klauzulach. Może to spowodować zawężenie zapytania, aby nie było uruchamiane na wszystkich dystrybucjach.
 - *Nie* jest kolumną daty. Klauzule WHERE często filtrują według daty.  W takim przypadku przetwarzanie może być wykonywane tylko w kilku dystrybucjach.
 
@@ -169,7 +169,7 @@ Aby uniknąć przenoszenia danych podczas przyłączania:
 - Tabele biorące udział w sprzężeniu muszą być dystrybuowane jako skrót na **jednej** z kolumn należących do sprzężenia.
 - Typy danych kolumn sprzężenia muszą być zgodne między obiema tabelami.
 - Kolumny muszą być sprzężone z operatorem Equals.
-- Typ sprzężenia nie może być `CROSS JOIN`.
+- Typ sprzężenia nie może być `CROSS JOIN` .
 
 Aby sprawdzić, czy w kwerendach występują przemieszczenie danych, możesz przyjrzeć się planie zapytania.  
 

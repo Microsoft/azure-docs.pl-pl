@@ -1,21 +1,14 @@
 ---
 title: Typ jednostki wyrażenia regularnego — LUIS
-titleSuffix: Azure Cognitive Services
 description: Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ignoruje wielkość liter i ignoruje odmianę kulturową.  Dopasowanie wyrażenia regularnego jest stosowane po zmianach sprawdzania pisowni na poziomie znaku, a nie na poziomie tokenu.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74841221"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585610"
 ---
 # <a name="regular-expression-entity"></a>Jednostka wyrażenia regularnego
 
@@ -32,13 +25,13 @@ Wyrażenie regularne jest najlepsze dla nieprzetworzonego tekstu wypowiedź. Ign
 
 ## <a name="usage-considerations"></a>Zagadnienia dotyczące użycia
 
-Wyrażenia regularne mogą odpowiadać więcej niż oczekiwano. Przykładem jest numeryczne Dopasowywanie wyrazów, `one` takie `two`jak i. Przykładem jest następujące wyrażenie regularne, które pasuje do liczby `one` wraz z innymi liczbami:
+Wyrażenia regularne mogą odpowiadać więcej niż oczekiwano. Przykładem jest numeryczne Dopasowywanie wyrazów, takie jak `one` i `two` . Przykładem jest następujące wyrażenie regularne, które pasuje do liczby `one` wraz z innymi liczbami:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-To wyrażenie regularne również dopasowuje wszystkie wyrazy kończące się tymi liczbami, `phone`na przykład. Aby rozwiązać te problemy, należy się upewnić, że dopasowuje wyrażenie regularne uwzględnia granice wyrazu. Wyrażenie regularne do używania granic wyrazów dla tego przykładu jest używane w następujących wyrażeniach regularnych:
+To wyrażenie regularne również dopasowuje wszystkie wyrazy kończące się tymi liczbami, na przykład `phone` . Aby rozwiązać te problemy, należy się upewnić, że dopasowuje wyrażenie regularne uwzględnia granice wyrazu. Wyrażenie regularne do używania granic wyrazów dla tego przykładu jest używane w następujących wyrażeniach regularnych:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +39,7 @@ To wyrażenie regularne również dopasowuje wszystkie wyrazy kończące się ty
 
 ### <a name="example-json"></a>Przykładowy kod JSON
 
-W przypadku `kb[0-9]{6}`użycia, jako definicji jednostki wyrażenia regularnego następująca odpowiedź JSON to przykład wypowiedź z zwracanymi jednostkami wyrażenia regularnego dla zapytania:
+W przypadku użycia `kb[0-9]{6}` , jako definicji jednostki wyrażenia regularnego następująca odpowiedź JSON to przykład wypowiedź z zwracanymi jednostkami wyrażenia regularnego dla zapytania:
 
 `When was kb123456 published?`:
 
@@ -67,7 +60,7 @@ W przypadku `kb[0-9]{6}`użycia, jako definicji jednostki wyrażenia regularnego
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -77,7 +70,7 @@ Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 }
 ```
 
-Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -106,4 +99,7 @@ Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym [samouczku](tutorial-regex-entity.md)utworzysz aplikację do wyodrębniania spójnie sformatowanych danych z wypowiedź przy użyciu jednostki **wyrażenia regularnego** .
+Dowiedz się więcej o jednostkach:
+
+* [Pojęcia](luis-concept-entity-types.md)
+* [Jak utworzyć](luis-how-to-add-entities.md)

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64a934196bb964561f36b9d95a2467b149847225
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 77242ab35416fb24a3a815e7137280e5f3698c30
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906713"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586651"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -36,7 +36,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 Ten przewodnik Szybki Start wymaga języka C# 7,1 lub nowszego. Istnieje kilka sposobów zmiany wersji języka C# dla projektu. W tym przewodniku pokazano, jak dostosować `translate-sample.csproj` plik. Aby uzyskać wszystkie dostępne opcje, takie jak zmiana języka w programie Visual Studio, zobacz [Wybieranie wersji języka C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Otwórz projekt, a następnie otwórz `translate-sample.csproj`. Upewnij się, `LangVersion` że ustawiono wartość 7,1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, Dodaj następujące wiersze:
+Otwórz projekt, a następnie otwórz `translate-sample.csproj` . Upewnij się, że `LangVersion` ustawiono wartość 7,1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, Dodaj następujące wiersze:
 
 ```xml
 <PropertyGroup>
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Tworzenie klas dla odpowiedzi JSON
 
-Następnie utworzymy zestaw klas, które są używane podczas deserializacji odpowiedzi JSON zwracanej przez interfejs API tłumaczenia tekstu w usłudze Translator.
+Następnie utworzymy zestaw klas, które są używane podczas deserializacji odpowiedzi JSON zwracanej przez translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -132,11 +132,11 @@ static Program()
 
 ## <a name="create-a-function-to-translate-text"></a>Tworzenie funkcji na potrzeby tłumaczenia tekstu
 
-W `Program` klasie Utwórz funkcję asynchroniczną o nazwie `TranslateTextRequest()`. Ta funkcja przyjmuje cztery argumenty: `subscriptionKey`, `host`, `route`i `inputText`.
+W `Program` klasie Utwórz funkcję asynchroniczną o nazwie `TranslateTextRequest()` . Ta funkcja przyjmuje cztery argumenty: `subscriptionKey` , `host` , `route` i `inputText` .
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
+// Async call to the Translator
 static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
@@ -148,7 +148,7 @@ static public async Task TranslateTextRequest(string subscriptionKey, string end
 
 ## <a name="serialize-the-translation-request"></a>Serializacja żądania tłumaczenia
 
-Następnie musimy utworzyć i serializować obiekt JSON obejmujący tekst, który chcesz przetłumaczyć. Należy pamiętać, że można przekazać więcej niż jeden obiekt w `body`.
+Następnie musimy utworzyć i serializować obiekt JSON obejmujący tekst, który chcesz przetłumaczyć. Należy pamiętać, że można przekazać więcej niż jeden obiekt w `body` .
 
 ```csharp
 object[] body = new object[] { new { Text = inputText } };
@@ -212,7 +212,7 @@ Jeśli używasz subskrypcji usługi Cognitive Services, musisz także uwzględni
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-Ostatnim krokiem jest wywołanie instrukcji `TranslateTextRequest()` w funkcji `Main`. W tym przykładzie tłumaczy na niemiecki`de`(), włoski (`it`), japoński (`ja`) i tajski (`th`). Znajdź `static void Main(string[] args)` i Zamień ten kod:
+Ostatnim krokiem jest wywołanie instrukcji `TranslateTextRequest()` w funkcji `Main`. W tym przykładzie tłumaczy na niemiecki ( `de` ), włoski ( `it` ), japoński ( `ja` ) i tajski ( `th` ). Znajdź `static void Main(string[] args)` i Zamień ten kod:
 
 ```csharp
 static async Task Main(string[] args)
@@ -232,7 +232,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Zauważysz, że w `Main`programie są deklarujące `subscriptionKey`, `endpoint`i `route`. Ponadto użytkownik jest monitowany o podanie danych wejściowych `Console.Readline()` i przypisanie wartości do. `textToTranslate`
+Zauważysz, że w programie `Main` są deklarujące `subscriptionKey` , `endpoint` i `route` . Ponadto użytkownik jest monitowany o podanie danych wejściowych `Console.Readline()` i przypisanie wartości do `textToTranslate` .
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
@@ -287,13 +287,13 @@ Ten komunikat jest zbudowany na podstawie nieprzetworzonego kodu JSON, który b�
 ]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zostały usunięte z kodu źródłowego przykładowej aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

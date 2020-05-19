@@ -2,13 +2,13 @@
 title: 'Szybki Start: Tworzenie nowej aplikacji w portalu LUIS'
 description: W tym przewodniku szybki start utworzysz podstawowe elementy aplikacji, intencje i jednostki, a także test z przykładową wypowiedźą w portalu LUIS.
 ms.topic: quickstart
-ms.date: 04/14/2020
-ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382581"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585251"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
@@ -18,21 +18,21 @@ W tym przewodniku szybki start utworzysz nową aplikację w portalu LUIS. Najpie
 
 ## <a name="create-an-app"></a>Tworzenie aplikacji
 
-1. Wybierz pozycję **+ Nowa aplikacja dla konwersacji** z poziomu paska narzędzi kontekstu, a następnie wybierz pozycję **Nowa aplikacja do konwersacji**.
+1. Wybierz pozycję **+ Nowa aplikacja dla konwersacji** z poziomu paska narzędzi kontekstu, a następnie ponownie wybierz pozycję **+ Nowa aplikacja do konwersacji** .
 
     > [!div class="mx-imgBorder"]
-    > [![Utwórz nową aplikację w portalu LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [![Zrzut ekranu przedstawiający tworzenie nowej aplikacji w portalu LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. W oknie podręcznym Skonfiguruj aplikację przy użyciu następujących ustawień, a następnie wybierz pozycję **gotowe**.
 
    |Nazwa ustawienia| Wartość | Przeznaczenie|
    |--|--|--|
-   |Nazwa|`myEnglishApp`|Unikatowa nazwa aplikacji LUIS<br>wymagany|
-   |Culture|**Angielski**|Język wyrażenia długości od użytkowników, **en-us**<br>wymagany|
+   |Nazwa|`myEnglishApp`|Unikatowa nazwa aplikacji LUIS<br>wymagane|
+   |Kultura|**Angielski**|Język wyrażenia długości od użytkowników, **en-us**<br>wymagane|
    |Opis (opcjonalnie)|`App made with LUIS Portal`|Opis aplikacji<br>optional|
    |Zasób predykcyjny (opcjonalnie) |-  |Nie wybieraj. LUIS udostępnia klucz początkowy do użycia bezpłatnie na potrzeby tworzenia i 1 000 żądań punktu końcowego przewidywania. |
 
-   ![Wprowadź nowe ustawienia aplikacji](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![Zrzut ekranu przedstawiający wprowadzanie nowych ustawień aplikacji](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>Tworzenie intencji
 
@@ -52,38 +52,38 @@ Aby utworzyć intencje, wykonaj następujące czynności:
 
 1. Po utworzeniu aplikacji znajduje się na stronie **intencje** w sekcji **kompilacja** . Wybierz przycisk **Utwórz**.
 
-   [![Wybierz pozycję Utwórz, aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![Zrzut ekranu przedstawiający Wybieranie opcji "Utwórz", aby utworzyć nowy cel](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Wprowadź nazwę `FindForm`celu, a następnie wybierz pozycję **gotowe**.
+1. Wprowadź nazwę celu, `FindForm` a następnie wybierz pozycję **gotowe**.
 
 ## <a name="add-an-example-utterance"></a>Dodawanie przykładu wypowiedź
 
 Po utworzeniu zamiarów należy dodać przykład wyrażenia długości. Przykład wyrażenia długości jest tekstem, który użytkownik wprowadza w programie Chat bot lub innej aplikacji klienckiej. Umożliwiają one mapowanie zamiaru tekstu użytkownika na LUIS zamiar.
 
-Na potrzeby tego przykładowej `FindForm` aplikacji Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
+Na potrzeby tego przykładowej aplikacji `FindForm` Przykładowa wyrażenia długości będzie zawierać numer formularza. Aplikacja kliencka wymaga, aby numer formularza spełniał żądanie użytkownika, więc należy go uwzględnić w wypowiedź.
 
 > [!div class="mx-imgBorder"]
-> [![Wprowadź przykład wyrażenia długości dla zamiaru FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [![Zrzut ekranu przedstawiający przykład wyrażenia długości dla zamiaru FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
-Dodaj do `FindForm` zamiaru 15-przykładową wyrażenia długości.
+Dodaj do zamiaru 15-przykładową wyrażenia długości `FindForm` .
 
 |#|Przykładowe wypowiedzi|
 |--|--|
-|1|Szukasz elementu HRF-123456|
-|2|Gdzie jest HRF-234591?|
-|3|HRF-345623, gdzie to|
-|4|Czy jest możliwe wysłanie mi HRF-345794|
-|5|Czy potrzebuję HRF-234695 do zastosowania w ramach zadania wewnętrznego?|
-|6|Czy mój Menedżer musi wiedzieć, że stosujem się do zadania z HRF-234091|
-|7|Gdzie mogę wysłać HRF-234918? Czy otrzymuję odpowiedź na wiadomość e-mail, która została odebrana?|
-|8|HRF-234555|
-|9|Kiedy został HRF-234987 zaktualizowany?|
-|10|Do zastosowania w przypadku stanowisk inżynieryjnych należy użyć formy HRF-876345|
-|11|Czy została przesłana Nowa wersja HRF-765234 dla mojego otwartego żądania?|
-|12|Czy do zadań międzynarodowych jest używany HRF-234234?|
-|13|HRF-234598 błąd pisowni|
-|14|HRF-234567 można edytować w celu uzyskania nowych wymagań|
-|15|HRF-123456, HRF-123123, HRF-234567|
+|1|`Looking for hrf-123456`|
+|2|`Where is the human resources form hrf-234591?`|
+|3|`hrf-345623, where is it`|
+|4|`Is it possible to send me hrf-345794`|
+|5|`Do I need hrf-234695 to apply for an internal job?`|
+|6|`Does my manager need to know I'm applying for a job with hrf-234091`|
+|7|`Where do I send hrf-234918? Do I get an email response it was received?`|
+|8|`hrf-234555`|
+|9|`When was hrf-234987 updated?`|
+|10|`Do I use form hrf-876345 to apply for engineering positions`|
+|11|`Was a new version of hrf-765234 submitted for my open req?`|
+|12|`Do I use hrf-234234 for international jobs?`|
+|13|`hrf-234598 spelling mistake`|
+|14|`will hrf-234567 be edited for new requirements`|
+|15|`hrf-123456, hrf-123123, hrf-234567`|
 
 Zgodnie z projektem, te przykładowe wyrażenia długości różnią się w następujący sposób:
 
@@ -96,20 +96,21 @@ Zgodnie z projektem, te przykładowe wyrażenia długości różnią się w nast
 
 ## <a name="create-a-regular-expression-entity"></a>Tworzenie jednostki wyrażenia regularnego
 
-Aby zwrócić numer formularza w odpowiedzi przewidywania środowiska uruchomieniowego, formularz musi być oznaczony jako jednostka. Ponieważ tekst z numerem formularza jest wysoce strukturalny, można oznaczyć go przy użyciu jednostki wyrażenia regularnego. Utwórz jednostkę, wykonując następujące czynności:
+Aby zwrócić numer formularza w odpowiedzi przewidywania czasu wykonywania, należy wyodrębnić numer formularza jako jednostkę. Ponieważ tekst z numerem formularza jest wysoce strukturalny, można użyć jednostki wyrażenia regularnego. Utwórz jednostkę wyrażenia regularnego, wykonując następujące czynności:
 
 1. Wybierz pozycję **jednostki** z menu po lewej stronie.
 
 1. Na stronie **jednostki** wybierz pozycję **Utwórz** .
 
-1. Wprowadź nazwę `Human Resources Form Number`, wybierz typ podmiotu **wyrażenia regularnego** , a następnie wybierz przycisk **dalej**.
+1. Wprowadź nazwę `FormNumber` , wybierz typ jednostki **wyrażenia regularnego** .
 
-   ![Utwórz jednostkę wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+1. Wprowadź wyrażenie regularne `hrf-[0-9]{6}` w polu **wyrażenie** regularne. Ten wpis jest zgodny ze znakami literału, `hrf-` i zezwala na dokładnie sześć cyfr, a następnie wybierz pozycję **Utwórz**.
 
-1. Wprowadź wyrażenie regularne **(wyrażeń regularnych),** `hrf-[0-9]{6}`. Ten wpis jest zgodny ze znakami `hrf-`literału, i zezwala na dokładnie 6 cyfr, a następnie wybierz pozycję **Utwórz**.
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający tworzenie jednostki wyrażenia regularnego](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-   ![Wprowadź wyrażenie regularne dla jednostki](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
 
+    Ta jednostka wyodrębnia wszystkie teksty, które pasują do wyrażenia regularnego w dowolnym z intencji.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Dodawanie przykładowych wypowiedzi do intencji None
 
@@ -123,11 +124,10 @@ Przykładowa metoda wyrażenia długości **nie** powinna być poza domeną apli
 
    |Brak przykładu zamiaru wyrażenia długości|
    |--|
-   |Barking dogs are annoying (Szczekające psy są irytujące)|
-   |Order a pizza for me (Zamów dla mnie pizzę)|
-   |Penguins in the ocean (Pingwiny w oceanie)|
+   |`Barking dogs are annoying`|
+   |`Penguins in the ocean`|
 
-   W przypadku tej aplikacji te przykładowe wyrażenia długości znajdują się poza domeną. Jeśli domena obejmuje zwierzęta, żywność lub ocean, należy użyć innego przykładu wyrażenia długości dla opcji **Brak** .
+   W przypadku tej aplikacji te przykładowe wyrażenia długości znajdują się poza domeną. Jeśli domena obejmuje zwierzęta lub ocean, należy użyć innego przykładu wyrażenia długości dla opcji **Brak** .
 
 ## <a name="train-the-app"></a>Uczenie aplikacji
 
@@ -140,7 +140,7 @@ Przykładowa metoda wyrażenia długości **nie** powinna być poza domeną apli
    Jednostka jest oznaczona, gdzie pojawia się w przykładzie wyrażenia długości. Jeśli chcesz zobaczyć oryginalny tekst zamiast nazwy jednostki, przełącz **Widok jednostek** z paska narzędzi.
 
    > [!div class="mx-imgBorder"]
-   > [![Wszystkie przykładowe wyrażenia długości oznaczone obiektami](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [![Zrzut ekranu przedstawiający wszystkie przykładowe wyrażenia długości oznaczone obiektami](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testowanie nowej aplikacji za pomocą interaktywnego okienka testów
 
@@ -155,11 +155,11 @@ Użyj interaktywnego okienka **testowego** w portalu Luis, aby sprawdzić, czy j
     Wybierz pozycję **Sprawdź** , aby zobaczyć przewidywania jednostek.
 
    > [!div class="mx-imgBorder"]
-   > ![Test New wypowiedź w okienku testów](./media/get-started-portal-build-app/test-new-utterance.png)
+   > ![Zrzut ekranu przedstawiający Testowanie nowego wypowiedź w okienku testów](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   Najbardziej przewidywany cel jest prawidłowo **FindForm** z ponad 90% pewnością (0,977). Jednostka **numeru formularza zasobów ludzkich** jest wyodrębniana z wartością hrf-234098.
+   Najbardziej przewidywany cel jest prawidłowo **FindForm** z ponad 90% pewnością (0,977). Jednostka **FormNumber** jest wyodrębniana z wartością hrf-234098.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu korzystania z tego przewodnika Szybki Start i przechodzenia do następnego przewodnika Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Następnie zaznacz pole wyboru po lewej stronie z listy i wybierz pozycję **Usuń** z paska narzędzi kontekstu powyżej listy.
 

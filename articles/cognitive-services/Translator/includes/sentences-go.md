@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9aecaa6195509ec4c1f0d6b4b14b9bb30817da34
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 758bd9b424146d62ab64f9721c67af4910e006e1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906846"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586755"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Tworzenie funkcji main
 
-Ten przykład spróbuje odczytać klucz subskrypcji tłumaczenie tekstu w usłudze Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT`. Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
+Ten przykład spróbuje odczytać klucz subskrypcji usługi Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT` . Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
 
 Skopiuj ten kod do projektu:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Tworzenie funkcji w celu określenia długości zdania
 
-Utwórzmy funkcję w celu określenia długości zdania. Ta funkcja będzie przyjmować jeden argument — Twój klucz subskrypcji na potrzeby tłumaczenia tekstu w usłudze Translator.
+Utwórzmy funkcję w celu określenia długości zdania. Ta funkcja będzie mieć jeden argument, klucz subskrypcji usługi Translator.
 
 ```go
 func breakSentence(subscriptionKey string, uri string)
@@ -91,7 +91,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [interfejs API tłumaczenia tekstu w usłudze Translator 3,0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator 3,0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Tworzenie struktury treści żądania
 
@@ -109,7 +109,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Teraz, gdy treść żądania została zakodowana jako dane JSON, możesz utworzyć żądanie POST i wywołać interfejs API tłumaczenia tekstu w usłudze Translator.
+Teraz, gdy treść żądania została zakodowana w formacie JSON, możesz skompilować żądanie POST i wywołać translator.
 
 ```go
 // Build the HTTP POST request
@@ -121,7 +121,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -147,7 +147,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To wszystko. Utworzono prosty program, który będzie wywoływał interfejs API tłumaczenia tekstu w usłudze Translator i zwracał odpowiedź w formacie JSON. Teraz nadszedł czas, aby uruchomić program:
+Jest to również prosty program, który wywoła translator i zwróci odpowiedź JSON. Teraz nadszedł czas, aby uruchomić program:
 
 ```console
 go run sentence-length.go
@@ -175,7 +175,7 @@ Jeśli chcesz porównać swój kod z naszym, kompletny przykład jest dostępny 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

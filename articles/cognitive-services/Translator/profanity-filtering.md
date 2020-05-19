@@ -1,7 +1,7 @@
 ---
-title: Filtrowanie niewulgarności — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Filtrowanie niewulgarności — translator
 titleSuffix: Azure Cognitive Services
-description: Użyj filtrowania wulgarności, aby określić poziom niewulgarnego tłumaczenia tekstu w interfejs API tłumaczenia tekstu w usłudze Translator Cognitive Services platformy Azure.
+description: Użyj filtrowania wulgarności, aby określić poziom niewulgarnego tłumaczenia tekstu w usłudze Azure Cognitive Services translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836228"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586800"
 ---
-# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Dodawanie filtrowania niewulgarności za pomocą interfejs API tłumaczenia tekstu w usłudze Translator
+# <a name="add-profanity-filtering-with-the-translator"></a>Dodawanie filtrowania niewulgarności przy użyciu translatora
 
 Zwykle usługa translator zachowuje braki, która jest obecna w źródle w tłumaczeniu. Stopień nieseksu i kontekst, który sprawia, że wyrazy nie różnią się między kulturami. W efekcie stopień niedostępności w języku docelowym może być wzmacniany lub zmniejszany.
 
@@ -29,9 +29,9 @@ Metoda Przetłumacz () przyjmuje parametr "Options", który zawiera nowy element
 |ProfanityAction wartość | Akcja | Przykład: Źródło — japoński | Przykład: Target — angielski|
 | :---|:---|:---|:---|
 | NoAction | Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niezbyt wulgarne przekazanie z lokalizacji źródłowej do docelowej. | 彼は変態です. | Jest to jerk. |
-| Oznacz | Wyrazy wulgarne są otoczone nie>ami \<tagów XML... \</profanity>. | 彼は変態です. | Jest to \<wulgarne>jerk\</profanity>. |
+| Oznacz | Wyrazy wulgarne są otoczone \< nie>ami tagów XML... \< /profanity>. | 彼は変態です. | Jest to \< wulgarne>Jerk \< /profanity>. |
 | Usunięte | Wyrazy wulgarne są usuwane z danych wyjściowych bez zastępowania. | 彼は. | Jest to. |
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Zastosuj filtrowanie wulgarne przy użyciu wywołania interfejsu API usługi translator](reference/v3-0-translate.md)
+> [Stosowanie filtrowania wulgarności przy użyciu wywołania translatora](reference/v3-0-translate.md)

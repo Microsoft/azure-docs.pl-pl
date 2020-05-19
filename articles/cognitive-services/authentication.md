@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d36961a12162a587def76b1ffeb2109f9ed63f4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74423943"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587684"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Uwierzytelnianie żądań w usłudze Azure Cognitive Services
 
@@ -35,17 +35,17 @@ Klucz subskrypcji możesz uzyskać z [Azure Portal](cognitive-services-apis-crea
 
 Szybko Przejrzyj nagłówki uwierzytelniania dostępne do użycia z usługą Azure Cognitive Services.
 
-| Nagłówek | Opis |
+| Header | Opis |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Ten nagłówek służy do uwierzytelniania za pomocą klucza subskrypcji dla określonej usługi lub klucza subskrypcji wielousługowej. |
-| OCP-APIM-Subscription-region | Ten nagłówek jest wymagany tylko w przypadku korzystania z klucza subskrypcji wieloserviceowej z [interfejs API tłumaczenia tekstu w usłudze translator](./Translator/reference/v3-0-reference.md). Użyj tego nagłówka, aby określić region subskrypcji. |
-| Autoryzacja | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem `Bearer <TOKEN>`:. |
+| OCP-APIM-Subscription-region | Ten nagłówek jest wymagany tylko w przypadku korzystania z klucza subskrypcji wieloserviceowej z [usługą translator](./Translator/reference/v3-0-reference.md). Użyj tego nagłówka, aby określić region subskrypcji. |
+| Autoryzacja | Użyj tego nagłówka, jeśli używasz tokenu uwierzytelniania. Kroki umożliwiające przeprowadzenie wymiany tokenów opisano szczegółowo w poniższych sekcjach. Podana wartość jest zgodna z następującym formatem: `Bearer <TOKEN>` . |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Uwierzytelnianie za pomocą klucza subskrypcji pojedynczego usługi
 
-Pierwsza opcja polega na uwierzytelnianiu żądania przy użyciu klucza subskrypcji dla określonej usługi, takiej jak tłumaczenie tekstu w usłudze Translator. Klucze są dostępne w Azure Portal dla każdego utworzonego zasobu. Aby można było uwierzytelnić żądanie przy użyciu klucza subskrypcji, musi on być przesłany razem `Ocp-Apim-Subscription-Key` jako nagłówek.
+Pierwsza opcja polega na uwierzytelnianiu żądania przy użyciu klucza subskrypcji dla określonej usługi, takiej jak translator. Klucze są dostępne w Azure Portal dla każdego utworzonego zasobu. Aby można było uwierzytelnić żądanie przy użyciu klucza subskrypcji, musi on być przesłany razem jako `Ocp-Apim-Subscription-Key` nagłówek.
 
-Te przykładowe żądania pokazują, `Ocp-Apim-Subscription-Key` jak używać nagłówka. Należy pamiętać, że w przypadku korzystania z tego przykładu należy uwzględnić prawidłowy klucz subskrypcji.
+Te przykładowe żądania pokazują, jak używać `Ocp-Apim-Subscription-Key` nagłówka. Należy pamiętać, że w przypadku korzystania z tego przykładu należy uwzględnić prawidłowy klucz subskrypcji.
 
 Jest to przykładowe wywołanie do interfejs API wyszukiwania w sieci Web Bing:
 ```cURL
@@ -53,7 +53,7 @@ curl -X GET 'https://api.cognitive.microsoft.com/bing/v7.0/search?q=Welsch%20Pem
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Jest to przykładowe wywołanie do interfejs API tłumaczenia tekstu w usłudze Translator:
+To jest przykładowe wywołanie do usługi translatora:
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' \
@@ -76,9 +76,9 @@ Klucz subskrypcji jest udostępniany w każdym żądaniu jako `Ocp-Apim-Subscrip
 
 ### <a name="supported-regions"></a>Obsługiwane regiony
 
-W przypadku korzystania z klucza subskrypcji wieloserviceowej w celu zgłoszenia żądania `api.cognitive.microsoft.com`do programu należy uwzględnić region w adresie URL. Na przykład: `westus.api.cognitive.microsoft.com`.
+W przypadku korzystania z klucza subskrypcji wieloserviceowej w celu zgłoszenia żądania do programu `api.cognitive.microsoft.com` należy uwzględnić region w adresie URL. Na przykład: `westus.api.cognitive.microsoft.com`.
 
-W przypadku korzystania z wielousługowego klucza subskrypcji z interfejs API tłumaczenia tekstu w usłudze Translator należy określić region subskrypcji z `Ocp-Apim-Subscription-Region` nagłówkiem.
+W przypadku korzystania z wielousługowego klucza subskrypcji z usługą translatora należy określić region subskrypcji z `Ocp-Apim-Subscription-Region` nagłówkiem.
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane w następujących regionach:
 
@@ -100,7 +100,7 @@ curl -X GET 'https://YOUR-REGION.api.cognitive.microsoft.com/bing/v7.0/search?q=
 -H 'Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY' | json_pp
 ```
 
-Jest to przykładowe wywołanie do interfejs API tłumaczenia tekstu w usłudze Translator:
+To jest przykładowe wywołanie do usługi translatora:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \
@@ -126,11 +126,11 @@ Niektóre Cognitive Services platformy Azure akceptują, a w niektórych przypad
 
 Do tokenów uwierzytelniania można wymieniać zarówno klucze subskrypcji pojedynczej usługi, jak i wiele usług. Tokeny uwierzytelniania są prawidłowe przez 10 minut.
 
-Tokeny uwierzytelniania są uwzględniane w żądaniu jako `Authorization` nagłówek. Podana wartość tokenu musi być poprzedzona przez `Bearer`, na przykład:. `Bearer YOUR_AUTH_TOKEN`
+Tokeny uwierzytelniania są uwzględniane w żądaniu jako `Authorization` nagłówek. Podana wartość tokenu musi być poprzedzona przez `Bearer` , na przykład: `Bearer YOUR_AUTH_TOKEN` .
 
 ### <a name="sample-requests"></a>Przykładowe żądania
 
-Użyj tego adresu URL, aby wymienić klucz subskrypcji dla tokenu uwierzytelniania: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+Użyj tego adresu URL, aby wymienić klucz subskrypcji dla tokenu uwierzytelniania: `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken` .
 
 ```cURL
 curl -v -X POST \
@@ -150,7 +150,7 @@ Te wielousługowe regiony obsługują wymianę tokenów:
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
 
-Po otrzymaniu tokenu uwierzytelniania należy przekazać go w każdym żądaniu jako `Authorization` nagłówek. Jest to przykładowe wywołanie do interfejs API tłumaczenia tekstu w usłudze Translator:
+Po otrzymaniu tokenu uwierzytelniania należy przekazać go w każdym żądaniu jako `Authorization` nagłówek. To jest przykładowe wywołanie do usługi translatora:
 
 ```cURL
 curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de' \

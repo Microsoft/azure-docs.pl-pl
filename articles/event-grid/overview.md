@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393182"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587599"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono połączenie źródeł i procedur obsługi w usłudze Eve
 Aktualnie wysyłanie zdarzeń do usługi Event Grid jest obsługiwane w przypadku następujących usług platformy Azure:
 
 - [Azure App Configuration](event-schema-app-configuration.md)
-- [Blob Storage platformy Azure](event-schema-blob-storage.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
@@ -52,15 +52,15 @@ Aktualnie wysyłanie zdarzeń do usługi Event Grid jest obsługiwane w przypadk
 
 Aby uzyskać szczegółowe informacje o możliwościach poszczególnych procedur obsługi oraz zapoznać się z pokrewnymi artykułami, zobacz [Procedury obsługi zdarzeń](event-handlers.md). Aktualnie obsługa zdarzeń pochodzących z usługi Event Grid jest zapewniona w przypadku następujących usług platformy Azure: 
 
-* [Azure Automation](event-handlers.md#azure-automation)
-* [Azure Functions](event-handlers.md#azure-functions)
-* [Event Hubs](event-handlers.md#event-hubs)
-* [Połączenia hybrydowe](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Azure Automation](handler-webhooks.md#azure-automation)
+* [Azure Functions](handler-functions.md)
+* [Event Hubs](handler-event-hubs.md)
+* [Połączenia hybrydowe przekaźnika](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
 * [Automatyzacja (dawniej znana jako Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](event-handlers.md#service-bus)
-* [Queue Storage](event-handlers.md#queue-storage)
-* [Elementy webhook](event-handlers.md#webhooks)
+* [Service Bus](handler-service-bus.md)
+* [Queue Storage](handler-storage-queues.md)
+* [Elementy webhook](handler-webhooks.md)
 
 ## <a name="concepts"></a>Pojęcia
 

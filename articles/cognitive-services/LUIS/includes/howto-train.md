@@ -10,18 +10,15 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 59d78f60081367b7f5544229b7749d71b7a1dd2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77279622"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585095"
 ---
-1. W górnej części witryny internetowej usługi LUIS po prawej stronie wybierz przycisk **Train** (Ucz).
+1. W prawym górnym rogu witryny sieci Web LUIS wybierz przycisk **szkolenie** .
 
     ![Przycisk Train (Ucz)](../media/train-button-preview.png)
 
-2. Szkolenie zostało zakończone, gdy zobaczysz stan pomyślne potwierdzenie sukcesu.
-
-    > [!Tip]
-    > **Powiadomienia** są dostępne w prawym górnym rogu i zawiera historię.
+1. Szkolenie zostało zakończone, gdy wskaźnik stanu na przycisku **uczenie** jest zielony.

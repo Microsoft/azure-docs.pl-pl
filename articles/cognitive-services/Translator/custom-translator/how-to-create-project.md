@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836560"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587667"
 ---
 # <a name="create-a-project"></a>Tworzenie projektu
 
@@ -52,7 +52,7 @@ Strona docelowa usługi tłumaczenia niestandardowego pokazuje pierwsze 10 proje
 
 Po wybraniu projektu na stronie projektu zostaną wyświetlone następujące elementy:
 
-- IDKategorii: element IDKategorii jest tworzony przez połączenie identyfikator obszaru roboczego, etykiety projektu i kodu kategorii. Używasz IDKategorii z interfejsem API usługi Text translator, aby uzyskać niestandardowe tłumaczenia.
+- IDKategorii: element IDKategorii jest tworzony przez połączenie identyfikator obszaru roboczego, etykiety projektu i kodu kategorii. Używasz IDKategorii z tłumaczeniem tekstu, aby uzyskać niestandardowe tłumaczenia.
 
 - Przycisk uczenia: Użyj tego przycisku, aby rozpocząć [uczenie modelu](how-to-train-model.md).
 

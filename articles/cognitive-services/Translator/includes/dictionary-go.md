@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b646f1994c83dba18b246dc3738729058ce6922d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1802a8d68030dbc882b4687cae28668f5a1e7a29
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907066"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587043"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69907066"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
 
-Utwórz nowy projekt w języku go przy użyciu ulubionego środowiska IDE/edytora lub nowego folderu na pulpicie. Następnie skopiuj ten fragment kodu do projektu/folderu w pliku o nazwie `dictionaryLookup.go`.
+Utwórz nowy projekt w języku go przy użyciu ulubionego środowiska IDE/edytora lub nowego folderu na pulpicie. Następnie skopiuj ten fragment kodu do projektu/folderu w pliku o nazwie `dictionaryLookup.go` .
 
 ```go
 package main
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Tworzenie funkcji main
 
-Ten przykład spróbuje odczytać klucz subskrypcji tłumaczenie tekstu w usłudze Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT`. Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
+Ten przykład spróbuje odczytać klucz subskrypcji usługi Translator i punkt końcowy z tych zmiennych środowiskowych: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` i `TRANSLATOR_TEXT_ENDPOINT` . Jeśli nie znasz zmiennych środowiskowych, możesz ustawić `subscriptionKey` i `endpoint` jako ciągi i dodać komentarz do instrukcji warunkowych.
 
 Skopiuj ten kod do projektu:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-get-alternate-translations"></a>Tworzenie funkcji na potrzeby uzyskiwania tłumaczeń alternatywnych
 
-Utwórzmy funkcję do uzyskiwania tłumaczeń alternatywnych. Ta funkcja będzie przyjmować jeden argument — Twój klucz subskrypcji na potrzeby tłumaczenia tekstu w usłudze Translator.
+Utwórzmy funkcję do uzyskiwania tłumaczeń alternatywnych. Ta funkcja będzie mieć jeden argument, klucz subskrypcji usługi Translator.
 
 ```go
 func dictionaryLookup(subscriptionKey string, uri string) {
@@ -92,7 +92,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator Text API 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup) (Interfejs API 3.0 tłumaczenia tekstu w usłudze Translator: wyszukiwanie w słowniku).
+> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator 3,0: wyszukiwanie słownika](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Tworzenie struktury treści żądania
 
@@ -110,7 +110,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Teraz, gdy treść żądania została zakodowana jako dane JSON, możesz utworzyć żądanie POST i wywołać interfejs API tłumaczenia tekstu w usłudze Translator.
+Teraz, gdy treść żądania została zakodowana w formacie JSON, możesz skompilować żądanie POST i wywołać translator.
 
 ```go
 // Build the HTTP POST request
@@ -122,7 +122,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -148,7 +148,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To wszystko. Utworzono prosty program, który będzie wywoływał interfejs API tłumaczenia tekstu w usłudze Translator i zwracał odpowiedź w formacie JSON. Teraz nadszedł czas, aby uruchomić program:
+Jest to również prosty program, który wywoła translator i zwróci odpowiedź JSON. Teraz nadszedł czas, aby uruchomić program:
 
 ```console
 go run dictionaryLookup.go
@@ -219,7 +219,7 @@ Jeśli chcesz porównać swój kod z naszym, kompletny przykład jest dostępny 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

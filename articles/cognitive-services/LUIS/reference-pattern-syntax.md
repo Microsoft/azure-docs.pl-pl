@@ -4,21 +4,21 @@ description: Utwórz jednostki, aby wyodrębnić dane z wyrażenia długości u�
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382146"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585576"
 ---
 # <a name="pattern-syntax"></a>Składnia wzorca
 
 Składnia wzorca jest szablonem dla elementu wypowiedź. Szablon powinien zawierać słowa i jednostki, które mają być dopasowane, a także słowa i [znaki interpunkcyjne](luis-reference-application-settings.md#punctuation-normalization) , które mają być ignorowane. To **nie** jest wyrażenie regularne.
 
 > [!CAUTION]
-> Wzorce zawierają tylko obiekty nadrzędne, które są obsługiwane przez maszynę, a nie podskładniki.
+> Wzorce zawierają tylko obiekty nadrzędne, które są obsługiwane przez maszynę, a nie podjednostki.
 
-Jednostki we wzorcu są ujęte w nawiasy `{}`klamrowe. Wzorce mogą obejmować jednostki i jednostki z rolami. [Wzorzec. any](luis-concept-entity-types.md#patternany-entity) jest jednostką używaną tylko w wzorcach.
+Jednostki we wzorcu są ujęte w nawiasy klamrowe `{}` . Wzorce mogą obejmować jednostki i jednostki z rolami. [Wzorzec. any](luis-concept-entity-types.md#patternany-entity) jest jednostką używaną tylko w wzorcach.
 
 Składnia wzorca obsługuje następującą składnię:
 
@@ -69,14 +69,14 @@ Kombinacja **grupowania** z składnią **lub-** w ma limit 2 pionowych słupków
 |Nie|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Składnia służąca do dodawania jednostki do szablonu wzorca
-Aby dodać jednostkę do szablonu wzorca, należy ująć nazwę jednostki za pomocą nawiasów klamrowych, takich jak `Who does {Employee} manage?`.
+Aby dodać jednostkę do szablonu wzorca, należy ująć nazwę jednostki za pomocą nawiasów klamrowych, takich jak `Who does {Employee} manage?` .
 
 |Wzorzec z jednostką|
 |--|
 |`Who does {Employee} manage?`|
 
 ## <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Składnia służąca do dodawania jednostki i roli do szablonu wzorca
-Rola jednostki jest oznaczona jako `{entity:role}` Nazwa jednostki, po której następuje dwukropek, a następnie nazwa roli. Aby dodać jednostkę z rolą do szablonu wzorca, należy ująć nazwę jednostki i nazwę roli za pomocą nawiasów klamrowych, takich jak `Book a ticket from {Location:Origin} to {Location:Destination}`.
+Rola jednostki jest oznaczona jako `{entity:role}` Nazwa jednostki, po której następuje dwukropek, a następnie nazwa roli. Aby dodać jednostkę z rolą do szablonu wzorca, należy ująć nazwę jednostki i nazwę roli za pomocą nawiasów klamrowych, takich jak `Book a ticket from {Location:Origin} to {Location:Destination}` .
 
 |Wzorzec z rolami jednostek|
 |--|
@@ -85,7 +85,7 @@ Rola jednostki jest oznaczona jako `{entity:role}` Nazwa jednostki, po której n
 ## <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Składnia służąca do dodawania wzorca. dowolny do szablonu wzorca
 Wzorzec. Każda jednostka umożliwia dodanie jednostki o różnej długości do wzorca. Tak długo, jak następuje szablon wzorca, wzorzec. any może być dowolną długością.
 
-Aby dodać **wzorzec. dowolna** jednostka do szablonu wzorca, otaczająca wzorzec. Każda jednostka z nawiasami klamrowymi, taka jak `How much does {Booktitle} cost and what format is it available in?`.
+Aby dodać **wzorzec. dowolna** jednostka do szablonu wzorca, otaczająca wzorzec. Każda jednostka z nawiasami klamrowymi, taka jak `How much does {Booktitle} cost and what format is it available in?` .
 
 |Wzorzec ze wzorcem. dowolna jednostka|
 |--|
@@ -106,7 +106,7 @@ Utwórz [jawną listę](https://westus.dev.cognitive.microsoft.com/docs/services
 * Wzorzec zawiera [wzorzec. any](luis-concept-entity-types.md#patternany-entity)
 * Składnia wzorca pozwala na możliwość nieprawidłowej ekstrakcji jednostek na podstawie wypowiedź.
 
-Załóżmy na przykład, że istnieje wzorzec zawierający zarówno składnię opcjonalną, `[]`, jak i składnię `{}`jednostki, połączone w sposób nieprawidłowego wyodrębnienia danych.
+Załóżmy na przykład, że istnieje wzorzec zawierający zarówno składnię opcjonalną, `[]` , jak i składnię jednostki, `{}` połączone w sposób nieprawidłowego wyodrębnienia danych.
 
 Rozważmy wiadomość e-mail z wzorcem "[Find]" {subject} [od {Person}] ".
 
@@ -117,19 +117,19 @@ W poniższym wyrażenia długości jednostka **podmiotu** i **osoba osoby** są 
 |Wyślij wiadomość e-mail na temat psów z Krzysztof|subject = psy<br>osoba = Krzysztof|✔|
 |Wyślij wiadomość e-mail na temat Man z La Mancha|podmiot = człowiek<br>osoba = La Mancha|X|
 
-W powyższej tabeli podmiot powinien być `the man from La Mancha` (tytułem książki), ale ponieważ temat zawiera słowo `from`opcjonalne, tytuł jest nieprawidłowo przewidziany.
+W powyższej tabeli podmiot powinien być `the man from La Mancha` (tytułem książki), ale ponieważ temat zawiera słowo opcjonalne `from` , tytuł jest nieprawidłowo przewidziany.
 
 Aby naprawić ten wyjątek dla wzorca, Dodaj `the man from la mancha` jako jawne dopasowanie listy dla jednostki {subject} za pomocą [interfejsu API tworzenia dla jawnej listy](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Składnia służąca do oznaczania tekstu opcjonalnego w szablonie wypowiedź
-Oznacz opcjonalny tekst w wypowiedź przy użyciu składni nawiasu kwadratowego wyrażenia regularnego `[]`. Tekst opcjonalny może zagnieżdżać nawiasy kwadratowe tylko do dwóch nawiasów.
+Oznacz opcjonalny tekst w wypowiedź przy użyciu składni nawiasu kwadratowego wyrażenia regularnego `[]` . Tekst opcjonalny może zagnieżdżać nawiasy kwadratowe tylko do dwóch nawiasów.
 
 |Wzorzec z opcjonalnym tekstem|Znaczenie|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find`i `from {person}` są opcjonalne|
 |"Czy jesteś w stanie pomóc mi [?]|Znak interpunkcyjny jest opcjonalny|
 
-Znaki interpunkcyjne (`?`, `!`, `.`) powinny być ignorowane i należy je zignorować przy użyciu składni nawiasów kwadratowych w wzorcach.
+Znaki interpunkcyjne ( `?` , `!` , `.` ) powinny być ignorowane i należy je zignorować przy użyciu składni nawiasów kwadratowych w wzorcach.
 
 ## <a name="next-steps"></a>Następne kroki
 

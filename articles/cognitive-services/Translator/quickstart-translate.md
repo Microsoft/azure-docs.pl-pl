@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: tłumaczenie tekstu tłumaczenie tekstu w usłudze Translator'
+title: 'Szybki Start: tłumaczenie tekstu — translator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak tłumaczyć tekst przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+description: W tym przewodniku szybki start dowiesz się, jak tłumaczyć tekst przy użyciu translatora.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3be05a6c4005b79a3fcde6a71e663f5f70d4d61e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e8f0f3ff1b34701d45b0138a3c11795520c30a2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525179"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586653"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Szybki Start: używanie interfejs API tłumaczenia tekstu w usłudze Translator do tłumaczenia tekstu
+# <a name="quickstart-use-the-translator-to-translate-text"></a>Szybki Start: tłumaczenie tekstu przy użyciu translatora
 
-W tym przewodniku szybki start dowiesz się, jak przetłumaczyć ciąg tekstowy z języka angielskiego na niemiecki, włoski, japoński i tajlandzki przy użyciu interfejsu API REST tłumaczenie tekstu w usłudze Translator.
+W tym przewodniku szybki start dowiesz się, jak przetłumaczyć ciąg tekstowy z języka angielskiego na niemiecki, włoski, japoński i tajlandzki przy użyciu interfejsu API REST usługi Translator.
 
-Ten przewodnik Szybki start wymaga [konta usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem tłumaczenia tekstu w usłudze Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
+Ten przewodnik Szybki Start wymaga [konta Cognitive Services platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem usługi Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]

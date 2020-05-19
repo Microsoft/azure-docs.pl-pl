@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a491249e21db433d878a59cad19f59f8987b638b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906976"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586890"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Jeśli nie korzystano z tych modułów, konieczne będzie ich zainstalowanie przed uruchomieniem programu. Aby zainstalować te pakiety, uruchom polecenie `pip install requests uuid`.
 
-Pierwszy komentarz informuje interpreter języka Python, aby używać kodowania UTF-8. Następnie wymagane moduły są importowane w celu odczytania klucza subskrypcji ze zmiennej środowiskowej, skonstruowania żądania http, utworzenia unikatowego identyfikatora i obsłużenia odpowiedzi JSON zwracanej przez interfejs API tłumaczenia tekstu w usłudze Translator.
+Pierwszy komentarz informuje interpreter języka Python, aby używać kodowania UTF-8. Następnie wymagane moduły są importowane w celu odczytania klucza subskrypcji ze zmiennej środowiskowej, skonstruowania żądania HTTP, utworzenia unikatowego identyfikatora i obsługi odpowiedzi JSON zwracanej przez translator.
 
 ## <a name="set-the-endpoint-and-path"></a>Ustawianie punktu końcowego i ścieżki
 
-Ten przykład spróbuje odczytać punkt końcowy tłumaczenie tekstu w usłudze Translator ze zmiennej środowiskowej: `TRANSLATOR_TEXT_ENDPOINT`. Jeśli nie chcesz korzystać ze zmiennych środowiskowych, możesz ustawić element `endpoint` jako ciąg i oznaczyć instrukcję warunkową jako komentarz.
+Ten przykład spróbuje odczytać punkt końcowy usługi Translator ze zmiennej środowiskowej: `TRANSLATOR_TEXT_ENDPOINT` . Jeśli nie chcesz korzystać ze zmiennych środowiskowych, możesz ustawić element `endpoint` jako ciąg i oznaczyć instrukcję warunkową jako komentarz.
 
 ```python
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
@@ -40,10 +40,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-Globalny punkt końcowy interfejsu API tłumaczenia tekstu w usłudze Translator został ustawiony jako `endpoint`. Element `path` ustawia trasę `languages` i określa, że chcemy korzystać z wersji 3 interfejsu API.
+Globalny punkt końcowy usługi Translator jest ustawiany jako `endpoint` . Element `path` ustawia trasę `languages` i określa, że chcemy korzystać z wersji 3 interfejsu API.
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) (Interfejs API 3.0 tłumaczenia tekstu w usłudze Translator: języki).
+> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator 3,0: Języki](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 path = '/languages?api-version=3.0'
@@ -85,7 +85,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To wszystko. Utworzono prosty program, który będzie wywoływał interfejs API tłumaczenia tekstu w usłudze Translator i zwracał odpowiedź w formacie JSON. Teraz nadszedł czas, aby uruchomić program:
+Jest to również prosty program, który wywoła translator i zwróci odpowiedź JSON. Teraz nadszedł czas, aby uruchomić program:
 
 ```console
 python get-languages.py
@@ -183,13 +183,13 @@ Ten przykład został obcięty w celu pokazania fragmentu kodu wyniku:
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli klucz subskrypcji umieszczono na stałe w kodzie programu, pamiętaj, aby usunąć ten klucz subskrypcji po zakończeniu pracy z przewodnikiem Szybki start.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

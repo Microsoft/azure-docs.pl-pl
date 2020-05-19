@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996467"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588126"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,7 +56,7 @@ Dowiedz się więcej o [przesyłaniu eksperymentów](#submit) na końcu tego art
 
 Aby ułatwić uczenie modeli przy użyciu popularnych platform, zestaw SDK języka Python, Azure Machine Learning, zawiera alternatywne abstrakcyjne streszczenie, klasy szacowania.  Ta klasa umożliwia łatwe konstruowanie konfiguracji uruchomieniowych. Można utworzyć i użyć generycznej [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) do przesyłania skryptów szkoleniowych, które korzystają z wybranej platformy szkoleniowej (na przykład scikit-Learning). Zalecamy użycie szacowania do szkolenia, ponieważ automatycznie konstruuje obiekty osadzone, takie jak środowisko lub obiekty RunConfiguration. Jeśli chcesz mieć większą kontrolę nad sposobem tworzenia tych obiektów i określać pakiety do zainstalowania w ramach eksperymentu, wykonaj [następujące kroki](#amlcompute) , aby przesłać eksperymenty szkoleniowe przy użyciu obiektu RunConfiguration w ramach obliczeń Azure Machine Learning.
 
-W przypadku zadań PyTorch, TensorFlow i łańcucha, Azure Machine Learning również udostępnia odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)i [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) szacowania, aby uprościć korzystanie z tych platform.
+Azure Machine Learning udostępnia specyficzne szacowania dla [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [łańcucher](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)i [Ray RLlib](how-to-use-reinforcement-learning.md).
 
 Aby uzyskać więcej informacji, zobacz [uczenie modeli ml z szacowania](how-to-train-ml-models.md).
 
@@ -182,7 +182,7 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
 
     Podczas tworzenia klastra należy określić nazwę użytkownika i hasło SSH. Zwróć uwagę na te wartości, ponieważ są one potrzebne do korzystania z usługi HDInsight jako elementu docelowego obliczeń.
     
-    Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \<clustername>-SSH.azurehdinsight.NET, gdzie \<ClusterName> jest nazwą dostarczoną dla klastra. 
+    Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \< clustername>-SSH.azurehdinsight.NET, gdzie \< clustername> jest nazwą dostarczoną dla klastra. 
 
 1. **Dołącz**: Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
@@ -409,7 +409,7 @@ Aby uzyskać więcej informacji, zobacz dokumentację [ScriptRunConfig](https://
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Utwórz konfigurację uruchamiania i prześlij przebieg przy użyciu interfejsu wiersza polecenia Azure Machine Learning
 
-Możesz użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i [Machine Learning rozszerzenia interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md) , aby utworzyć konfigurację uruchamiania i przesłać przebiegi w różnych obiektach docelowych obliczeń. W poniższych przykładach założono, że masz istniejące Obszar roboczy usługi Azure Machine Learning i zalogujesz się do platformy Azure `az login` przy użyciu polecenia interfejsu wiersza poleceń. 
+Możesz użyć [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) i [Machine Learning rozszerzenia interfejsu wiersza polecenia](reference-azure-machine-learning-cli.md) , aby utworzyć konfigurację uruchamiania i przesłać przebiegi w różnych obiektach docelowych obliczeń. W poniższych przykładach założono, że masz istniejące Obszar roboczy usługi Azure Machine Learning i zalogujesz się do platformy Azure przy użyciu `az login` polecenia interfejsu wiersza poleceń. 
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
@@ -484,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Zwróć uwagę na sekcję *argumenty* w runconfig i *przestrzeni parametrów* w pliku config. Zawierają one argumenty wiersza polecenia, które mają być przekazane do skryptu szkoleniowego. Wartość w runconfig pozostaje taka sama dla każdej iteracji, podczas gdy zakres w konfiguracji dysku jest powtarzany. Nie określaj tego samego argumentu w obu plikach.
 
-Aby uzyskać więcej informacji na ```az ml``` temat tych poleceń interfejsu wiersza polecenia, zobacz [dokumentację referencyjną](reference-azure-machine-learning-cli.md).
+Aby uzyskać więcej informacji na temat tych ```az ml``` poleceń interfejsu wiersza polecenia, zobacz [dokumentację referencyjną](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

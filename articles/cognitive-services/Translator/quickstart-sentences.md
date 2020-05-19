@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: pobieranie długości zdań — interfejs API tłumaczenia tekstu w usłudze Translator'
+title: 'Szybki Start: pobieranie długości zdań — translator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak określić długość zdania przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+description: W tym przewodniku szybki start dowiesz się, jak określić długość zdania przy użyciu translatora.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ca468993798c02c02380eeac7f68e4d3504ec1d8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525119"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586758"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Szybki Start: Użyj interfejs API tłumaczenia tekstu w usłudze Translator, aby określić długość zdania
+# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Szybki Start: Użyj translatora, aby określić długość zdania
 
-W tym przewodniku szybki start dowiesz się, jak określić długość zdań przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+W tym przewodniku szybki start dowiesz się, jak określić długość zdań przy użyciu translatora.
 
-Ten przewodnik Szybki start wymaga [konta usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem tłumaczenia tekstu w usłudze Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
+Ten przewodnik Szybki Start wymaga [konta Cognitive Services platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem usługi Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81fb599ca4987adccdb91baa7a74c33ae3af48d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4573224a77b080e0ba6cefe5069164466e7df5b9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906559"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586545"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -36,7 +36,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 Ten przewodnik Szybki Start wymaga języka C# 7,1 lub nowszego. Istnieje kilka sposobów zmiany wersji języka C# dla projektu. W tym przewodniku pokazano, jak dostosować `transliterate-sample.csproj` plik. Aby uzyskać wszystkie dostępne opcje, takie jak zmiana języka w programie Visual Studio, zobacz [Wybieranie wersji języka C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Otwórz projekt, a następnie otwórz `transliterate-sample.csproj`. Upewnij się, `LangVersion` że ustawiono wartość 7,1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, Dodaj następujące wiersze:
+Otwórz projekt, a następnie otwórz `transliterate-sample.csproj` . Upewnij się, że `LangVersion` ustawiono wartość 7,1 lub nowszą. Jeśli nie ma grupy właściwości dla wersji językowej, Dodaj następujące wiersze:
 
 ```xml
 <PropertyGroup>
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Tworzenie klas dla odpowiedzi JSON
 
-Następnie utworzymy klasę, która jest używana podczas deserializacji odpowiedzi JSON zwróconej przez interfejs API tłumaczenia tekstu w usłudze Translator.
+Następnie utworzymy klasę, która jest używana podczas deserializacji odpowiedzi JSON zwróconej przez translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TransliterationResult
 {
@@ -99,7 +99,7 @@ static Program()
 
 ## <a name="create-a-function-to-transliterate-text"></a>Tworzenie funkcji na potrzeby transliteracji tekstu
 
-W `Program` klasie Utwórz funkcję asynchroniczną o nazwie `TransliterateTextRequest()`. Ta funkcja przyjmuje cztery argumenty: `subscriptionKey`, `endpoint`, `route`i `inputText`.
+W `Program` klasie Utwórz funkcję asynchroniczną o nazwie `TransliterateTextRequest()` . Ta funkcja przyjmuje cztery argumenty: `subscriptionKey` , `endpoint` , `route` i `inputText` .
 
 ```csharp
 static public async Task TransliterateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -113,7 +113,7 @@ static public async Task TransliterateTextRequest(string subscriptionKey, string
 
 ## <a name="serialize-the-translation-request"></a>Serializacja żądania tłumaczenia
 
-Następnie musimy utworzyć i serializować obiekt JSON obejmujący tekst, który chcesz przetłumaczyć. Należy pamiętać, że można przekazać więcej niż jeden obiekt w `body`.
+Następnie musimy utworzyć i serializować obiekt JSON obejmujący tekst, który chcesz przetłumaczyć. Należy pamiętać, że można przekazać więcej niż jeden obiekt w `body` .
 
 ```csharp
 object[] body = new object[] { new { Text = inputText } };
@@ -188,7 +188,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Zauważysz, że w `Main` `subscriptionKey`, deklarujesz `endpoint` `route`,, i skrypt do transliteracji `textToTransliterate`.
+Zauważysz, że w `Main` , deklarujesz, `subscriptionKey` , `endpoint` `route` i skrypt do transliteracji `textToTransliterate` .
 
 ## <a name="run-the-sample-app"></a>Uruchamianie przykładowej aplikacji
 
@@ -217,13 +217,13 @@ Ten komunikat jest zbudowany na podstawie nieprzetworzonego kodu JSON, który b�
 ]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zostały usunięte z kodu źródłowego przykładowej aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

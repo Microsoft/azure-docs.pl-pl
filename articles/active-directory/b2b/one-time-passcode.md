@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199483"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585927"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu (wersja zapoznawcza)
 
@@ -72,7 +72,7 @@ Wykonanie akcji zgody może potrwać kilka minut. Po tym czasie tylko nowo zapro
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Aby zrezygnować z korzystania z portalu usługi Azure AD
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3.  Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
+3.  Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
 5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **tak**.
  
 ### <a name="to-opt-in-using-powershell"></a>Aby wyrazić zgodę na korzystanie z programu PowerShell
@@ -138,7 +138,7 @@ Wykonanie akcji rezygnacji może potrwać kilka minut. Jeśli wyłączysz Podgl�
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Aby wyłączyć podgląd przy użyciu portalu usługi Azure AD
 1.  Zaloguj się do [Azure Portal](https://portal.azure.com/) jako Administrator globalny usługi Azure AD.
 2.  W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-3.  Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
+3.  Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
 5.  W obszarze **Włączanie wiadomości E-mail jednorazowy kod dostępu dla Gości (wersja zapoznawcza)** wybierz pozycję **nie**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Aby wyłączyć podgląd przy użyciu programu PowerShell

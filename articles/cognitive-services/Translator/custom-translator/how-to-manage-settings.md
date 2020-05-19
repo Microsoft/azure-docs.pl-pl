@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219512"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587248"
 ---
 # <a name="how-to-manage-settings"></a>Jak zarządzać ustawieniami
 
@@ -29,11 +29,11 @@ Aby uzyskać dostęp do strony ustawień:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Kojarzenie subskrypcji usługi Microsoft Translator
 
-Aby uczenie lub wdrożenie modeli było możliwe, musisz mieć klucz subskrypcji Microsoft interfejs API tłumaczenia tekstu w usłudze Translator skojarzony z obszarem roboczym.
+Aby uczenie lub wdrożenie modeli było możliwe, musisz dysponować kluczem subskrypcji usługi Translator skojarzonym z Twoim obszarem roboczym.
 
 Jeśli nie masz subskrypcji, wykonaj następujące czynności:
 
-1. Zasubskrybuj interfejs API tłumaczenia tekstu w usłudze Translator firmy Microsoft. W tym artykule pokazano, jak subskrybować interfejs API tłumaczenia tekstu w usłudze Translator firmy Microsoft.
+1. Zasubskrybuj translator. W tym artykule przedstawiono sposób subskrybowania usługi Translator.
 2. Zanotuj klucz subskrypcji usługi Translator. Klucz1 lub klucz2 są akceptowalne.
 3. Wróć do portalu usługi Custom translator.
 

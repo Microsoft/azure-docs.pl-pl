@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5c6580d4fe7431c942ec4886b9dafc6148635b18
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690908"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585372"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Co to jest Azure Synapse Analytics (dawniej SQL DW)?
 
 > [!NOTE] 
-> Wypróbuj najnowsze funkcje usługi Azure Synapse, takie jak obszary robocze, Spark, SQL na żądanie i zintegrowane środowisko Synapse Studio, [żądając dostępu do usługi Azure Synapse (obszary robocze w wersji zapoznawczej)](https://aka.ms/synapsepreview). 
->
 >Zapoznaj się z [dokumentacją platformy Azure Synapse (wersja zapoznawcza)](../overview-what-is.md).
+>
 
 Azure Synapse to Usługa analityczna, która łączy magazyn danych w przedsiębiorstwie i analizę danych Big Data. Zapewnia swobodę wykonywania zapytań dotyczących danych na Twoich warunkach, korzystając z bezserwerowych zasobów na żądanie lub aprowizowanych zasobów — w dużej skali. Usługa Azure Synapse udostępnia te dwa światy wraz z ujednoliconym doświadczeniem do pozyskiwania, przygotowywania, zarządzania i obsługi danych w celu natychmiastowej analizy biznesowej i uczenia maszynowego.
 
@@ -30,12 +29,10 @@ Usługa Azure Synapse ma cztery składniki:
 
 - Synapse SQL: Pełna analiza oparta na języku T-SQL — ogólnie dostępna
   - Pula SQL (płatność za jednostek dwu z obsługą administracyjną)
-  - SQL na żądanie (płatność za 1 TB przetworzonych) — (wersja zapoznawcza)
+  - SQL na żądanie (płatność za 1 TB przetworzonych) (wersja zapoznawcza)
 - Spark: głębokie zintegrowane Apache Spark (wersja zapoznawcza)
 - Potoki Synapse: integracja danych hybrydowych (wersja zapoznawcza)
-- Studio: ujednolicone środowisko użytkownika.  (Wersja zapoznawcza)
-
-
+- Studio: ujednolicone środowisko użytkownika. (wersja zapoznawcza)
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse pulę SQL na platformie Azure Synapse
 

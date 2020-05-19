@@ -9,24 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: c91a3ca73d70dd5fd2848bed0f43f14a817087d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053434"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585661"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publikowanie aktywnej, przeszkolonej aplikacji do tymczasowego lub produkcyjnego punktu końcowego
 
-Po zakończeniu kompilowania, uczenia i testowania aktywnej aplikacji LUIS Udostępnij ją aplikacji klienckiej, publikując ją w punkcie końcowym. 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+Po zakończeniu kompilowania, uczenia i testowania aktywnej aplikacji LUIS Udostępnij ją aplikacji klienckiej, publikując ją w punkcie końcowym.
 
 ## <a name="publishing"></a>Publikowanie
-
-1. Aby opublikować w punkcie końcowym, wybierz pozycję **Publikuj** w prawym górnym panelu. 
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. Aby opublikować w punkcie końcowym, wybierz pozycję **Publikuj** w prawym górnym panelu.
 
     ![Przycisk Publikuj na górze, prawy pasek nawigacyjny](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
@@ -36,21 +35,21 @@ Po zakończeniu kompilowania, uczenia i testowania aktywnej aplikacji LUIS Udost
 
 ### <a name="publishing-slots"></a>Publikowanie miejsc
 
-Zaznacz odpowiednie miejsce po wyświetleniu okna podręcznego: 
+Zaznacz odpowiednie miejsce po wyświetleniu okna podręcznego:
 
 * Przygotowanie
-* Produkcja 
+* Produkcja
 
-Korzystając z obu miejsc publikowania, można w ten sposób mieć dwie różne wersje aplikacji dostępnych w opublikowanych punktach końcowych lub w tej samej wersji w dwóch różnych punktach końcowych. 
+Korzystając z obu miejsc publikowania, można w ten sposób mieć dwie różne wersje aplikacji dostępnych w opublikowanych punktach końcowych lub w tej samej wersji w dwóch różnych punktach końcowych.
 
 ### <a name="publishing-regions"></a>Publikowanie regionów
 
-Aplikacja zostanie opublikowana we wszystkich regionach skojarzonych z zasobami punktu końcowego przewidywania Luis dodanych w portalu Luis ze strony **Zarządzanie** -> **[zasobami platformy Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
+Aplikacja zostanie opublikowana we wszystkich regionach skojarzonych z zasobami punktu końcowego przewidywania Luis dodanych w portalu Luis ze strony **Zarządzanie**  ->  **[zasobami platformy Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** .
 
 Na przykład dla aplikacji utworzonej w usłudze [www.Luis.AI](https://www.luis.ai), jeśli UTWORZYSZ zasób Luis w dwóch regionach, **zachodnim** i **wschodnim**, a następnie dodasz je do aplikacji jako zasoby, aplikacja zostanie opublikowana w obu regionach. Aby uzyskać więcej informacji na temat regionów LUIS, zobacz [regiony](luis-reference-regions.md).
 
 > [!TIP]
-> Istnieją 3 regiony tworzenia. Należy utworzyć w regionie, w którym ma zostać opublikowana. Jeśli zachodzi potrzeba opublikowania we wszystkich regionach, należy zarządzać procesem tworzenia i modelem, który został przeszkolony, we wszystkich 3 regionach tworzenia. 
+> Istnieją 3 regiony tworzenia. Należy utworzyć w regionie, w którym ma zostać opublikowana. Jeśli zachodzi potrzeba opublikowania we wszystkich regionach, należy zarządzać procesem tworzenia i modelem, który został przeszkolony, we wszystkich 3 regionach tworzenia.
 
 
 ## <a name="configuring-publish-settings"></a>Konfigurowanie ustawień publikowania
@@ -59,25 +58,25 @@ Po wybraniu miejsca Skonfiguruj ustawienia publikowania dla:
 
 * Analiza tonacji
 * Korekcja pisowni — tylko punkt końcowy przewidywania w wersji 2
-* Napełnianiu mowy 
+* Napełnianiu mowy
 
-Po opublikowaniu te ustawienia są dostępne do przeglądu na stronie **ustawień publikowania** sekcji **Zarządzanie** . Można zmienić ustawienia za pomocą każdej publikacji. Jeśli anulujesz publikowanie, wszelkie zmiany wprowadzone podczas publikowania również zostaną anulowane. 
+Po opublikowaniu te ustawienia są dostępne do przeglądu na stronie **ustawień publikowania** sekcji **Zarządzanie** . Można zmienić ustawienia za pomocą każdej publikacji. Jeśli anulujesz publikowanie, wszelkie zmiany wprowadzone podczas publikowania również zostaną anulowane.
 
 ### <a name="when-your-app-is-published"></a>Po opublikowaniu aplikacji
 
-Po pomyślnym opublikowaniu aplikacji w górnej części przeglądarki pojawia się powiadomienie o powodzeniu. Powiadomienie zawiera również link do punktów końcowych. 
+Po pomyślnym opublikowaniu aplikacji w górnej części przeglądarki pojawia się powiadomienie o powodzeniu. Powiadomienie zawiera również link do punktów końcowych.
 
-Jeśli potrzebujesz adresu URL punktu końcowego, wybierz link. Możesz również przejść do adresów URL punktów końcowych, wybierając pozycję **Zarządzaj** w górnym menu, a następnie wybierając pozycję **zasoby platformy Azure** w menu po lewej stronie. 
+Jeśli potrzebujesz adresu URL punktu końcowego, wybierz link. Możesz również przejść do adresów URL punktów końcowych, wybierając pozycję **Zarządzaj** w górnym menu, a następnie wybierając pozycję **zasoby platformy Azure** w menu po lewej stronie.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
 <a name="enable-sentiment-analysis"></a>
 
-Analiza tonacji umożliwia integrację LUIS z [Analiza tekstu](https://azure.microsoft.com/services/cognitive-services/text-analytics/) w celu zapewnienia analizy tonacji i kluczowych fraz. 
+Analiza tonacji umożliwia integrację LUIS z [Analiza tekstu](https://azure.microsoft.com/services/cognitive-services/text-analytics/) w celu zapewnienia analizy tonacji i kluczowych fraz.
 
-Nie musisz podawać klucza analiza tekstu i nie ma opłat za rozliczenie dla tej usługi na Twoje konto platformy Azure. 
+Nie musisz podawać klucza analiza tekstu i nie ma opłat za rozliczenie dla tej usługi na Twoje konto platformy Azure.
 
-Dane tonacji to wynik z zakresu od 1 do 0 wskazujący dodatnie (bliżej 1) lub ujemne (bliżej 0) tonacji danych. Etykieta tonacji `positive`, `neutral`i `negative` jest na obsługiwaną kulturę. Obecnie tylko język angielski obsługuje etykiety tonacji. 
+Dane tonacji to wynik z zakresu od 1 do 0 wskazujący dodatnie (bliżej 1) lub ujemne (bliżej 0) tonacji danych. Etykieta tonacji `positive` , `neutral` i `negative` jest na obsługiwaną kulturę. Obecnie tylko język angielski obsługuje etykiety tonacji.
 
 Aby uzyskać więcej informacji na temat odpowiedzi punktu końcowego JSON z analizą tonacji, zobacz [tonacji Analysis](luis-concept-data-extraction.md#sentiment-analysis)
 

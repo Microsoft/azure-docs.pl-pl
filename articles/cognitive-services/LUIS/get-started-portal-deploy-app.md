@@ -2,13 +2,13 @@
 title: 'Szybki Start: wdrażanie aplikacji za pomocą portalu LUIS'
 description: W tym przewodniku szybki start pokazano, jak wdrożyć aplikację, tworząc zasób punktu końcowego przewidywania, przypisując zasób, szkolenie i publikację aplikacji.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756292"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585094"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Szybki Start: wdrażanie aplikacji w portalu LUIS
 
@@ -30,7 +30,7 @@ W tym przewodniku szybki start dowiesz się, jak wdrożyć aplikację. Tworzysz 
 
 Za każdym razem, gdy tworzysz nowy zasób do prognozowania lub tworzenia zapytania dla LUIS, musisz przypisać zasób do aplikacji LUIS. Po jego przypisaniu nie trzeba wykonać tego kroku ponownie, chyba że zostanie utworzony nowy zasób. Możesz utworzyć nowy zasób, aby rozszerzyć regiony aplikacji lub obsłużyć większą liczbę zapowiadanych zapytań.
 
-1. Zaloguj się do [portalu Luis w wersji zapoznawczej](https://preview.luis.ai) i wybierz aplikację **myEnglishApp** z listy aplikacji.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai) i wybierz aplikację **myEnglishApp** z listy aplikacji.
 
 1. Wybierz pozycję **Zarządzaj** w prawym górnym menu, a następnie wybierz pozycję **zasoby platformy Azure**.
 
@@ -47,7 +47,7 @@ Za każdym razem, gdy tworzysz nowy zasób do prognozowania lub tworzenia zapyta
 1. Znajdź nowy wiersz w tabeli dla nowego zasobu predykcyjnego i skopiuj adres URL punktu końcowego. Jest on poprawnie skonstruowany w celu `HTTP GET` zgłoszenia do punktu końcowego interfejsu API Luis w celu przewidywania.
 
 > [!TIP]
-> Jeśli zamierzasz używać usługi Active Learning do ulepszania aplikacji LUIS, wybierz pozycję **Zmień parametry zapytania** i wybierz pozycję **Zapisz dzienniki**. Ta akcja powoduje zmianę przykładowego adresu URL przez `log=true` dodanie parametru QueryString. Skopiuj i użyj zmienionego przykładowego adresu URL zapytania podczas tworzenia zapytań prognozowania do punktu końcowego środowiska uruchomieniowego.
+> Jeśli zamierzasz używać usługi Active Learning do ulepszania aplikacji LUIS, wybierz pozycję **Zmień parametry zapytania** i wybierz pozycję **Zapisz dzienniki**. Ta akcja powoduje zmianę przykładowego adresu URL przez dodanie `log=true` parametru QueryString. Skopiuj i użyj zmienionego przykładowego adresu URL zapytania podczas tworzenia zapytań prognozowania do punktu końcowego środowiska uruchomieniowego.
 
 ## <a name="train-the-app"></a>Uczenie aplikacji
 
@@ -59,7 +59,7 @@ Za każdym razem, gdy tworzysz nowy zasób do prognozowania lub tworzenia zapyta
 
 ## <a name="prediction-endpoint-request"></a>Żądanie punktu końcowego przewidywania
 
-W portalu w wersji zapoznawczej `query=` na końcu adresu URL jest dołączany wypowiedź użytkownika do żądania GET. `query=`Po wprowadzeniu tych samych użytkowników wypowiedź użytych na końcu poprzedniego przewodnika Szybki Start:
+Na `query=` końcu adresu URL w portalu jest dołączany wypowiedź użytkownika do żądania GET. Po `query=` wprowadzeniu tych samych użytkowników wypowiedź użytych na końcu poprzedniego przewodnika Szybki Start:
 
 ```Is there a form named hrf-234098```
 
@@ -111,7 +111,7 @@ Aby wyświetlić ten sam poziom informacji w okienku testów, należy opublikowa
 
 [![Porównanie obecnie edytowanej i opublikowanej wersji aplikacji](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym przewodnikiem Szybki Start wybierz pozycję **Moje aplikacje** w górnym menu nawigacji. Zaznacz pole wyboru aplikacji z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi kontekstowego nad listą.
 

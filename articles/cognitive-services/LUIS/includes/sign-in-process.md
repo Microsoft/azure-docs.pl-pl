@@ -7,21 +7,21 @@ manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/05/2020
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 155c88ec4766391f70701b17038b915c399d8b0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e2a74f69f575f4b9b332b98d7e19089418b29ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77371708"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585247"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Zaloguj się do portalu LUIS
 
 Nowy użytkownik do LUIS musi wykonać następującą procedurę:
 
-1. Zaloguj się do [portalu Luis (wersja zapoznawcza)](https://preview.luis.ai), wybierz swój kraj i zaakceptuj warunki użytkowania. Jeśli zamiast tego zobaczysz **Moje aplikacje** , zasób Luis już istnieje i należy przejść do sekcji Tworzenie aplikacji.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai), wybierz swój kraj i zaakceptuj warunki użytkowania. Jeśli zamiast tego zobaczysz **Moje aplikacje** , zasób Luis już istnieje i należy przejść do sekcji Tworzenie aplikacji.
 
 1. Wybierz pozycję **Utwórz zasób platformy Azure** , a następnie wybierz pozycję **Utwórz zasób autorstwa, aby przeprowadzić migrację aplikacji do programu.**
 

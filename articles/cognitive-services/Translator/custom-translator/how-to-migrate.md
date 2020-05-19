@@ -9,19 +9,19 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446777"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587005"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 
 Można z łatwością migrować obszar roboczy i projekty [centrum usługi Microsoft Translator](https://hub.microsofttranslator.com/) do translatora niestandardowego. Migracja jest inicjowana z centrum Microsoft Hub przez wybranie obszaru roboczego lub projektu, a następnie wybranie obszaru roboczego w usłudze translator niestandardowy, a następnie wybranie szkoleń, które chcesz przenieść. Po rozpoczęciu migracji wybrane ustawienia szkoleniowe zostaną przeniesione ze wszystkimi odpowiednimi dokumentami. Wdrożone modele są przeszkolone i można je wdrożyć ponownie po zakończeniu.
 
 Te akcje są wykonywane podczas migracji:
-* Wszystkie dokumenty i definicje projektu będą przenoszone wraz z dodaniem prefiksu "hub_" poprzedzonego nazwą. Automatycznie generowane dane testów i dostrajania będą mieć nazwę hub_systemtune_\<ModelId> lub hub_systemtest_\<ModelId>.
+* Wszystkie dokumenty i definicje projektu będą przenoszone wraz z dodaniem prefiksu "hub_" poprzedzonego nazwą. Automatycznie generowane dane testów i dostrajania będą mieć nazwę hub_systemtune_ \< modelid> lub hub_systemtest_ \< ModelId>.
 * Wszystkie szkolenia, które były w stanie wdrożenia podczas migracji, zostaną automatycznie przeszkolone przy użyciu dokumentów szkoleń centrum. W przypadku tego szkolenia nie zostanie naliczona opłata za subskrypcję. Jeśli wybrano opcję automatycznego wdrażania dla migracji, model przeszkolony zostanie wdrożony po zakończeniu. Będą stosowane zwykłe opłaty za hosting.
 * Wszystkie zmigrowane szkolenia, które nie były w stanie wdrożonym, zostaną wprowadzone do migrowanej wersji roboczej. W tym stanie będziesz mieć możliwość szkolenia modelu z zmigrowanym definicją, ale będą stosowane zwykłe opłaty szkoleniowe.
 * W dowolnym momencie Ocena BLEU migrowana z szkoleń centrum znajduje się na stronie TrainingDetails modelu w nagłówku "Bleu score in MT Hub".
@@ -134,16 +134,16 @@ Ta tabela zawiera porównanie funkcji usługi Microsoft Translator Hub i transla
 |:-----|:----:|:----:|
 |Stan funkcji dostosowywania   | Ogólna dostępność  | Ogólna dostępność |
 | Wersja interfejsu API tekstu  | Wersja 2    | Czytanie  |
-| Dostosowanie SMT | Tak   | Nie |
-| Dostosowanie NMT | Nie    | Tak |
-| Nowe ujednolicone usługi rozpoznawania mowy | Nie    | Tak |
+| Dostosowanie SMT | Yes   | Nie |
+| Dostosowanie NMT | Nie    | Yes |
+| Nowe ujednolicone usługi rozpoznawania mowy | Nie    | Yes |
 | Brak śladu | Tak | Tak |
 
 ## <a name="new-languages"></a>Nowe języki
 
-Jeśli jesteś społecznością lub organizacją, która pracuje nad tworzeniem nowego systemu językowego dla usługi Microsoft translator, skontaktuj [custommt@microsoft.com](mailto:custommt@microsoft.com) się z, aby uzyskać więcej informacji.
+Jeśli jesteś społecznością lub organizacją, która pracuje nad tworzeniem nowego systemu językowego dla usługi Microsoft translator, skontaktuj się z, aby [custommt@microsoft.com](mailto:custommt@microsoft.com) uzyskać więcej informacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Uczenie modelu](how-to-train-model.md).
-- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [programu Microsoft interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Zacznij korzystać ze wdrożonego niestandardowego modelu tłumaczenia za pośrednictwem [translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

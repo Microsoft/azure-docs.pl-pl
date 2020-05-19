@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 82766e969f62f35f39f6545eb4c2c6bdda29c11b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906575"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586549"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -88,7 +88,7 @@ public class Transliterate {
 }
 ```
 
-Dodaj następujące wiersze do klasy `Transliterate`. Najpierw klucz subskrypcji i punkt końcowy są odczytywane ze zmiennych środowiskowych. Następnie należy zauważyć, że wraz z `api-version`, dwa dodatkowe parametry zostały dołączane do. `url` Te parametry są używane do ustawiania języka wejściowego oraz skryptów na potrzeby transliteracji. W tym przykładzie ustawiono język japoński (`jpan`) i łaciński (`latn`). 
+Dodaj następujące wiersze do klasy `Transliterate`. Najpierw klucz subskrypcji i punkt końcowy są odczytywane ze zmiennych środowiskowych. Następnie należy zauważyć, że wraz z `api-version` , dwa dodatkowe parametry zostały dołączane do `url` . Te parametry są używane do ustawiania języka wejściowego oraz skryptów na potrzeby transliteracji. W tym przykładzie ustawiono język japoński (`jpan`) i łaciński (`latn`). 
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Tworzenie funkcji analizowania odpowiedzi
 
-Ta prosta funkcja analizuje i formatuje odpowiedź JSON z usługi tłumaczenia tekstu w usłudze Translator.
+Ta prosta funkcja analizuje i prettifies odpowiedź JSON z usługi Translator.
 
 ```java
 // This function prettifies the json response.
@@ -180,7 +180,7 @@ gradle run
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek — Azure Synapse Analytics: Definicja zadania Spark dla Synapse'
-description: Samouczek — Użyj usługi Azure Synapse Analytics, aby utworzyć definicje zadań platformy Spark i przesłać je do puli Synapse Spark.
+title: 'Samouczek — Apache Spark usługi Azure Synapse Analytics: Apache Spark definicję zadania dla Synapse'
+description: Samouczek — Użyj usługi Azure Synapse Analytics, aby utworzyć definicje zadań platformy Spark i przesłać je do Apache Spark dla puli analiz Synapse Azure.
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422970"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587939"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Samouczek: korzystanie z usługi Azure Synapse Analytics do tworzenia definicji zadań Apache Spark dla pul Synapse Spark
 
@@ -22,7 +22,7 @@ W tym samouczku pokazano, jak utworzyć definicje zadań platformy Spark za pomo
 * Utwórz i prześlij definicję zadania platformy Spark w puli Synapse Spark.
 * Wyświetl szczegóły zadania po przeprowadzeniu.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -47,7 +47,7 @@ Przed przesłaniem definicji zadania platformy Spark musisz być właścicielem 
 
     ![Okno dialogowe przesyłanie danych platformy Spark](./media/apache-spark-job-definitions/create-new-filesystem.png)
 
-3. Otwórz `sparkjob`program, kliknij pozycję **Access Control (IAM)**, a następnie kliknij pozycję **Dodaj** i wybierz pozycję **Dodaj przypisanie roli**.
+3. Otwórz `sparkjob` program, kliknij pozycję **Access Control (IAM)**, a następnie kliknij pozycję **Dodaj** i wybierz pozycję **Dodaj przypisanie roli**.
 
     ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/add-role-assignment-01.png)
 
@@ -173,5 +173,5 @@ Po utworzeniu definicji zadania platformy Spark można przesłać ją do puli Sy
 
 W tym samouczku pokazano, jak utworzyć definicje zadań platformy Spark za pomocą usługi Azure Synapse Analytics, a następnie przesłać je do puli Synapse Spark. Następnie możesz użyć usługi Azure Synapse Analytics, aby utworzyć Power BI zestawy danych i zarządzać Power BI danymi. 
 
-- [Łączenie się z danymi w Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-connect-to-data)
+- [Łączenie się z danymi w programie Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-connect-to-data)
 - [Wizualizowanie przy użyciu usługi Power BI](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

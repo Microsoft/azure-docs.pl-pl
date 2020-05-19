@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: edde734409d064f1bff0212a1cbaecf136206772
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906954"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586891"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69906954"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
 
-Utwórz nowy projekt przejdź przy użyciu ulubionego środowiska IDE lub edytora lub nowego folderu na pulpicie. Następnie skopiuj ten fragment kodu do projektu/folderu w pliku o nazwie `get-languages.go`.
+Utwórz nowy projekt przejdź przy użyciu ulubionego środowiska IDE lub edytora lub nowego folderu na pulpicie. Następnie skopiuj ten fragment kodu do projektu/folderu w pliku o nazwie `get-languages.go` .
 
 ```go
 package main
@@ -34,9 +34,9 @@ import (
 
 ## <a name="create-the-main-function"></a>Tworzenie funkcji main
 
-Utwórzmy główną funkcję dla naszej aplikacji. Zauważysz, że jest to pojedynczy wiersz kodu. Dzieje się tak, ponieważ tworzymy jedną funkcję, aby pobrać i wyświetlić listę obsługiwanych języków usługi tłumaczenia tekstu w usłudze Translator.
+Utwórzmy główną funkcję dla naszej aplikacji. Zauważysz, że jest to pojedynczy wiersz kodu. Dzieje się tak, ponieważ tworzymy jedną funkcję, aby uzyskać i wydrukować listę języków obsługiwanych w usłudze translator.
 
-Ten przykład spróbuje odczytać punkt końcowy tłumaczenie tekstu w usłudze Translator ze zmiennej środowiskowej: `TRANSLATOR_TEXT_ENDPOINT`. Jeśli nie chcesz korzystać ze zmiennych środowiskowych, możesz ustawić element `endpoint` jako ciąg i oznaczyć instrukcję warunkową jako komentarz.
+Ten przykład spróbuje odczytać punkt końcowy usługi Translator ze zmiennej środowiskowej: `TRANSLATOR_TEXT_ENDPOINT` . Jeśli nie chcesz korzystać ze zmiennych środowiskowych, możesz ustawić element `endpoint` jako ciąg i oznaczyć instrukcję warunkową jako komentarz.
 
 Skopiuj ten kod do projektu:
 
@@ -76,11 +76,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) (Interfejs API 3.0 tłumaczenia tekstu w usłudze Translator: języki).
+> Aby uzyskać więcej informacji na temat punktów końcowych, tras i parametrów żądania, zobacz [Translator 3,0: Języki](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ## <a name="build-the-request"></a>Tworzenie żądania
 
-Teraz, gdy treść żądania została zakodowana jako dane JSON, możesz utworzyć żądanie POST i wywołać interfejs API tłumaczenia tekstu w usłudze Translator.
+Teraz, gdy treść żądania została zakodowana w formacie JSON, możesz skompilować żądanie POST i wywołać translator.
 
 ```go
 // Build the HTTP GET request
@@ -91,7 +91,7 @@ if err != nil {
 // Add required headers
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -117,7 +117,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-To wszystko. Utworzono prosty program, który będzie wywoływał interfejs API tłumaczenia tekstu w usłudze Translator i zwracał odpowiedź w formacie JSON. Teraz nadszedł czas, aby uruchomić program:
+Jest to również prosty program, który wywoła translator i zwróci odpowiedź JSON. Teraz nadszedł czas, aby uruchomić program:
 
 ```console
 go run get-languages.go
@@ -217,7 +217,7 @@ Po pomyślnym przetworzeniu żądania jest zwracana odpowiedź w formacie JSON, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

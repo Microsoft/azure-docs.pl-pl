@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: Pobieranie listy obsługiwanych języków — interfejs API tłumaczenia tekstu w usłudze Translator'
+title: 'Szybki Start: Pobieranie listy obsługiwanych języków — translator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku Szybki start uzyskasz listę języków obsługiwanych na potrzeby tłumaczenia, transliteracji i wyszukiwania w słowniku przy użyciu interfejsu API tłumaczenia tekstu w usłudze Translator.
+description: W tym przewodniku szybki start otrzymasz listę języków obsługiwanych w celu tłumaczenia, przepełniania i wyszukiwania słownika przy użyciu translatora.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d992fcec6071ea9883f2db61d6c54f41a9615867
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bfb8b9d81496d10601bf6e6cfeb26d18b57e3eca
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525145"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586894"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Szybki Start: Użyj interfejs API tłumaczenia tekstu w usłudze Translator, aby uzyskać listę obsługiwanych języków
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Szybki Start: korzystanie z translatora w celu pobrania listy obsługiwanych języków
 
-W tym przewodniku Szybki start uzyskasz listę języków obsługiwanych na potrzeby tłumaczenia, transliteracji i wyszukiwania w słowniku przy użyciu interfejsu API tłumaczenia tekstu w usłudze Translator.
+W tym przewodniku szybki start otrzymasz listę języków obsługiwanych w celu tłumaczenia, przepełniania i wyszukiwania słownika przy użyciu translatora.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]

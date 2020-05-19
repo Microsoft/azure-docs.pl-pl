@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9d1b72eff3ffac37d2d10cd74c345eac8289b651
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875136"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585689"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Tworzenie zasobu wystąpienia kontenera platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -24,7 +24,7 @@ YAML poniżej definiuje zasób wystąpienia kontenera platformy Azure. Skopiuj i
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required when pulling a non-public image
+imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -66,7 +66,7 @@ type: Microsoft.ContainerInstance/containerGroups
 > [!NOTE]
 > Nie wszystkie lokalizacje mają tę samą dostępność procesora CPU i pamięci. Zapoznaj się z tabelą [Lokalizacja i zasoby][location-to-resource] , aby uzyskać listę dostępnych zasobów dla kontenerów dla poszczególnych lokalizacji i systemu operacyjnego.
 
-Zabędziemy korzystać z pliku YAML, który został utworzony dla [`az container create`][azure-container-create] polecenia. W interfejsie wiersza `az container create` polecenia platformy Azure wykonaj polecenie, `<resource-group>` zastępując własny własny. Ponadto w celu zabezpieczania wartości w ramach wdrożenia YAML odnosi się do [wartości zabezpieczonych][secure-values].
+Zabędziemy korzystać z pliku YAML, który został utworzony dla [`az container create`][azure-container-create] polecenia. W interfejsie wiersza polecenia platformy Azure wykonaj `az container create` polecenie, zastępując `<resource-group>` własny własny. Ponadto w celu zabezpieczania wartości w ramach wdrożenia YAML odnosi się do [wartości zabezpieczonych][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml

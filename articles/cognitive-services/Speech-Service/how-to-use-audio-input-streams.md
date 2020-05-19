@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109932"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584930"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Informacje o interfejsie API strumieniowego wejścia audio zestawu mowy SDK
 
@@ -25,20 +25,20 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
 
 - Określ format strumienia audio. Ten format musi być obsługiwany przez zestaw mowy SDK i usługę mowy. Obecnie obsługiwana jest tylko następująca konfiguracja:
 
-  Próbki audio w formacie PCM, jeden kanał, 16000 próbek na sekundę, 32000 bajtów na sekundę, Wyrównaj do dwóch bloków (16 bitów włącznie z uzupełnieniem dla próbki), 16 bitów na próbkę.
+  Próbki audio w formacie PCM, jeden kanał, 16 bitów na próbkę, 8000 lub 16000 próbek na sekundę (16000 lub 32000 bajty na sekundę), Wyrównaj do dwóch bloków (16 bitów włącznie z uzupełnieniem dla przykładu).
 
   Odpowiedni kod w zestawie SDK, aby utworzyć format audio wygląda następująco:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
 - Upewnij się, że kod może dostarczyć nieprzetworzone dane audio zgodnie z tymi specyfikacjami. Jeśli dane źródłowe audio nie są zgodne z obsługiwanymi formatami, dźwięk musi być przekształcony w wymagany format.
 
-- Utwórz własną klasę strumienia wejściowego audio pochodną `PullAudioInputStreamCallback`. Zaimplementuj elementy członkowskie `Read()` i `Close()`. Dokładna sygnatura funkcji jest zależna od języka, ale kod będzie wyglądać podobnie do tego przykładu kodu:
+- Utwórz własną klasę strumienia wejściowego audio pochodną `PullAudioInputStreamCallback` . Zaimplementuj elementy członkowskie `Read()` i `Close()`. Dokładna sygnatura funkcji jest zależna od języka, ale kod będzie wyglądać podobnie do tego przykładu kodu:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
@@ -59,7 +59,7 @@ Następujące kroki są wymagane w przypadku korzystania ze strumieni danych wej
    };
   ```
 
-- Utwórz konfigurację audio w oparciu o format audio i strumień wejściowy. Podczas tworzenia aparatu rozpoznawania należy przekazać zwykłą konfigurację mowy i konfigurację wejściową audio. Przykład:
+- Utwórz konfigurację audio w oparciu o format audio i strumień wejściowy. Podczas tworzenia aparatu rozpoznawania należy przekazać zwykłą konfigurację mowy i konfigurację wejściową audio. Na przykład:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

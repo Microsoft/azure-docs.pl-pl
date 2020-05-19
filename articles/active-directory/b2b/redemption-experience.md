@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199507"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585899"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
 
@@ -99,7 +99,7 @@ Gdy gość loguje się w celu uzyskania dostępu do zasobów w organizacji partn
 
    ![Zrzut ekranu przedstawiający nowe warunki użytkowania](media/redemption-experience/terms-of-use-accept.png) 
 
-   [Warunki użytkowania](../governance/active-directory-tou.md) można skonfigurować w **relacjach organizacyjnych** (lub **tożsamości zewnętrznych**) > **warunki użytkowania**.
+   [Warunki użytkowania](../governance/active-directory-tou.md) można skonfigurować w warunki użytkowania **tożsamości zewnętrznych**  >  **Terms of use**.
 
 3. O ile nie określono inaczej, Gość zostanie przekierowany do panelu dostępu do aplikacji, który zawiera listę aplikacji, do których gość może uzyskać dostęp.
 

@@ -1,33 +1,26 @@
 ---
 title: Typy jednostek — LUIS
-titleSuffix: Azure Cognitive Services
-description: 'Jednostki wyodrębniają dane z wypowiedź. Typy jednostek umożliwiają przewidywalną wyodrębnianie danych. Istnieją dwa typy jednostek: Uczenie maszynowe i niekomputerowe. Ważne jest, aby wiedzieć, który typ jednostki jest używany w wyrażenia długości.'
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: diberry
-ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221030"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585644"
 ---
-# <a name="entities-and-their-purpose-in-luis"></a>Jednostki i ich cele w LUIS
+# <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
-Głównym celem jednostek jest nadanie aplikacji klienckiej przewidywalnej ekstrakcji danych. _Opcjonalne_, pomocnicze przeznaczenie polega na zwiększeniu przewidywania zamiaru lub innych jednostek z deskryptorami.
+Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 
-Istnieją dwa typy jednostek:
+Istnieje kilka typów jednostek:
 
-* komputer — z kontekstu
-* nieprzeznaczone dla maszyn — dokładne dopasowania tekstu, dopasowania wzorców lub wykrycie przez wstępnie utworzone jednostki
+* [Jednostka nauczona maszynowo](reference-entity-machine-learned-entity.md)
+* Nieprzygotowane do użycia przez maszynę jako wymagana [Funkcja](luis-concept-feature.md) — dla dokładnego dopasowania tekstu, dopasowania wzorców lub wykrycia przez wstępnie utworzone jednostki
+* [Wzorzec. any](#patternany-entity) -do wyodrębniania tekstu dowolnego formularza, takiego jak tytuły książek ze [wzorca](reference-entity-pattern-any.md)
 
-Jednostki zdobyte na maszynie zapewniają szeroką gamę opcji wyodrębniania danych. Jednostki, które nie są poznanie maszynowe, współpracują z dopasowywaniem tekstu i mogą być używane niezależnie lub jako [ograniczenia](#design-entities-for-decomposition) dla jednostki, która jest poznania maszyn.
+Jednostki zdobyte na maszynie zapewniają szeroką gamę opcji wyodrębniania danych. Jednostki, które nie są wykorzystywane przez maszynę, współpracują z dopasowywaniem do tekstu i są używane jako [funkcje wymagane](#design-entities-for-decomposition) dla jednostki lub zamiaru.
 
 ## <a name="entities-represent-data"></a>Jednostki reprezentują dane
 
@@ -39,45 +32,37 @@ Jednostki muszą mieć spójną etykietę we wszystkich wyrażenia długościach
 
 |Wypowiedź|Jednostka|Dane|
 |--|--|--|
-|Kup 3 bilety do Nowego Jorku|Wstępnie zbudowany numer<br>Location. Destination|3<br>Nowy Jork|
-|Kup bilet od Nowego Jorku do Londyn w dniu 5 marca|Lokalizacja. Źródło<br>Location. Destination<br>Wstępnie zbudowany datetimeV2|Nowy Jork<br>Londyn<br>5 marca 2018|
+|Kup 3 bilety do Nowego Jorku|Wstępnie zbudowany numer<br>Element docelowy|3<br>Nowy Jork|
 
-### <a name="entities-are-optional"></a>Jednostki są opcjonalne
 
-Podczas gdy wymagane są wymagania, jednostki są opcjonalne. Nie trzeba tworzyć jednostek dla każdej koncepcji w aplikacji, ale tylko dla tych, które są wymagane do podjęcia działania przez aplikację kliencką.
+### <a name="entities-are-optional-but-recommended"></a>Jednostki są opcjonalne, ale zalecane
 
-Jeśli wyrażenia długości nie ma danych wymaganych przez aplikację kliencką, nie musisz dodawać jednostek. Podczas opracowywania aplikacji i tworzenia nowego zapotrzebowania na dane można później dodać odpowiednie jednostki do modelu LUIS.
+Podczas [gdy](luis-concept-intent.md) wymagane są wymagania, jednostki są opcjonalne. Nie trzeba tworzyć jednostek dla każdej koncepcji w aplikacji, ale tylko dla tych, w których aplikacja kliencka wymaga danych lub jednostka działa jako Wskazówka lub sygnał do innej jednostki lub zamiaru.
+
+Podczas opracowywania aplikacji i tworzenia nowego zapotrzebowania na dane można później dodać odpowiednie jednostki do modelu LUIS.
 
 ## <a name="entity-compared-to-intent"></a>Jednostka porównana z intencją
 
-Jednostka reprezentuje koncepcję danych w wypowiedź, który ma zostać wyodrębniony.
+Jednostka reprezentuje koncepcję danych _w wypowiedź_. Celem jest sklasyfikowanie _całego wypowiedź_.
 
-Element wypowiedź może opcjonalnie zawierać jednostki. Zgodnie z porównaniem _wymagana_ jest prognoza zamiaru wypowiedź i reprezentuje cały Wypowiedź. LUIS wymaga przykładowego wyrażenia długości zawartego w zamierzeniu.
-
-Weź pod uwagę następujące 4 wyrażenia długości:
+Weź pod uwagę następujące cztery wyrażenia długości:
 
 |Wypowiedź|Przewidywany cel|Wyodrębnione jednostki|Wyjaśnienie|
 |--|--|--|--|
 |Pomoc|Pomoc|-|Brak elementów do wyodrębnienia.|
-|Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie został przeszkolony do wyodrębnienia `something` w tym kontekście i nie ma żadnego odbiorcy.|
-|Wyślij Roberta|sendSomething|`Bob`, `present`|Model został przeszkolony z wbudowaną jednostką nazwisko [osoby](luis-reference-prebuilt-person.md) , która wyodrębni nazwę `Bob`. Jednostka poznania maszynowego została użyta do wyodrębnienia `present`.|
-|Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i `box of chocolates`, które zostały wyodrębnione według jednostek.|
+|Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|
+|Wyślij Roberta|sendSomething|`Bob`, `present`|Model wyodrębnia `Bob` przez dodanie wymaganej funkcji wstępnie skompilowanej jednostki `personName` . Jednostka poznania maszynowego została użyta do wyodrębnienia `present` .|
+|Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i `box of chocolates` , które zostały wyodrębnione przez jednostki zdobyte przez maszynę.|
 
 ## <a name="design-entities-for-decomposition"></a>Projektowanie jednostek do dekompozycji
 
-Jest to dobry projekt jednostki, aby uczynić jednostkę najwyższego poziomu daną maszyną. Pozwala to na zmianę projektu jednostki w czasie i użycie **podskładników** (jednostek podrzędnych), opcjonalnie z **ograniczeniami** i **deskryptorami**, aby rozłożyć jednostkę najwyższego poziomu do części wymaganych przez aplikację kliencką.
+Jednostki z obsługą maszyn umożliwiają zaprojektowanie schematu aplikacji na potrzeby dekompozycji, dzieląc znaczną koncepcję na podjednostki.
 
 Projektowanie pod kątem dekompozycji umożliwia LUISom zwrócenie głębokiego stopnia rozpoznawania jednostek do aplikacji klienckiej. Dzięki temu aplikacja kliencka może skupić się na regułach biznesowych i pozostawić dane do LUIS.
 
-### <a name="machine-learned-entities-are-primary-data-collections"></a>Jednostki poznanie maszyn są podstawowymi kolekcjami danych
+Wyznaczone przez maszynę wyzwalacze jednostki na podstawie kontekstu uzyskanego za pośrednictwem przykładu wyrażenia długości.
 
-Obiekty, które są [**poznanie maszyn**](tutorial-machine-learned-entity.md) , są jednostką danych najwyższego poziomu. Podskładniki są jednostkami podrzędnymi jednostek obsługiwanych przez maszynę.
-
-Wyznaczone przez maszynę wyzwalacze jednostki na podstawie kontekstu uzyskanego w ramach szkolenia wyrażenia długości. **Ograniczenia** są opcjonalnymi regułami stosowanymi do jednostki, która jest stosowana przez maszynę, która jest w trakcie dalszych ograniczeń wyzwalanych na podstawie definicji dopasowania tekstu dokładnego, takiego jak [Lista](reference-entity-list.md) lub [wyrażenie regularne](reference-entity-regular-expression.md). Na `size` przykład jednostka uczenia maszynowego może mieć ograniczenie jednostki `sizeList` listy, która ogranicza `size` jednostkę do wyzwalania tylko wtedy, `sizeList` gdy napotkane są wartości zawarte w jednostce.
-
-[**Deskryptory**](luis-concept-feature.md) to funkcje stosowane w celu zwiększenia znaczenia wyrazów lub fraz dla przewidywania. Są one nazywane *deskryptorami* , ponieważ są używane do *opisywania* zamiaru lub jednostki. Deskryptory opisują cechy charakterystyczne lub atrybuty danych, takie jak ważne słowa lub frazy, które LUISją się i poznają.
-
-Gdy tworzysz funkcję listy fraz w aplikacji LUIS, jest ona domyślnie włączona i ma zastosowanie równomiernie we wszystkich intencjach i jednostkach. Jednakże w przypadku zastosowania listy fraz jako deskryptora (funkcji) jednostki (lub *modelu*), a następnie jej zakres ogranicza się do zastosowania tylko do tego modelu i nie jest już używany w przypadku wszystkich innych modeli. Użycie listy fraz jako deskryptora dla modelu ułatwia dekompozycję, pomagając z dokładnością dla modelu, do którego jest stosowana.
+Jednostki, które są [**poznanie maszyn**](tutorial-machine-learned-entity.md) , to elementy wyodrębniające najwyższego poziomu. Podjednostki są jednostkami podrzędnymi jednostek obsługiwanych przez maszynę.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -88,51 +73,50 @@ Gdy tworzysz funkcję listy fraz w aplikacji LUIS, jest ona domyślnie włączon
 
 ## <a name="types-of-entities"></a>Typy jednostek
 
+Podjednostka do elementu nadrzędnego powinna być jednostką dodaną przez maszynę. Podjednostka może użyć jednostki, która nie jest pouczenia maszynowego jako [funkcji](luis-concept-feature.md).
+
 Wybierz jednostkę na podstawie sposobu wyodrębniania danych i sposobu ich reprezentowania po wyodrębnieniu.
 
 |Typ jednostki|Przeznaczenie|
 |--|--|
-|[**Komputer — informacje**](tutorial-machine-learned-entity.md)|Jednostki poznanie maszyn są zgodne z kontekstem w wypowiedź. Nadrzędne grupowanie jednostek, niezależnie od typu jednostki. Sprawia to, że zmiany położenia w przykładzie wyrażenia długości są istotne. |
+|[**Komputer — informacje**](tutorial-machine-learned-entity.md)|Wyodrębnij zagnieżdżone, złożone dane uzyskane z przykładów z etykietami. |
 |[**Staw**](reference-entity-list.md)|Lista elementów i ich synonimy wyodrębnione z **dokładnym dopasowaniem do tekstu**.|
-|[**Wzorzec. any**](reference-entity-pattern-any.md)|Obiekt, na którym koniec jednostki jest trudny do określenia. |
+|[**Wzorzec. any**](#patternany-entity)|Jednostka, gdzie znalezienie końca jednostki jest trudne do ustalenia, ponieważ jednostka jest bezpłatna. Dostępne tylko w [wzorcach](luis-concept-patterns.md).|
 |[**Wstępnie utworzonych**](luis-reference-prebuilt-entities.md)|Jest już szkolony do wyodrębniania określonego rodzaju danych, takich jak adres URL lub wiadomość e-mail. Niektóre z tych wstępnie skompilowanych jednostek są zdefiniowane w projekcie typu "Open Source [" — tekst](https://github.com/Microsoft/Recognizers-Text) . Jeśli określona kultura lub jednostka nie jest obecnie obsługiwana, współtworzy projekt.|
 |[**Wyrażenie regularne**](reference-entity-regular-expression.md)|Używa wyrażenia regularnego do **dokładnego dopasowania tekstu**.|
 
 ## <a name="extracting-contextually-related-data"></a>Wyodrębnianie danych związanych z kontekstem
 
-Wypowiedź może zawierać dwa lub więcej wystąpień jednostki, gdzie znaczenie danych opiera się na kontekście w wypowiedź. Przykładem jest wypowiedź do zarezerwowania lotu, który ma dwie lokalizacje, źródło i miejsce docelowe.
+Wypowiedź może zawierać dwa lub więcej wystąpień jednostki, gdzie znaczenie danych opiera się na kontekście w wypowiedź. Przykładem jest wypowiedź do zarezerwowania lotu, który ma dwie lokalizacje geograficzne, źródło i miejsce docelowe.
 
 `Book a flight from Seattle to Cairo`
 
-Dwa przykłady `location` jednostki muszą zostać wyodrębnione. Klient-aplikacja musi znać typ lokalizacji dla każdej z nich, aby zakończyć zakupy biletów.
+Dwie lokalizacje muszą zostać wyodrębnione w sposób, w jaki aplikacja klienta wie o typie każdej lokalizacji w celu ukończenia zakupu biletów.
 
-Istnieją dwie techniki wyodrębniania danych kontekstowych:
+Aby wyodrębnić lokalizację początkową i docelową, należy utworzyć dwie podjednostki jako część jednostki uczenia maszynowego. Dla każdej z podjednostek utwórz wymaganą funkcję, która używa geographyV2.
 
- * `location` Jednostka jest jednostką wydaną przez maszynę i używa dwóch jednostek podskładników do przechwytywania `origin` i `destination` (preferowany)
- * Jednostka używa dwóch **ról** z `origin` `location``destination`
+<a name="using-component-constraints-to-help-define-entity"></a>
+<a name="using-subentity-constraints-to-help-define-entity"></a>
 
-W wypowiedź może istnieć wiele jednostek i można go wyodrębnić bez użycia dekompozycji lub ról, jeśli kontekst, w którym są używane, nie ma znaczenia. Na przykład jeśli wypowiedź zawiera listę lokalizacji, jest to lista `I want to travel to Seattle, Cairo, and London.`, w której każdy element nie ma dodatkowego znaczenia.
+### <a name="using-required-features-to-constrain-entities"></a>Korzystanie z funkcji wymaganych do ograniczenia jednostek
 
-### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Używanie jednostek podskładnika jednostki, która jest poznania maszynowego do definiowania kontekstu
+Dowiedz się więcej o [wymaganych funkcjach](luis-concept-feature.md)
 
-Można użyć [**jednostki uczenia maszynowego**](tutorial-machine-learned-entity.md) , aby wyodrębnić dane opisujące akcję założenia, a następnie rozłożyć jednostkę najwyższego poziomu do oddzielnych części wymaganych przez aplikację kliencką.
+## <a name="patternany-entity"></a>Jednostka Pattern.any
 
-W tym przykładzie `Book a flight from Seattle to Cairo`jednostka najwyższego poziomu może być `travelAction` oznaczona etykietą do wyodrębnienia. `flight from Seattle to Cairo` Następnie są tworzone dwa jednostki podskładnikowe, `origin` wywoływane `destination`i, z ograniczeniami zastosowanymi wstępnie skompilowanej `geographyV2` jednostki. W wyrażenia długości szkoleniowym `origin` i `destination` są odpowiednio oznaczone.
+Wzorzec. any jest dostępny tylko we [wzorcu](luis-concept-patterns.md).
 
-### <a name="using-entity-role-to-define-context"></a>Używanie roli jednostki do definiowania kontekstu
+<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
+## <a name="exceeding-app-limits-for-entities"></a>Przekraczanie limitów aplikacji dla jednostek
 
-Rola jest aliasem nazwanym dla jednostki na podstawie kontekstu w wypowiedź. Roli można używać z dowolnym prekompilowanym lub niestandardowym typem jednostki i używanym w obu przykładach wyrażenia długości i wzorców. W tym przykładzie `location` jednostka musi mieć dwie role z `origin` i `destination` i oba muszą być oznaczone w przykładzie wyrażenia długości.
-
-Jeśli LUIS odnajdzie element `location` , ale nie może ustalić roli, jednostka lokalizacji jest nadal zwracana. Aplikacja kliencka będzie musiała postępować zgodnie z pytaniem, aby określić, który typ lokalizacji należy do użytkownika.
-
-
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Jeśli potrzebujesz więcej niż maksymalnej liczby jednostek
-
-Jeśli potrzebujesz więcej niż limit, skontaktuj się z pomocą techniczną. Aby to zrobić, Zbierz szczegółowe informacje o systemie, przejdź do witryny sieci Web [Luis](luis-reference-regions.md#luis-website) , a następnie wybierz pozycję **Pomoc techniczna**. Jeśli Twoja subskrypcja platformy Azure obejmuje usługi pomocy technicznej, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
+Jeśli potrzebujesz więcej niż [Limit](luis-limits.md#model-limits), skontaktuj się z pomocą techniczną. Aby to zrobić, Zbierz szczegółowe informacje o systemie, przejdź do witryny sieci Web [Luis](luis-reference-regions.md#luis-website) , a następnie wybierz pozycję **Pomoc techniczna**. Jeśli Twoja subskrypcja platformy Azure obejmuje usługi pomocy technicznej, skontaktuj się z [pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>Stan przewidywania jednostek
 
-Portal LUIS pokazuje, kiedy jednostka, w przykładzie wypowiedź, ma inne przewidywania jednostek niż wybrana przez Ciebie jednostka. Ten różny wynik jest oparty na bieżącym przeszkolonym modelu.
+Portal LUIS pokazuje, kiedy jednostka ma inne przewidywania jednostek niż jednostka wybrana dla przykładu wypowiedź. Ten różny wynik jest oparty na bieżącym przeszkolonym modelu. Te informacje służą do rozwiązywania problemów z szkoleniami przy użyciu co najmniej jednej z następujących czynności:
+* Utwórz [funkcję](luis-concept-feature.md) dla jednostki ułatwiającą identyfikację koncepcji jednostki
+* Dodaj więcej [przykładowych wyrażenia długości](luis-concept-utterance.md) i etykiet z jednostką
+* [Przejrzyj aktywne sugestie dotyczące uczenia](luis-concept-review-endpoint-utterances.md) wszystkich wyrażenia długości odebranych w punkcie końcowym przewidywania, które mogą pomóc w zidentyfikowaniu koncepcji jednostki.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -141,4 +125,4 @@ Zapoznaj się z pojęciami dotyczącymi dobrego [wyrażenia długości](luis-con
 Zobacz [Dodawanie jednostek](luis-how-to-add-entities.md) , aby dowiedzieć się więcej na temat dodawania jednostek do aplikacji Luis.
 
 Zapoznaj się z [samouczkiem: Wyodrębnij dane strukturalne z wypowiedź użytkownika z jednostkami maszynowymi w Language Understanding (Luis)](tutorial-machine-learned-entity.md) , aby dowiedzieć się, jak wyodrębnić dane strukturalne z wypowiedź przy użyciu jednostki, która jest poznania maszyny.
- 
+

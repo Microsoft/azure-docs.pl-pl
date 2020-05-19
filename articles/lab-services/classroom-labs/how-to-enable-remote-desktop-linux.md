@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598066"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588160"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Włącz pulpit zdalny dla maszyn wirtualnych z systemem Linux w laboratorium w Azure Lab Services
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
 
 - Włączanie pulpitu zdalnego dla maszyny wirtualnej z systemem Linux
-- Jak nauczyciel może połączyć się z szablonową maszyną wirtualną za pośrednictwem Podłączanie pulpitu zdalnego (RDP).
+- Jak nauczycieli może nawiązać połączenie z maszyną wirtualną z szablonem za pośrednictwem Podłączanie pulpitu zdalnego (RDP).
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Włączanie pulpitu zdalnego dla maszyny wirtualnej z systemem Linux
-Podczas tworzenia laboratorium nauczyciele mogą włączyć Podłączanie **pulpitu zdalnego** dla obrazów systemu **Linux** . Opcja **włącz Podłączanie pulpitu zdalnego** jest wyświetlana, gdy dla szablonu wybrano obraz systemu Linux. Gdy ta opcja jest włączona, nauczyciele mogą łączyć się z MASZYNami wirtualnymi z szablonami i uczniami za pośrednictwem protokołu RDP (Pulpit zdalny). 
+Podczas tworzenia laboratorium wykładowcy mogą włączyć Podłączanie **pulpitu zdalnego** dla obrazów systemu **Linux** . Opcja **włącz Podłączanie pulpitu zdalnego** jest wyświetlana, gdy dla szablonu wybrano obraz systemu Linux. Gdy ta opcja jest włączona, nauczyciele mogą łączyć się z szablonami maszyn wirtualnych z MASZYNami wirtualnymi i uczniami za pośrednictwem protokołu RDP (Pulpit zdalny). 
 
 ![Włączanie połączenia pulpitu zdalnego dla obrazu systemu Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -49,7 +49,7 @@ Obecnie jest obsługiwane Podłączanie pulpitu zdalnego dla następujących sys
 - Ubuntu Server 16,04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Łączenie z maszyną wirtualną szablonu 
-Nauczyciele muszą połączyć się z szablonową maszyną wirtualną przy użyciu protokołu SSH, a następnie zainstalować na niej pakiety RDP i GUI. Następnie nauczyciele mogą połączyć się z szablonową maszyną wirtualną przy użyciu protokołu RDP: 
+Usługi wykładowcy muszą najpierw połączyć się z szablonową maszyną wirtualną przy użyciu protokołu SSH, a następnie zainstalować na niej pakiety RDP i GUI. Następnie wykładowcy mogą połączyć się z szablonową maszyną wirtualną przy użyciu protokołu RDP: 
 
 1. Jeśli widzisz przycisk **Dostosuj szablon** na pasku narzędzi, wybierz go. Następnie wybierz pozycję **Kontynuuj** w oknie dialogowym **Dostosuj szablon** . Ta akcja uruchamia szablon maszyny wirtualnej.  
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c86a387e66cce914f9d0b92793893b0cba08e7bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80370157"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587101"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Szybki start: Tworzenie, wdrażanie i używanie niestandardowego modelu tłumaczenia
 
@@ -24,23 +24,23 @@ Ten artykuł zawiera szczegółowe instrukcje tworzenia systemu tłumaczenia za 
 
 1. Aby używać portalu [Custom Translator](https://portal.customtranslator.azure.ai), musisz zalogować się na [konto Microsoft](https://signup.live.com) lub [konto usługi Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (konto organizacji hostowane na platformie Azure).
 
-2. Subskrypcja interfejsu API tłumaczenia tekstu w usłudze Translator — w witrynie Azure Portal. Klucz subskrypcji interfejsu API tłumaczenia tekstu w usłudze Translator musisz skojarzyć z obszarem roboczym w rozszerzeniu Custom Translator. Zobacz instrukcje dotyczące [tworzenia konta umożliwiającego korzystanie z interfejsu API tłumaczenia tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Subskrypcja translatora za pośrednictwem Azure Portal. Klucz subskrypcji usługi Translator będzie potrzebny do skojarzenia z obszarem roboczym w usłudze translator niestandardowym. Zobacz [, jak zarejestrować się w usłudze translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. Jeśli masz oba powyższe funkcje, zaloguj się do portalu usługi [Custom translator](https://portal.customtranslator.azure.ai) , aby utworzyć obszary robocze, projekty, przekazać pliki i utworzyć/wdrożyć modele.
 
 ## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
 
-Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki korzystania z usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją Microsoft interfejs API tłumaczenia tekstu w usłudze Translator.
+Jeśli użytkownik jest użytkownikiem po raz pierwszy, zostanie poproszony o zgodę na warunki korzystania z usługi, utworzenie obszaru roboczego i skojarzenie obszaru roboczego z subskrypcją usługi Translator.
 
-![](media/quickstart/terms-of-service.png)
-![](media/quickstart/create-workspace-1.png)
-![](media/quickstart/create-workspace-2.png)
-![Utwórz obszar](media/quickstart/create-workspace-3.png)
-roboczy Tworzenie obszaru roboczego Tworzenie obszaru roboczego Tworzenie obszaru roboczego Utwórz obszar roboczy![](media/quickstart/create-workspace-4.png)
-![](media/quickstart/create-workspace-5.png)
-![](media/quickstart/create-workspace-6.png)
+![Utwórz obszar roboczy Tworzenie obszaru roboczego Tworzenie obszaru roboczego Tworzenie obszaru roboczego Utwórz obszar roboczy ](media/quickstart/terms-of-service.png)
+ ![ ](media/quickstart/create-workspace-1.png)
+ ![ ](media/quickstart/create-workspace-2.png)
+ ![ ](media/quickstart/create-workspace-3.png)
+ ![ ](media/quickstart/create-workspace-4.png)
+ ![ ](media/quickstart/create-workspace-5.png)
+ ![](media/quickstart/create-workspace-6.png)
 
-W kolejnych odwiedzinach w portalu usługi tłumaczenia niestandardowego przejdź do strony Ustawienia, na której możesz zarządzać obszarem roboczym, utworzyć więcej obszarów roboczych, skojarzyć klucz subskrypcji Microsoft interfejs API tłumaczenia tekstu w usłudze Translator z obszarami roboczymi, dodać współwłaściciele i zmienić klucz subskrypcji.
+W kolejnych odwiedzinach w portalu usługi tłumaczenia niestandardowego przejdź do strony Ustawienia, na której możesz zarządzać obszarem roboczym, utworzyć więcej obszarów roboczych, skojarzyć klucz subskrypcji usługi Translator z obszarami roboczymi, dodać współwłaściciele i zmienić klucz subskrypcji.
 
 ## <a name="create-a-project"></a>Tworzenie projektu
 
@@ -83,7 +83,7 @@ Gdy wszystko jest gotowe do wdrożenia przeszkolonego modelu, kliknij przycisk �
 
 ## <a name="use-a-deployed-model"></a>Korzystanie z wdrożonego modelu
 
-Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Więcej informacji na temat interfejsu API tłumaczenia tekstu w usłudze Translator można znaleźć na stronie internetowej z [dokumentacją interfejsu API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+Dostęp do wdrożonych modeli można uzyskać za pośrednictwem [interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator w wersji 3, podając identyfikator kategorii](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Więcej informacji na temat translatora można znaleźć na stronie sieci Web [odwołań API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: c82b5d02ab3928eb0472f2a047cdca2238bf0b63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a67ba18b70f6b5b9eebb473e6cc2915bc937ce6b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284293"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588194"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Zarządzanie kontami laboratorium w Azure Lab Services 
+# <a name="create-and-manage-lab-accounts"></a>Tworzenie kont laboratoriów i zarządzanie nimi
 W Azure Lab Services konto laboratorium jest kontenerem dla zarządzanych typów laboratorium, takich jak pracownie. Administrator konfiguruje konto laboratorium przy użyciu Azure Lab Services i zapewnia dostęp do właścicieli laboratorium, którzy mogą tworzyć laboratoria na koncie. W tym artykule opisano sposób tworzenia konta laboratorium, wyświetlania wszystkich kont laboratorium lub usuwania konta laboratorium.
 
 ## <a name="create-a-lab-account"></a>Tworzenie konta laboratorium
@@ -45,7 +45,10 @@ Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab
     1. Wybierz istniejącą **galerię obrazów udostępnionych** lub utwórz ją. Możesz zapisać maszynę wirtualną szablonu w galerii obrazów udostępnionych, aby mogła ona zostać ponownie użyta przez inne osoby. Aby uzyskać szczegółowe informacje na temat udostępnionych galerii obrazów, zobacz [Używanie galerii obrazów udostępnionych w Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Określ, czy chcesz **automatycznie zamykać maszyny wirtualne z systemem Windows** , gdy użytkownicy odłączają się od nich. Określ, jak długo maszyny wirtualne powinny czekać, aby użytkownik mógł ponownie nawiązać połączenie przed automatycznym zamknięciem. 
     3. W przypadku **równorzędnej sieci wirtualnej**wybierz równorzędną sieć wirtualną (VNET) dla sieci laboratorium. Laboratoria utworzone w ramach tego konta są połączone z wybraną siecią wirtualną i mają dostęp do zasobów w wybranej sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [łączenie sieci wirtualnej laboratorium z równorzędną siecią wirtualną](how-to-connect-peer-virtual-network.md).    
-    8. Określ **zakres adresów** dla maszyn wirtualnych w laboratorium. Zakres adresów powinien znajdować się w notacji Classless Inter-Domain Routing (CIDR) (przykład: 10.20.0.0/23). Maszyny wirtualne w laboratorium zostaną utworzone w tym zakresie adresów. Aby uzyskać więcej informacji, zobacz [Określanie zakresu adresów dla maszyn wirtualnych w laboratorium](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)  
+    8. Określ **zakres adresów** dla maszyn wirtualnych w laboratorium. Zakres adresów powinien znajdować się w notacji Classless Inter-Domain Routing (CIDR) (przykład: 10.20.0.0/23). Maszyny wirtualne w laboratorium zostaną utworzone w tym zakresie adresów. Aby uzyskać więcej informacji, zobacz [Określanie zakresu adresów dla maszyn wirtualnych w laboratorium](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
+
+        > [!NOTE]
+        > Właściwość **zakres adresów** ma zastosowanie tylko wtedy, gdy dla laboratorium jest włączona **równorzędna Sieć wirtualna** .
 
         ![Utwórz konto laboratorium — > zaawansowane](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Wybierz pozycję **Dalej: Tagi** w dolnej części strony, aby przełączyć się na kartę **Tagi** . Dodaj Tagi, które chcesz skojarzyć z kontem laboratorium. Tagi to pary nazwa/wartość, które umożliwiają kategoryzowanie zasobów i wyświetlanie skonsolidowanych rozliczeń przez zastosowanie tego samego tagu dla wielu zasobów i grup zasobów. Aby uzyskać więcej informacji, zobacz [Używanie tagów do organizowania zasobów platformy Azure](../../azure-resource-manager/management/tag-resources.md).
@@ -74,28 +77,6 @@ Następujące kroki ilustrują tworzenie konta laboratorium w usłudze Azure Lab
 
     ![Wszystkie zasoby — > konta laboratorium](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
 
-## <a name="view-and-manage-labs-in-the-lab-account"></a>Wyświetl laboratoria na koncie laboratorium i zarządzaj nimi
-
-1. Na stronie **konto laboratorium** wybierz pozycję **Wszystkie laboratoria** w menu po lewej stronie.
-
-    ![Laboratoria na koncie](../media/how-to-manage-lab-accounts/labs-in-account.png)
-1. Zostanie wyświetlona **Lista laboratoriów** na koncie z następującymi informacjami: 
-    1. Nazwa laboratorium.
-    2. Data utworzenia laboratorium. 
-    3. Adres e-mail użytkownika, który utworzył laboratorium. 
-    4. Maksymalna liczba użytkowników, którzy mogą uzyskać dostęp do laboratorium. 
-    5. Stan laboratorium. 
-    6. Przypisania ról. 
-
-## <a name="delete-a-lab-in-the-lab-account"></a>Usuwanie laboratorium na koncie laboratorium
-Postępuj zgodnie z instrukcjami podanymi w poprzedniej sekcji, aby wyświetlić listę laboratoriów na koncie laboratorium.
-
-1. Wybierz **... (wielokropek)**, a następnie wybierz pozycję **Usuń**. 
-
-    ![Usuwanie przycisku Lab](../media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. W komunikacie ostrzegawczym wybierz pozycję **tak** . 
-
-    ![Potwierdź usunięcie laboratorium](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="delete-a-lab-account"></a>Usuwanie konta laboratorium
 Postępuj zgodnie z instrukcjami podanymi w poprzedniej sekcji, która wyświetla konta laboratorium na liście. Aby usunąć konto laboratorium, wykonaj następujące instrukcje: 
@@ -113,11 +94,4 @@ Postępuj zgodnie z instrukcjami podanymi w poprzedniej sekcji, która wyświetl
 > Aby zarządzać kontami laboratorium, można również użyć polecenia AZ. LabServices PowerShell module (wersja zapoznawcza). Aby uzyskać więcej informacji, zobacz [stronę główną AZ. LabServices w witrynie GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz następujące artykuły:
-
-- [Zezwalanie twórcy laboratorium na wybieranie lokalizacji laboratorium](allow-lab-creator-pick-lab-location.md)
-- [Łączenie sieci laboratorium z równorzędną siecią wirtualną](how-to-connect-peer-virtual-network.md)
-- [Dołączanie galerii obrazów udostępnionych do laboratorium](how-to-attach-detach-shared-image-gallery.md)
-- [Dodawanie użytkownika jako właściciela laboratorium](how-to-add-user-lab-owner.md)
-- [Wyświetlanie ustawień zapory dla laboratorium](how-to-configure-firewall-settings.md)
-- [Skonfiguruj inne ustawienia laboratorium](how-to-configure-lab-accounts.md)
+Zapoznaj się z innymi artykułami w sekcji **przewodniki**  ->  **: Tworzenie i Konfigurowanie kont laboratorium (właściciela konta laboratorium)** w spisie treści (spis treści). 

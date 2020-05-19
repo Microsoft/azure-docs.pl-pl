@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a362d2610e6feb85de730c086070636f3afa2b9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1030afe802eebb385b4d0d662e8fd233790a445f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906675"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586656"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -87,7 +87,7 @@ public class Translate {
 }
 ```
 
-Dodaj następujące wiersze do klasy `Translate`. Najpierw klucz subskrypcji i punkt końcowy są odczytywane ze zmiennych środowiskowych. Następnie należy zauważyć, że wraz z `api-version`, dwa dodatkowe parametry zostały dołączane do. `url` Te parametry są używane do ustawiania danych wyjściowych tłumaczenia. W tym przykładzie ustawiamy je na język niemiecki (`de`) i włoski (`it`). 
+Dodaj następujące wiersze do klasy `Translate`. Najpierw klucz subskrypcji i punkt końcowy są odczytywane ze zmiennych środowiskowych. Następnie należy zauważyć, że wraz z `api-version` , dwa dodatkowe parametry zostały dołączane do `url` . Te parametry są używane do ustawiania danych wyjściowych tłumaczenia. W tym przykładzie ustawiamy je na język niemiecki (`de`) i włoski (`it`). 
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Tworzenie funkcji analizowania odpowiedzi
 
-Ta prosta funkcja analizuje i formatuje odpowiedź JSON z usługi tłumaczenia tekstu w usłudze Translator.
+Ta prosta funkcja analizuje i prettifies odpowiedź JSON z usługi Translator.
 
 ```java
 // This function prettifies the json response.
@@ -192,7 +192,7 @@ gradle run
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

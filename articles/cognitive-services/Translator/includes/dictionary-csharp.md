@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 55ad3591a8c2e7d5de6d1efe255e0f3a4b3c11bd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3dc58b68270707eb5e92214def85ec8cf9cb3f5b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907020"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587045"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -84,7 +84,7 @@ static void AltTranslation()
 
 ## <a name="construct-the-uri"></a>Konstruowanie identyfikatora URI
 
-Dodaj następujące wiersze do funkcji `AltTranslation`. Należy zauważyć `api-version`, że wraz z, zostały zadeklarowane dwa dodatkowe parametry. Te parametry są używane do ustawiania danych wejściowych i wyjściowych tłumaczenia. W tym przykładzie jest to język angielski (`en`) i hiszpański (`es`).
+Dodaj następujące wiersze do funkcji `AltTranslation`. Należy zauważyć, że wraz z `api-version` , zostały zadeklarowane dwa dodatkowe parametry. Te parametry są używane do ustawiania danych wejściowych i wyjściowych tłumaczenia. W tym przykładzie jest to język angielski (`en`) i hiszpański (`es`).
 
 ```csharp
 string route = "/dictionary/lookup?api-version=3.0";
@@ -202,13 +202,13 @@ dotnet run
 ]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zostały usunięte z kodu źródłowego przykładowej aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

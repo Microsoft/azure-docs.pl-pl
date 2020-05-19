@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050736"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585836"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
 
@@ -88,6 +88,19 @@ Zaproś partnerów zewnętrznych do współpracy w sposób dostosowany do potrze
 
 - [Zarządzanie prawami](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) dostępu w usłudze Azure AD umożliwia konfigurowanie zasad służących do [zarządzania dostępem użytkowników zewnętrznych](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Użyj [interfejsów API zaproszenia współpracy B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) , aby dostosować środowiska dołączania.
+
+## <a name="integrate-with-identity-providers"></a>Integracja z dostawcami tożsamości
+
+Usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, takich jak Facebook, Microsoft accounts, Google i Enterprise Identity Providers. Można skonfigurować Federacji z dostawcami tożsamości, aby umożliwić użytkownikom zewnętrznym logowanie się przy użyciu istniejących kont społecznościowych lub korporacyjnych zamiast tworzenia nowego konta tylko dla aplikacji. Dowiedz się więcej o dostawcach tożsamości dla tożsamości zewnętrznych.
+
+![Zrzut ekranu przedstawiający stronę dostawcy tożsamości](media/what-is-b2b/identity-providers.png)
+
+
+## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Tworzenie przepływu użytkownika samoobsługowego tworzenia konta (wersja zapoznawcza)
+
+Korzystając z samoobsługowego przepływu użytkowników, możesz utworzyć konto dla użytkowników zewnętrznych, którzy chcą uzyskać dostęp do aplikacji. W ramach przepływu rejestracji można udostępnić opcje dla różnych dostawców tożsamości społecznościowych lub korporacyjnych i zbierać informacje o użytkowniku. Dowiedz się więcej o rejestrowaniu samoobsługowym i sposobach jego konfiguracji.
+
+![Zrzut ekranu przedstawiający stronę przepływów użytkownika](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,7 +1,7 @@
 ---
-title: 'Szybki Start: wyszukiwanie wyrazów przy użyciu słownika dwujęzycznego — interfejs API tłumaczenia tekstu w usłudze Translator'
+title: 'Szybki Start: wyszukiwanie wyrazów przy użyciu słownika dwujęzycznego — translator'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start dowiesz się, jak uzyskać alternatywne tłumaczenia dla terminu, a także przykłady użycia tych alternatywnych tłumaczeń przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+description: W tym przewodniku szybki start dowiesz się, jak uzyskać alternatywne tłumaczenia dla terminu, a także przykłady użycia tych alternatywnych tłumaczeń przy użyciu translatora.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fe2f4f2bea52650c2baa2ac3380b5b92f01c15eb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525162"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587042"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Szybki Start: wyszukiwanie wyrazów przy użyciu słownika dwujęzycznego
 
-W tym przewodniku szybki start dowiesz się, jak uzyskać alternatywne tłumaczenia dla terminu, a także przykłady użycia tych alternatywnych tłumaczeń przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+W tym przewodniku szybki start dowiesz się, jak uzyskać alternatywne tłumaczenia dla terminu, a także przykłady użycia tych alternatywnych tłumaczeń przy użyciu translatora.
 
-Ten przewodnik Szybki start wymaga [konta usługi Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem tłumaczenia tekstu w usłudze Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
+Ten przewodnik Szybki Start wymaga [konta Cognitive Services platformy Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) z zasobem usługi Translator. Jeśli nie masz konta, możesz użyć [bezpłatnej wersji próbnej](https://azure.microsoft.com/try/cognitive-services/), aby uzyskać klucz subskrypcji.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

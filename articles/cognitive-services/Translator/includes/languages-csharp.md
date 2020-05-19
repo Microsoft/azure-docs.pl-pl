@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4dbf9dddd46e38ae9b8cec3288bdacccb1ef1c78
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906941"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586892"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -62,7 +62,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Tworzenie funkcji w celu uzyskania listy języków
 
-W `Program` klasie Utwórz funkcję o nazwie `GetLanguages`. Ta klasa hermetyzuje kod używany do wywołania zasobu Languages i wyświetla wynik w konsoli.
+W `Program` klasie Utwórz funkcję o nazwie `GetLanguages` . Ta klasa hermetyzuje kod używany do wywołania zasobu Languages i wyświetla wynik w konsoli.
 
 ```csharp
 static void GetLanguages()
@@ -235,13 +235,13 @@ Znajdź skrót kraju/regionu na [liście języków](https://docs.microsoft.com/a
 }
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Upewnij się, że wszystkie poufne informacje, takie jak klucze subskrypcji, zostały usunięte z kodu źródłowego przykładowej aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co można zrobić za pomocą interfejs API tłumaczenia tekstu w usłudze Translator.
+Zapoznaj się z dokumentacją interfejsu API, aby zrozumieć wszystko, co możesz zrobić z translatorem.
 
 > [!div class="nextstepaction"]
 > [Odwołanie API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

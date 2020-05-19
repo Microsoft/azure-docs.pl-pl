@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75552002"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585593"
 ---
 # <a name="machine-learned-entity"></a>Jednostka nauczona maszynowo
 
@@ -38,13 +38,13 @@ Przykładowe wypowiedzi mogą być następujące:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Ponieważ jednostka poznania maszynowego może mieć wiele podskładników z ograniczeniami i deskryptorami, to tylko przykład. Powinien być uważany za przewodnik dotyczący tego, co jednostka zwróci.
+Ponieważ jednostka poznania maszyn może mieć wiele podjednostek z wymaganymi funkcjami, jest to tylko przykład. Powinien być uważany za przewodnik dotyczący tego, co jednostka zwróci.
 
 Rozważmy zapytanie:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
 
 ```
 
-Jest to kod JSON, `verbose=true` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=true` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {

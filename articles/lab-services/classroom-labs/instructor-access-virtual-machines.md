@@ -1,6 +1,6 @@
 ---
-title: Instruktor uzyskuje dostęp do maszyn wirtualnych w Azure Lab Services
-description: W tym artykule przedstawiono sposób, w jaki instruktorzy mogą uzyskać dostęp do maszyn wirtualnych uczniów z widoku instruktora. Na przykład asystent nauczania może być instruktorem dla jednej klasy, ale student dla innych klas.
+title: Nauczycieli dostępu do maszyn wirtualnych w Azure Lab Services
+description: W tym artykule przedstawiono sposób, w jaki nauczyciele mogą uzyskać dostęp do swoich maszyn wirtualnych w widoku nauczycieli. Na przykład asystent nauczania może być nauczycieli dla jednej klasy, ale student dla innych klas.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: c048a2f159784a5bd38f185af29cec314b31824f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641942"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586171"
 ---
-# <a name="access-virtual-machines-as-a-student-from-the-instructor-view"></a>Dostęp do maszyn wirtualnych jako uczniów z widoku instruktora
-W tym artykule przedstawiono sposób, w jaki instruktorzy mogą uzyskać dostęp do swoich maszyn wirtualnych dla klas, które uczestniczyły jako studenci. 
+# <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Dostęp do maszyn wirtualnych jako uczniów z widoku nauczycieli
+W tym artykule przedstawiono sposób, w jaki wykładowcy mogą uzyskać dostęp do swoich maszyn wirtualnych dla klas, które uczestniczyły jako uczniowie. 
 
-Poniżej przedstawiono scenariusz, w którym ta funkcja pomoże. Asystent nauczania jest instruktorem dla jednej klasy, ale studenta w innych klasach. Ponadto instruktorzy nauczania chcą wyświetlać i uzyskiwać dostęp do maszyn wirtualnych uczniów z widoku instruktora, który pokazuje laboratoria, których są właścicielami. 
+Poniżej przedstawiono scenariusz, w którym ta funkcja pomoże. Asystent nauczania to nauczycieli dla jednej klasy, ale student w innych klasach. Ponadto asystent nauczania chce wyświetlać i uzyskiwać dostęp do maszyn wirtualnych uczniów z widoku nauczycieli, który pokazuje laboratoria, których są właścicielami. 
 
-## <a name="access-vms-from-instructor-view"></a>Dostęp do maszyn wirtualnych z widoku instruktora
+## <a name="access-vms-from-educator-view"></a>Dostęp do maszyn wirtualnych z widoku nauczycieli
 
 1. Zaloguj się do [witryny sieci web Azure Lab Services](https://labs.azure.com). Zobaczysz odpowiednie laboratoria. Te laboratoria mogą być laboratoriami utworzonymi przez siebie lub w laboratoriach przypisanych do Ciebie jako właściciel. Aby uzyskać więcej informacji, zobacz [jak dodać dodatkowych właścicieli do istniejącego laboratorium](how-to-add-user-lab-owner.md)
 2. Aby uzyskać dostęp do maszyn wirtualnych dla klas, które można wziąć jako student, wybierz ikonę komputera w prawym górnym rogu. Upewnij się, że są widoczne maszyny wirtualne, do których możesz uzyskać dostęp jako student. W poniższym przykładzie użytkownik jest asystentem nauczania dla laboratorium języka Python, ale jest studentem laboratorium Java. Dlatego użytkownik widzi maszynę wirtualną z laboratorium Java na liście rozwijanej. Użytkownik może uruchomić maszynę wirtualną i nawiązać z nią połączenie. 
