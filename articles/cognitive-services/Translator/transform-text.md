@@ -1,7 +1,7 @@
 ---
-title: Przekształcanie tekstu — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Przekształcanie tekstu — translator
 titleSuffix: Azure Cognitive Services
-description: Przekształcanie tekstu przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+description: Przekształcanie tekstu przy użyciu translatora.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,17 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba8cf9a25a12ecc261845477c4e32a86f585906e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68594896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592206"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Jak używać metody metody TransformText
 
 > [!NOTE]
-> Ta metoda jest przestarzała. Nie jest dostępna w wersji 3.0 interfejs API tłumaczenia tekstu w usłudze Translator.
+> Ta metoda jest przestarzała. Nie jest dostępny w wersji 3.0 usługi Translator.
 
 Metoda metody TransformText jest funkcją normalizacji tekstu dla mediów społecznościowych, która zwraca znormalizowaną postać danych wejściowych. Metoda ta może służyć jako krok przetwarzania wstępnego w tłumaczeniu maszynowym lub w innych aplikacjach, które oczekują czystego tekstu wejściowego, który nie jest zazwyczaj znajdowany w multimediach społecznościowych lub w treści wygenerowanej przez użytkownika. Funkcja obecnie działa tylko z danymi wejściowymi w języku angielskim.
 

@@ -2,13 +2,13 @@
 title: 'Samouczek: testowanie wsadowe w celu znalezienia problemów — LUIS'
 description: W tym samouczku pokazano, jak za pomocą testów wsadowych sprawdzić poprawność jakości aplikacji Language Understanding (LUIS).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250570"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592597"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Samouczek: zestawy danych testów wsadowych
 
@@ -24,7 +24,7 @@ Wymagania dotyczące testowania wsadowego:
 
 W przypadku korzystania z aplikacji innej niż w tym samouczku *nie należy używać* przykładowej wyrażenia długości już dodanej do aplikacji.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -37,11 +37,13 @@ W przypadku korzystania z aplikacji innej niż w tym samouczku *nie należy uży
 
 ## <a name="import-example-app"></a>Importowanie aplikacji przykładowej
 
-Zaimportuj aplikację, która przyjmuje zamówienie Pizza na `1 pepperoni pizza on thin crust`przykład.
+Zaimportuj aplikację, która przyjmuje zamówienie Pizza na przykład `1 pepperoni pizza on thin crust` .
 
 1.  Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Użyj [portalu Luis w wersji zapoznawczej](https://preview.luis.ai/), zaimportuj kod JSON do nowej aplikacji `Pizza app`, nazwij aplikację.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Zaimportuj kod JSON do nowej aplikacji, nazwij aplikację `Pizza app` .
+
 
 1. Wybierz pozycję **szkolenie** w prawym górnym rogu nawigacji, aby szkolić aplikację.
 
@@ -72,7 +74,7 @@ Przykładowy kod JSON zawiera jeden wypowiedź z etykietą Entity, aby zilustrow
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu aplikacji LUIS z wyróżnioną pozycją Importuj zestaw danych](./media/luis-tutorial-batch-testing/import-dataset-button.png)
 
-4. Wybierz lokalizację `pizza-with-machine-learned-entity-test.json` pliku.
+4. Wybierz lokalizację pliku `pizza-with-machine-learned-entity-test.json` .
 
 5. Nazwij zestaw danych `pizza test` i wybierz pozycję **gotowe**.
 
@@ -136,7 +138,7 @@ W tym samouczku pokazano, jak uruchomić test i interpretować wyniki. Nie obejm
     * Dodaj bardziej pozytywne przykładowe wyrażenia długości
     * Przeglądanie bilansu przykładowej wyrażenia długości w ramach intencji
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 

@@ -1,7 +1,7 @@
 ---
-title: Metoda wykrywania interfejs API tłumaczenia tekstu w usłudze Translator
+title: Metoda wykrywania translatora
 titleSuffix: Azure Cognitive Services
-description: Zidentyfikuj język fragmentu tekstu za pomocą metody wykrywania interfejs API tłumaczenia tekstu w usłudze Translator Cognitive Services platformy Azure.
+description: Zidentyfikuj język fragmentu tekstu za pomocą metody wykrywania usługi Azure Cognitive Services translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837292"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592291"
 ---
-# <a name="translator-text-api-30-detect"></a>Interfejs API tłumaczenia tekstu w usłudze Translator 3,0: wykrywanie
+# <a name="translator-30-detect"></a>Translator 3,0: wykrywanie
 
 Identyfikuje język fragmentu tekstu.
 
@@ -38,7 +38,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
   <th>Opis</th>
   <tr>
     <td>api-version</td>
-    <td>*Wymagany parametr*.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0`.</td>
+    <td>*Wymagany parametr*.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0` .</td>
   </tr>
 </table> 
 
@@ -53,7 +53,7 @@ Nagłówki żądań obejmują:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Wymagany nagłówek żądania*.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json`.</td>
+    <td>*Wymagany nagłówek żądania*.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json` .</td>
   </tr>
   <tr>
     <td>Długość zawartości</td>
@@ -61,13 +61,13 @@ Nagłówki żądań obejmują:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcjonalne*.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Należy pamiętać, że ten nagłówek można pominąć, jeśli w ciągu zapytania zostanie uwzględniony identyfikator śledzenia, przy użyciu parametru `ClientTraceId`zapytania o nazwie.</td>
+    <td>*Opcjonalne*.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Należy pamiętać, że ten nagłówek można pominąć, jeśli w ciągu zapytania zostanie uwzględniony identyfikator śledzenia, przy użyciu parametru zapytania o nazwie `ClientTraceId` .</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Treść żądania
 
-Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o `Text`nazwie. Wykrywanie języka jest stosowane do wartości `Text` właściwości. Przykładowa treść żądania wygląda następująco:
+Treść żądania jest tablicą JSON. Każdy element tablicy jest obiektem JSON z właściwością ciągu o nazwie `Text` . Wykrywanie języka jest stosowane do wartości `Text` właściwości. Przykładowa treść żądania wygląda następująco:
 
 ```json
 [
@@ -93,7 +93,7 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
 
   * `isTransliterationSupported`: Wartość logiczna prawda, jeśli wykryty język jest jednym z języków obsługiwanych przez narzędzie do oblitrowania.
   
-  * `alternatives`: Tablica innych możliwych języków. Każdy element tablicy jest innym obiektem o tych samych właściwościach wymienionych powyżej: `language`, `score`, `isTranslationSupported` i `isTransliterationSupported`.
+  * `alternatives`: Tablica innych możliwych języków. Każdy element tablicy jest innym obiektem o tych samych właściwościach wymienionych powyżej: `language` , `score` , `isTranslationSupported` i `isTransliterationSupported` .
 
 Przykładowa odpowiedź JSON to:
 
@@ -162,15 +162,15 @@ Oto możliwe kody stanu HTTP zwracane przez żądanie.
   </tr>
   <tr>
     <td>500</td>
-    <td>Wystąpił nieoczekiwany błąd. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka `X-RequestId`odpowiedzi oraz identyfikator klienta z nagłówka `X-ClientTraceId`żądania.</td>
+    <td>Wystąpił nieoczekiwany błąd. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka odpowiedzi `X-RequestId` oraz identyfikator klienta z nagłówka żądania `X-ClientTraceId` .</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Serwer jest tymczasowo niedostępny. Ponów żądanie. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka `X-RequestId`odpowiedzi oraz identyfikator klienta z nagłówka `X-ClientTraceId`żądania.</td>
+    <td>Serwer jest tymczasowo niedostępny. Ponów żądanie. Jeśli błąd będzie się powtarzać, zgłoś go z: Data i godzina błędu, identyfikator żądania z nagłówka odpowiedzi `X-RequestId` oraz identyfikator klienta z nagłówka żądania `X-ClientTraceId` .</td>
   </tr>
 </table> 
 
-Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie odniesienia interfejs API tłumaczenia tekstu w usłudze translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Jeśli wystąpi błąd, żądanie zwróci także odpowiedź na błąd JSON. Kod błędu to 6-cyfrowy numer łączący 3-cyfrowy kod stanu HTTP, a następnie 3-cyfrowy numer do dalszej kategoryzacji błędu. Typowe kody błędów można znaleźć na [stronie referencyjnej translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Przykłady
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04f90292b74593dece5f7e54268907e184fd084c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982687"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592767"
 ---
 # <a name="what-is-custom-translator"></a>Co to jest rozszerzenie Custom Translator?
 
@@ -28,13 +28,13 @@ Rozszerzenie Custom Translator obsługuje ponad trzy tuziny języków i jest map
 
 Rozszerzenie Custom Translator udostępnia różne funkcje umożliwiające utworzenie niestandardowego systemu tłumaczenia, a następnie uzyskiwanie do niego dostępu.
 
-|Funkcja  |Opis  |
+|Cechy  |Opis  |
 |---------|---------|
 |[Wykorzystanie technologii neuronowego tłumaczenia maszynowego](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Ulepsz swoje tłumaczenia dzięki wykorzystaniu neuronowego tłumaczenia maszynowego (NMT) dostarczanego przez rozszerzenie Custom Translator.       |
 |[Tworzenie systemów, które znają terminologię biznesową użytkownika](what-are-parallel-documents.md)     |  Dostosowywanie i tworzenie systemów tłumaczenia przy użyciu równoległych dokumentów, które rozumieją terminologie używane w firmie i w branży.       |
 |[Używanie słownika do tworzenia modeli](what-is-dictionary.md)     |   Jeśli nie masz zestawu danych szkoleniowych, możesz trenować model przy użyciu tylko danych słownika.       |
 |[Współpraca z innymi](how-to-manage-settings.md#share-your-workspace)     |   Współpracuj ze swoim zespołem, udostępniając swoją pracę różnym osobom.     |
-|[Dostęp do niestandardowego modelu tłumaczenia](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Dostęp do niestandardowego modelu tłumaczenia można uzyskać w dowolnym momencie przy użyciu istniejących aplikacji/programów za pomocą interfejsu API tłumaczenia tekstu w wersji V3 w usłudze Microsoft Translator.       |
+|[Dostęp do niestandardowego modelu tłumaczenia](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Dostęp do niestandardowego modelu tłumaczenia można uzyskać w dowolnym momencie przez istniejące aplikacje/programy za pośrednictwem translatora v3.       |
 
 ## <a name="get-better-translations"></a>Uzyskiwanie lepszych tłumaczeń
 
@@ -54,11 +54,11 @@ Przy użyciu bezpiecznego portalu rozszerzenia [Custom Translator](https://porta
 
 Dostęp do rozszerzenia [Custom Translator](https://portal.customtranslator.azure.ai) może być również uzyskiwany programowo za pośrednictwem [dedykowanego interfejsu API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (obecnie w wersji zapoznawczej). Interfejs API umożliwia użytkownikom zarządzanie tworzeniem lub aktualizowanie szkolenia w regularnych odstępach czasu za pośrednictwem ich własnych aplikacji lub usługi internetowej.
 
-Koszt używania modelu niestandardowego do tłumaczenia zawartości zależy od warstwy cenowej interfejsu API tłumaczenia tekstu w usłudze Translator użytkownika. Aby uzyskać szczegóły warstwy cenowej, zobacz [stronę internetową cennika interfejsu API tłumaczenia tekstu w usłudze Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
+Koszt użycia modelu niestandardowego do translacji zawartości jest oparty na warstwie cenowej translatora użytkownika. Szczegóły warstwy cenowej można znaleźć na [stronie internetowej cennika usługi Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) Cognitive Services.
 
 ## <a name="securely-translate-anytime-anywhere-on-all-your-apps-and-services"></a>Bezpiecznie tłumaczenie zawsze i wszędzie we wszystkich aplikacjach i usługach
 
-Bezproblemowy dostęp do niestandardowych systemów i integrowanie ich z dowolnym produktem lub biznesowym przepływem pracy na dowolnym urządzeniu za pomocą interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator opartego na standardowej technologii REST.
+Systemy niestandardowe można bezproblemowo uzyskiwać dostęp do dowolnego produktu lub przepływu pracy oraz na dowolnym urządzeniu, korzystając z usługi Translator przy użyciu standardowej technologii REST.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,13 +2,13 @@
 title: Co to jest usługa Language Understanding (LUIS)?
 description: Language Understanding (LUIS) to oparta na chmurze usługa interfejsu API, która stosuje dostosowane techniki analizy i uczenia maszynowego do wypowiedzi użytkownika w języku naturalnym, aby rozpoznać ich ogólne znaczenie i wydobyć istotne szczegółowe informacje.
 ms.topic: overview
-ms.date: 02/23/2020
-ms.openlocfilehash: 98fb936422f8e23e728efea19fa2cd75d90fac57
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053352"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592818"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -32,7 +32,7 @@ Po opublikowaniu aplikacji usługi LUIS aplikacja kliencka wysyła wypowiedzi (t
 |Krok|Akcja|
 |:--|:--|
 |1|Aplikacja kliencka wysyła _wypowiedź_ użytkownika (tekst wypowiadany własnymi słowami): „I want to call my HR rep” („Chcę zadzwonić do mojego przedstawiciela działu kadr”) do punktu końcowego usługi LUIS jako żądanie HTTP.|
-|2|LUIS umożliwia tworzenie niestandardowych modeli języka w celu dodania analizy do aplikacji. Oparte na maszynach modele języka pobierają tekst wejściowy bez struktury użytkownika i zwracają odpowiedź sformatowaną w formacie JSON z zamiarem najwyższego poziomu `HRContact`. Minimalna odpowiedź punktu końcowego w formacie JSON zawiera wypowiedź zapytania oraz najwyżej ocenioną intencję. Może również wyodrębnić dane, takie jak jednostka _typu kontaktu_ .|
+|2|LUIS umożliwia tworzenie niestandardowych modeli języka w celu dodania analizy do aplikacji. Oparte na maszynach modele języka pobierają tekst wejściowy bez struktury użytkownika i zwracają odpowiedź sformatowaną w formacie JSON z zamiarem najwyższego poziomu `HRContact` . Minimalna odpowiedź punktu końcowego w formacie JSON zawiera wypowiedź zapytania oraz najwyżej ocenioną intencję. Może również wyodrębnić dane, takie jak jednostka _typu kontaktu_ .|
 |3|Aplikacja kliencka używa odpowiedzi w formacie JSON do podejmowania decyzji dotyczących sposobu realizacji żądania użytkownika. Decyzje te mogą obejmować drzewo decyzyjne w kodzie bot Framework i wywołania do innych usług. |
 
 Aplikacja usługi LUIS przeprowadza analizy, dzięki którym aplikacja kliencka może dokonać inteligentnego wyboru. Sama usługa LUIS nie dokonuje tych wyborów.
@@ -55,9 +55,9 @@ Tworzenie modelu w usłudze LUIS rozpoczyna się od kategorii intencji użytkown
 
 |Przykładowa wypowiedź użytkownika|Intencja|Wyodrębnione dane|
 |-----------|-----------|-----------|
-|`Book a flight to __Seattle__?`|BookFlight|Seattle|
-|`When does your store __open__?`|StoreHoursAndLocation|open|
-|`Schedule a meeting at __1pm__ with __Bob__ in Distribution`|ScheduleMeeting|1pm, Bob|
+|`Book a flight to Seattle?`|BookFlight|Seattle|
+|`When does your store open?`|StoreHoursAndLocation|open|
+|`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
 ## <a name="query-prediction-endpoint"></a>Punkt końcowy przewidywania zapytania
 

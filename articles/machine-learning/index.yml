@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 04/30/2020
-  ms.openlocfilehash: d1e93ac4efb366f09b425be74be6eb8aeda9a713
-  ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+  ms.openlocfilehash: 57a16ca35699f11c55e12c494a4cbb93bac8a334
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/10/2020
-  ms.locfileid: "83005968"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593005"
 landingContent:
 - title: Wprowadzenie do uczenia maszynowego
   linkLists:
@@ -79,6 +79,8 @@ landingContent:
       url: how-to-train-pytorch.md
     - text: Trenowanie za pomocą programu Keras
       url: how-to-train-keras.md
+    - text: Uczenie przez wzmacnianie
+      url: how-to-use-reinforcement-learning.md
     - text: Co to są potoki uczenia maszynowego?
       url: concept-ml-pipelines.md
 - title: Wdrażanie modeli i zarządzanie nimi (MLOps)

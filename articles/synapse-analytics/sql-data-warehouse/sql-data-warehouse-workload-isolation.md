@@ -11,14 +11,14 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 5d81dc1f4da6e952061496fa348d0f8e87b00b81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30429653c024c669d273c45d12236afa8cdbb83
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742977"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591509"
 ---
-# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Izolacja grupy obciążeń usługi Azure Synapse Analytics (wersja zapoznawcza)
+# <a name="azure-synapse-analytics-workload-group-isolation"></a>Izolacja grupy obciążeń usługi Azure Synapse Analytics
 
 W tym artykule wyjaśniono, jak grupy obciążeń mogą służyć do konfigurowania izolacji obciążeń, zawierają zasoby i stosować reguły środowiska uruchomieniowego na potrzeby wykonywania zapytań.
 
@@ -32,9 +32,9 @@ W poniższych sekcjach opisano sposób, w jaki grupy obciążeń zapewniają mo�
 
 Izolacja obciążenia oznacza, że zasoby są zarezerwowane wyłącznie dla grupy obciążenia.  Izolacja obciążenia jest uzyskiwana przez skonfigurowanie parametru MIN_PERCENTAGE_RESOURCE do wartości większej niż zero w składni [tworzenia grupy obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  W przypadku obciążeń ciągłego wykonywania, które muszą być zgodne z ścisłą umowy SLA, izolacja gwarantuje, że zasoby są zawsze dostępne dla grupy obciążenia.
 
-Konfigurowanie izolacji obciążeń niejawnie definiuje gwarantowany poziom współbieżności. Na przykład grupa obciążenia z `MIN_PERCENTAGE_RESOURCE` zestawem do 30% i `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ustawioną na 2% ma gwarancję 15 współbieżności.  Poziom współbieżności jest gwarantowany, ponieważ 15-2% gniazd zasobów jest zarezerwowanych w grupie obciążenia przez cały czas (bez względu na `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` to, jak jest skonfigurowany).  Jeśli `REQUEST_MAX_RESOURCE_GRANT_PERCENT` wartość jest większa `REQUEST_MIN_RESOURCE_GRANT_PERCENT` niż `CAP_PERCENTAGE_RESOURCE` i jest większa `MIN_PERCENTAGE_RESOURCE` niż liczba dodatkowych zasobów zostanie dodana dla każdego żądania.  Jeśli `REQUEST_MAX_RESOURCE_GRANT_PERCENT` i `REQUEST_MIN_RESOURCE_GRANT_PERCENT` jest równe i `CAP_PERCENTAGE_RESOURCE` jest większe niż `MIN_PERCENTAGE_RESOURCE`, możliwe jest dodatkowe współbieżność.  Rozważmy poniższą metodę określania gwarantowanej współbieżności:
+Konfigurowanie izolacji obciążeń niejawnie definiuje gwarantowany poziom współbieżności. Na przykład grupa obciążenia z `MIN_PERCENTAGE_RESOURCE` zestawem do 30% i `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ustawioną na 2% ma gwarancję 15 współbieżności.  Poziom współbieżności jest gwarantowany, ponieważ 15-2% gniazd zasobów jest zarezerwowanych w grupie obciążenia przez cały czas (bez względu na `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` to, jak jest skonfigurowany).  Jeśli `REQUEST_MAX_RESOURCE_GRANT_PERCENT` wartość jest większa niż `REQUEST_MIN_RESOURCE_GRANT_PERCENT` i `CAP_PERCENTAGE_RESOURCE` jest większa niż `MIN_PERCENTAGE_RESOURCE` Liczba dodatkowych zasobów zostanie dodana dla każdego żądania.  Jeśli `REQUEST_MAX_RESOURCE_GRANT_PERCENT` i `REQUEST_MIN_RESOURCE_GRANT_PERCENT` jest równe i `CAP_PERCENTAGE_RESOURCE` jest większe niż `MIN_PERCENTAGE_RESOURCE` , możliwe jest dodatkowe współbieżność.  Rozważmy poniższą metodę określania gwarantowanej współbieżności:
 
-[Gwarantowane współbieżność]`MIN_PERCENTAGE_RESOURCE`= []`REQUEST_MIN_RESOURCE_GRANT_PERCENT`/[]
+[Gwarantowane współbieżność] = [ `MIN_PERCENTAGE_RESOURCE` ]/[ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
 > Istnieją określone minimalne wartości poziomu usługi dla min_percentage_resource.  Aby uzyskać więcej informacji, zobacz [efektywne wartości](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) w celu uzyskania dalszych szczegółów.
@@ -54,7 +54,7 @@ Zawieranie obciążenia odnosi się do ograniczenia ilości zasobów, które mo�
 
 Konfigurowanie zawiera niejawnie zdefiniowanie maksymalnego poziomu współbieżności.  Mając CAP_PERCENTAGE_RESOURCE ustawioną na 60% i REQUEST_MIN_RESOURCE_GRANT_PERCENT ustawioną na 1%, do grupy obciążeń jest dozwolony poziom współbieżności 60.  Rozważmy metodę uwzględnioną poniżej w celu określenia maksymalnej współbieżności:
 
-[Maks. współbieżność]`CAP_PERCENTAGE_RESOURCE`= []`REQUEST_MIN_RESOURCE_GRANT_PERCENT`/[]
+[Maks. współbieżność] = [ `CAP_PERCENTAGE_RESOURCE` ]/[ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
 > Efektywna CAP_PERCENTAGE_RESOURCE grupy obciążeń nie osiągnie 100%, gdy tworzone są grupy obciążeń z MIN_PERCENTAGE_RESOURCE na poziomie większym niż zero.  Zobacz sekcję [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby uzyskać efektywne wartości środowiska uruchomieniowego.
@@ -75,7 +75,7 @@ Skonfigurowanie REQUEST_MAX_RESOURCE_GRANT_PERCENT do wartości większej niż R
 
 ## <a name="execution-rules"></a>Reguły wykonywania
 
-W systemach raportowania ad hoc klienci mogą przypadkowo wykonywać zapytania dotyczące przemijających, które poważnie wpływają na produktywność innych.  Administratorzy systemu są zmuszeni do poświęcania czasu na zabijanie zapytań w celu zwolnienia zasobów systemowych.  Grupy obciążeń oferują możliwość skonfigurowania reguły limitu czasu wykonywania zapytania, aby anulować zapytania, które przekroczyły określoną wartość.  Reguła jest konfigurowana przez ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru w SKŁADNI [Utwórz grupę obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+W systemach raportowania ad hoc klienci mogą przypadkowo wykonywać zapytania dotyczące przemijających, które poważnie wpływają na produktywność innych.  Administratorzy systemu są zmuszeni do poświęcania czasu na zabijanie zapytań w celu zwolnienia zasobów systemowych.  Grupy obciążeń oferują możliwość skonfigurowania reguły limitu czasu wykonywania zapytania, aby anulować zapytania, które przekroczyły określoną wartość.  Reguła jest konfigurowana przez ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru w składni [Utwórz grupę obciążeń](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ## <a name="shared-pool-resources"></a>Zasoby puli udostępnionej
 

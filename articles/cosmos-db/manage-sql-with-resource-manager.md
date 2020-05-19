@@ -4,14 +4,14 @@ description: Używanie szablonów Azure Resource Manager do tworzenia i konfigur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 577bc34e5e4b01a234460e5e175c23fd8215743f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: dfdeb210c59377822b2ee69bde286b87c2251021
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791208"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592495"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API Azure Cosmos DB Core (SQL) za pomocą szablonów Azure Resource Manager
 
@@ -33,9 +33,149 @@ Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy 
 
 Ten szablon służy do tworzenia konta usługi Azure Cosmos w dwóch regionach z opcjami spójności i przełączania w tryb failover, w których baza danych i kontener skonfigurowany pod kątem przepływności automatycznego skalowania z włączonymi większością opcji zasad. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-autoscale/azuredeploy.json":::
+
+<a id="create-analytical-store"></a>
+
+## <a name="azure-cosmos-account-with-analytical-store"></a>Konto usługi Azure Cosmos z magazynem analitycznym
+
+Ten szablon tworzy konto usługi Azure Cosmos w jednym regionie z kontenerem z włączonym analitycznym czasem TTL i opcjami dla przepływności ręcznej lub skalowania automatycznego.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+       "accountName": {
+          "type": "string",
+          "defaultValue": "",
+          "metadata": {
+             "description": "Cosmos DB account name"
+          }
+       },
+       "location": {
+          "type": "string",
+          "defaultValue": "",
+          "metadata": {
+             "description": "Location for the Cosmos DB account."
+          }
+       },
+        "databaseName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The name for the database"
+            }
+        },
+        "containerName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The name for the container"
+            }
+        },
+        "partitionKeyPath": {
+            "type": "string",
+            "defaultValue": "/partitionKey",
+            "metadata": {
+                "description": "The partition key for the container"
+            }
+        },
+        "throughputPolicy":{
+            "type": "string",
+            "defaultValue": "Autoscale",
+            "allowedValues": [ "Manual", "Autoscale" ],
+            "metadata": {
+                "description": "The throughput policy for the container"
+            }
+        },
+        "manualProvisionedThroughput": {
+            "type": "int",
+            "defaultValue": 400,
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Throughput value when using Manual Throughput Policy for the container"
+            }
+        },
+        "maxAutoscaleThroughput": {
+            "type": "int",
+            "defaultValue": 4000,
+            "minValue": 4000,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Maximum throughput when using Autoscale Throughput Policy for the container"
+            }
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]",
+        "locations": 
+        [ 
+            {
+                "locationName": "[parameters('location')]",
+                "failoverPriority": 0,
+                "isZoneRedundant": false
+            }
+        ],
+        "throughputPolicy": {
+            "Manual": {
+                "Throughput": "[parameters('manualProvisionedThroughput')]"
+            },
+            "Autoscale": {
+                "ProvisionedThroughputSettings": "[concat('{\"maxThroughput\":\"', parameters('maxAutoscaleThroughput'), '\"}')]"
+            }            
+        },
+        "throughputPolicyToUse": "[if(equals(parameters('throughputPolicy'), 'Manual'), variables('throughputPolicy').Manual, variables('throughputPolicy').Autoscale)]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[variables('accountName')]",
+            "apiVersion": "2020-03-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "consistencyPolicy": {"defaultConsistencyLevel": "Session"},
+                "databaseAccountOfferType": "Standard",
+                "locations": "[variables('locations')]",
+                "enableAnalyticalStorage": true
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+            "name": "[concat(variables('accountName'), '/', parameters('databaseName'))]",
+            "apiVersion": "2020-03-01",
+            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts', variables('accountName'))]" ],
+            "properties":{
+                "resource":{
+                    "id": "[parameters('databaseName')]"
+                }
+            }
+        },
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+            "name": "[concat(variables('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
+            "apiVersion": "2020-03-01",
+            "dependsOn": [ "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', variables('accountName'), parameters('databaseName'))]" ],
+            "properties":
+            {
+                "resource":{
+                    "id":  "[parameters('containerName')]",
+                    "partitionKey": {
+                        "paths": [ "[parameters('partitionKeyPath')]" ],
+                        "kind": "Hash"
+                    },
+                    "analyticalStorageTtl": -1
+                },
+                "options": "[variables('throughputPolicyToUse')]"
+            }
+        }
+    ]
+}
+```
 
 <a id="create-manual"></a>
 
@@ -43,7 +183,7 @@ Ten szablon służy do tworzenia konta usługi Azure Cosmos w dwóch regionach z
 
 Ten szablon służy do tworzenia konta usługi Azure Cosmos w dwóch regionach z opcjami spójności i pracy awaryjnej, z bazą danych i kontenerem skonfigurowanym dla standardowej przepływności z włączonymi większością opcji zasad. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -53,7 +193,7 @@ Ten szablon służy do tworzenia konta usługi Azure Cosmos w dwóch regionach z
 
 Ten szablon służy do tworzenia konta usługi Azure Cosmos, bazy danych i kontenera z użyciem procedury składowanej, wyzwalacza i funkcji zdefiniowanej przez użytkownika. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
@@ -63,7 +203,7 @@ Ten szablon służy do tworzenia konta usługi Azure Cosmos, bazy danych i konte
 
 Ten szablon służy do tworzenia bezpłatnego konta usługi Azure Cosmos i bazy danych z udostępnioną przepływem wydajności, które można udostępnić do 25 kontenerów. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-free%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-free%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-free/azuredeploy.json":::
 

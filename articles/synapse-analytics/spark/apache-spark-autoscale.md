@@ -8,22 +8,22 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: a2f907384326aa887c12c293feb8c988f42bbaf1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210516"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591968"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Automatyczne skalowanie pul Apache Spark usługi Azure Synapse Analytics
 
-Funkcja automatycznego skalowania puli Spark platformy Azure Synapse automatycznie skaluje liczbę węzłów w wystąpieniu klastra w górę i w dół. Podczas tworzenia nowej puli platformy Azure Synapse Spark można ustawić minimalną i maksymalną liczbę węzłów, jeśli wybrano Automatyczne skalowanie. Funkcja automatycznego skalowania monitoruje następnie wymagania dotyczące zasobów obciążenia i skaluje liczbę węzłów w górę lub w dół. Ta funkcja nie ma dodatkowych opłat.
+Apache Spark funkcji automatycznego skalowania puli usługi Azure Synapse Analytics automatycznie skaluje liczbę węzłów w wystąpieniu klastra w górę i w dół. Podczas tworzenia nowego Apache Spark dla puli usługi Azure Synapse Analytics można ustawić minimalną i maksymalną liczbę węzłów, gdy jest zaznaczone automatyczne skalowanie. Funkcja automatycznego skalowania monitoruje następnie wymagania dotyczące zasobów obciążenia i skaluje liczbę węzłów w górę lub w dół. Ta funkcja nie ma dodatkowych opłat.
 
 ## <a name="metrics-monitoring"></a>Monitorowanie metryk
 
 Automatyczne skalowanie w sposób ciągły monitoruje wystąpienie platformy Spark i zbiera następujące metryki:
 
-|Metryka|Opis|
+|Metric|Opis|
 |---|---|
 |Łączny czas oczekiwania na procesor|Łączna liczba rdzeni wymaganych do rozpoczęcia wykonywania wszystkich oczekujących węzłów.|
 |Całkowita liczba oczekujących pamięci|Całkowita ilość pamięci (w MB) wymagana do uruchomienia wszystkich oczekujących węzłów.|
@@ -46,7 +46,7 @@ W przypadku skalowania w górę usługa Azure Synapse Skalowanie automatyczne ob
 
 W przypadku skalowania w dół w oparciu o liczbę modułów wykonujących, wzorce aplikacji na węzeł i bieżące wymagania dotyczące procesora CPU i pamięci, automatyczne skalowanie wystawia żądanie usunięcia pewnej liczby węzłów. Usługa wykrywa również, które węzły są kandydatami do usunięcia na podstawie bieżącego wykonywania zadania. Operacja skalowania w dół najpierw likwidowanie węzłów, a następnie usunięcie ich z klastra.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 ### <a name="create-a-spark-pool-with-autoscaling"></a>Tworzenie puli platformy Spark z funkcją automatycznego skalowania
 

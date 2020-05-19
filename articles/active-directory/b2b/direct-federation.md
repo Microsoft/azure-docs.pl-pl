@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199455"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591220"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 |     |
@@ -146,7 +146,7 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Aby skonfigurować bezpośrednią Federacji w portalu usługi Azure AD
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz pozycję **relacje organizacyjne**  >  **wszystkie dostawcy tożsamości** (lub **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**).
+2. Wybierz **tożsamości zewnętrzne**  >  **Wszyscy dostawcy tożsamości**.
 3. Wybierz pozycję, a następnie wybierz pozycję **nowe dostawcy tożsamości SAML/WS-karmione**.
 
     ![Zrzut ekranu przedstawiający przycisk dodawania nowych dostawcy tożsamości języka SAML lub protokołu WS-karmionego](media/direct-federation/new-saml-wsfed-idp.png)
@@ -194,7 +194,7 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Jak mogę edytować bezpośredniej relacji Federacji?
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz **wszystkich dostawców tożsamości**
 4. W obszarze **dostawcy tożsamości protokołu SAML/WS-karmionego**wybierz dostawcę.
 5. W okienku szczegółów dostawcy tożsamości zaktualizuj wartości.
@@ -205,7 +205,7 @@ Teraz Przetestuj konfigurację Federacji bezpośredniej, zapraszając nowego uż
 Możesz usunąć konfigurację Federacji bezpośredniej. Jeśli to zrobisz, wszyscy użytkownicy-Goście Federacji, którzy już korzystali z zaproszenia, nie będą mogli się zalogować. Można jednak umożliwić im ponowne uzyskanie dostępu do zasobów, usuwając je z katalogu i ponownie zapraszając. Aby usunąć bezpośrednią Federacji z dostawcą tożsamości w portalu usługi Azure AD:
 
 1. Przejdź do [Azure Portal](https://portal.azure.com/). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz pozycję **Wszyscy dostawcy tożsamości**.
 4. Wybierz dostawcę tożsamości, a następnie wybierz pozycję **Usuń**. 
 5. Wybierz pozycję **tak** , aby potwierdzić usunięcie. 

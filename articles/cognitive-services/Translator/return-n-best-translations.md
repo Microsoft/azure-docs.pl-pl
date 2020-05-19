@@ -1,7 +1,7 @@
 ---
-title: Zwróć N-najlepsze tłumaczenia — tłumaczenie tekstu w usłudze Translator
+title: Zwróć N-najlepsze tłumaczenia — translator
 titleSuffix: Azure Cognitive Services
-description: Zwróć N-najlepsze tłumaczenia przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator.
+description: Zwróć N-najlepsze tłumaczenia przy użyciu translatora.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
-ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837241"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592682"
 ---
 # <a name="how-to-return-n-best-translations"></a>Jak zwrócić najlepsze tłumaczenia (N)
 
 > [!NOTE]
-> Ta metoda jest przestarzała. Nie jest dostępna w wersji 3.0 interfejs API tłumaczenia tekstu w usłudze Translator.
+> Ta metoda jest przestarzała. Nie jest dostępny w wersji 3.0 usługi Translator.
 
-Metody gettranslations () i GetTranslationsArray () interfejsu API usługi Microsoft Translator zawierają opcjonalną flagę logiczną "IncludeMultipleMTAlternatives".
+Metody gettranslations () i GetTranslationsArray () translatora zawierają opcjonalną flagę logiczną "IncludeMultipleMTAlternatives".
 Metoda zwróci do maxTranslations alternatywy, w przypadku których Delta jest dostarczana z N-najlepszych list aparatu translatora.
 
 Sygnatura:
 
-**Obowiązuje**
+**Składnia**
 
 | C# |
 |:---|

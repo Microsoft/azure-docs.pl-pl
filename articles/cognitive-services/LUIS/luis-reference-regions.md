@@ -3,12 +3,12 @@ title: Publikowanie regionów & punkty końcowe — LUIS
 description: Region określony w Azure Portal jest taki sam, gdzie zostanie opublikowana aplikacja LUIS, a dla tego samego regionu zostanie wygenerowany adres URL punktu końcowego.
 ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: a7709d15a51637772d7a4775cd71c307dc21c52b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 680887ecda0843bf770c62a4b9a4d88305ea9e73
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292084"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590914"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Tworzenie i publikowanie regionów oraz skojarzonych kluczy
 
@@ -21,9 +21,9 @@ Istnieją trzy portale tworzenia LUIS na podstawie regionu. Tworzyć i publikowa
 
 |LUIS|Region tworzenia|Nazwa regionu platformy Azure|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|U.S.<br>nie Europa<br>nie Australia| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australia| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europa|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|U.S.<br>nie Europa<br>nie Australia| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europa|`westeurope`|
 
 Regiony tworzenia mają [sparowane regiony trybu failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
@@ -41,11 +41,11 @@ Publiczna aplikacja jest publikowana we wszystkich regionach, dzięki czemu uży
 
 Aplikację region tworzenia można opublikować tylko w odpowiednim regionie publikacji. Jeśli Twoja aplikacja znajduje się w niewłaściwym regionie tworzenia, wyeksportuj aplikację i zaimportuj ją do poprawnego regionu tworzenia w regionie publikacji.
 
-Aplikacje LUIS utworzone w https://www.luis.ai systemie można publikować we wszystkich punktach końcowych z wyjątkiem regionów [Europy](#publishing-to-europe) i [Australii](#publishing-to-australia) .
+Aplikacje LUIS utworzone w systemie https://www.luis.ai można publikować we wszystkich punktach końcowych z wyjątkiem regionów [Europy](#publishing-to-europe) i [Australii](#publishing-to-australia) .
 
 ## <a name="publishing-to-europe"></a>Publikowanie w Europie
 
-Do opublikowania w regionach europejskich tworzone są https://eu.luis.ai tylko aplikacje Luis. Jeśli spróbujesz opublikować gdziekolwiek w innym miejscu przy użyciu klucza w regionie Europa, LUIS wyświetla komunikat ostrzegawczy. Zamiast tego należy https://eu.luis.aiużyć. Aplikacje LUIS utworzone w [https://eu.luis.ai][eu.luis.ai] programie nie są automatycznie migrowane do innych regionów. Aby przeprowadzić migrację, wyeksportuj i zaimportuj aplikację LUIS.
+Do opublikowania w regionach europejskich tworzone są tylko aplikacje LUIS https://eu.luis.ai . Jeśli spróbujesz opublikować gdziekolwiek w innym miejscu przy użyciu klucza w regionie Europa, LUIS wyświetla komunikat ostrzegawczy. Zamiast tego należy użyć https://eu.luis.ai . Aplikacje LUIS utworzone w programie [https://eu.luis.ai][eu.luis.ai] nie są automatycznie migrowane do innych regionów. Aby przeprowadzić migrację, wyeksportuj i zaimportuj aplikację LUIS.
 
 ## <a name="europe-publishing-regions"></a>Regiony publikowania w Europie
 
@@ -58,7 +58,7 @@ Do opublikowania w regionach europejskich tworzone są https://eu.luis.ai tylko 
 
 ## <a name="publishing-to-australia"></a>Publikowanie w Australii
 
-W celu opublikowania w regionach australijskich tworzysz aplikacje https://au.luis.ai Luis. Jeśli spróbujesz opublikować gdziekolwiek w innym miejscu przy użyciu klucza w regionie australijski, LUIS wyświetla komunikat ostrzegawczy. Zamiast tego należy https://au.luis.aiużyć. Aplikacje LUIS utworzone w [https://au.luis.ai][au.luis.ai] programie nie są automatycznie migrowane do innych regionów. Aby przeprowadzić migrację, wyeksportuj i zaimportuj aplikację LUIS.
+W celu opublikowania w regionach australijskich tworzysz aplikacje LUIS https://au.luis.ai . Jeśli spróbujesz opublikować gdziekolwiek w innym miejscu przy użyciu klucza w regionie australijski, LUIS wyświetla komunikat ostrzegawczy. Zamiast tego należy użyć https://au.luis.ai . Aplikacje LUIS utworzone w programie [https://au.luis.ai][au.luis.ai] nie są automatycznie migrowane do innych regionów. Aby przeprowadzić migrację, wyeksportuj i zaimportuj aplikację LUIS.
 
 ## <a name="australia-publishing-regions"></a>Regiony publikacji Australii
 
@@ -68,7 +68,7 @@ W celu opublikowania w regionach australijskich tworzysz aplikacje https://au.lu
 
 ## <a name="publishing-to-other-regions"></a>Publikowanie w innych regionach
 
-W celu opublikowania w innych regionach tworzone są aplikacje [https://www.luis.ai](https://www.luis.ai) Luis.
+W celu opublikowania w innych regionach tworzone są aplikacje LUIS [https://www.luis.ai](https://www.luis.ai) .
 
 ## <a name="other-publishing-regions"></a>Inne regiony publikowania
 

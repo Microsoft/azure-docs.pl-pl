@@ -4,12 +4,12 @@ description: W tym samouczku należy poprawić przewidywania aplikacji przez spr
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
-ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548721"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592580"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Samouczek: usuwanie prognoz przez przeglądanie punktu końcowego wyrażenia długości
 W tym samouczku poprawisz przewidywania aplikacji przez sprawdzenie lub poprawienie wyrażenia długości, odebranych za pośrednictwem punktu końcowego HTTPS LUIS, który LUIS nie ma pewności. Należy zapoznać się z punktem końcowym wyrażenia długości jako regularną częścią konserwacji zaplanowanej LUIS.
@@ -22,7 +22,7 @@ Ten proces przeglądu pozwala LUIS na naznanie Twojej domeny aplikacji. LUIS wyb
 
 Przeglądając wypowiedzi punktu końcowego, weryfikujesz lub poprawiasz przewidzianą intencję wypowiedzi.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -33,11 +33,11 @@ Przeglądając wypowiedzi punktu końcowego, weryfikujesz lub poprawiasz przewid
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Importowanie aplikacji przykładowej
+## <a name="download-json-file-for-app"></a>Pobierz plik JSON dla aplikacji
 
-Aby zaimportować aplikację, wykonaj następujące czynności.
+Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Pobierz i zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## <a name="import-json-file-for-app"></a>Importuj plik JSON dla aplikacji
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -80,9 +80,9 @@ Przejrzyj wyrażenia długości punktu końcowego pod kątem prawidłowo dopasow
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    Ta wypowiedź, `I'm looking for a job with Natural Language Processing`, nie jest w poprawnym zamiarem.
+    Ta wypowiedź, `I'm looking for a job with Natural Language Processing` , nie jest w poprawnym zamiarem.
 
-1.  Aby wyrównać ten wypowiedź, w wierszu wypowiedź wybierz odpowiednią **wyrównane opcje** `GetJobInformation`. Dodaj zmieniony wypowiedź do aplikacji, zaznaczając znacznik wyboru.
+1.  Aby wyrównać ten wypowiedź, w wierszu wypowiedź wybierz odpowiednią **wyrównane opcje** `GetJobInformation` . Dodaj zmieniony wypowiedź do aplikacji, zaznaczając znacznik wyboru.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przycisku Review endpoint utterances (Przejrzyj wypowiedzi punktu końcowego) w lewym obszarze nawigacji](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
@@ -101,7 +101,7 @@ Aby sprawdzić poprawność wyrównanego przykładu wyrażenia długości do pro
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ `Are there any natural language processing jobs in my department right now?`.
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ `Are there any natural language processing jobs in my department right now?` .
 
    ```json
     {
@@ -215,7 +215,7 @@ Możesz się zastanawiać, dlaczego nie dodać więcej przykładowych wypowiedzi
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Dlaczego intencja o najwyższej ocenie znajduje się na liście wypowiedzi?
 Niektóre wypowiedzi punktu końcowego będą miały wysoki współczynnik przewidywania na liście do przeglądu. Mimo to należy przejrzeć i zweryfikować te wypowiedzi. Znajdują się one na liście, ponieważ różnica między intencją o najwyższej ocenie i intencją drugą w kolejności jest zbyt mała. Różnica między dwiema najważniejszymi intencjami powinna wynosić około 15%.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

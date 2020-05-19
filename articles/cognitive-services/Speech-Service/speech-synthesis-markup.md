@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996028"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592784"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -45,9 +45,9 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 ## <a name="create-an-ssml-document"></a>Tworzenie dokumentu SSML
 
-`speak`jest elementem głównym i jest **wymagany** dla wszystkich dokumentów SSML. `speak` Element zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
+`speak`jest elementem głównym i jest **wymagany** dla wszystkich dokumentów SSML. `speak`Element zawiera ważne informacje, takie jak wersja, język i definicja słownictwa znaczników.
 
-**Obowiązuje**
+**Składnia**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
@@ -57,15 +57,15 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `version` | Wskazuje wersję specyfikacji SSML użytej do interpretacji znacznika dokumentu. Bieżąca wersja to 1,0. | Wymagany |
-| `xml:lang` | Określa język dokumentu głównego. Wartość może zawierać małe litery, dwuliterowy kod języka (na przykład `en`) lub kod języka oraz wielkie kraje/region (na przykład `en-US`). | Wymagany |
-| `xmlns` | Określa identyfikator URI dokumentu, który definiuje słownictwo znaczników (typy elementów i nazwy atrybutów) dokumentu SSML. Bieżący identyfikator URI to http://www.w3.org/2001/10/synthesis. | Wymagany |
+| `version` | Wskazuje wersję specyfikacji SSML użytej do interpretacji znacznika dokumentu. Bieżąca wersja to 1,0. | Wymagane |
+| `xml:lang` | Określa język dokumentu głównego. Wartość może zawierać małe litery, dwuliterowy kod języka (na przykład `en` ) lub kod języka oraz wielkie kraje/region (na przykład `en-US` ). | Wymagane |
+| `xmlns` | Określa identyfikator URI dokumentu, który definiuje słownictwo znaczników (typy elementów i nazwy atrybutów) dokumentu SSML. Bieżący identyfikator URI to http://www.w3.org/2001/10/synthesis . | Wymagane |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Wybieranie głosu dla zamiany tekstu na mowę
 
-`voice` Element jest wymagany. Służy do określania głosu używanego do zamiany tekstu na mowę.
+`voice`Element jest wymagany. Służy do określania głosu używanego do zamiany tekstu na mowę.
 
-**Obowiązuje**
+**Składnia**
 
 ```xml
 <voice name="string">
@@ -77,9 +77,9 @@ Każdy dokument SSML jest tworzony z elementami SSML (lub tagami). Te elementy s
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagany |
+| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagane |
 
-**Przyklad**
+**Przykład**
 
 > [!NOTE]
 > Ten przykład używa `en-US-AriaRUS` głosu. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech).
@@ -100,27 +100,27 @@ W obrębie `speak` elementu można określić wiele głosów dla danych wyjścio
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagany |
+| `name` | Identyfikuje głos używany do wyprowadzania tekstu na mowę. Aby uzyskać pełną listę obsługiwanych głosów, zobacz temat [Obsługa języków](language-support.md#text-to-speech). | Wymagane |
 
 > [!IMPORTANT]
 > Wiele głosów jest niezgodnych z funkcją granicy słowa. Funkcja granic wyrazów musi być wyłączona, aby można było używać wielu głosów.
 
 ### <a name="disable-word-boundary"></a>Wyłącz granicę słowa
 
-W zależności od języka zestawu Speech SDK ustawisz `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` właściwość na wystąpienie `SpeechConfig` obiektu. `false`
+W zależności od języka zestawu Speech SDK ustawisz `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` Właściwość na `false` wystąpienie `SpeechConfig` obiektu.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```csharp
 speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C++](#tab/cpp)
+# <a name="c"></a>[Języków](#tab/cpp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```cpp
 speechConfig->SetProperty(
@@ -129,7 +129,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```java
 speechConfig.setProperty(
@@ -138,7 +138,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```python
 speech_config.set_property_by_name(
@@ -147,16 +147,16 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```javascript
 speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
+# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -164,7 +164,7 @@ Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>Zobacz.
+Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -173,7 +173,7 @@ speechConfig!.setPropertyTo(
 
 ---
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -191,15 +191,18 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > Dopasowanie stylów wymawiania będzie działało tylko z głosymi neuronowych.
 
-Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl mówiący do wyrazów cheerfulness, empatię lub tonacji przy użyciu `<mstts:express-as>` elementu. Jest to opcjonalny element unikatowy dla usługi mowy.
+Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy użyciu neutralnego stylu mowy dla głosów standardowych i neuronowych. Za pomocą głosów neuronowych można dostosować styl wymawiania, aby wyszukiwać różne emocji, takie jak cheerfulness, empatię i Calm, lub optymalizować głos dla różnych scenariuszy, takich jak niestandardowe usługi, newscasting i asystent głosowy, przy użyciu <mstts: Express-AS>. Jest to opcjonalny element unikatowy dla usługi mowy.
 
 Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
 * `en-US-AriaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
+* `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 
 Zmiany są stosowane na poziomie zdania i stylu różnią się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym stylu mowy neutralnej.
 
-**Obowiązuje**
+**Składnia**
 
 ```xml
 <mstts:express-as style="string"></mstts:express-as>
@@ -209,7 +212,7 @@ Zmiany są stosowane na poziomie zdania i stylu różnią się w zależności od
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as`, należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
+| `style` | Określa styl wymawiania. Obecnie style wymawiające są specyficzne dla głosu. | Wymagane, jeśli ustawienie stylu wymawiania dla głosu neuronowych. Jeśli używasz `mstts:express-as` , należy podać styl. Jeśli podano nieprawidłową wartość, ten element zostanie zignorowany. |
 
 Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla każdego głosu neuronowych.
 
@@ -220,14 +223,19 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
 |                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |
 |                         | `style="empathetic"`      | Wyraża świadomość Caring i zrozumienie               |
+|   `pt-BR-FranciscaNeural`| `style="calm"`      | Calm ton               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
-|                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |
+|                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |   
+| `zh-CN-YunyangNeural`  | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
+| `zh-CN-YunyeNeural`  | `style="calm"`      | Calm ton               |  
+|                         | `style="sad"`       | Wyznaczanie nieszczęśliwego i nieprawidłowego sygnału    |
+|                         | `style="serious"`         | Wyrażanie poważnych i trudnych ton        |   
 
-**Przyklad**
+**Przykład**
 
-Ten fragment kodu SSML ilustruje, `<mstts:express-as>` w jaki sposób element jest używany do zmiany stylu `cheerful`wymawiania na.
+Ten fragment kodu SSML ilustruje, w jaki sposób `<mstts:express-as>` element jest używany do zmiany stylu wymawiania na `cheerful` .
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -245,9 +253,9 @@ Ten fragment kodu SSML ilustruje, `<mstts:express-as>` w jaki sposób element je
 Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub zapobiec automatycznemu dodawaniu przez usługę zamiany tekstu na mowę.
 
 > [!NOTE]
-> Użyj tego elementu, aby przesłonić domyślne zachowanie zamiany tekstu na mowę (TTS) dla wyrazu lub frazy, jeśli wydawane przez nich słowo lub fraza jest odtwarzane jako nienaturalne. Ustaw `strength` , `none` aby nie granicę prozodyczną przerwania, które jest automatycznie wstawiane przez usługę zamiany tekstu na mowę.
+> Użyj tego elementu, aby przesłonić domyślne zachowanie zamiany tekstu na mowę (TTS) dla wyrazu lub frazy, jeśli wydawane przez nich słowo lub fraza jest odtwarzane jako nienaturalne. Ustaw `strength` `none` , aby nie granicę prozodyczną przerwania, które jest automatycznie wstawiane przez usługę zamiany tekstu na mowę.
 
-**Obowiązuje**
+**Składnia**
 
 ```xml
 <break strength="string" />
@@ -258,8 +266,8 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Optional |
-| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i`500` | Optional |
+| `strength` | Określa względny czas trwania pauzy przy użyciu jednej z następujących wartości:<ul><li>brak</li><li>x — słabe</li><li>lekko</li><li>Średni (domyślnie)</li><li>najwyższy</li><li>x — Strong</li></ul> | Opcjonalne |
+| `time` | Określa bezwzględny czas przerwy w sekundach lub milisekund. Przykłady prawidłowych wartości to `2s` i`500` | Opcjonalne |
 
 | Naprężeni                      | Opis |
 |-------------------------------|-------------|
@@ -270,7 +278,7 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 | najwyższy                        | 1000 MS     |
 | x — Strong                      | 1250 MS     |
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -282,20 +290,20 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 
 ## <a name="specify-paragraphs-and-sentences"></a>Określ akapity i zdania
 
-`p`elementy `s` i są używane do określenia odpowiednio akapitów i zdań. W przypadku braku tych elementów usługa zamiany tekstu na mowę automatycznie określa strukturę dokumentu SSML.
+`p``s`elementy i są używane do określenia odpowiednio akapitów i zdań. W przypadku braku tych elementów usługa zamiany tekstu na mowę automatycznie określa strukturę dokumentu SSML.
 
-`p` `audio`Element może zawierać tekst i następujące elementy:, `break`, `phoneme` `prosody` `say-as` `sub`,,,, `mstts:express-as`, i. `s`
+`p`Element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` , i `s` .
 
-`s` Element może zawierać tekst i następujące elementy `audio`:, `break`, `phoneme` `prosody` `say-as` `mstts:express-as`,,, i. `sub`
+`s`Element może zawierać tekst i następujące elementy:,,,,, `audio` `break` `phoneme` `prosody` `say-as` `mstts:express-as` i `sub` .
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <p></p>
 <s></s>
 ```
 
-**Przyklad**
+**Przykład**
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -314,11 +322,11 @@ Użyj `break` elementu, aby wstawić pauzy (lub przerwy) między wyrazami lub za
 
 ## <a name="use-phonemes-to-improve-pronunciation"></a>Aby ulepszyć wymowę, użyj fonemów
 
-`ph` Element jest używany do wymowy fonetycznej w dokumentach SSML. `ph` Element może zawierać tylko tekst, nie inne elementy. Zawsze dostarczaj mowę do odczytu przez człowieka jako rezerwowe.
+`ph`Element jest używany do wymowy fonetycznej w dokumentach SSML. `ph`Element może zawierać tylko tekst, nie inne elementy. Zawsze dostarczaj mowę do odczytu przez człowieka jako rezerwowe.
 
 Alfabety fonetyczne składają się z telefonów, które składają się z liter, cyfr lub znaków, czasami w połączeniu. Każdy telefon opisuje unikatowy dźwięk mowy. Jest to w przeciwieństwie do alfabetu łacińskiego, gdzie jakakolwiek litera może reprezentować wiele dźwięków wypowiadanych. Rozważ różne wymowy literę "c" w słowach "Candy" i "zaprzestanie" albo różne wymowy kombinacji liter "TH" w słowach "rzecz" i "te".
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <phoneme alphabet="string" ph="string"></phoneme>
@@ -328,7 +336,7 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; Uniwersalny zestaw telefonu</li></ul><br>Alfabet ma zastosowanie tylko do elementu `phoneme` w elemencie.. | Optional |
+| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Uniwersalny zestaw telefonu</li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Opcjonalne |
 | `ph` | Ciąg zawierający telefony, które określają wymowę wyrazu w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa zamiany tekstu na mowę (TTS) odrzuci cały dokument SSML i nie wygeneruje żadnych danych wyjściowych mowy określonych w dokumencie. | Wymagany, jeśli jest używany fonemów. |
 
 **Przykłady**
@@ -359,12 +367,12 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Korzystanie z leksykonów niestandardowych w celu usprawnienia wymowy
 
-Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. Na przykład nazwa firmy lub termin medyczny. Deweloperzy mogą definiować, jak pojedyncze jednostki są odczytywane w SSML `phoneme` przy `sub` użyciu tagów i. Jeśli jednak chcesz zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon przy użyciu `lexicon` znacznika.
+Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. Na przykład nazwa firmy lub termin medyczny. Deweloperzy mogą definiować, jak pojedyncze jednostki są odczytywane w SSML przy użyciu `phoneme` `sub` tagów i. Jeśli jednak chcesz zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon przy użyciu `lexicon` znacznika.
 
 > [!NOTE]
 > Leksykon niestandardowy obecnie obsługuje kodowanie UTF-8. 
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <lexicon uri="string"/>
@@ -376,7 +384,7 @@ Czasami usługa zamiany tekstu na mowę nie może dokładnie wymówić wyrazu. N
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | Adres zewnętrznego dokumentu innych obszarów roboczych. | Wymagany.           |
 
-**Wykorzystywani**
+**Użycie**
 
 Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestandardową Leksykon, który jest przechowywany jako plik XML lub innych obszarów roboczych. Poniżej znajduje się przykładowy plik XML.
 
@@ -399,9 +407,9 @@ Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestan
 </lexicon>
 ```
 
-`lexicon` Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme`elementów `alias`,, `phoneme` i. `grapheme` Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. `alias` Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme` Element zawiera tekst opisujący sposób `lexeme` wymawiania.
+`lexicon`Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme` `alias` elementów,, i `phoneme` . `grapheme`Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. `alias`Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme`Element zawiera tekst opisujący sposób `lexeme` wymawiania.
 
-Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla elementu, najpierw podaj wartość `alias`, a następnie skojarz ją `phoneme` z. `alias` Przykład:
+Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla elementu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Na przykład:
 
 ```xml
   <lexeme>
@@ -424,7 +432,7 @@ Następnie opublikuj niestandardowy plik leksykonu. Chociaż nie mamy ogranicze�
 Po opublikowaniu słownika niestandardowego można odwołać się do niego z SSML.
 
 > [!NOTE]
-> `lexicon` Element musi znajdować się wewnątrz `voice` elementu.
+> `lexicon`Element musi znajdować się wewnątrz `voice` elementu.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
@@ -448,7 +456,7 @@ W przypadku korzystania z tego słownika niestandardowego "BTW" zostanie odczyta
 
 W powyższym przykładzie używamy międzynarodowego alfabetu fonetycznego, nazywanego również numerem telefonu IPA. Sugerujemy, aby deweloperzy korzystali z IPA, ponieważ jest to standard międzynarodowy. W przypadku niektórych znaków IPA mają one wersję "prekomponowad" i "dekomponowad", gdy jest reprezentowana przy użyciu standardu Unicode. Leksykon niestandardowy obsługuje tylko rozłożone znaki Unicode.
 
-Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla`en-US`siedmiu `fr-FR`języków `de-DE`( `es-ES`, `ja-JP`, `zh-CN`,, `zh-TW`, i).
+Biorąc pod uwagę, że IPA nie jest łatwy do zapamiętania, usługa mowy definiuje zestaw fonetyczny dla siedmiu języków (,,,,, `en-US` `fr-FR` `de-DE` `es-ES` `ja-JP` `zh-CN` i `zh-TW` ).
 
 Można użyć `sapi` jako wartość dla `alphabet` atrybutu z niestandardowymi leksykonami, jak pokazano poniżej:
 
@@ -475,11 +483,11 @@ Aby uzyskać więcej informacji na temat szczegółowej litery fonetycznej usłu
 
 ## <a name="adjust-prosody"></a>Dostosuj Prosody
 
-`prosody` Element służy do określania zmian wysokości, rozkładu, zakresu, szybkości, czasu trwania i objętości dla danych wyjściowych zamiany tekstu na mowę. `prosody` `audio`Element może zawierać tekst i następujące elementy:, `break`, `p` `phoneme` `prosody` `say-as`,,,, `sub`, i. `s`
+`prosody`Element służy do określania zmian wysokości, rozkładu, zakresu, szybkości, czasu trwania i objętości dla danych wyjściowych zamiany tekstu na mowę. `prosody`Element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `phoneme` `prosody` `say-as` `sub` , i `s` .
 
 Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w różnych zakresach, aparat rozpoznawania mowy interpretuje przypisane wartości jako sugestię rzeczywistych wartości granicę prozodyczną wybranego głosu. Usługa zamiany tekstu na mowę lub zastępuje wartości, które nie są obsługiwane. Przykłady nieobsługiwanych wartości to wysokość 1 MHz lub objętość 120.
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
@@ -489,18 +497,18 @@ Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w ró�
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład 600 Hz.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: + 80 Hz lub-2st. "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul>. | Optional |
-| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch`). | Optional |
-| `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia `pitch`, które są używane do opisywania. | Optional |
-| `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Optional |
-| `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. | Optional |
-| `volume` | Wskazuje poziom głośności głosu. Wolumin można wyrazić jako:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od *najcisza* do *głośnie*. Na przykład 75. Wartość domyślna to 100,0.</li><li>Wartość względna wyrażona jako liczba poprzedzona znakiem "+" lub "-", która określa wielkość zmiany woluminu. Na przykład + 10 lub-5,5.</li><li>Stała wartość:<ul><li>automatycznie</li><li>x — niewygładzone</li><li>rezerwacje</li><li>średni</li><li>głośn</li><li>x-głośne</li><li>default</li></ul></li></ul> | Optional |
+| `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład 600 Hz.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: + 80 Hz lub-2st. "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul>. | Opcjonalne |
+| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
+| `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Opcjonalne |
+| `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Opcjonalne |
+| `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. | Opcjonalne |
+| `volume` | Wskazuje poziom głośności głosu. Wolumin można wyrazić jako:<ul><li>Wartość bezwzględna wyrażona jako liczba z zakresu od 0,0 do 100,0, od *najcisza* do *głośnie*. Na przykład 75. Wartość domyślna to 100,0.</li><li>Wartość względna wyrażona jako liczba poprzedzona znakiem "+" lub "-", która określa wielkość zmiany woluminu. Na przykład + 10 lub-5,5.</li><li>Stała wartość:<ul><li>automatycznie</li><li>x — niewygładzone</li><li>rezerwacje</li><li>średni</li><li>głośn</li><li>x-głośne</li><li>default</li></ul></li></ul> | Opcjonalne |
 
 ### <a name="change-speaking-rate"></a>Zmień częstotliwość mówienia
 
 Stawkę głosu można zastosować do neuronowych głosów i głosów standardowych na poziomie wyrazu lub zdania. 
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -516,7 +524,7 @@ Stawkę głosu można zastosować do neuronowych głosów i głosów standardowy
 
 Zmiany woluminów mogą być stosowane do głosów standardowych na poziomie wyrazu lub zdania. Zmiany woluminów mogą być stosowane tylko do głosów neuronowych na poziomie zdania.
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -532,7 +540,7 @@ Zmiany woluminów mogą być stosowane do głosów standardowych na poziomie wyr
 
 Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyrazu lub zdania. Zmiany szerokości mogą być stosowane tylko do głosów neuronowych na poziomie zdania.
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -547,7 +555,7 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 > [!IMPORTANT]
 > Zmiany rozkładu pochylenia są teraz obsługiwane z głosymi neuronowych.
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -562,7 +570,7 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 
 `say-as`jest elementem opcjonalnym, który wskazuje typ zawartości (na przykład liczbę lub datę) tekstu elementu. Zapewnia to wskazówkę dotyczącą aparatu syntezy mowy dotyczącą sposobu wymawiania tekstu.
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <say-as interpret-as="string" format="digit string" detail="string"> <say-as>
@@ -572,13 +580,13 @@ Zmiany wysokości mogą być stosowane do głosów standardowych na poziomie wyr
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `interpret-as` | Wskazuje typ zawartości tekstu elementu. Aby zapoznać się z listą typów, zobacz poniższą tabelę. | Wymagany |
-| `format` | Zawiera dodatkowe informacje na temat precyzyjnego formatowania tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (patrz tabela poniżej). | Optional |
-| `detail` | Wskazuje poziom szczegółowości, który ma być wypowiadany. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcyjne. Nie zdefiniowano standardowych wartości dla `detail`. | Optional |
+| `interpret-as` | Wskazuje typ zawartości tekstu elementu. Aby zapoznać się z listą typów, zobacz poniższą tabelę. | Wymagane |
+| `format` | Zawiera dodatkowe informacje na temat precyzyjnego formatowania tekstu elementu dla typów zawartości, które mogą mieć niejednoznaczne formaty. SSML definiuje formaty dla typów zawartości, które ich używają (patrz tabela poniżej). | Opcjonalne |
+| `detail` | Wskazuje poziom szczegółowości, który ma być wypowiadany. Na przykład ten atrybut może zażądać, aby aparat syntezy mowy wymawiał znaki interpunkcyjne. Nie zdefiniowano standardowych wartości dla `detail` . | Opcjonalne |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
-Poniżej przedstawiono obsługiwane typy zawartości dla atrybutów `interpret-as` i. `format` Uwzględnij `format` atrybut tylko wtedy `interpret-as` , gdy jest ustawiony na datę i godzinę.
+Poniżej przedstawiono obsługiwane typy zawartości dla `interpret-as` `format` atrybutów i. Uwzględnij `format` atrybut tylko wtedy, gdy `interpret-as` jest ustawiony na datę i godzinę.
 
 | Interpretuj jako | format | Interpretacja |
 |--------------|--------|----------------|
@@ -589,14 +597,14 @@ Poniżej przedstawiono obsługiwane typy zawartości dla atrybutów `interpret-a
 | `digits`, `number_digit` | | Tekst jest wymawiany jako sekwencja pojedynczych cyfr. Aparat syntezy mowy mówi:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Jako "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | Tekst jest wymawiany jako liczba ułamkowa. Aparat syntezy mowy mówi:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Jako "trzy osiem cala". |
 | `ordinal` | | Tekst jest wymawiany jako numer porządkowy. Aparat syntezy mowy mówi:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Jako "Wybierz trzecią opcję". |
-| `telephone` | | Tekst jest wymawiany jako numer telefonu. Ten `format` atrybut może zawierać cyfry, które reprezentują kod kraju. Na przykład "1" dla Stany Zjednoczone lub "39" dla Włoch. Aparat syntezy mowy może korzystać z tych informacji w celu podzielenia wymowy numeru telefonu. Numer telefonu może zawierać również kod kraju, a jeśli tak, ma pierwszeństwo przed kodem kraju w `format`. Aparat syntezy mowy mówi:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Jako "mój numer jest kodem obszaru 8 8 8 5 5 5 1 2 1 2." |
+| `telephone` | | Tekst jest wymawiany jako numer telefonu. Ten `format` atrybut może zawierać cyfry, które reprezentują kod kraju. Na przykład "1" dla Stany Zjednoczone lub "39" dla Włoch. Aparat syntezy mowy może korzystać z tych informacji w celu podzielenia wymowy numeru telefonu. Numer telefonu może zawierać również kod kraju, a jeśli tak, ma pierwszeństwo przed kodem kraju w `format` . Aparat syntezy mowy mówi:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Jako "mój numer jest kodem obszaru 8 8 8 5 5 5 1 2 1 2." |
 | `time` | hms12, hms24 | Tekst jest wymawiany jako czas. Ten `format` atrybut określa, czy czas jest określony przy użyciu zegara 12-godzinnego (hms12), czy 24-godzinnego zegara (hms24). Użyj dwukropka do oddzielenia liczb reprezentujących godziny, minuty i sekundy. Poniżej przedstawiono prawidłowe przykłady czasu: 12:35, 1:14:32, 08:15 i 02:50:45. Aparat syntezy mowy mówi:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Jako "pozostała część" uczenia w czterech A M ". |
 
-**Wykorzystywani**
+**Użycie**
 
-`say-as` Element może zawierać tylko tekst.
+`say-as`Element może zawierać tylko tekst.
 
-**Przyklad**
+**Przykład**
 
 Aparat syntezy mowy mówi Poniższy przykład jako "pierwsze żądanie było w jednym pokoju od Nineteenth października 20 10 z wczesnym nadejściem o godzinie 12 35 PM".
  
@@ -613,7 +621,7 @@ Aparat syntezy mowy mówi Poniższy przykład jako "pierwsze żądanie było w j
 
 ## <a name="add-recorded-audio"></a>Dodaj zarejestrowane audio
 
-`audio`to opcjonalny element, który umożliwia wstawianie audio MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub SSML znaczników, które są wymawiane, jeśli plik dźwiękowy jest niedostępny lub nieosiągalny. Ponadto `audio` element może zawierać tekst i następujące elementy: `audio`, `break`, `p` `s` `phoneme` `prosody`,,,, `say-as`, i. `sub`
+`audio`to opcjonalny element, który umożliwia wstawianie audio MP3 do dokumentu SSML. Treść elementu audio może zawierać zwykły tekst lub SSML znaczników, które są wymawiane, jeśli plik dźwiękowy jest niedostępny lub nieosiągalny. Ponadto `audio` element może zawierać tekst i następujące elementy:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` , i `sub` .
 
 Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymagania:
 
@@ -624,7 +632,7 @@ Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymaga
 * Łączny całkowity czas dla wszystkich plików tekstowych i dźwiękowych w pojedynczej odpowiedzi nie może przekroczyć 90 (90) sekund.
 * MP3 nie może zawierać żadnych informacji poufnych ani innych.
 
-**Obowiązuje**
+**Składnia**
 
 ```xml
 <audio src="string"/></audio>
@@ -636,7 +644,7 @@ Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymaga
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | Określa lokalizację/adres URL pliku audio. | Wymagany w przypadku używania elementu audio w dokumencie SSML. |
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -654,13 +662,13 @@ Wszystkie audio zawarte w dokumencie SSML muszą spełniać następujące wymaga
 
 ## <a name="add-background-audio"></a>Dodaj dźwięk w tle
 
-`mstts:backgroundaudio` Element umożliwia dodanie dźwięku w tle do dokumentów SSML (lub mieszanie pliku dźwiękowego z funkcją zamiany tekstu na mowę). Za `mstts:backgroundaudio` pomocą programu możesz zapętlać plik audio w tle, stopniowo zanikać na początku tekstu na mowę i stopniowo przechodzić na koniec zamiany tekstu na mowę.
+`mstts:backgroundaudio`Element umożliwia dodanie dźwięku w tle do dokumentów SSML (lub mieszanie pliku dźwiękowego z funkcją zamiany tekstu na mowę). Za pomocą programu możesz `mstts:backgroundaudio` zapętlać plik audio w tle, stopniowo zanikać na początku tekstu na mowę i stopniowo przechodzić na koniec zamiany tekstu na mowę.
 
 Jeśli podany dźwięk w tle jest krótszy niż tekst-do-mowę lub zanikanie, spowoduje to zapętlenie. Jeśli jest dłuższa niż Zamiana tekstu na mowę, zostanie zatrzymana po zakończeniu zanikania.
 
 Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak przeplatać `audio` Tagi w obrębie `voice` elementu, aby dodać dodatkowe audio do dokumentu SSML.
 
-**Obowiązuje**
+**Składnia**
 
 ```XML
 <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
@@ -671,11 +679,11 @@ Dozwolony jest tylko jeden plik audio w tle dla dokumentu SSML. Można jednak pr
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `src` | Określa lokalizację/adres URL pliku dźwiękowego w tle. | Wymagany w przypadku używania dźwięku w tle w dokumencie SSML. |
-| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Optional |
-| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0`, która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
-| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0`, która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Optional |
+| `volume` | Określa wolumin pliku dźwiękowego w tle. **Akceptowane wartości**: `0` do `100` włącznie. Wartość domyślna to `1`. | Opcjonalne |
+| `fadein` | Określa czas trwania "zanikania" dźwięku w tle (w milisekundach). Wartość domyślna to `0` , która jest równoważna brak zanikania w. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
+| `fadeout` | Określa czas zanikania dźwięku w tle w milisekundach. Wartość domyślna to `0` , która jest równoważna brak zanikania. **Akceptowane wartości**: `0` do `10000` włącznie.  | Opcjonalne |
 
-**Przyklad**
+**Przykład**
 
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">

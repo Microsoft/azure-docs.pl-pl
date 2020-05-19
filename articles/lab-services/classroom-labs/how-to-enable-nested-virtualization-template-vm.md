@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7831e554fcca20134d5cf8608481ff0c82eb8a0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184677"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592002"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services
 
-Obecnie Azure Lab Services umożliwia skonfigurowanie jednego szablonu maszyny wirtualnej w laboratorium i udostępnienie pojedynczej kopii dla każdego z użytkowników. Jeśli jesteś profesorami sieciowymi, bezpieczeństwem lub klasami IT, może być konieczne udostępnienie wszystkim uczniom środowiska, w którym wiele maszyn wirtualnych może komunikować się ze sobą za pośrednictwem sieci.
+Obecnie Azure Lab Services umożliwia skonfigurowanie jednego szablonu maszyny wirtualnej w laboratorium i udostępnienie pojedynczej kopii dla każdego z użytkowników. Jeśli jesteś nauczycieliami sieciowymi, bezpieczeństwem lub klasami IT, może być konieczne udostępnienie wszystkim uczniom środowiska, w którym wiele maszyn wirtualnych może komunikować się ze sobą za pośrednictwem sieci.
 
 Wirtualizacja zagnieżdżona umożliwia tworzenie środowiska z obsługą wiele maszyn wirtualnych w ramach maszyny wirtualnej szablonu laboratorium. Opublikowanie szablonu zapewni każdemu użytkownikowi w laboratorium z maszyną wirtualną skonfigurowaną z wieloma maszynami wirtualnymi.  W tym artykule opisano sposób konfigurowania wirtualizacji zagnieżdżonej na komputerze szablonu w Azure Lab Services.
 

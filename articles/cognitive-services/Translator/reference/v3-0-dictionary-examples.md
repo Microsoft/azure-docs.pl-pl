@@ -1,7 +1,7 @@
 ---
-title: Przykłady interfejs API tłumaczenia tekstu w usłudze Translator słownika
+title: Przykładowa Metoda słownika translatora
 titleSuffix: Azure Cognitive Services
-description: Przykłady interfejs API tłumaczenia tekstu w usłudze Translator słownika zawierają przykłady pokazujące, w jaki sposób terminy w słowniku są używane w kontekście.
+description: Przykładowa Metoda słownika translatora zawiera przykłady pokazujące, jak terminy w słowniku są używane w kontekście.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548071"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592512"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Interfejs API tłumaczenia tekstu w usłudze Translator 3,0: przykłady słownika
+# <a name="translator-30-dictionary-examples"></a>Translator 3,0: przykłady słownika
 
 Zawiera przykłady pokazujące, jak terminy w słowniku są używane w kontekście. Ta operacja jest używana wspólnie z funkcją [Lookup dictionary](./v3-0-dictionary-lookup.md).
 
@@ -35,7 +35,7 @@ Parametry żądania przesłane na ciągu zapytania są następujące:
 
 | Parametr zapytania | Opis |
 | --------- | ----------- |
-| api-version <img width=200/> | **Wymagany parametr**.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0`. |
+| api-version <img width=200/> | **Wymagany parametr**.<br/>Wersja interfejsu API żądana przez klienta. Wartość musi być `3.0` . |
 | wniosek | **Wymagany parametr**.<br/>Określa język tekstu wejściowego. Język źródłowy musi być jednym z [obsługiwanych języków](./v3-0-languages.md) zawartych w `dictionary` zakresie. |
 | na | **Wymagany parametr**.<br/>Określa język tekstu wyjściowego. Język docelowy musi być jednym z [obsługiwanych języków](./v3-0-languages.md) zawartych w `dictionary` zakresie.  | 
 
@@ -44,9 +44,9 @@ Nagłówki żądań obejmują:
 | Nagłówki  | Opis |
 | ------ | ----------- |
 | Nagłówki uwierzytelniania <img width=200/>  | **Wymagany nagłówek żądania**.<br/>Zobacz <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">dostępne opcje uwierzytelniania</a>. |
-| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json`. |
+| Content-Type | **Wymagany nagłówek żądania**.<br/>Określa typ zawartości ładunku. Możliwe wartości to: `application/json` . |
 | Długość zawartości   | **Wymagany nagłówek żądania**.<br/>Długość treści żądania. |
-| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Możesz pominąć ten nagłówek, jeśli dołączysz identyfikator śledzenia w ciągu zapytania przy użyciu parametru zapytania o nazwie `ClientTraceId`. |
+| X-ClientTraceId   | **Opcjonalne**.<br/>Wygenerowany przez klienta identyfikator GUID służący do unikatowej identyfikacji żądania. Możesz pominąć ten nagłówek, jeśli dołączysz identyfikator śledzenia w ciągu zapytania przy użyciu parametru zapytania o nazwie `ClientTraceId` . |
 
 ## <a name="request-body"></a>Treść żądania
 
@@ -92,11 +92,11 @@ Pomyślna odpowiedź to tablica JSON z jednym wynikiem dla każdego ciągu w tab
     * `targetSuffix`: Ciąg podobny do `sourceSuffix` dla elementu docelowego.
 
     > [!NOTE]
-    > Jeśli w słowniku nie ma przykładów, odpowiedź jest 200 (OK), ale `examples` lista jest pusta.
+    > Jeśli w słowniku nie ma przykładów, odpowiedź jest 200 (OK), ale `examples` Lista jest pusta.
 
 ## <a name="examples"></a>Przykłady
 
-Ten przykład pokazuje, jak wyszukiwać przykłady dla pary składające się z okresu `fly` angielskiego i jego tłumaczenia `volar`hiszpańskiego.
+Ten przykład pokazuje, jak wyszukiwać przykłady dla pary składające się z okresu angielskiego `fly` i jego tłumaczenia hiszpańskiego `volar` .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

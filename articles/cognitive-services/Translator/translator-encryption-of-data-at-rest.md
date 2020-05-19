@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372239"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590897"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w usłudze translator
 
@@ -41,7 +41,7 @@ Istnieje również możliwość zarządzania subskrypcją przy użyciu własnych
 
 Wykonaj następujące kroki, aby włączyć obsługę kluczy zarządzanych przez klienta w usłudze Translator:
 
-1. Utwórz nowy tłumaczenie tekstu w usłudze Translator regionalny lub regionalny Cognitive Services zasobów. Nie będzie on działał z zasobem globalnym.
+1. Utwórz nowy, regionalny translator lub Cognitive Services regionalny zasób. Nie będzie on działał z zasobem globalnym.
 2. Włączono tożsamość zarządzaną w Azure Portal i Dodaj informacje o kluczu zarządzanym przez klienta.
 3. Utwórz nowy obszar roboczy w usłudze tłumaczenia niestandardowego i skojarz te informacje z subskrypcją.
 

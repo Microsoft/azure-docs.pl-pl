@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 11cb0d995537b8979c3727bf508045c6e31fc208
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115153"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592614"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Pracowni Labs w Azure Lab Services — często zadawane pytania
 Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonarnych w Azure Lab Services. 
@@ -28,8 +28,8 @@ Uzyskaj odpowiedzi na kilka typowych pytań dotyczących laboratoriów stacjonar
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Czy przydziały na użytkownika, czy na tydzień czy na cały czas trwania laboratorium? 
 Przydział ustawiony dla laboratorium jest przeznaczony dla każdego ucznia na cały czas trwania laboratorium. [Zaplanowana godzina działania maszyn wirtualnych](how-to-create-schedules.md) nie jest uwzględniana w stosunku do przydziału przydzielonego dla użytkownika. Limit przydziału jest przeznaczony dla czasu poza godzinami harmonogramu, które student spędza na maszynach wirtualnych.  Aby uzyskać więcej informacji na temat przydziałów, zobacz [Ustawianie przydziałów dla użytkowników](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Jeśli profesor włącza na maszynie wirtualnej ucznia, czy ma to wpływ na limit przydziału ucznia? 
-Nie. Nie. Gdy profesor włącza na maszynie wirtualnej ucznia, nie ma to wpływu na przydział przydzielony studentowi. 
+### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Jeśli nauczycieli włącza na maszynie wirtualnej ucznia, czy ma to wpływ na limit przydziału ucznia? 
+Nie. Nie. Gdy nauczycieli włącza na maszynie wirtualnej ucznia, nie ma to wpływu na przydział przydzielony studentowi. 
 
 ## <a name="schedules"></a>Harmonogramy
 

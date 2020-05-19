@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ce79674462f82e05cc07e9e470cb82ff8e47f672
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118485"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592648"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Dołączanie lub odłączanie galerii obrazów udostępnionych w Azure Lab Services
 W tym artykule opisano sposób dołączania lub odłączania udostępnionej galerii obrazów do konta laboratorium. 
@@ -83,7 +83,7 @@ Poniższa procedura przedstawia sposób dołączania istniejącej galerii obraz�
     
     W tym przykładzie nie ma jeszcze obrazów w galerii obrazów udostępnionych.
 
-    Azure Lab Services tożsamość jest dodawana jako współautor do galerii obrazów udostępnionych, która jest dołączona do laboratorium. Umożliwia nauczycielom/administratorom IT zapisywanie obrazów maszyn wirtualnych w galerii obrazów udostępnionych. Wszystkie laboratoria utworzone w ramach tego konta laboratorium mają dostęp do dołączonej galerii obrazów udostępnionych. 
+    Azure Lab Services tożsamość jest dodawana jako współautor do galerii obrazów udostępnionych, która jest dołączona do laboratorium. Umożliwia ona nauczycielom/administratorom IT zapisywanie obrazów maszyn wirtualnych w galerii obrazów udostępnionych. Wszystkie laboratoria utworzone w ramach tego konta laboratorium mają dostęp do dołączonej galerii obrazów udostępnionych. 
 
     Wszystkie obrazy z dołączonej udostępnionej galerii obrazów są domyślnie włączone. Można włączać lub wyłączać wybrane obrazy, zaznaczając je na liście i używając przycisku **Włącz wybrane obrazy** lub **Wyłącz wybrane obrazy** . 
 

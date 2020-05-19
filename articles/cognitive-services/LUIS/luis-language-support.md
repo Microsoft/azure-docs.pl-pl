@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80744147"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591050"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -24,13 +24,13 @@ LUIS ma wiele funkcji w ramach usługi. Nie wszystkie funkcje mają taką samą 
 
 ## <a name="multi-language-luis-apps"></a>Aplikacje LUIS z obsługą wielu języków
 
-Jeśli potrzebujesz LUIS aplikacji klienckiej z obsługą wielu języków, takiej jak chatbot, masz kilka opcji. Jeśli LUIS obsługuje wszystkie języki, tworzysz aplikację LUIS dla każdego języka. Każda aplikacja LUIS ma unikatowy identyfikator aplikacji i dziennik punktów końcowych. Jeśli musisz zapewnić zrozumienie języka dla LUIS języka nie obsługuje, możesz użyć [interfejsu API usługi Microsoft Translator](../Translator/translator-info-overview.md) , aby przetłumaczyć wypowiedź w obsługiwany język, przesłać wypowiedź do punktu końcowego Luis i otrzymać wynikowe wyniki.
+Jeśli potrzebujesz LUIS aplikacji klienckiej z obsługą wielu języków, takiej jak chatbot, masz kilka opcji. Jeśli LUIS obsługuje wszystkie języki, tworzysz aplikację LUIS dla każdego języka. Każda aplikacja LUIS ma unikatowy identyfikator aplikacji i dziennik punktów końcowych. Jeśli musisz zapewnić zrozumienie języka dla LUIS języka nie obsługuje, możesz użyć [usługi translatora](../Translator/translator-info-overview.md) , aby przetłumaczyć wypowiedź w obsługiwany język, przesłać wypowiedź do punktu końcowego Luis i otrzymać wynikowe wyniki.
 
 ## <a name="languages-supported"></a>Obsługiwane języki
 
 LUIS rozumie wyrażenia długości w następujących językach:
 
-| Język |Ustawienia regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Tonacji i<br>Służąc|
+| Język |Regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Tonacji i<br>Służąc|
 |--|--|:--:|:--:|:--:|:--:|
 | Angielski (amerykański) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabski (wersja zapoznawcza — nowoczesny Standard arabski) |`ar-AR`|-|-|-|-|
@@ -38,14 +38,14 @@ LUIS rozumie wyrażenia długości w następujących językach:
 | Niderlandzki |`nl-NL` |✔|-|-|✔|
 | Francuski (Francja) |`fr-FR` |✔| ✔ |✔ |✔|
 | francuski (Kanada) |`fr-CA` |-|-|-|✔|
-| niemiecki |`de-DE` |✔| ✔ |✔ |✔|
+| Niemiecki |`de-DE` |✔| ✔ |✔ |✔|
 | Gudżarati | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
 | Włoski |`it-IT` |✔| ✔ |✔|✔|
 | *[Japoński](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Tylko fraza klucza|
-| koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
+| Koreański |`ko-KR` |✔|-|-|Tylko fraza klucza|
 | Marathi | `mr-IN`|-|-|-|-|
-| portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
+| Portugalski (Brazylia) |`pt-BR` |✔| ✔ |✔ |nie wszystkie hodowle podrzędne|
 | hiszpański (Hiszpania) |`es-ES` |✔| ✔ |✔|✔|
 | Hiszpański (Meksyk)|`es-MX` |-|-|✔|✔|
 | Tamilski | `ta-IN`|-|-|-|-|
@@ -74,7 +74,7 @@ Zobacz [języki obsługiwane](../speech-service/speech-to-text.md) przez mowę d
 Zapoznaj się z listą obsługiwanych języków i Stanów w sprawdzanie pisowni Bing [obsługiwanych językach](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) .
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Rzadkie lub obce słowa w aplikacji
-W `en-us` kulturze Luis się z rozróżnieniem większości wyrazów angielskich, w tym żargonu. W `zh-cn` kulturze Luis się z rozróżnieniem większości znaków w języku chińskim. Jeśli używasz rzadkich wyrazów `en-us` w znakach `zh-cn`i zobaczysz, że Luis nie można odróżnić tego wyrazu lub znaku, możesz dodać ten wyraz lub znak do [funkcji listy fraz](luis-how-to-add-features.md). Na przykład słowa poza kulturą aplikacji — czyli słowa obce — należy dodać do funkcji listy fraz.
+W `en-us` kulturze Luis się z rozróżnieniem większości wyrazów angielskich, w tym żargonu. W `zh-cn` kulturze Luis się z rozróżnieniem większości znaków w języku chińskim. Jeśli używasz rzadkich wyrazów w `en-us` znakach `zh-cn` i zobaczysz, że Luis nie można odróżnić tego wyrazu lub znaku, możesz dodać ten wyraz lub znak do [funkcji listy fraz](luis-how-to-add-features.md). Na przykład słowa poza kulturą aplikacji — czyli słowa obce — należy dodać do funkcji listy fraz.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -92,14 +92,14 @@ Aby wykonać Uczenie maszynowe, LUIS dzieli wypowiedź na [tokeny](luis-glossary
 |Angielski (en-us)|✔ |||
 |Francuski (fr-FR)|✔|||
 |Francuski (fr-CA)|✔|||
-|niemiecki|✔||✔|
+|Niemiecki|✔||✔|
 |Gudżarati|✔|||
 |Hindi|✔|||
 |Włoski|✔|||
-|japoński|||✔
-|koreański||✔||
+|Japoński|||✔
+|Koreański||✔||
 |Marathi|✔|||
-|portugalski (Brazylia)|✔|||
+|Portugalski (Brazylia)|✔|||
 |Hiszpański (es-ES)|✔|||
 |Hiszpański (es-MX)|✔|||
 |Tamilski|✔|||
@@ -113,9 +113,9 @@ Następujące kultury mają niestandardowe wersje tokenizatora:
 
 |Kultura|Wersja|Przeznaczenie|
 |--|--|--|
-|niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen`. Zezwalanie na `kranken` oznaczanie `wagen` i niezależnie jako różne jednostki.|
-|niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
-|Niderlandzki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school`. Zezwalanie na `kleuter` oznaczanie `school` i niezależnie jako różne jednostki.|
+|Niemiecki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, jest on włączony `Ich fahre einen kranken wagen` . Zezwalanie na oznaczanie `kranken` i `wagen` niezależnie jako różne jednostki.|
+|Niemiecki<br>`de-de`|1.0.2|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ich fahre einen krankenwagen` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `krankenwagen` to, że jest oznaczona jako pojedyncza jednostka. |
+|Niderlandzki<br>`de-de`|1.0.0|Tokenizes wyrazy, dzieląc je za pomocą tokenizatora opartych na uczeniu maszynowym, które próbują podzielić wyrazy złożone na ich pojedyncze składniki.<br>Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, jest on włączony `Ik ga naar de kleuter school` . Zezwalanie na oznaczanie `kleuter` i `school` niezależnie jako różne jednostki.|
 |Niderlandzki<br>`de-de`|1.0.1|Tokenizes wyrazy, dzieląc je na spacje.<br> Jeśli użytkownik wprowadzi `Ik ga naar de kleuterschool` jako wypowiedź, pozostaje pojedynczym tokenem. Oznacza `kleuterschool` to, że jest oznaczona jako pojedyncza jednostka. |
 
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 294a270107033590e340db49b85e8a67acbbb701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8253b784a427ceb3842b6b4d585c52a2c30e0c4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116870"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592427"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Używanie galerii obrazów udostępnionych w Azure Lab Services
-W tym artykule pokazano, jak nauczyciele/administrator laboratorium mogą zapisywać obraz maszyny wirtualnej szablonu w [galerii obrazów udostępnionych](../../virtual-machines/windows/shared-image-galleries.md) , dzięki czemu mogą one być używane przez inne osoby do tworzenia laboratoriów. 
+W tym artykule pokazano, jak wykładowcy/Administratorzy laboratorium mogą zapisywać obraz maszyny wirtualnej szablonu w [galerii obrazów udostępnionych](../../virtual-machines/windows/shared-image-galleries.md) , aby mógł być używany przez inne osoby do tworzenia laboratoriów. 
 
 ## <a name="scenarios"></a>Scenariusze
 Oto kilka scenariuszy obsługiwanych przez tę funkcję: 
@@ -41,7 +41,7 @@ Oto kilka scenariuszy obsługiwanych przez tę funkcję:
 
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Zapisywanie obrazu w galerii obrazów udostępnionych
-Po dołączeniu udostępnionej galerii obrazów administrator konta laboratorium lub nauczyciel może zapisać obraz do galerii obrazów udostępnionych, aby można go było ponownie wykorzystać przez innych nauczycieli. 
+Po dołączeniu udostępnionej galerii obrazów administrator konta laboratorium lub nauczycieli może zapisać obraz do galerii obrazów udostępnionych, aby można go było ponownie wykorzystać przez innych nauczycieli. 
 
 1. Na stronie **szablon** laboratorium wybierz pozycję **Eksportuj do galerii obrazów udostępnionych** na pasku narzędzi.
 
@@ -64,7 +64,7 @@ Po dołączeniu udostępnionej galerii obrazów administrator konta laboratorium
     
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Korzystanie z obrazu z galerii obrazów udostępnionych
-Nauczyciel/profesor może wybrać niestandardowy obraz dostępny w galerii obrazów udostępnionych dla szablonu podczas tworzenia nowego laboratorium.
+Nauczycieli może wybrać niestandardowy obraz dostępny w galerii obrazów udostępnionych dla szablonu podczas tworzenia nowego laboratorium.
 
 ![Korzystanie z obrazu maszyny wirtualnej z galerii](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 

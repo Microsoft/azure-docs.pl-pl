@@ -2,19 +2,17 @@
 title: Testowanie aplikacji w portalu LUIS
 description: Użyj Language Understanding (LUIS), aby w sposób ciągły pracować w aplikacji, aby udoskonalić ją i ulepszyć jej zrozumienie.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219820"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591866"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testowanie aplikacji LUIS w portalu LUIS
 
 [Testowanie](luis-concept-test.md) aplikacji jest procesem iteracyjnym. Po przekształceniu aplikacji LUIS przetestuj ją z przykładową wyrażenia długości, aby sprawdzić, czy zamiary i jednostki są rozpoznawane poprawnie. Jeśli tak nie jest, wprowadź ponownie aktualizacje aplikacji LUIS, uczenia i testowania.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -24,13 +22,16 @@ ms.locfileid: "79219820"
 
 ## <a name="train-before-testing"></a>Uczenie przed testowaniem
 
-Aby przeprowadzić test względem najnowszej wersji aktywnej aplikacji, wybierz opcję **uczenie** z górnego menu przed przetestowaniem.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. Aby przeprowadzić test względem najnowszej wersji aktywnej aplikacji, wybierz opcję **uczenie** z górnego menu przed przetestowaniem.
 
 ## <a name="test-an-utterance"></a>Testowanie wypowiedź
 
 Test wypowiedź nie powinien być dokładnie taki sam, jak w przypadku każdego przykładu wyrażenia długości w aplikacji. Test wypowiedź powinien obejmować wybór wyrazów, Długość frazy oraz użycie jednostek, których oczekujesz dla użytkownika.
 
-1. Uzyskaj dostęp do aplikacji, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 
 1. Aby uzyskać dostęp do panelu slajdu **testu** , wybierz opcję **test** w górnym panelu aplikacji.
 

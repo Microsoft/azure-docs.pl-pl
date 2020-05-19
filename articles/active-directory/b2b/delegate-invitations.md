@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199435"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591288"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Włącz zewnętrzną współpracę B2B i Zarządzaj osobami, które mogą zapraszać Gości
 
@@ -37,7 +37,7 @@ Domyślnie wszyscy użytkownicy, w tym Goście, mogą zapraszać użytkowników-
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator dzierżawy.
 2. Wybierz pozycję **Azure Active Directory**.
-3. Wybierz pozycję Ustawienia **relacji organizacyjnych**  >  **Settings** (lub wybierz pozycję **zewnętrzne**  >  **Ustawienia współpracy**).
+3. Wybierz pozycję **tożsamości zewnętrzne**  >  **Ustawienia współpracy zewnętrznej**.
 6. Na stronie **Ustawienia współpracy zewnętrznej** wybierz zasady, które chcesz włączyć.
 
    ![Ustawienia zewnętrznej współpracy](./media/delegate-invitations/control-who-to-invite.png)

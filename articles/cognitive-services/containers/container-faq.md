@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690822"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592189"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690822"
 
 **P: co jest dostępne?**
 
-Odp **.:** [Obsługa kontenerów na platformie Azure Cognitive Services](../cognitive-services-container-support.md) pozwala deweloperom korzystać z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Obsługa kontenerów jest obecnie dostępna w wersji zapoznawczej dla podzestawu Cognitive Services platformy Azure, w tym części:
-
-> [!div class="checklist"]
-> * [Narzędzie do wykrywania anomalii][ad-containers]
-> * [Przetwarzanie obrazów][cv-containers]
-> * [Rozpoznawanie twarzy][fa-containers]
-> * [Rozpoznawanie formularzy][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [Interfejs API usługi rozpoznawania mowy][sp-containers]
-> * [Analiza tekstu][ta-containers]
+Odp **.:** Kontenery usługi Azure Cognitive Services umożliwiają deweloperom korzystanie z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Niektóre kontenery są dostępne jako [wersja zapoznawcza](../cognitive-services-gating-process.md), co może wymagać, aby aplikacja mogła uzyskać dostęp. Inne kontenery są publicznie dostępne jako wersja zapoznawcza lub są ogólnie dostępne. Pełną listę kontenerów i ich dostępność można znaleźć w artykule [Obsługa kontenerów w usłudze Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **P: czy istnieje różnica między chmurą Cognitive Services i kontenerami?**
 
@@ -80,7 +71,7 @@ Odp **.:** Bez względu na to, czy nie masz niezawodnego połączenia z Internet
 
 **P: czy te kontenery są zgodne z OpenShift?** 
 
-Kontenery nie są testowane z OpenShift, ale ogólnie kontenery Cognitive Services powinny działać na dowolnej platformie, która obsługuje obrazy platformy Docker. Jeśli używasz OpenShift, zalecamy uruchomienie kontenerów jako `root-user`.
+Kontenery nie są testowane z OpenShift, ale ogólnie kontenery Cognitive Services powinny działać na dowolnej platformie, która obsługuje obrazy platformy Docker. Jeśli używasz OpenShift, zalecamy uruchomienie kontenerów jako `root-user` .
 
 **P: Jak mogę zapewniać opinie o produkcie i zalecenia dotyczące funkcji?**
 

@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji do kolby do translacji, wytłumaczania i analizowania tekstu interfejs API tłumaczenia tekstu w usłudze Translator'
+title: 'Samouczek: Tworzenie aplikacji do kolby do translacji, wytłumaczania i analizowania tłumaczeń tekstu'
 titleSuffix: Azure Cognitive Services
 description: W tym samouczku utworzysz aplikację sieci Web opartą na kolbie, która umożliwia tłumaczenie tekstu, analizowanie tonacji i syntezę przetłumaczonego tekstu w mowę.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5034dafa015054e9e9d0804088f345929815b974
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397950"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592359"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 
@@ -27,7 +27,7 @@ Oto, co obejmuje ten samouczek:
 > * Pobierz klucze subskrypcji platformy Azure
 > * Konfigurowanie środowiska deweloperskiego i Instalowanie zależności
 > * Tworzenie aplikacji do kolby
-> * Użyj interfejs API tłumaczenia tekstu w usłudze Translator do tłumaczenia tekstu
+> * Tłumaczenie tekstu przy użyciu translatora
 > * Użyj analiza tekstu, aby analizować pozytywne/ujemne tonacji tekstu wejściowego i tłumaczenia
 > * Konwertowanie przetłumaczonego tekstu na mowę z użyciem usługi Speech Services
 > * Uruchamianie aplikacji z kolby lokalnie
@@ -52,14 +52,14 @@ Zapoznaj się z oprogramowaniem i kluczami subskrypcji, które będą potrzebne 
 * [Narzędzia Git](https://git-scm.com/downloads)
 * IDE lub Edytor tekstu, taki jak [Visual Studio Code](https://code.visualstudio.com/) lub [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) lub [Firefox](https://www.mozilla.org/firefox)
-* Klucz subskrypcji **tłumaczenie tekstu w usłudze translator** (należy zauważyć, że nie jest wymagane wybranie regionu).
+* Klucz subskrypcji usługi **translator** (należy zauważyć, że nie jest wymagane wybranie regionu).
 * Klucz subskrypcji **Analiza tekstu** w regionie **zachodnie stany USA** .
 * Klucz subskrypcji **usługi Speech Services** w regionie **zachodnie stany USA** .
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Tworzenie konta i subskrybowanie zasobów
 
 Jak wspomniano wcześniej, będziesz potrzebować trzech kluczy subskrypcji dla tego samouczka. Oznacza to, że musisz utworzyć zasób na koncie platformy Azure dla:
-* Tekst usługi Translator
+* Translator
 * Analiza tekstu
 * Usługi mowy
 
@@ -87,7 +87,7 @@ Przed utworzeniem kolby aplikacji sieci Web należy utworzyć katalog roboczy dl
 
 ### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Tworzenie i aktywowanie środowiska wirtualnego za pomocą`virtualenv`
 
-Utwórzmy środowisko wirtualne dla naszej aplikacji z `virtualenv`przedziału. Użycie środowiska wirtualnego gwarantuje, że masz czyste środowisko do pracy.
+Utwórzmy środowisko wirtualne dla naszej aplikacji z przedziału `virtualenv` . Użycie środowiska wirtualnego gwarantuje, że masz czyste środowisko do pracy.
 
 1. W katalogu roboczym Uruchom to polecenie, aby utworzyć środowisko wirtualne: **macOS/Linux:**
    ```
@@ -110,9 +110,9 @@ Utwórzmy środowisko wirtualne dla naszej aplikacji z `virtualenv`przedziału. 
    | | Wiersz polecenia | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
-   Po uruchomieniu tego polecenia, w wierszu polecenia lub w `venv`sesji terminala powinien być poprzedzony.
+   Po uruchomieniu tego polecenia, w wierszu polecenia lub w sesji terminala powinien być poprzedzony `venv` .
 
-3. Sesję można dezaktywować w dowolnym momencie, wpisując w wierszu polecenia lub terminalu: `deactivate`.
+3. Sesję można dezaktywować w dowolnym momencie, wpisując w wierszu polecenia lub terminalu: `deactivate` .
 
 > [!NOTE]
 > Język Python zawiera obszerną dokumentację tworzenia środowisk wirtualnych i zarządzania nimi, zobacz [virtualenv](https://virtualenv.pypa.io/en/latest/).
@@ -144,7 +144,7 @@ Następnie musimy zainstalować kolbę. Kolba obsługuje routing dla naszej apli
    ```
    Wersja powinna być drukowana do terminalu. Coś innego oznacza, że wystąpił problem.
 
-2. Aby uruchomić aplikację z kolbą, możesz użyć polecenia kolby lub przełącznika języka Python-m z kolbą. Przed wykonaniem tej czynności należy poinformować Terminal, z którym aplikacja ma współpracować, eksportując zmienną `FLASK_APP` środowiskową:
+2. Aby uruchomić aplikację z kolbą, możesz użyć polecenia kolby lub przełącznika języka Python-m z kolbą. Przed wykonaniem tej czynności należy poinformować Terminal, z którym aplikacja ma współpracować, eksportując `FLASK_APP` zmienną środowiskową:
 
    **macOS/Linux**:
    ```
@@ -162,7 +162,7 @@ W tej sekcji utworzysz aplikację podstawoweej kolby, która zwraca plik HTML, g
 
 ### <a name="what-is-a-flask-route"></a>Co to jest trasa do kolby?
 
-Poświęćmy chwilę na rozmowę o "[trasach](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". Routing jest używany do powiązania adresu URL z określoną funkcją. Kolba używa trasy dekoratory do rejestrowania funkcji dla określonych adresów URL. Na przykład gdy użytkownik nawiguje do głównego (`/`) aplikacji sieci Web, `index.html` jest renderowany.  
+Poświęćmy chwilę na rozmowę o "[trasach](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". Routing jest używany do powiązania adresu URL z określoną funkcją. Kolba używa trasy dekoratory do rejestrowania funkcji dla określonych adresów URL. Na przykład gdy użytkownik nawiguje do głównego ( `/` ) aplikacji sieci Web, `index.html` jest renderowany.  
 
 ```python
 @app.route('/')
@@ -197,9 +197,9 @@ Chociaż te przykłady ilustrują sposób renderowania stron HTML dla użytkowni
        return render_template('index.html')
    ```
 
-   Ten blok kodu informuje aplikację `index.html` za każdym razem, gdy użytkownik przechodzi do katalogu głównego aplikacji sieci Web (`/`).
+   Ten blok kodu informuje aplikację `index.html` za każdym razem, gdy użytkownik przechodzi do katalogu głównego aplikacji sieci Web ( `/` ).
 
-2. Następnie Utwórzmy fronton dla naszej aplikacji sieci Web. Utwórz plik o nazwie `index.html` w `templates` katalogu. Następnie skopiuj ten kod do `templates/index.html`programu.
+2. Następnie Utwórzmy fronton dla naszej aplikacji sieci Web. Utwórz plik o nazwie `index.html` w `templates` katalogu. Następnie skopiuj ten kod do programu `templates/index.html` .
 
    ```html
    <!doctype html>
@@ -245,17 +245,17 @@ Chociaż te przykłady ilustrują sposób renderowania stron HTML dla użytkowni
 
 Teraz, gdy masz pomysł na działanie prostej aplikacji do kolby, przyjrzyjmy się:
 
-* Napisz część języka Python, aby wywołać interfejs API tłumaczenia tekstu w usłudze Translator i zwrócić odpowiedź
+* Napisz część języka Python, aby wywołać translator i zwrócić odpowiedź
 * Tworzenie trasy kolby do wywoływania kodu w języku Python
 * Aktualizowanie kodu HTML za pomocą obszaru na potrzeby wprowadzania tekstu i tłumaczenia, selektor języka i przycisk tłumaczenie
 * Napisz kod JavaScript, który pozwala użytkownikom na korzystanie z aplikacji z kolby w kodzie HTML
 
-### <a name="call-the-translator-text-api"></a>Wywołaj interfejs API tłumaczenia tekstu w usłudze Translator
+### <a name="call-the-translator"></a>Wywoływanie translatora
 
-Pierwszą czynnością, którą należy wykonać, jest zapisanie funkcji, która wywołuje interfejs API tłumaczenia tekstu w usłudze Translator. Ta funkcja będzie przyjmować dwa argumenty: `text_input` i `language_output`. Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk tłumaczenie w aplikacji. Obszar tekstowy w kodzie HTML jest wysyłany jako `text_input`, a wartość wybór języka w kodzie HTML jest wysyłana jako. `language_output`
+Najpierw należy napisać funkcję do wywołania translatora. Ta funkcja będzie przyjmować dwa argumenty: `text_input` i `language_output` . Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk tłumaczenie w aplikacji. Obszar tekstowy w kodzie HTML jest wysyłany jako `text_input` , a wartość wybór języka w kodzie HTML jest wysyłana jako `language_output` .
 
 1. Zacznijmy od utworzenia pliku o nazwie `translate.py` w katalogu głównym katalogu roboczego.
-2. Następnie Dodaj ten kod do `translate.py`. Ta funkcja przyjmuje dwa argumenty: `text_input` i `language_output`.
+2. Następnie Dodaj ten kod do `translate.py` . Ta funkcja przyjmuje dwa argumenty: `text_input` i `language_output` .
    ```python
    import os, requests, uuid, json
 
@@ -288,15 +288,15 @@ Pierwszą czynnością, którą należy wykonać, jest zapisanie funkcji, która
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Dodaj klucz subskrypcji tłumaczenie tekstu w usłudze Translator i Zapisz.
+3. Dodaj klucz subskrypcji usługi Translator i Zapisz.
 
 ### <a name="add-a-route-to-apppy"></a>Dodawanie trasy do`app.py`
 
-Następnie musisz utworzyć trasę w aplikacji kolby, która wywołuje `translate.py`. Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk tłumaczenie w aplikacji.
+Następnie musisz utworzyć trasę w aplikacji kolby, która wywołuje `translate.py` . Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk tłumaczenie w aplikacji.
 
 W przypadku tej aplikacji trasy będą akceptować `POST` żądania. Wynika to z faktu, że funkcja oczekuje tekstu do przetłumaczenia i języka wyjściowego dla tłumaczenia.
 
-Kolba zawiera funkcje pomocnika, które ułatwiają analizowanie poszczególnych żądań i zarządzanie nimi. W podanym kodzie `get_json()` zwraca dane z `POST` żądania jako JSON. Następnie za `data['text']` pomocą `data['to']`i, wartości języka text i Output są przekazywane do `get_translation()` funkcji dostępnej z `translate.py`. Ostatnim krokiem jest zwrócenie odpowiedzi w formacie JSON, ponieważ konieczne będzie wyświetlenie tych danych w aplikacji sieci Web.
+Kolba zawiera funkcje pomocnika, które ułatwiają analizowanie poszczególnych żądań i zarządzanie nimi. W podanym kodzie `get_json()` zwraca dane z `POST` żądania jako JSON. Następnie za pomocą `data['text']` i `data['to']` , wartości języka text i Output są przekazywane do `get_translation()` funkcji dostępnej z `translate.py` . Ostatnim krokiem jest zwrócenie odpowiedzi w formacie JSON, ponieważ konieczne będzie wyświetlenie tych danych w aplikacji sieci Web.
 
 W poniższych sekcjach należy powtórzyć ten proces podczas tworzenia tras dla analizy tonacji i syntezy mowy.
 
@@ -305,7 +305,7 @@ W poniższych sekcjach należy powtórzyć ten proces podczas tworzenia tras dla
    ```python
    import translate
    ```
-   Teraz nasza aplikacja do kolby może korzystać z metody `translate.py`dostępnej za pośrednictwem.
+   Teraz nasza aplikacja do kolby może korzystać z metody dostępnej za pośrednictwem `translate.py` .
 
 2. Skopiuj ten kod na koniec `app.py` i Zapisz:
 
@@ -329,7 +329,7 @@ Teraz, gdy masz funkcję tłumaczenia tekstu i trasy w aplikacji w kolbie do jej
 * Udostępnia obszar tekstu tylko do odczytu, w którym jest wyświetlane dane wyjściowe tłumaczenia.
 * Zawiera symbole zastępcze dla kodu tonacji Analysis i syntezy mowy, które zostaną dodane do tego pliku w dalszej części tego samouczka.
 
-Aktualizacjamy `index.html`.
+Aktualizacjamy `index.html` .
 
 1. Otwórz `index.html` i Znajdź następujące Komentarze do kodu:
    ```html
@@ -414,12 +414,12 @@ Następnym krokiem jest napisanie kodu JavaScript. Jest to mostek między trasą
 
 Ten `main.js` plik jest mostkiem między trasą HTML i kolbą. Twoja aplikacja będzie używać kombinacji jQuery, AJAX i XMLHttpRequest do renderowania zawartości i `POST` żądania do tras do kolb.
 
-W poniższym kodzie zawartość kodu HTML służy do konstruowania żądania do trasy w kolbie. W odróżnieniu od zawartości obszaru tekstowego i selektora języka są przypisywane zmienne, a następnie przekazane w żądaniu do `translate-text`.
+W poniższym kodzie zawartość kodu HTML służy do konstruowania żądania do trasy w kolbie. W odróżnieniu od zawartości obszaru tekstowego i selektora języka są przypisywane zmienne, a następnie przekazane w żądaniu do `translate-text` .
 
 Kod następnie iteruje przez odpowiedź i aktualizuje kod HTML za pomocą tłumaczenia, wykrytego języka i wyniku pewności.
 
 1. W środowisku IDE Utwórz plik o nazwie `main.js` w `static/scripts` katalogu.
-2. Kopiuj ten kod do `static/scripts/main.js`:
+2. Kopiuj ten kod do `static/scripts/main.js` :
    ```javascript
    //Initiate jQuery on load.
    $(function() {
@@ -485,10 +485,10 @@ W tej sekcji nastąpi kilka rzeczy:
 
 ### <a name="call-the-text-analytics-api"></a>Wywoływanie interfejsu API usługi Text Analytics
 
-Napiszmy funkcję wywołującą interfejs API analizy tekstu. Ta funkcja będzie przyjmować cztery argumenty: `input_text`, `input_language` `output_text`, i `output_language`. Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Uruchom analizę tonacji w aplikacji. Dane dostarczone przez użytkownika z obszaru tekstowego i selektora języka, a także wykryty język i dane wyjściowe tłumaczenia są udostępniane każdemu żądaniu. Obiekt Response zawiera wyniki tonacji dla źródła i tłumaczenia. W poniższych sekcjach można napisać kod JavaScript, aby przeanalizować odpowiedź i użyć jej w aplikacji. Na razie skupmy się na interfejs API analizy tekstu.
+Napiszmy funkcję wywołującą interfejs API analizy tekstu. Ta funkcja będzie przyjmować cztery argumenty: `input_text` , `input_language` , `output_text` i `output_language` . Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Uruchom analizę tonacji w aplikacji. Dane dostarczone przez użytkownika z obszaru tekstowego i selektora języka, a także wykryty język i dane wyjściowe tłumaczenia są udostępniane każdemu żądaniu. Obiekt Response zawiera wyniki tonacji dla źródła i tłumaczenia. W poniższych sekcjach można napisać kod JavaScript, aby przeanalizować odpowiedź i użyć jej w aplikacji. Na razie skupmy się na interfejs API analizy tekstu.
 
 1. Utwórzmy plik o nazwie `sentiment.py` w katalogu głównym katalogu roboczego.
-2. Następnie Dodaj ten kod do `sentiment.py`.
+2. Następnie Dodaj ten kod do `sentiment.py` .
    ```python
    import os, requests, uuid, json
 
@@ -534,14 +534,14 @@ Napiszmy funkcję wywołującą interfejs API analizy tekstu. Ta funkcja będzie
 
 ### <a name="add-a-route-to-apppy"></a>Dodawanie trasy do`app.py`
 
-Utwórzmy trasę w aplikacji kolby, która wywołuje `sentiment.py`. Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Uruchom analizę tonacji w aplikacji. Podobnie jak trasy do translacji, ta trasa ma akceptować `POST` żądania, ponieważ funkcja oczekuje argumentów.
+Utwórzmy trasę w aplikacji kolby, która wywołuje `sentiment.py` . Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Uruchom analizę tonacji w aplikacji. Podobnie jak trasy do translacji, ta trasa ma akceptować `POST` żądania, ponieważ funkcja oczekuje argumentów.
 
 1. Otwórz `app.py` i Znajdź instrukcję import u góry `app.py` i zaktualizuj ją:
 
    ```python
    import translate, sentiment
    ```
-   Teraz nasza aplikacja do kolby może korzystać z metody `sentiment.py`dostępnej za pośrednictwem.
+   Teraz nasza aplikacja do kolby może korzystać z metody dostępnej za pośrednictwem `sentiment.py` .
 
 2. Skopiuj ten kod na koniec `app.py` i Zapisz:
    ```python
@@ -589,7 +589,7 @@ Kod następnie iteruje przez odpowiedź i aktualizuje kod HTML za pomocą wynik�
 
 1. W środowisku IDE Utwórz plik o nazwie `main.js` w `static` katalogu.
 
-2. Kopiuj ten kod do `static/scripts/main.js`:
+2. Kopiuj ten kod do `static/scripts/main.js` :
    ```javascript
    //Run sentinment analysis on input and translation.
    $("#sentiment-analysis").on("click", function(e) {
@@ -669,11 +669,11 @@ W tej sekcji nastąpi kilka rzeczy:
 
 ### <a name="call-the-text-to-speech-api"></a>Wywołaj tekst do Speech API
 
-Napiszmy funkcję do konwersji zamiany tekstu na mowę. Ta funkcja będzie przyjmować dwa argumenty: `input_text` i `voice_font`. Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Konwertuj tekst na mowę w aplikacji. `input_text`czy dane wyjściowe tłumaczenia zwracane przez wywołanie do tłumaczenia tekstu, `voice_font` to wartość z selektora czcionki głosowej w kodzie HTML.
+Napiszmy funkcję do konwersji zamiany tekstu na mowę. Ta funkcja będzie przyjmować dwa argumenty: `input_text` i `voice_font` . Ta funkcja jest wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Konwertuj tekst na mowę w aplikacji. `input_text`czy dane wyjściowe tłumaczenia zwracane przez wywołanie do tłumaczenia tekstu, `voice_font` to wartość z selektora czcionki głosowej w kodzie HTML.
 
 1. Utwórzmy plik o nazwie `synthesize.py` w katalogu głównym katalogu roboczego.
 
-2. Następnie Dodaj ten kod do `synthesize.py`.
+2. Następnie Dodaj ten kod do `synthesize.py` .
    ```Python
    import os, requests, time
    from xml.etree import ElementTree
@@ -728,14 +728,14 @@ Napiszmy funkcję do konwersji zamiany tekstu na mowę. Ta funkcja będzie przyj
 
 ### <a name="add-a-route-to-apppy"></a>Dodawanie trasy do`app.py`
 
-Utwórzmy trasę w aplikacji kolby, która wywołuje `synthesize.py`. Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Konwertuj tekst na mowę w aplikacji. Podobnie jak trasy do tłumaczenia i analizy tonacji, ta trasa akceptuje `POST` żądania, ponieważ funkcja oczekuje dwóch argumentów: tekst do syntezy oraz czcionkę głosu do odtwarzania.
+Utwórzmy trasę w aplikacji kolby, która wywołuje `synthesize.py` . Ta trasa będzie wywoływana za każdym razem, gdy użytkownik naciśnie przycisk Konwertuj tekst na mowę w aplikacji. Podobnie jak trasy do tłumaczenia i analizy tonacji, ta trasa akceptuje `POST` żądania, ponieważ funkcja oczekuje dwóch argumentów: tekst do syntezy oraz czcionkę głosu do odtwarzania.
 
 1. Otwórz `app.py` i Znajdź instrukcję import u góry `app.py` i zaktualizuj ją:
 
    ```python
    import translate, sentiment, synthesize
    ```
-   Teraz nasza aplikacja do kolby może korzystać z metody `synthesize.py`dostępnej za pośrednictwem.
+   Teraz nasza aplikacja do kolby może korzystać z metody dostępnej za pośrednictwem `synthesize.py` .
 
 2. Skopiuj ten kod na koniec `app.py` i Zapisz:
 
@@ -841,7 +841,7 @@ W poniższym kodzie zawartość kodu HTML służy do konstruowania żądania do 
 Kod następnie iteruje przez odpowiedź i aktualizuje kod HTML za pomocą wyników tonacji.
 
 1. W środowisku IDE Utwórz plik o nazwie `main.js` w `static` katalogu.
-2. Kopiuj ten kod do `static/scripts/main.js`:
+2. Kopiuj ten kod do `static/scripts/main.js` :
    ```javascript
    // Convert text-to-speech
    $("#text-to-speech").on("click", function(e) {
@@ -873,7 +873,7 @@ Kod następnie iteruje przez odpowiedź i aktualizuje kod HTML za pomocą wynik�
    });
    // Code for automatic language selection goes here.
    ```
-3. To już prawie koniec. W ostatnim przypadku należy dodać jakiś kod, aby `main.js` automatycznie wybrać czcionkę głosową opartą na języku wybranym do tłumaczenia. Dodaj ten blok kodu do `main.js`:
+3. To już prawie koniec. W ostatnim przypadku należy dodać jakiś kod, aby `main.js` automatycznie wybrać czcionkę głosową opartą na języku wybranym do tłumaczenia. Dodaj ten blok kodu do `main.js` :
    ```javascript
    // Automatic voice font selection based on translation output.
    $('select[id="select-language"]').change(function(e) {
@@ -961,6 +961,6 @@ Kod źródłowy dla tego projektu jest dostępny w serwisie [GitHub](https://git
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Odwołanie do interfejsu API tłumaczenia tekstu w usłudze Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Dokumentacja usługi translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Dokumentacja interfejsu API analizy tekstu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [Dokumentacja interfejsu API zamiany tekstu na mowę](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

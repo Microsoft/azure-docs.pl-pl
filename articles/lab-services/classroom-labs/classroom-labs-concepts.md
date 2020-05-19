@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115051"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592631"
 ---
 # <a name="classroom-labs-concepts"></a>Pojęcia związane z laboratoriami na potrzeby zajęć
 
@@ -26,13 +26,13 @@ Poniższa lista zawiera pojęcia i definicje dotyczące najważniejszych usług 
 
 ## <a name="quota"></a>Limit przydziału
 
-Przydział to limit czasu (w godzinach), który nauczyciel może ustawić dla ucznia, aby mógł korzystać z maszyny wirtualnej laboratorium. Można ustawić wartość 0 lub określoną liczbę godzin. Jeśli limit przydziału jest ustawiony na 0, student może używać maszyny wirtualnej tylko wtedy, gdy harmonogram jest uruchomiony lub gdy nauczyciel ręcznie włączy maszynę wirtualną dla ucznia.  
+Limit przydziału to czas (w godzinach), przez który nauczycieli może być ustawiony dla ucznia do korzystania z maszyny wirtualnej laboratorium. Można ustawić wartość 0 lub określoną liczbę godzin. Jeśli limit przydziału jest ustawiony na 0, student może użyć maszyny wirtualnej tylko wtedy, gdy harmonogram jest uruchomiony lub gdy nauczycieli ręcznie włączy maszynę wirtualną dla ucznia.  
 
-Godziny przydziału są zliczane, gdy student uruchamia maszynę wirtualną laboratorium.  Jeśli nauczyciel ręcznie uruchomi maszynę wirtualną laboratorium dla ucznia, godziny przydziału nie będą używane dla tego ucznia.
+Godziny przydziału są zliczane, gdy student uruchamia maszynę wirtualną laboratorium.  Jeśli nauczycieli ręcznie uruchamia maszynę wirtualną laboratorium dla ucznia, godziny przydziału nie będą używane dla tego ucznia.
 
 ## <a name="schedules"></a>Harmonogramy
 
-Harmonogramy to przedziały czasu, które nauczyciel może utworzyć dla klasy, dzięki czemu maszyny wirtualne uczniów są dostępne dla czasu klasy.  Harmonogramy mogą być jednorazowe lub cykliczne.  Godziny przydziału nie są używane, gdy harmonogram jest uruchomiony.
+Harmonogramy to przedziały czasu, które nauczycieli może utworzyć dla klasy, dzięki czemu maszyny wirtualne uczniów są dostępne dla czasu klasy.  Harmonogramy mogą być jednorazowe lub cykliczne.  Godziny przydziału nie są używane, gdy harmonogram jest uruchomiony.
 
 Istnieją trzy typy harmonogramów: standardowe, tylko do uruchomienia i tylko Zatrzymaj.
 
@@ -56,7 +56,7 @@ Zazwyczaj administrator IT zasobów w chmurze organizacji, który jest właścic
 - Konfiguruje zasady dla wszystkich laboratoriów i zarządza nimi.
 - Udziela osobom w organizacji uprawnień do tworzenia laboratorium w ramach konta laboratorium.
 
-### <a name="professor"></a>Profesor
+### <a name="educator"></a>Nauczyciel
 
 Zazwyczaj użytkownicy, tacy jak nauczyciel lub instruktor w trybie online, tworzą laboratoria na potrzeby zajęć w ramach konta laboratorium. Nauczyciel wykonuje następujące zadania:
 
@@ -66,7 +66,7 @@ Zazwyczaj użytkownicy, tacy jak nauczyciel lub instruktor w trybie online, twor
 - Określa, kto ma dostęp do laboratorium.
 - Udostępnia studentom link umożliwiający rejestrację w laboratorium.
 
-### <a name="student"></a>Student
+### <a name="student"></a>Uczeń
 
 Student wykonuje następujące zadania:
 

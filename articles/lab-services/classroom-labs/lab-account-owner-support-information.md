@@ -3,23 +3,23 @@ title: Azure Lab Services — Skonfiguruj informacje o pomocy technicznej (wła�
 description: Opisuje, w jaki sposób właściciel konta laboratorium może ustawić informacje kontaktowe pomocy technicznej. Twórcy laboratorium i użytkownicy laboratorium mogą go wyświetlać i używać w celu uzyskania pomocy.
 author: spelluru
 ms.author: spelluru
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: how-to
 ms.service: lab-services
-ms.openlocfilehash: f387e6b8832d8e7144b8338a3fc887b6b27db789
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07a37a4b87b7efe1fc3f3c08824da01e83cbb660
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80109344"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592410"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Konfigurowanie informacji o pomocy technicznej (właściciel konta laboratorium w Azure Lab Services)
-W tym artykule wyjaśniono, w jaki sposób (jako właściciel konta laboratorium) można określić informacje o pomocy technicznej, które twórcy laboratorium (instruktorzy) i użytkownicy laboratorium (studenci) mogą wykorzystać w celu uzyskania pomocy w przypadku wystąpienia jakichkolwiek problemów technicznych związanych z korzystaniem z konta laboratorium lub laboratorium. 
+W tym artykule wyjaśniono, jak użytkownik (jako właściciel konta laboratorium) może określić informacje o pomocy technicznej, które mogą wykorzystać twórcy laboratorium (wykładowcy) i użytkownicy laboratorium (studenci), aby uzyskać pomoc w przypadku wystąpienia jakichkolwiek problemów technicznych związanych z korzystaniem z konta laboratorium lub laboratorium. 
 
 Informacje o pomocy technicznej obejmują:
 
 - Adres URL
-- Poczta e-mail
+- E-mail
 - Telefon
 - Dodatkowe instrukcje 
 

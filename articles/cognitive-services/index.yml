@@ -10,13 +10,13 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/17/2020
-  ms.openlocfilehash: 734c95524088bf9b4f92e7e1981aabe3f1b963f2
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 3c68051c0df1cb2d15a1ef2bac6ea74fbf671f77
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529861"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83591798"
 highlightedContent:
   items:
   - title: Co to są usługi Cognitive Services?
@@ -83,7 +83,7 @@ conceptualContent:
       text: Analiza tekstu
     - url: ./translator/index.yml
       itemType: overview
-      text: Tekst usługi Translator
+      text: Translator
   - title: Mowa
     summary: Konwertuj mowę na tekst i tekst na naturalnie brzmiącą mowę. Tłumacz jeden język na inny oraz włącz weryfikację i rozpoznawanie osoby mówiącej.
     links:

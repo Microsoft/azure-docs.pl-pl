@@ -1,7 +1,7 @@
 ---
-title: Migrowanie do wersji v3-interfejs API tłumaczenia tekstu w usłudze Translator
+title: Migrowanie do wersji v3 — translator
 titleSuffix: Azure Cognitive Services
-description: Ten artykuł zawiera instrukcje ułatwiające Migrowanie z wersji 2 do V3 interfejs API tłumaczenia tekstu w usłudze Translator Cognitive Services platformy Azure.
+description: Ten artykuł zawiera instrukcje ułatwiające Migrowanie z wersji 2 do V3 usługi Azure Cognitive Services translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837307"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592716"
 ---
-# <a name="translator-text-api-v2-to-v3-migration"></a>Migracja interfejs API tłumaczenia tekstu w usłudze Translator v2 do wersji v3
+# <a name="translator-v2-to-v3-migration"></a>Migracja z usługi Translator do wersji v3
 
 > [!NOTE]
 > Wersja V2 została zaniechana 30 kwietnia 2018. Przeprowadź migrację aplikacji do wersji v3, aby korzystać z nowych funkcji dostępnych wyłącznie w wersji 3.
 > 
 > Centrum usługi Microsoft Translator zostanie wycofane w dniu 17 maja 2019. [Wyświetlanie ważnych informacji i dat migracji](https://www.microsoft.com/translator/business/hub/).  
 
-Zespół usługi Microsoft Translator wybrał wersję 3 (V3) interfejs API tłumaczenia tekstu w usłudze Translator. Ta wersja zawiera nowe funkcje, przestarzałe metody oraz nowy format służący do wysyłania i otrzymywania danych z usługi Microsoft Translator. Ten dokument zawiera informacje dotyczące zmieniania aplikacji w celu korzystania z wersji 3. 
+Zespół usługi Microsoft Translator udostępnił w wersji 3 (V3) translatora. Ta wersja zawiera nowe funkcje, przestarzałe metody oraz nowy format służący do wysyłania i otrzymywania danych z usługi Microsoft Translator. Ten dokument zawiera informacje dotyczące zmieniania aplikacji w celu korzystania z wersji 3. 
 
 Na końcu tego dokumentu znajdują się przydatne linki umożliwiające uzyskanie dodatkowych informacji.
 
@@ -37,7 +37,7 @@ Na końcu tego dokumentu znajdują się przydatne linki umożliwiające uzyskani
 * Transliteracja — Metoda transliteracji została dodana do interfejsu API. Ta metoda spowoduje przekonwertowanie słów i zdań w jednym skrypcie (np. Arabski) do innego skryptu (np. Łaciński).
 * Języki — Nowa metoda "Języki" dostarcza informacje o języku w formacie JSON, do użycia z metodami "tłumaczyć", "dictionary" i "transliteracji".
 * Nowe do przetłumaczenia — nowe możliwości zostały dodane do metody "Przetłumacz" w celu obsługi niektórych funkcji w interfejsie API v2 jako oddzielnych metod. Przykładem jest TranslateArray.
-* Mówiąc z metody — funkcja zamiany tekstu na mowę nie jest już obsługiwana w interfejsie API usługi Microsoft Translator. Funkcja zamiany tekstu na mowę jest dostępna w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Mówiąc z metody — funkcja zamiany tekstu na mowę nie jest już obsługiwana w usłudze Microsoft Translator. Funkcja zamiany tekstu na mowę jest dostępna w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 Poniższa lista metod v2 i V3 identyfikuje metody v3 i interfejsy API, które będą dostarczać funkcje dołączone do wersji 2.
 
@@ -59,7 +59,7 @@ Poniższa lista metod v2 i V3 identyfikuje metody v3 i interfejsy API, które b�
 
 ## <a name="move-to-json-format"></a>Przenieś do formatu JSON
 
-Tłumaczenie tłumaczenie tekstu w usłudze Translator firmy Microsoft w wersji 2 zostało zaakceptowane i zwróciło dane w formacie XML. W wersji 3 wszystkie dane wysyłane i odbierane przy użyciu interfejsu API są w formacie JSON. KOD XML nie zostanie już zaakceptowany ani zwrócony w wersji 3.
+Tłumaczenie usługi Microsoft Translator w wersji 2 zostało zaakceptowane i zwróciło dane w formacie XML. W wersji 3 wszystkie dane wysyłane i odbierane przy użyciu interfejsu API są w formacie JSON. KOD XML nie zostanie już zaakceptowany ani zwrócony w wersji 3.
 
 Ta zmiana wpłynie na kilka aspektów aplikacji zapisaną dla interfejsu API tłumaczenia tekstu w wersji 2. Przykład: interfejs API języków zwraca informacje o języku dla tłumaczenia tekstu, przeciągania i dwóch metod słownika. Możesz zażądać wszystkich informacji o języku dla wszystkich metod w jednym wywołaniu lub zażądać ich indywidualnie.
 
@@ -86,7 +86,7 @@ Cena usługi Microsoft Translator V3 jest naliczana w taki sam sposób, jak w pr
 
 ## <a name="v3-end-points"></a>Punkty końcowe v3
 
-Globalny
+Globalnie
 
 * api.cognitive.microsofttranslator.com
 
@@ -118,24 +118,24 @@ Translacja neuronowych z interfejsem API tekstu V3 nie obsługuje korzystania z 
 
 | |Endpoint|    Zgodność procesora Rodo|  Korzystanie z centrum usługi translator| Korzystanie z translatora niestandardowego (wersja zapoznawcza)|
 |:-----|:-----|:-----|:-----|:-----|
-|interfejs API tłumaczenia tekstu w usłudze Translator wersja 2| api.microsofttranslator.com|    Nie  |Tak    |Nie|
-|interfejs API tłumaczenia tekstu w usłudze Translator wersja 3| api.cognitive.microsofttranslator.com|  Tak|    Nie| Tak|
+|Translator — wersja 2|  api.microsofttranslator.com|    Nie  |Tak    |Nie|
+|Translator w wersji 3|  api.cognitive.microsofttranslator.com|  Tak|    Nie| Tak|
 
-**interfejs API tłumaczenia tekstu w usłudze Translator wersja 3**
+**Translator w wersji 3**
 * Jest ogólnie dostępna i w pełni obsługiwana.
 * Jest zgodny z Rodo jako procesor i spełnia wymagania certyfikacji ze wszystkich norm ISO 20001 i 20018 oraz 3. 
 * Pozwala wywoływać systemy translacji sieci neuronowych dostosowane do niestandardowego translatora (wersja zapoznawcza), nowej funkcji dostosowywania usługi Translator NMT. 
 * Nie zapewnia dostępu do niestandardowych systemów tłumaczenia utworzonych przy użyciu centrum Microsoft Translator.
 
-Jeśli używasz punktu końcowego api.cognitive.microsofttranslator.com, używasz wersji 3 interfejs API tłumaczenia tekstu w usłudze Translator.
+Jeśli używasz punktu końcowego api.cognitive.microsofttranslator.com, używasz wersji 3 usługi Translator.
 
-**interfejs API tłumaczenia tekstu w usłudze Translator wersja 2**
+**Translator — wersja 2**
 * Nie spełnia wymagań certyfikacji ze wszystkich norm ISO 20001, 20018 i SOC 3. 
 * Nie zezwala na wywoływanie systemów translacji sieci neuronowych dostosowane do funkcji dostosowywania translatora.
 * Zapewnia dostęp do niestandardowych systemów tłumaczenia utworzonych przy użyciu centrum usługi Microsoft Translator.
-* Jeśli używasz punktu końcowego api.microsofttranslator.com, używasz wersji 2 interfejs API tłumaczenia tekstu w usłudze Translator.
+* Jeśli używasz punktu końcowego api.microsofttranslator.com, używasz wersji 2 translatora.
 
-Żadna wersja interfejsu API usługi Translator nie tworzy rekordu tłumaczenia. Twoje tłumaczenia nigdy nie są udostępniane nikomu. Więcej informacji na temat strony sieci Web usługi [Translator nie śledzenia](https://www.aka.ms/NoTrace) .
+Żadna wersja translatora nie tworzy rekordu tłumaczenia. Twoje tłumaczenia nigdy nie są udostępniane nikomu. Więcej informacji na temat strony sieci Web usługi [Translator nie śledzenia](https://www.aka.ms/NoTrace) .
 
 ## <a name="links"></a>Linki
 

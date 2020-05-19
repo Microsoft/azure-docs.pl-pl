@@ -2,34 +2,29 @@
 title: Ustawienia aplikacji — LUIS
 description: Ustawienia aplikacji dotyczące języka Azure Cognitive Services aplikacje są przechowywane w aplikacji i portalu.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382199"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590993"
 ---
-# <a name="application-settings"></a>Ustawienia aplikacji
+# <a name="app-and-version-settings"></a>Ustawienia aplikacji i wersji
 
-Te ustawienia aplikacji są przechowywane w [wyeksportowanej](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) aplikacji i [aktualizowane](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) przy użyciu interfejsów API REST. Zmiana ustawień wersji aplikacji resetuje stan szkolenia aplikacji na nieszkolenie.
+Te ustawienia są przechowywane w [wyeksportowanej](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) aplikacji i aktualizowane przy użyciu interfejsów API REST lub portalu Luis.
 
-Poznaj [koncepcje](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) znaków diakrytycznych i interpunkcji.
+Zmiana ustawień wersji aplikacji resetuje stan szkolenia aplikacji na nieszkolenie.
 
-|Ustawienie|Wartość domyślna|Uwagi|
-|--|--|--|
-|NormalizePunctuation|Prawda|Usuwa znaki interpunkcyjne.|
-|NormalizeDiacritics|Prawda|Usuwa znaki diakrytyczne.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Odwołania do tekstu i przykłady obejmują:
+
+* [Znaki interpunkcyjne](#punctuation-normalization)
+* [Znaki diakrytyczne](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalizacja znaków diakrytycznych
-
-Włącz normalizowanie wypowiedź dla znaków diakrytycznych do pliku aplikacji LUIS JSON w `settings` parametrze.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 Poniższy wyrażenia długości pokazuje, jak normalizacja znaków diakrytycznych ma wpływ na wyrażenia długości:
 
@@ -40,7 +35,7 @@ Poniższy wyrażenia długości pokazuje, jak normalizacja znaków diakrytycznyc
 
 ### <a name="language-support-for-diacritics"></a>Obsługa języka dla znaków diakrytycznych
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Brazylijski portugalski `pt-br` (znaki diakrytyczne)
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Brazylijski portugalski ( `pt-br` znaki diakrytyczne)
 
 |Znaki diakrytyczne ustawione na wartość false|Znaki diakrytyczne ustawione na wartość true|
 |-|-|
@@ -58,7 +53,7 @@ Poniższy wyrażenia długości pokazuje, jak normalizacja znaków diakrytycznyc
 |`ú`|`u`|
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Znaki `nl-nl` diakrytyczne holenderskich
+#### <a name="dutch-nl-nl-diacritics"></a>`nl-nl`Znaki diakrytyczne holenderskich
 
 |Znaki diakrytyczne ustawione na wartość false|Znaki diakrytyczne ustawione na wartość true|
 |-|-|
@@ -96,7 +91,7 @@ Obejmuje to zarówno kulturę francuską, jak i kanadyjską.
 |`ü`|`u`|
 |`ÿ`|`y`|
 
-#### <a name="german-de-de-diacritics"></a>Znaki `de-de` diakrytyczne niemieckich
+#### <a name="german-de-de-diacritics"></a>`de-de`Znaki diakrytyczne niemieckich
 
 |Znaki diakrytyczne ustawione na wartość false|Znaki diakrytyczne ustawione na wartość true|
 |--|--|
@@ -133,16 +128,7 @@ Dotyczy to zarówno hiszpańskiej, jak i kanadyjskiej meksykańskiej.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalizacja interpunkcji
-
-Włącz normalizację wypowiedź dla interpunkcji do pliku aplikacji LUIS JSON w `settings` parametrze.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 Następujące wyrażenia długości pokazują, jak interpunkcja ma wpływ na wyrażenia długości:
 

@@ -2,13 +2,13 @@
 title: Dobry przykład wyrażenia długości-LUIS
 description: Wypowiedzi to dane wejściowe od użytkownika, które Twoja aplikacja musi zinterpretować. Zbierz frazy, które będą wprowadzane przez użytkowników. Uwzględnij wyrażenia długości, które oznaczają te same czynności, ale są konstruowane inaczej niż długość słowa i umieszczanie wyrazów.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382294"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592869"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Dowiedz się, co to jest dobry wyrażenia długości dla aplikacji LUIS
 
@@ -68,11 +68,27 @@ Lepiej zacząć od kilku wyrażenia długościów, a następnie [przejrzeć punk
 
 ## <a name="utterance-normalization"></a>Normalizacja wypowiedź
 
-Normalizacja wypowiedź jest procesem ignorowania efektów interpunkcji i znaków diakrytycznych podczas szkolenia i przewidywania. Za pomocą [ustawień aplikacji](luis-reference-application-settings.md) można kontrolować sposób, w jaki normalizacja wypowiedź wpływa na prognozę wypowiedź.
+Normalizacja wypowiedź jest procesem ignorowania efektów typów tekstu, takich jak Interpunkcja i znaki diakrytyczne, podczas uczenia i przewidywania.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizacja wypowiedź dla znaków diakrytycznych i interpunkcji
+Ustawienia normalizacji wypowiedź są domyślnie wyłączone. Należą do nich następujące ustawienia:
 
-Normalizacja wypowiedź jest definiowana podczas tworzenia lub importowania aplikacji, ponieważ jest to ustawienie w pliku JSON aplikacji. Ustawienia normalizacji wypowiedź są domyślnie wyłączone.
+* Formularze programu Word
+* Znaki diakrytyczne
+* Znaki interpunkcyjne
+
+W przypadku włączenia ustawienia normalizacji wyniki w okienku **testów** , testy wsadowe i kwerendy punktów końcowych zmienią się dla wszystkich wyrażenia długości dla tego ustawienia normalizacji.
+
+Po sklonowaniu wersji w portalu LUIS ustawienia wersji są nadal w nowej sklonowanej wersji.
+
+Ustaw ustawienia wersji za pośrednictwem portalu LUIS, w sekcji **Zarządzanie** na stronie **Ustawienia aplikacji** lub [interfejsu API ustawień wersji aktualizacji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Dowiedz się więcej o tych zmianach normalizacji w [odwołaniu](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Formularze programu Word
+
+Normalizacja **formularzy wyrazów** ignoruje różnice w wyrazach, które wykraczają poza katalog główny. Na przykład słowa `run` `running` i `runs` zmiany w oparciu o intensywność zleceń.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Znaki diakrytyczne
 
 Znaki diakrytyczne są znakami lub znakami w tekście, na przykład:
 
@@ -80,24 +96,8 @@ Znaki diakrytyczne są znakami lub znakami w tekście, na przykład:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Jeśli aplikacja zostanie przesunięta na, wyniki w okienku **testów** , testy wsadowe i zapytania dotyczące punktów końcowych zmienią się dla wszystkich wyrażenia długości za pomocą znaków diakrytycznych lub interpunkcji.
-
-Włącz normalizowanie wypowiedź dla znaków diakrytycznych lub interpunkcji do pliku aplikacji LUIS JSON w `settings` parametrze.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-Normalizacja **interpunkcji** oznacza, że zanim modele są przeszkolone i zanim zapytania punktu końcowego zostaną przewidywalne, interpunkcja zostanie usunięta z wyrażenia długości.
-
-Normalizacja znaków **diakrytycznych** zastępuje znaki znakami diakrytycznymi w wyrażenia długości z regularnymi znakami. Na przykład: `Je parle français` przyjmie `Je parle francais`.
-
-Normalizacja nie oznacza, że w przykładach wyrażenia długości lub przewidywania nie zobaczysz interpunkcji ani znaków diakrytycznych, tylko te, które zostaną zignorowane podczas uczenia się i przewidywania.
-
 ### <a name="punctuation-marks"></a>Znaki interpunkcyjne
+Normalizacja **interpunkcji** oznacza, że zanim modele są przeszkolone i zanim zapytania punktu końcowego zostaną przewidywalne, interpunkcja zostanie usunięta z wyrażenia długości.
 
 Interpunkcja jest osobnym tokenem w LUIS. Wypowiedź, który zawiera kropkę na końcu, a wypowiedź, który nie zawiera kropki na końcu, to dwa oddzielne wyrażenia długości i mogą uzyskać dwa różne przewidywania.
 
@@ -109,9 +109,11 @@ Jeśli interpunkcja nie ma określonego znaczenia w aplikacji klienckiej, należ
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorowanie wyrazów i interpunkcji
 
-Jeśli chcesz zignorować określone wyrazy lub interpunkcję w wzorcach, użyj [wzorca](luis-concept-patterns.md#pattern-syntax) z _ignorowaną_ składnią nawiasów kwadratowych `[]`.
+Jeśli chcesz zignorować określone wyrazy lub interpunkcję w wzorcach, użyj [wzorca](luis-concept-patterns.md#pattern-syntax) z _ignorowaną_ składnią nawiasów kwadratowych `[]` .
 
-## <a name="training-utterances"></a>Szkolenia wyrażenia długości
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Szkolenia ze wszystkimi wyrażenia długości
 
 Szkolenie jest ogólnie niedeterministyczne: przewidywania wypowiedź może się nieco różnić w różnych wersjach lub aplikacjach.
 Można usunąć niedeterministyczne szkolenie przez zaktualizowanie interfejsu API [ustawień wersji](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) za pomocą `UseAllTrainingData` pary nazwa/wartość, aby używać wszystkich danych szkoleniowych.

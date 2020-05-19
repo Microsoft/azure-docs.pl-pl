@@ -8,20 +8,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192990"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591764"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wersji, klipy wideo, wpisy w blogu i inne typy informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
+
+### <a name="may-2020---build-conference"></a>2020 — Konferencja Build
+
+W **publicznej wersji zapoznawczej**są dostępne następujące elementy:
+
+ * [Tryb](concept-apprentice-mode.md) współdziałania jako zachowanie uczenia się.
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 

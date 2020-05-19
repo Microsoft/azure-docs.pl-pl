@@ -2,14 +2,14 @@
 title: Często zadawane pytania — LUIS
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101114"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592852"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding często zadawane pytania
 
@@ -66,7 +66,7 @@ Aby przenieść aplikację LUIS do innej subskrypcji platformy Azure, wyeksportu
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Wstępnie utworzona jednostka jest oznaczona jako przykład wypowiedź zamiast mojej jednostki niestandardowej. Jak mogę rozwiązać ten problem?
 
-W portalu LUIS można oznaczyć tekst dla dokładnej jednostki, która ma zostać wyodrębniona. Jeśli portal LUIS nie pokazuje poprawnego przewidywania jednostek, może być konieczne dodanie większej liczby wyrażenia długości i oznaczenie jednostki w tekście lub dodanie deskryptora (na przykład funkcji).
+W portalu LUIS można oznaczyć tekst dla dokładnej jednostki, która ma zostać wyodrębniona. Jeśli portal LUIS nie pokazuje poprawnego przewidywania jednostek, może być konieczne dodanie większej liczby wyrażenia długości i oznaczenie jednostki w tekście lub dodanie funkcji.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Próbuję zaimportować plik aplikacji lub wersji, ale wystąpił błąd, co się stało?
 
@@ -189,7 +189,7 @@ Zobacz [uczenie ze wszystkimi danymi](luis-how-to-train.md#train-with-all-data).
 ## <a name="app-publishing"></a>Publikowanie aplikacji
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Jaki jest identyfikator dzierżawy w oknie "Dodawanie klucza do aplikacji"?
-Na platformie Azure dzierżawca reprezentuje klienta lub organizację, która jest skojarzona z usługą. Znajdź swój identyfikator dzierżawy w Azure Portal w polu **Identyfikator katalogu** , wybierając pozycję **Azure Active Directory** > **Zarządzanie** > **właściwościami**.
+Na platformie Azure dzierżawca reprezentuje klienta lub organizację, która jest skojarzona z usługą. Znajdź swój identyfikator dzierżawy w Azure Portal w polu **Identyfikator katalogu** , wybierając pozycję **Azure Active Directory**  >  **Zarządzanie**  >  **właściwościami**.
 
 ![Identyfikator dzierżawy w Azure Portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -271,7 +271,7 @@ Przekaż ten sam wypowiedź do LUIS z [punktu końcowego Luis](luis-get-started-
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Rozwiąż problem w Azure Bot Service
 
-Jeśli używasz Azure Bot Service, a problem polega na tym, że **test w usłudze Web Chat** wraca `Sorry, my bot code is having an issue`, Sprawdź dzienniki:
+Jeśli używasz Azure Bot Service, a problem polega na tym, że **test w usłudze Web Chat** wraca `Sorry, my bot code is having an issue` , Sprawdź dzienniki:
 
 1. W Azure Portal, w bot, w sekcji **Zarządzanie bot** wybierz opcję **Kompiluj**.
 1. Otwórz Edytor kodu online.

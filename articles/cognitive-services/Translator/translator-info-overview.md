@@ -1,7 +1,7 @@
 ---
-title: Czym jest interfejs API tłumaczenia tekstu w usłudze Translator? — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Co to jest translator? -Translator
 titlesuffix: Azure Cognitive Services
-description: Zintegruj interfejs API tłumaczenia tekstu w usłudze Translator z aplikacjami, witrynami internetowymi, narzędziami i innymi rozwiązaniami, aby umożliwić tworzenie środowisk użytkownika w wielu językach.
+description: Zintegruj translator z aplikacjami, witrynami sieci Web, narzędziami i innymi rozwiązaniami, aby zapewnić obsługę środowiska użytkownika w wielu językach.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e4a1f2d778fb2b811d4c38dd26956e2eab51258a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331046"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592665"
 ---
-# <a name="what-is-the-translator-text-api"></a>Czym jest interfejs API tłumaczenia tekstu w usłudze Translator?
+# <a name="what-is-the-translator"></a>Co to jest translator?
 
-Interfejs API tłumaczenia tekstu w usłudze Translator można łatwo zintegrować w aplikacjach, witrynach internetowych, narzędziach i rozwiązaniach. Umożliwia on dodawanie wielojęzycznych środowisk użytkowników w [ponad 60 językach](languages.md) i może być używany na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstów w różnych językach.
+Translator można łatwo zintegrować z aplikacjami, witrynami sieci Web, narzędziami i rozwiązaniami. Umożliwia on dodawanie wielojęzycznych środowisk użytkowników w [ponad 60 językach](languages.md) i może być używany na dowolnej platformie sprzętowej z dowolnym systemem operacyjnym na potrzeby tłumaczenia tekstów w różnych językach.
 
-Interfejs API tłumaczenia tekstu w usłudze Translator to część [kolekcji interfejsów API usług Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) platformy Azure, zbioru algorytmów uczenia maszynowego i sztucznej inteligencji w chmurze, który można łatwo wykorzystać w swoich projektach programistycznych.
+Translator jest częścią [usługi Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) zbieraniem algorytmów uczenia maszynowego i AI w chmurze oraz jest łatwo do użycia w projektach programistycznych.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator — informacje
 
-Microsoft Translator to oparta na chmurze usługa tłumaczenia maszynowego. Rdzeniem usługi jest interfejs API tłumaczenia tekstu w usłudze Translator, który współpracuje z wieloma produktami i usługami firmy Microsoft, a także jest używany przez tysiące firm na całym świecie w ich aplikacjach i przepływach pracy, co pozwala ich zawartości na dotarcie do odbiorców na całym świecie.
+Translator jest opartą na chmurze usługą tłumaczenia maszynowego. Podstawowa usługa to translator, który daje wiele produktów i usług firmy Microsoft, i jest używany przez tysiące firm na całym świecie w swoich aplikacjach i przepływach pracy, co umożliwia ich zawartości dostęp do globalnej grupy odbiorców.
 
-Tłumaczenie mowy obsługiwane przez interfejs API tłumaczenia tekstu w usłudze Translator jest również dostępne za pośrednictwem usługi [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Łączy ona funkcje z interfejs API tłumaczenia mowy w usłudze Translator i Custom Speech Service do ujednoliconej i w pełni dostosowywalnej usługi.Usługa rozpoznawania mowy zastępuje interfejs API tłumaczenia mowy w usłudze Translator, który zostanie zlikwidowany 15 października 2019 r.
+Tłumaczenie mowy obsługiwane przez translatora jest również dostępne w [usłudze Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Łączy ona funkcje z interfejs API tłumaczenia mowy w usłudze Translator i Custom Speech Service do ujednoliconej i w pełni dostosowywalnej usługi.Usługa rozpoznawania mowy zastępuje interfejs API tłumaczenia mowy w usłudze Translator, który zostanie zlikwidowany 15 października 2019 r.
 
 ## <a name="language-support"></a>Obsługa języków
 
@@ -46,9 +46,9 @@ Dowiedz się więcej o [sposobie działania technologii NMT](https://www.microso
 
 ## <a name="language-customization"></a>Dostosowywanie języka
 
-W połączeniu z interfejsem API tłumaczenia tekstu w usłudze Translator można użyć rozszerzenia podstawowej usługi Microsoft Translator, Custom Translator, aby ułatwić dostosowanie systemu tłumaczenia neuronowego i ulepszyć tłumaczenia pod kątem określonej terminologii i stylu.
+Rozszerzenie podstawowej usługi Microsoft Translator może być używane w połączeniu z tłumaczeniem, aby pomóc w dostosowaniu systemu tłumaczenia neuronowych i ulepszaniu tłumaczenia dla konkretnej terminologii i stylu.
 
-Korzystając z rozszerzenia Custom Translator, można tworzyć systemy tłumaczenia obsługujące terminologię stosowaną w Twojej firmie lub branży. Dostosowany system tłumaczenia łatwo integruje się z istniejącymi aplikacjami, przepływami pracy i witrynami internetowymi na wielu typach urządzeń za pośrednictwem interfejsu API tłumaczenia tekstu w usłudze Microsoft Translator, używając parametru kategorii.
+Korzystając z rozszerzenia Custom Translator, można tworzyć systemy tłumaczenia obsługujące terminologię stosowaną w Twojej firmie lub branży. Dostosowany system tłumaczenia zostanie następnie łatwo zintegrować z istniejącymi aplikacjami, przepływami pracy i witrynami sieci Web na wielu typach urządzeń za pośrednictwem zwykłego translatora przy użyciu parametru kategorii.
 
 Dowiedz się więcej o [dostosowywaniu języków](customization.md)
 

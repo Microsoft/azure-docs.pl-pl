@@ -10,19 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: dcdc942999e45eb779e54cd5f92432c54d65fc6a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 62236b472aa5c4812cd62af44a15b805b5326271
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592563"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Szybki Start: synteza asynchroniczna dla długich form audio w języku Python (wersja zapoznawcza)
 
 W tym przewodniku szybki start użyjesz długiego interfejsu API audio do asynchronicznego konwertowania tekstu na mowę i pobrania danych wyjściowych audio z identyfikatora URI dostarczonego przez usługę. Ten interfejs API REST jest idealnym rozwiązaniem dla dostawców zawartości, którzy muszą wyszukiwać dźwięk z tekstu większego niż 5 000 znaków (lub więcej niż 10 minut). Aby uzyskać więcej informacji, zobacz [Long audio API](../../long-audio-api.md).
 
-> [!NOTE]
-> Asynchronicznej syntezy audio o długim formacie można używać tylko z [niestandardowymi głosymi neuronowych](../../how-to-custom-voice.md#custom-neural-voices).
+Asynchronicznej syntezy audio o długim formacie można używać z [publicznymi głosymi neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) i [niestandardowymi głosymi neuronowych](../../how-to-custom-voice.md#custom-neural-voices), z których każdy obsługuje określony język i dialekt. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,7 +33,7 @@ Ten przewodnik Szybki start wymaga następujących elementów:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Tworzenie projektu i importowanie wymaganych modułów
 
-Utwórz nowy projekt języka Python przy użyciu ulubionego środowiska IDE lub edytora. Następnie skopiuj ten fragment kodu do pliku o nazwie `voice_synthesis_client.py`.
+Utwórz nowy projekt języka Python przy użyciu ulubionego środowiska IDE lub edytora. Następnie skopiuj ten fragment kodu do pliku o nazwie `voice_synthesis_client.py` .
 
 ```python
 import argparse
@@ -56,7 +55,7 @@ Te moduły są używane do analizowania argumentów, konstruowania żądania HTT
 
 ## <a name="get-a-list-of-supported-voices"></a>Pobierz listę obsługiwanych głosów
 
-Ten kod pobiera listę dostępnych głosów, których można użyć do konwersji zamiany tekstu na mowę. Dodaj kod do `voice_synthesis_client.py`:
+Ten kod umożliwia uzyskanie pełnej listy głosów dla określonego regionu/punktu końcowego, którego można użyć. Sprawdź [obsługiwany region/punkt końcowy](../../long-audio-api.md). Dodaj kod do `voice_synthesis_client.py` :
 
 ```python
 parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
@@ -83,7 +82,7 @@ if args.voices:
 Przetestujmy to, co zostało zrobione dotąd. Musisz zaktualizować kilka elementów w żądaniu poniżej:
 
 * Zamień `<your_key>` na klucz subskrypcji usługi rozpoznawania mowy. Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<region>` na region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus`). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
+* Zamień na `<region>` region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus` ). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
 
 Uruchom następujące polecenie:
 
@@ -100,13 +99,15 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+Jeśli parametr **PublicVoice** ma **wartość true**, głos jest publiczny neuronowych głosu. W przeciwnym razie jest to niestandardowy głos neuronowych. 
+
 ## <a name="prepare-input-files"></a>Przygotuj pliki wejściowe
 
 Przygotuj wejściowy plik tekstowy. Może to być zwykły tekst lub tekst SSML. Wymagania dotyczące pliku wejściowego znajdują się w temacie How to [Prepare content for syntezy](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
 
 ## <a name="convert-text-to-speech"></a>Konwertuj tekst na mowę
 
-Po przygotowaniu wejściowego pliku tekstowego Dodaj następujący kod do syntezy mowy, `voice_synthesis_client.py`aby:
+Po przygotowaniu wejściowego pliku tekstowego Dodaj następujący kod do syntezy mowy, aby `voice_synthesis_client.py` :
 
 > [!NOTE]
 > "concatenateResult" jest opcjonalnym parametrem. Jeśli ten parametr nie jest ustawiony, wyjście audio zostanie wygenerowane na akapit. Możesz również połączyć dźwięk do 1 wyjściowego przez ustawienie parametru. Domyślnie wyjście audio jest ustawione na RIFF-16khz-16bit-mono-PCM. Aby uzyskać więcej informacji na temat obsługiwanych wyjść audio, zobacz [formaty danych wyjściowych audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
@@ -175,10 +176,10 @@ if args.submit:
 Utwórzmy żądanie syntezy tekstu przy użyciu pliku wejściowego jako źródła. Musisz zaktualizować kilka elementów w żądaniu poniżej:
 
 * Zamień `<your_key>` na klucz subskrypcji usługi rozpoznawania mowy. Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<region>` na region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus`). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<input>` na ścieżkę do pliku tekstowego, który został przygotowany do zamiany tekstu na mowę.
-* Zamień `<locale>` na żądane ustawienia regionalne danych wyjściowych. Aby uzyskać więcej informacji, zobacz [Obsługa języków](../../language-support.md#neural-voices).
-* Zamień `<voice_guid>` na żądany wyjściowy dźwięk. Użyj jednego z głosów zwracanego przez [uzyskanie listy obsługiwanych głosów](#get-a-list-of-supported-voices).
+* Zamień na `<region>` region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus` ). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
+* Zamień na `<input>` ścieżkę do pliku tekstowego, który został przygotowany do zamiany tekstu na mowę.
+* Zamień na `<locale>` żądane ustawienia regionalne danych wyjściowych. Aby uzyskać więcej informacji, zobacz [Obsługa języków](../../language-support.md#neural-voices).
+* Zamień na `<voice_guid>` żądany wyjściowy dźwięk. Użyj jednego z głosów zwracanego przez [uzyskanie listy obsługiwanych głosów](#get-a-list-of-supported-voices).
 
 Konwertuj tekst na mowę przy użyciu tego polecenia:
 
@@ -215,7 +216,7 @@ Wynik zawiera tekst wejściowy i pliki wyjściowe audio, które są generowane p
 
 Serwer będzie przechowywać do **20 000** żądań dla każdego konta subskrypcji platformy Azure. Jeśli kwota żądania przekracza to ograniczenie, Usuń poprzednie żądania przed wprowadzeniem nowych. Jeśli nie usuniesz istniejących żądań, otrzymasz powiadomienie o błędzie.
 
-Dodaj kod do `voice_synthesis_client.py`:
+Dodaj kod do `voice_synthesis_client.py` :
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -251,7 +252,7 @@ if args.delete:
 Teraz sprawdźmy, czy żądania zostały wcześniej przesłane. Przed kontynuowaniem należy zaktualizować kilka rzeczy w ramach tego żądania:
 
 * Zamień `<your_key>` na klucz subskrypcji usługi rozpoznawania mowy. Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<region>` na region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus`). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
+* Zamień na `<region>` region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus` ). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
 
 Uruchom następujące polecenie:
 
@@ -271,8 +272,8 @@ ID : xxx , Name : xxx : Succeeded
 Teraz usuńmy wcześniej przesłane żądanie. Musisz zaktualizować kilka elementów w poniższym kodzie:
 
 * Zamień `<your_key>` na klucz subskrypcji usługi rozpoznawania mowy. Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<region>` na region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus`). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
-* Zamień `<synthesis_id>` na wartość zwróconą w poprzednim żądaniu.
+* Zamień na `<region>` region, w którym został utworzony zasób mowy (na przykład: `eastus` lub `westus` ). Te informacje są dostępne na karcie **Przegląd** dla zasobu w [Azure Portal](https://aka.ms/azureportal).
+* Zamień na `<synthesis_id>` wartość zwróconą w poprzednim żądaniu.
 
 > [!NOTE]
 > Nie można usunąć ani usunąć żądań ze stanem "Uruchamianie"/"oczekiwanie".

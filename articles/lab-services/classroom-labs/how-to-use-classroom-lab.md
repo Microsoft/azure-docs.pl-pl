@@ -1,6 +1,6 @@
 ---
 title: Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services | Microsoft Docs
-description: W tym samouczku maszyny wirtualne są dostępne w laboratorium skonfigurowanym przez nauczyciela.
+description: W tym samouczku uzyskujesz dostęp do maszyn wirtualnych w laboratorium klasy, które zostało skonfigurowane przez nauczycieli.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2430348a8bfbecda3f172361a40a96ef801f5bc4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118400"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592444"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Jak uzyskać dostęp do laboratorium w usłudze Azure Lab Services
 W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania wszystkich laboratoriów, do których można uzyskać dostęp, uruchamiania/zatrzymywania maszyny wirtualnej w laboratorium oraz nawiązywania połączenia z maszyną wirtualną. 
 
 ## <a name="register-to-the-lab"></a>Zarejestruj się w laboratorium
 
-1. Przejdź do **adresu URL rejestracji** otrzymanego od nauczyciela. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu URL: [https://labs.azure.com](https://labs.azure.com) . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
+1. Przejdź do **adresu URL rejestracji** otrzymanego z nauczycieli. Po ukończeniu rejestracji nie musisz używać adresu URL rejestracji. Zamiast tego użyj adresu URL: [https://labs.azure.com](https://labs.azure.com) . Program Internet Explorer 11 nie jest jeszcze obsługiwany. 
 
     ![Zarejestruj się w laboratorium](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Zaloguj się do usługi przy użyciu konta służbowego, aby ukończyć rejestrację. 
@@ -60,7 +60,7 @@ W tym artykule opisano sposób rejestracji w laboratorium zajęć, wyświetlania
 
     ![Łączenie z maszyną wirtualną](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Wykonaj jedną z następujących czynności: 
-    1. W przypadku maszyn wirtualnych z **systemem Windows** Zapisz plik **RDP** na dysku twardym. Otwórz plik RDP, aby nawiązać połączenie z maszyną wirtualną. Zaloguj się na komputerze przy użyciu **nazwy użytkownika** i **hasła** uzyskanych z nauczycieli/profesor. 
+    1. W przypadku maszyn wirtualnych z **systemem Windows** Zapisz plik **RDP** na dysku twardym. Otwórz plik RDP, aby nawiązać połączenie z maszyną wirtualną. Użyj **nazwy użytkownika** i **hasła** uzyskanych z nauczycieli, aby zalogować się na komputerze. 
     3. W przypadku maszyn wirtualnych z **systemem Linux** można użyć protokołu **SSH** lub **RDP** (jeśli jest włączony), aby połączyć się z nimi. Aby uzyskać więcej informacji, zobacz [Włączanie usługi Podłączanie pulpitu zdalnego dla komputerów z systemem Linux](how-to-enable-remote-desktop-linux.md). 
     1. Jeśli używasz **komputera Mac** do nawiązywania połączenia z maszyną wirtualną laboratorium, postępuj zgodnie z instrukcjami w następnej sekcji. 
 

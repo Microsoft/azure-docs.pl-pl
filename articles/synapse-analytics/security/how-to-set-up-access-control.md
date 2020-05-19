@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591985"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Aby zabezpieczyć obszar roboczy Synapse (wersja zapoznawcza), postępuj zgodnie
 - Role Synapse — te role są unikatowe dla Synapse i nie są oparte na rolach platformy Azure. Istnieją trzy z tych ról:
   - Administrator obszaru roboczego Synapse
   - Synapse administratora SQL
-  - Administrator platformy Spark Synapse
+  - Apache Spark dla administratora usługi Azure Synapse Analytics
 - Kontrola dostępu do danych w Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Kontrola dostępu do Synapse baz danych SQL i Spark
 
@@ -48,11 +48,11 @@ Ten dokument używa standardowych nazw do uproszczenia instrukcji. Zastąp je ws
 
 Tworzenie i wypełnianie trzech grup zabezpieczeń dla obszaru roboczego:
 
-- **WS1\_WSAdmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym
-- **WS1\_SparkAdmins** — dla tych użytkowników, którzy potrzebują pełnej kontroli nad aspektami platformy Spark w obszarze roboczym
-- **WS1\_sqladmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad aspektami programu SQL obszaru roboczego
-- Dodaj **WS1\_WSAdmins** do **WS1\_sqladmins**
-- Dodaj **WS1\_WSAdmins** do **WS1\_SparkAdmins**
+- **WS1 \_ WSAdmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad obszarem roboczym
+- **WS1 \_ SparkAdmins** — dla tych użytkowników, którzy potrzebują pełnej kontroli nad aspektami Spark obszaru roboczego
+- **WS1 \_ Sqladmins** — dla użytkowników, którzy potrzebują pełnej kontroli nad aspektami programu SQL obszaru roboczego
+- Dodaj **WS1 \_ WSAdmins** do **WS1 \_ sqladmins**
+- Dodaj **WS1 \_ WSAdmins** do **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>Krok 2. Przygotowywanie konta Data Lake Storage Gen2
 
@@ -65,9 +65,9 @@ Zidentyfikuj te informacje o magazynie:
 
 - Przy użyciu Azure Portal Przypisz grupy zabezpieczeń następujące role w CNT1
 
-  - Przypisywanie **WS1\_WSAdmins** do roli **współautor danych obiektów blob magazynu**
-  - Przypisywanie **WS1\_SparkAdmins** do roli **współautor danych obiektów blob magazynu**
-  - Przypisywanie **WS1\_sqladmins** do roli **współautor danych obiektów blob magazynu**
+  - Przypisywanie **WS1 \_ WSAdmins** do roli **współautor danych obiektów blob magazynu**
+  - Przypisywanie **WS1 \_ SparkAdmins** do roli **współautor danych obiektów blob magazynu**
+  - Przypisywanie **WS1 \_ sqladmins** do roli **współautor danych obiektów blob magazynu**
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>Krok 3. Tworzenie i Konfigurowanie obszaru roboczego Synapse
 
@@ -77,10 +77,10 @@ W Azure Portal Utwórz obszar roboczy Synapse:
 - Wybierz STG1 dla konta magazynu
 - Wybierz pozycję CNT1 dla kontenera, który jest używany jako "system plików".
 - Otwórz WS1 w programie Synapse Studio
-- Wybierz pozycję **Zarządzaj** > **Access Control** Przypisz grupy zabezpieczeń do następujących ról Synapse.
-  - Przypisywanie **WS1\_WSAdmins** do administratorów obszaru roboczego Synapse
-  - Przypisywanie **WS1\_SparkAdmins** do administratorów platformy Synapse Spark
-  - Przypisywanie **WS1\_sqladmins** do Synapse Administratorzy SQL
+- Wybierz pozycję **Zarządzaj**  >  **Access Control** Przypisz grupy zabezpieczeń do następujących ról Synapse.
+  - Przypisywanie **WS1 \_ WSAdmins** do administratorów obszaru roboczego Synapse
+  - Przypisywanie **WS1 \_ SparkAdmins** do administratorów platformy Synapse Spark
+  - Przypisywanie **WS1 \_ sqladmins** do Synapse Administratorzy SQL
 
 ## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>Krok 4. Konfigurowanie Data Lake Storage Gen2 do użycia przez obszar roboczy Synapse
 
@@ -91,14 +91,14 @@ Obszar roboczy Synapse wymaga dostępu do STG1 i CNT1, aby można było uruchami
 - Przejdź do CNT1
 - Upewnij się, że plik MSI (tożsamość usługi zarządzanej) dla WS1 jest przypisany do roli **współautor danych obiektów blob magazynu** w witrynie CNT1
   - Jeśli nie widzisz jej przypisanej, przypisz ją.
-  - Plik MSI ma taką samą nazwę jak obszar roboczy. W takim przypadku &quot;WS1&quot;.
+  - Plik MSI ma taką samą nazwę jak obszar roboczy. W takim przypadku &quot; WS1 &quot; .
 
 ## <a name="step-5-configure-admin-access-for-sql-pools"></a>Krok 5. Konfigurowanie dostępu administratora dla pul SQL
 
 - Otwórz Azure Portal
 - Przejdź do WS1
 - W obszarze **Ustawienia**kliknij pozycję **SQL Active Directory administrator**
-- Kliknij pozycję **Ustaw administratora** i wybierz\_pozycję WS1 sqladmins
+- Kliknij pozycję **Ustaw administratora** i wybierz pozycję WS1 \_ sqladmins
 
 ## <a name="step-6-maintaining-access-control"></a>Krok 6. utrzymywanie kontroli dostępu
 
@@ -119,7 +119,7 @@ Użytkownicy w każdej roli muszą wykonać następujące czynności:
 | 3 | Tworzenie puli platformy Spark | TAK [1] | TAK [1] | NO  |
 | 4 | Odczytuje plik Parquet z notesem | TAK | TAK | NO |
 | 5 | Tworzenie potoku z poziomu notesu i wyzwalanie potoku w celu uruchomienia go teraz | TAK | NO | NO |
-| 6 | Utwórz pulę SQL i uruchom skrypt SQL, taki jak &quot;SELECT 1&quot; | TAK [1] | NO | TAK [1] |
+| 6 | Utwórz pulę SQL i uruchom skrypt SQL, taki jak &quot; SELECT 1&quot; | TAK [1] | NO | TAK [1] |
 
 > [!NOTE]
 > [1] aby utworzyć pule SQL lub Spark, użytkownik musi mieć co najmniej rolę współautor w obszarze roboczym Synapse.

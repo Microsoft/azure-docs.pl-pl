@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77592224"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591781"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Samouczek: konfigurowanie laboratorium na potrzeby zajęć 
 W tym samouczku skonfigurujesz laboratorium na potrzeby zajęć z maszynami wirtualnymi używanymi przez uczniów podczas zajęć.  
@@ -37,9 +37,9 @@ W tym samouczku skonfigurujesz laboratorium z maszynami wirtualnymi dla klasy. A
 
 Poniżej przedstawiono typowy przepływ pracy podczas korzystania z Azure Lab Services:
 
-1. Twórca konta laboratorium dodaje innych użytkowników do roli **twórcy laboratorium** . Na przykład twórca konta laboratorium/administrator dodaje wykładowcy do roli **twórca laboratorium** , aby mogli tworzyć laboratoria dla ich klas. 
-2. Następnie wykładowcy tworzyć laboratoria z maszynami wirtualnymi dla ich klas i wysyłać linki rejestracji do uczniów w klasie. 
-3. Studenci rejestrują się w laboratoriach przy użyciu linku rejestracji otrzymanego od nauczycieli akademickich. Po zarejestrowaniu się studenci mogą używać maszyn wirtualnych w laboratoriach do wykonywania zadań na zajęciach lub pracy domowej. 
+1. Twórca konta laboratorium dodaje innych użytkowników do roli **twórcy laboratorium** . Na przykład twórca konta laboratorium/administrator dodaje wykładowców do roli **twórca laboratorium** , aby mogli tworzyć laboratoria dla ich klas. 
+2. Następnie nauczyciele tworzą laboratoria z maszynami wirtualnymi dla ich klas i wysyłają linki rejestracji do uczniów w klasie. 
+3. Studenci używają linku rejestracji otrzymywanego od wykładowców, aby zarejestrować się w laboratorium. Po zarejestrowaniu się studenci mogą używać maszyn wirtualnych w laboratoriach do wykonywania zadań na zajęciach lub pracy domowej. 
 
 ## <a name="create-a-classroom-lab"></a>Tworzenie laboratorium na potrzeby zajęć
 W tym kroku utworzysz laboratorium dla swojej klasy na platformie Azure. 
@@ -151,7 +151,7 @@ Utwórz zaplanowane zdarzenie dla laboratorium, aby maszyny wirtualne w laborato
 1. Na stronie **wysyłanie zaproszenia** pocztą e-mail wprowadź opcjonalną wiadomość, a następnie wybierz pozycję **Wyślij**. Wiadomość e-mail automatycznie zawiera link rejestracji. Możesz uzyskać ten link rejestracji, wybierając pozycję **... (wielokropek)** na pasku narzędzi i w **łączu rejestracji**. 
 
     ![Wyślij link rejestracji za pośrednictwem poczty e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Stan **zaproszenia** zostanie wyświetlony na liście **Użytkownicy** . Stan powinien zostać zmieniony na **wysłanie** , a następnie do ** &lt;daty&gt;wysłania**. 
+4. Stan **zaproszenia** zostanie wyświetlony na liście **Użytkownicy** . Stan powinien zostać zmieniony na **wysłanie** , a następnie do ** &lt; daty &gt; wysłania**. 
 
     Aby uzyskać więcej informacji na temat dodawania uczniów do klasy i zarządzania ich użyciem laboratorium, zobacz [jak skonfigurować użycie ucznia](how-to-configure-student-usage.md).
 

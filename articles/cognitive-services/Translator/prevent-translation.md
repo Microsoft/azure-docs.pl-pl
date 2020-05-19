@@ -1,7 +1,7 @@
 ---
-title: Zapobiegaj translacji zawartości — interfejs API tłumaczenia tekstu w usłudze Translator
+title: Zapobiegaj translacji zawartości — translator
 titleSuffix: Azure Cognitive Services
-description: Zapobiegaj translacji zawartości przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator. Interfejs API tłumaczenia tekstu w usłudze Translator pozwala oznaczyć zawartość tak, aby nie została przetłumaczona.
+description: Zapobiegaj translacji zawartości za pomocą usługi Translator. Translator umożliwia oznaczanie zawartości w taki sposób, aby nie został przetłumaczony.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 33939976a0824ce8afeb2e6f6fb19e7033098683
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052483"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592699"
 ---
-# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Jak zapobiec translacji zawartości przy użyciu interfejs API tłumaczenia tekstu w usłudze Translator
+# <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Jak zapobiec translacji zawartości z tłumaczeniem
 
-Interfejs API tłumaczenia tekstu w usłudze Translator pozwala oznaczyć zawartość tak, aby nie została przetłumaczona. Na przykład możesz chcieć zakodować kod, nazwę marki lub wyraz/frazę, która nie ma sensu, gdy jest zlokalizowany.
+Translator umożliwia oznaczanie zawartości w taki sposób, aby nie został przetłumaczony. Na przykład możesz chcieć zakodować kod, nazwę marki lub wyraz/frazę, która nie ma sensu, gdy jest zlokalizowany.
 
 ## <a name="methods-for-preventing-translation"></a>Metody uniemożliwiające tłumaczenie
 
-1. Oznacz swoją zawartość za `notranslate`pomocą. Jest to projekt, który działa tylko wtedy, gdy typ danych wejściowych jest ustawiony jako HTML
+1. Oznacz swoją zawartość za pomocą `notranslate` . Jest to projekt, który działa tylko wtedy, gdy typ danych wejściowych jest ustawiony jako HTML
 
    Przykład:
 
@@ -39,11 +39,11 @@ Interfejs API tłumaczenia tekstu w usłudze Translator pozwala oznaczyć zawart
 
 2. Użyj [słownika dynamicznego](dynamic-dictionary.md) , aby określić tłumaczenie.
 
-3. Nie przekazuj ciągu do interfejs API tłumaczenia tekstu w usłudze Translator na potrzeby tłumaczenia.
+3. Nie przekazuj ciągu do translatora w celu tłumaczenia.
 
 4. Translator niestandardowy: Użyj [słownika w translatoru niestandardowym](custom-translator/what-is-dictionary.md) , aby określić tłumaczenie frazy z prawdopodobieństwem 100%.
 
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Unikaj tłumaczenia w wywołaniu interfejsu API usługi translator](reference/v3-0-translate.md)
+> [Unikaj tłumaczenia w wywołaniu translatora](reference/v3-0-translate.md)

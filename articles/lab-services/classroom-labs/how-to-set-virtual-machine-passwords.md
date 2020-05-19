@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8479c00ed2129d5726421f576e1fffdb4506fb4b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78933819"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592478"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurowanie puli maszyn wirtualnych i zarządzanie nią 
 W tym artykule przedstawiono sposób wykonywania następujących zadań:
@@ -30,7 +30,7 @@ W tym artykule przedstawiono sposób wykonywania następujących zadań:
 ## <a name="update-the-lab-capacity"></a>Aktualizowanie pojemności laboratorium
 Aby zwiększyć lub zmniejszyć wydajność laboratorium (liczbę maszyn wirtualnych w laboratorium), wykonaj następujące czynności:
 
-1. Na stronie **Pula maszyn wirtualnych** wybierz pozycję **pojemność laboratorium: &lt;liczba&gt; komputerów**.
+1. Na stronie **Pula maszyn wirtualnych** wybierz pozycję **pojemność laboratorium: &lt; liczba &gt; komputerów**.
 2. Wprowadź nową **liczbę maszyn wirtualnych** , które mają być w laboratorium. Ta wartość musi być większa lub równa liczbie użytkowników zarejestrowanych w laboratorium. 
 3. Następnie wybierz pozycję **Zapisz**. 
 
@@ -74,14 +74,14 @@ W oknie dialogowym **resetowanie maszyn wirtualnych** wybierz pozycję **Zresetu
 
 
 ## <a name="set-password-for-vms"></a>Ustawianie hasła dla maszyn wirtualnych
-Właściciel laboratorium (nauczyciel) może ustawić/zresetować hasło dla maszyn wirtualnych w momencie tworzenia laboratorium (Kreator tworzenia laboratorium) lub po utworzeniu laboratorium na stronie **szablonu** . 
+Właściciel laboratorium (nauczycieli) może ustawić/zresetować hasło dla maszyn wirtualnych w momencie tworzenia laboratorium (Kreator tworzenia laboratorium) lub po utworzeniu laboratorium na stronie **szablonu** . 
 
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Ustaw hasło podczas tworzenia laboratorium
-Właściciel laboratorium (nauczyciel) może ustawić hasło dla maszyn wirtualnych w laboratorium na stronie **poświadczenia maszyny wirtualnej** w Kreatorze tworzenia laboratorium.
+Właściciel laboratorium (nauczycieli) może ustawić hasło dla maszyn wirtualnych w laboratorium na stronie **poświadczenia maszyny wirtualnej** w Kreatorze tworzenia laboratorium.
 
 ![Nowe okno laboratorium](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-Przez włączenie/wyłączenie opcji **Użyj tego samego hasła dla wszystkich maszyn wirtualnych** na tej stronie nauczyciel może wybrać użycie tego samego hasła dla wszystkich maszyn wirtualnych w laboratorium lub zezwolić uczniom na ustawianie haseł dla swoich maszyn wirtualnych. Domyślnie to ustawienie jest włączone dla wszystkich obrazów systemu operacyjnego Windows i Linux z wyjątkiem Ubuntu. Gdy to ustawienie jest wyłączone, uczniowie będą monitowani o ustawienie hasła podczas próby nawiązania połączenia z maszyną wirtualną po raz pierwszy. 
+Włączenie/wyłączenie opcji **Użyj tego samego hasła dla wszystkich maszyn wirtualnych** na tej stronie nauczycieli może wybrać użycie tego samego hasła dla wszystkich maszyn wirtualnych w laboratorium lub zezwolić uczniom na ustawianie haseł dla swoich maszyn wirtualnych. Domyślnie to ustawienie jest włączone dla wszystkich obrazów systemu operacyjnego Windows i Linux z wyjątkiem Ubuntu. Gdy to ustawienie jest wyłączone, uczniowie będą monitowani o ustawienie hasła podczas próby nawiązania połączenia z maszyną wirtualną po raz pierwszy. 
 
 ### <a name="reset-password-later"></a>Zresetuj hasło później
 
@@ -91,7 +91,7 @@ Przez włączenie/wyłączenie opcji **Użyj tego samego hasła dla wszystkich m
     ![Okno dialogowe Ustawianie hasła](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## <a name="connect-to-student-vms"></a>Nawiązywanie połączenia z maszynami wirtualnymi uczniów
-Twórca laboratorium (instruktor/profesor) może nawiązać połączenie z maszyną wirtualną ucznia w przypadku spełnienia następujących warunków: 
+Twórca laboratorium (nauczycieli) może nawiązać połączenie z maszyną wirtualną ucznia w przypadku spełnienia następujących warunków: 
 
 - Podczas tworzenia laboratorium wybrano opcję **Użyj tego samego hasła dla wszystkich maszyn wirtualnych**
 - Maszyna wirtualna jest uruchomiona 
@@ -101,7 +101,7 @@ Twórca laboratorium (instruktor/profesor) może nawiązać połączenie z maszy
 ![Przycisk połączenia z maszyną wirtualną ucznia](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> Gdy profesor uruchomi maszynę wirtualną i nawiąże połączenie z nią, nie ma to żadnego limitu. 
+> Gdy nauczycieli uruchomi maszynę wirtualną i nawiąże połączenie z nią, nie ma to żadnego limitu. 
 
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Eksportowanie listy maszyn wirtualnych do pliku CSV
 

@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie notesu Apache Spark'
+title: 'Szybki Start: Tworzenie Apache Spark dla notesu usługi Azure Synapse Analytics'
 description: Ten przewodnik Szybki Start przedstawia sposób używania narzędzi sieci Web do tworzenia puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics i uruchamiania zapytania Spark SQL.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 47235ca0e420e0de9f6c4beb070e0b75b72e7549
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786672"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592954"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -33,7 +33,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpłatne konto](https://azure.microsoft.com/free/) .
 
@@ -49,7 +49,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
 4. W oknie **Właściwości** Podaj nazwę notesu.
 5. Na pasku narzędzi kliknij przycisk **Publikuj**.
 6. Jeśli w obszarze roboczym istnieje tylko jedna pula Apache Spark, zostanie ona domyślnie wybrana. Użyj listy rozwijanej, aby wybrać poprawną pulę Apache Spark, jeśli żadna nie została wybrana.
-7. Kliknij przycisk **Dodaj kod**. Język domyślny to `Pyspark`. Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy.
+7. Kliknij przycisk **Dodaj kod**. Język domyślny to `Pyspark` . Zamierzasz używać kombinacji Pyspark i Spark SQL, więc wybór domyślny jest prawidłowy.
 8. Następnie utworzysz prosty obiekt Dataframe platformy Spark do manipulowania. W takim przypadku należy utworzyć go z poziomu kodu. Istnieją trzy wiersze i trzy kolumny:
 
    ```python
@@ -79,7 +79,7 @@ Notes to interaktywny środowisko obsługujące różne języki programowania. N
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    W przypadku korzystania z Eksploratora magazynu można zobaczyć wpływ dwóch różnych sposobów pisania plików użytych powyżej. Gdy nie określono żadnego systemu plików, w tym przypadku `default>user>trusted-service-user>demo_df`zostanie użyta wartość domyślna. Dane są zapisywane w lokalizacji określonego systemu plików.
+    W przypadku korzystania z Eksploratora magazynu można zobaczyć wpływ dwóch różnych sposobów pisania plików użytych powyżej. Gdy nie określono żadnego systemu plików, w tym przypadku zostanie użyta wartość domyślna `default>user>trusted-service-user>demo_df` . Dane są zapisywane w lokalizacji określonego systemu plików.
 
     Zwróć uwagę na formaty "CSV" i "Parquet", operacje zapisu, które są tworzone przez katalog z wieloma plikami partycjonowanymi.
 
@@ -98,7 +98,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
    SHOW TABLES
    ```
 
-   W przypadku korzystania z notesu z pulą Apache Spark usługi Azure Synapse uzyskasz ustawienie wstępne `sqlContext` , za pomocą którego można uruchamiać zapytania przy użyciu platformy Spark SQL. `%%sql`informuje Notes o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania. Zapytanie pobiera 10 najważniejszych wierszy z tabeli systemowej, która jest domyślnie dostarczana z wszystkimi pulami Apache Spark Azure Synapse.
+   W przypadku korzystania z notesu z pulą Apache Spark usługi Azure Synapse uzyskasz ustawienie wstępne, za pomocą którego `sqlContext` można uruchamiać zapytania przy użyciu platformy Spark SQL. `%%sql`informuje Notes o konieczności użycia ustawienia wstępnego `sqlContext` do uruchomienia zapytania. Zapytanie pobiera 10 najważniejszych wierszy z tabeli systemowej, która jest domyślnie dostarczana z wszystkimi pulami Apache Spark Azure Synapse.
 
 2. Uruchom inne zapytanie, aby wyświetlić dane z tabeli `demo_df`.
 
@@ -119,7 +119,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
 6. W polu kolumna osi X wybierz pozycję stan.
 7. W polu kolumna osi Y wybierz pozycję "wynagrodzenie".
 8. W polu **agregacja** wybierz wartość "Średnia".
-9. Wybierz przycisk **Zastosuj**.
+9. Wybierz pozycję **Zastosuj**.
 
    ![Dane wyjściowe wykresu na platformie Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Dane wyjściowe wykresu na platformie Azure Synapse Spark")
 
@@ -131,7 +131,7 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
 
 11. Każda z wcześniej wykonanych komórek miała opcję przejścia do **serwera historii** i **monitorowania**. Kliknięcie linków prowadzi do różnych części środowiska użytkownika.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usługa Azure Synapse zapisuje dane w Azure Data Lake Storage. Można bezpiecznie zezwolić na wyłączenie wystąpienia platformy Spark, gdy nie jest ono używane. Opłata jest naliczana za pulę Apache Spark platformy Azure Synapse o ile jest uruchomiona, nawet jeśli nie jest używana. Opłaty za pulę mają wiele razy więcej niż opłaty za magazyn. W związku z tym czynią ekonomiczną, aby umożliwić wyłączenie wystąpień platformy Spark, gdy nie są one używane.
 

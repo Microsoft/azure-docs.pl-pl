@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8cfa9114c5a5e57882cb84b604c1cf71be9acc52
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27ce3931e6808c5ba7ee0dbf9d3354220bbc0177
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878344"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592172"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
 
@@ -29,18 +29,18 @@ Aby zmniejszyć złożoność i łatwo zintegrować niestandardowy model aparatu
 |----------|----------|
 | Rozpoznawanie formularzy | <li>Przetwarza pliki PDF, PNG i JPG<li>Pociąga za siebie modele niestandardowe z co najmniej pięcioma formami tego samego układu <li>Wyodrębnia pary klucz-wartość i informacje o tabeli <li>Używa funkcji Rozpoznawanie tekstu platformy Azure Cognitive Services interfejs API przetwarzania obrazów do wykrywania i wyodrębniania wydrukowanych tekstu z obrazów wewnątrz formularzy<li>Nie wymaga adnotacji ani etykietowania |
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed użyciem kontenerów aparatów rozpoznawania formularzy należy spełnić następujące wymagania wstępne:
 
-| Wymagany | Przeznaczenie |
+| Wymagane | Przeznaczenie |
 |----------|---------|
 | Aparat platformy Docker | Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> W systemie Windows program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br> |
 | Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów oraz znajomość podstawowych `docker` poleceń. |
 | Interfejs wiersza polecenia platformy Azure | Zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) na hoście. |
-| Zasób interfejs API przetwarzania obrazów | Do przetworzenia zeskanowanych dokumentów i obrazów potrzebny jest zasób przetwarzanie obrazów. Możesz uzyskać dostęp do funkcji Rozpoznawanie tekstu jako zasobu platformy Azure (interfejsu API REST lub zestawu SDK) lub kontenera *usług poznawczego rozpoznawania tekstu* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Obowiązują standardowe opłaty za rozliczanie. <br><br>Przekaż zarówno klucz interfejsu API, jak i punkty końcowe dla zasobu przetwarzanie obrazów (Azure Cloud lub Cognitive Services Container). Użyj tego klucza interfejsu API i punktu końcowego jako **{COMPUTER_VISION_API_KEY}** i **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Jeśli używasz kontenera *poznawcze-Services-rozpoznaje-Text* , upewnij się, że:<br><br>Klucz przetwarzanie obrazów dla kontenera aparatu rozpoznawania formularzy jest kluczem określonym w przetwarzanie obrazów `docker run` polecenie dla kontenera " *poznawcze-Services-rozpoznaje-Text* ".<br>Punkt końcowy rozliczeniowy jest punktem końcowym kontenera (na przykład `http://localhost:5000`). Jeśli używasz kontenera przetwarzanie obrazów kontenerów i aparatu rozpoznawania formularzy razem na tym samym hoście, nie można uruchomić obu tych elementów przy użyciu domyślnego portu *5000*. |
+| Zasób interfejs API przetwarzania obrazów | Do przetworzenia zeskanowanych dokumentów i obrazów potrzebny jest zasób przetwarzanie obrazów. Możesz uzyskać dostęp do funkcji Rozpoznawanie tekstu jako zasobu platformy Azure (interfejsu API REST lub zestawu SDK) lub kontenera *usług poznawczego rozpoznawania tekstu* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Obowiązują standardowe opłaty za rozliczanie. <br><br>Przekaż zarówno klucz interfejsu API, jak i punkty końcowe dla zasobu przetwarzanie obrazów (Azure Cloud lub Cognitive Services Container). Użyj tego klucza interfejsu API i punktu końcowego jako **{COMPUTER_VISION_API_KEY}** i **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Jeśli używasz kontenera *poznawcze-Services-rozpoznaje-Text* , upewnij się, że:<br><br>Klucz przetwarzanie obrazów dla kontenera aparatu rozpoznawania formularzy jest kluczem określonym w przetwarzanie obrazów `docker run` polecenie dla kontenera " *poznawcze-Services-rozpoznaje-Text* ".<br>Punkt końcowy rozliczeniowy jest punktem końcowym kontenera (na przykład `http://localhost:5000` ). Jeśli używasz kontenera przetwarzanie obrazów kontenerów i aparatu rozpoznawania formularzy razem na tym samym hoście, nie można uruchomić obu tych elementów przy użyciu domyślnego portu *5000*. |
 | Zasób aparatu rozpoznawania formularza | Aby korzystać z tych kontenerów, musisz mieć:<br><br>Zasób **aparatu rozpoznawania formularza** platformy Azure, aby pobrać skojarzony klucz interfejsu API i identyfikator URI punktu końcowego. Obie wartości są dostępne na stronie Omówienie i klucze **aparatu rozpoznawania Azure Portal formularzy** , a obie wartości są wymagane do uruchomienia kontenera.<br><br>**{FORM_RECOGNIZER_API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie kluczy<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: punkt końcowy określony na stronie Przegląd |
 
 > [!NOTE]
@@ -48,9 +48,9 @@ Przed użyciem kontenerów aparatów rozpoznawania formularzy należy spełnić 
 
 ## <a name="gathering-required-parameters"></a>Zbieranie wymaganych parametrów
 
-Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Services, które są wymagane. Umowa licencyjna użytkownika oprogramowania (EULA) musi być obecna z wartością `accept`. Ponadto wymagany jest adres URL punktu końcowego i klucz interfejsu API.
+Istnieją trzy podstawowe parametry dla wszystkich kontenerów Cognitive Services, które są wymagane. Umowa licencyjna użytkownika oprogramowania (EULA) musi być obecna z wartością `accept` . Ponadto wymagany jest adres URL punktu końcowego i klucz interfejsu API.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Identyfikator URI `{COMPUTER_VISION_ENDPOINT_URI}` punktu końcowego i`{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Identyfikator URI punktu końcowego `{COMPUTER_VISION_ENDPOINT_URI}` i`{FORM_RECOGNIZER_ENDPOINT_URI}`
 
 Wartość identyfikatora URI **punktu końcowego** jest dostępna na stronie *Przegląd* Azure Portal odpowiedniego zasobu usługi poznawczej. Przejdź do strony *Przegląd* , umieść kursor nad punktem końcowym, a `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> zostanie wyświetlona ikona. Kopiowanie i używanie tam, gdzie jest to zbędne.
 
@@ -67,7 +67,7 @@ Ten klucz jest używany do uruchamiania kontenera i jest dostępny na stronie kl
 
 ## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
 
-Musisz najpierw zakończyć i przesłać formularz [żądania dostępu kontenerów rozpoznawania Cognitive Services formularzy](https://aka.ms/FormRecognizerContainerRequestAccess) , aby zażądać dostępu do kontenera. Spowoduje to również zalogowanie się do przetwarzanie obrazów. Nie musisz oddzielnie rejestrować się w celu przetwarzanie obrazów formularza żądania. 
+Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -87,7 +87,7 @@ Minimalna i zalecana liczba rdzeni procesora CPU i pamięci do przydzielenia dla
 | Rozpoznawanie tekstu | 1 rdzeń, 8 GB pamięci | 2 rdzenie, 8 GB pamięci |
 
 * Każdy rdzeń musi mieć co najmniej 2,6 gigaherca (GHz) lub szybszy.
-* Rdzeń i pamięć odpowiadają `--cpus` ustawieniom `--memory` i, które są używane jako część `docker run` polecenia.
+* Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
 > [!Note]
 > Wartości minimalne i zalecane są zależne od limitów platformy Docker, a *nie* zasobów maszyn hosta.
@@ -133,7 +133,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Uruchamianie kontenera przy użyciu polecenia Docker Run
 
-Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) `{COMPUTER_VISION_ENDPOINT_URI}`, aby uzyskać szczegółowe `{COMPUTER_VISION_API_KEY}`informacje `{FORM_RECOGNIZER_ENDPOINT_URI}` na `{FORM_RECOGNIZER_API_KEY}` temat sposobu pobierania wartości, i.
+Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{COMPUTER_VISION_ENDPOINT_URI}` `{COMPUTER_VISION_API_KEY}` wartości, `{FORM_RECOGNIZER_ENDPOINT_URI}` i `{FORM_RECOGNIZER_API_KEY}` .
 
 [Przykłady](form-recognizer-container-configuration.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
@@ -192,7 +192,7 @@ Każdy kolejny kontener powinien znajdować się na innym porcie.
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Uruchamianie oddzielnych kontenerów za pomocą Docker Compose
 
-W przypadku aparatu rozpoznawania formularzy i aparatu rozpoznawania tekstu, które są hostowane lokalnie na tym samym hoście, zapoznaj się z poniższym przykładem Docker Compose pliku YAML. Aparat rozpoznawania `{COMPUTER_VISION_API_KEY}` tekstu musi być taki sam dla kontenerów `formrecognizer` i `ocr` . `{COMPUTER_VISION_ENDPOINT_URI}` Jest używana tylko w `ocr` kontenerze, ponieważ `formrecognizer` kontener używa `ocr` nazwy i portu. 
+W przypadku aparatu rozpoznawania formularzy i aparatu rozpoznawania tekstu, które są hostowane lokalnie na tym samym hoście, zapoznaj się z poniższym przykładem Docker Compose pliku YAML. Aparat rozpoznawania tekstu `{COMPUTER_VISION_API_KEY}` musi być taki sam dla `formrecognizer` `ocr` kontenerów i. `{COMPUTER_VISION_ENDPOINT_URI}`Jest używana tylko w `ocr` kontenerze, ponieważ `formrecognizer` kontener używa `ocr` nazwy i portu. 
 
 ```docker
 version: '3.3'
@@ -243,7 +243,7 @@ services:
 ```
 
 > [!IMPORTANT]
-> Aby `Eula`można `Billing`było uruchomić `ApiKey`kontener, należy określić, `FormRecognizer:ComputerVisionApiKey` , `FormRecognizer:ComputerVisionEndpointUri` i, a także opcje i. w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+> `Eula` `Billing` `ApiKey` `FormRecognizer:ComputerVisionApiKey` Aby można było uruchomić kontener, należy określić,, i, a także `FormRecognizer:ComputerVisionEndpointUri` Opcje i. w przeciwnym razie kontener nie zostanie uruchomiony. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Zbadaj punkt końcowy przewidywania kontenera
 

@@ -2,19 +2,19 @@
 title: 'Samouczek: wzorce — LUIS'
 description: Użyj wzorców, aby zwiększyć zamiar i prognozowanie jednostek, jednocześnie dostarczając mniejszą liczbę przykładów wyrażenia długości w tym samouczku. Wzorzec jest dostępny jako przykład wypowiedź szablonu, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380768"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592920"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Samouczek: Dodawanie typowych formatów wypowiedź szablonów wzorców w celu usprawnienia prognoz
 
 W tym samouczku Użyj wzorców, aby zwiększyć cel i prognozowanie jednostek, co pozwala na dostarczenie mniejszej przykładowej wyrażenia długości. Wzorzec to szablon wypowiedź przypisany do zamiaru, który zawiera składnię identyfikującą jednostki i tekst, który można zignorować.
 
-**Ten samouczek zawiera informacje na temat wykonywania następujących czynności:**
+**Z tego samouczka dowiesz się, jak wykonywać następujące czynności:**
 
 > [!div class="checklist"]
 > * Tworzenie wzorca
@@ -41,9 +41,10 @@ Wykonaj następujące czynności:
 
 1.  Pobierz i Zapisz [plik JSON aplikacji](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Zaimportuj plik JSON do nowej aplikacji w [portalu Luis w wersji zapoznawczej](https://preview.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako plik JSON**. Wybierz plik pobrany w poprzednim kroku.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Zaimportuj plik JSON do nowej aplikacji w [portalu Luis](https://www.luis.ai). Na stronie **Moje aplikacje** wybierz pozycję **+ Nowa aplikacja do konwersacji**, a następnie wybierz pozycję **Importuj jako plik JSON**. Wybierz plik pobrany w poprzednim kroku.
 
-1. W sekcji **Zarządzanie** na karcie **wersje** wybierz aktywną wersję, a następnie wybierz pozycję **Klonuj**. Nadaj nazwę sklonowanej wersji `patterns`. Klonowanie to dobry sposób na testowanie różnych funkcji usługi LUIS bez wpływu na oryginalną wersję aplikacji. Ponieważ nazwa wersji jest używana jako część trasy adresu URL, nie może ona zawierać żadnych znaków, które są nieprawidłowe w adresie URL.
+1. W sekcji **Zarządzanie** na karcie **wersje** wybierz aktywną wersję, a następnie wybierz pozycję **Klonuj**. Nadaj nazwę sklonowanej wersji `patterns` . Klonowanie to dobry sposób na testowanie różnych funkcji usługi LUIS bez wpływu na oryginalną wersję aplikacji. Ponieważ nazwa wersji jest używana jako część trasy adresu URL, nie może ona zawierać żadnych znaków, które są nieprawidłowe w adresie URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Tworzenie nowych intencji i ich wypowiedzi
 
@@ -99,7 +100,7 @@ Te dwa intencje odszukają Menedżera lub bezpośrednich raportów kierownika na
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ : `Who is the boss of Jill Jones?`.
+1. Przejdź na koniec adresu URL na pasku adresu i Zastąp _YOUR_QUERY_HERE_ : `Who is the boss of Jill Jones?` .
 
     ```json
     {
@@ -198,7 +199,7 @@ Aby poprawny wynik intencji był znacznie wyższy procentowo i bardziej oddalony
 Pozostaw drugie okno przeglądarki otwarte. Będzie potrzebne w dalszej części samouczka.
 
 ## <a name="template-utterances"></a>Wypowiedzi szablonu
-Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Przykład:
+Ze względu na charakter domeny podmiotu zasobów ludzkich istnieje kilka typowych metod zaproszenia o relacje między pracownikami w organizacjach. Na przykład:
 
 |Wypowiedzi|
 |--|
@@ -214,7 +215,7 @@ Przykładowe wypowiedzi szablonu dla tej intencji obejmują:
 |`Who does {Employee} report to[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
 |`Who reports to {Employee}[?]`|wymienne`{Employee}`<br>Ignoruj`[?]`|
 
-Składnia `{Employee}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]`, znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
+Składnia `{Employee}` oznacza lokalizację jednostki w ramach wypowiedzi szablonu oraz to, która to jednostka. Opcjonalna składnia, `[?]` , znaki wyrazów lub [interpunkcja](luis-reference-application-settings.md#punctuation-normalization) , która jest opcjonalna. Usługa LUIS dopasowuje wypowiedź, ignorując opcjonalny tekst w nawiasie.
 
 Chociaż składnia wygląda podobnie do wyrażenia regularnego, nie jest wyrażeniem regularnym. Obsługiwana jest tylko składnia w nawiasie klamrowym, `{}`, i nawiasie kwadratowym, `[]`. Mogą być one zagnieżdżone na najwyżej dwóch poziomach.
 
@@ -365,7 +366,7 @@ Przykładowe wypowiedzi:
 |OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
 
-Każdy z tych przykładów używa czasowników w różnych czasach: `was`, `is`, `will be`, a także daty: `March 3`, `now` i `in a month`, których usługa LUIS potrzebuje do poprawnego przewidywania. Zwróć uwagę, że ostatnie dwa przykłady w tabeli używają niemal tego samego tekstu, z `in` wyjątkiem `on`i.
+Każdy z tych przykładów używa czasowników w różnych czasach: `was`, `is`, `will be`, a także daty: `March 3`, `now` i `in a month`, których usługa LUIS potrzebuje do poprawnego przewidywania. Zwróć uwagę, że ostatnie dwa przykłady w tabeli używają niemal tego samego tekstu, z wyjątkiem `in` i `on` .
 
 Przykładowy wyrażenia długości szablonu, który zezwala na te informacje opcjonalne:
 
@@ -435,9 +436,9 @@ Nowy szablon wypowiedź będzie:
 
 `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
 
-Powoduje to użycie **grupy** wokół wymaganego przedziału i opcjonalne `in` i `on` z **lub** z potokiem między nimi.
+Powoduje to użycie **grupy** wokół wymaganego `in` `on` przedziału i opcjonalne i z **lub** z potokiem między nimi.
 
-1. Na stronie **wzorce** wybierz filtr **schemat organizacyjny — Menedżer** . Zawęź listę, wyszukując frazę `manager`.
+1. Na stronie **wzorce** wybierz filtr **schemat organizacyjny — Menedżer** . Zawęź listę, wyszukując frazę `manager` .
 
 1. Zachowaj jedną wersję szablonu wypowiedź (do edycji w następnym kroku) i Usuń inne różnice.
 
@@ -464,37 +465,11 @@ Używając większej składni wzorców, można zmniejszyć liczbę wyrażenia d�
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Używanie kotwic początkowych i końcowych wypowiedź
 
-Składnia wzorca zapewnia początkową i końcową składnię zakotwiczenia wypowiedź karetki `^`. Kotwice początkową i końcową wypowiedź mogą być używane razem w celu określania wartości docelowej i możliwego do oddzielenia literału wypowiedź lub użycia oddzielnie do celów docelowych.
+Składnia wzorca zapewnia początkową i końcową składnię zakotwiczenia wypowiedź karetki `^` . Kotwice początkową i końcową wypowiedź mogą być używane razem w celu określania wartości docelowej i możliwego do oddzielenia literału wypowiedź lub użycia oddzielnie do celów docelowych.
 
 ## <a name="using-patternany-entity"></a>Używanie jednostki Pattern.any
 
-Jednostka Pattern.any umożliwia wyszukiwanie danych o swobodnym formacie, gdzie treść jednostki sprawia, że trudno rozróżnić koniec jednostki od reszty wypowiedzi.
-
-Ta aplikacja zarządzania zasobami ludzkimi pomaga pracownikom znajdować formularze firmy.
-
-|Wypowiedź|
-|--|
-|Where is **HRF-123456**? (Gdzie jest formularz HRF-123456?)|
-|Who authored **HRF-123234**? (Kto jest autorem formularza HRF-123456?)|
-|**HRF-456098** is published in French? (Czy formularz HRF-123456 jest publikowany w języku francuskim?)|
-
-Jednak każdy formularz ma zarówno nazwę sformatowaną, używaną w powyższej tabeli, jak i nazwę przyjazną, taką jak `Request relocation from employee new to the company 2018 version 5`.
-
-Wypowiedzi z przyjazną formą wyglądają następująco:
-
-|Wypowiedź|
-|--|
-|Where is **Request relocation from employee new to the company 2018 version 5**? (Gdzie jest formularz Żądanie przeniesienia nowego pracownika do firmy 2018 wersja 5?)|
-|Who authored **Request relocation from employee new to the company 2018 version 5**? (Kto jest autorem formularza Żądanie przeniesienia nowego pracownika do firmy 2018 wersja 5?)|
-|**Request relocation from employee new to the company 2018 version 5** is published in French? (Czy formularz Żądanie przeniesienia nowego pracownika do firmy 2018 wersja 5 jest publikowany w języku francuskim?)|
-
-Różna długość zawiera wyrazy, które mogą wprowadzać usługę LUIS w błąd co do tego, gdzie kończy się dana jednostka. Użycie jednostki Pattern.any we wzorcu umożliwia określenie początku i końca nazwy formularza, dzięki czemu usługa LUIS poprawnie wyodrębnia nazwę formularza.
-
-|Przykładowa wypowiedź szablonu|
-|--|
-|Where is {FormName}[?] (Gdzie jest {Nazwa_formularza}[?])|
-|Who authored {FormName}[?] (Kto jest autorem {Nazwa_formularza}[?])|
-|{FormName} is published in French[?] (Czy {Nazwa_formularza} jest publikowany w języku francuskim [?])|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Dodaj przykład wyrażenia długości ze wzorcem. any
 
@@ -518,7 +493,7 @@ Jednostka Pattern.any wyodrębnia jednostki o różnej długości. Działa tylko
 
 1. Wybierz pozycję **Entities** (Jednostki) na lewym pasku nawigacyjnym.
 
-1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName`i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **+ Utwórz**, wprowadź nazwę `FormName` i wybierz opcję **wzorzec. dowolny** jako typ. Wybierz przycisk **Utwórz**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Dodawanie wzorca, który używa jednostki Pattern.any
 
@@ -558,7 +533,7 @@ Jeśli zauważysz, że Twój wzorzec, gdy zawiera jednostkę Pattern.any, niepop
 
 W tym samouczku dodano wzorce umożliwiające LUIS przewidywalność zamiaru z znacznie wyższym wynikiem, bez konieczności dodawania więcej przykładowych wyrażenia długości. Oznaczanie jednostek i tekst możliwy do zignorowania pozwoliły usłudze LUIS na zastosowanie wzorca do szerszego zakresu wypowiedzi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

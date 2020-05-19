@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6a1a743f313ca4159ce4ef03413a94ec25bb8fae
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199531"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591237"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Dodaj firmę Google jako dostawcę tożsamości dla użytkowników gościa B2B
 
@@ -90,7 +90,7 @@ Teraz ustawisz identyfikator klienta Google i klucz tajny klienta, wprowadzając
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Aby skonfigurować usługę Google Federation w portalu usługi Azure AD 
 1. Przejdź do [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz pozycję **Wszyscy dostawcy tożsamości**, a następnie kliknij przycisk **Google** .
 4. Wprowadź nazwę. Następnie wprowadź wcześniej otrzymany identyfikator klienta i klucz tajny klienta. Wybierz pozycję **Zapisz**. 
 
@@ -112,7 +112,7 @@ Możesz usunąć konfigurację usługi Google Federation. W takim przypadku uży
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Aby usunąć usługę Google Federation w portalu usługi Azure AD: 
 1. Przejdź do [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
-2. Wybierz **relacje organizacyjne** (lub **tożsamości zewnętrzne**).
+2. Wybierz **tożsamości zewnętrzne**.
 3. Wybierz pozycję **Wszyscy dostawcy tożsamości**.
 4. W wierszu **Google** wybierz menu kontekstowe (**...**), a następnie wybierz pozycję **Usuń**. 
    

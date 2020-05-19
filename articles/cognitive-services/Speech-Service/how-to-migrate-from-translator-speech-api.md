@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77560902"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593175"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrowanie z interfejs API tłumaczenia mowy w usłudze Translator do usługi mowy
 
@@ -26,7 +26,7 @@ Ten artykuł służy do migrowania aplikacji z interfejs API tłumaczenia mowy w
 
 ## <a name="comparison-of-features"></a>Porównanie funkcji
 
-| Funkcja                                           | Interfejs API tłumaczenia mowy w usłudze Translator                                  | Usługa rozpoznawania mowy | Szczegóły                                                                                                                                                                                                                                                                            |
+| Cechy                                           | Interfejs API tłumaczenia mowy w usłudze Translator                                  | Usługa rozpoznawania mowy | Szczegóły                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tłumaczenie na tekst                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Tłumaczenie na mowę                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -37,7 +37,7 @@ Ten artykuł służy do migrowania aplikacji z interfejs API tłumaczenia mowy w
 | Wiele języków przetłumaczonych w pojedynczym żądaniu | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Dostępne zestawy SDK                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Zobacz [dokumentację usługi Speech](index.yml) dla dostępnych zestawów SDK.                                                                                                                                                    |
 | Połączenia obiektów WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Interfejs API języków                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Usługa mowy obsługuje te same Języki, które opisano w artykule [Skorowidz języka interfejsu API usługi Translator](../translator-speech/languages-reference.md) . |
+| Interfejs API języków                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Usługa mowy obsługuje te same Języki, które opisano w artykule [Skorowidz języka translatora](../translator-speech/languages-reference.md) . |
 | Filtr i znacznik niewulgarności                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | . WAV/PCM jako dane wejściowe                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Inne typy plików jako dane wejściowe                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,7 +55,7 @@ Jeśli ty lub Twoja organizacja ma aplikacje w programowaniu lub środowisku pro
 
 * Jeśli aplikacja korzysta z długotrwałych połączeń i nie może korzystać z dostępnych zestawów SDK, można użyć połączenia z usługą WebSockets. Aby zarządzać limitem 10-minutowego limitu czasu, należy ponownie połączyć się w odpowiednim czasie.
 
-* Jeśli aplikacja używa interfejs API tłumaczenia tekstu w usłudze Translator i interfejs API tłumaczenia mowy w usłudze Translator do włączenia niestandardowych modeli tłumaczenia, można dodać identyfikatory kategorii bezpośrednio przy użyciu usługi Speech.
+* Jeśli aplikacja używa usługi translatora i interfejs API tłumaczenia mowy w usłudze Translator do włączenia niestandardowych modeli tłumaczenia, można dodać identyfikatory kategorii bezpośrednio przy użyciu usługi Speech.
 
 * W przeciwieństwie do interfejs API tłumaczenia mowy w usłudze Translator usługa mowy umożliwia wykonywanie tłumaczeń w wielu językach w pojedynczym żądaniu.
 
