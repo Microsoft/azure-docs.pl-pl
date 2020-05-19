@@ -2,13 +2,13 @@
 title: Limity — LUIS
 description: Ten artykuł zawiera znane limity usługi Azure Cognitive Services Language Understanding (LUIS). LUIS ma kilka obszarów ograniczeń. Limit modelu kontroluje intencje, jednostki i funkcje w LUIS. Limity przydziału na podstawie typu klucza. Kombinacja klawiatury kontroluje witrynę sieci Web LUIS.
 ms.topic: reference
-ms.date: 04/02/2020
-ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82103593"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593243"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -19,7 +19,7 @@ LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), 
 
 Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji do [wysyłania Luis](luis-concept-enterprise.md#dispatch-tool-and-model) lub [kontenera Luis](luis-container-howto.md).
 
-|Obszar|Limit|
+|Warstwowy|Limit|
 |--|:--|
 | [Nazwa aplikacji][luis-get-started-create-app] | * Maksimum znaku domyślnego |
 | Aplikacje| 500 aplikacji na zasób tworzenia na platformie Azure |
@@ -28,8 +28,8 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | Jednostki zewnętrzne | Brak limitów |
 | [Intencje][intents]|500 na aplikację: 499 niestandardowe intencje i wymagane opcje _none_ .<br>Aplikacja [oparta na wysyłce](https://aka.ms/dispatch-tool) ma odpowiednie źródła wysyłania 500.|
 | [Lista jednostek](./luis-concept-entity-types.md) | Element nadrzędny: 50, element podrzędny: 20 000 elementów. Nazwa kanoniczna to * domyślny znak maksymalny. Wartości synonimów nie mają ograniczenia długości. |
-| Jednostki, które zostały [wyznanie maszyn i role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podskładniki można zagnieżdżać do 5 poziomów.|
-|Model jako funkcja| Maksymalna liczba modeli, które mogą być używane jako deskryptor (funkcja) do określonego modelu do 10 modeli. Maksymalna liczba list fraz używanych jako deskryptor (funkcja) dla określonego modelu do 10 list fraz.|
+| Jednostki, które zostały [wyznanie maszyn i role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki można zagnieżdżać do 5 poziomów.|
+|Model jako funkcja| Maksymalna liczba modeli, które mogą być używane jako funkcja do określonego modelu do 10 modeli. Maksymalna liczba list fraz używanych jako funkcja dla określonego modelu do 10 list fraz.|
 | [Wersja zapoznawcza — jednostki listy dynamicznej](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listy ~ 1K na żądanie punktu końcowego przewidywania zapytań|
 | [Wzorce](luis-concept-patterns.md)|500 wzorców na aplikację.<br>Maksymalna długość wzorca to 400 znaków.<br>3 wzorzec. wszystkie jednostki na wzorzec<br>Maksymalnie 2 zagnieżdżonych dodatkowych tekstów w wzorcu|
 | [Wzorzec. any](./luis-concept-entity-types.md)|100 na aplikację, 3 wzorce. wszystkie jednostki na wzorzec |
@@ -40,7 +40,7 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | [Wypowiedź][utterances] | 500 znaków|
 | [Wypowiedzi][utterances] | 15 000 na aplikację — nie ma limitu liczby wyrażenia długości na zamiar|
 | [Wersje](luis-concept-version.md)| 100 wersji na aplikację |
-| [Nazwa wersji][luis-how-to-manage-versions] | 10 znaków z ograniczeniami alfanumerycznymi i kropką (.) |
+| [Nazwa wersji][luis-how-to-manage-versions] | 128 znaków |
 
 * Wartość domyślna to 50 znaków.
 
@@ -48,18 +48,14 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 
 ## <a name="name-uniqueness"></a>Unikatowość nazw
 
-Użyj następujących reguł unikatowości nazewnictwa.
+Nazwy obiektów muszą być unikatowe w porównaniu z innymi obiektami tego samego poziomu.
 
-Następujące elementy muszą być unikatowe w ramach aplikacji LUIS:
-
-* Nazwa wersji
-* intencji
-* jednostka
-* role
-
-Następujące elementy muszą być unikatowe w ramach zastosowanego zakresu:
-
-* Lista fraz
+|Obiekty|Ograniczenia|
+|--|--|
+|Cel, jednostka|Wszystkie nazwy zamierzeń i jednostek muszą być unikatowe w wersji aplikacji.|
+|Składniki jednostki ML|Wszystkie składniki jednostki, które są związane z maszyną (jednostki podrzędne), muszą być unikatowe w tej jednostce dla składników na tym samym poziomie.|
+|Funkcje | Wszystkie nazwane funkcje, takie jak listy fraz, muszą być unikatowe w ramach wersji aplikacji.|
+|Role jednostki|Wszystkie role w jednostce lub składniku jednostki muszą być unikatowe, gdy znajdują się na tym samym poziomie jednostki (element nadrzędny, podrzędny, grandchild itp.).|
 
 ## <a name="object-naming"></a>Nazywanie obiektów
 
@@ -78,7 +74,7 @@ Zrozumienie języka ma oddzielne zasoby, jeden typ do tworzenia i jeden typ do w
 
 ### <a name="authoring-resource-limits"></a>Limity zasobów tworzenia
 
-Użyj _rodzaju_, `LUIS.Authoring`, podczas filtrowania zasobów w Azure Portal. LUIS ogranicza 500 aplikacji na zasób tworzenia na platformie Azure.
+Użyj _rodzaju_, `LUIS.Authoring` , podczas filtrowania zasobów w Azure Portal. LUIS ogranicza 500 aplikacji na zasób tworzenia na platformie Azure.
 
 |Tworzenie zasobu|TPS tworzenia|
 |--|--|
@@ -91,7 +87,7 @@ Użyj _rodzaju_, `LUIS.Authoring`, podczas filtrowania zasobów w Azure Portal. 
 
 ### <a name="query-prediction-resource-limits"></a>Limity zasobów przewidywania zapytań
 
-Użyj _rodzaju_, `LUIS`, podczas filtrowania zasobów w Azure Portal. Zasób punktu końcowego przewidywania zapytań LUIS używany w środowisku uruchomieniowym jest prawidłowy tylko dla zapytań punktów końcowych.
+Użyj _rodzaju_, `LUIS` , podczas filtrowania zasobów w Azure Portal. Zasób punktu końcowego przewidywania zapytań LUIS używany w środowisku uruchomieniowym jest prawidłowy tylko dla zapytań punktów końcowych.
 
 |Zasób predykcyjny zapytania|TPS zapytania|
 |--|--|
