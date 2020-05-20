@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259106"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649187"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować rejestrację użytkownika i subskrypcję produktu
 
@@ -48,7 +48,7 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
 
 1. Odbierz żądanie w następującej postaci:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?Operation=SignIn&ReturnUrl = {URL strony źródłowej} &soli = {string} &SIG = {String}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&ReturnUrl = {URL strony źródłowej} &soli = {String} &SIG = {String}*
    > 
    > 
    
@@ -74,7 +74,7 @@ Teraz musisz utworzyć **punkt końcowy delegowania**. Musi wykonać kilka akcji
    * [Żądaj tokenu logowania jednokrotnego (SSO)] za pośrednictwem interfejsu API REST API Management
    * Dołącz parametr zapytania returnUrl do adresu URL logowania jednokrotnego otrzymanego z wywołania interfejsu API powyżej:
      
-     > na przykładhttps://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > na przykład`https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * Przekieruj użytkownika do powyższego wygenerowanego adresu URL
@@ -105,7 +105,7 @@ Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące c
 
 1. Odbierz żądanie w następującej postaci:
    
-   > *http:\//www.yourwebsite.com/apimdelegation? Operation = {operation} &ProductID = {produkt do subskrybowania} &userId = {userion request} &sól = {string} &SIG = {String}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation? Operation = {Operation} &ProductID = {produkt do subskrybowania} &userId = {userion Request} &sól = {String} &SIG = {String}*
    >
    
     Parametry zapytania dotyczące przypadku subskrypcji produktu:

@@ -2,124 +2,40 @@
 title: Wdrażanie zasobów między subskrypcjami & grupy zasobów
 description: Pokazuje, w jaki sposób można określić więcej niż jedną subskrypcję platformy Azure i grupę zasobów podczas wdrażania.
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 70868f5a3598c26ffff81f0ad3536a6c5c0a7e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2020
+ms.openlocfilehash: 2ef68dcb933075833c323d973b023cdaee61bd2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460351"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650626"
 ---
-# <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów
+# <a name="deploy-azure-resources-across-subscriptions-or-resource-groups"></a>Wdrażanie zasobów platformy Azure w ramach subskrypcji lub grup zasobów
 
-Zwykle wszystkie zasoby w szablonie są wdrażane w jednej [grupie zasobów](../management/overview.md). Istnieją jednak scenariusze, w których należy wspólnie wdrożyć zestaw zasobów, ale umieścić je w różnych grupach zasobów lub subskrypcjach. Na przykład możesz chcieć wdrożyć maszynę wirtualną kopii zapasowej dla Azure Site Recovery w oddzielnej grupie zasobów i lokalizacji. Menedżer zasobów umożliwia korzystanie z szablonów zagnieżdżonych w celu uwzględnienia więcej niż jednej subskrypcji i grupy zasobów.
+Menedżer zasobów umożliwia wdrożenie do więcej niż jednej grupy zasobów w jednym wdrożeniu. Użyj szablonów zagnieżdżonych, aby określić grupy zasobów, które różnią się od grupy zasobów w operacji wdrażania. Grupy zasobów mogą istnieć w różnych subskrypcjach.
 
 > [!NOTE]
-> W jednym wdrożeniu można wdrożyć tylko pięć grup zasobów. Zwykle to ograniczenie oznacza, że można wdrożyć do jednej grupy zasobów określonej dla szablonu nadrzędnego oraz do czterech grup zasobów w ramach wdrożeń zagnieżdżonych lub połączonych. Jeśli jednak szablon nadrzędny zawiera tylko szablony zagnieżdżone lub połączone i nie wdraża żadnego zasobu, można dołączyć do pięciu grup zasobów w ramach wdrożeń zagnieżdżonych lub połączonych.
+> Można wdrożyć do **800 grup zasobów** w jednym wdrożeniu. Zwykle to ograniczenie oznacza, że można wdrożyć do jednej grupy zasobów określonej dla szablonu nadrzędnego oraz do 799 grup zasobów w zagnieżdżonych lub połączonych wdrożeniach. Jeśli jednak szablon nadrzędny zawiera tylko szablony zagnieżdżone lub połączone i nie wdraża żadnych zasobów, można dołączyć do 800 grup zasobów w ramach wdrożeń zagnieżdżonych lub połączonych.
 
 ## <a name="specify-subscription-and-resource-group"></a>Określ subskrypcję i grupę zasobów
 
-Aby określić inną grupę zasobów lub subskrypcję, użyj [szablonu zagnieżdżone lub połączone](linked-templates.md). Typ `Microsoft.Resources/deployments` zasobu zawiera parametry dla `subscriptionId` i `resourceGroup`, które umożliwiają określenie subskrypcji i grupy zasobów dla wdrożenia zagnieżdżonego. Jeśli nie określisz identyfikatora subskrypcji lub grupy zasobów, zostanie użyta subskrypcja i Grupa zasobów z szablonu nadrzędnego. Przed uruchomieniem wdrożenia muszą istnieć wszystkie grupy zasobów.
+Aby określić grupę zasobów, która jest inna niż ta dla szablonu nadrzędnego, użyj [szablonu zagnieżdżone lub połączone](linked-templates.md). W obszarze Typ zasobu wdrożenia Określ wartości dla identyfikatora subskrypcji i grupy zasobów, na które ma zostać wdrożony szablon zagnieżdżony.
 
-Konto używane do wdrożenia szablonu musi mieć uprawnienia do wdrożenia określonego identyfikatora subskrypcji. Jeśli określona subskrypcja istnieje w innej dzierżawie Azure Active Directory, należy [dodać użytkowników-Gości z innego katalogu](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
 
-Aby określić inną grupę zasobów i subskrypcję, użyj:
+Jeśli nie określisz identyfikatora subskrypcji lub grupy zasobów, zostanie użyta subskrypcja i Grupa zasobów z szablonu nadrzędnego. Przed uruchomieniem wdrożenia muszą istnieć wszystkie grupy zasobów.
 
-```json
-"resources": [
-  {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "resourceGroup": "[parameters('secondResourceGroup')]",
-    "subscriptionId": "[parameters('secondSubscriptionID')]",
-    ...
-  }
-]
-```
+Konto, które wdraża szablon, musi mieć uprawnienia do wdrożenia określonego identyfikatora subskrypcji. Jeśli określona subskrypcja istnieje w innej dzierżawie Azure Active Directory, należy [dodać użytkowników-Gości z innego katalogu](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).
 
-Jeśli grupy zasobów znajdują się w tej samej subskrypcji, możesz usunąć wartość identyfikatora **subskrypcji** .
+Poniższy przykład służy do wdrażania dwóch kont magazynu. Pierwsze konto magazynu zostanie wdrożone w grupie zasobów określonej w operacji wdrażania. Drugie konto magazynu jest wdrażane w grupie zasobów określonej w `secondResourceGroup` `secondSubscriptionID` parametrach i:
 
-Poniższy przykład służy do wdrażania dwóch kont magazynu. Pierwsze konto magazynu jest wdrażane w grupie zasobów określonej podczas wdrażania. Drugie konto magazynu jest wdrażane w grupie zasobów określonej w parametrach `secondResourceGroup` i `secondSubscriptionID` :
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    },
-    "secondResourceGroup": {
-      "type": "string"
-    },
-    "secondSubscriptionID": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "secondStorageLocation": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    }
-  },
-  "variables": {
-    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2017-06-01",
-      "name": "[variables('firstStorageName')]",
-      "location": "[resourceGroup().location]",
-      "sku":{
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "nestedTemplate",
-      "resourceGroup": "[parameters('secondResourceGroup')]",
-      "subscriptionId": "[parameters('secondSubscriptionID')]",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-06-01",
-            "name": "[variables('secondStorageName')]",
-            "location": "[parameters('secondStorageLocation')]",
-            "sku":{
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-          }
-          ]
-      },
-      "parameters": {}
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
 
 Jeśli ustawisz `resourceGroup` nazwę grupy zasobów, która nie istnieje, wdrożenie nie powiedzie się.
 
 Aby przetestować poprzedni szablon i zobaczyć wyniki, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby wdrożyć dwa konta magazynu w dwóch grupach zasobów w ramach **tej samej subskrypcji**, użyj:
 
@@ -221,103 +137,11 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 * zagnieżdżony szablon z zakresem wewnętrznym
 * połączony szablon
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "defaultScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "innerScopeTemplate",
-      "resourceGroup": "inlineGroup",
-      "properties": {
-      "expressionEvaluationOptions": {
-          "scope": "inner"
-      },
-      "mode": "Incremental",
-      "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-          ],
-          "outputs": {
-          "resourceGroupOutput": {
-            "type": "string",
-            "value": "[resourceGroup().name]"
-          }
-          }
-      },
-      "parameters": {}
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "resourceGroup": "linkedGroup",
-      "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-          "contentVersion": "1.0.0.0",
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourceGroupName.json"
-      },
-      "parameters": {}
-      }
-    }
-  ],
-  "outputs": {
-    "parentRG": {
-      "type": "string",
-      "value": "[concat('Parent resource group is ', resourceGroup().name)]"
-    },
-    "defaultScopeRG": {
-      "type": "string",
-      "value": "[concat('Default scope resource group is ', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "innerScopeRG": {
-      "type": "string",
-      "value": "[concat('Inner scope resource group is ', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
-    },
-    "linkedRG": {
-      "type": "string",
-      "value": "[concat('Linked resource group is ', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crossresourcegroupproperties.json":::
 
 Aby przetestować poprzedni szablon i zobaczyć wyniki, użyj programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus

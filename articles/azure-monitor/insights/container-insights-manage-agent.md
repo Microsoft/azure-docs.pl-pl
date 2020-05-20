@@ -2,13 +2,13 @@
 title: Jak zarządzać Azure Monitor dla agenta kontenerów | Microsoft Docs
 description: W tym artykule opisano zarządzanie najbardziej typowymi zadaniami konserwacji przy użyciu Log Analytics agenta kontenera używanego przez Azure Monitor dla kontenerów.
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275323"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652195"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Jak zarządzać Azure Monitor dla agenta kontenerów
 
@@ -16,13 +16,13 @@ Azure Monitor kontenerów używa zastosowanej wersji agenta Log Analytics dla sy
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Jak uaktualnić Azure Monitor dla agenta kontenerów
 
-Azure Monitor kontenerów używa zastosowanej wersji agenta Log Analytics dla systemu Linux. Po wydaniu nowej wersji agenta Agent jest automatycznie uaktualniany do zarządzanych klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS) i na platformie Azure Red Hat OpenShift. W przypadku [hybrydowego klastra Kubernetes](container-insights-hybrid-setup.md) Agent nie jest zarządzany i należy ręcznie uaktualnić agenta.
+Azure Monitor kontenerów używa zastosowanej wersji agenta Log Analytics dla systemu Linux. Po wydaniu nowej wersji agenta Agent jest automatycznie uaktualniany do zarządzanych klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS) i na platformie Azure Red Hat OpenShift w wersji 3. x. W przypadku [hybrydowego klastra Kubernetes](container-insights-hybrid-setup.md) i usługi Azure Red Hat OpenShift w wersji 4. x Agent nie jest zarządzany i należy ręcznie uaktualnić agenta.
 
-Jeśli uaktualnienie agenta nie powiedzie się w klastrze hostowanym na AKS, w tym artykule opisano również proces ręcznego uaktualniania agenta. Aby postępować zgodnie z wydaną wersją, zobacz [anonse dotyczące wersji agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+Jeśli uaktualnienie agenta nie powiedzie się w przypadku klastra hostowanego w systemie AKS lub Azure Red Hat OpenShift w wersji 3. x, w tym artykule opisano również proces ręcznego uaktualniania agenta. Aby postępować zgodnie z wydaną wersją, zobacz [anonse dotyczące wersji agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
-### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>Uaktualnij agenta w monitorowanym klastrze Kubernetes
+### <a name="upgrade-agent-on-aks-cluster"></a>Uaktualnianie agenta w klastrze AKS
 
-Proces uaktualniania agenta w klastrach, innym niż Azure Red Hat OpenShift, składa się z dwóch prostych kroków do przodu. Pierwszym krokiem jest wyłączenie monitorowania za pomocą Azure Monitor dla kontenerów przy użyciu interfejsu wiersza polecenia platformy Azure. Wykonaj kroki opisane w artykule [wyłączanie monitorowania](container-insights-optout.md?#azure-cli) . Korzystając z interfejsu wiersza polecenia platformy Azure, można usunąć agenta z węzłów w klastrze bez wywierania wpływu na rozwiązanie i odpowiadające im dane przechowywane w obszarze roboczym. 
+Proces uaktualniania agenta w klastrach AKS składa się z dwóch prostych kroków do przodu. Pierwszym krokiem jest wyłączenie monitorowania za pomocą Azure Monitor dla kontenerów przy użyciu interfejsu wiersza polecenia platformy Azure. Wykonaj kroki opisane w artykule [wyłączanie monitorowania](container-insights-optout.md?#azure-cli) . Korzystając z interfejsu wiersza polecenia platformy Azure, można usunąć agenta z węzłów w klastrze bez wywierania wpływu na rozwiązanie i odpowiadające im dane przechowywane w obszarze roboczym. 
 
 >[!NOTE]
 >Podczas wykonywania tej czynności konserwacyjnej węzły w klastrze nie przesyłają dalej zebranych danych, a w widokach wydajności nie będą wyświetlane dane między momentem usunięcia agenta i zainstalowania nowej wersji. 
@@ -53,9 +53,15 @@ Stan powinien wyglądać podobnie do poniższego przykładu, gdzie wartość par
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
 
-## <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Uaktualnij agenta w hybrydowym klastrze Kubernetes
+### <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>Uaktualnij agenta w hybrydowym klastrze Kubernetes
 
-Proces uaktualniania agenta do klastra Kubernetes hostowanego lokalnie, aparatu AKS na platformie Azure i Azure Stack można wykonać, uruchamiając następujące polecenie:
+Wykonaj następujące kroki, aby uaktualnić agenta programu w klastrze Kubernetes z systemem:
+
+* Samozarządzane klastry Kubernetes hostowane na platformie Azure przy użyciu aparatu AKS.
+* Samozarządzane klastry Kubernetes hostowane na Azure Stack lub lokalnie za pomocą aparatu AKS.
+* Red Hat OpenShift w wersji 4. x.
+
+Jeśli obszar roboczy Log Analytics działa na platformie Azure, uruchom następujące polecenie:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -76,6 +82,19 @@ $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
 ```
 
+### <a name="upgrade-agent-on-azure-red-hat-openshift-v4"></a>Uaktualnij agenta na platformie Azure Red Hat OpenShift v4
+
+Wykonaj następujące kroki, aby uaktualnić agenta programu w klastrze Kubernetes działającym na platformie Azure Red Hat OpenShift w wersji 4. x. 
+
+>[!NOTE]
+>Usługa Azure Red Hat OpenShift w wersji 4. x obsługuje tylko uruchamianie w chmurze komercyjnej platformy Azure.
+>
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Jak wyłączyć zbieranie zmiennych środowiskowych w kontenerze
 
 Azure Monitor dla kontenerów zbiera zmienne środowiskowe z kontenerów uruchomionych w obszarze pod i wyświetla je w okienku właściwości wybranego kontenera w widoku **kontenerów** . Możesz kontrolować to zachowanie, wyłączając kolekcję dla określonego kontenera albo podczas wdrażania klastra Kubernetes, albo po ustawieniu zmiennej środowiskowej *AZMON_COLLECT_ENV*. Ta funkcja jest dostępna w wersji agenta — ciprod11292018 lub nowszej.  
@@ -87,7 +106,7 @@ Aby wyłączyć zbieranie zmiennych środowiskowych w nowym lub istniejącym kon
   value: "False"  
 ```  
 
-Uruchom następujące polecenie, aby zastosować zmianę do klastrów Kubernetes innych niż Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>`. Aby edytować ConfigMap i zastosować tę zmianę dla klastrów Red Hat OpenShift platformy Azure, uruchom polecenie:
+Uruchom następujące polecenie, aby zastosować zmianę do klastrów Kubernetes innych niż Azure Red Hat OpenShift): `kubectl apply -f  <path to yaml file>` . Aby edytować ConfigMap i zastosować tę zmianę dla klastrów Red Hat OpenShift platformy Azure, uruchom polecenie:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging

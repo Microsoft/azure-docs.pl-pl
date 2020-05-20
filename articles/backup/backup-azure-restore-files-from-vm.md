@@ -3,12 +3,12 @@ title: Odzyskiwanie plików i folderów z kopii zapasowej maszyny wirtualnej pla
 description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punktu odzyskiwania maszyny wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c518c080f3789d36d2ca600ade23a0b4b2ab385
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273308"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652112"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -53,11 +53,11 @@ Aby przywrócić pliki lub foldery z punktu odzyskiwania, przejdź do maszyny wi
 
     ![Wygenerowane hasło](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. W lokalizacji pobierania (zazwyczaj folder pobierania) kliknij prawym przyciskiem myszy plik wykonywalny lub skrypt, a następnie uruchom go z poświadczeniami administratora. Po wyświetleniu monitu wpisz hasło lub wklej hasło z pamięci, a następnie naciśnij klawisz **Enter**. Po wprowadzeniu prawidłowego hasła skrypt nawiązuje połączenie z punktem odzyskiwania.
+7. Upewnij się, że [masz odpowiednią maszynę](#selecting-the-right-machine-to-run-the-script) do wykonania skryptu. Jeśli komputer jest na tym samym komputerze, na którym został pobrany skrypt, możesz przejść do sekcji Pobieranie. W lokalizacji pobierania (zazwyczaj folder *pobierania* ) kliknij prawym przyciskiem myszy plik wykonywalny lub skrypt, a następnie uruchom go z poświadczeniami administratora. Po wyświetleniu monitu wpisz hasło lub wklej hasło z pamięci, a następnie naciśnij klawisz **Enter**. Po wprowadzeniu prawidłowego hasła skrypt nawiązuje połączenie z punktem odzyskiwania.
 
     ![Menu odzyskiwania plików](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-8. W przypadku maszyn z systemem Linux jest generowany skrypt języka Python. Jeden z nich musi pobrać skrypt i skopiować go do odpowiedniego/zgodnego serwera z systemem Linux. Może być konieczne zmodyfikowanie uprawnień, aby wykonać je w ```chmod +x <python file name>```programie. Następnie uruchom plik Python przy użyciu ```./<python file name>```programu.
+8. W przypadku maszyn z systemem Linux jest generowany skrypt języka Python. Jeden z nich musi pobrać skrypt i skopiować go do odpowiedniego/zgodnego serwera z systemem Linux. Może być konieczne zmodyfikowanie uprawnień, aby wykonać je w programie ```chmod +x <python file name>``` . Następnie uruchom plik Python przy użyciu programu ```./<python file name>``` .
 
 Zapoznaj się z sekcją [wymagania dostępu](#access-requirements) , aby upewnić się, że skrypt został pomyślnie uruchomiony.
 
@@ -65,7 +65,7 @@ Zapoznaj się z sekcją [wymagania dostępu](#access-requirements) , aby upewni�
 
 #### <a name="for-windows"></a>W przypadku systemu Windows
 
-Po uruchomieniu pliku wykonywalnego system operacyjny instaluje nowe woluminy i przypisuje litery dysku. Aby przeglądać te dyski, można użyć Eksploratora Windows lub Eksploratora plików. Litery dysku przypisane do woluminów mogą nie być takie same jak oryginalna maszyna wirtualna. Jednak nazwa woluminu jest zachowywana. Na przykład jeśli wolumin na oryginalnej maszynie wirtualnej to "dysk danych (E:`\`)", wolumin ten można dołączyć na komputerze lokalnym jako "dysk danych (" dowolna litera ":`\`). Przeglądaj wszystkie woluminy wymienione w danych wyjściowych skryptu do momentu znalezienia plików lub folderu.  
+Po uruchomieniu pliku wykonywalnego system operacyjny instaluje nowe woluminy i przypisuje litery dysku. Aby przeglądać te dyski, można użyć Eksploratora Windows lub Eksploratora plików. Litery dysku przypisane do woluminów mogą nie być takie same jak oryginalna maszyna wirtualna. Jednak nazwa woluminu jest zachowywana. Na przykład jeśli wolumin na oryginalnej maszynie wirtualnej to "dysk danych (E: `\` )", wolumin ten można dołączyć na komputerze lokalnym jako "dysk danych (" dowolna litera ": `\` ). Przeglądaj wszystkie woluminy wymienione w danych wyjściowych skryptu do momentu znalezienia plików lub folderu.  
 
    ![Menu odzyskiwania plików](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -84,6 +84,23 @@ Po zidentyfikowaniu plików i skopiowaniu ich do lokalizacji magazynu lokalnego 
 Po odinstalowaniu dysków zostanie wyświetlony komunikat. Odświeżenie połączenia może potrwać kilka minut, aby można było je usunąć.
 
 W systemie Linux po poważnym nawiązaniu połączenia z punktem odzyskiwania system operacyjny nie usuwa automatycznie odpowiednich ścieżek instalacji. Ścieżki instalacji istnieją jako woluminy oddzielone i są widoczne, ale zgłaszają błąd podczas uzyskiwania dostępu/zapisu plików. Można je usunąć ręcznie. Skrypt, gdy jest uruchamiany, identyfikuje wszystkie woluminy istniejące z poprzednich punktów odzyskiwania i czyści je po udzieleniu zgody.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>Wybieranie odpowiedniej maszyny do uruchomienia skryptu
+
+Jeśli skrypt zostanie pobrany pomyślnie, następnym krokiem jest sprawdzenie, czy komputer, na którym planujesz wykonać skrypt, jest odpowiednią maszyną. Poniżej przedstawiono wymagania, które należy spełnić na komputerze.
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>Oryginalna kopia zapasowa maszyny a inna maszyna
+
+1. Jeśli kopia zapasowa jest maszyną wirtualną o dużej pojemności, to oznacza, że liczba dysków jest większa niż 16 dysków, a każdy dysk jest większy niż 4 TB, skrypt **musi być wykonywany na innym komputerze** , a [wymagania](#file-recovery-from-virtual-machine-backups-having-large-disks) muszą zostać spełnione.
+1. Nawet jeśli kopia zapasowa maszyny nie jest maszyną wirtualną dysku, w [tych scenariuszach](#special-configurations) nie można uruchomić skryptu na tej samej maszynie wirtualnej.
+
+### <a name="os-requirements-on-the-machine"></a>Wymagania systemu operacyjnego na komputerze
+
+Maszyna, na której należy wykonać skrypt, musi spełniać [te wymagania systemu operacyjnego](#system-requirements).
+
+### <a name="access-requirements-for-the-machine"></a>Wymagania dotyczące dostępu do maszyny
+
+Komputer, na którym należy wykonać skrypt, musi spełniać [te wymagania dotyczące dostępu](#access-requirements).
 
 ## <a name="special-configurations"></a>Konfiguracje specjalne
 
@@ -210,15 +227,13 @@ W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij 
 
 > [!NOTE]
 >
-> - Pobrana nazwa pliku skryptu będzie miała **nazwę geograficzną** , która ma zostać wypełniona w adresie URL. Dla exampple: pobrana Nazwa skryptu rozpoczyna \'się\'\_\'od VMName\'\'geoname\'_ GUID, na przykład *ContosoVM_wcus_12345678*
-> - Adres URL miałaby wartość <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> - Pobrana nazwa pliku skryptu będzie miała **nazwę geograficzną** , która ma zostać wypełniona w adresie URL. Dla exampple: pobrana Nazwa skryptu rozpoczyna się od \' VMName \' \_ \' geoname \' _ \' GUID \' , na przykład *ContosoVM_wcus_12345678*
+> - Adres URL miałaby wartość <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 
 W przypadku systemu Linux skrypt wymaga składników "Open-iSCSI" i "lshw", aby nawiązać połączenie z punktem odzyskiwania. Jeśli składniki nie istnieją na komputerze, na którym skrypt jest uruchamiany, skrypt monituje o zgodę na zainstalowanie składników programu. Wyrażanie zgody na zainstalowanie niezbędnych składników.
 
-Dostęp do `download.microsoft.com` programu jest wymagany do pobierania składników używanych do tworzenia bezpiecznego kanału między komputerem, na którym skrypt jest uruchamiany, a danymi w punkcie odzyskiwania.
-
-Skrypt można uruchomić na dowolnym komputerze, który ma ten sam (lub zgodny) system operacyjny co maszyna wirtualna z kopią zapasową. Zapoznaj się z [tabelą zgodną](backup-azure-restore-files-from-vm.md#system-requirements) z systemem operacyjnym w przypadku zgodnych systemów operacyjnych. Jeśli chroniona maszyna wirtualna platformy Azure korzysta z funkcji miejsca do magazynowania systemu Windows (dla maszyn wirtualnych z systemem Windows Azure) lub tablic LVM/RAID (dla maszyn wirtualnych z systemem Linux), nie można uruchomić pliku wykonywalnego ani skryptu na tej samej maszynie wirtualnej. Zamiast tego Uruchom plik wykonywalny lub skrypt na dowolnej innej maszynie z zgodnym systemem operacyjnym.
+Dostęp do programu `download.microsoft.com` jest wymagany do pobierania składników używanych do tworzenia bezpiecznego kanału między komputerem, na którym skrypt jest uruchamiany, a danymi w punkcie odzyskiwania.
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych z dużymi dyskami
 

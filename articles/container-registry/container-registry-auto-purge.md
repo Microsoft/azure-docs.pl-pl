@@ -2,21 +2,21 @@
 title: Przeczyszczanie tagów i manifestów
 description: Użyj przeczyszczania polecenia, aby usunąć wiele tagów i manifestów z usługi Azure Container Registry na podstawie wieku i filtru tagów, i opcjonalnie Zaplanuj operacje przeczyszczania.
 ms.topic: article
-ms.date: 08/14/2019
-ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/14/2020
+ms.openlocfilehash: ab6794648babd2bd491ded5788455b75c10d675a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79087328"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652637"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Automatycznie Przeczyść obrazy z usługi Azure Container Registry
 
-W przypadku korzystania z usługi Azure Container Registry w ramach przepływu pracy deweloperskiej rejestr może szybko zapełniać obrazy lub inne artefakty, które nie są potrzebne po krótkim czasie. Możesz chcieć usunąć wszystkie Tagi, które są starsze niż określony czas trwania lub pasują do określonego filtru nazw. Aby szybko usunąć wiele artefaktów, w tym artykule `acr purge` wprowadzono polecenie, które można uruchomić jako zadanie na żądanie lub [zaplanowane](container-registry-tasks-scheduled.md) ACR. 
+W przypadku korzystania z usługi Azure Container Registry w ramach przepływu pracy deweloperskiej rejestr może szybko zapełniać obrazy lub inne artefakty, które nie są potrzebne po krótkim czasie. Możesz chcieć usunąć wszystkie Tagi, które są starsze niż określony czas trwania lub pasują do określonego filtru nazw. Aby szybko usunąć wiele artefaktów, w tym artykule wprowadzono `acr purge` polecenie, które można uruchomić jako zadanie na żądanie lub [zaplanowane](container-registry-tasks-scheduled.md) ACR. 
 
-`acr purge` Polecenie jest obecnie dystrybuowane w publicznym obrazie kontenera (`mcr.microsoft.com/acr/acr-cli:0.1`), który został utworzony z kodu źródłowego w repozytorium [ACR-CLI](https://github.com/Azure/acr-cli) w serwisie GitHub.
+`acr purge`Polecenie jest obecnie dystrybuowane w publicznym obrazie kontenera ( `mcr.microsoft.com/acr/acr-cli:0.2` ), który został utworzony z kodu źródłowego w repozytorium [ACR-CLI](https://github.com/Azure/acr-cli) w serwisie GitHub.
 
-Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby uruchomić przykłady zadań ACR w tym artykule. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.69 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install]. 
+Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby uruchomić przykłady zadań ACR w tym artykule. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.76 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install]. 
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
@@ -28,24 +28,24 @@ Jeśli chcesz usunąć Tagi pojedynczego obrazu lub manifesty za pomocą polece�
 
 ## <a name="use-the-purge-command"></a>Użyj przeczyszczania polecenia
 
-Polecenie `acr purge` kontenera usuwa obrazy przez tag w repozytorium, które pasuje do filtru nazw i które są starsze niż określony czas trwania. Domyślnie tylko odwołania tagów są usuwane, a nie źródłowe [manifesty](container-registry-concepts.md#manifest) i dane warstwowe. Polecenie ma również opcję usuwania manifestów. 
+`acr purge`Polecenie kontenera usuwa obrazy przez tag w repozytorium, które pasuje do filtru nazw i które są starsze niż określony czas trwania. Domyślnie tylko odwołania tagów są usuwane, a nie źródłowe [manifesty](container-registry-concepts.md#manifest) i dane warstwowe. Polecenie ma również opcję usuwania manifestów. 
 
 > [!NOTE]
-> `acr purge`nie usuwa tagu lub repozytorium obrazu, `write-enabled` w którym atrybut jest ustawiony na. `false` Aby uzyskać więcej informacji, zobacz [blokowanie obrazu kontenera w usłudze Azure Container Registry](container-registry-image-lock.md).
+> `acr purge`nie usuwa tagu lub repozytorium obrazu, `write-enabled` w którym atrybut jest ustawiony na `false` . Aby uzyskać więcej informacji, zobacz [blokowanie obrazu kontenera w usłudze Azure Container Registry](container-registry-image-lock.md).
 
 `acr purge`Program jest przeznaczony do uruchamiania jako polecenie kontenera w [zadaniu ACR](container-registry-tasks-overview.md), dzięki czemu jest automatycznie uwierzytelniany przy użyciu rejestru, w którym uruchamiane jest zadanie i wykonuje w nim akcje. Przykłady zadań w tym artykule używają `acr purge` [aliasu](container-registry-tasks-reference-yaml.md#aliases) polecenia zamiast w pełni kwalifikowanego obrazu kontenera polecenia.
 
-Podczas uruchamiania `acr purge`należy określić co najmniej następujące elementy:
+Podczas uruchamiania należy określić co najmniej następujące elementy `acr purge` :
 
-* `--filter`-Repozytorium i *wyrażenie regularne* służące do filtrowania tagów w repozytorium. Przykłady: `--filter "hello-world:.*"` dopasowuje wszystkie Tagi w `hello-world` repozytorium i `--filter "hello-world:^1.*"` pasuje do tagów zaczynających `1`się od. Przekaż wiele `--filter` parametrów, aby przeczyścić wiele repozytoriów.
-* `--ago`- [Ciąg czasu trwania](https://golang.org/pkg/time/) , aby wskazać czas trwania, po którym obrazy są usuwane. Czas trwania składa się z sekwencji jednej lub więcej liczb dziesiętnych, z których każdy ma sufiks jednostki. Prawidłowe jednostki czasu obejmują "d" dla dni, "h" dla godzin i "m" przez minuty. Na przykład program `--ago 2d3h6m` wybiera wszystkie odfiltrowane obrazy ostatnio modyfikowane ponad 2 dni, 3 godziny i 6 minut temu, a `--ago 1.5h` następnie wybiera obrazy ostatnio zmodyfikowane powyżej 1,5 godzin temu.
+* `--filter`-Repozytorium i *wyrażenie regularne* służące do filtrowania tagów w repozytorium. Przykłady: `--filter "hello-world:.*"` dopasowuje wszystkie Tagi w `hello-world` repozytorium i `--filter "hello-world:^1.*"` pasuje do tagów zaczynających się od `1` . Przekaż wiele `--filter` parametrów, aby przeczyścić wiele repozytoriów.
+* `--ago`- [Ciąg czasu trwania](https://golang.org/pkg/time/) , aby wskazać czas trwania, po którym obrazy są usuwane. Czas trwania składa się z sekwencji jednej lub więcej liczb dziesiętnych, z których każdy ma sufiks jednostki. Prawidłowe jednostki czasu obejmują "d" dla dni, "h" dla godzin i "m" przez minuty. Na przykład program `--ago 2d3h6m` wybiera wszystkie odfiltrowane obrazy ostatnio modyfikowane ponad 2 dni, 3 godziny i 6 minut temu, a następnie `--ago 1.5h` wybiera obrazy ostatnio zmodyfikowane powyżej 1,5 godzin temu.
 
 `acr purge`obsługuje kilka opcjonalnych parametrów. Poniższe dwa są używane w przykładach w tym artykule:
 
 * `--untagged`-Określa, że manifesty, które nie mają skojarzonych tagów (*nieoznakowane manifesty*) są usuwane.
 * `--dry-run`-Określa, że żadne dane nie są usuwane, ale dane wyjściowe są takie same jak wtedy, gdy polecenie jest uruchamiane bez tej flagi. Ten parametr jest przydatny do testowania polecenia przeczyszczania, aby upewnić się, że nie powoduje niezamierzonego usuwania danych, które mają być zachowane.
 
-Aby uzyskać dodatkowe parametry, `acr purge --help`Uruchom polecenie. 
+Aby uzyskać dodatkowe parametry, uruchom polecenie `acr purge --help` . 
 
 `acr purge`obsługuje inne funkcje poleceń ACR Tasks, w tym [uruchamiania zmiennych](container-registry-tasks-reference-yaml.md#run-variables) i [dzienników uruchamiania zadań](container-registry-tasks-logs.md) , które są przesyłane strumieniowo, a także zapisane do późniejszego pobrania.
 
@@ -84,7 +84,7 @@ Uruchom polecenie [AZ ACR Task show][az-acr-task-show] , aby zobaczyć, że wyzw
 
 ### <a name="purge-large-numbers-of-tags-and-manifests"></a>Przeczyszczanie dużej liczby tagów i manifestów
 
-Przeczyszczanie dużej liczby tagów i manifestów może potrwać kilka minut lub dłużej. Aby przeczyścić tysiące tagów i manifestów, polecenie może wymagać uruchomienia dłużej niż domyślny limit czasu wynoszący 600 sekund dla zadania na żądanie lub 3600 sekund dla zaplanowanego zadania. W przypadku przekroczenia limitu czasu zostanie usunięty tylko podzestaw tagów i manifestów. Aby upewnić się, że ukończono przeczyszczanie na dużą skalę, `--timeout` Przekaż parametr w celu zwiększenia wartości. 
+Przeczyszczanie dużej liczby tagów i manifestów może potrwać kilka minut lub dłużej. Aby przeczyścić tysiące tagów i manifestów, polecenie może wymagać uruchomienia dłużej niż domyślny limit czasu wynoszący 600 sekund dla zadania na żądanie lub 3600 sekund dla zaplanowanego zadania. W przypadku przekroczenia limitu czasu zostanie usunięty tylko podzestaw tagów i manifestów. Aby upewnić się, że ukończono przeczyszczanie na dużą skalę, Przekaż `--timeout` parametr w celu zwiększenia wartości. 
 
 Na przykład następujące zadanie na żądanie ustawia limit czasu 3600 sekund (1 godzina):
 
@@ -102,13 +102,13 @@ az acr run \
 
 ## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Przykład: zaplanowane przeczyszczanie wielu repozytoriów w rejestrze
 
-Ten przykład przeprowadzi Cię przez `acr purge` program, aby okresowo czyścić wiele repozytoriów w rejestrze. Na przykład może istnieć potok programistyczny, który wypchnięciuje obrazy do `samples/devimage1` i `samples/devimage2` repozytoriów. Należy okresowo importować obrazy programistyczne do repozytorium produkcyjnego dla wdrożeń, dzięki czemu nie są już potrzebne obrazy programistyczne. Co tydzień, można przeczyścić `samples/devimage1` repozytoria `samples/devimage2` i w trakcie przygotowania do pracy w nadchodzącym tygodniu.
+Ten przykład przeprowadzi Cię przez program `acr purge` , aby okresowo czyścić wiele repozytoriów w rejestrze. Na przykład może istnieć potok programistyczny, który wypchnięciuje obrazy do `samples/devimage1` i `samples/devimage2` repozytoriów. Należy okresowo importować obrazy programistyczne do repozytorium produkcyjnego dla wdrożeń, dzięki czemu nie są już potrzebne obrazy programistyczne. Co tydzień, można przeczyścić `samples/devimage1` `samples/devimage2` repozytoria i w trakcie przygotowania do pracy w nadchodzącym tygodniu.
 
 ### <a name="preview-the-purge"></a>Podgląd przeczyszczania
 
 Przed usunięciem danych zalecamy uruchomienie zadania przeczyszczania na żądanie przy użyciu `--dry-run` parametru. Ta opcja umożliwia wyświetlenie tagów i manifestów, które polecenie zostanie przeczyszczone, bez usuwania jakichkolwiek danych. 
 
-W poniższym przykładzie filtr w każdym repozytorium wybiera wszystkie Tagi. `--ago 0d` Parametr dopasowuje obrazy wszystkich okresów przedawnienia w repozytoriach, które pasują do filtrów. Zmodyfikuj kryteria wyboru zgodnie z potrzebami w danym scenariuszu. `--untagged` Parametr wskazuje, aby usunąć manifesty oprócz tagów. Polecenie kontenera jest przesyłane do polecenia [AZ ACR Run][az-acr-run] przy użyciu zmiennej środowiskowej.
+W poniższym przykładzie filtr w każdym repozytorium wybiera wszystkie Tagi. `--ago 0d`Parametr dopasowuje obrazy wszystkich okresów przedawnienia w repozytoriach, które pasują do filtrów. Zmodyfikuj kryteria wyboru zgodnie z potrzebami w danym scenariuszu. `--untagged`Parametr wskazuje, aby usunąć manifesty oprócz tagów. Polecenie kontenera jest przesyłane do polecenia [AZ ACR Run][az-acr-run] przy użyciu zmiennej środowiskowej.
 
 ```azurecli
 # Environment variable for container command line
@@ -122,7 +122,7 @@ az acr run \
   /dev/null
 ```
 
-Przejrzyj dane wyjściowe polecenia, aby zobaczyć Tagi i manifesty zgodne z parametrami wyboru. Ponieważ polecenie jest uruchamiane z `--dry-run`, żadne dane nie są usuwane.
+Przejrzyj dane wyjściowe polecenia, aby zobaczyć Tagi i manifesty zgodne z parametrami wyboru. Ponieważ polecenie jest uruchamiane z `--dry-run` , żadne dane nie są usuwane.
 
 Przykładowe dane wyjściowe:
 

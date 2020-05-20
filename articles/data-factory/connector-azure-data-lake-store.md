@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: a39aae31223fd6413932bc5121a1171d960c26f7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415414"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649673"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiowanie danych do lub z Azure Data Lake Storage Gen1 przy użyciu Azure Data Factory
 
@@ -45,9 +45,9 @@ W przypadku tego łącznika możesz:
 - [Zachowaj listy ACL](#preserve-acls-to-data-lake-storage-gen2) podczas kopiowania do Azure Data Lake Storage Gen2.
 
 > [!IMPORTANT]
-> W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę firmową tak, aby zezwalała na ruch `<ADLS account name>.azuredatalakestore.net` wychodzący do i `login.microsoftonline.com/<tenant>/oauth2/token` na porcie 443. Jest to usługa tokenu zabezpieczającego platformy Azure, z którą musi się komunikować środowisko Integration Runtime w celu uzyskania tokenu dostępu.
+> W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę firmową tak, aby zezwalała na ruch wychodzący do `<ADLS account name>.azuredatalakestore.net` i `login.microsoftonline.com/<tenant>/oauth2/token` na porcie 443. Jest to usługa tokenu zabezpieczającego platformy Azure, z którą musi się komunikować środowisko Integration Runtime w celu uzyskania tokenu dostępu.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 > [!TIP]
 > Aby zapoznać się z przewodnikiem dotyczącym korzystania z łącznika Azure Data Lake Store, zobacz [ładowanie danych do Azure Data Lake Store](load-azure-data-lake-store.md).
@@ -60,10 +60,10 @@ Poniższe sekcje zawierają informacje o właściwościach, które są używane 
 
 Następujące właściwości są obsługiwane dla Azure Data Lake Store połączonej usługi:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | `type` Właściwość musi być ustawiona na **AzureDataLakeStore**. | Tak |
-| dataLakeStoreUri | Informacje o koncie Azure Data Lake Store. Te informacje mają jeden z następujących formatów: `https://[accountname].azuredatalakestore.net/webhdfs/v1` lub. `adl://[accountname].azuredatalakestore.net/` | Tak |
+| typ | `type`Właściwość musi być ustawiona na **AzureDataLakeStore**. | Yes |
+| dataLakeStoreUri | Informacje o koncie Azure Data Lake Store. Te informacje mają jeden z następujących formatów: `https://[accountname].azuredatalakestore.net/webhdfs/v1` lub `adl://[accountname].azuredatalakestore.net/` . | Yes |
 | subscriptionId | Identyfikator subskrypcji platformy Azure, do której należy konto Data Lake Store. | Wymagane dla ujścia |
 | resourceGroupName | Nazwa grupy zasobów platformy Azure, do której należy konto Data Lake Store. | Wymagane dla ujścia |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli magazyn danych znajduje się w sieci prywatnej, możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime. Jeśli ta właściwość nie jest określona, zostanie użyta domyślna usługa Azure Integration Runtime. |Nie |
@@ -80,16 +80,16 @@ Aby użyć uwierzytelniania jednostki usługi, wykonaj następujące kroki.
 
 2. Przyznaj jednostce usługi odpowiednie uprawnienia. Zapoznaj się z przykładami dotyczącymi działania uprawnień w Data Lake Storage Gen1 z poziomu [kontroli dostępu w programie Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Jako źródło**: w programie > **dostęp**do **Eksploratora danych**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, łącznie z uprawnieniami do **odczytu** plików do skopiowania. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Kontrola dostępu na poziomie konta (IAM) nie jest wymagana.
-    - **Jako ujścia**: w oknie > **dostęp**do **Eksploratora danych**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, w tym katalogu głównego, a także uprawnienia do **zapisu** dla folderu ujścia. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Jeśli używasz środowiska Azure Integration Runtime do kopiowania (źródła i ujścia znajdują się w chmurze), w obszarze IAM Przydziel co najmniej rolę **czytnika** , aby umożliwić Data Factory wykryć region Data Lake Store. Jeśli chcesz uniknąć tej roli mapy IAM, jawnie [Utwórz środowisko Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) przy użyciu lokalizacji Data Lake Store. Na przykład jeśli Data Lake Store znajduje się w Europie Zachodniej, Utwórz środowisko Azure Integration Runtime z lokalizacją "Europa Zachodnia". Skojarz je w połączonej usłudze Data Lake Store, jak pokazano w poniższym przykładzie.
+    - **Jako źródło**: w programie dostęp do **Eksploratora danych**  >  **Access**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, łącznie z uprawnieniami do **odczytu** plików do skopiowania. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Kontrola dostępu na poziomie konta (IAM) nie jest wymagana.
+    - **Jako ujścia**: w oknie dostęp do **Eksploratora danych**  >  **Access**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, w tym katalogu głównego, a także uprawnienia do **zapisu** dla folderu ujścia. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**.
 
 Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
-| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako, `SecureString` aby bezpiecznie przechowywać je w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
-| dzierżaw | Określ informacje o dzierżawie, takie jak nazwa domeny lub identyfikator dzierżawy, w której znajduje się aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak |
+| servicePrincipalId | Określ identyfikator klienta aplikacji. | Yes |
+| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako, `SecureString` Aby bezpiecznie przechowywać je w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| dzierżaw | Określ informacje o dzierżawie, takie jak nazwa domeny lub identyfikator dzierżawy, w której znajduje się aplikacja. Możesz ją pobrać, aktywując wskaźnik myszy w prawym górnym rogu Azure Portal. | Yes |
 
 **Przykład:**
 
@@ -127,8 +127,8 @@ Aby używać tożsamości zarządzanych do uwierzytelniania zasobów platformy A
 
 2. Przyznaj zarządzanej tożsamości dostęp do Data Lake Store. Zapoznaj się z przykładami dotyczącymi działania uprawnień w Data Lake Storage Gen1 z poziomu [kontroli dostępu w programie Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
-    - **Jako źródło**: w programie > **dostęp**do **Eksploratora danych**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, łącznie z uprawnieniami do **odczytu** plików do skopiowania. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Kontrola dostępu na poziomie konta (IAM) nie jest wymagana.
-    - **Jako ujścia**: w oknie > **dostęp**do **Eksploratora danych**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, w tym katalogu głównego, a także uprawnienia do **zapisu** dla folderu ujścia. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Jeśli używasz środowiska Azure Integration Runtime do kopiowania (źródła i ujścia znajdują się w chmurze), w obszarze IAM Przydziel co najmniej rolę **czytnika** , aby umożliwić Data Factory wykryć region Data Lake Store. Jeśli chcesz uniknąć tej roli mapy IAM, jawnie [Utwórz środowisko Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) przy użyciu lokalizacji Data Lake Store. Skojarz je w połączonej usłudze Data Lake Store, jak pokazano w poniższym przykładzie.
+    - **Jako źródło**: w programie dostęp do **Eksploratora danych**  >  **Access**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, łącznie z uprawnieniami do **odczytu** plików do skopiowania. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**. Kontrola dostępu na poziomie konta (IAM) nie jest wymagana.
+    - **Jako ujścia**: w oknie dostęp do **Eksploratora danych**  >  **Access**Udziel co najmniej uprawnień **Execute** dla wszystkich folderów nadrzędnych, w tym katalogu głównego, a także uprawnienia do **zapisu** dla folderu ujścia. Można wybrać opcję dodania do **tego folderu i wszystkich elementów podrzędnych** dla opcji cykliczne oraz dodać jako **uprawnienie dostępu i domyślny wpis uprawnienia**.
 
 W Azure Data Factory nie trzeba określać żadnych właściwości oprócz ogólnych informacji Data Lake Store w połączonej usłudze.
 
@@ -158,11 +158,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `location` ustawienia w zestawie danych opartym na formacie:
+Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `location` Ustawienia w zestawie danych opartym na formacie:
 
-| Właściwość   | Opis                                                  | Wymagany |
+| Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | Właściwość `location` typu w elemencie DataSet musi być ustawiona na **AzureDataLakeStoreLocation**. | Tak      |
+| typ       | Właściwość typu w `location` elemencie DataSet musi być ustawiona na **AzureDataLakeStoreLocation**. | Yes      |
 | folderPath | Ścieżka do folderu. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania folderów, pomiń to ustawienie i określ je w ustawieniach źródła działania. | Nie       |
 | fileName   | Nazwa pliku pod podanym folderPath. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania plików, pomiń to ustawienie i określ je w ustawieniach źródła działania. | Nie       |
 
@@ -200,17 +200,21 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `storeSettings` ustawienia w źródle kopiowania opartym na formacie:
+Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `storeSettings` Ustawienia w źródle kopiowania opartym na formacie:
 
-| Właściwość                 | Opis                                                  | Wymagany                                      |
-| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureDataLakeStoreReadSettings**. | Tak                                           |
-| rozpoznawania                | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie                                            |
-| wildcardFolderPath       | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne `*` to (dopasowuje zero lub więcej znaków `?` ) i (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| wildcardFileName         | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne `*` to (dopasowuje zero lub więcej znaków `?` ) i (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak, `fileName` Jeśli nie jest określony w zestawie danych |
-| modifiedDatetimeStart    | Filtr plików oparty na ostatniej modyfikacji atrybutu. Pliki są wybierane, jeśli czas ostatniej modyfikacji mieści się w przedziale `modifiedDatetimeStart` czasu `modifiedDatetimeEnd`między i. Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych. Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone. Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone. | Nie                                            |
-| modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                            |
-| maxConcurrentConnections | Liczba połączeń do współbieżnego połączenia z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                            |
+| Właściwość                 | Opis                                                  | Wymagane                                     |
+| ------------------------ | ------------------------------------------------------------ | -------------------------------------------- |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureDataLakeStoreReadSettings**. | Yes                                          |
+| ***Zlokalizuj pliki do skopiowania:*** |  |  |
+| Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z folderu, należy również określić `wildcardFileName` jako `*` . |  |
+| Opcja 2: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
+| Opcja 2: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi pod daną folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Yes |
+| Opcja 3: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy, który zawiera listę plików, które chcesz skopiować, jeden plik na wiersz, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
+| ***Ustawienia dodatkowe:*** |  | |
+| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
+| modifiedDatetimeStart    | Filtr plików oparty na atrybucie: ostatnio modyfikowane. <br>Pliki zostaną wybrane, jeśli ich czas ostatniej modyfikacji należy do przedziału czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.<br/>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . | Nie                                            |
+| modifiedDatetimeEnd      | Tak samo jak powyżej.                                               | Nie                                           |
+| maxConcurrentConnections | Liczba połączeń do współbieżnego połączenia z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie                                           |
 
 **Przykład:**
 
@@ -257,11 +261,11 @@ Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w o
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `storeSettings` ustawienia w ujściach kopiowania opartych na formacie:
+Następujące właściwości są obsługiwane dla Azure Data Lake Store Gen1 w obszarze `storeSettings` Ustawienia w ujściach kopiowania opartych na formacie:
 
-| Właściwość                 | Opis                                                  | Wymagany |
+| Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureDataLakeStoreWriteSettings**. | Tak      |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AzureDataLakeStoreWriteSettings**. | Yes      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | expiryDateTime | Określa czas wygaśnięcia zapisanych plików. Czas jest stosowany do czasu UTC w formacie "2020-03-01T08:00:00Z". Domyślnie jest to wartość NULL, co oznacza, że zapisywane pliki nigdy nie wygasły. | Nie |
 | maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie       |
@@ -311,6 +315,16 @@ W tej sekcji opisano skutki zachowania ścieżki folderu i nazwy pliku z filtram
 | `Folder*` | (Puste, Użyj domyślnego) | true | Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Plik1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Plik2. JSON**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4. JSON**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5. csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
 | `Folder*` | `*.csv` | fałsz | Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Plik1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
 | `Folder*` | `*.csv` | true | Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;**Plik1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Plik2. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5. csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+
+### <a name="file-list-examples"></a>Przykłady listy plików
+
+W tej sekcji opisano wyniki działania dotyczące korzystania ze ścieżki listy plików w źródle działania kopiowania.
+
+Przy założeniu, że masz następującą źródłową strukturę folderów i chcesz skopiować pliki w pogrubieniu:
+
+| Przykładowa struktura źródła                                      | Zawartość w FileListToCopy. txt                             | Konfiguracja ADF                                            |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Plik1. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plik2. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4. JSON<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5. csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadane<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy. txt | Plik1. csv<br>Subfolder1/file3. csv<br>Subfolder1/File5. csv | **W zestawie danych:**<br>-Ścieżka folderu:`root/FolderA`<br><br>**W źródle działania kopiowania:**<br>-Ścieżka listy plików:`root/Metadata/FileListToCopy.txt` <br><br>Ścieżka listy plików wskazuje plik tekstowy w tym samym magazynie danych, który zawiera listę plików do skopiowania, jeden plik na wiersz ze ścieżką względną do ścieżki skonfigurowanej w zestawie danych. |
 
 ### <a name="examples-of-behavior-of-the-copy-operation"></a>Przykłady zachowania operacji kopiowania
 
@@ -431,13 +445,13 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 ### <a name="legacy-dataset-model"></a>Model starszego zestawu danych
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość **AzureDataLakeStoreFile**. |Tak |
-| folderPath | Ścieżka do folderu w Data Lake Store. Jeśli nie zostanie określony, wskazuje na katalog główny. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany. Dozwolone symbole wieloznaczne `*` to (dopasowuje zero lub więcej znaków `?` ) i (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Na przykład: RootFolder/subfolder/. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Nie |
-| fileName | Nazwa lub filtr symboli wieloznacznych dla plików pod określonym "folderPath". Jeśli nie określisz wartości dla tej właściwości, zestaw danych wskazuje wszystkie pliki w folderze. <br/><br/>W przypadku filtru, dozwolone symbole wieloznaczne `*` to (dopasowuje zero lub więcej znaków `?` ) i (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1:`"fileName": "*.csv"`<br/>-Przykład 2:`"fileName": "???20180427.txt"`<br/>Użyj `^` , aby wyjść, jeśli rzeczywista nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli nazwa pliku nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, działanie kopiowania automatycznie generuje nazwę pliku z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*", na przykład" Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. gz ". Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*", na przykład" MyTable. csv ". |Nie |
-| modifiedDatetimeStart | Filtr plików oparty na ostatniej modyfikacji atrybutu. Pliki są wybierane, jeśli czas ostatniej modyfikacji mieści się w przedziale `modifiedDatetimeStart` czasu `modifiedDatetimeEnd`między i. Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Aby można było wykonać filtr plików z ogromną ilością plików, należy włączyć ogólną wydajność przenoszenia danych. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych. Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone. Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
-| modifiedDatetimeEnd | Filtr plików oparty na ostatniej modyfikacji atrybutu. Pliki są wybierane, jeśli czas ostatniej modyfikacji mieści się w przedziale `modifiedDatetimeStart` czasu `modifiedDatetimeEnd`między i. Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Aby można było wykonać filtr plików z ogromną ilością plików, należy włączyć ogólną wydajność przenoszenia danych. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych. Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone. Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość **AzureDataLakeStoreFile**. |Yes |
+| folderPath | Ścieżka do folderu w Data Lake Store. Jeśli nie zostanie określony, wskazuje na katalog główny. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany. Dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Na przykład: RootFolder/subfolder/. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Nie |
+| fileName | Nazwa lub filtr symboli wieloznacznych dla plików pod określonym "folderPath". Jeśli nie określisz wartości dla tej właściwości, zestaw danych wskazuje wszystkie pliki w folderze. <br/><br/>W przypadku filtru, dozwolone symbole wieloznaczne to `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1:`"fileName": "*.csv"`<br/>-Przykład 2:`"fileName": "???20180427.txt"`<br/>Użyj `^` , aby wyjść, jeśli rzeczywista nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli nazwa pliku nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, działanie kopiowania automatycznie generuje nazwę pliku z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*", na przykład" Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. gz ". Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*", na przykład" MyTable. csv ". |Nie |
+| modifiedDatetimeStart | Filtr plików oparty na ostatniej modyfikacji atrybutu. Pliki są wybierane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Aby można było wykonać filtr plików z ogromną ilością plików, należy włączyć ogólną wydajność przenoszenia danych. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych. Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone. Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
+| modifiedDatetimeEnd | Filtr plików oparty na ostatniej modyfikacji atrybutu. Pliki są wybierane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Aby można było wykonać filtr plików z ogromną ilością plików, należy włączyć ogólną wydajność przenoszenia danych. <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie jest stosowany do zestawu danych. Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, są zaznaczone. Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime, są zaznaczone.| Nie |
 | format | Jeśli chcesz skopiować pliki w postaci między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz analizować lub generować pliki o określonym formacie, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**i **ParquetFormat**. Ustaw właściwość **Type** w polu **Format** na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz sekcję [Format tekstu](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nie (tylko w przypadku scenariusza kopiowania binarnego) |
 | kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Obsługiwane typy to **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**.<br/>Obsługiwane poziomy są **optymalne** i **najszybciej**. |Nie |
 
@@ -476,9 +490,9 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 ### <a name="legacy-copy-activity-source-model"></a>Model źródłowy starszego działania kopiowania
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | `type` Właściwość źródła działania kopiowania musi być ustawiona na wartość **AzureDataLakeStoreSource**. |Tak |
+| typ | `type`Właściwość źródła działania kopiowania musi być ustawiona na wartość **AzureDataLakeStoreSource**. |Yes |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Gdy `recursive` ma wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
 | maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
 
@@ -516,9 +530,9 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 ### <a name="legacy-copy-activity-sink-model"></a>Model ujścia starszej aktywności kopiowania
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | `type` Właściwość ujścia działania kopiowania musi być ustawiona na wartość **AzureDataLakeStoreSink**. |Tak |
+| typ | `type`Właściwość ujścia działania kopiowania musi być ustawiona na wartość **AzureDataLakeStoreSink**. |Yes |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie nazwa pliku jest generowana automatycznie. | Nie |
 | maxConcurrentConnections | Liczba połączeń do równoczesnego połączenia z magazynem danych. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
 

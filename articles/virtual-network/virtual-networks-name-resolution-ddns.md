@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60640382"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650327"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Używanie dynamicznej usługi DNS do rejestrowania nazw hostów na własnym serwerze DNS
 
@@ -33,9 +33,9 @@ Klienci z systemem Windows przyłączeni do domeny próbują wykonać niezabezpi
 Przyłączone do domeny klienci systemu Windows rejestrują adresy IP przy użyciu kontrolera domeny za pomocą protokołu Secure DDNS. Proces przyłączania do domeny ustawia sufiks podstawowej domeny DNS na kliencie i tworzy i utrzymuje relację zaufania.
 
 ## <a name="linux-clients"></a>Klienci z systemem Linux
-Klienci z systemem Linux zazwyczaj nie rejestrują się na serwerze DNS podczas uruchamiania, zakładają, że serwer DHCP go wykonuje. Serwery DHCP platformy Azure nie mają poświadczeń do rejestrowania rekordów na serwerze DNS. Do wysyłania aktualizacji DDNS można użyć `nsupdate`narzędzia o nazwie, które jest zawarte w pakiecie bind. Ponieważ protokół DDNS jest ustandaryzowany, można go używać `nsupdate` nawet wtedy, gdy nie używasz funkcji bind na serwerze DNS.
+Klienci z systemem Linux zazwyczaj nie rejestrują się na serwerze DNS podczas uruchamiania, zakładają, że serwer DHCP go wykonuje. Serwery DHCP platformy Azure nie mają poświadczeń do rejestrowania rekordów na serwerze DNS. Do wysyłania aktualizacji DDNS można użyć narzędzia o nazwie `nsupdate` , które jest zawarte w pakiecie bind. Ponieważ protokół DDNS jest ustandaryzowany, można go używać `nsupdate` nawet wtedy, gdy nie używasz funkcji bind na serwerze DNS.
 
-Możesz użyć punktów zaczepienia dostarczonych przez klienta DHCP, aby utworzyć i zachować wpis nazwy hosta na serwerze DNS. Podczas cyklu DHCP Klient wykonuje skrypty w */etc/DHCP/dhclient-Exit-Hooks.d/*. Możesz użyć punktów zaczepienia, aby zarejestrować nowy adres IP przy użyciu `nsupdate`. Przykład:
+Możesz użyć punktów zaczepienia dostarczonych przez klienta DHCP, aby utworzyć i zachować wpis nazwy hosta na serwerze DNS. Podczas cyklu DHCP Klient wykonuje skrypty w */etc/DHCP/dhclient-Exit-Hooks.d/*. Możesz użyć punktów zaczepienia, aby zarejestrować nowy adres IP przy użyciu `nsupdate` . Na przykład:
 
 ```bash
 #!/bin/sh
@@ -61,11 +61,11 @@ then
 fi
 ```
 
-Możesz również użyć polecenia, `nsupdate` aby wykonać bezpieczne aktualizacje DDNS. Na przykład podczas korzystania z serwera DNS BIND jest [generowana](http://linux.yyz.us/nsupdate/)para kluczy publiczny-prywatny. Serwer DNS jest [skonfigurowany](http://linux.yyz.us/dns/ddns-server.html) z publiczną częścią klucza, aby można było zweryfikować podpis żądania. Aby zapewnić parę kluczy `nsupdate`, użyj `-k` opcji, aby żądanie DDNS Update było podpisane.
+Możesz również użyć polecenia, `nsupdate` Aby wykonać bezpieczne aktualizacje DDNS. Na przykład podczas korzystania z serwera DNS BIND jest generowana pary kluczy publiczny-prywatny ( `http://linux.yyz.us/nsupdate/` ). Serwer DNS jest skonfigurowany ( `http://linux.yyz.us/dns/ddns-server.html` ) z publiczną częścią klucza, dzięki czemu może weryfikować podpis w żądaniu. Aby zapewnić parę kluczy `nsupdate` , użyj `-k` opcji, aby żądanie DDNS Update było podpisane.
 
-Jeśli używasz serwera DNS systemu Windows, możesz użyć uwierzytelniania Kerberos z `-g` parametrem w `nsupdate`, ale nie jest on dostępny w wersji systemu Windows. `nsupdate` Aby użyć protokołu Kerberos, `kinit` Użyj, aby załadować poświadczenia. Na przykład można załadować poświadczenia z [pliku plik KEYTAB](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), a następnie `nsupdate -g` pobrać poświadczenia z pamięci podręcznej.
+Jeśli używasz serwera DNS systemu Windows, możesz użyć uwierzytelniania Kerberos z `-g` parametrem w `nsupdate` , ale nie jest on dostępny w wersji systemu Windows `nsupdate` . Aby użyć protokołu Kerberos, użyj, `kinit` Aby załadować poświadczenia. Na przykład można załadować poświadczenia z [pliku plik KEYTAB](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), a następnie pobrać `nsupdate -g` poświadczenia z pamięci podręcznej.
 
-W razie potrzeby można dodać sufiks wyszukiwania DNS do maszyn wirtualnych. Sufiks DNS jest określony w pliku */etc/resolv.conf* . Większość dystrybucje systemu Linux zarządza zawartością tego pliku, więc zazwyczaj nie można go edytować. Można jednak zastąpić sufiks przy użyciu `supersede` polecenia klienta DHCP. Aby zastąpić sufiks, Dodaj następujący wiersz do pliku */etc/DHCP/dhclient.conf* :
+W razie potrzeby można dodać sufiks wyszukiwania DNS do maszyn wirtualnych. Sufiks DNS jest określony w pliku */etc/resolv.conf* . Większość dystrybucje systemu Linux zarządza zawartością tego pliku, więc zazwyczaj nie można go edytować. Można jednak zastąpić sufiks przy użyciu polecenia klienta DHCP `supersede` . Aby zastąpić sufiks, Dodaj następujący wiersz do pliku */etc/DHCP/dhclient.conf* :
 
 ```
 supersede domain-name <required-dns-suffix>;

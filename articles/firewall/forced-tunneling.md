@@ -5,18 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: 463bccb29d59f06e7381d7d7123946029223a93a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199714"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649601"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Wymuszone tunelowanie zapory platformy Azure
 
-Zaporę platformy Azure można skonfigurować tak, aby rozsyłać cały ruch związany z Internetem do określonego następnego przeskoku zamiast bezpośrednio do Internetu. Na przykład lokalna Zapora brzegowa lub inne wirtualne urządzenie sieciowe (urządzenie WUS) mogą przetwarzać ruch sieciowy przed przekazaniem go do Internetu.
+Podczas konfigurowania nowej zapory platformy Azure można skierować cały ruch związany z Internetem do określonego następnego przeskoku zamiast bezpośredniego przejścia do Internetu. Na przykład lokalna Zapora brzegowa lub inne wirtualne urządzenie sieciowe (urządzenie WUS) mogą przetwarzać ruch sieciowy przed przekazaniem go do Internetu. Nie można jednak skonfigurować istniejącej zapory do wymuszonego tunelowania.
 
 Domyślnie Wymuszone tunelowanie nie jest dozwolone w zaporze platformy Azure, aby upewnić się, że wszystkie jej wychodzące zależności platformy Azure są spełnione. Konfiguracje trasy zdefiniowane przez użytkownika (UDR) w *AzureFirewallSubnet* , które mają trasę domyślną nie przechodzą bezpośrednio do Internetu, są wyłączone.
 

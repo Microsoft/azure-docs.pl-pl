@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399699"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650610"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -24,6 +24,8 @@ ms.locfileid: "81399699"
 Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, umożliwia zapisanie strumieni audio w czasie rzeczywistym do tekstu. Aplikacje, narzędzia lub urządzenia mogą zużywać, wyświetlać i podejmować działania dotyczące tego tekstu jako dane wejściowe polecenia. Ta usługa jest oparta na tej samej technologii rozpoznawania, która jest wykorzystywana przez firmę Microsoft dla Cortany i produktów pakietu Office. Bezproblemowo współpracuje z ofertami usług <a href="./speech-translation.md" target="_blank">tłumaczenia <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i <a href="./text-to-speech.md" target="_blank">zamiany tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> na mowę</a> . Aby uzyskać pełną listę dostępnych języków zamiany mowy na tekst, zobacz [obsługiwane języki](language-support.md#speech-to-text).
 
 Usługa zamiany mowy na tekst domyślnie używa modelu języka uniwersalnego. Ten model został przeszkolony przy użyciu danych firmy Microsoft i jest wdrażany w chmurze. Jest optymalny dla scenariuszy konwersacji i dyktowania. Przy użyciu zamiany mowy na tekst w celu rozpoznawania i transkrypcji w unikatowym środowisku można tworzyć i uczenie niestandardowych modeli akustycznych, językowych i wymowy. Dostosowanie jest pomocne w odniesieniu do hałasu otoczenia lub słownictwa specyficznego dla branży.
+
+Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamiany mowy na tekst umożliwia również [ocenę](rest-speech-to-text.md#pronunciation-assessment-parameters) wymowy, aby ocenić wymowę mowy i dać nam opinię na temat dokładności i Fluency głosu. Dzięki ocenie wymowy, informacje o języku mogą być praktyczne, otrzymywać błyskawiczne informacje zwrotne i ulepszać ich wymowę, aby mogły mówić i być niebezpieczne. Osoby wykorzystujące wykładowcy mogą oszacować wymowę wielu głośników w czasie rzeczywistym. Funkcja obecnie obsługuje amerykańskie angielski i skorelowanie z ocenami mowy prowadzonymi przez ekspertów.
 
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają interfejsów API rozpoznawanie mowy Bing, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.
@@ -39,6 +41,8 @@ Usługa zamiany mowy na tekst jest dostępna za pośrednictwem [zestawu Speech S
 
 Jeśli wolisz używać usługi REST do zamiany mowy na tekst, zobacz [interfejsy API REST](rest-speech-to-text.md).
 
+ - [Szybki Start: Ocena wymowy przy użyciu danych wejściowych odwołania](rest-speech-to-text.md#pronunciation-assessment-parameters)
+
 ## <a name="tutorials-and-sample-code"></a>Samouczki i przykładowy kod
 
 Jeśli masz szansę na korzystanie z usługi Speech, wypróbuj nasz samouczek, który uczy się, jak rozpoznać intencje z mowy przy użyciu zestawu Speech SDK i LUIS.
@@ -49,6 +53,7 @@ Przykładowy kod dla zestawu Speech SDK jest dostępny w witrynie GitHub. Te prz
 
 - [Przykłady zamiany mowy na tekst (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Przykłady transkrypcji partii (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Przykłady oceny wymowy (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="customization"></a>Dostosowywanie
 

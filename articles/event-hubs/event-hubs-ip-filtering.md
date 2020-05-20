@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 18212726f0ab921a05a3b640a32754c62958d047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d67ad70ccdf4ce1f88401806700f38bd1d3c11d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393141"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655886"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Konfigurowanie reguł zapory adresów IP dla przestrzeni nazw usługi Azure Event Hubs
 Domyślnie obszary nazw Event Hubs są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -54,6 +54,9 @@ W tej sekcji pokazano, jak za pomocą Azure Portal utworzyć reguły zapory IP d
     1. Wybierz opcję **Dodaj adres IP klienta** , aby zapewnić bieżącemu adresowi IP klienta dostęp do przestrzeni nazw. 
     2. W polu **zakres adresów**wprowadź określony adres IPv4 lub zakres adresów IPv4 w notacji CIDR. 
     3. Określ, czy chcesz **zezwolić zaufanym usługom firmy Microsoft na ominięcie tej zapory**. 
+
+        > [!WARNING]
+        > Jeśli wybierzesz opcję **wybrane sieci** i nie określisz adresu IP lub zakresu adresów, usługa zezwoli na ruch ze wszystkich sieci. 
 
         ![Zapora — wybrana opcja Wszystkie sieci](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Wybierz pozycję **Zapisz** na pasku narzędzi, aby zapisać ustawienia. Poczekaj kilka minut, aż potwierdzenie będzie widoczne na powiadomieniach portalu.

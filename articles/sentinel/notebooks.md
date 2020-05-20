@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77581841"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652033"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Korzystanie z notesów Jupyter do wyszukiwania zagrożeń bezpieczeństwa
 
@@ -60,9 +60,9 @@ Możesz uruchomić Notes bezpośrednio z usługi Azure wskaźnikowej lub sklonow
 
 ## <a name="run-a-notebook-from-azure-sentinel"></a>Uruchamianie notesu z poziomu platformy Azure — wskaźnik
  
-1. W Azure Portal przejdź do**notesu** > **zarządzania zagrożeniami** **platformy Azure** > , w którym można zobaczyć notesy udostępniane przez platformę Azure. 
+1. W Azure Portal przejdź do **Azure Sentinel**  >  notesu**zarządzania zagrożeniami**platformy Azure  >  **Notebooks**, w którym można zobaczyć notesy udostępniane przez platformę Azure. 
 
-2. Wybierz poszczególne notesy, aby odczytać ich opisy, wymagane typy danych i źródła danych. Przykład:
+2. Wybierz poszczególne notesy, aby odczytać ich opisy, wymagane typy danych i źródła danych. Na przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Uruchom Notes](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -73,7 +73,7 @@ Możesz uruchomić Notes bezpośrednio z usługi Azure wskaźnikowej lub sklonow
 
 Ta procedura powoduje utworzenie projektu Azure Notebooks dla Ciebie, który zawiera notesy usługi Azure wskaźnikowej. Następnie można uruchamiać notesy w stanie takim, w jakim się znajdują, lub wprowadzać w nich zmiany, a następnie uruchamiać je.
 
-1.  > W Azure Portal przejdź do**notesu** **zarządzania zagrożeniami** **platformy Azure** > , a następnie wybierz pozycję **Klonuj notesy** na pasku poleceń:
+1. W Azure Portal przejdź do **Azure Sentinel**  >  notesu**zarządzania zagrożeniami**platformy Azure,  >  **Notebooks** a następnie wybierz pozycję **Klonuj notesy** na pasku poleceń:
   
     > [!div class="mx-imgBorder"]
     >![Opcja klonowania notesów](./media/notebooks/sentinel-azure-clone-notebooks.png)
@@ -86,7 +86,7 @@ Ta procedura powoduje utworzenie projektu Azure Notebooks dla Ciebie, który zaw
 
    ![Importuj Notes](./media/notebooks/sentinel-create-project.png)
 
-4. Otwórz właśnie utworzony projekt, a następnie otwórz folder **notesy** , aby wyświetlić notesy. Przykład:
+4. Otwórz właśnie utworzony projekt, a następnie otwórz folder **notesy** , aby wyświetlić notesy. Na przykład:
 
    ![Importuj repozytorium](./media/notebooks/sentinel-open-notebook1.png)
 
@@ -115,17 +115,17 @@ Każdy Notes przeprowadzi Cię przez kroki w celu przeprowadzenia wyszukiwania l
 
 3. Wybierz Notes, aby go otworzyć.
     
-    Przy pierwszym otwarciu notesu może zostać wyświetlony monit o wybranie wersji jądra. Jeśli nie zostanie wyświetlony monit, możesz wybrać wersję **jądra ze** >  **zmiany**jądra, a następnie wybrać wersję, która ma co najmniej 3,6. Wybrana wersja jądra zostanie wyświetlona w prawym górnym rogu okna notesu:
+    Przy pierwszym otwarciu notesu może zostać wyświetlony monit o wybranie wersji jądra. Jeśli nie zostanie wyświetlony monit, możesz wybrać wersję **jądra ze**  >   **zmiany**jądra, a następnie wybrać wersję, która ma co najmniej 3,6. Wybrana wersja jądra zostanie wyświetlona w prawym górnym rogu okna notesu:
     
    ![Wybieranie notesu](./media/notebooks/sentinel-select-kernel.png)
 
-4. Przed wprowadzeniem jakichkolwiek zmian do pobranego notesu dobrym pomysłem jest wykonanie kopii oryginalnego notesu i rozpoczęcie pracy z kopią. W tym celu wybierz pozycję **plik** > **Zrób kopię**. Praca nad kopiami pozwala bezpiecznie aktualizować do przyszłych wersji notesów bez zastępowania żadnych danych.
+4. Przed wprowadzeniem jakichkolwiek zmian do pobranego notesu dobrym pomysłem jest wykonanie kopii oryginalnego notesu i rozpoczęcie pracy z kopią. W tym celu wybierz pozycję **plik**  >  **Zrób kopię**. Praca nad kopiami pozwala bezpiecznie aktualizować do przyszłych wersji notesów bez zastępowania żadnych danych.
     
     Teraz można przystąpić do uruchamiania lub edytowania wybranego notesu.
 
 Mając
 
-- Aby zapoznać się z szybkim wprowadzeniem do wykonywania zapytań dotyczących danych na platformie Azure, zapoznaj się z notesem [getstarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) w folderze głównym **notesów** . 
+- Aby zapoznać się z szybkim wprowadzeniem do wykonywania zapytań dotyczących danych na platformie Azure, zapoznaj się z notesem [getstarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) w folderze głównym **notesów** . 
 
 - Dodatkowe przykładowe notesy znajdują się w podfolderze **Samples-Notess** . Te przykładowe notesy zostały zapisane w danych, dzięki czemu można łatwiej zobaczyć zamierzone dane wyjściowe. Zalecamy wyświetlanie tych notesów w [nbviewer](https://nbviewer.jupyter.org/). 
 

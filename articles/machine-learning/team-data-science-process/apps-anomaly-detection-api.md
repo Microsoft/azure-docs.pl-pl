@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656546"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Interfejs API wykrywania anomalii Machine Learning
 
@@ -24,7 +24,7 @@ ms.locfileid: "76721884"
 > Ten element jest w trakcie konserwacji. Zachęcamy do używania [usługi interfejsu API wykrywania anomalii](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) obsługiwanej przez galerię Machine Learning algorytmów w usłudze Azure Cognitive Services w celu wykrywania anomalii z metryk biznesowych, operacyjnych i IoT.
 
 ## <a name="overview"></a>Omówienie
-[Interfejs API wykrywania anomalii](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) jest przykładem opartym na Azure Machine Learning, które wykrywa anomalie w danych szeregów czasowych z wartościami liczbowymi, które są jednolicie przemieszczone w czasie.
+[Interfejs API wykrywania anomalii](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) jest przykładem opartym na Azure Machine Learning, które wykrywa anomalie w danych szeregów czasowych z wartościami liczbowymi, które są jednolicie przemieszczone w czasie.
 
 Ten interfejs API może wykrywać następujące typy nietypowych wzorców w danych szeregów czasowych:
 
@@ -39,29 +39,29 @@ Oferta wykrywania anomalii zawiera przydatne narzędzia umożliwiające rozpocz�
 * [Aplikacja sieci Web](https://anomalydetection-aml.azurewebsites.net/) pomaga w ocenie i wizualizowaniu wyników interfejsów API wykrywania anomalii na danych.
 
 > [!NOTE]
-> Wypróbuj **rozwiązanie "anomalia Insights** " obsługiwane przez [ten interfejs API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
+> Wypróbuj **rozwiązanie "anomalia Insights** " obsługiwane przez [ten interfejs API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>Wdrażanie interfejsu API
-Aby można było korzystać z interfejsu API, należy wdrożyć go w ramach subskrypcji platformy Azure, w której będzie ona hostowana jako usługa sieci Web Azure Machine Learning.  Można to zrobić z poziomu [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Spowoduje to wdrożenie dwóch Azure Machine Learning Studio (klasycznych) usług sieci Web (i ich powiązanych zasobów) w ramach subskrypcji platformy Azure — jednej do wykrywania anomalii z wykrywaniem sezonowości i jednego bez wykrywania sezonowości.  Po zakończeniu wdrożenia będziesz mieć możliwość zarządzania interfejsami API na stronie [usług sieci web Azure Machine Learning Studio (klasyczna)](https://services.azureml.net/webservices/) .  Na tej stronie będzie można znaleźć lokalizacje punktów końcowych, klucze interfejsu API, a także przykładowy kod służący do wywoływania interfejsu API.  Bardziej szczegółowe instrukcje są dostępne [tutaj](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Aby można było korzystać z interfejsu API, należy wdrożyć go w ramach subskrypcji platformy Azure, w której będzie ona hostowana jako usługa sieci Web Azure Machine Learning.  Można to zrobić z poziomu [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Spowoduje to wdrożenie dwóch Azure Machine Learning Studio (klasycznych) usług sieci Web (i ich powiązanych zasobów) w ramach subskrypcji platformy Azure — jednej do wykrywania anomalii z wykrywaniem sezonowości i jednego bez wykrywania sezonowości.  Po zakończeniu wdrożenia będziesz mieć możliwość zarządzania interfejsami API na stronie [usług sieci web Azure Machine Learning Studio (klasyczna)](https://services.azureml.net/webservices/) .  Na tej stronie będzie można znaleźć lokalizacje punktów końcowych, klucze interfejsu API, a także przykładowy kod służący do wywoływania interfejsu API.  Bardziej szczegółowe instrukcje są dostępne [tutaj](/azure/machine-learning/studio/manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalowanie interfejsu API
 Domyślnie wdrożenie będzie miało bezpłatny plan rozliczania dla tworzenia i testowania, który obejmuje 1 000 transakcji na miesiąc i 2 godziny obliczeniowe miesięcznie.  Możesz przeprowadzić uaktualnienie do innego planu zgodnie z potrzebami.  Szczegółowe informacje na temat cen różnych planów są dostępne w [tym miejscu](https://azure.microsoft.com/pricing/details/machine-learning/) w obszarze "ceny produkcyjnego interfejsu API sieci Web".
 
 ## <a name="managing-aml-plans"></a>Zarządzanie planami AML
-Plan rozliczeniowy możesz zarządzać [tym miejscu](https://services.azureml.net/plans/).  Nazwa planu będzie określana na podstawie nazwy grupy zasobów wybranej podczas wdrażania interfejsu API oraz ciągu, który jest unikatowy dla Twojej subskrypcji.  Instrukcje dotyczące sposobu uaktualniania planu są dostępne w [tym miejscu](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) w sekcji "Zarządzanie planami rozliczeń".
+Plan rozliczeniowy możesz zarządzać [tym miejscu](https://services.azureml.net/plans/).  Nazwa planu będzie określana na podstawie nazwy grupy zasobów wybranej podczas wdrażania interfejsu API oraz ciągu, który jest unikatowy dla Twojej subskrypcji.  Instrukcje dotyczące sposobu uaktualniania planu są dostępne w [tym miejscu](/azure/machine-learning/studio/manage-new-webservice) w sekcji "Zarządzanie planami rozliczeń".
 
 ## <a name="api-definition"></a>Definicja interfejsu API
 Usługa sieci Web udostępnia interfejs API oparty na protokole REST za pośrednictwem protokołu HTTPS, który można wykorzystać na różne sposoby, w tym aplikacje internetowe lub mobilne, R, Python, Excel itd.  Dane szeregów czasowych są wysyłane do tej usługi za pośrednictwem wywołania interfejsu API REST i uruchamiają kombinację trzech typów anomalii opisanych poniżej.
 
 ## <a name="calling-the-api"></a>Wywoływanie interfejsu API
-Aby wywołać interfejs API, należy znać lokalizację punktu końcowego i klucz interfejsu API.  Te dwa wymagania oraz przykładowy kod służący do wywoływania interfejsu API są dostępne na stronie [usług sieci web Azure Machine Learning Studio (klasycznych)](https://services.azureml.net/webservices/) .  Przejdź do żądanego interfejsu API, a następnie kliknij kartę "zużyte", aby je znaleźć.  Interfejs API można wywołać jako interfejs API struktury Swagger (czyli przy użyciu parametru `format=swagger`adresu URL) lub jako interfejs API spoza struktury Swagger (czyli bez parametru `format` adresu URL).  Przykładowy kod używa formatu Swagger.  Poniżej znajduje się przykładowe żądanie i odpowiedź w formacie innym niż Swagger.  Te przykłady odnoszą się do punktu końcowego sezonowości.  Punkt końcowy inny niż sezonowości jest podobny.
+Aby wywołać interfejs API, należy znać lokalizację punktu końcowego i klucz interfejsu API.  Te dwa wymagania oraz przykładowy kod służący do wywoływania interfejsu API są dostępne na stronie [usług sieci web Azure Machine Learning Studio (klasycznych)](https://services.azureml.net/webservices/) .  Przejdź do żądanego interfejsu API, a następnie kliknij kartę "zużyte", aby je znaleźć.  Interfejs API można wywołać jako interfejs API struktury Swagger (czyli przy użyciu parametru adresu URL `format=swagger` ) lub jako interfejs API spoza struktury Swagger (czyli bez `format` parametru adresu URL).  Przykładowy kod używa formatu Swagger.  Poniżej znajduje się przykładowe żądanie i odpowiedź w formacie innym niż Swagger.  Te przykłady odnoszą się do punktu końcowego sezonowości.  Punkt końcowy inny niż sezonowości jest podobny.
 
 ### <a name="sample-request-body"></a>Przykładowa treść żądania
-Żądanie zawiera dwa obiekty: `Inputs` i. `GlobalParameters`  W przykładowym żądaniu poniżej niektóre parametry są wysyłane jawnie, podczas gdy inne nie są (przewiń w dół, aby uzyskać pełną listę parametrów dla każdego punktu końcowego).  Parametry, które nie są jawnie wysyłane w żądaniu, będą używały wartości domyślnych podanej poniżej.
+Żądanie zawiera dwa obiekty: `Inputs` i `GlobalParameters` .  W przykładowym żądaniu poniżej niektóre parametry są wysyłane jawnie, podczas gdy inne nie są (przewiń w dół, aby uzyskać pełną listę parametrów dla każdego punktu końcowego).  Parametry, które nie są jawnie wysyłane w żądaniu, będą używały wartości domyślnych podanej poniżej.
 
     {
                 "Inputs": {

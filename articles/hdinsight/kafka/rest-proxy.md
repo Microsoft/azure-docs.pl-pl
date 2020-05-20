@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 04/03/2020
+ms.openlocfilehash: 9b5771197c3e2de109af1a3b3475ab28fcbd6453
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611010"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647756"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Korzystanie z klastrów Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST
 
@@ -56,6 +56,8 @@ W przypadku żądań punktu końcowego serwera proxy REST aplikacje klienckie po
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Tworzenie klastra Kafka z włączonym serwerem proxy REST
 
+Poniższe kroki używają Azure Portal. Przykład użycia interfejsu wiersza polecenia platformy Azure można znaleźć w temacie [Create Apache Kafka Cluster proxy REST przy użyciu interfejsu wiersza polecenia platformy Azure](tutorial-cli-rest-proxy.md).
+
 1. Podczas przepływu pracy tworzenia klastra Kafka na karcie **zabezpieczenia i sieć** zaznacz opcję **Włącz serwer proxy REST Kafka** .
 
      ![Włącz serwer proxy REST Kafka i wybierz grupę zabezpieczeń](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
@@ -75,7 +77,7 @@ W przypadku żądań punktu końcowego serwera proxy REST aplikacje klienckie po
 Możesz użyć poniższego kodu w języku Python do współpracy z serwerem proxy REST w klastrze Kafka. Aby użyć przykładu kodu, wykonaj następujące kroki:
 
 1. Zapisz przykładowy kod na komputerze, na którym zainstalowano Język Python.
-1. Zainstaluj wymagane zależności języka Python, `pip3 install msal`wykonując.
+1. Zainstaluj wymagane zależności języka Python, wykonując `pip3 install msal` .
 1. Zmodyfikuj sekcję Code, aby **skonfigurować te właściwości** i zaktualizować następujące właściwości środowiska:
 
     |Właściwość |Opis |
@@ -92,7 +94,7 @@ Ten kod wykonuje następujące czynności:
 1. Pobiera token OAuth z usługi Azure AD.
 1. Pokazuje, jak utworzyć żądanie Kafka serwera proxy REST.
 
-Aby uzyskać więcej informacji na temat uzyskiwania tokenów OAuth w języku Python, zobacz [Python AuthenticationContext Class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). W `topics` tym miejscu mogą pojawić się opóźnienia, które nie zostały utworzone lub usunięte za pomocą serwera proxy REST Kafka. To opóźnienie wynika z faktu odświeżenia pamięci podręcznej.
+Aby uzyskać więcej informacji na temat uzyskiwania tokenów OAuth w języku Python, zobacz [Python AuthenticationContext Class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). W tym miejscu mogą pojawić się opóźnienia `topics` , które nie zostały utworzone lub usunięte za pomocą serwera proxy REST Kafka. To opóźnienie wynika z faktu odświeżenia pamięci podręcznej.
 
 ```python
 #Required python packages
@@ -139,7 +141,7 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Znajdź poniżej inny przykład, aby uzyskać token z platformy Azure dla serwera proxy REST przy użyciu polecenia zwinięcie. **Należy zauważyć, że podczas `scope=https://hib.azurehdinsight.net/.default` pobierania tokenu potrzebujemy określonego elementu.**
+Znajdź poniżej inny przykład, aby uzyskać token z platformy Azure dla serwera proxy REST przy użyciu polecenia zwinięcie. **Należy zauważyć, że `scope=https://hib.azurehdinsight.net/.default` podczas pobierania tokenu potrzebujemy określonego elementu.**
 
 ```cmd
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'

@@ -1,29 +1,28 @@
 ---
-title: Microsoft AppSource i usługi doradcze w portalu Azure Marketplace
-description: W tym artykule opisano kryteria kwalifikacji i wymagania dotyczące publikowania dla nowych ofert usług konsultingowych w Microsoft AppSource i witrynie Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Usługi doradcze w witrynie Microsoft Commercial Marketplace
+description: W tym artykule opisano kryteria kwalifikacji i wymagania dotyczące publikowania dla nowych ofert usługi konsultingowej w Microsoft AppSource i witrynie Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: e5f22a681a9a5cbed4eceea2f70faa1cb21c07bc
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fc0a82617346f60b90de34b379b4a0a114faf804
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994838"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658072"
 ---
-# <a name="consulting-services-for-microsoft-appsource-and-azure-marketplace"></a>Usługi doradcze dla Microsoft AppSource i witryny Azure Marketplace
+# <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
-Microsoft AppSource i usługi doradcze w portalu Azure Marketplace dają przedstawicielom firmy Microsoft systemowe korzyści płynące z łączenia swoich klientów z usługami, które obsługują i zwiększają korzystanie z platformy Azure. Te usługi doradcze pomagają klientom ocenić, ocenić i wdrożyć rozwiązania biznesowe, które w dalszej mierze ich cele biznesowe i cele.  
+W tym artykule wyjaśniono kryteria kwalifikujące i wymagania dotyczące publikowania nowych ofert usługi konsultingowej na rynku komercyjnym. Oferty usługi konsultingowej dają przedstawicielom systemu firmy Microsoft korzyści płynące z łączenia swoich klientów z usługami, które obsługują i zwiększają korzystanie z platformy Azure. Te usługi doradcze pomagają klientom ocenić, ocenić i wdrożyć rozwiązania biznesowe, które w dalszej mierze ich cele biznesowe i cele.  
 
 Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wydawcy mogą wybrać typ aukcji, zakres, czas trwania i strukturę cennika (cena ustalona lub bezpłatna). Oferty mają zdefiniowany porządek sprzedaży dla elementów dostarczanych klientowi. Potencjalni klienci są odbierani za pomocą powiadomienia w systemach CRM partnerów i partnerzy powinni odpowiedzieć klientom w ciągu 48 godzin.
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Witryny sklepu Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Poniższa tabela zawiera podsumowanie następujących opcji:
+Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Poniższa tabela zawiera podsumowanie następujących opcji:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -89,20 +88,12 @@ Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dl
 | Włochy    | Japonia  |  Meksyk  |  Holandia  |
 |  Nowa Zelandia  |  Norwegia  |  Polska  | Republika Południowej Afryki |
 |  Hiszpania  | Szwecja  | Szwajcaria  |  Stany Zjednoczone  |
-| Wielka Brytania  |
+| Zjednoczone Królestwo  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Zarejestruj się w celu uzyskania usług doradczych na rynku komercyjnym
 
 Zacznij od [zarejestrowania](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) informacji o firmie w portalu Marketplace. Aby zapoznać się z pełną listą kontrolną wymagań rejestracji, zobacz [Zostań wydawcy w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
-
-<!---
-**What to expect after registration**
-The Onboarding Team will reach out in 1 to 3 business days with a welcome email, which will include your Cloud Partner Portal sign-in information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions.
-
->[!Note]
->Partners need to register only once to become a publisher. After you become a publisher and receive your welcome email and Partner Center sign-in information, you don't need to re-register to publish different listing types.
---->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Przygotuj artefakty publikowania
 Przed zarejestrowaniem możesz zacząć zbierać i przygotowywać zawartość, która pomoże Twojej liście ideach wartość Twojej usługi i rozwiązania klientowi docelowemu. 
@@ -169,9 +160,9 @@ Przykłady:
 
 Gdy zespół przeglądający zawartość przegląda opisy ofert i oferuje podsumowania oferty, zastosuje następujące kryteria:
 
-|Typ oferty  |Wymagany |Zalecane  |
+|Typ oferty  |Wymagane |Zalecane  |
 |---------|---------|---------|
-|**Ocena**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
+|**Stopnia**    |   Zapoznaj się z szczegółowym porządkiem ocen obejmujących wiele dni lub wielotygodniowe i ideach, których elementów dostarcza klient.      |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Briefing**    |   Ideach, którego elementu dostarcza klient może oczekiwać. Należy pamiętać, że należy podać *krótkie* dane. Jeśli dostarczasz usługę wirtualną, wybierz inny typ oferty.    |  Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.       |
 |**Implementacja**    |  Zapoznaj się ze szczegółowym porządkiem obejmującym wiele dni lub wielotygodniowe implementacje oraz ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatów zaangażowania.       |    Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.     |
 |**Weryfikacja koncepcji**    |    Ideach zmiany inżynierów, artefakty techniczne lub inne artefakty, których klient może oczekiwać jako rezultatu zaangażowania.     | Zoptymalizuj podsumowanie oferty przy użyciu najpopularniejszych słów kluczowych funkcji optymalizacji.        |
@@ -181,12 +172,12 @@ Gdy zespół przeglądający zawartość przegląda opisy ofert i oferuje podsum
 W centrum partnerskim możesz dodać formatowanie do swojej oferty, korzystając z [promocji](/contribute/markdown-reference), uproszczonego języka projektowania, który pomaga dodać Polski do Twojej listy.
 
 Poniżej przedstawiono niektóre porady dotyczące promocji:
-* W przypadku formatowania *kursywa* Dodaj gwiazdkę\*(), bez spacji, na początku i na końcu wyrazu lub serii wyrazów (na przykład wpisz \*zawartość *, aby sformatować słowo jako *zawartość*). Sformatuj *Podsumowanie oferty* w kursywie.
+* W przypadku formatowania *kursywa* Dodaj gwiazdkę ( \* ), bez spacji, na początku i na końcu wyrazu lub serii wyrazów (na przykład wpisz \* zawartość *, aby sformatować słowo jako *zawartość*). Sformatuj *Podsumowanie oferty* w kursywie.
 * Wstaw podział wiersza po dwukropku (:) w celu wprowadzenia listy punktowanej lub numerowanej.
-* Aby utworzyć listę punktowaną, wpisz gwiazdkę (\*), a po niej spację dla każdego elementu punktowanego (na przykład \*[Space] pierwsze słowo zawartości).
-* Aby utworzyć nagłówki, wpisz jeden lub więcej znaków funta\#(), po których następuje spacja (na przykład # # # [Space] Agenda/elementy dostarczane).
+* Aby utworzyć listę punktowaną, wpisz gwiazdkę ( \* ), a po niej spację dla każdego elementu punktowanego (na przykład \* [Space] pierwsze słowo zawartości).
+* Aby utworzyć nagłówki, wpisz jeden lub więcej znaków funta ( \# ), po których następuje spacja (na przykład # # # [Space] Agenda/elementy dostarczane).
 * Dodaj podział wiersza po każdym nagłówku.
-* W przypadku formatowania **pogrubionego** Dodaj podwójną gwiazdkę (\*\*), bez spacji, na początku i na końcu wyrazu lub serii wyrazów (na przykład \* \*wpisz zawartość\* \* , aby sformatować słowo jako **zawartość**).
+* W przypadku formatowania **pogrubionego** Dodaj podwójną gwiazdkę ( \* \* ), bez spacji, na początku i na końcu wyrazu lub serii wyrazów (na przykład wpisz \* \* zawartość, \* \* Aby sformatować słowo jako **zawartość**).
 
 ## <a name="next-steps"></a>Następne kroki
 

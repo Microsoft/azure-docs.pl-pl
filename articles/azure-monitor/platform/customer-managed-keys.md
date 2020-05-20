@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/13/2020
-ms.openlocfilehash: 71a28d4a0b69b117039f998891e082740e4269a2
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: aec093d829964c770f59ec7bd328fabdd56e6e86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402560"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654853"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -21,7 +21,7 @@ Zalecamy przejrzenie [ograniczeń i ograniczeń](#limitations-and-constraints) p
 
 ## <a name="disclaimers"></a>Zastrzeżenia
 
-Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. [Model cenowy klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
+Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Skontaktuj się z firmą Microsoft, aby uzyskać subskrypcję usługi listy dozwolonych.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Klucz zarządzany przez klienta (CMK) — Omówienie
 
@@ -30,6 +30,8 @@ Szyfrowanie w spoczynku ( https://docs.microsoft.com/azure/security/fundamentals
 Azure Monitor gwarantuje, że wszystkie dane są szyfrowane przy użyciu kluczy zarządzanych przez platformę Azure. Azure Monitor udostępnia również opcję szyfrowania danych przy użyciu własnego klucza przechowywanego w [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) i dostępnego przez magazyn przy użyciu uwierzytelniania [tożsamości zarządzanej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)przypisanego przez system   . Ten klucz może być [chroniony przez oprogramowanie lub sprzęt-moduł HSM](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
 
 Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   .
+
+Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. [Model cenowy klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
 Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
 
@@ -40,7 +42,7 @@ Częstotliwość, z jaką Azure Monitor dostęp do magazynu Key Vault dla operac
 Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure. Tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra, co oznacza, że funkcja CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics, które utrzymują tożsamość między klastrem Log Analytics i Key Vault. Magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* do uwierzytelniania i uzyskiwania dostępu do Azure Key Vault za pośrednictwem Azure Active Directory.
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Usługa Key Vault
+1.    Key Vault
 2.    Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3.    Dedykowany klaster Log Analytics
 4.    Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
@@ -67,7 +69,7 @@ Mają zastosowanie następujące zasady:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedura inicjowania obsługi CMK
 
-1. Listy dozwolonych subskrypcji — aby upewnić się, że w Twoim regionie dostępna jest wymagana pojemność umożliwiająca obsługę klastra Log Analytics, należy wcześniej zweryfikować i dozwolonych subskrypcję
+1. Subskrypcja listy dozwolonych — funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Korzystanie z Twojego kontaktu z firmą Microsoft w celu listy dozwolonych subskrypcji
 2. Tworzenie Azure Key Vault i przechowywanie klucza
 3. Tworzenie zasobu *klastra*
 5. Przyznawanie uprawnień do Key Vault
@@ -78,7 +80,7 @@ Procedura nie jest obecnie obsługiwana w interfejsie użytkownika, a proces apr
 > [!IMPORTANT]
 > Wszystkie żądania interfejsu API muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
 
-Przykład:
+Na przykład:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -595,5 +597,5 @@ Wszystkie dane pozostają dostępne po wykonaniu operacji rotacji kluczy, w tym 
 
 - Jeśli zaktualizujesz wersję klucza w Key Vault i nie zaktualizujesz nowego identyfikatora klucza w zasobie *klastra* , klaster log Analytics będzie nadal korzystać z poprzedniego klucza i Twoje dane staną się niedostępne. Zaktualizuj szczegóły nowego identyfikatora klucza w zasobie *klastra* w celu wznowienia pozyskiwania danych i umożliwienia wykonywania zapytań dotyczących danych.
 
-- Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, Użyj kontaktów do firmy Microsoft.
+- Aby uzyskać pomoc techniczną i powiązana z kluczem zarządzanym przez klienta, skontaktuj się z firmą Microsoft, aby skontaktować się z nami.
 

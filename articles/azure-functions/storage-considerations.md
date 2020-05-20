@@ -3,12 +3,12 @@ title: Zagadnienia dotyczące magazynu Azure Functions
 description: Dowiedz się więcej o wymaganiach dotyczących magazynu Azure Functions i o szyfrowaniu przechowywanych danych.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 48ff2dedd997cccb76b13acdadc895504f656ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 324516240d09a5443908cbffec514e4caba2b604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984167"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648803"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Zagadnienia dotyczące magazynu Azure Functions
 
@@ -17,7 +17,7 @@ Azure Functions wymaga konta usługi Azure Storage podczas tworzenia wystąpieni
 
 |Usługa magazynu  | Użycie funkcji  |
 |---------|---------|
-| [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Magazyn obiektów blob platformy Azure](../storage/blobs/storage-blobs-introduction.md)     | Zachowaj stan powiązań i klucze funkcji.  <br/>Używane także przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | Udział plików służący do przechowywania i uruchamiania kodu aplikacji funkcji w [planie zużycia](functions-scale.md#consumption-plan). |
 | [Usługa Azure queue storage](../storage/queues/storage-queues-introduction.md)     | Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Używane przez [centra zadań w Durable Functions](durable/durable-functions-task-hubs.md).       |
@@ -53,21 +53,19 @@ Istnieje możliwość udostępnienia tego samego konta magazynu dla wielu aplika
 
 ## <a name="storage-data-encryption"></a>Szyfrowanie danych magazynu
 
-Usługa Azure Storage szyfruje wszystkie dane na koncie magazynu w stanie spoczynku. Aby uzyskać więcej informacji, zobacz [szyfrowanie usługi Azure Storage dla danych magazynowanych](../storage/common/storage-service-encryption.md).
-
-Domyślnie dane są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Aby uzyskać dodatkową kontrolę nad kluczami szyfrowania, można podać klucze zarządzane przez klienta do szyfrowania obiektów blob i danych plików. Te klucze muszą być obecne w Azure Key Vault, aby funkcje mogły uzyskiwać dostęp do konta magazynu. Aby dowiedzieć się więcej, zobacz [Konfigurowanie kluczy zarządzanych przez klienta za pomocą Azure Key Vault przy użyciu Azure Portal](../storage/common/storage-encryption-keys-portal.md).  
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
 ## <a name="mount-file-shares-linux"></a>Zainstaluj udziały plików (Linux)
 
-Istniejące udziały Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Instalując udział w aplikacji funkcji systemu Linux, możesz korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Możesz użyć polecenia, [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) aby zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
+Istniejące udziały Azure Files można zainstalować w aplikacjach funkcji systemu Linux. Instalując udział w aplikacji funkcji systemu Linux, możesz korzystać z istniejących modeli uczenia maszynowego lub innych danych w swoich funkcjach. Możesz użyć polecenia, [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) Aby zainstalować istniejący udział w aplikacji funkcji systemu Linux. 
 
-W tym poleceniu `share-name` jest nazwą istniejącego udziału Azure Files i `custom-id` może być dowolnym ciągiem, który jednoznacznie definiuje udział w przypadku zamontowania w aplikacji funkcji. Ponadto jest `mount-path` ścieżką, z której uzyskuje się dostęp do udziału w aplikacji funkcji. `mount-path`musi być w formacie `/dir-name`i nie może zaczynać się od `/home`.
+W tym poleceniu `share-name` jest nazwą istniejącego udziału Azure Files i `custom-id` może być dowolnym ciągiem, który jednoznacznie definiuje udział w przypadku zamontowania w aplikacji funkcji. Ponadto `mount-path` jest ścieżką, z której uzyskuje się dostęp do udziału w aplikacji funkcji. `mount-path`musi być w formacie `/dir-name` i nie może zaczynać się od `/home` .
 
 Pełny przykład można znaleźć w artykule skrypty w temacie [Tworzenie aplikacji funkcji języka Python i Instalowanie udziału Azure Files](scripts/functions-cli-mount-files-storage-linux.md). 
 
-Obecnie obsługiwane są tylko `storage-type` z `AzureFiles` . Można zainstalować tylko pięć udziałów w danej aplikacji funkcji. Zainstalowanie udziału plików może wydłużyć czas zimnego uruchomienia o co najmniej 200-300ms lub jeszcze więcej, gdy konto magazynu znajduje się w innym regionie.
+Obecnie `storage-type` obsługiwane są tylko z `AzureFiles` . Można zainstalować tylko pięć udziałów w danej aplikacji funkcji. Zainstalowanie udziału plików może wydłużyć czas zimnego uruchomienia o co najmniej 200-300ms lub jeszcze więcej, gdy konto magazynu znajduje się w innym regionie.
 
-Zainstalowany udział jest dostępny dla kodu funkcji w `mount-path` określonym. Na przykład, jeśli `mount-path` jest `/path/to/mount`, można uzyskać dostęp do katalogu docelowego za pomocą interfejsów API systemu plików, jak w poniższym przykładzie języka Python:
+Zainstalowany udział jest dostępny dla kodu funkcji w `mount-path` określonym. Na przykład, jeśli `mount-path` jest `/path/to/mount` , można uzyskać dostęp do katalogu docelowego za pomocą interfejsów API systemu plików, jak w poniższym przykładzie języka Python:
 
 ```python
 import os

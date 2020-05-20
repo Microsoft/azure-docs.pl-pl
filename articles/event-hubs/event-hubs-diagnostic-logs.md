@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691844"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649798"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 
@@ -148,6 +148,16 @@ Plik JSON dziennika skalowania automatycznego zawiera elementy wymienione w poni
 | ResourceId | Azure Resource Manager identyfikator zasobu. |
 | Komunikat | Komunikat informacyjny, który zawiera szczegółowe informacje na temat akcji autodostrajania. Komunikat zawiera poprzednią i bieżącą wartość jednostki przepływności dla danego obszaru nazw oraz sposób wyzwalający poznanie jednostek PRZEPŁYWNOŚCI. |
 
+Oto przykładowe zdarzenie skalowania automatycznego: 
+
+```json
+{
+    "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
+}
+```
+
 ## <a name="kafka-coordinator-logs-schema"></a>Schemat dzienników koordynatora Kafka
 Plik JSON dziennika koordynatora Kafka zawiera elementy wymienione w poniższej tabeli:
 
@@ -230,7 +240,7 @@ Plik JSON dziennika użytkownika klucza zarządzanego przez klienta zawiera elem
 | Klucz | Nazwa klucza Key Vault. |
 | Wersja | Wersja klucza Key Vault |
 | Operacja | Nazwa operacji wykonanej do obsługi żądań |
-| Code | Kod stanu |
+| Kod | Kod stanu |
 | Komunikat | Komunikat, który zawiera szczegółowe informacje o błędzie lub komunikat informacyjny |
 
 

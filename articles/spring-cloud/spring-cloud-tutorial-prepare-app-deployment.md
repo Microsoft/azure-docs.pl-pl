@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b630c746932696d51455653a6e6db8869f04863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657140"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Przygotowywanie aplikacji ze sprężyną Java do wdrożenia w chmurze Azure wiosennej
 
@@ -38,7 +38,7 @@ Chmura sprężynowa platformy Azure obsługuje tylko aplikacje do rozruchu sprę
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej
 ---|---
 2.1 | Greenwich. RELEASE
-2.2 | Hoxton. RELEASE
+2,2 | Hoxton. RELEASE
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Zależności w przypadku rozruchu sprężynowego w wersji 2,1
 
@@ -101,7 +101,7 @@ W poniższej tabeli wymieniono prawidłowe wersje chmurowe platformy Azure dla a
 Wersja sprężyny rozruchowej | Wersja chmury wiosennej | Wersja chmury wiosennej platformy Azure
 ---|---|---
 2.1 | Greenwich. RELEASE | 2.1
-2.2 | Hoxton. RELEASE | 2.2
+2,2 | Hoxton. RELEASE | 2,2
 
 Uwzględnij jedną z następujących zależności w pliku pliku pom. XML. Wybierz zależność, której wersja chmury sieci Azure ze sprężyną jest zgodna z własnymi.
 
@@ -129,11 +129,24 @@ W przypadku rozruchu sprężynowego w wersji 2,2 Dodaj następujący zależnoś�
 </dependency>
 ```
 
-## <a name="other-required-dependencies"></a>Inne wymagane zależności
+## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Inne Zalecane zależności dotyczące włączania funkcji chmury wiosennej platformy Azure
 
-Aby włączyć wbudowane funkcje chmury Azure wiosennej, aplikacja musi zawierać następujące zależności. To włączenie zapewnia, że aplikacja poprawnie skonfiguruje poszczególne składniki.
+Aby włączyć funkcje wbudowane w chmurze Azure wiosennej z rejestru usługi do rozproszonego śledzenia, należy również uwzględnić następujące zależności w aplikacji. Niektóre z tych zależności można usunąć, jeśli nie są potrzebne odpowiednie funkcje dla określonych aplikacji.
 
-### <a name="enablediscoveryclient-annotation"></a>Adnotacja EnableDiscoveryClient
+### <a name="service-registry"></a>Rejestr usługi
+
+Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy uwzględnić `spring-cloud-starter-netflix-eureka-client` zależność w pliku pliku pom. XML, jak pokazano poniżej:
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+Punkt końcowy serwera rejestru usługi jest automatycznie wprowadzany jako zmienne środowiskowe w aplikacji. Aplikacje mogą zarejestrować się na serwerze rejestru usługi i odnajdywać inne zależne mikrousługi.
+
+#### <a name="enablediscoveryclient-annotation"></a>Adnotacja EnableDiscoveryClient
 
 Dodaj następującą adnotację do kodu źródłowego aplikacji.
 ```java
@@ -159,22 +172,9 @@ public class GatewayApplication {
 }
 ```
 
-### <a name="service-registry-dependency"></a>Zależność rejestru usługi
+### <a name="distributed-configuration"></a>Konfiguracja rozproszona
 
-Aby użyć zarządzanej usługi rejestru usługi platformy Azure, należy `spring-cloud-starter-netflix-eureka-client` uwzględnić zależność w pliku pliku pom. XML, jak pokazano poniżej:
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-Punkt końcowy serwera rejestru usługi jest automatycznie wprowadzany jako zmienne środowiskowe w aplikacji. Aplikacje mogą zarejestrować się na serwerze rejestru usługi i odnajdywać inne zależne mikrousługi.
-
-### <a name="distributed-configuration-dependency"></a>Zależność konfiguracji rozproszonej
-
-Aby włączyć konfigurację rozproszoną, w sekcji `spring-cloud-config-client` zależności pliku pliku pom. XML Uwzględnij następującą zależność:
+Aby włączyć konfigurację rozproszoną, `spring-cloud-config-client` w sekcji zależności pliku pliku pom. XML Uwzględnij następującą zależność:
 
 ```xml
 <dependency>
@@ -186,7 +186,7 @@ Aby włączyć konfigurację rozproszoną, w sekcji `spring-cloud-config-client`
 > [!WARNING]
 > Nie określaj `spring.cloud.config.enabled=false` w konfiguracji ładowania początkowego. W przeciwnym razie aplikacja przestanie działać z serwerem konfiguracji.
 
-### <a name="metrics-dependency"></a>Zależność metryk
+### <a name="metrics"></a>Metryki
 
 Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pliku pliku pom. XML, jak pokazano poniżej:
 
@@ -199,7 +199,7 @@ Uwzględnij `spring-boot-starter-actuator` zależność w sekcji zależności pl
 
  Metryki są okresowo ściągane z punktów końcowych JMX. Możesz wizualizować metryki przy użyciu Azure Portal.
 
-### <a name="distributed-tracing-dependency"></a>Zależność śledzenia rozproszonego
+### <a name="distributed-tracing"></a>Śledzenie rozproszone
 
 Uwzględnij poniższe `spring-cloud-starter-sleuth` i `spring-cloud-starter-zipkin` zależności w sekcji zależności pliku pliku pom. XML:
 

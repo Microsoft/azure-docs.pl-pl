@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1317989434cca9375c612c8af0525323c6dda3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0348461e2a58bd8e71b8dff10667c512125d7b03
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081663"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656705"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Tworzenie i konfigurowanie magazynu kluczy dla usługi Azure Disk Encryption
 
@@ -31,7 +31,7 @@ Tworzenie i Konfigurowanie magazynu kluczy do użycia z Azure Disk Encryption ob
 Te kroki przedstawiono w następujących przewodnikach szybki start:
 
 - [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu interfejsu wiersza polecenia platformy Azure](disk-encryption-cli-quickstart.md)
-- [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu programu Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Tworzenie i szyfrowanie maszyny wirtualnej z systemem Windows przy użyciu programu Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 Możesz również, jeśli chcesz, wygenerować lub zaimportować klucz szyfrowania klucza (KEK).
 

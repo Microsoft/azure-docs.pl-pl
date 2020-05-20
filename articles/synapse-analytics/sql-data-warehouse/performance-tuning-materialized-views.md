@@ -10,18 +10,16 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5973ed505a43ca56a0f11e3603e05eeed0952fd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417025"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657754"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
 Widoki z materiałami w puli SQL Synapse zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
-
-Widoki z materiałami w puli SQL zapewniają niską metodę konserwacji dla złożonych zapytań analitycznych w celu uzyskania szybkiej wydajności bez żadnej zmiany w zapytaniu. W tym artykule omówiono ogólne wskazówki dotyczące korzystania z widoków z materiałami.
 
 ## <a name="materialized-views-vs-standard-views"></a>Widoki z materiałami i widoki standardowe
 
@@ -39,7 +37,7 @@ Większość wymagań dotyczących widoku standardowego nadal stosuje się do wi
 |Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzony i przechowywany w puli SQL podczas tworzenia widoku. Zaktualizowano w miarę dodawania danych do tabel bazowych.
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
 |Szybkość pobierania danych widoku z złożonych zapytań     | Opóźnienie                                         | Fast  
-|Dodatkowy magazyn                   | Nie                                           | Tak
+|Dodatkowy magazyn                   | Nie                                           | Yes
 |Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
 ## <a name="benefits-of-using-materialized-views"></a>Zalety korzystania z widoków z materiałami
@@ -117,7 +115,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
 
 ```sql
 

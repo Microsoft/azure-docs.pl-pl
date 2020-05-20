@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 80fc33a93d4d83dad1e687b176b39728fc7e8807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a14fafde8ecea0370c74cdbfd39a85d8dfb15612
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758606"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651067"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Uruchamianie skryptów powłoki na maszynie wirtualnej z systemem Linux przy użyciu polecenia Run
 
@@ -43,7 +43,7 @@ W przypadku korzystania z polecenia Uruchom należy zastosować następujące og
 
 ## <a name="available-commands"></a>Dostępne polecenia
 
-W tej tabeli przedstawiono listę poleceń dostępnych dla maszyn wirtualnych z systemem Linux. Możesz użyć polecenia **RunShellScript** , aby uruchomić dowolny niestandardowy skrypt. Gdy korzystasz z interfejsu wiersza polecenia platformy Azure lub programu PowerShell, aby uruchomić polecenie, wartość podana dla parametru `--command-id` lub `-CommandId` musi być jedną z następujących wartości. Jeśli określisz wartość, która nie jest dostępnym poleceniem, zostanie wyświetlony następujący błąd:
+W tej tabeli przedstawiono listę poleceń dostępnych dla maszyn wirtualnych z systemem Linux. Możesz użyć polecenia **RunShellScript** , aby uruchomić dowolny niestandardowy skrypt. Gdy korzystasz z interfejsu wiersza polecenia platformy Azure lub programu PowerShell, aby uruchomić polecenie, wartość podana dla `--command-id` parametru lub `-CommandId` musi być jedną z następujących wartości. Jeśli określisz wartość, która nie jest dostępnym poleceniem, zostanie wyświetlony następujący błąd:
 
 ```error
 The entity was not found in this Azure location
@@ -63,7 +63,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 ```
 
 > [!NOTE]
-> Aby uruchomić polecenia jako inny użytkownik, wprowadź `sudo -u` , aby określić konto użytkownika.
+> Aby uruchomić polecenia jako inny użytkownik, wprowadź, `sudo -u` Aby określić konto użytkownika.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -82,7 +82,7 @@ Po wybraniu polecenia wybierz pozycję **Uruchom** , aby uruchomić skrypt. Po z
 
 ### <a name="powershell"></a>PowerShell
 
-W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie `-ScriptPath` w parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
+W poniższym przykładzie za pomocą polecenia cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) można uruchomić skrypt programu PowerShell na maszynie wirtualnej platformy Azure. Polecenie cmdlet oczekuje skryptu, do którego istnieje odwołanie w `-ScriptPath` parametrze, do lokalizacji, w której jest uruchamiane polecenie cmdlet.
 
 ```powershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
@@ -90,9 +90,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Ograniczanie dostępu do polecenia Run
 
-Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia na poziomie subskrypcji. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
+Wyświetlanie listy poleceń uruchamiania lub wyświetlanie szczegółów polecenia wymaga `Microsoft.Compute/locations/runCommands/read` uprawnienia. To uprawnienie ma wbudowaną rolę [czytnika](../../role-based-access-control/built-in-roles.md#reader) i wyższe poziomy.
 
-Uruchomienie polecenia wymaga `Microsoft.Compute/virtualMachines/runCommand/action` uprawnienia na poziomie subskrypcji. Rola [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) i wyższe poziomy mają to uprawnienie.
+Uruchomienie polecenia wymaga `Microsoft.Compute/virtualMachines/runCommand/action` uprawnienia. Rola [współautora maszyny wirtualnej](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) i wyższe poziomy mają to uprawnienie.
 
 Możesz użyć jednej z [wbudowanych ról](../../role-based-access-control/built-in-roles.md) lub utworzyć [rolę niestandardową](../../role-based-access-control/custom-roles.md) , aby użyć polecenia Uruchom.
 

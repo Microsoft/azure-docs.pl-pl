@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: interfejs API Java języka SQL, zasoby & zestawu SDK'
 description: Dowiedz się więcej o interfejsie API Java i zestawie SDK programu SQL, w tym o datach wydania, datach wycofania i zmianach między poszczególnymi wersjami Azure Cosmos DB SQL Java SDK.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: sngun
-ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 61016597310e6bb160999981216190e8caa34fc8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983606"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656750"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -21,8 +21,9 @@ ms.locfileid: "80983606"
 > * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK 2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -30,18 +31,22 @@ ms.locfileid: "80983606"
 > * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
-Zestaw SDK Java interfejsu API SQL obsługuje operacje synchroniczne. Aby zapewnić obsługę asynchroniczną, należy użyć [interfejsu API usługi Async Java dla języka SQL](sql-api-sdk-async-java.md). 
+Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interfejsu API SQL, który obsługuje operacje synchroniczne.
+
+> [!IMPORTANT]  
+> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Rozważ użycie [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) dla projektu. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami zawartymi w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i w podręczniku [reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+>
 
 | |  |
 |---|---|
 |**Pobieranie zestawu SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Wprowadzenie**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
+|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="247"></a><a name="2.4.7"/>2.4.7
 * Rozwiązuje problem z limitem czasu puli połączeń.
@@ -69,10 +74,10 @@ Zestaw SDK Java interfejsu API SQL obsługuje operacje synchroniczne. Aby zapewn
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
 * Dodano obsługę oddzielnego limitu czasu dla trybu bezpośredniego.
 
-### <a name="223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"/>Regulamin
 * Zużywanie pustego komunikatu o błędzie z usługi i Tworzenie wyjątku klienta dokumentu.
 
-### <a name="222"></a><a name="2.2.2"/>2.2.2
+### <a name="222"></a><a name="2.2.2"/>ppkt
 * Udoskonalenie połączenia gniazda, Dodawanie SoKeepAlive domyślnego true.
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
@@ -233,7 +238,7 @@ Zestaw SDK Java interfejsu API SQL obsługuje operacje synchroniczne. Aby zapewn
 
 ### <a name="120"></a><a name="1.2.0"/>1.2.0
 * Obsługuje indeks geoprzestrzenny
-* Weryfikuje Właściwość identyfikatora dla wszystkich zasobów. Identyfikatory dla zasobów nie mogą zawierać znaków?,/, \, #, ani kończyć się spacją.
+* Weryfikuje Właściwość identyfikatora dla wszystkich zasobów. Identyfikatory dla zasobów nie mogą zawierać znaków?,/, #, \, ani kończyć się spacją.
 * Dodaje nowy nagłówek "postęp transformacji indeksu" do ResourceResponse.
 
 ### <a name="110"></a><a name="1.1.0"/>1.1.0
@@ -271,8 +276,8 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 | [2.4.1](#2.4.1) |18 lipca 2019 |--- |
 | [2.4.0](#2.4.0) |04, 2019 |--- |
 | [2.3.0](#2.3.0) |24 kwietnia 2019 |--- |
-| [2.2.3](#2.2.3) |16 kwietnia 2019 |--- |
-| [2.2.2](#2.2.2) |Kwi 05, 2019 |--- |
+| [Regulamin](#2.2.3) |16 kwietnia 2019 |--- |
+| [ppkt](#2.2.2) |Kwi 05, 2019 |--- |
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
 | [2.1.2](#2.1.2) |Mar 09, 2019 |--- |

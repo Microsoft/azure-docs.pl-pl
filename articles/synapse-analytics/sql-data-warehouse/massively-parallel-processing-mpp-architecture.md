@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884836"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658484"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -23,7 +23,7 @@ Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie da
 
  Usługa Azure Synapse ma cztery składniki:
 
-- Analiza SQL: Pełna analiza oparta na języku T-SQL
+- Synapse SQL: Ukończ analizę opartą na języku T-SQL
 
   - Pula SQL (płatność za jednostek DWUd) — ogólnie dostępna
   - SQL na żądanie (płatność za 1 TB przetworzonych) — (wersja zapoznawcza)
@@ -39,7 +39,7 @@ Azure Synapse to nieograniczona usługa analizy, która łączy magazynowanie da
 
 ![Architektura usługi](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-W analizie SQL jest stosowana Architektura oparta na węzłach. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolnego, który jest pojedynczym punktem wejścia dla usługi SQL Analytics. Węzeł kontrolny uruchamia aparat MPP, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
+Synapse SQL używa architektury opartej na węźle. Aplikacje nawiązują połączenie i wydają polecenia T-SQL do węzła kontrolki, który jest pojedynczym punktem wejścia dla Synapse SQL. Węzeł kontrolny uruchamia aparat MPP, który optymalizuje zapytania do przetwarzania równoległego, a następnie przekazuje operacje do węzłów obliczeniowych w celu wykonywania równoległych zadań.
 
 Węzły obliczeniowe przechowują wszystkie dane użytkowników w usłudze Azure Storage i wykonują zapytania równoległe. Usługa przenoszenia danych (ang. Data Movement Service, DMS) to wewnętrzna usługa działająca na poziomie systemu, która przenosi dane pomiędzy węzłami w sposób wymagany do równoległego wykonywania zapytań i zwracania prawidłowych wyników.
 
@@ -74,7 +74,7 @@ Usługa przenoszenia danych (DMS) to technologia transportu danych, która koord
 
 ## <a name="distributions"></a>Dystrybucji
 
-Dystrybucja to podstawowa jednostka magazynowania i przetwarzania zapytań równoległych wykonywanych na danych rozproszonych. Gdy analityczne SQL uruchamia kwerendę, prace są podzielone na 60 mniejsze zapytania, które są uruchamiane równolegle.
+Dystrybucja to podstawowa jednostka magazynowania i przetwarzania zapytań równoległych wykonywanych na danych rozproszonych. Gdy Synapse SQL uruchamia kwerendę, pracy jest podzielony na 60 mniejszych zapytań, które są uruchamiane równolegle.
 
 Każda z 60 mniejszych zapytań jest uruchamiana na jednym z dystrybucji danych. Każdy węzeł obliczeniowy zarządza jedną lub większą liczbą dystrybucji 60. Pula SQL z maksymalną ilość zasobów obliczeniowych ma jedną dystrybucję na każdy węzeł obliczeniowy. Pula SQL o minimalnych zasobach obliczeniowych ma wszystkie dystrybucje w jednym węźle obliczeniowym.  
 
@@ -121,4 +121,4 @@ Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzy�
 - [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
-- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [Ekran](https://twitter.com/hashtag/SQLDW)

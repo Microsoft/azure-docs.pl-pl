@@ -1,19 +1,19 @@
 ---
 title: Dodawanie wyszukiwania pełnotekstowego do usługi Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Wyodrębnij zawartość i Dodaj strukturę do obiektów blob platformy Azure podczas kompilowania indeksu wyszukiwania pełnotekstowego w usłudze Azure poznawcze wyszukiwanie.
+description: Wyodrębnij zawartość i Dodaj strukturę do obiektów blob platformy Azure podczas kompilowania indeksu wyszukiwania pełnotekstowego na platformie Azure Wyszukiwanie poznawcze.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83308f42fb1f2ea3408b5c1a63d88d21a8e7830a
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402076"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659438"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Dodawanie wyszukiwania pełnotekstowego do danych obiektów blob platformy Azure przy użyciu usługi Azure Wyszukiwanie poznawcze
 

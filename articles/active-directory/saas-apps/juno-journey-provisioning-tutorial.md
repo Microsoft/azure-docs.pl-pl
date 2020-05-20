@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 08de07a52d1e43dea91e6684d33027d8bcad61fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641851"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647744"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie podróży usługi Juno na potrzeby automatycznego aprowizacji użytkowników
 
@@ -40,7 +40,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 * [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. Administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny). 
-*  [Dzierżawa kursu Juno](https://www.junojourney.com/getstartedwithjuno).
+*  [Dzierżawa kursu Juno](https://www.junojourney.com/blank).
 *  Konto użytkownika w Junoej z uprawnieniami administratora.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
@@ -50,7 +50,7 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie przejazdu Juno w celu obsługi aprowizacji za pomocą usługi Azure AD
 
-1. W przypadku **tokenu tajnego** i **adresu URL dzierżawy** skontaktuj się support@the-juno.comz zespołem pomocy technicznej Juno. Ta wartość zostanie wprowadzona w polach **token tajny** i **adres URL dzierżawy** odpowiednio na karcie aprowizacji aplikacji do podróży Juno w Azure Portal. 
+1. W przypadku **tokenu tajnego** i **adresu URL dzierżawy** skontaktuj się z zespołem pomocy technicznej Juno support@the-juno.com . Ta wartość zostanie wprowadzona w polach **token tajny** i **adres URL dzierżawy** odpowiednio na karcie aprowizacji aplikacji do podróży Juno w Azure Portal. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie kursu Juno z galerii aplikacji usługi Azure AD
 
@@ -106,8 +106,8 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
    |userName|String|
    |externalId|String|
    |displayName|String|
-   |title|String|
-   |aktywne|Boolean|
+   |tytuł|String|
+   |aktywne|Wartość logiczna|
    |preferredLanguage|String|
    |wiadomości e-mail [Type EQ "Work"]. Value|String|
    |addresss [Type EQ "Work"]. Country|String|
@@ -154,7 +154,7 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 * Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
 * Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

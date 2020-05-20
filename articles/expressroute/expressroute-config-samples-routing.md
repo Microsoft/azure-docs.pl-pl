@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6aa66ddc52665c22310fb58977fd516eea4e806a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024816"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651990"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Przykłady konfiguracji routera umożliwiające skonfigurowanie routingu i zarządzanie nim
 Ta strona zawiera przykłady konfiguracji interfejsu i routingu dla routerów z serii Cisco IOS-XE i Juniper MX podczas pracy z usługą Azure ExpressRoute.
@@ -175,8 +175,8 @@ Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy uż
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter 
-    <Prefix_to_be_advertised/Subnet_Mask> exact;
+                route-filter; 
+                <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -186,7 +186,7 @@ Skonfiguruj router, aby anonsować wybór prefiksów do firmy Microsoft przy uż
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
+                export <Policy_Name>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -205,7 +205,7 @@ Za pomocą map tras i list prefiksów można filtrować prefiksy rozmnożone do 
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-                prefix-list MS_Prefixes;
+                    prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
@@ -216,8 +216,8 @@ Za pomocą map tras i list prefiksów można filtrować prefiksy rozmnożone do 
     protocols {
         bgp { 
             group <Group_Name> { 
-                export <Policy_Name>
-                import <MS_Prefixes_Inbound>
+                export <Policy_Name>;
+                import <MS_Prefixes_Inbound>;
                 peer-as 12076;              
                 neighbor <IP#2_used_by_Azure>;
             }                               
@@ -240,6 +240,26 @@ Skonfiguruj BFD w sekcji protokołu BGP.
         }                                   
     }
 
+### <a name="configure-macsec"></a>Konfigurowanie MACSec
+W przypadku konfiguracji MACSec, klucz skojarzenia łączności (CAK) i nazwa klucza skojarzenia łączności (CKN) muszą być zgodne ze skonfigurowanymi wartościami za pośrednictwem poleceń programu PowerShell.
+
+    security {
+        macsec {
+            connectivity-association <Connectivity_Association_Name> {
+                cipher-suite gcm-aes-xpn-128;
+                security-mode static-cak;
+                pre-shared-key {
+                    ckn <Connectivity_Association_Key_Name>;
+                    cak <Connectivity_Association_Key>; ## SECRET-DATA
+                }
+            }
+            interfaces {
+                <Interface_Number> {
+                    connectivity-association <Connectivity_Association_Name>;
+                }
+            }
+        }
+    }
 
 ## <a name="next-steps"></a>Następne kroki
 Szczegółowe informacje znajdują się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).

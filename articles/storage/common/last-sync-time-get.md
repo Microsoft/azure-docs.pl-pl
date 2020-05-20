@@ -10,12 +10,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: afcadd55e87579b25f03176fa3227024863b90fb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858508"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659249"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 
@@ -35,12 +35,12 @@ Właściwość **czas ostatniej synchronizacji** jest wartością daty/godziny G
 
 Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure, aby pobrać wartość właściwości **Data ostatniej synchronizacji** .
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, Zainstaluj wersję modułu AZ. Storage, która obsługuje pobieranie statystyki replikacji geograficznej. Na przykład:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
 ```
 
 Następnie sprawdź Właściwość **GeoReplicationStats. LastSyncTime** konta magazynu. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
@@ -53,7 +53,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, sprawdź Właściwość **geoReplicationStats. lastSyncTime** konta magazynu. Użyj parametru `--expand` , aby zwrócić wartości właściwości zagnieżdżonych w obszarze **geoReplicationStats**. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
+Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą interfejsu wiersza polecenia platformy Azure, sprawdź Właściwość **geoReplicationStats. lastSyncTime** konta magazynu. Użyj `--expand` parametru, aby zwrócić wartości właściwości zagnieżdżonych w obszarze **geoReplicationStats**. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
 
 ```azurecli-interactive
 $lastSyncTime=$(az storage account show \
@@ -66,7 +66,7 @@ $lastSyncTime=$(az storage account show \
 
 ---
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Nadmiarowość usługi Azure Storage](storage-redundancy.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)

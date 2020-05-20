@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210946"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657347"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
 
@@ -186,7 +186,7 @@ Zapytania N1QL są sposobem definiowania zapytań w Couchbase.
 
 |N1QL zapytanie | Zapytanie CosmosDB platformy Azure|
 |-------------------|-------------------|
-|Wybierz META (`TravelDocument`). ID as ID, `TravelDocument`. * z `TravelDocument` Where `_type` = "com. XX. XX. XX. xxx. xxx. xxxx" i Country = "Indie" oraz wszystkie m w wizach spełnia wartość m. Type = = "wiele-entry" i m. Country w ["Indie", Bhutan "] Order ` Validity` by   | Wybierz pozycję c. identyfikator, c od c Dołącz m w c. Country = "Indie", gdzie c. _type = "com. XX. XX. XX. xxx. xxx. xxxx" i c. Country = "Indie" i m. Type = "wiele wpisów" i m. Country ("Indie", "Bhutan") ORDER BY c |
+|Wybierz META ( `TravelDocument` ). ID as ID, `TravelDocument` . * z `TravelDocument` Where `_type` = "com. XX. XX. XX. xxx. xxx. xxxx" i Country = "Indie" oraz wszystkie m w wizach spełnia wartość m. Type = = "wiele-entry" i m. Country w ["Indie", BHUTAN "] order by ` Validity`   | Wybierz pozycję c. identyfikator, c od c Dołącz m w c. Country = "Indie", gdzie c. _type = "com. XX. XX. XX. xxx. xxx. xxxx" i c. Country = "Indie" i m. Type = "wiele wpisów" i m. Country ("Indie", "Bhutan") ORDER BY c |
 
 W zapytaniach N1QL można zauważyć następujące zmiany:
 
@@ -314,46 +314,30 @@ Jest to prosty typ obciążenia, w którym można wykonywać wyszukiwania zamias
     
    ```json
    {
-       "indexingMode": "consistent",
-       "includedPaths": 
-       [
-           {
-            "path": "/*",
-            "indexes": 
-             [
-                {
-                  "kind": "Range",
-                  "dataType": "Number"
-                },
-                {
-                  "kind": "Range",
-                  "dataType": "String"
-                },
-                {
-                   "kind": "Spatial",
-                   "dataType": "Point"
-                }
-             ]
-          }
-       ],
-       "excludedPaths": 
-       [
-         {
-             "path": "/path/to/single/excluded/property/?"
-         },
-         {
-             "path": "/path/to/root/of/multiple/excluded/properties/*"
-         }
-      ]
-   }
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ]
+    }
    ````
 
    Zastąp powyższe zasady indeksowania następującymi zasadami:
 
    ```json
    {
-       "indexingMode": "none"
-   }
+    "indexingMode": "none",
+    "automatic": false,
+    "includedPaths": [],
+    "excludedPaths": []
+    }
    ```
 
 1. Użyj poniższego fragmentu kodu, aby utworzyć obiekt połączenia. Obiekt połączenia (umieszczony w @Bean lub uczynić go statycznym):

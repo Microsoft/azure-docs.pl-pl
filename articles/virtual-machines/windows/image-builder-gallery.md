@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 89c93d83631884cab1143a520fea01246f1b5e89
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65e8818e19ac5ad20bb87fd8eb27a4c36c2839cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871824"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656674"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Wersja zapoznawcza: Tworzenie obrazu systemu Windows i dystrybuowanie go do galerii obrazów udostępnionych 
 
@@ -43,9 +43,9 @@ Sprawdź stan rejestracji funkcji.
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-`RegistrationState` Poczekaj `Registered` przed przejściem do następnego kroku.
+Poczekaj `RegistrationState` `Registered` przed przejściem do następnego kroku.
 
-Sprawdź rejestracje dostawcy. Upewnij się, że `Registered`każdy zwraca wartość.
+Sprawdź rejestracje dostawcy. Upewnij się, że każdy zwraca wartość `Registered` .
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +54,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Jeśli dostawcy nie zwracają żadnych `Registered`zwrotów, należy zarejestrować dostawców w następujących przypadkach:
+Jeśli dostawcy nie zwracają żadnych zwrotów `Registered` , należy zarejestrować dostawców w następujących przypadkach:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +65,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>Tworzenie zmiennych
 
-Będziemy wielokrotnie używać niektórych informacji, więc utworzymy pewne zmienne do przechowywania tych informacji. Zastąp wartości dla zmiennych, takich jak `username` i `vmpassword`, z własnymi informacjami.
+Będziemy wielokrotnie używać niektórych informacji, więc utworzymy pewne zmienne do przechowywania tych informacji. Zastąp wartości dla zmiennych, takich jak `username` i `vmpassword` , z własnymi informacjami.
 
 ```powershell
 # Get existing context
@@ -104,16 +104,16 @@ Konstruktor obrazów będzie używał podanej [tożsamości użytkownika](https:
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
@@ -136,7 +136,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -207,7 +207,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -298,7 +298,7 @@ dir c:\
 Powinien zostać wyświetlony katalog o nazwie `buildActions` , który został utworzony podczas dostosowywania obrazu.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Jeśli chcesz teraz spróbować ponownie dostosować wersję obrazu, aby utworzyć nową wersję tego samego obrazu, **Pomiń ten krok** i przejdź do, aby [użyć usługi Azure Image Builder do utworzenia innej wersji obrazu](image-builder-gallery-update-image-version.md).
 
 
@@ -321,19 +321,19 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 Usuń przypisanie roli
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 Usuń definicje
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 Usuń tożsamość
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 Usuń grupę zasobów.

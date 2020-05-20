@@ -3,17 +3,17 @@ title: Zarządzanie certyfikatami w klastrze usługi Azure Service Fabric
 description: Opisuje, jak dodać nowe certyfikaty, certyfikat przerzucania i usunąć certyfikat do lub z klastra Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: a3c92e1b39261af32085e4d9b6cb2462d5c0eb64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458354"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658386"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Add or remove certificates for a Service Fabric cluster in Azure (Dodawanie lub usuwanie certyfikatów dla klastra usługi Service Fabric na platformie Azure)
 Zaleca się zapoznanie się ze sposobem, w jaki Service Fabric używa certyfikatów X. 509, i zna [scenariusze zabezpieczeń klastra](service-fabric-cluster-security.md). Przed kontynuowaniem należy zrozumieć, czym jest certyfikat klastra i co jest używane w programie.
 
-Domyślne zachowanie ładowania certyfikatu zestawu SDK usługi Azure Service Fabric polega na wdrożeniu i użyciu zdefiniowanego certyfikatu z datą wygaśnięcia najdalej w przyszłości. niezależnie od ich podstawowej lub pomocniczej definicji konfiguracji. Powracanie do klasycznego zachowania jest niezalecaną zaawansowaną akcją i wymaga ustawienia wartości parametru ustawienia "UseSecondaryIfNewer" na wartość `Fabric.Code` false w konfiguracji.
+Domyślne zachowanie ładowania certyfikatu zestawu SDK usługi Azure Service Fabric polega na wdrożeniu i użyciu zdefiniowanego certyfikatu z datą wygaśnięcia najdalej w przyszłości. niezależnie od ich podstawowej lub pomocniczej definicji konfiguracji. Powracanie do klasycznego zachowania jest niezalecaną zaawansowaną akcją i wymaga ustawienia wartości parametru ustawienia "UseSecondaryIfNewer" na wartość false w `Fabric.Code` konfiguracji.
 
 Usługa Service Fabric pozwala określić dwa certyfikaty klastra, podstawowe i pomocnicze, podczas konfigurowania zabezpieczeń certyfikatów podczas tworzenia klastra, oprócz certyfikatów klienta. Zapoznaj się z tematem [Tworzenie klastra platformy Azure za pośrednictwem portalu](service-fabric-cluster-creation-via-portal.md) lub [Tworzenie klastra platformy Azure za pośrednictwem Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) , aby uzyskać szczegółowe informacje na temat konfigurowania ich w czasie tworzenia. W przypadku określenia tylko jednego certyfikatu klastra podczas tworzenia, który jest używany jako certyfikat podstawowy. Po utworzeniu klastra można dodać nowy certyfikat jako pomocniczy.
 
@@ -35,9 +35,7 @@ Aby usunąć nieużywany certyfikat zabezpieczeń klastra, przejdź do sekcji Za
 
 Jeśli zamiarem jest usunięcie certyfikatu oznaczonego jako podstawowa, należy wdrożyć certyfikat pomocniczy z datą wygaśnięcia dalszą w przyszłości niż certyfikat podstawowy, włączając zachowanie autorollover. Usuń certyfikat podstawowy po zakończeniu przerzucania.
 
-## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Dodawanie certyfikatu pomocniczego przy użyciu programu Menedżer zasobów PowerShell
-> [!TIP]
-> Teraz lepszym i łatwiejszym sposobem dodawania certyfikatu pomocniczego jest użycie polecenia cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) . Nie musisz wykonywać pozostałej części kroków opisanych w tej sekcji.  Ponadto nie jest potrzebny szablon używany do tworzenia i wdrażania klastra przy użyciu polecenia cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) .
+## <a name="add-a-secondary-certificate-using-azure-resource-manager"></a>Dodawanie certyfikatu pomocniczego przy użyciu Azure Resource Manager
 
 W tych krokach przyjęto założenie, że wiesz już, jak działa Menedżer zasobów i wdrożono co najmniej jeden klaster Service Fabric przy użyciu szablonu Menedżer zasobów oraz szablon użyty do skonfigurowania klastra. Założono również, że masz doświadczenie w korzystaniu z formatu JSON.
 

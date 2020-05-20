@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: cb065f10664f46578f84e59501d75d510ccb3c6a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201582"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649616"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -88,7 +88,7 @@ Zobacz [Cennik usługi Azure firewall](https://azure.microsoft.com/pricing/detai
 
 Można użyć Azure PowerShell *alokacji* i *alokacji* metod.
 
-Przykład:
+Na przykład:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -129,7 +129,7 @@ Zapora platformy Azure nie ma protokołu IPSec, gdy docelowy adres IP jest prywa
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Czy jest wymuszane tunelowanie/łączenie do obsługiwanego sieciowego urządzenia wirtualnego?
 
-Wymuszone tunelowanie jest obsługiwane. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md). 
+Wymuszone tunelowanie jest obsługiwane podczas tworzenia nowej zapory. Nie można skonfigurować istniejącej zapory do wymuszonego tunelowania. Aby uzyskać więcej informacji, zobacz [tunelowanie wymuszone przez zaporę platformy Azure](forced-tunneling.md). 
 
 Zapora platformy Azure musi mieć bezpośrednią łączność z Internetem. Jeśli AzureFirewallSubnet nauczy trasy domyślnej do sieci lokalnej za pośrednictwem protokołu BGP, należy przesłonić ten element przy użyciu wartości 0.0.0.0/0 UDR z wartością **NextHopType** ustawioną jako **Internet** w celu utrzymania bezpośredniej łączności z Internetem.
 

@@ -6,28 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 9951a6ddfbd1c562184e2b7e02a9da98f7d94b12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598066"
+ms.locfileid: "83650076"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Kody błędów konfiguracji Azure Stream Analytics
 
 Dzienników aktywności i dzienników zasobów można używać do debugowania nieoczekiwanych zachowań z zadania Azure Stream Analytics. W tym artykule przedstawiono opis każdego kodu błędu konfiguracji. Błędy konfiguracji są powiązane z konfiguracją zadania lub konfiguracjami wejściowymi i wyjściowymi.
-
-## <a name="kafkainvalidpermission"></a>KafkaInvalidPermission
-
-* **Przyczyna**: zadanie Stream Analytics nie ma odpowiednich uprawnień do wykonania określonych akcji.
-
-## <a name="kafkainvalidconfiguration"></a>KafkaInvalidConfiguration
-
-* **Przyczyna**: Niektóre konfiguracje na karcie Kafka są nieprawidłowe.
-
-## <a name="kafkainvalidtimestamptype"></a>KafkaInvalidTimestampType
-
-* **Przyczyna**: typ znacznika czasu używany przez Kafka jest nieprawidłowy.
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 

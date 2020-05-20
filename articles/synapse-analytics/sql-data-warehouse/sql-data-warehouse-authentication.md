@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie
+title: Authentication
 description: Dowiedz się, jak uwierzytelniać się w usłudze Azure Synapse Analytics przy użyciu usługi Azure Active Directory (Azure AD) lub SQL Server Authentication.
 services: synapse-analytics
 author: julieMSFT
@@ -12,16 +12,16 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251847"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653050"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 
-Dowiedz się, jak uwierzytelniać się w usłudze SQL Analytics w usłudze Azure Synapse za pomocą usługi Azure Active Directory (AAD) lub SQL Server Authentication.
+Dowiedz się, jak uwierzytelniać się w usłudze SQL Synapse w usłudze Azure Synapse przy użyciu usług Azure Active Directory (AAD) lub SQL Server Authentication.
 
 Aby nawiązać połączenie z pulą SQL, należy przekazać poświadczenia zabezpieczeń w celu uwierzytelnienia. Podczas ustanawiania połączenia niektóre ustawienia połączeń są konfigurowane w ramach ustanawiania sesji zapytań.  
 
@@ -80,7 +80,7 @@ Obecnie Azure Active Directory użytkownicy nie są wyświetlani w Eksplorator o
 
 ### <a name="find-the-details"></a>Znajdź szczegóły
 
-* Kroki konfigurowania i używania uwierzytelniania Azure Active Directory są niemal identyczne w przypadku Azure SQL Database i analiz SQL na platformie Azure Synapse. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [nawiązywanie połączenia z usługą SQL Database lub pulą SQL przy użyciu uwierzytelniania Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Kroki konfigurowania i używania uwierzytelniania Azure Active Directory są niemal identyczne dla Azure SQL Database i Synapse SQL na platformie Azure Synapse. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [nawiązywanie połączenia z usługą SQL Database lub pulą SQL przy użyciu uwierzytelniania Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Utwórz niestandardowe role bazy danych i Dodaj użytkowników do ról. Następnie przyznaj uprawnienia szczegółowe do ról. Aby uzyskać więcej informacji, zobacz [wprowadzenie z uprawnieniami aparatu bazy danych](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Następne kroki

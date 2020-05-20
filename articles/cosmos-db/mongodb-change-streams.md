@@ -1,32 +1,32 @@
 ---
 title: Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
-description: Dowiedz się, jak używać strumienia zmian w interfejsie API Azure Cosmos DB MongoDB, aby uzyskać zmiany wprowadzone w danych.
-author: timsander1
+description: Dowiedz się, jak używać usługi Change Streams n Azure Cosmos DB API MongoDB, aby uzyskać zmiany wprowadzone do danych.
+author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
-ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 11/16/2019
+ms.author: srchi
+ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872144"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647303"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Zmień strumienie w interfejsie API Azure Cosmos DB dla MongoDB
 
 Obsługa [kanałów zmian](change-feed.md) w interfejsie API Azure Cosmos DB dla MongoDB jest dostępna za pomocą interfejsu API zmiany strumieni. Za pomocą interfejsu API Zmień strumienie aplikacje mogą pobrać zmiany wprowadzone do kolekcji lub do elementów w jednym fragmentu. Później można wykonać dalsze czynności na podstawie wyników. Zmiany elementów w kolekcji są przechwytywane w kolejności ich modyfikacji, a porządek sortowania jest gwarantowany na klucz fragmentu.
 
-> [!NOTE]
-> Aby można było używać strumieni zmian, należy utworzyć konto z wersją 3,6 interfejsu API Azure Cosmos DB dla MongoDB lub nowszej wersji. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlony `Unrecognized pipeline stage name: $changeStream` błąd.
+[!NOTE]
+Aby można było używać strumieni zmian, należy utworzyć konto z wersją 3,6 interfejsu API Azure Cosmos DB dla MongoDB lub nowszej wersji. W przypadku uruchomienia przykładów zmiany strumienia dla starszej wersji może zostać wyświetlony `Unrecognized pipeline stage name: $changeStream` błąd.
 
 ## <a name="current-limitations"></a>Bieżące ograniczenia
 
 W przypadku korzystania ze strumieni zmian stosowane są następujące ograniczenia:
 
-* Właściwości `operationType` i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
-* Typy `insert`operacji `update`, i `replace` są obecnie obsługiwane. 
+* `operationType`Właściwości i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
+* `insert` `update` Typy operacji, i `replace` są obecnie obsługiwane. 
 * Operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
 
 Ze względu na te ograniczenia wymagane są opcje etap $match, etap $project i fullDocument, jak pokazano w poprzednich przykładach.
@@ -39,11 +39,11 @@ Podczas używania strumieni zmian są obsługiwane następujące kody błędów 
 
 * **Kod błędu HTTP 16500** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
 
-* **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, zwracany jest `NamespaceNotFound` błąd. Ponieważ `operationType` właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie `operationType Invalidate` w przypadku błędu `NamespaceNotFound` , zwracany jest błąd.
+* **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, `NamespaceNotFound` zwracany jest błąd. Ponieważ `operationType` Właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie w przypadku `operationType Invalidate` błędu, `NamespaceNotFound` zwracany jest błąd.
 
 ## <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje, jak pobrać strumienie zmian dla wszystkich elementów w kolekcji. Ten przykład umożliwia utworzenie kursora do oglądania elementów, gdy są one wstawiane, aktualizowane lub zastępowane. Do `$match` pobrania strumieni `$project` zmian są wymagane `fullDocument` etapy, etapy i opcje. Obserwowanie operacji usuwania przy użyciu strumieni zmian nie jest obecnie obsługiwane. Obejście tego problemu pozwala na dodanie znacznika miękkiego do elementów, które są usuwane. Na przykład, można dodać atrybut w elemencie o nazwie "usunięte". Jeśli chcesz usunąć element, możesz ustawić wartość "usunięty" `true` i ustawić wartość czasu wygaśnięcia dla elementu. Ponieważ aktualizacja "usunięty" `true` jest aktualizacją, ta zmiana będzie widoczna w strumieniu zmiany.
+Poniższy przykład pokazuje, jak pobrać strumienie zmian dla wszystkich elementów w kolekcji. Ten przykład umożliwia utworzenie kursora do oglądania elementów, gdy są one wstawiane, aktualizowane lub zastępowane. `$match` `$project` `fullDocument` Do pobrania strumieni zmian są wymagane etapy, etapy i opcje. Obserwowanie operacji usuwania przy użyciu strumieni zmian nie jest obecnie obsługiwane. Obejście tego problemu pozwala na dodanie znacznika miękkiego do elementów, które są usuwane. Na przykład, można dodać atrybut w elemencie o nazwie "usunięte". Jeśli chcesz usunąć element, możesz ustawić wartość "usunięty" `true` i ustawić wartość czasu wygaśnięcia dla elementu. Ponieważ aktualizacja "usunięty" `true` jest aktualizacją, ta zmiana będzie widoczna w strumieniu zmiany.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -61,7 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
@@ -89,8 +89,8 @@ Poniższy przykład pokazuje, jak uzyskać zmiany w elementach w ramach jednego 
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -102,6 +102,23 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## <a name="current-limitations"></a>Bieżące ograniczenia
+
+W przypadku korzystania ze strumieni zmian stosowane są następujące ograniczenia:
+
+* `operationType`Właściwości i `updateDescription` nie są jeszcze obsługiwane w dokumencie wyjściowym.
+* `insert` `update` Typy operacji, i `replace` są obecnie obsługiwane. Operacja usuwania lub inne zdarzenia nie są jeszcze obsługiwane.
+
+Ze względu na te ograniczenia wymagane są opcje etap $match, etap $project i fullDocument, jak pokazano w poprzednich przykładach.
+
+## <a name="error-handling"></a>Obsługa błędów
+
+Podczas używania strumieni zmian są obsługiwane następujące kody błędów i komunikaty:
+
+* **Kod błędu HTTP 429** — gdy strumień zmiany jest ograniczany, zwraca pustą stronę.
+
+* **NamespaceNotFound (OperationType unvalidate)** — w przypadku uruchomienia strumienia zmian w kolekcji, która nie istnieje lub jeśli kolekcja została porzucona, `NamespaceNotFound` zwracany jest błąd. Ponieważ `operationType` Właściwość nie może zostać zwrócona w dokumencie wyjściowym, a nie w przypadku `operationType Invalidate` błędu, `NamespaceNotFound` zwracany jest błąd.
 
 ## <a name="next-steps"></a>Następne kroki
 

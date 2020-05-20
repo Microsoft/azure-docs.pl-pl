@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277598"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648914"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -29,7 +29,7 @@ Aby uzyskać więcej informacji na temat powiązań HTTP, zobacz [Omówienie](./
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która szuka `name` parametru w ciągu zapytania lub treści żądania HTTP. Zwróć uwagę, że wartość zwracana jest używana dla powiązania danych wyjściowych, ale atrybut wartości zwracanej nie jest wymagany.
 
@@ -84,7 +84,7 @@ Oto plik *Function. JSON* :
 
 W sekcji [Konfiguracja](#configuration) objaśniono te właściwości.
 
-Oto kod skryptu w języku C#, który jest `HttpRequest`powiązany z:
+Oto kod skryptu w języku C#, który jest powiązany z `HttpRequest` :
 
 ```cs
 #r "Newtonsoft.Json"
@@ -110,7 +110,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-Można powiązać z obiektem niestandardowym, `HttpRequest`a nie. Ten obiekt jest tworzony na podstawie treści żądania i przeanalizowany jako kod JSON. Analogicznie, typ może być przekazywane do powiązania danych wyjściowych odpowiedzi HTTP i zwracany jako treść odpowiedzi wraz z kodem `200` stanu.
+Można powiązać z obiektem niestandardowym, a nie `HttpRequest` . Ten obiekt jest tworzony na podstawie treści żądania i przeanalizowany jako kod JSON. Analogicznie, typ może być przekazywane do powiązania danych wyjściowych odpowiedzi HTTP i zwracany jako treść odpowiedzi wraz z `200` kodem stanu.
 
 ```csharp
 using System.Net;
@@ -245,7 +245,7 @@ W poniższych przykładach pokazano powiązanie wyzwalacza HTTP.
 
 #### <a name="read-parameter-from-the-query-string"></a>Odczytaj parametr z ciągu zapytania
 
-Ten przykład odczytuje parametr o nazwie `id`, z ciągu zapytania i używa go do skompilowania dokumentu JSON zwróconego do klienta z typem `application/json`zawartości.
+Ten przykład odczytuje parametr o nazwie `id` , z ciągu zapytania i używa go do skompilowania dokumentu JSON zwróconego do klienta z typem zawartości `application/json` .
 
 ```java
 @FunctionName("TriggerStringGet")
@@ -284,7 +284,7 @@ public HttpResponseMessage run(
 
 #### <a name="read-body-from-a-post-request"></a>Odczytaj treść z żądania POST
 
-Ten przykład odczytuje treść żądania POST jako `String`i używa go do skompilowania dokumentu JSON zwróconego do klienta z typem `application/json`zawartości.
+Ten przykład odczytuje treść żądania POST jako `String` i używa go do skompilowania dokumentu JSON zwróconego do klienta z typem zawartości `application/json` .
 
 ```java
     @FunctionName("TriggerStringPost")
@@ -320,7 +320,7 @@ Ten przykład odczytuje treść żądania POST jako `String`i używa go do skomp
 
 #### <a name="read-parameter-from-a-route"></a>Odczyt parametru z trasy
 
-Ten przykład odczytuje obowiązkowy parametr o nazwie `id`i opcjonalny parametr `name` ze ścieżki trasy, a następnie używa ich do kompilowania dokumentu JSON zwróconego do klienta z typem `application/json`zawartości. T
+Ten przykład odczytuje obowiązkowy parametr o nazwie `id` i opcjonalny parametr `name` ze ścieżki trasy, a następnie używa ich do kompilowania dokumentu JSON zwróconego do klienta z typem zawartości `application/json` . T
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -388,7 +388,7 @@ public class ToDoItem {
 
 ```
 
-Ten przykład odczytuje treść żądania POST. Treść żądania jest automatycznie deserializowana do `ToDoItem` obiektu i jest zwracana do klienta z typem `application/json`zawartości. `ToDoItem` Parametr jest serializowany przez środowisko uruchomieniowe funkcji w miarę ich przypisywania do `body` właściwości `HttpMessageResponse.Builder` klasy.
+Ten przykład odczytuje treść żądania POST. Treść żądania jest automatycznie deserializowana do `ToDoItem` obiektu i jest zwracana do klienta z typem zawartości `application/json` . `ToDoItem`Parametr jest serializowany przez środowisko uruchomieniowe funkcji w miarę ich przypisywania do `body` właściwości `HttpMessageResponse.Builder` klasy.
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -428,7 +428,7 @@ W [bibliotekach klas języka C#](functions-dotnet-class-library.md) i Java `Http
 
 Można ustawić poziom autoryzacji i dozwolone metody HTTP w parametrach konstruktora atrybutów, typie elementu webhook i szablonie trasy. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [Konfiguracja](#configuration).
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 W tym przykładzie pokazano, jak używać atrybutu [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) .
 
@@ -481,17 +481,17 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 |Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-| **Wprowadź** | n/d| Wymagane — musi być ustawiony na `httpTrigger`wartość. |
-| **wskazywa** | n/d| Wymagane — musi być ustawiony na `in`wartość. |
-| **Nazwij** | n/d| Wymagane — nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. |
+| **typ** | nie dotyczy| Wymagane — musi być ustawiony na wartość `httpTrigger` . |
+| **wskazywa** | nie dotyczy| Wymagane — musi być ustawiony na wartość `in` . |
+| **Nazwij** | nie dotyczy| Wymagane — nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Określa, jakie klucze (jeśli istnieją) muszą być obecne w żądaniu w celu wywołania funkcji. Poziom autoryzacji może być jedną z następujących wartości: <ul><li><code>anonymous</code>&mdash;Nie jest wymagany żaden klucz interfejsu API.</li><li><code>function</code>&mdash;Wymagany jest klucz interfejsu API specyficzny dla funkcji. Jest to wartość domyślna, jeśli nie podano żadnej z nich.</li><li><code>admin</code>&mdash;Klucz główny jest wymagany.</li></ul> Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącej [kluczy autoryzacji](#authorization-keys). |
-| **form** |**Metody** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
-| **Szlak** | **Trasa** | Definiuje szablon trasy, który kontroluje adresy URL żądań, które odpowiada funkcja. Wartość domyślna, jeśli nie jest podano `<functionname>`. Aby uzyskać więcej informacji, zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
-| **Element webhooktype** | **Element webhooktype** | _Obsługiwane tylko dla środowiska uruchomieniowego w wersji 1. x._<br/><br/>Konfiguruje wyzwalacz HTTP do działania jako odbiornik [elementu webhook](https://en.wikipedia.org/wiki/Webhook) dla określonego dostawcy. Nie ustawiaj `methods` właściwości w przypadku ustawienia tej właściwości. Typ elementu webhook może być jedną z następujących wartości:<ul><li><code>genericJson</code>&mdash;Punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy. To ustawienie ogranicza żądania tylko do tych, które używają protokołu HTTP POST i `application/json` z typem zawartości.</li><li><code>github</code>&mdash;Funkcja reaguje na elementy [webhook usługi GitHub](https://developer.github.com/webhooks/). Nie należy używać właściwości _authLevel_ z elementami webhook usługi GitHub. Aby uzyskać więcej informacji, zobacz sekcję elementy webhook w usłudze GitHub w dalszej części tego artykułu.</li><li><code>slack</code>&mdash;Funkcja reaguje na elementy [webhook zapasowych](https://api.slack.com/outgoing-webhooks). Nie należy używać właściwości _authLevel_ z elementami webhook zapasowych. Aby uzyskać więcej informacji, zobacz sekcję elementy webhooks w dalszej części tego artykułu.</li></ul>|
+| **methods** |**Form** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
+| **Szlak** | **Trasa** | Definiuje szablon trasy, który kontroluje adresy URL żądań, które odpowiada funkcja. Wartość domyślna, jeśli nie jest podano `<functionname>` . Aby uzyskać więcej informacji, zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
+| **Element webhooktype** | **Element webhooktype** | _Obsługiwane tylko dla środowiska uruchomieniowego w wersji 1. x._<br/><br/>Konfiguruje wyzwalacz HTTP do działania jako odbiornik [elementu webhook](https://en.wikipedia.org/wiki/Webhook) dla określonego dostawcy. Nie ustawiaj `methods` właściwości w przypadku ustawienia tej właściwości. Typ elementu webhook może być jedną z następujących wartości:<ul><li><code>genericJson</code>&mdash;Punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy. To ustawienie ogranicza żądania tylko do tych, które używają protokołu HTTP POST i z `application/json` typem zawartości.</li><li><code>github</code>&mdash;Funkcja reaguje na elementy [webhook usługi GitHub](https://developer.github.com/webhooks/). Nie należy używać właściwości _authLevel_ z elementami webhook usługi GitHub. Aby uzyskać więcej informacji, zobacz sekcję elementy webhook w usłudze GitHub w dalszej części tego artykułu.</li><li><code>slack</code>&mdash;Funkcja reaguje na elementy [webhook zapasowych](https://api.slack.com/outgoing-webhooks). Nie należy używać właściwości _authLevel_ z elementami webhook zapasowych. Aby uzyskać więcej informacji, zobacz sekcję elementy webhooks w dalszej części tego artykułu.</li></ul>|
 
 ## <a name="payload"></a>Ładunku
 
-Typ danych wejściowych wyzwalacza jest zadeklarowany `HttpRequest` jako lub jako typ niestandardowy. W przypadku wybrania tej opcji `HttpRequest`uzyskasz pełny dostęp do obiektu żądania. W przypadku typu niestandardowego środowisko uruchomieniowe próbuje przeanalizować treści żądania JSON w celu ustawienia właściwości obiektu.
+Typ danych wejściowych wyzwalacza jest zadeklarowany jako `HttpRequest` lub jako typ niestandardowy. W przypadku wybrania `HttpRequest` tej opcji uzyskasz pełny dostęp do obiektu żądania. W przypadku typu niestandardowego środowisko uruchomieniowe próbuje przeanalizować treści żądania JSON w celu ustawienia właściwości obiektu.
 
 ## <a name="customize-the-http-endpoint"></a>Dostosowywanie punktu końcowego HTTP
 
@@ -528,7 +528,7 @@ http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 Ta konfiguracja umożliwia obsługę dwóch parametrów w adresie, _kategorii_ i _identyfikatorze_funkcji.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Możesz użyć dowolnego [ograniczenia trasy interfejsu API sieci Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) z parametrami. Poniższy kod funkcji w języku C# korzysta z obu parametrów.
 
@@ -566,7 +566,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 W węźle środowisko uruchomieniowe Functions dostarcza treści żądania z `context` obiektu. Aby uzyskać więcej informacji, zobacz [przykład wyzwalacza JavaScript](#example).
 
-Poniższy przykład pokazuje, jak odczytywać parametry trasy z `context.bindingData`programu.
+Poniższy przykład pokazuje, jak odczytywać parametry trasy z programu `context.bindingData` .
 
 ```javascript
 module.exports = function (context, req) {
@@ -585,7 +585,7 @@ module.exports = function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Kontekst wykonywania funkcji jest udostępniany przez parametr zadeklarowany jako `func.HttpRequest`. To wystąpienie umożliwia funkcji dostęp do parametrów trasy danych, wartości ciągu zapytania i metod, które umożliwiają zwracanie odpowiedzi HTTP.
+Kontekst wykonywania funkcji jest udostępniany przez parametr zadeklarowany jako `func.HttpRequest` . To wystąpienie umożliwia funkcji dostęp do parametrów trasy danych, wartości ciągu zapytania i metod, które umożliwiają zwracanie odpowiedzi HTTP.
 
 Po zdefiniowaniu parametrów trasy są dostępne dla funkcji przez wywołanie `route_params` metody.
 
@@ -646,9 +646,9 @@ Domyślnie wszystkie trasy funkcji są poprzedzone *interfejsem API*. Można ró
 
 ## <a name="using-route-parameters"></a>Korzystanie z parametrów trasy
 
-Parametry trasy, które zdefiniowano `route` wzorzec funkcji, są dostępne dla każdego powiązania. Na przykład jeśli trasa jest zdefiniowana jako `"route": "products/{id}"` powiązanie magazynu tabel, można użyć wartości `{id}` parametru w konfiguracji powiązania.
+Parametry trasy, które zdefiniowano wzorzec funkcji, `route` są dostępne dla każdego powiązania. Na przykład jeśli trasa jest zdefiniowana jako `"route": "products/{id}"` powiązanie magazynu tabel, można użyć wartości `{id}` parametru w konfiguracji powiązania.
 
-Poniższa konfiguracja przedstawia sposób przekazywania `{id}` parametru do powiązania `rowKey`.
+Poniższa konfiguracja przedstawia sposób `{id}` przekazywania parametru do powiązania `rowKey` .
 
 ```json
 {
@@ -667,7 +667,7 @@ Jeśli aplikacja funkcji używa [App Service uwierzytelniania/autoryzacji](../ap
 
 Te informacje można również odczytać z poziomu powiązań danych. Ta funkcja jest dostępna tylko dla środowiska uruchomieniowego Functions w wersji 2. x lub nowszej. Jest on również obecnie dostępny tylko dla języków .NET.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Informacje dotyczące uwierzytelnionych klientów są dostępne jako [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal jest dostępny jako część kontekstu żądania, jak pokazano w następującym przykładzie:
 
@@ -747,32 +747,12 @@ Uwierzytelniony użytkownik jest dostępny za pośrednictwem [nagłówków HTTP]
 
 ---
 
-## <a name="authorization-keys"></a>Klucze autoryzacji
-
-Funkcje umożliwiają korzystanie z kluczy, aby utrudnić dostęp do punktów końcowych funkcji HTTP podczas opracowywania.  Jeśli poziom autoryzacji HTTP w funkcji wyzwalanej przez protokół HTTP nie jest `anonymous`ustawiony na, żądania muszą zawierać klucz interfejsu API w żądaniu. 
+## <a name="function-access-keys"></a><a name="authorization-keys"></a>Klucze dostępu do funkcji
 
 > [!IMPORTANT]
 > Chociaż klucze mogą pomóc w zablokowaniu punktów końcowych HTTP podczas opracowywania, nie są one przeznaczone do zabezpieczania wyzwalacza HTTP w środowisku produkcyjnym. Aby dowiedzieć się więcej, zobacz temat [Zabezpieczanie punktu końcowego HTTP w środowisku produkcyjnym](#secure-an-http-endpoint-in-production).
 
-> [!NOTE]
-> W środowisku uruchomieniowym Functions 1. x dostawcy elementów webhook mogą używać kluczy do autoryzowania żądań na różne sposoby, w zależności od tego, co obsługuje dostawca. Dotyczy to elementów [webhook i kluczy](#webhooks-and-keys). Środowisko uruchomieniowe funkcji w wersji 2. x i nowszych nie obejmuje wbudowanej obsługi dostawców elementu webhook.
-
-#### <a name="authorization-scopes-function-level"></a>Zakresy autoryzacji (na poziomie funkcji)
-
-Istnieją dwa zakresy autoryzacji dla kluczy poziomu funkcji:
-
-* **Funkcja**: te klucze dotyczą tylko określonych funkcji, w których są zdefiniowane. Gdy jest używany jako klucz interfejsu API, zezwala na dostęp tylko do tej funkcji.
-
-* **Host**: klucze z zakresem hosta mogą służyć do uzyskiwania dostępu do wszystkich funkcji w aplikacji funkcji. Gdy jest używany jako klucz interfejsu API, zezwalają na dostęp do dowolnej funkcji w aplikacji funkcji. 
-
-Każdy klucz ma nazwę dla odwołania i istnieje klucz domyślny (o nazwie "domyślny") na poziomie funkcji i hosta. Klucze funkcji mają pierwszeństwo przed Kluczami hosta. Gdy dwa klucze są zdefiniowane z tą samą nazwą, klucz funkcji jest zawsze używany.
-
-#### <a name="master-key-admin-level"></a>Klucz główny (poziom administratora) 
-
-Każda aplikacja funkcji ma również klucz hosta na poziomie administratora o nazwie `_master`. Oprócz zapewniania dostępu na poziomie hosta do wszystkich funkcji w aplikacji klucz główny zapewnia również dostęp administracyjny do interfejsów API REST środowiska uruchomieniowego. Nie można odwołać tego klucza. W przypadku ustawienia poziomu autoryzacji programu `admin`żądania muszą używać klucza głównego. wszystkie inne kluczowe wyniki w przypadku niepowodzenia autoryzacji.
-
-> [!CAUTION]  
-> Ze względu na podwyższony poziom uprawnień w aplikacji funkcji udzielanej przez klucz główny nie należy udostępniać tego klucza innym podmiotom lub rozpowszechniać go w natywnych aplikacjach klienckich. Należy zachować ostrożność podczas wybierania poziomu autoryzacji administratora.
+[!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## <a name="obtaining-keys"></a>Uzyskiwanie kluczy
 
@@ -788,7 +768,7 @@ Większość szablonów wyzwalacza HTTP wymaga klucza interfejsu API w żądaniu
 
     https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
-Klucz może być uwzględniony w zmiennej ciągu zapytania o nazwie `code`, jak powyżej. Może być również uwzględniony w nagłówku `x-functions-key` http. Wartość klucza może być dowolnym kluczem funkcji zdefiniowanym dla funkcji lub dowolnym kluczem hosta.
+Klucz może być uwzględniony w zmiennej ciągu zapytania o nazwie `code` , jak powyżej. Może być również uwzględniony w `x-functions-key` nagłówku HTTP. Wartość klucza może być dowolnym kluczem funkcji zdefiniowanym dla funkcji lub dowolnym kluczem hosta.
 
 Można zezwolić na żądania anonimowe, które nie wymagają kluczy. Możesz również wymagać użycia klucza głównego. Domyślny poziom autoryzacji można zmienić przy użyciu `authLevel` właściwości w kodzie JSON powiązania. Aby uzyskać więcej informacji, zobacz [wyzwalacz-konfiguracja](#configuration).
 
@@ -798,15 +778,13 @@ Można zezwolić na żądania anonimowe, które nie wymagają kluczy. Możesz r�
 
 ## <a name="secure-an-http-endpoint-in-production"></a>Zabezpieczanie punktu końcowego HTTP w środowisku produkcyjnym
 
-Aby w pełni zabezpieczyć punkty końcowe funkcji w środowisku produkcyjnym, należy rozważyć implementację jednej z następujących opcji zabezpieczeń na poziomie aplikacji:
+Aby w pełni zabezpieczyć punkty końcowe funkcji w środowisku produkcyjnym, należy rozważyć implementację jednej z następujących opcji zabezpieczeń na poziomie aplikacji. Korzystając z jednej z tych metod zabezpieczeń na poziomie aplikacji, należy ustawić poziom autoryzacji funkcji wyzwalanej przez protokół HTTP na `anonymous` .
 
-* Włącz App Service uwierzytelnianie/autoryzację dla aplikacji funkcji. Platforma App Service umożliwia korzystanie z usługi Azure Active Directory (AAD) i wielu dostawców tożsamości innych firm do uwierzytelniania klientów. Ta strategia służy do implementowania niestandardowych reguł autoryzacji dla funkcji i można korzystać z informacji o użytkowniku z kodu funkcji. Aby dowiedzieć się więcej, zobacz [uwierzytelnianie i autoryzacja w Azure App Service](../app-service/overview-authentication-authorization.md) i [Praca z tożsamościami klientów](#working-with-client-identities).
+[!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
 
-* Uwierzytelnianie żądań odbywa się przy użyciu usługi Azure API Management (APIM). APIM zapewnia różne opcje zabezpieczeń interfejsu API dla żądań przychodzących. Aby dowiedzieć się więcej, zobacz [API Management zasady uwierzytelniania](../api-management/api-management-authentication-policies.md). Mając APIM na miejscu, można skonfigurować aplikację funkcji do akceptowania żądań tylko z adresu IP wystąpienia usługi APIM. Aby dowiedzieć się więcej, zobacz temat [Ograniczenia adresów IP](ip-addresses.md#ip-address-restrictions).
+#### <a name="deploy-your-function-app-in-isolation"></a>Wdróż aplikację funkcji w izolacji
 
-* Wdróż aplikację funkcji w Azure App Service Environment (ASE). Środowisko ASE zapewnia dedykowane środowiska hostingu, w ramach którego można uruchamiać funkcje. Środowisko ASE umożliwia skonfigurowanie pojedynczej bramy frontonu, za pomocą której można uwierzytelniać wszystkie żądania przychodzące. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapory aplikacji sieci Web (WAF) dla App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
-
-Korzystając z jednej z tych metod zabezpieczeń na poziomie aplikacji, należy ustawić poziom autoryzacji funkcji wyzwalanej przez protokół HTTP na `anonymous`.
+[!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
 ## <a name="webhooks"></a>Elementy webhook
 
@@ -817,7 +795,7 @@ W wersji 1. x szablony elementów webhook zapewniają dodatkową weryfikację ł
 
 ### <a name="github-webhooks"></a>Elementy webhook usługi GitHub
 
-Aby odpowiedzieć na elementy webhook usługi GitHub, najpierw Utwórz funkcję z wyzwalaczem HTTP i ustaw właściwość **Webhooktype** na `github`. Następnie skopiuj swój adres URL i klucz interfejsu API na stronę **Dodawanie elementu webhook** w repozytorium GitHub. 
+Aby odpowiedzieć na elementy webhook usługi GitHub, najpierw Utwórz funkcję z wyzwalaczem HTTP i ustaw właściwość **Webhooktype** na `github` . Następnie skopiuj swój adres URL i klucz interfejsu API na stronę **Dodawanie elementu webhook** w repozytorium GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
@@ -829,7 +807,7 @@ Element webhook zapasu generuje token dla Ciebie, a nie pozwala na jego określe
 
 Autoryzacja elementu webhook jest obsługiwana przez składnik odbiornika elementu webhook, część wyzwalacza HTTP, a mechanizm zmienia się w zależności od typu elementu webhook. Każdy mechanizm polega na kluczu. Domyślnie jest używany klucz funkcji o nazwie "default". Aby użyć innego klucza, należy skonfigurować dostawcę elementu webhook w celu wysłania nazwy klucza z żądaniem w jeden z następujących sposobów:
 
-* **Ciąg zapytania**: dostawca przekazuje nazwę klucza w parametrze ciągu `clientid` zapytania, na przykład `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
+* **Ciąg zapytania**: dostawca przekazuje nazwę klucza w `clientid` parametrze ciągu zapytania, na przykład `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>` .
 * **Nagłówek żądania**: dostawca przekazuje nazwę klucza w `x-functions-clientid` nagłówku.
 
 ## <a name="limits"></a>Limity

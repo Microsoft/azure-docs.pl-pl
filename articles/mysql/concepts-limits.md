@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548468"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659927"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia w Azure Database for MySQL
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych. Zapoznaj się również z [ogólnymi ograniczeniami](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) dotyczącymi aparatu bazy danych MySQL.
@@ -48,7 +48,7 @@ Tworzenie nowych połączeń klientów z usługą MySQL trwa po upływie czasu i
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Pamięć podręczna zapytań jest domyślnie wyłączona. Aby włączyć pamięć podręczną zapytań, należy `query_cache_type` skonfigurować parametr. 
+Pamięć podręczna zapytań jest domyślnie wyłączona. Aby włączyć pamięć podręczną zapytań, należy skonfigurować `query_cache_type` parametr. 
 
 Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) , aby dowiedzieć się więcej o tym parametrze.
 
@@ -155,6 +155,12 @@ Zapoznaj się z [dokumentacją programu MySQL](https://dev.mysql.com/doc/refman/
 
 Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench. Zapoznaj się z artykułami [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) lub [interfejsem wiersza polecenia platformy Azure](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) dotyczącymi sposobu wywoływania procedury składowanej i ustawiania stref czasowych na poziomie globalnym lub w sesji.
 
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+Baza danych MySQL przechowuje tabelę InnoDB w różnych obszarach tabel w oparciu o konfigurację podaną podczas tworzenia tabeli. Przestrzeń dyskowa [systemu](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) jest obszarem magazynu dla słownika danych InnoDB. Obszar tabel dla [poszczególnych tabel](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) zawiera dane i indeksy dla pojedynczej tabeli InnoDB i jest przechowywany w systemie plików w osobnym pliku danych. Takie zachowanie jest kontrolowane przez `innodb_file_per_table` parametr serwer. Ustawienie `innodb_file_per_table` `OFF` powoduje, że InnoDB utworzyć tabele w obszarze obszary obszaru systemu. W przeciwnym razie InnoDB tworzy tabele w tabelach tabel w tabeli.
+
+Azure Database for MySQL obsługuje o największych **1 TB**w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
+
 ## <a name="storage-engine-support"></a>Obsługa aparatu magazynu
 
 ### <a name="supported"></a>Obsługiwane
@@ -172,7 +178,7 @@ Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_ti
 ### <a name="unsupported"></a>Nieobsługiwane
 - Rola DBA: wiele parametrów serwera i ustawień może przypadkowo obniżyć wydajność serwera lub Negate właściwości KWASów systemu DBMS. W związku z tym, aby zachować integralność usługi i umowę SLA na poziomie produktu, ta usługa nie ujawnia roli DBA. Domyślne konto użytkownika, które jest konstruowane podczas tworzenia nowego wystąpienia bazy danych, umożliwia temu użytkownikowi wykonywanie większości instrukcji języka DDL i DML w zarządzanym wystąpieniu bazy danych. 
 - Uprawnienie "noprivileged": podobne [nieuprzywilejowane](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) również jest ograniczone.
-- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W `CREATE DEFINER` przypadku importowania danych przy użyciu kopii zapasowej Usuń polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
+- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W przypadku importowania danych przy użyciu kopii zapasowej Usuń `CREATE DEFINER` polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulowania danymi
 

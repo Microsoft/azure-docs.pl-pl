@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 082689dba5fdfa8505f2293223e76f2164b0df14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116717"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655295"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Zmień model ściągania kanału informacyjnego w Azure Cosmos DB
 
@@ -40,10 +40,10 @@ Oto przykład do uzyskania `FeedIterator` , który zwraca `Stream` :
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-Korzystając z programu `FeedIterator` , można łatwo przetwarzać cały kanał informacyjny zmiany kontenera we własnym tempie. Przykład:
+Korzystając z programu `FeedIterator` , można łatwo przetwarzać cały kanał informacyjny zmiany kontenera we własnym tempie. Oto przykład:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +61,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 W niektórych przypadkach można tylko przetwarzać zmiany określonego klucza partycji. Możesz uzyskać `FeedIterator` dla określonego klucza partycji i przetworzyć zmiany w taki sam sposób, jak w przypadku całego kontenera:
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ Oto przykład, który pokazuje, jak czytać z początku kanału informacyjnego z
 Maszyna 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Tak długo, jak kontener Cosmos nadal istnieje, token kontynuacji FeedIterator nigdy nie wygasa.
+
 ## <a name="comparing-with-change-feed-processor"></a>Porównywanie z procesorem źródła zmian
 
 Wiele scenariuszy może przetwarzać Źródło zmian przy użyciu [procesora](change-feed-processor.md) lub modelu ściągania. Token kontynuacji modelu ściągania i kontener dzierżawy procesora źródła zmian są "zakładkami" dla ostatniego przetworzonego elementu (lub partii elementów) w strumieniu zmian.
@@ -156,9 +158,9 @@ Nie można jednak skonwertować tokenów kontynuacji na kontener dzierżawy (lub
 
 Należy rozważyć użycie modelu ściągania w następujących scenariuszach:
 
-- Chcesz wykonać jednorazowy odczyt istniejących danych ze źródła zmian.
-- Chcesz tylko odczytywać zmiany z określonego klucza partycji
-- Nie potrzebujesz modelu wypychania i chcesz użyć kanału informacyjnego zmiany we własnym tempie
+- Odczytywanie zmian z określonego klucza partycji
+- Kontrolowanie tempa, w którym klient otrzymuje zmiany w celu przetworzenia
+- Jednorazowe odczytywanie istniejących danych ze źródła zmian (na przykład w celu przeprowadzenia migracji danych)
 
 Oto kilka najważniejszych różnic między procesorem kanału informacyjnego zmiany i modelem ściągania:
 

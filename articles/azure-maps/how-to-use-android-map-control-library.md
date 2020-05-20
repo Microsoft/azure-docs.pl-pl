@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548535"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648223"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Wprowadzenie do Azure Maps Android SDK
 
@@ -39,7 +39,7 @@ Najpierw utwórz nowy projekt z pustym działaniem. Wykonaj następujące kroki,
 1. W obszarze **Wybierz projekt**wybierz pozycję **telefon i tablet**. Aplikacja będzie działać na tym formularzu.
 2. Na karcie **telefon i tablet** wybierz pozycję **puste działanie**, a następnie wybierz przycisk **dalej**.
 3. W obszarze **Konfigurowanie projektu**wybierz `API 21: Android 5.0.0 (Lollipop)` jako minimalny zestaw SDK. Jest to Najwcześniejsza wersja obsługiwana przez Android SDK Azure Maps.
-4. Zaakceptuj wartość domyślną `Activity Name` i `Layout Name` wybierz pozycję **Zakończ**.
+4. Zaakceptuj wartość domyślną `Activity Name` i `Layout Name` Wybierz pozycję **Zakończ**.
 
 Zapoznaj się z [dokumentacją Android Studio](https://developer.android.com/studio/intro/) , aby uzyskać pomoc dotyczącą instalowania Android Studio i tworzenia nowego projektu.
 
@@ -47,7 +47,7 @@ Zapoznaj się z [dokumentacją Android Studio](https://developer.android.com/stu
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurowanie urządzenia wirtualnego
 
-Android Studio umożliwia skonfigurowanie wirtualnego urządzenia z systemem Android na komputerze. Wykonanie tej czynności może pomóc w testowaniu aplikacji podczas jej tworzenia. Aby skonfigurować urządzenie wirtualne, wybierz ikonę Menedżera urządzeń wirtualnych systemu Android (AVD) w prawym górnym rogu ekranu projektu, a następnie wybierz pozycję **Utwórz urządzenie wirtualne**. Możesz również uzyskać dostęp do Menedżera AVD, wybierając pozycję **Narzędzia** > **Android** > **AVD Manager** na pasku narzędzi. W kategorii **telefony** wybierz pozycję **Nexus pięciokrotną**, a następnie wybierz pozycję **Next (dalej**).
+Android Studio umożliwia skonfigurowanie wirtualnego urządzenia z systemem Android na komputerze. Wykonanie tej czynności może pomóc w testowaniu aplikacji podczas jej tworzenia. Aby skonfigurować urządzenie wirtualne, wybierz ikonę Menedżera urządzeń wirtualnych systemu Android (AVD) w prawym górnym rogu ekranu projektu, a następnie wybierz pozycję **Utwórz urządzenie wirtualne**. Możesz również uzyskać dostęp do Menedżera AVD, wybierając pozycję **Narzędzia**  >  **Android**  >  **AVD Manager** na pasku narzędzi. W kategorii **telefony** wybierz pozycję **Nexus pięciokrotną**, a następnie wybierz pozycję **Next (dalej**).
 
 Więcej informacji na temat konfigurowania AVD można znaleźć w [dokumentacji Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -80,11 +80,11 @@ Następnym krokiem tworzenia aplikacji jest zainstalowanie Android SDK Azure Map
     3. Zaktualizuj blok zależności i Dodaj nową linię zależności implementacji dla najnowszej Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
     4. Przejdź do **pliku** na pasku narzędzi, a następnie kliknij pozycję **Synchronizuj projekt z plikami Gradle**.
-3. Dodawanie fragmentu mapy do działania głównego (podstawowe działanie \> \_układu \> res. xml):
+3. Dodawanie fragmentu mapy do działania głównego ( \> \> podstawowe działanie układu res \_ . xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -109,7 +109,7 @@ Następnym krokiem tworzenia aplikacji jest zainstalowanie Android SDK Azure Map
     * Ustawianie informacji o uwierzytelnianiu Azure Maps
     * Pobieranie wystąpienia kontrolki mapy w metodzie **OnCreate**
 
-    Ustawienie informacji o uwierzytelnianiu w `AzureMaps` klasie globalnie przy użyciu `setSubscriptionKey` metod `setAadProperties` lub powoduje, że nie trzeba dodawać informacji o uwierzytelnianiu w każdym widoku. 
+    Ustawienie informacji o uwierzytelnianiu w `AzureMaps` klasie globalnie przy użyciu `setSubscriptionKey` `setAadProperties` metod lub powoduje, że nie trzeba dodawać informacji o uwierzytelnianiu w każdym widoku. 
 
     Kontrolka mapy zawiera własne metody cyklu życia do zarządzania cyklem życia OpenGL dla systemu Android. Te metody cyklu życia muszą być wywoływane bezpośrednio z działania zawierającego. Aby aplikacja poprawnie wywołała metody cyklu życia kontrolki mapy, należy zastąpić następujące metody cyklu życia w działaniu, które zawiera formant mapy. I, należy wywołać odpowiednią metodę kontroli mapy. 
 
@@ -205,7 +205,7 @@ Następnym krokiem tworzenia aplikacji jest zainstalowanie Android SDK Azure Map
 
 ## <a name="import-classes"></a>Importuj klasy
 
-Po wykonaniu powyższych kroków prawdopodobnie otrzymasz ostrzeżenia z Android Studio o niektórym kodzie. Aby rozwiązać te ostrzeżenia, zaimportuj klasy, `MainActivity.java`do których odwołuje się.
+Po wykonaniu powyższych kroków prawdopodobnie otrzymasz ostrzeżenia z Android Studio o niektórym kodzie. Aby rozwiązać te ostrzeżenia, zaimportuj klasy, do których odwołuje się `MainActivity.java` .
 
 Można automatycznie importować te klasy, wybierając klawisze Alt + Enter (opcja + Return na komputerze Mac).
 
@@ -250,7 +250,7 @@ Druga opcja polega na przejściu języka i wyświetleniu informacji w kodzie XML
     />
 ```
 
-Trzecia opcja polega na programowo ustawić język i widok regionalny mapy przy użyciu metody Maps `setStyle` . Można to zrobić w dowolnym momencie, aby zmienić język i widok regionalny mapy.
+Trzecia opcja polega na programowo ustawić język i widok regionalny mapy przy użyciu `setStyle` metody Maps. Można to zrobić w dowolnym momencie, aby zmienić język i widok regionalny mapy.
 
 ```Java
 mapControl.onReady(map -> {

@@ -1,24 +1,24 @@
 ---
-title: Dostawcy rozwiązań w chmurze | Portal Azure Marketplace
-description: Wydawcy mogą teraz sprzedawać oferty za pośrednictwem kanału partnera dostawcy rozwiązań Microsoft Cloud (CSP).
+title: Dostawca rozwiązań w chmurze — Microsoft Commercial Marketplace
+description: Dowiedz się, jak sprzedawać oferty za pośrednictwem kanału partnera programów Microsoft Cloud Provider (CSP) w portalu komercyjnym.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d7f14728f5acbcb76d3109d76b6de3c691e35543
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160651"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658095"
 ---
-# <a name="cloud-solution-providers"></a>Dostawcy rozwiązań w chmurze
+# <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
-Oferty oprogramowania mogą dotrzeć do milionów uprawnionych klientów firmy Microsoft obsługiwanych przez partnerów w programie Cloud Solution Provider (CSP), a także do publicznej dostępności ofert w [witrynach sieci Web firmy Microsoft](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+W tym artykule opisano sposób konfigurowania oferty w celu udostępnienia jej w programie Cloud Solution Provider (CSP). Oprócz publikowania ofert za pomocą [komercyjnych witryn sieci Web w portalu Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)możesz również sprzedawać za pomocą programu CSP, aby dotrzeć do milionów wykwalifikowanych klientów firmy Microsoft obsługiwanych przez program.
 
-Wydawcy mogą konfigurować oferty dla dostępności w programie CSP na zasadzie zgody, w przypadku nowej oferty lub istniejącego, umożliwiając partnerom sprzedawanie produktów i tworzenie powiązanych rozwiązań dla klientów.
+Można skonfigurować nowe lub istniejące oferty dla dostępności w programie CSP, co pozwala partnerom CSP sprzedawać Twoje produkty i tworzyć powiązane rozwiązania dla klientów.
 
 Wydawcy są odpowiedzialni za zapewnienie klientom końcowym pomocy technicznej w zakresie rozwiązywania problemów oraz udostępnienie mechanizmu partnerom w programie CSP i/lub klientom kontaktowania się z Tobą w celu uzyskania pomocy technicznej. Najlepszym rozwiązaniem jest zapewnienie partnerom w programie CSP obsługi dokumentacji, szkoleń i kondycji usługi/powiadomień o przestoju (stosownie do potrzeb), aby partnerzy w programie CSP mogli obsługiwać żądania pomocy technicznej warstwy 1 od klientów.  
 

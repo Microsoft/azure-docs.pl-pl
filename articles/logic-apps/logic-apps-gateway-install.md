@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 12/05/2019
-ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80673812"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659271"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalowanie lokalnej bramy danych dla usługi Azure Logic Apps
 
@@ -37,10 +37,10 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
     > [!NOTE]
     > Do siebie można połączyć tylko jedną instalację bramy i jeden zasób bramy platformy Azure. Nie można połączyć tej samej instalacji bramy z wieloma kontami platformy Azure lub zasobami bramy platformy Azure. Konto platformy Azure może jednak łączyć się z wieloma instalacjami bramy i zasobami bramy platformy Azure. W lokalnym wyzwalaczu lub akcji możesz wybrać spośród różnych subskrypcji platformy Azure, a następnie wybrać skojarzony zasób bramy.
 
-  * Musisz zalogować się przy użyciu konta służbowego, znanego również jako konto *organizacji* , które wygląda podobnie `username@contoso.com`do tego. Nie można używać kont B2B (gość) platformy Azure ani osobistych kont Microsoft, takich @hotmail.com jak @outlook.comlub.
+  * Musisz zalogować się przy użyciu konta służbowego, znanego również jako konto *organizacji* , które wygląda podobnie do tego `username@contoso.com` . Nie można używać kont B2B (gość) platformy Azure ani osobistych kont Microsoft, takich jak @hotmail.com lub @outlook.com .
 
     > [!TIP]
-    > Jeśli zarejestrowano się w celu uzyskania oferty pakietu Office 365 i nie podano służbowego adresu e-mail, adres `username@domain.onmicrosoft.com`może wyglądać następująco. Twoje konto jest przechowywane w dzierżawie w Azure Active Directory (Azure AD). W większości przypadków główna nazwa użytkownika (UPN) dla konta usługi Azure AD jest taka sama jak w przypadku Twojego adresu e-mail.
+    > Jeśli zarejestrowano się w celu uzyskania oferty pakietu Office 365 i nie podano służbowego adresu e-mail, adres może wyglądać następująco `username@domain.onmicrosoft.com` . Twoje konto jest przechowywane w dzierżawie w Azure Active Directory (Azure AD). W większości przypadków główna nazwa użytkownika (UPN) dla konta usługi Azure AD jest taka sama jak w przypadku Twojego adresu e-mail.
     >
     > Aby użyć [standardowej subskrypcji programu Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) , która jest połączona z konto Microsoft, należy najpierw [utworzyć dzierżawę w usłudze Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) lub użyć domyślnego katalogu. Dodaj użytkownika z hasłem do katalogu, a następnie nadaj temu użytkownikowi dostęp do subskrypcji platformy Azure. Następnie możesz zalogować się podczas instalacji bramy przy użyciu tej nazwy użytkownika i hasła.
 
@@ -68,13 +68,15 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
     > [!TIP]
     > Aby zminimalizować opóźnienie, można zainstalować bramę jak najbliżej źródła danych lub na tym samym komputerze, przy założeniu, że masz uprawnienia.
 
-  * Zainstaluj bramę na komputerze, który znajduje się w sieci przewodowej, połączony z Internetem, zawsze włączone i przejdź do trybu uśpienia. W przeciwnym razie nie można uruchomić bramy, a wydajność sieci bezprzewodowej może być niedostępna.
+  * Zainstaluj bramę na komputerze lokalnym, który znajduje się w sieci przewodowej, połączony z Internetem, zawsze włączone i przejdź do trybu uśpienia. W przeciwnym razie nie można uruchomić bramy, a wydajność sieci bezprzewodowej może być niedostępna.
 
   * Jeśli planujesz używanie uwierzytelniania systemu Windows, upewnij się, że brama jest zainstalowana na komputerze, który jest członkiem tego samego środowiska Active Directory, co źródła danych.
 
   * Region wybrany dla instalacji bramy jest tą samą lokalizacją, którą należy wybrać podczas późniejszego tworzenia zasobu bramy platformy Azure dla aplikacji logiki. Domyślnie ten region jest taka sama jak lokalizacja dzierżawy usługi Azure AD, która zarządza Twoim kontem platformy Azure. Można jednak zmienić lokalizację podczas instalacji bramy.
 
-  * Jeśli aktualizujesz instalację bramy do najnowszej wersji, najpierw Odinstaluj bieżącą bramę w celu uzyskania bardziej czystego środowiska.
+  * Jeśli aktualizujesz instalację bramy, najpierw Odinstaluj bieżącą bramę w celu korzystania z funkcji czyszczenia.
+
+    Najlepszym rozwiązaniem jest upewnienie się, że używasz obsługiwanej wersji. Firma Microsoft publikuje nową aktualizację lokalnej bramy danych co miesiąc, a obecnie obsługuje tylko ostatnie sześć wydań dla lokalnej bramy danych. Jeśli wystąpią problemy z używaną wersją programu, spróbuj [uaktualnić do najnowszej wersji](https://aka.ms/on-premises-data-gateway-installer) , ponieważ problem może zostać rozwiązany w najnowszej wersji.
 
   * Brama ma dwa tryby: tryb standardowy i tryb osobisty, który ma zastosowanie tylko do Power BI. Na tym samym komputerze nie może znajdować się więcej niż jedna brama uruchomiona w tym samym trybie.
 
@@ -96,7 +98,7 @@ W tym artykule pokazano, jak pobrać, zainstalować i skonfigurować lokalną br
 
    Instalacja bramy może być połączona tylko z jednym kontem platformy Azure.
 
-1. Wybierz pozycję **zarejestruj nową bramę na tym komputerze** > **dalej**. Ten krok rejestruje instalację bramy w [usłudze bramy w chmurze](#gateway-cloud-service).
+1. Wybierz pozycję **zarejestruj nową bramę na tym komputerze**  >  **dalej**. Ten krok rejestruje instalację bramy w [usłudze bramy w chmurze](#gateway-cloud-service).
 
    ![Zarejestruj bramę na komputerze lokalnym](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -162,15 +164,15 @@ Po skonfigurowaniu bramy podstawowej po przejściu do pozycji zainstaluj inną b
 
 Jeśli konieczna jest zmiana lokalizacji bramy, przeniesienie instalacji bramy na nowy komputer, odzyskanie uszkodzonej bramy lub przejęcie na własność istniejącej bramy wymaga klucza odzyskiwania, który został dostarczony podczas instalacji bramy.
 
-1. Uruchom Instalatora bramy na komputerze, który ma istniejącą bramę. Jeśli nie masz najnowszego Instalatora bramy, [Pobierz najnowszą wersję bramy](https://aka.ms/on-premises-data-gateway-installer).
+> [!NOTE]
+> Przed przystąpieniem do przywracania bramy na komputerze z oryginalną instalacją bramy należy najpierw odinstalować bramę na tym komputerze. Ta akcja rozłącza pierwotną bramę.
+> Po usunięciu lub usunięciu klastra bramy dla dowolnej usługi w chmurze nie można przywrócić tego klastra.
 
-   > [!NOTE]
-   > Przed przystąpieniem do przywracania bramy na komputerze z oryginalną instalacją bramy należy najpierw odinstalować bramę na tym komputerze. Ta akcja rozłącza pierwotną bramę.
-   > Po usunięciu lub usunięciu klastra bramy dla dowolnej usługi w chmurze nie można przywrócić tego klastra.
+1. Uruchom Instalatora bramy na komputerze, który ma istniejącą bramę.
 
 1. Po otwarciu Instalatora Zaloguj się przy użyciu tego samego konta platformy Azure, które zostało użyte do zainstalowania bramy.
 
-1. Wybierz pozycję **Migruj, Przywróć lub przejęcie istniejącej bramy** > **dalej**, na przykład:
+1. Wybierz pozycję **Migruj, Przywróć lub przejęcie istniejącej bramy**  >  **dalej**, na przykład:
 
    ![Wybieranie opcji "Migruj, Przywróć lub przejęcie istniejącej bramy"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -258,8 +260,6 @@ Poniżej przedstawiono sposoby dopasowywania lokalnych kont Active Directory za 
 <a name="faq"></a>
 
 ## <a name="faq-and-troubleshooting"></a>Często zadawane pytania i rozwiązywanie problemów
-
-Więcej informacji można znaleźć w następujących tematach:
 
 * [Lokalna brama danych — często zadawane pytania](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Rozwiązywanie problemów z lokalną bramą danych](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

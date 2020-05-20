@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930067"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653334"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -19,7 +19,7 @@ W miarę dojrzewania organizacji może być konieczne zdefiniowanie i przypisani
 Na poziomie dzierżawy można wdrożyć następujące typy zasobów:
 
 * [wdrożenia](/azure/templates/microsoft.resources/deployments) — dla szablonów zagnieżdżonych wdrażanych w ramach grup lub subskrypcji zarządzania.
-* managementGroups
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -44,7 +44,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Wymagany dostęp
 
-Podmiot zabezpieczeń wdrażający szablon musi mieć uprawnienia do tworzenia zasobów w zakresie dzierżawy. Podmiot zabezpieczeń musi mieć uprawnienia do wykonywania akcji wdrażania (`Microsoft.Resources/deployments/*`) oraz do tworzenia zasobów zdefiniowanych w szablonie. Na przykład, aby utworzyć grupę zarządzania, podmiot zabezpieczeń musi mieć uprawnienie współautor w zakresie dzierżawy. Aby utworzyć przypisania ról, podmiot zabezpieczeń musi mieć uprawnienia właściciela.
+Podmiot zabezpieczeń wdrażający szablon musi mieć uprawnienia do tworzenia zasobów w zakresie dzierżawy. Podmiot zabezpieczeń musi mieć uprawnienia do wykonywania akcji wdrażania ( `Microsoft.Resources/deployments/*` ) oraz do tworzenia zasobów zdefiniowanych w szablonie. Na przykład, aby utworzyć grupę zarządzania, podmiot zabezpieczeń musi mieć uprawnienie współautor w zakresie dzierżawy. Aby utworzyć przypisania ról, podmiot zabezpieczeń musi mieć uprawnienia właściciela.
 
 Administrator globalny Azure Active Directory nie ma automatycznie uprawnienia do przypisywania ról. Aby włączyć wdrożenia szablonów w zakresie dzierżawy, Administrator globalny musi wykonać następujące czynności:
 
@@ -92,7 +92,7 @@ W przypadku wdrożeń na poziomie dzierżawy należy podać lokalizację wdroże
 
 Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy. JSON** tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod `InvalidDeploymentLocation`błędu, użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 

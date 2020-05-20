@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentacja zamiany mowy na tekst
-summary: Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, umożliwia w czasie rzeczywistym i transkrypcję partii strumieni audio w tekście.
+summary: Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, umożliwia w czasie rzeczywistym i transkrypcję partii strumieni audio w tekście. Dodatkowe dane wejściowe dotyczące tekstu referencyjnego umożliwiają również ocenę wymowy w czasie rzeczywistym i zapewnianie opinii prelegentów o dokładności i Fluency dźwięku.
 metadata:
   title: Dokumentacja dotycząca zamiany mowy na tekst — samouczki, dokumentacja interfejsu API — Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: f496ba72f4f649a3ed5146f0b74caf3d8110adf9
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: be34def3c7aacc5419071028a3d3085fe69103fa
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: MT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201920"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83653476"
 landingContent:
 - title: Informacje o zamiany mowy na tekst
   linkLists:
@@ -38,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
       url: quickstarts/from-blob.md
+    - text: Ocena wymowy z uwzględnieniem danych wejściowych
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Programowanie za pomocą zamiany mowy na tekst
   linkLists:
   - linkListType: how-to-guide

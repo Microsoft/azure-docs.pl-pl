@@ -1,7 +1,6 @@
 ---
-title: Rozszerzenie interfejsu wiersza polecenia
-titleSuffix: Azure Machine Learning
-description: Dowiedz się więcej o rozszerzeniu interfejsu wiersza polecenia Azure Machine Learning dla interfejsu wiersza polecenia platformy Azure. Interfejs wiersza polecenia platformy Azure to międzyplatformowy program narzędziowy, który umożliwia korzystanie z zasobów w chmurze platformy Azure. Rozszerzenie Machine Learning umożliwia korzystanie z Azure Machine Learning. Interfejs wiersza polecenia ML tworzy i zarządza zasobami, takimi jak obszar roboczy, magazyny danych, zbiory obiektów, potoki, modele i wdrożenia.
+title: Zainstaluj & używać interfejsu wiersza polecenia Azure Machine Learning
+description: Dowiedz się, jak zainstalować i korzystać z rozszerzenia interfejsu wiersza polecenia Azure Machine Learning, aby tworzyć zasoby, takie jak obszar roboczy, magazyny danych, zbiory, modele i wdrożenia oraz zarządzać nimi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618064"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659794"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
+# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Interfejs wiersza polecenia Azure Machine Learning jest rozszerzeniem [dla platformy Azure, który](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)działa na wielu platformach. To rozszerzenie udostępnia polecenia do pracy z Azure Machine Learning. Pozwala to zautomatyzować działania uczenia maszynowego. Poniższa lista zawiera przykładowe akcje, które można wykonać przy użyciu rozszerzenia interfejsu wiersza polecenia:
@@ -71,7 +70,7 @@ az extension add -n azure-cli-ml
 > [!TIP]
 > Przykładowe pliki, których można użyć z poniższymi poleceniami, można znaleźć [tutaj](https://aka.ms/azml-deploy-cloud).
 
-Po wyświetleniu monitu wybierz `y` , aby zainstalować rozszerzenie.
+Po wyświetleniu monitu wybierz, `y` Aby zainstalować rozszerzenie.
 
 Aby sprawdzić, czy rozszerzenie zostało zainstalowane, użyj następującego polecenia, aby wyświetlić listę podpoleceń specyficznych dla ML:
 
@@ -161,14 +160,14 @@ Następujące polecenia pokazują, jak używać interfejsu wiersza polecenia do 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Uruchom eksperymenty
 
-* Rozpocznij uruchamianie eksperymentu. Korzystając z tego polecenia, należy określić nazwę pliku runconfig (tekst przed \*. runconfig, Jeśli przeglądasz system plików) z parametrem-c.
+* Rozpocznij uruchamianie eksperymentu. Korzystając z tego polecenia, należy określić nazwę pliku runconfig (tekst przed \* . runconfig, Jeśli przeglądasz system plików) z parametrem-c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > `az ml folder attach` Polecenie tworzy `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig. 
+    > `az ml folder attach`Polecenie tworzy `.azureml` podkatalog, który zawiera dwa przykładowe pliki runconfig. 
     >
     > Jeśli masz skrypt języka Python, który programowo tworzy obiekt konfiguracji uruchomieniowej, możesz użyć [runconfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) , aby zapisać go jako plik runconfig.
     >
@@ -194,7 +193,7 @@ Następujące polecenia przedstawiają sposób pracy z zestawami danych w Azure 
     az ml dataset register -f mydataset.json
     ```
 
-    Aby uzyskać informacje dotyczące formatu pliku JSON używanego do definiowania zestawu danych, użyj `az ml dataset register --show-template`.
+    Aby uzyskać informacje dotyczące formatu pliku JSON używanego do definiowania zestawu danych, użyj `az ml dataset register --show-template` .
 
     Aby uzyskać więcej informacji, zobacz [AZ ml DataSet dataregister](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 
@@ -284,7 +283,7 @@ Następujące polecenia pokazują, jak tworzyć, rejestrować i wyświetlać lis
 
 ### <a name="environment-configuration-schema"></a>Schemat konfiguracji środowiska
 
-Jeśli użyto `az ml environment scaffold` polecenia, generuje plik szablonu `azureml_environment.json` , który może być modyfikowany i używany do tworzenia niestandardowych konfiguracji środowiska przy użyciu interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) do klasy w zestawie SDK języka Python. 
+Jeśli użyto `az ml environment scaffold` polecenia, generuje `azureml_environment.json` plik szablonu, który może być modyfikowany i używany do tworzenia niestandardowych konfiguracji środowiska przy użyciu interfejsu wiersza polecenia. Obiekt najwyższego poziomu jest luźno mapowany do [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klasy w zestawie SDK języka Python. 
 
 ```json
 {
@@ -339,7 +338,7 @@ Poniższa tabela zawiera szczegółowe informacje o każdym polu najwyższego po
 | `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Definiuje ustawienia w celu dostosowania obrazu platformy Docker skompilowanego do specyfikacji środowiska. |
 | `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | Sekcja konfiguruje ustawienia platformy Spark. Jest on używany tylko wtedy, gdy platforma jest ustawiona na PySpark. |
 | `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Konfiguruje zależności biblioteki datakosteks. |
-| `inferencingStackVersion` | `string` | Określa wersję stosu inferencing dodaną do obrazu. Aby uniknąć dodawania stosu inferencing, pozostaw to pole `null`. Prawidłowa wartość: "Najnowsza". |
+| `inferencingStackVersion` | `string` | Określa wersję stosu inferencing dodaną do obrazu. Aby uniknąć dodawania stosu inferencing, pozostaw to pole `null` . Prawidłowa wartość: "Najnowsza". |
 
 ## <a name="ml-pipeline-management"></a>Zarządzanie potoku ML
 

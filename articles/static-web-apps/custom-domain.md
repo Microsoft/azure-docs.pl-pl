@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597611"
+ms.locfileid: "83655239"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Skonfiguruj domenę niestandardową w usłudze Azure static Web Apps Preview
 
@@ -80,7 +80,7 @@ Rekord CNAME mapuje jedną domenę na inną. Rekordu CNAME można użyć do zama
 
 1. Kliknij przycisk **Weryfikuj** .
 
-Po skonfigurowaniu domeny niestandardowej może upłynąć kilka godzin, zanim dostawca DNS propaguje zmiany na całym świecie. Stan propagacji możesz sprawdzić, przechodząc do [dnspropagation.NET](https://dnspropagation.net). Wprowadź domenę niestandardową domeny, w tym `www` , wybierz pozycję CNAME z listy rozwijanej, a następnie wybierz pozycję **Uruchom**.
+Po skonfigurowaniu domeny niestandardowej może upłynąć kilka godzin, zanim dostawca DNS propaguje zmiany na całym świecie. Stan propagacji możesz sprawdzić, przechodząc do [dnspropagation.NET](https://dnspropagation.net). Wprowadź domenę niestandardową, w tym `www` , wybierz pozycję CNAME z listy rozwijanej, a następnie wybierz pozycję **Uruchom**.
 
 Jeśli wprowadzono zmiany w systemie DNS, witryna sieci Web zwróci automatycznie wygenerowany adres URL statycznej aplikacji sieci Web (na przykład _Random-Name-123456789c.azurestaticapps.NET_).
 
@@ -92,7 +92,7 @@ Gdy obsługa domeny głównej jest niedostępna w wersji zapoznawczej, można zo
 
 ## <a name="map-a-wildcard-domain"></a>Mapowanie domeny z symbolami wieloznacznymi
 
-Czasami chcesz, aby cały ruch wysyłany do domeny podrzędnej był kierowany do innej domeny. Typowym przykładem jest mapowanie całego ruchu poddomeny do `www.example.com` . W ten sposób, nawet jeśli ktoś wpisze `ww.example.com` zamiast `www.example.com` , żądanie jest wysyłane do `www.example.com` .
+Czasami chcesz, aby cały ruch wysyłany do domeny podrzędnej był kierowany do innej domeny. Typowym przykładem jest mapowanie całego ruchu poddomeny do `www.example.com` . W ten sposób, nawet jeśli ktoś wpisze `w.example.com` zamiast `www.example.com` , żądanie jest wysyłane do `www.example.com` .
 
 ### <a name="configure-dns-provider"></a>Konfigurowanie dostawcy DNS
 

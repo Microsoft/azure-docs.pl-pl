@@ -11,46 +11,46 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408210"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650501"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
+# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Rozwiązywanie problemów z łącznością w puli SQL Synapse
 
-W tym artykule przedstawiono typowe techniki rozwiązywania problemów dotyczące łączenia się z bazą danych SQL Analytics.
+W tym artykule wymieniono typowe techniki rozwiązywania problemów dotyczące łączenia się z bazą danych puli SQL.
 
 ## <a name="check-service-availability"></a>Sprawdź dostępność usługi
 
-Sprawdź, czy usługa jest dostępna. W Azure Portal przejdź do puli SQL Synapse, z którą próbujesz nawiązać połączenie. W panelu po lewej stronie kliknij pozycję **diagnozowanie i rozwiązywanie problemów**.
+Sprawdź, czy usługa jest dostępna. W Azure Portal przejdź do puli SQL, którą próbujesz połączyć. W panelu po lewej stronie kliknij pozycję **diagnozowanie i rozwiązywanie problemów**.
 
 ![Wybierz kondycję zasobu](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-W tym miejscu zostanie wyświetlony stan puli SQL Synapse. Jeśli usługa nie jest wyświetlana jako **dostępna**, należy zapoznać się z kolejnymi krokami.
+W tym miejscu zostanie wyświetlony stan puli SQL. Jeśli usługa nie jest wyświetlana jako **dostępna**, należy zapoznać się z kolejnymi krokami.
 
 ![Usługa dostępna](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Jeśli Kondycja zasobów pokazuje, że wystąpienie puli SQL Synapse jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
+Jeśli Kondycja zasobów pokazuje, że wystąpienie puli SQL jest wstrzymane lub skalowane, postępuj zgodnie ze wskazówkami, aby wznowić wystąpienie.
 
-![Usługa wstrzymała](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) dodatkowe informacje na temat Resource Health można znaleźć tutaj.
+![Usługa wstrzymała ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) dodatkowe informacje na temat Resource Health można znaleźć tutaj.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Sprawdzanie istnienia wstrzymania lub operacji skalowania
 
-Sprawdź Portal, aby sprawdzić, czy wystąpienie puli SQL Synapse jest wstrzymane lub skalowane.
+Sprawdź Portal, aby sprawdzić, czy wystąpienie puli SQL jest wstrzymane lub skalowane.
 
 ![Usługa została wstrzymana](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu *dla puli SQL*usługi Synapse zostanie wyświetlony wybrany harmonogram konserwacji.
+Jeśli zobaczysz, że usługa jest wstrzymana lub skalowania, sprawdź, czy nie jest ona wyświetlana w harmonogramie konserwacji. W portalu *dla puli SQL*zostanie wyświetlony wybrany harmonogram konserwacji.
 
 ![Harmonogram konserwacji — Omówienie](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowana. Aby wznowić wystąpienie usługi SQL Analytics, wykonaj następujące [kroki](pause-and-resume-compute-portal.md).
+W przeciwnym razie skontaktuj się z administratorem IT, aby sprawdzić, czy ta konserwacja nie jest zaplanowana. Aby wznowić wystąpienie puli SQL, wykonaj następujące [kroki](pause-and-resume-compute-portal.md).
 
 ## <a name="check-your-firewall-settings"></a>Sprawdzanie ustawień zapory
 
-Baza danych SQL Analytics komunikuje się przez port 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+Baza danych puli SQL komunikuje się przez port 1433.Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433. Dodatkowe informacje na temat konfiguracji zapory można znaleźć [tutaj](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Sprawdzanie ustawień sieci wirtualnej/punktu końcowego usługi
 
@@ -60,7 +60,7 @@ Jeśli otrzymujesz błędy 40914 i 40615, zobacz [Opis błędu i rozwiązanie tu
 
 ### <a name="software"></a>Oprogramowanie
 
-Upewnij się, że używasz najnowszych narzędzi do nawiązania połączenia z pulą Synapse SQL:
+Upewnij się, że używasz najnowszych narzędzi do nawiązania połączenia z pulą SQL:
 
 - SSMS
 - Azure Data Studio
@@ -105,7 +105,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Sporadyczne problemy z połączeniami
 
-Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę puli SQL Synapse w celu uzyskania dodatkowych zasobów.
+Sprawdź, czy serwer nie jest mocno obciążony, a w kolejce nie ma dużej liczby żądań. Może być konieczne skalowanie w górę puli SQL w celu uzyskania dodatkowych zasobów.
 
 ## <a name="common-error-messages"></a>Typowe komunikaty o błędach
 

@@ -3,12 +3,12 @@ title: Omówienie funkcji zabezpieczeń
 description: Dowiedz się więcej o możliwościach zabezpieczeń w Azure Backup, które ułatwiają ochronę danych kopii zapasowych i zaspokajanie potrzeb firmy.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 688573b571c6ce4473f06d4c194795a38a33244b
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 178518f9f04a789f3cb634797cab650e24864337
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743653"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653789"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Omówienie funkcji zabezpieczeń w programie Azure Backup
 
@@ -40,8 +40,7 @@ Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure wymaga przenoszeni
 
 Możesz teraz używać [prywatnych punktów końcowych](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) do bezpiecznego wykonywania kopii zapasowych danych z serwerów w sieci wirtualnej do magazynu Recovery Services. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla Twojego magazynu, więc nie trzeba ujawniać sieci wirtualnych żadnym publicznym adresom IP. Prywatne punkty końcowe mogą służyć do tworzenia kopii zapasowych i przywracania baz danych SQL i SAP HANA, które działają w ramach maszyn wirtualnych platformy Azure. Można go również użyć dla serwerów lokalnych przy użyciu agenta MARS.
 
->[!NOTE]
-> Ta funkcja jest obecnie w ograniczonej dostępności. Wypełnij [tę ankietę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) i [Wyślij wiadomość e-mail do nas](mailto:azbackupnetsec@microsoft.com) , Jeśli interesuje Cię używanie prywatnych punktów końcowych dla Azure Backup. Możliwość korzystania z tej funkcji podlega zatwierdzeniu przez usługę Azure Backup.
+Przeczytaj więcej na temat prywatnych punktów końcowych Azure Backup [tym miejscu](https://docs.microsoft.com/azure/backup/private-endpoints).
 
 ## <a name="encryption-of-data-in-transit-and-at-rest"></a>Szyfrowanie danych podczas przesyłania i przechowywania
 

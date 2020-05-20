@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399694"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650613"
 ---
 ## <a name="reference-docs"></a>Dokumentacja dokumentacji
 
@@ -43,5 +43,6 @@ Skorzystaj z poniższej listy, aby znaleźć odpowiednie dokumenty referencyjne 
 Aby uzyskać informacje o różnych interfejsach API REST usługi Speech Service, zapoznaj się z listą poniżej:
 
 - [Interfejs API REST: zamiana mowy na tekst](../rest-speech-to-text.md)
+- [Interfejs API REST: Ocena wymowy](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [Interfejs API REST: zamiana tekstu na mowę](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">Interfejs API REST: Transkrypcja i dostosowywanie partii<span class="docon docon-navigate-external x-hidden-focus"></span></a>

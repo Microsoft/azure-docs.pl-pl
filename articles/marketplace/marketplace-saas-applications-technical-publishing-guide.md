@@ -1,6 +1,6 @@
 ---
-title: Przewodnik publikowania aplikacji SaaS w portalu Azure Marketplace
-description: Przewodnik krok po kroku i publikowanie list kontrolnych dotyczących publikowania aplikacji SaaS w witrynie Azure Marketplace
+title: Przewodnik publikowania aplikacji SaaS — Microsoft Commercial Marketplace
+description: Wymagania i zasoby dotyczące publikowania publikacji SaaS oferty aplikacji Microsoft AppSource w witrynie Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117237"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657825"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Przewodnik publikowania w aplikacjach SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>Przewodnik publikowania ofert w aplikacjach SaaS
 
-Aplikacje SaaS można opublikować w witrynie Marketplace z trzema różnymi wywołaniami akcji: "Skontaktuj się z nami", "Wypróbuj teraz" i "Pobierz teraz". W tym przewodniku objaśniono te trzy opcje, w tym wymagania dotyczące każdego z nich. 
+Możesz publikować aplikacje SaaS na komercyjnej witrynie Marketplace z trzema różnymi wywołaniami akcji: "Contact Me", "Wypróbuj teraz" i "Pobierz teraz". W tym artykule opisano te trzy opcje, w tym wymagania dotyczące każdego z nich. 
 
 ## <a name="offer-overview"></a>Przegląd oferty  
 
@@ -28,9 +28,9 @@ Aplikacje SaaS są dostępne w Microsoft AppSource i w witrynie Azure Marketplac
 
 | Oferta aplikacji SaaS | Wymagania biznesowe | Wymagania techniczne |  
 | --- | --- | --- |  
-| **Skontaktuj się z nami** | Tak | Nie |  
-| **Usługi PowerBI/Dynamics** | Tak | Tak (Integracja z usługą Azure AD) |  
-| **Aplikacje SaaS**| Tak | Tak (Integracja z usługą Azure AD) |     
+| **Skontaktuj się z nami** | Yes | Nie |  
+| **Power BI/Dynamics** | Yes | Tak (Integracja z usługą Azure AD) |  
+| **Aplikacje SaaS**| Yes | Tak (Integracja z usługą Azure AD) |     
 
 ## <a name="saas-list"></a>Lista SaaS
 

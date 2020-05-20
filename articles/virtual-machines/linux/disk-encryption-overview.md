@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838862"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655853"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption dla maszyn wirtualnych z systemem Linux 
 
@@ -56,7 +56,7 @@ Azure Disk Encryption jest obsługiwane w podzestawie [dystrybucji systemu Linux
 
 Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platformę Azure, nie obsługują Azure Disk Encryption; z tych, które są zatwierdzone, obsługiwane są tylko następujące dystrybucje i wersje Azure Disk Encryption:
 
-| Wydawca | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
+| Publisher | Oferta | SKU | Nazwa URN | Typ woluminu obsługiwany na potrzeby szyfrowania |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18,04 – LTS | Kanoniczny: UbuntuServer: 18.04-LTS: Najnowsza | System operacyjny i dysk z danymi |
 | Canonical | Ubuntu 18.04 | 18,04 — CODZIENNIE — LTS | Kanoniczny: UbuntuServer: 18.04-DAILy-LTS: Najnowsza | System operacyjny i dysk z danymi |
@@ -96,20 +96,30 @@ Dystrybucje serwera z systemem Linux, które nie są zatwierdzone przez platform
 
 Azure Disk Encryption wymaga obecności modułów dm-crypt i vfat w systemie. Usunięcie lub wyłączenie vfat z obrazu domyślnego uniemożliwi systemowi odczytywanie woluminu klucza i Uzyskiwanie klucza wymaganego do odblokowania dysków podczas kolejnych ponownych uruchomień. Kroki ograniczania systemu, które usuwają moduł vfat z systemu, nie są zgodne z Azure Disk Encryption. 
 
-Przed włączeniem szyfrowania, dyski danych, które mają być szyfrowane, muszą być poprawnie wymienione w katalogu/etc/fstab. Użyj trwałej nazwy urządzenia blokowego dla tego wpisu, ponieważ nazwy urządzeń w formacie "/dev/sdX" nie mogą być używane do skojarzenia z tym samym dyskiem w ramach ponownych uruchomień, szczególnie po zastosowaniu szyfrowania. Aby uzyskać więcej szczegółów dotyczących tego zachowania, zobacz: [Rozwiązywanie problemów z nazwami urządzeń maszyny wirtualnej z systemem Linux zmiany nazwy](troubleshoot-device-names-problems.md)
+Przed włączeniem szyfrowania, dyski danych, które mają być szyfrowane, muszą być poprawnie wymienione w katalogu/etc/fstab. Użyj opcji "nofail" podczas tworzenia wpisów i wybierz trwałej nazwy urządzenia blokowego (ponieważ nazwy urządzeń w formacie "/dev/sdX" mogą nie być skojarzone z tym samym dyskiem w przypadku ponownych uruchomień, szczególnie po szyfrowaniu. Aby uzyskać więcej szczegółów dotyczących tego zachowania, zobacz: [Rozwiązywanie problemów z zmianami nazw urządzeń maszyn wirtualnych systemu Linux](troubleshoot-device-names-problems.md)).
 
 Upewnij się, że ustawienia/etc/fstab są prawidłowo skonfigurowane do zainstalowania. Aby skonfigurować te ustawienia, uruchom polecenie instalacji-a lub Uruchom ponownie maszynę wirtualną i Wyzwól w ten sposób ponowne zainstalowanie. Po zakończeniu Sprawdź dane wyjściowe polecenia lsblk, aby sprawdzić, czy dysk jest nadal zainstalowany. 
+
 - Jeśli plik/etc/fstab nie instaluje dysku prawidłowo przed włączeniem szyfrowania, Azure Disk Encryption nie będzie w stanie zainstalować go prawidłowo.
 - Proces Azure Disk Encryption spowoduje przeniesienie informacji o instalacji z/etc/fstab i do własnego pliku konfiguracji w ramach procesu szyfrowania. Nie można sprawdzić, czy nie ma wpisu w/etc/fstab po zakończeniu szyfrowania dysku danych.
 - Przed rozpoczęciem szyfrowania należy zatrzymać wszystkie usługi i procesy, które mogą być zapisywane na zainstalowanych dyskach danych i je wyłączyć, aby nie uruchamiały się automatycznie po ponownym uruchomieniu komputera. Może to spowodować, że pliki będą otwierane na tych partycjach, co uniemożliwia procedurę szyfrowania w celu ich ponownego zainstalowania, powodując niepowodzenie szyfrowania. 
 - Po ponownym uruchomieniu proces Azure Disk Encryption będzie miał czas na zainstalowanie nowo zaszyfrowanych dysków. Po ponownym uruchomieniu nie będą one natychmiast dostępne. Proces wymaga czasu uruchomienia, odblokowania, a następnie zainstalowania szyfrowanych dysków przed udostępnieniem ich innym procesom. Ten proces może potrwać kilka minut po ponownym uruchomieniu w zależności od charakterystyki systemu.
 
-Przykładem poleceń, które mogą służyć do instalowania dysków danych i tworzenia niezbędnych wpisów/etc/fstab, można znaleźć w temacie [skrypt interfejsu wiersza polecenia Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started) (wiersze 244-248) i [skrypt programu PowerShell dotyczące Azure Disk Encryption wymagań wstępnych](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Poniżej przedstawiono przykładowe polecenia służące do instalowania dysków danych i tworzenia niezbędnych wpisów/etc/fstab:
 
+```bash
+UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
+UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+mkdir /data0
+mkdir /data1
+echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+mount -a
+```
 ## <a name="networking-requirements"></a>Wymagania dotyczące sieci
 
 Aby włączyć funkcję Azure Disk Encryption, maszyny wirtualne z systemem Linux muszą spełniać następujące wymagania dotyczące konfiguracji punktu końcowego sieci:
-  - Aby uzyskać token, aby połączyć się z magazynem kluczy, maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z \[punktem\]końcowym Azure Active Directory, Login.microsoftonline.com.
+  - Aby uzyskać token, aby połączyć się z magazynem kluczy, maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z punktem końcowym Azure Active Directory, \[ login.microsoftonline.com \] .
   - Aby można było napisać klucze szyfrowania do magazynu kluczy, maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z punktem końcowym magazynu kluczy.
   - Maszyna wirtualna z systemem Linux musi mieć możliwość nawiązania połączenia z punktem końcowym usługi Azure Storage, który obsługuje repozytorium rozszerzeń platformy Azure i konto usługi Azure Storage, które obsługuje pliki VHD.
   -  Jeśli zasady zabezpieczeń ograniczają dostęp z maszyn wirtualnych platformy Azure do Internetu, można rozwiązać poprzedni identyfikator URI i skonfigurować określoną regułę, aby zezwolić na połączenia wychodzące z adresami IP. Aby uzyskać więcej informacji, zobacz [Azure Key Vault za zaporą](../../key-vault/general/access-behind-firewall.md).  

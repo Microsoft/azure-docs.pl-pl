@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: be9a9d6b93068adc6d09db9b9ac23de9abd6a69f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7e4ec8a5772f0fbc1c0e67ba07a172daeac9b91b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005169"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657883"
 ---
-# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Marketplace firmy Microsoft
+# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Microsoft Marketplace
 
-W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące komercyjnego portalu Microsoft Marketplace.
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące komercyjnej witryny Marketplace.
 
 ## <a name="general"></a>Ogólne
 
@@ -302,13 +302,13 @@ Aby uzyskać więcej informacji, przejdź do pozycji [wypłata i formularze poda
 
 Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedziale czasu. Miesięczne subskrypcje to 24 godziny, a w przypadku subskrypcji rocznych jest to 14 dni. Oferty, które są rozliczane zgodnie z zużyciem po użyciu rozwiązania, nie kwalifikują się do zwrotów.
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 ### <a name="where-can-i-find-more-information-about-the-commercial-marketplace"></a>Gdzie mogę znaleźć więcej informacji na temat komercyjnej witryny Marketplace?
 
 Oto kilka zasobów, które ułatwią rozpoczęcie pracy:
 
-- [Wprowadzenie do portalu komercyjnego firmy Microsoft](https://docs.microsoft.com/learn/commercial-marketplace/intro-commercial-marketplace/intro-commercial-marketplace/)
+- [Wprowadzenie do portalu komercyjnego firmy Microsoft](/azure/marketplace/marketplace-publishers-guide)
 - [Centrum partnerskie portalu Marketplace firmy Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Witamy na platformie handlowej](https://docs.microsoft.com/azure/marketplace/)
 

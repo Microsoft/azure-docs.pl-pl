@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3e5069c779cee0700bff6b2236f3cd36547fd623
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838488"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659604"
 ---
 # <a name="sql-database-release-notes"></a>Informacje o wersji SQL Database
 
@@ -24,7 +24,7 @@ W tym artykule wymieniono SQL Database funkcje, które są obecnie dostępne w p
 
 ### <a name="single-database"></a>[Pojedyncza baza danych](#tab/single-database)
 
-| Funkcja | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
 | Nowe generacja sprzętu serii Fsv2 i serii M| Aby uzyskać więcej informacji, zobacz [generacja sprzętu](sql-database-service-tiers-vcore.md#hardware-generations).|
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](sql-database-accelerated-database-recovery.md).|
@@ -43,7 +43,7 @@ W tym artykule wymieniono SQL Database funkcje, które są obecnie dostępne w p
 
 ### <a name="managed-instance"></a>[Wystąpienie zarządzane](#tab/managed-instance)
 
-| Funkcja | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)</a> | Utwórz nazwy logowania na poziomie serwera przy użyciu instrukcji <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN from External Provider</a> . |
@@ -78,7 +78,8 @@ W modelu wdrażania wystąpienia zarządzanego w H1 2019 są włączone następu
 
 |Problem  |Data wykrycia  |Stan  |Data rozwiązania  |
 |---------|---------|---------|---------|
-|[Agent przestaje odpowiadać przy modyfikowaniu, wyłączaniu lub włączaniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020 maja|Automatycznie skorygowane| |
+|[Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020 r.|Ma obejście| |
+|[Agent przestaje odpowiadać przy modyfikowaniu, wyłączaniu lub włączaniu istniejących zadań](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020 r.|Automatycznie skorygowane| |
 |[Uprawnienia do grupy zasobów nie zostały zastosowane do wystąpienia zarządzanego](#permissions-on-resource-group-not-applied-to-managed-instance)|2020 lutego|Ma obejście| |
 |[Ograniczenie ręcznego trybu failover za pośrednictwem portalu dla grup trybu failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Sty 2020|Ma obejście| |
 |[Role agenta SQL wymagają jawnych uprawnień do wykonywania dla logowań innych niż sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Ma obejście| |
@@ -103,6 +104,12 @@ W modelu wdrażania wystąpienia zarządzanego w H1 2019 są włączone następu
 |Przywracanie bazy danych do punktu w czasie z warstwy Krytyczne dla działania firmy do warstwy Ogólnego przeznaczenia nie powiedzie się, jeśli źródłowa baza danych zawiera obiekty OLTP w pamięci.| |Resolved|2019 października|
 |Funkcja Poczta bazy danych z zewnętrznymi serwerami poczty (poza platformą Azure) przy użyciu bezpiecznego połączenia| |Resolved|2019 października|
 |Zawarte bazy danych nie są obsługiwane w wystąpieniu zarządzanym| |Resolved|2019 sie|
+
+### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Przywrócenie ręcznej kopii zapasowej bez sumy KONTROLnej może zakończyć się niepowodzeniem
+
+W pewnych okolicznościach ręczne tworzenie kopii zapasowych baz danych, które zostały wykonane w wystąpieniu zarządzanym bez sumy KONTROLnej, nie może zostać przywrócone. W takim przypadku ponów próbę przywrócenia kopii zapasowej do momentu pomyślnego zakończenia.
+
+**Obejście**: Wykonaj ręcznie kopie zapasowe baz danych w wystąpieniu zarządzanym z WŁĄCZONĄ sumą kontrolną.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent przestaje odpowiadać przy modyfikowaniu, wyłączaniu lub włączaniu istniejących zadań
 
@@ -148,7 +155,7 @@ Krytyczne dla działania firmy warstwa usług nie zastosuje prawidłowo [maksyma
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Podczas próby usunięcia pliku, który nie jest pusty, został zwrócony nieprawidłowy błąd
 
-Wystąpienie SQL Server/zarządzane [nie zezwala użytkownikowi na usuwanie niepustego pliku](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Próba usunięcia niepustego pliku danych za pomocą `ALTER DATABASE REMOVE FILE` instrukcji spowoduje, że błąd `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` nie zostanie natychmiast zwrócony. Wystąpienie zarządzane będzie nadal próbowało porzucić plik i operacja zakończy się niepowodzeniem po `Internal server error`fragmentach z.
+Wystąpienie SQL Server/zarządzane [nie zezwala użytkownikowi na usuwanie niepustego pliku](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Próba usunięcia niepustego pliku danych za pomocą `ALTER DATABASE REMOVE FILE` instrukcji spowoduje, że błąd `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` nie zostanie natychmiast zwrócony. Wystąpienie zarządzane będzie nadal próbowało porzucić plik i operacja zakończy się niepowodzeniem po fragmentach z `Internal server error` .
 
 **Obejście**: Usuń zawartość pliku przy użyciu `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` polecenia. Jeśli jest to jedyny plik w grupie plików, należy usunąć dane z tabeli lub partycji skojarzonej z tą grupą plików przed zmniejszeniem pliku i opcjonalnie załadować te dane do innej tabeli lub partycji.
 
@@ -162,7 +169,7 @@ Ciągła `RESTORE` instrukcja, proces migracji usługi migracji danych oraz wbud
 
 Funkcja [zarządcy zasobów](/sql/relational-databases/resource-governor/resource-governor) , która umożliwia ograniczenie zasobów przypisanych do obciążenia użytkownikami, może nieprawidłowo sklasyfikować pewne obciążenie użytkownika po przejściu w tryb failover lub na zainicjowanej przez użytkownika zmianie warstwy usług (na przykład zmiana maksymalnego rozmiaru magazynu rdzeń wirtualny lub maksymalnego wystąpienia).
 
-**Obejście**: `ALTER RESOURCE GOVERNOR RECONFIGURE` uruchamiaj okresowo lub jako część zadania programu SQL Agent, które wykonuje zadanie SQL, gdy wystąpienie zostanie uruchomione, gdy korzystasz z [gubernatora zasobów](/sql/relational-databases/resource-governor/resource-governor).
+**Obejście**: uruchamiaj `ALTER RESOURCE GOVERNOR RECONFIGURE` okresowo lub jako część zadania programu SQL Agent, które wykonuje zadanie SQL, gdy wystąpienie zostanie uruchomione, gdy korzystasz z [gubernatora zasobów](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Okna dialogowe Service Broker między bazami danych muszą zostać zainicjowane po uaktualnieniu warstwy usług
 
@@ -172,13 +179,13 @@ Okna dialogowe Service Broker między bazami danych przestaną przekazanie komun
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Impersonification typów logowania usługi Azure AD nie jest obsługiwana
 
-Personifikacja `EXECUTE AS USER` przy `EXECUTE AS LOGIN` użyciu lub następujących głównych podmiotów usługi AAD nie jest obsługiwana:
--    Aliasy użytkowników usługi AAD. W tym przypadku `15517`zwracany jest następujący błąd.
-- Nazwy logowania i użytkownicy usługi AAD w oparciu o aplikacje lub nazwy główne usług w usłudze AAD. W takim przypadku `15517` zwracane są następujące błędy i `15406`.
+Personifikacja przy użyciu `EXECUTE AS USER` lub `EXECUTE AS LOGIN` następujących głównych podmiotów usługi AAD nie jest obsługiwana:
+-    Aliasy użytkowników usługi AAD. W tym przypadku zwracany jest następujący błąd `15517` .
+- Nazwy logowania i użytkownicy usługi AAD w oparciu o aplikacje lub nazwy główne usług w usłudze AAD. W takim przypadku zwracane są następujące błędy `15517` i `15406` .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametr nie jest obsługiwany w sp_send_db_mail
 
-`@query` Parametr w procedurze [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) nie działa.
+`@query`Parametr w procedurze [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) nie działa.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>Należy ponownie skonfigurować replikację transakcyjną po geograficznym przejściu do trybu failover
 
@@ -196,11 +203,11 @@ Gdy baza danych jest przywracana w wystąpieniu zarządzanym, usługa Restore na
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>Struktura i zawartość bazy danych TEMPDB są odtwarzane
 
-`tempdb` Baza danych jest zawsze podzielona na 12 plików danych i nie można zmienić struktury pliku. Nie można zmienić maksymalnego rozmiaru pliku i nie można dodać do `tempdb`niego nowych plików. `Tempdb`zawsze jest tworzona jako pusta baza danych, gdy wystąpienie zostanie uruchomione lub działa w trybie failover, a wszelkie zmiany wprowadzone `tempdb` w programie nie zostaną zachowane.
+`tempdb`Baza danych jest zawsze podzielona na 12 plików danych i nie można zmienić struktury pliku. Nie można zmienić maksymalnego rozmiaru pliku i nie można dodać do niego nowych plików `tempdb` . `Tempdb`zawsze jest tworzona jako pusta baza danych, gdy wystąpienie zostanie uruchomione lub działa w trybie failover, a wszelkie zmiany wprowadzone w programie `tempdb` nie zostaną zachowane.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Przekraczanie miejsca do magazynowania z małymi plikami bazy danych
 
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`, i `RESTORE DATABASE` instrukcje mogą się nie powieść, ponieważ wystąpienie może osiągnąć limit magazynu platformy Azure.
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE` , i `RESTORE DATABASE` instrukcje mogą się nie powieść, ponieważ wystąpienie może osiągnąć limit magazynu platformy Azure.
 
 Każde Ogólnego przeznaczenia wystąpienia zarządzanego ma do 35 TB pamięci zarezerwowanej dla miejsca na dysku w warstwie Premium. Każdy plik bazy danych jest umieszczany na osobnym dysku fizycznym. Rozmiary dysków mogą być 128 GB, 256 GB, 512 GB, 1 TB lub 4 TB. Nieużywane miejsce na dysku jest nieobciążone, ale całkowita suma rozmiarów dysków w warstwie Premium platformy Azure nie może przekroczyć 35 TB. W niektórych przypadkach wystąpienie zarządzane, które nie wymaga 8 TB w sumie, może przekroczyć limit 35 TB platformy Azure dla rozmiaru magazynu z powodu wewnętrznej fragmentacji.
 
@@ -233,7 +240,7 @@ Dzienniki błędów dostępne w wystąpieniu zarządzanym nie są utrwalane, a i
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Zakres transakcji w dwóch bazach danych w tym samym wystąpieniu nie jest obsługiwany
 
-**(Rozwiązane w marcu 2020)** Klasa `TransactionScope` w programie .NET nie działa, jeśli dwa zapytania są wysyłane do dwóch baz danych w tym samym wystąpieniu w ramach tego samego zakresu transakcji:
+**(Rozwiązane w marcu 2020)** `TransactionScope`Klasa w programie .NET nie działa, jeśli dwa zapytania są wysyłane do dwóch baz danych w tym samym wystąpieniu w ramach tego samego zakresu transakcji:
 
 ```csharp
 using (var scope = new TransactionScope())

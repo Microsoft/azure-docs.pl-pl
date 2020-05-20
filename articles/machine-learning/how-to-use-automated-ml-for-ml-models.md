@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257236"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653850"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,9 +33,9 @@ W przypadku środowiska języka Python można [skonfigurować automatyczne ekspe
 
 * Obszar roboczy Azure Machine Learning z typem **wersji Enterprise Edition**. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).  Aby uaktualnić istniejący obszar roboczy do wersji Enterprise, zobacz [uaktualnianie do wersji Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
-1. Zaloguj się do Azure Machine Learning pod https://ml.azure.comadresem. 
+1. Zaloguj się do Azure Machine Learning pod adresem https://ml.azure.com . 
 
 1. Wybierz swoją subskrypcję i obszar roboczy. 
 
@@ -70,7 +70,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         ----|----
         Format pliku| Definiuje układ i typ danych przechowywanych w pliku.
         Ogranicznik| Jeden lub więcej znaków do określenia granicy między oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych.
-        Kodowanie| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
+        Encoding| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
@@ -140,7 +140,7 @@ Możesz uzyskać szeroką gamę statystyk podsumowujących dla zestawu danych, a
 
 Statystyka|Opis
 ------|------
-Funkcja| Nazwa sumowanej kolumny.
+Cechy| Nazwa sumowanej kolumny.
 Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.
@@ -159,14 +159,14 @@ Kurtoza| Mierzona, jak silnie naśladowanie danych tej kolumny jest porównywane
 
 ## <a name="advanced-featurization-options"></a>Zaawansowane opcje cechowania
 
-Automatyczne Uczenie maszynowe oferuje automatyczne przetwarzanie i guardrails danych w celu ułatwienia identyfikowania potencjalnych problemów z danymi i zarządzania nimi. 
+Automatyczne Uczenie maszynowe oferuje automatyczne przetwarzanie i guardrails danych, co ułatwia identyfikowanie potencjalnych problemów z danymi, takich jak [nadmierne dopasowanie i niezrównoważone dane](concept-manage-ml-pitfalls.md#prevent-over-fitting), oraz zarządzanie nimi. 
 
 ### <a name="preprocessing"></a>Przetwarzania wstępnego
 
 > [!NOTE]
 > Jeśli planujesz eksportować modele utworzone przez funkcję automl do [modelu ONNX](concept-onnx.md), w formacie ONNX są obsługiwane tylko opcje cechowania. Dowiedz się więcej o [konwertowaniu modeli na ONNX](concept-automated-ml.md#use-with-onnx). 
 
-|&nbsp;Kroki przetwarzania wstępnego| Opis |
+|Kroki przetwarzania wstępnego &nbsp;| Opis |
 | ------------- | ------------- |
 |Porzuć wysoką Kardynalność lub brak funkcji wariancji * |Porzuć je z zestawów szkoleniowych i walidacji, w tym funkcji ze wszystkimi wartościami, które są takie same, jak w przypadku wszystkich wierszy lub wyjątkowo dużej kardynalności (na przykład skrótów, identyfikatorów lub GUID).|
 |Brakujące wartości w postaci kalkulacyjne * |W przypadku funkcji liczbowych wartość jest wartością obliczaną ze średnimi wartościami w kolumnie.<br/><br/>W przypadku funkcji kategorii wartość jest równa liczbie wartości.|
@@ -182,7 +182,7 @@ Automatyczne Uczenie maszynowe oferuje automatyczne przetwarzanie i guardrails d
 
 Guardrails danych są stosowane, gdy włączona jest funkcja automatycznej cechowania, lub Walidacja jest ustawiona na wartość automatycznie. Guardrails danych ułatwia identyfikowanie potencjalnych problemów dotyczących danych (np. brakujących wartości, nierównowagi klasy) i ułatwia podejmowanie działań naprawczych w celu uzyskania lepszych wyników. 
 
-Użytkownicy mogą przeglądać dane guardrails w Studio na karcie **dane guardrails** zautomatyzowanego przebiegu ml lub przez ustawienie ```show_output=True``` podczas przesyłania EKSPERYMENTU przy użyciu zestawu SDK języka Python. 
+Użytkownicy mogą przeglądać dane guardrails w Studio na karcie **dane guardrails** zautomatyzowanego przebiegu ml lub przez ustawienie ```show_output=True``` podczas przesyłania eksperymentu przy użyciu zestawu SDK języka Python. 
 
 #### <a name="data-guardrail-states"></a>Stany Guardrail danych
 
@@ -199,7 +199,7 @@ Alerty| Wykryto problem dotyczący danych, którego nie można rozwiązać. Zach
 
 W poniższej tabeli opisano aktualnie obsługiwane guardrails danych oraz skojarzone Stany, które użytkownicy mogą napotkać podczas przesyłania eksperymentu.
 
-Guardrail|Stan|Warunek&nbsp;dla&nbsp;wyzwalacza
+Guardrail|Stan|Warunek &nbsp; dla &nbsp; wyzwalacza
 ---|---|---
 Brak przypisywania wartości funkcji |**Przeniesione** <br><br><br> **Gotowe**| Nie wykryto żadnych wartości funkcji w danych szkoleniowych. Dowiedz się więcej o [braku przypisywania wartości.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> W danych szkoleniowych zostały wykryte brakujące wartości funkcji.
 Obsługa funkcji wysokiej kardynalności |**Przeniesione** <br><br><br> **Gotowe**| Dane wejściowe zostały przeanalizowane i nie wykryto żadnych funkcji wysokiej kardynalności. Dowiedz się więcej o [funkcji wykrywania dużej kardynalności.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> W danych wejściowych zostały wykryte funkcje wysokiej kardynalności i zostały obsłużone.

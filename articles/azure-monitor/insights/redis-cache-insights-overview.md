@@ -1,116 +1,157 @@
 ---
 title: Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza) | Microsoft Docs
-description: W tym artykule opisano Azure Monitor funkcji Redis Cache, która zapewnia redisom pamięci podręcznej platformy Azure w celu szybkiego poznania problemów z wydajnością i wykorzystaniem.
+description: W tym artykule opisano Azure Monitor funkcji Azure Redis Cache, która zapewnia właścicielom pamięci podręcznej szybkie zrozumienie problemów z wydajnością i wykorzystaniem.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/07/2020
-ms.openlocfilehash: af32459ffcb50c9f1cfdc59d2c8d355d3551e230
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a6a8499a13e5c14869f9c9063528cea4ee82f419
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210977"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650434"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
-Azure Monitor usługi Azure cache for Redis (wersja zapoznawcza) zawiera widok ogólnej wydajności, niepowodzeń, pojemności i kondycji operacyjnej całej pamięci podręcznej platformy Azure dla zasobów Redis w ujednoliconym interaktywnym środowisku. Ten artykuł pomoże Ci zrozumieć korzyści płynące z nowego środowiska monitorowania oraz jak można modyfikować i dostosowywać środowisko, aby odpowiadało unikatowym potrzebom organizacji.
+Dla całej pamięci podręcznej platformy Azure dla zasobów Redis Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza) zapewnia ujednolicony, interaktywny widok:
+
+- Ogólna wydajność
+- Błędy
+- Pojemność
+- Kondycja operacyjna
+
+Ten artykuł ułatwia zapoznanie się z zaletami tego nowego środowiska monitorowania. Przedstawiono w nim również sposób modyfikowania i dostosowywania środowiska w celu dopasowania do unikatowych potrzeb organizacji.
 
 ## <a name="introduction"></a>Wprowadzenie
 
-Przed wprowadzeniem do środowiska należy zrozumieć, jak prezentuje i wizualizuje informacje.
+Przed rozpoczęciem korzystania z tego środowiska należy zrozumieć, jak Azure Monitor w usłudze Azure cache for Redis wizualne przedstawiają informacje.
 
 Zapewnia:
 
-* **W perspektywie skalowania** pamięci podręcznej platformy Azure dla zasobów Redis w ramach wszystkich subskrypcji w jednej lokalizacji, z możliwością selektywnego określania zakresu tylko tych subskrypcji i zasobów, które chcesz oceniać.
+- **W perspektywie skalowania** pamięci podręcznej platformy Azure dla zasobów Redis w jednej lokalizacji we wszystkich subskrypcjach. Możesz wybiórczo zakres tylko do subskrypcji i zasobów, które chcesz oszacować.
 
-* **Przechodzenie do szczegółów** określonej pamięci podręcznej platformy Azure dla zasobu Redis w celu ułatwienia zdiagnozowania problemów lub wykonywania szczegółowej analizy według kategorii, niepowodzeń, pojemności i operacji. Wybranie jednej z tych opcji zapewnia szczegółowy widok odpowiednich elementów.  
+- **Analiza przechodzenia do szczegółów** określonej pamięci podręcznej platformy Azure dla zasobu Redis. Można zdiagnozować problemy i zapoznać się ze szczegółową analizą użycia, niepowodzeń, pojemności i operacji. Wybierz dowolną z tych kategorii, aby zobaczyć szczegółowy widok istotnych informacji.  
 
-* **Dostosowywalne** — to środowisko zostało utworzone na podstawie Azure monitor szablonów skoroszytów, co umożliwia zmianę sposobu wyświetlania metryk, zmodyfikowanie lub ustawienie progów, które są wyrównane z limitami, a następnie zapisywanie w skoroszycie niestandardowym. Wykresy w skoroszytach można następnie przypinać do pulpitów nawigacyjnych platformy Azure.  
+- **Dostosowanie** tego środowiska, które jest skompilowane Azure monitor szablonów skoroszytów korzystającego. Środowisko pozwala zmienić, jakie metryki są wyświetlane, i modyfikować lub ustawiać progi, które są dostosowywane do limitów. Możesz zapisać zmiany w niestandardowym skoroszycie, a następnie przypiąć wykresy skoroszytu do pulpitów nawigacyjnych platformy Azure.
 
-Ta funkcja nie wymaga włączenia ani skonfigurowania niczego, ponieważ ta pamięć podręczna platformy Azure dla Redis jest domyślnie zbierana.
+- **Dostosowanie** tego środowiska jest kompilowane korzystającego Azure monitor szablonów skoroszytów. Środowisko pozwala zmienić, jakie metryki są wyświetlane i zmodyfikować lub ustawić progi, które są wyrównane z limitami. Możesz zapisać zmiany w niestandardowym skoroszycie, a następnie przypiąć wykresy skoroszytu do pulpitów nawigacyjnych platformy Azure.
+
+Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych elementów. Pamięć podręczna platformy Azure dla informacji Redis jest domyślnie zbierana.
 
 >[!NOTE]
->Dostęp do tej funkcji nie jest naliczany, a opłaty są naliczane tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
+>Nie ma opłat za dostęp do tej funkcji. Opłata jest naliczana tylko za Azure Monitor podstawowe funkcje, które konfigurujesz lub włączasz, zgodnie z opisem na stronie [szczegóły cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) .
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cache-for-redis"></a>Wyświetl metryki użycia i wydajności dla usługi Azure cache for Redis
 
-Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach, wykonaj następujące czynności.
+Aby wyświetlić użycie i wydajność kont magazynu we wszystkich subskrypcjach, wykonaj następujące czynności:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. Wyszukaj ciąg **monitor** i wybierz pozycję **Monitoruj**.
+1. Wyszukaj pozycję **monitor**i wybierz pozycję **Monitoruj**.
 
-    ![Pole wyszukiwania z słowem "Monitor" oraz listą rozwijaną "Monitor" z obrazem stylu prędkościomierza](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Pole wyszukiwania z słowem "Monitor" oraz wynikiem wyszukiwania usług, który pokazuje "Monitor" z symbolem prędkościomierza](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Wybierz pozycję **Azure cache for Redis (wersja zapoznawcza)**.
-
-Jeśli ta opcja nie jest obecna, kliknij pozycję **więcej** i wybierz pozycję **pamięć podręczna platformy Azure dla Redis**.
+1. Wybierz pozycję **Azure cache for Redis (wersja zapoznawcza)**. Jeśli ta opcja nie jest dostępna, wybierz pozycję **więcej**  >  **pamięci podręcznej platformy Azure dla Redis**.
 
 ### <a name="overview"></a>Omówienie
 
 W obszarze **Przegląd**w tabeli jest wyświetlana interaktywna pamięć podręczna platformy Azure dla metryk Redis. Wyniki można filtrować na podstawie opcji wybranych z następujących list rozwijanych:
 
-* Są wyświetlane subskrypcje obsługujące tylko **subskrypcje** , które mają pamięć podręczną platformy Azure dla zasobu Redis.  
+- **Subskrypcje**: na liście są wyświetlane tylko subskrypcje, które mają pamięć podręczną platformy Azure dla zasobu Redis.  
 
-* **Pamięć podręczna platformy Azure dla Redis** — można wybrać wszystkie, podzbiór lub pojedynczą pamięć podręczną platformy Azure dla zasobu Redis.
+- **Pamięć podręczna platformy Azure dla Redis**: można wybrać wszystkie, podzbiór lub pojedynczą pamięć podręczną platformy Azure dla zasobu Redis.
 
-* **Zakres czasu** — domyślnie wyświetla ostatnie 4 godziny informacji na podstawie odpowiednich opcji.
+- **Zakres czasu**: domyślnie w tabeli są wyświetlane ostatnie cztery godziny informacji na podstawie odpowiednich opcji.
 
-Kafelek licznika pod listą rozwijaną zawiera rzutowanie łącznej liczby zasobów usługi Azure cache for Redis w wybranych subskrypcjach. Istnieje warunkowe kodowanie kolorami lub map cieplnych dla kolumn w skoroszycie, które raportują metryki transakcji. Optymalny kolor ma najwyższą wartość, a jaśniejszy kolor jest oparty na najniższych wartościach.
+Na listach rozwijanych znajduje się kafelek licznika. Kafelek pokazuje łączną liczbę zasobów usługi Azure cache for Redis w wybranych subskrypcjach. Warunkowe kody kolorów lub mapy cieplne dla kolumn skoroszytów raportu metryki transakcji. Największy kolor reprezentuje najwyższą wartość. Jaśniejsze kolory reprezentują niższe wartości.
 
-Wybranie strzałki listy rozwijanej obok jednej z pamięci podręcznej platformy Azure dla zasobów Redis spowoduje wyświetlenie podziału metryk wydajności na poszczególnych poziomach zasobów:
+Wybranie strzałki listy rozwijanej obok jednej z pamięci podręcznej platformy Azure dla zasobów Redis powoduje oddzielenie metryk wydajności na poszczególnych poziomach zasobów.
 
 ![Zrzut ekranu przedstawiający środowisko omówienia](./media/redis-cache-insights-overview/overview.png)
 
-Wybranie nazwy zasobu usługi Azure cache for Redis wyróżnionej na niebiesko spowoduje przejście do domyślnego **omówienia** dla skojarzonego konta. Pokazuje,,,,,, `Used Memory` `Used Memory Percentage` `Server Load` `Server Load Timeline` `CPU` `Connected Clients` `Cache Misses` `Errors (Max)` .
+Po wybraniu nazwy zasobu usługi Azure cache for Redis wyróżnionej na niebiesko zostanie wyświetlona domyślna tabela **przeglądu** dla skojarzonego konta. Wyświetla następujące kolumny:
+
+- **Użyta pamięć**
+- **Procentowe użycie pamięci**
+- **Obciążenie serwera**
+- **Oś czasu obciążenia serwera**
+- **Procesor CPU**
+- **Połączeni klienci**
+- **Chybienia w pamięci podręcznej**
+- **Błędy (maks.)**
 
 ### <a name="operations"></a>Operacje
 
-Wybierz pozycję **operacje** w górnej części strony, a zostanie otwarta część **operacje** szablonu skoroszytu. Pokazuje `Total Operations` , `Total Operations Timeline` ,, `Operations Per Second` `Gets` , `Sets` .
+Po wybraniu **operacji** w górnej części strony zostanie otwarta tabela **operacje** w szablonie skoroszytu. Wyświetla następujące kolumny:
 
-![Zrzut ekranu przedstawiający środowisko omówienia](./media/redis-cache-insights-overview/operations.png)
+- **Łączna liczba operacji**
+- **Oś czasu łącznej liczby operacji**
+- **Liczba operacji na sekundę**
+- **Pobrania**
+- **Zestawy**
 
-### <a name="usage"></a>Sposób użycia
+![Zrzut ekranu przedstawiający środowisko operacyjne](./media/redis-cache-insights-overview/operations.png)
 
-Wybierz pozycję **użycie** w górnej części strony, a zostanie otwarta część **użycie** szablonu skoroszytu. Pokazuje `Cache Read` , `Cache Read Timeline` ,, `CacheWrite` `CacheHits` , `Cache Misses` .
+### <a name="usage"></a>Użycie
 
-![Zrzut ekranu przedstawiający środowisko omówienia](./media/redis-cache-insights-overview/usage.png)
+Po wybraniu opcji **użycie** w górnej części strony zostanie otwarta tabela **użycie** szablonu skoroszytu. Wyświetla następujące kolumny:
 
-Wybierz pozycję **Błędy** w górnej części strony i zostanie otwarty fragment **błędów** szablonu skoroszytu. Pokazuje,,,,,, `Total Errors` `Failover/Errors` `UnresponsiveClient/Errors` `RDB/Errors` `AOF/Errors` `Export/Errors` `Dataloss/Errors` `Import/Errors` .
+- **Odczyt pamięci podręcznej**
+- **Oś czasu odczytu pamięci podręcznej**
+- **Zapis w pamięci podręcznej**
+- **Trafienia w pamięci podręcznej**
+- **Chybienia w pamięci podręcznej**
 
-![Zrzut ekranu przedstawiający awarie z podziałem według typu żądania HTTP](./media/redis-cache-insights-overview/failures.png)
+![Zrzut ekranu przedstawiający środowisko użycia](./media/redis-cache-insights-overview/usage.png)
+
+### <a name="failures"></a>Błędy
+
+Po wybraniu opcji **Błędy** w górnej części strony zostanie otwarta tabela **Błędy** szablonu skoroszytu. Wyświetla następujące kolumny:
+
+- **Całkowita liczba błędów**
+- **Tryb failover/błędy**
+- **UnresponsiveClient/błędy**
+- **RDB/błędy**
+- **KOPIA zapasowa AOF/błędy**
+- **Eksport/błędy**
+- **Datastrata/błędy**
+- **Importowanie/błędy**
+
+![Zrzut ekranu przedstawiający błędy z podziałem według typu żądania HTTP](./media/redis-cache-insights-overview/failures.png)
 
 ### <a name="metric-definitions"></a>Definicje metryk
 
-Aby zapoznać się z pełną listą definicji metryk wchodzących w skład tych skoroszytów, zapoznaj się z [artykułem dostępne metryki i interwały raportowania](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Aby zapoznać się z pełną listą definicji metryk, które tworzą te skoroszyty, zapoznaj się z [artykułem na temat dostępnych metryk i interwałów raportowania](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
 
 ## <a name="pin-export-and-expand"></a>Przypnij, Eksportuj i rozwiń
 
-Możesz przypiąć każdą z sekcji metryk do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) , wybierając ikonę pinezki w prawym górnym rogu sekcji.
+Aby przypiąć każdą sekcję metryki do [pulpitu nawigacyjnego platformy Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), wybierz symbol pinezki w prawym górnym rogu sekcji.
 
-![Przykład numeru PIN sekcji Metryka na pulpit nawigacyjny](./media/cosmosdb-insights-overview/pin.png)
+![Sekcja metryki z wyróżnionym symbolem pinezki](./media/cosmosdb-insights-overview/pin.png)
 
-Aby wyeksportować dane do formatu programu Excel, wybierz ikonę strzałki w dół znajdującą się po lewej stronie ikony pinezki.
+Aby wyeksportować dane do formatu programu Excel, wybierz symbol strzałki w dół na lewo od symbolu pinezki.
 
-![Ikona eksportowania skoroszytu](./media/cosmosdb-insights-overview/export.png)
+![Wyróżniony symbol eksportu skoroszytu](./media/cosmosdb-insights-overview/export.png)
 
-Aby rozwinąć lub zwinąć wszystkie widoki rozwijane w skoroszycie, wybierz ikonę rozwiń z lewej strony ikony eksportu:
+Aby rozwinąć lub zwinąć wszystkie widoki w skoroszycie, wybierz symbol rozwijania z lewej strony symbolu eksportu.
 
-![Rozwiń ikonę skoroszytu](./media/cosmosdb-insights-overview/expand.png)
+![Wyróżniony symbol rozwijania skoroszytu](./media/cosmosdb-insights-overview/expand.png)
 
 ## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Dostosowywanie Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
-Ponieważ to środowisko zostało utworzone na podstawie Azure monitor szablonów skoroszytów, można **dostosować**  >  **Edytowanie** i **zapisywać** kopię zmodyfikowanej wersji w skoroszycie niestandardowym. 
+Ponieważ to środowisko jest skompilowane Azure monitor szablonów skoroszytów, można wybrać pozycję **Dostosuj**  >  **Edytuj**  >  **Zapisz** , aby zapisać kopię zmodyfikowanej wersji w skoroszycie niestandardowym.
 
-![Dostosuj pasek](./media/cosmosdb-insights-overview/customize.png)
+![Pasek poleceń z wyróżnioną pozycją Dostosuj](./media/cosmosdb-insights-overview/customize.png)
 
-Skoroszyty są zapisywane w obrębie grupy zasobów, w sekcji **Moje raporty** prywatnej dla użytkownika lub w sekcji **raporty udostępnione** dostępne dla wszystkich użytkowników mających dostęp do grupy zasobów. Po zapisaniu skoroszytu niestandardowego musisz przejść do galerii skoroszytów, aby go uruchomić.
+Skoroszyty są zapisywane w grupie zasobów w sekcji **Moje raporty** lub w sekcji **raporty udostępnione** . **Moje raporty** jest dostępny tylko dla Ciebie. **Raporty udostępnione** są dostępne dla wszystkich użytkowników mających dostęp do grupy zasobów.
 
-![Uruchom galerię skoroszytów z poziomu paska poleceń](./media/cosmosdb-insights-overview/gallery.png)
+Po zapisaniu skoroszytu niestandardowego przejdź do galerii skoroszytów, aby go otworzyć.
+
+![Pasek poleceń z wyróżnioną galerią](./media/cosmosdb-insights-overview/gallery.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Konfigurowanie [alertów metryk](../platform/alerts-metric.md) i [powiadomień o kondycji usług](../../service-health/alerts-activity-log-service-notifications.md) w celu skonfigurowania zautomatyzowanego alertu w celu uzyskania pomocy w wykrywaniu problemów.
+* Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
 
-* Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](../app/usage-workbooks.md).
+* Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../app/usage-workbooks.md).

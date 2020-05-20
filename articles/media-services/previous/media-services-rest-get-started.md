@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773680"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654523"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu usługi REST  
 
@@ -89,11 +89,11 @@ Za pomocą usługi Media Services można przekazać pliki cyfrowe do elementu za
 
 Jedną z wartości, które należy podać podczas tworzenia elementu zawartości, jest opcja tworzenia zasobów. Właściwość **Options** jest wartością wyliczenia opisującą opcje szyfrowania, za pomocą których można utworzyć zasób. Prawidłowa wartość jest jedną z wartości z poniższej listy, a nie kombinacją wartości z tej listy:
 
-* **Brak** = **0** — żadne szyfrowanie nie jest używane. W przypadku korzystania z tej opcji zawartość nie jest chroniona podczas przesyłania ani przechowywania w magazynie.
+* **Brak**  =  **0** — żadne szyfrowanie nie jest używane. W przypadku korzystania z tej opcji zawartość nie jest chroniona podczas przesyłania ani przechowywania w magazynie.
     Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
-* **StorageEncrypted** = **1** — szyfruje zawartość czystych danych lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazuje je do usługi Azure Storage, gdzie jest przechowywana w stanie spoczynku. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
-* **CommonEncryptionProtected** = **2** — Użyj tej opcji, jeśli przesyłasz zawartość, która została już zaszyfrowana i chroniona za pomocą Common Encryption lub technologii DRM (na przykład Smooth Streaming chronione za pomocą technologii PlayReady DRM).
-* **EnvelopeEncryptionProtected** = **4** — Użyj tej opcji, jeśli przekazujesz HLS szyfrowany przy użyciu algorytmu AES. Pliki muszą być zakodowane i zaszyfrowane przez Menedżera transformacji.
+* **StorageEncrypted**  =  **1** — szyfruje zawartość Wyczyść lokalnie przy użyciu szyfrowania AES-256 bit, a następnie przekazuje je do usługi Azure Storage, gdzie jest przechowywana w stanie spoczynku. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
+* **CommonEncryptionProtected**  =  **2** . Użyj tej opcji, jeśli przesyłasz zawartość, która została już zaszyfrowana i chroniona za pomocą Common Encryption lub technologii DRM (na przykład Smooth Streaming chronione za pomocą technologii PlayReady DRM).
+* **EnvelopeEncryptionProtected**  =  **4** — Użyj tej opcji, jeśli przekazujesz HLS szyfrowany przy użyciu algorytmu AES. Pliki muszą być zakodowane i zaszyfrowane przez Menedżera transformacji.
 
 ### <a name="create-an-asset"></a>Utwórz element zawartości
 Element zawartości to kontener dla wielu typów lub zestawów obiektów w Media Services, w tym wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów. W interfejsie API REST Tworzenie elementu zawartości wymaga wysłania żądania POST do Media Services i umieszczenia wszelkich informacji o właściwościach zasobu w treści żądania.
@@ -339,7 +339,7 @@ Po skonfigurowaniu AccessPolicy i lokalizatora rzeczywisty plik zostanie przekaz
 Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Aktualizowanie AssetFile
-Teraz, gdy plik został przekazany, zaktualizuj informacje o rozmiarze FileAsset (i innych). Przykład:
+Teraz, gdy plik został przekazany, zaktualizuj informacje o rozmiarze FileAsset (i innych). Na przykład:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -817,11 +817,11 @@ Właściwość zwracanej ścieżki zawiera adres URL sygnatury **dostępu** wsp�
 Po skonfigurowaniu usługi AccessPolicy i lokalizatora można pobierać pliki przy użyciu interfejsów API REST usługi Azure Storage.  
 
 > [!NOTE]
-> Należy dodać nazwę pliku, który ma zostać pobrany do wartości **ścieżki** lokalizatora otrzymanej w poprzedniej sekcji. Na przykład: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Należy dodać nazwę pliku, który ma zostać pobrany do wartości **ścieżki** lokalizatora otrzymanej w poprzedniej sekcji. Na przykład `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
 Aby uzyskać więcej informacji na temat pracy z obiektami BLOB usługi Azure Storage, zobacz [API REST usługa BLOB Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-W wyniku zadania kodowania, które zostało wykonane wcześniej (kodowanie w ramach adaptacyjnego zestawu MP4), istnieje wiele plików MP4, które można pobrać stopniowo. Przykład:    
+W wyniku zadania kodowania, które zostało wykonane wcześniej (kodowanie w ramach adaptacyjnego zestawu MP4), istnieje wiele plików MP4, które można pobrać stopniowo. Na przykład:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312495"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648422"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell
 
@@ -168,6 +168,8 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
    > Domyślna sonda Pobiera klucz publiczny z *domyślnego* powiązania TLS na adres IP zaplecza i porównuje wartość klucza publicznego, którą otrzymuje do wartości klucza publicznego, którą podano w tym miejscu. 
    > 
    > Jeśli używasz nagłówków hosta i Oznaczanie nazwy serwera (SNI) na zapleczu, pobrany klucz publiczny może nie być zamierzoną lokacją, do której przepływy ruchu. Jeśli masz wątpliwości, odwiedź stronę https://127.0.0.1/ na serwerach zaplecza, aby potwierdzić, który certyfikat jest używany dla *domyślnego* powiązania protokołu TLS. Użyj klucza publicznego z tego żądania w tej sekcji. Jeśli korzystasz z nagłówków hosta i SNI na powiązaniach HTTPS i nie otrzymasz odpowiedzi ani certyfikatu z ręcznego żądania przeglądarki do https://127.0.0.1/ serwerów zaplecza, musisz skonfigurować domyślne powiązanie protokołu TLS. Jeśli nie zostanie to zrobione, sondy zakończą się niepowodzeniem, a zaplecze nie listy dozwolonych.
+   
+   Aby uzyskać więcej informacji na temat SNI w Application Gateway, zobacz [Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -200,7 +202,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Skonfiguruj rozmiar wystąpienia bramy aplikacji. Dostępne rozmiary to **standardowe\_małe**, **standardowe\_** i **\_duże**.  W celu uzyskania pojemności dostępne są wartości od **1** do **10**.
+10. Skonfiguruj rozmiar wystąpienia bramy aplikacji. Dostępne rozmiary to **standardowe \_ małe**, **standardowe i \_ ** ** \_ duże**.  W celu uzyskania pojemności dostępne są wartości od **1** do **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -217,7 +219,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
     - **TLSV1_1**
     - **TLSV1_2**
     
-    W poniższym przykładzie ustawiono minimalną wersję protokołu do **TLSv1_2** i włącza **Protokół\_TLS\_\_\_\_\_128\_GCM SHA256**, **\_TLS ECDHE\_ECDSA\_z\_algorytmem\_AES 256\_GCM\_SHA384**i **TLS\_\_\_\_128\_GCM\_** SHA256.
+    W poniższym przykładzie ustawiono minimalną wersję protokołu do **TLSv1_2** i włącza **Protokół \_ TLS \_ \_ \_ \_ 128 \_ GCM \_ SHA256**, **tls \_ ECDHE \_ ECDSA \_ z \_ algorytmem AES \_ 256 \_ GCM \_ SHA384**i **TLS \_ \_ \_ \_ 128 \_ GCM \_ ** SHA256.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -310,7 +312,7 @@ Powyższe kroki przeprowadziły przez proces tworzenia aplikacji z kompleksowym 
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Zdefiniuj zasady protokołu TLS. W poniższym przykładzie **TLSv 1.0** i **TLSv 1.1** są wyłączone, a mechanizm szyfrowania **TLS\_\_\_\_\_128\_\_** GCM SHA256, **\_TLS ECDHE\_ECDSA\_z\_algorytmem\_AES 256\_GCM\_SHA384**i **TLS\_\_\_\_128\_\_** GCM SHA256 to jedyne dozwolone.
+2. Zdefiniuj zasady protokołu TLS. W poniższym przykładzie **TLSv 1.0** i **TLSv 1.1** są wyłączone, a mechanizm szyfrowania **TLS \_ \_ \_ \_ \_ 128 \_ \_ **GCM SHA256, **TLS \_ ECDHE \_ ECDSA \_ z \_ algorytmem AES \_ 256 \_ GCM \_ SHA384**i **TLS \_ \_ \_ \_ 128 \_ \_ ** GCM SHA256 to jedyne dozwolone.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

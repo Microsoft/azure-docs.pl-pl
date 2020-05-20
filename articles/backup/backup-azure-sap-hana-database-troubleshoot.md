@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi baz danych SAP HANA
 description: Opisuje sposób rozwiązywania typowych błędów, które mogą wystąpić podczas tworzenia kopii zapasowej SAP HANA baz danych przy użyciu Azure Backup.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01514847dcd38842d70c4caef2e38df9df3f620a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79459314"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652083"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych baz danych SAP HANA na platformie Azure
 
@@ -82,6 +82,13 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 | ------------------ | ------------------------------------------------------------ |
 | **Możliwe przyczyny**    | Parametry zapasowe są niepoprawnie określone dla usługi Azure Backup |
 | **Zalecana akcja** | Sprawdź, czy są ustawione następujące parametry (BACKINT):<br/>\*[catalog_backup_using_backint: true]<br/>\*[enable_accumulated_catalog_backup: false]<br/>\*[parallel_data_backup_backint_channels: 1]<br/>\*[log_backup_timeout_s: 900)]<br/>\*[backint_response_timeout: 7200]<br/>Jeśli na HOŚCIE znajdują się BACKINT parametry, usuń je. Jeśli parametry nie są dostępne na poziomie hosta, ale zostały ręcznie zmodyfikowane na poziomie bazy danych, przywróć je do odpowiednich wartości zgodnie z wcześniejszym opisem. Możesz też uruchomić polecenie [Zatrzymaj ochronę i zachować dane kopii zapasowej](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) z Azure Portal, a następnie wybrać polecenie **Wznów wykonywanie kopii zapasowej**. |
+
+### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
+
+|Komunikat o błędzie  |Systemy źródłowe i docelowe na potrzeby przywracania są niezgodne  |
+|---------|---------|
+|Możliwe przyczyny   | Systemy źródłowe i docelowe wybrane do przywracania są niezgodne        |
+|Zalecana akcja   |   Upewnij się, że scenariusz przywracania nie znajduje się na poniższej liście możliwych niezgodnych operacji przywracania: <br><br>   **Przypadek 1:** Nie można zmienić nazwy SYSTEMDB podczas przywracania.  <br><br> **Przypadek 2:** Source-SDC i Target-MDC: źródłowej bazy danych nie można przywrócić jako SYSTEMDB lub dzierżawcy bazy danych na serwerze docelowym. <br><br> **Przypadek 3:** Source-MDC i Target-SDC: nie można przywrócić źródłowej bazy danych (SYSTEMDB lub dzierżawcy bazy danych) do obiektu docelowego. <br><br>  Aby uzyskać więcej informacji, zapoznaj się z uwagą 1642148 w programie [SAP support Launchpad](https://launchpad.support.sap.com). |
 
 ## <a name="restore-checks"></a>Testy przywracania
 

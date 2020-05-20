@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3f54c296575b256339f4c22708c06e3579720e00
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121069"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647787"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
@@ -460,4 +460,4 @@ catch [Exception]
 
 Ta funkcja nie jest obecnie obsługiwana, ale możesz zadawać pytania do społeczności w [TechCommunity pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii na pulpicie wirtualnym systemu Windows](https://aka.ms/MRSFeedbackHub)lub pozostawić opinię dotyczącą narzędzia MSIX App i pakowanie w [aplikacji MSIX, dołączając centrum opinii](https://aka.ms/msixappattachfeedback) i [centrum opinii MSIX pakietu](https://aka.ms/msixtoolfeedback).
+Możesz również wystawić opinię na temat pulpitu wirtualnego systemu Windows w [centrum opinii pulpitu wirtualnego systemu Windows](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

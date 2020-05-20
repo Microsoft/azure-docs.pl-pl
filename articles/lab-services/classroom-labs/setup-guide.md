@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878106"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650537"
 ---
 # <a name="classroom-lab-setup-guide"></a>Przewodnik konfigurowania laboratorium zajęć
 
@@ -127,7 +127,12 @@ Po zrozumieniu wymagań dla laboratorium klasy można rozpocząć konfigurację.
    - [Włączanie automatycznego zamykania po rozłączeniu](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Harmonogramy, przydziały i automatyczne zamykanie nie mają zastosowania do szablonu maszyny wirtualnej. W związku z tym należy upewnić się, że wyłączasz maszynę wirtualną szablonu, gdy nie jest ona używana. W przeciwnym razie opłaty są nadal naliczane. Domyślnie podczas tworzenia laboratorium zostanie automatycznie uruchomiona maszyna wirtualna z szablonem. Upewnij się, że od razu zakończysz Konfigurowanie laboratorium i wyłączysz szablon maszyny wirtualnej.
+        > Harmonogramy i przydziały nie mają zastosowania do szablonu maszyny wirtualnej, ale obowiązują ustawienia automatycznego zamykania. 
+        > 
+        > Podczas tworzenia laboratorium jest tworzona maszyna wirtualna z szablonem, ale nie została ona uruchomiona. Można go uruchomić, nawiązać z nim połączenie i zainstalować wszystkie wstępnie wymagane oprogramowanie dla laboratorium, a następnie opublikować je. Po opublikowaniu szablonu maszyna wirtualna jest automatycznie zamykana, jeśli nie zostało to zrobione. 
+        > 
+        > Na maszynach wirtualnych szablonowych naliczane są **koszty** , dlatego należy się upewnić, że maszyna wirtualna jest ZAMKNIĘTA, gdy nie jest potrzebna do uruchomienia. 
+
 
 1. **Użyj pulpitu nawigacyjnego.** Aby uzyskać instrukcje, zobacz [Korzystanie z pulpitu nawigacyjnego laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 

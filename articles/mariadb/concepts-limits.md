@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 18f227c1888e0565eebb640fa61ced56dc994865
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632344"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653137"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Ograniczenia w Azure Database for MariaDB
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych.
@@ -48,7 +48,7 @@ Tworzenie nowych połączeń klientów do MariaDB trwa po upływie czasu i po je
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Pamięć podręczna zapytań jest domyślnie wyłączona. Aby włączyć pamięć podręczną zapytań, należy `query_cache_type` skonfigurować parametr. 
+Pamięć podręczna zapytań jest domyślnie wyłączona. Aby włączyć pamięć podręczną zapytań, należy skonfigurować `query_cache_type` parametr. 
 
 Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) , aby dowiedzieć się więcej o tym parametrze.
 
@@ -152,6 +152,12 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench. Zapoznaj się z artykułami [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) lub [interfejsem wiersza polecenia platformy Azure](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) dotyczącymi sposobu wywoływania procedury składowanej i ustawiania stref czasowych na poziomie globalnym lub w sesji.
 
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MariaDB przechowuje tabelę InnoDB w różnych obszarach tabel na podstawie konfiguracji podanej podczas tworzenia tabeli. Przestrzeń dyskowa [systemu](https://mariadb.com/kb/en/innodb-system-tablespaces/) jest obszarem magazynu dla słownika danych InnoDB. Obszar tabel dla [poszczególnych tabel](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) zawiera dane i indeksy dla pojedynczej tabeli InnoDB i jest przechowywany w systemie plików w osobnym pliku danych. Takie zachowanie jest kontrolowane przez `innodb_file_per_table` parametr serwer. Ustawienie `innodb_file_per_table` `OFF` powoduje, że InnoDB utworzyć tabele w obszarze obszary obszaru systemu. W przeciwnym razie InnoDB tworzy tabele w tabelach tabel w tabeli.
+
+Azure Database for MariaDB obsługuje o największych **1 TB**w jednym pliku danych. Jeśli rozmiar bazy danych jest większy niż 1 TB, należy utworzyć tabelę w [innodb_file_per_table](https://mariadb.com/kb/en/innodb-system-variables/#innodb_file_per_table) obszar tabel. Jeśli rozmiar pojedynczej tabeli jest większy niż 1 TB, należy użyć tabeli partycji.
+
 ## <a name="storage-engine-support"></a>Obsługa aparatu magazynu
 
 ### <a name="supported"></a>Obsługiwane
@@ -168,7 +174,7 @@ Tabele strefy czasowej mogą być wypełniane przez wywołanie `mysql.az_load_ti
 ### <a name="unsupported"></a>Nieobsługiwane
 - Rola DBA: wiele parametrów serwera i ustawień może przypadkowo obniżyć wydajność serwera lub Negate właściwości KWASów systemu DBMS. W związku z tym, aby zachować integralność usługi i umowę SLA na poziomie produktu, ta usługa nie ujawnia roli DBA. Domyślne konto użytkownika, które jest konstruowane podczas tworzenia nowego wystąpienia bazy danych, umożliwia temu użytkownikowi wykonywanie większości instrukcji języka DDL i DML w zarządzanym wystąpieniu bazy danych.
 - Uprawnienie "noprivileged": podobne [nieuprzywilejowane](https://mariadb.com/kb/en/library/grant/#global-privileges) również jest ograniczone.
-- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W `CREATE DEFINER` przypadku importowania danych przy użyciu kopii zapasowej Usuń polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
+- Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W przypadku importowania danych przy użyciu kopii zapasowej Usuń `CREATE DEFINER` polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulowania danymi
 

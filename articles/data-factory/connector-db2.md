@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: jingwang
-ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: b33f9a11cee08ea8c4accb683d70960d7f98e776
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891436"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659572"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -67,26 +67,26 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane w przypadku usługi połączonej z bazą danych DB2:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **DB2** | Tak |
-| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem bazy danych DB2.<br/> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Tak |
+| typ | Właściwość Type musi mieć wartość: **DB2** | Yes |
+| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem bazy danych DB2.<br/> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Yes |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 Typowe właściwości wewnątrz parametrów połączenia:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port`. |Tak |
-| database |Nazwa bazy danych DB2. |Tak |
-| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa**. |Tak |
-| nazwa użytkownika |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych programu DB2. |Tak |
-| hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
+| serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port` . |Yes |
+| database |Nazwa bazy danych DB2. |Yes |
+| authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa**. |Yes |
+| nazwa użytkownika |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych programu DB2. |Yes |
+| hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | pakietcollection | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. | Nie |
 | certificateCommonName | Korzystając z szyfrowania SSL (SSL) lub Transport Layer Security (TLS), należy wprowadzić wartość Nazwa pospolita certyfikatu. | Nie |
 
 > [!TIP]
-> Jeśli zostanie wyświetlony komunikat o błędzie informujący `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`o tym, że przyczyną jest wymagany pakiet nie jest tworzony dla użytkownika. Domyślnie ADF spróbuje utworzyć pakiet w obszarze Kolekcja o nazwie jako użytkownik, który został użyty do nawiązania połączenia z bazą danych DB2. Określ właściwość kolekcji pakietów, aby wskazać miejsce, w którym ma zostać utworzony zestaw danych na potrzeby wysyłania zapytań do bazy danych.
+> Jeśli zostanie wyświetlony komunikat o błędzie informujący o tym `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805` , że przyczyną jest wymagany pakiet nie jest tworzony dla użytkownika. Domyślnie ADF spróbuje utworzyć pakiet w obszarze Kolekcja o nazwie jako użytkownik, który został użyty do nawiązania połączenia z bazą danych DB2. Określ właściwość kolekcji pakietów, aby wskazać miejsce, w którym ma zostać utworzony zestaw danych na potrzeby wysyłania zapytań do bazy danych.
 
 **Przykład:**
 
@@ -96,7 +96,7 @@ Typowe właściwości wewnątrz parametrów połączenia:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;password=<password>;packageCollection=<packagecollection>;certificateCommonName=<certname>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -113,7 +113,7 @@ Typowe właściwości wewnątrz parametrów połączenia:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -164,14 +164,14 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z bazy danych DB2, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **Db2Table** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Db2Table** | Yes |
 | schematy | Nazwa schematu. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -199,9 +199,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z bazy danych DB2, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Db2Source** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **Db2Source** | Yes |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
@@ -249,7 +249,7 @@ Podczas kopiowania danych z programu DB2 następujące mapowania są używane z 
 | Obiekt blob |Byte [] |
 | Char |String |
 | Obiektów CLOB |String |
-| Date |Datetime (data/godzina) |
+| Data |Datetime (data/godzina) |
 | DB2DynArray |String |
 | DbClob |String |
 | Wartość dziesiętna |Wartość dziesiętna |

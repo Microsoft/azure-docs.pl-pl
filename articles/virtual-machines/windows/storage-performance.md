@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100553"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652596"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optymalizacja wydajności na maszynach wirtualnych z serii Lsv2
 
@@ -21,7 +21,7 @@ Maszyny wirtualne z serii Lsv2 obsługują różnorodne obciążenia, które wym
 
 Projekt Virtual Machines serii Lsv2 (VM) maksymalizuje procesor AMD EPYC™ 7551, aby zapewnić najlepszą wydajność między procesorem, pamięcią, urządzeniami interfejsu NVMe i maszynami wirtualnymi. Oprócz maksymalizowania wydajności sprzętu maszyny wirtualne z serii Lsv2 są przeznaczone do pracy z wymaganiami systemów operacyjnych Windows i Linux w celu zapewnienia lepszej wydajności przy użyciu sprzętu i oprogramowania.
 
-Dostrojenie oprogramowania i sprzętu w zoptymalizowanej wersji [systemu Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)wydanej na początku grudnia 2018 do portalu Azure Marketplace, który obsługuje maksymalną wydajność na urządzeniach interfejsu NVMe w maszynach wirtualnych z serii Lsv2.
+Dostrojenie oprogramowania i sprzętu w zoptymalizowanej wersji [systemu Windows Server 2019 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing)wydanej na początku grudnia 2018 do portalu Azure Marketplace, który obsługuje maksymalną wydajność na urządzeniach interfejsu NVMe w maszynach wirtualnych z serii Lsv2.
 
 Ten artykuł zawiera wskazówki i sugestie dotyczące zapewnienia, że obciążenia i aplikacje osiągają maksymalną wydajność zaprojektowaną na maszynach wirtualnych. Informacje na tej stronie będą stale aktualizowane, gdy więcej Lsv2 zoptymalizowanych obrazów zostanie dodanych do portalu Azure Marketplace.
 

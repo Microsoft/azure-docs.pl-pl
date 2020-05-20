@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259174"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649219"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Jak konfigurować i zapisywać konfigurację usługi API Management za pomocą narzędzia Git
 
@@ -31,7 +31,7 @@ Na poniższym diagramie przedstawiono omówienie różnych sposobów konfigurowa
 
 ![Konfiguracja usługi git][api-management-git-configure]
 
-Po wprowadzeniu zmian w usłudze za pomocą Azure Portal, poleceń cmdlet programu PowerShell lub interfejsu API REST zarządzasz swoją bazą danych konfiguracji usługi przy użyciu `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano po prawej stronie diagramu. Po lewej stronie diagramu pokazano, jak można zarządzać konfiguracją usługi przy użyciu repozytorium git i git dla usługi znajdującej się na `https://{name}.scm.azure-api.net`stronie.
+Po wprowadzeniu zmian w usłudze za pomocą Azure Portal, poleceń cmdlet programu PowerShell lub interfejsu API REST zarządzasz swoją bazą danych konfiguracji usługi przy użyciu `https://{name}.management.azure-api.net` punktu końcowego, jak pokazano po prawej stronie diagramu. Po lewej stronie diagramu pokazano, jak można zarządzać konfiguracją usługi przy użyciu repozytorium git i git dla usługi znajdującej się na stronie `https://{name}.scm.azure-api.net` .
 
 Poniższe kroki zawierają omówienie zarządzania wystąpieniem usługi API Management przy użyciu narzędzia Git.
 
@@ -118,7 +118,7 @@ Jeśli wprowadzisz zmiany w wystąpieniu usługi API Management w Azure Portal l
 git pull
 ```
 
-Przed uruchomieniem `git pull` upewnij się, że jesteś w folderze lokalnego repozytorium. Jeśli wykonano `git clone` polecenie po prostu, należy zmienić katalog na repozytorium, uruchamiając polecenie podobne do poniższego.
+Przed uruchomieniem `git pull` upewnij się, że jesteś w folderze lokalnego repozytorium. Jeśli wykonano polecenie po prostu `git clone` , należy zmienić katalog na repozytorium, uruchamiając polecenie podobne do poniższego.
 
 ```
 cd {name}.scm.azure-api.net/
@@ -174,7 +174,7 @@ Te pliki można tworzyć, usuwać, edytować i zarządzać nimi w lokalnym syste
 >
 > * [Użytkownicy](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [Subskrypcje](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Nazwane wartości](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * Nazwane wartości
 > * Jednostki portalu dla deweloperów inne niż style
 >
 
@@ -198,7 +198,7 @@ Folder główny `api-management` zawiera `configuration.json` plik zawierający 
 }
 ```
 
-Pierwsze cztery ustawienia`RegistrationEnabled`(, `UserRegistrationTerms`, `UserRegistrationTermsEnabled`i `UserRegistrationTermsConsentRequired`) są mapowane na następujące ustawienia na karcie **tożsamości** w sekcji **zabezpieczenia** .
+Pierwsze cztery ustawienia ( `RegistrationEnabled` , `UserRegistrationTerms` , `UserRegistrationTermsEnabled` i) są `UserRegistrationTermsConsentRequired` mapowane na następujące ustawienia na karcie **tożsamości** w sekcji **zabezpieczenia** .
 
 | Ustawienie tożsamości | Mapuje do |
 | --- | --- |
@@ -208,7 +208,7 @@ Pierwsze cztery ustawienia`RegistrationEnabled`(, `UserRegistrationTerms`, `User
 | UserRegistrationTermsConsentRequired |Pole wyboru **wymaganie zgody** |
 | RequireUserSigninEnabled |Pole wyboru **Przekieruj użytkowników anonimowych do strony logowania** |
 
-Kolejne cztery ustawienia`DelegationEnabled`(, `DelegationUrl`, `DelegatedSubscriptionEnabled`i `DelegationValidationKey`) są mapowane na następujące ustawienia na karcie **delegowanie** w sekcji **zabezpieczenia** .
+Kolejne cztery ustawienia ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` i) są `DelegationValidationKey` mapowane na następujące ustawienia na karcie **delegowanie** w sekcji **zabezpieczenia** .
 
 | Ustawienie delegowania | Mapuje do |
 | --- | --- |
@@ -217,23 +217,23 @@ Kolejne cztery ustawienia`DelegationEnabled`(, `DelegationUrl`, `DelegatedSubscr
 | DelegatedSubscriptionEnabled |Pole wyboru **delegowania subskrypcji produktu** |
 | DelegationValidationKey |Pole tekstowe **delegowania klucza weryfikacji** |
 
-Ustawienie `$ref-policy`końcowe, mapuje na plik globalnych zestawień zasad dla wystąpienia usługi.
+Ustawienie końcowe, `$ref-policy` mapuje na plik globalnych zestawień zasad dla wystąpienia usługi.
 
 ### <a name="apis-folder"></a>folder interfejsów API
-`apis` Folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi, który zawiera następujące elementy.
+`apis`Folder zawiera folder dla każdego interfejsu API w wystąpieniu usługi, który zawiera następujące elementy.
 
 * `apis\<api name>\configuration.json`— Konfiguracja interfejsu API i zawiera informacje o adresie URL usługi wewnętrznej bazy danych i operacjach. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania [funkcji Pobierz konkretny interfejs API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) `export=true` w formacie in `application/json` .
 * `apis\<api name>\api.description.html`— jest to opis interfejsu API i odpowiada `description` właściwości [jednostki interfejsu API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\`-Ten folder zawiera `<operation name>.description.html` pliki, które są mapowane na operacje w interfejsie API. Każdy plik zawiera opis pojedynczej operacji w interfejsie API, która jest mapowana na `description` Właściwość [jednostki operacji](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) w interfejsie API REST.
 
 ### <a name="groups-folder"></a>folder grup
-`groups` Folder zawiera folder dla każdej grupy zdefiniowanej w wystąpieniu usługi.
+`groups`Folder zawiera folder dla każdej grupy zdefiniowanej w wystąpieniu usługi.
 
 * `groups\<group name>\configuration.json`-Konfiguracja grupy. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [Pobierz określoną grupę](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
 * `groups\<group name>\description.html`-jest to opis grupy i odpowiada `description` właściwości [jednostki grupy](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>folder zasad
-`policies` Folder zawiera instrukcje zasad dla Twojego wystąpienia usługi.
+`policies`Folder zawiera instrukcje zasad dla Twojego wystąpienia usługi.
 
 * `policies\global.xml`-zawiera zasady zdefiniowane w globalnym zakresie dla Twojego wystąpienia usługi.
 * `policies\apis\<api name>\`— Jeśli masz jakieś zasady zdefiniowane w zakresie interfejsu API, są one zawarte w tym folderze.
@@ -241,19 +241,19 @@ Ustawienie `$ref-policy`końcowe, mapuje na plik globalnych zestawień zasad dla
 * `policies\products\`— Jeśli masz jakieś zasady zdefiniowane w zakresie produktu, są one zawarte w tym folderze, który zawiera `<product name>.xml` pliki, które są mapowane na oświadczenia zasad dla każdego produktu.
 
 ### <a name="portalstyles-folder"></a>folder portalStyles
-`portalStyles` Folder zawiera konfiguracje i arkusze stylów dla dostosowań portalu deweloperów dla wystąpienia usługi.
+`portalStyles`Folder zawiera konfiguracje i arkusze stylów dla dostosowań portalu deweloperów dla wystąpienia usługi.
 
 * `portalStyles\configuration.json`-zawiera nazwy arkuszy stylów używanych przez portal dla deweloperów
-* `portalStyles\<style name>.css`-Każdy `<style name>.css` plik zawiera style dla portalu dla deweloperów (`Preview.css` i `Production.css` domyślnie).
+* `portalStyles\<style name>.css`-Każdy `<style name>.css` plik zawiera style dla portalu dla deweloperów ( `Preview.css` i `Production.css` domyślnie).
 
 ### <a name="products-folder"></a>folder produkty
-`products` Folder zawiera folder dla każdego produktu zdefiniowanego w wystąpieniu usługi.
+`products`Folder zawiera folder dla każdego produktu zdefiniowanego w wystąpieniu usługi.
 
 * `products\<product name>\configuration.json`— jest to konfiguracja produktu. Są to te same informacje, które zostałyby zwrócone w przypadku wywołania operacji [pobierania określonego produktu](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
 * `products\<product name>\product.description.html`-Opis produktu i odpowiada `description` właściwości [jednostki produktu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) w interfejsie API REST.
 
 ### <a name="templates"></a>szablonów
-`templates` Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
+`templates`Folder zawiera konfigurację [szablonów wiadomości e-mail](api-management-howto-configure-notifications.md) wystąpienia usługi.
 
 * `<template name>\configuration.json`— konfiguracja szablonu wiadomości e-mail.
 * `<template name>\body.html`-treść szablonu wiadomości e-mail.

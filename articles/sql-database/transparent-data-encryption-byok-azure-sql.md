@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7c9cdf6ee671083420ae8d8fad393110353b8e1a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792041"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657020"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Usługa Azure SQL Transparent Data Encryption z kluczem zarządzanym przez klienta
 
@@ -159,7 +159,7 @@ Aby przywrócić kopię zapasową zaszyfrowaną przy użyciu funkcji ochrony TDE
 > [!IMPORTANT]
 > W każdej chwili dla serwera nie może być więcej niż jeden zestaw funkcji ochrony TDE. Jest to klucz oznaczony przy użyciu funkcji "Ustaw klucz jako domyślną ochronę TDE" w bloku Azure Portal. Jednak wiele dodatkowych kluczy można połączyć z serwerem bez oznaczania ich jako funkcji ochrony TDE. Te klucze nie są używane do ochrony klucza szyfrowania danych, ale mogą być używane podczas przywracania z kopii zapasowej, jeśli plik kopii zapasowej jest szyfrowany przy użyciu klucza o odpowiednim odcisku palca.
 
-Jeśli klucz, który jest wymagany do przywracania kopii zapasowej, nie jest już dostępny dla serwera docelowego, zwracany jest następujący komunikat o błędzie: "serwer `<Servername>` docelowy nie ma dostępu do wszystkich identyfikatorów URI AKV utworzonych między \<sygnaturą czasową #1> i \<sygnatury czasowej #2>. Spróbuj ponownie wykonać operację po przywróceniu wszystkich identyfikatorów URI AKV ".
+Jeśli klucz, który jest wymagany do przywracania kopii zapasowej, nie jest już dostępny dla serwera docelowego, zwracany jest następujący komunikat o błędzie: "serwer docelowy nie `<Servername>` ma dostępu do wszystkich identyfikatorów URI AKV utworzonych między \< sygnaturą czasową #1> i \< sygnatury czasowej #2>. Spróbuj ponownie wykonać operację po przywróceniu wszystkich identyfikatorów URI AKV ".
 
 Aby rozwiązać ten problem, uruchom polecenie cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) dla SQL Database docelowego serwera logicznego lub [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) dla docelowego wystąpienia zarządzanego, aby zwrócić listę dostępnych kluczy i zidentyfikować brakujące. Aby mieć pewność, że można przywrócić wszystkie kopie zapasowe, upewnij się, że serwer docelowy do przywracania ma dostęp do wszystkich wymaganych kluczy. Klucze te nie muszą być oznaczone jako funkcja ochrony TDE.
 

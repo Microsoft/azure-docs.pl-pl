@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655328"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Zapewnianie przepływności dla bazy danych w Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Udostępnianie standardowej (ręcznej) przepływności dla bazy danych w Azure Cosmos DB
 
-W tym artykule wyjaśniono, jak zainicjować przepływność dla bazy danych w Azure Cosmos DB. Można zainicjować przepływność dla jednego [kontenera](how-to-provision-container-throughput.md)lub dla bazy danych i udostępnić przepływność między kontenerami w tym kontenerze. Aby dowiedzieć się, kiedy należy używać poziomu kontenera i przepływności na poziomie bazy danych, zobacz artykuł [dotyczący obsługi przepływności dla kontenerów i baz danych](set-throughput.md) . Przepływność na poziomie bazy danych możesz aprowizować za pomocą witryny Azure Portal lub zestawów SDK usługi Azure Cosmos DB.
+W tym artykule wyjaśniono, jak zapewnić przepustowość standardową (ręczną) w bazie danych programu Azure Cosmos DB. Można zainicjować przepływność dla jednego [kontenera](how-to-provision-container-throughput.md)lub dla bazy danych i udostępnić przepływność między kontenerami w tym kontenerze. Aby dowiedzieć się, kiedy należy używać poziomu kontenera i przepływności na poziomie bazy danych, zobacz artykuł [dotyczący obsługi przepływności dla kontenerów i baz danych](set-throughput.md) . Przepływność na poziomie bazy danych możesz aprowizować za pomocą witryny Azure Portal lub zestawów SDK usługi Azure Cosmos DB.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprowizowanie przepływności przy użyciu witryny Azure Portal
 
@@ -84,5 +84,6 @@ Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o apro
 
 * [Globalne skalowanie aprowizowanej przepływności](scaling-throughput.md)
 * [Aprowizacja przepływności kontenerów i baz danych](set-throughput.md)
-* [How to provision throughput for a container (Jak aprowizować przepływność dla kontenera)](how-to-provision-container-throughput.md)
+* [Jak zapewnić przepustowość standardową (ręczną) dla kontenera](how-to-provision-container-throughput.md)
+* [Jak udostępnić przepływność automatycznego skalowania dla kontenera](how-to-provision-autoscale-throughput.md)
 * [Jednostki żądania i przepływności w usłudze Azure Cosmos DB](request-units.md)

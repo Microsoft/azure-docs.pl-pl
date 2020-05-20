@@ -1,26 +1,26 @@
 ---
-title: Moduły IoT Edge portalu Azure Marketplace
-description: Oferta modułu IoT Edge w portalu Azure Marketplace dla wydawców aplikacji i usług.
+title: Oferty modułu IoT Edge portalu Azure Marketplace
+description: Dowiedz się więcej o publikowaniu ofert modułu IoT Edge w portalu Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49f86a79eb5358d27c15d93004db396436c3e680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684338"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657957"
 ---
 # <a name="iot-edge-modules"></a>Moduły usługi IoT Edge
 
-Platforma [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) jest obsługiwana przez chmurę platformy Azure.  Ta platforma umożliwia użytkownikom wdrażanie obciążeń w chmurze do uruchomienia bezpośrednio na urządzeniach IoT.  Moduł IoT Edge może uruchamiać obciążenia w trybie offline i analizować dane lokalnie. Ten typ oferty pomaga zaoszczędzić przepustowość, chronić lokalne i poufne dane oraz zapewnia czas odpowiedzi o małym opóźnieniu.  Masz teraz możliwość skorzystania z tych wstępnie skompilowanych obciążeń. Do tej pory dostępne są tylko kilku rozwiązań pierwszej firmy od firmy Microsoft.  Musisz zainwestować czas i zasoby na tworzenie własnych niestandardowych rozwiązań IoT.
+Platforma [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) jest obsługiwana przez Microsoft Azure.  Ta platforma umożliwia użytkownikom wdrażanie obciążeń w chmurze do uruchomienia bezpośrednio na urządzeniach IoT.  Moduł IoT Edge może uruchamiać obciążenia w trybie offline i analizować dane lokalnie. Ten typ oferty pomaga zaoszczędzić przepustowość, chronić lokalne i poufne dane oraz zapewnia czas odpowiedzi o małym opóźnieniu.  Masz teraz możliwość skorzystania z tych wstępnie skompilowanych obciążeń. Do tej pory dostępne są tylko kilku rozwiązań pierwszej firmy od firmy Microsoft.  Musisz zainwestować czas i zasoby na tworzenie własnych niestandardowych rozwiązań IoT.
 
-Wprowadzając [moduły IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), mamy teraz jedną lokalizację docelową umożliwiającą wydawcom udostępnianie i sprzedawanie rozwiązań dla odbiorców IoT. Deweloperzy IoT mogą ostatecznie znajdować i kupować funkcje przyspieszające tworzenie rozwiązań.  
+Dzięki [modułom IoT Edge w portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)firma Microsoft dysponuje jednym miejscem docelowym umożliwiającym wystawianie i sprzedawanie rozwiązań użytkownikom IoT. Deweloperzy IoT mogą ostatecznie znajdować i kupować funkcje przyspieszające tworzenie rozwiązań.  
 
-## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Najważniejsze zalety modułów IoT Edge w portalu Azure Marketplace:
+## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Najważniejsze zalety modułów IoT Edge w portalu Azure Marketplace
 
 | **Dla wydawców**    | **Dla klientów (deweloperzy IoT)**  |
 | :------------------- | :-------------------|

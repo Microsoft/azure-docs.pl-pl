@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858785"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651119"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Często zadawane pytania dotyczące migracji usługi Azure Storage
 
@@ -215,7 +215,7 @@ Nie istnieje rozwiązanie do tworzenia kopii zapasowych. Jednak Azure Files obs�
 - Z udziału do kontenera obiektów BLOB w ramach konta magazynu lub na inne konto magazynu.
 
 Aby uzyskać więcej informacji, zobacz [transfer danych za pomocą usługi AzCopy w systemie Windows](storage-use-azcopy.md).
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 **Jak mogę zmienić lokalizację dodatkową na Region Europa dla konta magazynu?**
 
@@ -263,11 +263,11 @@ Aby umożliwić innym osobom dostęp do zasobów magazynu:
 
 -   Jeśli uzyskujesz dostęp do AzCopy z wiersza polecenia Microsoft Azure Storage, wpisz **AzCopy**. Wiersz polecenia jest instalowany razem z AzCopy.
 
--   Jeśli zainstalowano wersję 32-bitową, znajduje się ona tutaj: **% ProgramFiles (x86)\\% Microsoft\\SDK\\Azure AzCopy**.
+-   Jeśli zainstalowano wersję 32-bitową, znajduje się ona tutaj: **% ProgramFiles (x86)% \\ Microsoft SDK \\ Azure \\ AzCopy**.
 
--   Jeśli zainstalowano wersję 64-bitową, znajduje się ona tutaj: **% ProgramFiles\\% Microsoft\\SDK\\Azure AzCopy**.
+-   Jeśli zainstalowano wersję 64-bitową, znajduje się ona tutaj: **% ProgramFiles% \\ Microsoft SDK \\ Azure \\ AzCopy**.
 
-**Jak mogę użyć domeny niestandardowej protokołu HTTPS z kontem magazynu? Na przykład jak utworzyć "https:\//mystorageaccountname.blob.Core.Windows.net/images/Image.gif" jako "https:\//www.contoso.com/images/Image.gif"?**
+**Jak mogę użyć domeny niestandardowej protokołu HTTPS z kontem magazynu? Na przykład jak utworzyć "https: \/ /mystorageaccountname.blob.Core.Windows.net/images/Image.gif" jako "https: \/ /www.contoso.com/images/Image.gif"?**
 
 Protokoły TLS/SSL nie są obecnie obsługiwane na kontach magazynu z domenami niestandardowymi.
 Można jednak używać domen niestandardowych innych niż HTTPS. Aby uzyskać więcej informacji, zobacz [Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi BLOB Storage](../blobs/storage-custom-domain-name.md).
@@ -288,9 +288,9 @@ Magazyn Geograficznie nadmiarowy do odczytu jest wymagany w celu uzyskania dost�
 
 -   W przypadku korzystania z magazynu geograficznie nadmiarowego dostępnego do odczytu można w dowolnym momencie uzyskać dostęp do danych z regionu pomocniczego. Użyj jednej z następujących metod:  
 
-    - **AzCopy**: Dołącz do nazwy konta magazynu w adresie URL **, aby uzyskać** dostęp do pomocniczego punktu końcowego. Przykład:  
+    - **AzCopy**: Dołącz do nazwy konta magazynu w adresie URL **, aby uzyskać** dostęp do pomocniczego punktu końcowego. Na przykład:  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **Token SAS**: Użyj tokenu sygnatury dostępu współdzielonego, aby uzyskać dostęp do danych z punktu końcowego. Aby uzyskać więcej informacji, zobacz [Używanie sygnatur dostępu współdzielonego](storage-sas-overview.md).
 

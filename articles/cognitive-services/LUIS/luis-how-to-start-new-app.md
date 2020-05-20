@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585627"
+ms.locfileid: "83653915"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Tworzenie nowej aplikacji LUIS w portalu LUIS
 Istnieje kilka sposobów tworzenia aplikacji LUIS. Aplikację LUIS można utworzyć w portalu LUIS lub za pomocą [interfejsów API](developer-reference-resource.md)tworzenia Luis.
@@ -45,10 +45,10 @@ Nową aplikację można utworzyć za pomocą interfejsów API tworzenia na kilka
 
 ## <a name="create-new-app-in-luis"></a>Utwórz nową aplikację w LUIS
 
-1. Na stronie **Moje aplikacje** wybierz swoją subskrypcję, a następnie **Utwórz**zasób, a następnie kliknij pozycję Włącz. Jeśli używasz bezpłatnego klucza wersji próbnej, Dowiedz się, jak [utworzyć zasób tworzenia](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. Na stronie **Moje aplikacje** wybierz swoją **subskrypcję**, a następnie **Utwórz** **zasób** , a następnie kliknij pozycję Włącz. Jeśli używasz bezpłatnego klucza wersji próbnej, Dowiedz się, jak [utworzyć zasób tworzenia](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Lista aplikacji LUIS](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Lista aplikacji LUIS](./media/create-app-in-portal.png)
 
 1. W oknie dialogowym wprowadź nazwę aplikacji, na przykład `Pizza Tutorial` .
 
@@ -64,7 +64,7 @@ Nową aplikację można utworzyć za pomocą interfejsów API tworzenia na kilka
     > [!div class="mx-imgBorder"]
     > ![Lista założeń z zamiarem nie została utworzona bez przykładu wyrażenia długości.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Inne dostępne akcje
+## <a name="other-actions-available-on-my-apps-page"></a>Inne akcje dostępne na stronie Moje aplikacje
 
 Pasek narzędzi kontekstowych zawiera inne akcje:
 

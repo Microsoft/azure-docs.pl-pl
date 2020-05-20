@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474856"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659564"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Uzyskaj odpowiedź przy użyciu interfejsu API GenerateAnswer i metadanych
 
@@ -64,7 +64,7 @@ Wywołanie GenerateAnswer z żądaniem HTTP POST. Przykładowy kod, który pokaz
 Żądanie POST używa:
 
 * Wymagane [Parametry identyfikatora URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Wymagana właściwość nagłówka, `Authorization`w przypadku zabezpieczeń
+* Wymagana właściwość nagłówka, w `Authorization` przypadku zabezpieczeń
 * Wymagane [właściwości treści](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
 Adres URL GenerateAnswer ma następujący format:
@@ -73,7 +73,7 @@ Adres URL GenerateAnswer ma następujący format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Należy pamiętać, aby ustawić właściwość `Authorization` nagłówka HTTP z wartością ciągu `EndpointKey` z końcowym miejscem, a następnie na stronie **Ustawienia** znajdował się klucz punktu końcowego.
+Należy pamiętać, aby ustawić właściwość nagłówka HTTP z `Authorization` wartością ciągu `EndpointKey` z końcowym miejscem, a następnie na stronie **Ustawienia** znajdował się klucz punktu końcowego.
 
 Przykładowa treść JSON wygląda następująco:
 
@@ -168,7 +168,7 @@ Poprzedni kod JSON zażądał tylko odpowiedzi o wartości co najmniej 30% lub w
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Korzystanie z metadanych do filtrowania odpowiedzi według niestandardowych tagów metadanych
 
-Dodanie metadanych umożliwia filtrowanie odpowiedzi według tych tagów metadanych. Dodaj kolumnę Metadata z menu **Opcje widoku** . Dodaj metadane do bazy wiedzy, wybierając ikonę metadanych **+** w celu dodania pary metadanych. Ta para składa się z jednego klucza i jednej wartości.
+Dodanie metadanych umożliwia filtrowanie odpowiedzi według tych tagów metadanych. Dodaj kolumnę Metadata z menu **Opcje widoku** . Dodaj metadane do bazy wiedzy, wybierając **+** ikonę metadanych w celu dodania pary metadanych. Ta para składa się z jednego klucza i jednej wartości.
 
 ![Zrzut ekranu przedstawiający dodawanie metadanych](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -226,9 +226,9 @@ Odpowiedź na GenerateAnswer zawiera odpowiednie informacje o metadanych dopasow
 
 ## <a name="match-questions-only-by-text"></a>Dopasuj tylko pytania według tekstu
 
-Domyślnie QnA Maker przeszukuje pytania i odpowiedzi. Jeśli chcesz wyszukać tylko pytania, aby wygenerować odpowiedź, użyj wpisu `RankerType=QuestionOnly` w treści post żądania GenerateAnswer.
+Domyślnie QnA Maker przeszukuje pytania i odpowiedzi. Jeśli chcesz wyszukać tylko pytania, aby wygenerować odpowiedź, użyj `RankerType=QuestionOnly` wpisu w treści post żądania GenerateAnswer.
 
-Możesz przeszukiwać opublikowaną KB, używając `isTest=false`lub test KB przy użyciu. `isTest=true`
+Możesz przeszukiwać opublikowaną KB, używając `isTest=false` lub test KB przy użyciu `isTest=true` .
 
 ```json
 {
@@ -241,7 +241,7 @@ Możesz przeszukiwać opublikowaną KB, używając `isTest=false`lub test KB prz
 
 ## <a name="common-http-errors"></a>Typowe błędy HTTP
 
-|Code|Wyjaśnienie|
+|Kod|Wyjaśnienie|
 |:--|--|
 |2xx|Powodzenie|
 |400|Parametry żądania są niepoprawne, co oznacza, że brakuje wymaganych parametrów, są źle sformułowane lub zbyt duże|
@@ -256,4 +256,4 @@ Możesz przeszukiwać opublikowaną KB, używając `isTest=false`lub test KB prz
 Strona **Publikowanie** zawiera również informacje umożliwiające [wygenerowanie odpowiedzi](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) z elementem Poster lub zwinięciem.
 
 > [!div class="nextstepaction"]
-> [Tworzenie bazy wiedzy bot](../tutorials/integrate-qnamaker-luis.md)
+> [Uzyskiwanie danych analitycznych na potrzeby bazy wiedzy](../how-to/get-analytics-knowledge-base.md)

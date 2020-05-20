@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2547a0fdbfbcc143ff822de333b41198f469375c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683270"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649326"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Dodawanie grup i zarządzanie nimi w jednostkach administracyjnych w Azure Active Directory
 
@@ -75,7 +75,7 @@ Przykład:
 
 Przejdź do pozycji **jednostki administracyjne usługi Azure AD >** w portalu. Wybierz jednostkę administracyjną, dla której chcesz wyświetlić listę użytkowników. Domyślnie **Wszyscy użytkownicy** są wybierani już w lewym panelu. Zaznacz **wszystkie grupy** i po prawej stronie znajdziesz listę grup, które są członkami wybranej jednostki administracyjnej.
 
-![Wybierz jednostkę administracyjną do usunięcia](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+![Wyświetl listę grup w jednostce administracyjnej](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -121,11 +121,11 @@ W portalu usługi Azure AD można otworzyć Szczegóły grupy, otwierając **gru
 
 Istnieją dwa sposoby usuwania grupy z jednostki administracyjnej w Azure Portal.
 
-Otwórz**grupy** **usługi Azure AD** > i Otwórz profil dla grupy, którą chcesz usunąć z jednostki administracyjnej. Wybierz pozycję **jednostki administracyjne** w lewym panelu, aby wyświetlić listę wszystkich jednostek administracyjnych, w których grupa jest członkiem. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
+Otwórz **grupy usługi Azure AD**  >  **Groups** i Otwórz profil dla grupy, którą chcesz usunąć z jednostki administracyjnej. Wybierz pozycję **jednostki administracyjne** w lewym panelu, aby wyświetlić listę wszystkich jednostek administracyjnych, w których grupa jest członkiem. Wybierz jednostkę administracyjną, z której chcesz usunąć grupę, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
 
 ![Usuwanie grupy z jednostki administracyjnej](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-Alternatywnie możesz przejść do pozycji**jednostki administracyjne** **usługi Azure AD** > i wybrać jednostkę administracyjną, do której należy Grupa. Wybierz **grupy** w lewym panelu, aby wyświetlić listę grup elementów członkowskich. Wybierz grupę, która ma zostać usunięta z jednostki administracyjnej, a następnie wybierz pozycję **Usuń grupy**.
+Alternatywnie możesz przejść do pozycji jednostki **administracyjne usługi Azure AD**  >  **Administrative units** i wybrać jednostkę administracyjną, do której należy Grupa. Wybierz **grupy** w lewym panelu, aby wyświetlić listę grup elementów członkowskich. Wybierz grupę, która ma zostać usunięta z jednostki administracyjnej, a następnie wybierz pozycję **Usuń grupy**.
 
 ![Wyświetl listę grup w jednostce administracyjnej](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 

@@ -4,12 +4,12 @@ description: Krótkie wprowadzenie do poleceń cmdlet programu Azure PowerShell,
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b768fac7fa6fe0f4821a4fbaf5fa11414b10f81d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8777edbc99550b2fb1f14df00936de57801b0aab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995312"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657319"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Zarządzanie zasobami usługi Batch za pomocą poleceń cmdlet programu PowerShell
 
@@ -39,13 +39,13 @@ Informacje w tym artykule dotyczą poleceń cmdlet modułu usługi Az Batch w we
 
 ### <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
 
-Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Przykład:
+Polecenie **New-AzBatchAccount** umożliwia utworzenie konta usługi Batch w określonej grupie zasobów. Jeśli nie masz jeszcze grupy zasobów, utwórz ją, uruchamiając polecenie cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). W parametrze **Location** określ jeden z regionów świadczenia usługi Azure, na przykład „Środkowe stany USA”. Na przykład:
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Przykład:
+Następnie utwórz konto usługi Batch w grupie zasobów. Określ nazwę konta w parametrze <*nazwa_konta*> i lokalizację oraz nazwę grupy zasobów. Tworzenie konta usługi Batch może zająć nieco czasu. Na przykład:
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -79,7 +79,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Usuwanie konta usługi Batch
 
-Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Przykład:
+Polecenie **Remove-AzBatchAccount** umożliwia usunięcie konta usługi Batch. Na przykład:
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -164,7 +164,7 @@ Parametr **Id** obsługuje tylko wyszukiwanie pełnych identyfikatorów, a nie s
 
 ### <a name="use-the-maxcount-parameter"></a>Korzystanie z parametru MaxCount
 
-Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Przykład:
+Domyślnie każde polecenie cmdlet zwraca maksymalnie 1000 obiektów. W przypadku osiągnięcia tego limitu zmień ustawienia filtru w taki sposób, aby zwracał mniej obiektów, lub jawnie ustaw wartość maksymalną przy użyciu parametru **MaxCount** (Maksymalna liczba). Na przykład:
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
@@ -247,9 +247,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Teraz utwórz pulę i określ obiekt odwołania do pakietu jako argument opcji `ApplicationPackageReferences`:
+Teraz Utwórz konfigurację i pulę. W tym przykładzie używany jest parametr **CloudServiceConfiguration** z `PSCloudServiceConfiguration` obiektem typu, który został zainicjowany w `$configuration` , który ustawia **rodzina systemów operacyjnych** `6` dla systemu Windows Server 2019 ' i **OSVersion** na `*` . Określ obiekt odwołania do pakietu jako argument dla `ApplicationPackageReferences` opcji:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 

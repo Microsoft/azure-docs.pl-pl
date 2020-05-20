@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855875"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648139"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway
 
@@ -27,7 +27,7 @@ Application Gateway obsługuje zakończenie protokołu TLS w bramie, po którym 
 - **Inteligentne Routing** — przez odszyfrowanie ruchu, Brama aplikacji ma dostęp do zawartości żądania, takiej jak nagłówki, identyfikator URI itd., i może używać tych danych do przesyłania żądań.
 - **Zarządzanie certyfikatami** — certyfikaty muszą być zakupione i zainstalowane tylko w bramie aplikacji, a nie na wszystkich serwerach zaplecza. Pozwala to zaoszczędzić czas i pieniądze.
 
-Aby skonfigurować zakończenie protokołu TLS, do odbiornika musi zostać dodany certyfikat protokołu TLS/SSL, aby umożliwić bramie aplikacji uzyskanie klucza symetrycznego zgodnie ze specyfikacją protokołu TLS/SSL. Klucz symetryczny jest następnie używany do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. Certyfikat TLS/SSL musi być w formacie wymiany informacji osobistych (PFX). Ten format pliku umożliwia wyeksportowanie klucza prywatnego wymaganego przez bramę aplikacji w celu przeprowadzenia szyfrowania i odszyfrowywania ruchu.
+Aby skonfigurować zakończenie protokołu TLS, do odbiornika musi zostać dodany certyfikat TLS/SSL, aby umożliwić Application Gateway uzyskanie klucza symetrycznego zgodnie ze specyfikacją protokołu TLS/SSL. Klucz symetryczny jest następnie używany do szyfrowania i odszyfrowywania ruchu wysyłanego do bramy. Certyfikat TLS/SSL musi być w formacie wymiany informacji osobistych (PFX). Ten format pliku umożliwia wyeksportowanie klucza prywatnego wymaganego przez bramę aplikacji w celu przeprowadzenia szyfrowania i odszyfrowywania ruchu.
 
 > [!IMPORTANT] 
 > Należy pamiętać, że certyfikat w odbiorniku wymaga przeładowania całego łańcucha certyfikatów. 
@@ -56,23 +56,21 @@ Aby uzyskać więcej informacji, zobacz [Konfigurowanie zakończenia protokołu 
 ### <a name="size-of-the-certificate"></a>Rozmiar certyfikatu
 Sprawdź sekcję [limity Application Gateway](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) , aby poznać maksymalny obsługiwany rozmiar certyfikatu TLS/SSL.
 
-## <a name="end-to-end-tls-encryption"></a>Kompleksowe szyfrowanie TLS
+## <a name="end-to-end-tls-encryption"></a>Kompleksowe szyfrowanie protokołu TLS
 
-Niektórzy klienci mogą nie chcieć nieszyfrowanej komunikacji z serwerami zaplecza. Może to być spowodowane wymaganiami dotyczącymi zabezpieczeń lub zgodności albo aplikacja może akceptować jedynie bezpieczne połączenia. W przypadku takich aplikacji Brama Application Gateway obsługuje kompleksowe szyfrowanie TLS.
+Nie należy zaszyfrować nieszyfrowanej komunikacji z serwerami zaplecza. Mogą istnieć wymagania dotyczące zabezpieczeń, wymagania dotyczące zgodności lub aplikacja może akceptować tylko bezpieczne połączenie. Aby zapewnić obsługę tych wymagań, usługa Azure Application Gateway ma kompleksowe szyfrowanie TLS.
 
-Kompleksowa usługa TLS pozwala bezpiecznie przesyłać poufne dane do zaszyfrowanej wewnętrznej bazy danych przy jednoczesnym wykorzystaniu korzyści z funkcji równoważenia obciążenia warstwy 7, które oferuje Usługa Application Gateway. Do tych funkcji należą koligacja sesji oparta na plikach cookie, routing oparty na adresach URL, obsługa routingu opartego na witrynach lub możliwość iniekcji nagłówków X-Forwarded-*.
+Kompleksowa warstwa TLS umożliwia szyfrowanie i bezpieczne przesyłanie poufnych danych do zaplecza podczas korzystania z funkcji równoważenia obciążenia warstwy 7 Application Gateway. Te funkcje obejmują koligację sesji na podstawie plików cookie, routing oparty na adresach URL, obsługę routingu opartego na witrynach, możliwość ponownego zapisu lub iniekcji nagłówków X-Forwarded-* i tak dalej.
 
-Po skonfigurowaniu z kompleksowym trybem komunikacji TLS Brama aplikacji kończy sesje protokołu TLS na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Następnie usługa Application Gateway inicjuje nowe połączenie TLS z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego. Kompleksowa usługa TLS jest włączana przez ustawienie ustawienia protokołu w [ustawieniu http zaplecza](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) na https, który następnie jest stosowany do puli zaplecza.
+W przypadku skonfigurowania z kompleksowym trybem komunikacji TLS Application Gateway przerywa sesje protokołu TLS na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Application Gateway następnie Inicjuje nowe połączenie TLS z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego. Kompleksowa obsługa protokołu TLS jest włączana przez ustawienie protokołu w ustawieniu [http zaplecza](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) na https, który następnie jest stosowany do puli zaplecza.
 
-Zasady protokołu TLS dotyczą zarówno ruchu frontonu, jak i zaplecza. Na frontonie Application Gateway działa jako serwer i wymusza zasady. W zapleczu Application Gateway pełni rolę klienta i wysyła informacje o protokole i szyfrowania jako preferencję podczas uzgadniania TLS.
+W przypadku jednostki SKU Application Gateway i WAF V1 zasady protokołu TLS dotyczą zarówno ruchu frontonu, jak i zaplecza. Na frontonie Application Gateway działa jako serwer i wymusza zasady. W zapleczu Application Gateway pełni rolę klienta i wysyła informacje o protokole i szyfrowania jako preferencję podczas uzgadniania TLS.
 
-Brama Application Gateway komunikuje się tylko z tymi wystąpieniami zaplecza, które mają listy dozwolonych swój certyfikat z bramą aplikacji lub których certyfikaty są podpisane przez dobrze znane urzędy urzędów certyfikacji, gdzie nazwa POSPOLITa certyfikatu jest zgodna z nazwą hosta w ustawieniach zaplecza protokołu HTTP. Należą do nich zaufane usługi platformy Azure, takie jak Azure App Service Web Apps i Azure API Management.
+W przypadku jednostki SKU Application Gateway i WAF v2 zasady protokołu TLS dotyczą tylko ruchu frontonu, a wszystkie szyfry są oferowane na serwerze wewnętrznej bazy danych, który ma kontrolę w celu wybrania określonych szyfrów i wersji protokołu TLS podczas uzgadniania.
 
-Jeśli certyfikaty elementów członkowskich w puli zaplecza nie są podpisane przez dobrze znane urzędy urzędów certyfikacji, każde wystąpienie w puli zaplecza z włączonym kompleksowym protokołem TLS musi być skonfigurowane przy użyciu certyfikatu w celu umożliwienia bezpiecznej komunikacji. Dodanie certyfikatu zapewnia, że Brama aplikacji komunikuje się tylko ze znanymi wystąpieniami zaplecza. Pozwala to na zapewnienie kompleksowej komunikacji.
+Application Gateway komunikują się tylko z tymi serwerami zaplecza, które mają listy dozwolonych swój certyfikat z Application Gateway lub których certyfikaty są podpisane przez dobrze znane urzędy urzędów certyfikacji, a nazwa POSPOLITa certyfikatu jest zgodna z nazwą hosta w ustawieniach zaplecza protokołu HTTP. Należą do nich zaufane usługi platformy Azure, takie jak Azure App Service/Web Apps i API Management platformy Azure.
 
-> [!NOTE] 
->
-> Konfiguracja certyfikatu uwierzytelniania nie jest wymagana dla zaufanych usług platformy Azure, takich jak usługa Azure App Service Web Apps i Azure API Management.
+Jeśli certyfikaty elementów członkowskich w puli zaplecza nie są podpisane przez dobrze znane urzędy certyfikacji, każde wystąpienie w puli zaplecza z włączonym kompleksowym protokołem TLS musi być skonfigurowane przy użyciu certyfikatu w celu umożliwienia bezpiecznej komunikacji. Dodanie certyfikatu zapewnia, że Brama aplikacji komunikuje się tylko ze znanymi wystąpieniami zaplecza. Pozwala to na zapewnienie kompleksowej komunikacji.
 
 > [!NOTE] 
 >
@@ -84,10 +82,18 @@ W tym przykładzie żądania przy użyciu protokołu TLS 1.2 są kierowane do se
 
 ## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>Kompleksowe szyfrowanie TLS i listy dozwolonych certyfikatów
 
-Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway (nie certyfikat główny). W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Połączenia do pozostałych zapleczy zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty muszą być listy dozwolonych z bramą aplikacji, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
+Application Gateway komunikuje się tylko z znanymi wystąpieniami zaplecza, które mają listy dozwolonych swój certyfikat z bramą aplikacji. Istnieją pewne różnice w procesie kompleksowej konfiguracji protokołu TLS w odniesieniu do używanej wersji programu Application Gateway. W poniższej sekcji opisano je pojedynczo.
+
+## <a name="end-to-end-tls-with-the-v1-sku"></a>Kompleksowa wartość TLS z jednostką SKU v1
+
+Aby włączyć kompleksową transakcję TLS z serwerami zaplecza i aby Application Gateway do kierowania do nich żądań, sondy kondycji muszą być pomyślne i zwracać w dobrej kondycji.
+
+W przypadku sond kondycji protokołu HTTPS Application Gateway jednostka SKU w wersji 1 używa dokładnego dopasowania certyfikatu uwierzytelniania (klucza publicznego certyfikatu serwera wewnętrznej bazy danych, a nie certyfikatu głównego) do przekazania do ustawień HTTP.
+
+W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Pozostałe punkty końcowe są uznawane za niezdrowe przez sondy kondycji. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty muszą być listy dozwolonych z bramą aplikacji, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
 
 > [!NOTE]
-> Konfiguracja certyfikatu uwierzytelniania nie jest wymagana dla zaufanych usług platformy Azure, takich jak Azure App Service.
+> Konfiguracja uwierzytelniania i zaufanego certyfikatu głównego nie są wymagane dla zaufanych usług platformy Azure, takich jak Azure App Service. Są one traktowane jako zaufane domyślnie.
 
 ## <a name="end-to-end-tls-with-the-v2-sku"></a>Kompleksowa wersja protokołu TLS z jednostką SKU v2
 
@@ -99,17 +105,51 @@ Certyfikaty uwierzytelniania zostały wycofane i zastąpione przez zaufane certy
    
 > [!NOTE] 
 >
-> Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi zostać wystawiony przez urząd certyfikacji, który znajduje się w zaufanym magazynie Application Gateway. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji, Application Gateway sprawdzi, czy certyfikat wystawiającego urzędu certyfikacji został wystawiony przez zaufany urząd certyfikacji i tak dalej, dopóki nie zostanie znaleziony zaufany urząd certyfikacji (z którym zostanie nawiązane zaufane, bezpieczne połączenie) lub nie zostanie znaleziony zaufany urząd certyfikacji (w którym momencie Application Gateway będzie oznaczać, że w złej kondycji). W związku z tym zaleca się, aby certyfikat serwera wewnętrznej bazy danych zawierał zarówno główny, jak i pośredni urząd certyfikacji.
+> Aby certyfikat TLS/SSL był zaufany, certyfikat serwera wewnętrznej bazy danych musi być wystawiony przez urząd certyfikacji, który jest dobrze znany. Jeśli certyfikat nie został wystawiony przez zaufany urząd certyfikacji, następnie Usługa Application Gateway sprawdzi, czy certyfikat wystawiającego urzędu certyfikacji został wystawiony przez zaufany urząd certyfikacji i tak dalej, dopóki nie zostanie znaleziony zaufany urząd certyfikacji (w którym zostanie nawiązane zaufane, bezpieczne połączenie) lub nie zostanie znaleziony żaden zaufany urząd certyfikacji (w tym momencie Brama aplikacji oznaczy niezdrowy). W związku z tym zaleca się, aby certyfikat serwera wewnętrznej bazy danych zawierał zarówno główny, jak i pośredni urząd certyfikacji.
 
-- Jeśli certyfikat jest podpisany z podpisem własnym lub podpisany przez nieznane osoby pośredniczące, a następnie aby umożliwić kompleksową obsługę protokołu TLS w wersji 2, należy zdefiniować zaufany certyfikat główny. Application Gateway komunikuje się tylko z zapleczem, którego certyfikat główny certyfikatu serwera jest zgodny z jedną z listy zaufanych certyfikatów głównych w ustawieniu protokołu HTTP zaplecza skojarzonym z pulą.
+- Jeśli certyfikat jest podpisany z podpisem własnym lub podpisany przez nieznane pośredniki, a następnie aby włączyć protokół TLS w wersji 2, należy zdefiniować zaufany certyfikat główny. Application Gateway komunikują się tylko z zapleczem, którego certyfikat główny certyfikatu serwera jest zgodny z jedną z listy zaufanych certyfikatów głównych w ustawieniu protokołu HTTP zaplecza skojarzonym z pulą.
+
+- Oprócz zgodności z certyfikatem głównym Application Gateway v2 sprawdza także, czy ustawienie hosta określone w ustawieniu protokołu HTTP zaplecza pasuje do nazwy pospolitej (CN) przedstawionej przez certyfikat TLS/SSL serwera wewnętrznej bazy danych. Podczas próby nawiązania połączenia TLS z zapleczem Application Gateway v2 ustawia rozszerzenie Oznaczanie nazwy serwera (SNI) na host określony w ustawieniu protokołu HTTP zaplecza.
+
+- Jeśli wybrano opcję **Wybierz nazwę hosta z adresu zaplecza** zamiast pola host w ustawieniu http zaplecza, nagłówek SNI jest zawsze ustawiany jako nazwa FQDN puli zaplecza, a CN w certyfikacie serwera wewnętrznej bazy danych TLS/SSL musi być zgodna z jego nazwą FQDN. Elementy członkowskie puli zaplecza z adresami IP nie są obsługiwane w tym scenariuszu.
+
+- Certyfikat główny to zakodowany w formacie base64 certyfikat główny z certyfikatów serwera wewnętrznej bazy danych.
+
+## <a name="sni-differences-in-the-v1-and-v2-sku"></a>SNI różnice w jednostkach SKU V1 i v2
+
+Jak wspomniano wcześniej, Application Gateway przerywa ruch TLS od klienta na odbiorniku Application Gateway (Przywołaj go do usługi frontonu), odszyfrowuje ruch, stosuje niezbędne reguły w celu określenia serwera wewnętrznej bazy danych, do którego ma zostać przesłane żądanie, i ustanawia nową sesję protokołu TLS z serwerem wewnętrznej bazy danych (Przywołaj ją do połączenia zaplecza).
+
+W poniższych tabelach przedstawiono różnice w SNI między jednostką SKU V1 i v2 w zakresie połączeń frontonu i zaplecza.
+
+### <a name="frontend-tls-connection-client-to-application-gateway"></a>Połączenie TLS frontonu (klient z bramą aplikacji)
+
+---
+Scenariusz | wersjach | v2 |
+| --- | --- | --- |
+| Jeśli klient określi nagłówek SNI i wszystkie odbiorniki z obsługą wiele lokacji są włączone przy użyciu flagi "Wymagaj SNI" | Zwróć odpowiedni certyfikat i jeśli witryna nie istnieje (zgodnie z server_name), połączenie zostanie zresetowane. | Zwraca odpowiedni certyfikat, jeśli jest dostępny, w przeciwnym razie zwraca certyfikat pierwszego skonfigurowanego odbiornika HTTPS (w kolejności)|
+| Jeśli klient nie określi nagłówka SNI i wszystkie nagłówki wielolokacjowe są włączone z opcją "Wymagaj SNI" | Resetuje połączenie | Zwraca certyfikat pierwszego skonfigurowanego odbiornika HTTPS (w kolejności)
+| Jeśli klient nie określi nagłówka SNI i istnieje podstawowy odbiornik skonfigurowany z certyfikatem | Zwraca certyfikat skonfigurowany w podstawowym odbiorniku do klienta (certyfikat domyślny lub rezerwowy) | Zwraca certyfikat pierwszego skonfigurowanego odbiornika HTTPS (w kolejności) |
+
+### <a name="backend-tls-connection-application-gateway-to-the-backend-server"></a>Połączenie TLS zaplecza (Brama aplikacji do serwera wewnętrznej bazy danych)
+
+#### <a name="for-probe-traffic"></a>Ruch sondy
+
+---
+Scenariusz | wersjach | v2 |
+| --- | --- | --- |
+| Nagłówek SNI (server_name) podczas uzgadniania protokołu TLS jako nazwy FQDN | Ustaw jako nazwę FQDN z puli zaplecza. Zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066), literały adresów IPv4 i IPv6 nie są dozwolone w nazwie hosta SNI. <br> **Uwaga:** Nazwa FQDN w puli zaplecza powinna być rozpoznawana przez system DNS jako adres IP serwera wewnętrznej bazy danych (Public lub private) | Nagłówek SNI (server_name) jest ustawiany jako nazwa hosta z sondy niestandardowej dołączonej do ustawień protokołu HTTP (jeśli są skonfigurowane), w przeciwnym razie od nazwy hosta wymienionej w ustawieniach protokołu HTTP, w przeciwnym razie z nazwy FQDN wymienionej w puli zaplecza. Kolejność pierwszeństwa to niestandardowa sonda > ustawienia protokołu HTTP > puli zaplecza. <br> **Uwaga:** Jeśli nazwy hostów skonfigurowane w ustawieniach protokołu HTTP i sondy niestandardowej są inne, a następnie zgodnie z pierwszeństwem, SNI zostanie ustawiona jako nazwa hosta z sondy niestandardowej.
+| Jeśli adres puli zaplecza jest adresem IP (v1) lub w przypadku skonfigurowania nazwy hosta sondy niestandardowej jako adresu IP (v2) | SNI (server_name) nie zostanie ustawiona. <br> **Uwaga:** W takim przypadku serwer wewnętrznej bazy danych powinien być w stanie zwrócić certyfikat domyślny/rezerwowy i powinien zostać listy dozwolonych w ustawieniach protokołu HTTP w obszarze certyfikat uwierzytelniania. Jeśli na serwerze wewnętrznej bazy danych nie ma skonfigurowanego domyślnego/rezerwowego certyfikatu, a SNI jest oczekiwany, serwer może zresetować połączenie i prowadzić do błędów sondowania | Zgodnie z powyższym pierwszeństwem, jeśli ma adres IP jako nazwę hosta, SNI nie zostanie ustawiona zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Uwaga:** SNI również nie zostanie ustawiona w sondach v2, jeśli nie jest skonfigurowana żadna niestandardowa sonda i nie zostanie ustawiona nazwa hosta dla ustawień HTTP lub puli zaplecza |
 
 > [!NOTE] 
->
-> Certyfikat z podpisem własnym musi być częścią łańcucha certyfikatów. Jeden certyfikat z podpisem własnym bez łańcucha nie jest obsługiwany w jednostce SKU w wersji 2.
+> Jeśli niestandardowa Sonda nie jest skonfigurowana, Application Gateway wysyła domyślną sondę w tym formacie — \< Protokół \> ://127.0.0.1: \< port \> /. Na przykład dla domyślnej sondy HTTPS zostanie ona wysłana jako https://127.0.0.1:443/ . Należy pamiętać, że adres 127.0.0.1 podany w tym miejscu jest używany tylko jako nagłówek hosta HTTP i zgodnie z opisem w dokumencie RFC 6066, nie będzie używany jako nagłówek SNI. Aby uzyskać więcej informacji o błędach sondy kondycji, zobacz [Przewodnik dotyczący rozwiązywania problemów z kondycją zaplecza](application-gateway-backend-health-troubleshooting.md)
 
-- Oprócz zgodności z certyfikatem głównym Application Gateway sprawdza także, czy ustawienie hosta określone w ustawieniu protokołu HTTP zaplecza pasuje do nazwy pospolitej (CN) przedstawionej przez certyfikat TLS/SSL serwera wewnętrznej bazy danych. Podczas próby nawiązania połączenia TLS z zapleczem Application Gateway ustawia rozszerzenie Oznaczanie nazwy serwera (SNI) na host określony w ustawieniu http zaplecza.
-- Jeśli wybrano opcję **Wybierz nazwę hosta z adresu zaplecza** zamiast pola host w ustawieniu http zaplecza, nagłówek SNI jest zawsze ustawiany jako nazwa FQDN puli zaplecza, a CN w certyfikacie serwera wewnętrznej bazy danych TLS/SSL musi być zgodna z jego nazwą FQDN. Elementy członkowskie puli zaplecza z adresami IP nie są obsługiwane w tym scenariuszu.
-- Certyfikat główny to zakodowany w formacie base64 certyfikat główny z certyfikatów serwera wewnętrznej bazy danych.
+#### <a name="for-live-traffic"></a>Dla ruchu na żywo
+
+---
+Scenariusz | wersjach | v2 |
+| --- | --- | --- |
+| Nagłówek SNI (server_name) podczas uzgadniania protokołu TLS jako nazwy FQDN | Ustaw jako nazwę FQDN z puli zaplecza. Zgodnie z [RFC 6066](https://tools.ietf.org/html/rfc6066), literały adresów IPv4 i IPv6 nie są dozwolone w nazwie hosta SNI. <br> **Uwaga:** Nazwa FQDN w puli zaplecza powinna być rozpoznawana przez system DNS jako adres IP serwera wewnętrznej bazy danych (Public lub private) | Nagłówek SNI (server_name) jest ustawiany jako nazwa hosta z ustawień HTTP, w przeciwnym razie, jeśli wybrano opcję *PickHostnameFromBackendAddress* lub jeśli nie określono żadnej nazwy hosta, zostanie ona ustawiona jako nazwa FQDN w konfiguracji puli zaplecza
+| Jeśli adres puli zaplecza jest adresem IP lub nazwa hosta nie jest ustawiona w ustawieniach protokołu HTTP | SNI nie zostanie ustawiona zgodnie ze standardem [RFC 6066](https://tools.ietf.org/html/rfc6066) , Jeśli wpis puli zaplecza nie jest nazwą FQDN | SNI zostanie ustawiona jako nazwa hosta z wejściowej nazwy FQDN z klienta, a CN certyfikatu wewnętrznej bazy danych musi pasować do tej nazwy hosta.
 
 ## <a name="next-steps"></a>Następne kroki
 

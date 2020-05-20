@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9e8dbe2021c5700fe0223ff7ce246ac54f2abbd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68726406"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650299"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Jak korzystać z usługi BLOB Storage z systemu iOS
 
@@ -62,7 +62,7 @@ Aby można było korzystać z tej biblioteki, potrzebne są następujące elemen
 Innym sposobem korzystania z biblioteki jest ręczne skompilowanie struktury:
 
 1. Najpierw pobierz lub Sklonuj [repozytorium Azure-Storage-iOS](https://github.com/azure/azure-storage-ios).
-2. Przejdź do*biblioteki klienta**usługi Azure* -> Storage dla *systemu iOS* -> i Otwórz `AZSClient.xcodeproj` ją w Xcode.
+2. Przejdź do biblioteki klienta usługi Azure Storage dla *systemu iOS*  ->  *Lib*  ->  *Azure Storage Client Library*i otwórz ją `AZSClient.xcodeproj` w Xcode.
 3. W lewym górnym rogu Xcode Zmień aktywny schemat z "Biblioteka klienta usługi Azure Storage" na "Framework".
 4. Kompiluj projekt (⌘ + B). Spowoduje to utworzenie `AZSClient.framework` pliku na pulpicie.
 
@@ -82,9 +82,9 @@ Następnie można zaimportować plik struktury do aplikacji, wykonując następu
 #import <AZSClient/AZSClient.h>
 ```
 
-Jeśli używasz SWIFT, musisz utworzyć nagłówek mostkowania i zaimportować \<AZSClient/AZSClient. h>:
+Jeśli używasz SWIFT, musisz utworzyć nagłówek mostkowania i zaimportować \< AZSClient/AZSClient. h>:
 
-1. Utwórz plik `Bridging-Header.h`nagłówka i Dodaj powyższą instrukcję importu.
+1. Utwórz plik nagłówka `Bridging-Header.h` i Dodaj powyższą instrukcję importu.
 2. Przejdź do karty *Ustawienia kompilacji* i Wyszukaj *nagłówek "z mostkiem C"*.
 3. Kliknij dwukrotnie pole *nagłówka "cel-C"* , a następnie dodaj ścieżkę do pliku nagłówkowego:`ProjectName/Bridging-Header.h`
 4. Skompiluj projekt (⌘ + B), aby sprawdzić, czy nagłówek mostkowania został pobrany przez Xcode.
@@ -220,7 +220,7 @@ Oprócz przekazywania blokowych obiektów blob z NSString, podobne metody istnie
 
 Poniższy przykład pokazuje, jak wyświetlić listę wszystkich obiektów BLOB w kontenerze. Podczas wykonywania tej operacji należy mieć na uwadze następujące parametry:
 
-- **continuationToken** — token kontynuacji reprezentuje miejsce, w którym powinna zostać uruchomiona operacja tworzenia listy. Jeśli nie podano żadnego tokenu, wyświetli obiekty blob od początku. Dowolna liczba obiektów BLOB może zostać wyświetlona, od zera do zestawu. Nawet jeśli ta metoda zwróci wynik zero, jeśli `results.continuationToken` nie jest równa Nil, może istnieć więcej obiektów BLOB w usłudze, które nie zostały wymienione na liście.
+- **continuationToken** — token kontynuacji reprezentuje miejsce, w którym powinna zostać uruchomiona operacja tworzenia listy. Jeśli nie podano żadnego tokenu, wyświetli obiekty blob od początku. Dowolna liczba obiektów BLOB może zostać wyświetlona, od zera do zestawu. Nawet jeśli ta metoda zwróci wynik zero, jeśli nie jest równa `results.continuationToken` Nil, może istnieć więcej obiektów BLOB w usłudze, które nie zostały wymienione na liście.
 - **prefiks** — można określić prefiks, który ma być używany na potrzeby listy obiektów BLOB. Zostaną wyświetlone tylko obiekty blob zaczynające się od tego prefiksu.
 - **useFlatBlobListing** — jak wspomniano w sekcji [nazywanie i kontenery odwołań oraz obiektów blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , chociaż BLOB Service jest schematem magazynu prostego, można utworzyć hierarchię wirtualną przez nadanie nazw obiektów blob z informacjami o ścieżce. Jednak niepłaska lista nie jest obecnie obsługiwana. Ta funkcja jest dostępna wkrótce. Na razie ta wartość powinna być równa **tak**.
 - **blobListingDetails** — możesz określić, które elementy mają być uwzględniane podczas wyświetlania listy obiektów BLOB
@@ -392,7 +392,7 @@ Teraz, gdy wiesz już, jak korzystać z Blob Storage z systemu iOS, Skorzystaj z
 - [Biblioteka klienta usługi Azure Storage dla systemu iOS](https://github.com/azure/azure-storage-ios)
 - [Dokumentacja dotycząca systemu iOS w usłudze Azure Storage](https://azure.github.io/azure-storage-ios/)
 - [Interfejs API REST usług Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog zespołu usługi Azure Storage](https://blogs.msdn.com/b/windowsazurestorage)
+- [Blog zespołu usługi Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 
 Jeśli masz pytania dotyczące tej biblioteki, możesz bezpłatnie ogłosić na naszym [forum MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) lub w [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Jeśli masz sugestie dotyczące funkcji usługi Azure Storage, Opublikuj je w usłudze [Azure Storage](https://feedback.azure.com/forums/217298-storage/).

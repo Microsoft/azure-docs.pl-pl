@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
-ms.openlocfilehash: 8dc0fa53423a4b181ab50cd4c1552115de175c89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 134f0202b4b18e96b9f089460f4235c6b5c0fe4d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133690"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652680"
 ---
 # <a name="visual-studio-images-on-azure"></a>Obrazy programu Visual Studio na platformie Azure
 Korzystanie z programu Visual Studio we wstępnie skonfigurowanej maszynie wirtualnej platformy Azure jest szybkim i łatwym sposobem na przechodzenie od niczego do środowiska deweloperskiego. Obrazy systemu z różnymi konfiguracjami programu Visual Studio są dostępne w [portalu Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
@@ -31,10 +31,10 @@ Obrazy dla najnowszych wersji głównych, Visual Studio 2019, Visual Studio 2017
 | Wersja wydania                                                                                                                                                | Wersje              | Wersja produktu   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
 | [Visual Studio 2019: Najnowsze (wersja 16,5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, społeczność | 16.5.4 wersja    |
-| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise | 16.0.13 wersja    |
-| [Visual Studio 2017: Najnowsze (wersja 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, społeczność | 15.9.22 wersja   |
-| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, społeczność | 15.0.28 wersja  |
-| [Visual Studio 2015: Najnowsze (Aktualizacja Update 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, społeczność | 14.0.25431.01 wersja |
+| Visual Studio 2019: RTW                         | Przedsiębiorstwa | 16.0.13 wersja    |
+| Visual Studio 2017: Najnowsze (wersja 15,9)           | Enterprise, społeczność | 15.9.22 wersja   |
+| Visual Studio 2017: RTW                             | Enterprise, społeczność | 15.0.28 wersja  |
+| Visual Studio 2015: Najnowsze (Aktualizacja Update 3)               | Enterprise, społeczność | 14.0.25431.01 wersja |
 
 > [!NOTE]
 > Zgodnie z zasadami obsługi Microsoft pierwotnie wydana wersja (RTW) programu Visual Studio 2015 straciła ważność do obsługi. Program Visual Studio 2015 Update 3 jest jedyną pozostałą wersją oferowaną dla wiersza produktu Visual Studio 2015.
@@ -92,7 +92,7 @@ Aby uzyskać więcej informacji, zobacz artykuł [Logowanie do programu Visual S
 
 Zakres środowisk programistycznych jest duży i istnieje rzeczywisty koszt związany z tworzeniem bardziej złożonych środowisk. Niezależnie od konfiguracji środowiska można zapisać lub przechwycić skonfigurowaną maszynę wirtualną jako "obraz podstawowy" do użytku w przyszłości lub dla innych członków zespołu. Następnie podczas uruchamiania nowej maszyny wirtualnej należy ją udostępnić z obrazu podstawowego, a nie z obrazu portalu Azure Marketplace.
 
-Szybkie podsumowanie: Użyj narzędzia do przygotowywania systemu (Sysprep) i Zamknij uruchomioną maszynę wirtualną, a następnie Przechwyć *(rysunek 1)* maszynę wirtualną jako obraz za pomocą interfejsu użytkownika w Azure Portal. Na platformie Azure `.vhd` jest zapisywany plik zawierający obraz na wybrane konto magazynu. Nowy obraz zostanie następnie wyświetlony jako zasób obrazu na liście zasobów subskrypcji.
+Szybkie podsumowanie: Użyj narzędzia do przygotowywania systemu (Sysprep) i Zamknij uruchomioną maszynę wirtualną, a następnie Przechwyć *(rysunek 1)* maszynę wirtualną jako obraz za pomocą interfejsu użytkownika w Azure Portal. Na platformie Azure jest zapisywany `.vhd` plik zawierający obraz na wybrane konto magazynu. Nowy obraz zostanie następnie wyświetlony jako zasób obrazu na liście zasobów subskrypcji.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Rysunek 1) Przechwyć obraz za pomocą interfejsu użytkownika Azure Portal.*</center>
 

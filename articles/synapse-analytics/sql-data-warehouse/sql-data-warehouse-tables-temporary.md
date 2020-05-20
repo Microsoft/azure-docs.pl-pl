@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408040"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650477"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tabele tymczasowe w puli SQL Synapse
 Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowych i wyróżniania zasad tabel tymczasowych na poziomie sesji. 
@@ -29,7 +29,7 @@ Tabele tymczasowe są widoczne tylko dla sesji, w której zostały utworzone i s
 
 Tabele tymczasowe oferują korzyść wydajności, ponieważ ich wyniki są zapisywane w lokalnym, a nie w magazynie zdalnym.
 
-Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku usługi SQL Analytics na poziomie sesji istnieje tabela tymczasowa.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
+Tabele tymczasowe są przydatne podczas przetwarzania danych, zwłaszcza podczas przekształcania, w którym wyniki pośrednie są przejściowe. W przypadku puli SQL tabele tymczasowe istnieją na poziomie sesji.  Są one widoczne tylko dla sesji, w której zostały utworzone. W związku z tym są one automatycznie porzucane podczas wylogowywania sesji. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Tabele tymczasowe w puli SQL
 
@@ -37,7 +37,7 @@ W przypadku zasobu puli SQL tabele tymczasowe oferują korzyść wydajności, po
 
 ### <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
 
-Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#`.  Przykład:
+Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#` .  Na przykład:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -105,7 +105,7 @@ GROUP BY
 ## <a name="dropping-temporary-tables"></a>Usuwanie tabel tymczasowych
 Po utworzeniu nowej sesji nie powinny istnieć tabele tymczasowe.  
 
-Jeśli wywołujesz tę samą procedurę składowaną, która tworzy tymczasową o takiej samej nazwie, aby upewnić się `CREATE TABLE` , że instrukcje zostały wykonane pomyślnie, prosta kontrola wstępna z `DROP` może być użyta jako w poniższym przykładzie:
+Jeśli wywołujesz tę samą procedurę składowaną, która tworzy tymczasową o takiej samej nazwie, aby upewnić się, że `CREATE TABLE` instrukcje zostały wykonane pomyślnie, prosta kontrola wstępna z `DROP` może być użyta jako w poniższym przykładzie:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -114,7 +114,7 @@ BEGIN
 END
 ```
 
-Aby zapewnić spójność kodowania, dobrym sposobem jest użycie tego wzorca dla tabel i tabel tymczasowych.  Dobrym pomysłem `DROP TABLE` jest również usunięcie tabel tymczasowych po zakończeniu pracy z nimi w kodzie.  
+Aby zapewnić spójność kodowania, dobrym sposobem jest użycie tego wzorca dla tabel i tabel tymczasowych.  Dobrym pomysłem jest również `DROP TABLE` usunięcie tabel tymczasowych po zakończeniu pracy z nimi w kodzie.  
 
 W opracowywaniu procedury składowanej, często widzisz polecenia upuszczania powiązane razem na końcu procedury, aby upewnić się, że te obiekty zostały oczyszczone.
 
@@ -203,7 +203,7 @@ Na tym etapie jedyną akcją, która miała miejsce, jest utworzenie procedury s
 
 Ta procedura składowana opuszcza istniejący #stats_ddl, aby upewnić się, że nie kończy się niepowodzeniem w przypadku uruchomienia więcej niż raz w ramach sesji.  
 
-Jednakże, ponieważ nie `DROP TABLE` ma na końcu procedury składowanej, gdy procedura składowana zostanie ukończona, opuszcza utworzoną tabelę, aby można ją było odczytać poza procedurą składowaną.  
+Jednakże, ponieważ nie ma `DROP TABLE` na końcu procedury składowanej, gdy procedura składowana zostanie ukończona, opuszcza utworzoną tabelę, aby można ją było odczytać poza procedurą składowaną.  
 
 W puli SQL, w przeciwieństwie do innych baz danych SQL Server, można użyć tabeli tymczasowej poza procedurą, która ją utworzyła.  Tabele tymczasowe puli SQL mogą być używane w **dowolnym miejscu** w ramach sesji. Ta funkcja może prowadzić do bardziej modularnego i możliwego do zarządzania kodu, jak w poniższym przykładzie:
 
@@ -233,5 +233,5 @@ Ponadto nie można tworzyć widoków w tabelach tymczasowych.  Tabele tymczasowe
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat opracowywania tabel, zobacz [Projektowanie tabel przy użyciu zasobów usługi SQL Analytics](sql-data-warehouse-tables-overview.md) .
+Aby dowiedzieć się więcej na temat opracowywania tabel, zobacz artykuł [Projektowanie tabel przy użyciu zasobów Synapse SQL](sql-data-warehouse-tables-overview.md) .
 

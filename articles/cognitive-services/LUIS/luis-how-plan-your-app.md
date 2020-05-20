@@ -2,13 +2,13 @@
 title: Planowanie aplikacji — LUIS
 description: Zaplanuj odpowiednie intencje i jednostki dotyczące aplikacji, a następnie utwórz plany aplikacji w Language Understanding Intelligent Services (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/14/2020
+ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382303"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654116"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planowanie schematu aplikacji LUIS przy użyciu domeny podmiotu i wyodrębniania danych
 
@@ -27,12 +27,12 @@ Pomyśl o [intencjach](luis-concept-intent.md) , które są ważne dla zadania a
 
 Przyjrzyjmy się przykładowi do aplikacji podróży z funkcjami do rezerwacji lotu i sprawdzania pogody w miejscu docelowym użytkownika. Można zdefiniować `BookFlight` i `GetWeather` intencje dla tych działań.
 
-W bardziej złożonej aplikacji z większą liczbą funkcji masz więcej intencji i należy je dokładnie definiować, aby nie było to intencje. `BookFlight` Na przykład `BookHotel` może być konieczne osobne zamiary, ale `BookInternationalFlight` i `BookDomesticFlight` mogą być zbyt podobne.
+W bardziej złożonej aplikacji z większą liczbą funkcji masz więcej intencji i należy je dokładnie definiować, aby nie było to intencje. Na przykład `BookFlight` może być `BookHotel` konieczne osobne zamiary, ale `BookInternationalFlight` i `BookDomesticFlight` mogą być zbyt podobne.
 
 > [!NOTE]
 > Najlepszym rozwiązaniem jest użycie tylko tyle rzeczy, ile potrzebujesz do wykonywania funkcji aplikacji. Jeśli określisz zbyt wiele intencji, będzie trudniejsze, aby LUIS prawidłowo klasyfikować wyrażenia długości. Jeśli zdefiniujesz zbyt kilka, może to być ogólny, że nakładają się na siebie.
 
-Jeśli nie musisz identyfikować ogólnych założeń użytkowników, Dodaj do `None` zamiaru wszystkie przykładowe wyrażenia długości użytkownika. Jeśli aplikacja zostanie powiększona o potrzebę bardziej zamiarów, można utworzyć je później.
+Jeśli nie musisz identyfikować ogólnych założeń użytkowników, Dodaj do zamiaru wszystkie przykładowe wyrażenia długości użytkownika `None` . Jeśli aplikacja zostanie powiększona o potrzebę bardziej zamiarów, można utworzyć je później.
 
 ## <a name="create-example-utterances-for-each-intent"></a>Utwórz przykład wyrażenia długości dla każdego zamiaru
 
@@ -48,6 +48,30 @@ Podczas określania obiektów, które mają być używane w aplikacji, należy p
 
 > [!TIP]
 > LUIS oferuje [wstępnie utworzone jednostki](luis-prebuilt-entities.md) na potrzeby typowych scenariuszy użytkownika. Rozważ użycie wstępnie utworzonych jednostek jako punktu wyjścia do tworzenia aplikacji.
+
+## <a name="resolution-with-intent-or-entity"></a>Czy masz rozwiązanie z intencją lub jednostką?
+
+W wielu przypadkach, szczególnie podczas pracy z konwersacją naturalną, użytkownicy dostarczają wypowiedź, który może zawierać więcej niż jedną funkcję lub zamiar. Aby rozwiązać ten konieczność, ogólna reguła kciuka polega na zrozumieniu, że reprezentacja danych wyjściowych może zostać wykonana zarówno w intencjach, jak i w jednostkach. Ta reprezentacja powinna być Mappable do akcji aplikacji klienta i nie musi być ograniczona do intencji.
+
+**Int-.-więzi** to koncepcja, którą akcje (zwykle uznawane za intencje) mogą być również przechwytywane jako jednostki i w tym formularzu w wyjściowym kodzie JSON, w którym można mapować na określoną akcję. _Negacja_ jest typowym użyciem do wykorzystania w zależności od zamiar i jednostki do pełnej ekstrakcji.
+
+Rozważmy następujące dwa wyrażenia długości, które bardzo blisko rozważają wybór wyrazów, ale mają różne wyniki:
+
+|Wypowiedź|
+|--|
+|`Please schedule my flight from Cairo to Seattle`|
+|`Cancel my flight from Cairo to Seattle`|
+
+Zamiast korzystać z dwóch osobnych intencji, należy utworzyć jedno przeznaczenie przy użyciu `FlightAction` jednostki uczenia maszynowego. Jednostka uczenia maszynowego powinna wyodrębnić szczegóły akcji zarówno dla żądania planowania, jak i anulowania, jak również lokalizacji źródłowej lub docelowej.
+
+`FlightAction`Jednostka byłaby strukturalna w następującym suedo-schemacie jednostki uczenia maszynowego i podjednostek:
+
+* FlightAction
+    * Akcja
+    * Origin
+    * Element docelowy
+
+Aby ułatwić ekstrakcję, Dodaj funkcje do podjednostek. Możesz wybrać swoje funkcje na podstawie słownika, który będzie widoczny w wyrażenia długości użytkownika i wartości, które mają zostać zwrócone w odpowiedzi predykcyjnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

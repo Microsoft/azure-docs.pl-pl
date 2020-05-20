@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: e6a8fe7771776a92b3c28a188bc352e3bb105313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217916"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659906"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Jak model Machine Learning Studio (klasyczny) postępuje z eksperymentu z usługą sieci Web
 
@@ -34,7 +34,7 @@ Po zakończeniu eksperymentu możesz wdrożyć go jako ***klasyczną usługę si
 W tym artykule przedstawiono omówienie Mechanics, jak model Machine Learning postępuje od eksperymentu programistycznego do działającej usługi sieci Web.
 
 > [!NOTE]
-> Istnieją inne sposoby tworzenia i wdrażania modeli uczenia maszynowego, ale ten artykuł koncentruje się na sposobach używania Machine Learning Studio (klasycznego). Na przykład aby zapoznać się z opisem sposobu tworzenia klasycznej usługi sieci Web predykcyjnej przy użyciu języka R, zobacz Kompilacja na blogu [& wdróż Web Apps predykcyjny przy użyciu RStudio i Azure Machine Learning Studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Istnieją inne sposoby tworzenia i wdrażania modeli uczenia maszynowego, ale ten artykuł koncentruje się na sposobach używania Machine Learning Studio (klasycznego). Na przykład aby zapoznać się z opisem sposobu tworzenia klasycznej usługi sieci Web predykcyjnej przy użyciu języka R, zobacz Kompilacja na blogu [& wdróż Web Apps predykcyjny przy użyciu RStudio i Azure Machine Learning Studio](https://docs.microsoft.com/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml).
 >
 >
 

@@ -1,22 +1,22 @@
 ---
-title: Zintegrowane rozwiązania — Azure Marketplace
-description: Zintegrowane rozwiązania w witrynie Azure Marketplace i Microsoft AppSource
+title: Publikowanie zintegrowanego rozwiązania — Microsoft Commercial Marketplace
+description: Poznaj wymagania i kroki publikowania zintegrowanych rozwiązań w Microsoft AppSource i witrynie Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160566"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657968"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
-W ramach jednej oferty zintegrowane rozwiązanie łączy technologie typu punkt-rozwiązanie od dostawców oprogramowania z wdrożeniem i wsparciem partnera usług. Partner usług zawiera listę ofert w Microsoft AppSource lub Azure Marketplace jako [usługę doradczą](./consulting-services.md).
+W tym artykule wyjaśniono ogólny proces i wymagania dotyczące publikowania zintegrowanego rozwiązania w portalu komercyjnym. W ramach jednej oferty zintegrowane rozwiązanie łączy technologie typu punkt-rozwiązanie od dostawców oprogramowania z wdrożeniem i wsparciem partnera usług. Partner usług zawiera listę ofert w Microsoft AppSource lub Azure Marketplace jako [usługę doradczą](./consulting-services.md).
 
 Zintegrowane rozwiązania mają na celu rozwiązanie konkretnej potrzeby klienta lub scenariusza. Dostawcy zaczynają zrozumieć wyzwania branżowe lub punkty bólu. Następnie integrują dwie lub więcej najlepszych technologii, aby utworzyć ujednolicone i powtarzalne środowisko wdrażania dla klientów. Dostawcy mogą szybko korzystać z klientów. Oferują one pojedynczy punkt kontaktu z klientem, zapewniając odpowiednie dostosowania, doradztwo i obsługę rozwiązań. Wynikiem jest zintegrowane rozwiązanie, w tym technologia i usługi.
 
@@ -64,7 +64,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     * Zakres
     * Klienci docelowi
     * Propozycja wartości
-    * Cennik
+    * Ceny
     * Licencjonowanie
     * Warunki i postanowienia
     * Podejście do pomocy technicznej
@@ -75,7 +75,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     Dyskusje na temat podejścia do integracji powinny dotyczyć następujących punktów:
     * Punkty integracji
     * Architektura rozwiązania
-    * Uwierzytelnianie
+    * Authentication
     * Interfejs użytkownika
     * Monitorowanie
     * Mechanizm wdrażania

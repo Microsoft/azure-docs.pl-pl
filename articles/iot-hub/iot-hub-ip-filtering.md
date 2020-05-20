@@ -5,14 +5,14 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2017
+ms.date: 05/12/2020
 ms.author: robinsh
-ms.openlocfilehash: b1550254e969e96fbc83c4c344189d414a8fa8d3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 74ee9506d7b21e5f0654c8a46976b4d5c63b5197
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995509"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649375"
 ---
 # <a name="use-ip-filters"></a>Korzystanie z filtrów adresów IP
 
@@ -28,9 +28,12 @@ Istnieją dwa konkretne przypadki użycia, gdy warto zablokować IoT Hub punkty 
 
 ## <a name="how-filter-rules-are-applied"></a>Jak są stosowane reguły filtrowania
 
-Reguły filtrów IP są stosowane na poziomie usługi IoT Hub. W związku z tym reguły filtru IP są stosowane do wszystkich połączeń z urządzeń i aplikacji zaplecza przy użyciu dowolnego obsługiwanego protokołu.
+Reguły filtrów IP są stosowane na poziomie usługi IoT Hub. W związku z tym reguły filtru IP są stosowane do wszystkich połączeń z urządzeń i aplikacji zaplecza przy użyciu dowolnego obsługiwanego protokołu. Jednak klienci odczytujący się bezpośrednio z [wbudowanego punktu końcowego zgodnego z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md) (nie za pośrednictwem parametrów połączenia IoT Hub) nie są powiązane z regułami filtrowania adresów IP. 
 
-Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia adresu IP w centrum IoT, odbierają nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie zawiera wzmianki o regule adresu IP.
+Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia adresu IP w centrum IoT, odbierają nieautoryzowany kod stanu 401 i opis. Komunikat odpowiedzi nie zawiera wzmianki o regule adresu IP. Odrzucenie adresów IP może uniemożliwić korzystanie z innych usług platformy Azure, takich jak Azure Stream Analytics, Azure Virtual Machines lub Device Explorer w Azure Portal ze współdziałania z usługą IoT Hub.
+
+> [!NOTE]
+> Jeśli musisz użyć Azure Stream Analytics (ASA) do odczytywania komunikatów z Centrum IoT z włączonym filtrem IP, użyj nazwy zgodnej z centrum zdarzeń i punktu końcowego Centrum IoT, aby ręcznie dodać [dane wejściowe strumienia Event Hubs](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) do asa.
 
 ## <a name="default-setting"></a>Ustawienie domyślne
 
@@ -48,7 +51,7 @@ Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
 
 ![Po wybraniu opcji Dodaj regułę filtrowania adresów IP](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7- `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` bitowe Plus.
+* Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7-bitowe Plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` .
 
 * Podaj pojedynczy adres IPv4 lub blok adresów IP w notacji CIDR. Na przykład w notacji CIDR 192.168.100.0/22 reprezentuje adresy IPv4 1024 z 192.168.100.0 do 192.168.103.255.
 
@@ -61,12 +64,6 @@ Po wypełnieniu pól wybierz pozycję **Zapisz** , aby zapisać regułę. Zostan
 Opcja **Dodaj** jest wyłączona, gdy zostanie osiągnięta maksymalna liczba reguł filtru IP.
 
 Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprowadź zmianę, a następnie wybierz pozycję **Zapisz** , aby zapisać edycję.
-
-> [!NOTE]
-> Odrzucenie adresów IP może uniemożliwić korzystanie z usługi IoT Hub innym usługom platformy Azure (takim jak Azure Stream Analytics, Azure Virtual Machines lub Device Explorer w portalu).
-
-> [!WARNING]
-> Jeśli używasz Azure Stream Analytics (ASA) do odczytywania komunikatów z Centrum IoT z włączonym filtrowaniem adresów IP, użyj nazwy zgodnej z centrum zdarzeń i punktu końcowego usługi IoT Hub, aby ręcznie dodać [dane wejściowe strumienia Event Hubs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) do asa.
 
 ## <a name="delete-an-ip-filter-rule"></a>Usuwanie reguły filtrowania adresów IP
 
@@ -120,7 +117,7 @@ Aby usunąć istniejący filtr IP w IoT Hub, uruchom polecenie:
 az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
 ```
 
-Należy pamiętać `<ipFilterIndexToRemove>` , że musi odpowiadać kolejności filtrów IP w IoT Hub `properties.ipFilterRules`.
+Należy pamiętać, że `<ipFilterIndexToRemove>` musi odpowiadać kolejności filtrów IP w IoT Hub `properties.ipFilterRules` .
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Pobieranie i aktualizowanie filtrów IP przy użyciu Azure PowerShell
 

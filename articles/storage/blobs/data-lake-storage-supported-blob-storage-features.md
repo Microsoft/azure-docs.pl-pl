@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ab704f53e608e7021f53a5d4b0a3e06c2ab807a1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 5be7c9800076cfaf361a3e752162e14d10f22655
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007464"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650745"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funkcje magazynu obiektów BLOB dostępne w Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 > [!NOTE]
 > Poziom pomocy technicznej odnosi się tylko do tego, w jaki sposób funkcja jest obsługiwana w Data Lake Storage Gen2. 
 >
-> [Konta magazynu blokowych obiektów BLOB w warstwie Premium](storage-blob-create-account-block-blob.md) dla Data Lake Storage Gen2 są obecnie dostępne w publicznej wersji zapoznawczej. Poziomy pomocy technicznej dla tych typów kont są wyświetlane w kolumnie **blokowych obiektów BLOB w warstwie Premium** .
+> [Konta usługi BlockBlobStorage z wydajnością Premium](storage-blob-create-account-block-blob.md) dla Data Lake Storage Gen2 są obecnie dostępne w publicznej wersji zapoznawczej. Poziomy pomocy technicznej dla tych typów kont są wyświetlane w kolumnie **BlockBlobStorage (Premium)** .
 
-|Funkcja Blob Storage |Konta magazynu ogólnego przeznaczenia w wersji 2|Konta magazynu blokowych obiektów blob w warstwie Premium |Pokrewne artykuły: |
+|Funkcja Blob Storage |Ogólnego przeznaczenia w wersji 2 |BlockBlobStorage (wersja Premium) |Pokrewne artykuły: |
 |---------------|-------------------|---|
 |Warstwa dostępu Gorąca|Ogólnie dostępne|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
 |Warstwa dostępu Chłodna|Ogólnie dostępne|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
@@ -39,6 +39,7 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Polecenie interfejsu wiersza polecenia platformy Azure dla usługi BLOB Storage|Ogólnie dostępne|Wersja zapoznawcza|[Szybki Start: Tworzenie, pobieranie i wyświetlanie listy obiektów BLOB za pomocą interfejsu wiersza polecenia platformy Azure](storage-quickstart-blobs-cli.md)|
 |Interfejsy API magazynu obiektów BLOB|Ogólnie dostępne|Wersja zapoznawcza|[Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET](storage-quickstart-blobs-dotnet.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Java](storage-quickstart-blobs-java.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python](storage-quickstart-blobs-python.md)<br>[Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka JavaScript w programie Node. js](storage-quickstart-blobs-nodejs.md)|
 |Dzienniki diagnostyczne|Ogólnie dostępne|Wersja zapoznawcza <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Rejestrowanie usługi Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Logowanie Azure Monitor|Wersja zapoznawcza |Jeszcze nieobsługiwane|[Monitorowanie usługi Azure Storage](../common/monitor-storage.md)|
 |Archiwizowanie warstwy dostępu|Wersja zapoznawcza|Nieobsługiwane|[Usługa Azure Blob Storage: warstwy dostępu Gorąca, Chłodna i Archiwum](storage-blob-storage-tiers.md)|
 |Zasady zarządzania cyklem życia|Wersja zapoznawcza|Jeszcze nieobsługiwane|[Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Źródło zmian|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage](storage-blob-change-feed.md)|
@@ -49,11 +50,10 @@ Ta tabela zawiera listę funkcji magazynu obiektów blob, których można używa
 |Migawki|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Tworzenie migawki obiektu BLOB w programie .NET i zarządzanie nią](storage-blob-snapshots.md)|
 |Usuwanie nietrwałe|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md) (Usuwanie nietrwałe dla obiektów blob usługi Azure Storage)|
 |Statyczne witryny internetowe|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|[Hostowanie statycznej witryny internetowej w usłudze Azure Storage](storage-blob-static-website.md)|
-|Logowanie Azure Monitor|Jeszcze nieobsługiwane|Jeszcze nieobsługiwane|Jeszcze niedostępne|
 
 <div id="diagnostic-logging"><sup>1</sup> W przypadku blokowych bloków BLOB dla kont magazynu nie można włączyć dzienników diagnostycznych (klasycznych) przy użyciu Azure Portal. Włącz je za pomocą programu PowerShell.</div>
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Znane problemy z Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Usługi platformy Azure, które obsługują Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

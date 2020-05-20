@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209404"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647853"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geograficznie — odzyskiwanie po awarii
 
@@ -145,6 +145,43 @@ Jednostka SKU Service Bus Premium obsługuje także [strefy dostępności](../av
 Strefy dostępności można włączyć tylko dla nowych przestrzeni nazw, korzystając z Azure Portal. Service Bus nie obsługuje migracji istniejących przestrzeni nazw. Nie można wyłączyć nadmiarowości strefy po włączeniu jej w przestrzeni nazw.
 
 ![3][]
+
+## <a name="private-endpoints"></a>Prywatne punkty końcowe
+Ta sekcja zawiera dodatkowe zagadnienia dotyczące korzystania z funkcji odzyskiwania po awarii geograficznej z przestrzeniami nazw, które używają prywatnych punktów końcowych. Aby dowiedzieć się, jak ogólnie korzystać z prywatnych punktów końcowych z Service Bus, zobacz [integrowanie Azure Service Bus z prywatnym łączem platformy Azure](private-link-service.md).
+
+### <a name="new-pairings"></a>Nowe pary
+Jeśli spróbujesz utworzyć parowanie między podstawową przestrzenią nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw bez prywatnego punktu końcowego, parowanie nie powiedzie się. Parowanie powiedzie się tylko wtedy, gdy zarówno podstawowa, jak i pomocnicza przestrzeń nazw mają prywatne punkty końcowe. Zalecamy używanie tych samych konfiguracji w podstawowych i pomocniczych obszarach nazw oraz w sieciach wirtualnych, w których są tworzone prywatne punkty końcowe. 
+
+> [!NOTE]
+> Podczas próby sparowania podstawowej przestrzeni nazw z prywatnym punktem końcowym i pomocniczą przestrzenią nazw proces sprawdzania poprawności sprawdza tylko, czy prywatny punkt końcowy istnieje w pomocniczej przestrzeni nazw. Nie sprawdza ona, czy punkt końcowy działa lub będzie działać po przejściu do trybu failover. Odpowiedzialność za zapewnienie, że pomocnicza przestrzeń nazw z prywatnym punktem końcowym będzie działała zgodnie z oczekiwaniami po przejściu do trybu failover.
+>
+> Aby sprawdzić, czy konfiguracje prywatnych punktów końcowych są takie same, Wyślij żądanie [Get Queues](/rest/api/servicebus/queues/get) do pomocniczej przestrzeni nazw spoza sieci wirtualnej i sprawdź, czy jest wyświetlany komunikat o błędzie z usługi.
+
+### <a name="existing-pairings"></a>Istniejące pary
+Jeśli parowanie między podstawową i pomocniczą przestrzenią nazw już istnieje, tworzenie prywatnego punktu końcowego w podstawowej przestrzeni nazw zakończy się niepowodzeniem. Aby rozwiązać ten problem, należy najpierw utworzyć prywatny punkt końcowy w pomocniczej przestrzeni nazw, a następnie utworzyć jeden dla podstawowej przestrzeni nazw.
+
+> [!NOTE]
+> Chociaż zezwalamy na dostęp tylko do odczytu do pomocniczej przestrzeni nazw, dozwolone są aktualizacje konfiguracji prywatnych punktów końcowych. 
+
+### <a name="recommended-configuration"></a>Zalecana konfiguracja
+Podczas tworzenia konfiguracji odzyskiwania po awarii dla aplikacji i Service Bus należy utworzyć prywatne punkty końcowe dla podstawowych i pomocniczych przestrzeni nazw Service Bus dla sieci wirtualnych obsługujących zarówno podstawowe, jak i pomocnicze wystąpienia aplikacji.
+
+Załóżmy, że masz dwie sieci wirtualne: Sieć wirtualna 1, Sieć wirtualna 2 i następujące podstawowe i drugie przestrzenie nazw: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-pomocniczy. Należy wykonać następujące czynności: 
+
+- W przypadku ServiceBus-Namespace1-Primary Utwórz dwa prywatne punkty końcowe, które używają podsieci z sieci VNET-1 i sieci wirtualnej 2
+- Na stronie ServiceBus-Namespace2-pomocnicze Utwórz dwa prywatne punkty końcowe, które używają tych samych podsieci z sieci wirtualnej-1 i sieci wirtualnej 2 
+
+![Prywatne punkty końcowe i sieci wirtualne](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Service Bus przestrzeni nazw. Poniżej przedstawiono przykładowe scenariusze: 
+
+**Tryb failover tylko w aplikacji:** W tym miejscu aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci VNET-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
+
+Service Bus przełączenia w **tryb failover tylko dla obszaru nazw**: w tym miejscu, ponieważ oba prywatne punkty końcowe są konfigurowane w obu sieciach wirtualnych dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
+
+> [!NOTE]
+> Aby uzyskać wskazówki dotyczące odzyskiwania po awarii geograficznej sieci wirtualnej, zobacz [Virtual Network — ciągłość](../virtual-network/virtual-network-disaster-recovery-guidance.md)działania.
 
 ## <a name="next-steps"></a>Następne kroki
 

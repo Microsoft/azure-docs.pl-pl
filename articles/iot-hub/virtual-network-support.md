@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/12/2020
 ms.author: jlian
-ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61d24ac9f99a7c7b2b4d9ca6f3fd7b0a338341b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231445"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652364"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>Obsługa IoT Hub sieci wirtualnych
 
@@ -46,10 +46,7 @@ W tym artykule opisano, jak osiągnąć te cele przy użyciu [prywatnych punktó
 
 ## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Połączenia przychodzące do IoT Hub za pomocą prywatnych punktów końcowych
 
-Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą którego jest dostępny zasób platformy Azure. Mając prywatny punkt końcowy dla Centrum IoT, można zezwolić usługom działającym w sieci wirtualnej na dostęp do IoT Hub bez konieczności wysyłania ruchu do publicznego punktu końcowego IoT Hub. Podobnie urządzenia działające w środowisku lokalnym mogą korzystać z [wirtualnej sieci prywatnej (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) lub prywatnej komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w celu uzyskania łączności z siecią wirtualną na platformie Azure, a następnie do IoT Hub (za pośrednictwem prywatnego punktu końcowego). W związku z tym klienci, którzy chcą ograniczyć łączność z publicznymi punktami końcowymi usługi IoT Hub (lub ewentualnie całkowicie ją zablokować), mogą osiągnąć ten cel, używając [reguł zapory IoT Hub](./iot-hub-ip-filtering.md) podczas zachowywania łączności z koncentratorem za pomocą prywatnego punktu końcowego.
-
-> [!NOTE]
-> Głównym fokusem tego Instalatora są urządzenia znajdujące się w sieci lokalnej. Ta konfiguracja nie jest zalecana w przypadku urządzeń wdrożonych w sieci rozległej.
+Prywatny punkt końcowy jest prywatnym adresem IP przydzielonym wewnątrz sieci wirtualnej należącej do klienta, za pomocą którego jest dostępny zasób platformy Azure. Mając prywatny punkt końcowy dla Centrum IoT, można zezwolić usługom działającym w sieci wirtualnej na dostęp do IoT Hub bez konieczności wysyłania ruchu do publicznego punktu końcowego IoT Hub. Podobnie urządzenia działające w środowisku lokalnym mogą korzystać z [wirtualnej sieci prywatnej (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) lub prywatnej komunikacji równorzędnej [ExpressRoute](https://azure.microsoft.com/services/expressroute/) w celu uzyskania łączności z siecią wirtualną na platformie Azure, a następnie do IoT Hub (za pośrednictwem prywatnego punktu końcowego). W związku z tym klienci, którzy chcą ograniczyć łączność z publicznymi punktami końcowymi usługi IoT Hub (lub prawdopodobnie całkowicie ją zablokować), mogą osiągnąć ten cel za pomocą [IoT Hub filtr IP](./iot-hub-ip-filtering.md) i [skonfigurować Routing, aby nie wysyłał żadnych danych do wbudowanego punktu końcowego](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Takie podejście zachowuje łączność z koncentratorem za pomocą prywatnego punktu końcowego dla urządzeń. Głównym fokusem tego Instalatora są urządzenia znajdujące się w sieci lokalnej. Ta konfiguracja nie jest zalecana w przypadku urządzeń wdrożonych w sieci rozległej.
 
 ![IoT Hub publiczny punkt końcowy](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -85,7 +82,7 @@ Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
     az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
     ```
 
-2. Przejdź do karty **połączenia prywatnego punktu końcowego** w portalu IoT Hub (Ta karta jest dostępna tylko w centrach IoT w [obsługiwanych regionach](#regional-availability-private-endpoints)), a następnie kliknij **+** znak, aby dodać nowy prywatny punkt końcowy.
+2. Przejdź do karty **połączenia prywatnego punktu końcowego** w portalu IoT Hub (Ta karta jest dostępna tylko w centrach IoT w [obsługiwanych regionach](#regional-availability-private-endpoints)), a następnie kliknij znak, **+** Aby dodać nowy prywatny punkt końcowy.
 
 3. Podaj subskrypcję, grupę zasobów, nazwę i region, aby utworzyć nowy prywatny punkt końcowy w programie (w idealnym przypadku należy utworzyć prywatny punkt końcowy w tym samym regionie co centrum). Aby uzyskać więcej informacji, zobacz [sekcję Dostępność regionalna](#regional-availability-private-endpoints) .
 
@@ -95,8 +92,19 @@ Aby skonfigurować prywatny punkt końcowy, wykonaj następujące kroki:
 
 6. Kliknij przycisk **Dalej: Tagi**i opcjonalnie Podaj wszystkie znaczniki dla zasobu.
 
-7. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć prywatny zasób punktu końcowego.
+7. Kliknij przycisk **Przegląd + Utwórz** , aby utworzyć prywatny zasób linku.
 
+### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>Wbudowany punkt końcowy zgodny z centrum zdarzeń nie obsługuje dostępu za pośrednictwem prywatnego punktu końcowego
+
+[Wbudowany punkt końcowy zgodny z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md) nie obsługuje dostępu za pośrednictwem prywatnego punktu końcowego. Po skonfigurowaniu prywatny punkt końcowy Centrum IoT jest przeznaczony tylko do łączności przychodzącej. Używanie danych z wbudowanego punktu końcowego zgodnego z centrum zdarzeń może odbywać się tylko za pośrednictwem publicznego Internetu. 
+
+[Filtr IP](iot-hub-ip-filtering.md) IoT Hub również nie kontroluje publicznego dostępu do wbudowanego punktu końcowego. Aby całkowicie zablokować dostęp do sieci publicznej do centrum IoT, należy: 
+
+1. Konfigurowanie dostępu do prywatnego punktu końcowego dla IoT Hub
+1. Wyłącz dostęp do sieci publicznej za pomocą filtru IP, aby zablokować wszystkie adresy IP
+1. Wyłącz wbudowany punkt końcowy centrum zdarzeń przez [skonfigurowanie routingu, aby nie wysyłał do niego danych](iot-hub-devguide-messages-d2c.md)
+1. Wyłącz [trasę rezerwową](iot-hub-devguide-messages-d2c.md#fallback-route)
+1. Skonfiguruj ruch wychodzący do innych zasobów platformy Azure przy użyciu [zaufanych usług platformy Azure](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-private-endpoints"></a>Cennik (prywatne punkty końcowe)
 
@@ -196,7 +204,7 @@ Tożsamość usługi zarządzanej można przypisać do centrum w czasie aprowiza
 }
 ```
 
-Po podstawianiu `name`wartości dla zasobu `location`, `SKU.name` i `SKU.tier`można użyć interfejsu wiersza polecenia platformy Azure do wdrożenia zasobu w istniejącej grupie zasobów przy użyciu:
+Po podstawianiu wartości dla zasobu, `name` `location` `SKU.name` i `SKU.tier` można użyć interfejsu wiersza polecenia platformy Azure do wdrożenia zasobu w istniejącej grupie zasobów przy użyciu:
 
 ```azurecli-interactive
 az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
@@ -297,7 +305,7 @@ Ta funkcja wymaga łączności IoT Hub z kontem magazynu. Aby uzyskać dostęp d
 
 3. Przejdź do karty **zapory i sieci wirtualne** na koncie magazynu i Włącz opcję **Zezwalaj na dostęp z wybranych sieci** . Na liście **wyjątków** zaznacz pole wyboru **Zezwalaj zaufanym usługom firmy Microsoft na dostęp do tego konta magazynu**. Kliknij przycisk **Zapisz**.
 
-Za pomocą interfejsu API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Należy pamiętać, że w treści żądania należy `storageAuthenticationType="identityBased"` podać wartość i użyć `inputBlobContainerUri="https://..."` oraz `outputBlobContainerUri="https://..."` jako adres URL danych wejściowych i wyjściowych konta magazynu.
+Za pomocą interfejsu API REST usługi Azure IoT można teraz [tworzyć zadania importowania eksportu](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) , aby uzyskać informacje na temat korzystania z funkcji zbiorczego importowania/eksportowania. Należy pamiętać, że w treści żądania należy podać wartość i `storageAuthenticationType="identityBased"` użyć `inputBlobContainerUri="https://..."` oraz `outputBlobContainerUri="https://..."` jako adres URL danych wejściowych i wyjściowych konta magazynu.
 
 
 Usługa Azure IoT Hub SDK obsługuje również tę funkcję w Menedżerze rejestru klienta usługi. Poniższy fragment kodu przedstawia sposób inicjowania zadania importowania lub eksportowania zadania w programie przy użyciu zestawu C# SDK.
@@ -319,9 +327,9 @@ await registryManager.ExportDevicesAsync(
 
 Aby korzystać z tej ograniczonej w regionach wersji zestawów SDK usługi Azure IoT z obsługą sieci wirtualnych dla języków C#, Java i Node. js:
 
-1. Utwórz zmienną środowiskową o `EnableStorageIdentity` nazwie i ustaw jej wartość `1`na.
+1. Utwórz zmienną środowiskową o nazwie `EnableStorageIdentity` i ustaw jej wartość na `1` .
 
-2. Pobierz zestaw SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node. js](https://aka.ms/vnetnodesdk)
+2. Pobierz zestaw SDK: [Java](https://aka.ms/vnetjavasdk)  |  [C#](https://aka.ms/vnetcsharpsdk)  |  [Node. js](https://aka.ms/vnetnodesdk)
  
 W przypadku języka Python Pobierz naszą ograniczoną wersję z usługi GitHub.
 

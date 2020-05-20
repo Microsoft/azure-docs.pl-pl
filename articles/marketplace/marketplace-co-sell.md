@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: 23823e3952adcad6c7047636a24596e930927f6f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 86ff08ed01ea09497c14e91b4c891988569e2df1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857357"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657943"
 ---
 # <a name="co-sell-partner-engagement"></a>Współpraca między partnerami w zakresie sprzedaży
 
@@ -22,9 +22,9 @@ Jeśli jesteś partnerem, możesz korzystać z programu współsprzedaży firmy 
 
 Firma Microsoft oferuje trzy ruchy sprzedaży dla partnerów:
 
-* *Sprzedawaj przez partnera*: możesz odsprzedawać technologię firmy Microsoft przez Twoich własnych przedstawicieli.
-* *Usługi współsprzedawane*: sprzedawcy i partnerzy współpracują nad sprzedażą projektu lub usług zarządzanych przy użyciu technologii firmy Microsoft Embedded.
-* *Współsprzedaż IP*: sprzedawcy i partnerzy współpracują w celu sprzedawania powtarzalnych, spakowanych rozwiązań IP. *
+* *Sprzedawaj przez partnera* — możesz odsprzedawać technologię firmy Microsoft przez Twoich klientów.
+* *Usługi współsprzedawane* — sprzedawcy i partnerzy współpracują nad sprzedażą projektu lub usług zarządzanych przy użyciu technologii firmy Microsoft Embedded.
+* *IP* — sprzedawanie — sprzedawcy i partnerzy współpracują w celu sprzedawania powtarzalnych, spakowanych rozwiązań IP. *
 
 \*Niektóre z tych rozwiązań do współsprzedaży IP mogą otrzymać dodatkowe zachęty, gdy zostaną pomyślnie sprzedane i wdrożone za pomocą zespołów sprzedaży w terenie firmy Microsoft.
 
@@ -32,5 +32,6 @@ Firma Microsoft oferuje trzy ruchy sprzedaży dla partnerów:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [sprzedawaniu z firmą Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Dowiedz się więcej o [sprzedawaniu z firmą Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+* Dowiedz się więcej o [opcji "co sprzedajesz" w centrum partnerskim](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Zapoznaj się z [przewodnikiem dotyczący współpracy między partnerami i partnera](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

@@ -11,18 +11,18 @@ ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 546945d70554adbb28f19a3153faa67495e55f04
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607757"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653031"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
 
 W tym artykule opisano zalecenia dotyczące programu Synapse SQL obsługiwane za pomocą Azure Advisor.  
 
-Analiza SQL udostępnia zalecenia, aby zapewnić ciągłą optymalizację obciążenia magazynu danych pod kątem wydajności. Zalecenia są ściśle zintegrowane z [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , aby zapewnić najlepszym praktykom bezpośrednio w ramach [Azure Portal](https://aka.ms/Azureadvisor). Usługa SQL Analytics zbiera zalecenia dotyczące danych telemetrycznych i powierzchni dla aktywnego obciążenia w codziennym erze. Obsługiwane scenariusze rekomendacji opisano poniżej wraz z sposobem zastosowania zalecanych akcji.
+Synapse SQL zawiera zalecenia, aby zapewnić, że obciążenie magazynu danych jest stale zoptymalizowane pod kątem wydajności. Zalecenia są ściśle zintegrowane z [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) , aby zapewnić najlepszym praktykom bezpośrednio w ramach [Azure Portal](https://aka.ms/Azureadvisor). Synapse SQL zbiera zalecenia dotyczące danych telemetrycznych i powierzchni dla aktywnego obciążenia w codziennej erze. Obsługiwane scenariusze rekomendacji opisano poniżej wraz z sposobem zastosowania zalecanych akcji.
 
 Możesz [sprawdzić swoje rekomendacje](https://aka.ms/Azureadvisor) już dzisiaj! 
 

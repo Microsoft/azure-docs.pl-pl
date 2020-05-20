@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1b9a1771ad498fa3fb9b8294adb8a6556a00863a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190422"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654778"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Podstawa zabezpieczeń platformy Azure dla Azure Database for MySQL
 
@@ -573,7 +573,7 @@ Zrozumienie ochrony danych klientów na platformie Azure:https://docs.microsoft.
 
 **Wskazówki**: usługa Azure Database for MySQL używa zatwierdzonego modułu kryptograficznego FIPS 140-2 do szyfrowania magazynu przechowywanych danych. Dane, w tym kopie zapasowe, są szyfrowane na dysku, z wyjątkiem plików tymczasowych utworzonych podczas wykonywania zapytań. Usługa używa szyfru AES 256-bit zawartego w szyfrowaniu usługi Azure Storage, a klucze są zarządzane przez system. Szyfrowanie magazynu jest zawsze włączone i nie można go wyłączyć.
 
-Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta Azure Database for MySQL umożliwia korzystanie z własnego klucza (BYOK) na potrzeby ochrony danych w spoczynku. W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się z:
+Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta w usłudze Azure Database for MySQL umożliwia korzystanie z własnego klucza (Bring Your Own Key, BYOK) na potrzeby ochrony danych w spoczynku. W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się z:
 
 AskAzureDBforMySQL@service.microsoft.com
 
@@ -902,7 +902,7 @@ Jak zapewnić uwierzytelnianie Key Vault przy użyciu tożsamości zarządzanej:
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: bezpieczne i automatyczne zarządzanie tożsamościami
 
-**Wskazówki**: wystąpienie Azure Database for MySQL obsługuje uwierzytelnianie Azure Active Directory (w wersji zapoznawczej) w celu uzyskania dostępu do baz danych.  Podczas tworzenia wystąpienia Azure Database for MySQL podajesz poświadczenia dla użytkownika administratora. Ten administrator może służyć do tworzenia dodatkowych użytkowników bazy danych.  
+**Wskazówki**: wystąpienie Azure Database for MySQL obsługuje uwierzytelnianie Azure Active Directory w celu uzyskiwania dostępu do baz danych.  Podczas tworzenia wystąpienia Azure Database for MySQL podajesz poświadczenia dla użytkownika administratora. Ten administrator może służyć do tworzenia dodatkowych użytkowników bazy danych.  
 
 W przypadku usługi Azure Virtual Machines lub aplikacji sieci Web działających na Azure App Service używanym do uzyskiwania dostępu do Azure Database for MySQL wystąpień Użyj tożsamość usługi zarządzanej w połączeniu z Azure Key Vault do przechowywania i pobierania poświadczeń dla wystąpienia Azure Database for MySQL. Upewnij się, że Key Vault usuwanie trwałe jest włączone.
 

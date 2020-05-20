@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113486"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656822"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
-Ten artykuł zawiera rozwiązania typowych problemów z usługą Azure FarmBeats. Aby uzyskać dodatkową pomoc, skontaktuj się z naszym [forum pomocy technicznej](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) lub Wyślij wiadomość e-mail na farmbeatssupport@microsoft.comadres.
+Ten artykuł zawiera rozwiązania typowych problemów z usługą Azure FarmBeats. Aby uzyskać dodatkową pomoc, skontaktuj się z naszym [forum pomocy technicznej](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) lub Wyślij wiadomość e-mail na adres farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Jeśli zainstalowano FarmBeats w kwietniu, a zadania kończą się niepowodzeniem z pustym komunikatem o błędzie, instalacja mogła nie zostać przypisana do przydziału usługi Batch w celu określenia priorytetów wsparcia dla krytycznych organizacji kondycji i bezpieczeństwa. Aby uzyskać więcej informacji, zobacz [tutaj](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Musisz zażądać przydzielenia maszyn wirtualnych do konta wsadowego, aby pomyślnie uruchomić zadania.
@@ -88,11 +88,11 @@ Aby zrozumieć sposób pobierania dzienników, przejdź do sekcji ["zbieranie dz
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -105,12 +105,12 @@ Aby zrozumieć sposób pobierania dzienników, przejdź do sekcji ["zbieranie dz
 **Akcja naprawcza**
 
 1. W programie Datahub Swagger przejdź do interfejsu API partnera.
-2. Wybierz pozycję **Pobierz** > **spróbuj** > **wykonać**operację.
+2. Wybierz pozycję **Pobierz**  >  **spróbuj**  >  **wykonać**operację.
 
 > [!NOTE]
 > Identyfikator partnera partnera, który Cię interesuje.
 
-3. Wróć do interfejsu API partnera i wybierz pozycję **Pobierz/\<identyfikator>**.
+3. Wróć do interfejsu API partnera i wybierz pozycję **Pobierz/ \< Identyfikator>**.
 4. Określ identyfikator partnera z kroku 3, a następnie wybierz pozycję **Wykonaj**.
 
    Odpowiedź interfejsu API powinna mieć Event Hubs parametry połączenia.
@@ -205,7 +205,7 @@ Jeśli masz już udzielony dostęp i wystąpił ten błąd, spróbuj ponownie, o
 
     1. Zaloguj się do [Azure Portal](https://portal.azure.com).
     2. W polu **wyszukiwania** Wyszukaj grupę zasobów FarmBeats Datahub.
-    3. Wybierz pozycję Magazyn konta magazynu * * * * * > **kontenery** > tworzenie**wsadowe plików** > **to_vm** > **config. ini**
+    3. Wybierz pozycję Magazyn konta magazynu * * * * * > **kontenery**tworzenie  >  **wsadowe plików**  >  **to_vm**  >  **config. ini**
     4. Wybierz pozycję **Edytuj**
     5. Aktualizowanie nazwy użytkownika w sekcji sentinel_account
 
@@ -250,7 +250,7 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Wskaźnik kontrolny: osiągnięto maksymalną liczbę połączeń
 
-**Komunikat o niepowodzeniu zadania**: "Maksymalna liczba dwóch współbieżnych przepływów osiągniętych przez użytkownika"\<username> "."
+**Komunikat o niepowodzeniu zadania**: "Maksymalna liczba dwóch współbieżnych przepływów osiągniętych przez użytkownika" \< username> "."
 
 **Znaczenie**: Jeśli zadanie nie powiedzie się, ponieważ osiągnięto maksymalną liczbę połączeń, to samo konto wskaźnikowe jest używane w wielu zadaniach.
 
@@ -261,7 +261,7 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 
 ### <a name="sentinel-server-refused-connection"></a>Serwer wskaźnikowy: odmowa połączenia
 
-**Komunikat o niepowodzeniu zadania**: "serwer odmówił połączenia w: http://172.30.175.69:8983/solr/dhus".
+**Komunikat o niepowodzeniu zadania**: "serwer odmówił połączenia w: http://172.30.175.69:8983/solr/dhus ".
 
 **Działania naprawcze**: ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane jakiekolwiek działania konserwacyjne.
 
@@ -287,9 +287,9 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W polu **wyszukiwania** Wyszukaj grupę zasobów FarmBeats Datahub.
-3. Na pulpicie nawigacyjnym **grupy zasobów** Wyszukaj konto magazynu *datahublogs\* * . Na przykład *datahublogsmvxmq*.  
+3. Na pulpicie nawigacyjnym **grupy zasobów** Wyszukaj konto magazynu *datahublogs \* * . Na przykład *datahublogsmvxmq*.  
 4. W kolumnie **Nazwa** wybierz konto magazynu, aby wyświetlić pulpit nawigacyjny **konta magazynu** .
-5. W okienku **datahubblogs\* ** wybierz pozycję **Otwórz w Eksploratorze** , aby wyświetlić **otwarty Eksplorator usługi Azure Storage** aplikację.
+5. W okienku **datahubblogs \* ** wybierz pozycję **Otwórz w Eksploratorze** , aby wyświetlić **otwarty Eksplorator usługi Azure Storage** aplikację.
 6. W lewym okienku wybierz pozycję **kontenery obiektów BLOB**, a następnie wybierz pozycję Dzienniki **zadań** dla dzienników Azure Data Factory lub dzienników **appinsights** dla App Service dzienników.
 7. Wybierz pozycję **Pobierz** i Pobierz dzienniki do folderu lokalnego na komputerze.
 
@@ -299,9 +299,9 @@ Ten problem może wystąpić, jeśli na serwerze wskaźnikowym są wykonywane ja
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. W polu **wyszukiwania** Wyszukaj grupę zasobów akceleratora FarmBeats.
-3. Na pulpicie nawigacyjnym **grupy zasobów** Wyszukaj konto magazynu *magazynu\* * . Na przykład *storagedop4k\**.
+3. Na pulpicie nawigacyjnym **grupy zasobów** Wyszukaj konto magazynu *magazynu \* * . Na przykład *storagedop4k \* *.
 4. Wybierz konto magazynu w kolumnie **Nazwa** , aby wyświetlić pulpit nawigacyjny **konta magazynu** .
-5. W okienku **Magazyn\* ** wybierz pozycję **Otwórz w Eksploratorze** , aby otworzyć aplikację Eksplorator usługi Azure Storage.
+5. W okienku **Magazyn \* ** wybierz pozycję **Otwórz w Eksploratorze** , aby otworzyć aplikację Eksplorator usługi Azure Storage.
 6. W lewym okienku wybierz pozycję **kontenery obiektów BLOB**, a następnie wybierz pozycję Dzienniki **zadań** dla dzienników Azure Data Factory lub dzienników **appinsights** dla App Service dzienników.
 7. Wybierz pozycję **Pobierz** i Pobierz dzienniki do folderu lokalnego na komputerze.
 

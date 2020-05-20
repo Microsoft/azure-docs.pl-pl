@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a45dc39f5a0795684aba278391e04f6af3f7b55
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681846"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659673"
 ---
 # <a name="materials"></a>Materiały
 
@@ -35,9 +35,13 @@ Zdalne renderowanie na platformie Azure ma dwa różne typy materiałów:
 
 Gdy modyfikujesz materiał bezpośrednio na zasobów siatki, ta zmiana wpłynie na wszystkie wystąpienia tej siatki. Jednak zmiana tego obiektu na MeshComponent ma wpływ tylko na jedno wystąpienie siatki. Która metoda jest bardziej odpowiednia, zależy od żądanego zachowania, ale modyfikacja MeshComponent jest bardziej typowym podejściem.
 
+## <a name="material-de-duplication"></a>Usuwanie materiału z deduplikacji
+
+Podczas konwersji wiele materiałów z tymi samymi właściwościami i teksturami są automatycznie deduplikowane do jednego materiału. Tę funkcję można wyłączyć w [ustawieniach konwersji](../how-tos/conversion/configure-model-conversion.md), ale zalecamy jej pozostawienie w celu uzyskania najlepszej wydajności.
+
 ## <a name="material-classes"></a>Klasy materiału
 
-Wszystkie materiały dostarczone przez interfejs API pochodzą z klasy `Material`podstawowej. Ich typ może być wysyłany przez `Material.MaterialSubType` lub przez rzutowanie ich bezpośrednio:
+Wszystkie materiały dostarczone przez interfejs API pochodzą z klasy podstawowej `Material` . Ich typ może być wysyłany przez `Material.MaterialSubType` lub przez rzutowanie ich bezpośrednio:
 
 ``` cs
 void SetMaterialColorToGreen(Material material)

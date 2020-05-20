@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
-ms.openlocfilehash: 405ac27fad3c24d3064f11476f452ad00abb9b02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80387771"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654622"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Rozpoczynanie pracy z inspekcją wystąpienia zarządzanego usługi Azure SQL Database
 
@@ -37,7 +37,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
    1. Przejdź do usługi Azure Storage, w której chcesz przechowywać dzienniki inspekcji.
 
       > [!IMPORTANT]
-      > Użyj konta magazynu w tym samym regionie, w którym znajduje się wystąpienie zarządzane, aby uniknąć operacji odczytu/zapisu między regionami.
+      > Użyj konta magazynu w tym samym regionie, w którym znajduje się wystąpienie zarządzane, aby uniknąć operacji odczytu/zapisu między regionami. Jeśli konto magazynu znajduje się za Virtual Network lub zaporą, zobacz [udzielanie dostępu z sieci wirtualnej](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
 
    1. Na koncie magazynu przejdź do **omówienia** , a następnie kliknij pozycję **obiekty blob**.
 
@@ -106,7 +106,7 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
         GO
         ```
 
-     1. Wykonaj następującą instrukcję T-SQL, aby utworzyć nową inspekcję serwera (wybierz własną nazwę inspekcji, użyj adresu URL kontenera utworzonego w poprzednich krokach). Jeśli nie zostanie określony `RETENTION_DAYS` , wartością domyślną jest 0 (nieograniczony czas przechowywania):
+     1. Wykonaj następującą instrukcję T-SQL, aby utworzyć nową inspekcję serwera (wybierz własną nazwę inspekcji, użyj adresu URL kontenera utworzonego w poprzednich krokach). Jeśli nie zostanie określony, `RETENTION_DAYS` wartością domyślną jest 0 (nieograniczony czas przechowywania):
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -205,7 +205,7 @@ Dzienniki inspekcji z wystąpienia zarządzanego mogą być wysyłane do nawet c
 
 Istnieje kilka metod, których można użyć do wyświetlania dzienników inspekcji obiektów BLOB.
 
-- Użyj funkcji `sys.fn_get_audit_file` system (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [dokumentację sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Użyj funkcji system `sys.fn_get_audit_file` (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [dokumentację sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Dzienniki inspekcji można eksplorować przy użyciu narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/). W usłudze Azure Storage dzienniki inspekcji są zapisywane jako kolekcja plików obiektów BLOB w kontenerze zdefiniowanym do przechowywania dzienników inspekcji. Aby uzyskać więcej szczegółowych informacji na temat hierarchii folderu magazynu, konwencji nazewnictwa i formatu dziennika, zobacz [dokumentacja formatu dziennika inspekcji obiektów BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -217,7 +217,7 @@ Aby korzystać z danych inspekcji dzienników z centrum zdarzeń, należy skonfi
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Wykorzystywanie i analizowanie dzienników przechowywanych w dziennikach Azure Monitor
 
-Jeśli dzienniki inspekcji są zapisywane w dziennikach Azure Monitor, są one dostępne w obszarze roboczym Log Analytics, gdzie można uruchamiać zaawansowane wyszukiwania na danych inspekcji. Jako punkt początkowy przejdź do obszaru roboczego Log Analytics i w obszarze *Ogólne* kliknij pozycję *dzienniki* , a następnie wprowadź proste zapytanie, takie jak: `search "SQLSecurityAuditEvents"` aby wyświetlić dzienniki inspekcji.  
+Jeśli dzienniki inspekcji są zapisywane w dziennikach Azure Monitor, są one dostępne w obszarze roboczym Log Analytics, gdzie można uruchamiać zaawansowane wyszukiwania na danych inspekcji. Jako punkt początkowy przejdź do obszaru roboczego Log Analytics i w obszarze *Ogólne* kliknij pozycję *dzienniki* , a następnie wprowadź proste zapytanie, takie jak: `search "SQLSecurityAuditEvents"` Aby wyświetlić dzienniki inspekcji.  
 
 Dzienniki Azure Monitor udostępniają usługi operacyjne w czasie rzeczywistym przy użyciu zintegrowanego wyszukiwania i niestandardowych pulpitów nawigacyjnych, które umożliwiają łatwe analizowanie milionów rekordów na wszystkich obciążeniach i serwerach. Aby uzyskać dodatkowe informacje dotyczące Azure Monitor języka i poleceń wyszukiwania dzienników, zobacz artykuł [Azure monitor Logs Search Reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -234,8 +234,8 @@ Inspekcja systemu XEvent w wystąpieniu zarządzanym obsługuje cele usługi Azu
 
 Kluczowe różnice w `CREATE AUDIT` składni inspekcji usługi Azure Blob Storage są następujące:
 
-- Dostępna jest nowa `TO URL` składnia i umożliwia określenie adresu URL kontenera magazynu obiektów blob platformy Azure, w `.xel` którym umieszczane są pliki.
-- Podano nową `TO EXTERNAL MONITOR` składnię umożliwiającą włączenie elementów docelowych dzienników koncentratora i Azure monitor.
+- `TO URL`Dostępna jest nowa składnia i umożliwia określenie adresu URL kontenera magazynu obiektów blob platformy Azure, w którym `.xel` umieszczane są pliki.
+- Podano nową składnię `TO EXTERNAL MONITOR` umożliwiającą włączenie elementów docelowych dzienników koncentratora i Azure monitor.
 - Składnia `TO FILE` nie jest **obsługiwana** , ponieważ SQL Database nie może uzyskać dostępu do udziałów plików systemu Windows.
 - Opcja zamykania **nie jest obsługiwana**.
 - `queue_delay`wartość 0 **nie jest obsługiwana**.

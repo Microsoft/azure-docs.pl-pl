@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e529144198d0c635e74955e98d47dd46ac4fb733
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615151"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657248"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identyfikowanie i diagnozowanie problemów
 
@@ -36,7 +36,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnozowanie problemów przy użyciu programu PowerShell
 
-Diagnostyka pulpitu wirtualnego systemu Windows używa tylko jednego polecenia cmdlet programu PowerShell, ale zawiera wiele opcjonalnych parametrów, aby pomóc w zawężaniu i izolowaniu problemów. Poniższe sekcje zawierają listę poleceń cmdlet, które można uruchomić w celu zdiagnozowania problemów. Większość filtrów można zastosować razem. Wartości wymienione w nawiasach, takie `<tenantName>`jak, powinny być zastępowane wartościami, które dotyczą danej sytuacji.
+Diagnostyka pulpitu wirtualnego systemu Windows używa tylko jednego polecenia cmdlet programu PowerShell, ale zawiera wiele opcjonalnych parametrów, aby pomóc w zawężaniu i izolowaniu problemów. Poniższe sekcje zawierają listę poleceń cmdlet, które można uruchomić w celu zdiagnozowania problemów. Większość filtrów można zastosować razem. Wartości wymienione w nawiasach, takie jak `<tenantName>` , powinny być zastępowane wartościami, które dotyczą danej sytuacji.
 
 >[!IMPORTANT]
 >Funkcja diagnostyki służy do rozwiązywania problemów z jednym użytkownikiem. Wszystkie zapytania przy użyciu programu PowerShell muszą zawierać parametry *-username* lub *-ActivityId* . Aby uzyskać możliwości monitorowania, użyj Log Analytics. Aby uzyskać więcej informacji o sposobach wysyłania danych diagnostycznych do obszaru roboczego [, zobacz używanie log Analytics dla funkcji diagnostyki](diagnostics-log-analytics-2019.md) . 
@@ -139,6 +139,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 
 |Kod liczbowy|Kod błędu|Sugerowane rozwiązanie|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|Użytkownik nie jest członkiem Azure Active Directory. Postępuj zgodnie z instrukcjami w [Centrum administracyjne usługi Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) , aby je dodać.|
 |3|UnauthorizedAccess|Użytkownik, który próbował uruchomić administracyjne polecenie cmdlet programu PowerShell, nie ma uprawnień do wykonania tej operacji lub niewpisanej nazwy użytkownika.|
 |1000|TenantNotFound|Wprowadzona nazwa dzierżawy nie jest zgodna z żadną z istniejących dzierżawców. Przejrzyj nazwę dzierżawy pod kątem pisowni i spróbuj ponownie.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|Dzierżawy nie można usunąć, dopóki nie zawiera ona obiektów. Najpierw usuń pule hostów sesji, a następnie spróbuj ponownie.|
@@ -160,6 +161,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 
 |Kod liczbowy|Kod błędu|Sugerowane rozwiązanie|
 |---|---|---|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|Użytkownik nie jest członkiem Azure Active Directory. Postępuj zgodnie z instrukcjami w [Centrum administracyjne usługi Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) , aby je dodać.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|Host sesji nie został poprawnie przyłączony do Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Połączenia nie powiodły się, ponieważ Host sesji jest niedostępny. Sprawdź kondycję hosta sesji.|
 |-2146233088|ConnectionFailedClientDisconnect|Jeśli ten błąd występuje często, upewnij się, że komputer użytkownika jest połączony z siecią.|

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121353"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648832"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -31,7 +31,7 @@ Aplikacje funkcji można hostować na kilka sposobów:
 |                |[Plan Zużycie](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Środowisko usługi App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Ograniczenia przychodzącego adresu IP i dostępu do lokacji prywatnej](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Integracja sieci wirtualnej](#virtual-network-integration)|❌Nie|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Yes|
+|[Integracja z siecią wirtualną](#virtual-network-integration)|❌Nie|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Yes|
 |[Wyzwalacze sieci wirtualnej (bez protokołu HTTP)](#virtual-network-triggers-non-http)|❌Nie| ✅Yes |✅Yes|✅Yes|
 |[Połączenia hybrydowe](#hybrid-connections) (tylko system Windows)|❌Nie|✅Yes|✅Yes|✅Yes|
 |[Ograniczenia wychodzącego adresu IP](#outbound-ip-restrictions)|❌Nie| ✅Yes|✅Yes|✅Yes|
@@ -47,15 +47,7 @@ Aby dowiedzieć się więcej, zobacz [Azure App Service ograniczenia dostępu st
 
 ## <a name="private-site-access"></a>Dostęp do witryn prywatnych
 
-Dostęp do lokacji prywatnej dotyczy udostępniania aplikacji tylko z sieci prywatnej, takiej jak sieć wirtualna platformy Azure.
-
-* Dostęp do lokacji prywatnej jest dostępny w planach [Premium](./functions-premium-plan.md), [zużycia](functions-scale.md#consumption-plan)i [App Service](functions-scale.md#app-service-plan) w przypadku skonfigurowania punktów końcowych usługi.
-    * Punkty końcowe usługi można skonfigurować dla poszczególnych aplikacji w obszarze **funkcje platformy**  >  **Networking**  >  **Konfigurowanie ograniczeń dostępu**  >  **Dodaj regułę**. Sieci wirtualne można teraz wybrać jako typ reguły.
-    * Aby uzyskać więcej informacji, zobacz [punkty końcowe usługi sieci wirtualnej](../virtual-network/virtual-network-service-endpoints-overview.md).
-    * Należy pamiętać, że dzięki punktom końcowym usługi funkcja nadal ma pełny dostęp wychodzący do Internetu, nawet z skonfigurowaną integracją sieci wirtualnej.
-* Dostęp do lokacji prywatnej jest również dostępny w ramach App Service Environment, który jest skonfigurowany przy użyciu wewnętrznego modułu równoważenia obciążenia (ILB). Aby uzyskać więcej informacji, zobacz [Tworzenie i używanie wewnętrznego modułu równoważenia obciążenia z App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-Aby dowiedzieć się, jak skonfigurować dostęp do lokacji prywatnej, zobacz [ustanawianie Azure Functions dostępu do lokacji prywatnej](functions-create-private-site-access.md).
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 ## <a name="virtual-network-integration"></a>Integracja sieci wirtualnej
 

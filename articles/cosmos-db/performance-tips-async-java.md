@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 1a3ec22b9d1375f1c438d24791389284c1d4ee84
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 461602aee6d88f8d8f829fcf89e3433a8185e34d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982551"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658943"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982551"
 > 
 
 > [!IMPORTANT]  
-> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Rozważ użycie Azure Cosmos DB Java SDK v4 dla projektu. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami zawartymi w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i w podręczniku [reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Należy uaktualnić projekt do [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) , a następnie zapoznać się z [przewodnikiem wskazówek dotyczących wydajności](performance-tips-java-sdk-v4-sql.md)Azure Cosmos DB zestawu Java SDK 4. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i [reaktorem programu vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
 > 
 > Porady dotyczące wydajności w tym artykule dotyczą tylko Azure Cosmos DB asynchronicznego zestawu Java SDK V2. Aby uzyskać więcej informacji, zobacz informacje o [wersji](sql-api-sdk-async-java.md)Azure Cosmos DB Async SDK V2, [repozytorium Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)i Azure Cosmos DB asynchroniczny [Przewodnik rozwiązywania problemów z](troubleshoot-java-async-sdk.md) zestawem SDK dla języka Java w wersji 2.
 >
@@ -97,7 +97,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
         Jeśli używasz Azure Cosmos DB jako bazy danych referencyjnych (oznacza to, że baza danych jest używana w wielu operacjach odczytu punktu i kilku operacjach zapisu), można zaakceptować wartość *idleEndpointTimeout* na 0 (czyli bez limitu czasu).
 
 
-        | Opcja konfiguracji       | Domyślny    |
+        | Opcja konfiguracji       | Domyślne    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | Parametru          | "PT1M"     |
@@ -154,7 +154,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
 * **Użyj adresowania na podstawie nazwy**
 
-    Użyj adresowania opartego na nazwach, gdzie linki `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`mają format zamiast SelfLinks (\_własny), który ma format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` , aby uniknąć pobierania ResourceID wszystkich zasobów użytych do skonstruowania łącza. Ponadto, ponieważ te zasoby zostaną utworzone ponownie (prawdopodobnie z tą samą nazwą), buforowanie może nie pomóc.
+    Użyj adresowania opartego na nazwach, gdzie linki mają format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` zamiast SelfLinks ( \_ własny), który ma format, `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` Aby uniknąć pobierania ResourceID wszystkich zasobów użytych do skonstruowania łącza. Ponadto, ponieważ te zasoby zostaną utworzone ponownie (prawdopodobnie z tą samą nazwą), buforowanie może nie pomóc.
 
    <a id="tune-page-size"></a>
 
@@ -209,7 +209,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
       });
     ```
 
-    Na podstawie typu pracy należy użyć odpowiedniego istniejącego harmonogramu RxJava do pracy. Przeczytaj tutaj [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
+    Na podstawie typu pracy należy użyć odpowiedniego istniejącego harmonogramu RxJava do pracy. Przeczytaj tutaj [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html) .
 
     Aby uzyskać więcej informacji, zapoznaj się ze [stroną usługi GitHub](https://github.com/Azure/azure-cosmosdb-java) , Azure Cosmos DB ASYNC Java SDK V2.
 
@@ -296,7 +296,7 @@ W przypadku innych platform (Red Hat, Windows, Mac itp.) zapoznaj się z tymi in
 
     Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych wpływają na koszt operacji zapytania.
 
-    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse\<t> lub FeedResponse\<t>.
+    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse \< t> lub FeedResponse \< t>.
 
     ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 

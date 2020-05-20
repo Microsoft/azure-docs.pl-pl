@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197588"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659233"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statystyka w programie SQL Synapse
 
@@ -30,11 +30,13 @@ Im więcej zasobów puli SQL wie o danych, tym szybciej może wykonywać zapytan
 
 Optymalizator zapytań puli SQL jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy.
 
-Na przykład, jeśli optymalizator szacuje, że data filtrowania zapytania zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
+Na przykład, jeśli optymalizator szacuje, że data filtrowania kwerendy zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatyczne tworzenie statystyk
 
-Pula SQL będzie analizować przychodzące zapytania użytkownika pod kątem braku statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest ustawiona na `ON` .  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. Ta funkcja służy do poprawiania oszacowania kardynalności dla planu zapytania.
+Pula SQL będzie analizować przychodzące zapytania użytkownika pod kątem braku statystyk, gdy opcja AUTO_CREATE_STATISTICS bazy danych jest ustawiona na `ON` .  Jeśli brakuje statystyk, optymalizator zapytań tworzy statystyki dla poszczególnych kolumn w predykacie zapytania lub w warunku sprzężenia. 
+
+Ta funkcja służy do poprawiania oszacowania kardynalności dla planu zapytania.
 
 > [!IMPORTANT]
 > Automatyczne tworzenie statystyk jest obecnie domyślnie włączone.
@@ -101,7 +103,9 @@ Jednym z pierwszych pytań, które należy zadać w przypadku rozwiązywania pro
 
 To pytanie nie jest takie, którego można udzielić odpowiedzi według wieku danych. Aktualny obiekt statystyk może być stary, jeśli nie wprowadzono żadnych istotnych zmian w danych źródłowych. W przypadku zmiany liczby wierszy w istotny sposób lub zmiany materiału w dystrybucji wartości dla kolumny występuje czas na aktualizację statystyk. *then*
 
-Nie ma dostępnego dynamicznego widoku zarządzania, aby określić, czy dane w tabeli uległy zmianie od czasu ostatniego aktualizowania statystyk. Poznanie wieku Twoich statystyk może stanowić część obrazu. Przy użyciu następującego zapytania można określić czas ostatniej aktualizacji statystyk w każdej tabeli.
+Nie ma dostępnego dynamicznego widoku zarządzania, aby określić, czy dane w tabeli uległy zmianie od czasu ostatniego aktualizowania statystyk. Poznanie wieku Twoich statystyk może stanowić część obrazu. 
+
+Przy użyciu następującego zapytania można określić czas ostatniej aktualizacji statystyk w każdej tabeli.
 
 > [!NOTE]
 > W przypadku zmiany materiału w dystrybucji wartości dla kolumny należy zaktualizować statystyki bez względu na czas ostatniej aktualizacji.
@@ -137,9 +141,11 @@ WHERE
 
 Nie trzeba aktualizować statystyk w kolumnie o płci w tabeli klienta. Przy założeniu, że dystrybucja jest stała między klientami, dodanie nowych wierszy do odmiany tabeli nie powoduje zmiany dystrybucji danych.
 
-Ale jeśli magazyn danych zawiera tylko jedną płeć, a nowe wymaganie ma wiele płci, należy zaktualizować statystyki w kolumnie płeć. Aby uzyskać więcej informacji, zapoznaj się z artykułem [statystyki](/sql/relational-databases/statistics/statistics) .
+Ale jeśli magazyn danych zawiera tylko jedną płeć, a nowe wymaganie ma wiele płci, należy zaktualizować statystyki w kolumnie płeć. 
 
-### <a name="implementing-statistics-management"></a>Implementowanie zarządzania statystykami
+Aby uzyskać więcej informacji, zapoznaj się z artykułem [statystyki](/sql/relational-databases/statistics/statistics) .
+
+### <a name="implement-statistics-management"></a>Zaimplementuj Zarządzanie statystykami
 
 Często dobrym pomysłem jest rozbudowa procesu ładowania danych w celu zapewnienia, że statystyki są aktualizowane po zakończeniu ładowania. Ładowanie danych jest w przypadku, gdy tabele często zmieniają ich rozmiar, dystrybucję wartości lub obie. W związku z tym proces ładowania jest logicznym miejscem do implementacji niektórych procesów zarządzania.
 
@@ -167,7 +173,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -184,7 +190,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -275,6 +281,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Użyj procedury składowanej, aby utworzyć statystyki dla wszystkich kolumn w bazie danych
 
 Pula SQL nie ma procedury składowanej systemowej równoważnej sp_create_stats w SQL Server. Ta procedura składowana tworzy obiekt statystyki jednokolumnowej dla każdej kolumny bazy danych, która nie ma jeszcze statystyk.
+
 Poniższy przykład pomoże Ci rozpocząć pracę z projektem bazy danych. Śmiało, aby dostosować je do swoich potrzeb:
 
 ```sql
@@ -396,7 +403,7 @@ Aby zaktualizować konkretny obiekt Statystyczny, należy użyć następującej 
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -412,13 +419,15 @@ Prostą metodą aktualizowania wszystkich obiektów statystyk w tabeli jest:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-Instrukcja UPDATE STATISTICs jest łatwa w użyciu. Pamiętaj, że aktualizuje *wszystkie* statystyki tabeli, monitując więcej pracy niż jest to konieczne. Jeśli wydajność nie jest problemem, ta metoda jest najłatwiejszym i najbardziej kompletnym sposobem na zagwarantowanie Aktualności statystyk.
+Instrukcja UPDATE STATISTICs jest łatwa w użyciu. Pamiętaj, że aktualizuje *wszystkie* statystyki tabeli, monitując więcej pracy niż jest to konieczne. 
+
+Jeśli wydajność nie jest problemem, ta metoda jest najłatwiejszym i najbardziej kompletnym sposobem na zagwarantowanie Aktualności statystyk.
 
 > [!NOTE]
 > Podczas aktualizowania wszystkich statystyk w tabeli usługa SQL Pool wykonuje skanowanie w celu próbkowania tabeli dla każdego obiektu statystyki. Jeśli tabela jest duża i zawiera wiele kolumn i wiele statystyk, może być bardziej wydajna aktualizacja indywidualnych statystyk w zależności od potrzeb.
@@ -497,11 +506,13 @@ AND     st.[user_created] = 1
 
 Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statystyk. Te dane wchodzą w skład trzech części:
 
-- Nagłówek
+- Header
 - Wektor gęstości
 - Histogram
 
-Nagłówek to metadane dotyczące statystyk. Histogram wyświetla rozkład wartości w pierwszej kolumnie klucza obiektu Statystyka. Wektor gęstości mierzy korelację między kolumnami. W puli SQL są obliczane oszacowania kardynalności z dowolnymi danymi w obiekcie Statystyka.
+Nagłówek to metadane dotyczące statystyk. Histogram wyświetla rozkład wartości w pierwszej kolumnie klucza obiektu Statystyka. 
+
+Wektor gęstości mierzy korelację między kolumnami. W puli SQL są obliczane oszacowania kardynalności z dowolnymi danymi w obiekcie Statystyka.
 
 #### <a name="show-header-density-and-histogram"></a>Pokaż nagłówek, gęstość i histogram
 
@@ -511,7 +522,7 @@ Ten prosty przykład przedstawia wszystkie trzy części obiektu statystyki:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -526,7 +537,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Przykład:
+Na przykład:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -555,7 +566,11 @@ Statystyki są tworzone na określoną kolumnę dla określonego zestawu danych 
 
 ### <a name="why-use-statistics"></a>Dlaczego warto używać statystyk
 
-Im więcej informacji na żądanie (wersja zapoznawcza) dotyczących Twoich danych, tym szybciej można wykonać zapytania. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. Optymalizator zapytań na żądanie SQL jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy. Na przykład, jeśli optymalizator szacuje, że data filtrowania zapytania zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
+Im więcej informacji na żądanie (wersja zapoznawcza) dotyczących Twoich danych, tym szybciej można wykonać zapytania. Zbieranie danych statystycznych jest jednym z najważniejszych rzeczy, które można wykonać, aby zoptymalizować zapytania. 
+
+Optymalizator zapytań na żądanie SQL jest Optymalizatorem opartym na kosztach. Porównuje koszt różnych planów zapytań, a następnie wybiera plan z najniższym kosztem. W większości przypadków wybiera plan, który będzie wykonywał najszybszy. 
+
+Na przykład, jeśli optymalizator szacuje, że data filtrowania zapytania zwróci jeden wiersz, wybierze jeden plan. Jeśli szacuje się, że wybrana data zwróci 1 000 000 wierszy, zwróci inny plan.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatyczne tworzenie statystyk
 
@@ -570,9 +585,11 @@ Automatyczne tworzenie statystyk jest wykonywane synchronicznie, dzięki czemu m
 
 ### <a name="manual-creation-of-statistics"></a>Ręczne tworzenie statystyk
 
-SQL na żądanie umożliwia ręczne tworzenie statystyk. W przypadku plików CSV należy ręcznie utworzyć statystyki, ponieważ automatyczne tworzenie statystyk nie jest włączone dla plików CSV. Zapoznaj się z poniższymi przykładami, aby uzyskać instrukcje dotyczące ręcznego tworzenia statystyk.
+SQL na żądanie umożliwia ręczne tworzenie statystyk. W przypadku plików CSV należy ręcznie utworzyć statystyki, ponieważ automatyczne tworzenie statystyk nie jest włączone dla plików CSV. 
 
-### <a name="updating-statistics"></a>Aktualizowanie statystyk
+Zapoznaj się z poniższymi przykładami, aby uzyskać instrukcje dotyczące ręcznego tworzenia statystyk.
+
+### <a name="update-statistics"></a>Aktualizowanie statystyk
 
 Zmiany danych w plikach, usuwaniu i dodawaniu plików powodują zmiany dystrybucji danych i statystyk są nieaktualne. W takim przypadku statystyki należy zaktualizować.
 
@@ -592,9 +609,9 @@ Gdy liczba wierszy uległa znacznej zmianie lub w dystrybucji wartości dla kolu
 > [!NOTE]
 > W przypadku zmiany materiału w dystrybucji wartości dla kolumny należy zaktualizować statystyki bez względu na czas ostatniej aktualizacji.
 
-### <a name="implementing-statistics-management"></a>Implementowanie zarządzania statystykami
+### <a name="implement-statistics-management"></a>Zaimplementuj Zarządzanie statystykami
 
-Możesz chcieć wydłużyć Potok danych, aby zapewnić, że statystyki są aktualizowane, gdy dane są znacznie modyfikowane poprzez dodanie, usunięcie lub zmianę plików.
+Możesz chcieć wydłużyć Potok danych, aby zapewnić, że statystyki są aktualizowane, gdy dane są znacząco zmieniane poprzez dodanie, usunięcie lub zmianę plików.
 
 Następujące zasady dotyczące identyfikatorów GUID są dostępne do aktualizowania statystyk:
 

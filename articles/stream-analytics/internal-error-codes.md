@@ -6,24 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: c8c792d548fc953cb5d059f322ad1f3139c91562
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e101747322baac860cbde02aca341171aa0cc1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597737"
+ms.locfileid: "83658350"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Azure Stream Analytics wewnętrzne kody błędów
 
 Dzienników aktywności i dzienników zasobów można używać do debugowania nieoczekiwanych zachowań z zadania Azure Stream Analytics. Ten artykuł zawiera opis każdego wewnętrznego kodu błędu. Błędy wewnętrzne to błędy ogólne, które są zgłaszane w ramach platformy Stream Analytics, gdy Stream Analytics nie można rozróżnić, jeśli błąd jest wewnętrznym błędem dostępności lub usterką w systemie.
-
-## <a name="kafkainvalidrequest"></a>KafkaInvalidRequest
-
-* **Przyczyna**: żądanie wysłane do serwera Kafka jest nieprawidłowe.
-
-## <a name="kafkainputerror"></a>KafkaInputError
-
-* **Przyczyna**: dane wejściowe Kafka napotkały problem.
 
 ## <a name="cosmosdboutputbatchsizetoolarge"></a>CosmosDBOutputBatchSizeTooLarge
 

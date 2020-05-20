@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472088"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648540"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programowanie przy użyciu interfejsów API Media Services v3
 
@@ -54,7 +54,7 @@ Na poniższej ilustracji liczba reprezentuje przepływ żądań w kolejności ch
    * Identyfikator URI zasobu dla Media Services REST.
    * Wartości aplikacji usługi Azure AD: identyfikator klienta i klucz tajny klienta.
 
-   Aby uzyskać wszystkie konieczne wartości, zobacz [dostęp Azure Media Services interfejsu API w interfejsie wiersza polecenia platformy Azure](access-api-cli-how-to.md).
+   Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](access-api-cli-how-to.md).
 
 2. Token dostępu usługi Azure AD jest wysyłany do warstwy środkowej.
 4. Warstwa środkowa wysyła żądanie do interfejsu API REST usługi Azure Media przy użyciu tokenu usługi Azure AD.
@@ -96,7 +96,7 @@ Media Services ma następujące długotrwałe operacje:
 * [Uruchom wydarzenie na żywo](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Zatrzymaj LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  Użyj parametru `removeOutputsOnStop` , aby usunąć wszystkie skojarzone wyjście na żywo podczas zatrzymywania zdarzenia.  
+  Użyj `removeOutputsOnStop` parametru, aby usunąć wszystkie skojarzone wyjście na żywo podczas zatrzymywania zdarzenia.  
 * [Resetuj LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Utwórz LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Usuń LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -118,7 +118,7 @@ Tylko jedna długotrwała operacja jest obsługiwana dla danego zdarzenia na ży
 > [!NOTE]
 > Zestawy SDK Azure Media Services V3 nie mają gwarancji, że są bezpieczne wątkowo. Podczas tworzenia aplikacji wielowątkowej należy dodać własną logikę synchronizacji wątków, aby chronić klienta lub użyć nowego obiektu AzureMediaServicesClient na wątek. Należy również zachować ostrożność w przypadku problemów z wielowątkowością wprowadzanych przez obiekty opcjonalne dostarczone przez kod klientowi (na przykład wystąpienie HttpClient w programie .NET).
 
-|SDK|Dokumentacja|
+|SDK|Tematy pomocy|
 |---|---|
 |[Zestaw SDK .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Dokumentacja platformy .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[Zestaw SDK Java](https://aka.ms/ams-v3-java-sdk)|[Dokumentacja języka Java](https://aka.ms/ams-v3-java-ref)|
@@ -148,7 +148,7 @@ Zapoznaj się z artykułem [community Azure Media Services](media-services-commu
 
 ## <a name="see-also"></a>Zobacz także
 
-[Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+Aby uzyskać wszystkie konieczne wartości, zobacz [Access Azure Media Services API](access-api-cli-how-to.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

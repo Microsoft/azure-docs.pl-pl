@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d3535d419b0f99491795b3920fdd295e3128299
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73904357"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654018"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testowanie wsadowe z zestawem przykład wyrażenia długości
 
- Testowanie wsadowe to kompleksowy test w bieżącym przeszkolonym modelu, który umożliwia mierzenie jego wydajności w LUIS. Zestawy danych używane do testowania wsadowego nie powinny zawierać przykładu wyrażenia długości w intencjach lub wyrażenia długości odebranych z punktu końcowego środowiska uruchomieniowego przewidywania. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+ Testowanie wsadowe to kompleksowy test w bieżącym przeszkolonym modelu, który umożliwia mierzenie jego wydajności w LUIS. Zestawy danych używane do testowania wsadowego nie powinny zawierać przykładu wyrażenia długości w intencjach lub wyrażenia długości odebranych z punktu końcowego środowiska uruchomieniowego przewidywania.
 
 <a name="batch-testing"></a>
 
@@ -36,21 +34,20 @@ ms.locfileid: "73904357"
 
     Błędy importu są raportowane na czerwono pasku powiadomień u góry przeglądarki. Gdy import zawiera błędy, nie jest tworzony żaden zestaw danych. Aby uzyskać więcej informacji, zobacz [typowe błędy](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
-3. W polu **Nazwa zestawu danych** wprowadź nazwę pliku zestawu danych. Plik zestawu danych zawiera **tablicę wyrażenia długości** , włącznie z *zamiarem* i *obiektami*z etykietą. Przejrzyj [przykładowy plik wsadowy](luis-concept-batch-test.md#batch-file-format) pod kątem składni. 
+3. W polu **Nazwa zestawu danych** wprowadź nazwę pliku zestawu danych. Plik zestawu danych zawiera **tablicę wyrażenia długości** , włącznie z *zamiarem* i *obiektami*z etykietą. Przejrzyj [przykładowy plik wsadowy](luis-concept-batch-test.md#batch-file-format) pod kątem składni.
 
-4. Wybierz pozycję **Gotowe**. Plik zestawu danych zostanie dodany.
+4. Wybierz pozycję **Done** (Gotowe). Plik zestawu danych zostanie dodany.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Uruchamianie, zmiana nazwy, eksport lub usuwanie zestawu danych
 
 Aby uruchomić, zmienić nazwę, wyeksportować lub usunąć zestaw danych, użyj przycisku wielokropka (***...***) na końcu wiersza zestawu danych.
 
-![Akcje zestawu danych](./media/luis-how-to-batch-test/batch-testing-options.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający listę testów wsadowych z opcjami](./media/luis-how-to-batch-test/batch-testing-options.png)
 
 ## <a name="run-a-batch-test-on-your-trained-app"></a>Uruchom test wsadowy dla przeszkolonej aplikacji
 
-Aby uruchomić test, wybierz nazwę zestawu danych. Po zakończeniu testu w tym wierszu jest wyświetlany wynik testu zestawu danych.
-
-![Wynik testu wsadowego](./media/luis-how-to-batch-test/run-test.png)
+Aby uruchomić test, wybierz nazwę zestawu danych, a następnie wybierz pozycję **Uruchom** z kontekstowego paska narzędzi. Po zakończeniu testu w tym wierszu jest wyświetlany wynik testu zestawu danych.
 
 Zestaw danych do pobrania to ten sam plik, który został przekazany do testowania wsadowego.
 
@@ -62,23 +59,21 @@ Zestaw danych do pobrania to ten sam plik, który został przekazany do testowan
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
-## <a name="view-batch-test-results"></a>Wyświetl wyniki testów wsadowych 
+## <a name="view-batch-test-results"></a>Wyświetl wyniki testów wsadowych
 
 Aby przejrzeć wyniki testów wsadowych, wybierz pozycję **Zobacz wyniki**.
 
-![Wyniki testów wsadowych](./media/luis-how-to-batch-test/run-test-results.png)
-
-<a name="filter-chart-results-by-intent-or-entity"></a>  
+<a name="filter-chart-results-by-intent-or-entity"></a>
 
 ## <a name="filter-chart-results"></a>Filtruj wyniki wykresu
 
-Aby odfiltrować wykres według określonego zamiaru lub jednostki, wybierz cel lub jednostkę w panelu filtrowania po prawej stronie. Punkty danych i ich aktualizacje dystrybucji na wykresie zgodnie z wyborem. 
- 
-![Wizualny wynik testu wsadowego](./media/luis-how-to-batch-test/filter-by-entity.png) 
+Aby odfiltrować wykres według określonego zamiaru lub jednostki, wybierz cel lub jednostkę w panelu filtrowania po prawej stronie. Punkty danych i ich aktualizacje dystrybucji na wykresie zgodnie z wyborem.
+
+![Wizualny wynik testu wsadowego](./media/luis-how-to-batch-test/filter-by-entity.png)
 
 ## <a name="view-single-point-utterance-data"></a>Wyświetlanie danych wypowiedź pojedynczych punktów
 
-Na wykresie Umieść kursor nad punktem danych, aby zobaczyć wynik pewności jego przewidywania. Wybierz punkt danych, aby pobrać odpowiadający mu wypowiedź na liście wyrażenia długości w dolnej części strony. 
+Na wykresie Umieść kursor nad punktem danych, aby zobaczyć wynik pewności jego przewidywania. Wybierz punkt danych, aby pobrać odpowiadający mu wypowiedź na liście wyrażenia długości w dolnej części strony.
 
 ![Wybrany wypowiedź](./media/luis-how-to-batch-test/selected-utterance.png)
 
@@ -88,13 +83,13 @@ Na wykresie Umieść kursor nad punktem danych, aby zobaczyć wynik pewności je
 
 ## <a name="view-section-data"></a>Wyświetl dane sekcji
 
-Na wykresie z czterema sekcjami wybierz nazwę sekcji, na przykład **false pozytywną** w prawym górnym rogu wykresu. Pod wykresem wszystkie wyrażenia długości w tej sekcji są wyświetlane poniżej wykresu na liście. 
+Na wykresie z czterema sekcjami wybierz nazwę sekcji, na przykład **false pozytywną** w prawym górnym rogu wykresu. Pod wykresem wszystkie wyrażenia długości w tej sekcji są wyświetlane poniżej wykresu na liście.
 
 ![Wybrane wyrażenia długości według sekcji](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
 
-W tym powyższym obrazie `switch on` wypowiedź jest oznaczona zamiarem TurnAllOn, ale otrzymał przeznaczenie wartości none. Wskazuje to, że TurnAllOn wymaga więcej przykładowych wyrażenia długości w celu zapewnienia oczekiwanego przewidywania. 
+W tym powyższym obrazie wypowiedź `switch on` jest oznaczona zamiarem TurnAllOn, ale otrzymał przeznaczenie wartości none. Wskazuje to, że TurnAllOn wymaga więcej przykładowych wyrażenia długości w celu zapewnienia oczekiwanego przewidywania.
 
-Dwie sekcje wykresu na czerwono wskazują wyrażenia długości, które nie pasują do oczekiwanego przewidywania. Wskazują one wyrażenia długości, które LUIS wymagają więcej szkoleń. 
+Dwie sekcje wykresu na czerwono wskazują wyrażenia długości, które nie pasują do oczekiwanego przewidywania. Wskazują one wyrażenia długości, które LUIS wymagają więcej szkoleń.
 
 Dwie sekcje wykresu w kolorze zielonym pasują do oczekiwanego przewidywania.
 
@@ -102,9 +97,9 @@ Dwie sekcje wykresu w kolorze zielonym pasują do oczekiwanego przewidywania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli testowanie wskazuje, że aplikacja LUIS nie rozpoznaje poprawnych intencji i jednostek, możesz obejść, aby zwiększyć wydajność aplikacji LUIS, dodając etykiety więcej wyrażenia długości lub dodając funkcje. 
+Jeśli testowanie wskazuje, że aplikacja LUIS nie rozpoznaje poprawnych intencji i jednostek, możesz obejść, aby zwiększyć wydajność aplikacji LUIS, dodając etykiety więcej wyrażenia długości lub dodając funkcje.
 
-* [Etykieta sugerowanych wyrażenia długości z LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Korzystaj z funkcji, aby zwiększyć wydajność aplikacji LUIS](luis-how-to-add-features.md) 
+* [Etykieta sugerowanych wyrażenia długości z LUIS](luis-how-to-review-endpoint-utterances.md)
+* [Korzystaj z funkcji, aby zwiększyć wydajność aplikacji LUIS](luis-how-to-add-features.md)
 * [Opis testów wsadowych w tym samouczku](luis-tutorial-batch-testing.md)
 * [Poznaj koncepcje testowania partii](luis-concept-batch-test.md).

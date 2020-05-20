@@ -3,12 +3,12 @@ title: Eksplorowanie dzienników śledzenia .NET w Application Insights
 description: Wyszukaj dzienniki wygenerowane przez Trace, NLog lub Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bcd21286a547e0b0a6b5b93e8b05921e8e8cc1e2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276272"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647909"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Poznaj dzienniki śledzenia .NET/.NET Core i Python w Application Insights
 
@@ -49,20 +49,20 @@ Użyj tej metody, jeśli typ projektu nie jest obsługiwany przez Instalatora Ap
 3. Wyszukaj ciąg "Application Insights".
 4. Wybierz jeden z następujących pakietów:
 
-   - Dla ILogger: [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - Dla nLOG: [Microsoft. ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Dla Log4Net: [Microsoft. ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - Dla elementu System. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Pakiet NuGet Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[![](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Pakiet NuGet Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[![](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-   - [Pakiet NuGet Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[![](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+   - Dla ILogger: [Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Dla nLOG: [Microsoft. ApplicationInsights. NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Dla Log4Net: [Microsoft. ApplicationInsights. Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Dla elementu System. Diagnostics: [Microsoft. ApplicationInsights. TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
+ [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft. ApplicationInsights. DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
+ Pakiet [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft. ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
+ Pakiet [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft. ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
+ Pakiet [ ![ NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 Pakiet NuGet instaluje niezbędne zestawy i modyfikuje plik Web. config lub App. config, jeśli ma to zastosowanie.
 
@@ -80,7 +80,7 @@ Jeśli wolisz log4net lub NLog, użyj:
     logger.Warn("Slow response - database01");
 
 ## <a name="use-eventsource-events"></a>Korzystanie z zdarzeń EventSource
-Zdarzenia [System. Diagnostics. Trace. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj pakiet `Microsoft.ApplicationInsights.EventSourceListener` NuGet. Następnie przeprowadź `TelemetryModules` edycję sekcji pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Zdarzenia [System. Diagnostics. Trace. EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) można skonfigurować do wysyłania do Application Insights jako śladów. Najpierw zainstaluj `Microsoft.ApplicationInsights.EventSourceListener` pakiet NuGet. Następnie przeprowadź edycję `TelemetryModules` sekcji pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -96,7 +96,7 @@ Dla każdego źródła można ustawić następujące parametry:
  * **Słowa kluczowe** (opcjonalnie) określają wartość całkowitą kombinacji słów kluczowych do użycia.
 
 ## <a name="use-diagnosticsource-events"></a>Korzystanie z zdarzeń DiagnosticSource
-Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) , które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj pakiet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" w pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) , które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" w pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -109,7 +109,7 @@ Można skonfigurować zdarzenia [System. Diagnostics. DiagnosticSource](https://
 Dla każdej DiagnosticSource, którą chcesz śledzić, Dodaj wpis z atrybutem **name** ustawionym na nazwę DiagnosticSource.
 
 ## <a name="use-etw-events"></a>Korzystanie z zdarzeń ETW
-Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj pakiet `Microsoft.ApplicationInsights.EtwCollector` NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" w pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
+Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), które mają być wysyłane do Application Insights jako dane śledzenia. Najpierw zainstaluj `Microsoft.ApplicationInsights.EtwCollector` pakiet NuGet. Następnie przeprowadź edycję sekcji "TelemetryModules" w pliku [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) .
 
 > [!NOTE] 
 > Zdarzenia ETW można zbierać tylko wtedy, gdy proces obsługujący zestaw SDK działa w ramach tożsamości będącej członkiem użytkowników dzienników wydajności lub administratorów.
@@ -124,21 +124,21 @@ Można skonfigurować zdarzenia śledzenia zdarzeń systemu Windows (ETW), któr
 
 Dla każdego źródła można ustawić następujące parametry:
  * **ProviderName** jest nazwą dostawcy ETW do zebrania.
- * **ProviderGuid** określa identyfikator GUID dostawcy ETW do zebrania. Można go użyć zamiast `ProviderName`.
+ * **ProviderGuid** określa identyfikator GUID dostawcy ETW do zebrania. Można go użyć zamiast `ProviderName` .
  * **Poziom** ustawia poziom rejestrowania do zebrania. Może to być *krytyczne*, *Error*, *informacyjne*, *LogAlways*, *verbose*lub *Warning*.
  * **Słowa kluczowe** (opcjonalnie) ustawiają wartość całkowitą kombinacji słów kluczowych do użycia.
 
 ## <a name="use-the-trace-api-directly"></a>Bezpośrednie używanie interfejsu API śledzenia
 Interfejs API śledzenia Application Insights można wywołać bezpośrednio. Karty rejestrowania używają tego interfejsu API.
 
-Przykład:
+Na przykład:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Zaletą TrackTrace jest możliwość umieszczania stosunkowo długich danych w komunikacie. Na przykład możesz kodować dane POST w tym miejscu.
 
-Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Przykład:
+Do wiadomości można także dodać poziom ważności. Podobnie jak w przypadku innych telemetrii, można dodać wartości właściwości, aby ułatwić filtrowanie lub wyszukiwanie różnych zestawów śladów. Na przykład:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -182,16 +182,18 @@ Możesz na przykład:
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 ### <a name="how-do-i-do-this-for-java"></a>Jak mogę zrobić to w języku Java?
-Użyj [kart dzienników języka Java](../../azure-monitor/app/java-trace-logs.md).
+W instrumentacji bez kodu Java (zalecane) dzienniki są zbierane z pola, użyj programu [Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+Jeśli używasz zestawu SDK języka Java, użyj [kart dzienników języka Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>W menu kontekstowym projektu nie ma opcji Application Insights
-* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze**rozszerzenia i aktualizacje** **narzędzi** > programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
-* Może to być typ projektu, którego narzędzia devloper Analytics nie obsługują. Użyj [instalacji ręcznej](#manual-installation).
+* Upewnij się, że Developer Analytics Tools jest zainstalowana na komputerze deweloperskim. W obszarze **Tools**  >  **rozszerzenia i aktualizacje**narzędzi programu Visual Studio poszukaj **Developer Analytics Tools**. Jeśli nie ma go na karcie **zainstalowane** , Otwórz kartę **online** i zainstaluj ją.
+* Może to być typ projektu, który Developer Analytics Tools nie obsługuje. Użyj [instalacji ręcznej](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>W narzędziu konfiguracji nie ma opcji karty dziennika
 * Najpierw zainstaluj platformę rejestrowania.
 * Jeśli używasz funkcji system. Diagnostics. Trace, upewnij się, że [skonfigurowano ją w *pliku Web. config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Upewnij się, że masz najnowszą wersję Application Insights. W programie Visual Studio przejdź do pozycji **Narzędzia** > **rozszerzenia i aktualizacje**, a następnie otwórz kartę **aktualizacje** . Jeśli **Developer Analytics Tools** , wybierz ją, aby ją zaktualizować.
+* Upewnij się, że masz najnowszą wersję Application Insights. W programie Visual Studio przejdź do pozycji **Narzędzia**  >  **rozszerzenia i aktualizacje**, a następnie otwórz kartę **aktualizacje** . Jeśli **Developer Analytics Tools** , wybierz ją, aby ją zaktualizować.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Otrzymuję komunikat o błędzie "klucz instrumentacji nie może być pusty"
 Prawdopodobnie zainstalowano pakiet NuGet karty rejestrowania bez instalowania Application Insights. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy *plik ApplicationInsights. config*, a następnie wybierz polecenie **Update Application Insights**. Zostanie wyświetlony monit o zalogowanie się do platformy Azure i utworzenie zasobu Application Insights lub ponowne użycie istniejącego. Który powinien rozwiązać ten problem.

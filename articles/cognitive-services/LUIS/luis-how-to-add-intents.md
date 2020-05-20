@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584978"
+ms.locfileid: "83654074"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Dodawanie intencji w celu określenia zamiaru użytkownika wyrażenia długości
 
 Dodaj [intencje](luis-concept-intent.md) do aplikacji Luis, aby zidentyfikować grupy pytań lub poleceń, które mają ten sam zamiar.
 
-Intencje są zarządzane z sekcji **kompilacja** górnego paska nawigacyjnego, a następnie od **intencji**panelu po lewej stronie.
+W portalu LUIS, intencje są zarządzane z sekcji **kompilacja** górnego paska nawigacyjnego, a następnie od **intencji**panelu po lewej stronie.
 
-## <a name="add-intent"></a>Dodawanie intencji
+## <a name="add-an-intent-to-your-app"></a>Dodawanie zamiaru do aplikacji
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
@@ -34,7 +34,7 @@ Intencje są zarządzane z sekcji **kompilacja** górnego paska nawigacyjnego, a
     > [!div class="mx-imgBorder"]
     > ![Dodaj cel](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Wymaga przykład wyrażenia długości.
+    Celem wymaga [przykładu wyrażenia długości](luis-concept-utterance.md) w celu przewidywania wyrażenia długości w opublikowanym punkcie końcowym przewidywania.
 
 ## <a name="add-an-example-utterance"></a>Dodawanie przykładu wypowiedź
 
@@ -51,16 +51,16 @@ Przykład wyrażenia długości to tekstowe przykłady pytań lub poleceń użyt
 
 ## <a name="intent-prediction-errors"></a>Błędy przewidywania intencji
 
-Przykład wypowiedź w zamiarach może mieć błąd przewidywania intencji między zamiarem, a przykładem wypowiedź jest obecnie w i intencją określoną podczas szkolenia.
+Błąd prognozowania intencji jest określany, gdy wypowiedź nie jest przewidziana dla przeszkolonej aplikacji dla zamiaru.
 
-Aby znaleźć błędy przewidywania wypowiedź i rozwiązać te problemy, użyj opcji **filtru** nieprawidłowych i niejasnych w połączeniu z opcją **Widok** **widoku szczegółowego**.
+1. Aby znaleźć błędy przewidywania wypowiedź i rozwiązać te problemy, użyj opcji **filtru** nieprawidłowych i niejasnych.
 
-![Aby znaleźć błędy przewidywania wypowiedź i rozwiązać te problemy, użyj opcji filtrowania.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Aby znaleźć błędy przewidywania wypowiedź i rozwiązać te problemy, użyj opcji filtrowania.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Gdy filtry i widok są stosowane i występuje przykład wyrażenia długości z błędami, przykładowa lista wypowiedź zawiera wyrażenia długości i problemy.
+1. Aby wyświetlić wartość wyniku na stronie Szczegóły intencji, wybierz pozycję **Pokaż wyniki** założeń z menu Opcje **widoku** .
 
-> [!div class="mx-imgBorder"]
-> ![! [Kiedy filtry i widok są stosowane i występuje przykład wyrażenia długości z błędami, przykładowa lista wypowiedź zawiera wyrażenia długości i problemy.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    Gdy filtry i widok są stosowane i występuje przykład wyrażenia długości z błędami, przykładowa lista wypowiedź zawiera wyrażenia długości i problemy.
 
 Każdy wiersz przedstawia ocenę bieżącego szkolenia dla przykładu wypowiedź, najbliższej oceny Rival, która jest różnicą w tych dwóch wskaźnikach.
 

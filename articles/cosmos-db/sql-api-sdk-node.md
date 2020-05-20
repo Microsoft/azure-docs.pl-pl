@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: interfejs API środowiska Node. js SQL, zasoby & zestawu SDK'
 description: Poznaj wszystkie informacje o interfejsie API Node. js języka SQL i zestawie SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone między poszczególnymi wersjami zestawu SDK Azure Cosmos DB Node. js.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
-ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982892"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650737"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestawu SDK środowiska Node. js dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -21,8 +21,9 @@ ms.locfileid: "80982892"
 > * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK 2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -30,7 +31,7 @@ ms.locfileid: "80982892"
 > * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
-|Zasób  |Łącze  |
+|Zasób  |Link  |
 |---------|---------|
 |Pobierz zestaw SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Dokumentacja interfejsu API  |  [Dokumentacja referencyjna języka JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
@@ -41,7 +42,7 @@ ms.locfileid: "80982892"
 | Samouczek aplikacji sieci Web | [Tworzenie aplikacji sieci Web Node. js przy użyciu Azure Cosmos DB](sql-api-nodejs-application.md)
 | Bieżąca obsługiwana platforma | [Node. js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK w wersji 3. x. x<br/>[Node. js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK w wersji 3. x. x<br/>[Node. js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK w wersji 3. x. x<br/>[Node. js V6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK w wersji 2. x. x<br/>[Node. js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)— SDK wersja 1. x. x<br/> [Node. js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)— SDK wersja 1. x. x<br/> [Node. js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)— SDK wersja 1. x. x
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name=""></a><a name="3.1.0"/>3.1.0</a>
 * Ustaw wartość domyślną ResponseContinuationTokenLimitInKB na rozmiarze 1 KB. Domyślnie są one ograniczone do rozmiarze 1 KB, aby uniknąć długich nagłówków (Node. js ma limit rozmiaru nagłówka globalnego). Użytkownik może ustawić to pole, aby zezwalać na dłuższe nagłówki, co może pomóc w zaplecze zoptymalizować wykonywanie zapytania.
@@ -164,7 +165,7 @@ database.containers.create({ id: 'my-container', throughput: 10000 })
 ```
 
 ##### <a name="azurecosmos-sign"></a>@azure/cosmos-sign
-Generowanie tokenu nagłówka zostało podzielone na nową bibliotekę, @azure/cosmos-sign. Każda osoba, która wywołuje interfejs API REST Cosmos, bezpośrednio może używać tego samego kodu @azure/cosmosdo podpisywania nagłówków
+Generowanie tokenu nagłówka zostało podzielone na nową bibliotekę, @azure/cosmos-sign . Każda osoba, która wywołuje interfejs API REST Cosmos, bezpośrednio może używać tego samego kodu do podpisywania nagłówków @azure/cosmos
 
 ##### <a name="uuid-for-generated-ids"></a>Identyfikator UUID dla wygenerowanych identyfikatorów
 V2 ma niestandardowy kod generujący identyfikatory elementów. Przełączonomy do dobrze znanego i obsługiwanego identyfikatora UUID biblioteki społeczności.
@@ -247,7 +248,7 @@ Nie zawsze są to najbardziej widoczne zmiany, ale pomagają naszym zespołowi w
 * Włącz instalację bezpośrednio z usługi GitHub (#194)
 
 ### <a name=""></a><a name="2.0.5"/>2.0.5</a>
-* Dodaje interfejs dla typu agenta węzła. Użytkownicy języka TypeScript nie muszą już być @types/node instalowane jako zależność
+* Dodaje interfejs dla typu agenta węzła. Użytkownicy języka TypeScript nie muszą już być instalowane @types/node jako zależność
 * Preferowane lokalizacje są teraz prawidłowo honorowane
 * Ulepszenia dotyczące tworzenia dokumentacji dla deweloperów
 * Różne poprawki pisowni
@@ -380,7 +381,7 @@ Nie zawsze są to najbardziej widoczne zmiany, ale pomagają naszym zespołowi w
 * Podziel otokę Q niesie obietnice zwiększenia na nowe repozytorium.
 * Zaktualizuj do pliku pakietu dla rejestr npm.
 
-### <a name=""></a><a name="1.2.1"/>ppkt</a>
+### <a name=""></a><a name="1.2.1"/>1.2.1</a>
 * Implementuje routing oparty na IDENTYFIKATORach.
 * Problem z poprawkami [#49](https://github.com/Azure/azure-documentdb-node/issues/49) — bieżąca właściwość powoduje konflikt z bieżącą metodą ().
 
@@ -466,7 +467,7 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 | [1.4.0](#1.4.0) |06, 2015 |30 sierpnia 2020 |
 | [1.3.0](#1.3.0) |06, 2015 |30 sierpnia 2020 |
 | [ppkt](#1.2.2) |10 września 2015 |30 sierpnia 2020 |
-| [ppkt](#1.2.1) |15 sierpnia 2015 |30 sierpnia 2020 |
+| [1.2.1](#1.2.1) |15 sierpnia 2015 |30 sierpnia 2020 |
 | [1.2.0](#1.2.0) |05 sierpnia, 2015 |30 sierpnia 2020 |
 | [1.1.0](#1.1.0) |09 lipca 2015 |30 sierpnia 2020 |
 | [1.0.3](#1.0.3) |04, 2015 |30 sierpnia 2020 |

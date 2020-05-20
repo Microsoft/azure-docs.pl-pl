@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9475fce054356606c09947721019a264143a716b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982517"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650109"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982517"
 > 
 
 > [!IMPORTANT]  
-> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Rozważ użycie Azure Cosmos DB Java SDK v4 dla projektu. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami zawartymi w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i w podręczniku [reaktora vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Należy uaktualnić projekt do [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) , a następnie zapoznać się z [przewodnikiem wskazówek dotyczących wydajności](performance-tips-java-sdk-v4-sql.md)Azure Cosmos DB zestawu Java SDK 4. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i [reaktorem programu vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
 > 
 > Te porady dotyczące wydajności dotyczą tylko Azure Cosmos DB synchronizacji z zestawem Java SDK V2. Aby uzyskać więcej informacji, zapoznaj się z tematem Azure Cosmos DB zsynchronizuj informacje o [wersji](sql-api-sdk-java.md) zestawu Java SDK V2 i [repozytorium Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) .
 >
@@ -89,11 +89,11 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Azure Cosmos DB zsynchronizuj zestaw SDK Java w wersji 1.9.0 lub nowszej obsługuje zapytania równoległe, które umożliwiają równoległe wykonywanie zapytań do kolekcji partycjonowanej. Aby uzyskać więcej informacji, zobacz [przykłady kodu](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) związane z pracą z zestawami SDK. Zapytania równoległe są przeznaczone do poprawiania opóźnienia zapytań i przepływności w porównaniu z ich odpowiednikami seryjnymi.
 
-    (a) ***dostrajanie\: *** równoległych zapytań setMaxDegreeOfParallelism działają przez wykonywanie zapytań na wielu partycjach równolegle. Jednak dane z pojedynczej kolekcji partycjonowanej są pobierane sekwencyjnie w odniesieniu do zapytania. W tym celu należy użyć [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) , aby ustawić liczbę partycji, które mają maksymalną szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz użyć setMaxDegreeOfParallelism, aby ustawić dużą liczbę, a system wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako maksymalny stopień równoległości. 
+    (a) ***dostrajanie \: *** równoległych zapytań setMaxDegreeOfParallelism działają przez wykonywanie zapytań na wielu partycjach równolegle. Jednak dane z pojedynczej kolekcji partycjonowanej są pobierane sekwencyjnie w odniesieniu do zapytania. W tym celu należy użyć [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) , aby ustawić liczbę partycji, które mają maksymalną szansę osiągnięcia najbardziej wydajnego zapytania, pod warunkiem, że wszystkie inne warunki systemu pozostają takie same. Jeśli nie znasz liczby partycji, możesz użyć setMaxDegreeOfParallelism, aby ustawić dużą liczbę, a system wybierze minimalną (liczbę partycji, dane wejściowe podane przez użytkownika) jako maksymalny stopień równoległości. 
 
     Należy pamiętać, że zapytania równoległe generują najlepsze korzyści, jeśli dane są równomiernie dystrybuowane we wszystkich partycjach w odniesieniu do zapytania. Jeśli partycjonowana kolekcja jest partycjonowana w taki sposób, że wszystkie lub większość danych zwróconych przez zapytanie jest skoncentrowana na kilku partycjach (jedna partycja w najgorszym przypadku), wydajność zapytania zostałaby przekazana przez te partycje.
 
-    (b) ***dostrajanie\: *** równoległe zapytania setMaxBufferedItemCount zaprojektowano w celu wstępnego pobrania wyników podczas przetwarzania bieżącej partii wyników przez klienta. Wstępne pobieranie pomaga w ogólnym ulepszaniu opóźnienia zapytania. setMaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Ustawiając [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), umożliwia to zapytanie otrzymujące maksymalną korzyść z pobierania wstępnego.
+    (b) ***dostrajanie \: *** równoległe zapytania setMaxBufferedItemCount zaprojektowano w celu wstępnego pobrania wyników podczas przetwarzania bieżącej partii wyników przez klienta. Wstępne pobieranie pomaga w ogólnym ulepszaniu opóźnienia zapytania. setMaxBufferedItemCount ogranicza liczbę wstępnie pobranych wyników. Ustawiając [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), umożliwia to zapytanie otrzymujące maksymalną korzyść z pobierania wstępnego.
 
     Przed pobraniem działa w taki sam sposób, niezależnie od MaxDegreeOfParallelism, i istnieje jeden bufor dla danych ze wszystkich partycji.  
 
@@ -107,7 +107,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
 7. **Użyj adresowania na podstawie nazwy**
 
-    Użyj adresowania opartego na nazwach, gdzie linki `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`mają format zamiast SelfLinks (\_własny), który ma format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` , aby uniknąć pobierania ResourceID wszystkich zasobów użytych do skonstruowania łącza. Ponadto, ponieważ te zasoby zostaną utworzone ponownie (prawdopodobnie z tą samą nazwą), buforowanie może nie pomóc.
+    Użyj adresowania opartego na nazwach, gdzie linki mają format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` zamiast SelfLinks ( \_ własny), który ma format, `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` Aby uniknąć pobierania ResourceID wszystkich zasobów użytych do skonstruowania łącza. Ponadto, ponieważ te zasoby zostaną utworzone ponownie (prawdopodobnie z tą samą nazwą), buforowanie może nie pomóc.
 
    <a id="tune-page-size"></a>
 8. **Dostosuj rozmiar strony dla zapytań/Odczytaj źródła w celu uzyskania lepszej wydajności**
@@ -150,7 +150,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych wpływają na koszt operacji zapytania.
 
-    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną właściwość RequestCharge w [\<ResourceResponse t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) lub [FeedResponse\<t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) , aby zmierzyć liczbę jednostek żądania używanych przez te operacje.
+    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną właściwość RequestCharge w [ResourceResponse \< t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) lub [FeedResponse \< t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) , aby zmierzyć liczbę jednostek żądania używanych przez te operacje.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Synchronize Java SDK V2 (Maven com. Microsoft. Azure:: Azure-DocumentDB)

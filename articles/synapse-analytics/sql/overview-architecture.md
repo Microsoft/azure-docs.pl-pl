@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 570e84b3a545736aad6983c7f0d8c0f0296ca589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431815"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658916"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architektura SQL usługi Azure Synapse 
 
@@ -117,4 +117,4 @@ Na poniższym diagramie przedstawiono zreplikowane tabele, które są buforowane
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy znasz już wersję Synapse SQL, Dowiedz się, jak szybko [utworzyć pulę SQL](../quickstart-create-sql-pool.md) i [załadować dane przykładowe](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-Load-Sample-Databases.MD). Lub zacznij [korzystać z programu SQL na żądanie](../quickstart-sql-on-demand.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md) może pomóc Ci zaznajomić się z nową terminologią. 
+Teraz, gdy znasz już wersję Synapse SQL, Dowiedz się, jak szybko [utworzyć pulę SQL](../quickstart-create-sql-pool-portal.md) i [załadować dane przykładowe](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-Load-Sample-Databases.MD). Lub zacznij [korzystać z programu SQL na żądanie](../quickstart-sql-on-demand.md). Jeśli dopiero zaczynasz korzystać z platformy Azure, [słownik platformy Azure](../../azure-glossary-cloud-terminology.md) może pomóc Ci zaznajomić się z nową terminologią. 

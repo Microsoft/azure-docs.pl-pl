@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dba3a6f3ebd7b6675e6d0d90d98a45625ad04ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255147"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656908"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projektowanie skalowalnych i wydajnych tabel
 
@@ -50,7 +50,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Nie</td>
@@ -70,7 +70,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Cze</td>
@@ -98,7 +98,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 </td>
 </tr>
 <tr>
-<td>Sprzedaż</td>
+<td>Sales</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -107,7 +107,7 @@ W poniższym przykładzie przedstawiono prosty projekt tabeli do przechowywania 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Wiek</th>
-<th>Poczta e-mail</th>
+<th>E-mail</th>
 </tr>
 <tr>
 <td>Krzysztof</td>
@@ -132,7 +132,7 @@ Nazwa konta, nazwa tabeli i **PartitionKey** wspólnie identyfikują partycję w
 
 W Table service poszczególne usługi węzłów mają co najmniej jedną kompletną partycję, a usługa jest skalowana przez dynamiczne Równoważenie obciążenia partycji między węzłami. Jeśli węzeł jest w obciążeniu, usługa Table Service może *podzielić* zakres partycji objętych przez ten węzeł na różne węzły; Po nawrocie ruchu usługa może *scalić* zakresy partycji z cichych węzłów z powrotem do jednego węzła.  
 
-Aby uzyskać więcej informacji o wewnętrznych szczegółach Table service, a w szczególności o tym, jak usługa zarządza partycjami, zobacz dokument [Microsoft Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Aby uzyskać więcej informacji o wewnętrznych szczegółach Table service, a w szczególności o tym, jak usługa zarządza partycjami, zobacz dokument [Microsoft Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ## <a name="entity-group-transactions"></a>Transakcje grupy jednostek
 W Table service, transakcje grupy jednostek (EGTs) są jedynym wbudowanym mechanizmem do wykonywania niepodzielnych aktualizacji w wielu jednostkach. EGTs są czasami nazywane również *transakcjami wsadowymi*. EGTs może działać tylko na jednostkach przechowywanych w tej samej partycji (czyli udostępnić ten sam klucz partycji w danej tabeli). Aby w dowolnym momencie wymagać niepodzielnych zachowań transakcyjnych w wielu jednostkach, należy się upewnić, że te jednostki znajdują się w tej samej partycji. Jest to często powód, aby zachować wiele typów jednostek w tej samej tabeli (i partycji), a nie używać wielu tabel dla różnych typów jednostek. Pojedynczy EGT może działać na maksymalnie 100 jednostkach.  Jeśli przesyłasz wiele współbieżnych EGTs do przetwarzania, należy upewnić się, że te EGTs nie działają na jednostkach wspólnych dla EGTs; w przeciwnym razie przetwarzanie może być opóźnione.

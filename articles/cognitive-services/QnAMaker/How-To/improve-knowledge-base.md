@@ -3,12 +3,12 @@ title: Poprawianie bazy wiedzy — QnA Maker
 description: Popraw jakość bazy wiedzy dzięki aktywnej uczeniu. Przeglądanie, akceptowanie lub odrzucanie, Dodawanie bez usuwania lub zmieniania istniejących pytań.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650760"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Akceptuj zasugerowane pytania w bazie wiedzy
 
@@ -31,7 +31,7 @@ Aby wyświetlić sugerowane pytania, musisz [włączyć aktywną naukę](use-act
 
     [![Użyj przełącznika Filtruj według sugestii, aby wyświetlić tylko rozwiązania alternatywne dla sugerowanych pytań.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Każda para QnA sugeruje nowe alternatywy pytania ze znacznikiem wyboru, `✔` ,,,, aby zaakceptować pytanie `x` lub aby odrzucić sugestie. Zaznacz znacznik wyboru, aby dodać pytanie.
+1. Każda para QnA sugeruje nowe alternatywy pytania ze znacznikiem wyboru, `✔` ,,,, aby zaakceptować pytanie lub `x` Aby odrzucić sugestie. Zaznacz znacznik wyboru, aby dodać pytanie.
 
     [![Zaznacz lub Odrzuć zaproponowane pytania dotyczące aktywnego uczenia, zaznaczając zielony znacznik wyboru lub czerwony znacznik usuwający.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -50,7 +50,7 @@ Aby wyświetlić sugerowane pytania, musisz [włączyć aktywną naukę](use-act
 
 Bot lub inna aplikacja kliencka powinna używać następującego przepływu architektury do korzystania z usługi Active Learning:
 
-* Bot [Pobiera odpowiedź z bazy wiedzy](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) z interfejsem API GenerateAnswer przy użyciu `top` właściwości, aby uzyskać wiele odpowiedzi.
+* Bot [Pobiera odpowiedź z bazy wiedzy](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) z interfejsem API GenerateAnswer przy użyciu właściwości, `top` Aby uzyskać wiele odpowiedzi.
 * Bot określa jawną opinię:
     * Korzystając z własnej [niestandardowej logiki biznesowej](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), odfiltruj niskie wyniki.
     * W bot lub aplikacji klienta Wyświetl listę możliwych odpowiedzi dla użytkownika i uzyskaj odpowiedź wybraną przez użytkownika.
@@ -71,7 +71,7 @@ Podczas przesyłania pytania do QnA Maker na potrzeby odpowiedzi `top` Właściw
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Korzystanie z właściwości Score wraz z logiką biznesową w celu uzyskania listy odpowiedzi na potrzeby wyświetlania użytkownika
 
-Gdy aplikacja kliencka (na przykład Chat bot) otrzymuje odpowiedź, zwracane są 3 pierwsze pytania. Użyj właściwości `score` , aby przeanalizować bliskość między wynikami. Ten zakres bliskości jest określany przez własną logikę biznesową.
+Gdy aplikacja kliencka (na przykład Chat bot) otrzymuje odpowiedź, zwracane są 3 pierwsze pytania. Użyj `score` właściwości, aby przeanalizować bliskość między wynikami. Ten zakres bliskości jest określany przez własną logikę biznesową.
 
 ```json
 {
@@ -130,9 +130,9 @@ Content-Type: application/json
 |Właściwość żądania HTTP|Nazwa|Typ|Przeznaczenie|
 |--|--|--|--|
 |Parametr trasy adresu URL|Identyfikator bazy wiedzy|ciąg|Identyfikator GUID bazy wiedzy.|
-|Niestandardowa poddomena|Nazwa zasobu QnAMaker|ciąg|Nazwa zasobu jest używana jako niestandardowa poddomena dla QnA Maker. Jest on dostępny na stronie Ustawienia po opublikowaniu bazy wiedzy. Jest on wyświetlany jako `host`.|
-|Nagłówek|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to:`application/json`|
-|Nagłówek|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Niestandardowa poddomena|Nazwa zasobu QnAMaker|ciąg|Nazwa zasobu jest używana jako niestandardowa poddomena dla QnA Maker. Jest on dostępny na stronie Ustawienia po opublikowaniu bazy wiedzy. Jest on wyświetlany jako `host` .|
+|Header|Content-Type|ciąg|Typ nośnika treści wysyłanej do interfejsu API. Wartość domyślna to:`application/json`|
+|Header|Autoryzacja|ciąg|Klucz punktu końcowego (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Opublikuj treść|Obiekt JSON|JSON|Opinie szkoleniowe|
 
 Treść JSON ma kilka ustawień:
@@ -142,7 +142,7 @@ Treść JSON ma kilka ustawień:
 |`feedbackRecords`|tablica|Lista opinii.|
 |`userId`|ciąg|Identyfikator użytkownika osoby akceptującej sugerowane pytania. Format identyfikatora użytkownika jest aktualny. Na przykład adres e-mail może być prawidłowym IDENTYFIKATORem użytkownika w danej architekturze. Opcjonalny.|
 |`userQuestion`|ciąg|Dokładny tekst zapytania użytkownika. Wymagany.|
-|`qnaID`|numer|Identyfikator pytania znaleziony w [odpowiedzi GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`qnaID`|liczba|Identyfikator pytania znaleziony w [odpowiedzi GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Przykładowa treść JSON wygląda następująco:
 
@@ -311,7 +311,7 @@ async callTrain(stepContext){
 
 Gdy aplikacja ma aktywne uczenie i eksportujesz aplikację, `SuggestedQuestions` kolumna w pliku TSV zachowuje aktywne dane szkoleniowe.
 
-`SuggestedQuestions` Kolumna jest obiektem JSON informacji o niejawnych, `autosuggested`i jawnych `usersuggested` informacjach zwrotnych. Przykładem tego obiektu JSON dla pojedynczego pytania przesłanego przez użytkownika `help` jest:
+`SuggestedQuestions`Kolumna jest obiektem JSON informacji o niejawnych, `autosuggested` i jawnych `usersuggested` informacjach zwrotnych. Przykładem tego obiektu JSON dla pojedynczego pytania przesłanego przez użytkownika `help` jest:
 
 ```JSON
 [
@@ -329,11 +329,6 @@ Gdy aplikacja ma aktywne uczenie i eksportujesz aplikację, `SuggestedQuestions`
     }
 ]
 ```
-
-Możesz również użyć interfejsu API pobierania zmian, aby przejrzeć te zmiany, używając protokołu REST lub dowolnego z zestawów SDK opartych na języku:
-* [Interfejs API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 Po ponownym zaimportowaniu tej aplikacji aktywna nauka nadal zbiera informacje i zaleca sugestie dotyczące bazy wiedzy.
 

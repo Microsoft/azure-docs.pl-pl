@@ -8,13 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
-ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653374"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -46,7 +45,7 @@ Dostępne są dwa klucze, które jednocześnie są prawidłowe w celu uzyskania 
 
 Zestaw SDK ma wbudowaną obsługę uwierzytelniania przy użyciu kluczy konta; Wystarczy ustawić właściwość AccountKey obiektu cloudSession.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -99,7 +98,7 @@ W przypadku aplikacji przeznaczonych dla użytkowników Azure Active Directory Z
     1.  Zarejestruj swoją aplikację w usłudze Azure AD jako **aplikację natywną**. W ramach rejestracji należy określić, czy aplikacja powinna mieć dostęp do wielu dzierżawców, a także podać adresy URL przekierowania dozwolone dla aplikacji.
         1.  Przejdź do karty **uprawnienia interfejsu API**
         2.  Wybierz pozycję **Dodaj uprawnienie**
-            1.  Wybieranie **dostawcy zasobów rzeczywistości mieszanej** w obszarze **interfejsy API Moja organizacja używa** karty
+            1.  Wybierz pozycję **Microsoft Mixed Reality** w obszarze **interfejsy API Moja organizacja używa** karty
             2.  Wybierz **uprawnienia delegowane**
             3.  Zaznacz pole wyboru dla **mixedreality. Zaloguj się** w obszarze **mixedreality**
             4.  Wybierz pozycję **Dodaj uprawnienia**
@@ -112,16 +111,16 @@ W przypadku aplikacji przeznaczonych dla użytkowników Azure Active Directory Z
             2.  W polu **SELECT (Wybieranie** ) wprowadź nazwę użytkowników, grup i/lub aplikacji, do których chcesz przypisać prawa dostępu.
             3.  Wybierz pozycję **Zapisz**.
 2. W kodzie:
-    1.  Upewnij się, że używasz **identyfikatora aplikacji** i identyfikatora **URI przekierowania** własnej aplikacji usługi Azure AD jako **identyfikatora klienta** i parametrów **RedirectUri** w bibliotece ADAL
+    1.  Upewnij się, że używasz **identyfikatora aplikacji** i identyfikatora **URI przekierowania** własnej aplikacji usługi Azure AD jako **identyfikatora klienta** i parametrów **RedirectUri** w MSAL
     2.  Ustaw informacje o dzierżawie:
         1.  Jeśli aplikacja obsługuje **tylko moją organizację**, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład contoso.Microsoft.com)
         2.  Jeśli aplikacja obsługuje **konta w dowolnym katalogu organizacyjnym**, Zastąp tę wartość **organizacją**
         3.  Jeśli aplikacja obsługuje **wszystkich konto Microsoft użytkowników**, Zastąp tę wartość **wspólną**
-    3.  Na żądanie tokenu Ustaw **zasób** na "https://sts.mixedreality.azure.com". Ten "zasób" wskazuje usłudze Azure AD, że aplikacja żąda tokenu dla usługi zakotwiczeń przestrzennych platformy Azure.
+    3.  Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default ". Ten zakres wskaże usługę Azure AD, że aplikacja żąda tokenu dla usługi tokenu zabezpieczeń rzeczywistości mieszanej (STS).
 
 Dzięki temu aplikacja powinna być w stanie uzyskać od MSAL tokenu usługi Azure AD; Możesz ustawić ten token usługi Azure AD jako **authenticationToken** w obiekcie konfiguracji sesji w chmurze.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
@@ -185,16 +184,16 @@ Token dostępu usługi Azure AD jest pobierany przy użyciu [biblioteki MSAL](..
         2.  W polu **Wybierz** wprowadź nazwę utworzonych aplikacji i, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, należy zarejestrować wiele aplikacji w usłudze Azure AD i przypisać je do każdej innej roli. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
     3.  Wybierz pozycję **Zapisz**.
 2.  W kodzie (Uwaga: możesz użyć przykładu usługi dostępnego w witrynie GitHub):
-    1.  Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w bibliotece ADAL
-    2.  Ustaw identyfikator dzierżawy na własny AAAzure Dodaj identyfikator dzierżawy w parametrze urzędu w bibliotece ADAL
-    3.  Na żądanie tokenu Ustaw **zasób** na "https://sts.mixedreality.azure.com"
+    1.  Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w MSAL
+    2.  Ustaw identyfikator dzierżawy na własny identyfikator dzierżawy platformy Azure, w parametrze urzędu w MSAL.
+    3.  Na żądanie tokenu Ustaw **zakres** na " https://sts.mixedreality.azure.com//.default "
 
 Dzięki temu usługa zaplecza może pobrać token usługi Azure AD. Następnie może go wymienić na token MR, który zwróci zwrot do klienta. Użycie tokenu usługi Azure AD w celu pobrania tokenu MR odbywa się za pośrednictwem wywołania REST. Oto przykładowe wywołanie:
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -206,13 +205,13 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Gdzie nagłówek autoryzacji jest sformatowany w następujący sposób:`Bearer <accoundId>:<accountKey>`
+Gdzie nagłówek autoryzacji jest sformatowany w następujący sposób:`Bearer <Azure_AD_token>`
 
 A odpowiedź zawiera token MR w postaci zwykłego tekstu.
 
 Token MR jest następnie zwracany do klienta. Aplikacja kliencka może następnie ustawić ją jako token dostępu w konfiguracji sesji w chmurze.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";

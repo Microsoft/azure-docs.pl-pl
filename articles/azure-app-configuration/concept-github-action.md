@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585477"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648114"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchronizowanie repozytorium GitHub z konfiguracją aplikacji
 
@@ -33,7 +33,7 @@ Aby rozpocząć korzystanie z tej akcji usługi GitHub, przejdź do repozytorium
 > ![Wybierz akcję synchronizacji konfiguracji aplikacji](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Synchronizuj pliki konfiguracji po wypchnięciu
-Ta akcja synchronizuje pliki konfiguracji aplikacji platformy Azure po wypchnięciu zmiany do `appsettings.json`programu. Gdy deweloper wypycha zmianę do `appsettings.json`, Akcja synchronizacji konfiguracji aplikacji aktualizuje wystąpienie konfiguracji aplikacji o nowe wartości.
+Ta akcja synchronizuje pliki konfiguracji aplikacji platformy Azure po wypchnięciu zmiany do programu `appsettings.json` . Gdy deweloper wypycha zmianę do `appsettings.json` , Akcja synchronizacji konfiguracji aplikacji aktualizuje wystąpienie konfiguracji aplikacji o nowe wartości.
 
 Pierwsza sekcja tego przepływu pracy określa, że akcja jest wyzwalana *w* przypadku *wypychania* zawierającego `appsettings.json` do gałęzi *głównej* . Druga sekcja zawiera zadania uruchamiane po wyzwoleniu akcji. Akcja sprawdza odpowiednie pliki i aktualizuje wystąpienie konfiguracji aplikacji przy użyciu parametrów połączenia przechowywanych jako wpis tajny w repozytorium.  Aby uzyskać więcej informacji o używaniu wpisów tajnych w usłudze GitHub, zobacz artykuł dotyczący tworzenia i używania zaszyfrowanych kluczy tajnych w witrynie [GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) .
 
@@ -61,8 +61,121 @@ jobs:
           separator: ':' 
 ```
 
+## <a name="use-strict-sync"></a>Użyj ścisłej synchronizacji
+Domyślnie akcja usługi GitHub nie włącza trybu z ograniczeniami, co oznacza, że synchronizacja będzie dodawać tylko wartości klucza z pliku konfiguracji do wystąpienia konfiguracji aplikacji (nie zostaną usunięte pary klucz-wartość). Włączenie trybu z trybem Strict spowoduje, że pary klucz-wartość, które nie znajdują się w pliku konfiguracji, są usuwane z wystąpienia konfiguracji aplikacji, tak aby pasowały do pliku konfiguracji. W przypadku synchronizowania z wielu źródeł lub korzystania z Azure Key Vault z konfiguracją aplikacji należy użyć różnych prefiksów lub etykiet z ścisłą synchronizacją, aby uniknąć wymazywania ustawień konfiguracji z innych plików (Zobacz przykłady poniżej). 
+
+```json
+on: 
+  push: 
+    branches: 
+      - 'master' 
+    paths: 
+      - 'appsettings.json' 
+ 
+jobs: 
+  syncconfig: 
+    runs-on: ubuntu-latest 
+    steps: 
+      # checkout done so that files in the repo can be read by the sync 
+      - uses: actions/checkout@v1 
+      - uses: azure/appconfiguration-sync@v1 
+        with: 
+          configurationFile: 'appsettings.json' 
+          format: 'json' 
+          # Replace <ConnectionString> with the name of the secret in your 
+          # repository 
+          connectionString: ${{ secrets.<ConnectionString> }}  
+          separator: ':' 
+          label: 'Label' 
+          prefix: 'Prefix:' 
+          strict: true 
+```
+## <a name="sync-multiple-files-in-one-action"></a>Synchronizuj wiele plików w jednej akcji 
+
+Jeśli konfiguracja znajduje się w wielu plikach, można użyć poniższego wzorca, aby wyzwolić synchronizację w przypadku zmodyfikowania pliku. Ten wzorzec używa biblioteki globalizowaniahttps://www.npmjs.com/package/glob 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'appsettings2.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: '{appsettings.json,appsettings2.json}'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+```
+
+## <a name="sync-by-prefix-or-label"></a>Synchronizuj według prefiksu lub etykiety
+Określenie prefiksów lub etykiet w akcji synchronizacji spowoduje zsynchronizowanie tylko określonego zestawu. Jest to ważne w przypadku korzystania z ścisłej synchronizacji z wieloma plikami. W zależności od konfiguracji, prefiks lub etykieta mogą być skojarzone z każdym plikiem, a następnie każdy prefiks lub etykieta można synchronizować oddzielnie, aby nic nie zostało zastąpione. Zwykle prefiksy są używane dla różnych aplikacji lub usług, a etykiety są używane w różnych środowiskach. 
+
+Synchronizuj według prefiksu: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          prefix: 'Prefix::'
+```
+
+Synchronizuj według etykiety: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          label: 'Label'
+
+```
+
 ## <a name="use-a-dynamic-label-on-sync"></a>Użyj etykiety dynamicznej podczas synchronizacji
-Poprzednia akcja spowoduje zaktualizowanie wystąpienia konfiguracji `appsettings.json` aplikacji po każdej aktualizacji. Ta akcja wstawia dynamiczną etykietę dla każdej synchronizacji, co gwarantuje, że każda Synchronizacja może być jednoznacznie zidentyfikowana i umożliwi zamapowanie zmian w kodzie na zmiany w konfiguracji.
+Poniższa akcja wstawia dynamiczną etykietę dla każdej synchronizacji, co gwarantuje, że każda Synchronizacja może być jednoznacznie zidentyfikowana i umożliwi zamapowanie zmian w kodzie na zmiany w konfiguracji.
 
 Pierwsza sekcja tego przepływu pracy określa, że akcja jest wyzwalana *w* przypadku *wypychania* zawierającego `appsettings.json` do gałęzi *głównej* . Druga sekcja uruchamia zadanie, które tworzy unikatową etykietę aktualizacji konfiguracji na podstawie skrótu zatwierdzania. Następnie zadanie aktualizuje wystąpienie konfiguracji aplikacji przy użyciu nowych wartości i unikatowych etykiet dla tej aktualizacji.
 
@@ -95,42 +208,51 @@ jobs:
           label: ${{ steps.determine_label.outputs.LABEL }} 
 ```
 
-## <a name="use-strict-sync"></a>Użyj ścisłej synchronizacji
-Gdy tryb Strict jest włączony, synchronizacja gwarantuje, że wystąpienie konfiguracji aplikacji jest zgodne z plikiem konfiguracji dla danego prefiksu i etykiety. Pary klucz-wartość o tym samym prefiksie i etykiecie, które nie znajdują się w pliku konfiguracji, są usuwane. 
- 
-Jeśli tryb Strict nie jest włączony, synchronizacja spowoduje ustawienie tylko wartości klucza z pliku konfiguracji. Żadna para klucz-wartość nie zostanie usunięta. 
+## <a name="use-azure-key-vault-with-github-action"></a>Używanie Azure Key Vault z akcją GitHub
+Deweloperzy korzystający z Azure Key Vault z AppConfiguration powinni używać dwóch oddzielnych plików, zwykle pliku appSettings. JSON i pliku secretreferences. JSON. Plik secretreferences. JSON będzie zawierać adres URL klucza tajnego magazynu kluczy.
+
+{"Tajemnica": "{ \" URI \" : \" https://myKeyVault.vault.azure.net/secrets/mySecret "} "}
+
+Akcję GitHub można następnie skonfigurować tak, aby przeprowadzać ścisłą synchronizację w pliku appSettings. JSON, a następnie nieścisłą synchronizację w pliku secretreferences. JSON. Poniższy przykład wywoła synchronizację, gdy plik zostanie zaktualizowany:
 
 ```json
-on: 
-  push: 
-    branches: 
-      - 'master' 
-    paths: 
-      - 'appsettings.json' 
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/appconfiguration-sync@v1 
-        with: 
-          configurationFile: 'appsettings.json' 
-          format: 'json' 
-          # Replace <ConnectionString> with the name of the secret in your 
-          # repository 
-          connectionString: ${{ secrets.<ConnectionString> }}  
-          separator: ':' 
-          label: 'Label' 
-          prefix: 'Prefix:' 
-          strict: true 
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'secretreferences.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          strict: true
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'secretreferences.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+
 ```
 
 ## <a name="use-max-depth-to-limit-github-action"></a>Użyj maksymalnej głębokości, aby ograniczyć akcję GitHub
 Domyślnym zachowaniem dla zagnieżdżonych atrybutów JSON jest spłaszczenie całego obiektu.  Poniższy kod JSON definiuje tę parę klucz-wartość:
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | --- |
 | Obiekt: wewnętrzny: InnerKey | InnerValue |
 
@@ -173,7 +295,7 @@ jobs:
 
 Ze względu na głębokość 2, Poniższy przykład zwraca teraz następującą parę klucz-wartość:
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | --- |
 | Obiekt: wewnętrzny | {"InnerKey":"InnerValue"} |
 
@@ -186,10 +308,10 @@ Parametry wejściowe określają dane używane przez akcję podczas środowiska 
 
 | Nazwa wejściowa | Wymagane? | Wartość |
 |----|----|----|
-| configurationFile | Tak | Ścieżka względna do pliku konfiguracji w repozytorium.  Wzorce globalizowania są obsługiwane i mogą zawierać wiele plików. |
-| format | Tak | Format pliku konfiguracji.  Prawidłowe formaty to: JSON, YAML i właściwości. |
-| Parametry połączenia | Tak | Parametry połączenia dla wystąpienia konfiguracji aplikacji. Parametry połączenia powinny być przechowywane jako wpis tajny w repozytorium GitHub, a w przepływie pracy powinna być użyta tylko nazwa klucza tajnego. |
-| rozdzielając | Tak | Separator używany podczas spłaszczania pliku konfiguracji do par klucz-wartość.  Prawidłowe wartości to:. , ; : - _ __ / |
+| configurationFile | Yes | Ścieżka względna do pliku konfiguracji w repozytorium.  Wzorce globalizowania są obsługiwane i mogą zawierać wiele plików. |
+| format | Yes | Format pliku konfiguracji.  Prawidłowe formaty to: JSON, YAML i właściwości. |
+| Parametry połączenia | Yes | Parametry połączenia dla wystąpienia konfiguracji aplikacji. Parametry połączenia powinny być przechowywane jako wpis tajny w repozytorium GitHub, a w przepływie pracy powinna być użyta tylko nazwa klucza tajnego. |
+| rozdzielając | Yes | Separator używany podczas spłaszczania pliku konfiguracji do par klucz-wartość.  Prawidłowe wartości to:. , ; : - _ __ / |
 | prefiks | Nie | Prefiks, który ma zostać dodany do początku kluczy. |
 | label | Nie | Etykieta użyta podczas ustawiania par klucz-wartość. Jeśli nie zostanie określony, zostanie użyta etykieta o wartości null. |
 | ściśle | Nie | Wartość logiczna określająca, czy tryb Strict jest włączony. Wartość domyślna to false. |

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/29/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 685c56c7ef270acb416d4b76c6aceb8553e9a07f
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 965e59f9c51cc41d4e5a8e8931b5c2f62c260599
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581714"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648094"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Zarządzanie agentem podłączonego komputera i ich obsługa
 
@@ -28,11 +28,19 @@ Agenta połączonego z platformą Azure dla systemów Windows i Linux można uak
 | Windows | Ręczne<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [użyciu narzędzia zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [Yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [Yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### <a name="windows-agent"></a>Agent systemu Windows
 
-Aby zaktualizować agenta na komputerze z systemem Windows do najnowszej wersji, Agent jest dostępny w Microsoft Update i można go wdrożyć przy użyciu istniejącego procesu zarządzania aktualizacjami oprogramowania. Może być również uruchamiany ręcznie z wiersza polecenia, z skryptu lub innego rozwiązania do automatyzacji lub z Kreatora interfejsu użytkownika przez wykonanie `AzureConnectedMachine.msi`. 
+Pakiet aktualizacji dla agenta połączonej maszyny dla systemu Windows jest dostępny z:
+
+* Microsoft Update
+
+* [Katalog Microsoft Update](https://www.catalog.update.microsoft.com/Home.aspx)
+
+* [Pakiet Instalator Windows agenta systemu Windows](https://aka.ms/AzureConnectedMachineAgent) z centrum pobierania Microsoft.
+
+Agenta można uaktualnić, wykonując różne metody obsługi procesu zarządzania aktualizacjami oprogramowania. Poza uzyskaniem z Microsoft Update można pobrać i uruchomić ręcznie z wiersza polecenia, z skryptu lub innego rozwiązania do automatyzacji lub z Kreatora interfejsu użytkownika przez wykonanie `AzureConnectedMachine.msi` .
 
 > [!NOTE]
 > * Aby uaktualnić agenta, musisz mieć uprawnienia *administratora* .
@@ -60,7 +68,9 @@ Kreator instalacji wykrywa, czy Poprzednia wersja istnieje, a następnie automat
 
 ### <a name="linux-agent"></a>Agent systemu Linux
 
-Aby zaktualizować agenta na komputerze z systemem Linux do najnowszej wersji, obejmuje on dwa polecenia. Jedno polecenie aktualizowania indeksu pakietu lokalnego przy użyciu listy najnowszych dostępnych pakietów z repozytoriów i jednego polecenia w celu uaktualnienia pakietu lokalnego. 
+Aby zaktualizować agenta na komputerze z systemem Linux do najnowszej wersji, obejmuje on dwa polecenia. Jedno polecenie aktualizowania indeksu pakietu lokalnego przy użyciu listy najnowszych dostępnych pakietów z repozytoriów i jednego polecenia w celu uaktualnienia pakietu lokalnego.
+
+Najnowszy pakiet agenta można pobrać z [repozytorium pakietu](https://packages.microsoft.com/)firmy Microsoft.
 
 > [!NOTE]
 > Aby uaktualnić agenta, musisz mieć uprawnienia dostępu do zasobów *głównych* lub konto z podwyższonym poziomem uprawnień przy użyciu sudo.
@@ -79,7 +89,7 @@ Aby zaktualizować agenta na komputerze z systemem Linux do najnowszej wersji, o
     apt upgrade
     ```
 
-Akcje polecenia [apt](https://help.ubuntu.com/lts/serverguide/apt.html) , takie jak instalacja i usuwanie pakietów, są rejestrowane w pliku `/var/log/dpkg.log` dziennika.
+Akcje polecenia [apt](https://help.ubuntu.com/lts/serverguide/apt.html) , takie jak instalacja i usuwanie pakietów, są rejestrowane w `/var/log/dpkg.log` pliku dziennika.
 
 #### <a name="upgrade-red-hatcentosamazon-linux"></a>Uaktualnienie Red Hat/CentOS/Amazon Linux
 
@@ -95,7 +105,7 @@ Akcje polecenia [apt](https://help.ubuntu.com/lts/serverguide/apt.html) , takie 
     yum update
     ```
 
-Akcje polecenia [yum](https://access.redhat.com/articles/yum-cheat-sheet) , takie jak instalacja i usuwanie pakietów, są rejestrowane w pliku `/var/log/yum.log` dziennika. 
+Akcje polecenia [yum](https://access.redhat.com/articles/yum-cheat-sheet) , takie jak instalacja i usuwanie pakietów, są rejestrowane w `/var/log/yum.log` pliku dziennika. 
 
 #### <a name="upgrade-suse-linux-enterprise"></a>Uaktualnianie systemu SUSE Linux Enterprise
 
@@ -111,7 +121,7 @@ Akcje polecenia [yum](https://access.redhat.com/articles/yum-cheat-sheet) , taki
     zypper update
     ```
 
-Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zypper) , takie jak instalacja i usuwanie pakietów, są rejestrowane w pliku `/var/log/zypper.log` dziennika. 
+Akcje polecenia [użyciu narzędzia zypper](https://en.opensuse.org/Portal:Zypper) , takie jak instalacja i usuwanie pakietów, są rejestrowane w `/var/log/zypper.log` pliku dziennika. 
 
 ## <a name="about-the-azcmagent-tool"></a>Informacje o narzędziu Azcmagent
 
@@ -127,7 +137,7 @@ Narzędzie Azcmagent (Azcmagent. exe) służy do konfigurowania usługi Azure AR
 
 * **-h lub--help** -wyświetla dostępne parametry wiersza polecenia
 
-    Na przykład aby wyświetlić szczegółową pomoc dotyczącą parametru **reconnect** , wpisz `azcmagent reconnect -h`polecenie. 
+    Na przykład aby wyświetlić szczegółową pomoc dotyczącą parametru **reconnect** , wpisz polecenie `azcmagent reconnect -h` . 
 
 * **-v lub--verbose** -Włącz pełne rejestrowanie
 
@@ -153,7 +163,7 @@ Aby nawiązać połączenie z poświadczeniami logowania z podniesionymi uprawni
 
 ### <a name="disconnect"></a>Rozłącz
 
-Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera. należy to zrobić w osobnym kroku. Jeśli komputer zostanie odłączony, jeśli chcesz go ponownie zarejestrować za pomocą usługi Azure ARC dla serwerów (wersja zapoznawcza) `azcmagent connect` , użyj tego elementu, aby utworzyć nowy zasób na platformie Azure.
+Ten parametr określa zasób w Azure Resource Manager reprezentujący maszynę usuniętą z platformy Azure. Agent nie jest usuwany z komputera. należy to zrobić w osobnym kroku. Jeśli komputer zostanie odłączony, jeśli chcesz go ponownie zarejestrować za pomocą usługi Azure ARC dla serwerów (wersja zapoznawcza), użyj `azcmagent connect` tego elementu, aby utworzyć nowy zasób na platformie Azure.
 
 Aby odłączyć się przy użyciu nazwy głównej usługi, uruchom następujące polecenie:
 
@@ -171,7 +181,7 @@ Aby rozłączyć się z poświadczeniami logowania z podniesionymi uprawnieniami
 
 Ten parametr służy do łączenia już zarejestrowanej lub podłączonej maszyny z usługą Azure ARC dla serwerów (wersja zapoznawcza). Może to być konieczne, jeśli maszyna została wyłączona, co najmniej 45 dni, aby jej certyfikat wygaśnie. Ten parametr używa podanych opcji uwierzytelniania do pobrania nowych poświadczeń odpowiadających zasobowi Azure Resource Manager reprezentującemu ten komputer.
 
-To polecenie wymaga wyższych uprawnień niż rola [dołączania maszyny połączonej z platformą Azure](overview.md#required-permissions) .
+To polecenie wymaga wyższych uprawnień niż rola [dołączania maszyny połączonej z platformą Azure](agent-overview.md#required-permissions) .
 
 Aby ponownie nawiązać połączenie przy użyciu nazwy głównej usługi, uruchom następujące polecenie:
 
@@ -206,11 +216,11 @@ Obie następujące metody usuwają agenta, ale nie usuwają folderu *C:\Program 
 
 #### <a name="uninstall-from-the-command-line"></a>Odinstalowywanie z wiersza polecenia
 
-Aby odinstalować agenta ręcznie z wiersza polecenia lub użyć metody zautomatyzowanej, takiej jak skrypt, można użyć poniższego przykładu. Najpierw należy pobrać kod produktu, który jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń pakietu aplikacji, z systemu operacyjnego. Odinstalowywanie odbywa się przy użyciu wiersza polecenia msiexec. exe- `msiexec /x {Product Code}`.
-    
+Aby odinstalować agenta ręcznie z wiersza polecenia lub użyć metody zautomatyzowanej, takiej jak skrypt, można użyć poniższego przykładu. Najpierw należy pobrać kod produktu, który jest identyfikatorem GUID, który jest identyfikatorem podmiotu zabezpieczeń pakietu aplikacji, z systemu operacyjnego. Odinstalowywanie odbywa się przy użyciu wiersza polecenia msiexec. exe- `msiexec /x {Product Code}` .
+
 1. Otwórz Edytor rejestru.
 
-2. W obszarze klucz `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`rejestru znajdź i skopiuj identyfikator GUID kodu produktu.
+2. W obszarze klucz rejestru `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` Znajdź i skopiuj identyfikator GUID kodu produktu.
 
 3. Następnie można odinstalować agenta za pomocą polecenia msiexec przy użyciu następujących przykładów:
 

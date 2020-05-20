@@ -3,12 +3,12 @@ title: Użyj Azure Backup Server, aby utworzyć kopię zapasową obciążeń
 description: W tym artykule dowiesz się, jak przygotować środowisko do ochrony i tworzenia kopii zapasowych obciążeń przy użyciu Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a442cb094f87852c9d4f781d378f5886f3a4a42
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273412"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652133"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalowanie i uaktualnianie Azure Backup Server
 
@@ -40,6 +40,9 @@ Azure Backup Server dziedziczy większość funkcji tworzenia kopii zapasowej ob
 ## <a name="choose-an-installation-platform"></a>Wybierz platformę instalacji
 
 Pierwszym krokiem w celu uzyskania Azure Backup Server pracy jest skonfigurowanie systemu Windows Server. Serwer może być na platformie Azure lub lokalnie.
+
+* Aby chronić obciążenia lokalne, serwer serwera usługi MAB musi znajdować się w środowisku lokalnym.
+* Aby chronić obciążenia działające na maszynach wirtualnych platformy Azure, serwer serwera usługi MAB musi znajdować się na platformie Azure i działać jako maszyna wirtualna platformy Azure.
 
 ### <a name="using-a-server-in-azure"></a>Korzystanie z serwera na platformie Azure
 
@@ -183,9 +186,9 @@ Po zakończeniu procesu wyodrębniania zaznacz pole wyboru, aby uruchomić świe
 
     W przypadku konfiguracji usług SSRS należy użyć następujących wartości:
     * Konto usługi: "Użyj wbudowanego konta" powinno być usługą sieciową
-    * Adres URL usługi sieci Web: "katalog wirtualny" powinien\<być ReportServer_ sqlinstancename>
-    * Baza danych: DatabaseName powinna być ReportServer\<$ sqlinstancename>
-    * Adres URL portalu sieci Web: "katalog wirtualny" powinien\<być Reports_ sqlinstancename>
+    * Adres URL usługi sieci Web: "katalog wirtualny" powinien być ReportServer_ \< Sqlinstancename>
+    * Baza danych: DatabaseName powinna być ReportServer $ \< Sqlinstancename>
+    * Adres URL portalu sieci Web: "katalog wirtualny" powinien być Reports_ \< Sqlinstancename>
 
     [Dowiedz się więcej](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) o konfiguracji usług SSRS.
 
@@ -237,7 +240,7 @@ SERWERA usługi MAB używa agenta ochrony programu System Center Data Protection
 
 W poniższych sekcjach opisano sposób aktualizowania agentów ochrony dla komputerów klienckich.
 
-1. W Konsola administratora serwera kopii zapasowej wybierz pozycję**agenci** **zarządzania** > .
+1. W Konsola administratora serwera kopii zapasowej wybierz **Management**pozycję  >  **agenci**zarządzania.
 
 2. W okienku wyświetlania wybierz komputery klienckie, dla których chcesz zaktualizować agenta ochrony.
 

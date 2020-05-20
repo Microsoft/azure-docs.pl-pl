@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc8ca7296658f4113d86765f230ca0158727255f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260925"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649198"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Jak używać nazwanych wartości w zasadach usługi Azure API Management
 
@@ -38,9 +38,9 @@ Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](/azure
 
 | Nazwa       | Wartość                      | Wpis tajny | Tagi          |
 | ---------- | -------------------------- | ------ | ------------- |
-| Wartość      | 42                         | Fałsz  | Najważniejsze wartości |
-| Poświadczenie | ••••••••••••••••••••••     | Prawda   | security      |
-| Wyrażenie | @ (DateTime. Now. ToString ()) | Fałsz  |               |
+| Wartość      | 42                         | False  | Najważniejsze wartości |
+| Poświadczenie | ••••••••••••••••••••••     | True   | security      |
+| Wyrażenie | @ (DateTime. Now. ToString ()) | False  |               |
 
 > [!NOTE]
 > Zamiast nazwanych wartości przechowywanych w ramach usługi API Management, można użyć wartości przechowywanych w usłudze [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) , jak pokazano w tym [przykładzie](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
@@ -59,16 +59,12 @@ Nazwane wartości mogą zawierać ciągi literałów i [wyrażenia zasad](/azure
 
 Po utworzeniu nazwanej wartości można ją edytować, klikając ją. W przypadku zmiany nazwy nazwanej wartości wszystkie zasady odwołujące się do tej nazwanej wartości są automatycznie aktualizowane w celu użycia nowej nazwy.
 
-Aby uzyskać informacje na temat edytowania nazwanej wartości przy użyciu interfejsu API REST, zobacz [Edycja nazwanej wartości przy użyciu interfejsu API REST](/rest/api/apimanagement/2019-12-01/property?patch).
-
 ## <a name="to-delete-a-named-value"></a>Aby usunąć nazwaną wartość
 
 Aby usunąć nazwaną wartość, kliknij przycisk **Usuń** obok nazwanej wartości do usunięcia.
 
 > [!IMPORTANT]
 > Jeśli do nazwanej wartości odwołują się żadne zasady, nie będzie można jej pomyślnie usunąć do momentu usunięcia nazwanej wartości ze wszystkich zasad, które go używają.
-
-Aby uzyskać informacje dotyczące usuwania nazwanej wartości przy użyciu interfejsu API REST, zobacz [usuwanie nazwanej wartości przy użyciu interfejsu API REST](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Aby wyszukać i filtrować nazwane wartości
 
@@ -78,7 +74,7 @@ Aby odfiltrować listę według tagu, wprowadź jeden lub więcej tagów do pola
 
 ## <a name="to-use-a-named-value"></a>Aby użyć nazwanej wartości
 
-Aby użyć nazwanej wartości w zasadach, umieść ją w podwójnej parze nawiasów klamrowych `{{ContosoHeader}}`, jak pokazano w następującym przykładzie:
+Aby użyć nazwanej wartości w zasadach, umieść ją w podwójnej parze nawiasów klamrowych `{{ContosoHeader}}` , jak pokazano w następującym przykładzie:
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -98,7 +94,7 @@ Nazwane wartości mogą również zawierać wyrażenia zasad. W poniższym przyk
 </set-header>
 ```
 
-Jeśli te zasady zostaną ocenione, `{{ExpressionProperty}}` zostaną zastąpione jej wartością: `@(DateTime.Now.ToString())`. Ponieważ wartość jest wyrażeniem zasad, wyrażenie jest oceniane i zasady są wykonywane w ramach jego wykonania.
+Jeśli te zasady zostaną ocenione, `{{ExpressionProperty}}` zostaną zastąpione jej wartością: `@(DateTime.Now.ToString())` . Ponieważ wartość jest wyrażeniem zasad, wyrażenie jest oceniane i zasady są wykonywane w ramach jego wykonania.
 
 Możesz to przetestować w portalu dla deweloperów, wywołując operację, która ma zasady z nazwanymi wartościami w zakresie. W poniższym przykładzie operacja jest wywoływana z dwiema poprzednimi przykładowymi `set-header` zasadami z nazwanymi wartościami. Należy zauważyć, że odpowiedź zawiera dwa niestandardowe nagłówki, które zostały skonfigurowane przy użyciu zasad z nazwanymi wartościami.
 
@@ -108,7 +104,7 @@ Jeśli przeszukiwany jest [ślad inspektora interfejsu API](api-management-howto
 
 ![Ślad Inspektora interfejsów API][api-management-api-inspector-trace]
 
-Gdy nazwane wartości mogą zawierać wyrażenia zasad, nie mogą zawierać innych nazwanych wartości. Jeśli tekst zawierający odwołanie nazwanej wartości jest używany dla wartości, na przykład `Text: {{MyProperty}}`, to odwołanie nie zostanie rozwiązane i zastąpione.
+Gdy nazwane wartości mogą zawierać wyrażenia zasad, nie mogą zawierać innych nazwanych wartości. Jeśli tekst zawierający odwołanie nazwanej wartości jest używany dla wartości, na przykład `Text: {{MyProperty}}` , to odwołanie nie zostanie rozwiązane i zastąpione.
 
 ## <a name="next-steps"></a>Następne kroki
 

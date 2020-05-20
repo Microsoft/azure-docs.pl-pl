@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978624"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659824"
 ---
 # <a name="speech-to-text-rest-api"></a>Interfejs API REST zamiany mowy na tekst
 
@@ -38,12 +38,12 @@ Punkt końcowy interfejsu API REST ma następujący format:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Zamień `<REGION_IDENTIFIER>` na identyfikator pasujący do regionu subskrypcji z tej tabeli:
+Zamień na `<REGION_IDENTIFIER>` Identyfikator pasujący do regionu subskrypcji z tej tabeli:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Parametr Language musi być dołączony do adresu URL, aby uniknąć otrzymania błędu HTTP 4xx. Na przykład język ustawiony na angielski w regionie zachodnie stany USA to: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Parametr Language musi być dołączony do adresu URL, aby uniknąć otrzymania błędu HTTP 4xx. Na przykład język ustawiony na angielski w regionie zachodnie stany USA to: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
 ## <a name="query-parameters"></a>Parametry zapytania
 
@@ -51,28 +51,28 @@ Te parametry mogą być zawarte w ciągu zapytania żądania REST.
 
 | Parametr | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `language` | Identyfikuje język mówiony, który jest rozpoznawany. Zobacz [obsługiwane języki](language-support.md#speech-to-text). | Wymagany |
-| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed`. Proste wyniki obejmują `RecognitionStatus`, `DisplayText`, `Offset`, i `Duration`. Szczegółowe odpowiedzi obejmują cztery różne reprezentacje wyświetlanego tekstu. Ustawienie domyślne to `simple`. | Optional |
-| `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked`, które zastępują braki z gwiazdkami `removed`, które usuwają z wyniku wszystkie niezbyt wulgarne `raw`dane lub, które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Optional |
-| `pronunciationScoreParams` | Określa parametry przedstawiające wyniki wymowy w wynikach rozpoznawania, które oceniają jakość wymowy danych wejściowych mowy, ze wskaźnikami dokładności, Fluency, kompletności itp. Ten parametr jest zakodowanym w formacie base64 JSON zawierającym wiele parametrów szczegółowych. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten parametr. | Optional |
-| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu parametru ciągu `cid` zapytania. | Optional |
+| `language` | Identyfikuje język mówiony, który jest rozpoznawany. Zobacz [obsługiwane języki](language-support.md#speech-to-text). | Wymagane |
+| `format` | Określa format wyniku. Akceptowane wartości to `simple` i `detailed` . Proste wyniki obejmują `RecognitionStatus` , `DisplayText` , `Offset` , i `Duration` . Szczegółowe odpowiedzi obejmują cztery różne reprezentacje wyświetlanego tekstu. Ustawienie domyślne to `simple`. | Opcjonalne |
+| `profanity` | Określa sposób obsługi niezbyt wulgarności w wynikach rozpoznawania. Akceptowane wartości to `masked` , które zastępują braki z gwiazdkami, `removed` które usuwają z wyniku wszystkie niezbyt wulgarne dane lub `raw` , które zawierają braki w wyniku. Ustawienie domyślne to `masked`. | Opcjonalne |
+| `cid` | W przypadku tworzenia niestandardowych modeli przy użyciu [portalu Custom Speech](how-to-custom-speech.md) można użyć niestandardowych modeli za pośrednictwem ich **identyfikatora punktu końcowego** na stronie **wdrożenia** . Użyj **identyfikatora punktu końcowego** jako argumentu `cid` parametru ciągu zapytania. | Opcjonalne |
 
 ## <a name="request-headers"></a>Nagłówki żądań
 
 Ta tabela zawiera listę wymaganych i opcjonalnych nagłówków dla żądań zamiany mowy na tekst.
 
-|Nagłówek| Opis | Wymagane/opcjonalne |
+|Header| Opis | Wymagane/opcjonalne |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Klucz subskrypcji usługi rozpoznawania mowy. | Ten nagłówek lub `Authorization` jest wymagany. |
-| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer`. Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
-| `Content-type` | Opisuje format i koder-dekoder dostarczonych danych audio. Akceptowane wartości to `audio/wav; codecs=audio/pcm; samplerate=16000` i `audio/ogg; codecs=opus`. | Wymagany |
-| `Transfer-Encoding` | Określa, że są wysyłane fragmenty danych audio, a nie jeden plik. Tego nagłówka należy używać tylko w przypadku fragmentowania danych audio. | Optional |
-| `Expect` | W przypadku używania transferu fragmentarycznego Wyślij `Expect: 100-continue`. Usługa mowy potwierdza wstępne żądanie i czeka na dodatkowe dane.| Wymagane w przypadku wysyłania fragmentarycznych danych audio. |
-| `Accept` | Jeśli jest podana, musi być `application/json`. Usługa mowy zapewnia wyniki w formacie JSON. Niektóre platformy żądań zapewniają niezgodną wartość domyślną. Dobrym sposobem jest zawsze uwzględnienie `Accept`. | Opcjonalne, ale zalecane. |
+| `Authorization` | Token autoryzacji poprzedzony słowem `Bearer` . Aby uzyskać więcej informacji, zobacz [Authentication](#authentication) (Uwierzytelnianie). | Ten nagłówek lub `Ocp-Apim-Subscription-Key` jest wymagany. |
+| `Pronunciation-Assessment` | Określa parametry przedstawiające wyniki wymowy w wynikach rozpoznawania, które oceniają jakość wymowy danych wejściowych mowy, ze wskaźnikami dokładności, Fluency, kompletności itp. Ten parametr jest zakodowanym w formacie base64 JSON zawierającym wiele parametrów szczegółowych. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten nagłówek. | Opcjonalne |
+| `Content-type` | Opisuje format i koder-dekoder dostarczonych danych audio. Akceptowane wartości to `audio/wav; codecs=audio/pcm; samplerate=16000` i `audio/ogg; codecs=opus` . | Wymagane |
+| `Transfer-Encoding` | Określa, że są wysyłane fragmenty danych audio, a nie jeden plik. Tego nagłówka należy używać tylko w przypadku fragmentowania danych audio. | Opcjonalne |
+| `Expect` | W przypadku używania transferu fragmentarycznego Wyślij `Expect: 100-continue` . Usługa mowy potwierdza wstępne żądanie i czeka na dodatkowe dane.| Wymagane w przypadku wysyłania fragmentarycznych danych audio. |
+| `Accept` | Jeśli jest podana, musi być `application/json` . Usługa mowy zapewnia wyniki w formacie JSON. Niektóre platformy żądań zapewniają niezgodną wartość domyślną. Dobrym sposobem jest zawsze uwzględnienie `Accept` . | Opcjonalne, ale zalecane. |
 
 ## <a name="audio-formats"></a>Formaty audio
 
-Dźwięk jest wysyłany w treści żądania HTTP `POST` . Musi być w jednym z formatów w tej tabeli:
+Dźwięk jest wysyłany w treści `POST` żądania HTTP. Musi być w jednym z formatów w tej tabeli:
 
 | Format | Wymaga | Szybkość transmisji bitów | Częstotliwość próbkowania  |
 |--------|-------|----------|--------------|
@@ -88,12 +88,12 @@ Ta tabela zawiera listę wymaganych i opcjonalnych parametrów oceny wymowy.
 
 | Parametr | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| ReferenceText | Tekst, dla którego będzie oceniana wymowa. | Wymagany |
-| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark`. Ustawienie domyślne to `FivePoint`. | Optional |
-| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme`, które pokazują wynik na poziomie `Word`pełnego tekstu, wyrazów i fonem, który pokazuje wynik na poziomie `FullText`pełnego tekstu i słowa, który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Optional |
-| Wymiar | Definiuje kryteria danych wyjściowych. Akceptowane wartości to `Basic`, które wyświetlają tylko wynik dokładności, `Comprehensive` pokazują wyniki o większej liczbie wymiarów (np. wyniki Fluency oraz wynik kompletności na poziomie pełnego tekstu, typ błędu na poziomie wyrazu). Sprawdź [Parametry odpowiedzi](#response-parameters) , aby zobaczyć definicje różnych wymiarów oceny i typów błędów wyrazów. Ustawienie domyślne to `Basic`. | Optional |
-| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True`. Ustawienie domyślne to `False`. | Optional |
-| ScenarioId | Identyfikator GUID wskazujący dostosowany system punktów. | Optional |
+| ReferenceText | Tekst, dla którego będzie oceniana wymowa. | Wymagane |
+| GradingSystem | System punktu do kalibracji oceny. Akceptowane wartości to `FivePoint` i `HundredMark` . Ustawienie domyślne to `FivePoint`. | Opcjonalne |
+| Poziom szczegółowości | Stopień szczegółowości oceny. Akceptowane wartości to `Phoneme` , które pokazują wynik na poziomie pełnego tekstu, wyrazów i fonem, `Word` który pokazuje wynik na poziomie pełnego tekstu i słowa, `FullText` który pokazuje wynik tylko na poziomie pełnego tekstu. Ustawienie domyślne to `Phoneme`. | Opcjonalne |
+| Wymiar | Definiuje kryteria danych wyjściowych. Akceptowane wartości to `Basic` , które wyświetlają tylko wynik dokładności, `Comprehensive` pokazują wyniki o większej liczbie wymiarów (np. wyniki Fluency oraz wynik kompletności na poziomie pełnego tekstu, typ błędu na poziomie wyrazu). Sprawdź [Parametry odpowiedzi](#response-parameters) , aby zobaczyć definicje różnych wymiarów oceny i typów błędów wyrazów. Ustawienie domyślne to `Basic`. | Opcjonalne |
+| EnableMiscue | Włącza Obliczanie miscue. Po włączeniu tej możliwości wymawiane wyrazy będą porównywane z tekstem odwołania i będą oznaczone jako pomijania/wstawiania na podstawie porównania. Akceptowane wartości to `False` i `True` . Ustawienie domyślne to `False`. | Opcjonalne |
+| ScenarioId | Identyfikator GUID wskazujący dostosowany system punktów. | Opcjonalne |
 
 Poniżej znajduje się przykładowy kod JSON zawierający parametry oceny wymowy:
 
@@ -106,13 +106,16 @@ Poniżej znajduje się przykładowy kod JSON zawierający parametry oceny wymowy
 }
 ```
 
-Poniższy przykładowy kod przedstawia sposób tworzenia parametrów oceny wymowy w parametrze zapytania URL:
+Poniższy przykładowy kod przedstawia sposób tworzenia parametrów oceny wymowy w `Pronunciation-Assessment` nagłówku:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+>[!NOTE]
+>Funkcja oceny wymowy jest obecnie dostępna tylko w `westus` `eastasia` regionach i. Ta funkcja jest obecnie dostępna tylko w `en-US` języku.
 
 ## <a name="sample-request"></a>Przykładowe żądanie
 
@@ -126,6 +129,12 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
+```
+
+Aby włączyć ocenę wymowy, można dodać poniższy nagłówek. Zobacz [Parametry oceny wymowy](#pronunciation-assessment-parameters) , aby dowiedzieć się, jak skompilować ten nagłówek.
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
 ## <a name="http-status-codes"></a>Kody stanu HTTP
@@ -142,7 +151,7 @@ Kod stanu HTTP dla każdej odpowiedzi oznacza powodzenie lub typowe błędy.
 
 ## <a name="chunked-transfer"></a>Przenoszenie fragmentaryczne
 
-Przeniesienie fragmentaryczne (`Transfer-Encoding: chunked`) może pomóc w zmniejszeniu opóźnienia rozpoznawania. Dzięki temu usługa mowy może rozpocząć przetwarzanie pliku audio podczas jego przesyłania. Interfejs API REST nie zapewnia wyników częściowych ani pośrednich.
+Przeniesienie fragmentaryczne ( `Transfer-Encoding: chunked` ) może pomóc w zmniejszeniu opóźnienia rozpoznawania. Dzięki temu usługa mowy może rozpocząć przetwarzanie pliku audio podczas jego przesyłania. Interfejs API REST nie zapewnia wyników częściowych ani pośrednich.
 
 Ten przykładowy kod pokazuje, jak wysyłać audio w fragmentach. Tylko pierwszy fragment powinien zawierać nagłówek pliku dźwiękowego. `request`jest `HttpWebRequest` obiektem połączonym z odpowiednim punktem końcowym Rest. `audioFile`jest ścieżką do pliku audio na dysku.
 
@@ -178,30 +187,30 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="response-parameters"></a>Parametry odpowiedzi
 
-Wyniki są podane jako dane JSON. `simple` Format zawiera te pola najwyższego poziomu.
+Wyniki są podane jako dane JSON. `simple`Format zawiera te pola najwyższego poziomu.
 
 | Parametr | Opis  |
 |-----------|--------------|
-|`RecognitionStatus`|Stan, `Success` na przykład w celu pomyślnego rozpoznania. Zobacz następną tabelę.|
+|`RecognitionStatus`|Stan, na przykład `Success` w celu pomyślnego rozpoznania. Zobacz następną tabelę.|
 |`DisplayText`|Rozpoznany tekst po kapitalizacji, interpunkcji, normalizacji tekstu odwrotnego (konwersja mówionego tekstu na krótsze formularze, takie jak 200 dla "200" lub "Dr. Smith" dla "lekarza Kowalski") i maskowania niewulgarności. Występuje tylko po powodzeniu.|
 |`Offset`|Czas (w jednostkach 100-nanosekund), w którym rozpoznana funkcja mowy zaczyna się w strumieniu audio.|
 |`Duration`|Czas trwania (w jednostkach 100-nanosekund) rozpoznanej mowy w strumieniu audio.|
 
-`RecognitionStatus` Pole może zawierać następujące wartości:
+`RecognitionStatus`Pole może zawierać następujące wartości:
 
 | Stan | Opis |
 |--------|-------------|
-| `Success` | Rozpoznanie zakończyło się `DisplayText` pomyślnie i pole jest obecne. |
+| `Success` | Rozpoznanie zakończyło się pomyślnie i `DisplayText` pole jest obecne. |
 | `NoMatch` | Wykryto mowę w strumieniu audio, ale nie zostały dopasowane żadne wyrazy z języka docelowego. Zazwyczaj oznacza to, że język rozpoznawania to inny język od użytkownika. |
 | `InitialSilenceTimeout` | Początek strumienia audio zawiera tylko ciszą, a usługa przekroczyła limit czasu podczas oczekiwania na mowę. |
 | `BabbleTimeout` | Początek strumienia audio zawiera tylko szum, a usługa przekroczyła limit czasu podczas oczekiwania na mowę. |
 | `Error` | Usługa rozpoznawania napotkała błąd wewnętrzny i nie może kontynuować. Spróbuj ponownie, jeśli to możliwe. |
 
 > [!NOTE]
-> Jeśli dźwięk składa się tylko z niewulgarności, `profanity` a parametr zapytania jest ustawiony `remove`na, usługa nie zwraca wyniku mowy.
+> Jeśli dźwięk składa się tylko z niewulgarności, a `profanity` parametr zapytania jest ustawiony na `remove` , usługa nie zwraca wyniku mowy.
 
-`detailed` Format zawiera dodatkowe formy rozpoznanych wyników.
-W przypadku korzystania `detailed` z formatu `DisplayText` , jest dostępny `Display` jako dla każdego wyniku na `NBest` liście.
+`detailed`Format zawiera dodatkowe formy rozpoznanych wyników.
+W przypadku korzystania z `detailed` formatu, `DisplayText` jest dostępny jako `Display` dla każdego wyniku na `NBest` liście.
 
 Obiekt na `NBest` liście może obejmować:
 
@@ -211,16 +220,16 @@ Obiekt na `NBest` liście może obejmować:
 | `Lexical` | Leksykalna forma rozpoznanego tekstu: faktyczne wyrazy zostały rozpoznane. |
 | `ITN` | Forma odwrotna — znormalizowana ("kanoniczna") tekst rozpoznanego tekstu, z numerami telefonu, cyframi, skrótami ("Lekarz Kowalski" do "Dr Kowalski") i innymi przekształceniami. |
 | `MaskedITN` | Jeśli zażądano formularza ITN z zastosowanym maską wulgarności. |
-| `Display` | Formularz wyświetlania rozpoznanego tekstu z dodaną interpunkcją i wielką literą. Ten parametr jest taki sam, `DisplayText` jak w przypadku ustawienia format `simple`. |
+| `Display` | Formularz wyświetlania rozpoznanego tekstu z dodaną interpunkcją i wielką literą. Ten parametr jest taki sam, jak w `DisplayText` przypadku ustawienia format `simple` . |
 | `AccuracyScore` | Wynik wskazujący dokładność wymowy danego mowy. |
 | `FluencyScore` | Wynik wskazujący Fluency danej mowy. |
 | `CompletenessScore` | Wynik wskazujący kompletność danego mowy, obliczając stosunek wymawianych słów do całego danych wejściowych. |
-| `PronScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Jest on obliczany `AccuracyScore`z `FluencyScore` , `CompletenessScore` i z wag. |
-| `ErrorType` | Ta wartość wskazuje, czy słowo zostanie pominięte, wstawione lub nieprawidłowo wypowiadane, w `ReferenceText`porównaniu z. Możliwe wartości to `None` (brak błędu w tym wyrazie), `Omission` `Insertion` i `Mispronunciation`. |
+| `PronScore` | Ogólny wynik wskazujący jakość wymowy danego mowy. Jest on obliczany z `AccuracyScore` , `FluencyScore` i `CompletenessScore` z wag. |
+| `ErrorType` | Ta wartość wskazuje, czy słowo zostanie pominięte, wstawione lub nieprawidłowo wypowiadane, w porównaniu z `ReferenceText` . Możliwe wartości to `None` (brak błędu w tym wyrazie), `Omission` `Insertion` i `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Przykładowe odpowiedzi
 
-Typowa odpowiedź na `simple` potrzeby rozpoznawania:
+Typowa odpowiedź na potrzeby `simple` rozpoznawania:
 
 ```json
 {
@@ -231,7 +240,7 @@ Typowa odpowiedź na `simple` potrzeby rozpoznawania:
 }
 ```
 
-Typowa odpowiedź na `detailed` potrzeby rozpoznawania:
+Typowa odpowiedź na potrzeby `detailed` rozpoznawania:
 
 ```json
 {

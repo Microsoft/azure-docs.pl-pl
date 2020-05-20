@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: memildin
-ms.openlocfilehash: bfe1e5d6a0c4171a262b36387f02be356fb1d72d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f71bffd1db023ece19071bb8f71ec49a855e828b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210898"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654661"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,6 +31,36 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 
 
 ## <a name="may-2020"></a>Maj 2020 r.
+
+
+### <a name="alert-suppression-rules-preview"></a>Reguły pomijania alertów (wersja zapoznawcza)
+
+Ta nowa funkcja (obecnie dostępna w wersji zapoznawczej) umożliwia zmniejszenie zmęczenia alertów. Użyj reguł, aby automatycznie ukrywać alerty, które są znane jako niewielkiej ilości lub związane z normalnymi działaniami w organizacji. Pozwala to skupić się na najbardziej odpowiednich zagrożeniach. 
+
+Alerty zgodne z włączonymi regułami pomijania będą nadal generowane, ale ich stan zostanie ustawiony na odrzucony. Stan można sprawdzić w Azure Portal lub uzyskać dostęp do Security Center alertów zabezpieczeń.
+
+Reguły pomijania definiują kryteria, dla których alerty powinny być automatycznie odrzucane. Zazwyczaj można użyć reguły pomijania, aby:
+
+- Pomijaj alerty, które zostały zidentyfikowane jako fałszywe pozytywne
+
+- Pomijanie alertów, które są wyzwalane zbyt często, aby być przydatne
+
+[Dowiedz się więcej na temat pomijania alertów z ochrony przed zagrożeniami w usłudze Azure Security Center](alerts-suppression-rules.md).
+
+
+### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>Ocena luk w zabezpieczeniach maszyn wirtualnych jest teraz ogólnie dostępna
+
+Warstwa standardowa Security Center teraz zawiera wbudowaną ocenę luk w zabezpieczeniach dla maszyn wirtualnych bez dodatkowych opłat. To rozszerzenie jest obsługiwane przez Qualys, ale raportuje jego wyniki bezpośrednio z powrotem do Security Center. Nie potrzebujesz licencji Qualys, a nawet konta Qualys — wszystko, co jest obsługiwane bezproblemowo w Security Center.
+
+Nowe rozwiązanie może stale skanować maszyny wirtualne, aby znaleźć luki w zabezpieczeniach i przedstawić wyniki w Security Center. 
+
+Aby wdrożyć rozwiązanie, należy zastosować nowe zalecenie dotyczące zabezpieczeń:
+
+"Włącz wbudowane rozwiązanie do oceny luk w zabezpieczeniach na maszynach wirtualnych (obsługiwane przez Qualys)"
+
+[Dowiedz się więcej](built-in-vulnerability-assessment.md).
+
+
 
 ### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Zmiany dostępu do maszyny wirtualnej just-in-Time (JIT)
 
@@ -67,22 +97,40 @@ Formanty zabezpieczeń — i ten przełącznik — są częścią nowego bezpiec
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
 
-### <a name="account-security-recommendations-moved-to-security-best-practices-security-control"></a>Zalecenia dotyczące zabezpieczeń konta przeniesione do kontroli zabezpieczeń "najlepsze rozwiązania w zakresie zabezpieczeń"
+### <a name="expanded-security-control-implement-security-best-practices"></a>Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" 
 
-Jednym z kontrolek zabezpieczeń wprowadzonych w ramach zwiększonego bezpiecznego wyniku jest "najlepszych praktyk w zakresie zabezpieczeń". Gdy zalecenie jest w tej kontrolce, nie ma to wpływu na bezpieczny wynik. 
+Jednym z formantów zabezpieczeń wprowadzonych w ramach udoskonalonego bezpiecznego wyniku jest "implementacja najlepszych rozwiązań w zakresie zabezpieczeń". Gdy zalecenie jest w tej kontrolce, nie ma to wpływu na bezpieczny wynik. 
 
 W przypadku tej aktualizacji trzy zalecenia zostały przeniesione z kontrolek, w których zostały one pierwotnie umieszczone, i do tej kontroli najlepszych rozwiązań. Ten krok został osiągnięty, ponieważ wykryto, że ryzyko tych trzech zaleceń jest mniejsze niż początkowo zostało przemyślane.
 
-Zalecenia są następujące:
+Ponadto wprowadzono dwa nowe rekomendacje i dodano je do tej kontrolki.
 
-- Usługę MFA należy włączyć na kontach z uprawnieniami do odczytu w ramach subskrypcji (wcześniej w formancie "Włącz usługę MFA").
-- Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji (wcześniej w kontrolce "Zarządzanie dostępem i uprawnieniami").
-- Dla subskrypcji (początkowo w kontrolce "Zarządzaj dostępem i uprawnieniami") należy wyznaczyć maksymalnie 3 właścicieli.
+Trzy zaleceń, które przeniesiono:
+
+- Usługę **MFA należy włączyć na kontach z uprawnieniami do odczytu w ramach subskrypcji** (wcześniej w formancie "Włącz usługę MFA").
+- **Konta zewnętrzne z uprawnieniami do odczytu powinny zostać usunięte z subskrypcji** (wcześniej w kontrolce "Zarządzanie dostępem i uprawnieniami").
+- Dla subskrypcji (początkowo w kontrolce "Zarządzaj dostępem i uprawnieniami") **należy wyznaczyć maksymalnie 3 właścicieli** .
+
+Dwa nowe rekomendacje dodane do kontrolki są następujące:
+
+- **[Wersja zapoznawcza] Agent konfiguracji gościa musi być zainstalowany** — za pomocą [Azure Policy konfiguracja gościa](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) zapewnia widoczność w obrębie maszyn wirtualnych do ustawień serwera i aplikacji (tylko system Windows).
+
+- **[Wersja zapoznawcza] należy włączyć funkcję Windows Exploit** Guard — usługa Windows Defender Exploit guard wykorzystuje Azure Policy agenta konfiguracji gościa. Funkcja Exploit Guard ma cztery składniki przeznaczone do blokowania urządzeń przed szeroką gamą wektorów ataków i blokowania zachowań często używanych w atakach złośliwego oprogramowania, a jednocześnie umożliwia przedsiębiorstwom zrównoważenie zagrożeń bezpieczeństwa i wymagań dotyczących produktywności (tylko system Windows).
+
+Dowiedz się więcej o funkcji Windows Defender Exploit Guard w temacie [Tworzenie i wdrażanie zasad funkcji Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
 
 
-### <a name="custom-policies-with-custom-metadata-generally-available"></a>Zasady niestandardowe z niestandardowymi metadanymi są ogólnie dostępne
+
+
+
+
+
+
+
+
+### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>Zasady niestandardowe z metadanymi niestandardowymi są teraz ogólnie dostępne
 
 Zasady niestandardowe są teraz częścią środowiska zaleceń Security Center, bezpieczeństwa i oceny zgodności z przepisami. Ta funkcja jest teraz ogólnie dostępna i umożliwia zwiększenie zakresu oceny zabezpieczeń w organizacji w Security Center. 
 
@@ -95,7 +143,7 @@ Teraz dodano również opcję edytowania niestandardowych metadanych rekomendacj
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
-### <a name="dynamic-compliance-packages-now-generally-available"></a>Dynamiczne pakiety zgodności są teraz ogólnie dostępne
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Dynamiczne pakiety zgodności są teraz ogólnie dostępne
 
 Pulpit nawigacyjny zgodności z przepisami Azure Security Center obejmuje teraz **dynamiczne pakiety zgodności** (teraz ogólnie dostępne) do śledzenia dodatkowych standardów branżowych i prawnych.
 
@@ -197,7 +245,7 @@ Te rekomendacje nie będą już wyświetlane na liście Security Center zaleceń
 
 ## <a name="february-2020"></a>Luty 2020 r.
 
-### <a name="fileless-attack-detection-for-linux-is-now-in-preview"></a>Wykrywanie ataków bezplikowych w systemie Linux jest teraz w wersji zapoznawczej
+### <a name="fileless-attack-detection-for-linux-preview"></a>Wykrywanie ataków bezplikowych dla systemu Linux (wersja zapoznawcza)
 
 Gdy osoby atakujące zwiększą wykorzystanie metod stealthier, aby uniknąć wykrywania, Azure Security Center rozszerza wykrywanie ataków bez plików dla systemu Linux, a nie tylko z systemem Windows. Ataki bezplikowe wykorzystują luki w zabezpieczeniach, wprowadzają złośliwe ładunki do niegroźnych procesów systemu i ukrywają w pamięci. Techniki te:
 
@@ -209,7 +257,7 @@ Aby wyeliminować to zagrożenie, Azure Security Center wydane wykrywanie atakó
 
 ## <a name="january-2020"></a>Styczeń 2020 r.
 
-### <a name="enhanced-secure-score"></a>Ulepszony bezpieczny wynik
+### <a name="enhanced-secure-score-preview"></a>Ulepszony bezpieczny wynik (wersja zapoznawcza)
 
 Rozszerzona wersja funkcji bezpiecznego oceny Azure Security Center jest teraz dostępna w wersji zapoznawczej. W tej wersji wiele zaleceń jest pogrupowanych w kontrolki zabezpieczeń, które lepiej odzwierciedlają zagrożone powierzchnie ataków (na przykład ograniczanie dostępu do portów zarządzania).
 

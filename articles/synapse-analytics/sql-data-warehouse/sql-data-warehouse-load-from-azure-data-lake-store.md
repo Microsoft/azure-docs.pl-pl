@@ -11,19 +11,19 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f26aafc771998ea73d1a4f97f0e960a94f6775c3
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 193b1d5ff37eace127c8d5473b102842f4fa2a8c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626721"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654505"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Ładowanie danych z Azure Data Lake Storage na potrzeby analiz SQL
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Ładowanie danych z Azure Data Lake Storage dla Synapse SQL
 
 W tym przewodniku opisano, jak używać wielobazowych tabel zewnętrznych do ładowania danych z Azure Data Lake Storage. Mimo że można uruchamiać zapytania ad hoc dotyczące danych przechowywanych w Data Lake Storage, zalecamy zaimportowanie danych w celu uzyskania najlepszej wydajności.
 
 > [!NOTE]  
-> Alternatywą do załadowania jest [instrukcja Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w publicznej wersji zapoznawczej.  Instrukcja COPY zapewnia największą elastyczność. Aby przesłać opinię na temat instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com.
+> Alternatywą do załadowania jest [instrukcja Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) w publicznej wersji zapoznawczej.  Instrukcja COPY zapewnia największą elastyczność. Aby przesłać opinię na temat instrukcji COPY, Wyślij wiadomość e-mail na następującą listę dystrybucyjną: sqldwcopypreview@service.microsoft.com .
 >
 > [!div class="checklist"]
 >
@@ -218,7 +218,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 Najlepiej jest utworzyć statystyki pojedynczej kolumny bezpośrednio po załadowaniu. Istnieją pewne możliwości statystyczne. Na przykład w przypadku tworzenia statystyk z jedną kolumną dla każdej kolumny może upłynąć dużo czasu, aby ponownie skompilować wszystkie statystyki. Jeśli wiesz, że niektóre kolumny nie będą znajdować się w predykatach zapytań, możesz pominąć tworzenie statystyk dla tych kolumn.
 
-Jeśli zdecydujesz się utworzyć statystykę jednokolumnową dla każdej kolumny każdej tabeli, możesz użyć przykładowego `prc_sqldw_create_stats` kodu procedury składowanej w artykule [Statystyka](sql-data-warehouse-tables-statistics.md) .
+Jeśli zdecydujesz się utworzyć statystykę jednokolumnową dla każdej kolumny każdej tabeli, możesz użyć przykładowego kodu procedury składowanej `prc_sqldw_create_stats` w artykule [Statystyka](sql-data-warehouse-tables-statistics.md) .
 
 Poniższy przykład jest dobrym punktem wyjścia do tworzenia statystyk. Tworzy statystykę jednokolumnową dla każdej kolumny w tabeli wymiarów i dla każdej kolumny sprzężenia w tabelach faktów. Można zawsze dodawać pojedyncze lub wielokolumnowe statystyki do innych kolumn tabeli faktów w późniejszym czasie.
 

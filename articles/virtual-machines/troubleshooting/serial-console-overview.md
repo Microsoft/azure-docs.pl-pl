@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267016"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656485"
 ---
 # <a name="azure-serial-console"></a>Konsola szeregowa platformy Azure
 
@@ -66,6 +66,10 @@ Konsola szeregowa jest dostępna dla zestawów skalowania maszyn wirtualnych, kt
   1. W sekcji **Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **konsola szeregowa**. Zostanie otwarte nowe okienko z konsolą szeregową i rozpocznie się nawiązywanie połączenia.
 
      ![Konsola szeregowa zestawu skalowania maszyn wirtualnych z systemem Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+
+### <a name="tls-12-in-serial-console"></a>TLS 1,2 w konsoli szeregowej
+Konsola szeregowa używa protokołu TLS 1,2 na całej trasie, aby zabezpieczyć całą komunikację w ramach usługi. Konsola szeregowa jest zależna od konta magazynu diagnostyki rozruchu zarządzanego przez użytkownika, a protokół TLS 1,2 musi być skonfigurowany oddzielnie dla konta magazynu. Instrukcje w tym celu znajdują się [tutaj](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
 
 ## <a name="advanced-uses-for-serial-console"></a>Zaawansowane zastosowania konsoli szeregowej
 Poza dostępem konsoli do maszyny wirtualnej można również użyć konsoli szeregowej platformy Azure dla następujących zasobów:

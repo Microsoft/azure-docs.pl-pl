@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 74a4c13197863d0d41e183826cafd64976b44431
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7f1352205f3c2821a50bd39358d960ca71134a95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792585"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657449"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenariusze usługi Azure Disk Encryption na maszynach wirtualnych z systemem Linux
 
@@ -198,7 +198,7 @@ W poniższej tabeli wymieniono Menedżer zasobów parametry szablonu dla istniej
 | Parametr | Opis |
 | --- | --- |
 | vmName | Nazwa maszyny wirtualnej do uruchomienia operacji szyfrowania. |
-| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego ma zostać przekazany klucz szyfrowania. Możesz uzyskać ten element za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
+| Nazwakluczamagazynu | Nazwa magazynu kluczy, do którego ma zostać przekazany klucz szyfrowania. Możesz uzyskać ten element za pomocą polecenia cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` lub interfejsu CLI platformy Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` .|
 | keyVaultResourceGroup | Nazwa grupy zasobów zawierającej Magazyn kluczy. |
 |  keyEncryptionKeyURL | Adres URL klucza szyfrowania klucza używany do szyfrowania klucza szyfrowania. Ten parametr jest opcjonalny w przypadku wybrania opcji **nokek** na liście rozwijanej UseExistingKek. Jeśli wybierzesz pozycję **KEK** na liście rozwijanej UseExistingKek, musisz wprowadzić wartość _keyEncryptionKeyURL_ . |
 | liczba woluminów | Typ woluminu, na którym jest wykonywana operacja szyfrowania. Prawidłowe wartości to _system operacyjny_, _dane_i _wszystkie_. 
@@ -218,7 +218,7 @@ Aby uzyskać więcej informacji o konfigurowaniu szablonu szyfrowania dysku masz
  >Jeśli ustawiasz ten parametr podczas aktualizowania ustawień szyfrowania, może to doprowadzić do ponownego uruchomienia przed rzeczywistym szyfrowaniem. W takim przypadku należy również usunąć dysk, który nie ma być sformatowany z pliku fstab. Podobnie należy dodać partycję, która ma być szyfrowana w pliku fstab przed zainicjowaniem operacji szyfrowania. 
 
 ### <a name="encryptformatall-criteria"></a>Kryteria EncryptFormatAll
-Parametr jest określany przez wszystkie partycje i szyfruje je, o ile spełniają **wszystkie** poniższe kryteria: 
+Parametr jest określany przez wszystkie partycje i szyfruje je, o ile spełniają **wszystkie** poniższe kryteria:
 - Nie jest partycją główną/OS/rozruchową
 - Nie jest jeszcze zaszyfrowany
 - Nie jest woluminem klucz szyfrowania bloków
@@ -258,36 +258,50 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 ### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a>Używanie parametru EncryptFormatAll z menedżerem woluminów logicznych (LVM) 
 Zalecamy instalację LVM-on-Crypt. We wszystkich poniższych przykładach Zastąp ścieżkę urządzenia i mountpoints w dowolny sposób pasujący do przypadków użycia. Tę konfigurację można wykonać w następujący sposób:
 
-- Dodaj dyski danych, które będą tworzyć maszyny wirtualne.
-- Sformatuj, zainstaluj i Dodaj te dyski do pliku fstab.
+1.  Dodaj dyski danych, które będą tworzyć maszyny wirtualne.
 
-    1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](troubleshoot-device-names-problems.md) .
-    
-         ```azurepowershell-interactive
-         parted /dev/disk/azure/scsi1/lun0 mklabel gpt
-         parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
-         
-         mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
-         ```
-    
-    1. Zainstaluj dyski.
-         
-         `mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint`
-    
-    1. Dodaj do fstab.
-         
-        `echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab`
-    
-    1. Uruchom polecenie cmdlet programu PowerShell Set-AzVMDiskEncryptionExtension z parametrem-EncryptFormatAll, aby zaszyfrować te dyski.
+1. Sformatuj, zainstaluj i Dodaj te dyski do pliku fstab.
 
-       ```azurepowershell-interactive
-       $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
-           
-       Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri  -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
-       ```
+1. Wybierz pozycję partycja standardowa, Utwórz partycję obejmującą cały dysk, a następnie sformatuj partycję. W tym miejscu używamy linków symbolicznych wygenerowanego przez platformę Azure. Korzystanie z programu linków symbolicznych pozwala uniknąć problemów związanych z zmianami nazw urządzeń. Aby uzyskać więcej informacji, zobacz artykuł [Rozwiązywanie problemów z nazwami urządzeń](troubleshoot-device-names-problems.md) .
+    
+    ```bash
+    parted /dev/disk/azure/scsi1/lun0 mklabel gpt
+    parted -a opt /dev/disk/azure/scsi1/lun0 mkpart primary ext4 0% 100%
+    
+    mkfs -t ext4 /dev/disk/azure/scsi1/lun0-part1
+    ```
 
-    1. Skonfiguruj LVM na nowych dyskach. Pamiętaj, że zaszyfrowane dyski są odblokowane po zakończeniu rozruchu maszyny wirtualnej. W związku z tym należy również opóźnić Instalowanie LVM.
+1. Zainstaluj dyski:
 
+    ```bash
+    mount /dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint
+    ````
+    
+    Dodaj do pliku fstab:
+
+    ```bash
+    echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
+    ```
+    
+1. Uruchom polecenie cmdlet Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0) z parametrem-EncryptFormatAll, aby zaszyfrować te dyski.
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
+    ```
+
+    Jeśli chcesz użyć klucza szyfrowania klucza (KEK), Przekaż identyfikator URI KEK i ResourceID magazynu kluczy do parametrów-KeyEncryptionKeyUrl i-KeyEncryptionKeyVaultId odpowiednio:
+
+    ```azurepowershell-interactive
+    $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+    $KEKKeyVault = Get-AzKeyVault -VaultName "MyKEKVault" -ResourceGroupName "MySecureGroup"
+    $KEK = Get-AzKeyVaultKey -VaultName "myKEKVault" -KeyName "myKEKName"
+    
+    Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data -KeyEncryptionKeyUrl $$KEK.id -KeyEncryptionKeyVaultId $KEKKeyVault.ResourceId
+    ```
+
+1. Skonfiguruj LVM na nowych dyskach. Pamiętaj, że zaszyfrowane dyski są odblokowane po zakończeniu rozruchu maszyny wirtualnej. W związku z tym należy również opóźnić Instalowanie LVM.
 
 ## <a name="new-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nowe maszyny wirtualne utworzone z dysku VHD i kluczy szyfrowania szyfrowanych przez klienta
 W tym scenariuszu można włączyć szyfrowanie przy użyciu poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia. 

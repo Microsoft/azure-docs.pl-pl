@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: juliako
-ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769753"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647642"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` do czytnika źródła danych RSS.
 
 Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na temat:
 
@@ -36,7 +36,11 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 
 Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="may-2020"></a>Maj 2020 r.
+
+Azure Media Services jest teraz ogólnie dostępna w następujących regionach: "Niemcy Północne", "Niemcy Środkowo-Zachodnie", "Szwajcaria Północna" i "Szwajcaria Zachodnia". Klienci mogą wdrażać Media Services w tych regionach przy użyciu Azure Portal.
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="improvements-in-documentation"></a>Ulepszenia dokumentacji
 
@@ -103,7 +107,7 @@ Dodano obsługę następujących nowych zalecanych koderów partnerów dla przes
 
 - Ramki kluczowe wyodrębnione przy użyciu ustawień wstępnych VideoAnalyzer są teraz w oryginalnej rozdzielczości wideo zamiast zmiany rozmiaru. Funkcja wyodrębniania klatek kluczowych o wysokiej rozdzielczości zapewnia oryginalne obrazy z jakością i pozwala korzystać z sztucznych modeli analizy opartych na obrazach udostępnianych przez usługi Microsoft przetwarzanie obrazów i Custom Vision, aby uzyskać jeszcze więcej szczegółowych informacji na temat wideo.
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -119,7 +123,7 @@ Ogłaszamy przestarzałe *Azure Media Indexer* i *Azure Media Indexer 2 wersji z
 
 Aby uzyskać więcej informacji, zobacz [Migrowanie z Azure Media Indexer i Azure Media Indexer 2 do Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
@@ -137,7 +141,7 @@ Ogłaszamy przestarzałe procesory nośników z *systemami Windows Azure Media E
 
 Aby uzyskać szczegółowe informacje, zobacz [Migrowanie WAME do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) i [Migrowanie azwa do Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="content-protection"></a>Ochrona zawartości
 
@@ -193,19 +197,19 @@ Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) został dodany do wbudowanych ustawień wstępnych analizatora.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) został dodany do wbudowanych ustawień wstępnych kodera. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md). 
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs).
 
 Teraz można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [kojarzenie filtrów z lokalizatorem przesyłania strumieniowego](filters-concept.md#associating-filters-with-streaming-locator).
 
-## <a name="february-2019"></a>Luty 2019 r.
+## <a name="february-2019"></a>Luty 2019
 
 Media Services wersja 3 jest teraz obsługiwana w chmurach narodowych platformy Azure. Nie wszystkie funkcje są jeszcze dostępne we wszystkich chmurach. Aby uzyskać szczegółowe informacje, zobacz [chmury i regiony, w których istnieje Azure Media Services v3](azure-clouds-regions.md).
 
 Do schematów Azure Event Grid dla Media Services dodano zdarzenie [Microsoft. Media. JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) .
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Pliki Media Encoder Standard i MPI 
 
@@ -213,7 +217,7 @@ Gdy kodowanie przy użyciu Media Encoder Standard do tworzenia plików MP4, nowy
 
 Nie należy modyfikować ani usuwać pliku MPI ani korzystać z jakichkolwiek zależności w usłudze w przypadku istnienia takiego pliku.
 
-## <a name="december-2018"></a>Grudzień 2018 r.
+## <a name="december-2018"></a>Grudzień 2018
 
 Aktualizacje z wersji GA interfejsu API v3 obejmują:
        
@@ -222,7 +226,7 @@ Aktualizacje z wersji GA interfejsu API v3 obejmują:
 * Rozszerzalność wyliczenia została włączona jeszcze raz. Ta funkcja została włączona w wersji zapoznawczej zestawu SDK i została przypadkowo wyłączona w wersji GA.
 * Zmieniono nazwy dwóch wstępnie zdefiniowanych zasad przesyłania strumieniowego. **SecureStreaming** jest teraz **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** jest teraz **Predefined_MultiDrmStreaming**.
 
-## <a name="november-2018"></a>Listopad 2018 r.
+## <a name="november-2018"></a>Listopad 2018
 
 Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Services v3 ga](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
 
@@ -244,31 +248,31 @@ Moduł interfejsu wiersza polecenia 2,0 jest teraz dostępny dla [Azure Media Se
 
 #### <a name="asset-commands"></a>Polecenia zasobów
 
-- ```--storage-account```i ```--container``` dodano argumenty.
+- ```--storage-account```i ```--container``` Dodano argumenty.
 - Wartości domyślne dla czasu wygaśnięcia (teraz + 23h) i uprawnienia (odczyt) w ```az ams asset get-sas-url``` poleceniu.
 
 #### <a name="job-commands"></a>Polecenia zadań
 
-- ```--correlation-data```i ```--label``` dodano argumenty
-- ```--output-asset-names```Zmieniono nazwę ```--output-assets```na. Teraz akceptuje ona rozdzieloną spacjami listę elementów zawartości w formacie "assetname = Label". Element zawartości bez etykiety może być wysyłany w następujący sposób: "assetname =".
+- ```--correlation-data```i ```--label``` Dodano argumenty
+- ```--output-asset-names```Zmieniono nazwę na ```--output-assets``` . Teraz akceptuje ona rozdzieloną spacjami listę elementów zawartości w formacie "assetname = Label". Element zawartości bez etykiety może być wysyłany w następujący sposób: "assetname =".
 
 #### <a name="streaming-locator-commands"></a>Polecenia lokalizatora przesyłania strumieniowego
 
-- ```az ams streaming locator```polecenie podstawowe zostało zastąpione przez ```az ams streaming-locator```.
-- ```--streaming-locator-id```i ```--alternative-media-id support``` dodano argumenty.
+- ```az ams streaming locator```polecenie podstawowe zostało zastąpione przez ```az ams streaming-locator``` .
+- ```--streaming-locator-id```i ```--alternative-media-id support``` Dodano argumenty.
 - ```--content-keys argument```argument został zaktualizowany.
-- ```--content-policy-name```Zmieniono nazwę ```--content-key-policy-name```na.
+- ```--content-policy-name```Zmieniono nazwę na ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Polecenia zasad przesyłania strumieniowego
 
-- ```az ams streaming policy```polecenie podstawowe zostało zastąpione przez ```az ams streaming-policy```.
+- ```az ams streaming policy```polecenie podstawowe zostało zastąpione przez ```az ams streaming-policy``` .
 - Obsługa parametrów szyfrowania została ```az ams streaming-policy create``` dodana.
 
 #### <a name="transform-commands"></a>Przekształcenia — polecenia
 
-- ```--preset-names```argument został zastąpiony przez ```--preset```. Teraz można jednocześnie ustawić 1 wartość wyjściową/ustawienie wstępne (aby dodać więcej informacji, które trzeba uruchomić ```az ams transform output add```). Ponadto można ustawić niestandardowe StandardEncoderPreset przez przekazanie ścieżki do niestandardowego kodu JSON.
+- ```--preset-names```argument został zastąpiony przez ```--preset``` . Teraz można jednocześnie ustawić 1 wartość wyjściową/ustawienie wstępne (aby dodać więcej informacji, które trzeba uruchomić ```az ams transform output add``` ). Ponadto można ustawić niestandardowe StandardEncoderPreset przez przekazanie ścieżki do niestandardowego kodu JSON.
 - ```az ams transform output remove```można wykonać, przekazując indeks danych wyjściowych do usunięcia.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```dodano argumenty w ```az ams transform create``` poleceniach i ```az ams transform output add``` .
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```dodano argumenty w ```az ams transform create``` ```az ams transform output add``` poleceniach i.
 
 ## <a name="october-2018---ga"></a>Październik 2018 — GA
 

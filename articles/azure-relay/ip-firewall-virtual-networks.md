@@ -8,14 +8,14 @@ ms.service: service-bus-relay
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 ms.author: spelluru
-ms.openlocfilehash: e2a9e89ca8c3b77b09a58a45959f1acda1457b56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211056"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653435"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurowanie zapory IP dla Azure Relay przestrzeni nazw
 Domyślnie przestrzenie nazw przekaźnika są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -137,4 +137,3 @@ Aby dowiedzieć się więcej o innych funkcjach związanych z zabezpieczeniami s
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-Deploy]:: 

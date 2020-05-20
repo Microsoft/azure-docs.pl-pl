@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473323"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648577"
 ---
 # <a name="building-an-accessible-application"></a>Tworzenie dostępnej aplikacji
 
@@ -28,6 +28,7 @@ Zestaw SDK sieci Web Azure Maps zawiera prekompilowaną z wieloma funkcjami uła
 - Opisy czytnika ekranu, gdy mapa jest przenoszona i gdy użytkownik koncentruje się na kontrolce lub wyskakującym okienku.
 - Obsługa myszy, dotyku i klawiatury.
 - Obsługa kontrastu kolorów dostępna w stylu mapy drogowej.
+- Obsługa dużego kontrastu.
 
 Szczegółowe informacje o zgodności z pełnymi ułatwieniami dostępu dla wszystkich produktów firmy Microsoft można znaleźć [tutaj](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Wyszukaj ciąg "Azure Maps Web", aby znaleźć dokument przeznaczony dla Azure Maps Web SDK. 
 
@@ -41,8 +42,8 @@ Istnieje kilka różnych sposobów, w których mapowanie może być powiększane
 - Za pomocą myszy przewiń kółko, aby powiększyć mapę.
 - Korzystając z ekranu dotykowego, dotknij mapy dwoma palcami i szczypania ze sobą, aby pomniejszyć lub rozłożyć palcami od siebie do powiększania.
 - Korzystając z ekranu dotykowego, dwukrotnie naciśnij mapę, aby powiększyć na jednym poziomie.
-- Używając mapy, użyj znaku plus (`+`) lub znaku równości (`=`), aby powiększyć jeden poziom.
-- Używając mapy, użyj znaku minus, łącznika (`-`) lub znaku podkreślenia (`_`), aby pomniejszyć jeden poziom.
+- Używając mapy, użyj znaku plus ( `+` ) lub znaku równości ( `=` ), aby powiększyć jeden poziom.
+- Używając mapy, użyj znaku minus, łącznika ( `-` ) lub znaku podkreślenia (), `_` Aby pomniejszyć jeden poziom.
 - Za pomocą kontrolki powiększenie za pomocą myszy, dotyku lub klawisza Tab/klawisz ENTER.
 - Naciśnij i przytrzymaj `Shift` przycisk i naciśnij lewy przycisk myszy w dół mapy i przeciągnij, aby narysować obszar, w którym chcesz powiększyć mapę.
 
@@ -76,7 +77,7 @@ Nie wszyscy deweloperzy chcą, aby wszystkie możliwe style mapy były dostępne
 - Kontrolka mapy nie monitoruje trybu dużego kontrastu urządzenia. W przypadku zmiany trybu urządzenia mapa nie zostanie zmieniona. W takim przypadku użytkownik będzie musiał ponownie załadować mapę przez odświeżenie strony.
 - Po wykryciu dużego kontrastu styl mapy zostanie automatycznie przełączony do dużego kontrastu, a wszystkie wbudowane kontrolki będą korzystać z stylu dużego kontrastu. Na przykład ZoomControl, PitchControl, CompassControl, StyleControl i inne wbudowane kontrolki będą korzystać z stylu dużego kontrastu.
 - Istnieją dwa typy dużego kontrastu, jasne i ciemne. Jeśli typ dużego kontrastu może zostać wykryty przez kontrolki mapy, zachowanie mapy zostanie odpowiednio dopasowane. Jeśli jest jasne, zostanie załadowany styl mapy grayscale_light. Jeśli typ nie może zostać wykryty lub jest ciemny, zostanie załadowany styl high_contrast_dark.
-- Jeśli tworzysz niestandardowe kontrolki, warto wiedzieć, czy wbudowane kontrolki używają stylu o wysokim kontraście. Deweloperzy mogą dodać klasę CSS do znacznika DIV kontenera mapy, aby sprawdzić. Dodawane klasy CSS to `high-contrast-dark` i. `high-contrast-light` Aby sprawdzić użycie języka JavaScript, użyj polecenia:
+- Jeśli tworzysz niestandardowe kontrolki, warto wiedzieć, czy wbudowane kontrolki używają stylu o wysokim kontraście. Deweloperzy mogą dodać klasę CSS do znacznika DIV kontenera mapy, aby sprawdzić. Dodawane klasy CSS to `high-contrast-dark` i `high-contrast-light` . Aby sprawdzić użycie języka JavaScript, użyj polecenia:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
@@ -92,7 +93,7 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 Mapa zawiera wbudowane skróty klawiaturowe, które ułatwiają korzystanie z mapy. Te skróty klawiaturowe działają, gdy mapa ma fokus.
 
-| Key      | Akcja                            |
+| Klucz      | Akcja                            |
 |----------|-----------------------------------|
 | `Tab` | Nawigowanie między kontrolkami i okienkami podręcznymi na mapie. |
 | `ESC` | Przenieś fokus z dowolnego elementu na mapie do elementu mapy najwyższego poziomu. |
@@ -105,15 +106,15 @@ Mapa zawiera wbudowane skróty klawiaturowe, które ułatwiają korzystanie z ma
 | `Shift`+ Strzałka w dół | Zmniejsz wysokość mapy o 10 stopni |
 | `Shift`+ Strzałka w prawo | Obróć mapę o 15 stopni w prawo |
 | `Shift`+ Strzałka w lewo | Obróć mapę o 15 stopni w lewo |
-| Znak plus (`+`) lub <sup>*</sup>znak równości (`=`) | Powiększanie |
-| Znak minus, łącznik (`-`) lub <sup>*</sup>podkreślenie (`_`) | Pomniejszanie | 
+| Znak plus ( `+` ) lub <sup>*</sup> znak równości ( `=` ) | Powiększanie |
+| Znak minus, łącznik ( `-` ) lub <sup>*</sup> podkreślenie ( `_` ) | Pomniejszanie | 
 | `Shift`+ Przeciągnij myszą na mapie, aby rysować obszar | Powiększ do obszaru |
 
 <sup>*</sup>Te kluczowe skróty zazwyczaj współdzielą ten sam klucz na klawiaturze. Te skróty zostały dodane w celu usprawnienia środowiska użytkownika. Nie ma znaczenia, czy użytkownik używa klawisza Shift lub nie do tych skrótów.
 
 ## <a name="screen-reader-support"></a>Obsługa czytnika ekranu
 
-Użytkownicy mogą nawigować po mapie przy użyciu klawiatury. Jeśli czytnik ekranu jest uruchomiony, mapa będzie powiadamiać użytkownika o zmianach stanu. Na przykład użytkownicy są powiadamiani o zmianach mapy, gdy mapa jest przesuwana lub powiększa. Domyślnie mapa zawiera uproszczone opisy, które wykluczają poziom powiększenia i współrzędne centrum mapy. Użytkownik może przełączać poziom szczegółowości tych opisów przy użyciu klawiatury krótkiej wycinania `Ctrl`  +  `Shift`  +  `D`.
+Użytkownicy mogą nawigować po mapie przy użyciu klawiatury. Jeśli czytnik ekranu jest uruchomiony, mapa będzie powiadamiać użytkownika o zmianach stanu. Na przykład użytkownicy są powiadamiani o zmianach mapy, gdy mapa jest przesuwana lub powiększa. Domyślnie mapa zawiera uproszczone opisy, które wykluczają poziom powiększenia i współrzędne centrum mapy. Użytkownik może przełączać poziom szczegółowości tych opisów przy użyciu klawiatury krótkiej wycinania `Ctrl`  +  `Shift`  +  `D` .
 
 Wszelkie dodatkowe informacje umieszczane na mapie podstawowej powinny mieć odpowiednie informacje tekstowe dla użytkowników czytnika ekranu. Należy pamiętać o dodaniu [dostępnych bogatych aplikacji internetowych (Aria)](https://www.w3.org/WAI/standards-guidelines/aria/), klawiszy Alt i atrybutów tytułu, tam gdzie to konieczne. 
 
@@ -125,7 +126,7 @@ Poniższy przykład ładuje punkty zainteresowań na mapie przy użyciu warstwy 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Utwórz dostępną aplikację' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro, aby <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>udostępnić aplikację</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Utwórz dostępną aplikację' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zobacz pióro, aby <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>udostępnić aplikację</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) na <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 

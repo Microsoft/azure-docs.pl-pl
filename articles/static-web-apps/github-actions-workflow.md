@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: c7180be2afa541f743d7bd81627b93f34d9bb4eb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597842"
+ms.locfileid: "83655210"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -136,7 +136,7 @@ with:
 
 | Właściwość | Opis | Wymagane |
 |---|---|---|
-| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Tak |
+| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Yes |
 | `api_location` | Lokalizacja kodu Azure Functions.<br><br>Na przykład wprowadź, `/api` czy kod aplikacji znajduje się w folderze o nazwie `api` . Jeśli w folderze nie zostanie wykryta żadna aplikacja Azure Functions, kompilacja nie powiedzie się, a przepływ pracy zakłada, że nie potrzebujesz interfejsu API. | Nie |
 | `app_artifact_location` | Lokalizacja katalogu wyjściowego kompilacji względem `app_location` .<br><br>Na przykład, jeśli kod źródłowy aplikacji znajduje się w lokalizacji `/app` i skrypt kompilacji wyprowadza pliki do `/app/build` folderu, a następnie ustawi `build` jako `app_artifact_location` wartość. | Nie |
 
@@ -150,7 +150,7 @@ Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardo
 
 | Polecenie            | Opis |
 |---------------------|-------------|
-| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowych Enter `ng build -prod` . Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:Azure` polecenia lub.  |
+| `app_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji zawartości statycznej.<br><br>Na przykład, aby skonfigurować kompilację produkcyjną dla aplikacji kątowych Enter `ng build --prod` . Jeśli pole pozostanie puste, przepływ pracy próbuje `npm run build` uruchomić `npm run build:Azure` polecenia lub.  |
 | `api_build_command` | Definiuje niestandardowe polecenie do uruchomienia podczas wdrażania aplikacji interfejsu API Azure Functions. |
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras

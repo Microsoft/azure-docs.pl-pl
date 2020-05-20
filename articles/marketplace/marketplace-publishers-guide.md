@@ -1,22 +1,22 @@
 ---
-title: Komercyjny Podręcznik publikowania w portalu Marketplace
-description: Przegląd komercyjnej witryny Marketplace dla wydawców aplikacji i usług.
+title: Komercyjny Podręcznik publikowania w witrynie Microsoft Marketplace
+description: Przegląd komercyjnej witryny Marketplace dla partnerów firmy Microsoft, którzy chcą publikować oferty do Microsoft AppSource i witryny Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261996"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657861"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Komercyjny Podręcznik publikowania w portalu Marketplace
 
-Przewodnik publikowania w witrynie Marketplace został zaprojektowany z założeniami, aby pomóc nowym i istniejącym wydawcom dowiedzieć się, jak korzystać z [sklepów w witrynie Azure Marketplace](https://azuremarketplace.microsoft.com) , a [Microsoft AppSource](https://appsource.microsoft.com) rozwijać swoją firmę w partnerstwie z firmą Microsoft, wymieniając aplikacje i usługi.
+Ten przewodnik publikowania został zaprojektowany z założeniami, aby pomóc nowym i istniejącym wydawcom dowiedzieć się, jak wyświetlać aplikacje i usługi w portalu komercyjnej witryny Marketplace, [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com) i [Microsoft AppSource](https://appsource.microsoft.com), aby rozwijać swoją firmę w partnerstwie z firmą Microsoft.
 
 >[!Note]
 >Witryna Marketplace dotyczy zarówno platformy Azure Marketplace, jak i AppSource.  Aby uzyskać więcej informacji [, zobacz jeden z rynków Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) .
@@ -30,7 +30,7 @@ Ten przewodnik obejmuje następujące tematy:
 
 Ten przewodnik zawiera informacje techniczne i biznesowe dotyczące czynności, które należy wykonać przed wyświetleniem listy aplikacji i usług. Za pomocą spisu treści przejdź do różnych sekcji przewodnika i przejdź bezpośrednio do najważniejszych tematów.
 
-Pytania dotyczące portalu Azure Marketplace i usługi AppSource umożliwiają wysyłanie wiadomości w obszarze **Typ** > **Marketplace Onboarding**problemu. Nasz zespół ds. dołączania do portalu Marketplace będzie zadowolony z pomocy! 
+Pytania dotyczące portalu Azure Marketplace i usługi AppSource umożliwiają wysyłanie wiadomości w obszarze **typ problemu**  >  **Marketplace Onboarding**. Nasz zespół ds. dołączania do portalu Marketplace będzie zadowolony z pomocy! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Korzyści wynikające z uczestnictwa w portalu Marketplace 
 

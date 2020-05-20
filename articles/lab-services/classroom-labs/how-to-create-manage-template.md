@@ -11,19 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57005bc18d1eda42043236086ebbac69e54cc505
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539034"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655783"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Tworzenie szablonu klasy i zarządzanie nim w Azure Lab Services
 Szablon w laboratorium to podstawowy obraz maszyny wirtualnej, który służy do tworzenia maszyn wirtualnych wszystkich użytkowników. Możesz skonfigurować maszynę wirtualną szablonu dokładnie tak jak chcesz dla użytkowników laboratorium. Możesz podać nazwę i opis szablonu, które będą widoczne dla użytkowników laboratorium. Następnie należy opublikować szablon w celu udostępnienia dla użytkowników laboratorium wystąpień z szablonową maszyną wirtualną. Gdy opublikujesz szablon, usługa Azure Lab Services utworzy maszyny wirtualne w laboratorium przy użyciu tego szablonu. Liczba maszyn wirtualnych utworzonych w ramach tego procesu jest taka sama jak maksymalna liczba użytkowników, którzy mogą korzystać z laboratorium. Tę liczbę można ustawić w zasadach użytkowania laboratorium. Wszystkie maszyny wirtualne mają taką samą konfigurację jak szablon.
 
 W tym artykule opisano sposób tworzenia maszyny wirtualnej szablonu i zarządzania nią w laboratorium z klasą Azure Lab Services. 
+
+> [!NOTE]
+> Podczas tworzenia laboratorium jest tworzona maszyna wirtualna z szablonem, ale nie została ona uruchomiona. Można go uruchomić, nawiązać z nim połączenie i zainstalować wszystkie wstępnie wymagane oprogramowanie dla laboratorium, a następnie opublikować je. Po opublikowaniu szablonu maszyna wirtualna jest automatycznie zamykana, jeśli nie zostało to zrobione. 
+> 
+> Na maszynach wirtualnych szablonowych naliczane są **koszty** , dlatego należy się upewnić, że maszyna wirtualna jest ZAMKNIĘTA, gdy nie jest potrzebna do uruchomienia. 
+
 
 ## <a name="set-or-update-template-title-and-description"></a>Ustawianie lub aktualizowanie tytułu i opisu szablonu
 Wykonaj następujące kroki, aby ustawić tytuł i opis po raz pierwszy, i zaktualizuj je później. 

@@ -1,18 +1,18 @@
 ---
-title: Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace | Portal Azure Marketplace
-description: Dostępność geograficzna w komercyjnej witrynie Marketplace
+title: Obsługa dostępności geograficznej i waluty dla portalu komercyjnego firmy Microsoft
+description: Obsługa dostępności geograficznej i waluty dla transakcji w portalu komercyjnym
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687584"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657874"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Obsługa dostępności geograficznej i waluty komercyjnej witryny Marketplace
 
@@ -55,7 +55,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Chorwacja                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cypr                              | CY        | EUR          |
-| Czechy                      | CZ        | EUR          |
+| Republika Czeska                      | CZ        | EUR          |
 | Dania                             | DK        | DKK          |
 | Dominikana                  | DO        | USD          |
 | Ekwador                             | EC        | USD          |
@@ -107,7 +107,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Mongolia                            | MN        | USD          |
 | Czarnogóra                          | ME        | USD          |
 | Maroko                             | MA        | USD          |
-| Namibia                             | Nie dotyczy        | USD          |
+| Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Holandia                         | NL        | EUR          |
 | Nikaragua                           | NI        | USD          |
@@ -144,7 +144,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Tadżykistan                          | TJ        | USD          |
 | Tanzania                            | TZ        | USD          |
 | Tajlandia                            | TH        | USD          |
-| Trynidad i Tobago                 | TT        | USD          |
+| Trinidad i Tobago                 | TT        | USD          |
 | Tunezja                             | TN        | USD          |
 | Turcja                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
@@ -153,7 +153,7 @@ Oferty komercyjnej witryny Marketplace można zakupić w 141 lokalizacje geograf
 | Uganda                              | UG        | USD          |
 | Ukraina                             | UA        | USD          |
 | Zjednoczone Emiraty Arabskie                | AE        | USD          |
-| Wielka Brytania                      | GB        | GBP          |
+| Zjednoczone Królestwo                      | GB        | GBP          |
 | Stany Zjednoczone                       | USA        | USD          |
 | Urugwaj                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191944"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655190"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
 
@@ -138,11 +138,11 @@ Firma Microsoft udostępnia następujące narzędzia do pracy z usługą Azure S
 
 * Aby zidentyfikować pełną ścieżkę do skonfigurowanego domyślnego magazynu, przejdź do:
 
-    **HDFS** > **Konfiguracja** systemu plików HDFS i `fs.defaultFS` wprowadź w polu filtru wejściowego.
+    System plików **HDFS**  >  **Configs** i ENTER `fs.defaultFS` w polu wejściowym filtru.
 
 * Aby sprawdzić, czy magazyn wasb jest skonfigurowany jako magazyn pomocniczy, przejdź do:
 
-    **HDFS** > **Konfiguracja** systemu plików HDFS i `blob.core.windows.net` wprowadź w polu filtru wejściowego.
+    System plików **HDFS**  >  **Configs** i ENTER `blob.core.windows.net` w polu wejściowym filtru.
 
 Aby uzyskać ścieżkę przy użyciu interfejsu API REST Ambari, zobacz temat [pobieranie magazynu domyślnego](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 
@@ -158,7 +158,7 @@ Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, tak
 
 ## <a name="use-additional-storage-accounts"></a>Używanie dodatkowych kont magazynu
 
-Podczas tworzenia klastra usługi HDInsight należy wskazać konto usługi Azure Storage, które ma zostać skojarzone z tym klastrem. Ponadto można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia. Lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Podczas tworzenia klastra usługi HDInsight należy wskazać konto usługi Azure Storage, które ma zostać skojarzone z tym klastrem. Ponadto można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania dodatkowych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
@@ -173,5 +173,5 @@ Aby uzyskać więcej informacji, zobacz:
 * [Wprowadzenie do Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Przekazywanie danych do usługi HDInsight](hdinsight-upload-data.md)
 * [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md) (Używanie sygnatur dostępu współdzielonego do usługi Azure Storage, aby ograniczyć dostęp do danych za pomocą usługi HDInsight)
-* [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 * [Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

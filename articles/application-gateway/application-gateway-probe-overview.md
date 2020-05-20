@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335861"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648412"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway — Omówienie monitorowania kondycji
 
@@ -49,7 +49,7 @@ Poniżej przedstawiono kryteria dopasowywania:
 
 Kryteria dopasowywania można określić przy użyciu `New-AzApplicationGatewayProbeHealthResponseMatch` polecenia cmdlet.
 
-Przykład:
+Na przykład:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -64,12 +64,12 @@ Po określeniu kryteriów dopasowania można je dołączyć do konfiguracji sond
 | Adres URL sondy |http://127.0.0.1:\<port\>/ |Ścieżka adresu URL |
 | Interval |30 |Czas oczekiwania (w sekundach) przed wysłaniem następnej sondy kondycji.|
 | Limit czasu |30 |Czas w sekundach, przez który Brama aplikacji czeka na odpowiedź sondy przed oznaczeniem sondy jako złej kondycji. Jeśli sonda jest powracana w dobrej kondycji, odpowiednie zaplecze jest natychmiast oznaczone jako w dobrej kondycji.|
-| Próg złej kondycji |3 |Decyduje o liczbie sond do wysłania w przypadku niepowodzenia regularnej sondy kondycji. Te dodatkowe sondy kondycji są wysyłane w krótkim czasie, aby szybko określić kondycję zaplecza i nie czekać na interwał sondowania. Ta behaivor ma tylko 1 jednostka SKU. W przypadku wersji 2 jednostki SKU sondy kondycji czekają interwał. Serwer zaplecza jest oznaczony jako wyłączony po kolejnej liczbie błędów sondy osiągnie próg złej kondycji. |
+| Próg złej kondycji |3 |Decyduje o liczbie sond do wysłania w przypadku niepowodzenia regularnej sondy kondycji. Te dodatkowe sondy kondycji są wysyłane w krótkim czasie, aby szybko określić kondycję zaplecza i nie czekać na interwał sondowania. To zachowanie ma tylko numer 1 jednostki SKU. W przypadku wersji 2 jednostki SKU sondy kondycji czekają interwał. Serwer zaplecza jest oznaczony jako wyłączony po kolejnej liczbie błędów sondy osiągnie próg złej kondycji. |
 
 > [!NOTE]
 > Port jest tym samym portem co ustawienia HTTP zaplecza.
 
-Sonda domyślna jest sprawdzana tylko w\/przypadku protokołu HTTP\<:\> /127.0.0.1: port w celu określenia stanu kondycji. Jeśli musisz skonfigurować sondę kondycji, aby przejść do niestandardowego adresu URL lub zmodyfikować inne ustawienia, musisz użyć niestandardowych sond.
+Sonda domyślna jest sprawdzana tylko w przypadku protokołu http: \/ /127.0.0.1: \< port \> w celu określenia stanu kondycji. Jeśli musisz skonfigurować sondę kondycji, aby przejść do niestandardowego adresu URL lub zmodyfikować inne ustawienia, musisz użyć niestandardowych sond. Aby uzyskać więcej informacji na temat sond protokołu HTTP, zobacz [Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Interwały sondowania
 
@@ -88,7 +88,7 @@ Poniższa tabela zawiera definicje właściwości niestandardowej sondy kondycji
 | Właściwość sondy | Opis |
 | --- | --- |
 | Nazwa |Nazwa sondy. Ta nazwa służy do odwoływania się do sondy w ustawieniach protokołu HTTP zaplecza. |
-| Protocol (Protokół) |Protokół używany do wysyłania sondy. Sonda używa protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
+| Protokół |Protokół używany do wysyłania sondy. Sonda używa protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
 | Host |Nazwa hosta do wysłania sondy. Dotyczy tylko sytuacji, gdy wiele witryn jest skonfigurowanych na Application Gateway, w przeciwnym razie użyj "127.0.0.1". Ta wartość różni się od nazwy hosta maszyny wirtualnej. |
 | Ścieżka |Ścieżka względna sondy. Prawidłowa ścieżka zaczyna się od znaku "/". |
 | Interval |Interwał sondy (w sekundach). Ta wartość jest przedziałem czasu między dwoma kolejnymi sondami. |
@@ -97,7 +97,7 @@ Poniższa tabela zawiera definicje właściwości niestandardowej sondy kondycji
 
 > [!IMPORTANT]
 > Jeśli Application Gateway jest skonfigurowany dla jednej lokacji, domyślnie nazwa hosta powinna być określona jako "127.0.0.1", chyba że jest skonfigurowana w przypadku sondy niestandardowej.
-> W przypadku odniesienia do \<protokołu\>://\<hosta\>jest wysyłana niestandardowa Sonda:\<ścieżka\>\<\>portu. Używany port będzie portem określonym w ustawieniach protokołu HTTP zaplecza.
+> W przypadku odniesienia do protokołu://hosta jest wysyłana niestandardowa sonda \< \> \< \> : \< \> \< ścieżka portu \> . Używany port będzie portem określonym w ustawieniach protokołu HTTP zaplecza.
 
 ## <a name="nsg-considerations"></a>Zagadnienia dotyczące sieciowej grupy zabezpieczeń
 

@@ -1,17 +1,17 @@
 ---
-title: Przywracanie danych na platformie Azure do systemu Windows Server
+title: Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 description: W tym artykule dowiesz się, jak przywrócić dane przechowywane na platformie Azure na komputerze z systemem Windows Server lub Windows za pomocą agenta Microsoft Azure Recovery Services (MARS).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0494ce8016ff8b09265dd7ced8dc0926fd0c1a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446ebf563a09131b715b2e08033a7a0278a1fd95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186808"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652093"
 ---
-# <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Przywracanie plików do systemu Windows przy użyciu modelu wdrażania Azure Resource Manager
+# <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Przywracanie plików do systemu Windows Server przy użyciu agenta MARS
 
 W tym artykule wyjaśniono, jak przywrócić dane z magazynu kopii zapasowych. Aby przywrócić dane, użyj Kreatora odzyskiwania danych w agencie Microsoft Azure Recovery Services (MARS). Można:
 
@@ -40,11 +40,11 @@ Jeśli przypadkowo usunięto plik i chcesz przywrócić go na tym samym komputer
 
     ![Zrzut ekranu przedstawiający Azure Backup z wyróżnionymi odzyskiwaniem danych](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Na stronie **wprowadzenie** , aby przywrócić dane na ten sam serwer lub na tym samym komputerze, wybierz pozycję **ten`<server name>`serwer ()** > **dalej**.
+3. Na stronie **wprowadzenie** , aby przywrócić dane na ten sam serwer lub na tym samym komputerze, wybierz pozycję **ten serwer ( `<server name>` )**  >  **dalej**.
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych Wprowadzenie stronie](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > **.**
+4. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > **Next**.
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -114,7 +114,7 @@ Te kroki obejmują następującą terminologię:
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych — strona wybierz serwer kopii zapasowej](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
-7. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery** > **.**
+7. Na stronie **Wybierz tryb odzyskiwania** wybierz kolejno pozycje **poszczególne pliki i foldery**  >  **Next**.
 
     ![Zrzut ekranu przedstawiający Kreatora odzyskiwania danych wybierz stronę trybu odzyskiwania](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 

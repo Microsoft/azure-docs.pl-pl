@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597625"
+ms.locfileid: "83655252"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Uwierzytelnianie i autoryzacja dla usługi Azure static Web Apps Preview
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 Aby zapobiec dostarczaniu przez platformę tych informacji na potrzeby przyszłych żądań do poszczególnych aplikacji, Prześlij żądanie do następującego adresu URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Folder systemowy
@@ -154,6 +154,11 @@ Możesz użyć [reguły trasy](routes.md) , aby zamapować domyślnego dostawcę
 }
 ```
 
+### <a name="post-login-redirect"></a>Przekierowanie po zalogowaniu
+
+Jeśli chcesz, aby użytkownik powrócił do określonej strony po zalogowaniu, podaj adres URL w `post_login_redirect_uri` parametrze ciągu zapytania.
+
+
 ## <a name="logout"></a>Logout
 
 `/.auth/logout`Trasa rejestruje użytkowników z witryny sieci Web. Możesz dodać link do nawigacji w witrynie, aby zezwolić użytkownikowi na wylogowanie się, jak pokazano w poniższym przykładzie.
@@ -170,6 +175,10 @@ Możesz użyć [reguły trasy](routes.md) do mapowania przyjaznej trasy, takiej 
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Przekierowanie po wylogowaniu
+
+Jeśli chcesz, aby użytkownik powrócił do określonej strony po wylogowaniu, podaj adres URL w `post_logout_redirect_uri` parametrze ciągu zapytania.
 
 ## <a name="block-an-authorization-provider"></a>Blokowanie dostawcy autoryzacji
 

@@ -1,27 +1,21 @@
 ---
-title: Usługi "przejdź do rynku" — najlepsze rozwiązania marketingowe | Portal Azure Marketplace
-description: Usługi na rynku — w tej sekcji opisano najlepsze rozwiązania w zakresie marketingu dla wydawców portalu Azure Marketplace
+title: Najlepsze rozwiązania marketingowe — Microsoft Commercial Marketplace
+description: Uzyskaj zasoby dotyczące najlepszych rozwiązań w zakresie marketingu dla partnerów publikowanych w usłudze Microsoft AppSource i witrynie Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: e874343b5bb38928ae2fc429d901d8f7ec163580
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1955dd9dda75906e52007958fe7b4385e657444c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684600"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658025"
 ---
 # <a name="marketing-best-practices"></a>Najlepsze rozwiązania marketingowe
 
-Zoptymalizowana lista Marketplace i kampanie na rynku mogą pomóc przyspieszyć wzrost pozyskiwania klientów. w ten sposób można odgrywać znaczącą rolę w Twojej strategii biznesowej i aparacie w chmurze. Przygotuj się do oferty, podaj wersje próbne klienta i nawiąż połączenie z klientami firmy Microsoft i społecznością partnerów. Pobierz przewodnik po najlepszych rozwiązaniach [AppSource & Azure Marketplace](https://aka.ms/marketplacebestpractices) , aby dowiedzieć się, jak najlepiej wykorzystać działania marketingowe w trybie online.
+Pamiętaj o najlepszych rozwiązaniach marketingowych, gdy tworzysz i wyświetlasz oferty na komercyjnej platformie Marketplace, udostępniamy wersje próbne klienta i łączą się z klientami firmy Microsoft i społecznością partnerów. W przypadku optymalizowania aukcji oferty i kampanii z przechodzeniem do rynku można przyspieszyć pozyskiwanie klientów. Pobierz [AppSource najlepszych rozwiązań w witrynie Azure & Marketplace](https://aka.ms/marketplacebestpractices) , aby dowiedzieć się, jak maksymalnie wykorzystać działania marketingowe w trybie online.
 
-**Następne kroki**
-
-Aby dowiedzieć się więcej o usługach GTM Marketplace, przejdź do [usługi go-to-Market](https://partner.microsoft.com/reach-customers/gtm).
-
-Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) , aby utworzyć i skonfigurować swoją ofertę.
-
----
+Aby dowiedzieć się więcej o tym, jak Microsoft Partner Network może pomóc Ci rozwijać swoją firmę, zobacz artykuł [Przejdź do rynku z firmą Microsoft](https://partner.microsoft.com/reach-customers/gtm). Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/) , aby utworzyć i skonfigurować swoją ofertę.

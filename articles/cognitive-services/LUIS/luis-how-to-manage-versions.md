@@ -9,51 +9,47 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 138b84a9b7f54782fd6254304a3fdcf4dba83182
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2de39a2822056a4539c2dca915a483ab5bbc4965
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220898"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653985"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Używanie wersji do edytowania i testowania bez wpływu na aplikacje tymczasowe i produkcyjne
 
-Wersje umożliwiają kompilowanie i publikowanie różnych modeli. Dobrym sposobem jest klonowanie bieżącego aktywnego modelu do innej [wersji](luis-concept-version.md) aplikacji przed wprowadzeniem zmian w modelu. 
+Wersje umożliwiają kompilowanie i publikowanie różnych modeli. Dobrym sposobem jest klonowanie bieżącego aktywnego modelu do innej [wersji](luis-concept-version.md) aplikacji przed wprowadzeniem zmian w modelu.
 
-Aby współpracować z wersjami, Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj** na górnym pasku, a następnie wybierz pozycję **wersje** w lewym okienku nawigacji. 
+Aktywna wersja to wersja edytowana w sekcji **kompilacja** portalu Luis z intencjami, obiektami, funkcjami i wzorcami. W przypadku korzystania z interfejsów API tworzenia nie trzeba ustawiać aktywnej wersji, ponieważ wywołania interfejsu API REST specyficzne dla wersji obejmują wersję w marszrucie.
 
-Lista wersji pokazuje, które wersje są publikowane, gdzie są publikowane i która wersja jest obecnie aktywna. 
+Aby współpracować z wersjami, Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** , a następnie wybierz pozycję **Zarządzaj** na górnym pasku, a następnie wybierz pozycję **wersje** w lewym okienku nawigacji.
 
-> [!div class="mx-imgBorder"]
-> [![Sekcja zarządzania, Strona wersji](./media/luis-how-to-manage-versions/versions-import.png "Sekcja zarządzania, Strona wersji")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+Lista wersji pokazuje, które wersje są publikowane, gdzie są publikowane i która wersja jest obecnie aktywna.
 
 ## <a name="clone-a-version"></a>Klonowanie wersji
 
-1. Wybierz wersję, którą chcesz sklonować, a następnie wybierz pozycję **Klonuj** z paska narzędzi. 
+1. Wybierz wersję, którą chcesz sklonować, a następnie wybierz pozycję **Klonuj** z paska narzędzi.
 
 2. W oknie dialogowym **klonowanie wersji** wpisz nazwę nowej wersji, na przykład "0,2".
 
    ![Okno dialogowe klonowania wersji](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
- 
+
      > [!NOTE]
      > Identyfikator wersji może składać się tylko z znaków, cyfr lub znaku "." i nie może zawierać więcej niż 10 znaków.
- 
+
    Nowa wersja o określonej nazwie zostanie utworzona i ustawiona jako aktywna wersja.
 
 ## <a name="set-active-version"></a>Ustaw aktywną wersję
 
-Wybierz wersję z listy, a następnie wybierz pozycję **Aktywuj** na pasku narzędzi. 
-
-> [!div class="mx-imgBorder"]
-> [![Sekcja zarządzanie sekcją, wersja, wykonywanie akcji dotyczącej wersji](./media/luis-how-to-manage-versions/versions-other.png "Sekcja zarządzanie sekcją, wersja, wykonywanie akcji dotyczącej wersji")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+Wybierz wersję z listy, a następnie wybierz pozycję **Aktywuj** na pasku narzędzi.
 
 ## <a name="import-version"></a>Wersja importowana
 
 Możesz zaimportować `.json` lub `.lu` wersję aplikacji.
 
-1. Wybierz pozycję **Importuj** z paska narzędzi, a następnie wybierz format. 
+1. Wybierz pozycję **Importuj** z paska narzędzi, a następnie wybierz format.
 
 2. W oknie podręcznym **Importuj nową wersję** wprowadź nazwę nowej wersji 10 znaków. Należy ustawić identyfikator wersji tylko wtedy, gdy wersja w pliku już istnieje w aplikacji.
 
@@ -69,7 +65,7 @@ Możesz zaimportować `.json` lub `.lu` wersję aplikacji.
 
 ## <a name="other-actions"></a>Inne akcje
 
-* Aby **usunąć** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi. Wybierz **przycisk OK**. 
-* Aby **zmienić nazwę** wersji, wybierz wersję z listy, a następnie wybierz pozycję **Zmień nazwę** z paska narzędzi. Wprowadź nową nazwę i wybierz pozycję **gotowe**. 
-* Aby **wyeksportować** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Eksportuj aplikację** z paska narzędzi. Wybierz pozycję JSON do wyeksportowania dla kopii zapasowej, a następnie wybierz pozycję **Eksportuj dla kontenera** , aby [użyć tej aplikacji w kontenerze Luis](luis-container-howto.md).  
+* Aby **usunąć** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Usuń** z paska narzędzi. Wybierz **przycisk OK**.
+* Aby **zmienić nazwę** wersji, wybierz wersję z listy, a następnie wybierz pozycję **Zmień nazwę** z paska narzędzi. Wprowadź nową nazwę i wybierz pozycję **gotowe**.
+* Aby **wyeksportować** wersję, wybierz wersję z listy, a następnie wybierz pozycję **Eksportuj aplikację** z paska narzędzi. Wybierz pozycję JSON do wyeksportowania dla kopii zapasowej, a następnie wybierz pozycję **Eksportuj dla kontenera** , aby [użyć tej aplikacji w kontenerze Luis](luis-container-howto.md).
 

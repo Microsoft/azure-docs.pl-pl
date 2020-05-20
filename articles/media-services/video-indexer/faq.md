@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767197"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652184"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer często zadawane pytania
 
@@ -99,6 +99,10 @@ Aby uzyskać szczegółowe informacje, zobacz artykuł dotyczący dostosowywania
 Tak. Naciśnij przycisk **Edytuj wideo** z poziomu ekranu biblioteki lub **Otwórz w edytorze** na ekranie odtwarzacza, aby przejść do karty **projekty** . Możesz utworzyć nowy projekt i dodać więcej filmów wideo z biblioteki, aby edytować je razem, po zakończeniu możesz renderować wideo i pobrać. 
 
 Jeśli chcesz uzyskać wgląd w nowe wideo, Indeksuj go za pomocą Video Indexer i pojawi się w bibliotece wraz ze szczegółowymi informacjami.
+
+### <a name="can-i-index-multiple-audio-streams-or-channels"></a>Czy można indeksować wiele strumieni lub kanałów audio?
+
+Jeśli istnieje wiele strumieni audio, Video Indexer przyjmuje pierwsze napotkane i przetworzy tylko ten strumień. W przypadku dowolnego Video Indexer procesów strumieni audio pobiera różne kanały (jeśli istnieją) i przetwarza je ze sobą jako mono. W przypadku strumieni/manipulacji kanałów można użyć poleceń narzędzia FFmpeg w pliku przed jego indeksowaniem.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Co to jest umowa SLA dla Video Indexer?
 

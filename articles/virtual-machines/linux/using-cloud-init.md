@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/18/2019
 ms.author: danis
-ms.openlocfilehash: 1f0395956fa6977be5d1d6f4f4faf06b84c094d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c591efeedc87926a0ed7b42de6c3267721cebab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79465043"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657430"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
 W tym artykule opisano obsługę funkcji [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te konfiguracje usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure.  
@@ -30,7 +30,7 @@ Inicjowanie obsługi maszyn wirtualnych to proces, w którym platforma Azure prz
 Platforma Azure obsługuje dwa agenci aprowizacji [Cloud-init](https://cloudinit.readthedocs.io)oraz [agenta systemu Azure Linux (wala)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
 
 ## <a name="cloud-init-overview"></a>Cloud-init — Omówienie
-[Cloud-init](https://cloudinit.readthedocs.io) to szeroko stosowane podejście do dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego uruchomienia. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ usługa Cloud-init jest wywoływana podczas początkowego procesu rozruchu, nie ma dodatkowych kroków ani wymaganych agentów, aby zastosować konfigurację.  Aby uzyskać więcej informacji na temat poprawnego `#cloud-config` formatowania plików lub innych danych wejściowych, zobacz [witrynę dokumentacji Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowanymi w formacie base64.
+[Cloud-init](https://cloudinit.readthedocs.io) to szeroko stosowane podejście do dostosowywania maszyny wirtualnej z systemem Linux podczas jej pierwszego uruchomienia. Za pomocą pakietu cloud-init można instalować pakiety i zapisywać pliki lub konfigurować użytkowników i zabezpieczenia. Ponieważ usługa Cloud-init jest wywoływana podczas początkowego procesu rozruchu, nie ma dodatkowych kroków ani wymaganych agentów, aby zastosować konfigurację.  Aby uzyskać więcej informacji na temat poprawnego formatowania `#cloud-config` plików lub innych danych wejściowych, zobacz [witrynę dokumentacji Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`pliki są plikami tekstowymi zakodowanymi w formacie base64.
 
 Usługa Cloud-init działa również między dystrybucjami. Przykładowo nie używa się poleceń **apt-get install** lub **yum install** do zainstalowania pakietu. Zamiast tego możesz zdefiniować listę pakietów do zainstalowania. Usługa Cloud-init automatycznie korzysta z natywnego narzędzia do zarządzania pakietami dla wybranej dystrybucji.
 
@@ -52,19 +52,22 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1. el7_6.2*|
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 7,7 obsługują funkcję Cloud-init, zostanie to 2020 usunięte. | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7 — NIEPRZETWORZONY | n/d| aktualizacje bez obrazu do końca kwietnia 2020| tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7 — LVM | n/d| aktualizacje bez obrazu do końca kwietnia| tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7,7 | n/d| aktualizacje bez obrazu do końca kwietnia | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL — BYOS | RHEL — lvm77 | n/d|aktualizacje bez obrazu do końca kwietnia  | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7 — LVM | nie dotyczy| aktualizacje bez obrazu na zakończenie z maja| tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7,7 | nie dotyczy| aktualizacje bez obrazu na zakończenie z maja | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 7,7 (Gen1) |RHEL — BYOS | RHEL — lvm77 | nie dotyczy|aktualizacje bez obrazu do końca kwietnia  | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 8,1 (Gen1) |RHEL |8,1-Ci |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca|
+|RedHat 8,1 (Gen2) |RHEL |81-Ci-Gen2 |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca |
+
+RedHat: RHEL 7,8 i 8,2 (Gen1 i Gen2) są obsługiwane przy użyciu funkcji Cloud-init.
 
 ### <a name="centos"></a>CentOS
 
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem CentOS 7,7 obsługują funkcję Cloud-init, zostanie to 2020 usunięte. | tak — obsługa z wersji pakietu: *18.5 -3. el7. CentOS*|
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem CentOS 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu: *18.5 -3. el7. CentOS*|
 
-* W marcu 2020 można zaktualizować obrazy w programie CentOS 7,7, które będą miały włączoną funkcję Cloud-init. 
+* CentOS 7,7 obrazów, które będą miały włączoną funkcję Cloud-init, można zaktualizować tutaj w czerwcu 2020 
 
 ### <a name="oracle"></a>Oracle
 
@@ -72,8 +75,15 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7,7 |Oracle — Linux |77-Ci |7.7.01| Podgląd obrazu (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a gdy wszystkie obrazy z systemem Oracle 7,7 obsługują funkcję Cloud-init, zostanie ono 2020 usunięte. | nie, w wersji zapoznawczej pakiet jest: *18.5-3.0.1. el7*
 
-### <a name="debian--suse-sles"></a>Debian & SuSE SLES
-Obecnie pracujemy nad obsługą wersji zapoznawczej, oczekują aktualizacji w lutym i marzec 2020.
+### <a name="suse-sles"></a>SuSE SLES
+| Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|SUSE SLES 15 SP1 |szło |SLES-15-SP1 — podstawowy |Cloud-init — wersja zapoznawcza| Aby uzyskać szczegółowe informacje, zobacz [blog SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) . | Nie, w wersji zapoznawczej. |
+|SUSE SLES 15 SP1 |szło |SLES-15-SP1 — podstawowy |Gen2-Cloud-init — wersja zapoznawcza| Aby uzyskać szczegółowe informacje, zobacz [blog SUSE Cloud-init](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) . | Nie, w wersji zapoznawczej. |
+
+
+### <a name="debian"></a>Debian
+Obecnie pracujemy nad obsługą wersji zapoznawczej, oczekują aktualizacji w czerwcu 2020.
 
 Obecnie Azure Stack obsługuje Inicjowanie obsługi obrazów z obsługą funkcji Cloud-init.
 
@@ -85,7 +95,7 @@ Ulepszamy zadanie konfigurowania maszyn wirtualnych, aby korzystało z usługi C
 
 Usługa Cloud-init nie może przetwarzać rozszerzeń platformy Azure, więc WALA jest nadal wymagana w obrazie do przetwarzania rozszerzeń, ale musi mieć wyłączony kod aprowizacji, w przypadku zatwierdzonych obrazów systemu Linux dystrybucje, które są konwertowane na potrzeby inicjowania obsługi przez funkcję Cloud-init, będą mieć zainstalowane WALA i poprawnie skonfigurowane.
 
-W przypadku tworzenia maszyny wirtualnej, jeśli nie dołączysz przełącznika interfejsu `--custom-data` wiersza polecenia platformy Azure w czasie aprowizacji, Usługa Cloud-init lub wala przyjmuje parametry minimalnej aprowizacji maszyny wirtualnej wymagane do zainicjowania obsługi maszyny wirtualnej i Ukończ wdrożenie przy użyciu ustawień domyślnych.  Jeśli odwołujesz się do konfiguracji Cloud-init `--custom-data` przy użyciu przełącznika, niezależnie od tego, jakie dane są zawarte w danych niestandardowych, będą dostępne w usłudze Cloud-init podczas uruchamiania maszyny wirtualnej.
+W przypadku tworzenia maszyny wirtualnej, jeśli nie dołączysz przełącznika interfejsu wiersza polecenia platformy Azure `--custom-data` w czasie aprowizacji, Usługa Cloud-init lub wala przyjmuje parametry minimalnej aprowizacji maszyny wirtualnej wymagane do zainicjowania obsługi maszyny wirtualnej i Ukończ wdrożenie przy użyciu ustawień domyślnych.  Jeśli odwołujesz się do konfiguracji Cloud-init przy użyciu `--custom-data` przełącznika, niezależnie od tego, jakie dane są zawarte w danych niestandardowych, będą dostępne w usłudze Cloud-init podczas uruchamiania maszyny wirtualnej.
 
 konfiguracje inicjowania usługi Cloud-init stosowane do maszyn wirtualnych nie mają ograniczeń czasowych i nie spowodują, że wdrożenie zakończy się niepowodzeniem. Ta wartość nie jest prawdziwa w przypadku WALA, jeśli zmienisz domyślne ustawienia WALA na przetwarzanie danych niestandardowych, nie można przekroczyć łącznego czasu udostępniania maszyny wirtualnej o wartości 40mins, jeśli tak, Tworzenie maszyny wirtualnej zakończy się niepowodzeniem.
 
@@ -107,7 +117,7 @@ package_upgrade: true
 packages:
   - httpd
 ```
-Naciśnij `ctrl-X` klawisz, aby zamknąć plik, `y` wpisz polecenie, aby zapisać plik `enter` , a następnie naciśnij klawisz, aby potwierdzić nazwę pliku przy zamykaniu.
+Naciśnij klawisz `ctrl-X` , aby zamknąć plik, wpisz polecenie, `y` Aby zapisać plik, a następnie naciśnij klawisz, `enter` Aby potwierdzić nazwę pliku przy zamykaniu.
 
 Ostatnim krokiem jest utworzenie maszyny wirtualnej za pomocą polecenia [AZ VM Create](/cli/azure/vm) . 
 
@@ -125,7 +135,7 @@ az vm create \
 Po utworzeniu maszyny wirtualnej interfejs wiersza polecenia platformy Azure wyświetli informacje specyficzne dla Twojego wdrożenia. Zwróć uwagę na element `publicIpAddress`. Ten adres jest używany na potrzeby uzyskiwania dostępu do maszyny wirtualnej.  Tworzenie maszyny wirtualnej trwa trochę czasu, pakiety do zainstalowania i aplikacja do uruchomienia. Pewne zadania w tle działają nadal po powrocie do wiersza polecenia w interfejsie wiersza polecenia platformy Azure. Do maszyny wirtualnej można użyć protokołu SSH i wykonać kroki opisane w sekcji Rozwiązywanie problemów w celu wyświetlenia dzienników usługi Cloud-init. 
 
 ## <a name="troubleshooting-cloud-init"></a>Rozwiązywanie problemów z usługą Cloud-init
-Po zainicjowaniu obsługi maszyny wirtualnej Usługa Cloud-init będzie działać za pomocą wszystkich modułów i skryptów zdefiniowanych w `--custom-data` programie w celu skonfigurowania maszyny wirtualnej.  Jeśli konieczne jest rozwiązanie błędów lub pominięć z konfiguracji, należy wyszukać nazwę modułu (`disk_setup` lub `runcmd` na przykład) w dzienniku usługi Cloud-init znajdującym się w **/var/log/Cloud-init.log**.
+Po zainicjowaniu obsługi maszyny wirtualnej Usługa Cloud-init będzie działać za pomocą wszystkich modułów i skryptów zdefiniowanych w `--custom-data` programie w celu skonfigurowania maszyny wirtualnej.  Jeśli konieczne jest rozwiązanie błędów lub pominięć z konfiguracji, należy wyszukać nazwę modułu ( `disk_setup` lub `runcmd` na przykład) w dzienniku usługi Cloud-init znajdującym się w **/var/log/Cloud-init.log**.
 
 > [!NOTE]
 > Nie każdy błąd modułu powoduje krytyczny błąd konfiguracji w chmurze. Na przykład przy użyciu `runcmd` modułu, jeśli skrypt nie powiedzie się, Usługa Cloud-init nadal zgłasza pomyślne zainicjowanie obsługi, ponieważ moduł runcmd został wykonany.

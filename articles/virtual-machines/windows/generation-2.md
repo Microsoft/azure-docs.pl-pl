@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838828"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659884"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Obsługa maszyn wirtualnych 2. generacji na platformie Azure
 
@@ -78,7 +78,7 @@ Platforma Azure nie obsługuje obecnie niektórych funkcji, które są obsługiw
 
 ### <a name="generation-1-vs-generation-2-features"></a>Funkcje generacji 1 a generacja 2
 
-| Funkcja | Pierwsza generacja | Druga generacja |
+| Cechy | Pierwsza generacja | Druga generacja |
 |---------|--------------|--------------|
 | Wiódł             | PCAT                      | UEFI                               |
 | Kontrolery dysków | IDE                       | SCSI                               |
@@ -128,12 +128,6 @@ Na przykład użyj następującego polecenia cmdlet programu PowerShell, aby wy�
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Alternatywnie możesz użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić dostępne obrazy generacji 2 wymienione przez **wydawcę**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Jeśli tworzysz maszynę wirtualną z systemem Windows Server 2012 jako system operacyjny, wybierz jednostkę SKU maszyny wirtualnej generacji 1 (BIOS) lub 2 (UEFI), która wygląda następująco:
 
 ```powershell
@@ -142,6 +136,14 @@ Jeśli tworzysz maszynę wirtualną z systemem Windows Server 2012 jako system o
 ```
 
 Zapoznaj się z sekcją [funkcje i możliwości](#features-and-capabilities) , aby zapoznać się z bieżącą listą obsługiwanych obrazów z portalu Marketplace.
+
+#### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Alternatywnie możesz użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić dostępne obrazy generacji 2 wymienione przez **wydawcę**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Zarządzany obraz lub dysk zarządzany
 

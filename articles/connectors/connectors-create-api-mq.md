@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
-ms.reviewer: valthom, logicappspm
+ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 737c5b90b216156ca08346f4a64fd0b421ad6c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410240"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652466"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Nawiązywanie połączenia z serwerem IBM MQ z poziomu usługi Azure Logic Apps
 
@@ -33,6 +33,7 @@ Poniżej przedstawiono oficjalnie obsługiwane wersje oprogramowania IBM WebSphe
   * MQ 7,5
   * MQ 8,0
   * MQ 9,0
+  * MQ 9,1
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -88,10 +89,10 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
 
   1. Na komputerze, na którym działa usługa bramy danych lokalnych, otwórz menu Start, Znajdź i wybierz pozycję **Zarządzaj certyfikatami użytkowników**.
 
-  1. Po otwarciu narzędzia Menedżer certyfikacji systemu Windows przejdź do folderu **Certyfikaty —** >  **Zaufane główne** urzędy certyfikacji komputera lokalnego i Zainstaluj certyfikat.
+  1. Po otwarciu narzędzia Menedżer certyfikacji systemu Windows przejdź do folderu **Certyfikaty —**  >   **Zaufane główne** urzędy certyfikacji komputera lokalnego i Zainstaluj certyfikat.
 
      > [!IMPORTANT]
-     > Upewnij się, że certyfikat jest instalowany w magazynie > **zaufanych głównych** urzędów certyfikacji **komputera lokalnego**.
+     > Upewnij się, że certyfikat jest instalowany w **Certificates - Local Computer**  >  magazynie**zaufanych głównych** urzędów certyfikacji komputera lokalnego.
 
 * Serwer MQ wymaga zdefiniowania specyfikacji szyfrowania, która ma być używana dla połączeń SSL. Jednak SsLStream w programie .NET nie pozwala na określenie kolejności szyfrowania. Aby obejść to ograniczenie, można zmienić konfigurację serwera MQ w taki sposób, aby była zgodna z pierwszą specyfikacją szyfrowania w pakiecie wysyłanym przez łącznik w negocjacji protokołu SSL.
 
@@ -101,7 +102,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
 
 1. W aplikacji logiki pod wyzwalaczem lub inną akcją wybierz pozycję **nowy krok**.
 
-1. W polu wyszukiwania wpisz `mq`, a następnie wybierz akcję **Przeglądaj wiadomość** .
+1. W polu wyszukiwania wpisz `mq` , a następnie wybierz akcję **Przeglądaj wiadomość** .
 
    ![Wybierz akcję "Przeglądaj wiadomość"](media/connectors-create-api-mq/browse-message.png)
 
@@ -117,7 +118,7 @@ Gdy aplikacja logiki próbuje nawiązać połączenie z lokalnym serwerem MQ, mo
    | **Limit czasu** | Wprowadź wartość, aby określić czas oczekiwania na nadejście komunikatu w pustej kolejce. Jeśli nic nie zostanie wprowadzone, zostanie pobrany pierwszy komunikat w kolejce i nie ma czasu oczekiwania na wyświetlenie komunikatu. |
    |||
 
-   Przykład:
+   Na przykład:
 
    ![Właściwości akcji "Przeglądaj wiadomość"](media/connectors-create-api-mq/browse-message-properties.png)
 

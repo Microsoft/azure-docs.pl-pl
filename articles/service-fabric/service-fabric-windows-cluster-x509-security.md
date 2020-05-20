@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562002"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653643"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Zabezpieczanie klastra autonomicznego w systemie Windows za pomocą certyfikatów X. 509
 W tym artykule opisano sposób zabezpieczania komunikacji między różnymi węzłami autonomicznego klastra systemu Windows. Opisano w nim również sposób uwierzytelniania klientów łączących się z tym klastrem za pomocą certyfikatów X. 509. Uwierzytelnianie zapewnia, że tylko autoryzowani użytkownicy mogą uzyskiwać dostęp do klastra i wdrożonych aplikacji oraz wykonywać zadania zarządzania. Zabezpieczenia certyfikatów należy włączyć w klastrze podczas tworzenia klastra.  
@@ -248,12 +248,24 @@ Jeśli używasz magazynów wystawcy, nie trzeba wykonywać żadnych uaktualnień
 ## <a name="acquire-the-x509-certificates"></a>Pozyskiwanie certyfikatów X. 509
 Aby zabezpieczyć komunikację w klastrze, należy najpierw uzyskać certyfikaty X. 509 dla węzłów klastra. Ponadto w celu ograniczenia połączenia z tym klastrem z autoryzowanymi komputerami/użytkownikami należy uzyskać i zainstalować certyfikaty dla komputerów klienckich.
 
-W przypadku klastrów z uruchomionym obciążeniem produkcyjnym należy użyć certyfikatu X. 509 podpisanego przez [urząd certyfikacji](https://en.wikipedia.org/wiki/Certificate_authority), aby zabezpieczyć klaster. Aby uzyskać więcej informacji na temat uzyskiwania tych certyfikatów, zobacz [jak uzyskać certyfikat](https://msdn.microsoft.com/library/aa702761.aspx).
+W przypadku klastrów z uruchomionym obciążeniem produkcyjnym należy użyć certyfikatu X. 509 podpisanego przez [urząd certyfikacji](https://en.wikipedia.org/wiki/Certificate_authority), aby zabezpieczyć klaster. Aby uzyskać więcej informacji na temat uzyskiwania tych certyfikatów, zobacz [jak uzyskać certyfikat](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+Istnieje wiele właściwości, które musi mieć certyfikat, aby zapewnić prawidłowe działanie:
+
+* Dostawca certyfikatu musi być dostawcą **usług kryptograficznych Microsoft Enhanced RSA i AES**
+
+* Podczas tworzenia klucza RSA upewnij się, że klucz to **2048 bitów**.
+
+* Rozszerzenie użycie klucza ma wartość **podpis cyfrowy, szyfrowanie klucza (a0)**
+
+* Rozszerzenie rozszerzonego użycia klucza ma wartości **uwierzytelnianie serwera** (OID: 1.3.6.1.5.5.7.3.1) i **uwierzytelnianie klienta** (OID: 1.3.6.1.5.5.7.3.2)
 
 W przypadku klastrów używanych do celów testowych można wybrać opcję użycia certyfikatu z podpisem własnym.
 
+Dodatkowe pytania można znaleźć w tematach [często zadawanych pytań dotyczących certyfikatów](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+
 ## <a name="optional-create-a-self-signed-certificate"></a>Opcjonalne: Tworzenie certyfikatu z podpisem własnym
-Jednym ze sposobów utworzenia certyfikatu z podpisem własnym, który może być zabezpieczony prawidłowo, jest użycie skryptu CertSetup. ps1 w folderze Service Fabric SDK w katalogu C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edytuj ten plik, aby zmienić domyślną nazwę certyfikatu. (Poszukaj wartości CN = ServiceFabricDevClusterCert). Uruchom ten skrypt jako `.\CertSetup.ps1 -Install`.
+Jednym ze sposobów utworzenia certyfikatu z podpisem własnym, który może być zabezpieczony prawidłowo, jest użycie skryptu CertSetup. ps1 w folderze Service Fabric SDK w katalogu C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edytuj ten plik, aby zmienić domyślną nazwę certyfikatu. (Poszukaj wartości CN = ServiceFabricDevClusterCert). Uruchom ten skrypt jako `.\CertSetup.ps1 -Install` .
 
 Teraz Wyeksportuj certyfikat do pliku PFX z chronionym hasłem. Najpierw należy uzyskać odcisk palca certyfikatu. 
 1. Z menu **Start** Uruchom polecenie **Zarządzaj certyfikatami komputera**. 
@@ -292,7 +304,7 @@ Po przypisaniu certyfikatów można je zainstalować w węzłach klastra. W węz
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Teraz ustaw kontrolę dostępu dla tego certyfikatu tak, aby proces Service Fabric, który działa w ramach konta usługi sieciowej, mógł go użyć, uruchamiając następujący skrypt. Podaj odcisk palca certyfikatu i **usługi sieciowej** dla konta usługi. Możesz sprawdzić, czy listy ACL certyfikatu są poprawne, otwierając certyfikat w **menu Start** > **Zarządzanie certyfikatami komputera** i przeglądając **wszystkie zadania** > **Zarządzaj kluczami prywatnymi**.
+3. Teraz ustaw kontrolę dostępu dla tego certyfikatu tak, aby proces Service Fabric, który działa w ramach konta usługi sieciowej, mógł go użyć, uruchamiając następujący skrypt. Podaj odcisk palca certyfikatu i **usługi sieciowej** dla konta usługi. Możesz sprawdzić, czy listy ACL certyfikatu są poprawne, otwierając certyfikat w **menu Start**  >  **Zarządzanie certyfikatami komputera** i przeglądając **wszystkie zadania**  >  **Zarządzaj kluczami prywatnymi**.
    
     ```powershell
     param
@@ -338,7 +350,7 @@ Po skonfigurowaniu sekcji Zabezpieczenia w pliku ClusterConfig. x509. wielomachi
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Przykład:
+Po pomyślnym uruchomieniu bezpiecznego autonomicznego klastra systemu Windows i skonfigurowaniu uwierzytelnionych klientów w celu nawiązania z nim połączenia wykonaj kroki opisane w sekcji [nawiązywanie połączenia z klastrem przy użyciu programu PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) . Na przykład:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
@@ -355,7 +367,7 @@ Aby usunąć klaster, Połącz się z węzłem w klastrze, w którym został pob
 ```
 
 > [!NOTE]
-> Niepoprawna konfiguracja certyfikatu może uniemożliwić przejście klastra podczas wdrażania. Aby automatycznie zdiagnozować problemy z zabezpieczeniami, zapoznaj się > z **dziennikami Podgląd zdarzeń aplikacji i usług**w**witrynie Microsoft-Service Fabric**.
+> Niepoprawna konfiguracja certyfikatu może uniemożliwić przejście klastra podczas wdrażania. Aby automatycznie zdiagnozować problemy z zabezpieczeniami, zapoznaj się z **dziennikami Podgląd zdarzeń aplikacji i usług**w  >  **witrynie Microsoft-Service Fabric**.
 > 
 > 
 

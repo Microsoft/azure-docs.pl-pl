@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 466c47492de9c2fc86f309f4cb74df1ff5411dcb
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/14/2020
+ms.openlocfilehash: a71d8e251de1d1aedea1d1a329a27bfa236ddfff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929302"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652384"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Omówienie usługi Azure HDInsight 4,0
 
@@ -94,13 +94,12 @@ Nie ma żadnej obsługiwanej ścieżki uaktualnienia z poprzednich wersji usług
 * Widok Hive nie jest już dostępny w usłudze HDInsight 4,0.
 * Interpreter powłoki w programie Apache Zeppelin nie jest obsługiwany w przypadku klastrów Spark i Interactive zapytania zapytań.
 * Nie można *wyłączyć* funkcji LLAP w klastrze Spark LLAP. Można tylko wyłączyć funkcję LLAP.
-* Usługa Azure Data Lake Storage Gen2 nie pozwala zapisywać notesów Juypter w klastrze Spark.
+* Azure Data Lake Storage Gen2 nie można zapisać notesów Jupyter w klastrze Spark.
 * Domyślnie program Apache świni działa w tez, ale można go zmienić na MapReduce
 * Integracja programu Spark SQL Ranger dla zabezpieczeń wierszy i kolumn jest przestarzała
-* Platforma Spark 2,4 i Kafka 2,1 są dostępne w usłudze HDInsight 4,0, więc platformy Spark 2,3 i Kafka 1,1 nie są już obsługiwane. Zalecamy używanie platformy Spark 2,4 & Kafka 2,3 i nowszych w usłudze HDInsight 4,0.
-
+* Platforma Spark 2,4 i Kafka 2,1 są dostępne w usłudze HDInsight 4,0, więc platformy Spark 2,3 i Kafka 1,1 nie są już obsługiwane. Zalecamy używanie platformy Spark 2,4 & Kafka 2,1 i nowszych w usłudze HDInsight 4,0.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Dokumentacja usługi Azure HDInsight](index.yml)
-* [Informacje o wersji](hdinsight-release-notes.md)
+* [Uwagi do wersji](hdinsight-release-notes.md)

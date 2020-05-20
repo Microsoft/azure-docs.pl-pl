@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: c03a7b89fee188d8a22cfb8ddcd73920ce43f43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "82609905"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649155"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Skonfiguruj App Service lub aplikację Azure Functions do korzystania z logowania za pomocą usługi Azure AD
 
@@ -125,9 +125,34 @@ Możesz zarejestrować natywnych klientów, aby zezwolić na uwierzytelnianie w 
 1. Po utworzeniu rejestracji aplikacji skopiuj wartość **Identyfikator aplikacji (klienta)**.
 1. Wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Moje interfejsy API**.
 1. Wybierz rejestrację aplikacji utworzoną wcześniej dla aplikacji App Service. Jeśli nie widzisz rejestracji aplikacji, upewnij się, że dodano zakres **user_impersonation** w temacie [Tworzenie rejestracji aplikacji w usłudze Azure AD dla aplikacji App Service](#register).
-1. Wybierz pozycję **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. W obszarze **delegowane uprawnienia**wybierz pozycję **user_impersonation**, a następnie wybierz pozycję **Dodaj uprawnienia**.
 
 Już skonfigurowano natywną aplikację kliencką, która może uzyskiwać dostęp do aplikacji App Service w imieniu użytkownika.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Konfigurowanie aplikacji klienckiej demona dla wywołań Service to Service
+
+Aplikacja może uzyskać token do wywoływania internetowego interfejsu API hostowanego w App Service lub aplikacji funkcji w imieniu samego siebie (a nie w imieniu użytkownika). Ten scenariusz jest przydatny w przypadku aplikacji nieinterakcyjnego demona, które wykonują zadania bez zalogowanego użytkownika. Używa on standardowego udzielenia [poświadczeń klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) OAuth 2,0.
+
+1. W [Azure Portal]wybierz pozycję **Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**.
+1. Na stronie **zarejestruj aplikację** wprowadź **nazwę** rejestracji aplikacji demona.
+1. W przypadku aplikacji demona nie jest potrzebny identyfikator URI przekierowania, aby można było zachować tę wartość pustą.
+1. Wybierz przycisk **Utwórz**.
+1. Po utworzeniu rejestracji aplikacji skopiuj wartość **Identyfikator aplikacji (klienta)**.
+1. Wybierz pozycję **Certyfikaty &** wpisy tajne  >  **Nowy klient Dodaj wpis tajny**  >  **Add**. Skopiuj wartość klucza tajnego klienta podaną na stronie. Nie zostanie on wyświetlony ponownie.
+
+Teraz można [zażądać tokenu dostępu przy użyciu identyfikatora klienta i klucza tajnego klienta](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) przez ustawienie `resource` PARAMETRU na **Identyfikator URI aplikacji** docelowej. Otrzymany token dostępu można następnie przedstawić dla aplikacji docelowej przy użyciu standardowego [nagłówka autoryzacji OAuth 2,0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource), a App Service uwierzytelnianie/autoryzacja będzie sprawdzać poprawność i używanie tokenu w zwykły sposób, aby wskazać, że obiekt wywołujący (aplikacja w tym przypadku, a nie użytkownik) jest uwierzytelniany.
+
+Teraz dzięki temu _każda_ aplikacja kliencka w dzierżawie usługi Azure AD żąda tokenu dostępu i uwierzytelnia się w aplikacji docelowej. Jeśli chcesz również wymusić _autoryzację_ , aby zezwolić tylko na niektóre aplikacje klienckie, musisz wykonać dodatkową konfigurację.
+
+1. [Zdefiniuj rolę aplikacji](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) w manifeście rejestracji aplikacji reprezentującej App Service lub aplikację funkcji, która ma być chroniona.
+1. Na stronie Rejestracja aplikacji reprezentującej klienta wymagającego autoryzacji wybierz pozycję **uprawnienia interfejsu API**  >  **Dodaj uprawnienie**  >  **Moje interfejsy API**.
+1. Wybierz utworzoną wcześniej rejestrację aplikacji. Jeśli nie widzisz rejestracji aplikacji, upewnij się, że została [dodana rola aplikacji](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. W obszarze **uprawnienia aplikacji**Wybierz utworzoną wcześniej rolę aplikacji, a następnie wybierz pozycję **Dodaj uprawnienia**.
+1. Upewnij się, kliknij przycisk **Udziel zgody administratora** , aby autoryzować aplikację kliencką do żądania uprawnień.
+1. Podobnie jak w poprzednim scenariuszu (przed dodaniem dowolnych ról), możesz teraz [zażądać tokenu dostępu](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) dla tego samego elementu docelowego `resource` , a token dostępu będzie zawierać `roles` żądanie zawierające role aplikacji autoryzowane dla aplikacji klienckiej.
+1. W App Service docelowym lub kodzie aplikacji funkcji można teraz sprawdzić, czy oczekiwane role są obecne w tokenie (nie jest to wykonywane przez App Service uwierzytelniania/autoryzacji). Aby uzyskać więcej informacji, zobacz [Uzyskiwanie dostępu do oświadczeń użytkowników](app-service-authentication-how-to.md#access-user-claims).
+
+Już skonfigurowano aplikację kliencką demona, która może uzyskiwać dostęp do aplikacji App Service przy użyciu własnej tożsamości.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Następne kroki
 

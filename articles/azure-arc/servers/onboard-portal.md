@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648084"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Łączenie maszyn hybrydowych z platformą Azure z poziomu Azure Portal
 
@@ -21,9 +21,9 @@ Można włączyć usługę Azure ARC dla serwerów (wersja zapoznawcza) dla jedn
 
 Ta metoda wymaga uprawnień administratora na komputerze, aby zainstalować i skonfigurować agenta. W systemie Linux przy użyciu konta głównego i w systemie Windows należysz do lokalnej grupy administratorów.
 
-Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](overview.md#prerequisites) i upewnić się, że Twoja subskrypcja i zasoby spełniają wymagania.
+Przed rozpoczęciem należy zapoznać się z wymaganiami [wstępnymi](agent-overview.md#prerequisites) i upewnić się, że Twoja subskrypcja i zasoby spełniają wymagania.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Wygeneruj skrypt instalacji z Azure Portal
 
@@ -48,7 +48,7 @@ Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywan
 1. Na stronie **Generuj skrypt** na liście rozwijanej **system operacyjny** wybierz system operacyjny, na którym będzie uruchamiany skrypt.
 
 1. Jeśli komputer komunikuje się za pomocą serwera proxy w celu nawiązania połączenia z Internetem, wybierz pozycję **Dalej: serwer proxy**. 
-1. Na karcie **serwer proxy** Określ adres IP serwera proxy lub nazwę i numer portu, który będzie używany przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie `http://<proxyURL>:<proxyport>`. 
+1. Na karcie **serwer proxy** Określ adres IP serwera proxy lub nazwę i numer portu, który będzie używany przez maszynę do komunikacji z serwerem proxy. Wprowadź wartość w formacie `http://<proxyURL>:<proxyport>` . 
 1. Wybierz pozycję **Recenzja + generowanie**.
 
 1. Na karcie **Recenzja + generowanie** Przejrzyj informacje podsumowujące, a następnie wybierz pozycję **Pobierz**. Jeśli nadal musisz wprowadzić zmiany, wybierz pozycję **Poprzednia**.
@@ -57,13 +57,13 @@ Skrypt służący do automatyzowania pobierania i instalacji oraz do nawiązywan
 
 ### <a name="install-manually"></a>Instalowanie ręczne
 
-Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając pakiet Instalator Windows *AzureConnectedMachineAgent. msi*. 
+Agenta połączonego maszyny można zainstalować ręcznie, uruchamiając pakiet Instalator Windows *AzureConnectedMachineAgent. msi*. Najnowszą wersję [pakietu Windows agent Instalator Windows](https://aka.ms/AzureConnectedMachineAgent) można pobrać z centrum pobierania Microsoft. 
 
 > [!NOTE]
 > * Aby zainstalować lub odinstalować agenta, musisz mieć uprawnienia *administratora* .
 > * Należy najpierw pobrać i skopiować pakiet Instalatora do folderu na serwerze docelowym lub z udostępnionego folderu sieciowego. Jeśli zostanie uruchomiony pakiet Instalatora bez żadnych opcji, zostanie uruchomiony Kreator instalacji, który można wykonać, aby zainstalować agenta interaktywnie.
 
-Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie opisane w dalszej części artykułu. Powoduje to ustawienie zmiennej `https_proxy`środowiskowej serwera proxy.
+Jeśli komputer musi komunikować się z usługą za pomocą serwera proxy, po zainstalowaniu agenta należy uruchomić polecenie opisane w dalszej części artykułu. Powoduje to ustawienie zmiennej środowiskowej serwera proxy `https_proxy` .
 
 Jeśli nie masz doświadczenia z opcjami wiersza polecenia dla Instalator Windows pakietów, przejrzyj [standardowe opcje wiersza polecenia](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) i [Opcje wiersza polecenia programu Msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
@@ -79,7 +79,7 @@ Aby zainstalować agenta w trybie dyskretnym i utworzyć plik dziennika instalac
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-Pliki dla agenta połączonej maszyny są instalowane domyślnie w *folderze C:\Program Files\AzureConnectedMachineAgent*. Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="install-with-the-scripted-method"></a>Zainstaluj przy użyciu metody skryptowej
 
@@ -88,6 +88,8 @@ Pliki dla agenta połączonej maszyny są instalowane domyślnie w *folderze C:\
 1. Otwórz wiersz polecenia programu PowerShell z podwyższonym poziomem uprawnień.
 
 1. Przejdź do folderu lub udziału, do którego skopiowano skrypt, i wykonaj go na serwerze, uruchamiając `./OnboardingScript.ps1` skrypt.
+
+Jeśli uruchomienie agenta nie powiedzie się po zakończeniu instalacji, zapoznaj się z dziennikami, aby uzyskać szczegółowe informacje o błędzie. Katalog dziennika to *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="configure-the-agent-proxy-setting"></a>Skonfiguruj ustawienie serwera proxy agenta
 

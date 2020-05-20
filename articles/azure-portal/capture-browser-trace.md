@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/09/2020
+ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2b506c9d15dafcd23b24207fe15ed0532939209f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f09477eb174792d6348a6b9761a4f9e5467ec44
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310700"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649537"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 
@@ -30,7 +30,7 @@ Google Chrome i Microsoft Edge (chrom) są zarówno oparte na [projekcie "Open S
 
 1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
 
-1. Naciśnij klawisz F12 lub ![wybierz zrzut ekranu ikony ustawienia](media/capture-browser-trace/chromium-icon-settings.png) > przeglądarki ikona**więcej narzędzi** > **deweloperskich**.
+1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu ikony ustawienia przeglądarki ikona ](media/capture-browser-trace/chromium-icon-settings.png)  >  **więcej narzędzi**  >  **deweloperskich**.
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
@@ -58,9 +58,9 @@ Google Chrome i Microsoft Edge (chrom) są zarówno oparte na [projekcie "Open S
 
     ![Zrzut ekranu przedstawiający "Export HAR"](media/capture-browser-trace/chromium-network-export-har.png)
 
-1. Zatrzymaj Rejestrator kroków i Zapisz plik.
+1. Zatrzymaj Rejestrator kroków i Zapisz nagranie.
 
-1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy, a następnie wybierz pozycję **Zapisz jako...** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
+1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz polecenie **Zapisz jako...** i Zapisz dane wyjściowe konsoli w pliku tekstowym.
 
     ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/chromium-console-select.png)
 
@@ -76,7 +76,7 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w przeglądarce
 
 1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
 
-1. Naciśnij klawisz F12 lub ![wybierz zrzut ekranu ikony ustawienia](media/capture-browser-trace/edge-icon-settings.png) > przeglądarki ikona**więcej narzędzi** > **deweloperskich**.
+1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu ikony ustawienia przeglądarki ikona ](media/capture-browser-trace/edge-icon-settings.png)  >  **więcej narzędzi**  >  **deweloperskich**.
 
 1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
 
@@ -104,7 +104,7 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w przeglądarce
 
     ![Zrzut ekranu przedstawiający "Export as HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
-1. Zatrzymaj Rejestrator kroków i Zapisz plik.
+1. Zatrzymaj Rejestrator kroków i Zapisz nagranie.
 
 1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** i rozwiń okno. Umieść kursor na początku danych wyjściowych w konsoli, a następnie przeciągnij i zaznacz całą zawartość danych wyjściowych. Kliknij prawym przyciskiem myszy, a następnie wybierz polecenie **Kopiuj**i Zapisz dane wyjściowe konsoli w pliku tekstowym.
 
@@ -158,11 +158,53 @@ Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie App
 
     ![Zrzut ekranu przedstawiający "Export"](media/capture-browser-trace/safari-network-export-har.png)
 
-1. Zatrzymaj rejestrator ekranu i Zapisz plik.
+1. Zatrzymaj rejestrator ekranu i Zapisz nagranie.
 
 1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** i rozwiń okno. Umieść kursor na początku danych wyjściowych w konsoli, a następnie przeciągnij i zaznacz całą zawartość danych wyjściowych. Użyj polecenia-C, aby skopiować dane wyjściowe i zapisać je w pliku tekstowym.
 
     ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/safari-console-select.png)
+
+1. Pakuj plik HAR, dane wyjściowe konsoli i nagrywanie ekranu w skompresowanym formacie, na przykład. zip, i udostępnij go z pomocą techniczną firmy Microsoft.
+
+## <a name="firefox"></a>Firefox
+
+Poniższe kroki pokazują, jak używać narzędzi deweloperskich w programie Firefox. Aby uzyskać więcej informacji, zobacz [Firefox narzędzia deweloperskie](https://developer.mozilla.org/docs/Tools).
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Ważne jest, aby zalogować się _przed_ rozpoczęciem śledzenia, tak aby ślad nie zawierał informacji poufnych związanych z logowaniem. 
+
+1. Rozpocznij rejestrowanie kroków, które należy wykonać w portalu. Użyj [rejestratora kroków](https://support.microsoft.com/help/22878/windows-10-record-steps) w systemie Windows lub Zobacz, [jak zarejestrować ekran na komputerze Mac](https://support.apple.com/HT208721).
+
+1. W portalu przejdź do kroku tuż przed wystąpieniem problemu.
+
+1. Naciśnij klawisz F12 lub wybierz ![ zrzut ekranu ikony ustawienia przeglądarki ikona ](media/capture-browser-trace/firefox-icon-settings.png)  >  **sieci Web**  >  **Narzędzia do przełączania**deweloperów.
+
+1. Domyślnie przeglądarka przechowuje informacje o śledzeniu tylko dla aktualnie załadowanej strony. Ustaw poniższe opcje, aby przeglądarka zachował wszystkie informacje o śledzeniu, nawet jeśli Odtwórz wymaga przechodzenia do więcej niż jednej strony:
+
+    1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **dzienniki utrwalania**.
+
+          ![Zrzut ekranu przedstawiający "utrwalanie dzienników"](media/capture-browser-trace/firefox-network-persist-logs.png)
+
+    1. Wybierz kartę **konsola** , wybierz pozycję **Ustawienia konsoli**, a następnie wybierz pozycję **dzienniki utrwalania**.
+
+          ![Zrzut ekranu przedstawiający "utrwalanie dzienników"](media/capture-browser-trace/firefox-console-persist-logs.png)
+
+1. Wybierz kartę **Sieć** , a następnie wybierz pozycję **Wyczyść**.
+
+    ![Zrzut ekranu przedstawiający "Clear"](media/capture-browser-trace/firefox-clear-session.png)
+
+1. Odtwórz problem w portalu. Zostaną wyświetlone dane wyjściowe sesji podobne do poniższej ilustracji.
+
+    ![Zrzut ekranu przedstawiający wyniki śledzenia przeglądarki](media/capture-browser-trace/firefox-browser-trace-results.png)
+
+1. Po ponownym utworzeniu nieoczekiwanego zachowania portalu wybierz pozycję **Har Export/Import** , a następnie **Zapisz wszystkie jako Har**.
+
+    ![Zrzut ekranu przedstawiający "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
+
+1. Zatrzymaj Rejestrator kroków w systemie Windows lub nagrania ekranu na komputerze Mac i Zapisz nagranie.
+
+1. W okienku narzędzia deweloperskie przeglądarki wybierz kartę **konsola** . Kliknij prawym przyciskiem myszy jeden z komunikatów, a następnie wybierz pozycję **Eksportuj widoczny komunikat do**i Zapisz dane wyjściowe konsoli w pliku tekstowym.
+
+    ![Zrzut ekranu przedstawiający dane wyjściowe konsoli](media/capture-browser-trace/firefox-console-select.png)
 
 1. Pakuj plik HAR, dane wyjściowe konsoli i nagrywanie ekranu w skompresowanym formacie, na przykład. zip, i udostępnij go z pomocą techniczną firmy Microsoft.
 

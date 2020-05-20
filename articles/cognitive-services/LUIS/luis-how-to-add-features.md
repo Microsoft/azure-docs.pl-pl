@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592308"
+ms.locfileid: "83654082"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Korzystaj z funkcji, aby zwiększyć liczbę sygnałów listy wyrazów
 
@@ -49,8 +49,23 @@ Zapoznaj się z [pojęciami](luis-concept-feature.md) , aby zrozumieć, kiedy i 
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > Można usunąć lub dezaktywować listę fraz z kontekstowego paska narzędzi na stronie **funkcje** w sieci.
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>Globalna lista fraz ma zastosowanie do całej aplikacji
+
+Lista fraz powinna zostać zastosowana do zamiaru lub jednostki, która ma być pomocna, ale mogą wystąpić sytuacje, w których lista fraz powinna zostać zastosowana do całej aplikacji jako funkcja **globalna** .
+
+Na stronie funkcje sieci, wybierz listę frazy, a następnie wybierz pozycję **Ustaw jako globalną** na górny Kontekstowy pasek narzędzi.
+
+## <a name="model-as-a-feature"></a>Model jako funkcja
+
+Jednostką może być [Funkcja do zamiaru lub jednostki](luis-concept-feature.md).
+
+Aby dodać jednostkę jako funkcję do celu, wybierz zamiar na stronie intencje, a następnie wybierz pozycję **+ Dodaj funkcję** powyżej kontekstowego paska narzędzi. Lista zawiera wszystkie listy fraz i jednostki, które mogą być stosowane jako funkcje.
+
+Aby dodać jednostkę jako funkcję do innej jednostki, możesz ją dodać na stronie szczegółów intencji przy użyciu [palety Entity](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) lub [dodać tę funkcję](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na stronie szczegółów jednostki.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981465"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653622"
 ---
 # <a name="azure-advanced-threat-detection"></a>Zaawansowane wykrywanie zagrożeń na platformie Azure
 
@@ -268,7 +268,7 @@ SQL Database detektory zagrożeń korzystają z jednej z następujących metod w
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway zapory aplikacji sieci Web
 
-[Zapora aplikacji sieci Web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) to funkcja [platformy Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają bramy aplikacji do standardowych funkcji [kontroli dostarczania aplikacji](https://kemptechnologies.com/in/application-delivery-controllers) . Zapora aplikacji sieci Web wykonuje te działania, chroniąc je przed większością [10 typowych luk w zabezpieczeniach w sieci Web (OWASP)](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Zapora aplikacji sieci Web (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) to funkcja [platformy Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) , która zapewnia ochronę aplikacji sieci Web, które używają bramy aplikacji do standardowych funkcji [kontroli dostarczania aplikacji](https://kemptechnologies.com/in/application-delivery-controllers) . Zapora aplikacji sieci Web wykonuje te działania, chroniąc je przed większością [10 typowych luk w zabezpieczeniach w sieci Web (OWASP)](https://owasp.org/www-project-top-ten/).
 
 ![Diagram zapory aplikacji sieci Web Application Gateway](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -366,7 +366,7 @@ Przy zbieraniu danych z tych źródeł Cloud App Security uruchamia zaawansowan�
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Zaawansowane możliwości wykrywania zagrożeń innych firm za pomocą witryny Azure Marketplace
 
-### <a name="web-application-firewall"></a>Zapora aplikacji internetowej
+### <a name="web-application-firewall"></a>Web Application Firewall
 
 Zapora aplikacji sieci Web sprawdza przychodzący ruch internetowy i blokuje iniekcje SQL, skrypty między lokacjami, operacje przekazywania złośliwego oprogramowania, ataki DDoS aplikacji oraz inne ataki, które są używane w aplikacjach sieci Web. Sprawdza także odpowiedzi z serwerów zaplecza sieci Web w celu zapobiegania utracie danych (DLP). Zintegrowany aparat kontroli dostępu umożliwia administratorom tworzenie szczegółowych zasad kontroli dostępu do uwierzytelniania, autoryzacji i ewidencjonowania aktywności (AAA), które zapewniają organizacjom silne uwierzytelnianie i kontrolę użytkownika.
 

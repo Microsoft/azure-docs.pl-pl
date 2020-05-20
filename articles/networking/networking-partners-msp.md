@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 74d1d44fdba5a6752a269863b2a68bd7022af18e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 270afa70ca281762d9efabcd7663bf7504a469bd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115486"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654977"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informacje o partnerach MSP sieci platformy Azure
 
@@ -26,12 +26,12 @@ Klienci mogą kupić oferty usług zarządzanych przez MSP w portalu Azure Marke
 
 ## <a name="azure-marketplace-offers-by-azure-networking-msp-partners"></a><a name="msp"></a>Oferty w portalu Azure Marketplace według partnerów MSP sieci platformy Azure
 
-Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarządzanych usług sieciowych w chmurze oferowanych przez partnerów MSP dla sieci platformy Azure. Jeśli partner usług sieci w chmurze nie jest wymieniony w poniższej sekcji, skontaktuj się z nami. Mogą skontaktować się z nami, wysyłając wiadomość ManagedVirtualWAN@microsoft.come-mail na adres. 
+Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarządzanych usług sieciowych w chmurze oferowanych przez partnerów MSP dla sieci platformy Azure. Jeśli partner usług sieci w chmurze nie jest wymieniony w poniższej sekcji, skontaktuj się z nami. Mogą skontaktować się z nami, wysyłając wiadomość e-mail na adres ManagedVirtualWAN@microsoft.com . 
 
 | **WYMIENIONE** | **Usługi transformacji sieci w chmurze** | **Zarządzane ExpressRoute** | **Zarządzana wirtualna sieć WAN** |
 | ---| ---| ---| ---|
 |[ANS — Grupa UK](https://www.ans.co.uk/)|[Azure Managed svc i 10wk Glass](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
-|[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Networks Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Wirtualna sieć WAN aryaka Networks Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
+|[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Networks Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Wirtualna sieć WAN aryaka Networks Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Badanie [transformacji sieci: 1-HR ocenę](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting); [BT Cloud Connect — Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[Rozwoje](https://www.coevolve.com/services/azure-networking-services/)|||[Zarządzana granica wirtualna oprogramowania VMware SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Optymalizacja sieci na platformie Azure: Ocena 2-HR](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||

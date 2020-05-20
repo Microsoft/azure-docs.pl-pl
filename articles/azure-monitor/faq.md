@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/15/2020
+ms.openlocfilehash: df3e107b111161284c697aa8f619eed96443a893
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117788"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651844"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -97,7 +97,12 @@ Wielu dostawców zasobów jest automatycznie rejestrowanych, ale może być koni
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Dlaczego otrzymuję komunikat o błędzie dostępu podczas otwierania Log Analytics z maszyny wirtualnej? 
 Aby wyświetlić dzienniki maszyn wirtualnych, musisz mieć uprawnienia do odczytu w obszarze roboczym, w którym są przechowywane dzienniki maszyn wirtualnych. W takich przypadkach administrator musi udzielić użytkownikowi uprawnienia do uprawnień na platformie Azure.
 
-## <a name="alerts"></a>Alerty
+## <a name="metrics"></a>Metryki
+
+### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>Dlaczego metryki z systemu operacyjnego gościa maszyny wirtualnej platformy Azure nie są wyświetlane w Eksploratorze metryk?
+[Metryki platformy](insights/monitor-azure-resource.md#monitoring-data) są zbierane automatycznie dla zasobów platformy Azure. Należy wykonać pewne konfiguracje, aby zbierać metryki z systemu operacyjnego gościa maszyny wirtualnej. W przypadku maszyny wirtualnej z systemem Windows zainstaluj rozszerzenie diagnostyczne i skonfiguruj Azure Monitor ujścia zgodnie z opisem w artykule [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](platform/diagnostics-extension-windows-install.md). W przypadku systemu Linux Zainstaluj agenta telegraf zgodnie z opisem w temacie [zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](platform/collect-custom-metrics-linux-telegraf.md).
+
+## <a name="alerts"></a>Alerts (Alerty)
 
 ### <a name="what-is-an-alert-in-azure-monitor"></a>Co to jest alert w Azure Monitor?
 Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Istnieje wiele rodzajów alertów:
@@ -508,6 +513,10 @@ Większość Application Insights danych ma opóźnienie poniżej 5 minut. Niekt
 ## <a name="azure-monitor-for-containers"></a>Usługa Azure Monitor dla kontenerów
 
 Ta firma Microsoft — często zadawane pytania dotyczące Azure Monitor kontenerów. Jeśli masz dodatkowe pytania dotyczące rozwiązania, przejdź do [forum dyskusyjnego](https://feedback.azure.com/forums/34192--general-feedback) i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
+
+### <a name="health-feature-is-in-private-preview"></a>Funkcja kondycji jest w prywatnej wersji zapoznawczej
+
+Planujemy wprowadzić serię zmian w celu dodania funkcji i rozwiązania opinii. Funkcja kondycji przechodzi do prywatnej wersji zapoznawczej na koniec czerwca 2020 i aby uzyskać dodatkowe informacje, zapoznaj się z następującym [ogłoszeniem aktualizacji platformy Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Co oznaczają *inne procesy* w widoku węzła?
 

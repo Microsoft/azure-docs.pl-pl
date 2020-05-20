@@ -1,14 +1,14 @@
 ---
 title: Eksplorowanie zasobów platformy Azure
 description: Dowiedz się, jak używać języka zapytań grafu zasobów do eksplorowania zasobów i dowiedzieć się, jak są one połączone.
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76156985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654486"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Badanie zasobów platformy Azure przy użyciu usługi Resources Graph
 
@@ -37,7 +37,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ```
 
 > [!NOTE]
-> Polecenie cmdlet `Search-AzGraph` Azure PowerShell domyślnie zwraca **parametr PSCustomObject** . Aby dane wyjściowe wyglądały tak samo jak zwracane przez interfejs wiersza polecenia platformy Azure, `ConvertTo-Json` jest używane polecenie cmdlet. Wartość domyślna dla **głębokości** wynosi _2_. Ustawienie go na _100_ powinno spowodować przekonwertowanie wszystkich zwracanych poziomów.
+> `Search-AzGraph`Polecenie cmdlet Azure PowerShell domyślnie zwraca **parametr PSCustomObject** . Aby dane wyjściowe wyglądały tak samo jak zwracane przez interfejs wiersza polecenia platformy Azure, `ConvertTo-Json` jest używane polecenie cmdlet. Wartość domyślna dla **głębokości** wynosi _2_. Ustawienie go na _100_ powinno spowodować przekonwertowanie wszystkich zwracanych poziomów.
 
 Wyniki JSON są strukturalne podobne do poniższego przykładu:
 

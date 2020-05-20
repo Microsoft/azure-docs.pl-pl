@@ -5,33 +5,24 @@ keywords: Azure App Service, aplikacja sieci Web, aplikacja mobilna, aplikacja i
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649033"
 ---
 # <a name="security-in-azure-app-service"></a>Zabezpieczenia w Azure App Service
 
 W tym artykule opisano, jak [Azure App Service](overview.md) pomaga w zabezpieczeniu aplikacji sieci Web, zaplecza aplikacji mobilnych, aplikacji interfejsu API i [aplikacji funkcji](/azure/azure-functions/). Przedstawiono w nim również, jak można dodatkowo zabezpieczyć aplikację za pomocą wbudowanych funkcji App Service.
 
-Składniki platformy App Service, w tym maszyny wirtualne platformy Azure, magazyn, połączenia sieciowe, platformy sieci Web, funkcje zarządzania i integracji, są aktywnie zabezpieczone i zaostrzone. App Service prowadzi przez silną kontrolę zgodności, aby upewnić się, że:
-
-- Zasoby aplikacji są [zabezpieczone](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) z zasobów platformy Azure innych klientów.
-- [Wystąpienia maszyn wirtualnych i oprogramowanie uruchomieniowe są regularnie aktualizowane](overview-patch-os-runtime.md) w celu rozwiązywania nowo odkrytych luk w zabezpieczeniach. 
-- Komunikacja kluczy tajnych (takich jak parametry połączenia) między aplikacją i innymi zasobami platformy Azure (np. [SQL Database](https://azure.microsoft.com/services/sql-database/)) pozostaje w ramach platformy Azure i nie przekracza żadnych granic sieci. Wpisy tajne są zawsze szyfrowane, gdy są przechowywane.
-- Cała komunikacja przez funkcje łączności App Service, na przykład [połączenie hybrydowe](app-service-hybrid-connections.md), jest zaszyfrowana. 
-- Połączenia ze zdalnymi narzędziami do zarządzania, takimi jak Azure PowerShell, interfejs wiersza polecenia platformy Azure, zestawy SDK platformy Azure, interfejsy API REST, są szyfrowane.
-- 24-godzinne zarządzanie zagrożeniami chroni infrastrukturę i platformę przed złośliwym oprogramowaniem, rozproszone odmowa usługi (DDoS), man-in-the-Middle (MITM) i inne zagrożenia.
-
-Aby uzyskać więcej informacji na temat infrastruktury i zabezpieczeń platformy na platformie Azure, zobacz [Centrum zaufania Azure](https://azure.microsoft.com/overview/trusted-cloud/).
+[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
 W poniższych sekcjach pokazano, jak zabezpieczyć aplikację App Service przed zagrożeniami.
 
 ## <a name="https-and-certificates"></a>HTTPS i certyfikaty
 
-App Service umożliwia Zabezpieczanie aplikacji przy użyciu [protokołu HTTPS](https://wikipedia.org/wiki/HTTPS). Po utworzeniu aplikacji jej domyślna nazwa domeny (\<APP_NAME>. azurewebsites.NET) jest już dostępna przy użyciu protokołu HTTPS. Jeśli [skonfigurujesz domenę niestandardową dla aplikacji](app-service-web-tutorial-custom-domain.md), należy ją również [zabezpieczyć za pomocą certyfikatu TLS/SSL](configure-ssl-bindings.md) , aby przeglądarki klienta mogły nawiązać bezpieczne połączenia HTTPS z domeną niestandardową. Istnieje kilka typów certyfikatów obsługiwanych przez App Service:
+App Service umożliwia Zabezpieczanie aplikacji przy użyciu [protokołu HTTPS](https://wikipedia.org/wiki/HTTPS). Po utworzeniu aplikacji jej domyślna nazwa domeny ( \< app_name>. azurewebsites.NET) jest już dostępna przy użyciu protokołu HTTPS. Jeśli [skonfigurujesz domenę niestandardową dla aplikacji](app-service-web-tutorial-custom-domain.md), należy ją również [zabezpieczyć za pomocą certyfikatu TLS/SSL](configure-ssl-bindings.md) , aby przeglądarki klienta mogły nawiązać bezpieczne połączenia HTTPS z domeną niestandardową. Istnieje kilka typów certyfikatów obsługiwanych przez App Service:
 
 - App Service w warstwie Bezpłatna certyfikat zarządzany
 - Certyfikat App Service
@@ -52,7 +43,7 @@ App Service obsługuje zarówno protokół FTP, jak i FTPS do wdrażania plików
 
 Domyślnie aplikacja App Service akceptuje żądania ze wszystkich adresów IP z Internetu, ale można ograniczyć ten dostęp do małego podzbioru adresów IP. App Service w systemie Windows umożliwia zdefiniowanie listy adresów IP, które mogą uzyskiwać dostęp do aplikacji. Lista dozwolonych może obejmować pojedyncze adresy IP lub zakres adresów IP definiowanych przez maskę podsieci. Aby uzyskać więcej informacji, zobacz [Azure App Service ograniczeń statycznych adresów IP](app-service-ip-restrictions.md).
 
-Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując _plik Web. config_. Aby uzyskać więcej informacji, zobacz [dynamiczne IP \<Security dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Aby uzyskać App Service w systemie Windows, można również dynamicznie ograniczyć adresy IP, konfigurując _plik Web. config_. Aby uzyskać więcej informacji, zobacz [dynamiczne IP Security \< dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja klienta
 

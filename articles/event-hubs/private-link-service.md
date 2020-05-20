@@ -7,14 +7,14 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb4c46ecd64958b1daf6c3f7fb5fe613dc9ba729
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148205"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649900"
 ---
-# <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integracja usługi Azure Event Hubs z usługą Azure Private link (wersja zapoznawcza)
+# <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrowanie Event Hubs platformy Azure z prywatnym łączem platformy Azure
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
 
 Prywatny punkt końcowy to interfejs sieciowy, który nawiązuje połączenie prywatnie i bezpiecznie z usługą obsługiwanej przez link prywatny platformy Azure. Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej, co skutecznie doprowadza usługę do sieci wirtualnej. Cały ruch do usługi może być kierowany przez prywatny punkt końcowy, dlatego nie są konieczne żadne bramy, urządzenia NAT, połączenia ExpressRoute lub sieci VPN ani publiczne adresy IP. Ruch między siecią wirtualną a usługą odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Można nawiązać połączenie z wystąpieniem zasobu platformy Azure, zapewniając najwyższy poziom szczegółowości kontroli dostępu.
@@ -23,8 +23,6 @@ Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Private link?]
 
 > [!IMPORTANT]
 > Ta funkcja jest obsługiwana tylko w przypadku warstwy **dedykowanej** . Aby uzyskać więcej informacji na temat warstwy dedykowanej, zobacz [omówienie Event Hubs — warstwa dedykowana](event-hubs-dedicated-overview.md). 
->
-> Ta funkcja jest obecnie dostępna w **wersji zapoznawczej**. 
 
 >[!WARNING]
 > Włączenie prywatnych punktów końcowych może uniemożliwić innym usługom platformy Azure współdziałanie z Event Hubs.
@@ -64,7 +62,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** z listy, do której chcesz dodać prywatny punkt końcowy.
 4. Wybierz kartę **Sieć** w obszarze **Ustawienia**.
-5. Wybierz kartę **prywatne połączenia punktu końcowego (wersja zapoznawcza)** w górnej części strony. Jeśli nie korzystasz z dedykowanej warstwy Event Hubs, zobaczysz komunikat: **połączenia prywatnego punktu końcowego na Event Hubs są obsługiwane tylko przez obszary nazw utworzone w ramach dedykowanego klastra**.
+5. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. Jeśli nie korzystasz z dedykowanej warstwy Event Hubs, zobaczysz komunikat: **połączenia prywatnego punktu końcowego na Event Hubs są obsługiwane tylko przez obszary nazw utworzone w ramach dedykowanego klastra**.
 6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
     ![Obraz](./media/private-link-service/private-link-service-3.png)
@@ -86,7 +84,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
         
             ![Tworzenie prywatnego punktu końcowego — Strona zasobów](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. W przypadku wybrania opcji **Połącz z zasobem platformy Azure według identyfikatora zasobu lub aliasu**wykonaj następujące kroki:
-        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Event Hubs w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/`. Przykład można znaleźć na poniższym obrazie. 
+        1. Wprowadź **Identyfikator zasobu** lub **alias**. Może to być identyfikator zasobu lub alias, który ktoś udostępni Tobie. Najprostszym sposobem uzyskania identyfikatora zasobu jest przejście do przestrzeni nazw Event Hubs w Azure Portal i skopiowanie fragmentu identyfikatora URI rozpoczynającego się od `/subscriptions/` . Przykład można znaleźć na poniższym obrazie. 
         2. W przypadku **docelowego zasobu podrzędnego**wprowadź **przestrzeń nazw**. Jest to typ zasobu podrzędnego, do którego Twój prywatny punkt końcowy może uzyskać dostęp.
         3. obowiązkowe Wprowadź **komunikat żądania**. Właściciel zasobu widzi ten komunikat podczas zarządzania połączeniem prywatnego punktu końcowego.
         4. Następnie wybierz pozycję **Dalej: przycisk >konfiguracji** w dolnej części strony.
@@ -205,11 +203,11 @@ Istnieją cztery Stany aprowizacji:
 | Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
 | Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
-| Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
+| Usuń | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .
@@ -244,46 +242,33 @@ Należy sprawdzić, czy zasoby znajdujące się w tej samej podsieci zasobu pryw
 
 Najpierw utwórz maszynę wirtualną, wykonując czynności opisane w sekcji [Tworzenie maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 
-Na karcie **Sieć** :
+Na karcie **Sieć** : 
 
-1. Określ **sieć wirtualną** i **podsieć**. Można utworzyć nową sieć wirtualną lub wybrać istniejącą. Jeśli wybierzesz jeden z istniejących, upewnij się, że region jest zgodny.
-1. Określ zasób **publicznego adresu IP** .
-1. W **sieciowej grupie zabezpieczeń nic**nie zaznaczaj **żadnej**z nich.
-1. W obszarze **równoważenia obciążenia**wybierz pozycję **nie**.
+1. Określ **sieć wirtualną** i **podsieć**. Musisz wybrać Virtual Network, na którym został wdrożony prywatny punkt końcowy.
+2. Określ zasób **publicznego adresu IP** .
+3. Dla **sieciowej grupy zabezpieczeń karty sieciowej**wybierz **Brak**.
+4. W obszarze **równoważenie obciążenia**wybierz pozycję **nie**.
 
-Otwórz wiersz polecenia i uruchom następujące polecenie:
+Połącz się z maszyną wirtualną, Otwórz wiersz polecenia i uruchom następujące polecenie:
 
 ```console
-nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
+nslookup <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-W przypadku uruchomienia polecenia wyszukiwania NS w celu rozpoznania adresu IP Event Hubs przestrzeni nazw za pośrednictwem publicznego punktu końcowego zobaczysz wynik, który wygląda następująco:
+Powinien pojawić się wynik podobny do poniższego. 
 
 ```console
-c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
-```
-
-W przypadku uruchomienia polecenia wyszukiwania NS w celu rozpoznania adresu IP Event Hubs przestrzeni nazw za pośrednictwem prywatnego punktu końcowego zobaczysz wynik, który będzie wyglądać następująco:
-
-```console
-c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.windows.net
+Name:    <event-hubs-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 ## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia dotyczące projektowania
 
 **Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Ograniczenia**: prywatny punkt końcowy dla platformy Azure Event Hubs jest w publicznej wersji zapoznawczej. Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
+**Ograniczenia**: Ta funkcja jest dostępna we wszystkich regionach publicznych platformy Azure.
 
 **Maksymalna liczba prywatnych punktów końcowych na Event Hubs przestrzeń nazw**: 120.
 

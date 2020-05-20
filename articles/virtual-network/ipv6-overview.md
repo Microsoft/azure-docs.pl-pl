@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984014"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653301"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Co to jest protokół IPv6 dla usługi Azure Virtual Network?
 
@@ -58,6 +58,7 @@ Protokół IPv6 dla sieci wirtualnej platformy Azure obejmuje następujące moż
     - Opcjonalna wiele konfiguracji frontonu, które umożliwiają pojedynczemu modułowi równoważenia obciążenia używanie wielu publicznych adresów IP IPv6 — ten sam protokół frontonu i port mogą być ponownie używane między adresami frontonu.
     - Opcjonalne porty IPv6 mogą być ponownie używane w wystąpieniach zaplecza przy użyciu funkcji *zmiennoprzecinkowego adresu IP* reguł równoważenia obciążenia 
     - Uwaga: Równoważenie obciążenia nie wykonuje żadnego tłumaczenia protokołu (bez usługi NAT64). 
+    - Uwaga: protokół IPv6 może być zrównoważony pod względem podstawowego interfejsu sieciowego (NIC) na maszynach wirtualnych platformy Azure. 
 - [Standardowa obsługa Load Balancer wewnętrznego IPv6](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) do tworzenia odpornych aplikacji wielowarstwowych w ramach usługi Azure sieci wirtualnych.   
 - Obsługa publicznej Load Balancer publicznych adresów IPv6 w celu zapewnienia zgodności ze starszymi wdrożeniami
 - [Publiczne adresy IP i zakresy adresów zastrzeżonego protokołu IPv6](ipv6-public-ip-address-prefix.md) zapewniają stabilne, przewidywalne adresy IPv6, które ułatwiają listy dozwolonych aplikacji hostowanych na platformie Azure dla Twojej firmy i klientów.
@@ -73,12 +74,16 @@ IPv6 dla sieci wirtualnej platformy Azure to fundamentowy zestaw funkcji, który
 
 ## <a name="limitations"></a>Ograniczenia
 Bieżąca wersja protokołu IPv6 dla usługi Azure Virtual Network ma następujące ograniczenia:
-- Protokół IPv6 dla usługi Azure Virtual Network jest dostępny we wszystkich globalnych regionach komercyjnych platformy Azure przy użyciu wszystkich metod wdrażania.  Wdrożenie w chmurze dla instytucji rządowych Stanów Zjednoczonych jest tymczasowo ograniczone do szablonu ARM (JSON), interfejsu wiersza polecenia (CLI) i programu PowerShell.  Obsługa protokołu IPv6 w portalu dla instytucji rządowych USA będzie dostępna wkrótce.  
+- Protokół IPv6 dla usługi Azure Virtual Network jest dostępny we wszystkich globalnych regionach dla instytucji rządowych platformy Azure i w Stanach Zjednoczonych przy użyciu wszystkich metod wdrażania.  
 - Bram ExpressRoute można używać tylko dla ruchu IPv4 w sieci wirtualnej z włączonym protokołem IPv6.  Obsługa ruchu IPv6 znajduje się w naszym przewodniku.   
 - Bram sieci VPN nie można używać w sieci wirtualnej z włączonym protokołem IPv6, bezpośrednio lub za pomocą komunikacji równorzędnej z "UseRemoteGateway".
 - Platforma Azure (AKS itp.) nie obsługuje komunikacji IPv6 dla kontenerów.  
+- Protokół IPv6 można równoważyć obciążenia tylko z podstawowym interfejsem sieciowym (NIC) na maszynach wirtualnych platformy Azure. Równoważenie obciążenia ruchu IPv6 do pomocniczych kart sieciowych nie jest obsługiwane.    
+- Tylko protokół IPv6 Virtual Machines lub zestawy skalowania Virtual Machines nie są obsługiwane, każda karta sieciowa musi zawierać co najmniej jedną konfigurację adresu IP IPv4. 
+- W przypadku dodawania protokołu IPv6 do istniejących wdrożeń IPv4 nie można dodać zakresów IPv6 do sieci wirtualnej z istniejącymi łączami nawigacji zasobów.  
+- Serwer DNS do przesyłania dalej jest obsługiwany przez usługę Azure Public DNS już dziś, ale odwrotny serwer DNS nie jest jeszcze obsługiwany.   
 
-## <a name="pricing"></a>Cennik
+## <a name="pricing"></a>Ceny
 
 Opłaty za zasoby i przepustowość platformy IPv6 są naliczone według stawki IPv4. Nie są naliczane żadne dodatkowe ani inne opłaty za protokół IPv6. Możesz znaleźć szczegółowe informacje o cenach [publicznych adresów IP](https://azure.microsoft.com/pricing/details/ip-addresses/), [przepustowości sieci](https://azure.microsoft.com/pricing/details/bandwidth/)lub [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

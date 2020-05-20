@@ -3,17 +3,17 @@ title: Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB Java SDK v4
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB w zestawie Java SDK v4.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.openlocfilehash: bdec785ccec2c388eb737da3ec494b525941e2a6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2deec6f6753a03ab46260432c6faceab009e2911
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982602"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651876"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Rozwiązywanie problemów podczas korzystania z Azure Cosmos DB Java SDK v4 z kontami interfejsu API SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982602"
 > 
 
 > [!IMPORTANT]
-> W tym artykule omówiono Rozwiązywanie problemów dotyczących tylko Azure Cosmos DB Java SDK v4. Aby uzyskać więcej informacji, zobacz informacje o wersji programu Azure Cosmos DB Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)oraz [porady dotyczące wydajności](performance-tips-java-sdk-v4-sql.md) . Jeśli obecnie używasz starszej wersji niż v4, zapoznaj się z przewodnikiem [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) , aby uzyskać pomoc w uaktualnianiu do wersji v4.
+> W tym artykule omówiono Rozwiązywanie problemów dotyczących tylko Azure Cosmos DB Java SDK v4. Aby uzyskać więcej informacji, zobacz informacje o [wersji](sql-api-sdk-java-v4.md)programu Azure Cosmos DB Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)oraz [porady dotyczące wydajności](performance-tips-java-sdk-v4-sql.md) . Jeśli obecnie używasz starszej wersji niż v4, zapoznaj się z przewodnikiem [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) , aby uzyskać pomoc w uaktualnianiu do wersji v4.
 >
 
 W tym artykule opisano typowe problemy, obejścia, kroki diagnostyczne i narzędzia używane w programie Azure Cosmos DB Java SDK v4 z Azure Cosmos DB kontami interfejsu API SQL.
@@ -82,7 +82,7 @@ Należy również postępować zgodnie z [limitem połączeń na komputerze-hoś
 
 #### <a name="http-proxy"></a>Serwer proxy HTTP
 
-W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie `ConnectionPolicy`SDK.
+W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie SDK `ConnectionPolicy` .
 W przeciwnym razie nastąpiły problemy z połączeniem.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Nieprawidłowy wzorzec kodowania: blokowanie wielosieciowego wątku we/wy
@@ -135,7 +135,7 @@ Obejście polega na zmianie wątku, w którym wykonywane są zadania. Zdefiniuj 
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = Schedulers.fromExecutor(ex);
 ```
-Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika `customScheduler` przy użyciu `.publishOn(customScheduler)` interfejsu API.
+Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika przy `customScheduler` użyciu `.publishOn(customScheduler)` interfejsu API.
 
 ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-apply-custom-scheduler"></a>Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
 
@@ -146,7 +146,7 @@ container.createItem(family)
         // ...
     );
 ```
-Przy użyciu `publishOn(customScheduler)`, należy wydać wątek we/wy na dysku i przełączyć się na własny niestandardowy wątek udostępniony przez niestandardowy harmonogram. Ta modyfikacja rozwiązuje problem. `io.netty.handler.timeout.ReadTimeoutException` Błąd nie zostanie już wyświetlony.
+Przy użyciu `publishOn(customScheduler)` , należy wydać wątek we/wy na dysku i przełączyć się na własny niestandardowy wątek udostępniony przez niestandardowy harmonogram. Ta modyfikacja rozwiązuje problem. Błąd nie zostanie `io.netty.handler.timeout.ReadTimeoutException` już wyświetlony.
 
 ### <a name="request-rate-too-large"></a>Zbyt duży współczynnik żądań
 Ten błąd jest niepowodzeniem po stronie serwera. Oznacza to, że wykorzystano zainicjowaną przepływność. Spróbuj ponownie później. Jeśli ten błąd występuje często, należy rozważyć zwiększenie przepływności kolekcji.
@@ -230,7 +230,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 Aby uzyskać więcej informacji, zobacz [Podręcznik rejestrowania sfl4j](https://www.slf4j.org/manual.html).
 
 ## <a name="os-network-statistics"></a><a name="netstats"></a>Statystyka sieci systemu operacyjnego
-Uruchom polecenie netstat, aby poznać liczbę połączeń w Stanach, takich jak `ESTABLISHED` i. `CLOSE_WAIT`
+Uruchom polecenie netstat, aby poznać liczbę połączeń w Stanach, takich jak `ESTABLISHED` i `CLOSE_WAIT` .
 
 W systemie Linux można uruchomić następujące polecenie.
 ```bash

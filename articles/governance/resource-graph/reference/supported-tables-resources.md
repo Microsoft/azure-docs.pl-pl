@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane Menedżer zasobów typy zasobów
 description: Podaj listę typów zasobów Menedżer zasobów obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 04/29/2020
+ms.date: 05/16/2020
 ms.topic: reference
-ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 61b4865f695fbee7bd425429fde03bc7161043db
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594257"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655866"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -23,6 +23,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 ## <a name="alertsmanagementresources"></a>alertsmanagementresources
 
 - Microsoft. alertsmanagement/alerty
+
+## <a name="healthresources"></a>healthresources
+
+- Microsoft. resourcehealth/Events
 
 ## <a name="maintenanceresources"></a>maintenanceresources
 
@@ -67,6 +71,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Automation/automationaccounts/konfiguracje
 - Microsoft. Automation/automationaccounts/elementy Runbook
 - Microsoft. autonomoussystems/obszary robocze
+- Microsoft. Automatyczna synchronizacja/privateclouds
 - Microsoft. azconfig/configurationstores
 - Microsoft. usługi azureactivedirectory/b2cdirectories
 - Microsoft. azuredata/kontrolery datacontrollers
@@ -74,6 +79,8 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. azuredata/postgresinstances
 - Microsoft. azuredata/sqlbigdataclusters
 - Microsoft. azuredata/sqlinstances
+- Microsoft. azuredata/sqlmanagedinstances
+- Microsoft. azuredata/sqlserverinstances
 - Microsoft. azuredata/SqlServerRegistrations
 - Microsoft. azurestack/rejestracje
 - Microsoft. azurestackhci/klastry
@@ -92,6 +99,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. łańcucha bloków/obserwatorzy
 - Microsoft. botservice/botservices
 - Microsoft. cache/Redis
+- Microsoft. cache/redisenterprise
 - Microsoft. CDN/cdnwebapplicationfirewallpolicies
 - Microsoft. CDN/profile
 - Microsoft. CDN/profile/punkty końcowe
@@ -126,8 +134,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. COMPUTE/sharedvmimages/wersje
 - Microsoft. COMPUTE/snapshots
 - Microsoft. COMPUTE/sshpublickeys
+- Microsoft. COMPUTE/swiftlets
 - Microsoft. COMPUTE/virtualmachines
 - Microsoft. COMPUTE/virtualmachines/rozszerzenia
+- Microsoft. COMPUTE/virtualmachines/runcommands
 - Microsoft. COMPUTE/virtualmachinescalesets
 - Microsoft. containerinstance/containergroups
 - Microsoft. containerregistry/rejestry
@@ -213,6 +223,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Hydra/składniki
 - Microsoft. Hydra/networkscopes
 - Microsoft. importexport/zadania
+- Microsoft. industrydatalifecycle/derivedmodels
 - Microsoft. Insights/actiongroups
 - Microsoft. Insights/activitylogalerts
 - Microsoft. Insights/alertrules
@@ -362,6 +373,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. resourcegraph/zapytania
 - Microsoft. resources/deploymentscripts
 - Microsoft. resources/templatespecs
+- Microsoft. resources/templatespecs/wersje
 - Microsoft. SaaS/aplikacje
 - Microsoft. Scheduler/jobcollections
 - Microsoft. Search/searchservices
@@ -377,6 +389,7 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. servicefabricmesh/sieci
 - Microsoft. servicefabricmesh/Secret
 - Microsoft. servicefabricmesh/woluminy
+- Microsoft. serviceshub/łączniki
 - Microsoft. signalrservice/sygnalizujący
 - Microsoft. Solutions/appliancedefinitions
 - Microsoft. Solutions/urządzenia

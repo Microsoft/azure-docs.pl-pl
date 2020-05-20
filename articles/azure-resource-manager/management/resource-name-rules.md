@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086389"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653707"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -81,9 +81,9 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | Zamki | zakres przypisania | 1-90 | Alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy.<br><br>Nie można zakończyć w okresie. |
-> | policyassignments | zakres przypisania | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może `%` zawierać i nie może kończyć się kropką ani spacją. |
-> | policydefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może `%` zawierać i nie może kończyć się kropką ani spacją. |
-> | policySetDefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może `%` zawierać i nie może kończyć się kropką ani spacją.  |
+> | policyassignments | zakres przypisania | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
+> | policydefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
+> | policySetDefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją.  |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -169,7 +169,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Galerie/aplikacje | galeria | 1-80 | Alfanumeryczne, łączniki i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
 > | Galerie/aplikacje/wersje | aplikacja | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | Galerie/obrazy | galeria | 1-80 | Alfanumeryczne, łączniki i kropki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
-> | Galerie/obrazy/wersje | image | 32-bitowa liczba całkowita | Liczby i kropki. |
+> | Galerie/obrazy/wersje | image (obraz) | 32-bitowa liczba całkowita | Liczby i kropki. |
 > | images | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | Migawki | grupa zasobów | 1-80 | Alfanumeryczne, podkreślenia, kropki i łączniki.<br><br>Zacznij od znaków alfanumerycznych. Kończy się znakiem alfanumerycznym lub podkreśleniem. |
 > | virtualMachines | grupa zasobów | 1-15 (system Windows)<br>1-64 (Linux)<br><br>Zobacz uwagę poniżej. | Nie można użyć:<br> `\/""[]:|<>+=;,?*@&`<br><br>Nie można rozpocząć od znaku podkreślenia. Nie może kończyć się kropką ani łącznikiem. |
@@ -346,7 +346,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | databaseAccounts | global | 3-31 | Małe litery, cyfry i łączniki.<br><br>Zacznij od małej litery lub cyfry. |
+> | databaseAccounts | global | 3-44 | Małe litery, cyfry i łączniki.<br><br>Zacznij od małej litery lub cyfry. |
 
 ## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
@@ -630,7 +630,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
 > | serwerem | global | 1-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
-> | serwery/Administratorzy | serwer |  | Musi być `ActiveDirectory`. |
+> | serwery/Administratorzy | serwer |  | Musi być `ActiveDirectory` . |
 > | Serwery/bazy danych | serwer | 1-128 | Nie można użyć:<br>`<>*%&:\/?`<br><br>Nie może kończyć się kropką ani spacją. |
 > | Serwery/bazy danych/syncGroups | database | 1-150 | Alfanumeryczne, łączniki i podkreślenia. |
 > | serwery/elasticPools | serwer | 1-128 | Nie można użyć:<br>`<>*%&:\/?`<br><br>Nie może kończyć się kropką ani spacją. |
@@ -643,11 +643,11 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | storageAccounts | global | 3-24 | Małe litery i cyfry. |
-> | storageAccounts/blobServices | konto magazynu |  | Musi być `default`. |
+> | storageAccounts/blobServices | konto magazynu |  | Musi być `default` . |
 > | storageAccounts/blobServices/kontenery | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Zacznij od małej litery lub cyfry. Nie można używać kolejnych łączników. |
-> | storageAccounts/fileServices | konto magazynu |  | Musi być `default`. |
+> | storageAccounts/fileServices | konto magazynu |  | Musi być `default` . |
 > | storageAccounts/fileServices/udziały | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
-> | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default`. |
+> | storageAccounts/managementPolicies | konto magazynu |  | Musi być `default` . |
 > | blob | kontener | 1-1024 | Wszystkie znaki adresu URL, z uwzględnieniem wielkości liter |
 > | kolejka | konto magazynu | 3-63 | Małe litery, cyfry i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. Nie można używać kolejnych łączników. |
 > | tabela | konto magazynu | 3-63 | Znaki alfanumeryczne.<br><br>Zacznij od litery. |

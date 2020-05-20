@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 7f86ce9158b5b07b036c785c2973e8a5883ed686
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: b7729ff0b81a9b0271a51272930d5052229ff884
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597142"
+ms.locfileid: "83655274"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>Obsługa interfejsu API w usłudze Azure static Web Apps Preview przy użyciu Azure Functions
 

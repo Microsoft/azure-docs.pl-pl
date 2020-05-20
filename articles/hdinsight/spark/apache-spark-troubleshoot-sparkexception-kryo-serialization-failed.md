@@ -1,18 +1,18 @@
 ---
 title: Problemy z JDBC/ODBC & Apache Thrift Framework — Azure HDInsight
 description: Nie można pobrać dużych zestawów danych przy użyciu funkcji JDBC/ODBC i oprogramowania Apache Thrift w usłudze Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 07/29/2019
-ms.openlocfilehash: 23693dcae2f361b88440ec88ca39fd8ed229d85a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 05/14/2020
+ms.openlocfilehash: a8dcd6ae844810213ed6706002cdb9a31de94f60
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894258"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653588"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Nie można pobrać dużych zestawów danych za pomocą JDBC/ODBC i oprogramowania Apache Thrift w usłudze HDInsight
 
@@ -33,7 +33,10 @@ Ten wyjątek jest spowodowany przez proces serializacji próbujący użyć więk
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Zwiększ wartość `Kryoserializer` buforu. Dodaj klucz o nazwie `spark.kryoserializer.buffer.max` i ustaw go na `2048` wartość w spark2 config `Custom spark2-thrift-sparkconf`.
+Zwiększ `Kryoserializer` wartość buforu. Dodaj klucz o nazwie `spark.kryoserializer.buffer.max` i ustaw go na wartość `2047` w spark2 config `Custom spark2-thrift-sparkconf` . Uruchom ponownie wszystkie składniki, których to dotyczy.
+
+> [!IMPORTANT]
+> Wartość parametru `spark.kryoserializer.buffer.max` musi być mniejsza niż 2048. Wartości ułamkowe nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -41,6 +44,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) za pomocą — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się za pomocą [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 
-* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

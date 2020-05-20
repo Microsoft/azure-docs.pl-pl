@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 07ceb8eebed5657f87417dc24281008dd0863851
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592937"
+ms.locfileid: "83650393"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące usług SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ W ścieżce można używać symboli wieloznacznych, aby [wykonywać zapytania do
 
 ## <a name="use-appropriate-data-types"></a>Użyj odpowiednich typów danych
 
-Typy danych używane w zapytaniu mają wpływ na wydajność. Lepsza wydajność można uzyskać, jeśli: 
+Typy danych, których można użyć w wydajności wpływu na zapytanie. Lepsza wydajność można uzyskać, jeśli: 
 
 - Użyj najmniejszego rozmiaru danych, który będzie uwzględniać największą możliwą wartość.
   - Jeśli maksymalna długość wartości znakowej to 30 znaków, należy użyć typu danych znak o długości 30.
@@ -68,7 +68,7 @@ Typy danych używane w zapytaniu mają wpływ na wydajność. Lepsza wydajność
 
 ## <a name="check-inferred-data-types"></a>Sprawdź wywnioskowane typy danych
 
-[Wnioskowanie schematu](query-parquet-files.md#automatic-schema-inference) ułatwia szybkie Pisanie zapytań i Eksplorowanie danych bez znajomości schematu pliku. Ten komfort obejmuje koszt wywnioskowanych typów danych, które są większe niż rzeczywiście. Dzieje się tak, gdy w plikach źródłowych nie ma wystarczającej ilości informacji, aby upewnić się, że używany jest odpowiedni typ danych. Na przykład pliki Parquet nie zawierają metadanych o maksymalnej długości kolumny znakowej i wniosku SQL na żądanie, jako varchar (8000). 
+[Wnioskowanie schematu](query-parquet-files.md#automatic-schema-inference) ułatwia szybkie Pisanie zapytań i Eksplorowanie danych bez znajomości schematu pliku. Ten komfort obejmuje koszt wywnioskowanych typów danych, które są większe niż faktycznie. Dzieje się tak, gdy w plikach źródłowych nie ma wystarczającej ilości informacji, aby upewnić się, że używany jest odpowiedni typ danych. Na przykład pliki Parquet nie zawierają metadanych o maksymalnej długości kolumny znakowej i wymagania SQL na żądanie w postaci varchar (8000). 
 
 Wyniki zapytania można sprawdzać za pomocą [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
 
@@ -92,7 +92,7 @@ Tutaj znajduje się zestaw wyników.
 |0|2|pickup_datetime|datetime2 (7)|8|
 |0|3|passenger_count|int|4|
 
-Po znalezieniu wywnioskowanych typów danych dla zapytania możemy określić odpowiednie typy danych:
+Po znalezieniu wywnioskowanych typów danych dla zapytania można określić odpowiednie typy danych:
 
 ```sql  
 SELECT

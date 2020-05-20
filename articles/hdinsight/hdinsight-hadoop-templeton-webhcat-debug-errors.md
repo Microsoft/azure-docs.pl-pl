@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 01/01/2020
-ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/14/2020
+ms.openlocfilehash: 40d49d156b76db5e02ec48defbb82ed60819c478
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638854"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651116"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Opis błędów i rozwiązywanie problemów dotyczących interfejsu API WebHCat w usłudze HDInsight)
 
@@ -43,7 +43,7 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Przekroczono maksymalną liczbę równoczesnych żądań obsłużonych przez WebHCat na minutę (domyślnie 20) |Zmniejsz obciążenie, aby upewnić się, że nie jest przesyłanych więcej niż maksymalna liczba równoczesnych żądań lub Zwiększ limit liczby żądań `templeton.exec.max-procs`współbieżnych przez modyfikację. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
+| Przekroczono maksymalną liczbę równoczesnych żądań obsłużonych przez WebHCat na minutę (domyślnie 20) |Zmniejsz obciążenie, aby upewnić się, że nie jest przesyłanych więcej niż maksymalna liczba równoczesnych żądań lub Zwiększ limit liczby żądań współbieżnych przez modyfikację `templeton.exec.max-procs` . Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Serwer niedostępny
 
@@ -59,8 +59,8 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 
 | Przyczyna | Rozwiązanie |
 | --- | --- |
-| Szczegóły zadania zostały oczyszczone przez oczyszczarkę historii zadań |Domyślny okres przechowywania dla historii zadań wynosi 7 dni. Domyślny okres przechowywania można zmienić, modyfikując `mapreduce.jobhistory.max-age-ms`. Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
-| Zadanie zostało zatrzymane z powodu przejścia w tryb failover |Przesyłanie zadania ponowienia przez maksymalnie dwie minuty |
+| Szczegóły zadania zostały oczyszczone przez oczyszczarkę historii zadań |Domyślny okres przechowywania dla historii zadań wynosi 7 dni. Domyślny okres przechowywania można zmienić, modyfikując `mapreduce.jobhistory.max-age-ms` . Aby uzyskać więcej informacji, zobacz [modyfikowanie konfiguracji](#modifying-configuration) |
+| Zadanie zostało przerwane z powodu przejścia w tryb failover |Przesyłanie zadania ponowienia przez maksymalnie dwie minuty |
 | Użyto nieprawidłowego identyfikatora zadania |Sprawdź, czy identyfikator zadania jest poprawny |
 
 ## <a name="bad-gateway"></a>Zła brama
@@ -70,10 +70,20 @@ W przypadku przekroczenia następujących wartości domyślnych można obniżyć
 | Przyczyna | Rozwiązanie |
 | --- | --- |
 | Wewnętrzne wyrzucanie elementów bezużytecznych występuje w procesie WebHCat |Poczekaj na zakończenie odzyskiwania pamięci lub Uruchom ponownie usługę WebHCat |
-| Przekroczono limit czasu podczas oczekiwania na odpowiedź z usługi ResourceManager. Ten błąd może wystąpić, gdy liczba aktywnych aplikacji przejdzie do skonfigurowanej wartości maksymalnej (domyślnie 10 000). |Zaczekaj na ukończenie aktualnie uruchomionych zadań lub Zwiększ limit liczby zadań współbieżnych przez modyfikację `yarn.scheduler.capacity.maximum-applications`. Aby uzyskać więcej informacji, zobacz sekcję [modyfikowanie konfiguracji](#modifying-configuration) . |
-| Próba pobrania wszystkich zadań za pomocą wywołania [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) , gdy `Fields` jest ustawiona na`*` |Nie pobieraj *wszystkich* szczegółów zadania. Zamiast tego `jobid` należy użyć, aby pobrać szczegóły dotyczące zadań większych niż określony identyfikator zadania. Lub nie używaj`Fields` |
+| Przekroczono limit czasu podczas oczekiwania na odpowiedź z usługi ResourceManager. Ten błąd może wystąpić, gdy liczba aktywnych aplikacji przejdzie do skonfigurowanej wartości maksymalnej (domyślnie 10 000). |Zaczekaj na ukończenie aktualnie uruchomionych zadań lub Zwiększ limit liczby zadań współbieżnych przez modyfikację `yarn.scheduler.capacity.maximum-applications` . Aby uzyskać więcej informacji, zobacz sekcję [modyfikowanie konfiguracji](#modifying-configuration) . |
+| Próba pobrania wszystkich zadań za pomocą wywołania [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) , gdy `Fields` jest ustawiona na`*` |Nie pobieraj *wszystkich* szczegółów zadania. Zamiast tego należy użyć `jobid` , aby pobrać szczegóły dotyczące zadań większych niż określony identyfikator zadania. Lub nie używaj`Fields` |
 | Usługa WebHCat nie działa podczas pracy w trybie failover węzła głównego |Poczekaj dwie minuty i spróbuj ponownie wykonać operację |
 | Liczba oczekujących zadań przesłanych przez WebHCat przekracza 500 |Zaczekaj na ukończenie aktualnie oczekujących zadań przed przesłaniem większej liczby zadań |
+
+## <a name="next-steps"></a>Następne kroki
+
+Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
+
+* Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
+
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+
+* Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

@@ -1,15 +1,20 @@
 ---
 title: Zaawansowane automatyczne skalowanie przy użyciu usługi Azure Virtual Machines
-description: Używa Menedżer zasobów i VM Scale Sets z wieloma regułami i profilami, które wysyłają wiadomości e-mail i wywołują adresy URL elementu webhook z akcjami skalowania.
+description: Używa Menedżer zasobów i zestawów skalowania maszyn wirtualnych z wieloma regułami i profilami, które wysyłają wiadomości e-mail i wywołują adresy URL elementu webhook z akcjami skalowania.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 02/22/2016
+ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 02/22/2016
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 65182ce16b8785a3a0e497b3ed8003fa9e7b67bc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75364224"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655431"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Zaawansowana konfiguracja automatycznego skalowania przy użyciu Menedżer zasobów szablonów dla VM Scale Sets
 Możesz skalować w poziomie i skalować w Virtual Machine Scale Sets na podstawie progów metryk wydajności, harmonogramu cyklicznego lub określonego dnia. Możesz również skonfigurować powiadomienia e-mail i elementy webhook dla akcji skalowania. W tym instruktażu przedstawiono przykład konfigurowania wszystkich tych obiektów przy użyciu szablonu Menedżer zasobów na zestawie skalowania maszyn wirtualnych.

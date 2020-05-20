@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/19/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+zone_pivot_groups: programming-languages-set-nineteen
+ms.openlocfilehash: 311c85e254711a219ac93424b77f35c2662008b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402212"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658450"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatyczne wykrywanie języka dla zamiany mowy na tekst
 
 Funkcja automatycznego wykrywania języka służy do określania najbardziej pasującego dźwięku przekazanego do zestawu Speech SDK w porównaniu z listą podanych języków. Wartość zwracana przez funkcję automatycznego wykrywania języka służy do wybierania modelu języka dla zamiany mowy na tekst, co zapewnia dokładniejsze transkrypcje. Aby zobaczyć, które języki są dostępne, zobacz temat [Obsługa języków](language-support.md).
 
-W tym artykule dowiesz się, jak utworzyć `AutoDetectSourceLanguageConfig` `SpeechRecognizer` obiekt i pobrać wykryty język przy użyciu programu.
+W tym artykule dowiesz się, jak `AutoDetectSourceLanguageConfig` utworzyć `SpeechRecognizer` obiekt i pobrać wykryty język przy użyciu programu.
 
 > [!IMPORTANT]
-> Ta funkcja jest dostępna tylko dla zestawu Speech SDK dla języków C#, C++, Java i Python.
+> Ta funkcja jest dostępna tylko dla zestawu Speech SDK z językiem C#, C++, Java, Python i celu-C.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Automatyczne wykrywanie języka za pomocą zestawu Speech SDK
 
-Funkcja automatycznego wykrywania języka ma obecnie limit dwóch języków na wykrycie po stronie usług. To ograniczenie należy wziąć pod uwagę podczas konstruowania `AudoDetectSourceLanguageConfig` obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig`, a następnie użyjesz go do utworzenia. `SpeechRecognizer`
+Funkcja automatycznego wykrywania języka ma obecnie limit dwóch języków na wykrycie po stronie usług. To ograniczenie należy wziąć pod uwagę podczas konstruowania `AudoDetectSourceLanguageConfig` obiektu. W poniższych przykładach utworzysz `AutoDetectSourceLanguageConfig` , a następnie użyjesz go do utworzenia `SpeechRecognizer` .
 
 > [!TIP]
 > Możesz również określić model niestandardowy, który ma być używany podczas wykonywania zamiany mowy na tekst. Aby uzyskać więcej informacji, zobacz [Korzystanie z modelu niestandardowego na potrzeby automatycznego wykrywania języka](#use-a-custom-model-for-automatic-language-detection).
@@ -118,11 +118,28 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+NSArray *languages = @[@"zh-CN", @"de-DE"];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]init:languages];
+SPXSpeechRecognizer* speechRecognizer = \
+        [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig
+                           autoDetectSourceLanguageConfiguration:autoDetectSourceLanguageConfig
+                                              audioConfiguration:audioConfig];
+SPXSpeechRecognitionResult *result = [speechRecognizer recognizeOnce];
+SPXAutoDetectSourceLanguageResult *languageDetectionResult = [[SPXAutoDetectSourceLanguageResult alloc] init:result];
+NSString *detectedLanguage = [languageDetectionResult language];
+```
+
+::: zone-end
+
 ## <a name="use-a-custom-model-for-automatic-language-detection"></a>Używanie modelu niestandardowego do automatycznego wykrywania języka
 
 Oprócz wykrywania języka przy użyciu modeli usługi Speech Service można określić model niestandardowy do rozszerzonego rozpoznawania. Jeśli niestandardowy model nie zostanie podany, usługa użyje domyślnego modelu języka.
 
-Poniższe fragmenty kodu ilustrują sposób określania niestandardowego modelu w wywołaniu usługi mowy. Jeśli wykryty język to `en-US`, używany jest domyślny model. Jeśli wykryty język to `fr-FR`, używany jest punkt końcowy dla modelu niestandardowego:
+Poniższe fragmenty kodu ilustrują sposób określania niestandardowego modelu w wywołaniu usługi mowy. Jeśli wykryty język to `en-US` , używany jest domyślny model. Jeśli wykryty język to `fr-FR` , używany jest punkt końcowy dla modelu niestandardowego:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -178,6 +195,20 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
  fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
  auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
         sourceLanguageConfigs=[en_language_config, fr_language_config])
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];
+SPXSourceLanguageConfiguration* frLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"fr-FR"
+                                                     endpointId:@"The Endpoint Id for custom model of fr-FR"];
+NSArray *languageConfigs = @[enLanguageConfig, frLanguageConfig];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]initWithSourceLanguageConfigurations:languageConfigs];
 ```
 
 ::: zone-end

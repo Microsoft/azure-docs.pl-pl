@@ -2,20 +2,20 @@
 title: Monitorowanie kondycji klastra Kubernetes za pomocą Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano, jak można wyświetlać i analizować kondycję klastrów AKS i innych niż AKS przy użyciu Azure Monitor dla kontenerów.
 ms.topic: conceptual
-ms.date: 12/01/2019
-ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/18/2020
+ms.openlocfilehash: 94fdb6388134eae326ed5a8e46fbd3d13f8da2d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843994"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649579"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informacje o kondycji klastra Kubernetes za pomocą Azure Monitor dla kontenerów
 
 Za pomocą Azure Monitor dla kontenerów monitoruje i raportuje stan kondycji składników infrastruktury zarządzanej oraz wszystkie węzły działające w dowolnym klastrze Kubernetes obsługiwanym przez Azure Monitor dla kontenerów. To środowisko przekracza stan kondycji klastra obliczone i zgłoszone w [widoku wielu klastrów](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), gdzie teraz można zrozumieć, czy co najmniej jeden węzeł w klastrze jest ograniczony do zasobów lub węzeł lub pod jest niedostępny, co może mieć wpływ na działającą aplikację w klastrze na podstawie nadzorowanych metryk.
 
 >[!NOTE]
->W tej chwili funkcja kondycji jest w publicznej wersji zapoznawczej.
+>Funkcja kondycji przechodzi do prywatnej wersji zapoznawczej na koniec czerwca 2020. Aby uzyskać dodatkowe informacje, zapoznaj się z następującym [ogłoszeniem aktualizacji platformy Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 >
 
 Informacje o sposobie włączania Azure Monitor dla kontenerów znajdują się w sekcji Dołączanie [Azure monitor dla kontenerów](container-insights-onboard.md).
@@ -23,7 +23,7 @@ Informacje o sposobie włączania Azure Monitor dla kontenerów znajdują się w
 >[!NOTE]
 >Aby obsługiwać klastry aparatu AKS, sprawdź, czy są spełnione następujące warunki:
 >- Używa najnowszej wersji [klienta Helm](https://helm.sh/docs/using_helm/).
->- Wersja agenta kontenerowego to *Microsoft/OMS: ciprod11012019*. Aby uaktualnić agenta, zobacz [Uaktualnianie agenta w klastrze Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
+>- Wersja agenta kontenerowego to *Microsoft/OMS: ciprod11012019*. Aby uaktualnić agenta, zobacz [Uaktualnianie agenta w klastrze Kubernetes](container-insights-manage-agent.md#how-to-upgrade-the-azure-monitor-for-containers-agent).
 >
 
 ## <a name="overview"></a>Omówienie

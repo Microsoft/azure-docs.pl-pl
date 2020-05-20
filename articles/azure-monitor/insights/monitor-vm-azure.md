@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: 2cb53d0c88d8c29da2bd8bf52d6536555d56c76e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 1121b5324368f8b8c6c062868f5072f4a0e7ac86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283943"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654379"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -24,7 +24,7 @@ W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane
 ## <a name="differences-from-other-azure-resources"></a>Różnice między innymi zasobami platformy Azure
 [Monitorowanie zasobów platformy Azure za pomocą Azure monitor](monitor-azure-resource.md) zawiera opis danych monitorowania wygenerowanych przez zasoby platformy Azure oraz sposób korzystania z funkcji Azure monitor do analizowania i generowania alertów dotyczących tych danych. Można zbierać te same dane monitorowania z maszyn wirtualnych platformy Azure i wykonywać na nich działania z następującymi różnicami:
 
-- [Metryki platformy](../platform/data-platform-metrics.md) są zbierane automatycznie dla maszyn wirtualnych, ale tylko dla [hosta maszyny wirtualnej](#monitoring-data). Potrzebujesz agenta, aby zbierać dane dotyczące wydajności z systemu operacyjnego gościa. 
+-  [Metryki platformy](../platform/data-platform-metrics.md) są zbierane automatycznie dla maszyn wirtualnych, ale tylko dla [hosta maszyny wirtualnej](#monitoring-data). Potrzebujesz agenta, aby zbierać dane dotyczące wydajności z systemu operacyjnego gościa. 
 - Maszyny wirtualne nie generują [dzienników zasobów](../platform/platform-logs-overview.md) , które zapewniają wgląd w operacje wykonywane w ramach zasobu platformy Azure. Do zbierania danych dziennika z systemu operacyjnego gościa służy Agent.
 - Można utworzyć [Ustawienia diagnostyczne](../platform/diagnostic-settings.md) dla maszyny wirtualnej w celu wysyłania metryk platformy do innych miejsc docelowych, takich jak magazyn i centra zdarzeń, ale nie można skonfigurować tych ustawień diagnostycznych w Azure Portal. 
 
@@ -121,7 +121,6 @@ az monitor diagnostic-settings create \
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace
-
 ```
 
 ## <a name="monitoring-in-the-azure-portal"></a>Monitorowanie w Azure Portal 
@@ -137,8 +136,8 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 |:---|:---|
 | Omówienie | Przedstawia [metryki platformy](../platform/data-platform-metrics.md) dla hosta maszyny wirtualnej. Kliknij wykres, aby korzystać z tych danych w [Eksploratorze metryk](../platform/metrics-getting-started.md). |
 | Dziennik aktywności | Wpisy [dziennika aktywności](../platform/activity-log-view.md) odfiltrowane dla bieżącej maszyny wirtualnej. |
-| Szczegółowe informacje | Otwiera [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
-| Alerty | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
+| Insights | Otwiera [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
+| Alerts (Alerty) | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
 | Metryki | Otwórz [Eksploratora metryk](../platform/metrics-getting-started.md) z zakresem ustawionym na bieżącą maszynę wirtualną. |
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
 | Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](/azure/advisor/). |
@@ -149,12 +148,13 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 ## <a name="analyzing-metric-data"></a>Analizowanie danych metryki
 Metryki maszyn wirtualnych można analizować za pomocą Eksploratora metryk, otwierając **metryki** z menu maszyny wirtualnej. Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../platform/metrics-getting-started.md) . 
 
-Istnieją dwie przestrzenie nazw używane przez maszyny wirtualne do metryk:
+Istnieją trzy przestrzenie nazw używane przez maszyny wirtualne do metryk:
 
-| Przestrzeń nazw | Opis |
-|:---|:---|
-| Host maszyny wirtualnej | Metryki hostów zbierane automatycznie dla wszystkich maszyn wirtualnych platformy Azure. Szczegółowa lista metryk w [firmie Microsoft. COMPUTE/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). |
-| Gość maszyny wirtualnej | Metryki systemu operacyjnego gościa zebrane z maszyn wirtualnych z rozszerzeniem diagnostyki zainstalowane i skonfigurowane do wysyłania do Azure Monitor ujścia. |
+| Przestrzeń nazw | Opis | Wymaganie |
+|:---|:---|:---|
+| Host maszyny wirtualnej | Metryki hostów zbierane automatycznie dla wszystkich maszyn wirtualnych platformy Azure. Szczegółowa lista metryk w [firmie Microsoft. COMPUTE/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Zbierane automatycznie bez konieczności konfigurowania. |
+| Gość (klasyczny) | Ograniczony zestaw danych dotyczących systemu operacyjnego gościa i wydajności aplikacji. Dostępne w Eksploratorze metryk, ale nie inne funkcje Azure Monitor, takie jak alerty metryki.  | [Rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) zostało zainstalowane. Dane są odczytywane z usługi Azure Storage.  |
+| Gość maszyny wirtualnej | Dane dotyczące systemu operacyjnego gościa i wydajności aplikacji są dostępne dla wszystkich funkcji Azure Monitor przy użyciu metryk. | Dla systemu Windows [zainstalowane rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) zainstalowane z włączonym Azure monitor ujścia. W przypadku systemu Linux [zainstalowano agenta telegraf](../platform/collect-custom-metrics-linux-telegraf.md). |
 
 ![Metryki](media/monitor-vm-azure/metrics.png)
 
@@ -175,7 +175,7 @@ Azure Monitor dla maszyn wirtualnych umożliwia zbieranie wstępnie określonego
 > Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności*, trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
 
 
-## <a name="alerts"></a>Alerty
+## <a name="alerts"></a>Alerts (Alerty)
 [Alerty](../platform/alerts-overview.md) w usłudze Azure monitor aktywnie powiadamiają użytkownika, gdy w danych monitorowania zostaną znalezione ważne warunki i mogą oni uruchamiać akcje, takie jak uruchamianie aplikacji logiki lub wywoływanie elementu webhook. Reguły alertów definiują logikę używaną do określania, kiedy należy utworzyć alert. Azure Monitor zbiera dane używane przez reguły alertów, ale należy utworzyć reguły definiowania warunków alertów w ramach subskrypcji platformy Azure.
 
 W poniższych sekcjach opisano typy reguł alertów i zaleceń, które należy wykonać w przypadku każdej z nich. To zalecenie jest zależne od funkcjonalności i kosztu typu reguły alertu. Aby uzyskać szczegółowe informacje na temat cennika alertów, zobacz [Cennik usługi Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).

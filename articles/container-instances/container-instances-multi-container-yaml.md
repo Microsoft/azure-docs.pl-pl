@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie wielokontenerowych grup — YAML
 description: W tym samouczku dowiesz się, jak wdrożyć grupę kontenerów z wieloma kontenerami w Azure Container Instances przy użyciu pliku YAML z interfejsem wiersza polecenia platformy Azure.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c029a9c605548b828c96fa741e12a43930ec4b01
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533592"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653503"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Samouczek: wdrażanie wielokontenerowej grupy przy użyciu pliku YAML
 
@@ -73,14 +73,14 @@ properties:
     type: Public
     ports:
     - protocol: tcp
-      port: '80'
+      port: 80
     - protocol: tcp
-      port: '8080'
+      port: 8080
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Aby użyć rejestru prywatnego obrazu kontenera, Dodaj `imageRegistryCredentials` właściwość do grupy kontenerów z wartościami zmodyfikowanymi dla danego środowiska:
+Aby użyć rejestru prywatnego obrazu kontenera, Dodaj `imageRegistryCredentials` Właściwość do grupy kontenerów z wartościami zmodyfikowanymi dla danego środowiska:
 
 ```YAML
   imageRegistryCredentials:
@@ -123,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Wyświetlanie dzienników kontenerów
 
-Wyświetlanie danych wyjściowych kontenera za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name` Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` kontener jest określony.
+Wyświetlanie danych wyjściowych kontenera za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name`Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` kontener jest określony.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -164,7 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Jak widać, Przyczepka okresowo przesyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Tego przykładu przyczepki można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny `200 OK`niż.
+Jak widać, Przyczepka okresowo przesyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Tego przykładu przyczepki można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny niż `200 OK` .
 
 ## <a name="next-steps"></a>Następne kroki
 

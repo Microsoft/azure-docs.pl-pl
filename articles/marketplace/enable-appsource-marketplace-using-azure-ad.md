@@ -1,26 +1,26 @@
 ---
-title: Włącz Microsoft AppSource i aukcję portalu Azure Marketplace, używając Azure Active Directory | Azure
-description: Włącz typ listy przy użyciu Azure Active Directory w portalu Azure Marketplace i AppSource dla wydawców aplikacji i usług.
+title: Integruj swoją ofertę komercyjnej witryny Microsoft Marketplace z Azure Active Directory
+description: Użyj Azure Active Directory do uwierzytelniania Microsoft AppSource i ofert w portalu Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160617"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658043"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Włączanie możliwości publikowania ofert w witrynach AppSource i Marketplace z użyciem usługi Azure Active Directory
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Zintegruj swoją aukcję komercyjną Marketplace z usługą Azure Active Directory
 
- Azure Active Directory (Azure AD) to usługa tożsamości w chmurze, która umożliwia uwierzytelnianie przy użyciu konto Microsoft. Usługa Azure AD używa standardowych struktur branżowych. [Dowiedz się więcej o Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ W tym artykule objaśniono wymagania dotyczące integrowania komercyjnej oferty rynkowej z usługą Azure Active Directory (Azure AD). Azure AD to usługa tożsamości w chmurze, która używa standardów branżowych, aby umożliwić uwierzytelnianie za pomocą konto Microsoft. [Dowiedz się więcej o Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Korzyści z usługi Azure AD
 
-Klienci korzystający z usług Microsoft AppSource i Azure Marketplace wykorzystują środowiska w ramach produktu, aby przeszukiwać katalogi list. Te akcje wymagają od klientów zalogowania się do produktu. Integracja z usługą Azure AD zapewnia następujące korzyści:
+Klienci korzystający z usług Microsoft AppSource i Azure Marketplace wykorzystują środowiska w ramach produktu w celu wyszukiwania katalogów list w sklepie. Te akcje wymagają od klientów zalogowania się do produktu. Integracja z usługą Azure AD zapewnia następujące korzyści:
 
 - Szybsza zaangażowanie i zoptymalizowane środowisko klienta
 - Logowanie jednokrotne (SSO) dla milionów użytkowników w przedsiębiorstwach
@@ -29,7 +29,7 @@ Klienci korzystający z usług Microsoft AppSource i Azure Marketplace wykorzyst
 
 ## <a name="offers-that-require-azure-ad"></a>Oferty wymagające usługi Azure AD
 
-Różne [Opcje i typy ofert](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) dla usług AppSource i Azure Marketplace mają różne wymagania dotyczące implementacji usługi Azure AD. Szczegółowe informacje znajdują się w poniższej tabeli:
+Różne [Opcje i typy ofert](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) dostępne w komercyjnej witrynie Marketplace mają różne wymagania dotyczące implementacji usługi Azure AD. Szczegółowe informacje znajdują się w poniższej tabeli.
 
 | **Typ oferty**    | **Wymagany jest logowanie jednokrotne usługi Azure AD?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
@@ -37,7 +37,7 @@ Różne [Opcje i typy ofert](https://docs.microsoft.com/azure/marketplace/determ
 | Maszyna wirtualna | Nie dotyczy | Nie | Nie | Nie |
 | Aplikacje platformy Azure (szablon rozwiązania)  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 | Aplikacje zarządzane  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
-| SaaS  | Nie | Yes | Yes | Yes |
+| SaaS  | Nie | Yes | Tak | Tak |
 | Containers  | Nie dotyczy | Nie dotyczy | Nie dotyczy | Nie |
 | Usługi konsultingowe  | Nie | Nie dotyczy | Nie dotyczy | Nie dotyczy |
 

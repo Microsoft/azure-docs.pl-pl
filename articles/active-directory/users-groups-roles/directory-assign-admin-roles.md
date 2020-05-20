@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c16ba26d1c59bd932e657f41882fbd23dc3a69e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: ef321e82f1737df4b13d259824acd943a7eea440
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592234"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649356"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -82,7 +82,7 @@ Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędą
 Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator) ma uprawnienia do wymuszenia ponownej rejestracji i uwierzytelniania wieloskładnikowego dla wszystkich użytkowników.
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
+> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Te aplikacje mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom uwierzytelniania. Za pomocą tej ścieżki administrator uwierzytelniania może założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -267,7 +267,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 * Czytelnik raportów
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD i nie są przyznawane administratorom pomocy technicznej. Za pomocą tej ścieżki Administrator pomocy technicznej może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -382,7 +382,7 @@ Użytkownicy w tej roli mogą tworzyć i usuwać zawartość usługi Microsoft S
 
 ### <a name="security-administrator"></a>[Administrator zabezpieczeń](#security-administrator-permissions)
 
-Użytkownicy z tą rolą mają uprawnienia do zarządzania funkcjami związanymi z zabezpieczeniami w centrum Microsoft 365 Security Center, Azure Active Directory Identity Protection, Azure Information Protection i Office 365 Security &. Więcej informacji o uprawnieniach pakietu Office 365 jest dostępnych w obszarze [uprawnienia w centrum zgodności & zabezpieczeń programu office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Użytkownicy z tą rolą mają uprawnienia do zarządzania funkcjami związanymi z zabezpieczeniami w centrum Microsoft 365 Security Center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection i Office 365 Security &. Więcej informacji o uprawnieniach pakietu Office 365 jest dostępnych w obszarze [uprawnienia w centrum zgodności & zabezpieczeń programu office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 W | Można wykonać
 --- | ---
@@ -396,6 +396,8 @@ Windows Defender ATP i EDR | Przypisywanie ról<br>Zarządzanie grupami maszyn<b
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Dodawanie administratorów, Dodawanie zasad i ustawień, przekazywanie dzienników i wykonywanie akcji ładu
 [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Może wyświetlać zasady zabezpieczeń, wyświetlać Stany zabezpieczeń, edytować zasady zabezpieczeń, wyświetlać alerty i zalecenia, odrzucać alerty i zalecenia
 [Kondycja usługi Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Wyświetlanie kondycji usług Office 365
+[Inteligentna blokada](../authentication/howto-password-smart-lockout.md) | Zdefiniuj próg i czas trwania dla blokad w przypadku wystąpienia nieudanych zdarzeń logowania.
+[Ochrona hasłem](../authentication/concept-password-ban-bad.md) | Skonfiguruj niestandardową listę haseł zabronionych lub lokalną ochronę hasłem.
 
 ### <a name="security-operator"></a>[Operator zabezpieczeń](#security-operator-permissions)
 
@@ -476,7 +478,7 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 |Tylko dla użytkowników, którzy nie są administratorami ani w ramach jednej z następujących ograniczonych ról administratora:<ul><li>Czytelnicy katalogów<li>Zapraszający gościa<li>Administrator pomocy technicznej<li>Czytelnik centrum wiadomości<li>Czytelnik raportów<li>Administrator użytkowników|<p>Usuń i Przywróć</p><p>Wyłącz i Włącz</p><p>Unieważnianie tokenów odświeżania</p><p>Zarządzanie wszystkimi właściwościami użytkowników, w tym główną nazwą użytkownika</p><p>Resetowanie hasła</p><p>Aktualizuj klucze urządzeń (FIDO)</p>|
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom użytkowników. Za pomocą tej ścieżki administrator użytkownika może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -1893,12 +1895,12 @@ Menedżerowie urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](d
 Użytkownicy urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](directory-assign-admin-roles.md#deprecated-roles)
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja kont synchronizacji katalogów](directory-assign-admin-roles.md#directory-synchronization-accounts)
 Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja usługi zapisywania katalogów](directory-assign-admin-roles.md#directory-writers)
-Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | Nie dotyczy
+Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | NA
 Administrator usługi Lync | Administrator programu Skype dla firm | [Odzwierciedla bieżącą markę produktu](directory-assign-admin-roles.md#role-template-ids)
 Obsługa warstwy 1 dla partnerów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej pomoc partnera](directory-assign-admin-roles.md#partner-tier1-support)
 Obsługa warstwy 2 partnera | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej SVR partnera](directory-assign-admin-roles.md#partner-tier2-support)
-Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | Nie dotyczy
-Użytkownik | Niepokazywany, ponieważ nie można go użyć | Nie dotyczy
+Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | NA
+Użytkownik | Niepokazywany, ponieważ nie można go użyć | NA
 Dołączanie urządzenia w miejscu pracy | Przestarzałe | [Dokumentacja przestarzałych ról](directory-assign-admin-roles.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Następne kroki

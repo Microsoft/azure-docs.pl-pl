@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633141"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653726"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrowanie innych usług z magazynem danych usługi SQL Analytics
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integrowanie innych usług za pomocą puli SQL Synapse (magazyn danych)
 
-Funkcja analizy SQL w ramach usługi Azure Synapse Analytics umożliwia użytkownikom integrację z wieloma innymi usługami na platformie Azure. Za pomocą usługi SQL Analytics można utworzyć magazyn danych za pośrednictwem zasobu puli SQL, który może następnie korzystać z kilku dodatkowych usług, z których niektóre obejmują:
+Możliwości puli SQL w usłudze Azure Synapse Analytics umożliwiają użytkownikom integrację z wieloma innymi usługami na platformie Azure. Korzystając z Synapse SQL, można utworzyć magazyn danych za pośrednictwem zasobu puli SQL, który może następnie korzystać z kilku dodatkowych usług, z których niektóre obejmują:
 
 * Power BI
 * Azure Data Factory
@@ -31,9 +31,9 @@ Aby uzyskać więcej informacji na temat usług integracji na platformie Azure, 
 
 ## <a name="power-bi"></a>Power BI
 
-Integracja Power BI umożliwia łączenie mocy obliczeniowej hurtowni danych z dynamicznym raportowaniem i wizualizacją Power BI. Obecnie integracja Power BI obejmuje:
+Integracja Power BI umożliwia łączenie mocy obliczeniowej hurtowni danych z dynamicznym raportowaniem i wizualizacją Power BI. Obecnie integracja z usługą Power BI obejmuje:
 
-* **Połączenie bezpośrednie**: bardziej zaawansowane połączenie z przekazywaniem logicznym względem magazynu danych obsługiwanego przy użyciu puli SQL. Przekazywanie zapewnia szybszą analizę w większej skali.
+* **Połączenie bezpośrednie**: bardziej zaawansowane połączenie z przekazywaniem logicznym względem magazynu danych obsługiwanego przy użyciu puli SQL. Przekazywanie zapewnia szybszą analizę na większą skalę.
 * **Otwórz w Power BI**: przycisk "otwórz w Power BI" przekazuje informacje o wystąpieniu do Power BI w uproszczony sposób nawiązywania połączenia.
 
 Aby uzyskać więcej informacji, zobacz [Integrowanie z Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)lub [Dokumentacja Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).

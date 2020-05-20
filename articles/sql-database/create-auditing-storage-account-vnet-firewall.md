@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f26fa00f78b8564e08b6352d4da31640b13f47f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 556b9c2861461ffdfc63f5607cca2157226e15bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402676"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658306"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
 
@@ -137,6 +137,11 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
      }
    }
    ```
+
+## <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+
+- [Tworzenie lub aktualizowanie zasad inspekcji bazy danych (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Tworzenie lub aktualizowanie zasad inspekcji serwera (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać usługi Azure Application Insights z us�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 0b4d0f43d00a919c589a11c81df2818f3a058ed8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6218e5163212540f2132020dffea520d34b77cc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121570"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648862"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -21,7 +21,10 @@ Ponieważ wymagana Application Insights Instrumentacja jest wbudowana w Azure Fu
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights ceny i limity
 
-Możesz bezpłatnie wypróbować Application Insights integrację z aplikacjami funkcji. Istnieje dzienny limit ilości danych, które można przetworzyć bezpłatnie. Ten limit można napotkać podczas testowania. Platforma Azure udostępnia powiadomienia w portalu i wiadomości e-mail po zbliżaniu się dziennego limitu. Jeśli pominięto te alerty i osiągniesz limit, nowe dzienniki nie będą wyświetlane w Application Insights zapytaniach. Należy pamiętać o limicie, aby uniknąć niepotrzebnego czasu rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Zarządzanie cenami i ilością danych w Application Insights](../azure-monitor/app/pricing.md).
+Możesz wypróbować Application Insights integrację z usługą Azure Functions bezpłatnie. Istnieje dzienny limit ilości danych, które można przetworzyć bezpłatnie. Ten limit można napotkać podczas testowania. Platforma Azure udostępnia powiadomienia w portalu i wiadomości e-mail po zbliżaniu się dziennego limitu. Jeśli pominięto te alerty i osiągniesz limit, nowe dzienniki nie będą wyświetlane w Application Insights zapytaniach. Należy pamiętać o limicie, aby uniknąć niepotrzebnego czasu rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Zarządzanie cenami i ilością danych w Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Próbkowanie jest domyślnie włączone. Jeśli wydaje się, że brakuje danych, może być konieczne dostosowanie ustawień próbkowania do określonego scenariusza monitorowania. Aby dowiedzieć się więcej, zobacz [Konfigurowanie próbkowania](#configure-sampling).
 
 Pełna lista funkcji Application Insights dostępnych dla aplikacji funkcji została szczegółowo opisana w [Application Insights dla Azure Functions obsługiwanych funkcji](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -131,14 +134,14 @@ W przypadku pisania dzienników w kodzie funkcji kategoria jest `Function.<YOUR_
 
 Rejestrator Azure Functions obejmuje również *poziom dziennika* z każdym dziennikiem. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) jest wyliczeniem, a kod liczby całkowitej wskazuje na ważność względną:
 
-|LogLevel    |Code|
+|LogLevel    |Kod|
 |------------|---|
 |Ślad       | 0 |
 |Debugowanie       | 1 |
 |Informacje | 2 |
 |Ostrzeżenie     | 3 |
-|Error       | 4 |
-|Krytyczny    | 5 |
+|Błąd       | 4 |
+|Krytyczne    | 5 |
 |Brak        | 6 |
 
 Poziom dziennika `None` został wyjaśniony w następnej sekcji. 
@@ -229,7 +232,7 @@ Aby pominąć wszystkie dzienniki dla kategorii, można użyć poziomu dziennika
 
 ## <a name="configure-the-aggregator"></a>Konfigurowanie agregatora
 
-Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w pliku [host. JSON] .  Przykład:
+Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w pliku [host. JSON] .  Oto przykład:
 
 ```json
 {
@@ -242,7 +245,7 @@ Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane doty
 
 ## <a name="configure-sampling"></a>Konfiguruj próbkowanie
 
-Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Próbkowanie można skonfigurować w pliku [host. JSON].  Przykład:
+Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Próbkowanie można skonfigurować w pliku [host. JSON].  Oto przykład:
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -271,9 +274,6 @@ Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampli
   }
 }
 ```
-
-> [!NOTE]
-> [Próbkowanie](../azure-monitor/app/sampling.md) jest domyślnie włączone. Jeśli wydaje się, że brakuje danych, może być konieczne dostosowanie ustawień próbkowania do określonego scenariusza monitorowania.
 
 ## <a name="write-logs-in-c-functions"></a>Write logs in C# functions (Zapisywanie dzienników w funkcjach języka C#)
 

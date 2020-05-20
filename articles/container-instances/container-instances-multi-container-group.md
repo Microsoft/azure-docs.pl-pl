@@ -4,12 +4,12 @@ description: W tym samouczku dowiesz się, jak wdrożyć grupę kontenerów z wi
 ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
-ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b08a974cbbdc9e4bdf1594672f82748bfabe88b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74533621"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653516"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Samouczek: wdrażanie wielokontenerowej grupy przy użyciu szablonu Menedżer zasobów
 
@@ -37,7 +37,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="configure-a-template"></a>Konfigurowanie szablonu
 
-Zacznij od skopiowania następującego kodu JSON do nowego pliku o `azuredeploy.json`nazwie. W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
+Zacznij od skopiowania następującego kodu JSON do nowego pliku o nazwie `azuredeploy.json` . W Azure Cloud Shell można użyć Visual Studio Code, aby utworzyć plik w katalogu roboczym:
 
 ```
 code azuredeploy.json
@@ -111,11 +111,11 @@ Ten szablon Menedżer zasobów definiuje grupę kontenerów z dwoma kontenerami,
           "ports": [
             {
               "protocol": "tcp",
-              "port": "80"
+              "port": 80
             },
             {
                 "protocol": "tcp",
-                "port": "8080"
+                "port": 8080
             }
           ]
         }
@@ -177,7 +177,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Wyświetlanie dzienników kontenerów
 
-Wyświetlanie danych wyjściowych kontenera za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name` Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` kontener jest określony.
+Wyświetlanie danych wyjściowych kontenera za pomocą polecenia [AZ Container Logs][az-container-logs] . `--container-name`Argument określa kontener, z którego mają być ściągane dzienniki. W tym przykładzie `aci-tutorial-app` kontener jest określony.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -218,7 +218,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Jak widać, Przyczepka okresowo przesyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Tego przykładu przyczepki można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny `200 OK`niż.
+Jak widać, Przyczepka okresowo przesyła żądanie HTTP do głównej aplikacji sieci Web za pośrednictwem sieci lokalnej grupy, aby upewnić się, że jest uruchomiona. Tego przykładu przyczepki można rozszerzyć, aby wyzwolić alert, jeśli otrzymał kod odpowiedzi HTTP inny niż `200 OK` .
 
 ## <a name="next-steps"></a>Następne kroki
 

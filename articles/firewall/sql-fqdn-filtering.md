@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28252b42264dc6c1be403e99689f845d7143b1f7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8b67574f435681d8071eda1ad954dcafb5124cbf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200465"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655101"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Konfigurowanie reguł aplikacji zapory platformy Azure przy użyciu nazw FQDN programu SQL
 
@@ -26,8 +26,6 @@ Za pomocą nazw FQDN programu SQL można filtrować ruch:
 
 Filtrowanie nazwy FQDN SQL jest obsługiwane tylko w [trybie proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Jeśli używasz SQL w domyślnym trybie przekierowywania, możesz filtrować dostęp przy użyciu znacznika usługi SQL jako części [reguł sieci](overview.md#network-traffic-filtering-rules).
 Jeśli używasz portów innych niż domyślne dla ruchu SQL IaaS, możesz skonfigurować te porty w regułach aplikacji zapory.
-
-Reguły aplikacji z nazwami FQDN programu SQL są obecnie dostępne we wszystkich regionach za pośrednictwem Azure Portal, interfejsu wiersza polecenia platformy Azure, REST i szablonów.
 
 ## <a name="configure-using-azure-cli"></a>Konfigurowanie przy użyciu interfejsu wiersza polecenia platformy Azure
 

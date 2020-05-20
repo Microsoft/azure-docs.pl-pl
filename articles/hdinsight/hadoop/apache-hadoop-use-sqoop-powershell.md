@@ -6,16 +6,16 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/10/2020
-ms.openlocfilehash: f39b595adf249b7412cb9b6b48f86b6fbd2c5e1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 87077eacd607acf4efbd660a1926daf15db7f7e5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263408"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653581"
 ---
-# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Uruchamianie zadań Apache Sqoop za pomocą Azure PowerShell dla Apache Hadoop w usłudze HDInsight
+# <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>Uruchamianie zadań Apache Sqoop w Azure PowerShell usłudze HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -33,7 +33,7 @@ Dowiedz się, jak używać Azure PowerShell do uruchamiania zadań Apache Sqoop 
 
 Z programu Hive do SQL Server.
 
-Ten przykład eksportuje dane z tabeli `hivesampletable` programu Hive do `mobiledata` tabeli w SQL Database. Ustaw wartości dla zmiennych poniżej, a następnie wykonaj polecenie.
+Ten przykład eksportuje dane z tabeli programu Hive `hivesampletable` do `mobiledata` tabeli w SQL Database. Ustaw wartości dla zmiennych poniżej, a następnie wykonaj polecenie.
 
 ```powershell
 $hdinsightClusterName = ""
@@ -92,7 +92,7 @@ New-AzHDInsightSqoopJobDefinition `
         -DisplayOutputType StandardOutput
     ```
 
-Jeśli zostanie wyświetlony komunikat o błędzie, `The specified blob does not exist.`spróbuj ponownie za kilka minut.
+Jeśli zostanie wyświetlony komunikat o błędzie, `The specified blob does not exist.` spróbuj ponownie za kilka minut.
 
 ## <a name="sqoop-import"></a>Sqoop import
 
@@ -126,9 +126,9 @@ Get-AzHDInsightJobOutput `
 
 ## <a name="additional-sqoop-export-example"></a>Przykład dodatkowego eksportu Sqoop
 
-Jest to niezawodny przykład, który eksportuje dane `/tutorials/usesqoop/data/sample.log` z programu z domyślnego konta magazynu, a następnie importuje go do tabeli `log4jlogs` o nazwie w bazie danych SQL Server. Ten przykład nie zależy od wcześniejszych przykładów.
+Jest to niezawodny przykład, który eksportuje dane z programu `/tutorials/usesqoop/data/sample.log` z domyślnego konta magazynu, a następnie importuje go do tabeli o nazwie `log4jlogs` w bazie danych SQL Server. Ten przykład nie zależy od wcześniejszych przykładów.
 
-Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy, a następnie eksportuje go do Azure SQL Database do tabeli `log4jlogs`. `CLUSTERNAME`Zastąp `CLUSTERPASSWORD`wartości, `SQLPASSWORD` i wartościami użytymi w ramach wymagań wstępnych.
+Poniższy skrypt programu PowerShell wstępnie przetwarza plik źródłowy, a następnie eksportuje go do Azure SQL Database do tabeli `log4jlogs` . Zastąp `CLUSTERNAME` `CLUSTERPASSWORD` wartości, i `SQLPASSWORD` wartościami użytymi w ramach wymagań wstępnych.
 
 ```powershell
 <#------ BEGIN USER INPUT ------#>

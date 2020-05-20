@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186326"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647725"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 
@@ -208,8 +208,8 @@ Dzięki Azure Cosmos DB warstwy Bezpłatna uzyskasz bezpłatnie 400 RU/s i 5 GB 
 - Teraz Załóżmy, że na tym samym koncie zostanie dodana kolejna baza danych lub kontener z 1000 RU/s i 10 GB miejsca w magazynie.
 - Na rachunku będzie teraz wyświetlana opłata za 1000 RU/s i 10 GB miejsca w magazynie. 
 
-### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Przykład rozliczeń — kontener lub baza danych z przepływem automatycznego skalowania
-- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz bazę danych lub kontener z włączonym skalowaniem automatycznym z maksymalną wartością RU/s z 4000 RU/s. Ten zasób będzie automatycznie skalowany między 400 RU/s-4000 RU/s. 
+### <a name="billing-example---container-with-autoscale-throughput"></a>Przykład rozliczeń — kontener z przepływem automatycznego skalowania
+- Załóżmy, że w ramach konta warstwy Bezpłatna utworzysz kontener z włączoną funkcją automatycznego skalowania z maksymalną wartością RU/s z 4000 RU/s. Ten zasób będzie automatycznie skalowany między 400 RU/s-4000 RU/s. 
 - Załóżmy, że w ciągu 1 godziny do 10 godzin zasób wynosi co najmniej 400 RU/s. W ciągu godziny 11 zasób jest skalowany w górę do 1000 RU/s, a następnie z powrotem do 400 RU/s w ciągu godziny.
 - W godzinach od 1 do 10 opłaty zostaną naliczone $0 za przepływność, ponieważ 400 RU/s zostały objęte bezpłatną warstwą. 
 - W godzinie 11 zostanie naliczona stawka za rzeczywiste 1000 RU/s-400 RU/s = 600 RU/s, ponieważ jest to najwyższa wartość RU/s w danej godzinie. Będzie to 6 jednostek z 100 RU na godzinę, więc łączny koszt przepływności dla godziny będzie wynosić 6 jednostek * $0,012 = $0,072. 

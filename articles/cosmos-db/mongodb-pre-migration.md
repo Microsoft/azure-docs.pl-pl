@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8156c1c3601b0cd6f518f6a70bc4e0769c570e7f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791752"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647279"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -47,7 +47,7 @@ Poniżej przedstawiono konkretne charakterystyki dotyczące interfejsu API Azure
 |W trybie offline|[Narzędzie do migracji danych](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Nieodpowiedni dla dużych zestawów danych.|
 |W trybie offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych <br/>&bull;Brak punktów kontrolnych oznacza, że każdy problem w trakcie migracji będzie wymagał ponownego uruchomienia całego procesu migracji<br/>&bull;Brak kolejki utraconych wiadomości oznacza, że kilka błędnych plików może zatrzymać cały proces migracji <br/>&bull;Potrzebuje niestandardowego kodu, aby zwiększyć przepływność odczytu dla niektórych źródeł danych|
 |W trybie offline|[Istniejące narzędzia Mongo (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull;Łatwa konfiguracja i integracja <br/>&bull;Wymaga obsługi niestandardowej dla ograniczania przepustowości|
-|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;W pełni zarządzana usługa migracji.<br/>&bull;Udostępnia rozwiązania hostingu i monitorowania dla zadania migracji. <br/>&bull;Odpowiednie dla dużych zestawów danych i należy zachować ostrożność replikowania zmian na żywo <br/>&bull;Działa tylko z innymi źródłami MongoDB|
+|Online|[Usługa Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull;W pełni zarządzana usługa migracji.<br/>&bull;Udostępnia rozwiązania hostingu i monitorowania dla zadania migracji. <br/>&bull;Odpowiednie dla dużych zestawów danych i należy zachować ostrożność replikowania zmian na żywo <br/>&bull;Działa tylko z innymi źródłami MongoDB|
 
 
 ## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a>Oszacowanie potrzeby przepływności dla obciążeń

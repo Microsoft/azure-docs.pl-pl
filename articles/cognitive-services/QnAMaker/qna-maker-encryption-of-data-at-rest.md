@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372096"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653665"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker szyfrowanie danych magazynowanych
 
@@ -37,7 +37,7 @@ Usługa QnA Maker używa programu CMK z usługi Azure Search. Wykonaj następuj�
 
    ![Wyświetl ustawienia szyfrowania](../media/cognitive-services-encryption/qna-encryption-1.png)
 
-2. Podczas tworzenia zasobu QnA Maker jest on automatycznie kojarzony z wystąpieniem Azure Search. Nie można go używać z CMK. Aby użyć CMK, musisz skojarzyć nowo utworzone wystąpienie Azure Search, które zostało utworzone w kroku 1. W tym celu należy zaktualizować i `AzureSearchAdminKey` `AzureSearchName` w ramach zasobu QNA Maker.
+2. Podczas tworzenia zasobu QnA Maker jest on automatycznie kojarzony z wystąpieniem Azure Search. Nie można go używać z CMK. Aby użyć CMK, musisz skojarzyć nowo utworzone wystąpienie Azure Search, które zostało utworzone w kroku 1. W tym celu należy zaktualizować `AzureSearchAdminKey` i `AzureSearchName` w ramach zasobu QNA Maker.
 
    ![Wyświetl ustawienia szyfrowania](../media/cognitive-services-encryption/qna-encryption-2.png)
 
@@ -52,6 +52,11 @@ Usługa QnA Maker używa programu CMK z usługi Azure Search. Wykonaj następuj�
 ## <a name="regional-availability"></a>Dostępność regionalna
 
 Klucze zarządzane przez klienta są dostępne we wszystkich regionach Azure Search.
+
+## <a name="encryption-of-data-in-transit"></a>Szyfrowanie danych podczas przesyłania
+
+Portal QnA Maker jest uruchamiany w przeglądarce użytkownika. Każde działanie wyzwala bezpośrednie wywołanie odpowiedniego interfejsu API usługi poznawczej. W związku z tym QnA Maker jest zgodny do przesyłania danych.
+Jednak ponieważ usługa Portal QnA Maker jest hostowana w regionie zachodnie stany USA, nadal nie jest idealnym rozwiązaniem dla klientów innych niż USA. 
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6212e74ecbf8327d3939138de2e92868f29b0f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6aaed8d56bb254e5a6385c770f97b5238a5747b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058447"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647439"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie OnDemand kamień dla automatycznej aprowizacji użytkowników
 
@@ -39,7 +39,7 @@ Scenariusz opisany w tym samouczku założono, że masz:
 * Konto użytkownika w OnDemand Kamieńal z uprawnieniami administratora.
 
 > [!NOTE]
-> Integracja z obsługą administracyjną usługi Azure AD opiera się na [usłudze sieci Web OnDemand](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). Ta usługa jest dostępna dla zespołów z OnDemandami.
+> Integracja z obsługą administracyjną usługi Azure AD opiera się na [usłudze sieci Web OnDemand](https://www.cornerstoneondemand.com/). Ta usługa jest dostępna dla zespołów z OnDemandami.
 
 ## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Dodaj OnDemandy kamień z portalu Azure Marketplace
 
@@ -81,7 +81,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
 Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla OnDemandu kamień w usłudze Azure AD, wykonaj następujące kroki.
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > **kamień OnDemand**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wybierz kolejno pozycje **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**  >  **kamień OnDemand**.
 
     ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
@@ -103,7 +103,7 @@ Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla OnDemand
 
     * W polu **hasło administratora** wprowadź hasło odpowiadające nazwie użytkownika administratora.
 
-    * W polu **domena** wprowadź adres URL usługi sieci Web dzierżawy OnDemand. Na przykład usługa znajduje się w lokalizacji `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, a dla contoso jest `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`to domena. Aby uzyskać więcej informacji na temat pobierania adresu URL usługi sieci Web, zobacz [ten plik PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * W polu **domena** wprowadź adres URL usługi sieci Web dzierżawy OnDemand. Na przykład usługa znajduje się w lokalizacji `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx` , a dla contoso jest to domena `https://ws-contoso.csod.com/feed30/clientdataservice.asmx` . Aby uzyskać więcej informacji na temat pobierania adresu URL usługi sieci Web, zobacz [ten plik PDF](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Po wypełnieniu pól przedstawionych w kroku 5 wybierz pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z OnDemandiem kamień. Jeśli połączenie nie powiedzie się, upewnij się, że konto z OnDemandymi jest kontem administratora, a następnie spróbuj ponownie.
 
@@ -153,7 +153,7 @@ OnDemandowy atrybut **położenia** jest oczekiwany wartości, która odnosi si�
 
 ![Lista pozycji udostępniania OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

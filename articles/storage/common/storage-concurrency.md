@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255303"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655931"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Zarządzanie współbieżnością w usłudze Microsoft Azure Storage
 
@@ -90,13 +90,13 @@ Poniższa tabela zawiera podsumowanie operacji kontenera akceptujących nagłów
 
 | Operacja | Zwraca wartość ETag kontenera | Akceptuje nagłówki warunkowe |
 |:--- |:--- |:--- |
-| Tworzenie kontenera |Tak |Nie |
-| Pobierz właściwości kontenera |Tak |Nie |
-| Pobierz metadane kontenera |Tak |Nie |
+| Tworzenie kontenera |Yes |Nie |
+| Pobierz właściwości kontenera |Yes |Nie |
+| Pobierz metadane kontenera |Yes |Nie |
 | Ustawianie metadanych kontenera |Tak |Tak |
-| Pobierz listę ACL kontenerów |Tak |Nie |
-| Ustawianie listy ACL kontenerów |Tak |Tak (*) |
-| Usuwanie kontenera |Nie |Tak |
+| Pobierz listę ACL kontenerów |Yes |Nie |
+| Ustawianie listy ACL kontenerów |Yes |Tak (*) |
+| Usuwanie kontenera |Nie |Yes |
 | Kontener dzierżawy |Tak |Tak |
 | Wyświetl listę obiektów BLOB |Nie |Nie |
 
@@ -114,12 +114,12 @@ Poniższa tabela zawiera podsumowanie operacji obiektów blob, które akceptują
 | Ustawianie metadanych obiektu BLOB |Tak |Tak |
 | Obiekt BLOB dzierżawy (*) |Tak |Tak |
 | Wykonywanie migawki obiektu blob |Tak |Tak |
-| Kopiowanie obiektu blob |Tak |Tak (dla źródłowego i docelowego obiektu BLOB) |
+| Kopiowanie obiektu blob |Yes |Tak (dla źródłowego i docelowego obiektu BLOB) |
 | Przerwij Kopiowanie obiektu BLOB |Nie |Nie |
-| Usuwanie obiektu blob |Nie |Tak |
+| Usuwanie obiektu blob |Nie |Yes |
 | Umieść blok |Nie |Nie |
 | Umieść listę zablokowanych |Tak |Tak |
-| Pobierz listę zablokowanych |Tak |Nie |
+| Pobierz listę zablokowanych |Yes |Nie |
 | Umieść stronę |Tak |Tak |
 | Pobierz zakresy stron |Tak |Tak |
 
@@ -244,13 +244,13 @@ Poniższa tabela zawiera podsumowanie sposobu używania wartości ETag przez ope
 
 | Operacja | Zwraca wartość ETag | Wymaga nagłówka żądania if-Match |
 |:--- |:--- |:--- |
-| Jednostki zapytań |Tak |Nie |
-| Wstaw jednostkę |Tak |Nie |
+| Jednostki zapytań |Yes |Nie |
+| Wstaw jednostkę |Yes |Nie |
 | Aktualizuj jednostkę |Tak |Tak |
 | Scal jednostkę |Tak |Tak |
-| Usuń jednostkę |Nie |Tak |
-| Wstaw lub Zamień jednostkę |Tak |Nie |
-| Wstaw lub Scal jednostkę |Tak |Nie |
+| Usuń jednostkę |Nie |Yes |
+| Wstaw lub Zamień jednostkę |Yes |Nie |
+| Wstaw lub Scal jednostkę |Yes |Nie |
 
 Należy zauważyć, że operacje **wstawiania i zastępowania jednostki** i **wstawiania lub scalania jednostek** *nie wykonują* żadnych kontroli współbieżności, ponieważ nie wysyłają wartości ETag do usługi Table Service.  
 
@@ -292,5 +292,5 @@ Aby uzyskać więcej informacji na temat usługi Azure Storage, zobacz:
 * [Strona główna Microsoft Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Wprowadzenie do usługi Azure Storage](storage-introduction.md)
 * Wprowadzenie magazynu dla [obiektów BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabel](../../cosmos-db/table-storage-how-to-use-dotnet.md), [kolejek](../storage-dotnet-how-to-use-queues.md)i [plików](../storage-dotnet-how-to-use-files.md)
-* Architektura magazynu — [Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Architektura magazynu — [Azure Storage: usługa magazynu w chmurze o wysokiej dostępności z silną spójnością](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

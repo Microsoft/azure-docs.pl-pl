@@ -1,7 +1,7 @@
 ---
 title: Zdarzenia wyzwalania w przepływach pracy w ML
 titleSuffix: Azure Machine Learning
-description: Dowiedz się, jak wyzwolić aplikacje oparte na zdarzeniach, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania na podstawie Azure Machine Learning zdarzeń, aby uprościć cykl życia w sieci.
+description: Konfigurowanie aplikacji opartych na zdarzeniach, procesów lub przepływów pracy uczenia maszynowego/ciągłego w Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: 236cc46bb6f9e5ed95e4a49068ac41ae77a736f5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 79bea443ea576ba0c17c1a8150c305d7cd2320ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655801"
 ---
-# <a name="trigger-event-driven-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalanie aplikacji opartych na zdarzeniach, procesów lub przepływów pracy ciągłej integracji/ciągłego wdrażania na podstawie zdarzeń Azure Machine Learning (wersja zapoznawcza)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 
 W tym artykule dowiesz się, jak skonfigurować aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania, na podstawie zdarzeń Azure Machine Learning, takich jak wiadomości e-mail z powiadomieniami o błędach lub uruchomienia potoku ML, w przypadku wykrycia określonych warunków przez [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
@@ -241,7 +241,7 @@ Teraz potok fabryki danych jest wyzwalany, gdy nastąpi dryf. Wyświetl szczegó
 
 Obiekt modelu Azure Machine Learning zawiera parametry, które można przestawiać wdrożenia, takie jak nazwa modelu, wersja, tag i właściwość. Zdarzenie rejestracji modelu może wyzwolić punkt końcowy i można użyć funkcji platformy Azure do wdrożenia modelu na podstawie wartości tych parametrów.
 
-Aby zapoznać się z przykładem [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) , zobacz repozytorium i postępuj zgodnie z instrukcjami w pliku **README** .
+Aby zapoznać się z przykładem, zobacz [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repozytorium i postępuj zgodnie z instrukcjami w pliku **README** .
 
 ## <a name="next-steps"></a>Następne kroki
 

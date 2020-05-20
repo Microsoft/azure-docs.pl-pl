@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6630d96c90a221a6b0374f2e4758748a77ad0610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158909"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647827"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Przegląd Service Busych kolejek utraconych
 
@@ -40,34 +40,33 @@ Nie jest możliwe uzyskanie liczby komunikatów w kolejce utraconych danych na p
 
 ![Liczba komunikatów DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Liczbę komunikatów DLQ można także uzyskać za pomocą polecenia interfejsu CLI platformy Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
+Liczbę komunikatów DLQ można także uzyskać za pomocą polecenia interfejsu CLI platformy Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show) . 
 
 ## <a name="moving-messages-to-the-dlq"></a>Przeniesienie komunikatów do DLQ
 
 Istnieje kilka działań w Service Bus, które powodują wypychanie komunikatów do DLQ z poziomu samego aparatu obsługi komunikatów. Aplikacja może również jawnie przenosić komunikaty do DLQ. 
 
-Gdy wiadomość zostanie przeniesiona przez brokera, do wiadomości są dodawane dwie właściwości, ponieważ Broker wywoła swoją wewnętrzną wersję metody [utraconych](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) wiadomości: `DeadLetterReason` i `DeadLetterErrorDescription`.
+Gdy wiadomość zostanie przeniesiona przez brokera, do wiadomości są dodawane dwie właściwości, ponieważ Broker wywoła swoją wewnętrzną wersję metody [utraconych](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) wiadomości: `DeadLetterReason` i `DeadLetterErrorDescription` .
 
 Aplikacje mogą definiować własne kody dla `DeadLetterReason` właściwości, ale system ustawia następujące wartości.
 
-| Warunek | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Zawsze |HeaderSizeExceeded |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
-| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing i SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |Oprócz. GetType (). Nazwij |Oprócz. Komunikat |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Komunikat wygasł i został uznany za utracony. |
-| SubscriptionDescription.RequiresSession |Identyfikator sesji ma wartość null. |Jednostka z obsługą sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
-| Kolejka utraconych wiadomości | MaxTransferHopCountExceeded | Maksymalna liczba dozwolonych przeskoków podczas przekazywania między kolejkami. Wartość jest równa 4. |
-| Niejawna utracona aplikacja |Określone przez aplikację |Określone przez aplikację |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |Przekroczono limit przydziału rozmiaru dla tego strumienia. |
+|TTLExpiredException |Komunikat wygasł i został uznany za utracony. Aby uzyskać szczegółowe informacje, zobacz sekcję [przekroczenie TimeToLive](#exceeding-timetolive) . |
+|Identyfikator sesji ma wartość null. |Jednostka z obsługą sesji nie pozwala na komunikat, którego identyfikator sesji ma wartość null. |
+|MaxTransferHopCountExceeded | Maksymalna liczba dozwolonych przeskoków podczas przekazywania między kolejkami. Wartość jest równa 4. |
+| MaxDeliveryCountExceededExceptionMessage | Nie można użyć komunikatu po osiągnięciu maksymalnej liczby prób dostarczenia. Aby uzyskać szczegółowe informacje, zobacz sekcję [przekroczenie MaxDeliveryCount](#exceeding-maxdeliverycount) . |
 
 ## <a name="exceeding-maxdeliverycount"></a>Przekraczanie MaxDeliveryCount
 
-Każda kolejka i subskrypcje mają odpowiednio Właściwość [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) ; wartość domyślna to 10. Za każdym razem, gdy komunikat zostanie dostarczony w ramach blokady ([ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), ale został jawnie porzucony lub blokada wygasła, komunikat [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) jest zwiększany. Gdy [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) przekracza [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), komunikat jest przenoszony do DLQ, określając kod `MaxDeliveryCountExceeded` przyczyny.
+Każda kolejka i subskrypcje mają odpowiednio Właściwość [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) i [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) ; wartość domyślna to 10. Za każdym razem, gdy komunikat zostanie dostarczony w ramach blokady ([ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), ale został jawnie porzucony lub blokada wygasła, komunikat [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) jest zwiększany. Gdy [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) przekracza [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), komunikat jest przenoszony do DLQ, określając `MaxDeliveryCountExceeded` kod przyczyny.
 
 Nie można wyłączyć tego zachowania, ale można ustawić [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) na dużą liczbę.
 
 ## <a name="exceeding-timetolive"></a>Przekraczanie TimeToLive
 
-Gdy właściwość [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) lub [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) ma **wartość true** (wartością domyślną jest **false**), wszystkie komunikaty wygasające są przenoszone do DLQ, określając kod `TTLExpiredException` przyczyny.
+Gdy właściwość [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) lub [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) ma **wartość true** (wartością domyślną jest **false**), wszystkie komunikaty wygasające są przenoszone do DLQ, określając `TTLExpiredException` kod przyczyny.
 
 Wygasłe komunikaty są przeczyszczane i przenoszone do DLQ, gdy istnieje co najmniej jeden aktywny odbiornik ściągający z kolejki głównej lub subskrypcji. takie zachowanie jest zaprojektowane.
 
@@ -91,7 +90,7 @@ Aby pobrać te wiadomości utraconych, można utworzyć odbiornik przy użyciu m
 
 ## <a name="example"></a>Przykład
 
-Poniższy fragment kodu tworzy odbiorcę wiadomości. W pętli odbioru dla kolejki głównej kod pobiera komunikat z poleceniem [Receive (TimeSpan. zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), które umożliwia brokerowi natychmiastowe zwrócenie wszelkich komunikatów, które są łatwo dostępne lub do zwrócenia bez żadnego wyniku. Jeśli kod otrzymuje komunikat, natychmiast porzuca go, co zwiększa wartość `DeliveryCount`. Gdy system przenosi komunikat do DLQ, kolejka główna jest pusta, a pętla zostanie zakończona, ponieważ [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) zwraca **wartość null**.
+Poniższy fragment kodu tworzy odbiorcę wiadomości. W pętli odbioru dla kolejki głównej kod pobiera komunikat z poleceniem [Receive (TimeSpan. zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), które umożliwia brokerowi natychmiastowe zwrócenie wszelkich komunikatów, które są łatwo dostępne lub do zwrócenia bez żadnego wyniku. Jeśli kod otrzymuje komunikat, natychmiast porzuca go, co zwiększa wartość `DeliveryCount` . Gdy system przenosi komunikat do DLQ, kolejka główna jest pusta, a pętla zostanie zakończona, ponieważ [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) zwraca **wartość null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

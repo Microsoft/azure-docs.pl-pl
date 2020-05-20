@@ -3,12 +3,12 @@ title: Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 description: Dowiedz się, jak utworzyć Azure Policy zasady konfiguracji gościa dla systemu Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 219b38bd81cae8d16241d1ee16cfdd2f400ae91e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a636b63c80799f8bfe3dfd3a0eb37d1367cdcf0d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024986"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654864"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Jak utworzyć zasady konfiguracji gościa dla systemu Linux
 
@@ -31,7 +31,14 @@ Wykonaj poniższe czynności, aby utworzyć własną konfigurację służącą d
 
 ## <a name="install-the-powershell-module"></a>Instalowanie modułu programu PowerShell
 
-Tworzenie artefaktu konfiguracji gościa, automatyczne testowanie artefaktu, tworzenie definicji zasad i publikowanie zasad jest całkowicie Automatyzowanie przy użyciu modułu konfiguracji gościa w programie PowerShell. Moduł można zainstalować na komputerze z systemem Windows, macOS lub Linux przy użyciu programu PowerShell 6,2 lub nowszego uruchomionego lokalnie lub z [Azure Cloud Shell](https://shell.azure.com)lub z [obrazem platformy Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+Moduł konfiguracji gościa automatyzuje proces tworzenia zawartości niestandardowej, w tym:
+
+- Tworzenie artefaktu zawartości konfiguracji gościa (zip)
+- Automatyczne testowanie artefaktu
+- Tworzenie definicji zasad
+- Publikowanie zasad
+
+Moduł można zainstalować na komputerze z systemem Windows, macOS lub Linux przy użyciu programu PowerShell 6,2 lub nowszego uruchomionego lokalnie lub z [Azure Cloud Shell](https://shell.azure.com)lub z [obrazem platformy Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
 > Kompilacja konfiguracji nie jest obsługiwana w systemie Linux.
@@ -78,7 +85,7 @@ Nazwa konfiguracji niestandardowej musi być spójna wszędzie. Nazwa pliku. zip
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Konfiguracja niestandardowej konfiguracji gościa w systemie Linux
 
-Konfiguracja gościa w systemie Linux `ChefInSpecResource` używa zasobu do zapewnienia aparatu o nazwie [profilu INSPEC](https://www.inspec.io/docs/reference/profiles/). **Nazwa** jest jedyną wymaganą właściwością zasobu. Utwórz plik YaML i plik skryptu Ruby, jak pokazano poniżej.
+Konfiguracja gościa w systemie Linux używa `ChefInSpecResource` zasobu do zapewnienia aparatu o nazwie [profilu INSPEC](https://www.inspec.io/docs/reference/profiles/). **Nazwa** jest jedyną wymaganą właściwością zasobu. Utwórz plik YaML i plik skryptu Ruby, jak pokazano poniżej.
 
 Najpierw utwórz plik YaML używany przez specyfikację. Plik zawiera podstawowe informacje o środowisku. Poniżej przedstawiono przykład:
 
@@ -127,9 +134,9 @@ import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
-Zapisz ten plik o nazwie `config.ps1` w folderze projektu. Uruchom ją w programie PowerShell, `./config.ps1` wykonując w terminalu. Zostanie utworzony nowy plik MOF.
+Zapisz ten plik o nazwie `config.ps1` w folderze projektu. Uruchom ją w programie PowerShell, wykonując `./config.ps1` w terminalu. Zostanie utworzony nowy plik MOF.
 
-`Node AuditFilePathExists` Polecenie nie jest technicznie wymagane, ale tworzy plik o `AuditFilePathExists.mof` nazwie zamiast domyślnego, `localhost.mof`. Jeśli nazwa pliku MOF jest zgodna z konfiguracją, ułatwia organizowanie wielu plików podczas pracy w dużej skali.
+`Node AuditFilePathExists`Polecenie nie jest technicznie wymagane, ale tworzy plik o nazwie `AuditFilePathExists.mof` zamiast domyślnego, `localhost.mof` . Jeśli nazwa pliku MOF jest zgodna z konfiguracją, ułatwia organizowanie wielu plików podczas pracy w dużej skali.
 
 
 
@@ -147,7 +154,7 @@ Teraz należy mieć strukturę projektu w następujący sposób:
 
 Pliki pomocnicze muszą być spakowane razem. Ukończony pakiet jest używany przez konfigurację gościa do tworzenia definicji Azure Policy.
 
-`New-GuestConfigurationPackage` Polecenie cmdlet tworzy pakiet. Parametry `New-GuestConfigurationPackage` polecenia cmdlet podczas tworzenia zawartości systemu Linux:
+`New-GuestConfigurationPackage`Polecenie cmdlet tworzy pakiet. Parametry `New-GuestConfigurationPackage` polecenia cmdlet podczas tworzenia zawartości systemu Linux:
 
 - **Nazwa**: Nazwa pakietu konfiguracji gościa.
 - **Konfiguracja**: pełna ścieżka do skompilowanego dokumentu konfiguracyjnego.
@@ -163,7 +170,7 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-Po utworzeniu pakietu konfiguracyjnego, ale przed opublikowaniem go na platformie Azure, można przetestować pakiet ze stacji roboczej lub środowiska CI/CD. Polecenie cmdlet `Test-GuestConfigurationPackage` GuestConfiguration zawiera tego samego agenta w środowisku deweloperskim, jak jest używane wewnątrz maszyn platformy Azure. Korzystając z tego rozwiązania, można przeprowadzić testowanie integracji lokalnie przed wydaniem do rozliczane środowiska chmury.
+Po utworzeniu pakietu konfiguracyjnego, ale przed opublikowaniem go na platformie Azure, można przetestować pakiet ze stacji roboczej lub środowiska CI/CD. Polecenie cmdlet GuestConfiguration `Test-GuestConfigurationPackage` zawiera tego samego agenta w środowisku deweloperskim, jak jest używane wewnątrz maszyn platformy Azure. Korzystając z tego rozwiązania, można przeprowadzić testowanie integracji lokalnie przed wydaniem do rozliczane środowiska chmury.
 
 Ponieważ agent rzeczywiście ocenia środowisko lokalne, w większości przypadków należy uruchomić polecenie cmdlet Test-na tej samej platformie systemu operacyjnego, co planujesz przeprowadzić inspekcję.
 
@@ -242,7 +249,7 @@ $uri = publish `
   -filePath ./AuditFilePathExists.zip `
   -blobName 'AuditFilePathExists'
 ```
-Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa Utwórz definicję zasad konfiguracji gościa. `New-GuestConfigurationPolicy` Polecenie cmdlet przyjmuje niestandardowy pakiet zasad i tworzy definicję zasad.
+Po utworzeniu i przekazaniu niestandardowego pakietu zasad konfiguracji gościa Utwórz definicję zasad konfiguracji gościa. `New-GuestConfigurationPolicy`Polecenie cmdlet przyjmuje niestandardowy pakiet zasad i tworzy definicję zasad.
 
 Parametry `New-GuestConfigurationPolicy` polecenia cmdlet:
 
@@ -267,7 +274,7 @@ New-GuestConfigurationPolicy `
     -Verbose
 ```
 
-Następujące pliki są tworzone przez `New-GuestConfigurationPolicy`:
+Następujące pliki są tworzone przez `New-GuestConfigurationPolicy` :
 
 - **auditIfNotExists. JSON**
 - **deployIfNotExists. JSON**
@@ -275,8 +282,16 @@ Następujące pliki są tworzone przez `New-GuestConfigurationPolicy`:
 
 Dane wyjściowe polecenia cmdlet zwracają obiekt zawierający nazwę wyświetlaną inicjatywy i ścieżkę plików zasad.
 
+> [!Note]
+> Najnowszy moduł konfiguracji gościa zawiera nowe parametry:
+> - **Tag** dodaje jeden lub więcej filtrów tagów do definicji zasad
+>   - Zapoznaj się z sekcją [filtrowanie zasad konfiguracji gościa za pomocą tagów](#filtering-guest-configuration-policies-using-tags).
+> - **Kategoria** ustawia pole metadanych kategorii w definicji zasad
+>   - Jeśli parametr nie jest uwzględniony, Kategoria domyślnie ustawi konfigurację gościa.
+> Te funkcje są obecnie dostępne w wersji zapoznawczej i wymagają 1.20.1 w wersji modułu konfiguracji gościa, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
+
 Na koniec Opublikuj definicje zasad przy użyciu `Publish-GuestConfigurationPolicy` polecenia cmdlet.
-Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy`.
+Polecenie cmdlet ma tylko parametr **Path** wskazujący lokalizację plików JSON utworzonych przez `New-GuestConfigurationPolicy` .
 
 Aby uruchomić polecenie publikowania, musisz mieć dostęp do tworzenia zasad na platformie Azure. Wymagania dotyczące autoryzacji są udokumentowane na stronie [przegląd Azure Policy](../overview.md) . Najlepsza wbudowana rola to **współautor zasad zasobów**.
 
@@ -285,7 +300,7 @@ Publish-GuestConfigurationPolicy `
   -Path '.\policyDefinitions'
 ```
 
- `Publish-GuestConfigurationPolicy` Polecenie cmdlet akceptuje ścieżkę z potoku programu PowerShell. Ta funkcja oznacza, że można tworzyć pliki zasad i publikować je w pojedynczym zestawie poleceń potokowych.
+ `Publish-GuestConfigurationPolicy`Polecenie cmdlet akceptuje ścieżkę z potoku programu PowerShell. Ta funkcja oznacza, że można tworzyć pliki zasad i publikować je w pojedynczym zestawie poleceń potokowych.
 
  ```azurepowershell-interactive
  New-GuestConfigurationPolicy `
@@ -383,9 +398,41 @@ Configuration AuditFilePathExists
 Aby można było wydać aktualizację definicji zasad, istnieją dwa pola, które wymagają uwagi.
 
 - **Wersja**: po uruchomieniu `New-GuestConfigurationPolicy` polecenia cmdlet należy określić numer wersji większy niż aktualnie opublikowany. Właściwość aktualizuje wersję przypisania konfiguracji gościa, aby Agent rozpoznał zaktualizowany pakiet.
-- **contentHash**: Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage`. Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
+- **contentHash**: Ta właściwość jest automatycznie aktualizowana przez `New-GuestConfigurationPolicy` polecenie cmdlet. Jest to wartość skrótu pakietu utworzonego przez `New-GuestConfigurationPackage` . Właściwość musi być poprawna dla `.zip` publikowanych plików. Jeśli zostanie zaktualizowana tylko właściwość **contentUri** , rozszerzenie nie zaakceptuje pakietu zawartości.
 
 Najprostszym sposobem zwolnienia zaktualizowanego pakietu jest powtórzenie procesu opisanego w tym artykule i udostępnienie zaktualizowanego numeru wersji. Ten proces gwarantuje, że wszystkie właściwości zostały prawidłowo zaktualizowane.
+
+
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrowanie zasad konfiguracji gościa za pomocą tagów
+
+> [!Note]
+> Ta funkcja jest obecnie w wersji zapoznawczej i wymaga modułu konfiguracji gościa w wersji 1.20.1, którą można zainstalować za pomocą programu `Install-Module GuestConfiguration -AllowPrerelease` .
+
+Zasady utworzone za pomocą poleceń cmdlet w module konfiguracji gościa mogą opcjonalnie zawierać filtr dla tagów. Parametr **-tag** programu `New-GuestConfigurationPolicy` obsługuje tablicę elementów Hashtable zawierających poszczególne Tagi. Tagi zostaną dodane do `If` sekcji definicji zasad i nie mogą być modyfikowane przez przypisanie zasady.
+
+Przykładowy fragment definicji zasad, który będzie filtrowany dla tagów, podano poniżej.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Opcjonalne: podpisywanie pakietów konfiguracji gościa
 

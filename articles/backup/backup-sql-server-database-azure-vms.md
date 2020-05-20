@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Ser
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9becb574594672c1cf91e610b4c13f91c91aa14f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685710"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659531"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -50,6 +50,16 @@ Ustanów łączność przy użyciu jednej z następujących opcji:
 #### <a name="allow-the-azure-datacenter-ip-ranges"></a>Zezwalaj na zakresy adresów IP centrum danych platformy Azure
 
 Ta opcja zezwala na [zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) w pobranym pliku. Aby uzyskać dostęp do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), użyj polecenia cmdlet Set-AzureNetworkSecurityRule. Jeśli lista bezpiecznych adresatów zawiera tylko adresy IP specyficzne dla regionu, należy również zaktualizować Azure Active Directory listę bezpiecznych adresatów, aby włączyć uwierzytelnianie.
+
+Alternatywnie można również zezwolić na dostęp do następujących nazw FQDN na potrzeby ustanawiania wymaganej łączności:
+
+* `*.<datacentercode>.backup.windowsazure.com`<br>
+(Zobacz [tutaj](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)kody centrów danych).
+
+* `login.windows.net`
+* `*.blob.core.windows.net`
+* `*.queue.core.windows.net`
+
 
 #### <a name="allow-access-using-nsg-tags"></a>Zezwalaj na dostęp za pomocą tagów sieciowej grupy zabezpieczeń
 
@@ -135,7 +145,7 @@ Jak odnajdywać bazy danych uruchomione na maszynie wirtualnej:
 
     ![Wybieranie programu SQL Server na maszynie wirtualnej platformy Azure na potrzeby tworzenia kopii zapasowej](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. W obszarze > **maszyny wirtualne odnajdywanie** **celu wykonywania kopii zapasowych**wybierz pozycję **Rozpocznij odnajdywanie** w celu wyszukania niechronionych maszyn wirtualnych w subskrypcji. To wyszukiwanie może chwilę potrwać, w zależności od liczby niechronionych maszyn wirtualnych w subskrypcji.
+5. W obszarze maszyny wirtualne odnajdywanie **celu wykonywania kopii zapasowych**  >  **Discover DBs in VMs**wybierz pozycję **Rozpocznij odnajdywanie** w celu wyszukania niechronionych maszyn wirtualnych w subskrypcji. To wyszukiwanie może chwilę potrwać, w zależności od liczby niechronionych maszyn wirtualnych w subskrypcji.
 
    * Niechronione maszyny wirtualne powinny zostać wyświetlone na liście po odnalezieniu, uporządkowane według nazwy i grupy zasobów.
    * Jeśli maszyna wirtualna nie jest wyświetlana w oczekiwany sposób, sprawdź, czy kopia zapasowa została już utworzona w magazynie.
@@ -162,7 +172,7 @@ Jak odnajdywać bazy danych uruchomione na maszynie wirtualnej:
 
 ## <a name="configure-backup"></a>Konfigurowanie kopii zapasowych  
 
-1. W obszarze >  **cel kopii zapasowej****krok 2: Konfigurowanie kopii zapasowej**, wybierz pozycję **Konfiguruj kopię zapasową**.
+1. W obszarze **cel kopii zapasowej**  >  **krok 2: Konfigurowanie kopii zapasowej**, wybierz pozycję **Konfiguruj kopię zapasową**.
 
    ![Wybieranie pozycji Konfiguruj kopię zapasową](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -214,7 +224,7 @@ Zasady kopii zapasowych określają, kiedy są tworzone kopie zapasowe i jak dł
 
 Aby utworzyć nowe zasady kopii zapasowych:
 
-1. W magazynie wybierz pozycję >  **zasady tworzenia kopii zapasowych****Dodaj**.
+1. W magazynie wybierz pozycję **zasady tworzenia kopii zapasowych**  >  **Dodaj**.
 2. W obszarze **Dodaj**wybierz pozycję **SQL Server na maszynie wirtualnej platformy Azure** , aby zdefiniować typ zasad.
 
    ![Wybieranie typu nowych zasad kopii zapasowych](./media/backup-azure-sql-database/policy-type-details.png)

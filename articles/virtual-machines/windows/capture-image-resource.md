@@ -8,18 +8,19 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 1b72be91ee11ef7003e225fe830a59ea42310ac6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084468"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656686"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Tworzenie obrazu zarządzanego uogólnionej maszyny wirtualnej na platformie Azure
 
 Zasób obrazu zarządzanego można utworzyć na podstawie uogólnionej maszyny wirtualnej, która jest przechowywana jako dysk zarządzany albo dysk niezarządzany na koncie magazynu. Obraz może następnie służyć do tworzenia wielu maszyn wirtualnych. Aby uzyskać informacje dotyczące sposobu rozliczania zarządzanych obrazów, zobacz [Managed disks Cennik](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
- 
+Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Próba utworzenia więcej niż 20 maszyn wirtualnych współbieżnie z tego samego obrazu zarządzanego może spowodować przekroczenie limitu czasu oczekiwania z ograniczeniami wydajności magazynu pojedynczego wirtualnego dysku twardego. Aby jednocześnie utworzyć więcej niż 20 maszyn wirtualnych, Użyj obrazu [udostępnionego galerii obrazów](shared-image-galleries.md) skonfigurowanego z 1 repliką dla każdego 20 współbieżnych wdrożeń maszyn wirtualnych.
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Uogólnianie maszyny wirtualnej z systemem Windows za pomocą narzędzia Sysprep
 
@@ -38,7 +39,7 @@ Aby uogólnić maszynę wirtualną z systemem Windows, wykonaj następujące kro
 
 1. Zaloguj się do maszyny wirtualnej z systemem Windows.
    
-2. Otwórz okno wiersza polecenia jako administrator. Zmień katalog na%windir%\System32\Sysprep, a następnie uruchom `sysprep.exe`polecenie.
+2. Otwórz okno wiersza polecenia jako administrator. Zmień katalog na%windir%\System32\Sysprep, a następnie uruchom polecenie `sysprep.exe` .
    
 3. W oknie dialogowym **Narzędzie przygotowywania systemu** wybierz opcję **Wprowadź system out-of-Box Experience (OOBE)** i zaznacz pole wyboru **generalize** .
    
@@ -60,7 +61,7 @@ Aby uogólnić maszynę wirtualną z systemem Windows, wykonaj następujące kro
 > ```
 > Gdzie D: jest ścieżką zainstalowanego wirtualnego dysku twardego.
 >
-> Uruchomiona `DISM /optimize-image` powinna być ostatnią modyfikacją dysku VHD. Jeśli wprowadzisz jakiekolwiek zmiany na wirtualnym dysku twardym przed wdrożeniem, musisz uruchomić `DISM /optimize-image` polecenie ponownie.
+> Uruchomiona `DISM /optimize-image` powinna być ostatnią modyfikacją dysku VHD. Jeśli wprowadzisz jakiekolwiek zmiany na wirtualnym dysku twardym przed wdrożeniem, musisz uruchomić polecenie `DISM /optimize-image` ponownie.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Tworzenie obrazu zarządzanego w portalu 
 
@@ -92,11 +93,11 @@ Po utworzeniu obrazu można go znaleźć jako zasób **obrazu** na liście zasob
 
 Utworzenie obrazu bezpośrednio z maszyny wirtualnej zapewnia, że obraz zawiera wszystkie dyski skojarzone z maszyną wirtualną, w tym dysk systemu operacyjnego i wszystkie dyski z danymi. Ten przykład pokazuje, jak utworzyć obraz zarządzany na podstawie maszyny wirtualnej korzystającej z dysków zarządzanych.
 
-Przed rozpoczęciem upewnij się, że masz najnowszą wersję modułu Azure PowerShell. Aby znaleźć wersję, uruchom `Get-Module -ListAvailable Az` polecenie w programie PowerShell. Jeśli musisz przeprowadzić uaktualnienie, zobacz [instalowanie Azure PowerShell w systemie Windows za pomocą PowerShellGet](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, uruchom `Connect-AzAccount` polecenie, aby utworzyć połączenie z platformą Azure.
+Przed rozpoczęciem upewnij się, że masz najnowszą wersję modułu Azure PowerShell. Aby znaleźć wersję, uruchom polecenie `Get-Module -ListAvailable Az` w programie PowerShell. Jeśli musisz przeprowadzić uaktualnienie, zobacz [instalowanie Azure PowerShell w systemie Windows za pomocą PowerShellGet](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, uruchom polecenie, `Connect-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
 
 > [!NOTE]
-> Jeśli chcesz przechowywać obraz w magazynie strefowo nadmiarowym, musisz go utworzyć w regionie, który obsługuje [strefy dostępności](../../availability-zones/az-overview.md) i dołączyć `-ZoneResilient` parametr w konfiguracji obrazu (`New-AzImageConfig` polecenie).
+> Jeśli chcesz przechowywać obraz w magazynie strefowo nadmiarowym, musisz go utworzyć w regionie, który obsługuje [strefy dostępności](../../availability-zones/az-overview.md) i dołączyć `-ZoneResilient` parametr w konfiguracji obrazu ( `New-AzImageConfig` polecenie).
 
 Aby utworzyć obraz maszyny wirtualnej, wykonaj następujące kroki:
 
@@ -212,7 +213,7 @@ Można utworzyć obraz zarządzany na podstawie migawki uogólnionej maszyny wir
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Tworzenie obrazu na podstawie maszyny wirtualnej korzystającej z konta magazynu
 
-Aby utworzyć obraz zarządzany na podstawie maszyny wirtualnej, która nie korzysta z usługi Managed disks, musisz mieć identyfikator URI wirtualnego dysku twardego systemu operacyjnego na koncie magazynu w następującym formacie: https://*mojekontomagazynu*. blob.Core.Windows.NET/*vhdcontainer*/*vhdfilename. VHD*. W tym przykładzie wirtualny dysk twardy znajduje się w *mojekontomagazynu*, w kontenerze o nazwie *vhdcontainer*, a nazwa pliku VHD to *vhdfilename. VHD*.
+Aby utworzyć obraz zarządzany na podstawie maszyny wirtualnej, która nie korzysta z usługi Managed disks, musisz mieć identyfikator URI wirtualnego dysku twardego systemu operacyjnego na koncie magazynu w następującym formacie: https://*mojekontomagazynu*. blob.Core.Windows.NET/*vhdcontainer* / *vhdfilename. VHD*. W tym przykładzie wirtualny dysk twardy znajduje się w *mojekontomagazynu*, w kontenerze o nazwie *vhdcontainer*, a nazwa pliku VHD to *vhdfilename. VHD*.
 
 
 1.  Utwórz pewne zmienne.

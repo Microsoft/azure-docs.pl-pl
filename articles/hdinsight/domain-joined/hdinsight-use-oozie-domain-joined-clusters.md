@@ -6,16 +6,16 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/09/2019
-ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194907"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647578"
 ---
-# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Uruchamianie platformy Apache Oozie w klastrach usługi HDInsight Hadoop przy użyciu pakiet Enterprise Security
+# <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Uruchamianie programu Apache Oozie w klastrach usługi Azure HDInsight przy użyciu pakiet Enterprise Security
 
 Apache Oozie to przepływ pracy i system koordynacji, który zarządza zadaniami Apache Hadoop. Usługa Oozie jest zintegrowana z stosem usługi Hadoop i obsługuje następujące zadania:
 
@@ -26,7 +26,7 @@ Apache Oozie to przepływ pracy i system koordynacji, który zarządza zadaniami
 
 Można również użyć Oozie do planowania zadań specyficznych dla systemu, takich jak programy Java lub skrypty powłoki.
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Klaster Azure HDInsight Hadoop z pakiet Enterprise Security (ESP). Zobacz [Konfigurowanie klastrów usługi HDInsight przy użyciu protokołu ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -68,7 +68,7 @@ Definicje przepływów pracy Oozie są zapisywane w języku definicji procesu Ap
    ```
 
    Zamień `DomainUser` na nazwę użytkownika domeny.
-   Zamień `DomainUserPath` na ścieżkę katalogu macierzystego użytkownika domeny.
+   Zamień na `DomainUserPath` ścieżkę katalogu macierzystego użytkownika domeny.
    Zamień `ClusterVersion` na wersję platformy danych klastra.
 
 2. Użyj następującej instrukcji, aby utworzyć i edytować nowy plik:
@@ -196,7 +196,7 @@ Definicje przepływów pracy Oozie są zapisywane w języku definicji procesu Ap
 
      Akcje programu Hive używają poświadczeń zdefiniowanych w sekcji poświadczeń do uwierzytelniania za pomocą słowa kluczowego `cred` w elemencie Action.
 
-6. Użyj następującego polecenia, aby skopiować `workflow.xml` plik do: `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`
+6. Użyj następującego polecenia, aby skopiować `workflow.xml` plik do `/user/<domainuser>/examples/apps/map-reduce/workflow.xml` :
 
     ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
@@ -230,11 +230,11 @@ Definicje przepływów pracy Oozie są zapisywane w języku definicji procesu Ap
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Użyj `adl://home` identyfikatora URI dla `nameNode` właściwości, jeśli masz Azure Data Lake Storage Gen1 jako podstawowy magazyn klastra. Jeśli używasz usługi Azure Blob Storage, Zmień to na `wasb://home`. Jeśli używasz Azure Data Lake Storage Gen2, Zmień to na `abfs://home`.
+   - Użyj `adl://home` identyfikatora URI dla `nameNode` właściwości, jeśli masz Azure Data Lake Storage Gen1 jako podstawowy magazyn klastra. Jeśli używasz usługi Azure Blob Storage, przejdź do `wasb://home` . Jeśli używasz Azure Data Lake Storage Gen2, przejdź do `abfs://home` .
    - Zastąp `domainuser` wartość nazwą użytkownika domeny.  
-   - Zamień `ClusterShortName` na krótką nazwę klastra. Na przykład, jeśli nazwa klastra to https:// *[przykład link]* sechadoopcontoso.azurehdisnight.NET, `clustershortname` jest to pierwsze sześć znaków klastra: **sechad**.  
-   - Zamień `jdbcurlvalue` na adres URL JDBC z konfiguracji programu Hive. Przykładem jest JDBC: hive2://headnodehost: 10001/; transportmode = http.
-   - Aby zapisać plik, wybierz CTRL + X, ENTER `Y`, a następnie wybierz **Enter**.
+   - Zamień na `ClusterShortName` krótką nazwę klastra. Na przykład, jeśli nazwa klastra to https:// *[przykład link]* sechadoopcontoso.azurehdisnight.NET, jest to `clustershortname` pierwsze sześć znaków klastra: **sechad**.  
+   - Zamień na `jdbcurlvalue` adres URL JDBC z konfiguracji programu Hive. Przykładem jest JDBC: hive2://headnodehost: 10001/; transportmode = http.
+   - Aby zapisać plik, wybierz CTRL + X, ENTER `Y` , a następnie wybierz **Enter**.
 
    Ten plik właściwości musi być obecny lokalnie podczas uruchamiania zadań Oozie.
 
@@ -331,7 +331,7 @@ W dziennikach inspekcji Ranger dla akcji programu Hive Server 2 są wyświetlane
 
 ## <a name="configure-user-authorization-in-oozie"></a>Konfigurowanie autoryzacji użytkownika w Oozie
 
-Oozie przez siebie sama ma konfigurację autoryzacji użytkowników, która umożliwia blokowanie użytkownikom zatrzymywania lub usuwania zadań innych użytkowników. Aby włączyć tę konfigurację, należy ustawić `oozie.service.AuthorizationService.security.enabled` na `true`. 
+Oozie przez siebie sama ma konfigurację autoryzacji użytkowników, która umożliwia blokowanie użytkownikom zatrzymywania lub usuwania zadań innych użytkowników. Aby włączyć tę konfigurację, należy ustawić `oozie.service.AuthorizationService.security.enabled` na `true` . 
 
 Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie oprogramowania Apache Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 

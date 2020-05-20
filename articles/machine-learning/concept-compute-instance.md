@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283929"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654917"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe Azure Machine Learning?
 
@@ -35,7 +35,7 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 |----|----|
 |Produktywność|Analityki danych mogą tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w swojej przeglądarce internetowej:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio|
 |Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH|
-|Wstępnie skonfigurowany&nbsp;lub&nbsp;ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
+|Wstępnie skonfigurowany &nbsp; lub &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Narzędzia i środowiska
@@ -51,7 +51,6 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 |Biblioteka Intel MPI||
 |Interfejs wiersza polecenia platformy Azure ||
 |Przykłady Azure Machine Learning ||
-|Aparat EDAT Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
@@ -68,9 +67,8 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 |Anaconda Python||
 |Jupyter i rozszerzenia||
 |Jupyterlab i rozszerzenia||
-|Visual Studio Code ||
 [Zestaw SDK usługi Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>z PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
-|Inne pakiety PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+|Inne pakiety PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pakiety Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pakiety uczenia głębokiego|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |Pakiety ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|

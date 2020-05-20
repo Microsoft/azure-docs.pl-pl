@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 79a87f02c8730e0b2110e7475de721f11beda568
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbae67a4861d67526eb1cf4eb2bfb5d131f8e57b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120610"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649763"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
@@ -27,18 +27,18 @@ Mapowanie Gen1 do [Gen2](https://github.com/Azure/azure-cli-extensions/tree/mast
 > [!div class="checklist"]
 > * Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Konto magazynu z włączoną hierarchiczną przestrzenią nazw (SNS). Postępuj zgodnie z [tymi](data-lake-storage-quickstart-create-account.md) instrukcjami, aby je utworzyć.
-> * Interfejs wiersza polecenia platformy Azure w wersji `2.5.1` lub nowszej.
+> * Interfejs wiersza polecenia platformy Azure w wersji `2.6.0` lub nowszej.
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Upewnij się, że masz zainstalowaną odpowiednią wersję interfejsu wiersza polecenia platformy Azure
 
 1. Otwórz [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)lub jeśli interfejs wiersza polecenia platformy Azure został [zainstalowany](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lokalnie, Otwórz aplikację konsoli poleceń, taką jak Windows PowerShell.
 
-2. Sprawdź, czy wersja interfejsu wiersza polecenia platformy Azure z zainstalowanym systemem jest `2.5.1` lub nowsza przy użyciu następującego polecenia.
+2. Sprawdź, czy wersja interfejsu wiersza polecenia platformy Azure z zainstalowanym systemem jest `2.6.0` lub nowsza przy użyciu następującego polecenia.
 
    ```azurecli
     az --version
    ```
-   Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.5.1` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Jeśli wersja interfejsu wiersza polecenia platformy Azure jest niższa niż `2.6.0` , zainstaluj nowszą wersję. Zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-account"></a>Połącz z kontem
 
@@ -308,10 +308,10 @@ Ten przykład zmienia właściciela pliku.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 * [Mapowanie Gen1 do Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
-* [Przesyłanie opinii](https://github.com/Azure/azure-cli-extensions/issues)
+* [Prześlij opinię](https://github.com/Azure/azure-cli-extensions/issues)
 * [Znane problemy](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 
 

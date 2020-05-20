@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 284cf3792b85ce38b190290111aa70a51084d4f6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 1d312417017676d0b0bc53e3e16e229e45f1aa17
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614852"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659416"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Tworzenie puli hostów przy użyciu programu PowerShell
 
@@ -66,7 +66,7 @@ Maszynę wirtualną można utworzyć na wiele sposobów:
 
 - [Tworzenie maszyny wirtualnej na podstawie obrazu z galerii platformy Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Tworzenie maszyny wirtualnej na podstawie obrazu zarządzanego](../../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Tworzenie maszyny wirtualnej na podstawie obrazu niezarządzanego](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
+- [Tworzenie maszyny wirtualnej na podstawie obrazu niezarządzanego](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 >[!NOTE]
 >W przypadku wdrażania maszyny wirtualnej przy użyciu systemu Windows 7 jako systemu operacyjnego hosta proces tworzenia i wdrażania będzie nieco inny. Aby uzyskać więcej informacji, zobacz [Wdrażanie maszyny wirtualnej z systemem Windows 7 na pulpicie wirtualnym systemu Windows](deploy-windows-7-virtual-machine.md).

@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: baabad550f5e6b0ae39936fc182e6d9789d189d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594750"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650939"
 ---
 # <a name="disk-bursting"></a>Rozszerzanie możliwości dysków
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -24,7 +24,7 @@ Obsługa serii na poziomie maszyny wirtualnej jest włączona we wszystkich regi
 W przypadku maszyn wirtualnych, które go obsługują, funkcja przenoszenia jest domyślnie włączona.
 
 ## <a name="disk-level-bursting"></a>Rozerwanie na poziomie dysku
-Rozbicie jest również dostępne w [dysków SSD Premium](disks-types.md#premium-ssd) dla rozmiaru dysku P20 i mniejszej we wszystkich regionach. Funkcja przenoszenia dysków jest domyślnie włączona w nowych wdrożeniach obsługiwanych rozmiarów dysków. Istniejące rozmiary dysków, jeśli obsługują rozbicie dysku, mogą umożliwić Przechodzenie przez jedną z następujących metod: 
+Rozbicie jest również dostępne w [dysków SSD Premium](disks-types.md#premium-ssd) w przypadku dysków o rozmiarach P20 i mniejszych we wszystkich regionach w chmurach publicznych, administracji publicznej i chińskiej platformy Azure. Funkcja przenoszenia dysków jest domyślnie włączona w nowych wdrożeniach obsługiwanych rozmiarów dysków. Istniejące rozmiary dysków, jeśli obsługują rozbicie dysku, mogą umożliwić Przechodzenie przez jedną z następujących metod: 
 - **Uruchom ponownie maszynę wirtualną** 
 - **Odłączanie i ponowne dołączanie dysku**
 

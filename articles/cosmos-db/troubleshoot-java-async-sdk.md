@@ -3,18 +3,18 @@ title: Diagnozowanie i rozwiązywanie problemów Azure Cosmos DB Async Java SDK 
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB w asynchronicznym zestawie Java SDK V2.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982619"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651888"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Rozwiązywanie problemów w przypadku korzystania z Azure Cosmos DB asynchronicznego zestawu Java SDK V2 z kontami interfejsu API SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "82982619"
 > 
 
 > [!IMPORTANT]
-> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Rozważ użycie Azure Cosmos DB Java SDK v4 dla projektu. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i [reaktorem programu vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+> To *nie* jest najnowszy zestaw SDK języka Java dla Azure Cosmos DB! Należy uaktualnić projekt do [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) , a następnie zapoznać się z [przewodnikiem rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md)z zestawem SDK Azure Cosmos DB dla języka Java. Aby przeprowadzić uaktualnienie, postępuj zgodnie z instrukcjami w przewodniku [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) i [reaktorem programu vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
 >
 > W tym artykule omówiono Rozwiązywanie problemów dotyczących Azure Cosmos DB asynchronicznego zestawu Java SDK V2. Aby uzyskać więcej informacji, zobacz informacje o [wersji](sql-api-sdk-async-java.md)Azure Cosmos DB asynchronicznego zestawu Java SDK V2, [repozytorium Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) i [porady dotyczące wydajności](performance-tips-async-java.md) .
 >
@@ -83,7 +83,7 @@ Należy również postępować zgodnie z [limitem połączeń na komputerze-hoś
 
 #### <a name="http-proxy"></a>Serwer proxy HTTP
 
-W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie `ConnectionPolicy`SDK.
+W przypadku korzystania z serwera proxy HTTP upewnij się, że może on obsługiwać liczbę połączeń skonfigurowanych w zestawie SDK `ConnectionPolicy` .
 W przeciwnym razie nastąpiły problemy z połączeniem.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Nieprawidłowy wzorzec kodowania: blokowanie wielosieciowego wątku we/wy
@@ -156,7 +156,7 @@ Obejście polega na zmianie wątku, w którym wykonywane są zadania. Zdefiniuj 
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
-Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika `customScheduler` przy użyciu `.observeOn(customScheduler)` interfejsu API.
+Może być konieczne wykonanie zadań, które zajmują dużo czasu, na przykład obliczeniowe duże ilości pracy lub blokowanie operacji we/wy. W takim przypadku należy przełączyć wątek do procesu roboczego dostarczonego przez użytkownika przy `customScheduler` użyciu `.observeOn(customScheduler)` interfejsu API.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -170,7 +170,7 @@ createObservable
             // ...
         );
 ```
-Przy użyciu `observeOn(customScheduler)`, należy wydać wątek we/wy na dysku i przełączyć się na własny niestandardowy wątek udostępniony przez niestandardowy harmonogram. Ta modyfikacja rozwiązuje problem. `io.netty.handler.timeout.ReadTimeoutException` Błąd nie zostanie już wyświetlony.
+Przy użyciu `observeOn(customScheduler)` , należy wydać wątek we/wy na dysku i przełączyć się na własny niestandardowy wątek udostępniony przez niestandardowy harmonogram. Ta modyfikacja rozwiązuje problem. Błąd nie zostanie `io.netty.handler.timeout.ReadTimeoutException` już wyświetlony.
 
 ### <a name="connection-pool-exhausted-issue"></a>Problem z wyczerpaniem puli połączeń
 
@@ -258,7 +258,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 Aby uzyskać więcej informacji, zobacz [Podręcznik rejestrowania sfl4j](https://www.slf4j.org/manual.html).
 
 ## <a name="os-network-statistics"></a><a name="netstats"></a>Statystyka sieci systemu operacyjnego
-Uruchom polecenie netstat, aby poznać liczbę połączeń w Stanach, takich jak `ESTABLISHED` i. `CLOSE_WAIT`
+Uruchom polecenie netstat, aby poznać liczbę połączeń w Stanach, takich jak `ESTABLISHED` i `CLOSE_WAIT` .
 
 W systemie Linux można uruchomić następujące polecenie.
 ```bash

@@ -11,14 +11,14 @@ ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4efd5c63af9f09d41733e8e172270410245977ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65161915a63b58ad75ff2c01c16c95dec1aad2ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633198"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652616"
 ---
-# <a name="rest-apis-for-azure-sql-data-warehouse"></a>Interfejsy API REST dla Azure SQL Data Warehouse
+# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>Interfejsy API REST dla usługi Azure Synapse Analytics Data Warehouse
 
 Interfejsy API REST do zarządzania obliczeniami w usłudze Azure Synapse Analytics Data Warehouse.
 

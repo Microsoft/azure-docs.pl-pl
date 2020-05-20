@@ -6,21 +6,16 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299009"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652251"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
 W tym artykule opisano kroki konfigurowania Azure Active Directory dostępu za pomocą Azure Database for MySQL i sposobu nawiązywania połączenia przy użyciu tokenu usługi Azure AD.
-
-> [!IMPORTANT]
-> Uwierzytelnianie usługi Azure AD dla Azure Database for MySQL jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Ustawianie użytkownika administratora usługi Azure AD
 
@@ -73,7 +68,7 @@ To polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelnian
 
 > [!NOTE]
 > Aby wykonać te kroki, można również użyć Azure Cloud Shell.
-> Należy pamiętać, że podczas pobierania tokenu dostępu usługi Azure AD w Azure Cloud Shell należy jawnie wywołać `az login` i zalogować się ponownie (w osobnym oknie z kodem). Po tym zalogowaniu polecenie `get-access-token` będzie działało zgodnie z oczekiwaniami.
+> Należy pamiętać, że podczas pobierania tokenu dostępu usługi Azure AD w Azure Cloud Shell należy jawnie wywołać `az login` i zalogować się ponownie (w osobnym oknie z kodem). Po tym zalogowaniu `get-access-token` polecenie będzie działało zgodnie z oczekiwaniami.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Krok 2. Pobieranie tokenu dostępu usługi Azure AD
 
@@ -136,7 +131,7 @@ Masz teraz uwierzytelnienie na serwerze MySQL przy użyciu uwierzytelniania usł
 
 Aby dodać użytkownika usługi Azure AD do bazy danych Azure Database for MySQL, wykonaj następujące czynności po nawiązaniu połączenia (zobacz sekcję w dalszej części How to Connect):
 
-1. Najpierw upewnij się, że użytkownik `<user>@yourtenant.onmicrosoft.com` usługi Azure AD jest prawidłowym użytkownikiem w dzierżawie usługi Azure AD.
+1. Najpierw upewnij się, że użytkownik usługi Azure AD `<user>@yourtenant.onmicrosoft.com` jest prawidłowym użytkownikiem w dzierżawie usługi Azure AD.
 2. Zaloguj się do swojego wystąpienia Azure Database for MySQL jako użytkownik administracyjny usługi Azure AD.
 3. Utwórz użytkownika `<user>@yourtenant.onmicrosoft.com` w Azure Database for MySQL.
 
@@ -186,7 +181,7 @@ Większość sterowników jest obsługiwanych, jednak Pamiętaj, aby użyć usta
   * libmysqlclient: obsługiwane
   * MySQL-Connector-c + +: obsługiwane
 * Java
-  * Łącznik/J (MySQL-Connector-Java): obsługiwane, musi korzystać `useSSL` z ustawienia
+  * Łącznik/J (MySQL-Connector-Java): obsługiwane, musi korzystać z `useSSL` Ustawienia
 * Python
   * Łącznik/Python: obsługiwane
 * Ruby

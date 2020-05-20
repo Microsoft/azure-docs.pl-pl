@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 4/3/2020
-ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/13/2020
+ms.openlocfilehash: 7c74829955085b3aa25043b25101fdaab10d7e6d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310118"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659597"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 
@@ -124,14 +124,15 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Funkcja|Wyzwalacz autowznawiania|
+|Cechy|Wyzwalacz autowznawiania|
 |---|---|
-|Uwierzytelnianie i autoryzacja|Logowanie|
+|Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
 |Odnajdowanie i klasyfikacja danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie etykiet czułości|
 |Inspekcja|Wyświetlanie rekordów inspekcji.<br>Aktualizowanie lub przeglądanie zasad inspekcji.|
 |Maskowanie danych|Dodawanie, modyfikowanie, usuwanie lub wyświetlanie reguł maskowania danych|
 |Transparent Data Encryption|Wyświetlanie stanu lub stanu przezroczystego szyfrowania danych|
+|Ocena luk w zabezpieczeniach|Skanowania ad hoc i okresowe skanowanie, jeśli są włączone|
 |Zapytanie (wydajność) — magazyn danych|Modyfikowanie lub wyświetlanie ustawień magazynu zapytań|
 |Autodostrajanie|Aplikacja i weryfikacja zalecenia autodostrajania, takie jak indeksowanie automatycznego|
 |Kopiowanie bazy danych|Utwórz bazę danych jako kopię.<br>Eksportuj do pliku BACPAC.|
@@ -256,11 +257,11 @@ Bezserwerowa baza danych może zostać przeniesiona do warstwy obliczeń aprowiz
 
 ### <a name="use-powershell"></a>Korzystanie z programu PowerShell
 
-Modyfikacja wartości maksymalnej lub minimalnej rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) w programie PowerShell przy użyciu argumentów `MaxVcore`, `MinVcore`i. `AutoPauseDelayInMinutes`
+Modyfikacja wartości maksymalnej lub minimalnej rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) w programie PowerShell przy użyciu `MaxVcore` `MinVcore` argumentów, i `AutoPauseDelayInMinutes` .
 
 ### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Modyfikacja maksymalnego lub minimalnego rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) w interfejsie CLI platformy Azure przy `capacity`użyciu `min-capacity`argumentów, `auto-pause-delay` i.
+Modyfikacja maksymalnego lub minimalnego rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) w interfejsie CLI platformy Azure przy `capacity` użyciu `min-capacity` argumentów, i `auto-pause-delay` .
 
 
 ## <a name="monitoring"></a>Monitorowanie
@@ -281,7 +282,7 @@ Pula zasobów użytkowników jest wewnętrzną największą granicą zarządzani
 
 Metryki monitorowania użycia zasobów pakietu aplikacji i puli użytkowników bazy danych bezserwerowych są wymienione w poniższej tabeli:
 
-|Jednostka|Metryka|Opis|Jednostki|
+|Jednostka|Metric|Opis|Lekcji|
 |---|---|---|---|
 |Pakiet aplikacji|app_cpu_percent|Procent rdzeni wirtualnych używany przez aplikację względem maksymalnej rdzeni wirtualnych dozwolony dla aplikacji.|Procentowe|
 |Pakiet aplikacji|app_cpu_billed|Kwota obliczeń rozliczanych dla aplikacji w okresie raportowania. Kwota płacona w tym okresie jest iloczynem tej metryki i ceny jednostkowej rdzeń wirtualny. <br><br>Wartości tej metryki są określane przez agregowanie w czasie, gdy jest używana wartość maksymalna procesora CPU i używana pamięć. Jeśli użyta kwota jest mniejsza niż minimalna ilość określona przez minimalną rdzeni wirtualnych i minimalną pamięć, jest naliczana opłata w wysokości minimalnej.Aby porównać procesor z pamięcią na potrzeby rozliczeń, pamięć jest znormalizowana do jednostek rdzeni wirtualnych przez ponowne skalowanie ilości pamięci w GB przez 3 GB na rdzeń wirtualny.|Rdzeń wirtualny sekund|

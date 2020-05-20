@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 4b693ef1eaf7c8dd1f2fd95116c24392ee9a9454
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 164ce87df77d81a7d36d4448f5d8da8287ed0a01
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402569"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656721"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Szyfrowanie po stronie serwera dla usługi Azure Managed disks
 
@@ -93,9 +93,6 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
 1. Utwórz wystąpienie Azure Key Vault i klucza szyfrowania.
 
     Podczas tworzenia wystąpienia Key Vault należy włączyć opcję trwałe usuwanie i przeczyszczanie ochrony. Usuwanie nietrwałe gwarantuje, że Key Vault przechowuje usunięty klucz dla danego okresu przechowywania (wartość domyślna 90). Ochrona przed przeczyszczeniem gwarantuje, że usunięty klucz nie może zostać trwale usunięty, dopóki nie upłynie okres przechowywania. Te ustawienia chronią przed utratą danych z powodu przypadkowego usunięcia. Te ustawienia są obowiązkowe w przypadku używania Key Vault do szyfrowania dysków zarządzanych.
-
-    > [!IMPORTANT]
-    > Nie notacji camelcasej tego regionu, jeśli tak zrobisz, mogą wystąpić problemy podczas przypisywania dodatkowych dysków do zasobu w Azure Portal.
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
@@ -123,12 +120,8 @@ Na razie klucze zarządzane przez klienta mają następujące ograniczenia:
         > [!NOTE]
         > Utworzenie tożsamości DiskEncryptionSet w Azure Active Directory przez platformę Azure może potrwać kilka minut. Jeśli zostanie wyświetlony błąd "nie można odnaleźć Active Directory obiektu" podczas uruchamiania poniższego polecenia, poczekaj kilka minut i spróbuj ponownie.
         
-        ```powershell
-        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-         
+        ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-         
-        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
         ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Tworzenie maszyny wirtualnej przy użyciu obrazu z portalu Marketplace, szyfrowanie dysków systemu operacyjnego i danych za pomocą kluczy zarządzanych przez klienta

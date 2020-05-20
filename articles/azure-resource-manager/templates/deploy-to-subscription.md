@@ -2,17 +2,20 @@
 title: Wdrażanie zasobów w ramach subskrypcji
 description: Opisuje sposób tworzenia grupy zasobów w szablonie Azure Resource Manager. Przedstawiono w nim również sposób wdrażania zasobów w zakresie subskrypcji platformy Azure.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: a48bc2fd4efb383b42fd0889df079c9a6f700dda
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/18/2020
+ms.openlocfilehash: 4f8bcbfc6467969c9d8ca8b1511e6e8ffff94b14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929064"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653345"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Tworzenie grup zasobów i zasobów na poziomie subskrypcji
 
-Aby uprościć zarządzanie zasobami w ramach subskrypcji platformy Azure, możesz definiować i przypisywać [zasady](../../governance/policy/overview.md) lub [mechanizmy kontroli dostępu oparte na rolach](../../role-based-access-control/overview.md) w ramach subskrypcji. Szablony na poziomie subskrypcji umożliwiają deklaratywne stosowanie zasad i przypisywanie ról w ramach subskrypcji. Można także tworzyć grupy zasobów i wdrażać zasoby.
+Aby uprościć zarządzanie zasobami, możesz wdrożyć zasoby na poziomie subskrypcji platformy Azure. Na przykład można wdrożyć [zasady](../../governance/policy/overview.md) i [kontroli dostępu opartej na rolach](../../role-based-access-control/overview.md) w ramach subskrypcji, a te zasoby są stosowane w ramach subskrypcji. Można także tworzyć grupy zasobów i wdrażać zasoby w tych grupach zasobów.
+
+> [!NOTE]
+> Można wdrożyć do 800 różnych grup zasobów w ramach wdrożenia na poziomie subskrypcji.
 
 Aby wdrażać szablony na poziomie subskrypcji, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell lub API REST. Azure Portal nie obsługuje wdrażania na poziomie subskrypcji.
 
@@ -86,7 +89,7 @@ W przypadku wdrożeń na poziomie subskrypcji należy podać lokalizację wdroż
 
 Możesz podać nazwę wdrożenia lub użyć domyślnej nazwy wdrożenia. Nazwa domyślna to nazwa pliku szablonu. Na przykład wdrożenie szablonu o nazwie **azuredeploy. JSON** tworzy domyślną nazwę wdrożenia **azuredeploy**.
 
-Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod `InvalidDeploymentLocation`błędu, użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
+Dla każdej nazwy wdrożenia lokalizacja jest niezmienna. Nie można utworzyć wdrożenia w jednej lokalizacji, gdy istnieje wdrożenie o tej samej nazwie w innej lokalizacji. Jeśli zostanie wyświetlony kod błędu `InvalidDeploymentLocation` , użyj innej nazwy lub tej samej lokalizacji co poprzednie wdrożenie dla tej nazwy.
 
 ## <a name="use-template-functions"></a>Korzystanie z funkcji szablonu
 
@@ -130,7 +133,7 @@ Poniższy szablon tworzy pustą grupę zasobów.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -161,7 +164,7 @@ Użyj [kopiowania elementu](copy-resources.md) z grupami zasobów, aby utworzyć
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -179,7 +182,7 @@ Aby uzyskać informacje o iteracji zasobów, zobacz [wdrażanie więcej niż jed
 
 ## <a name="resource-group-and-resources"></a>Grupa zasobów i zasoby
 
-Aby utworzyć grupę zasobów i wdrożyć do niej zasoby, użyj szablonu zagnieżdżonego. Szablon zagnieżdżony definiuje zasoby, które mają zostać wdrożone w grupie zasobów. Ustaw szablon zagnieżdżony jako zależny od grupy zasobów, aby upewnić się, że grupa zasobów istnieje przed wdrożeniem zasobów.
+Aby utworzyć grupę zasobów i wdrożyć do niej zasoby, użyj szablonu zagnieżdżonego. Szablon zagnieżdżony definiuje zasoby, które mają zostać wdrożone w grupie zasobów. Ustaw szablon zagnieżdżony jako zależny od grupy zasobów, aby upewnić się, że grupa zasobów istnieje przed wdrożeniem zasobów. Można wdrożyć maksymalnie 800 grup zasobów.
 
 Poniższy przykład tworzy grupę zasobów i wdraża konto magazynu w grupie zasobów.
 
@@ -205,14 +208,14 @@ Poniższy przykład tworzy grupę zasobów i wdraża konto magazynu w grupie zas
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -228,7 +231,7 @@ Poniższy przykład tworzy grupę zasobów i wdraża konto magazynu w grupie zas
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2017-10-01",
+              "apiVersion": "2019-06-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {

@@ -4,16 +4,16 @@ description: Dowiedz się, które systemy operacyjne mogą uruchamiać demona Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 42c0a5d0c590f8c395c2afe366a00fcb9c83ce46
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec143fbca94c5423ca67e09fa2932e55c06f418e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536942"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652777"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -105,7 +105,7 @@ Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wsteczn
 
 | Release   | Demon zabezpieczeń  | Centrum brzegowe<br>Agent graniczny | Libiothsm | Moby  |
 | --------- | ---------------- | ---------------------- | --------- | ----- |
-| **1.0.9** | 1.0.9            | 1.0.9                  | 1.0.9     |       |
+| **1.0.9** | 1.0.9.1<br>1.0.9            | 1.0.9.1<br>1.0.9                  | 1.0.9.1<br>1.0.9     |       |
 | **1.0.8** | 1.0.8            | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7       | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6       | 1.0.6.1<br>1.0.6 |  |
@@ -119,7 +119,7 @@ IoT Edge używa zestawu SDK Microsoft. Azure. Device. Client. Aby uzyskać więc
 * **IoT Edge 1.0.6**: 1.17.1 zestawu SDK klienta
 * **IoT Edge 1.0.5**: 1.17.1 zestawu SDK klienta
 
-## <a name="virtual-machines"></a>Maszyny wirtualne
+## <a name="virtual-machines"></a>Virtual Machines
 
 Azure IoT Edge można uruchamiać na maszynach wirtualnych. Użycie maszyny wirtualnej jako urządzenia IoT Edge jest powszechne, gdy klienci chcą rozszerzyć istniejącą infrastrukturę za pomocą funkcji analizy brzegowej. Rodzina systemu operacyjnego hosta maszyny wirtualnej musi być zgodna z rodziną systemu operacyjnego gościa używanego wewnątrz kontenera modułu. To wymaganie jest takie samo, jak w przypadku uruchamiania Azure IoT Edge bezpośrednio na urządzeniu. Azure IoT Edge jest niezależny od podstawowej technologii wirtualizacji i działa na maszynach wirtualnych opartych na platformach takich jak Hyper-V i vSphere.
 

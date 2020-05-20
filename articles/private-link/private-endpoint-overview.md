@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 429a342fcc5dd69e1ae8d0be5611e908e216b2d1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744403"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659696"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -35,7 +35,9 @@ Prywatny punkt końcowy platformy Azure to interfejs sieciowy, który nawiązuje
 Poniżej przedstawiono niektóre kluczowe szczegóły dotyczące prywatnych punktów końcowych: 
 - Prywatny punkt końcowy umożliwia łączność między konsumentami z tej samej sieci wirtualnej, z regionalnie równorzędną sieci wirtualnych, globalnie równorzędną sieci wirtualnych i lokalnie przy użyciu [sieci VPN](https://azure.microsoft.com/services/vpn-gateway/) lub [Express Route](https://azure.microsoft.com/services/expressroute/) i usługi obsługiwane przez link prywatny.
  
-- Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Do interfejsu jest przypisany prywatny adres IP z podsieci, która jest mapowana na zasób łącza prywatnego.
+- Połączenia sieciowe mogą być inicjowane tylko przez klientów nawiązujących połączenie z prywatnym punktem końcowym, ale dostawcy usług nie mają żadnej konfiguracji routingu do inicjowania połączeń z klientami usługi. Połączenia można nawiązywać tylko w jednym kierunku.
+
+- Podczas tworzenia prywatnego punktu końcowego jest również tworzony interfejs sieciowy tylko do odczytu dla cyklu życia zasobu. Interfejsowi przypisano dynamicznie prywatne adresy IP z podsieci, która jest mapowana na zasób link prywatny. wartość prywatnego adresu IP pozostaje niezmieniona dla całego cyklu życia prywatnego punktu końcowego.
  
 - Prywatny punkt końcowy musi być wdrożony w tym samym regionie, w którym znajduje się sieć wirtualna. 
  
@@ -83,7 +85,7 @@ Możesz całkowicie zablokować obciążenia, aby uzyskać dostęp do publicznyc
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Dostęp do prywatnego zasobu linku przy użyciu przepływu pracy zatwierdzania 
 Możesz połączyć się z zasobem link prywatny przy użyciu następujących metod zatwierdzania połączeń:
-- **Automatycznie** zatwierdzane podczas posiadania lub masz uprawnienia do określonego zasobu łącza prywatnego. Wymagane uprawnienie jest oparte na typie zasobu link prywatny w następującym formacie: Microsoft. \<Dostawca>/<resource_type>/privateendpointconnectionapproval/Action
+- **Automatycznie** zatwierdzane podczas posiadania lub masz uprawnienia do określonego zasobu łącza prywatnego. Wymagane uprawnienie jest oparte na typie zasobu link prywatny w następującym formacie: Microsoft. \< Dostawca>/<resource_type>/privateEndpointConnectionApproval/action
 - **Ręczne** żądanie, gdy nie masz wymaganego uprawnienia i chcesz zażądać dostępu. Zostanie zainicjowany przepływ pracy zatwierdzania. Prywatny punkt końcowy i kolejne połączenie prywatnego punktu końcowego zostaną utworzone ze stanem „Oczekiwanie”. Właściciel zasobu linku prywatnego jest odpowiedzialny za zaakceptowanie połączenia. Po jego zatwierdzeniu prywatny punkt końcowy jest włączony do wysyłania ruchu normalnie, jak pokazano na poniższym diagramie przepływu pracy zatwierdzania.  
 
 ![zatwierdzenie przepływu pracy](media/private-endpoint-overview/private-link-paas-workflow.png)

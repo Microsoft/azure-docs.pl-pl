@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 439f6d9c80a0b93f071d30d580facc4604cabbac
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: bd5686b30b07c0f7fb8961f8d1f71035cb2688a4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780338"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656431"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -47,7 +47,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną VMware przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż aplikację jako maszynę wirtualną VMware lub maszynę fizyczną przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.<br/> Urządzenie może połączyć się z pojedynczym vCenter Server.
-**Szablon komórki jajowe** | Pobierz z portalu lub z https://aka.ms/migrate/appliance/vmwareprogramu.<br/><br/> Rozmiar pobieranych plików to 11,2 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
+**Szablon komórki jajowe** | Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/vmware .<br/><br/> Rozmiar pobieranych plików to 11,2 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=2105112)skryptu.<br/><br/> 
 **Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na maszynie wirtualnej VMware, konieczne jest posiadanie wystarczającej ilości zasobów na vCenter Server do przydzielenia maszyny wirtualnej spełniającej wymagania.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
 **Wymagania dotyczące oprogramowania VMware** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware należy je wdrożyć na hoście ESXi z systemem w wersji 5,5 lub nowszej.<br/><br/> vCenter Server uruchomione 5,5, 6,0, 6,5 lub 6,7.
@@ -67,7 +67,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną funkcji Hyper-V przy użyciu szablonu wirtualnego dysku twardego.<br/><br/> Wdróż aplikację jako maszynę wirtualną lub maszynę fizyczną z funkcją Hyper-V przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 5000 maszyn wirtualnych funkcji Hyper-V.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
-**Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z https://aka.ms/migrate/appliance/hypervprogramu.<br/><br/> Rozmiar pobieranych plików wynosi 10 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
+**Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/hyperv .<br/><br/> Rozmiar pobieranych plików wynosi 10 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=2105112)skryptu.<br/><br/> 
 **Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V jest wystarczająca ilość zasobów do przydzielenia 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca do magazynowania oraz przełącznik zewnętrzny dla maszyny wirtualnej urządzenia.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
 **Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożone przy użyciu szablonu VHD, maszyna wirtualna z urządzeniem udostępniona przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy. 
@@ -222,7 +222,7 @@ Port zdalny | netstat
 Zdalny adres IP | netstat
 Stan połączenia TCP | netstat
 Identyfikator procesu | netstat
-Nie. aktywnych połączeń | netstat
+Liczba aktywnych połączeń | netstat
 
 #### <a name="process-data"></a>Przetwarzanie danych
 Poniżej przedstawiono dane procesu zbierane przez urządzenie z każdej maszyny wirtualnej z włączoną analizą zależności bez agenta. Te dane są wysyłane do platformy Azure.
@@ -230,7 +230,7 @@ Poniżej przedstawiono dane procesu zbierane przez urządzenie z każdej maszyny
 **Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
 --- | --- | ---
 Nazwa procesu | Win32_Process | Ścieżka pliku wykonywalnego
-Argumenty procesu | Win32_Process | Wiersza polecenia
+Argumenty procesu | Win32_Process | CommandLine
 Nazwa aplikacji | Win32_Process | VersionInfo. ProductName — parametr właściwości ścieżka pliku wykonywalnego
 
 #### <a name="linux-vm-data"></a>Dane maszyn wirtualnych z systemem Linux
@@ -244,7 +244,7 @@ Lokalny adres IP | netstat
 Port zdalny | netstat 
 Zdalny adres IP | netstat 
 Stan połączenia TCP | netstat 
-Nie. aktywnych połączeń | netstat
+Liczba aktywnych połączeń | netstat
 Identyfikator procesu  | netstat 
 Nazwa procesu | iloczyn
 Argumenty procesu | iloczyn
@@ -338,19 +338,19 @@ Oto pełna lista metadanych serwera z systemem Linux, które urządzenie zbiera 
 **DATA** | **System** 
 --- | --- 
 Nazwa FQDN | Kot/proc/sys/kernel/hostname, hostname-f
-Liczba rdzeni procesora |  /proc/cpuinfo \| AWK '/^ Procesor/{Print $3} ' \|
+Liczba rdzeni procesora |  /proc/cpuinfo \| AWK '/^ Procesor/{print $3} ' \|
 Przydzielono pamięć | Kot/proc/meminfo \| grep MemTotal \| AWK "{printf"%. 0f ", $2/1024}"
 Numer seryjny systemu BIOS | lshw \| grep "serial:" \| szef-N1 \| AWK "{Print $2}" <br/> /usr/sbin/dmidecode-t 1 \| grep "serial" \| AWK "{$1 =" "; $2 =" "; Print}"
 IDENTYFIKATOR GUID SYSTEMU BIOS | /sys/Class/DMI/ID/Cat product_uuid
 Typ rozruchu | [-d/sys/Firmware/EFI]  && echo EFI \| \| echo BIOS
 Nazwa/wersja systemu operacyjnego | Uzyskujemy dostęp do tych plików dla wersji i nazwy systemu operacyjnego:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
 Architektura systemu operacyjnego | Uname — m
-Liczba dysków | Dysk fdisk- \| l egrep '. * b ' \| awk ' {Print $2} ' \| Wytnij-F1-d ': '
-Dysk rozruchowy | DF/Boot \| SED-n \| awk "{Print $1}"
-Rozmiar dysku | Dysk fdisk- \| l egrep '. * b ' \| egrep $Disk: \| AWK ' {Print $5} '
-Lista kart sieciowych | IP-o-4 addr show \| AWK "{Print $2}"
-Adres IP karty sieciowej | IP addr show $nic \| grep inet \| awk "{Print $2}" \| ciętych-F1-d "/" 
-Adres MAC karty sieciowej | adres IP Pokaż $nic \| eteru \| grep awk "{Print $2}"
+Liczba dysków | Dysk fdisk-l \| egrep '. * b ' \| AWK ' {Print $2} ' \| Wytnij-F1-d ': '
+Dysk rozruchowy | DF/Boot \| SED-n \| AWK "{Print $1}"
+Rozmiar dysku | Dysk fdisk-l \| egrep '. * b ' \| egrep $Disk: \| AWK ' {Print $5} '
+Lista kart sieciowych | IP-o-4 addr show \| AWK "{print $2}"
+Adres IP karty sieciowej | IP addr show $nic \| grep inet \| AWK "{Print $2}" \| ciętych-F1-d "/" 
+Adres MAC karty sieciowej | adres IP Pokaż $nic \| eteru grep \| AWK "{Print $2}"
 
 ### <a name="windows-performance-data"></a>Dane wydajności systemu Windows
 
@@ -374,10 +374,10 @@ Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządz
 --- | --- 
 Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
 Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
-Liczba kart sieciowych | lshw — Klasa ETH \| grep [0-60] \| , Sieć 1
+Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1
 Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes
 Dane przesyłane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/tx_bytes
-Liczba dysków | Dysk fdisk- \| l egrep '. * b ' \| awk ' {Print $2} ' \| Wytnij-F1-d ': '
+Liczba dysków | Dysk fdisk-l \| egrep '. * b ' \| AWK ' {Print $2} ' \| Wytnij-F1-d ': '
 Szczegóły dysku | /proc/diskstats Cat
 
 
@@ -410,7 +410,7 @@ Aby usunąć klucz rejestru:
 Aby włączyć Configuration Manager urządzeń, po zakończeniu odnajdywania:
 
 1. Na komputerze z urządzeniem Otwórz Configuration Manager urządzenia.
-2. W obszarze **usługi** > urządzenia**Automatyczna aktualizacja składników Azure Migrate jest**wyłączona, kliknij, aby włączyć automatyczną aktualizację.
+2. W obszarze **usługi urządzenia**  >  **Automatyczna aktualizacja składników Azure Migrate jest**wyłączona, kliknij, aby włączyć automatyczną aktualizację.
 
     ![Włącz aktualizacje AutoUpdate](./media/migrate-appliance/turn-on.png)
 
@@ -419,7 +419,7 @@ Aby włączyć Configuration Manager urządzeń, po zakończeniu odnajdywania:
 Możesz sprawdzić wersję usługi urządzenia przy użyciu jednej z następujących metod:
 
 - Na urządzeniu Configuration Manager po zakończeniu odnajdywania.
-- Na urządzeniu urządzenia w **panelu** > sterowania**programy i funkcje**.
+- Na urządzeniu urządzenia w **Panelu sterowania**  >  **programy i funkcje**.
 
 Aby zaewidencjonować urządzenie Configuration Manager:
 
@@ -430,7 +430,7 @@ Aby zaewidencjonować urządzenie Configuration Manager:
 
 Aby zaewidencjonować Panel sterowania:
 
-1. Na urządzeniu kliknij kolejno pozycje **Start** > **panelu** > sterowania**programy i funkcje** .
+1. Na urządzeniu kliknij kolejno pozycje **Start**  >  **Panelu sterowania**  >  **programy i funkcje** .
 2. Sprawdź wersje usług urządzenia na liście.
 
     ![Sprawdź wersję w panelu sterowania](./media/migrate-appliance/programs-features.png)
@@ -441,18 +441,18 @@ W przypadku korzystania ze starszej wersji programu należy odinstalować usług
 
 1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [Pobierz](https://aka.ms/latestapplianceservices) plik LatestComponents. JSON.
 2.  Po pobraniu otwórz plik LatestComponents. JSON w Notatniku.
-3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Przykład:
+3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Na przykład:
 
-    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+    "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
 4.  Pobierz najnowszą wersję nieaktualnej usługi przy użyciu linku pobierania w pliku.
 5. Po pobraniu programu uruchom następujące polecenie w oknie polecenia administratora, aby sprawdzić integralność pobranego pliku MSI.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Na przykład: C:\>certutil-HASHFILE C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.msi MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Na przykład: C: \> certutil-HashFile C:\USERS\PUBLIC\DOWNLOADS\MICROSOFTAZUREAPPLIANCECONFIGURATIONMANAGER.msi MD5
 
 5. Sprawdź, czy dane wyjściowe polecenia są zgodne z wpisem wartości skrótu dla usługi w pliku (na przykład wartość skrótu MD5 powyżej).
 6. Teraz uruchom plik MSI, aby zainstalować usługę. Jest to instalacja dyskretna, a okno instalacji zostaje zamknięte po zakończeniu.
-7. Po zakończeniu instalacji sprawdź wersję usługi w **panelu** > sterowania**programy i funkcje**. Wersję usługi należy teraz uaktualnić do najnowszej podanej w pliku JSON.
+7. Po zakończeniu instalacji sprawdź wersję usługi w **Panelu sterowania**  >  **programy i funkcje**. Wersję usługi należy teraz uaktualnić do najnowszej podanej w pliku JSON.
 
 
 

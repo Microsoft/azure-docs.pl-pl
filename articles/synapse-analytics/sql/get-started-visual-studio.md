@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201689"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658109"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Nawiązywanie połączenia z usługą Synapse SQL za pomocą programu Visual Studio i SSDT
 > [!div class="op_single_selector"]
@@ -36,11 +36,11 @@ Aby skorzystać z tego samouczka, należy dysponować następującymi składnika
 
 * Istniejąca Pula SQL. Jeśli go nie masz, zobacz [Tworzenie puli SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , aby ukończyć to wymaganie wstępne.
 * Rozszerzenie SSDT dla programu Visual Studio. Jeśli masz program Visual Studio, prawdopodobnie masz już ten składnik. Aby uzyskać instrukcje instalacji i informacje na temat dostępnych opcji, zobacz artykuł [Instalowanie programu Visual Studio i narzędzi SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* W pełni kwalifikowana nazwa serwera SQL. Aby to sprawdzić, zobacz [nawiązywanie połączenia z pulą SQL](connect-overview.md).
+* W pełni kwalifikowana nazwa serwera SQL. Aby znaleźć tę nazwę serwera, zobacz [nawiązywanie połączenia z pulą SQL](connect-overview.md).
 
 ## <a name="1-connect-to-sql-pool"></a>1. Łączenie z pulą SQL
 1. Otwórz program Visual Studio 2019.
-2. Otwórz Eksplorator obiektów SQL Server. Aby to zrobić, wybierz pozycję **Wyświetl**  >  **Eksplorator obiektów SQL Server**.
+2. Otwórz Eksplorator obiektów SQL Server, wybierając pozycję **Wyświetl**  >  **Eksplorator obiektów SQL Server**.
    
     ![Eksplorator obiektów SQL Server](./media/get-started-visual-studio/open-ssdt.png)
 3. Kliknij **ikonę dodawania serwera SQL**.
@@ -70,7 +70,7 @@ Po nawiązaniu połączenia z bazą danych napiszesz zapytanie.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Uruchom zapytanie. W tym celu kliknij zieloną strzałkę lub użyj następującego skrótu: `CTRL`+`SHIFT`+`E`.
+4. Uruchom zapytanie, klikając zieloną strzałkę lub użyj następującego skrótu: `CTRL` + `SHIFT` + `E` .
    
     ![Uruchamianie zapytania](./media/get-started-visual-studio/run-query.png)
 5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28915967dc7697c08b2bbd7118f7e2377418045d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877392"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647250"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -115,9 +115,9 @@ Zezwól na dostęp do następujących adresów URL:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Komunikacja między łącznikiem a usługą serwera proxy aplikacji w chmurze |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Łącznik używa tych adresów URL do weryfikowania certyfikatów |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>*. microsoftonline-p.com<br>*. msauth.NET<br>*. msauthimages.NET<br>*. msecnd.NET<br>*. msftauth.NET<br>*. msftauthimages.NET<br>*. PhoneFactor.NET<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.NET <br> *. msauthimages.net<br>*. msecnd.NET <br> *. msftauth.net<br>*. msftauthimages.NET <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Łącznik używa tych adresów URL podczas procesu rejestracji. |
 
-Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \*. msappproxy.NET i \*. ServiceBus.Windows.NET. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). Zakresy adresów IP są aktualizowane co tydzień.
+Jeśli zapora lub serwer proxy umożliwia skonfigurowanie list dozwolonych DNS, można zezwolić na połączenia z \* . msappproxy.NET i \* . ServiceBus.Windows.NET. W przeciwnym razie musisz zezwolić na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653). Zakresy adresów IP są aktualizowane co tydzień.
 
 Jeśli nie możesz zezwolić na połączenie przy użyciu nazwy FQDN i należy określić zakresy adresów IP, użyj następujących opcji:
 
@@ -144,12 +144,12 @@ Użycie serwera proxy przesyłania dalej do komunikacji w ramach aplikacji zaple
 Aby je włączyć, wykonaj następujące czynności:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Krok 1. Dodawanie wymaganej wartości rejestru do serwera
-1. Aby włączyć korzystanie z domyślnego serwera proxy, Dodaj następującą wartość rejestru (DWORD `UseDefaultProxyForBackendRequests = 1` ) do klucza rejestru konfiguracji łącznika znajdującego się w temacie "HKEY_LOCAL_MACHINE \Software\microsoft\microsoft" łącznik serwera proxy aplikacji usługi AAD.
+1. Aby włączyć korzystanie z domyślnego serwera proxy, Dodaj następującą wartość rejestru (DWORD) `UseDefaultProxyForBackendRequests = 1` do klucza rejestru konfiguracji łącznika znajdującego się w temacie "HKEY_LOCAL_MACHINE \software\microsoft\microsoft" łącznik serwera proxy aplikacji usługi AAD.
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Krok 2. Konfigurowanie serwera proxy ręcznie przy użyciu polecenia netsh
 1.  Włącz ustawienia zasad grupy Ustaw serwer proxy dla komputera. Ten temat znajduje się w temacie: Konfiguracja komputera \ składniki systemu Windows\internet Explorer. Należy to skonfigurować zamiast mieć te zasady ustawione na użytkownika.
 2.  Uruchom `gpupdate /force` na serwerze lub ponownie uruchom serwer, aby upewnić się, że używa zaktualizowanych ustawień zasad grupy.
-3.  Uruchom wiersz polecenia z podwyższonym poziomem uprawnień z uprawnieniami `control inetcpl.cpl`administratora i wprowadź.
+3.  Uruchom wiersz polecenia z podwyższonym poziomem uprawnień z uprawnieniami administratora i wprowadź `control inetcpl.cpl` .
 4.  Skonfiguruj wymagane ustawienia serwera proxy. 
 
 Te ustawienia powodują, że łącznik używa tego samego serwera proxy przesyłania dalej do komunikacji z platformą Azure i aplikacji zaplecza. Jeśli Łącznik do komunikacji z platformą Azure nie wymaga serwera proxy przesyłania dalej lub innego serwera proxy do przesyłania dalej, można skonfigurować ten program przy użyciu modyfikacji pliku ApplicationProxyConnectorService. exe. config zgodnie z opisem w sekcji Obejdź wychodzące serwery proxy lub korzystając z serwera wychodzącego.
@@ -162,7 +162,7 @@ Teraz powinien zostać wyświetlony cały ruch przepływający przez serwer prox
 
 Najlepszym sposobem identyfikowania i rozwiązywania problemów z łącznością łącznika jest przechwycenie sieci podczas uruchamiania usługi łącznika. Poniżej znajdują się krótkie porady dotyczące przechwytywania i filtrowania śladów sieci.
 
-Możesz użyć wybranego narzędzia do monitorowania. Na potrzeby tego artykułu korzystamy z programu Microsoft Message Analyzer. Możesz [pobrać go z firmy Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+Możesz użyć wybranego narzędzia do monitorowania. Na potrzeby tego artykułu korzystamy z programu Microsoft Message Analyzer.
 
 Poniższe przykłady są specyficzne dla analizatora komunikatów, ale zasady można zastosować do dowolnego narzędzia do analizy.
 
@@ -195,7 +195,7 @@ Jeśli oczekujesz, że łącznik ma kierować bezpośrednie połączenia z usłu
 
 Jeśli skonfigurowano ruch łącznika serwera proxy aplikacji w celu przechodzenia przez serwery proxy, należy szukać niezakończonych połączeń HTTPS z serwerem proxy.
 
-Aby odfiltrować przechwytywanie sieci dla tych prób połączenia, `(https.Request or https.Response) and tcp.port==8080` wprowadź w filtr analizatora komunikatów, zastępując 8080 z portem usługi serwera proxy. Wybierz pozycję **Zastosuj** , aby wyświetlić wyniki filtrowania.
+Aby odfiltrować przechwytywanie sieci dla tych prób połączenia, wprowadź `(https.Request or https.Response) and tcp.port==8080` w filtr analizatora komunikatów, zastępując 8080 z portem usługi serwera proxy. Wybierz pozycję **Zastosuj** , aby wyświetlić wyniki filtrowania.
 
 Poprzedni filtr przedstawia tylko żądania HTTPs i odpowiedzi do/z portu serwera proxy. Szukasz żądań połączeń, które pokazują komunikację z serwerem proxy. Po pomyślnym otrzymaniu odpowiedzi HTTP OK (200).
 
