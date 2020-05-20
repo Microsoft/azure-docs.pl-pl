@@ -59,7 +59,7 @@ Dowiedz się, jak wykonywać typowe zadania, takie jak:
 * [Tworzenie usługi CloudSimple](create-cloudsimple-service.md), raz w każdym regionie, w którym mają zostać wdrożone środowiska VMware.
 * Zarządzanie podstawową funkcjonalnością usługi w [portalu CloudSimple](access-cloudsimple-portal.md).
 * Zapewnianie pojemności i optymalizowanie rozliczeń dla danej infrastruktury przez [zakup węzłów CloudSimple](create-nodes.md).
-* Zarządzanie konfiguracjami środowiska VMware przy użyciu chmur prywatnych. Chmury prywatne można [tworzyć](create-private-cloud.md), [rozszerzać](manage-private-cloud.md) i [zmniejszać](expand-private-cloud.md) oraz [zarządzać](shrink-private-cloud.md) nimi.
+* Zarządzanie konfiguracjami środowiska VMware przy użyciu chmur prywatnych. Chmury prywatne można [tworzyć](create-private-cloud.md), [rozszerzać](expand-private-cloud.md) i [zmniejszać](shrink-private-cloud.md) oraz [zarządzać](manage-private-cloud.md) nimi.
 * Włączanie ujednoliconego zarządzania przez [zamapowanie subskrypcji platformy Azure](azure-subscription-mapping.md).
 * Monitorowanie aktywności użytkowników i systemu przy użyciu ekranów [stron działań](monitor-activity.md).
 * Konfigurowanie sieci dla danych środowisk przez [utworzenie podsieci i zarządzanie nimi](create-vlan-subnet.md).
